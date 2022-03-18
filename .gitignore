@@ -1,0 +1,6 @@
+.idea/
+bin/
+vendor/
+output_result
+*.log
+*.class
