@@ -21,22 +21,27 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 /**
  * DescribeVpcsRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-03-18T20:48:24.268703+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-03-22T19:35:13.845544+08:00[Asia/Shanghai]")
 public class DescribeVpcsRequest {
   @SerializedName("PageNumber")
-  private String pageNumber = null;
+  private Integer pageNumber = null;
 
   @SerializedName("PageSize")
-  private String pageSize = null;
+  private Integer pageSize = null;
+
+  @SerializedName("VpcIds")
+  private List<String> vpcIds = null;
 
   @SerializedName("VpcName")
   private String vpcName = null;
 
-  public DescribeVpcsRequest pageNumber(String pageNumber) {
+  public DescribeVpcsRequest pageNumber(Integer pageNumber) {
     this.pageNumber = pageNumber;
     return this;
   }
@@ -46,15 +51,15 @@ public class DescribeVpcsRequest {
    * @return pageNumber
   **/
   @Schema(description = "")
-  public String getPageNumber() {
+  public Integer getPageNumber() {
     return pageNumber;
   }
 
-  public void setPageNumber(String pageNumber) {
+  public void setPageNumber(Integer pageNumber) {
     this.pageNumber = pageNumber;
   }
 
-  public DescribeVpcsRequest pageSize(String pageSize) {
+  public DescribeVpcsRequest pageSize(Integer pageSize) {
     this.pageSize = pageSize;
     return this;
   }
@@ -64,12 +69,38 @@ public class DescribeVpcsRequest {
    * @return pageSize
   **/
   @Schema(description = "")
-  public String getPageSize() {
+  public Integer getPageSize() {
     return pageSize;
   }
 
-  public void setPageSize(String pageSize) {
+  public void setPageSize(Integer pageSize) {
     this.pageSize = pageSize;
+  }
+
+  public DescribeVpcsRequest vpcIds(List<String> vpcIds) {
+    this.vpcIds = vpcIds;
+    return this;
+  }
+
+  public DescribeVpcsRequest addVpcIdsItem(String vpcIdsItem) {
+    if (this.vpcIds == null) {
+      this.vpcIds = new ArrayList<String>();
+    }
+    this.vpcIds.add(vpcIdsItem);
+    return this;
+  }
+
+   /**
+   * Get vpcIds
+   * @return vpcIds
+  **/
+  @Schema(description = "")
+  public List<String> getVpcIds() {
+    return vpcIds;
+  }
+
+  public void setVpcIds(List<String> vpcIds) {
+    this.vpcIds = vpcIds;
   }
 
   public DescribeVpcsRequest vpcName(String vpcName) {
@@ -92,7 +123,7 @@ public class DescribeVpcsRequest {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -102,12 +133,13 @@ public class DescribeVpcsRequest {
     DescribeVpcsRequest describeVpcsRequest = (DescribeVpcsRequest) o;
     return Objects.equals(this.pageNumber, describeVpcsRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeVpcsRequest.pageSize) &&
+        Objects.equals(this.vpcIds, describeVpcsRequest.vpcIds) &&
         Objects.equals(this.vpcName, describeVpcsRequest.vpcName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pageNumber, pageSize, vpcName);
+    return Objects.hash(pageNumber, pageSize, vpcIds, vpcName);
   }
 
 
@@ -118,6 +150,7 @@ public class DescribeVpcsRequest {
     
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    vpcIds: ").append(toIndentedString(vpcIds)).append("\n");
     sb.append("    vpcName: ").append(toIndentedString(vpcName)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -127,7 +160,7 @@ public class DescribeVpcsRequest {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
