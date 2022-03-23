@@ -23,11 +23,13 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.validation.constraints.*;
+import javax.validation.Valid;
 /**
  * DescribeNetworkInterfacesRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-03-18T20:48:24.268703+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-03-23T20:44:32.144706+08:00[Asia/Shanghai]")
 public class DescribeNetworkInterfacesRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;
@@ -47,6 +49,9 @@ public class DescribeNetworkInterfacesRequest {
   @SerializedName("PrimaryIpAddresses")
   private List<String> primaryIpAddresses = null;
 
+  @SerializedName("PrivateIpAddresses")
+  private List<String> privateIpAddresses = null;
+
   @SerializedName("SecurityGroupId")
   private String securityGroupId = null;
 
@@ -61,6 +66,9 @@ public class DescribeNetworkInterfacesRequest {
 
   @SerializedName("VpcId")
   private String vpcId = null;
+
+  @SerializedName("ZoneId")
+  private String zoneId = null;
 
   public DescribeNetworkInterfacesRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
@@ -149,9 +157,10 @@ public class DescribeNetworkInterfacesRequest {
 
    /**
    * Get pageSize
+   * maximum: 100
    * @return pageSize
   **/
-  @Schema(description = "")
+ @Max(100)  @Schema(description = "")
   public Integer getPageSize() {
     return pageSize;
   }
@@ -184,6 +193,32 @@ public class DescribeNetworkInterfacesRequest {
 
   public void setPrimaryIpAddresses(List<String> primaryIpAddresses) {
     this.primaryIpAddresses = primaryIpAddresses;
+  }
+
+  public DescribeNetworkInterfacesRequest privateIpAddresses(List<String> privateIpAddresses) {
+    this.privateIpAddresses = privateIpAddresses;
+    return this;
+  }
+
+  public DescribeNetworkInterfacesRequest addPrivateIpAddressesItem(String privateIpAddressesItem) {
+    if (this.privateIpAddresses == null) {
+      this.privateIpAddresses = new ArrayList<String>();
+    }
+    this.privateIpAddresses.add(privateIpAddressesItem);
+    return this;
+  }
+
+   /**
+   * Get privateIpAddresses
+   * @return privateIpAddresses
+  **/
+  @Schema(description = "")
+  public List<String> getPrivateIpAddresses() {
+    return privateIpAddresses;
+  }
+
+  public void setPrivateIpAddresses(List<String> privateIpAddresses) {
+    this.privateIpAddresses = privateIpAddresses;
   }
 
   public DescribeNetworkInterfacesRequest securityGroupId(String securityGroupId) {
@@ -276,9 +311,27 @@ public class DescribeNetworkInterfacesRequest {
     this.vpcId = vpcId;
   }
 
+  public DescribeNetworkInterfacesRequest zoneId(String zoneId) {
+    this.zoneId = zoneId;
+    return this;
+  }
+
+   /**
+   * Get zoneId
+   * @return zoneId
+  **/
+  @Schema(description = "")
+  public String getZoneId() {
+    return zoneId;
+  }
+
+  public void setZoneId(String zoneId) {
+    this.zoneId = zoneId;
+  }
+
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -292,16 +345,18 @@ public class DescribeNetworkInterfacesRequest {
         Objects.equals(this.pageNumber, describeNetworkInterfacesRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeNetworkInterfacesRequest.pageSize) &&
         Objects.equals(this.primaryIpAddresses, describeNetworkInterfacesRequest.primaryIpAddresses) &&
+        Objects.equals(this.privateIpAddresses, describeNetworkInterfacesRequest.privateIpAddresses) &&
         Objects.equals(this.securityGroupId, describeNetworkInterfacesRequest.securityGroupId) &&
         Objects.equals(this.status, describeNetworkInterfacesRequest.status) &&
         Objects.equals(this.subnetId, describeNetworkInterfacesRequest.subnetId) &&
         Objects.equals(this.type, describeNetworkInterfacesRequest.type) &&
-        Objects.equals(this.vpcId, describeNetworkInterfacesRequest.vpcId);
+        Objects.equals(this.vpcId, describeNetworkInterfacesRequest.vpcId) &&
+        Objects.equals(this.zoneId, describeNetworkInterfacesRequest.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, networkInterfaceIds, networkInterfaceName, pageNumber, pageSize, primaryIpAddresses, securityGroupId, status, subnetId, type, vpcId);
+    return Objects.hash(instanceId, networkInterfaceIds, networkInterfaceName, pageNumber, pageSize, primaryIpAddresses, privateIpAddresses, securityGroupId, status, subnetId, type, vpcId, zoneId);
   }
 
 
@@ -316,11 +371,13 @@ public class DescribeNetworkInterfacesRequest {
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    primaryIpAddresses: ").append(toIndentedString(primaryIpAddresses)).append("\n");
+    sb.append("    privateIpAddresses: ").append(toIndentedString(privateIpAddresses)).append("\n");
     sb.append("    securityGroupId: ").append(toIndentedString(securityGroupId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
+    sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -329,7 +386,7 @@ public class DescribeNetworkInterfacesRequest {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

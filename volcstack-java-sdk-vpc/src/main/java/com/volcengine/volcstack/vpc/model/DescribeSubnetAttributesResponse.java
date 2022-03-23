@@ -22,11 +22,13 @@ import com.google.gson.stream.JsonWriter;
 import com.volcengine.volcstack.vpc.model.RouteTableForDescribeSubnetAttributesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import javax.validation.constraints.*;
+import javax.validation.Valid;
 /**
  * DescribeSubnetAttributesResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-03-18T20:48:24.268703+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-03-23T20:44:32.144706+08:00[Asia/Shanghai]")
 public class DescribeSubnetAttributesResponse {
   @SerializedName("AccountId")
   private String accountId = null;
@@ -187,6 +189,7 @@ public class DescribeSubnetAttributesResponse {
    * Get routeTable
    * @return routeTable
   **/
+  @Valid
   @Schema(description = "")
   public RouteTableForDescribeSubnetAttributesOutput getRouteTable() {
     return routeTable;
@@ -324,7 +327,7 @@ public class DescribeSubnetAttributesResponse {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -381,7 +384,7 @@ public class DescribeSubnetAttributesResponse {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

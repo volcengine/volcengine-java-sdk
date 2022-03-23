@@ -15,6 +15,7 @@ package com.volcengine.volcstack.vpc.model;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -22,7 +23,7 @@ import java.util.Objects;
  * AssignPrivateIpAddressesRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-03-22T19:35:13.845544+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-03-23T20:44:32.144706+08:00[Asia/Shanghai]")
 public class AssignPrivateIpAddressesRequest {
   @SerializedName("NetworkInterfaceId")
   private String networkInterfaceId = null;
@@ -42,7 +43,8 @@ public class AssignPrivateIpAddressesRequest {
    * Get networkInterfaceId
    * @return networkInterfaceId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getNetworkInterfaceId() {
     return networkInterfaceId;
   }

@@ -16,6 +16,7 @@ import com.google.gson.reflect.TypeToken;
 import com.volcengine.volcstack.*;
 import com.volcengine.volcstack.vpc.model.*;
 
+import javax.validation.constraints.NotNull;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -126,7 +127,7 @@ public class VpcApi {
      * @return ApiResponse&lt;AllocateEipAddressResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<AllocateEipAddressResponse> allocateEipAddressWithHttpInfo(AllocateEipAddressRequest body) throws ApiException {
+    public ApiResponse<AllocateEipAddressResponse> allocateEipAddressWithHttpInfo( @NotNull AllocateEipAddressRequest body) throws ApiException {
         com.squareup.okhttp.Call call = allocateEipAddressValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<AllocateEipAddressResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -250,7 +251,7 @@ public class VpcApi {
      * @return ApiResponse&lt;AssignPrivateIpAddressesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<AssignPrivateIpAddressesResponse> assignPrivateIpAddressesWithHttpInfo(AssignPrivateIpAddressesRequest body) throws ApiException {
+    public ApiResponse<AssignPrivateIpAddressesResponse> assignPrivateIpAddressesWithHttpInfo( @NotNull AssignPrivateIpAddressesRequest body) throws ApiException {
         com.squareup.okhttp.Call call = assignPrivateIpAddressesValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<AssignPrivateIpAddressesResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -374,7 +375,7 @@ public class VpcApi {
      * @return ApiResponse&lt;AssociateEipAddressResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<AssociateEipAddressResponse> associateEipAddressWithHttpInfo(AssociateEipAddressRequest body) throws ApiException {
+    public ApiResponse<AssociateEipAddressResponse> associateEipAddressWithHttpInfo( @NotNull AssociateEipAddressRequest body) throws ApiException {
         com.squareup.okhttp.Call call = associateEipAddressValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<AssociateEipAddressResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -498,7 +499,7 @@ public class VpcApi {
      * @return ApiResponse&lt;AssociateHaVipResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<AssociateHaVipResponse> associateHaVipWithHttpInfo(AssociateHaVipRequest body) throws ApiException {
+    public ApiResponse<AssociateHaVipResponse> associateHaVipWithHttpInfo( @NotNull AssociateHaVipRequest body) throws ApiException {
         com.squareup.okhttp.Call call = associateHaVipValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<AssociateHaVipResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -622,7 +623,7 @@ public class VpcApi {
      * @return ApiResponse&lt;AssociateRouteTableResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<AssociateRouteTableResponse> associateRouteTableWithHttpInfo(AssociateRouteTableRequest body) throws ApiException {
+    public ApiResponse<AssociateRouteTableResponse> associateRouteTableWithHttpInfo( @NotNull AssociateRouteTableRequest body) throws ApiException {
         com.squareup.okhttp.Call call = associateRouteTableValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<AssociateRouteTableResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -746,7 +747,7 @@ public class VpcApi {
      * @return ApiResponse&lt;AttachNetworkInterfaceResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<AttachNetworkInterfaceResponse> attachNetworkInterfaceWithHttpInfo(AttachNetworkInterfaceRequest body) throws ApiException {
+    public ApiResponse<AttachNetworkInterfaceResponse> attachNetworkInterfaceWithHttpInfo( @NotNull AttachNetworkInterfaceRequest body) throws ApiException {
         com.squareup.okhttp.Call call = attachNetworkInterfaceValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<AttachNetworkInterfaceResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -870,7 +871,7 @@ public class VpcApi {
      * @return ApiResponse&lt;AuthorizeSecurityGroupEgressResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<AuthorizeSecurityGroupEgressResponse> authorizeSecurityGroupEgressWithHttpInfo(AuthorizeSecurityGroupEgressRequest body) throws ApiException {
+    public ApiResponse<AuthorizeSecurityGroupEgressResponse> authorizeSecurityGroupEgressWithHttpInfo( @NotNull AuthorizeSecurityGroupEgressRequest body) throws ApiException {
         com.squareup.okhttp.Call call = authorizeSecurityGroupEgressValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<AuthorizeSecurityGroupEgressResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -994,7 +995,7 @@ public class VpcApi {
      * @return ApiResponse&lt;AuthorizeSecurityGroupIngressResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<AuthorizeSecurityGroupIngressResponse> authorizeSecurityGroupIngressWithHttpInfo(AuthorizeSecurityGroupIngressRequest body) throws ApiException {
+    public ApiResponse<AuthorizeSecurityGroupIngressResponse> authorizeSecurityGroupIngressWithHttpInfo( @NotNull AuthorizeSecurityGroupIngressRequest body) throws ApiException {
         com.squareup.okhttp.Call call = authorizeSecurityGroupIngressValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<AuthorizeSecurityGroupIngressResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -1118,7 +1119,7 @@ public class VpcApi {
      * @return ApiResponse&lt;CreateHaVipResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CreateHaVipResponse> createHaVipWithHttpInfo(CreateHaVipRequest body) throws ApiException {
+    public ApiResponse<CreateHaVipResponse> createHaVipWithHttpInfo( @NotNull CreateHaVipRequest body) throws ApiException {
         com.squareup.okhttp.Call call = createHaVipValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<CreateHaVipResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -1242,7 +1243,7 @@ public class VpcApi {
      * @return ApiResponse&lt;CreateNetworkInterfaceResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CreateNetworkInterfaceResponse> createNetworkInterfaceWithHttpInfo(CreateNetworkInterfaceRequest body) throws ApiException {
+    public ApiResponse<CreateNetworkInterfaceResponse> createNetworkInterfaceWithHttpInfo( @NotNull CreateNetworkInterfaceRequest body) throws ApiException {
         com.squareup.okhttp.Call call = createNetworkInterfaceValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<CreateNetworkInterfaceResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -1366,7 +1367,7 @@ public class VpcApi {
      * @return ApiResponse&lt;CreateRouteEntryResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CreateRouteEntryResponse> createRouteEntryWithHttpInfo(CreateRouteEntryRequest body) throws ApiException {
+    public ApiResponse<CreateRouteEntryResponse> createRouteEntryWithHttpInfo( @NotNull CreateRouteEntryRequest body) throws ApiException {
         com.squareup.okhttp.Call call = createRouteEntryValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<CreateRouteEntryResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -1490,7 +1491,7 @@ public class VpcApi {
      * @return ApiResponse&lt;CreateRouteTableResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CreateRouteTableResponse> createRouteTableWithHttpInfo(CreateRouteTableRequest body) throws ApiException {
+    public ApiResponse<CreateRouteTableResponse> createRouteTableWithHttpInfo( @NotNull CreateRouteTableRequest body) throws ApiException {
         com.squareup.okhttp.Call call = createRouteTableValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<CreateRouteTableResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -1614,7 +1615,7 @@ public class VpcApi {
      * @return ApiResponse&lt;CreateSecurityGroupResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CreateSecurityGroupResponse> createSecurityGroupWithHttpInfo(CreateSecurityGroupRequest body) throws ApiException {
+    public ApiResponse<CreateSecurityGroupResponse> createSecurityGroupWithHttpInfo( @NotNull CreateSecurityGroupRequest body) throws ApiException {
         com.squareup.okhttp.Call call = createSecurityGroupValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<CreateSecurityGroupResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -1738,7 +1739,7 @@ public class VpcApi {
      * @return ApiResponse&lt;CreateSubnetResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CreateSubnetResponse> createSubnetWithHttpInfo(CreateSubnetRequest body) throws ApiException {
+    public ApiResponse<CreateSubnetResponse> createSubnetWithHttpInfo( @NotNull CreateSubnetRequest body) throws ApiException {
         com.squareup.okhttp.Call call = createSubnetValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<CreateSubnetResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -1862,7 +1863,7 @@ public class VpcApi {
      * @return ApiResponse&lt;CreateVpcResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CreateVpcResponse> createVpcWithHttpInfo(CreateVpcRequest body) throws ApiException {
+    public ApiResponse<CreateVpcResponse> createVpcWithHttpInfo( @NotNull CreateVpcRequest body) throws ApiException {
         com.squareup.okhttp.Call call = createVpcValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<CreateVpcResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -1986,7 +1987,7 @@ public class VpcApi {
      * @return ApiResponse&lt;DeleteHaVipResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<DeleteHaVipResponse> deleteHaVipWithHttpInfo(DeleteHaVipRequest body) throws ApiException {
+    public ApiResponse<DeleteHaVipResponse> deleteHaVipWithHttpInfo( @NotNull DeleteHaVipRequest body) throws ApiException {
         com.squareup.okhttp.Call call = deleteHaVipValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<DeleteHaVipResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -2110,7 +2111,7 @@ public class VpcApi {
      * @return ApiResponse&lt;DeleteNetworkInterfaceResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<DeleteNetworkInterfaceResponse> deleteNetworkInterfaceWithHttpInfo(DeleteNetworkInterfaceRequest body) throws ApiException {
+    public ApiResponse<DeleteNetworkInterfaceResponse> deleteNetworkInterfaceWithHttpInfo( @NotNull DeleteNetworkInterfaceRequest body) throws ApiException {
         com.squareup.okhttp.Call call = deleteNetworkInterfaceValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<DeleteNetworkInterfaceResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -2234,7 +2235,7 @@ public class VpcApi {
      * @return ApiResponse&lt;DeleteRouteEntryResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<DeleteRouteEntryResponse> deleteRouteEntryWithHttpInfo(DeleteRouteEntryRequest body) throws ApiException {
+    public ApiResponse<DeleteRouteEntryResponse> deleteRouteEntryWithHttpInfo( @NotNull DeleteRouteEntryRequest body) throws ApiException {
         com.squareup.okhttp.Call call = deleteRouteEntryValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<DeleteRouteEntryResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -2358,7 +2359,7 @@ public class VpcApi {
      * @return ApiResponse&lt;DeleteRouteTableResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<DeleteRouteTableResponse> deleteRouteTableWithHttpInfo(DeleteRouteTableRequest body) throws ApiException {
+    public ApiResponse<DeleteRouteTableResponse> deleteRouteTableWithHttpInfo( @NotNull DeleteRouteTableRequest body) throws ApiException {
         com.squareup.okhttp.Call call = deleteRouteTableValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<DeleteRouteTableResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -2482,7 +2483,7 @@ public class VpcApi {
      * @return ApiResponse&lt;DeleteSecurityGroupResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<DeleteSecurityGroupResponse> deleteSecurityGroupWithHttpInfo(DeleteSecurityGroupRequest body) throws ApiException {
+    public ApiResponse<DeleteSecurityGroupResponse> deleteSecurityGroupWithHttpInfo( @NotNull DeleteSecurityGroupRequest body) throws ApiException {
         com.squareup.okhttp.Call call = deleteSecurityGroupValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<DeleteSecurityGroupResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -2606,7 +2607,7 @@ public class VpcApi {
      * @return ApiResponse&lt;DeleteSubnetResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<DeleteSubnetResponse> deleteSubnetWithHttpInfo(DeleteSubnetRequest body) throws ApiException {
+    public ApiResponse<DeleteSubnetResponse> deleteSubnetWithHttpInfo( @NotNull DeleteSubnetRequest body) throws ApiException {
         com.squareup.okhttp.Call call = deleteSubnetValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<DeleteSubnetResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -2730,7 +2731,7 @@ public class VpcApi {
      * @return ApiResponse&lt;DeleteVpcResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<DeleteVpcResponse> deleteVpcWithHttpInfo(DeleteVpcRequest body) throws ApiException {
+    public ApiResponse<DeleteVpcResponse> deleteVpcWithHttpInfo( @NotNull DeleteVpcRequest body) throws ApiException {
         com.squareup.okhttp.Call call = deleteVpcValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<DeleteVpcResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -2854,7 +2855,7 @@ public class VpcApi {
      * @return ApiResponse&lt;DescribeEipAddressAttributesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<DescribeEipAddressAttributesResponse> describeEipAddressAttributesWithHttpInfo(DescribeEipAddressAttributesRequest body) throws ApiException {
+    public ApiResponse<DescribeEipAddressAttributesResponse> describeEipAddressAttributesWithHttpInfo( @NotNull DescribeEipAddressAttributesRequest body) throws ApiException {
         com.squareup.okhttp.Call call = describeEipAddressAttributesValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<DescribeEipAddressAttributesResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -2978,7 +2979,7 @@ public class VpcApi {
      * @return ApiResponse&lt;DescribeEipAddressesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<DescribeEipAddressesResponse> describeEipAddressesWithHttpInfo(DescribeEipAddressesRequest body) throws ApiException {
+    public ApiResponse<DescribeEipAddressesResponse> describeEipAddressesWithHttpInfo( @NotNull DescribeEipAddressesRequest body) throws ApiException {
         com.squareup.okhttp.Call call = describeEipAddressesValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<DescribeEipAddressesResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -3102,7 +3103,7 @@ public class VpcApi {
      * @return ApiResponse&lt;DescribeHaVipsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<DescribeHaVipsResponse> describeHaVipsWithHttpInfo(DescribeHaVipsRequest body) throws ApiException {
+    public ApiResponse<DescribeHaVipsResponse> describeHaVipsWithHttpInfo( @NotNull DescribeHaVipsRequest body) throws ApiException {
         com.squareup.okhttp.Call call = describeHaVipsValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<DescribeHaVipsResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -3226,7 +3227,7 @@ public class VpcApi {
      * @return ApiResponse&lt;DescribeNetworkInterfaceAttributesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<DescribeNetworkInterfaceAttributesResponse> describeNetworkInterfaceAttributesWithHttpInfo(DescribeNetworkInterfaceAttributesRequest body) throws ApiException {
+    public ApiResponse<DescribeNetworkInterfaceAttributesResponse> describeNetworkInterfaceAttributesWithHttpInfo( @NotNull DescribeNetworkInterfaceAttributesRequest body) throws ApiException {
         com.squareup.okhttp.Call call = describeNetworkInterfaceAttributesValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<DescribeNetworkInterfaceAttributesResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -3350,7 +3351,7 @@ public class VpcApi {
      * @return ApiResponse&lt;DescribeNetworkInterfacesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<DescribeNetworkInterfacesResponse> describeNetworkInterfacesWithHttpInfo(DescribeNetworkInterfacesRequest body) throws ApiException {
+    public ApiResponse<DescribeNetworkInterfacesResponse> describeNetworkInterfacesWithHttpInfo( @NotNull DescribeNetworkInterfacesRequest body) throws ApiException {
         com.squareup.okhttp.Call call = describeNetworkInterfacesValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<DescribeNetworkInterfacesResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -3474,7 +3475,7 @@ public class VpcApi {
      * @return ApiResponse&lt;DescribeRouteEntryListResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<DescribeRouteEntryListResponse> describeRouteEntryListWithHttpInfo(DescribeRouteEntryListRequest body) throws ApiException {
+    public ApiResponse<DescribeRouteEntryListResponse> describeRouteEntryListWithHttpInfo( @NotNull DescribeRouteEntryListRequest body) throws ApiException {
         com.squareup.okhttp.Call call = describeRouteEntryListValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<DescribeRouteEntryListResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -3598,7 +3599,7 @@ public class VpcApi {
      * @return ApiResponse&lt;DescribeRouteTableListResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<DescribeRouteTableListResponse> describeRouteTableListWithHttpInfo(DescribeRouteTableListRequest body) throws ApiException {
+    public ApiResponse<DescribeRouteTableListResponse> describeRouteTableListWithHttpInfo( @NotNull DescribeRouteTableListRequest body) throws ApiException {
         com.squareup.okhttp.Call call = describeRouteTableListValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<DescribeRouteTableListResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -3722,7 +3723,7 @@ public class VpcApi {
      * @return ApiResponse&lt;DescribeSecurityGroupAttributesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<DescribeSecurityGroupAttributesResponse> describeSecurityGroupAttributesWithHttpInfo(DescribeSecurityGroupAttributesRequest body) throws ApiException {
+    public ApiResponse<DescribeSecurityGroupAttributesResponse> describeSecurityGroupAttributesWithHttpInfo( @NotNull DescribeSecurityGroupAttributesRequest body) throws ApiException {
         com.squareup.okhttp.Call call = describeSecurityGroupAttributesValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<DescribeSecurityGroupAttributesResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -3846,7 +3847,7 @@ public class VpcApi {
      * @return ApiResponse&lt;DescribeSecurityGroupsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<DescribeSecurityGroupsResponse> describeSecurityGroupsWithHttpInfo(DescribeSecurityGroupsRequest body) throws ApiException {
+    public ApiResponse<DescribeSecurityGroupsResponse> describeSecurityGroupsWithHttpInfo( @NotNull DescribeSecurityGroupsRequest body) throws ApiException {
         com.squareup.okhttp.Call call = describeSecurityGroupsValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<DescribeSecurityGroupsResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -3970,7 +3971,7 @@ public class VpcApi {
      * @return ApiResponse&lt;DescribeSubnetAttributesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<DescribeSubnetAttributesResponse> describeSubnetAttributesWithHttpInfo(DescribeSubnetAttributesRequest body) throws ApiException {
+    public ApiResponse<DescribeSubnetAttributesResponse> describeSubnetAttributesWithHttpInfo( @NotNull DescribeSubnetAttributesRequest body) throws ApiException {
         com.squareup.okhttp.Call call = describeSubnetAttributesValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<DescribeSubnetAttributesResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -4094,7 +4095,7 @@ public class VpcApi {
      * @return ApiResponse&lt;DescribeSubnetsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<DescribeSubnetsResponse> describeSubnetsWithHttpInfo(DescribeSubnetsRequest body) throws ApiException {
+    public ApiResponse<DescribeSubnetsResponse> describeSubnetsWithHttpInfo( @NotNull DescribeSubnetsRequest body) throws ApiException {
         com.squareup.okhttp.Call call = describeSubnetsValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<DescribeSubnetsResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -4218,7 +4219,7 @@ public class VpcApi {
      * @return ApiResponse&lt;DescribeVpcAttributesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<DescribeVpcAttributesResponse> describeVpcAttributesWithHttpInfo(DescribeVpcAttributesRequest body) throws ApiException {
+    public ApiResponse<DescribeVpcAttributesResponse> describeVpcAttributesWithHttpInfo( @NotNull DescribeVpcAttributesRequest body) throws ApiException {
         com.squareup.okhttp.Call call = describeVpcAttributesValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<DescribeVpcAttributesResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -4342,7 +4343,7 @@ public class VpcApi {
      * @return ApiResponse&lt;DescribeVpcsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<DescribeVpcsResponse> describeVpcsWithHttpInfo(DescribeVpcsRequest body) throws ApiException {
+    public ApiResponse<DescribeVpcsResponse> describeVpcsWithHttpInfo( @NotNull DescribeVpcsRequest body) throws ApiException {
         com.squareup.okhttp.Call call = describeVpcsValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<DescribeVpcsResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -4466,7 +4467,7 @@ public class VpcApi {
      * @return ApiResponse&lt;DetachNetworkInterfaceResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<DetachNetworkInterfaceResponse> detachNetworkInterfaceWithHttpInfo(DetachNetworkInterfaceRequest body) throws ApiException {
+    public ApiResponse<DetachNetworkInterfaceResponse> detachNetworkInterfaceWithHttpInfo( @NotNull DetachNetworkInterfaceRequest body) throws ApiException {
         com.squareup.okhttp.Call call = detachNetworkInterfaceValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<DetachNetworkInterfaceResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -4590,7 +4591,7 @@ public class VpcApi {
      * @return ApiResponse&lt;DisassociateEipAddressResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<DisassociateEipAddressResponse> disassociateEipAddressWithHttpInfo(DisassociateEipAddressRequest body) throws ApiException {
+    public ApiResponse<DisassociateEipAddressResponse> disassociateEipAddressWithHttpInfo( @NotNull DisassociateEipAddressRequest body) throws ApiException {
         com.squareup.okhttp.Call call = disassociateEipAddressValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<DisassociateEipAddressResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -4714,7 +4715,7 @@ public class VpcApi {
      * @return ApiResponse&lt;DisassociateHaVipResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<DisassociateHaVipResponse> disassociateHaVipWithHttpInfo(DisassociateHaVipRequest body) throws ApiException {
+    public ApiResponse<DisassociateHaVipResponse> disassociateHaVipWithHttpInfo( @NotNull DisassociateHaVipRequest body) throws ApiException {
         com.squareup.okhttp.Call call = disassociateHaVipValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<DisassociateHaVipResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -4838,7 +4839,7 @@ public class VpcApi {
      * @return ApiResponse&lt;DisassociateRouteTableResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<DisassociateRouteTableResponse> disassociateRouteTableWithHttpInfo(DisassociateRouteTableRequest body) throws ApiException {
+    public ApiResponse<DisassociateRouteTableResponse> disassociateRouteTableWithHttpInfo( @NotNull DisassociateRouteTableRequest body) throws ApiException {
         com.squareup.okhttp.Call call = disassociateRouteTableValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<DisassociateRouteTableResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -4962,7 +4963,7 @@ public class VpcApi {
      * @return ApiResponse&lt;ModifyEipAddressAttributesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ModifyEipAddressAttributesResponse> modifyEipAddressAttributesWithHttpInfo(ModifyEipAddressAttributesRequest body) throws ApiException {
+    public ApiResponse<ModifyEipAddressAttributesResponse> modifyEipAddressAttributesWithHttpInfo( @NotNull ModifyEipAddressAttributesRequest body) throws ApiException {
         com.squareup.okhttp.Call call = modifyEipAddressAttributesValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<ModifyEipAddressAttributesResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -5086,7 +5087,7 @@ public class VpcApi {
      * @return ApiResponse&lt;ModifyHaVipAttributesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ModifyHaVipAttributesResponse> modifyHaVipAttributesWithHttpInfo(ModifyHaVipAttributesRequest body) throws ApiException {
+    public ApiResponse<ModifyHaVipAttributesResponse> modifyHaVipAttributesWithHttpInfo( @NotNull ModifyHaVipAttributesRequest body) throws ApiException {
         com.squareup.okhttp.Call call = modifyHaVipAttributesValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<ModifyHaVipAttributesResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -5210,7 +5211,7 @@ public class VpcApi {
      * @return ApiResponse&lt;ModifyNetworkInterfaceAttributesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ModifyNetworkInterfaceAttributesResponse> modifyNetworkInterfaceAttributesWithHttpInfo(ModifyNetworkInterfaceAttributesRequest body) throws ApiException {
+    public ApiResponse<ModifyNetworkInterfaceAttributesResponse> modifyNetworkInterfaceAttributesWithHttpInfo( @NotNull ModifyNetworkInterfaceAttributesRequest body) throws ApiException {
         com.squareup.okhttp.Call call = modifyNetworkInterfaceAttributesValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<ModifyNetworkInterfaceAttributesResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -5334,7 +5335,7 @@ public class VpcApi {
      * @return ApiResponse&lt;ModifyRouteEntryResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ModifyRouteEntryResponse> modifyRouteEntryWithHttpInfo(ModifyRouteEntryRequest body) throws ApiException {
+    public ApiResponse<ModifyRouteEntryResponse> modifyRouteEntryWithHttpInfo( @NotNull ModifyRouteEntryRequest body) throws ApiException {
         com.squareup.okhttp.Call call = modifyRouteEntryValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<ModifyRouteEntryResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -5458,7 +5459,7 @@ public class VpcApi {
      * @return ApiResponse&lt;ModifyRouteTableAttributesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ModifyRouteTableAttributesResponse> modifyRouteTableAttributesWithHttpInfo(ModifyRouteTableAttributesRequest body) throws ApiException {
+    public ApiResponse<ModifyRouteTableAttributesResponse> modifyRouteTableAttributesWithHttpInfo( @NotNull ModifyRouteTableAttributesRequest body) throws ApiException {
         com.squareup.okhttp.Call call = modifyRouteTableAttributesValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<ModifyRouteTableAttributesResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -5582,7 +5583,7 @@ public class VpcApi {
      * @return ApiResponse&lt;ModifySecurityGroupAttributesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ModifySecurityGroupAttributesResponse> modifySecurityGroupAttributesWithHttpInfo(ModifySecurityGroupAttributesRequest body) throws ApiException {
+    public ApiResponse<ModifySecurityGroupAttributesResponse> modifySecurityGroupAttributesWithHttpInfo( @NotNull ModifySecurityGroupAttributesRequest body) throws ApiException {
         com.squareup.okhttp.Call call = modifySecurityGroupAttributesValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<ModifySecurityGroupAttributesResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -5706,7 +5707,7 @@ public class VpcApi {
      * @return ApiResponse&lt;ModifySecurityGroupRuleDescriptionsEgressResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ModifySecurityGroupRuleDescriptionsEgressResponse> modifySecurityGroupRuleDescriptionsEgressWithHttpInfo(ModifySecurityGroupRuleDescriptionsEgressRequest body) throws ApiException {
+    public ApiResponse<ModifySecurityGroupRuleDescriptionsEgressResponse> modifySecurityGroupRuleDescriptionsEgressWithHttpInfo( @NotNull ModifySecurityGroupRuleDescriptionsEgressRequest body) throws ApiException {
         com.squareup.okhttp.Call call = modifySecurityGroupRuleDescriptionsEgressValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<ModifySecurityGroupRuleDescriptionsEgressResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -5830,7 +5831,7 @@ public class VpcApi {
      * @return ApiResponse&lt;ModifySecurityGroupRuleDescriptionsIngressResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ModifySecurityGroupRuleDescriptionsIngressResponse> modifySecurityGroupRuleDescriptionsIngressWithHttpInfo(ModifySecurityGroupRuleDescriptionsIngressRequest body) throws ApiException {
+    public ApiResponse<ModifySecurityGroupRuleDescriptionsIngressResponse> modifySecurityGroupRuleDescriptionsIngressWithHttpInfo( @NotNull ModifySecurityGroupRuleDescriptionsIngressRequest body) throws ApiException {
         com.squareup.okhttp.Call call = modifySecurityGroupRuleDescriptionsIngressValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<ModifySecurityGroupRuleDescriptionsIngressResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -5954,7 +5955,7 @@ public class VpcApi {
      * @return ApiResponse&lt;ModifySubnetAttributesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ModifySubnetAttributesResponse> modifySubnetAttributesWithHttpInfo(ModifySubnetAttributesRequest body) throws ApiException {
+    public ApiResponse<ModifySubnetAttributesResponse> modifySubnetAttributesWithHttpInfo( @NotNull ModifySubnetAttributesRequest body) throws ApiException {
         com.squareup.okhttp.Call call = modifySubnetAttributesValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<ModifySubnetAttributesResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -6078,7 +6079,7 @@ public class VpcApi {
      * @return ApiResponse&lt;ModifyVpcAttributesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ModifyVpcAttributesResponse> modifyVpcAttributesWithHttpInfo(ModifyVpcAttributesRequest body) throws ApiException {
+    public ApiResponse<ModifyVpcAttributesResponse> modifyVpcAttributesWithHttpInfo( @NotNull ModifyVpcAttributesRequest body) throws ApiException {
         com.squareup.okhttp.Call call = modifyVpcAttributesValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<ModifyVpcAttributesResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -6202,7 +6203,7 @@ public class VpcApi {
      * @return ApiResponse&lt;ReleaseEipAddressResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ReleaseEipAddressResponse> releaseEipAddressWithHttpInfo(ReleaseEipAddressRequest body) throws ApiException {
+    public ApiResponse<ReleaseEipAddressResponse> releaseEipAddressWithHttpInfo( @NotNull ReleaseEipAddressRequest body) throws ApiException {
         com.squareup.okhttp.Call call = releaseEipAddressValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<ReleaseEipAddressResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -6326,7 +6327,7 @@ public class VpcApi {
      * @return ApiResponse&lt;RevokeSecurityGroupEgressResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<RevokeSecurityGroupEgressResponse> revokeSecurityGroupEgressWithHttpInfo(RevokeSecurityGroupEgressRequest body) throws ApiException {
+    public ApiResponse<RevokeSecurityGroupEgressResponse> revokeSecurityGroupEgressWithHttpInfo( @NotNull RevokeSecurityGroupEgressRequest body) throws ApiException {
         com.squareup.okhttp.Call call = revokeSecurityGroupEgressValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<RevokeSecurityGroupEgressResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -6450,7 +6451,7 @@ public class VpcApi {
      * @return ApiResponse&lt;RevokeSecurityGroupIngressResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<RevokeSecurityGroupIngressResponse> revokeSecurityGroupIngressWithHttpInfo(RevokeSecurityGroupIngressRequest body) throws ApiException {
+    public ApiResponse<RevokeSecurityGroupIngressResponse> revokeSecurityGroupIngressWithHttpInfo( @NotNull RevokeSecurityGroupIngressRequest body) throws ApiException {
         com.squareup.okhttp.Call call = revokeSecurityGroupIngressValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<RevokeSecurityGroupIngressResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -6574,7 +6575,7 @@ public class VpcApi {
      * @return ApiResponse&lt;UnassignPrivateIpAddressesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<UnassignPrivateIpAddressesResponse> unassignPrivateIpAddressesWithHttpInfo(UnassignPrivateIpAddressesRequest body) throws ApiException {
+    public ApiResponse<UnassignPrivateIpAddressesResponse> unassignPrivateIpAddressesWithHttpInfo( @NotNull UnassignPrivateIpAddressesRequest body) throws ApiException {
         com.squareup.okhttp.Call call = unassignPrivateIpAddressesValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<UnassignPrivateIpAddressesResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
