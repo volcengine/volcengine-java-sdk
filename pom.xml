@@ -11,6 +11,13 @@
     <modules>
         <module>volcstack-java-sdk-core</module>
         <module>volcstack-java-sdk-vpc</module>
+        <module>volcstack-java-sdk-clb</module>
+        <module>volcstack-java-sdk-cen</module>
+        <module>volcstack-java-sdk-vpn</module>
+        <module>volcstack-java-sdk-ecs</module>
+        <module>volcstack-java-sdk-storageebs</module>
+        <module>volcstack-java-sdk-natgateway</module>
+        <module>volcstack-java-sdk-directconnect</module>
     </modules>
 
     <properties>

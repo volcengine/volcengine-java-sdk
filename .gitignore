@@ -4,3 +4,4 @@ vendor/
 output_result
 *.log
 *.class
+*.lst
