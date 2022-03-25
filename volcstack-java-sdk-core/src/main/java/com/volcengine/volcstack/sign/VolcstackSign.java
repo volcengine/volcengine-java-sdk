@@ -2,12 +2,14 @@ package com.volcengine.volcstack.sign;
 
 import com.volcengine.volcstack.Pair;
 import com.volcengine.volcstack.auth.Authentication;
+import org.apache.commons.lang.StringUtils;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
@@ -44,7 +46,7 @@ public class VolcstackSign implements Authentication {
         private StringBuilder canonicalHeaders;
         private StringBuilder credentialScope;
         private StringBuilder stringToSign;
-        private StringBuilder authorization;
+//        private StringBuilder authorization;
     }
 
 
@@ -187,6 +189,17 @@ public class VolcstackSign implements Authentication {
         signRequest.signedHeaders = signedHeaders;
     }
 
+    private void initHeaders(Map<String,String> headerParams){
+        if (!StringUtils.isEmpty(credentials.getSessionToken())){
+            headerParams.put("X-Security-Token",credentials.getSessionToken());
+        }
+        if (!headerParams.containsKey("X-Date")) {
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd'T'HHmmss'Z'");
+            sdf.setTimeZone(TimeZone.getTimeZone("GMT"));
+            headerParams.put("X-Date", sdf.format(new Date()));
+        }
+    }
+
     private void buildCanonicalRequest(Map<String, String> queryParams, SignRequest signRequest) throws Exception {
         //sort keys
         List<String> listParamKeys = sortParamKeys(queryParams);
@@ -214,6 +227,8 @@ public class VolcstackSign implements Authentication {
     private void sign(Map<String, String> queryParams, Map<String, String> headerParams, String payload) throws Exception {
 
         SignRequest signRequest = new SignRequest();
+        // initHeader
+        initHeaders(headerParams);
         // step 1
         buildCanonicalRequest(queryParams, signRequest);
         buildSignedHeaders(headerParams,signRequest);

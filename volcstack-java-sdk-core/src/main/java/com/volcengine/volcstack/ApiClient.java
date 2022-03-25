@@ -25,6 +25,7 @@ import com.volcengine.volcstack.sign.VolcstackSign;
 import com.volcengine.volcstack.version.Version;
 import okio.BufferedSink;
 import okio.Okio;
+import org.apache.commons.lang.StringUtils;
 import org.threeten.bp.LocalDate;
 import org.threeten.bp.OffsetDateTime;
 import org.threeten.bp.format.DateTimeFormatter;
@@ -48,7 +49,6 @@ import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.Map.Entry;
 import java.util.concurrent.TimeUnit;
@@ -1021,14 +1021,6 @@ public class ApiClient {
         return new ServiceInfo(param[3], param[4]);
     }
 
-    private void initRequestHeader(Map<String, String> headerParams) {
-        if (!headerParams.containsKey("X-Date")) {
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd'T'HHmmss'Z'");
-            sdf.setTimeZone(TimeZone.getTimeZone("GMT"));
-            headerParams.put("X-Date", sdf.format(new Date()));
-        }
-    }
-
     private String getTruePath(String path, Map<String, String> headerParams) {
         if (isApplicationJsonBody(headerParams) || isPostBody(headerParams)) {
             String[] param = path.split("/");
@@ -1151,7 +1143,6 @@ public class ApiClient {
         getDefaultContentType(headerParams);
 
         ServiceInfo serviceInfo = addPairAndGetServiceInfo(path, queryParams, headerParams);
-        initRequestHeader(headerParams);
         String truePath = getTruePath(path, headerParams);
         String contentType = headerParams.get("Content-Type");
         StringBuilder bodyBuilder = new StringBuilder();
@@ -1299,6 +1290,15 @@ public class ApiClient {
             if (auth == null) throw new RuntimeException("Authentication undefined: " + authName);
             if (auth instanceof VolcstackSign) {
                 VolcstackSign volcstackSign = (VolcstackSign) auth;
+                if (volcstackSign.getCredentials() == null) {
+                    throw new RuntimeException("Credentials must set when ApiClient init");
+                }
+                if (StringUtils.isEmpty(credentials.getAccessKey()) || StringUtils.isEmpty(credentials.getSecretKey())){
+                    throw new RuntimeException("AccessKey and SecretKey must set when ApiClient init Credentials");
+                }
+                if (StringUtils.isEmpty(volcstackSign.getRegion())) {
+                    throw new RuntimeException("Region must set when ApiClient init");
+                }
                 volcstackSign.setMethod(serviceInfo.getMethod().toUpperCase());
                 volcstackSign.setService(serviceInfo.getServiceName());
             }

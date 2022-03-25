@@ -7,6 +7,7 @@ package com.volcengine.volcstack.sign;
 public class Credentials {
     private String accessKey;
     private String secretKey;
+    private String sessionToken;
 
     private Credentials() {
     }
@@ -27,17 +28,31 @@ public class Credentials {
         this.secretKey = secretKey;
     }
 
+    public String getSessionToken() {
+        return sessionToken;
+    }
+
+    public void setSessionToken(String sessionToken) {
+        this.sessionToken = sessionToken;
+    }
+
     public static Credentials getEnvCredentials() {
         Credentials credentials = new Credentials();
         credentials.accessKey = System.getenv("VOLCSTACK_ACCESS_KEY");
         credentials.secretKey = System.getenv("VOLCSTACK_SECRET_KEY");
+        credentials.secretKey = System.getenv("VOLCSTACK_SESSION_TOKEN");
         return credentials;
     }
 
     public static Credentials getCredentials(String accessKey, String secretKey) {
+        return getCredentials(accessKey,secretKey,"");
+    }
+
+    public static Credentials getCredentials(String accessKey, String secretKey,String sessionToken) {
         Credentials credentials = new Credentials();
         credentials.accessKey = accessKey;
         credentials.secretKey = secretKey;
+        credentials.sessionToken = sessionToken;
         return credentials;
     }
 }
