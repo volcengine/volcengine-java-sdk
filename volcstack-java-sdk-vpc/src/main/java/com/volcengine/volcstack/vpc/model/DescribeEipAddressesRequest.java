@@ -23,11 +23,13 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.validation.constraints.*;
+import javax.validation.Valid;
 /**
  * DescribeEipAddressesRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-03-18T20:48:24.268703+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-03-23T20:44:32.144706+08:00[Asia/Shanghai]")
 public class DescribeEipAddressesRequest {
   @SerializedName("AllocationIds")
   private List<String> allocationIds = null;
@@ -35,14 +37,103 @@ public class DescribeEipAddressesRequest {
   @SerializedName("AssociatedInstanceId")
   private String associatedInstanceId = null;
 
-  @SerializedName("AssociatedInstanceType")
-  private String associatedInstanceType = null;
+  /**
+   * Gets or Sets associatedInstanceType
+   */
+  @JsonAdapter(AssociatedInstanceTypeEnum.Adapter.class)
+  public enum AssociatedInstanceTypeEnum {
+    NAT("Nat"),
+    ECSINSTANCE("EcsInstance"),
+    NETWORKINTERFACE("NetworkInterface"),
+    CLBINSTANCE("ClbInstance");
+
+    private String value;
+
+    AssociatedInstanceTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static AssociatedInstanceTypeEnum fromValue(String input) {
+      for (AssociatedInstanceTypeEnum b : AssociatedInstanceTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<AssociatedInstanceTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final AssociatedInstanceTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public AssociatedInstanceTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return AssociatedInstanceTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("AssociatedInstanceType")
+  private AssociatedInstanceTypeEnum associatedInstanceType = null;
+
+  @SerializedName("BillingType")
+  private Integer billingType = null;
 
   @SerializedName("EipAddresses")
   private List<String> eipAddresses = null;
 
-  @SerializedName("ISP")
-  private String ISP = null;
+  /**
+   * Gets or Sets ISP
+   */
+  @JsonAdapter(ISPEnum.Adapter.class)
+  public enum ISPEnum {
+    BGP("BGP"),
+    CHINAMOBILE("ChinaMobile"),
+    CHINAUNICOM("ChinaUnicom"),
+    CHINATELECOM("ChinaTelecom");
+
+    private String value;
+
+    ISPEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ISPEnum fromValue(String input) {
+      for (ISPEnum b : ISPEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ISPEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ISPEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ISPEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ISPEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("ISP")
+  private ISPEnum ISP = null;
 
   @SerializedName("Name")
   private String name = null;
@@ -53,8 +144,51 @@ public class DescribeEipAddressesRequest {
   @SerializedName("PageSize")
   private Integer pageSize = null;
 
-  @SerializedName("Status")
-  private String status = null;
+  /**
+   * Gets or Sets status
+   */
+  @JsonAdapter(StatusEnum.Adapter.class)
+  public enum StatusEnum {
+    ATTACHING("Attaching"),
+    DETACHING("Detaching"),
+    ATTACHED("Attached"),
+    AVAILABLE("Available");
+
+    private String value;
+
+    StatusEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static StatusEnum fromValue(String input) {
+      for (StatusEnum b : StatusEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<StatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public StatusEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return StatusEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("Status")
+  private StatusEnum status = null;
 
   public DescribeEipAddressesRequest allocationIds(List<String> allocationIds) {
     this.allocationIds = allocationIds;
@@ -100,7 +234,7 @@ public class DescribeEipAddressesRequest {
     this.associatedInstanceId = associatedInstanceId;
   }
 
-  public DescribeEipAddressesRequest associatedInstanceType(String associatedInstanceType) {
+  public DescribeEipAddressesRequest associatedInstanceType(AssociatedInstanceTypeEnum associatedInstanceType) {
     this.associatedInstanceType = associatedInstanceType;
     return this;
   }
@@ -110,12 +244,32 @@ public class DescribeEipAddressesRequest {
    * @return associatedInstanceType
   **/
   @Schema(description = "")
-  public String getAssociatedInstanceType() {
+  public AssociatedInstanceTypeEnum getAssociatedInstanceType() {
     return associatedInstanceType;
   }
 
-  public void setAssociatedInstanceType(String associatedInstanceType) {
+  public void setAssociatedInstanceType(AssociatedInstanceTypeEnum associatedInstanceType) {
     this.associatedInstanceType = associatedInstanceType;
+  }
+
+  public DescribeEipAddressesRequest billingType(Integer billingType) {
+    this.billingType = billingType;
+    return this;
+  }
+
+   /**
+   * Get billingType
+   * minimum: 1
+   * maximum: 3
+   * @return billingType
+  **/
+ @Min(1) @Max(3)  @Schema(description = "")
+  public Integer getBillingType() {
+    return billingType;
+  }
+
+  public void setBillingType(Integer billingType) {
+    this.billingType = billingType;
   }
 
   public DescribeEipAddressesRequest eipAddresses(List<String> eipAddresses) {
@@ -144,7 +298,7 @@ public class DescribeEipAddressesRequest {
     this.eipAddresses = eipAddresses;
   }
 
-  public DescribeEipAddressesRequest ISP(String ISP) {
+  public DescribeEipAddressesRequest ISP(ISPEnum ISP) {
     this.ISP = ISP;
     return this;
   }
@@ -154,11 +308,11 @@ public class DescribeEipAddressesRequest {
    * @return ISP
   **/
   @Schema(description = "")
-  public String getISP() {
+  public ISPEnum getISP() {
     return ISP;
   }
 
-  public void setISP(String ISP) {
+  public void setISP(ISPEnum ISP) {
     this.ISP = ISP;
   }
 
@@ -205,9 +359,10 @@ public class DescribeEipAddressesRequest {
 
    /**
    * Get pageSize
+   * maximum: 100
    * @return pageSize
   **/
-  @Schema(description = "")
+ @Max(100)  @Schema(description = "")
   public Integer getPageSize() {
     return pageSize;
   }
@@ -216,7 +371,7 @@ public class DescribeEipAddressesRequest {
     this.pageSize = pageSize;
   }
 
-  public DescribeEipAddressesRequest status(String status) {
+  public DescribeEipAddressesRequest status(StatusEnum status) {
     this.status = status;
     return this;
   }
@@ -226,17 +381,17 @@ public class DescribeEipAddressesRequest {
    * @return status
   **/
   @Schema(description = "")
-  public String getStatus() {
+  public StatusEnum getStatus() {
     return status;
   }
 
-  public void setStatus(String status) {
+  public void setStatus(StatusEnum status) {
     this.status = status;
   }
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -247,6 +402,7 @@ public class DescribeEipAddressesRequest {
     return Objects.equals(this.allocationIds, describeEipAddressesRequest.allocationIds) &&
         Objects.equals(this.associatedInstanceId, describeEipAddressesRequest.associatedInstanceId) &&
         Objects.equals(this.associatedInstanceType, describeEipAddressesRequest.associatedInstanceType) &&
+        Objects.equals(this.billingType, describeEipAddressesRequest.billingType) &&
         Objects.equals(this.eipAddresses, describeEipAddressesRequest.eipAddresses) &&
         Objects.equals(this.ISP, describeEipAddressesRequest.ISP) &&
         Objects.equals(this.name, describeEipAddressesRequest.name) &&
@@ -257,7 +413,7 @@ public class DescribeEipAddressesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allocationIds, associatedInstanceId, associatedInstanceType, eipAddresses, ISP, name, pageNumber, pageSize, status);
+    return Objects.hash(allocationIds, associatedInstanceId, associatedInstanceType, billingType, eipAddresses, ISP, name, pageNumber, pageSize, status);
   }
 
 
@@ -269,6 +425,7 @@ public class DescribeEipAddressesRequest {
     sb.append("    allocationIds: ").append(toIndentedString(allocationIds)).append("\n");
     sb.append("    associatedInstanceId: ").append(toIndentedString(associatedInstanceId)).append("\n");
     sb.append("    associatedInstanceType: ").append(toIndentedString(associatedInstanceType)).append("\n");
+    sb.append("    billingType: ").append(toIndentedString(billingType)).append("\n");
     sb.append("    eipAddresses: ").append(toIndentedString(eipAddresses)).append("\n");
     sb.append("    ISP: ").append(toIndentedString(ISP)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
@@ -283,7 +440,7 @@ public class DescribeEipAddressesRequest {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

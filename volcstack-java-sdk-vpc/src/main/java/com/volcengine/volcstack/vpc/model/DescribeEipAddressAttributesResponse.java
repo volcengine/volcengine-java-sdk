@@ -21,11 +21,13 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import javax.validation.constraints.*;
+import javax.validation.Valid;
 /**
  * DescribeEipAddressAttributesResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-03-18T20:48:24.268703+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-03-23T20:44:32.144706+08:00[Asia/Shanghai]")
 public class DescribeEipAddressAttributesResponse {
   @SerializedName("AllocationId")
   private String allocationId = null;
@@ -35,6 +37,9 @@ public class DescribeEipAddressAttributesResponse {
 
   @SerializedName("Bandwidth")
   private Integer bandwidth = null;
+
+  @SerializedName("BandwidthPackageId")
+  private String bandwidthPackageId = null;
 
   @SerializedName("BillingType")
   private Integer billingType = null;
@@ -133,6 +138,24 @@ public class DescribeEipAddressAttributesResponse {
 
   public void setBandwidth(Integer bandwidth) {
     this.bandwidth = bandwidth;
+  }
+
+  public DescribeEipAddressAttributesResponse bandwidthPackageId(String bandwidthPackageId) {
+    this.bandwidthPackageId = bandwidthPackageId;
+    return this;
+  }
+
+   /**
+   * Get bandwidthPackageId
+   * @return bandwidthPackageId
+  **/
+  @Schema(description = "")
+  public String getBandwidthPackageId() {
+    return bandwidthPackageId;
+  }
+
+  public void setBandwidthPackageId(String bandwidthPackageId) {
+    this.bandwidthPackageId = bandwidthPackageId;
   }
 
   public DescribeEipAddressAttributesResponse billingType(Integer billingType) {
@@ -407,7 +430,7 @@ public class DescribeEipAddressAttributesResponse {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -418,6 +441,7 @@ public class DescribeEipAddressAttributesResponse {
     return Objects.equals(this.allocationId, describeEipAddressAttributesResponse.allocationId) &&
         Objects.equals(this.allocationTime, describeEipAddressAttributesResponse.allocationTime) &&
         Objects.equals(this.bandwidth, describeEipAddressAttributesResponse.bandwidth) &&
+        Objects.equals(this.bandwidthPackageId, describeEipAddressAttributesResponse.bandwidthPackageId) &&
         Objects.equals(this.billingType, describeEipAddressAttributesResponse.billingType) &&
         Objects.equals(this.businessStatus, describeEipAddressAttributesResponse.businessStatus) &&
         Objects.equals(this.deletedTime, describeEipAddressAttributesResponse.deletedTime) &&
@@ -437,7 +461,7 @@ public class DescribeEipAddressAttributesResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allocationId, allocationTime, bandwidth, billingType, businessStatus, deletedTime, description, eipAddress, expiredTime, ISP, instanceId, instanceType, lockReason, name, overdueTime, requestId, status, updatedAt);
+    return Objects.hash(allocationId, allocationTime, bandwidth, bandwidthPackageId, billingType, businessStatus, deletedTime, description, eipAddress, expiredTime, ISP, instanceId, instanceType, lockReason, name, overdueTime, requestId, status, updatedAt);
   }
 
 
@@ -449,6 +473,7 @@ public class DescribeEipAddressAttributesResponse {
     sb.append("    allocationId: ").append(toIndentedString(allocationId)).append("\n");
     sb.append("    allocationTime: ").append(toIndentedString(allocationTime)).append("\n");
     sb.append("    bandwidth: ").append(toIndentedString(bandwidth)).append("\n");
+    sb.append("    bandwidthPackageId: ").append(toIndentedString(bandwidthPackageId)).append("\n");
     sb.append("    billingType: ").append(toIndentedString(billingType)).append("\n");
     sb.append("    businessStatus: ").append(toIndentedString(businessStatus)).append("\n");
     sb.append("    deletedTime: ").append(toIndentedString(deletedTime)).append("\n");
@@ -472,7 +497,7 @@ public class DescribeEipAddressAttributesResponse {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -12,20 +12,23 @@
 
 package com.volcengine.volcstack.vpc.model;
 
-import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
+
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Size;
 import java.io.IOException;
+import java.util.Objects;
 /**
  * AllocateEipAddressRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-03-18T20:48:24.268703+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-03-23T20:44:32.144706+08:00[Asia/Shanghai]")
 public class AllocateEipAddressRequest {
   @SerializedName("Bandwidth")
   private Integer bandwidth = null;
@@ -36,8 +39,51 @@ public class AllocateEipAddressRequest {
   @SerializedName("Description")
   private String description = null;
 
-  @SerializedName("ISP")
-  private String ISP = null;
+  /**
+   * Gets or Sets ISP
+   */
+  @JsonAdapter(ISPEnum.Adapter.class)
+  public enum ISPEnum {
+    BGP("BGP"),
+    CHINAMOBILE("ChinaMobile"),
+    CHINAUNICOM("ChinaUnicom"),
+    CHINATELECOM("ChinaTelecom");
+
+    private String value;
+
+    ISPEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ISPEnum fromValue(String input) {
+      for (ISPEnum b : ISPEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ISPEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ISPEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ISPEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ISPEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("ISP")
+  private ISPEnum ISP = null;
 
   @SerializedName("Name")
   private String name = null;
@@ -55,9 +101,11 @@ public class AllocateEipAddressRequest {
 
    /**
    * Get bandwidth
+   * minimum: 1
+   * maximum: 500
    * @return bandwidth
   **/
-  @Schema(description = "")
+ @Min(1) @Max(500)  @Schema(description = "")
   public Integer getBandwidth() {
     return bandwidth;
   }
@@ -73,9 +121,11 @@ public class AllocateEipAddressRequest {
 
    /**
    * Get billingType
+   * minimum: 1
+   * maximum: 3
    * @return billingType
   **/
-  @Schema(description = "")
+ @Min(1) @Max(3)  @Schema(description = "")
   public Integer getBillingType() {
     return billingType;
   }
@@ -93,7 +143,7 @@ public class AllocateEipAddressRequest {
    * Get description
    * @return description
   **/
-  @Schema(description = "")
+ @Size(min=1,max=255)  @Schema(description = "")
   public String getDescription() {
     return description;
   }
@@ -102,7 +152,7 @@ public class AllocateEipAddressRequest {
     this.description = description;
   }
 
-  public AllocateEipAddressRequest ISP(String ISP) {
+  public AllocateEipAddressRequest ISP(ISPEnum ISP) {
     this.ISP = ISP;
     return this;
   }
@@ -112,11 +162,11 @@ public class AllocateEipAddressRequest {
    * @return ISP
   **/
   @Schema(description = "")
-  public String getISP() {
+  public ISPEnum getISP() {
     return ISP;
   }
 
-  public void setISP(String ISP) {
+  public void setISP(ISPEnum ISP) {
     this.ISP = ISP;
   }
 
@@ -129,7 +179,7 @@ public class AllocateEipAddressRequest {
    * Get name
    * @return name
   **/
-  @Schema(description = "")
+ @Size(min=1,max=128)  @Schema(description = "")
   public String getName() {
     return name;
   }
@@ -163,9 +213,11 @@ public class AllocateEipAddressRequest {
 
    /**
    * Get periodUnit
+   * minimum: 1
+   * maximum: 2
    * @return periodUnit
   **/
-  @Schema(description = "")
+ @Min(1) @Max(2)  @Schema(description = "")
   public Integer getPeriodUnit() {
     return periodUnit;
   }
@@ -176,7 +228,7 @@ public class AllocateEipAddressRequest {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -219,7 +271,7 @@ public class AllocateEipAddressRequest {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

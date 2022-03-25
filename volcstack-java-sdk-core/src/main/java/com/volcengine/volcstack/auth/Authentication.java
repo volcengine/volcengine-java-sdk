@@ -12,7 +12,6 @@
 
 package com.volcengine.volcstack.auth;
 
-import com.squareup.okhttp.RequestBody;
 import com.volcengine.volcstack.Pair;
 
 import java.util.List;
@@ -25,5 +24,5 @@ public interface Authentication {
      * @param queryParams List of query parameters
      * @param headerParams Map of header parameters
      */
-    void applyToParams(List<Pair> queryParams, Map<String, String> headerParams, RequestBody requestBody);
+    void applyToParams(List<Pair> queryParams, Map<String, String> headerParams,String payload);
 }

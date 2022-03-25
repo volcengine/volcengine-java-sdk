@@ -23,11 +23,13 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.validation.constraints.*;
+import javax.validation.Valid;
 /**
  * CreateNetworkInterfaceRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-03-18T20:48:24.268703+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-03-23T20:44:32.144706+08:00[Asia/Shanghai]")
 public class CreateNetworkInterfaceRequest {
   @SerializedName("Description")
   private String description = null;
@@ -40,6 +42,12 @@ public class CreateNetworkInterfaceRequest {
 
   @SerializedName("PrimaryIpAddress")
   private String primaryIpAddress = null;
+
+  @SerializedName("PrivateIpAddress")
+  private List<String> privateIpAddress = null;
+
+  @SerializedName("SecondaryPrivateIpAddressCount")
+  private Integer secondaryPrivateIpAddressCount = null;
 
   @SerializedName("SecurityGroupIds")
   private List<String> securityGroupIds = null;
@@ -56,7 +64,7 @@ public class CreateNetworkInterfaceRequest {
    * Get description
    * @return description
   **/
-  @Schema(description = "")
+ @Size(min=1,max=255)  @Schema(description = "")
   public String getDescription() {
     return description;
   }
@@ -74,7 +82,7 @@ public class CreateNetworkInterfaceRequest {
    * Get networkInterfaceName
    * @return networkInterfaceName
   **/
-  @Schema(description = "")
+ @Size(min=1,max=128)  @Schema(description = "")
   public String getNetworkInterfaceName() {
     return networkInterfaceName;
   }
@@ -119,6 +127,50 @@ public class CreateNetworkInterfaceRequest {
     this.primaryIpAddress = primaryIpAddress;
   }
 
+  public CreateNetworkInterfaceRequest privateIpAddress(List<String> privateIpAddress) {
+    this.privateIpAddress = privateIpAddress;
+    return this;
+  }
+
+  public CreateNetworkInterfaceRequest addPrivateIpAddressItem(String privateIpAddressItem) {
+    if (this.privateIpAddress == null) {
+      this.privateIpAddress = new ArrayList<String>();
+    }
+    this.privateIpAddress.add(privateIpAddressItem);
+    return this;
+  }
+
+   /**
+   * Get privateIpAddress
+   * @return privateIpAddress
+  **/
+  @Schema(description = "")
+  public List<String> getPrivateIpAddress() {
+    return privateIpAddress;
+  }
+
+  public void setPrivateIpAddress(List<String> privateIpAddress) {
+    this.privateIpAddress = privateIpAddress;
+  }
+
+  public CreateNetworkInterfaceRequest secondaryPrivateIpAddressCount(Integer secondaryPrivateIpAddressCount) {
+    this.secondaryPrivateIpAddressCount = secondaryPrivateIpAddressCount;
+    return this;
+  }
+
+   /**
+   * Get secondaryPrivateIpAddressCount
+   * @return secondaryPrivateIpAddressCount
+  **/
+  @Schema(description = "")
+  public Integer getSecondaryPrivateIpAddressCount() {
+    return secondaryPrivateIpAddressCount;
+  }
+
+  public void setSecondaryPrivateIpAddressCount(Integer secondaryPrivateIpAddressCount) {
+    this.secondaryPrivateIpAddressCount = secondaryPrivateIpAddressCount;
+  }
+
   public CreateNetworkInterfaceRequest securityGroupIds(List<String> securityGroupIds) {
     this.securityGroupIds = securityGroupIds;
     return this;
@@ -154,7 +206,8 @@ public class CreateNetworkInterfaceRequest {
    * Get subnetId
    * @return subnetId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getSubnetId() {
     return subnetId;
   }
@@ -165,7 +218,7 @@ public class CreateNetworkInterfaceRequest {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -177,13 +230,15 @@ public class CreateNetworkInterfaceRequest {
         Objects.equals(this.networkInterfaceName, createNetworkInterfaceRequest.networkInterfaceName) &&
         Objects.equals(this.portSecurityEnabled, createNetworkInterfaceRequest.portSecurityEnabled) &&
         Objects.equals(this.primaryIpAddress, createNetworkInterfaceRequest.primaryIpAddress) &&
+        Objects.equals(this.privateIpAddress, createNetworkInterfaceRequest.privateIpAddress) &&
+        Objects.equals(this.secondaryPrivateIpAddressCount, createNetworkInterfaceRequest.secondaryPrivateIpAddressCount) &&
         Objects.equals(this.securityGroupIds, createNetworkInterfaceRequest.securityGroupIds) &&
         Objects.equals(this.subnetId, createNetworkInterfaceRequest.subnetId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, networkInterfaceName, portSecurityEnabled, primaryIpAddress, securityGroupIds, subnetId);
+    return Objects.hash(description, networkInterfaceName, portSecurityEnabled, primaryIpAddress, privateIpAddress, secondaryPrivateIpAddressCount, securityGroupIds, subnetId);
   }
 
 
@@ -196,6 +251,8 @@ public class CreateNetworkInterfaceRequest {
     sb.append("    networkInterfaceName: ").append(toIndentedString(networkInterfaceName)).append("\n");
     sb.append("    portSecurityEnabled: ").append(toIndentedString(portSecurityEnabled)).append("\n");
     sb.append("    primaryIpAddress: ").append(toIndentedString(primaryIpAddress)).append("\n");
+    sb.append("    privateIpAddress: ").append(toIndentedString(privateIpAddress)).append("\n");
+    sb.append("    secondaryPrivateIpAddressCount: ").append(toIndentedString(secondaryPrivateIpAddressCount)).append("\n");
     sb.append("    securityGroupIds: ").append(toIndentedString(securityGroupIds)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("}");
@@ -206,7 +263,7 @@ public class CreateNetworkInterfaceRequest {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

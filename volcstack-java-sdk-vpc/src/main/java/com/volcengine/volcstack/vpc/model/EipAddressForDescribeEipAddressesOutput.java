@@ -21,11 +21,13 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import javax.validation.constraints.*;
+import javax.validation.Valid;
 /**
  * EipAddressForDescribeEipAddressesOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-03-18T20:48:24.268703+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-03-23T20:44:32.144706+08:00[Asia/Shanghai]")
 public class EipAddressForDescribeEipAddressesOutput {
   @SerializedName("AllocationId")
   private String allocationId = null;
@@ -35,6 +37,9 @@ public class EipAddressForDescribeEipAddressesOutput {
 
   @SerializedName("Bandwidth")
   private Integer bandwidth = null;
+
+  @SerializedName("BandwidthPackageId")
+  private String bandwidthPackageId = null;
 
   @SerializedName("BillingType")
   private Integer billingType = null;
@@ -130,6 +135,24 @@ public class EipAddressForDescribeEipAddressesOutput {
 
   public void setBandwidth(Integer bandwidth) {
     this.bandwidth = bandwidth;
+  }
+
+  public EipAddressForDescribeEipAddressesOutput bandwidthPackageId(String bandwidthPackageId) {
+    this.bandwidthPackageId = bandwidthPackageId;
+    return this;
+  }
+
+   /**
+   * Get bandwidthPackageId
+   * @return bandwidthPackageId
+  **/
+  @Schema(description = "")
+  public String getBandwidthPackageId() {
+    return bandwidthPackageId;
+  }
+
+  public void setBandwidthPackageId(String bandwidthPackageId) {
+    this.bandwidthPackageId = bandwidthPackageId;
   }
 
   public EipAddressForDescribeEipAddressesOutput billingType(Integer billingType) {
@@ -386,7 +409,7 @@ public class EipAddressForDescribeEipAddressesOutput {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -397,6 +420,7 @@ public class EipAddressForDescribeEipAddressesOutput {
     return Objects.equals(this.allocationId, eipAddressForDescribeEipAddressesOutput.allocationId) &&
         Objects.equals(this.allocationTime, eipAddressForDescribeEipAddressesOutput.allocationTime) &&
         Objects.equals(this.bandwidth, eipAddressForDescribeEipAddressesOutput.bandwidth) &&
+        Objects.equals(this.bandwidthPackageId, eipAddressForDescribeEipAddressesOutput.bandwidthPackageId) &&
         Objects.equals(this.billingType, eipAddressForDescribeEipAddressesOutput.billingType) &&
         Objects.equals(this.businessStatus, eipAddressForDescribeEipAddressesOutput.businessStatus) &&
         Objects.equals(this.deletedTime, eipAddressForDescribeEipAddressesOutput.deletedTime) &&
@@ -415,7 +439,7 @@ public class EipAddressForDescribeEipAddressesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allocationId, allocationTime, bandwidth, billingType, businessStatus, deletedTime, description, eipAddress, expiredTime, ISP, instanceId, instanceType, lockReason, name, overdueTime, status, updatedAt);
+    return Objects.hash(allocationId, allocationTime, bandwidth, bandwidthPackageId, billingType, businessStatus, deletedTime, description, eipAddress, expiredTime, ISP, instanceId, instanceType, lockReason, name, overdueTime, status, updatedAt);
   }
 
 
@@ -427,6 +451,7 @@ public class EipAddressForDescribeEipAddressesOutput {
     sb.append("    allocationId: ").append(toIndentedString(allocationId)).append("\n");
     sb.append("    allocationTime: ").append(toIndentedString(allocationTime)).append("\n");
     sb.append("    bandwidth: ").append(toIndentedString(bandwidth)).append("\n");
+    sb.append("    bandwidthPackageId: ").append(toIndentedString(bandwidthPackageId)).append("\n");
     sb.append("    billingType: ").append(toIndentedString(billingType)).append("\n");
     sb.append("    businessStatus: ").append(toIndentedString(businessStatus)).append("\n");
     sb.append("    deletedTime: ").append(toIndentedString(deletedTime)).append("\n");
@@ -449,7 +474,7 @@ public class EipAddressForDescribeEipAddressesOutput {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

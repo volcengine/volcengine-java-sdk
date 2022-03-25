@@ -21,11 +21,13 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import javax.validation.constraints.*;
+import javax.validation.Valid;
 /**
  * DisassociateHaVipRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-03-18T20:48:24.268703+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-03-23T20:44:32.144706+08:00[Asia/Shanghai]")
 public class DisassociateHaVipRequest {
   @SerializedName("HaVipId")
   private String haVipId = null;
@@ -33,8 +35,49 @@ public class DisassociateHaVipRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;
 
-  @SerializedName("InstanceType")
-  private String instanceType = null;
+  /**
+   * Gets or Sets instanceType
+   */
+  @JsonAdapter(InstanceTypeEnum.Adapter.class)
+  public enum InstanceTypeEnum {
+    NETWORKINTERFACE("NetworkInterface"),
+    ECSINSTANCE("EcsInstance");
+
+    private String value;
+
+    InstanceTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static InstanceTypeEnum fromValue(String input) {
+      for (InstanceTypeEnum b : InstanceTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<InstanceTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final InstanceTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public InstanceTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return InstanceTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("InstanceType")
+  private InstanceTypeEnum instanceType = null;
 
   public DisassociateHaVipRequest haVipId(String haVipId) {
     this.haVipId = haVipId;
@@ -45,7 +88,8 @@ public class DisassociateHaVipRequest {
    * Get haVipId
    * @return haVipId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getHaVipId() {
     return haVipId;
   }
@@ -63,7 +107,8 @@ public class DisassociateHaVipRequest {
    * Get instanceId
    * @return instanceId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getInstanceId() {
     return instanceId;
   }
@@ -72,7 +117,7 @@ public class DisassociateHaVipRequest {
     this.instanceId = instanceId;
   }
 
-  public DisassociateHaVipRequest instanceType(String instanceType) {
+  public DisassociateHaVipRequest instanceType(InstanceTypeEnum instanceType) {
     this.instanceType = instanceType;
     return this;
   }
@@ -82,17 +127,17 @@ public class DisassociateHaVipRequest {
    * @return instanceType
   **/
   @Schema(description = "")
-  public String getInstanceType() {
+  public InstanceTypeEnum getInstanceType() {
     return instanceType;
   }
 
-  public void setInstanceType(String instanceType) {
+  public void setInstanceType(InstanceTypeEnum instanceType) {
     this.instanceType = instanceType;
   }
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -127,7 +172,7 @@ public class DisassociateHaVipRequest {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -25,6 +25,7 @@ import com.volcengine.volcstack.sign.VolcstackSign;
 import com.volcengine.volcstack.version.Version;
 import okio.BufferedSink;
 import okio.Okio;
+import org.apache.commons.lang.StringUtils;
 import org.threeten.bp.LocalDate;
 import org.threeten.bp.OffsetDateTime;
 import org.threeten.bp.format.DateTimeFormatter;
@@ -48,7 +49,6 @@ import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.Map.Entry;
 import java.util.concurrent.TimeUnit;
@@ -725,7 +725,16 @@ public class ApiClient {
             return null;
         }
 
-        respBody = convertResponseBody(respBody);
+        StringBuilder builder = new StringBuilder();
+
+        if (!convertResponseBody(respBody,builder)){
+            throw new ApiException(
+                    response.code(),
+                    response.headers().toMultimap(),
+                    respBody);
+        }else {
+            respBody = builder.toString();
+        }
 
 
         String contentType = response.headers().get("Content-Type");
@@ -973,40 +982,47 @@ public class ApiClient {
         return httpClient.newCall(request);
     }
 
-    private boolean isApplicationJsonBody(Map<String, String> headerParams){
+    private void getDefaultContentType(Map<String, String> headerParams) {
         String contentType = headerParams.get("Content-Type");
         if (contentType == null) {
-            headerParams.put("Content-Type","application/json");
-            return true;
+            headerParams.put("Content-Type", "text/plain");
         }
-        if (contentType.equals("application/json")){
+    }
+
+    private boolean isApplicationJsonBody(Map<String, String> headerParams) {
+        String contentType = headerParams.get("Content-Type");
+        if (contentType == null) {
+            return false;
+        }
+        if (contentType.equals("application/json")) {
             return true;
         }
         return false;
     }
 
-    private ServiceInfo addPairAndGetServiceInfo(String path, List<Pair> queryParams,Map<String, String> headerParams) {
+    private boolean isPostBody(Map<String, String> headerParams) {
+        String contentType = headerParams.get("Content-Type");
+        if (contentType == null) {
+            return false;
+        }
+        if (contentType.equals("application/x-www-form-urlencoded")) {
+            return true;
+        }
+        return false;
+    }
+
+    private ServiceInfo addPairAndGetServiceInfo(String path, List<Pair> queryParams, Map<String, String> headerParams) {
         String[] param = path.split("/");
 
-        if (!isApplicationJsonBody(headerParams)){
+        if (!isApplicationJsonBody(headerParams) && !isPostBody(headerParams)) {
             queryParams.add(new Pair("Action", param[1]));
             queryParams.add(new Pair("Version", param[2]));
         }
-
         return new ServiceInfo(param[3], param[4]);
     }
 
-    private void initRequestHeader(Map<String, String> headerParams) {
-        if (!headerParams.containsKey("X-Date")) {
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd'T'HHmmss'Z'");
-            sdf.setTimeZone(TimeZone.getTimeZone("GMT"));
-            headerParams.put("X-Date", sdf.format(new Date()));
-//            headerParams.put("X-Date","20220318T082940Z");
-        }
-    }
-
     private String getTruePath(String path, Map<String, String> headerParams) {
-        if (isApplicationJsonBody(headerParams)){
+        if (isApplicationJsonBody(headerParams) || isPostBody(headerParams)) {
             String[] param = path.split("/");
             return "/?Action=" + param[1] + "&Version=" + param[2];
         } else {
@@ -1014,28 +1030,38 @@ public class ApiClient {
         }
     }
 
-    private String convertResponseBody(String source){
-        Type t = new TypeToken<Map<String,?>>(){}.getType();
-        Map<String,?> temp = json.deserialize(source,t);
-        if (temp.containsKey("ResponseMetadata") && temp.containsKey("Result")){
-            return json.serialize(temp.get("Result"));
+    @SuppressWarnings("all")
+    private boolean convertResponseBody(String source,StringBuilder stringBuilder) {
+        Type t = new TypeToken<Map<String, ?>>() {
+        }.getType();
+        Map<String, ?> temp = json.deserialize(source, t);
+        if (temp.containsKey("ResponseMetadata") && temp.containsKey("Result")) {
+            stringBuilder.append(json.serialize(temp.get("Result")));
+            return true;
         }
-       return source;
+        return false;
     }
 
-    private void buildSimpleRequest(Object body, List<Pair> queryParams,Map<String, String> headerParams,String chain) throws Exception {
-        if (isApplicationJsonBody(headerParams)){
-            return;
+    private void buildSimpleRequest(Object body, List<Pair> queryParams, Map<String, String> headerParams, StringBuilder builder, String chain) throws Exception {
+        if (isApplicationJsonBody(headerParams)) {
+            builder.append(json.serialize(body));
         }
         Class<?> clazz = body.getClass();
 
-        if (!clazz.getName().startsWith("com.volcengine.volcstack")){
-            Pair pair = new Pair(chain, body.toString());
-            queryParams.add(pair);
+        if (!clazz.getName().startsWith("com.volcengine.volcstack")) {
+            if (isPostBody(headerParams)) {
+                builder.append(chain);
+                builder.append("=");
+                builder.append(body);
+                builder.append("&");
+            } else {
+                Pair pair = new Pair(chain, body.toString());
+                queryParams.add(pair);
+            }
             return;
         }
 
-        if (!chain.equals("")){
+        if (!chain.equals("")) {
             chain = chain + ".";
         }
 
@@ -1050,18 +1076,37 @@ public class ApiClient {
                     int count = 0;
                     for (Object o : (List<?>) value) {
                         String key = chain + getMethodName(field.getName()) + "." + (++count);
-                        buildSimpleRequest(o,queryParams,headerParams,key);
+                        buildSimpleRequest(o, queryParams, headerParams, builder, key);
                     }
                 } else {
-                    if (!field.getType().getName().startsWith("com.volcengine.volcstack")){
-                        Pair pair = new Pair(chain + getMethodName(field.getName()), value.toString());
-                        queryParams.add(pair);
-                    }else {
+                    if (!field.getType().getName().startsWith("com.volcengine.volcstack")) {
+                        if (isPostBody(headerParams)) {
+                            builder.append(chain);
+                            builder.append(getMethodName(field.getName()));
+                            builder.append("=");
+                            builder.append(value);
+                            builder.append("&");
+                        } else {
+                            Pair pair = new Pair(chain + getMethodName(field.getName()), value.toString());
+                            queryParams.add(pair);
+                        }
+                    } else {
                         String key = chain + getMethodName(field.getName());
-                        buildSimpleRequest(value,queryParams,headerParams,key);
+                        buildSimpleRequest(value, queryParams, headerParams, builder, key);
                     }
                 }
             }
+        }
+    }
+
+    private String getPayload(String contentType, String source) {
+        if (source.equals("")) {
+            return "";
+        }
+        if (contentType.equals("application/json")) {
+            return source;
+        } else {
+            return source.substring(0, source.length() - 1);
         }
     }
 
@@ -1095,13 +1140,15 @@ public class ApiClient {
      */
     public Request buildRequest(String path, String method, List<Pair> queryParams, List<Pair> collectionQueryParams, Object body, Map<String, String> headerParams, Map<String, Object> formParams, String[] authNames, ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
 
-        ServiceInfo serviceInfo = addPairAndGetServiceInfo(path, queryParams,headerParams);
-        initRequestHeader(headerParams);
-        String truePath = getTruePath(path,headerParams);
+        getDefaultContentType(headerParams);
+
+        ServiceInfo serviceInfo = addPairAndGetServiceInfo(path, queryParams, headerParams);
+        String truePath = getTruePath(path, headerParams);
         String contentType = headerParams.get("Content-Type");
+        StringBuilder bodyBuilder = new StringBuilder();
 
         try {
-            buildSimpleRequest(body, queryParams,headerParams,"");
+            buildSimpleRequest(body, queryParams, headerParams, bodyBuilder, "");
         } catch (Exception e) {
             throw new ApiException(e);
         }
@@ -1115,8 +1162,8 @@ public class ApiClient {
         if (!HttpMethod.permitsRequestBody(method)) {
             reqBody = null;
         } else if ("application/x-www-form-urlencoded".equals(contentType)) {
-            for (Pair pair : queryParams){
-                formParams.put(pair.getName(),pair.getValue());
+            for (Pair pair : queryParams) {
+                formParams.put(pair.getName(), pair.getValue());
             }
             reqBody = buildRequestBodyFormEncoding(formParams);
         } else if ("multipart/form-data".equals(contentType)) {
@@ -1132,8 +1179,9 @@ public class ApiClient {
         } else {
             reqBody = serialize(body, contentType);
         }
-
-        updateParamsForAuth(authNames, queryParams, headerParams,serviceInfo,reqBody);
+        //sign
+        updateParamsForAuth(authNames, queryParams, headerParams, serviceInfo, getPayload(contentType,
+                bodyBuilder.toString()));
 
         processHeaderParams(headerParams, reqBuilder);
 
@@ -1232,20 +1280,29 @@ public class ApiClient {
         for (String authName : authNames) {
             Authentication auth = authentications.get(authName);
             if (auth == null) throw new RuntimeException("Authentication undefined: " + authName);
-            auth.applyToParams(queryParams, headerParams,null);
+            auth.applyToParams(queryParams, headerParams, "");
         }
     }
 
-    public void updateParamsForAuth(String[] authNames, List<Pair> queryParams, Map<String, String> headerParams,ServiceInfo serviceInfo,RequestBody requestBody) {
+    public void updateParamsForAuth(String[] authNames, List<Pair> queryParams, Map<String, String> headerParams, ServiceInfo serviceInfo, String payload) {
         for (String authName : authNames) {
             Authentication auth = authentications.get(authName);
             if (auth == null) throw new RuntimeException("Authentication undefined: " + authName);
-            if (auth instanceof VolcstackSign){
-                VolcstackSign volcstackSign = (VolcstackSign)auth;
+            if (auth instanceof VolcstackSign) {
+                VolcstackSign volcstackSign = (VolcstackSign) auth;
+                if (volcstackSign.getCredentials() == null) {
+                    throw new RuntimeException("Credentials must set when ApiClient init");
+                }
+                if (StringUtils.isEmpty(credentials.getAccessKey()) || StringUtils.isEmpty(credentials.getSecretKey())){
+                    throw new RuntimeException("AccessKey and SecretKey must set when ApiClient init Credentials");
+                }
+                if (StringUtils.isEmpty(volcstackSign.getRegion())) {
+                    throw new RuntimeException("Region must set when ApiClient init");
+                }
                 volcstackSign.setMethod(serviceInfo.getMethod().toUpperCase());
                 volcstackSign.setService(serviceInfo.getServiceName());
             }
-            auth.applyToParams(queryParams, headerParams,requestBody);
+            auth.applyToParams(queryParams, headerParams, payload);
         }
     }
 

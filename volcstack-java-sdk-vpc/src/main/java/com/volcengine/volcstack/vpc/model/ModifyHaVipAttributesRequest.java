@@ -21,11 +21,13 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import javax.validation.constraints.*;
+import javax.validation.Valid;
 /**
  * ModifyHaVipAttributesRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-03-18T20:48:24.268703+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-03-23T20:44:32.144706+08:00[Asia/Shanghai]")
 public class ModifyHaVipAttributesRequest {
   @SerializedName("Description")
   private String description = null;
@@ -45,7 +47,7 @@ public class ModifyHaVipAttributesRequest {
    * Get description
    * @return description
   **/
-  @Schema(description = "")
+ @Size(min=1,max=255)  @Schema(description = "")
   public String getDescription() {
     return description;
   }
@@ -63,7 +65,8 @@ public class ModifyHaVipAttributesRequest {
    * Get haVipId
    * @return haVipId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getHaVipId() {
     return haVipId;
   }
@@ -81,7 +84,7 @@ public class ModifyHaVipAttributesRequest {
    * Get haVipName
    * @return haVipName
   **/
-  @Schema(description = "")
+ @Size(min=1,max=128)  @Schema(description = "")
   public String getHaVipName() {
     return haVipName;
   }
@@ -92,7 +95,7 @@ public class ModifyHaVipAttributesRequest {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -127,7 +130,7 @@ public class ModifyHaVipAttributesRequest {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
