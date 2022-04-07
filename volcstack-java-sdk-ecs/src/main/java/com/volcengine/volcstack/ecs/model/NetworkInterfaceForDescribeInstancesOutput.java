@@ -21,36 +21,22 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
  * NetworkInterfaceForDescribeInstancesOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-03-24T18:21:02.503402+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-07T19:27:18.461509+08:00[Asia/Shanghai]")
 public class NetworkInterfaceForDescribeInstancesOutput {
-  @SerializedName("EipAddress")
-  private String eipAddress = null;
-
   @SerializedName("MacAddress")
   private String macAddress = null;
 
   @SerializedName("NetworkInterfaceId")
   private String networkInterfaceId = null;
 
-  @SerializedName("NetworkInterfaceName")
-  private String networkInterfaceName = null;
-
   @SerializedName("PrimaryIpAddress")
   private String primaryIpAddress = null;
-
-  @SerializedName("SecurityGroupIds")
-  private List<String> securityGroupIds = null;
-
-  @SerializedName("Status")
-  private String status = null;
 
   @SerializedName("SubnetId")
   private String subnetId = null;
@@ -60,27 +46,6 @@ public class NetworkInterfaceForDescribeInstancesOutput {
 
   @SerializedName("VpcId")
   private String vpcId = null;
-
-  @SerializedName("VpcName")
-  private String vpcName = null;
-
-  public NetworkInterfaceForDescribeInstancesOutput eipAddress(String eipAddress) {
-    this.eipAddress = eipAddress;
-    return this;
-  }
-
-   /**
-   * Get eipAddress
-   * @return eipAddress
-  **/
-  @Schema(description = "")
-  public String getEipAddress() {
-    return eipAddress;
-  }
-
-  public void setEipAddress(String eipAddress) {
-    this.eipAddress = eipAddress;
-  }
 
   public NetworkInterfaceForDescribeInstancesOutput macAddress(String macAddress) {
     this.macAddress = macAddress;
@@ -118,24 +83,6 @@ public class NetworkInterfaceForDescribeInstancesOutput {
     this.networkInterfaceId = networkInterfaceId;
   }
 
-  public NetworkInterfaceForDescribeInstancesOutput networkInterfaceName(String networkInterfaceName) {
-    this.networkInterfaceName = networkInterfaceName;
-    return this;
-  }
-
-   /**
-   * Get networkInterfaceName
-   * @return networkInterfaceName
-  **/
-  @Schema(description = "")
-  public String getNetworkInterfaceName() {
-    return networkInterfaceName;
-  }
-
-  public void setNetworkInterfaceName(String networkInterfaceName) {
-    this.networkInterfaceName = networkInterfaceName;
-  }
-
   public NetworkInterfaceForDescribeInstancesOutput primaryIpAddress(String primaryIpAddress) {
     this.primaryIpAddress = primaryIpAddress;
     return this;
@@ -152,50 +99,6 @@ public class NetworkInterfaceForDescribeInstancesOutput {
 
   public void setPrimaryIpAddress(String primaryIpAddress) {
     this.primaryIpAddress = primaryIpAddress;
-  }
-
-  public NetworkInterfaceForDescribeInstancesOutput securityGroupIds(List<String> securityGroupIds) {
-    this.securityGroupIds = securityGroupIds;
-    return this;
-  }
-
-  public NetworkInterfaceForDescribeInstancesOutput addSecurityGroupIdsItem(String securityGroupIdsItem) {
-    if (this.securityGroupIds == null) {
-      this.securityGroupIds = new ArrayList<String>();
-    }
-    this.securityGroupIds.add(securityGroupIdsItem);
-    return this;
-  }
-
-   /**
-   * Get securityGroupIds
-   * @return securityGroupIds
-  **/
-  @Schema(description = "")
-  public List<String> getSecurityGroupIds() {
-    return securityGroupIds;
-  }
-
-  public void setSecurityGroupIds(List<String> securityGroupIds) {
-    this.securityGroupIds = securityGroupIds;
-  }
-
-  public NetworkInterfaceForDescribeInstancesOutput status(String status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Get status
-   * @return status
-  **/
-  @Schema(description = "")
-  public String getStatus() {
-    return status;
-  }
-
-  public void setStatus(String status) {
-    this.status = status;
   }
 
   public NetworkInterfaceForDescribeInstancesOutput subnetId(String subnetId) {
@@ -252,24 +155,6 @@ public class NetworkInterfaceForDescribeInstancesOutput {
     this.vpcId = vpcId;
   }
 
-  public NetworkInterfaceForDescribeInstancesOutput vpcName(String vpcName) {
-    this.vpcName = vpcName;
-    return this;
-  }
-
-   /**
-   * Get vpcName
-   * @return vpcName
-  **/
-  @Schema(description = "")
-  public String getVpcName() {
-    return vpcName;
-  }
-
-  public void setVpcName(String vpcName) {
-    this.vpcName = vpcName;
-  }
-
 
   @Override
   public boolean equals(Object o) {
@@ -280,22 +165,17 @@ public class NetworkInterfaceForDescribeInstancesOutput {
       return false;
     }
     NetworkInterfaceForDescribeInstancesOutput networkInterfaceForDescribeInstancesOutput = (NetworkInterfaceForDescribeInstancesOutput) o;
-    return Objects.equals(this.eipAddress, networkInterfaceForDescribeInstancesOutput.eipAddress) &&
-        Objects.equals(this.macAddress, networkInterfaceForDescribeInstancesOutput.macAddress) &&
+    return Objects.equals(this.macAddress, networkInterfaceForDescribeInstancesOutput.macAddress) &&
         Objects.equals(this.networkInterfaceId, networkInterfaceForDescribeInstancesOutput.networkInterfaceId) &&
-        Objects.equals(this.networkInterfaceName, networkInterfaceForDescribeInstancesOutput.networkInterfaceName) &&
         Objects.equals(this.primaryIpAddress, networkInterfaceForDescribeInstancesOutput.primaryIpAddress) &&
-        Objects.equals(this.securityGroupIds, networkInterfaceForDescribeInstancesOutput.securityGroupIds) &&
-        Objects.equals(this.status, networkInterfaceForDescribeInstancesOutput.status) &&
         Objects.equals(this.subnetId, networkInterfaceForDescribeInstancesOutput.subnetId) &&
         Objects.equals(this.type, networkInterfaceForDescribeInstancesOutput.type) &&
-        Objects.equals(this.vpcId, networkInterfaceForDescribeInstancesOutput.vpcId) &&
-        Objects.equals(this.vpcName, networkInterfaceForDescribeInstancesOutput.vpcName);
+        Objects.equals(this.vpcId, networkInterfaceForDescribeInstancesOutput.vpcId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(eipAddress, macAddress, networkInterfaceId, networkInterfaceName, primaryIpAddress, securityGroupIds, status, subnetId, type, vpcId, vpcName);
+    return Objects.hash(macAddress, networkInterfaceId, primaryIpAddress, subnetId, type, vpcId);
   }
 
 
@@ -304,17 +184,12 @@ public class NetworkInterfaceForDescribeInstancesOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class NetworkInterfaceForDescribeInstancesOutput {\n");
     
-    sb.append("    eipAddress: ").append(toIndentedString(eipAddress)).append("\n");
     sb.append("    macAddress: ").append(toIndentedString(macAddress)).append("\n");
     sb.append("    networkInterfaceId: ").append(toIndentedString(networkInterfaceId)).append("\n");
-    sb.append("    networkInterfaceName: ").append(toIndentedString(networkInterfaceName)).append("\n");
     sb.append("    primaryIpAddress: ").append(toIndentedString(primaryIpAddress)).append("\n");
-    sb.append("    securityGroupIds: ").append(toIndentedString(securityGroupIds)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
-    sb.append("    vpcName: ").append(toIndentedString(vpcName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

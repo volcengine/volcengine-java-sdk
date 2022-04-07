@@ -116,7 +116,7 @@ public class ApiClient {
         String jdkInfo = "java-" + System.getProperty("java.version");
         String arch = System.getProperty("os.arch");
 
-        return String.format(format, Version.SDK_NAME, Version.SDK_NAME, jdkInfo, osInfo, arch);
+        return String.format(format, Version.SDK_NAME, Version.SDK_VERSION, jdkInfo, osInfo, arch);
     }
 
     /**

@@ -29,7 +29,7 @@ import javax.validation.Valid;
  * DescribeImagesRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-03-24T18:21:02.503402+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-07T19:27:18.461509+08:00[Asia/Shanghai]")
 public class DescribeImagesRequest {
   @SerializedName("ImageIds")
   private List<String> imageIds = null;
@@ -43,14 +43,14 @@ public class DescribeImagesRequest {
   @SerializedName("IsSupportCloudInit")
   private Boolean isSupportCloudInit = null;
 
+  @SerializedName("MaxResults")
+  private Integer maxResults = null;
+
+  @SerializedName("NextToken")
+  private String nextToken = null;
+
   @SerializedName("OsType")
   private String osType = null;
-
-  @SerializedName("PageNumber")
-  private Integer pageNumber = null;
-
-  @SerializedName("PageSize")
-  private Integer pageSize = null;
 
   @SerializedName("Visibility")
   private String visibility = null;
@@ -135,6 +135,42 @@ public class DescribeImagesRequest {
     this.isSupportCloudInit = isSupportCloudInit;
   }
 
+  public DescribeImagesRequest maxResults(Integer maxResults) {
+    this.maxResults = maxResults;
+    return this;
+  }
+
+   /**
+   * Get maxResults
+   * @return maxResults
+  **/
+  @Schema(description = "")
+  public Integer getMaxResults() {
+    return maxResults;
+  }
+
+  public void setMaxResults(Integer maxResults) {
+    this.maxResults = maxResults;
+  }
+
+  public DescribeImagesRequest nextToken(String nextToken) {
+    this.nextToken = nextToken;
+    return this;
+  }
+
+   /**
+   * Get nextToken
+   * @return nextToken
+  **/
+  @Schema(description = "")
+  public String getNextToken() {
+    return nextToken;
+  }
+
+  public void setNextToken(String nextToken) {
+    this.nextToken = nextToken;
+  }
+
   public DescribeImagesRequest osType(String osType) {
     this.osType = osType;
     return this;
@@ -151,42 +187,6 @@ public class DescribeImagesRequest {
 
   public void setOsType(String osType) {
     this.osType = osType;
-  }
-
-  public DescribeImagesRequest pageNumber(Integer pageNumber) {
-    this.pageNumber = pageNumber;
-    return this;
-  }
-
-   /**
-   * Get pageNumber
-   * @return pageNumber
-  **/
-  @Schema(description = "")
-  public Integer getPageNumber() {
-    return pageNumber;
-  }
-
-  public void setPageNumber(Integer pageNumber) {
-    this.pageNumber = pageNumber;
-  }
-
-  public DescribeImagesRequest pageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-    return this;
-  }
-
-   /**
-   * Get pageSize
-   * @return pageSize
-  **/
-  @Schema(description = "")
-  public Integer getPageSize() {
-    return pageSize;
-  }
-
-  public void setPageSize(Integer pageSize) {
-    this.pageSize = pageSize;
   }
 
   public DescribeImagesRequest visibility(String visibility) {
@@ -221,15 +221,15 @@ public class DescribeImagesRequest {
         Objects.equals(this.imageStatus, describeImagesRequest.imageStatus) &&
         Objects.equals(this.instanceTypeId, describeImagesRequest.instanceTypeId) &&
         Objects.equals(this.isSupportCloudInit, describeImagesRequest.isSupportCloudInit) &&
+        Objects.equals(this.maxResults, describeImagesRequest.maxResults) &&
+        Objects.equals(this.nextToken, describeImagesRequest.nextToken) &&
         Objects.equals(this.osType, describeImagesRequest.osType) &&
-        Objects.equals(this.pageNumber, describeImagesRequest.pageNumber) &&
-        Objects.equals(this.pageSize, describeImagesRequest.pageSize) &&
         Objects.equals(this.visibility, describeImagesRequest.visibility);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(imageIds, imageStatus, instanceTypeId, isSupportCloudInit, osType, pageNumber, pageSize, visibility);
+    return Objects.hash(imageIds, imageStatus, instanceTypeId, isSupportCloudInit, maxResults, nextToken, osType, visibility);
   }
 
 
@@ -242,9 +242,9 @@ public class DescribeImagesRequest {
     sb.append("    imageStatus: ").append(toIndentedString(imageStatus)).append("\n");
     sb.append("    instanceTypeId: ").append(toIndentedString(instanceTypeId)).append("\n");
     sb.append("    isSupportCloudInit: ").append(toIndentedString(isSupportCloudInit)).append("\n");
+    sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
+    sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
     sb.append("    osType: ").append(toIndentedString(osType)).append("\n");
-    sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
-    sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    visibility: ").append(toIndentedString(visibility)).append("\n");
     sb.append("}");
     return sb.toString();

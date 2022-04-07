@@ -12,24 +12,17 @@
 
 package com.volcengine.volcstack.ecs.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+import java.util.Objects;
 /**
  * DescribeInstancesRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-03-24T18:21:02.503402+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-07T19:27:18.461509+08:00[Asia/Shanghai]")
 public class DescribeInstancesRequest {
   @SerializedName("HpcClusterId")
   private String hpcClusterId = null;
@@ -46,11 +39,11 @@ public class DescribeInstancesRequest {
   @SerializedName("KeyPairName")
   private String keyPairName = null;
 
-  @SerializedName("PageNumber")
-  private Integer pageNumber = null;
+  @SerializedName("MaxResults")
+  private Integer maxResults = null;
 
-  @SerializedName("PageSize")
-  private Integer pageSize = null;
+  @SerializedName("NextToken")
+  private String nextToken = null;
 
   @SerializedName("PrimaryIpAddress")
   private String primaryIpAddress = null;
@@ -162,40 +155,40 @@ public class DescribeInstancesRequest {
     this.keyPairName = keyPairName;
   }
 
-  public DescribeInstancesRequest pageNumber(Integer pageNumber) {
-    this.pageNumber = pageNumber;
+  public DescribeInstancesRequest maxResults(Integer maxResults) {
+    this.maxResults = maxResults;
     return this;
   }
 
    /**
-   * Get pageNumber
-   * @return pageNumber
+   * Get maxResults
+   * @return maxResults
   **/
   @Schema(description = "")
-  public Integer getPageNumber() {
-    return pageNumber;
+  public Integer getMaxResults() {
+    return maxResults;
   }
 
-  public void setPageNumber(Integer pageNumber) {
-    this.pageNumber = pageNumber;
+  public void setMaxResults(Integer maxResults) {
+    this.maxResults = maxResults;
   }
 
-  public DescribeInstancesRequest pageSize(Integer pageSize) {
-    this.pageSize = pageSize;
+  public DescribeInstancesRequest nextToken(String nextToken) {
+    this.nextToken = nextToken;
     return this;
   }
 
    /**
-   * Get pageSize
-   * @return pageSize
+   * Get nextToken
+   * @return nextToken
   **/
   @Schema(description = "")
-  public Integer getPageSize() {
-    return pageSize;
+  public String getNextToken() {
+    return nextToken;
   }
 
-  public void setPageSize(Integer pageSize) {
-    this.pageSize = pageSize;
+  public void setNextToken(String nextToken) {
+    this.nextToken = nextToken;
   }
 
   public DescribeInstancesRequest primaryIpAddress(String primaryIpAddress) {
@@ -285,8 +278,8 @@ public class DescribeInstancesRequest {
         Objects.equals(this.instanceIds, describeInstancesRequest.instanceIds) &&
         Objects.equals(this.instanceName, describeInstancesRequest.instanceName) &&
         Objects.equals(this.keyPairName, describeInstancesRequest.keyPairName) &&
-        Objects.equals(this.pageNumber, describeInstancesRequest.pageNumber) &&
-        Objects.equals(this.pageSize, describeInstancesRequest.pageSize) &&
+        Objects.equals(this.maxResults, describeInstancesRequest.maxResults) &&
+        Objects.equals(this.nextToken, describeInstancesRequest.nextToken) &&
         Objects.equals(this.primaryIpAddress, describeInstancesRequest.primaryIpAddress) &&
         Objects.equals(this.status, describeInstancesRequest.status) &&
         Objects.equals(this.vpcId, describeInstancesRequest.vpcId) &&
@@ -295,7 +288,7 @@ public class DescribeInstancesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hpcClusterId, instanceChargeType, instanceIds, instanceName, keyPairName, pageNumber, pageSize, primaryIpAddress, status, vpcId, zoneId);
+    return Objects.hash(hpcClusterId, instanceChargeType, instanceIds, instanceName, keyPairName, maxResults, nextToken, primaryIpAddress, status, vpcId, zoneId);
   }
 
 
@@ -309,8 +302,8 @@ public class DescribeInstancesRequest {
     sb.append("    instanceIds: ").append(toIndentedString(instanceIds)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    keyPairName: ").append(toIndentedString(keyPairName)).append("\n");
-    sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
-    sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
+    sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
     sb.append("    primaryIpAddress: ").append(toIndentedString(primaryIpAddress)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");

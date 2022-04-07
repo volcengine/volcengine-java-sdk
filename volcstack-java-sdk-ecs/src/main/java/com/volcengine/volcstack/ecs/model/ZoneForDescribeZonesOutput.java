@@ -24,57 +24,15 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DescribeAvailableResourceRequest
+ * ZoneForDescribeZonesOutput
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-07T19:27:18.461509+08:00[Asia/Shanghai]")
-public class DescribeAvailableResourceRequest {
-  @SerializedName("DestinationResource")
-  private String destinationResource = null;
-
-  @SerializedName("InstanceType")
-  private String instanceType = null;
-
+public class ZoneForDescribeZonesOutput {
   @SerializedName("ZoneId")
   private String zoneId = null;
 
-  public DescribeAvailableResourceRequest destinationResource(String destinationResource) {
-    this.destinationResource = destinationResource;
-    return this;
-  }
-
-   /**
-   * Get destinationResource
-   * @return destinationResource
-  **/
-  @Schema(description = "")
-  public String getDestinationResource() {
-    return destinationResource;
-  }
-
-  public void setDestinationResource(String destinationResource) {
-    this.destinationResource = destinationResource;
-  }
-
-  public DescribeAvailableResourceRequest instanceType(String instanceType) {
-    this.instanceType = instanceType;
-    return this;
-  }
-
-   /**
-   * Get instanceType
-   * @return instanceType
-  **/
-  @Schema(description = "")
-  public String getInstanceType() {
-    return instanceType;
-  }
-
-  public void setInstanceType(String instanceType) {
-    this.instanceType = instanceType;
-  }
-
-  public DescribeAvailableResourceRequest zoneId(String zoneId) {
+  public ZoneForDescribeZonesOutput zoneId(String zoneId) {
     this.zoneId = zoneId;
     return this;
   }
@@ -101,25 +59,21 @@ public class DescribeAvailableResourceRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DescribeAvailableResourceRequest describeAvailableResourceRequest = (DescribeAvailableResourceRequest) o;
-    return Objects.equals(this.destinationResource, describeAvailableResourceRequest.destinationResource) &&
-        Objects.equals(this.instanceType, describeAvailableResourceRequest.instanceType) &&
-        Objects.equals(this.zoneId, describeAvailableResourceRequest.zoneId);
+    ZoneForDescribeZonesOutput zoneForDescribeZonesOutput = (ZoneForDescribeZonesOutput) o;
+    return Objects.equals(this.zoneId, zoneForDescribeZonesOutput.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(destinationResource, instanceType, zoneId);
+    return Objects.hash(zoneId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DescribeAvailableResourceRequest {\n");
+    sb.append("class ZoneForDescribeZonesOutput {\n");
     
-    sb.append("    destinationResource: ").append(toIndentedString(destinationResource)).append("\n");
-    sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");
     return sb.toString();

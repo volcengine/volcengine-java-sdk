@@ -30,16 +30,13 @@ import javax.validation.Valid;
  * DescribeInstanceTypesResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-03-24T18:21:02.503402+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-07T19:27:18.461509+08:00[Asia/Shanghai]")
 public class DescribeInstanceTypesResponse {
   @SerializedName("InstanceTypes")
   private List<InstanceTypeForDescribeInstanceTypesOutput> instanceTypes = null;
 
-  @SerializedName("PageNumber")
-  private Integer pageNumber = null;
-
-  @SerializedName("PageSize")
-  private Integer pageSize = null;
+  @SerializedName("NextToken")
+  private String nextToken = null;
 
   @SerializedName("TotalCount")
   private Integer totalCount = null;
@@ -71,40 +68,22 @@ public class DescribeInstanceTypesResponse {
     this.instanceTypes = instanceTypes;
   }
 
-  public DescribeInstanceTypesResponse pageNumber(Integer pageNumber) {
-    this.pageNumber = pageNumber;
+  public DescribeInstanceTypesResponse nextToken(String nextToken) {
+    this.nextToken = nextToken;
     return this;
   }
 
    /**
-   * Get pageNumber
-   * @return pageNumber
+   * Get nextToken
+   * @return nextToken
   **/
   @Schema(description = "")
-  public Integer getPageNumber() {
-    return pageNumber;
+  public String getNextToken() {
+    return nextToken;
   }
 
-  public void setPageNumber(Integer pageNumber) {
-    this.pageNumber = pageNumber;
-  }
-
-  public DescribeInstanceTypesResponse pageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-    return this;
-  }
-
-   /**
-   * Get pageSize
-   * @return pageSize
-  **/
-  @Schema(description = "")
-  public Integer getPageSize() {
-    return pageSize;
-  }
-
-  public void setPageSize(Integer pageSize) {
-    this.pageSize = pageSize;
+  public void setNextToken(String nextToken) {
+    this.nextToken = nextToken;
   }
 
   public DescribeInstanceTypesResponse totalCount(Integer totalCount) {
@@ -136,14 +115,13 @@ public class DescribeInstanceTypesResponse {
     }
     DescribeInstanceTypesResponse describeInstanceTypesResponse = (DescribeInstanceTypesResponse) o;
     return Objects.equals(this.instanceTypes, describeInstanceTypesResponse.instanceTypes) &&
-        Objects.equals(this.pageNumber, describeInstanceTypesResponse.pageNumber) &&
-        Objects.equals(this.pageSize, describeInstanceTypesResponse.pageSize) &&
+        Objects.equals(this.nextToken, describeInstanceTypesResponse.nextToken) &&
         Objects.equals(this.totalCount, describeInstanceTypesResponse.totalCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceTypes, pageNumber, pageSize, totalCount);
+    return Objects.hash(instanceTypes, nextToken, totalCount);
   }
 
 
@@ -153,8 +131,7 @@ public class DescribeInstanceTypesResponse {
     sb.append("class DescribeInstanceTypesResponse {\n");
     
     sb.append("    instanceTypes: ").append(toIndentedString(instanceTypes)).append("\n");
-    sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
-    sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
     sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("}");
     return sb.toString();
