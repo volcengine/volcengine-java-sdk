@@ -19,7 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.volcstack.ecs.model.GpuDeviceForDescribeInstanceTypesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -27,39 +26,38 @@ import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * GpuForDescribeInstanceTypesOutput
+ * DescribeZonesRequest
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-07T19:27:18.461509+08:00[Asia/Shanghai]")
-public class GpuForDescribeInstanceTypesOutput {
-  @SerializedName("GpuDevices")
-  private List<GpuDeviceForDescribeInstanceTypesOutput> gpuDevices = null;
+public class DescribeZonesRequest {
+  @SerializedName("ZoneIds")
+  private List<String> zoneIds = null;
 
-  public GpuForDescribeInstanceTypesOutput gpuDevices(List<GpuDeviceForDescribeInstanceTypesOutput> gpuDevices) {
-    this.gpuDevices = gpuDevices;
+  public DescribeZonesRequest zoneIds(List<String> zoneIds) {
+    this.zoneIds = zoneIds;
     return this;
   }
 
-  public GpuForDescribeInstanceTypesOutput addGpuDevicesItem(GpuDeviceForDescribeInstanceTypesOutput gpuDevicesItem) {
-    if (this.gpuDevices == null) {
-      this.gpuDevices = new ArrayList<GpuDeviceForDescribeInstanceTypesOutput>();
+  public DescribeZonesRequest addZoneIdsItem(String zoneIdsItem) {
+    if (this.zoneIds == null) {
+      this.zoneIds = new ArrayList<String>();
     }
-    this.gpuDevices.add(gpuDevicesItem);
+    this.zoneIds.add(zoneIdsItem);
     return this;
   }
 
    /**
-   * Get gpuDevices
-   * @return gpuDevices
+   * Get zoneIds
+   * @return zoneIds
   **/
-  @Valid
   @Schema(description = "")
-  public List<GpuDeviceForDescribeInstanceTypesOutput> getGpuDevices() {
-    return gpuDevices;
+  public List<String> getZoneIds() {
+    return zoneIds;
   }
 
-  public void setGpuDevices(List<GpuDeviceForDescribeInstanceTypesOutput> gpuDevices) {
-    this.gpuDevices = gpuDevices;
+  public void setZoneIds(List<String> zoneIds) {
+    this.zoneIds = zoneIds;
   }
 
 
@@ -71,22 +69,22 @@ public class GpuForDescribeInstanceTypesOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GpuForDescribeInstanceTypesOutput gpuForDescribeInstanceTypesOutput = (GpuForDescribeInstanceTypesOutput) o;
-    return Objects.equals(this.gpuDevices, gpuForDescribeInstanceTypesOutput.gpuDevices);
+    DescribeZonesRequest describeZonesRequest = (DescribeZonesRequest) o;
+    return Objects.equals(this.zoneIds, describeZonesRequest.zoneIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(gpuDevices);
+    return Objects.hash(zoneIds);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GpuForDescribeInstanceTypesOutput {\n");
+    sb.append("class DescribeZonesRequest {\n");
     
-    sb.append("    gpuDevices: ").append(toIndentedString(gpuDevices)).append("\n");
+    sb.append("    zoneIds: ").append(toIndentedString(zoneIds)).append("\n");
     sb.append("}");
     return sb.toString();
   }

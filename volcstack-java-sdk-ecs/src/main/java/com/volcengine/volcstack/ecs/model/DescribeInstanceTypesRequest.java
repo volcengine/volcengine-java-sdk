@@ -29,16 +29,16 @@ import javax.validation.Valid;
  * DescribeInstanceTypesRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-03-24T18:21:02.503402+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-07T19:27:18.461509+08:00[Asia/Shanghai]")
 public class DescribeInstanceTypesRequest {
   @SerializedName("InstanceTypes")
   private List<String> instanceTypes = null;
 
-  @SerializedName("PageNumber")
-  private Integer pageNumber = null;
+  @SerializedName("MaxResults")
+  private Integer maxResults = null;
 
-  @SerializedName("PageSize")
-  private Integer pageSize = null;
+  @SerializedName("NextToken")
+  private String nextToken = null;
 
   public DescribeInstanceTypesRequest instanceTypes(List<String> instanceTypes) {
     this.instanceTypes = instanceTypes;
@@ -66,40 +66,40 @@ public class DescribeInstanceTypesRequest {
     this.instanceTypes = instanceTypes;
   }
 
-  public DescribeInstanceTypesRequest pageNumber(Integer pageNumber) {
-    this.pageNumber = pageNumber;
+  public DescribeInstanceTypesRequest maxResults(Integer maxResults) {
+    this.maxResults = maxResults;
     return this;
   }
 
    /**
-   * Get pageNumber
-   * @return pageNumber
+   * Get maxResults
+   * @return maxResults
   **/
   @Schema(description = "")
-  public Integer getPageNumber() {
-    return pageNumber;
+  public Integer getMaxResults() {
+    return maxResults;
   }
 
-  public void setPageNumber(Integer pageNumber) {
-    this.pageNumber = pageNumber;
+  public void setMaxResults(Integer maxResults) {
+    this.maxResults = maxResults;
   }
 
-  public DescribeInstanceTypesRequest pageSize(Integer pageSize) {
-    this.pageSize = pageSize;
+  public DescribeInstanceTypesRequest nextToken(String nextToken) {
+    this.nextToken = nextToken;
     return this;
   }
 
    /**
-   * Get pageSize
-   * @return pageSize
+   * Get nextToken
+   * @return nextToken
   **/
   @Schema(description = "")
-  public Integer getPageSize() {
-    return pageSize;
+  public String getNextToken() {
+    return nextToken;
   }
 
-  public void setPageSize(Integer pageSize) {
-    this.pageSize = pageSize;
+  public void setNextToken(String nextToken) {
+    this.nextToken = nextToken;
   }
 
 
@@ -113,13 +113,13 @@ public class DescribeInstanceTypesRequest {
     }
     DescribeInstanceTypesRequest describeInstanceTypesRequest = (DescribeInstanceTypesRequest) o;
     return Objects.equals(this.instanceTypes, describeInstanceTypesRequest.instanceTypes) &&
-        Objects.equals(this.pageNumber, describeInstanceTypesRequest.pageNumber) &&
-        Objects.equals(this.pageSize, describeInstanceTypesRequest.pageSize);
+        Objects.equals(this.maxResults, describeInstanceTypesRequest.maxResults) &&
+        Objects.equals(this.nextToken, describeInstanceTypesRequest.nextToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceTypes, pageNumber, pageSize);
+    return Objects.hash(instanceTypes, maxResults, nextToken);
   }
 
 
@@ -129,8 +129,8 @@ public class DescribeInstanceTypesRequest {
     sb.append("class DescribeInstanceTypesRequest {\n");
     
     sb.append("    instanceTypes: ").append(toIndentedString(instanceTypes)).append("\n");
-    sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
-    sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
+    sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
     sb.append("}");
     return sb.toString();
   }

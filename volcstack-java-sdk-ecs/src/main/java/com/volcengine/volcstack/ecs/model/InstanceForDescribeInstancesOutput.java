@@ -30,7 +30,7 @@ import javax.validation.Valid;
  * InstanceForDescribeInstancesOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-03-24T18:21:02.503402+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-07T19:27:18.461509+08:00[Asia/Shanghai]")
 public class InstanceForDescribeInstancesOutput {
   @SerializedName("CreatedAt")
   private String createdAt = null;
@@ -41,14 +41,14 @@ public class InstanceForDescribeInstancesOutput {
   @SerializedName("HostName")
   private String hostName = null;
 
-  @SerializedName("Id")
-  private String id = null;
-
   @SerializedName("ImageId")
   private String imageId = null;
 
   @SerializedName("InstanceChargeType")
   private String instanceChargeType = null;
+
+  @SerializedName("InstanceId")
+  private String instanceId = null;
 
   @SerializedName("InstanceName")
   private String instanceName = null;
@@ -140,24 +140,6 @@ public class InstanceForDescribeInstancesOutput {
     this.hostName = hostName;
   }
 
-  public InstanceForDescribeInstancesOutput id(String id) {
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * Get id
-   * @return id
-  **/
-  @Schema(description = "")
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
   public InstanceForDescribeInstancesOutput imageId(String imageId) {
     this.imageId = imageId;
     return this;
@@ -192,6 +174,24 @@ public class InstanceForDescribeInstancesOutput {
 
   public void setInstanceChargeType(String instanceChargeType) {
     this.instanceChargeType = instanceChargeType;
+  }
+
+  public InstanceForDescribeInstancesOutput instanceId(String instanceId) {
+    this.instanceId = instanceId;
+    return this;
+  }
+
+   /**
+   * Get instanceId
+   * @return instanceId
+  **/
+  @Schema(description = "")
+  public String getInstanceId() {
+    return instanceId;
+  }
+
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
   }
 
   public InstanceForDescribeInstancesOutput instanceName(String instanceName) {
@@ -440,9 +440,9 @@ public class InstanceForDescribeInstancesOutput {
     return Objects.equals(this.createdAt, instanceForDescribeInstancesOutput.createdAt) &&
         Objects.equals(this.description, instanceForDescribeInstancesOutput.description) &&
         Objects.equals(this.hostName, instanceForDescribeInstancesOutput.hostName) &&
-        Objects.equals(this.id, instanceForDescribeInstancesOutput.id) &&
         Objects.equals(this.imageId, instanceForDescribeInstancesOutput.imageId) &&
         Objects.equals(this.instanceChargeType, instanceForDescribeInstancesOutput.instanceChargeType) &&
+        Objects.equals(this.instanceId, instanceForDescribeInstancesOutput.instanceId) &&
         Objects.equals(this.instanceName, instanceForDescribeInstancesOutput.instanceName) &&
         Objects.equals(this.instanceTypeId, instanceForDescribeInstancesOutput.instanceTypeId) &&
         Objects.equals(this.keyPairId, instanceForDescribeInstancesOutput.keyPairId) &&
@@ -459,7 +459,7 @@ public class InstanceForDescribeInstancesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, description, hostName, id, imageId, instanceChargeType, instanceName, instanceTypeId, keyPairId, keyPairName, networkInterfaces, rdmaIpAddresses, status, stoppedMode, updatedAt, userData, vpcId, zoneId);
+    return Objects.hash(createdAt, description, hostName, imageId, instanceChargeType, instanceId, instanceName, instanceTypeId, keyPairId, keyPairName, networkInterfaces, rdmaIpAddresses, status, stoppedMode, updatedAt, userData, vpcId, zoneId);
   }
 
 
@@ -471,9 +471,9 @@ public class InstanceForDescribeInstancesOutput {
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    hostName: ").append(toIndentedString(hostName)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    imageId: ").append(toIndentedString(imageId)).append("\n");
     sb.append("    instanceChargeType: ").append(toIndentedString(instanceChargeType)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    instanceTypeId: ").append(toIndentedString(instanceTypeId)).append("\n");
     sb.append("    keyPairId: ").append(toIndentedString(keyPairId)).append("\n");

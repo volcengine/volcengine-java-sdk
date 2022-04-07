@@ -24,45 +24,48 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ModifyInstanceAttributeRequest
+ * ReplaceSystemVolumeRequest
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-07T19:27:18.461509+08:00[Asia/Shanghai]")
-public class ModifyInstanceAttributeRequest {
-  @SerializedName("Description")
-  private String description = null;
+public class ReplaceSystemVolumeRequest {
+  @SerializedName("ImageId")
+  private String imageId = null;
 
   @SerializedName("InstanceId")
   private String instanceId = null;
 
-  @SerializedName("InstanceName")
-  private String instanceName = null;
+  @SerializedName("KeyPairName")
+  private String keyPairName = null;
 
   @SerializedName("Password")
   private String password = null;
 
+  @SerializedName("Size")
+  private String size = null;
+
   @SerializedName("UserData")
   private String userData = null;
 
-  public ModifyInstanceAttributeRequest description(String description) {
-    this.description = description;
+  public ReplaceSystemVolumeRequest imageId(String imageId) {
+    this.imageId = imageId;
     return this;
   }
 
    /**
-   * Get description
-   * @return description
+   * Get imageId
+   * @return imageId
   **/
   @Schema(description = "")
-  public String getDescription() {
-    return description;
+  public String getImageId() {
+    return imageId;
   }
 
-  public void setDescription(String description) {
-    this.description = description;
+  public void setImageId(String imageId) {
+    this.imageId = imageId;
   }
 
-  public ModifyInstanceAttributeRequest instanceId(String instanceId) {
+  public ReplaceSystemVolumeRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
     return this;
   }
@@ -80,25 +83,25 @@ public class ModifyInstanceAttributeRequest {
     this.instanceId = instanceId;
   }
 
-  public ModifyInstanceAttributeRequest instanceName(String instanceName) {
-    this.instanceName = instanceName;
+  public ReplaceSystemVolumeRequest keyPairName(String keyPairName) {
+    this.keyPairName = keyPairName;
     return this;
   }
 
    /**
-   * Get instanceName
-   * @return instanceName
+   * Get keyPairName
+   * @return keyPairName
   **/
   @Schema(description = "")
-  public String getInstanceName() {
-    return instanceName;
+  public String getKeyPairName() {
+    return keyPairName;
   }
 
-  public void setInstanceName(String instanceName) {
-    this.instanceName = instanceName;
+  public void setKeyPairName(String keyPairName) {
+    this.keyPairName = keyPairName;
   }
 
-  public ModifyInstanceAttributeRequest password(String password) {
+  public ReplaceSystemVolumeRequest password(String password) {
     this.password = password;
     return this;
   }
@@ -116,7 +119,25 @@ public class ModifyInstanceAttributeRequest {
     this.password = password;
   }
 
-  public ModifyInstanceAttributeRequest userData(String userData) {
+  public ReplaceSystemVolumeRequest size(String size) {
+    this.size = size;
+    return this;
+  }
+
+   /**
+   * Get size
+   * @return size
+  **/
+  @Schema(description = "")
+  public String getSize() {
+    return size;
+  }
+
+  public void setSize(String size) {
+    this.size = size;
+  }
+
+  public ReplaceSystemVolumeRequest userData(String userData) {
     this.userData = userData;
     return this;
   }
@@ -143,29 +164,31 @@ public class ModifyInstanceAttributeRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ModifyInstanceAttributeRequest modifyInstanceAttributeRequest = (ModifyInstanceAttributeRequest) o;
-    return Objects.equals(this.description, modifyInstanceAttributeRequest.description) &&
-        Objects.equals(this.instanceId, modifyInstanceAttributeRequest.instanceId) &&
-        Objects.equals(this.instanceName, modifyInstanceAttributeRequest.instanceName) &&
-        Objects.equals(this.password, modifyInstanceAttributeRequest.password) &&
-        Objects.equals(this.userData, modifyInstanceAttributeRequest.userData);
+    ReplaceSystemVolumeRequest replaceSystemVolumeRequest = (ReplaceSystemVolumeRequest) o;
+    return Objects.equals(this.imageId, replaceSystemVolumeRequest.imageId) &&
+        Objects.equals(this.instanceId, replaceSystemVolumeRequest.instanceId) &&
+        Objects.equals(this.keyPairName, replaceSystemVolumeRequest.keyPairName) &&
+        Objects.equals(this.password, replaceSystemVolumeRequest.password) &&
+        Objects.equals(this.size, replaceSystemVolumeRequest.size) &&
+        Objects.equals(this.userData, replaceSystemVolumeRequest.userData);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, instanceId, instanceName, password, userData);
+    return Objects.hash(imageId, instanceId, keyPairName, password, size, userData);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ModifyInstanceAttributeRequest {\n");
+    sb.append("class ReplaceSystemVolumeRequest {\n");
     
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    imageId: ").append(toIndentedString(imageId)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
-    sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
+    sb.append("    keyPairName: ").append(toIndentedString(keyPairName)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
+    sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    userData: ").append(toIndentedString(userData)).append("\n");
     sb.append("}");
     return sb.toString();

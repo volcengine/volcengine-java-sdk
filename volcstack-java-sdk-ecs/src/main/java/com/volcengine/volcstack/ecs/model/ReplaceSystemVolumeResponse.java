@@ -17,11 +17,11 @@ import java.util.Arrays;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ModifyInstanceChargeTypeResponse
+ * ReplaceSystemVolumeResponse
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-07T19:27:18.461509+08:00[Asia/Shanghai]")
-public class ModifyInstanceChargeTypeResponse {
+public class ReplaceSystemVolumeResponse {
 
   @Override
   public boolean equals(Object o) {
@@ -43,7 +43,7 @@ public class ModifyInstanceChargeTypeResponse {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ModifyInstanceChargeTypeResponse {\n");
+    sb.append("class ReplaceSystemVolumeResponse {\n");
     
     sb.append("}");
     return sb.toString();
