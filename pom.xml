@@ -8,21 +8,18 @@
     <artifactId>volcstack-java-sdk</artifactId>
     <packaging>pom</packaging>
     <version>0.1.0-SNAPSHOT</version>
-    <modules>
-        <module>volcstack-java-sdk-core</module>
-        <module>volcstack-java-sdk-vpc</module>
-        <module>volcstack-java-sdk-clb</module>
-        <module>volcstack-java-sdk-cen</module>
-        <module>volcstack-java-sdk-vpn</module>
-        <module>volcstack-java-sdk-ecs</module>
-        <module>volcstack-java-sdk-storageebs</module>
-        <module>volcstack-java-sdk-natgateway</module>
-        <module>volcstack-java-sdk-directconnect</module>
-    </modules>
+
 
     <properties>
-        <maven.compiler.source>7</maven.compiler.source>
-        <maven.compiler.target>7</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.source.version>1.7</java.source.version>
+        <java.target.version>1.7</java.target.version>
+
+        <dep.maven-compiler-plugin.version>3.1</dep.maven-compiler-plugin.version>
+        <dep.maven-surefire-plugin.version>2.9</dep.maven-surefire-plugin.version>
+        <dep.maven-source-plugin.version>3.1.0</dep.maven-source-plugin.version>
+        <dep.maven-jar-plugin.version>3.2.0</dep.maven-jar-plugin.version>
+
         <swagger-core-version>2.0.0</swagger-core-version>
         <okhttp-version>2.7.5</okhttp-version>
         <gson-version>2.8.1</gson-version>
@@ -82,5 +79,63 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <name>volcstack-java-sdk</name>
+            <url>http://10.248.191.104:8081/nexus/repository/maven-snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>releases</id>
+            <name>volcstack-java-sdk</name>
+            <url>http://10.248.191.104:8081/nexus/repository/maven-releases/</url>
+        </repository>
+    </distributionManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${dep.maven-compiler-plugin.version}</version>
+                <configuration>
+                    <source>${java.source.version}</source>
+                    <target>${java.target.version}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>${dep.maven-source-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>${dep.maven-jar-plugin.version}</version>
+            </plugin>
+        </plugins>
+    </build>
+
+    <modules>
+        <module>volcstack-java-sdk-core</module>
+        <module>volcstack-java-sdk-vpc</module>
+        <module>volcstack-java-sdk-clb</module>
+        <module>volcstack-java-sdk-cen</module>
+        <module>volcstack-java-sdk-vpn</module>
+        <module>volcstack-java-sdk-ecs</module>
+        <module>volcstack-java-sdk-storageebs</module>
+        <module>volcstack-java-sdk-natgateway</module>
+        <module>volcstack-java-sdk-directconnect</module>
+    </modules>
 
 </project>
