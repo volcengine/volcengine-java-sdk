@@ -12,25 +12,18 @@
 
 package com.volcengine.volcstack.ecs.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import com.volcengine.volcstack.ecs.model.SupportedResourceForDescribeAvailableResourceOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
-import java.io.IOException;
+
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+import java.util.Objects;
 /**
  * AvailableResourceForDescribeAvailableResourceOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-07T19:27:18.461509+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-11T19:55:49.837979+08:00[Asia/Shanghai]")
 public class AvailableResourceForDescribeAvailableResourceOutput {
   @SerializedName("SupportedResources")
   private List<SupportedResourceForDescribeAvailableResourceOutput> supportedResources = null;

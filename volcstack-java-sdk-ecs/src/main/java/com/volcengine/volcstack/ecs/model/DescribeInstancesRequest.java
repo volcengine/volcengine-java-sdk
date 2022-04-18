@@ -12,17 +12,24 @@
 
 package com.volcengine.volcstack.ecs.model;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
-
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+import javax.validation.constraints.*;
+import javax.validation.Valid;
 /**
  * DescribeInstancesRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-07T19:27:18.461509+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-11T19:55:49.837979+08:00[Asia/Shanghai]")
 public class DescribeInstancesRequest {
   @SerializedName("HpcClusterId")
   private String hpcClusterId = null;
@@ -35,6 +42,12 @@ public class DescribeInstancesRequest {
 
   @SerializedName("InstanceName")
   private String instanceName = null;
+
+  @SerializedName("InstanceTypeFamilies")
+  private List<String> instanceTypeFamilies = null;
+
+  @SerializedName("InstanceTypes")
+  private List<String> instanceTypes = null;
 
   @SerializedName("KeyPairName")
   private String keyPairName = null;
@@ -135,6 +148,58 @@ public class DescribeInstancesRequest {
 
   public void setInstanceName(String instanceName) {
     this.instanceName = instanceName;
+  }
+
+  public DescribeInstancesRequest instanceTypeFamilies(List<String> instanceTypeFamilies) {
+    this.instanceTypeFamilies = instanceTypeFamilies;
+    return this;
+  }
+
+  public DescribeInstancesRequest addInstanceTypeFamiliesItem(String instanceTypeFamiliesItem) {
+    if (this.instanceTypeFamilies == null) {
+      this.instanceTypeFamilies = new ArrayList<String>();
+    }
+    this.instanceTypeFamilies.add(instanceTypeFamiliesItem);
+    return this;
+  }
+
+   /**
+   * Get instanceTypeFamilies
+   * @return instanceTypeFamilies
+  **/
+  @Schema(description = "")
+  public List<String> getInstanceTypeFamilies() {
+    return instanceTypeFamilies;
+  }
+
+  public void setInstanceTypeFamilies(List<String> instanceTypeFamilies) {
+    this.instanceTypeFamilies = instanceTypeFamilies;
+  }
+
+  public DescribeInstancesRequest instanceTypes(List<String> instanceTypes) {
+    this.instanceTypes = instanceTypes;
+    return this;
+  }
+
+  public DescribeInstancesRequest addInstanceTypesItem(String instanceTypesItem) {
+    if (this.instanceTypes == null) {
+      this.instanceTypes = new ArrayList<String>();
+    }
+    this.instanceTypes.add(instanceTypesItem);
+    return this;
+  }
+
+   /**
+   * Get instanceTypes
+   * @return instanceTypes
+  **/
+  @Schema(description = "")
+  public List<String> getInstanceTypes() {
+    return instanceTypes;
+  }
+
+  public void setInstanceTypes(List<String> instanceTypes) {
+    this.instanceTypes = instanceTypes;
   }
 
   public DescribeInstancesRequest keyPairName(String keyPairName) {
@@ -277,6 +342,8 @@ public class DescribeInstancesRequest {
         Objects.equals(this.instanceChargeType, describeInstancesRequest.instanceChargeType) &&
         Objects.equals(this.instanceIds, describeInstancesRequest.instanceIds) &&
         Objects.equals(this.instanceName, describeInstancesRequest.instanceName) &&
+        Objects.equals(this.instanceTypeFamilies, describeInstancesRequest.instanceTypeFamilies) &&
+        Objects.equals(this.instanceTypes, describeInstancesRequest.instanceTypes) &&
         Objects.equals(this.keyPairName, describeInstancesRequest.keyPairName) &&
         Objects.equals(this.maxResults, describeInstancesRequest.maxResults) &&
         Objects.equals(this.nextToken, describeInstancesRequest.nextToken) &&
@@ -288,7 +355,7 @@ public class DescribeInstancesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hpcClusterId, instanceChargeType, instanceIds, instanceName, keyPairName, maxResults, nextToken, primaryIpAddress, status, vpcId, zoneId);
+    return Objects.hash(hpcClusterId, instanceChargeType, instanceIds, instanceName, instanceTypeFamilies, instanceTypes, keyPairName, maxResults, nextToken, primaryIpAddress, status, vpcId, zoneId);
   }
 
 
@@ -301,6 +368,8 @@ public class DescribeInstancesRequest {
     sb.append("    instanceChargeType: ").append(toIndentedString(instanceChargeType)).append("\n");
     sb.append("    instanceIds: ").append(toIndentedString(instanceIds)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
+    sb.append("    instanceTypeFamilies: ").append(toIndentedString(instanceTypeFamilies)).append("\n");
+    sb.append("    instanceTypes: ").append(toIndentedString(instanceTypes)).append("\n");
     sb.append("    keyPairName: ").append(toIndentedString(keyPairName)).append("\n");
     sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
     sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");

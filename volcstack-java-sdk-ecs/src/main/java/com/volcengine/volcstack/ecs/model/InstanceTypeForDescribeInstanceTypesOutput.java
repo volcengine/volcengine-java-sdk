@@ -24,6 +24,7 @@ import com.volcengine.volcstack.ecs.model.LocalVolumeForDescribeInstanceTypesOut
 import com.volcengine.volcstack.ecs.model.MemoryForDescribeInstanceTypesOutput;
 import com.volcengine.volcstack.ecs.model.ProcessorForDescribeInstanceTypesOutput;
 import com.volcengine.volcstack.ecs.model.RdmaForDescribeInstanceTypesOutput;
+import com.volcengine.volcstack.ecs.model.VolumeForDescribeInstanceTypesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -34,7 +35,7 @@ import javax.validation.Valid;
  * InstanceTypeForDescribeInstanceTypesOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-07T19:27:18.461509+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-11T19:55:49.837979+08:00[Asia/Shanghai]")
 public class InstanceTypeForDescribeInstanceTypesOutput {
   @SerializedName("Gpu")
   private GpuForDescribeInstanceTypesOutput gpu = null;
@@ -56,6 +57,9 @@ public class InstanceTypeForDescribeInstanceTypesOutput {
 
   @SerializedName("Rdma")
   private RdmaForDescribeInstanceTypesOutput rdma = null;
+
+  @SerializedName("Volume")
+  private VolumeForDescribeInstanceTypesOutput volume = null;
 
   public InstanceTypeForDescribeInstanceTypesOutput gpu(GpuForDescribeInstanceTypesOutput gpu) {
     this.gpu = gpu;
@@ -196,6 +200,25 @@ public class InstanceTypeForDescribeInstanceTypesOutput {
     this.rdma = rdma;
   }
 
+  public InstanceTypeForDescribeInstanceTypesOutput volume(VolumeForDescribeInstanceTypesOutput volume) {
+    this.volume = volume;
+    return this;
+  }
+
+   /**
+   * Get volume
+   * @return volume
+  **/
+  @Valid
+  @Schema(description = "")
+  public VolumeForDescribeInstanceTypesOutput getVolume() {
+    return volume;
+  }
+
+  public void setVolume(VolumeForDescribeInstanceTypesOutput volume) {
+    this.volume = volume;
+  }
+
 
   @Override
   public boolean equals(Object o) {
@@ -212,12 +235,13 @@ public class InstanceTypeForDescribeInstanceTypesOutput {
         Objects.equals(this.localVolumes, instanceTypeForDescribeInstanceTypesOutput.localVolumes) &&
         Objects.equals(this.memory, instanceTypeForDescribeInstanceTypesOutput.memory) &&
         Objects.equals(this.processor, instanceTypeForDescribeInstanceTypesOutput.processor) &&
-        Objects.equals(this.rdma, instanceTypeForDescribeInstanceTypesOutput.rdma);
+        Objects.equals(this.rdma, instanceTypeForDescribeInstanceTypesOutput.rdma) &&
+        Objects.equals(this.volume, instanceTypeForDescribeInstanceTypesOutput.volume);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(gpu, instanceTypeFamily, instanceTypeId, localVolumes, memory, processor, rdma);
+    return Objects.hash(gpu, instanceTypeFamily, instanceTypeId, localVolumes, memory, processor, rdma, volume);
   }
 
 
@@ -233,6 +257,7 @@ public class InstanceTypeForDescribeInstanceTypesOutput {
     sb.append("    memory: ").append(toIndentedString(memory)).append("\n");
     sb.append("    processor: ").append(toIndentedString(processor)).append("\n");
     sb.append("    rdma: ").append(toIndentedString(rdma)).append("\n");
+    sb.append("    volume: ").append(toIndentedString(volume)).append("\n");
     sb.append("}");
     return sb.toString();
   }

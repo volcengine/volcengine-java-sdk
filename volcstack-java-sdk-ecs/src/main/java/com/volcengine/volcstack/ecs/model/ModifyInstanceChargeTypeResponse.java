@@ -14,14 +14,42 @@ package com.volcengine.volcstack.ecs.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
  * ModifyInstanceChargeTypeResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-07T19:27:18.461509+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-11T19:55:49.837979+08:00[Asia/Shanghai]")
 public class ModifyInstanceChargeTypeResponse {
+  @SerializedName("OrderId")
+  private String orderId = null;
+
+  public ModifyInstanceChargeTypeResponse orderId(String orderId) {
+    this.orderId = orderId;
+    return this;
+  }
+
+   /**
+   * Get orderId
+   * @return orderId
+  **/
+  @Schema(description = "")
+  public String getOrderId() {
+    return orderId;
+  }
+
+  public void setOrderId(String orderId) {
+    this.orderId = orderId;
+  }
+
 
   @Override
   public boolean equals(Object o) {
@@ -31,12 +59,13 @@ public class ModifyInstanceChargeTypeResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return true;
+    ModifyInstanceChargeTypeResponse modifyInstanceChargeTypeResponse = (ModifyInstanceChargeTypeResponse) o;
+    return Objects.equals(this.orderId, modifyInstanceChargeTypeResponse.orderId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash();
+    return Objects.hash(orderId);
   }
 
 
@@ -45,6 +74,7 @@ public class ModifyInstanceChargeTypeResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class ModifyInstanceChargeTypeResponse {\n");
     
+    sb.append("    orderId: ").append(toIndentedString(orderId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

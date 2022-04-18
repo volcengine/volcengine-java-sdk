@@ -36,6 +36,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 import java.net.URLConnection;
 import java.net.URLEncoder;
@@ -1080,22 +1081,37 @@ public class ApiClient {
                     }
                 } else {
                     if (!field.getType().getName().startsWith("com.volcengine.volcstack")) {
-                        if (isPostBody(headerParams)) {
-                            builder.append(chain);
-                            builder.append(getMethodName(field.getName()));
-                            builder.append("=");
-                            builder.append(value);
-                            builder.append("&");
-                        } else {
-                            Pair pair = new Pair(chain + getMethodName(field.getName()), value.toString());
-                            queryParams.add(pair);
+                        buildBodyOrParameter(field,value,queryParams,headerParams,builder,chain);
+                    } else if (field.getType().isEnum()) {
+                        try {
+                            Method method = field.getType().getDeclaredMethod("getValue");
+                            Object v = method.invoke(value);
+                            if (v!= null ){
+                                buildBodyOrParameter(field,v,queryParams,headerParams,builder,chain);
+                            }
+                        } catch (NoSuchMethodException e) {
+                            throw new ApiException("sdk internal error,please contract us in github,ErrorCode is EnumNotGetValueMethod");
                         }
-                    } else {
+
+                    }else {
                         String key = chain + getMethodName(field.getName());
                         buildSimpleRequest(value, queryParams, headerParams, builder, key);
                     }
                 }
             }
+        }
+    }
+
+    private void buildBodyOrParameter(Field field,Object v,List<Pair> queryParams, Map<String, String> headerParams, StringBuilder builder, String chain)throws Exception{
+        if (isPostBody(headerParams)) {
+            builder.append(chain);
+            builder.append(getMethodName(field.getName()));
+            builder.append("=");
+            builder.append(v);
+            builder.append("&");
+        }else {
+            Pair pair = new Pair(chain + getMethodName(field.getName()), v.toString());
+            queryParams.add(pair);
         }
     }
 

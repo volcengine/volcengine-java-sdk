@@ -29,7 +29,7 @@ import javax.validation.Valid;
  * DescribeImagesRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-07T19:27:18.461509+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-11T19:55:49.837979+08:00[Asia/Shanghai]")
 public class DescribeImagesRequest {
   @SerializedName("ImageIds")
   private List<String> imageIds = null;
@@ -51,6 +51,9 @@ public class DescribeImagesRequest {
 
   @SerializedName("OsType")
   private String osType = null;
+
+  @SerializedName("Status")
+  private List<String> status = null;
 
   @SerializedName("Visibility")
   private String visibility = null;
@@ -189,6 +192,32 @@ public class DescribeImagesRequest {
     this.osType = osType;
   }
 
+  public DescribeImagesRequest status(List<String> status) {
+    this.status = status;
+    return this;
+  }
+
+  public DescribeImagesRequest addStatusItem(String statusItem) {
+    if (this.status == null) {
+      this.status = new ArrayList<String>();
+    }
+    this.status.add(statusItem);
+    return this;
+  }
+
+   /**
+   * Get status
+   * @return status
+  **/
+  @Schema(description = "")
+  public List<String> getStatus() {
+    return status;
+  }
+
+  public void setStatus(List<String> status) {
+    this.status = status;
+  }
+
   public DescribeImagesRequest visibility(String visibility) {
     this.visibility = visibility;
     return this;
@@ -224,12 +253,13 @@ public class DescribeImagesRequest {
         Objects.equals(this.maxResults, describeImagesRequest.maxResults) &&
         Objects.equals(this.nextToken, describeImagesRequest.nextToken) &&
         Objects.equals(this.osType, describeImagesRequest.osType) &&
+        Objects.equals(this.status, describeImagesRequest.status) &&
         Objects.equals(this.visibility, describeImagesRequest.visibility);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(imageIds, imageStatus, instanceTypeId, isSupportCloudInit, maxResults, nextToken, osType, visibility);
+    return Objects.hash(imageIds, imageStatus, instanceTypeId, isSupportCloudInit, maxResults, nextToken, osType, status, visibility);
   }
 
 
@@ -245,6 +275,7 @@ public class DescribeImagesRequest {
     sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
     sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
     sb.append("    osType: ").append(toIndentedString(osType)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    visibility: ").append(toIndentedString(visibility)).append("\n");
     sb.append("}");
     return sb.toString();

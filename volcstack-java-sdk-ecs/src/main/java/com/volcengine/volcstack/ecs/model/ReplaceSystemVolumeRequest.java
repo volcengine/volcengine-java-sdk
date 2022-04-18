@@ -27,8 +27,11 @@ import javax.validation.Valid;
  * ReplaceSystemVolumeRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-07T19:27:18.461509+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-11T19:55:49.837979+08:00[Asia/Shanghai]")
 public class ReplaceSystemVolumeRequest {
+  @SerializedName("ClientToken")
+  private String clientToken = null;
+
   @SerializedName("ImageId")
   private String imageId = null;
 
@@ -46,6 +49,24 @@ public class ReplaceSystemVolumeRequest {
 
   @SerializedName("UserData")
   private String userData = null;
+
+  public ReplaceSystemVolumeRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
 
   public ReplaceSystemVolumeRequest imageId(String imageId) {
     this.imageId = imageId;
@@ -165,7 +186,8 @@ public class ReplaceSystemVolumeRequest {
       return false;
     }
     ReplaceSystemVolumeRequest replaceSystemVolumeRequest = (ReplaceSystemVolumeRequest) o;
-    return Objects.equals(this.imageId, replaceSystemVolumeRequest.imageId) &&
+    return Objects.equals(this.clientToken, replaceSystemVolumeRequest.clientToken) &&
+        Objects.equals(this.imageId, replaceSystemVolumeRequest.imageId) &&
         Objects.equals(this.instanceId, replaceSystemVolumeRequest.instanceId) &&
         Objects.equals(this.keyPairName, replaceSystemVolumeRequest.keyPairName) &&
         Objects.equals(this.password, replaceSystemVolumeRequest.password) &&
@@ -175,7 +197,7 @@ public class ReplaceSystemVolumeRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(imageId, instanceId, keyPairName, password, size, userData);
+    return Objects.hash(clientToken, imageId, instanceId, keyPairName, password, size, userData);
   }
 
 
@@ -184,6 +206,7 @@ public class ReplaceSystemVolumeRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ReplaceSystemVolumeRequest {\n");
     
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    imageId: ").append(toIndentedString(imageId)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    keyPairName: ").append(toIndentedString(keyPairName)).append("\n");
