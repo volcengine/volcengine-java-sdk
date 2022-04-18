@@ -21,54 +21,43 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DescribeUserDataResponse
+ * VolumeForDescribeInstanceTypesOutput
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-11T19:55:49.837979+08:00[Asia/Shanghai]")
-public class DescribeUserDataResponse {
-  @SerializedName("InstanceId")
-  private String instanceId = null;
+public class VolumeForDescribeInstanceTypesOutput {
+  @SerializedName("SupportedVolumeTypes")
+  private List<String> supportedVolumeTypes = null;
 
-  @SerializedName("UserData")
-  private String userData = null;
+  public VolumeForDescribeInstanceTypesOutput supportedVolumeTypes(List<String> supportedVolumeTypes) {
+    this.supportedVolumeTypes = supportedVolumeTypes;
+    return this;
+  }
 
-  public DescribeUserDataResponse instanceId(String instanceId) {
-    this.instanceId = instanceId;
+  public VolumeForDescribeInstanceTypesOutput addSupportedVolumeTypesItem(String supportedVolumeTypesItem) {
+    if (this.supportedVolumeTypes == null) {
+      this.supportedVolumeTypes = new ArrayList<String>();
+    }
+    this.supportedVolumeTypes.add(supportedVolumeTypesItem);
     return this;
   }
 
    /**
-   * Get instanceId
-   * @return instanceId
+   * Get supportedVolumeTypes
+   * @return supportedVolumeTypes
   **/
   @Schema(description = "")
-  public String getInstanceId() {
-    return instanceId;
+  public List<String> getSupportedVolumeTypes() {
+    return supportedVolumeTypes;
   }
 
-  public void setInstanceId(String instanceId) {
-    this.instanceId = instanceId;
-  }
-
-  public DescribeUserDataResponse userData(String userData) {
-    this.userData = userData;
-    return this;
-  }
-
-   /**
-   * Get userData
-   * @return userData
-  **/
-  @Schema(description = "")
-  public String getUserData() {
-    return userData;
-  }
-
-  public void setUserData(String userData) {
-    this.userData = userData;
+  public void setSupportedVolumeTypes(List<String> supportedVolumeTypes) {
+    this.supportedVolumeTypes = supportedVolumeTypes;
   }
 
 
@@ -80,24 +69,22 @@ public class DescribeUserDataResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DescribeUserDataResponse describeUserDataResponse = (DescribeUserDataResponse) o;
-    return Objects.equals(this.instanceId, describeUserDataResponse.instanceId) &&
-        Objects.equals(this.userData, describeUserDataResponse.userData);
+    VolumeForDescribeInstanceTypesOutput volumeForDescribeInstanceTypesOutput = (VolumeForDescribeInstanceTypesOutput) o;
+    return Objects.equals(this.supportedVolumeTypes, volumeForDescribeInstanceTypesOutput.supportedVolumeTypes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, userData);
+    return Objects.hash(supportedVolumeTypes);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DescribeUserDataResponse {\n");
+    sb.append("class VolumeForDescribeInstanceTypesOutput {\n");
     
-    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
-    sb.append("    userData: ").append(toIndentedString(userData)).append("\n");
+    sb.append("    supportedVolumeTypes: ").append(toIndentedString(supportedVolumeTypes)).append("\n");
     sb.append("}");
     return sb.toString();
   }
