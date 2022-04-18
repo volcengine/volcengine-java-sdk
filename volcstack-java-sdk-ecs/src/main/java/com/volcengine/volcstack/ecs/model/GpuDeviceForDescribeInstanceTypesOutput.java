@@ -28,7 +28,7 @@ import javax.validation.Valid;
  * GpuDeviceForDescribeInstanceTypesOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-07T19:27:18.461509+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-11T19:55:49.837979+08:00[Asia/Shanghai]")
 public class GpuDeviceForDescribeInstanceTypesOutput {
   @SerializedName("Count")
   private Integer count = null;
