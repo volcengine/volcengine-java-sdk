@@ -12,26 +12,22 @@
 
 package com.volcengine.volcstack.ecs.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import com.volcengine.volcstack.ecs.model.NetworkInterfaceForDescribeInstancesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
-import java.io.IOException;
+
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+import java.util.Objects;
 /**
  * InstanceForDescribeInstancesOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-07T19:27:18.461509+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-11T19:55:49.837979+08:00[Asia/Shanghai]")
 public class InstanceForDescribeInstancesOutput {
+  @SerializedName("Cpus")
+  private Integer cpus = null;
+
   @SerializedName("CreatedAt")
   private String createdAt = null;
 
@@ -62,8 +58,17 @@ public class InstanceForDescribeInstancesOutput {
   @SerializedName("KeyPairName")
   private String keyPairName = null;
 
+  @SerializedName("MemorySize")
+  private Integer memorySize = null;
+
   @SerializedName("NetworkInterfaces")
   private List<NetworkInterfaceForDescribeInstancesOutput> networkInterfaces = null;
+
+  @SerializedName("OsName")
+  private String osName = null;
+
+  @SerializedName("OsType")
+  private String osType = null;
 
   @SerializedName("RdmaIpAddresses")
   private List<String> rdmaIpAddresses = null;
@@ -77,14 +82,29 @@ public class InstanceForDescribeInstancesOutput {
   @SerializedName("UpdatedAt")
   private String updatedAt = null;
 
-  @SerializedName("UserData")
-  private String userData = null;
-
   @SerializedName("VpcId")
   private String vpcId = null;
 
   @SerializedName("ZoneId")
   private String zoneId = null;
+
+  public InstanceForDescribeInstancesOutput cpus(Integer cpus) {
+    this.cpus = cpus;
+    return this;
+  }
+
+   /**
+   * Get cpus
+   * @return cpus
+  **/
+  @Schema(description = "")
+  public Integer getCpus() {
+    return cpus;
+  }
+
+  public void setCpus(Integer cpus) {
+    this.cpus = cpus;
+  }
 
   public InstanceForDescribeInstancesOutput createdAt(String createdAt) {
     this.createdAt = createdAt;
@@ -266,6 +286,24 @@ public class InstanceForDescribeInstancesOutput {
     this.keyPairName = keyPairName;
   }
 
+  public InstanceForDescribeInstancesOutput memorySize(Integer memorySize) {
+    this.memorySize = memorySize;
+    return this;
+  }
+
+   /**
+   * Get memorySize
+   * @return memorySize
+  **/
+  @Schema(description = "")
+  public Integer getMemorySize() {
+    return memorySize;
+  }
+
+  public void setMemorySize(Integer memorySize) {
+    this.memorySize = memorySize;
+  }
+
   public InstanceForDescribeInstancesOutput networkInterfaces(List<NetworkInterfaceForDescribeInstancesOutput> networkInterfaces) {
     this.networkInterfaces = networkInterfaces;
     return this;
@@ -291,6 +329,42 @@ public class InstanceForDescribeInstancesOutput {
 
   public void setNetworkInterfaces(List<NetworkInterfaceForDescribeInstancesOutput> networkInterfaces) {
     this.networkInterfaces = networkInterfaces;
+  }
+
+  public InstanceForDescribeInstancesOutput osName(String osName) {
+    this.osName = osName;
+    return this;
+  }
+
+   /**
+   * Get osName
+   * @return osName
+  **/
+  @Schema(description = "")
+  public String getOsName() {
+    return osName;
+  }
+
+  public void setOsName(String osName) {
+    this.osName = osName;
+  }
+
+  public InstanceForDescribeInstancesOutput osType(String osType) {
+    this.osType = osType;
+    return this;
+  }
+
+   /**
+   * Get osType
+   * @return osType
+  **/
+  @Schema(description = "")
+  public String getOsType() {
+    return osType;
+  }
+
+  public void setOsType(String osType) {
+    this.osType = osType;
   }
 
   public InstanceForDescribeInstancesOutput rdmaIpAddresses(List<String> rdmaIpAddresses) {
@@ -373,24 +447,6 @@ public class InstanceForDescribeInstancesOutput {
     this.updatedAt = updatedAt;
   }
 
-  public InstanceForDescribeInstancesOutput userData(String userData) {
-    this.userData = userData;
-    return this;
-  }
-
-   /**
-   * Get userData
-   * @return userData
-  **/
-  @Schema(description = "")
-  public String getUserData() {
-    return userData;
-  }
-
-  public void setUserData(String userData) {
-    this.userData = userData;
-  }
-
   public InstanceForDescribeInstancesOutput vpcId(String vpcId) {
     this.vpcId = vpcId;
     return this;
@@ -437,7 +493,8 @@ public class InstanceForDescribeInstancesOutput {
       return false;
     }
     InstanceForDescribeInstancesOutput instanceForDescribeInstancesOutput = (InstanceForDescribeInstancesOutput) o;
-    return Objects.equals(this.createdAt, instanceForDescribeInstancesOutput.createdAt) &&
+    return Objects.equals(this.cpus, instanceForDescribeInstancesOutput.cpus) &&
+        Objects.equals(this.createdAt, instanceForDescribeInstancesOutput.createdAt) &&
         Objects.equals(this.description, instanceForDescribeInstancesOutput.description) &&
         Objects.equals(this.hostName, instanceForDescribeInstancesOutput.hostName) &&
         Objects.equals(this.imageId, instanceForDescribeInstancesOutput.imageId) &&
@@ -447,19 +504,21 @@ public class InstanceForDescribeInstancesOutput {
         Objects.equals(this.instanceTypeId, instanceForDescribeInstancesOutput.instanceTypeId) &&
         Objects.equals(this.keyPairId, instanceForDescribeInstancesOutput.keyPairId) &&
         Objects.equals(this.keyPairName, instanceForDescribeInstancesOutput.keyPairName) &&
+        Objects.equals(this.memorySize, instanceForDescribeInstancesOutput.memorySize) &&
         Objects.equals(this.networkInterfaces, instanceForDescribeInstancesOutput.networkInterfaces) &&
+        Objects.equals(this.osName, instanceForDescribeInstancesOutput.osName) &&
+        Objects.equals(this.osType, instanceForDescribeInstancesOutput.osType) &&
         Objects.equals(this.rdmaIpAddresses, instanceForDescribeInstancesOutput.rdmaIpAddresses) &&
         Objects.equals(this.status, instanceForDescribeInstancesOutput.status) &&
         Objects.equals(this.stoppedMode, instanceForDescribeInstancesOutput.stoppedMode) &&
         Objects.equals(this.updatedAt, instanceForDescribeInstancesOutput.updatedAt) &&
-        Objects.equals(this.userData, instanceForDescribeInstancesOutput.userData) &&
         Objects.equals(this.vpcId, instanceForDescribeInstancesOutput.vpcId) &&
         Objects.equals(this.zoneId, instanceForDescribeInstancesOutput.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, description, hostName, imageId, instanceChargeType, instanceId, instanceName, instanceTypeId, keyPairId, keyPairName, networkInterfaces, rdmaIpAddresses, status, stoppedMode, updatedAt, userData, vpcId, zoneId);
+    return Objects.hash(cpus, createdAt, description, hostName, imageId, instanceChargeType, instanceId, instanceName, instanceTypeId, keyPairId, keyPairName, memorySize, networkInterfaces, osName, osType, rdmaIpAddresses, status, stoppedMode, updatedAt, vpcId, zoneId);
   }
 
 
@@ -468,6 +527,7 @@ public class InstanceForDescribeInstancesOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class InstanceForDescribeInstancesOutput {\n");
     
+    sb.append("    cpus: ").append(toIndentedString(cpus)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    hostName: ").append(toIndentedString(hostName)).append("\n");
@@ -478,12 +538,14 @@ public class InstanceForDescribeInstancesOutput {
     sb.append("    instanceTypeId: ").append(toIndentedString(instanceTypeId)).append("\n");
     sb.append("    keyPairId: ").append(toIndentedString(keyPairId)).append("\n");
     sb.append("    keyPairName: ").append(toIndentedString(keyPairName)).append("\n");
+    sb.append("    memorySize: ").append(toIndentedString(memorySize)).append("\n");
     sb.append("    networkInterfaces: ").append(toIndentedString(networkInterfaces)).append("\n");
+    sb.append("    osName: ").append(toIndentedString(osName)).append("\n");
+    sb.append("    osType: ").append(toIndentedString(osType)).append("\n");
     sb.append("    rdmaIpAddresses: ").append(toIndentedString(rdmaIpAddresses)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    stoppedMode: ").append(toIndentedString(stoppedMode)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
-    sb.append("    userData: ").append(toIndentedString(userData)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");
