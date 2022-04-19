@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>volcstack-java-sdk</artifactId>
+        <groupId>com.volcengine.volcstack</groupId>
+        <version>0.1.0</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>volcstack-java-sdk-bom</artifactId>
+    <packaging>pom</packaging>
+    <name>VOLCSTACK SDK for Java - BOM</name>
+    <description>The VOLCSTACK SDK for Java - BOM module holds the dependency mangements for individual java clients.</description>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.volcengine.volcstack</groupId>
+                <artifactId>volcstack-java-sdk-core</artifactId>
+                <optional>false</optional>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.volcengine.volcstack</groupId>
+                <artifactId>volcstack-java-sdk-cen</artifactId>
+                <optional>false</optional>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.volcengine.volcstack</groupId>
+                <artifactId>volcstack-java-sdk-clb</artifactId>
+                <optional>false</optional>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.volcengine.volcstack</groupId>
+                <artifactId>volcstack-java-sdk-directconnect</artifactId>
+                <optional>false</optional>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.volcengine.volcstack</groupId>
+                <artifactId>volcstack-java-sdk-ecs</artifactId>
+                <optional>false</optional>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.volcengine.volcstack</groupId>
+                <artifactId>volcstack-java-sdk-natgateway</artifactId>
+                <optional>false</optional>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.volcengine.volcstack</groupId>
+                <artifactId>volcstack-java-sdk-storageebs</artifactId>
+                <optional>false</optional>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.volcengine.volcstack</groupId>
+                <artifactId>volcstack-java-sdk-vpc</artifactId>
+                <optional>false</optional>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.volcengine.volcstack</groupId>
+                <artifactId>volcstack-java-sdk-vpn</artifactId>
+                <optional>false</optional>
+                <version>${project.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>
