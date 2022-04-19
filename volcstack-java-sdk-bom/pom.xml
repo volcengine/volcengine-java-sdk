@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>volcstack-java-sdk</artifactId>
-        <groupId>com.volcengine.volcstack</groupId>
+        <groupId>com.volcengine</groupId>
         <version>0.1.0</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
@@ -18,55 +18,55 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>com.volcengine.volcstack</groupId>
+                <groupId>com.volcengine</groupId>
                 <artifactId>volcstack-java-sdk-core</artifactId>
                 <optional>false</optional>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.volcengine.volcstack</groupId>
+                <groupId>com.volcengine</groupId>
                 <artifactId>volcstack-java-sdk-cen</artifactId>
                 <optional>false</optional>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.volcengine.volcstack</groupId>
+                <groupId>com.volcengine</groupId>
                 <artifactId>volcstack-java-sdk-clb</artifactId>
                 <optional>false</optional>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.volcengine.volcstack</groupId>
+                <groupId>com.volcengine</groupId>
                 <artifactId>volcstack-java-sdk-directconnect</artifactId>
                 <optional>false</optional>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.volcengine.volcstack</groupId>
+                <groupId>com.volcengine</groupId>
                 <artifactId>volcstack-java-sdk-ecs</artifactId>
                 <optional>false</optional>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.volcengine.volcstack</groupId>
+                <groupId>com.volcengine</groupId>
                 <artifactId>volcstack-java-sdk-natgateway</artifactId>
                 <optional>false</optional>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.volcengine.volcstack</groupId>
+                <groupId>com.volcengine</groupId>
                 <artifactId>volcstack-java-sdk-storageebs</artifactId>
                 <optional>false</optional>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.volcengine.volcstack</groupId>
+                <groupId>com.volcengine</groupId>
                 <artifactId>volcstack-java-sdk-vpc</artifactId>
                 <optional>false</optional>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.volcengine.volcstack</groupId>
+                <groupId>com.volcengine</groupId>
                 <artifactId>volcstack-java-sdk-vpn</artifactId>
                 <optional>false</optional>
                 <version>${project.version}</version>

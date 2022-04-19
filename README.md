@@ -7,7 +7,7 @@
 * Note
 
 ### Requirements ###
-运行 SDK需要jdk **Java 1.6+**. 你可以下载最新的版本： http://developers.sun.com/downloads/.
+运行 SDK需要jdk **Java 1.7+**. 你可以下载最新的版本： http://developers.sun.com/downloads/.
 如果 SDK版本 高于或者等于 **Java 9** 请依赖javax.annotation-api
 由于在高于或者等于 **Java 9** 中 javax.annotation-api 被移除
 
@@ -36,7 +36,7 @@
 <dependencyManagement>
   <dependencies>
     <dependency>
-      <groupId>com.volcengine.volcstack</groupId>
+      <groupId>com.volcengine</groupId>
 	  <artifactId>volcstack-java-sdk-bom</artifactId>
         <version>0.1.0</version>
 	  <type>pom</type>
@@ -52,12 +52,12 @@
 ```xml
 <dependencies>
   <dependency>
-    <groupId>com.volcengine.volcstack</groupId>
+    <groupId>com.volcengine</groupId>
     <artifactId>volcstack-java-sdk-vpc</artifactId>
     <version>0.1.0</version>
   </dependency>
   <dependency>
-    <groupId>com.volcengine.volcstack</groupId>
+    <groupId>com.volcengine</groupId>
     <artifactId>volcstack-java-sdk-ecs</artifactId>
     <version>0.1.0</version>
   </dependency>
