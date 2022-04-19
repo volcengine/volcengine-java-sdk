@@ -36,7 +36,7 @@
 <dependencyManagement>
   <dependencies>
     <dependency>
-      <groupId>com.volcengine.volcstack</groupId>
+      <groupId>com.volcengine</groupId>
 	  <artifactId>volcstack-java-sdk-bom</artifactId>
         <version>0.1.0</version>
 	  <type>pom</type>
@@ -52,12 +52,12 @@
 ```xml
 <dependencies>
   <dependency>
-    <groupId>com.volcengine.volcstack</groupId>
+    <groupId>com.volcengine</groupId>
     <artifactId>volcstack-java-sdk-vpc</artifactId>
     <version>0.1.0</version>
   </dependency>
   <dependency>
-    <groupId>com.volcengine.volcstack</groupId>
+    <groupId>com.volcengine</groupId>
     <artifactId>volcstack-java-sdk-ecs</artifactId>
     <version>0.1.0</version>
   </dependency>
