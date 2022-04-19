@@ -5,16 +5,12 @@
     <parent>
         <artifactId>volcstack-java-sdk</artifactId>
         <groupId>com.volcengine.volcstack</groupId>
-        <version>0.1.0-SNAPSHOT</version>
+        <version>0.1.0</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>volcstack-java-sdk-vpn</artifactId>
-
-    <properties>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
-    </properties>
 
     <dependencies>
         <dependency>
