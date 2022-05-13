@@ -79,7 +79,7 @@ public class StorageEbsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/AttachVolume/2020-04-01/storage_ebs/get/";
+        String localVarPath = "/AttachVolume/2020-04-01/STORAGE_EBS/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -103,7 +103,7 @@ public class StorageEbsApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -203,7 +203,7 @@ public class StorageEbsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/CreateVolume/2020-04-01/storage_ebs/get/";
+        String localVarPath = "/CreateVolume/2020-04-01/STORAGE_EBS/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -227,7 +227,7 @@ public class StorageEbsApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -327,7 +327,7 @@ public class StorageEbsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteVolume/2020-04-01/storage_ebs/get/";
+        String localVarPath = "/DeleteVolume/2020-04-01/STORAGE_EBS/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -351,7 +351,7 @@ public class StorageEbsApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -451,7 +451,7 @@ public class StorageEbsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeVolumes/2020-04-01/storage_ebs/get/";
+        String localVarPath = "/DescribeVolumes/2020-04-01/STORAGE_EBS/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -475,7 +475,7 @@ public class StorageEbsApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -575,7 +575,7 @@ public class StorageEbsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DetachVolume/2020-04-01/storage_ebs/get/";
+        String localVarPath = "/DetachVolume/2020-04-01/STORAGE_EBS/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -599,7 +599,7 @@ public class StorageEbsApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -699,7 +699,7 @@ public class StorageEbsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ExtendVolume/2020-04-01/storage_ebs/get/";
+        String localVarPath = "/ExtendVolume/2020-04-01/STORAGE_EBS/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -723,7 +723,7 @@ public class StorageEbsApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -823,7 +823,7 @@ public class StorageEbsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ModifyVolumeAttribute/2020-04-01/storage_ebs/get/";
+        String localVarPath = "/ModifyVolumeAttribute/2020-04-01/STORAGE_EBS/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -847,7 +847,7 @@ public class StorageEbsApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))

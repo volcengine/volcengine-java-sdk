@@ -29,7 +29,7 @@ import javax.validation.Valid;
  * DescribeCenBandwidthPackageAttributesResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-03-24T18:20:48.145669+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-13T17:16:19.441439+08:00[Asia/Shanghai]")
 public class DescribeCenBandwidthPackageAttributesResponse {
   @SerializedName("AccountId")
   private String accountId = null;
@@ -66,9 +66,6 @@ public class DescribeCenBandwidthPackageAttributesResponse {
 
   @SerializedName("LocalGeographicRegionSetId")
   private String localGeographicRegionSetId = null;
-
-  @SerializedName("LockReason")
-  private String lockReason = null;
 
   @SerializedName("PeerGeographicRegionSetId")
   private String peerGeographicRegionSetId = null;
@@ -306,24 +303,6 @@ public class DescribeCenBandwidthPackageAttributesResponse {
     this.localGeographicRegionSetId = localGeographicRegionSetId;
   }
 
-  public DescribeCenBandwidthPackageAttributesResponse lockReason(String lockReason) {
-    this.lockReason = lockReason;
-    return this;
-  }
-
-   /**
-   * Get lockReason
-   * @return lockReason
-  **/
-  @Schema(description = "")
-  public String getLockReason() {
-    return lockReason;
-  }
-
-  public void setLockReason(String lockReason) {
-    this.lockReason = lockReason;
-  }
-
   public DescribeCenBandwidthPackageAttributesResponse peerGeographicRegionSetId(String peerGeographicRegionSetId) {
     this.peerGeographicRegionSetId = peerGeographicRegionSetId;
     return this;
@@ -398,7 +377,7 @@ public class DescribeCenBandwidthPackageAttributesResponse {
 
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -418,7 +397,6 @@ public class DescribeCenBandwidthPackageAttributesResponse {
         Objects.equals(this.description, describeCenBandwidthPackageAttributesResponse.description) &&
         Objects.equals(this.expiredTime, describeCenBandwidthPackageAttributesResponse.expiredTime) &&
         Objects.equals(this.localGeographicRegionSetId, describeCenBandwidthPackageAttributesResponse.localGeographicRegionSetId) &&
-        Objects.equals(this.lockReason, describeCenBandwidthPackageAttributesResponse.lockReason) &&
         Objects.equals(this.peerGeographicRegionSetId, describeCenBandwidthPackageAttributesResponse.peerGeographicRegionSetId) &&
         Objects.equals(this.remainingBandwidth, describeCenBandwidthPackageAttributesResponse.remainingBandwidth) &&
         Objects.equals(this.status, describeCenBandwidthPackageAttributesResponse.status) &&
@@ -427,7 +405,7 @@ public class DescribeCenBandwidthPackageAttributesResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, bandwidth, billingType, businessStatus, cenBandwidthPackageId, cenBandwidthPackageName, cenIds, creationTime, deletedTime, description, expiredTime, localGeographicRegionSetId, lockReason, peerGeographicRegionSetId, remainingBandwidth, status, updateTime);
+    return Objects.hash(accountId, bandwidth, billingType, businessStatus, cenBandwidthPackageId, cenBandwidthPackageName, cenIds, creationTime, deletedTime, description, expiredTime, localGeographicRegionSetId, peerGeographicRegionSetId, remainingBandwidth, status, updateTime);
   }
 
 
@@ -448,7 +426,6 @@ public class DescribeCenBandwidthPackageAttributesResponse {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    expiredTime: ").append(toIndentedString(expiredTime)).append("\n");
     sb.append("    localGeographicRegionSetId: ").append(toIndentedString(localGeographicRegionSetId)).append("\n");
-    sb.append("    lockReason: ").append(toIndentedString(lockReason)).append("\n");
     sb.append("    peerGeographicRegionSetId: ").append(toIndentedString(peerGeographicRegionSetId)).append("\n");
     sb.append("    remainingBandwidth: ").append(toIndentedString(remainingBandwidth)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
@@ -461,7 +438,7 @@ public class DescribeCenBandwidthPackageAttributesResponse {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }

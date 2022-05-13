@@ -29,7 +29,7 @@ import javax.validation.Valid;
  * DescribeDirectConnectGatewayRoutesRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-03-24T18:20:58.026076+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-13T17:16:28.121303+08:00[Asia/Shanghai]")
 public class DescribeDirectConnectGatewayRoutesRequest {
   @SerializedName("DestinationCidrBlock")
   private String destinationCidrBlock = null;
@@ -209,7 +209,7 @@ public class DescribeDirectConnectGatewayRoutesRequest {
 
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -254,7 +254,7 @@ public class DescribeDirectConnectGatewayRoutesRequest {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }

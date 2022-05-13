@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * LoadBalancerForDescribeLoadBalancersOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-03-24T18:20:52.429083+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-13T17:16:23.251034+08:00[Asia/Shanghai]")
 public class LoadBalancerForDescribeLoadBalancersOutput {
   @SerializedName("BusinessStatus")
   private String businessStatus = null;
@@ -52,6 +52,9 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
 
   @SerializedName("EniID")
   private String eniID = null;
+
+  @SerializedName("ExpiredTime")
+  private String expiredTime = null;
 
   @SerializedName("LoadBalancerBillingType")
   private Integer loadBalancerBillingType = null;
@@ -234,6 +237,24 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
 
   public void setEniID(String eniID) {
     this.eniID = eniID;
+  }
+
+  public LoadBalancerForDescribeLoadBalancersOutput expiredTime(String expiredTime) {
+    this.expiredTime = expiredTime;
+    return this;
+  }
+
+   /**
+   * Get expiredTime
+   * @return expiredTime
+  **/
+  @Schema(description = "")
+  public String getExpiredTime() {
+    return expiredTime;
+  }
+
+  public void setExpiredTime(String expiredTime) {
+    this.expiredTime = expiredTime;
   }
 
   public LoadBalancerForDescribeLoadBalancersOutput loadBalancerBillingType(Integer loadBalancerBillingType) {
@@ -472,7 +493,7 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
 
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -488,6 +509,7 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
         Objects.equals(this.eipID, loadBalancerForDescribeLoadBalancersOutput.eipID) &&
         Objects.equals(this.eniAddress, loadBalancerForDescribeLoadBalancersOutput.eniAddress) &&
         Objects.equals(this.eniID, loadBalancerForDescribeLoadBalancersOutput.eniID) &&
+        Objects.equals(this.expiredTime, loadBalancerForDescribeLoadBalancersOutput.expiredTime) &&
         Objects.equals(this.loadBalancerBillingType, loadBalancerForDescribeLoadBalancersOutput.loadBalancerBillingType) &&
         Objects.equals(this.loadBalancerId, loadBalancerForDescribeLoadBalancersOutput.loadBalancerId) &&
         Objects.equals(this.loadBalancerName, loadBalancerForDescribeLoadBalancersOutput.loadBalancerName) &&
@@ -505,7 +527,7 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(businessStatus, createTime, deletedTime, description, eipAddress, eipID, eniAddress, eniID, loadBalancerBillingType, loadBalancerId, loadBalancerName, loadBalancerSpec, lockReason, modificationProtectionReason, modificationProtectionStatus, overdueTime, status, subnetId, type, updateTime, vpcId);
+    return Objects.hash(businessStatus, createTime, deletedTime, description, eipAddress, eipID, eniAddress, eniID, expiredTime, loadBalancerBillingType, loadBalancerId, loadBalancerName, loadBalancerSpec, lockReason, modificationProtectionReason, modificationProtectionStatus, overdueTime, status, subnetId, type, updateTime, vpcId);
   }
 
 
@@ -522,6 +544,7 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
     sb.append("    eipID: ").append(toIndentedString(eipID)).append("\n");
     sb.append("    eniAddress: ").append(toIndentedString(eniAddress)).append("\n");
     sb.append("    eniID: ").append(toIndentedString(eniID)).append("\n");
+    sb.append("    expiredTime: ").append(toIndentedString(expiredTime)).append("\n");
     sb.append("    loadBalancerBillingType: ").append(toIndentedString(loadBalancerBillingType)).append("\n");
     sb.append("    loadBalancerId: ").append(toIndentedString(loadBalancerId)).append("\n");
     sb.append("    loadBalancerName: ").append(toIndentedString(loadBalancerName)).append("\n");
@@ -543,7 +566,7 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }

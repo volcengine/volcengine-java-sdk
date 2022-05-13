@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * ResultForDescribeListenerHealthOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-03-24T18:20:52.429083+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-13T17:16:23.251034+08:00[Asia/Shanghai]")
 public class ResultForDescribeListenerHealthOutput {
   @SerializedName("InstanceId")
   private String instanceId = null;
@@ -49,6 +49,9 @@ public class ResultForDescribeListenerHealthOutput {
 
   @SerializedName("Status")
   private String status = null;
+
+  @SerializedName("Type")
+  private String type = null;
 
   public ResultForDescribeListenerHealthOutput instanceId(String instanceId) {
     this.instanceId = instanceId;
@@ -176,9 +179,27 @@ public class ResultForDescribeListenerHealthOutput {
     this.status = status;
   }
 
+  public ResultForDescribeListenerHealthOutput type(String type) {
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @Schema(description = "")
+  public String getType() {
+    return type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -192,12 +213,13 @@ public class ResultForDescribeListenerHealthOutput {
         Objects.equals(this.ruleNumber, resultForDescribeListenerHealthOutput.ruleNumber) &&
         Objects.equals(this.serverGroupId, resultForDescribeListenerHealthOutput.serverGroupId) &&
         Objects.equals(this.serverId, resultForDescribeListenerHealthOutput.serverId) &&
-        Objects.equals(this.status, resultForDescribeListenerHealthOutput.status);
+        Objects.equals(this.status, resultForDescribeListenerHealthOutput.status) &&
+        Objects.equals(this.type, resultForDescribeListenerHealthOutput.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, ip, port, ruleNumber, serverGroupId, serverId, status);
+    return Objects.hash(instanceId, ip, port, ruleNumber, serverGroupId, serverId, status, type);
   }
 
 
@@ -213,6 +235,7 @@ public class ResultForDescribeListenerHealthOutput {
     sb.append("    serverGroupId: ").append(toIndentedString(serverGroupId)).append("\n");
     sb.append("    serverId: ").append(toIndentedString(serverId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -221,7 +244,7 @@ public class ResultForDescribeListenerHealthOutput {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }

@@ -30,7 +30,7 @@ import javax.validation.Valid;
  * DescribeLoadBalancersBillingResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-03-24T18:20:52.429083+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-13T17:16:23.251034+08:00[Asia/Shanghai]")
 public class DescribeLoadBalancersBillingResponse {
   @SerializedName("LoadBalancerBillingConfigs")
   private List<LoadBalancerBillingConfigForDescribeLoadBalancersBillingOutput> loadBalancerBillingConfigs = null;
@@ -40,6 +40,9 @@ public class DescribeLoadBalancersBillingResponse {
 
   @SerializedName("PageSize")
   private Integer pageSize = null;
+
+  @SerializedName("RequestId")
+  private String requestId = null;
 
   @SerializedName("TotalCount")
   private Integer totalCount = null;
@@ -107,6 +110,24 @@ public class DescribeLoadBalancersBillingResponse {
     this.pageSize = pageSize;
   }
 
+  public DescribeLoadBalancersBillingResponse requestId(String requestId) {
+    this.requestId = requestId;
+    return this;
+  }
+
+   /**
+   * Get requestId
+   * @return requestId
+  **/
+  @Schema(description = "")
+  public String getRequestId() {
+    return requestId;
+  }
+
+  public void setRequestId(String requestId) {
+    this.requestId = requestId;
+  }
+
   public DescribeLoadBalancersBillingResponse totalCount(Integer totalCount) {
     this.totalCount = totalCount;
     return this;
@@ -127,7 +148,7 @@ public class DescribeLoadBalancersBillingResponse {
 
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -138,12 +159,13 @@ public class DescribeLoadBalancersBillingResponse {
     return Objects.equals(this.loadBalancerBillingConfigs, describeLoadBalancersBillingResponse.loadBalancerBillingConfigs) &&
         Objects.equals(this.pageNumber, describeLoadBalancersBillingResponse.pageNumber) &&
         Objects.equals(this.pageSize, describeLoadBalancersBillingResponse.pageSize) &&
+        Objects.equals(this.requestId, describeLoadBalancersBillingResponse.requestId) &&
         Objects.equals(this.totalCount, describeLoadBalancersBillingResponse.totalCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(loadBalancerBillingConfigs, pageNumber, pageSize, totalCount);
+    return Objects.hash(loadBalancerBillingConfigs, pageNumber, pageSize, requestId, totalCount);
   }
 
 
@@ -155,6 +177,7 @@ public class DescribeLoadBalancersBillingResponse {
     sb.append("    loadBalancerBillingConfigs: ").append(toIndentedString(loadBalancerBillingConfigs)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -164,7 +187,7 @@ public class DescribeLoadBalancersBillingResponse {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }

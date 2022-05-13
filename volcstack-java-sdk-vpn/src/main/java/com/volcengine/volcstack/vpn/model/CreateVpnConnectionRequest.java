@@ -29,10 +29,10 @@ import javax.validation.Valid;
  * CreateVpnConnectionRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-03-24T18:21:18.622599+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-13T17:16:45.779409+08:00[Asia/Shanghai]")
 public class CreateVpnConnectionRequest {
-  @SerializedName("CustomerVpnGatewayId")
-  private String customerVpnGatewayId = null;
+  @SerializedName("CustomerGatewayId")
+  private String customerGatewayId = null;
 
   @SerializedName("Description")
   private String description = null;
@@ -58,23 +58,23 @@ public class CreateVpnConnectionRequest {
   @SerializedName("VpnGatewayId")
   private String vpnGatewayId = null;
 
-  public CreateVpnConnectionRequest customerVpnGatewayId(String customerVpnGatewayId) {
-    this.customerVpnGatewayId = customerVpnGatewayId;
+  public CreateVpnConnectionRequest customerGatewayId(String customerGatewayId) {
+    this.customerGatewayId = customerGatewayId;
     return this;
   }
 
    /**
-   * Get customerVpnGatewayId
-   * @return customerVpnGatewayId
+   * Get customerGatewayId
+   * @return customerGatewayId
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getCustomerVpnGatewayId() {
-    return customerVpnGatewayId;
+  public String getCustomerGatewayId() {
+    return customerGatewayId;
   }
 
-  public void setCustomerVpnGatewayId(String customerVpnGatewayId) {
-    this.customerVpnGatewayId = customerVpnGatewayId;
+  public void setCustomerGatewayId(String customerGatewayId) {
+    this.customerGatewayId = customerGatewayId;
   }
 
   public CreateVpnConnectionRequest description(String description) {
@@ -228,7 +228,7 @@ public class CreateVpnConnectionRequest {
 
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -236,7 +236,7 @@ public class CreateVpnConnectionRequest {
       return false;
     }
     CreateVpnConnectionRequest createVpnConnectionRequest = (CreateVpnConnectionRequest) o;
-    return Objects.equals(this.customerVpnGatewayId, createVpnConnectionRequest.customerVpnGatewayId) &&
+    return Objects.equals(this.customerGatewayId, createVpnConnectionRequest.customerGatewayId) &&
         Objects.equals(this.description, createVpnConnectionRequest.description) &&
         Objects.equals(this.ikeConfig, createVpnConnectionRequest.ikeConfig) &&
         Objects.equals(this.ipsecConfig, createVpnConnectionRequest.ipsecConfig) &&
@@ -249,7 +249,7 @@ public class CreateVpnConnectionRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(customerVpnGatewayId, description, ikeConfig, ipsecConfig, localSubnet, natTraversal, remoteSubnet, vpnConnectionName, vpnGatewayId);
+    return Objects.hash(customerGatewayId, description, ikeConfig, ipsecConfig, localSubnet, natTraversal, remoteSubnet, vpnConnectionName, vpnGatewayId);
   }
 
 
@@ -258,7 +258,7 @@ public class CreateVpnConnectionRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateVpnConnectionRequest {\n");
     
-    sb.append("    customerVpnGatewayId: ").append(toIndentedString(customerVpnGatewayId)).append("\n");
+    sb.append("    customerGatewayId: ").append(toIndentedString(customerGatewayId)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    ikeConfig: ").append(toIndentedString(ikeConfig)).append("\n");
     sb.append("    ipsecConfig: ").append(toIndentedString(ipsecConfig)).append("\n");
@@ -275,7 +275,7 @@ public class CreateVpnConnectionRequest {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }

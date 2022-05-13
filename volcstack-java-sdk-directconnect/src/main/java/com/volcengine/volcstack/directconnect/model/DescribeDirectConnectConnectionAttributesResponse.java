@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * DescribeDirectConnectConnectionAttributesResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-03-24T18:20:58.026076+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-13T17:16:28.121303+08:00[Asia/Shanghai]")
 public class DescribeDirectConnectConnectionAttributesResponse {
   @SerializedName("AccessPoint")
   private String accessPoint = null;
@@ -36,7 +36,10 @@ public class DescribeDirectConnectConnectionAttributesResponse {
   private String accountId = null;
 
   @SerializedName("Bandwidth")
-  private String bandwidth = null;
+  private Integer bandwidth = null;
+
+  @SerializedName("ConnectionType")
+  private String connectionType = null;
 
   @SerializedName("CreationTime")
   private String creationTime = null;
@@ -53,6 +56,12 @@ public class DescribeDirectConnectConnectionAttributesResponse {
   @SerializedName("Operator")
   private String operator = null;
 
+  @SerializedName("ParentConnectionAccountId")
+  private String parentConnectionAccountId = null;
+
+  @SerializedName("ParentConnectionId")
+  private String parentConnectionId = null;
+
   @SerializedName("PeerLocation")
   private String peerLocation = null;
 
@@ -67,6 +76,9 @@ public class DescribeDirectConnectConnectionAttributesResponse {
 
   @SerializedName("UpdateTime")
   private String updateTime = null;
+
+  @SerializedName("VlanId")
+  private Integer vlanId = null;
 
   public DescribeDirectConnectConnectionAttributesResponse accessPoint(String accessPoint) {
     this.accessPoint = accessPoint;
@@ -104,7 +116,7 @@ public class DescribeDirectConnectConnectionAttributesResponse {
     this.accountId = accountId;
   }
 
-  public DescribeDirectConnectConnectionAttributesResponse bandwidth(String bandwidth) {
+  public DescribeDirectConnectConnectionAttributesResponse bandwidth(Integer bandwidth) {
     this.bandwidth = bandwidth;
     return this;
   }
@@ -114,12 +126,30 @@ public class DescribeDirectConnectConnectionAttributesResponse {
    * @return bandwidth
   **/
   @Schema(description = "")
-  public String getBandwidth() {
+  public Integer getBandwidth() {
     return bandwidth;
   }
 
-  public void setBandwidth(String bandwidth) {
+  public void setBandwidth(Integer bandwidth) {
     this.bandwidth = bandwidth;
+  }
+
+  public DescribeDirectConnectConnectionAttributesResponse connectionType(String connectionType) {
+    this.connectionType = connectionType;
+    return this;
+  }
+
+   /**
+   * Get connectionType
+   * @return connectionType
+  **/
+  @Schema(description = "")
+  public String getConnectionType() {
+    return connectionType;
+  }
+
+  public void setConnectionType(String connectionType) {
+    this.connectionType = connectionType;
   }
 
   public DescribeDirectConnectConnectionAttributesResponse creationTime(String creationTime) {
@@ -212,6 +242,42 @@ public class DescribeDirectConnectConnectionAttributesResponse {
     this.operator = operator;
   }
 
+  public DescribeDirectConnectConnectionAttributesResponse parentConnectionAccountId(String parentConnectionAccountId) {
+    this.parentConnectionAccountId = parentConnectionAccountId;
+    return this;
+  }
+
+   /**
+   * Get parentConnectionAccountId
+   * @return parentConnectionAccountId
+  **/
+  @Schema(description = "")
+  public String getParentConnectionAccountId() {
+    return parentConnectionAccountId;
+  }
+
+  public void setParentConnectionAccountId(String parentConnectionAccountId) {
+    this.parentConnectionAccountId = parentConnectionAccountId;
+  }
+
+  public DescribeDirectConnectConnectionAttributesResponse parentConnectionId(String parentConnectionId) {
+    this.parentConnectionId = parentConnectionId;
+    return this;
+  }
+
+   /**
+   * Get parentConnectionId
+   * @return parentConnectionId
+  **/
+  @Schema(description = "")
+  public String getParentConnectionId() {
+    return parentConnectionId;
+  }
+
+  public void setParentConnectionId(String parentConnectionId) {
+    this.parentConnectionId = parentConnectionId;
+  }
+
   public DescribeDirectConnectConnectionAttributesResponse peerLocation(String peerLocation) {
     this.peerLocation = peerLocation;
     return this;
@@ -302,9 +368,27 @@ public class DescribeDirectConnectConnectionAttributesResponse {
     this.updateTime = updateTime;
   }
 
+  public DescribeDirectConnectConnectionAttributesResponse vlanId(Integer vlanId) {
+    this.vlanId = vlanId;
+    return this;
+  }
+
+   /**
+   * Get vlanId
+   * @return vlanId
+  **/
+  @Schema(description = "")
+  public Integer getVlanId() {
+    return vlanId;
+  }
+
+  public void setVlanId(Integer vlanId) {
+    this.vlanId = vlanId;
+  }
+
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -315,21 +399,25 @@ public class DescribeDirectConnectConnectionAttributesResponse {
     return Objects.equals(this.accessPoint, describeDirectConnectConnectionAttributesResponse.accessPoint) &&
         Objects.equals(this.accountId, describeDirectConnectConnectionAttributesResponse.accountId) &&
         Objects.equals(this.bandwidth, describeDirectConnectConnectionAttributesResponse.bandwidth) &&
+        Objects.equals(this.connectionType, describeDirectConnectConnectionAttributesResponse.connectionType) &&
         Objects.equals(this.creationTime, describeDirectConnectConnectionAttributesResponse.creationTime) &&
         Objects.equals(this.description, describeDirectConnectConnectionAttributesResponse.description) &&
         Objects.equals(this.directConnectConnectionId, describeDirectConnectConnectionAttributesResponse.directConnectConnectionId) &&
         Objects.equals(this.directConnectConnectionName, describeDirectConnectConnectionAttributesResponse.directConnectConnectionName) &&
         Objects.equals(this.operator, describeDirectConnectConnectionAttributesResponse.operator) &&
+        Objects.equals(this.parentConnectionAccountId, describeDirectConnectConnectionAttributesResponse.parentConnectionAccountId) &&
+        Objects.equals(this.parentConnectionId, describeDirectConnectConnectionAttributesResponse.parentConnectionId) &&
         Objects.equals(this.peerLocation, describeDirectConnectConnectionAttributesResponse.peerLocation) &&
         Objects.equals(this.portType, describeDirectConnectConnectionAttributesResponse.portType) &&
         Objects.equals(this.requestId, describeDirectConnectConnectionAttributesResponse.requestId) &&
         Objects.equals(this.status, describeDirectConnectConnectionAttributesResponse.status) &&
-        Objects.equals(this.updateTime, describeDirectConnectConnectionAttributesResponse.updateTime);
+        Objects.equals(this.updateTime, describeDirectConnectConnectionAttributesResponse.updateTime) &&
+        Objects.equals(this.vlanId, describeDirectConnectConnectionAttributesResponse.vlanId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessPoint, accountId, bandwidth, creationTime, description, directConnectConnectionId, directConnectConnectionName, operator, peerLocation, portType, requestId, status, updateTime);
+    return Objects.hash(accessPoint, accountId, bandwidth, connectionType, creationTime, description, directConnectConnectionId, directConnectConnectionName, operator, parentConnectionAccountId, parentConnectionId, peerLocation, portType, requestId, status, updateTime, vlanId);
   }
 
 
@@ -341,16 +429,20 @@ public class DescribeDirectConnectConnectionAttributesResponse {
     sb.append("    accessPoint: ").append(toIndentedString(accessPoint)).append("\n");
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    bandwidth: ").append(toIndentedString(bandwidth)).append("\n");
+    sb.append("    connectionType: ").append(toIndentedString(connectionType)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    directConnectConnectionId: ").append(toIndentedString(directConnectConnectionId)).append("\n");
     sb.append("    directConnectConnectionName: ").append(toIndentedString(directConnectConnectionName)).append("\n");
     sb.append("    operator: ").append(toIndentedString(operator)).append("\n");
+    sb.append("    parentConnectionAccountId: ").append(toIndentedString(parentConnectionAccountId)).append("\n");
+    sb.append("    parentConnectionId: ").append(toIndentedString(parentConnectionId)).append("\n");
     sb.append("    peerLocation: ").append(toIndentedString(peerLocation)).append("\n");
     sb.append("    portType: ").append(toIndentedString(portType)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
+    sb.append("    vlanId: ").append(toIndentedString(vlanId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -359,7 +451,7 @@ public class DescribeDirectConnectConnectionAttributesResponse {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }

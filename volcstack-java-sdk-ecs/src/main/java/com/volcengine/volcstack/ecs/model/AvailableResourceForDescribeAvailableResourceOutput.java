@@ -12,18 +12,25 @@
 
 package com.volcengine.volcstack.ecs.model;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import com.volcengine.volcstack.ecs.model.SupportedResourceForDescribeAvailableResourceOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
-
-import javax.validation.Valid;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+import javax.validation.constraints.*;
+import javax.validation.Valid;
 /**
  * AvailableResourceForDescribeAvailableResourceOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-11T19:55:49.837979+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-13T17:16:32.628524+08:00[Asia/Shanghai]")
 public class AvailableResourceForDescribeAvailableResourceOutput {
   @SerializedName("SupportedResources")
   private List<SupportedResourceForDescribeAvailableResourceOutput> supportedResources = null;
@@ -78,7 +85,7 @@ public class AvailableResourceForDescribeAvailableResourceOutput {
 
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -111,7 +118,7 @@ public class AvailableResourceForDescribeAvailableResourceOutput {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }

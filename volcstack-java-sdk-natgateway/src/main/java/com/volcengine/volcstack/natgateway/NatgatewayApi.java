@@ -85,7 +85,7 @@ public class NatgatewayApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/CreateNatGateway/2020-04-01/natgateway/get/";
+        String localVarPath = "/CreateNatGateway/2020-04-01/NATGATEWAY/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -109,7 +109,7 @@ public class NatgatewayApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -209,7 +209,7 @@ public class NatgatewayApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/CreateSnatEntry/2020-04-01/natgateway/get/";
+        String localVarPath = "/CreateSnatEntry/2020-04-01/NATGATEWAY/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -233,7 +233,7 @@ public class NatgatewayApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -333,7 +333,7 @@ public class NatgatewayApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteNatGateway/2020-04-01/natgateway/get/";
+        String localVarPath = "/DeleteNatGateway/2020-04-01/NATGATEWAY/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -357,7 +357,7 @@ public class NatgatewayApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -457,7 +457,7 @@ public class NatgatewayApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteSnatEntry/2020-04-01/natgateway/get/";
+        String localVarPath = "/DeleteSnatEntry/2020-04-01/NATGATEWAY/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -481,7 +481,7 @@ public class NatgatewayApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -581,7 +581,7 @@ public class NatgatewayApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeNatGatewayAttributes/2020-04-01/natgateway/get/";
+        String localVarPath = "/DescribeNatGatewayAttributes/2020-04-01/NATGATEWAY/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -605,7 +605,7 @@ public class NatgatewayApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -705,7 +705,7 @@ public class NatgatewayApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeNatGateways/2020-04-01/natgateway/get/";
+        String localVarPath = "/DescribeNatGateways/2020-04-01/NATGATEWAY/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -729,7 +729,7 @@ public class NatgatewayApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -829,7 +829,7 @@ public class NatgatewayApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeSnatEntries/2020-04-01/natgateway/get/";
+        String localVarPath = "/DescribeSnatEntries/2020-04-01/NATGATEWAY/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -853,7 +853,7 @@ public class NatgatewayApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -953,7 +953,7 @@ public class NatgatewayApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeSnatEntryAttributes/2020-04-01/natgateway/get/";
+        String localVarPath = "/DescribeSnatEntryAttributes/2020-04-01/NATGATEWAY/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -977,7 +977,7 @@ public class NatgatewayApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -1077,7 +1077,7 @@ public class NatgatewayApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ModifyNatGatewayAttributes/2020-04-01/natgateway/get/";
+        String localVarPath = "/ModifyNatGatewayAttributes/2020-04-01/NATGATEWAY/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1101,7 +1101,7 @@ public class NatgatewayApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -1201,7 +1201,7 @@ public class NatgatewayApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ModifySnatEntryAttributes/2020-04-01/natgateway/get/";
+        String localVarPath = "/ModifySnatEntryAttributes/2020-04-01/NATGATEWAY/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1225,7 +1225,7 @@ public class NatgatewayApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))

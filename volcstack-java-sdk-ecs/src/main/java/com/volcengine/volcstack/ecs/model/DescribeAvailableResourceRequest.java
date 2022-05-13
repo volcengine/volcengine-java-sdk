@@ -27,13 +27,16 @@ import javax.validation.Valid;
  * DescribeAvailableResourceRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-11T19:55:49.837979+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-13T17:16:32.628524+08:00[Asia/Shanghai]")
 public class DescribeAvailableResourceRequest {
   @SerializedName("DestinationResource")
   private String destinationResource = null;
 
   @SerializedName("InstanceType")
   private String instanceType = null;
+
+  @SerializedName("InstanceTypeId")
+  private String instanceTypeId = null;
 
   @SerializedName("ZoneId")
   private String zoneId = null;
@@ -74,6 +77,24 @@ public class DescribeAvailableResourceRequest {
     this.instanceType = instanceType;
   }
 
+  public DescribeAvailableResourceRequest instanceTypeId(String instanceTypeId) {
+    this.instanceTypeId = instanceTypeId;
+    return this;
+  }
+
+   /**
+   * Get instanceTypeId
+   * @return instanceTypeId
+  **/
+  @Schema(description = "")
+  public String getInstanceTypeId() {
+    return instanceTypeId;
+  }
+
+  public void setInstanceTypeId(String instanceTypeId) {
+    this.instanceTypeId = instanceTypeId;
+  }
+
   public DescribeAvailableResourceRequest zoneId(String zoneId) {
     this.zoneId = zoneId;
     return this;
@@ -94,7 +115,7 @@ public class DescribeAvailableResourceRequest {
 
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -104,12 +125,13 @@ public class DescribeAvailableResourceRequest {
     DescribeAvailableResourceRequest describeAvailableResourceRequest = (DescribeAvailableResourceRequest) o;
     return Objects.equals(this.destinationResource, describeAvailableResourceRequest.destinationResource) &&
         Objects.equals(this.instanceType, describeAvailableResourceRequest.instanceType) &&
+        Objects.equals(this.instanceTypeId, describeAvailableResourceRequest.instanceTypeId) &&
         Objects.equals(this.zoneId, describeAvailableResourceRequest.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(destinationResource, instanceType, zoneId);
+    return Objects.hash(destinationResource, instanceType, instanceTypeId, zoneId);
   }
 
 
@@ -120,6 +142,7 @@ public class DescribeAvailableResourceRequest {
     
     sb.append("    destinationResource: ").append(toIndentedString(destinationResource)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
+    sb.append("    instanceTypeId: ").append(toIndentedString(instanceTypeId)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -129,7 +152,7 @@ public class DescribeAvailableResourceRequest {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }

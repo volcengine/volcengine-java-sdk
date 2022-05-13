@@ -31,7 +31,7 @@ import javax.validation.Valid;
  * RunInstancesRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-11T19:55:49.837979+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-13T17:16:32.628524+08:00[Asia/Shanghai]")
 public class RunInstancesRequest {
   @SerializedName("AutoRenew")
   private Boolean autoRenew = null;
@@ -65,6 +65,9 @@ public class RunInstancesRequest {
 
   @SerializedName("InstanceType")
   private String instanceType = null;
+
+  @SerializedName("InstanceTypeId")
+  private String instanceTypeId = null;
 
   @SerializedName("KeyPairName")
   private String keyPairName = null;
@@ -297,6 +300,24 @@ public class RunInstancesRequest {
     this.instanceType = instanceType;
   }
 
+  public RunInstancesRequest instanceTypeId(String instanceTypeId) {
+    this.instanceTypeId = instanceTypeId;
+    return this;
+  }
+
+   /**
+   * Get instanceTypeId
+   * @return instanceTypeId
+  **/
+  @Schema(description = "")
+  public String getInstanceTypeId() {
+    return instanceTypeId;
+  }
+
+  public void setInstanceTypeId(String instanceTypeId) {
+    this.instanceTypeId = instanceTypeId;
+  }
+
   public RunInstancesRequest keyPairName(String keyPairName) {
     this.keyPairName = keyPairName;
     return this;
@@ -515,7 +536,7 @@ public class RunInstancesRequest {
 
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -534,6 +555,7 @@ public class RunInstancesRequest {
         Objects.equals(this.instanceChargeType, runInstancesRequest.instanceChargeType) &&
         Objects.equals(this.instanceName, runInstancesRequest.instanceName) &&
         Objects.equals(this.instanceType, runInstancesRequest.instanceType) &&
+        Objects.equals(this.instanceTypeId, runInstancesRequest.instanceTypeId) &&
         Objects.equals(this.keyPairName, runInstancesRequest.keyPairName) &&
         Objects.equals(this.networkInterfaces, runInstancesRequest.networkInterfaces) &&
         Objects.equals(this.password, runInstancesRequest.password) &&
@@ -549,7 +571,7 @@ public class RunInstancesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoRenew, autoRenewPeriod, clientToken, count, description, hostName, hpcClusterId, imageId, instanceChargeType, instanceName, instanceType, keyPairName, networkInterfaces, password, period, periodUnit, securityEnhancementStrategy, suffixIndex, uniqueSuffix, userData, volumes, zoneId);
+    return Objects.hash(autoRenew, autoRenewPeriod, clientToken, count, description, hostName, hpcClusterId, imageId, instanceChargeType, instanceName, instanceType, instanceTypeId, keyPairName, networkInterfaces, password, period, periodUnit, securityEnhancementStrategy, suffixIndex, uniqueSuffix, userData, volumes, zoneId);
   }
 
 
@@ -569,6 +591,7 @@ public class RunInstancesRequest {
     sb.append("    instanceChargeType: ").append(toIndentedString(instanceChargeType)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
+    sb.append("    instanceTypeId: ").append(toIndentedString(instanceTypeId)).append("\n");
     sb.append("    keyPairName: ").append(toIndentedString(keyPairName)).append("\n");
     sb.append("    networkInterfaces: ").append(toIndentedString(networkInterfaces)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
@@ -588,7 +611,7 @@ public class RunInstancesRequest {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }
