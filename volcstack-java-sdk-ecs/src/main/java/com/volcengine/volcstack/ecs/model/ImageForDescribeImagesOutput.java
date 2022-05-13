@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * ImageForDescribeImagesOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-11T19:55:49.837979+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-13T17:16:32.628524+08:00[Asia/Shanghai]")
 public class ImageForDescribeImagesOutput {
   @SerializedName("Architecture")
   private String architecture = null;
@@ -58,6 +58,12 @@ public class ImageForDescribeImagesOutput {
 
   @SerializedName("PlatformVersion")
   private String platformVersion = null;
+
+  @SerializedName("ShareStatus")
+  private String shareStatus = null;
+
+  @SerializedName("Size")
+  private Integer size = null;
 
   @SerializedName("Status")
   private String status = null;
@@ -251,6 +257,42 @@ public class ImageForDescribeImagesOutput {
     this.platformVersion = platformVersion;
   }
 
+  public ImageForDescribeImagesOutput shareStatus(String shareStatus) {
+    this.shareStatus = shareStatus;
+    return this;
+  }
+
+   /**
+   * Get shareStatus
+   * @return shareStatus
+  **/
+  @Schema(description = "")
+  public String getShareStatus() {
+    return shareStatus;
+  }
+
+  public void setShareStatus(String shareStatus) {
+    this.shareStatus = shareStatus;
+  }
+
+  public ImageForDescribeImagesOutput size(Integer size) {
+    this.size = size;
+    return this;
+  }
+
+   /**
+   * Get size
+   * @return size
+  **/
+  @Schema(description = "")
+  public Integer getSize() {
+    return size;
+  }
+
+  public void setSize(Integer size) {
+    this.size = size;
+  }
+
   public ImageForDescribeImagesOutput status(String status) {
     this.status = status;
     return this;
@@ -325,7 +367,7 @@ public class ImageForDescribeImagesOutput {
 
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -343,6 +385,8 @@ public class ImageForDescribeImagesOutput {
         Objects.equals(this.osType, imageForDescribeImagesOutput.osType) &&
         Objects.equals(this.platform, imageForDescribeImagesOutput.platform) &&
         Objects.equals(this.platformVersion, imageForDescribeImagesOutput.platformVersion) &&
+        Objects.equals(this.shareStatus, imageForDescribeImagesOutput.shareStatus) &&
+        Objects.equals(this.size, imageForDescribeImagesOutput.size) &&
         Objects.equals(this.status, imageForDescribeImagesOutput.status) &&
         Objects.equals(this.updatedAt, imageForDescribeImagesOutput.updatedAt) &&
         Objects.equals(this.virtualSize, imageForDescribeImagesOutput.virtualSize) &&
@@ -351,7 +395,7 @@ public class ImageForDescribeImagesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(architecture, createdAt, description, imageId, imageName, isSupportCloudInit, osName, osType, platform, platformVersion, status, updatedAt, virtualSize, visibility);
+    return Objects.hash(architecture, createdAt, description, imageId, imageName, isSupportCloudInit, osName, osType, platform, platformVersion, shareStatus, size, status, updatedAt, virtualSize, visibility);
   }
 
 
@@ -370,6 +414,8 @@ public class ImageForDescribeImagesOutput {
     sb.append("    osType: ").append(toIndentedString(osType)).append("\n");
     sb.append("    platform: ").append(toIndentedString(platform)).append("\n");
     sb.append("    platformVersion: ").append(toIndentedString(platformVersion)).append("\n");
+    sb.append("    shareStatus: ").append(toIndentedString(shareStatus)).append("\n");
+    sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    virtualSize: ").append(toIndentedString(virtualSize)).append("\n");
@@ -382,7 +428,7 @@ public class ImageForDescribeImagesOutput {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }

@@ -12,12 +12,74 @@
 
 package com.volcengine.volcstack.directconnect;
 
-import com.google.gson.reflect.TypeToken;
-import com.volcengine.volcstack.*;
-import com.volcengine.volcstack.directconnect.model.*;
+import com.volcengine.volcstack.ApiCallback;
+import com.volcengine.volcstack.ApiClient;
+import com.volcengine.volcstack.ApiException;
+import com.volcengine.volcstack.ApiResponse;
+import com.volcengine.volcstack.Configuration;
+import com.volcengine.volcstack.Pair;
+import com.volcengine.volcstack.ProgressRequestBody;
+import com.volcengine.volcstack.ProgressResponseBody;
 
-import javax.validation.constraints.NotNull;
+import com.google.gson.reflect.TypeToken;
+
 import java.io.IOException;
+
+import javax.validation.constraints.*;
+
+import com.volcengine.volcstack.directconnect.model.ConfirmDirectConnectConnectionRequest;
+import com.volcengine.volcstack.directconnect.model.ConfirmDirectConnectConnectionResponse;
+import com.volcengine.volcstack.directconnect.model.CreateBgpPeerRequest;
+import com.volcengine.volcstack.directconnect.model.CreateBgpPeerResponse;
+import com.volcengine.volcstack.directconnect.model.CreateDirectConnectGatewayRequest;
+import com.volcengine.volcstack.directconnect.model.CreateDirectConnectGatewayResponse;
+import com.volcengine.volcstack.directconnect.model.CreateDirectConnectGatewayRouteRequest;
+import com.volcengine.volcstack.directconnect.model.CreateDirectConnectGatewayRouteResponse;
+import com.volcengine.volcstack.directconnect.model.CreateDirectConnectVirtualInterfaceRequest;
+import com.volcengine.volcstack.directconnect.model.CreateDirectConnectVirtualInterfaceResponse;
+import com.volcengine.volcstack.directconnect.model.CreateSharedDirectConnectConnectionRequest;
+import com.volcengine.volcstack.directconnect.model.CreateSharedDirectConnectConnectionResponse;
+import com.volcengine.volcstack.directconnect.model.DeleteBgpPeerRequest;
+import com.volcengine.volcstack.directconnect.model.DeleteBgpPeerResponse;
+import com.volcengine.volcstack.directconnect.model.DeleteDirectConnectConnectionRequest;
+import com.volcengine.volcstack.directconnect.model.DeleteDirectConnectConnectionResponse;
+import com.volcengine.volcstack.directconnect.model.DeleteDirectConnectGatewayRequest;
+import com.volcengine.volcstack.directconnect.model.DeleteDirectConnectGatewayResponse;
+import com.volcengine.volcstack.directconnect.model.DeleteDirectConnectGatewayRouteRequest;
+import com.volcengine.volcstack.directconnect.model.DeleteDirectConnectGatewayRouteResponse;
+import com.volcengine.volcstack.directconnect.model.DeleteDirectConnectVirtualInterfaceRequest;
+import com.volcengine.volcstack.directconnect.model.DeleteDirectConnectVirtualInterfaceResponse;
+import com.volcengine.volcstack.directconnect.model.DescribeBgpPeerAttributesRequest;
+import com.volcengine.volcstack.directconnect.model.DescribeBgpPeerAttributesResponse;
+import com.volcengine.volcstack.directconnect.model.DescribeBgpPeersRequest;
+import com.volcengine.volcstack.directconnect.model.DescribeBgpPeersResponse;
+import com.volcengine.volcstack.directconnect.model.DescribeDirectConnectConnectionAttributesRequest;
+import com.volcengine.volcstack.directconnect.model.DescribeDirectConnectConnectionAttributesResponse;
+import com.volcengine.volcstack.directconnect.model.DescribeDirectConnectConnectionsRequest;
+import com.volcengine.volcstack.directconnect.model.DescribeDirectConnectConnectionsResponse;
+import com.volcengine.volcstack.directconnect.model.DescribeDirectConnectGatewayAttributesRequest;
+import com.volcengine.volcstack.directconnect.model.DescribeDirectConnectGatewayAttributesResponse;
+import com.volcengine.volcstack.directconnect.model.DescribeDirectConnectGatewayRouteAttributesRequest;
+import com.volcengine.volcstack.directconnect.model.DescribeDirectConnectGatewayRouteAttributesResponse;
+import com.volcengine.volcstack.directconnect.model.DescribeDirectConnectGatewayRoutesRequest;
+import com.volcengine.volcstack.directconnect.model.DescribeDirectConnectGatewayRoutesResponse;
+import com.volcengine.volcstack.directconnect.model.DescribeDirectConnectGatewaysRequest;
+import com.volcengine.volcstack.directconnect.model.DescribeDirectConnectGatewaysResponse;
+import com.volcengine.volcstack.directconnect.model.DescribeDirectConnectVirtualInterfaceAttributesRequest;
+import com.volcengine.volcstack.directconnect.model.DescribeDirectConnectVirtualInterfaceAttributesResponse;
+import com.volcengine.volcstack.directconnect.model.DescribeDirectConnectVirtualInterfacesRequest;
+import com.volcengine.volcstack.directconnect.model.DescribeDirectConnectVirtualInterfacesResponse;
+import com.volcengine.volcstack.directconnect.model.DescribeSharedDirectConnectConnectionsRequest;
+import com.volcengine.volcstack.directconnect.model.DescribeSharedDirectConnectConnectionsResponse;
+import com.volcengine.volcstack.directconnect.model.ModifyBgpPeerAttributesRequest;
+import com.volcengine.volcstack.directconnect.model.ModifyBgpPeerAttributesResponse;
+import com.volcengine.volcstack.directconnect.model.ModifyDirectConnectConnectionAttributesRequest;
+import com.volcengine.volcstack.directconnect.model.ModifyDirectConnectConnectionAttributesResponse;
+import com.volcengine.volcstack.directconnect.model.ModifyDirectConnectGatewayAttributesRequest;
+import com.volcengine.volcstack.directconnect.model.ModifyDirectConnectGatewayAttributesResponse;
+import com.volcengine.volcstack.directconnect.model.ModifyDirectConnectVirtualInterfaceAttributesRequest;
+import com.volcengine.volcstack.directconnect.model.ModifyDirectConnectVirtualInterfaceAttributesResponse;
+
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -44,18 +106,18 @@ public class DirectconnectApi {
     }
 
     /**
-     * Build call for associateConnectionToDirectConnectGateway
+     * Build call for confirmDirectConnectConnection
      * @param body  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call associateConnectionToDirectConnectGatewayCall(AssociateConnectionToDirectConnectGatewayRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call confirmDirectConnectConnectionCall(ConfirmDirectConnectConnectionRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/AssociateConnectionToDirectConnectGateway/2020-04-01/directconnect/get/";
+        String localVarPath = "/ConfirmDirectConnectConnection/2020-04-01/DIRECTCONNECT/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -79,7 +141,7 @@ public class DirectconnectApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -93,13 +155,13 @@ public class DirectconnectApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call associateConnectionToDirectConnectGatewayValidateBeforeCall(AssociateConnectionToDirectConnectGatewayRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call confirmDirectConnectConnectionValidateBeforeCall(ConfirmDirectConnectConnectionRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'body' is set
         if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling associateConnectionToDirectConnectGateway(Async)");
+            throw new ApiException("Missing the required parameter 'body' when calling confirmDirectConnectConnection(Async)");
         }
         
-        com.squareup.okhttp.Call call = associateConnectionToDirectConnectGatewayCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = confirmDirectConnectConnectionCall(body, progressListener, progressRequestListener);
         return call;
 
         
@@ -112,11 +174,11 @@ public class DirectconnectApi {
      * 
      * 
      * @param body  (required)
-     * @return AssociateConnectionToDirectConnectGatewayResponse
+     * @return ConfirmDirectConnectConnectionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public AssociateConnectionToDirectConnectGatewayResponse associateConnectionToDirectConnectGateway(AssociateConnectionToDirectConnectGatewayRequest body) throws ApiException {
-        ApiResponse<AssociateConnectionToDirectConnectGatewayResponse> resp = associateConnectionToDirectConnectGatewayWithHttpInfo(body);
+    public ConfirmDirectConnectConnectionResponse confirmDirectConnectConnection(ConfirmDirectConnectConnectionRequest body) throws ApiException {
+        ApiResponse<ConfirmDirectConnectConnectionResponse> resp = confirmDirectConnectConnectionWithHttpInfo(body);
         return resp.getData();
     }
 
@@ -124,12 +186,12 @@ public class DirectconnectApi {
      * 
      * 
      * @param body  (required)
-     * @return ApiResponse&lt;AssociateConnectionToDirectConnectGatewayResponse&gt;
+     * @return ApiResponse&lt;ConfirmDirectConnectConnectionResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<AssociateConnectionToDirectConnectGatewayResponse> associateConnectionToDirectConnectGatewayWithHttpInfo( @NotNull AssociateConnectionToDirectConnectGatewayRequest body) throws ApiException {
-        com.squareup.okhttp.Call call = associateConnectionToDirectConnectGatewayValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<AssociateConnectionToDirectConnectGatewayResponse>(){}.getType();
+    public ApiResponse<ConfirmDirectConnectConnectionResponse> confirmDirectConnectConnectionWithHttpInfo( @NotNull ConfirmDirectConnectConnectionRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = confirmDirectConnectConnectionValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<ConfirmDirectConnectConnectionResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -141,7 +203,7 @@ public class DirectconnectApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call associateConnectionToDirectConnectGatewayAsync(AssociateConnectionToDirectConnectGatewayRequest body, final ApiCallback<AssociateConnectionToDirectConnectGatewayResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call confirmDirectConnectConnectionAsync(ConfirmDirectConnectConnectionRequest body, final ApiCallback<ConfirmDirectConnectConnectionResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -162,8 +224,8 @@ public class DirectconnectApi {
             };
         }
 
-        com.squareup.okhttp.Call call = associateConnectionToDirectConnectGatewayValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<AssociateConnectionToDirectConnectGatewayResponse>(){}.getType();
+        com.squareup.okhttp.Call call = confirmDirectConnectConnectionValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ConfirmDirectConnectConnectionResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -179,7 +241,7 @@ public class DirectconnectApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/CreateBgpPeer/2020-04-01/directconnect/get/";
+        String localVarPath = "/CreateBgpPeer/2020-04-01/DIRECTCONNECT/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -203,7 +265,7 @@ public class DirectconnectApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -303,7 +365,7 @@ public class DirectconnectApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/CreateDirectConnectGateway/2020-04-01/directconnect/get/";
+        String localVarPath = "/CreateDirectConnectGateway/2020-04-01/DIRECTCONNECT/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -327,7 +389,7 @@ public class DirectconnectApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -427,7 +489,7 @@ public class DirectconnectApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/CreateDirectConnectGatewayRoute/2020-04-01/directconnect/get/";
+        String localVarPath = "/CreateDirectConnectGatewayRoute/2020-04-01/DIRECTCONNECT/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -451,7 +513,7 @@ public class DirectconnectApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -551,7 +613,7 @@ public class DirectconnectApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/CreateDirectConnectVirtualInterface/2020-04-01/directconnect/get/";
+        String localVarPath = "/CreateDirectConnectVirtualInterface/2020-04-01/DIRECTCONNECT/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -575,7 +637,7 @@ public class DirectconnectApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -664,18 +726,18 @@ public class DirectconnectApi {
         return call;
     }
     /**
-     * Build call for deleteBgpPeer
+     * Build call for createSharedDirectConnectConnection
      * @param body  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteBgpPeerCall(DeleteBgpPeerRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call createSharedDirectConnectConnectionCall(CreateSharedDirectConnectConnectionRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteBgpPeer/2020-04-01/directconnect/get/";
+        String localVarPath = "/CreateSharedDirectConnectConnection/2020-04-01/DIRECTCONNECT/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -699,7 +761,131 @@ public class DirectconnectApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcstackSign" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call createSharedDirectConnectConnectionValidateBeforeCall(CreateSharedDirectConnectConnectionRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling createSharedDirectConnectConnection(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = createSharedDirectConnectConnectionCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return CreateSharedDirectConnectConnectionResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public CreateSharedDirectConnectConnectionResponse createSharedDirectConnectConnection(CreateSharedDirectConnectConnectionRequest body) throws ApiException {
+        ApiResponse<CreateSharedDirectConnectConnectionResponse> resp = createSharedDirectConnectConnectionWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;CreateSharedDirectConnectConnectionResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<CreateSharedDirectConnectConnectionResponse> createSharedDirectConnectConnectionWithHttpInfo( @NotNull CreateSharedDirectConnectConnectionRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = createSharedDirectConnectConnectionValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<CreateSharedDirectConnectConnectionResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call createSharedDirectConnectConnectionAsync(CreateSharedDirectConnectConnectionRequest body, final ApiCallback<CreateSharedDirectConnectConnectionResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = createSharedDirectConnectConnectionValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CreateSharedDirectConnectConnectionResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for deleteBgpPeer
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteBgpPeerCall(DeleteBgpPeerRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/DeleteBgpPeer/2020-04-01/DIRECTCONNECT/get/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -788,18 +974,18 @@ public class DirectconnectApi {
         return call;
     }
     /**
-     * Build call for deleteDirectConnectGateway
+     * Build call for deleteDirectConnectConnection
      * @param body  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteDirectConnectGatewayCall(DeleteDirectConnectGatewayRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call deleteDirectConnectConnectionCall(DeleteDirectConnectConnectionRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteDirectConnectGateway/2020-04-01/directconnect/get/";
+        String localVarPath = "/DeleteDirectConnectConnection/2020-04-01/DIRECTCONNECT/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -823,7 +1009,131 @@ public class DirectconnectApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcstackSign" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteDirectConnectConnectionValidateBeforeCall(DeleteDirectConnectConnectionRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling deleteDirectConnectConnection(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = deleteDirectConnectConnectionCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return DeleteDirectConnectConnectionResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public DeleteDirectConnectConnectionResponse deleteDirectConnectConnection(DeleteDirectConnectConnectionRequest body) throws ApiException {
+        ApiResponse<DeleteDirectConnectConnectionResponse> resp = deleteDirectConnectConnectionWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;DeleteDirectConnectConnectionResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<DeleteDirectConnectConnectionResponse> deleteDirectConnectConnectionWithHttpInfo( @NotNull DeleteDirectConnectConnectionRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = deleteDirectConnectConnectionValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<DeleteDirectConnectConnectionResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call deleteDirectConnectConnectionAsync(DeleteDirectConnectConnectionRequest body, final ApiCallback<DeleteDirectConnectConnectionResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteDirectConnectConnectionValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<DeleteDirectConnectConnectionResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for deleteDirectConnectGateway
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteDirectConnectGatewayCall(DeleteDirectConnectGatewayRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/DeleteDirectConnectGateway/2020-04-01/DIRECTCONNECT/get/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -912,130 +1222,6 @@ public class DirectconnectApi {
         return call;
     }
     /**
-     * Build call for deleteDirectConnectGatewayAssociation
-     * @param body  (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call deleteDirectConnectGatewayAssociationCall(DeleteDirectConnectGatewayAssociationRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
-        
-        // create path and map variables
-        String localVarPath = "/DeleteDirectConnectGatewayAssociation/2020-04-01/directconnect/get/";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "text/plain"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "volcstackSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteDirectConnectGatewayAssociationValidateBeforeCall(DeleteDirectConnectGatewayAssociationRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling deleteDirectConnectGatewayAssociation(Async)");
-        }
-        
-        com.squareup.okhttp.Call call = deleteDirectConnectGatewayAssociationCall(body, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * 
-     * 
-     * @param body  (required)
-     * @return DeleteDirectConnectGatewayAssociationResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public DeleteDirectConnectGatewayAssociationResponse deleteDirectConnectGatewayAssociation(DeleteDirectConnectGatewayAssociationRequest body) throws ApiException {
-        ApiResponse<DeleteDirectConnectGatewayAssociationResponse> resp = deleteDirectConnectGatewayAssociationWithHttpInfo(body);
-        return resp.getData();
-    }
-
-    /**
-     * 
-     * 
-     * @param body  (required)
-     * @return ApiResponse&lt;DeleteDirectConnectGatewayAssociationResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<DeleteDirectConnectGatewayAssociationResponse> deleteDirectConnectGatewayAssociationWithHttpInfo( @NotNull DeleteDirectConnectGatewayAssociationRequest body) throws ApiException {
-        com.squareup.okhttp.Call call = deleteDirectConnectGatewayAssociationValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<DeleteDirectConnectGatewayAssociationResponse>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param body  (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call deleteDirectConnectGatewayAssociationAsync(DeleteDirectConnectGatewayAssociationRequest body, final ApiCallback<DeleteDirectConnectGatewayAssociationResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = deleteDirectConnectGatewayAssociationValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<DeleteDirectConnectGatewayAssociationResponse>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
      * Build call for deleteDirectConnectGatewayRoute
      * @param body  (required)
      * @param progressListener Progress listener
@@ -1047,7 +1233,7 @@ public class DirectconnectApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteDirectConnectGatewayRoute/2020-04-01/directconnect/get/";
+        String localVarPath = "/DeleteDirectConnectGatewayRoute/2020-04-01/DIRECTCONNECT/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1071,7 +1257,7 @@ public class DirectconnectApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -1171,7 +1357,7 @@ public class DirectconnectApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteDirectConnectVirtualInterface/2020-04-01/directconnect/get/";
+        String localVarPath = "/DeleteDirectConnectVirtualInterface/2020-04-01/DIRECTCONNECT/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1195,7 +1381,7 @@ public class DirectconnectApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -1295,7 +1481,7 @@ public class DirectconnectApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeBgpPeerAttributes/2020-04-01/directconnect/get/";
+        String localVarPath = "/DescribeBgpPeerAttributes/2020-04-01/DIRECTCONNECT/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1319,7 +1505,7 @@ public class DirectconnectApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -1419,7 +1605,7 @@ public class DirectconnectApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeBgpPeers/2020-04-01/directconnect/get/";
+        String localVarPath = "/DescribeBgpPeers/2020-04-01/DIRECTCONNECT/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1443,7 +1629,7 @@ public class DirectconnectApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -1543,7 +1729,7 @@ public class DirectconnectApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeDirectConnectConnectionAttributes/2020-04-01/directconnect/get/";
+        String localVarPath = "/DescribeDirectConnectConnectionAttributes/2020-04-01/DIRECTCONNECT/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1567,7 +1753,7 @@ public class DirectconnectApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -1667,7 +1853,7 @@ public class DirectconnectApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeDirectConnectConnections/2020-04-01/directconnect/get/";
+        String localVarPath = "/DescribeDirectConnectConnections/2020-04-01/DIRECTCONNECT/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1691,7 +1877,7 @@ public class DirectconnectApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -1780,254 +1966,6 @@ public class DirectconnectApi {
         return call;
     }
     /**
-     * Build call for describeDirectConnectGatewayAssociationAttributes
-     * @param body  (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call describeDirectConnectGatewayAssociationAttributesCall(DescribeDirectConnectGatewayAssociationAttributesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
-        
-        // create path and map variables
-        String localVarPath = "/DescribeDirectConnectGatewayAssociationAttributes/2020-04-01/directconnect/get/";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "text/plain"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "volcstackSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call describeDirectConnectGatewayAssociationAttributesValidateBeforeCall(DescribeDirectConnectGatewayAssociationAttributesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling describeDirectConnectGatewayAssociationAttributes(Async)");
-        }
-        
-        com.squareup.okhttp.Call call = describeDirectConnectGatewayAssociationAttributesCall(body, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * 
-     * 
-     * @param body  (required)
-     * @return DescribeDirectConnectGatewayAssociationAttributesResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public DescribeDirectConnectGatewayAssociationAttributesResponse describeDirectConnectGatewayAssociationAttributes(DescribeDirectConnectGatewayAssociationAttributesRequest body) throws ApiException {
-        ApiResponse<DescribeDirectConnectGatewayAssociationAttributesResponse> resp = describeDirectConnectGatewayAssociationAttributesWithHttpInfo(body);
-        return resp.getData();
-    }
-
-    /**
-     * 
-     * 
-     * @param body  (required)
-     * @return ApiResponse&lt;DescribeDirectConnectGatewayAssociationAttributesResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<DescribeDirectConnectGatewayAssociationAttributesResponse> describeDirectConnectGatewayAssociationAttributesWithHttpInfo( @NotNull DescribeDirectConnectGatewayAssociationAttributesRequest body) throws ApiException {
-        com.squareup.okhttp.Call call = describeDirectConnectGatewayAssociationAttributesValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<DescribeDirectConnectGatewayAssociationAttributesResponse>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param body  (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call describeDirectConnectGatewayAssociationAttributesAsync(DescribeDirectConnectGatewayAssociationAttributesRequest body, final ApiCallback<DescribeDirectConnectGatewayAssociationAttributesResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = describeDirectConnectGatewayAssociationAttributesValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<DescribeDirectConnectGatewayAssociationAttributesResponse>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for describeDirectConnectGatewayAssociations
-     * @param body  (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call describeDirectConnectGatewayAssociationsCall(DescribeDirectConnectGatewayAssociationsRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
-        
-        // create path and map variables
-        String localVarPath = "/DescribeDirectConnectGatewayAssociations/2020-04-01/directconnect/get/";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "text/plain"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "volcstackSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call describeDirectConnectGatewayAssociationsValidateBeforeCall(DescribeDirectConnectGatewayAssociationsRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling describeDirectConnectGatewayAssociations(Async)");
-        }
-        
-        com.squareup.okhttp.Call call = describeDirectConnectGatewayAssociationsCall(body, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * 
-     * 
-     * @param body  (required)
-     * @return DescribeDirectConnectGatewayAssociationsResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public DescribeDirectConnectGatewayAssociationsResponse describeDirectConnectGatewayAssociations(DescribeDirectConnectGatewayAssociationsRequest body) throws ApiException {
-        ApiResponse<DescribeDirectConnectGatewayAssociationsResponse> resp = describeDirectConnectGatewayAssociationsWithHttpInfo(body);
-        return resp.getData();
-    }
-
-    /**
-     * 
-     * 
-     * @param body  (required)
-     * @return ApiResponse&lt;DescribeDirectConnectGatewayAssociationsResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<DescribeDirectConnectGatewayAssociationsResponse> describeDirectConnectGatewayAssociationsWithHttpInfo( @NotNull DescribeDirectConnectGatewayAssociationsRequest body) throws ApiException {
-        com.squareup.okhttp.Call call = describeDirectConnectGatewayAssociationsValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<DescribeDirectConnectGatewayAssociationsResponse>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param body  (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call describeDirectConnectGatewayAssociationsAsync(DescribeDirectConnectGatewayAssociationsRequest body, final ApiCallback<DescribeDirectConnectGatewayAssociationsResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = describeDirectConnectGatewayAssociationsValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<DescribeDirectConnectGatewayAssociationsResponse>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
      * Build call for describeDirectConnectGatewayAttributes
      * @param body  (required)
      * @param progressListener Progress listener
@@ -2039,7 +1977,7 @@ public class DirectconnectApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeDirectConnectGatewayAttributes/2020-04-01/directconnect/get/";
+        String localVarPath = "/DescribeDirectConnectGatewayAttributes/2020-04-01/DIRECTCONNECT/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2063,7 +2001,7 @@ public class DirectconnectApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -2163,7 +2101,7 @@ public class DirectconnectApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeDirectConnectGatewayRouteAttributes/2020-04-01/directconnect/get/";
+        String localVarPath = "/DescribeDirectConnectGatewayRouteAttributes/2020-04-01/DIRECTCONNECT/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2187,7 +2125,7 @@ public class DirectconnectApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -2287,7 +2225,7 @@ public class DirectconnectApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeDirectConnectGatewayRoutes/2020-04-01/directconnect/get/";
+        String localVarPath = "/DescribeDirectConnectGatewayRoutes/2020-04-01/DIRECTCONNECT/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2311,7 +2249,7 @@ public class DirectconnectApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -2411,7 +2349,7 @@ public class DirectconnectApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeDirectConnectGateways/2020-04-01/directconnect/get/";
+        String localVarPath = "/DescribeDirectConnectGateways/2020-04-01/DIRECTCONNECT/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2435,7 +2373,7 @@ public class DirectconnectApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -2535,7 +2473,7 @@ public class DirectconnectApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeDirectConnectVirtualInterfaceAttributes/2020-04-01/directconnect/get/";
+        String localVarPath = "/DescribeDirectConnectVirtualInterfaceAttributes/2020-04-01/DIRECTCONNECT/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2559,7 +2497,7 @@ public class DirectconnectApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -2659,7 +2597,7 @@ public class DirectconnectApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeDirectConnectVirtualInterfaces/2020-04-01/directconnect/get/";
+        String localVarPath = "/DescribeDirectConnectVirtualInterfaces/2020-04-01/DIRECTCONNECT/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2683,7 +2621,7 @@ public class DirectconnectApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -2772,18 +2710,18 @@ public class DirectconnectApi {
         return call;
     }
     /**
-     * Build call for disassociateConnectionFromDirectConnectGateway
+     * Build call for describeSharedDirectConnectConnections
      * @param body  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call disassociateConnectionFromDirectConnectGatewayCall(DisassociateConnectionFromDirectConnectGatewayRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call describeSharedDirectConnectConnectionsCall(DescribeSharedDirectConnectConnectionsRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DisassociateConnectionFromDirectConnectGateway/2020-04-01/directconnect/get/";
+        String localVarPath = "/DescribeSharedDirectConnectConnections/2020-04-01/DIRECTCONNECT/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2807,7 +2745,7 @@ public class DirectconnectApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -2821,13 +2759,13 @@ public class DirectconnectApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call disassociateConnectionFromDirectConnectGatewayValidateBeforeCall(DisassociateConnectionFromDirectConnectGatewayRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call describeSharedDirectConnectConnectionsValidateBeforeCall(DescribeSharedDirectConnectConnectionsRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'body' is set
         if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling disassociateConnectionFromDirectConnectGateway(Async)");
+            throw new ApiException("Missing the required parameter 'body' when calling describeSharedDirectConnectConnections(Async)");
         }
         
-        com.squareup.okhttp.Call call = disassociateConnectionFromDirectConnectGatewayCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = describeSharedDirectConnectConnectionsCall(body, progressListener, progressRequestListener);
         return call;
 
         
@@ -2840,11 +2778,11 @@ public class DirectconnectApi {
      * 
      * 
      * @param body  (required)
-     * @return DisassociateConnectionFromDirectConnectGatewayResponse
+     * @return DescribeSharedDirectConnectConnectionsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public DisassociateConnectionFromDirectConnectGatewayResponse disassociateConnectionFromDirectConnectGateway(DisassociateConnectionFromDirectConnectGatewayRequest body) throws ApiException {
-        ApiResponse<DisassociateConnectionFromDirectConnectGatewayResponse> resp = disassociateConnectionFromDirectConnectGatewayWithHttpInfo(body);
+    public DescribeSharedDirectConnectConnectionsResponse describeSharedDirectConnectConnections(DescribeSharedDirectConnectConnectionsRequest body) throws ApiException {
+        ApiResponse<DescribeSharedDirectConnectConnectionsResponse> resp = describeSharedDirectConnectConnectionsWithHttpInfo(body);
         return resp.getData();
     }
 
@@ -2852,12 +2790,12 @@ public class DirectconnectApi {
      * 
      * 
      * @param body  (required)
-     * @return ApiResponse&lt;DisassociateConnectionFromDirectConnectGatewayResponse&gt;
+     * @return ApiResponse&lt;DescribeSharedDirectConnectConnectionsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<DisassociateConnectionFromDirectConnectGatewayResponse> disassociateConnectionFromDirectConnectGatewayWithHttpInfo( @NotNull DisassociateConnectionFromDirectConnectGatewayRequest body) throws ApiException {
-        com.squareup.okhttp.Call call = disassociateConnectionFromDirectConnectGatewayValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<DisassociateConnectionFromDirectConnectGatewayResponse>(){}.getType();
+    public ApiResponse<DescribeSharedDirectConnectConnectionsResponse> describeSharedDirectConnectConnectionsWithHttpInfo( @NotNull DescribeSharedDirectConnectConnectionsRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = describeSharedDirectConnectConnectionsValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<DescribeSharedDirectConnectConnectionsResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -2869,7 +2807,7 @@ public class DirectconnectApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call disassociateConnectionFromDirectConnectGatewayAsync(DisassociateConnectionFromDirectConnectGatewayRequest body, final ApiCallback<DisassociateConnectionFromDirectConnectGatewayResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call describeSharedDirectConnectConnectionsAsync(DescribeSharedDirectConnectConnectionsRequest body, final ApiCallback<DescribeSharedDirectConnectConnectionsResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2890,8 +2828,8 @@ public class DirectconnectApi {
             };
         }
 
-        com.squareup.okhttp.Call call = disassociateConnectionFromDirectConnectGatewayValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<DisassociateConnectionFromDirectConnectGatewayResponse>(){}.getType();
+        com.squareup.okhttp.Call call = describeSharedDirectConnectConnectionsValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<DescribeSharedDirectConnectConnectionsResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -2907,7 +2845,7 @@ public class DirectconnectApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ModifyBgpPeerAttributes/2020-04-01/directconnect/get/";
+        String localVarPath = "/ModifyBgpPeerAttributes/2020-04-01/DIRECTCONNECT/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2931,7 +2869,7 @@ public class DirectconnectApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -3031,7 +2969,7 @@ public class DirectconnectApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ModifyDirectConnectConnectionAttributes/2020-04-01/directconnect/get/";
+        String localVarPath = "/ModifyDirectConnectConnectionAttributes/2020-04-01/DIRECTCONNECT/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3055,7 +2993,7 @@ public class DirectconnectApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -3155,7 +3093,7 @@ public class DirectconnectApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ModifyDirectConnectGatewayAttributes/2020-04-01/directconnect/get/";
+        String localVarPath = "/ModifyDirectConnectGatewayAttributes/2020-04-01/DIRECTCONNECT/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3179,7 +3117,7 @@ public class DirectconnectApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -3279,7 +3217,7 @@ public class DirectconnectApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ModifyDirectConnectVirtualInterfaceAttributes/2020-04-01/directconnect/get/";
+        String localVarPath = "/ModifyDirectConnectVirtualInterfaceAttributes/2020-04-01/DIRECTCONNECT/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3303,7 +3241,7 @@ public class DirectconnectApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))

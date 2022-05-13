@@ -27,26 +27,26 @@ import java.io.IOException;
 
 import javax.validation.constraints.*;
 
-import com.volcengine.volcstack.vpn.model.CreateCustomerVpnGatewayRequest;
-import com.volcengine.volcstack.vpn.model.CreateCustomerVpnGatewayResponse;
+import com.volcengine.volcstack.vpn.model.CreateCustomerGatewayRequest;
+import com.volcengine.volcstack.vpn.model.CreateCustomerGatewayResponse;
 import com.volcengine.volcstack.vpn.model.CreateVpnConnectionRequest;
 import com.volcengine.volcstack.vpn.model.CreateVpnConnectionResponse;
 import com.volcengine.volcstack.vpn.model.CreateVpnGatewayRequest;
 import com.volcengine.volcstack.vpn.model.CreateVpnGatewayResponse;
 import com.volcengine.volcstack.vpn.model.CreateVpnGatewayRouteRequest;
 import com.volcengine.volcstack.vpn.model.CreateVpnGatewayRouteResponse;
-import com.volcengine.volcstack.vpn.model.DeleteCustomerVpnGatewayRequest;
-import com.volcengine.volcstack.vpn.model.DeleteCustomerVpnGatewayResponse;
+import com.volcengine.volcstack.vpn.model.DeleteCustomerGatewayRequest;
+import com.volcengine.volcstack.vpn.model.DeleteCustomerGatewayResponse;
 import com.volcengine.volcstack.vpn.model.DeleteVpnConnectionRequest;
 import com.volcengine.volcstack.vpn.model.DeleteVpnConnectionResponse;
 import com.volcengine.volcstack.vpn.model.DeleteVpnGatewayRequest;
 import com.volcengine.volcstack.vpn.model.DeleteVpnGatewayResponse;
 import com.volcengine.volcstack.vpn.model.DeleteVpnGatewayRouteRequest;
 import com.volcengine.volcstack.vpn.model.DeleteVpnGatewayRouteResponse;
-import com.volcengine.volcstack.vpn.model.DescribeCustomerVpnGatewayAttributesRequest;
-import com.volcengine.volcstack.vpn.model.DescribeCustomerVpnGatewayAttributesResponse;
-import com.volcengine.volcstack.vpn.model.DescribeCustomerVpnGatewaysRequest;
-import com.volcengine.volcstack.vpn.model.DescribeCustomerVpnGatewaysResponse;
+import com.volcengine.volcstack.vpn.model.DescribeCustomerGatewayAttributesRequest;
+import com.volcengine.volcstack.vpn.model.DescribeCustomerGatewayAttributesResponse;
+import com.volcengine.volcstack.vpn.model.DescribeCustomerGatewaysRequest;
+import com.volcengine.volcstack.vpn.model.DescribeCustomerGatewaysResponse;
 import com.volcengine.volcstack.vpn.model.DescribeVpnConnectionAttributesRequest;
 import com.volcengine.volcstack.vpn.model.DescribeVpnConnectionAttributesResponse;
 import com.volcengine.volcstack.vpn.model.DescribeVpnConnectionsRequest;
@@ -61,8 +61,8 @@ import com.volcengine.volcstack.vpn.model.DescribeVpnGatewaysBillingRequest;
 import com.volcengine.volcstack.vpn.model.DescribeVpnGatewaysBillingResponse;
 import com.volcengine.volcstack.vpn.model.DescribeVpnGatewaysRequest;
 import com.volcengine.volcstack.vpn.model.DescribeVpnGatewaysResponse;
-import com.volcengine.volcstack.vpn.model.ModifyCustomerVpnGatewayAttributesRequest;
-import com.volcengine.volcstack.vpn.model.ModifyCustomerVpnGatewayAttributesResponse;
+import com.volcengine.volcstack.vpn.model.ModifyCustomerGatewayAttributesRequest;
+import com.volcengine.volcstack.vpn.model.ModifyCustomerGatewayAttributesResponse;
 import com.volcengine.volcstack.vpn.model.ModifyVpnConnectionAttributesRequest;
 import com.volcengine.volcstack.vpn.model.ModifyVpnConnectionAttributesResponse;
 import com.volcengine.volcstack.vpn.model.ModifyVpnGatewayAttributesRequest;
@@ -98,18 +98,18 @@ public class VpnApi {
     }
 
     /**
-     * Build call for createCustomerVpnGateway
+     * Build call for createCustomerGateway
      * @param body  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call createCustomerVpnGatewayCall(CreateCustomerVpnGatewayRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call createCustomerGatewayCall(CreateCustomerGatewayRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/CreateCustomerVpnGateway/2020-04-01/vpn/get/";
+        String localVarPath = "/CreateCustomerGateway/2020-04-01/VPN/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -147,13 +147,13 @@ public class VpnApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call createCustomerVpnGatewayValidateBeforeCall(CreateCustomerVpnGatewayRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call createCustomerGatewayValidateBeforeCall(CreateCustomerGatewayRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'body' is set
         if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling createCustomerVpnGateway(Async)");
+            throw new ApiException("Missing the required parameter 'body' when calling createCustomerGateway(Async)");
         }
         
-        com.squareup.okhttp.Call call = createCustomerVpnGatewayCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = createCustomerGatewayCall(body, progressListener, progressRequestListener);
         return call;
 
         
@@ -166,11 +166,11 @@ public class VpnApi {
      * 
      * 
      * @param body  (required)
-     * @return CreateCustomerVpnGatewayResponse
+     * @return CreateCustomerGatewayResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CreateCustomerVpnGatewayResponse createCustomerVpnGateway(CreateCustomerVpnGatewayRequest body) throws ApiException {
-        ApiResponse<CreateCustomerVpnGatewayResponse> resp = createCustomerVpnGatewayWithHttpInfo(body);
+    public CreateCustomerGatewayResponse createCustomerGateway(CreateCustomerGatewayRequest body) throws ApiException {
+        ApiResponse<CreateCustomerGatewayResponse> resp = createCustomerGatewayWithHttpInfo(body);
         return resp.getData();
     }
 
@@ -178,12 +178,12 @@ public class VpnApi {
      * 
      * 
      * @param body  (required)
-     * @return ApiResponse&lt;CreateCustomerVpnGatewayResponse&gt;
+     * @return ApiResponse&lt;CreateCustomerGatewayResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CreateCustomerVpnGatewayResponse> createCustomerVpnGatewayWithHttpInfo( @NotNull CreateCustomerVpnGatewayRequest body) throws ApiException {
-        com.squareup.okhttp.Call call = createCustomerVpnGatewayValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<CreateCustomerVpnGatewayResponse>(){}.getType();
+    public ApiResponse<CreateCustomerGatewayResponse> createCustomerGatewayWithHttpInfo( @NotNull CreateCustomerGatewayRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = createCustomerGatewayValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<CreateCustomerGatewayResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -195,7 +195,7 @@ public class VpnApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call createCustomerVpnGatewayAsync(CreateCustomerVpnGatewayRequest body, final ApiCallback<CreateCustomerVpnGatewayResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call createCustomerGatewayAsync(CreateCustomerGatewayRequest body, final ApiCallback<CreateCustomerGatewayResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -216,8 +216,8 @@ public class VpnApi {
             };
         }
 
-        com.squareup.okhttp.Call call = createCustomerVpnGatewayValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<CreateCustomerVpnGatewayResponse>(){}.getType();
+        com.squareup.okhttp.Call call = createCustomerGatewayValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CreateCustomerGatewayResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -233,7 +233,7 @@ public class VpnApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/CreateVpnConnection/2020-04-01/vpn/get/";
+        String localVarPath = "/CreateVpnConnection/2020-04-01/VPN/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -357,7 +357,7 @@ public class VpnApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/CreateVpnGateway/2020-04-01/vpn/get/";
+        String localVarPath = "/CreateVpnGateway/2020-04-01/VPN/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -481,7 +481,7 @@ public class VpnApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/CreateVpnGatewayRoute/2020-04-01/vpn/get/";
+        String localVarPath = "/CreateVpnGatewayRoute/2020-04-01/VPN/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -594,18 +594,18 @@ public class VpnApi {
         return call;
     }
     /**
-     * Build call for deleteCustomerVpnGateway
+     * Build call for deleteCustomerGateway
      * @param body  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteCustomerVpnGatewayCall(DeleteCustomerVpnGatewayRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call deleteCustomerGatewayCall(DeleteCustomerGatewayRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteCustomerVpnGateway/2020-04-01/vpn/get/";
+        String localVarPath = "/DeleteCustomerGateway/2020-04-01/VPN/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -643,13 +643,13 @@ public class VpnApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteCustomerVpnGatewayValidateBeforeCall(DeleteCustomerVpnGatewayRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteCustomerGatewayValidateBeforeCall(DeleteCustomerGatewayRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'body' is set
         if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling deleteCustomerVpnGateway(Async)");
+            throw new ApiException("Missing the required parameter 'body' when calling deleteCustomerGateway(Async)");
         }
         
-        com.squareup.okhttp.Call call = deleteCustomerVpnGatewayCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = deleteCustomerGatewayCall(body, progressListener, progressRequestListener);
         return call;
 
         
@@ -662,11 +662,11 @@ public class VpnApi {
      * 
      * 
      * @param body  (required)
-     * @return DeleteCustomerVpnGatewayResponse
+     * @return DeleteCustomerGatewayResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public DeleteCustomerVpnGatewayResponse deleteCustomerVpnGateway(DeleteCustomerVpnGatewayRequest body) throws ApiException {
-        ApiResponse<DeleteCustomerVpnGatewayResponse> resp = deleteCustomerVpnGatewayWithHttpInfo(body);
+    public DeleteCustomerGatewayResponse deleteCustomerGateway(DeleteCustomerGatewayRequest body) throws ApiException {
+        ApiResponse<DeleteCustomerGatewayResponse> resp = deleteCustomerGatewayWithHttpInfo(body);
         return resp.getData();
     }
 
@@ -674,12 +674,12 @@ public class VpnApi {
      * 
      * 
      * @param body  (required)
-     * @return ApiResponse&lt;DeleteCustomerVpnGatewayResponse&gt;
+     * @return ApiResponse&lt;DeleteCustomerGatewayResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<DeleteCustomerVpnGatewayResponse> deleteCustomerVpnGatewayWithHttpInfo( @NotNull DeleteCustomerVpnGatewayRequest body) throws ApiException {
-        com.squareup.okhttp.Call call = deleteCustomerVpnGatewayValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<DeleteCustomerVpnGatewayResponse>(){}.getType();
+    public ApiResponse<DeleteCustomerGatewayResponse> deleteCustomerGatewayWithHttpInfo( @NotNull DeleteCustomerGatewayRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = deleteCustomerGatewayValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<DeleteCustomerGatewayResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -691,7 +691,7 @@ public class VpnApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteCustomerVpnGatewayAsync(DeleteCustomerVpnGatewayRequest body, final ApiCallback<DeleteCustomerVpnGatewayResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteCustomerGatewayAsync(DeleteCustomerGatewayRequest body, final ApiCallback<DeleteCustomerGatewayResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -712,8 +712,8 @@ public class VpnApi {
             };
         }
 
-        com.squareup.okhttp.Call call = deleteCustomerVpnGatewayValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<DeleteCustomerVpnGatewayResponse>(){}.getType();
+        com.squareup.okhttp.Call call = deleteCustomerGatewayValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<DeleteCustomerGatewayResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -729,7 +729,7 @@ public class VpnApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteVpnConnection/2020-04-01/vpn/get/";
+        String localVarPath = "/DeleteVpnConnection/2020-04-01/VPN/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -853,7 +853,7 @@ public class VpnApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteVpnGateway/2020-04-01/vpn/get/";
+        String localVarPath = "/DeleteVpnGateway/2020-04-01/VPN/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -977,7 +977,7 @@ public class VpnApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteVpnGatewayRoute/2020-04-01/vpn/get/";
+        String localVarPath = "/DeleteVpnGatewayRoute/2020-04-01/VPN/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1090,18 +1090,18 @@ public class VpnApi {
         return call;
     }
     /**
-     * Build call for describeCustomerVpnGatewayAttributes
+     * Build call for describeCustomerGatewayAttributes
      * @param body  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call describeCustomerVpnGatewayAttributesCall(DescribeCustomerVpnGatewayAttributesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call describeCustomerGatewayAttributesCall(DescribeCustomerGatewayAttributesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeCustomerVpnGatewayAttributes/2020-04-01/vpn/get/";
+        String localVarPath = "/DescribeCustomerGatewayAttributes/2020-04-01/VPN/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1139,13 +1139,13 @@ public class VpnApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call describeCustomerVpnGatewayAttributesValidateBeforeCall(DescribeCustomerVpnGatewayAttributesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call describeCustomerGatewayAttributesValidateBeforeCall(DescribeCustomerGatewayAttributesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'body' is set
         if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling describeCustomerVpnGatewayAttributes(Async)");
+            throw new ApiException("Missing the required parameter 'body' when calling describeCustomerGatewayAttributes(Async)");
         }
         
-        com.squareup.okhttp.Call call = describeCustomerVpnGatewayAttributesCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = describeCustomerGatewayAttributesCall(body, progressListener, progressRequestListener);
         return call;
 
         
@@ -1158,11 +1158,11 @@ public class VpnApi {
      * 
      * 
      * @param body  (required)
-     * @return DescribeCustomerVpnGatewayAttributesResponse
+     * @return DescribeCustomerGatewayAttributesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public DescribeCustomerVpnGatewayAttributesResponse describeCustomerVpnGatewayAttributes(DescribeCustomerVpnGatewayAttributesRequest body) throws ApiException {
-        ApiResponse<DescribeCustomerVpnGatewayAttributesResponse> resp = describeCustomerVpnGatewayAttributesWithHttpInfo(body);
+    public DescribeCustomerGatewayAttributesResponse describeCustomerGatewayAttributes(DescribeCustomerGatewayAttributesRequest body) throws ApiException {
+        ApiResponse<DescribeCustomerGatewayAttributesResponse> resp = describeCustomerGatewayAttributesWithHttpInfo(body);
         return resp.getData();
     }
 
@@ -1170,12 +1170,12 @@ public class VpnApi {
      * 
      * 
      * @param body  (required)
-     * @return ApiResponse&lt;DescribeCustomerVpnGatewayAttributesResponse&gt;
+     * @return ApiResponse&lt;DescribeCustomerGatewayAttributesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<DescribeCustomerVpnGatewayAttributesResponse> describeCustomerVpnGatewayAttributesWithHttpInfo( @NotNull DescribeCustomerVpnGatewayAttributesRequest body) throws ApiException {
-        com.squareup.okhttp.Call call = describeCustomerVpnGatewayAttributesValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<DescribeCustomerVpnGatewayAttributesResponse>(){}.getType();
+    public ApiResponse<DescribeCustomerGatewayAttributesResponse> describeCustomerGatewayAttributesWithHttpInfo( @NotNull DescribeCustomerGatewayAttributesRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = describeCustomerGatewayAttributesValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<DescribeCustomerGatewayAttributesResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -1187,7 +1187,7 @@ public class VpnApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call describeCustomerVpnGatewayAttributesAsync(DescribeCustomerVpnGatewayAttributesRequest body, final ApiCallback<DescribeCustomerVpnGatewayAttributesResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call describeCustomerGatewayAttributesAsync(DescribeCustomerGatewayAttributesRequest body, final ApiCallback<DescribeCustomerGatewayAttributesResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1208,24 +1208,24 @@ public class VpnApi {
             };
         }
 
-        com.squareup.okhttp.Call call = describeCustomerVpnGatewayAttributesValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<DescribeCustomerVpnGatewayAttributesResponse>(){}.getType();
+        com.squareup.okhttp.Call call = describeCustomerGatewayAttributesValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<DescribeCustomerGatewayAttributesResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
-     * Build call for describeCustomerVpnGateways
+     * Build call for describeCustomerGateways
      * @param body  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call describeCustomerVpnGatewaysCall(DescribeCustomerVpnGatewaysRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call describeCustomerGatewaysCall(DescribeCustomerGatewaysRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeCustomerVpnGateways/2020-04-01/vpn/get/";
+        String localVarPath = "/DescribeCustomerGateways/2020-04-01/VPN/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1263,13 +1263,13 @@ public class VpnApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call describeCustomerVpnGatewaysValidateBeforeCall(DescribeCustomerVpnGatewaysRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call describeCustomerGatewaysValidateBeforeCall(DescribeCustomerGatewaysRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'body' is set
         if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling describeCustomerVpnGateways(Async)");
+            throw new ApiException("Missing the required parameter 'body' when calling describeCustomerGateways(Async)");
         }
         
-        com.squareup.okhttp.Call call = describeCustomerVpnGatewaysCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = describeCustomerGatewaysCall(body, progressListener, progressRequestListener);
         return call;
 
         
@@ -1282,11 +1282,11 @@ public class VpnApi {
      * 
      * 
      * @param body  (required)
-     * @return DescribeCustomerVpnGatewaysResponse
+     * @return DescribeCustomerGatewaysResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public DescribeCustomerVpnGatewaysResponse describeCustomerVpnGateways(DescribeCustomerVpnGatewaysRequest body) throws ApiException {
-        ApiResponse<DescribeCustomerVpnGatewaysResponse> resp = describeCustomerVpnGatewaysWithHttpInfo(body);
+    public DescribeCustomerGatewaysResponse describeCustomerGateways(DescribeCustomerGatewaysRequest body) throws ApiException {
+        ApiResponse<DescribeCustomerGatewaysResponse> resp = describeCustomerGatewaysWithHttpInfo(body);
         return resp.getData();
     }
 
@@ -1294,12 +1294,12 @@ public class VpnApi {
      * 
      * 
      * @param body  (required)
-     * @return ApiResponse&lt;DescribeCustomerVpnGatewaysResponse&gt;
+     * @return ApiResponse&lt;DescribeCustomerGatewaysResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<DescribeCustomerVpnGatewaysResponse> describeCustomerVpnGatewaysWithHttpInfo( @NotNull DescribeCustomerVpnGatewaysRequest body) throws ApiException {
-        com.squareup.okhttp.Call call = describeCustomerVpnGatewaysValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<DescribeCustomerVpnGatewaysResponse>(){}.getType();
+    public ApiResponse<DescribeCustomerGatewaysResponse> describeCustomerGatewaysWithHttpInfo( @NotNull DescribeCustomerGatewaysRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = describeCustomerGatewaysValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<DescribeCustomerGatewaysResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -1311,7 +1311,7 @@ public class VpnApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call describeCustomerVpnGatewaysAsync(DescribeCustomerVpnGatewaysRequest body, final ApiCallback<DescribeCustomerVpnGatewaysResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call describeCustomerGatewaysAsync(DescribeCustomerGatewaysRequest body, final ApiCallback<DescribeCustomerGatewaysResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1332,8 +1332,8 @@ public class VpnApi {
             };
         }
 
-        com.squareup.okhttp.Call call = describeCustomerVpnGatewaysValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<DescribeCustomerVpnGatewaysResponse>(){}.getType();
+        com.squareup.okhttp.Call call = describeCustomerGatewaysValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<DescribeCustomerGatewaysResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -1349,7 +1349,7 @@ public class VpnApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeVpnConnectionAttributes/2020-04-01/vpn/get/";
+        String localVarPath = "/DescribeVpnConnectionAttributes/2020-04-01/VPN/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1473,7 +1473,7 @@ public class VpnApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeVpnConnections/2020-04-01/vpn/get/";
+        String localVarPath = "/DescribeVpnConnections/2020-04-01/VPN/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1597,7 +1597,7 @@ public class VpnApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeVpnGatewayAttributes/2020-04-01/vpn/get/";
+        String localVarPath = "/DescribeVpnGatewayAttributes/2020-04-01/VPN/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1721,7 +1721,7 @@ public class VpnApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeVpnGatewayRouteAttributes/2020-04-01/vpn/get/";
+        String localVarPath = "/DescribeVpnGatewayRouteAttributes/2020-04-01/VPN/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1845,7 +1845,7 @@ public class VpnApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeVpnGatewayRoutes/2020-04-01/vpn/get/";
+        String localVarPath = "/DescribeVpnGatewayRoutes/2020-04-01/VPN/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1969,7 +1969,7 @@ public class VpnApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeVpnGateways/2020-04-01/vpn/get/";
+        String localVarPath = "/DescribeVpnGateways/2020-04-01/VPN/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2093,7 +2093,7 @@ public class VpnApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeVpnGatewaysBilling/2020-04-01/vpn/get/";
+        String localVarPath = "/DescribeVpnGatewaysBilling/2020-04-01/VPN/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2206,18 +2206,18 @@ public class VpnApi {
         return call;
     }
     /**
-     * Build call for modifyCustomerVpnGatewayAttributes
+     * Build call for modifyCustomerGatewayAttributes
      * @param body  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call modifyCustomerVpnGatewayAttributesCall(ModifyCustomerVpnGatewayAttributesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call modifyCustomerGatewayAttributesCall(ModifyCustomerGatewayAttributesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ModifyCustomerVpnGatewayAttributes/2020-04-01/vpn/get/";
+        String localVarPath = "/ModifyCustomerGatewayAttributes/2020-04-01/VPN/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2255,13 +2255,13 @@ public class VpnApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call modifyCustomerVpnGatewayAttributesValidateBeforeCall(ModifyCustomerVpnGatewayAttributesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call modifyCustomerGatewayAttributesValidateBeforeCall(ModifyCustomerGatewayAttributesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'body' is set
         if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling modifyCustomerVpnGatewayAttributes(Async)");
+            throw new ApiException("Missing the required parameter 'body' when calling modifyCustomerGatewayAttributes(Async)");
         }
         
-        com.squareup.okhttp.Call call = modifyCustomerVpnGatewayAttributesCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = modifyCustomerGatewayAttributesCall(body, progressListener, progressRequestListener);
         return call;
 
         
@@ -2274,11 +2274,11 @@ public class VpnApi {
      * 
      * 
      * @param body  (required)
-     * @return ModifyCustomerVpnGatewayAttributesResponse
+     * @return ModifyCustomerGatewayAttributesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ModifyCustomerVpnGatewayAttributesResponse modifyCustomerVpnGatewayAttributes(ModifyCustomerVpnGatewayAttributesRequest body) throws ApiException {
-        ApiResponse<ModifyCustomerVpnGatewayAttributesResponse> resp = modifyCustomerVpnGatewayAttributesWithHttpInfo(body);
+    public ModifyCustomerGatewayAttributesResponse modifyCustomerGatewayAttributes(ModifyCustomerGatewayAttributesRequest body) throws ApiException {
+        ApiResponse<ModifyCustomerGatewayAttributesResponse> resp = modifyCustomerGatewayAttributesWithHttpInfo(body);
         return resp.getData();
     }
 
@@ -2286,12 +2286,12 @@ public class VpnApi {
      * 
      * 
      * @param body  (required)
-     * @return ApiResponse&lt;ModifyCustomerVpnGatewayAttributesResponse&gt;
+     * @return ApiResponse&lt;ModifyCustomerGatewayAttributesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ModifyCustomerVpnGatewayAttributesResponse> modifyCustomerVpnGatewayAttributesWithHttpInfo( @NotNull ModifyCustomerVpnGatewayAttributesRequest body) throws ApiException {
-        com.squareup.okhttp.Call call = modifyCustomerVpnGatewayAttributesValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<ModifyCustomerVpnGatewayAttributesResponse>(){}.getType();
+    public ApiResponse<ModifyCustomerGatewayAttributesResponse> modifyCustomerGatewayAttributesWithHttpInfo( @NotNull ModifyCustomerGatewayAttributesRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = modifyCustomerGatewayAttributesValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<ModifyCustomerGatewayAttributesResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -2303,7 +2303,7 @@ public class VpnApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call modifyCustomerVpnGatewayAttributesAsync(ModifyCustomerVpnGatewayAttributesRequest body, final ApiCallback<ModifyCustomerVpnGatewayAttributesResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call modifyCustomerGatewayAttributesAsync(ModifyCustomerGatewayAttributesRequest body, final ApiCallback<ModifyCustomerGatewayAttributesResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2324,8 +2324,8 @@ public class VpnApi {
             };
         }
 
-        com.squareup.okhttp.Call call = modifyCustomerVpnGatewayAttributesValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ModifyCustomerVpnGatewayAttributesResponse>(){}.getType();
+        com.squareup.okhttp.Call call = modifyCustomerGatewayAttributesValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ModifyCustomerGatewayAttributesResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -2341,7 +2341,7 @@ public class VpnApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ModifyVpnConnectionAttributes/2020-04-01/vpn/get/";
+        String localVarPath = "/ModifyVpnConnectionAttributes/2020-04-01/VPN/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2465,7 +2465,7 @@ public class VpnApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ModifyVpnGatewayAttributes/2020-04-01/vpn/get/";
+        String localVarPath = "/ModifyVpnGatewayAttributes/2020-04-01/VPN/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2589,7 +2589,7 @@ public class VpnApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/RenewVpnGateway/2020-04-01/vpn/get/";
+        String localVarPath = "/RenewVpnGateway/2020-04-01/VPN/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2713,7 +2713,7 @@ public class VpnApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/SetVpnGatewayRenewal/2020-04-01/vpn/get/";
+        String localVarPath = "/SetVpnGatewayRenewal/2020-04-01/VPN/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();

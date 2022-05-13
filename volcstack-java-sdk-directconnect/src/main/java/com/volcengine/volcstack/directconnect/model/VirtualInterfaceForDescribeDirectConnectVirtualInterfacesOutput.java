@@ -27,10 +27,19 @@ import javax.validation.Valid;
  * VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-03-24T18:20:58.026076+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-13T17:16:28.121303+08:00[Asia/Shanghai]")
 public class VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput {
   @SerializedName("AccountId")
   private String accountId = null;
+
+  @SerializedName("Bandwidth")
+  private Integer bandwidth = null;
+
+  @SerializedName("BfdDetectInterval")
+  private Integer bfdDetectInterval = null;
+
+  @SerializedName("BfdDetectMultiplier")
+  private Integer bfdDetectMultiplier = null;
 
   @SerializedName("CreationTime")
   private String creationTime = null;
@@ -43,6 +52,9 @@ public class VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput {
 
   @SerializedName("DirectConnectGatewayId")
   private String directConnectGatewayId = null;
+
+  @SerializedName("EnableBfd")
+  private Boolean enableBfd = null;
 
   @SerializedName("LocalIp")
   private String localIp = null;
@@ -84,6 +96,60 @@ public class VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput {
 
   public void setAccountId(String accountId) {
     this.accountId = accountId;
+  }
+
+  public VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput bandwidth(Integer bandwidth) {
+    this.bandwidth = bandwidth;
+    return this;
+  }
+
+   /**
+   * Get bandwidth
+   * @return bandwidth
+  **/
+  @Schema(description = "")
+  public Integer getBandwidth() {
+    return bandwidth;
+  }
+
+  public void setBandwidth(Integer bandwidth) {
+    this.bandwidth = bandwidth;
+  }
+
+  public VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput bfdDetectInterval(Integer bfdDetectInterval) {
+    this.bfdDetectInterval = bfdDetectInterval;
+    return this;
+  }
+
+   /**
+   * Get bfdDetectInterval
+   * @return bfdDetectInterval
+  **/
+  @Schema(description = "")
+  public Integer getBfdDetectInterval() {
+    return bfdDetectInterval;
+  }
+
+  public void setBfdDetectInterval(Integer bfdDetectInterval) {
+    this.bfdDetectInterval = bfdDetectInterval;
+  }
+
+  public VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput bfdDetectMultiplier(Integer bfdDetectMultiplier) {
+    this.bfdDetectMultiplier = bfdDetectMultiplier;
+    return this;
+  }
+
+   /**
+   * Get bfdDetectMultiplier
+   * @return bfdDetectMultiplier
+  **/
+  @Schema(description = "")
+  public Integer getBfdDetectMultiplier() {
+    return bfdDetectMultiplier;
+  }
+
+  public void setBfdDetectMultiplier(Integer bfdDetectMultiplier) {
+    this.bfdDetectMultiplier = bfdDetectMultiplier;
   }
 
   public VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput creationTime(String creationTime) {
@@ -156,6 +222,24 @@ public class VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput {
 
   public void setDirectConnectGatewayId(String directConnectGatewayId) {
     this.directConnectGatewayId = directConnectGatewayId;
+  }
+
+  public VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput enableBfd(Boolean enableBfd) {
+    this.enableBfd = enableBfd;
+    return this;
+  }
+
+   /**
+   * Get enableBfd
+   * @return enableBfd
+  **/
+  @Schema(description = "")
+  public Boolean isEnableBfd() {
+    return enableBfd;
+  }
+
+  public void setEnableBfd(Boolean enableBfd) {
+    this.enableBfd = enableBfd;
   }
 
   public VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput localIp(String localIp) {
@@ -304,7 +388,7 @@ public class VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput {
 
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -313,10 +397,14 @@ public class VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput {
     }
     VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput virtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput = (VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput) o;
     return Objects.equals(this.accountId, virtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput.accountId) &&
+        Objects.equals(this.bandwidth, virtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput.bandwidth) &&
+        Objects.equals(this.bfdDetectInterval, virtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput.bfdDetectInterval) &&
+        Objects.equals(this.bfdDetectMultiplier, virtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput.bfdDetectMultiplier) &&
         Objects.equals(this.creationTime, virtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput.creationTime) &&
         Objects.equals(this.description, virtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput.description) &&
         Objects.equals(this.directConnectConnectionId, virtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput.directConnectConnectionId) &&
         Objects.equals(this.directConnectGatewayId, virtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput.directConnectGatewayId) &&
+        Objects.equals(this.enableBfd, virtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput.enableBfd) &&
         Objects.equals(this.localIp, virtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput.localIp) &&
         Objects.equals(this.peerIp, virtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput.peerIp) &&
         Objects.equals(this.routeType, virtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput.routeType) &&
@@ -329,7 +417,7 @@ public class VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, creationTime, description, directConnectConnectionId, directConnectGatewayId, localIp, peerIp, routeType, status, updateTime, virtualInterfaceId, virtualInterfaceName, vlanId);
+    return Objects.hash(accountId, bandwidth, bfdDetectInterval, bfdDetectMultiplier, creationTime, description, directConnectConnectionId, directConnectGatewayId, enableBfd, localIp, peerIp, routeType, status, updateTime, virtualInterfaceId, virtualInterfaceName, vlanId);
   }
 
 
@@ -339,10 +427,14 @@ public class VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput {
     sb.append("class VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput {\n");
     
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
+    sb.append("    bandwidth: ").append(toIndentedString(bandwidth)).append("\n");
+    sb.append("    bfdDetectInterval: ").append(toIndentedString(bfdDetectInterval)).append("\n");
+    sb.append("    bfdDetectMultiplier: ").append(toIndentedString(bfdDetectMultiplier)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    directConnectConnectionId: ").append(toIndentedString(directConnectConnectionId)).append("\n");
     sb.append("    directConnectGatewayId: ").append(toIndentedString(directConnectGatewayId)).append("\n");
+    sb.append("    enableBfd: ").append(toIndentedString(enableBfd)).append("\n");
     sb.append("    localIp: ").append(toIndentedString(localIp)).append("\n");
     sb.append("    peerIp: ").append(toIndentedString(peerIp)).append("\n");
     sb.append("    routeType: ").append(toIndentedString(routeType)).append("\n");
@@ -359,7 +451,7 @@ public class VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }

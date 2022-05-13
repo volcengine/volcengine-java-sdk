@@ -27,10 +27,31 @@ import javax.validation.Valid;
  * RebootInstanceRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-11T19:55:49.837979+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-13T17:16:32.628524+08:00[Asia/Shanghai]")
 public class RebootInstanceRequest {
+  @SerializedName("ForceStop")
+  private Boolean forceStop = null;
+
   @SerializedName("InstanceId")
   private String instanceId = null;
+
+  public RebootInstanceRequest forceStop(Boolean forceStop) {
+    this.forceStop = forceStop;
+    return this;
+  }
+
+   /**
+   * Get forceStop
+   * @return forceStop
+  **/
+  @Schema(description = "")
+  public Boolean isForceStop() {
+    return forceStop;
+  }
+
+  public void setForceStop(Boolean forceStop) {
+    this.forceStop = forceStop;
+  }
 
   public RebootInstanceRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
@@ -52,7 +73,7 @@ public class RebootInstanceRequest {
 
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -60,12 +81,13 @@ public class RebootInstanceRequest {
       return false;
     }
     RebootInstanceRequest rebootInstanceRequest = (RebootInstanceRequest) o;
-    return Objects.equals(this.instanceId, rebootInstanceRequest.instanceId);
+    return Objects.equals(this.forceStop, rebootInstanceRequest.forceStop) &&
+        Objects.equals(this.instanceId, rebootInstanceRequest.instanceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId);
+    return Objects.hash(forceStop, instanceId);
   }
 
 
@@ -74,6 +96,7 @@ public class RebootInstanceRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class RebootInstanceRequest {\n");
     
+    sb.append("    forceStop: ").append(toIndentedString(forceStop)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -83,7 +106,7 @@ public class RebootInstanceRequest {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }

@@ -27,13 +27,34 @@ import javax.validation.Valid;
  * StopInstanceRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-11T19:55:49.837979+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-13T17:16:32.628524+08:00[Asia/Shanghai]")
 public class StopInstanceRequest {
+  @SerializedName("ForceStop")
+  private Boolean forceStop = null;
+
   @SerializedName("InstanceId")
   private String instanceId = null;
 
   @SerializedName("StoppedMode")
   private String stoppedMode = null;
+
+  public StopInstanceRequest forceStop(Boolean forceStop) {
+    this.forceStop = forceStop;
+    return this;
+  }
+
+   /**
+   * Get forceStop
+   * @return forceStop
+  **/
+  @Schema(description = "")
+  public Boolean isForceStop() {
+    return forceStop;
+  }
+
+  public void setForceStop(Boolean forceStop) {
+    this.forceStop = forceStop;
+  }
 
   public StopInstanceRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
@@ -73,7 +94,7 @@ public class StopInstanceRequest {
 
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -81,13 +102,14 @@ public class StopInstanceRequest {
       return false;
     }
     StopInstanceRequest stopInstanceRequest = (StopInstanceRequest) o;
-    return Objects.equals(this.instanceId, stopInstanceRequest.instanceId) &&
+    return Objects.equals(this.forceStop, stopInstanceRequest.forceStop) &&
+        Objects.equals(this.instanceId, stopInstanceRequest.instanceId) &&
         Objects.equals(this.stoppedMode, stopInstanceRequest.stoppedMode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, stoppedMode);
+    return Objects.hash(forceStop, instanceId, stoppedMode);
   }
 
 
@@ -96,6 +118,7 @@ public class StopInstanceRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class StopInstanceRequest {\n");
     
+    sb.append("    forceStop: ").append(toIndentedString(forceStop)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    stoppedMode: ").append(toIndentedString(stoppedMode)).append("\n");
     sb.append("}");
@@ -106,7 +129,7 @@ public class StopInstanceRequest {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }

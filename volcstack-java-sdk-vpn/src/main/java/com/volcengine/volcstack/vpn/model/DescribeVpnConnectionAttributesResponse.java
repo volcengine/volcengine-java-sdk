@@ -31,7 +31,7 @@ import javax.validation.Valid;
  * DescribeVpnConnectionAttributesResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-03-24T18:21:18.622599+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-13T17:16:45.779409+08:00[Asia/Shanghai]")
 public class DescribeVpnConnectionAttributesResponse {
   @SerializedName("AccountId")
   private String accountId = null;
@@ -39,8 +39,8 @@ public class DescribeVpnConnectionAttributesResponse {
   @SerializedName("CreationTime")
   private String creationTime = null;
 
-  @SerializedName("CustomerVpnGatewayId")
-  private String customerVpnGatewayId = null;
+  @SerializedName("CustomerGatewayId")
+  private String customerGatewayId = null;
 
   @SerializedName("Description")
   private String description = null;
@@ -56,12 +56,6 @@ public class DescribeVpnConnectionAttributesResponse {
 
   @SerializedName("NatTraversal")
   private Boolean natTraversal = null;
-
-  @SerializedName("ProjectName")
-  private String projectName = null;
-
-  @SerializedName("RegionID")
-  private String regionID = null;
 
   @SerializedName("RemoteSubnet")
   private List<String> remoteSubnet = null;
@@ -120,22 +114,22 @@ public class DescribeVpnConnectionAttributesResponse {
     this.creationTime = creationTime;
   }
 
-  public DescribeVpnConnectionAttributesResponse customerVpnGatewayId(String customerVpnGatewayId) {
-    this.customerVpnGatewayId = customerVpnGatewayId;
+  public DescribeVpnConnectionAttributesResponse customerGatewayId(String customerGatewayId) {
+    this.customerGatewayId = customerGatewayId;
     return this;
   }
 
    /**
-   * Get customerVpnGatewayId
-   * @return customerVpnGatewayId
+   * Get customerGatewayId
+   * @return customerGatewayId
   **/
   @Schema(description = "")
-  public String getCustomerVpnGatewayId() {
-    return customerVpnGatewayId;
+  public String getCustomerGatewayId() {
+    return customerGatewayId;
   }
 
-  public void setCustomerVpnGatewayId(String customerVpnGatewayId) {
-    this.customerVpnGatewayId = customerVpnGatewayId;
+  public void setCustomerGatewayId(String customerGatewayId) {
+    this.customerGatewayId = customerGatewayId;
   }
 
   public DescribeVpnConnectionAttributesResponse description(String description) {
@@ -236,42 +230,6 @@ public class DescribeVpnConnectionAttributesResponse {
 
   public void setNatTraversal(Boolean natTraversal) {
     this.natTraversal = natTraversal;
-  }
-
-  public DescribeVpnConnectionAttributesResponse projectName(String projectName) {
-    this.projectName = projectName;
-    return this;
-  }
-
-   /**
-   * Get projectName
-   * @return projectName
-  **/
-  @Schema(description = "")
-  public String getProjectName() {
-    return projectName;
-  }
-
-  public void setProjectName(String projectName) {
-    this.projectName = projectName;
-  }
-
-  public DescribeVpnConnectionAttributesResponse regionID(String regionID) {
-    this.regionID = regionID;
-    return this;
-  }
-
-   /**
-   * Get regionID
-   * @return regionID
-  **/
-  @Schema(description = "")
-  public String getRegionID() {
-    return regionID;
-  }
-
-  public void setRegionID(String regionID) {
-    this.regionID = regionID;
   }
 
   public DescribeVpnConnectionAttributesResponse remoteSubnet(List<String> remoteSubnet) {
@@ -410,7 +368,7 @@ public class DescribeVpnConnectionAttributesResponse {
 
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -420,14 +378,12 @@ public class DescribeVpnConnectionAttributesResponse {
     DescribeVpnConnectionAttributesResponse describeVpnConnectionAttributesResponse = (DescribeVpnConnectionAttributesResponse) o;
     return Objects.equals(this.accountId, describeVpnConnectionAttributesResponse.accountId) &&
         Objects.equals(this.creationTime, describeVpnConnectionAttributesResponse.creationTime) &&
-        Objects.equals(this.customerVpnGatewayId, describeVpnConnectionAttributesResponse.customerVpnGatewayId) &&
+        Objects.equals(this.customerGatewayId, describeVpnConnectionAttributesResponse.customerGatewayId) &&
         Objects.equals(this.description, describeVpnConnectionAttributesResponse.description) &&
         Objects.equals(this.ikeConfig, describeVpnConnectionAttributesResponse.ikeConfig) &&
         Objects.equals(this.ipsecConfig, describeVpnConnectionAttributesResponse.ipsecConfig) &&
         Objects.equals(this.localSubnet, describeVpnConnectionAttributesResponse.localSubnet) &&
         Objects.equals(this.natTraversal, describeVpnConnectionAttributesResponse.natTraversal) &&
-        Objects.equals(this.projectName, describeVpnConnectionAttributesResponse.projectName) &&
-        Objects.equals(this.regionID, describeVpnConnectionAttributesResponse.regionID) &&
         Objects.equals(this.remoteSubnet, describeVpnConnectionAttributesResponse.remoteSubnet) &&
         Objects.equals(this.requestId, describeVpnConnectionAttributesResponse.requestId) &&
         Objects.equals(this.status, describeVpnConnectionAttributesResponse.status) &&
@@ -439,7 +395,7 @@ public class DescribeVpnConnectionAttributesResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, creationTime, customerVpnGatewayId, description, ikeConfig, ipsecConfig, localSubnet, natTraversal, projectName, regionID, remoteSubnet, requestId, status, updateTime, vpnConnectionId, vpnConnectionName, vpnGatewayId);
+    return Objects.hash(accountId, creationTime, customerGatewayId, description, ikeConfig, ipsecConfig, localSubnet, natTraversal, remoteSubnet, requestId, status, updateTime, vpnConnectionId, vpnConnectionName, vpnGatewayId);
   }
 
 
@@ -450,14 +406,12 @@ public class DescribeVpnConnectionAttributesResponse {
     
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
-    sb.append("    customerVpnGatewayId: ").append(toIndentedString(customerVpnGatewayId)).append("\n");
+    sb.append("    customerGatewayId: ").append(toIndentedString(customerGatewayId)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    ikeConfig: ").append(toIndentedString(ikeConfig)).append("\n");
     sb.append("    ipsecConfig: ").append(toIndentedString(ipsecConfig)).append("\n");
     sb.append("    localSubnet: ").append(toIndentedString(localSubnet)).append("\n");
     sb.append("    natTraversal: ").append(toIndentedString(natTraversal)).append("\n");
-    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
-    sb.append("    regionID: ").append(toIndentedString(regionID)).append("\n");
     sb.append("    remoteSubnet: ").append(toIndentedString(remoteSubnet)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
@@ -473,7 +427,7 @@ public class DescribeVpnConnectionAttributesResponse {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }

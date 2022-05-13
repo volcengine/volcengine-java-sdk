@@ -29,7 +29,7 @@ import javax.validation.Valid;
  * DescribeInstancesRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-11T19:55:49.837979+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-13T17:16:32.628524+08:00[Asia/Shanghai]")
 public class DescribeInstancesRequest {
   @SerializedName("HpcClusterId")
   private String hpcClusterId = null;
@@ -45,6 +45,9 @@ public class DescribeInstancesRequest {
 
   @SerializedName("InstanceTypeFamilies")
   private List<String> instanceTypeFamilies = null;
+
+  @SerializedName("InstanceTypeIds")
+  private List<String> instanceTypeIds = null;
 
   @SerializedName("InstanceTypes")
   private List<String> instanceTypes = null;
@@ -174,6 +177,32 @@ public class DescribeInstancesRequest {
 
   public void setInstanceTypeFamilies(List<String> instanceTypeFamilies) {
     this.instanceTypeFamilies = instanceTypeFamilies;
+  }
+
+  public DescribeInstancesRequest instanceTypeIds(List<String> instanceTypeIds) {
+    this.instanceTypeIds = instanceTypeIds;
+    return this;
+  }
+
+  public DescribeInstancesRequest addInstanceTypeIdsItem(String instanceTypeIdsItem) {
+    if (this.instanceTypeIds == null) {
+      this.instanceTypeIds = new ArrayList<String>();
+    }
+    this.instanceTypeIds.add(instanceTypeIdsItem);
+    return this;
+  }
+
+   /**
+   * Get instanceTypeIds
+   * @return instanceTypeIds
+  **/
+  @Schema(description = "")
+  public List<String> getInstanceTypeIds() {
+    return instanceTypeIds;
+  }
+
+  public void setInstanceTypeIds(List<String> instanceTypeIds) {
+    this.instanceTypeIds = instanceTypeIds;
   }
 
   public DescribeInstancesRequest instanceTypes(List<String> instanceTypes) {
@@ -330,7 +359,7 @@ public class DescribeInstancesRequest {
 
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -343,6 +372,7 @@ public class DescribeInstancesRequest {
         Objects.equals(this.instanceIds, describeInstancesRequest.instanceIds) &&
         Objects.equals(this.instanceName, describeInstancesRequest.instanceName) &&
         Objects.equals(this.instanceTypeFamilies, describeInstancesRequest.instanceTypeFamilies) &&
+        Objects.equals(this.instanceTypeIds, describeInstancesRequest.instanceTypeIds) &&
         Objects.equals(this.instanceTypes, describeInstancesRequest.instanceTypes) &&
         Objects.equals(this.keyPairName, describeInstancesRequest.keyPairName) &&
         Objects.equals(this.maxResults, describeInstancesRequest.maxResults) &&
@@ -355,7 +385,7 @@ public class DescribeInstancesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hpcClusterId, instanceChargeType, instanceIds, instanceName, instanceTypeFamilies, instanceTypes, keyPairName, maxResults, nextToken, primaryIpAddress, status, vpcId, zoneId);
+    return Objects.hash(hpcClusterId, instanceChargeType, instanceIds, instanceName, instanceTypeFamilies, instanceTypeIds, instanceTypes, keyPairName, maxResults, nextToken, primaryIpAddress, status, vpcId, zoneId);
   }
 
 
@@ -369,6 +399,7 @@ public class DescribeInstancesRequest {
     sb.append("    instanceIds: ").append(toIndentedString(instanceIds)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    instanceTypeFamilies: ").append(toIndentedString(instanceTypeFamilies)).append("\n");
+    sb.append("    instanceTypeIds: ").append(toIndentedString(instanceTypeIds)).append("\n");
     sb.append("    instanceTypes: ").append(toIndentedString(instanceTypes)).append("\n");
     sb.append("    keyPairName: ").append(toIndentedString(keyPairName)).append("\n");
     sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
@@ -385,7 +416,7 @@ public class DescribeInstancesRequest {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }
