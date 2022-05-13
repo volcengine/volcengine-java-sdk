@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * VpnGatewayForDescribeVpnGatewaysOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-03-24T18:21:18.622599+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-13T17:16:45.779409+08:00[Asia/Shanghai]")
 public class VpnGatewayForDescribeVpnGatewaysOutput {
   @SerializedName("AccountId")
   private String accountId = null;
@@ -61,9 +61,6 @@ public class VpnGatewayForDescribeVpnGatewaysOutput {
 
   @SerializedName("LockReason")
   private String lockReason = null;
-
-  @SerializedName("ProjectName")
-  private String projectName = null;
 
   @SerializedName("RouteCount")
   private Integer routeCount = null;
@@ -284,24 +281,6 @@ public class VpnGatewayForDescribeVpnGatewaysOutput {
     this.lockReason = lockReason;
   }
 
-  public VpnGatewayForDescribeVpnGatewaysOutput projectName(String projectName) {
-    this.projectName = projectName;
-    return this;
-  }
-
-   /**
-   * Get projectName
-   * @return projectName
-  **/
-  @Schema(description = "")
-  public String getProjectName() {
-    return projectName;
-  }
-
-  public void setProjectName(String projectName) {
-    this.projectName = projectName;
-  }
-
   public VpnGatewayForDescribeVpnGatewaysOutput routeCount(Integer routeCount) {
     this.routeCount = routeCount;
     return this;
@@ -430,7 +409,7 @@ public class VpnGatewayForDescribeVpnGatewaysOutput {
 
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -449,7 +428,6 @@ public class VpnGatewayForDescribeVpnGatewaysOutput {
         Objects.equals(this.expiredTime, vpnGatewayForDescribeVpnGatewaysOutput.expiredTime) &&
         Objects.equals(this.ipAddress, vpnGatewayForDescribeVpnGatewaysOutput.ipAddress) &&
         Objects.equals(this.lockReason, vpnGatewayForDescribeVpnGatewaysOutput.lockReason) &&
-        Objects.equals(this.projectName, vpnGatewayForDescribeVpnGatewaysOutput.projectName) &&
         Objects.equals(this.routeCount, vpnGatewayForDescribeVpnGatewaysOutput.routeCount) &&
         Objects.equals(this.status, vpnGatewayForDescribeVpnGatewaysOutput.status) &&
         Objects.equals(this.subnetId, vpnGatewayForDescribeVpnGatewaysOutput.subnetId) &&
@@ -461,7 +439,7 @@ public class VpnGatewayForDescribeVpnGatewaysOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, bandwidth, billingType, businessStatus, connectionCount, creationTime, deletedTime, description, expiredTime, ipAddress, lockReason, projectName, routeCount, status, subnetId, updateTime, vpcId, vpnGatewayId, vpnGatewayName);
+    return Objects.hash(accountId, bandwidth, billingType, businessStatus, connectionCount, creationTime, deletedTime, description, expiredTime, ipAddress, lockReason, routeCount, status, subnetId, updateTime, vpcId, vpnGatewayId, vpnGatewayName);
   }
 
 
@@ -481,7 +459,6 @@ public class VpnGatewayForDescribeVpnGatewaysOutput {
     sb.append("    expiredTime: ").append(toIndentedString(expiredTime)).append("\n");
     sb.append("    ipAddress: ").append(toIndentedString(ipAddress)).append("\n");
     sb.append("    lockReason: ").append(toIndentedString(lockReason)).append("\n");
-    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    routeCount: ").append(toIndentedString(routeCount)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
@@ -497,7 +474,7 @@ public class VpnGatewayForDescribeVpnGatewaysOutput {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }
