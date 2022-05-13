@@ -12,12 +12,58 @@
 
 package com.volcengine.volcstack.ecs;
 
-import com.google.gson.reflect.TypeToken;
-import com.volcengine.volcstack.*;
-import com.volcengine.volcstack.ecs.model.*;
+import com.volcengine.volcstack.ApiCallback;
+import com.volcengine.volcstack.ApiClient;
+import com.volcengine.volcstack.ApiException;
+import com.volcengine.volcstack.ApiResponse;
+import com.volcengine.volcstack.Configuration;
+import com.volcengine.volcstack.Pair;
+import com.volcengine.volcstack.ProgressRequestBody;
+import com.volcengine.volcstack.ProgressResponseBody;
 
-import javax.validation.constraints.NotNull;
+import com.google.gson.reflect.TypeToken;
+
 import java.io.IOException;
+
+import javax.validation.constraints.*;
+
+import com.volcengine.volcstack.ecs.model.CreateImageRequest;
+import com.volcengine.volcstack.ecs.model.CreateImageResponse;
+import com.volcengine.volcstack.ecs.model.DeleteInstanceRequest;
+import com.volcengine.volcstack.ecs.model.DeleteInstanceResponse;
+import com.volcengine.volcstack.ecs.model.DescribeAvailableResourceRequest;
+import com.volcengine.volcstack.ecs.model.DescribeAvailableResourceResponse;
+import com.volcengine.volcstack.ecs.model.DescribeImagesRequest;
+import com.volcengine.volcstack.ecs.model.DescribeImagesResponse;
+import com.volcengine.volcstack.ecs.model.DescribeInstanceTypesRequest;
+import com.volcengine.volcstack.ecs.model.DescribeInstanceTypesResponse;
+import com.volcengine.volcstack.ecs.model.DescribeInstanceVncUrlRequest;
+import com.volcengine.volcstack.ecs.model.DescribeInstanceVncUrlResponse;
+import com.volcengine.volcstack.ecs.model.DescribeInstancesRequest;
+import com.volcengine.volcstack.ecs.model.DescribeInstancesResponse;
+import com.volcengine.volcstack.ecs.model.DescribeUserDataRequest;
+import com.volcengine.volcstack.ecs.model.DescribeUserDataResponse;
+import com.volcengine.volcstack.ecs.model.DescribeZonesRequest;
+import com.volcengine.volcstack.ecs.model.DescribeZonesResponse;
+import com.volcengine.volcstack.ecs.model.ModifyInstanceAttributeRequest;
+import com.volcengine.volcstack.ecs.model.ModifyInstanceAttributeResponse;
+import com.volcengine.volcstack.ecs.model.ModifyInstanceChargeTypeRequest;
+import com.volcengine.volcstack.ecs.model.ModifyInstanceChargeTypeResponse;
+import com.volcengine.volcstack.ecs.model.ModifyInstanceSpecRequest;
+import com.volcengine.volcstack.ecs.model.ModifyInstanceSpecResponse;
+import com.volcengine.volcstack.ecs.model.RebootInstanceRequest;
+import com.volcengine.volcstack.ecs.model.RebootInstanceResponse;
+import com.volcengine.volcstack.ecs.model.RenewInstanceRequest;
+import com.volcengine.volcstack.ecs.model.RenewInstanceResponse;
+import com.volcengine.volcstack.ecs.model.ReplaceSystemVolumeRequest;
+import com.volcengine.volcstack.ecs.model.ReplaceSystemVolumeResponse;
+import com.volcengine.volcstack.ecs.model.RunInstancesRequest;
+import com.volcengine.volcstack.ecs.model.RunInstancesResponse;
+import com.volcengine.volcstack.ecs.model.StartInstanceRequest;
+import com.volcengine.volcstack.ecs.model.StartInstanceResponse;
+import com.volcengine.volcstack.ecs.model.StopInstanceRequest;
+import com.volcengine.volcstack.ecs.model.StopInstanceResponse;
+
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -55,7 +101,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/CreateImage/2020-04-01/ecs/get/";
+        String localVarPath = "/CreateImage/2020-04-01/ECS/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -79,7 +125,7 @@ public class EcsApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -179,7 +225,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteInstance/2020-04-01/ecs/get/";
+        String localVarPath = "/DeleteInstance/2020-04-01/ECS/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -203,7 +249,7 @@ public class EcsApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -303,7 +349,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeAvailableResource/2020-04-01/ecs/get/";
+        String localVarPath = "/DescribeAvailableResource/2020-04-01/ECS/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -327,7 +373,7 @@ public class EcsApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -427,7 +473,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeImages/2020-04-01/ecs/get/";
+        String localVarPath = "/DescribeImages/2020-04-01/ECS/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -451,7 +497,7 @@ public class EcsApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -551,7 +597,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeInstanceTypes/2020-04-01/ecs/get/";
+        String localVarPath = "/DescribeInstanceTypes/2020-04-01/ECS/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -575,7 +621,7 @@ public class EcsApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -675,7 +721,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeInstanceVncUrl/2020-04-01/ecs/get/";
+        String localVarPath = "/DescribeInstanceVncUrl/2020-04-01/ECS/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -699,7 +745,7 @@ public class EcsApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -799,7 +845,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeInstances/2020-04-01/ecs/get/";
+        String localVarPath = "/DescribeInstances/2020-04-01/ECS/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -823,7 +869,7 @@ public class EcsApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -923,7 +969,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeUserData/2020-04-01/ecs/get/";
+        String localVarPath = "/DescribeUserData/2020-04-01/ECS/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -947,7 +993,7 @@ public class EcsApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -1047,7 +1093,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeZones/2020-04-01/ecs/get/";
+        String localVarPath = "/DescribeZones/2020-04-01/ECS/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1071,7 +1117,7 @@ public class EcsApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -1171,7 +1217,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ModifyInstanceAttribute/2020-04-01/ecs/get/";
+        String localVarPath = "/ModifyInstanceAttribute/2020-04-01/ECS/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1195,7 +1241,7 @@ public class EcsApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -1295,7 +1341,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ModifyInstanceChargeType/2020-04-01/ecs/get/";
+        String localVarPath = "/ModifyInstanceChargeType/2020-04-01/ECS/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1319,7 +1365,7 @@ public class EcsApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -1419,7 +1465,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ModifyInstanceSpec/2020-04-01/ecs/get/";
+        String localVarPath = "/ModifyInstanceSpec/2020-04-01/ECS/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1443,7 +1489,7 @@ public class EcsApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -1543,7 +1589,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/RebootInstance/2020-04-01/ecs/get/";
+        String localVarPath = "/RebootInstance/2020-04-01/ECS/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1567,7 +1613,7 @@ public class EcsApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -1667,7 +1713,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/RenewInstance/2020-04-01/ecs/get/";
+        String localVarPath = "/RenewInstance/2020-04-01/ECS/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1691,7 +1737,7 @@ public class EcsApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -1791,7 +1837,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ReplaceSystemVolume/2020-04-01/ecs/get/";
+        String localVarPath = "/ReplaceSystemVolume/2020-04-01/ECS/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1815,7 +1861,7 @@ public class EcsApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -1915,7 +1961,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/RunInstances/2020-04-01/ecs/get/";
+        String localVarPath = "/RunInstances/2020-04-01/ECS/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1939,7 +1985,7 @@ public class EcsApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -2039,7 +2085,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/StartInstance/2020-04-01/ecs/get/";
+        String localVarPath = "/StartInstance/2020-04-01/ECS/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2063,7 +2109,7 @@ public class EcsApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -2163,7 +2209,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/StopInstance/2020-04-01/ecs/get/";
+        String localVarPath = "/StopInstance/2020-04-01/ECS/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2187,7 +2233,7 @@ public class EcsApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))

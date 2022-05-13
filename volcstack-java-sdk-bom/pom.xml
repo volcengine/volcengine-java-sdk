@@ -1,20 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>volcstack-java-sdk</artifactId>
         <groupId>com.volcengine</groupId>
-        <version>0.1.0</version>
+        <version>0.1.0-SHAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-
     <artifactId>volcstack-java-sdk-bom</artifactId>
     <packaging>pom</packaging>
     <name>VOLCSTACK SDK for Java - BOM</name>
     <description>The VOLCSTACK SDK for Java - BOM module holds the dependency mangements for individual java clients.</description>
-
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -68,6 +64,12 @@
             <dependency>
                 <groupId>com.volcengine</groupId>
                 <artifactId>volcstack-java-sdk-vpn</artifactId>
+                <optional>false</optional>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.volcengine</groupId>
+                <artifactId>volcstack-java-sdk-autoscaling</artifactId>
                 <optional>false</optional>
                 <version>${project.version}</version>
             </dependency>

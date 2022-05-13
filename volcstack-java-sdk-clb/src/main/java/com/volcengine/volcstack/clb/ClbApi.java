@@ -12,12 +12,98 @@
 
 package com.volcengine.volcstack.clb;
 
-import com.google.gson.reflect.TypeToken;
-import com.volcengine.volcstack.*;
-import com.volcengine.volcstack.clb.model.*;
+import com.volcengine.volcstack.ApiCallback;
+import com.volcengine.volcstack.ApiClient;
+import com.volcengine.volcstack.ApiException;
+import com.volcengine.volcstack.ApiResponse;
+import com.volcengine.volcstack.Configuration;
+import com.volcengine.volcstack.Pair;
+import com.volcengine.volcstack.ProgressRequestBody;
+import com.volcengine.volcstack.ProgressResponseBody;
 
-import javax.validation.constraints.NotNull;
+import com.google.gson.reflect.TypeToken;
+
 import java.io.IOException;
+
+import javax.validation.constraints.*;
+
+import com.volcengine.volcstack.clb.model.AddAclEntriesRequest;
+import com.volcengine.volcstack.clb.model.AddAclEntriesResponse;
+import com.volcengine.volcstack.clb.model.AddServerGroupBackendServersRequest;
+import com.volcengine.volcstack.clb.model.AddServerGroupBackendServersResponse;
+import com.volcengine.volcstack.clb.model.ConvertLoadBalancerBillingTypeRequest;
+import com.volcengine.volcstack.clb.model.ConvertLoadBalancerBillingTypeResponse;
+import com.volcengine.volcstack.clb.model.CreateAclRequest;
+import com.volcengine.volcstack.clb.model.CreateAclResponse;
+import com.volcengine.volcstack.clb.model.CreateListenerRequest;
+import com.volcengine.volcstack.clb.model.CreateListenerResponse;
+import com.volcengine.volcstack.clb.model.CreateLoadBalancerRequest;
+import com.volcengine.volcstack.clb.model.CreateLoadBalancerResponse;
+import com.volcengine.volcstack.clb.model.CreateRulesRequest;
+import com.volcengine.volcstack.clb.model.CreateRulesResponse;
+import com.volcengine.volcstack.clb.model.CreateServerGroupRequest;
+import com.volcengine.volcstack.clb.model.CreateServerGroupResponse;
+import com.volcengine.volcstack.clb.model.DeleteAclRequest;
+import com.volcengine.volcstack.clb.model.DeleteAclResponse;
+import com.volcengine.volcstack.clb.model.DeleteCertificateRequest;
+import com.volcengine.volcstack.clb.model.DeleteCertificateResponse;
+import com.volcengine.volcstack.clb.model.DeleteListenerRequest;
+import com.volcengine.volcstack.clb.model.DeleteListenerResponse;
+import com.volcengine.volcstack.clb.model.DeleteLoadBalancerRequest;
+import com.volcengine.volcstack.clb.model.DeleteLoadBalancerResponse;
+import com.volcengine.volcstack.clb.model.DeleteRulesRequest;
+import com.volcengine.volcstack.clb.model.DeleteRulesResponse;
+import com.volcengine.volcstack.clb.model.DeleteServerGroupRequest;
+import com.volcengine.volcstack.clb.model.DeleteServerGroupResponse;
+import com.volcengine.volcstack.clb.model.DescribeAclAttributesRequest;
+import com.volcengine.volcstack.clb.model.DescribeAclAttributesResponse;
+import com.volcengine.volcstack.clb.model.DescribeAclsRequest;
+import com.volcengine.volcstack.clb.model.DescribeAclsResponse;
+import com.volcengine.volcstack.clb.model.DescribeCertificatesRequest;
+import com.volcengine.volcstack.clb.model.DescribeCertificatesResponse;
+import com.volcengine.volcstack.clb.model.DescribeListenerAttributesRequest;
+import com.volcengine.volcstack.clb.model.DescribeListenerAttributesResponse;
+import com.volcengine.volcstack.clb.model.DescribeListenerHealthRequest;
+import com.volcengine.volcstack.clb.model.DescribeListenerHealthResponse;
+import com.volcengine.volcstack.clb.model.DescribeListenersRequest;
+import com.volcengine.volcstack.clb.model.DescribeListenersResponse;
+import com.volcengine.volcstack.clb.model.DescribeLoadBalancerAttributesRequest;
+import com.volcengine.volcstack.clb.model.DescribeLoadBalancerAttributesResponse;
+import com.volcengine.volcstack.clb.model.DescribeLoadBalancersBillingRequest;
+import com.volcengine.volcstack.clb.model.DescribeLoadBalancersBillingResponse;
+import com.volcengine.volcstack.clb.model.DescribeLoadBalancersRequest;
+import com.volcengine.volcstack.clb.model.DescribeLoadBalancersResponse;
+import com.volcengine.volcstack.clb.model.DescribeRulesRequest;
+import com.volcengine.volcstack.clb.model.DescribeRulesResponse;
+import com.volcengine.volcstack.clb.model.DescribeServerGroupAttributesRequest;
+import com.volcengine.volcstack.clb.model.DescribeServerGroupAttributesResponse;
+import com.volcengine.volcstack.clb.model.DescribeServerGroupsRequest;
+import com.volcengine.volcstack.clb.model.DescribeServerGroupsResponse;
+import com.volcengine.volcstack.clb.model.DisableAccessLogRequest;
+import com.volcengine.volcstack.clb.model.DisableAccessLogResponse;
+import com.volcengine.volcstack.clb.model.EnableAccessLogRequest;
+import com.volcengine.volcstack.clb.model.EnableAccessLogResponse;
+import com.volcengine.volcstack.clb.model.ModifyAclAttributesRequest;
+import com.volcengine.volcstack.clb.model.ModifyAclAttributesResponse;
+import com.volcengine.volcstack.clb.model.ModifyListenerAttributesRequest;
+import com.volcengine.volcstack.clb.model.ModifyListenerAttributesResponse;
+import com.volcengine.volcstack.clb.model.ModifyLoadBalancerAttributesRequest;
+import com.volcengine.volcstack.clb.model.ModifyLoadBalancerAttributesResponse;
+import com.volcengine.volcstack.clb.model.ModifyRulesRequest;
+import com.volcengine.volcstack.clb.model.ModifyRulesResponse;
+import com.volcengine.volcstack.clb.model.ModifyServerGroupAttributesRequest;
+import com.volcengine.volcstack.clb.model.ModifyServerGroupAttributesResponse;
+import com.volcengine.volcstack.clb.model.RemoveAclEntriesRequest;
+import com.volcengine.volcstack.clb.model.RemoveAclEntriesResponse;
+import com.volcengine.volcstack.clb.model.RemoveServerGroupBackendServersRequest;
+import com.volcengine.volcstack.clb.model.RemoveServerGroupBackendServersResponse;
+import com.volcengine.volcstack.clb.model.RenewLoadBalancerRequest;
+import com.volcengine.volcstack.clb.model.RenewLoadBalancerResponse;
+import com.volcengine.volcstack.clb.model.SetLoadBalancerRenewalRequest;
+import com.volcengine.volcstack.clb.model.SetLoadBalancerRenewalResponse;
+import com.volcengine.volcstack.clb.model.UploadCertificateRequest;
+import com.volcengine.volcstack.clb.model.UploadCertificateResponse;
+
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -55,7 +141,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/AddAclEntries/2020-04-01/clb/get/";
+        String localVarPath = "/AddAclEntries/2020-04-01/CLB/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -79,7 +165,7 @@ public class ClbApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -179,7 +265,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/AddServerGroupBackendServers/2020-04-01/clb/get/";
+        String localVarPath = "/AddServerGroupBackendServers/2020-04-01/CLB/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -203,7 +289,7 @@ public class ClbApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -292,18 +378,18 @@ public class ClbApi {
         return call;
     }
     /**
-     * Build call for createAcl
+     * Build call for convertLoadBalancerBillingType
      * @param body  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call createAclCall(CreateAclRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call convertLoadBalancerBillingTypeCall(ConvertLoadBalancerBillingTypeRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/CreateAcl/2020-04-01/clb/get/";
+        String localVarPath = "/ConvertLoadBalancerBillingType/2020-04-01/CLB/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -327,7 +413,131 @@ public class ClbApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcstackSign" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call convertLoadBalancerBillingTypeValidateBeforeCall(ConvertLoadBalancerBillingTypeRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling convertLoadBalancerBillingType(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = convertLoadBalancerBillingTypeCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ConvertLoadBalancerBillingTypeResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ConvertLoadBalancerBillingTypeResponse convertLoadBalancerBillingType(ConvertLoadBalancerBillingTypeRequest body) throws ApiException {
+        ApiResponse<ConvertLoadBalancerBillingTypeResponse> resp = convertLoadBalancerBillingTypeWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;ConvertLoadBalancerBillingTypeResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ConvertLoadBalancerBillingTypeResponse> convertLoadBalancerBillingTypeWithHttpInfo( @NotNull ConvertLoadBalancerBillingTypeRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = convertLoadBalancerBillingTypeValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<ConvertLoadBalancerBillingTypeResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call convertLoadBalancerBillingTypeAsync(ConvertLoadBalancerBillingTypeRequest body, final ApiCallback<ConvertLoadBalancerBillingTypeResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = convertLoadBalancerBillingTypeValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ConvertLoadBalancerBillingTypeResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for createAcl
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call createAclCall(CreateAclRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/CreateAcl/2020-04-01/CLB/get/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -427,7 +637,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/CreateListener/2020-04-01/clb/get/";
+        String localVarPath = "/CreateListener/2020-04-01/CLB/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -451,7 +661,7 @@ public class ClbApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -551,7 +761,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/CreateLoadBalancer/2020-04-01/clb/get/";
+        String localVarPath = "/CreateLoadBalancer/2020-04-01/CLB/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -575,7 +785,7 @@ public class ClbApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -675,7 +885,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/CreateRules/2020-04-01/clb/get/";
+        String localVarPath = "/CreateRules/2020-04-01/CLB/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -699,7 +909,7 @@ public class ClbApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -799,7 +1009,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/CreateServerGroup/2020-04-01/clb/get/";
+        String localVarPath = "/CreateServerGroup/2020-04-01/CLB/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -823,7 +1033,7 @@ public class ClbApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -923,7 +1133,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteAcl/2020-04-01/clb/get/";
+        String localVarPath = "/DeleteAcl/2020-04-01/CLB/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -947,7 +1157,7 @@ public class ClbApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -1047,7 +1257,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteCertificate/2020-04-01/clb/get/";
+        String localVarPath = "/DeleteCertificate/2020-04-01/CLB/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1071,7 +1281,7 @@ public class ClbApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -1171,7 +1381,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteListener/2020-04-01/clb/get/";
+        String localVarPath = "/DeleteListener/2020-04-01/CLB/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1195,7 +1405,7 @@ public class ClbApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -1295,7 +1505,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteLoadBalancer/2020-04-01/clb/get/";
+        String localVarPath = "/DeleteLoadBalancer/2020-04-01/CLB/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1319,7 +1529,7 @@ public class ClbApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -1419,7 +1629,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteRules/2020-04-01/clb/get/";
+        String localVarPath = "/DeleteRules/2020-04-01/CLB/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1443,7 +1653,7 @@ public class ClbApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -1543,7 +1753,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteServerGroup/2020-04-01/clb/get/";
+        String localVarPath = "/DeleteServerGroup/2020-04-01/CLB/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1567,7 +1777,7 @@ public class ClbApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -1667,7 +1877,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeAclAttributes/2020-04-01/clb/get/";
+        String localVarPath = "/DescribeAclAttributes/2020-04-01/CLB/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1691,7 +1901,7 @@ public class ClbApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -1791,7 +2001,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeAcls/2020-04-01/clb/get/";
+        String localVarPath = "/DescribeAcls/2020-04-01/CLB/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1815,7 +2025,7 @@ public class ClbApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -1915,7 +2125,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeCertificates/2020-04-01/clb/get/";
+        String localVarPath = "/DescribeCertificates/2020-04-01/CLB/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1939,7 +2149,7 @@ public class ClbApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -2039,7 +2249,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeListenerAttributes/2020-04-01/clb/get/";
+        String localVarPath = "/DescribeListenerAttributes/2020-04-01/CLB/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2063,7 +2273,7 @@ public class ClbApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -2163,7 +2373,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeListenerHealth/2020-04-01/clb/get/";
+        String localVarPath = "/DescribeListenerHealth/2020-04-01/CLB/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2187,7 +2397,7 @@ public class ClbApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -2287,7 +2497,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeListeners/2020-04-01/clb/get/";
+        String localVarPath = "/DescribeListeners/2020-04-01/CLB/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2311,7 +2521,7 @@ public class ClbApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -2411,7 +2621,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeLoadBalancerAttributes/2020-04-01/clb/get/";
+        String localVarPath = "/DescribeLoadBalancerAttributes/2020-04-01/CLB/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2435,7 +2645,7 @@ public class ClbApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -2535,7 +2745,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeLoadBalancers/2020-04-01/clb/get/";
+        String localVarPath = "/DescribeLoadBalancers/2020-04-01/CLB/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2559,7 +2769,7 @@ public class ClbApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -2659,7 +2869,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeLoadBalancersBilling/2020-04-01/clb/get/";
+        String localVarPath = "/DescribeLoadBalancersBilling/2020-04-01/CLB/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2683,7 +2893,7 @@ public class ClbApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -2783,7 +2993,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeRules/2020-04-01/clb/get/";
+        String localVarPath = "/DescribeRules/2020-04-01/CLB/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2807,7 +3017,7 @@ public class ClbApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -2907,7 +3117,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeServerGroupAttributes/2020-04-01/clb/get/";
+        String localVarPath = "/DescribeServerGroupAttributes/2020-04-01/CLB/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2931,7 +3141,7 @@ public class ClbApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -3031,7 +3241,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeServerGroups/2020-04-01/clb/get/";
+        String localVarPath = "/DescribeServerGroups/2020-04-01/CLB/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3055,7 +3265,7 @@ public class ClbApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -3155,7 +3365,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DisableAccessLog/2020-04-01/clb/get/";
+        String localVarPath = "/DisableAccessLog/2020-04-01/CLB/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3179,7 +3389,7 @@ public class ClbApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -3279,7 +3489,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/EnableAccessLog/2020-04-01/clb/get/";
+        String localVarPath = "/EnableAccessLog/2020-04-01/CLB/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3303,7 +3513,7 @@ public class ClbApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -3403,7 +3613,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ModifyAclAttributes/2020-04-01/clb/get/";
+        String localVarPath = "/ModifyAclAttributes/2020-04-01/CLB/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3427,7 +3637,7 @@ public class ClbApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -3527,7 +3737,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ModifyListenerAttributes/2020-04-01/clb/get/";
+        String localVarPath = "/ModifyListenerAttributes/2020-04-01/CLB/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3551,7 +3761,7 @@ public class ClbApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -3651,7 +3861,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ModifyLoadBalancerAttributes/2020-04-01/clb/get/";
+        String localVarPath = "/ModifyLoadBalancerAttributes/2020-04-01/CLB/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3675,7 +3885,7 @@ public class ClbApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -3775,7 +3985,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ModifyRules/2020-04-01/clb/get/";
+        String localVarPath = "/ModifyRules/2020-04-01/CLB/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3799,7 +4009,7 @@ public class ClbApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -3899,7 +4109,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ModifyServerGroupAttributes/2020-04-01/clb/get/";
+        String localVarPath = "/ModifyServerGroupAttributes/2020-04-01/CLB/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3923,7 +4133,7 @@ public class ClbApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -4023,7 +4233,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/RemoveAclEntries/2020-04-01/clb/get/";
+        String localVarPath = "/RemoveAclEntries/2020-04-01/CLB/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4047,7 +4257,7 @@ public class ClbApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -4147,7 +4357,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/RemoveServerGroupBackendServers/2020-04-01/clb/get/";
+        String localVarPath = "/RemoveServerGroupBackendServers/2020-04-01/CLB/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4171,7 +4381,7 @@ public class ClbApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
@@ -4260,18 +4470,18 @@ public class ClbApi {
         return call;
     }
     /**
-     * Build call for uploadCertificate
+     * Build call for renewLoadBalancer
      * @param body  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call uploadCertificateCall(UploadCertificateRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call renewLoadBalancerCall(RenewLoadBalancerRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/UploadCertificate/2020-04-01/clb/get/";
+        String localVarPath = "/RenewLoadBalancer/2020-04-01/CLB/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4295,7 +4505,255 @@ public class ClbApi {
         if(progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcstackSign" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call renewLoadBalancerValidateBeforeCall(RenewLoadBalancerRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling renewLoadBalancer(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = renewLoadBalancerCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return RenewLoadBalancerResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public RenewLoadBalancerResponse renewLoadBalancer(RenewLoadBalancerRequest body) throws ApiException {
+        ApiResponse<RenewLoadBalancerResponse> resp = renewLoadBalancerWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;RenewLoadBalancerResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<RenewLoadBalancerResponse> renewLoadBalancerWithHttpInfo( @NotNull RenewLoadBalancerRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = renewLoadBalancerValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<RenewLoadBalancerResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call renewLoadBalancerAsync(RenewLoadBalancerRequest body, final ApiCallback<RenewLoadBalancerResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = renewLoadBalancerValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<RenewLoadBalancerResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for setLoadBalancerRenewal
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call setLoadBalancerRenewalCall(SetLoadBalancerRenewalRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/SetLoadBalancerRenewal/2020-04-01/CLB/get/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcstackSign" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call setLoadBalancerRenewalValidateBeforeCall(SetLoadBalancerRenewalRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling setLoadBalancerRenewal(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = setLoadBalancerRenewalCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return SetLoadBalancerRenewalResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public SetLoadBalancerRenewalResponse setLoadBalancerRenewal(SetLoadBalancerRenewalRequest body) throws ApiException {
+        ApiResponse<SetLoadBalancerRenewalResponse> resp = setLoadBalancerRenewalWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;SetLoadBalancerRenewalResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<SetLoadBalancerRenewalResponse> setLoadBalancerRenewalWithHttpInfo( @NotNull SetLoadBalancerRenewalRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = setLoadBalancerRenewalValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<SetLoadBalancerRenewalResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call setLoadBalancerRenewalAsync(SetLoadBalancerRenewalRequest body, final ApiCallback<SetLoadBalancerRenewalResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = setLoadBalancerRenewalValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<SetLoadBalancerRenewalResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for uploadCertificate
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call uploadCertificateCall(UploadCertificateRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/UploadCertificate/2020-04-01/CLB/get/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))

@@ -19,24 +19,27 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.volcstack.directconnect.model.AssociateCenForDescribeDirectConnectGatewayAttributesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
  * DescribeDirectConnectGatewayAttributesResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-03-24T18:20:58.026076+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-13T17:16:28.121303+08:00[Asia/Shanghai]")
 public class DescribeDirectConnectGatewayAttributesResponse {
   @SerializedName("AccountId")
   private String accountId = null;
 
+  @SerializedName("AssociateCens")
+  private List<AssociateCenForDescribeDirectConnectGatewayAttributesOutput> associateCens = null;
+
   @SerializedName("BusinessStatus")
   private String businessStatus = null;
-
-  @SerializedName("CenId")
-  private String cenId = null;
 
   @SerializedName("CreationTime")
   private String creationTime = null;
@@ -86,6 +89,33 @@ public class DescribeDirectConnectGatewayAttributesResponse {
     this.accountId = accountId;
   }
 
+  public DescribeDirectConnectGatewayAttributesResponse associateCens(List<AssociateCenForDescribeDirectConnectGatewayAttributesOutput> associateCens) {
+    this.associateCens = associateCens;
+    return this;
+  }
+
+  public DescribeDirectConnectGatewayAttributesResponse addAssociateCensItem(AssociateCenForDescribeDirectConnectGatewayAttributesOutput associateCensItem) {
+    if (this.associateCens == null) {
+      this.associateCens = new ArrayList<AssociateCenForDescribeDirectConnectGatewayAttributesOutput>();
+    }
+    this.associateCens.add(associateCensItem);
+    return this;
+  }
+
+   /**
+   * Get associateCens
+   * @return associateCens
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<AssociateCenForDescribeDirectConnectGatewayAttributesOutput> getAssociateCens() {
+    return associateCens;
+  }
+
+  public void setAssociateCens(List<AssociateCenForDescribeDirectConnectGatewayAttributesOutput> associateCens) {
+    this.associateCens = associateCens;
+  }
+
   public DescribeDirectConnectGatewayAttributesResponse businessStatus(String businessStatus) {
     this.businessStatus = businessStatus;
     return this;
@@ -102,24 +132,6 @@ public class DescribeDirectConnectGatewayAttributesResponse {
 
   public void setBusinessStatus(String businessStatus) {
     this.businessStatus = businessStatus;
-  }
-
-  public DescribeDirectConnectGatewayAttributesResponse cenId(String cenId) {
-    this.cenId = cenId;
-    return this;
-  }
-
-   /**
-   * Get cenId
-   * @return cenId
-  **/
-  @Schema(description = "")
-  public String getCenId() {
-    return cenId;
-  }
-
-  public void setCenId(String cenId) {
-    this.cenId = cenId;
   }
 
   public DescribeDirectConnectGatewayAttributesResponse creationTime(String creationTime) {
@@ -304,7 +316,7 @@ public class DescribeDirectConnectGatewayAttributesResponse {
 
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -313,8 +325,8 @@ public class DescribeDirectConnectGatewayAttributesResponse {
     }
     DescribeDirectConnectGatewayAttributesResponse describeDirectConnectGatewayAttributesResponse = (DescribeDirectConnectGatewayAttributesResponse) o;
     return Objects.equals(this.accountId, describeDirectConnectGatewayAttributesResponse.accountId) &&
+        Objects.equals(this.associateCens, describeDirectConnectGatewayAttributesResponse.associateCens) &&
         Objects.equals(this.businessStatus, describeDirectConnectGatewayAttributesResponse.businessStatus) &&
-        Objects.equals(this.cenId, describeDirectConnectGatewayAttributesResponse.cenId) &&
         Objects.equals(this.creationTime, describeDirectConnectGatewayAttributesResponse.creationTime) &&
         Objects.equals(this.deletedTime, describeDirectConnectGatewayAttributesResponse.deletedTime) &&
         Objects.equals(this.description, describeDirectConnectGatewayAttributesResponse.description) &&
@@ -329,7 +341,7 @@ public class DescribeDirectConnectGatewayAttributesResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, businessStatus, cenId, creationTime, deletedTime, description, directConnectGatewayId, directConnectGatewayName, lockReason, overdueTime, requestId, status, updateTime);
+    return Objects.hash(accountId, associateCens, businessStatus, creationTime, deletedTime, description, directConnectGatewayId, directConnectGatewayName, lockReason, overdueTime, requestId, status, updateTime);
   }
 
 
@@ -339,8 +351,8 @@ public class DescribeDirectConnectGatewayAttributesResponse {
     sb.append("class DescribeDirectConnectGatewayAttributesResponse {\n");
     
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
+    sb.append("    associateCens: ").append(toIndentedString(associateCens)).append("\n");
     sb.append("    businessStatus: ").append(toIndentedString(businessStatus)).append("\n");
-    sb.append("    cenId: ").append(toIndentedString(cenId)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    deletedTime: ").append(toIndentedString(deletedTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
@@ -359,7 +371,7 @@ public class DescribeDirectConnectGatewayAttributesResponse {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }

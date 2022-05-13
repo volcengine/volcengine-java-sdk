@@ -27,8 +27,11 @@ import javax.validation.Valid;
  * CreateVpnGatewayResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-03-24T18:21:18.622599+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-13T17:16:45.779409+08:00[Asia/Shanghai]")
 public class CreateVpnGatewayResponse {
+  @SerializedName("OrderId")
+  private String orderId = null;
+
   @SerializedName("PreOrderNumber")
   private String preOrderNumber = null;
 
@@ -37,6 +40,24 @@ public class CreateVpnGatewayResponse {
 
   @SerializedName("VpnGatewayId")
   private String vpnGatewayId = null;
+
+  public CreateVpnGatewayResponse orderId(String orderId) {
+    this.orderId = orderId;
+    return this;
+  }
+
+   /**
+   * Get orderId
+   * @return orderId
+  **/
+  @Schema(description = "")
+  public String getOrderId() {
+    return orderId;
+  }
+
+  public void setOrderId(String orderId) {
+    this.orderId = orderId;
+  }
 
   public CreateVpnGatewayResponse preOrderNumber(String preOrderNumber) {
     this.preOrderNumber = preOrderNumber;
@@ -94,7 +115,7 @@ public class CreateVpnGatewayResponse {
 
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -102,14 +123,15 @@ public class CreateVpnGatewayResponse {
       return false;
     }
     CreateVpnGatewayResponse createVpnGatewayResponse = (CreateVpnGatewayResponse) o;
-    return Objects.equals(this.preOrderNumber, createVpnGatewayResponse.preOrderNumber) &&
+    return Objects.equals(this.orderId, createVpnGatewayResponse.orderId) &&
+        Objects.equals(this.preOrderNumber, createVpnGatewayResponse.preOrderNumber) &&
         Objects.equals(this.requestId, createVpnGatewayResponse.requestId) &&
         Objects.equals(this.vpnGatewayId, createVpnGatewayResponse.vpnGatewayId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(preOrderNumber, requestId, vpnGatewayId);
+    return Objects.hash(orderId, preOrderNumber, requestId, vpnGatewayId);
   }
 
 
@@ -118,6 +140,7 @@ public class CreateVpnGatewayResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateVpnGatewayResponse {\n");
     
+    sb.append("    orderId: ").append(toIndentedString(orderId)).append("\n");
     sb.append("    preOrderNumber: ").append(toIndentedString(preOrderNumber)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    vpnGatewayId: ").append(toIndentedString(vpnGatewayId)).append("\n");
@@ -129,7 +152,7 @@ public class CreateVpnGatewayResponse {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }

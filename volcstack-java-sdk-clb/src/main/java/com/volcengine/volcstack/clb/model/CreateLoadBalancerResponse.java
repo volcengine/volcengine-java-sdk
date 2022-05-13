@@ -27,10 +27,13 @@ import javax.validation.Valid;
  * CreateLoadBalancerResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-03-24T18:20:52.429083+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-13T17:16:23.251034+08:00[Asia/Shanghai]")
 public class CreateLoadBalancerResponse {
   @SerializedName("LoadBalancerId")
   private String loadBalancerId = null;
+
+  @SerializedName("OrderId")
+  private String orderId = null;
 
   @SerializedName("RequestId")
   private String requestId = null;
@@ -53,6 +56,24 @@ public class CreateLoadBalancerResponse {
     this.loadBalancerId = loadBalancerId;
   }
 
+  public CreateLoadBalancerResponse orderId(String orderId) {
+    this.orderId = orderId;
+    return this;
+  }
+
+   /**
+   * Get orderId
+   * @return orderId
+  **/
+  @Schema(description = "")
+  public String getOrderId() {
+    return orderId;
+  }
+
+  public void setOrderId(String orderId) {
+    this.orderId = orderId;
+  }
+
   public CreateLoadBalancerResponse requestId(String requestId) {
     this.requestId = requestId;
     return this;
@@ -73,7 +94,7 @@ public class CreateLoadBalancerResponse {
 
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -82,12 +103,13 @@ public class CreateLoadBalancerResponse {
     }
     CreateLoadBalancerResponse createLoadBalancerResponse = (CreateLoadBalancerResponse) o;
     return Objects.equals(this.loadBalancerId, createLoadBalancerResponse.loadBalancerId) &&
+        Objects.equals(this.orderId, createLoadBalancerResponse.orderId) &&
         Objects.equals(this.requestId, createLoadBalancerResponse.requestId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(loadBalancerId, requestId);
+    return Objects.hash(loadBalancerId, orderId, requestId);
   }
 
 
@@ -97,6 +119,7 @@ public class CreateLoadBalancerResponse {
     sb.append("class CreateLoadBalancerResponse {\n");
     
     sb.append("    loadBalancerId: ").append(toIndentedString(loadBalancerId)).append("\n");
+    sb.append("    orderId: ").append(toIndentedString(orderId)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -106,7 +129,7 @@ public class CreateLoadBalancerResponse {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }

@@ -29,8 +29,11 @@ import javax.validation.Valid;
  * DescribeInstanceTypesRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-04-11T19:55:49.837979+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-13T17:16:32.628524+08:00[Asia/Shanghai]")
 public class DescribeInstanceTypesRequest {
+  @SerializedName("InstanceTypeIds")
+  private List<String> instanceTypeIds = null;
+
   @SerializedName("InstanceTypes")
   private List<String> instanceTypes = null;
 
@@ -39,6 +42,32 @@ public class DescribeInstanceTypesRequest {
 
   @SerializedName("NextToken")
   private String nextToken = null;
+
+  public DescribeInstanceTypesRequest instanceTypeIds(List<String> instanceTypeIds) {
+    this.instanceTypeIds = instanceTypeIds;
+    return this;
+  }
+
+  public DescribeInstanceTypesRequest addInstanceTypeIdsItem(String instanceTypeIdsItem) {
+    if (this.instanceTypeIds == null) {
+      this.instanceTypeIds = new ArrayList<String>();
+    }
+    this.instanceTypeIds.add(instanceTypeIdsItem);
+    return this;
+  }
+
+   /**
+   * Get instanceTypeIds
+   * @return instanceTypeIds
+  **/
+  @Schema(description = "")
+  public List<String> getInstanceTypeIds() {
+    return instanceTypeIds;
+  }
+
+  public void setInstanceTypeIds(List<String> instanceTypeIds) {
+    this.instanceTypeIds = instanceTypeIds;
+  }
 
   public DescribeInstanceTypesRequest instanceTypes(List<String> instanceTypes) {
     this.instanceTypes = instanceTypes;
@@ -104,7 +133,7 @@ public class DescribeInstanceTypesRequest {
 
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -112,14 +141,15 @@ public class DescribeInstanceTypesRequest {
       return false;
     }
     DescribeInstanceTypesRequest describeInstanceTypesRequest = (DescribeInstanceTypesRequest) o;
-    return Objects.equals(this.instanceTypes, describeInstanceTypesRequest.instanceTypes) &&
+    return Objects.equals(this.instanceTypeIds, describeInstanceTypesRequest.instanceTypeIds) &&
+        Objects.equals(this.instanceTypes, describeInstanceTypesRequest.instanceTypes) &&
         Objects.equals(this.maxResults, describeInstanceTypesRequest.maxResults) &&
         Objects.equals(this.nextToken, describeInstanceTypesRequest.nextToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceTypes, maxResults, nextToken);
+    return Objects.hash(instanceTypeIds, instanceTypes, maxResults, nextToken);
   }
 
 
@@ -128,6 +158,7 @@ public class DescribeInstanceTypesRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeInstanceTypesRequest {\n");
     
+    sb.append("    instanceTypeIds: ").append(toIndentedString(instanceTypeIds)).append("\n");
     sb.append("    instanceTypes: ").append(toIndentedString(instanceTypes)).append("\n");
     sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
     sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
@@ -139,7 +170,7 @@ public class DescribeInstanceTypesRequest {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }

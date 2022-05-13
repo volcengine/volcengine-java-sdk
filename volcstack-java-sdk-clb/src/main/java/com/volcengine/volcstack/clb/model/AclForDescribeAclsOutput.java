@@ -29,7 +29,7 @@ import javax.validation.Valid;
  * AclForDescribeAclsOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-03-24T18:20:52.429083+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-13T17:16:23.251034+08:00[Asia/Shanghai]")
 public class AclForDescribeAclsOutput {
   @SerializedName("AclEntryCount")
   private Integer aclEntryCount = null;
@@ -48,6 +48,9 @@ public class AclForDescribeAclsOutput {
 
   @SerializedName("Listeners")
   private List<String> listeners = null;
+
+  @SerializedName("Status")
+  private String status = null;
 
   @SerializedName("UpdateTime")
   private String updateTime = null;
@@ -168,6 +171,24 @@ public class AclForDescribeAclsOutput {
     this.listeners = listeners;
   }
 
+  public AclForDescribeAclsOutput status(String status) {
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * Get status
+   * @return status
+  **/
+  @Schema(description = "")
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
   public AclForDescribeAclsOutput updateTime(String updateTime) {
     this.updateTime = updateTime;
     return this;
@@ -188,7 +209,7 @@ public class AclForDescribeAclsOutput {
 
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -202,12 +223,13 @@ public class AclForDescribeAclsOutput {
         Objects.equals(this.createTime, aclForDescribeAclsOutput.createTime) &&
         Objects.equals(this.description, aclForDescribeAclsOutput.description) &&
         Objects.equals(this.listeners, aclForDescribeAclsOutput.listeners) &&
+        Objects.equals(this.status, aclForDescribeAclsOutput.status) &&
         Objects.equals(this.updateTime, aclForDescribeAclsOutput.updateTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclEntryCount, aclId, aclName, createTime, description, listeners, updateTime);
+    return Objects.hash(aclEntryCount, aclId, aclName, createTime, description, listeners, status, updateTime);
   }
 
 
@@ -222,6 +244,7 @@ public class AclForDescribeAclsOutput {
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    listeners: ").append(toIndentedString(listeners)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -231,7 +254,7 @@ public class AclForDescribeAclsOutput {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }

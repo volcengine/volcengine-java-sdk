@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * RuleForCreateRulesInput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-03-24T18:20:52.429083+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-13T17:16:23.251034+08:00[Asia/Shanghai]")
 public class RuleForCreateRulesInput {
   @SerializedName("Description")
   private String description = null;
@@ -37,6 +37,9 @@ public class RuleForCreateRulesInput {
 
   @SerializedName("ServerGroupId")
   private String serverGroupId = null;
+
+  @SerializedName("Url")
+  private String url = null;
 
   public RuleForCreateRulesInput description(String description) {
     this.description = description;
@@ -93,9 +96,27 @@ public class RuleForCreateRulesInput {
     this.serverGroupId = serverGroupId;
   }
 
+  public RuleForCreateRulesInput url(String url) {
+    this.url = url;
+    return this;
+  }
+
+   /**
+   * Get url
+   * @return url
+  **/
+  @Schema(description = "")
+  public String getUrl() {
+    return url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
+  }
+
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -105,12 +126,13 @@ public class RuleForCreateRulesInput {
     RuleForCreateRulesInput ruleForCreateRulesInput = (RuleForCreateRulesInput) o;
     return Objects.equals(this.description, ruleForCreateRulesInput.description) &&
         Objects.equals(this.domain, ruleForCreateRulesInput.domain) &&
-        Objects.equals(this.serverGroupId, ruleForCreateRulesInput.serverGroupId);
+        Objects.equals(this.serverGroupId, ruleForCreateRulesInput.serverGroupId) &&
+        Objects.equals(this.url, ruleForCreateRulesInput.url);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, domain, serverGroupId);
+    return Objects.hash(description, domain, serverGroupId, url);
   }
 
 
@@ -122,6 +144,7 @@ public class RuleForCreateRulesInput {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    domain: ").append(toIndentedString(domain)).append("\n");
     sb.append("    serverGroupId: ").append(toIndentedString(serverGroupId)).append("\n");
+    sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -130,7 +153,7 @@ public class RuleForCreateRulesInput {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }
