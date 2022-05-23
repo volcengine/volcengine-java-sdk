@@ -3,7 +3,7 @@
     <parent>
         <groupId>com.volcengine</groupId>
         <artifactId>volcstack-java-sdk</artifactId>
-        <version>0.1.0-SHAPSHOT</version>
+        <version>0.1.0</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>

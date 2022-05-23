@@ -30,6 +30,19 @@
 
 建议使用Maven构建自己的项目，添加需要的相应模块的依赖，示例如下：
 
+##### Init maven setting.xml #####
+需要使用字节跳动的maven仓库来完成依赖，请先到maven安装目录的conf/setting.xml
+在<mirrors/>标签中增加
+
+```xml
+<mirror>
+     <id>bytedanceMaven</id>
+     <mirrorOf>my-repo-id</mirrorOf>
+     <name>字节跳动maven仓库</name>
+     <url>https://artifact.bytedance.com/repository/releases/</url>
+</mirror>
+```
+
 ##### Importing the pom #####
 
 ```xml
