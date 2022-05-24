@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * ScalingInstanceForDescribeScalingInstancesOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-13T17:16:15.237208+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:12.731669+08:00[Asia/Shanghai]")
 public class ScalingInstanceForDescribeScalingInstancesOutput {
   @SerializedName("CreatedTime")
   private String createdTime = null;
@@ -40,6 +40,9 @@ public class ScalingInstanceForDescribeScalingInstancesOutput {
 
   @SerializedName("InstanceId")
   private String instanceId = null;
+
+  @SerializedName("ScalingActivityId")
+  private String scalingActivityId = null;
 
   @SerializedName("ScalingConfigurationId")
   private String scalingConfigurationId = null;
@@ -126,6 +129,24 @@ public class ScalingInstanceForDescribeScalingInstancesOutput {
 
   public void setInstanceId(String instanceId) {
     this.instanceId = instanceId;
+  }
+
+  public ScalingInstanceForDescribeScalingInstancesOutput scalingActivityId(String scalingActivityId) {
+    this.scalingActivityId = scalingActivityId;
+    return this;
+  }
+
+   /**
+   * Get scalingActivityId
+   * @return scalingActivityId
+  **/
+  @Schema(description = "")
+  public String getScalingActivityId() {
+    return scalingActivityId;
+  }
+
+  public void setScalingActivityId(String scalingActivityId) {
+    this.scalingActivityId = scalingActivityId;
   }
 
   public ScalingInstanceForDescribeScalingInstancesOutput scalingConfigurationId(String scalingConfigurationId) {
@@ -232,6 +253,7 @@ public class ScalingInstanceForDescribeScalingInstancesOutput {
         Objects.equals(this.creationType, scalingInstanceForDescribeScalingInstancesOutput.creationType) &&
         Objects.equals(this.entrusted, scalingInstanceForDescribeScalingInstancesOutput.entrusted) &&
         Objects.equals(this.instanceId, scalingInstanceForDescribeScalingInstancesOutput.instanceId) &&
+        Objects.equals(this.scalingActivityId, scalingInstanceForDescribeScalingInstancesOutput.scalingActivityId) &&
         Objects.equals(this.scalingConfigurationId, scalingInstanceForDescribeScalingInstancesOutput.scalingConfigurationId) &&
         Objects.equals(this.scalingGroupId, scalingInstanceForDescribeScalingInstancesOutput.scalingGroupId) &&
         Objects.equals(this.scalingPolicyId, scalingInstanceForDescribeScalingInstancesOutput.scalingPolicyId) &&
@@ -241,7 +263,7 @@ public class ScalingInstanceForDescribeScalingInstancesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdTime, creationType, entrusted, instanceId, scalingConfigurationId, scalingGroupId, scalingPolicyId, status, zoneId);
+    return Objects.hash(createdTime, creationType, entrusted, instanceId, scalingActivityId, scalingConfigurationId, scalingGroupId, scalingPolicyId, status, zoneId);
   }
 
 
@@ -254,6 +276,7 @@ public class ScalingInstanceForDescribeScalingInstancesOutput {
     sb.append("    creationType: ").append(toIndentedString(creationType)).append("\n");
     sb.append("    entrusted: ").append(toIndentedString(entrusted)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    scalingActivityId: ").append(toIndentedString(scalingActivityId)).append("\n");
     sb.append("    scalingConfigurationId: ").append(toIndentedString(scalingConfigurationId)).append("\n");
     sb.append("    scalingGroupId: ").append(toIndentedString(scalingGroupId)).append("\n");
     sb.append("    scalingPolicyId: ").append(toIndentedString(scalingPolicyId)).append("\n");

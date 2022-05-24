@@ -30,10 +30,16 @@ import javax.validation.Valid;
  * GpuForDescribeInstanceTypesOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-13T17:16:32.628524+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:32.918937+08:00[Asia/Shanghai]")
 public class GpuForDescribeInstanceTypesOutput {
   @SerializedName("GpuDevices")
   private List<GpuDeviceForDescribeInstanceTypesOutput> gpuDevices = null;
+
+  @SerializedName("TotalCount")
+  private Integer totalCount = null;
+
+  @SerializedName("TotalMem")
+  private Integer totalMem = null;
 
   public GpuForDescribeInstanceTypesOutput gpuDevices(List<GpuDeviceForDescribeInstanceTypesOutput> gpuDevices) {
     this.gpuDevices = gpuDevices;
@@ -62,6 +68,42 @@ public class GpuForDescribeInstanceTypesOutput {
     this.gpuDevices = gpuDevices;
   }
 
+  public GpuForDescribeInstanceTypesOutput totalCount(Integer totalCount) {
+    this.totalCount = totalCount;
+    return this;
+  }
+
+   /**
+   * Get totalCount
+   * @return totalCount
+  **/
+  @Schema(description = "")
+  public Integer getTotalCount() {
+    return totalCount;
+  }
+
+  public void setTotalCount(Integer totalCount) {
+    this.totalCount = totalCount;
+  }
+
+  public GpuForDescribeInstanceTypesOutput totalMem(Integer totalMem) {
+    this.totalMem = totalMem;
+    return this;
+  }
+
+   /**
+   * Get totalMem
+   * @return totalMem
+  **/
+  @Schema(description = "")
+  public Integer getTotalMem() {
+    return totalMem;
+  }
+
+  public void setTotalMem(Integer totalMem) {
+    this.totalMem = totalMem;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -72,12 +114,14 @@ public class GpuForDescribeInstanceTypesOutput {
       return false;
     }
     GpuForDescribeInstanceTypesOutput gpuForDescribeInstanceTypesOutput = (GpuForDescribeInstanceTypesOutput) o;
-    return Objects.equals(this.gpuDevices, gpuForDescribeInstanceTypesOutput.gpuDevices);
+    return Objects.equals(this.gpuDevices, gpuForDescribeInstanceTypesOutput.gpuDevices) &&
+        Objects.equals(this.totalCount, gpuForDescribeInstanceTypesOutput.totalCount) &&
+        Objects.equals(this.totalMem, gpuForDescribeInstanceTypesOutput.totalMem);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(gpuDevices);
+    return Objects.hash(gpuDevices, totalCount, totalMem);
   }
 
 
@@ -87,6 +131,8 @@ public class GpuForDescribeInstanceTypesOutput {
     sb.append("class GpuForDescribeInstanceTypesOutput {\n");
     
     sb.append("    gpuDevices: ").append(toIndentedString(gpuDevices)).append("\n");
+    sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
+    sb.append("    totalMem: ").append(toIndentedString(totalMem)).append("\n");
     sb.append("}");
     return sb.toString();
   }

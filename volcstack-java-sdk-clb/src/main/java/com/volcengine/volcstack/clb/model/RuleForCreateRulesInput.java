@@ -27,13 +27,16 @@ import javax.validation.Valid;
  * RuleForCreateRulesInput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-13T17:16:23.251034+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:21.106708+08:00[Asia/Shanghai]")
 public class RuleForCreateRulesInput {
   @SerializedName("Description")
   private String description = null;
 
   @SerializedName("Domain")
   private String domain = null;
+
+  @SerializedName("RuleId")
+  private String ruleId = null;
 
   @SerializedName("ServerGroupId")
   private String serverGroupId = null;
@@ -75,6 +78,24 @@ public class RuleForCreateRulesInput {
 
   public void setDomain(String domain) {
     this.domain = domain;
+  }
+
+  public RuleForCreateRulesInput ruleId(String ruleId) {
+    this.ruleId = ruleId;
+    return this;
+  }
+
+   /**
+   * Get ruleId
+   * @return ruleId
+  **/
+  @Schema(description = "")
+  public String getRuleId() {
+    return ruleId;
+  }
+
+  public void setRuleId(String ruleId) {
+    this.ruleId = ruleId;
   }
 
   public RuleForCreateRulesInput serverGroupId(String serverGroupId) {
@@ -126,13 +147,14 @@ public class RuleForCreateRulesInput {
     RuleForCreateRulesInput ruleForCreateRulesInput = (RuleForCreateRulesInput) o;
     return Objects.equals(this.description, ruleForCreateRulesInput.description) &&
         Objects.equals(this.domain, ruleForCreateRulesInput.domain) &&
+        Objects.equals(this.ruleId, ruleForCreateRulesInput.ruleId) &&
         Objects.equals(this.serverGroupId, ruleForCreateRulesInput.serverGroupId) &&
         Objects.equals(this.url, ruleForCreateRulesInput.url);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, domain, serverGroupId, url);
+    return Objects.hash(description, domain, ruleId, serverGroupId, url);
   }
 
 
@@ -143,6 +165,7 @@ public class RuleForCreateRulesInput {
     
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    domain: ").append(toIndentedString(domain)).append("\n");
+    sb.append("    ruleId: ").append(toIndentedString(ruleId)).append("\n");
     sb.append("    serverGroupId: ").append(toIndentedString(serverGroupId)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("}");

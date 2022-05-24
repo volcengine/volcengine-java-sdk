@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * UnassignPrivateIpAddressesResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-13T17:16:40.504123+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:48.516414+08:00[Asia/Shanghai]")
 public class UnassignPrivateIpAddressesResponse {
   @SerializedName("RequestId")
   private String requestId = null;

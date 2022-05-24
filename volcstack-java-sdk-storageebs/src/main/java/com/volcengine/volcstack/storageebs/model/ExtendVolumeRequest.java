@@ -27,13 +27,37 @@ import javax.validation.Valid;
  * ExtendVolumeRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-13T17:16:38.236763+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:45.652685+08:00[Asia/Shanghai]")
 public class ExtendVolumeRequest {
+  @SerializedName("AccountId")
+  private String accountId = null;
+
   @SerializedName("NewSize")
   private String newSize = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("VolumeId")
   private String volumeId = null;
+
+  public ExtendVolumeRequest accountId(String accountId) {
+    this.accountId = accountId;
+    return this;
+  }
+
+   /**
+   * Get accountId
+   * @return accountId
+  **/
+  @Schema(description = "")
+  public String getAccountId() {
+    return accountId;
+  }
+
+  public void setAccountId(String accountId) {
+    this.accountId = accountId;
+  }
 
   public ExtendVolumeRequest newSize(String newSize) {
     this.newSize = newSize;
@@ -51,6 +75,24 @@ public class ExtendVolumeRequest {
 
   public void setNewSize(String newSize) {
     this.newSize = newSize;
+  }
+
+  public ExtendVolumeRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
   }
 
   public ExtendVolumeRequest volumeId(String volumeId) {
@@ -81,13 +123,15 @@ public class ExtendVolumeRequest {
       return false;
     }
     ExtendVolumeRequest extendVolumeRequest = (ExtendVolumeRequest) o;
-    return Objects.equals(this.newSize, extendVolumeRequest.newSize) &&
+    return Objects.equals(this.accountId, extendVolumeRequest.accountId) &&
+        Objects.equals(this.newSize, extendVolumeRequest.newSize) &&
+        Objects.equals(this.projectName, extendVolumeRequest.projectName) &&
         Objects.equals(this.volumeId, extendVolumeRequest.volumeId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(newSize, volumeId);
+    return Objects.hash(accountId, newSize, projectName, volumeId);
   }
 
 
@@ -96,7 +140,9 @@ public class ExtendVolumeRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ExtendVolumeRequest {\n");
     
+    sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    newSize: ").append(toIndentedString(newSize)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    volumeId: ").append(toIndentedString(volumeId)).append("\n");
     sb.append("}");
     return sb.toString();
