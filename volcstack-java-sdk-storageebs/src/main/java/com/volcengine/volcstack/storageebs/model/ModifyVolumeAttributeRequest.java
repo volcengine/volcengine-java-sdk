@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.volcstack.storageebs.model.FieldMaskForModifyVolumeAttributeInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -27,19 +28,46 @@ import javax.validation.Valid;
  * ModifyVolumeAttributeRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-13T17:16:38.236763+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:45.652685+08:00[Asia/Shanghai]")
 public class ModifyVolumeAttributeRequest {
+  @SerializedName("AccountId")
+  private String accountId = null;
+
   @SerializedName("DeleteWithInstance")
   private Boolean deleteWithInstance = null;
 
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("FieldMask")
+  private FieldMaskForModifyVolumeAttributeInput fieldMask = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("VolumeId")
   private String volumeId = null;
 
   @SerializedName("VolumeName")
   private String volumeName = null;
+
+  public ModifyVolumeAttributeRequest accountId(String accountId) {
+    this.accountId = accountId;
+    return this;
+  }
+
+   /**
+   * Get accountId
+   * @return accountId
+  **/
+  @Schema(description = "")
+  public String getAccountId() {
+    return accountId;
+  }
+
+  public void setAccountId(String accountId) {
+    this.accountId = accountId;
+  }
 
   public ModifyVolumeAttributeRequest deleteWithInstance(Boolean deleteWithInstance) {
     this.deleteWithInstance = deleteWithInstance;
@@ -75,6 +103,43 @@ public class ModifyVolumeAttributeRequest {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public ModifyVolumeAttributeRequest fieldMask(FieldMaskForModifyVolumeAttributeInput fieldMask) {
+    this.fieldMask = fieldMask;
+    return this;
+  }
+
+   /**
+   * Get fieldMask
+   * @return fieldMask
+  **/
+  @Valid
+  @Schema(description = "")
+  public FieldMaskForModifyVolumeAttributeInput getFieldMask() {
+    return fieldMask;
+  }
+
+  public void setFieldMask(FieldMaskForModifyVolumeAttributeInput fieldMask) {
+    this.fieldMask = fieldMask;
+  }
+
+  public ModifyVolumeAttributeRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
   }
 
   public ModifyVolumeAttributeRequest volumeId(String volumeId) {
@@ -123,15 +188,18 @@ public class ModifyVolumeAttributeRequest {
       return false;
     }
     ModifyVolumeAttributeRequest modifyVolumeAttributeRequest = (ModifyVolumeAttributeRequest) o;
-    return Objects.equals(this.deleteWithInstance, modifyVolumeAttributeRequest.deleteWithInstance) &&
+    return Objects.equals(this.accountId, modifyVolumeAttributeRequest.accountId) &&
+        Objects.equals(this.deleteWithInstance, modifyVolumeAttributeRequest.deleteWithInstance) &&
         Objects.equals(this.description, modifyVolumeAttributeRequest.description) &&
+        Objects.equals(this.fieldMask, modifyVolumeAttributeRequest.fieldMask) &&
+        Objects.equals(this.projectName, modifyVolumeAttributeRequest.projectName) &&
         Objects.equals(this.volumeId, modifyVolumeAttributeRequest.volumeId) &&
         Objects.equals(this.volumeName, modifyVolumeAttributeRequest.volumeName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleteWithInstance, description, volumeId, volumeName);
+    return Objects.hash(accountId, deleteWithInstance, description, fieldMask, projectName, volumeId, volumeName);
   }
 
 
@@ -140,8 +208,11 @@ public class ModifyVolumeAttributeRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ModifyVolumeAttributeRequest {\n");
     
+    sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    deleteWithInstance: ").append(toIndentedString(deleteWithInstance)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    fieldMask: ").append(toIndentedString(fieldMask)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    volumeId: ").append(toIndentedString(volumeId)).append("\n");
     sb.append("    volumeName: ").append(toIndentedString(volumeName)).append("\n");
     sb.append("}");

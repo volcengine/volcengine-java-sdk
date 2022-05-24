@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * HealthCheckForModifyListenerAttributesInput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-13T17:16:23.251034+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:21.106708+08:00[Asia/Shanghai]")
 public class HealthCheckForModifyListenerAttributesInput {
   @SerializedName("Domain")
   private String domain = null;
@@ -52,6 +52,9 @@ public class HealthCheckForModifyListenerAttributesInput {
 
   @SerializedName("URI")
   private String URI = null;
+
+  @SerializedName("UnhealthyThreshold")
+  private Integer unhealthyThreshold = null;
 
   public HealthCheckForModifyListenerAttributesInput domain(String domain) {
     this.domain = domain;
@@ -197,6 +200,24 @@ public class HealthCheckForModifyListenerAttributesInput {
     this.URI = URI;
   }
 
+  public HealthCheckForModifyListenerAttributesInput unhealthyThreshold(Integer unhealthyThreshold) {
+    this.unhealthyThreshold = unhealthyThreshold;
+    return this;
+  }
+
+   /**
+   * Get unhealthyThreshold
+   * @return unhealthyThreshold
+  **/
+  @Schema(description = "")
+  public Integer getUnhealthyThreshold() {
+    return unhealthyThreshold;
+  }
+
+  public void setUnhealthyThreshold(Integer unhealthyThreshold) {
+    this.unhealthyThreshold = unhealthyThreshold;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -214,12 +235,13 @@ public class HealthCheckForModifyListenerAttributesInput {
         Objects.equals(this.interval, healthCheckForModifyListenerAttributesInput.interval) &&
         Objects.equals(this.method, healthCheckForModifyListenerAttributesInput.method) &&
         Objects.equals(this.timeout, healthCheckForModifyListenerAttributesInput.timeout) &&
-        Objects.equals(this.URI, healthCheckForModifyListenerAttributesInput.URI);
+        Objects.equals(this.URI, healthCheckForModifyListenerAttributesInput.URI) &&
+        Objects.equals(this.unhealthyThreshold, healthCheckForModifyListenerAttributesInput.unhealthyThreshold);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(domain, enabled, healthyThreshold, httpCode, interval, method, timeout, URI);
+    return Objects.hash(domain, enabled, healthyThreshold, httpCode, interval, method, timeout, URI, unhealthyThreshold);
   }
 
 
@@ -236,6 +258,7 @@ public class HealthCheckForModifyListenerAttributesInput {
     sb.append("    method: ").append(toIndentedString(method)).append("\n");
     sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");
     sb.append("    URI: ").append(toIndentedString(URI)).append("\n");
+    sb.append("    unhealthyThreshold: ").append(toIndentedString(unhealthyThreshold)).append("\n");
     sb.append("}");
     return sb.toString();
   }

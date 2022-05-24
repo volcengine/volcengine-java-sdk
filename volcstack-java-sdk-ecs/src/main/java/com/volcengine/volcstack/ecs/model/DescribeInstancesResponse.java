@@ -30,13 +30,19 @@ import javax.validation.Valid;
  * DescribeInstancesResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-13T17:16:32.628524+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:32.918937+08:00[Asia/Shanghai]")
 public class DescribeInstancesResponse {
   @SerializedName("Instances")
   private List<InstanceForDescribeInstancesOutput> instances = null;
 
   @SerializedName("NextToken")
   private String nextToken = null;
+
+  @SerializedName("PageNumber")
+  private Integer pageNumber = null;
+
+  @SerializedName("PageSize")
+  private Integer pageSize = null;
 
   @SerializedName("TotalCount")
   private Integer totalCount = null;
@@ -86,6 +92,42 @@ public class DescribeInstancesResponse {
     this.nextToken = nextToken;
   }
 
+  public DescribeInstancesResponse pageNumber(Integer pageNumber) {
+    this.pageNumber = pageNumber;
+    return this;
+  }
+
+   /**
+   * Get pageNumber
+   * @return pageNumber
+  **/
+  @Schema(description = "")
+  public Integer getPageNumber() {
+    return pageNumber;
+  }
+
+  public void setPageNumber(Integer pageNumber) {
+    this.pageNumber = pageNumber;
+  }
+
+  public DescribeInstancesResponse pageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+    return this;
+  }
+
+   /**
+   * Get pageSize
+   * @return pageSize
+  **/
+  @Schema(description = "")
+  public Integer getPageSize() {
+    return pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
   public DescribeInstancesResponse totalCount(Integer totalCount) {
     this.totalCount = totalCount;
     return this;
@@ -116,12 +158,14 @@ public class DescribeInstancesResponse {
     DescribeInstancesResponse describeInstancesResponse = (DescribeInstancesResponse) o;
     return Objects.equals(this.instances, describeInstancesResponse.instances) &&
         Objects.equals(this.nextToken, describeInstancesResponse.nextToken) &&
+        Objects.equals(this.pageNumber, describeInstancesResponse.pageNumber) &&
+        Objects.equals(this.pageSize, describeInstancesResponse.pageSize) &&
         Objects.equals(this.totalCount, describeInstancesResponse.totalCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instances, nextToken, totalCount);
+    return Objects.hash(instances, nextToken, pageNumber, pageSize, totalCount);
   }
 
 
@@ -132,6 +176,8 @@ public class DescribeInstancesResponse {
     
     sb.append("    instances: ").append(toIndentedString(instances)).append("\n");
     sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
+    sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
+    sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("}");
     return sb.toString();

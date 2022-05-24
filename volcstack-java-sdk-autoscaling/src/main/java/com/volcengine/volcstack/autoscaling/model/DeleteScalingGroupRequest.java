@@ -27,10 +27,31 @@ import javax.validation.Valid;
  * DeleteScalingGroupRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-13T17:16:15.237208+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:12.731669+08:00[Asia/Shanghai]")
 public class DeleteScalingGroupRequest {
+  @SerializedName("ForceDelete")
+  private String forceDelete = null;
+
   @SerializedName("ScalingGroupId")
   private String scalingGroupId = null;
+
+  public DeleteScalingGroupRequest forceDelete(String forceDelete) {
+    this.forceDelete = forceDelete;
+    return this;
+  }
+
+   /**
+   * Get forceDelete
+   * @return forceDelete
+  **/
+  @Schema(description = "")
+  public String getForceDelete() {
+    return forceDelete;
+  }
+
+  public void setForceDelete(String forceDelete) {
+    this.forceDelete = forceDelete;
+  }
 
   public DeleteScalingGroupRequest scalingGroupId(String scalingGroupId) {
     this.scalingGroupId = scalingGroupId;
@@ -60,12 +81,13 @@ public class DeleteScalingGroupRequest {
       return false;
     }
     DeleteScalingGroupRequest deleteScalingGroupRequest = (DeleteScalingGroupRequest) o;
-    return Objects.equals(this.scalingGroupId, deleteScalingGroupRequest.scalingGroupId);
+    return Objects.equals(this.forceDelete, deleteScalingGroupRequest.forceDelete) &&
+        Objects.equals(this.scalingGroupId, deleteScalingGroupRequest.scalingGroupId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(scalingGroupId);
+    return Objects.hash(forceDelete, scalingGroupId);
   }
 
 
@@ -74,6 +96,7 @@ public class DeleteScalingGroupRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteScalingGroupRequest {\n");
     
+    sb.append("    forceDelete: ").append(toIndentedString(forceDelete)).append("\n");
     sb.append("    scalingGroupId: ").append(toIndentedString(scalingGroupId)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -27,10 +27,10 @@ import javax.validation.Valid;
  * SetLoadBalancerRenewalRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-13T17:16:23.251034+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:21.106708+08:00[Asia/Shanghai]")
 public class SetLoadBalancerRenewalRequest {
-  @SerializedName("LoadBalancerId")
-  private String loadBalancerId = null;
+  @SerializedName("LoadBalancerID")
+  private String loadBalancerID = null;
 
   @SerializedName("RemainRenewTimes")
   private Integer remainRenewTimes = null;
@@ -41,22 +41,23 @@ public class SetLoadBalancerRenewalRequest {
   @SerializedName("RenewType")
   private Integer renewType = null;
 
-  public SetLoadBalancerRenewalRequest loadBalancerId(String loadBalancerId) {
-    this.loadBalancerId = loadBalancerId;
+  public SetLoadBalancerRenewalRequest loadBalancerID(String loadBalancerID) {
+    this.loadBalancerID = loadBalancerID;
     return this;
   }
 
    /**
-   * Get loadBalancerId
-   * @return loadBalancerId
+   * Get loadBalancerID
+   * @return loadBalancerID
   **/
-  @Schema(description = "")
-  public String getLoadBalancerId() {
-    return loadBalancerId;
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getLoadBalancerID() {
+    return loadBalancerID;
   }
 
-  public void setLoadBalancerId(String loadBalancerId) {
-    this.loadBalancerId = loadBalancerId;
+  public void setLoadBalancerID(String loadBalancerID) {
+    this.loadBalancerID = loadBalancerID;
   }
 
   public SetLoadBalancerRenewalRequest remainRenewTimes(Integer remainRenewTimes) {
@@ -126,7 +127,7 @@ public class SetLoadBalancerRenewalRequest {
       return false;
     }
     SetLoadBalancerRenewalRequest setLoadBalancerRenewalRequest = (SetLoadBalancerRenewalRequest) o;
-    return Objects.equals(this.loadBalancerId, setLoadBalancerRenewalRequest.loadBalancerId) &&
+    return Objects.equals(this.loadBalancerID, setLoadBalancerRenewalRequest.loadBalancerID) &&
         Objects.equals(this.remainRenewTimes, setLoadBalancerRenewalRequest.remainRenewTimes) &&
         Objects.equals(this.renewPeriodTimes, setLoadBalancerRenewalRequest.renewPeriodTimes) &&
         Objects.equals(this.renewType, setLoadBalancerRenewalRequest.renewType);
@@ -134,7 +135,7 @@ public class SetLoadBalancerRenewalRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(loadBalancerId, remainRenewTimes, renewPeriodTimes, renewType);
+    return Objects.hash(loadBalancerID, remainRenewTimes, renewPeriodTimes, renewType);
   }
 
 
@@ -143,7 +144,7 @@ public class SetLoadBalancerRenewalRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class SetLoadBalancerRenewalRequest {\n");
     
-    sb.append("    loadBalancerId: ").append(toIndentedString(loadBalancerId)).append("\n");
+    sb.append("    loadBalancerID: ").append(toIndentedString(loadBalancerID)).append("\n");
     sb.append("    remainRenewTimes: ").append(toIndentedString(remainRenewTimes)).append("\n");
     sb.append("    renewPeriodTimes: ").append(toIndentedString(renewPeriodTimes)).append("\n");
     sb.append("    renewType: ").append(toIndentedString(renewType)).append("\n");

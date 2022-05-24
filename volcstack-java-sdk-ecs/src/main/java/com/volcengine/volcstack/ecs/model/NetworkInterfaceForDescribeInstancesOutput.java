@@ -21,13 +21,15 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
  * NetworkInterfaceForDescribeInstancesOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-13T17:16:32.628524+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:32.918937+08:00[Asia/Shanghai]")
 public class NetworkInterfaceForDescribeInstancesOutput {
   @SerializedName("MacAddress")
   private String macAddress = null;
@@ -37,6 +39,9 @@ public class NetworkInterfaceForDescribeInstancesOutput {
 
   @SerializedName("PrimaryIpAddress")
   private String primaryIpAddress = null;
+
+  @SerializedName("PrivateIpAddresses")
+  private List<String> privateIpAddresses = null;
 
   @SerializedName("SubnetId")
   private String subnetId = null;
@@ -99,6 +104,32 @@ public class NetworkInterfaceForDescribeInstancesOutput {
 
   public void setPrimaryIpAddress(String primaryIpAddress) {
     this.primaryIpAddress = primaryIpAddress;
+  }
+
+  public NetworkInterfaceForDescribeInstancesOutput privateIpAddresses(List<String> privateIpAddresses) {
+    this.privateIpAddresses = privateIpAddresses;
+    return this;
+  }
+
+  public NetworkInterfaceForDescribeInstancesOutput addPrivateIpAddressesItem(String privateIpAddressesItem) {
+    if (this.privateIpAddresses == null) {
+      this.privateIpAddresses = new ArrayList<String>();
+    }
+    this.privateIpAddresses.add(privateIpAddressesItem);
+    return this;
+  }
+
+   /**
+   * Get privateIpAddresses
+   * @return privateIpAddresses
+  **/
+  @Schema(description = "")
+  public List<String> getPrivateIpAddresses() {
+    return privateIpAddresses;
+  }
+
+  public void setPrivateIpAddresses(List<String> privateIpAddresses) {
+    this.privateIpAddresses = privateIpAddresses;
   }
 
   public NetworkInterfaceForDescribeInstancesOutput subnetId(String subnetId) {
@@ -168,6 +199,7 @@ public class NetworkInterfaceForDescribeInstancesOutput {
     return Objects.equals(this.macAddress, networkInterfaceForDescribeInstancesOutput.macAddress) &&
         Objects.equals(this.networkInterfaceId, networkInterfaceForDescribeInstancesOutput.networkInterfaceId) &&
         Objects.equals(this.primaryIpAddress, networkInterfaceForDescribeInstancesOutput.primaryIpAddress) &&
+        Objects.equals(this.privateIpAddresses, networkInterfaceForDescribeInstancesOutput.privateIpAddresses) &&
         Objects.equals(this.subnetId, networkInterfaceForDescribeInstancesOutput.subnetId) &&
         Objects.equals(this.type, networkInterfaceForDescribeInstancesOutput.type) &&
         Objects.equals(this.vpcId, networkInterfaceForDescribeInstancesOutput.vpcId);
@@ -175,7 +207,7 @@ public class NetworkInterfaceForDescribeInstancesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(macAddress, networkInterfaceId, primaryIpAddress, subnetId, type, vpcId);
+    return Objects.hash(macAddress, networkInterfaceId, primaryIpAddress, privateIpAddresses, subnetId, type, vpcId);
   }
 
 
@@ -187,6 +219,7 @@ public class NetworkInterfaceForDescribeInstancesOutput {
     sb.append("    macAddress: ").append(toIndentedString(macAddress)).append("\n");
     sb.append("    networkInterfaceId: ").append(toIndentedString(networkInterfaceId)).append("\n");
     sb.append("    primaryIpAddress: ").append(toIndentedString(primaryIpAddress)).append("\n");
+    sb.append("    privateIpAddresses: ").append(toIndentedString(privateIpAddresses)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");

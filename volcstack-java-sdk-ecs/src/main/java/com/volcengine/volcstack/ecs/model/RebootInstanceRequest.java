@@ -27,13 +27,34 @@ import javax.validation.Valid;
  * RebootInstanceRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-13T17:16:32.628524+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:32.918937+08:00[Asia/Shanghai]")
 public class RebootInstanceRequest {
+  @SerializedName("DryRun")
+  private Boolean dryRun = null;
+
   @SerializedName("ForceStop")
   private Boolean forceStop = null;
 
   @SerializedName("InstanceId")
   private String instanceId = null;
+
+  public RebootInstanceRequest dryRun(Boolean dryRun) {
+    this.dryRun = dryRun;
+    return this;
+  }
+
+   /**
+   * Get dryRun
+   * @return dryRun
+  **/
+  @Schema(description = "")
+  public Boolean isDryRun() {
+    return dryRun;
+  }
+
+  public void setDryRun(Boolean dryRun) {
+    this.dryRun = dryRun;
+  }
 
   public RebootInstanceRequest forceStop(Boolean forceStop) {
     this.forceStop = forceStop;
@@ -81,13 +102,14 @@ public class RebootInstanceRequest {
       return false;
     }
     RebootInstanceRequest rebootInstanceRequest = (RebootInstanceRequest) o;
-    return Objects.equals(this.forceStop, rebootInstanceRequest.forceStop) &&
+    return Objects.equals(this.dryRun, rebootInstanceRequest.dryRun) &&
+        Objects.equals(this.forceStop, rebootInstanceRequest.forceStop) &&
         Objects.equals(this.instanceId, rebootInstanceRequest.instanceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(forceStop, instanceId);
+    return Objects.hash(dryRun, forceStop, instanceId);
   }
 
 
@@ -96,6 +118,7 @@ public class RebootInstanceRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class RebootInstanceRequest {\n");
     
+    sb.append("    dryRun: ").append(toIndentedString(dryRun)).append("\n");
     sb.append("    forceStop: ").append(toIndentedString(forceStop)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("}");

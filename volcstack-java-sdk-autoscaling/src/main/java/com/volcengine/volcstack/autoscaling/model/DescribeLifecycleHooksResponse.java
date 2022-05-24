@@ -30,7 +30,7 @@ import javax.validation.Valid;
  * DescribeLifecycleHooksResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-13T17:16:15.237208+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:12.731669+08:00[Asia/Shanghai]")
 public class DescribeLifecycleHooksResponse {
   @SerializedName("LifecycleHooks")
   private List<LifecycleHookForDescribeLifecycleHooksOutput> lifecycleHooks = null;

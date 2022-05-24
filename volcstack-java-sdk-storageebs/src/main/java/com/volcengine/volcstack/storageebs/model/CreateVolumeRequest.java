@@ -27,16 +27,46 @@ import javax.validation.Valid;
  * CreateVolumeRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-13T17:16:38.236763+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:45.652685+08:00[Asia/Shanghai]")
 public class CreateVolumeRequest {
+  @SerializedName("AccountId")
+  private String accountId = null;
+
+  @SerializedName("AutoRenew")
+  private Boolean autoRenew = null;
+
   @SerializedName("Description")
   private String description = null;
+
+  @SerializedName("InstanceId")
+  private String instanceId = null;
 
   @SerializedName("Kind")
   private String kind = null;
 
+  @SerializedName("Period")
+  private String period = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
+  @SerializedName("RenewCycle")
+  private Integer renewCycle = null;
+
+  @SerializedName("RenewTimes")
+  private Integer renewTimes = null;
+
   @SerializedName("Size")
   private String size = null;
+
+  @SerializedName("SnapshotId")
+  private String snapshotId = null;
+
+  @SerializedName("StoragePoolId")
+  private String storagePoolId = null;
+
+  @SerializedName("Times")
+  private Integer times = null;
 
   @SerializedName("VolumeChargeType")
   private String volumeChargeType = null;
@@ -49,6 +79,42 @@ public class CreateVolumeRequest {
 
   @SerializedName("ZoneId")
   private String zoneId = null;
+
+  public CreateVolumeRequest accountId(String accountId) {
+    this.accountId = accountId;
+    return this;
+  }
+
+   /**
+   * Get accountId
+   * @return accountId
+  **/
+  @Schema(description = "")
+  public String getAccountId() {
+    return accountId;
+  }
+
+  public void setAccountId(String accountId) {
+    this.accountId = accountId;
+  }
+
+  public CreateVolumeRequest autoRenew(Boolean autoRenew) {
+    this.autoRenew = autoRenew;
+    return this;
+  }
+
+   /**
+   * Get autoRenew
+   * @return autoRenew
+  **/
+  @Schema(description = "")
+  public Boolean isAutoRenew() {
+    return autoRenew;
+  }
+
+  public void setAutoRenew(Boolean autoRenew) {
+    this.autoRenew = autoRenew;
+  }
 
   public CreateVolumeRequest description(String description) {
     this.description = description;
@@ -66,6 +132,24 @@ public class CreateVolumeRequest {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public CreateVolumeRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
+    return this;
+  }
+
+   /**
+   * Get instanceId
+   * @return instanceId
+  **/
+  @Schema(description = "")
+  public String getInstanceId() {
+    return instanceId;
+  }
+
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
   }
 
   public CreateVolumeRequest kind(String kind) {
@@ -86,6 +170,78 @@ public class CreateVolumeRequest {
     this.kind = kind;
   }
 
+  public CreateVolumeRequest period(String period) {
+    this.period = period;
+    return this;
+  }
+
+   /**
+   * Get period
+   * @return period
+  **/
+  @Schema(description = "")
+  public String getPeriod() {
+    return period;
+  }
+
+  public void setPeriod(String period) {
+    this.period = period;
+  }
+
+  public CreateVolumeRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
+  public CreateVolumeRequest renewCycle(Integer renewCycle) {
+    this.renewCycle = renewCycle;
+    return this;
+  }
+
+   /**
+   * Get renewCycle
+   * @return renewCycle
+  **/
+  @Schema(description = "")
+  public Integer getRenewCycle() {
+    return renewCycle;
+  }
+
+  public void setRenewCycle(Integer renewCycle) {
+    this.renewCycle = renewCycle;
+  }
+
+  public CreateVolumeRequest renewTimes(Integer renewTimes) {
+    this.renewTimes = renewTimes;
+    return this;
+  }
+
+   /**
+   * Get renewTimes
+   * @return renewTimes
+  **/
+  @Schema(description = "")
+  public Integer getRenewTimes() {
+    return renewTimes;
+  }
+
+  public void setRenewTimes(Integer renewTimes) {
+    this.renewTimes = renewTimes;
+  }
+
   public CreateVolumeRequest size(String size) {
     this.size = size;
     return this;
@@ -102,6 +258,60 @@ public class CreateVolumeRequest {
 
   public void setSize(String size) {
     this.size = size;
+  }
+
+  public CreateVolumeRequest snapshotId(String snapshotId) {
+    this.snapshotId = snapshotId;
+    return this;
+  }
+
+   /**
+   * Get snapshotId
+   * @return snapshotId
+  **/
+  @Schema(description = "")
+  public String getSnapshotId() {
+    return snapshotId;
+  }
+
+  public void setSnapshotId(String snapshotId) {
+    this.snapshotId = snapshotId;
+  }
+
+  public CreateVolumeRequest storagePoolId(String storagePoolId) {
+    this.storagePoolId = storagePoolId;
+    return this;
+  }
+
+   /**
+   * Get storagePoolId
+   * @return storagePoolId
+  **/
+  @Schema(description = "")
+  public String getStoragePoolId() {
+    return storagePoolId;
+  }
+
+  public void setStoragePoolId(String storagePoolId) {
+    this.storagePoolId = storagePoolId;
+  }
+
+  public CreateVolumeRequest times(Integer times) {
+    this.times = times;
+    return this;
+  }
+
+   /**
+   * Get times
+   * @return times
+  **/
+  @Schema(description = "")
+  public Integer getTimes() {
+    return times;
+  }
+
+  public void setTimes(Integer times) {
+    this.times = times;
   }
 
   public CreateVolumeRequest volumeChargeType(String volumeChargeType) {
@@ -186,9 +396,19 @@ public class CreateVolumeRequest {
       return false;
     }
     CreateVolumeRequest createVolumeRequest = (CreateVolumeRequest) o;
-    return Objects.equals(this.description, createVolumeRequest.description) &&
+    return Objects.equals(this.accountId, createVolumeRequest.accountId) &&
+        Objects.equals(this.autoRenew, createVolumeRequest.autoRenew) &&
+        Objects.equals(this.description, createVolumeRequest.description) &&
+        Objects.equals(this.instanceId, createVolumeRequest.instanceId) &&
         Objects.equals(this.kind, createVolumeRequest.kind) &&
+        Objects.equals(this.period, createVolumeRequest.period) &&
+        Objects.equals(this.projectName, createVolumeRequest.projectName) &&
+        Objects.equals(this.renewCycle, createVolumeRequest.renewCycle) &&
+        Objects.equals(this.renewTimes, createVolumeRequest.renewTimes) &&
         Objects.equals(this.size, createVolumeRequest.size) &&
+        Objects.equals(this.snapshotId, createVolumeRequest.snapshotId) &&
+        Objects.equals(this.storagePoolId, createVolumeRequest.storagePoolId) &&
+        Objects.equals(this.times, createVolumeRequest.times) &&
         Objects.equals(this.volumeChargeType, createVolumeRequest.volumeChargeType) &&
         Objects.equals(this.volumeName, createVolumeRequest.volumeName) &&
         Objects.equals(this.volumeType, createVolumeRequest.volumeType) &&
@@ -197,7 +417,7 @@ public class CreateVolumeRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, kind, size, volumeChargeType, volumeName, volumeType, zoneId);
+    return Objects.hash(accountId, autoRenew, description, instanceId, kind, period, projectName, renewCycle, renewTimes, size, snapshotId, storagePoolId, times, volumeChargeType, volumeName, volumeType, zoneId);
   }
 
 
@@ -206,9 +426,19 @@ public class CreateVolumeRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateVolumeRequest {\n");
     
+    sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
+    sb.append("    autoRenew: ").append(toIndentedString(autoRenew)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    kind: ").append(toIndentedString(kind)).append("\n");
+    sb.append("    period: ").append(toIndentedString(period)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    renewCycle: ").append(toIndentedString(renewCycle)).append("\n");
+    sb.append("    renewTimes: ").append(toIndentedString(renewTimes)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
+    sb.append("    snapshotId: ").append(toIndentedString(snapshotId)).append("\n");
+    sb.append("    storagePoolId: ").append(toIndentedString(storagePoolId)).append("\n");
+    sb.append("    times: ").append(toIndentedString(times)).append("\n");
     sb.append("    volumeChargeType: ").append(toIndentedString(volumeChargeType)).append("\n");
     sb.append("    volumeName: ").append(toIndentedString(volumeName)).append("\n");
     sb.append("    volumeType: ").append(toIndentedString(volumeType)).append("\n");
