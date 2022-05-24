@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.volcstack.vpc.model.RouteEntryForDescribeRouteTableListOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -29,7 +30,7 @@ import javax.validation.Valid;
  * RouterTableListForDescribeRouteTableListOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-13T17:16:40.504123+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:48.516414+08:00[Asia/Shanghai]")
 public class RouterTableListForDescribeRouteTableListOutput {
   @SerializedName("AccountId")
   private String accountId = null;
@@ -39,6 +40,12 @@ public class RouterTableListForDescribeRouteTableListOutput {
 
   @SerializedName("Description")
   private String description = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
+  @SerializedName("RouteEntry")
+  private List<RouteEntryForDescribeRouteTableListOutput> routeEntry = null;
 
   @SerializedName("RouteTableId")
   private String routeTableId = null;
@@ -113,6 +120,51 @@ public class RouterTableListForDescribeRouteTableListOutput {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public RouterTableListForDescribeRouteTableListOutput projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
+  public RouterTableListForDescribeRouteTableListOutput routeEntry(List<RouteEntryForDescribeRouteTableListOutput> routeEntry) {
+    this.routeEntry = routeEntry;
+    return this;
+  }
+
+  public RouterTableListForDescribeRouteTableListOutput addRouteEntryItem(RouteEntryForDescribeRouteTableListOutput routeEntryItem) {
+    if (this.routeEntry == null) {
+      this.routeEntry = new ArrayList<RouteEntryForDescribeRouteTableListOutput>();
+    }
+    this.routeEntry.add(routeEntryItem);
+    return this;
+  }
+
+   /**
+   * Get routeEntry
+   * @return routeEntry
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<RouteEntryForDescribeRouteTableListOutput> getRouteEntry() {
+    return routeEntry;
+  }
+
+  public void setRouteEntry(List<RouteEntryForDescribeRouteTableListOutput> routeEntry) {
+    this.routeEntry = routeEntry;
   }
 
   public RouterTableListForDescribeRouteTableListOutput routeTableId(String routeTableId) {
@@ -262,6 +314,8 @@ public class RouterTableListForDescribeRouteTableListOutput {
     return Objects.equals(this.accountId, routerTableListForDescribeRouteTableListOutput.accountId) &&
         Objects.equals(this.creationTime, routerTableListForDescribeRouteTableListOutput.creationTime) &&
         Objects.equals(this.description, routerTableListForDescribeRouteTableListOutput.description) &&
+        Objects.equals(this.projectName, routerTableListForDescribeRouteTableListOutput.projectName) &&
+        Objects.equals(this.routeEntry, routerTableListForDescribeRouteTableListOutput.routeEntry) &&
         Objects.equals(this.routeTableId, routerTableListForDescribeRouteTableListOutput.routeTableId) &&
         Objects.equals(this.routeTableName, routerTableListForDescribeRouteTableListOutput.routeTableName) &&
         Objects.equals(this.routeTableType, routerTableListForDescribeRouteTableListOutput.routeTableType) &&
@@ -273,7 +327,7 @@ public class RouterTableListForDescribeRouteTableListOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, creationTime, description, routeTableId, routeTableName, routeTableType, subnetIds, updateTime, vpcId, vpcName);
+    return Objects.hash(accountId, creationTime, description, projectName, routeEntry, routeTableId, routeTableName, routeTableType, subnetIds, updateTime, vpcId, vpcName);
   }
 
 
@@ -285,6 +339,8 @@ public class RouterTableListForDescribeRouteTableListOutput {
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    routeEntry: ").append(toIndentedString(routeEntry)).append("\n");
     sb.append("    routeTableId: ").append(toIndentedString(routeTableId)).append("\n");
     sb.append("    routeTableName: ").append(toIndentedString(routeTableName)).append("\n");
     sb.append("    routeTableType: ").append(toIndentedString(routeTableType)).append("\n");

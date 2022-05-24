@@ -27,13 +27,16 @@ import javax.validation.Valid;
  * ScheduledPolicyForModifyScalingPolicyInput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-13T17:16:15.237208+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:12.731669+08:00[Asia/Shanghai]")
 public class ScheduledPolicyForModifyScalingPolicyInput {
   @SerializedName("LaunchTime")
   private String launchTime = null;
 
   @SerializedName("RecurrenceEndTime")
   private String recurrenceEndTime = null;
+
+  @SerializedName("RecurrenceStartTime")
+  private String recurrenceStartTime = null;
 
   @SerializedName("RecurrenceType")
   private String recurrenceType = null;
@@ -75,6 +78,24 @@ public class ScheduledPolicyForModifyScalingPolicyInput {
 
   public void setRecurrenceEndTime(String recurrenceEndTime) {
     this.recurrenceEndTime = recurrenceEndTime;
+  }
+
+  public ScheduledPolicyForModifyScalingPolicyInput recurrenceStartTime(String recurrenceStartTime) {
+    this.recurrenceStartTime = recurrenceStartTime;
+    return this;
+  }
+
+   /**
+   * Get recurrenceStartTime
+   * @return recurrenceStartTime
+  **/
+  @Schema(description = "")
+  public String getRecurrenceStartTime() {
+    return recurrenceStartTime;
+  }
+
+  public void setRecurrenceStartTime(String recurrenceStartTime) {
+    this.recurrenceStartTime = recurrenceStartTime;
   }
 
   public ScheduledPolicyForModifyScalingPolicyInput recurrenceType(String recurrenceType) {
@@ -125,13 +146,14 @@ public class ScheduledPolicyForModifyScalingPolicyInput {
     ScheduledPolicyForModifyScalingPolicyInput scheduledPolicyForModifyScalingPolicyInput = (ScheduledPolicyForModifyScalingPolicyInput) o;
     return Objects.equals(this.launchTime, scheduledPolicyForModifyScalingPolicyInput.launchTime) &&
         Objects.equals(this.recurrenceEndTime, scheduledPolicyForModifyScalingPolicyInput.recurrenceEndTime) &&
+        Objects.equals(this.recurrenceStartTime, scheduledPolicyForModifyScalingPolicyInput.recurrenceStartTime) &&
         Objects.equals(this.recurrenceType, scheduledPolicyForModifyScalingPolicyInput.recurrenceType) &&
         Objects.equals(this.recurrenceValue, scheduledPolicyForModifyScalingPolicyInput.recurrenceValue);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(launchTime, recurrenceEndTime, recurrenceType, recurrenceValue);
+    return Objects.hash(launchTime, recurrenceEndTime, recurrenceStartTime, recurrenceType, recurrenceValue);
   }
 
 
@@ -142,6 +164,7 @@ public class ScheduledPolicyForModifyScalingPolicyInput {
     
     sb.append("    launchTime: ").append(toIndentedString(launchTime)).append("\n");
     sb.append("    recurrenceEndTime: ").append(toIndentedString(recurrenceEndTime)).append("\n");
+    sb.append("    recurrenceStartTime: ").append(toIndentedString(recurrenceStartTime)).append("\n");
     sb.append("    recurrenceType: ").append(toIndentedString(recurrenceType)).append("\n");
     sb.append("    recurrenceValue: ").append(toIndentedString(recurrenceValue)).append("\n");
     sb.append("}");

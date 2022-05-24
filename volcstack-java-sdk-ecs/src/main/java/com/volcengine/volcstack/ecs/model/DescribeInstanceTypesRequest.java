@@ -29,8 +29,11 @@ import javax.validation.Valid;
  * DescribeInstanceTypesRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-13T17:16:32.628524+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:32.918937+08:00[Asia/Shanghai]")
 public class DescribeInstanceTypesRequest {
+  @SerializedName("InstanceTypeFamily")
+  private String instanceTypeFamily = null;
+
   @SerializedName("InstanceTypeIds")
   private List<String> instanceTypeIds = null;
 
@@ -42,6 +45,33 @@ public class DescribeInstanceTypesRequest {
 
   @SerializedName("NextToken")
   private String nextToken = null;
+
+  @SerializedName("PageNumber")
+  private Integer pageNumber = null;
+
+  @SerializedName("PageSize")
+  private Integer pageSize = null;
+
+  @SerializedName("ZoneId")
+  private String zoneId = null;
+
+  public DescribeInstanceTypesRequest instanceTypeFamily(String instanceTypeFamily) {
+    this.instanceTypeFamily = instanceTypeFamily;
+    return this;
+  }
+
+   /**
+   * Get instanceTypeFamily
+   * @return instanceTypeFamily
+  **/
+  @Schema(description = "")
+  public String getInstanceTypeFamily() {
+    return instanceTypeFamily;
+  }
+
+  public void setInstanceTypeFamily(String instanceTypeFamily) {
+    this.instanceTypeFamily = instanceTypeFamily;
+  }
 
   public DescribeInstanceTypesRequest instanceTypeIds(List<String> instanceTypeIds) {
     this.instanceTypeIds = instanceTypeIds;
@@ -131,6 +161,60 @@ public class DescribeInstanceTypesRequest {
     this.nextToken = nextToken;
   }
 
+  public DescribeInstanceTypesRequest pageNumber(Integer pageNumber) {
+    this.pageNumber = pageNumber;
+    return this;
+  }
+
+   /**
+   * Get pageNumber
+   * @return pageNumber
+  **/
+  @Schema(description = "")
+  public Integer getPageNumber() {
+    return pageNumber;
+  }
+
+  public void setPageNumber(Integer pageNumber) {
+    this.pageNumber = pageNumber;
+  }
+
+  public DescribeInstanceTypesRequest pageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+    return this;
+  }
+
+   /**
+   * Get pageSize
+   * @return pageSize
+  **/
+  @Schema(description = "")
+  public Integer getPageSize() {
+    return pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public DescribeInstanceTypesRequest zoneId(String zoneId) {
+    this.zoneId = zoneId;
+    return this;
+  }
+
+   /**
+   * Get zoneId
+   * @return zoneId
+  **/
+  @Schema(description = "")
+  public String getZoneId() {
+    return zoneId;
+  }
+
+  public void setZoneId(String zoneId) {
+    this.zoneId = zoneId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -141,15 +225,19 @@ public class DescribeInstanceTypesRequest {
       return false;
     }
     DescribeInstanceTypesRequest describeInstanceTypesRequest = (DescribeInstanceTypesRequest) o;
-    return Objects.equals(this.instanceTypeIds, describeInstanceTypesRequest.instanceTypeIds) &&
+    return Objects.equals(this.instanceTypeFamily, describeInstanceTypesRequest.instanceTypeFamily) &&
+        Objects.equals(this.instanceTypeIds, describeInstanceTypesRequest.instanceTypeIds) &&
         Objects.equals(this.instanceTypes, describeInstanceTypesRequest.instanceTypes) &&
         Objects.equals(this.maxResults, describeInstanceTypesRequest.maxResults) &&
-        Objects.equals(this.nextToken, describeInstanceTypesRequest.nextToken);
+        Objects.equals(this.nextToken, describeInstanceTypesRequest.nextToken) &&
+        Objects.equals(this.pageNumber, describeInstanceTypesRequest.pageNumber) &&
+        Objects.equals(this.pageSize, describeInstanceTypesRequest.pageSize) &&
+        Objects.equals(this.zoneId, describeInstanceTypesRequest.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceTypeIds, instanceTypes, maxResults, nextToken);
+    return Objects.hash(instanceTypeFamily, instanceTypeIds, instanceTypes, maxResults, nextToken, pageNumber, pageSize, zoneId);
   }
 
 
@@ -158,10 +246,14 @@ public class DescribeInstanceTypesRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeInstanceTypesRequest {\n");
     
+    sb.append("    instanceTypeFamily: ").append(toIndentedString(instanceTypeFamily)).append("\n");
     sb.append("    instanceTypeIds: ").append(toIndentedString(instanceTypeIds)).append("\n");
     sb.append("    instanceTypes: ").append(toIndentedString(instanceTypes)).append("\n");
     sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
     sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
+    sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
+    sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

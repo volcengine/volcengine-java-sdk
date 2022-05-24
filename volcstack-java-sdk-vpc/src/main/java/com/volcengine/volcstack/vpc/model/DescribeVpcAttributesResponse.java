@@ -30,7 +30,7 @@ import javax.validation.Valid;
  * DescribeVpcAttributesResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-13T17:16:40.504123+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:48.516414+08:00[Asia/Shanghai]")
 public class DescribeVpcAttributesResponse {
   @SerializedName("AccountId")
   private String accountId = null;
@@ -50,17 +50,26 @@ public class DescribeVpcAttributesResponse {
   @SerializedName("DnsServers")
   private List<String> dnsServers = null;
 
+  @SerializedName("IPv6CidrBlock")
+  private String ipv6CidrBlock = null;
+
   @SerializedName("NatGatewayIds")
   private List<String> natGatewayIds = null;
 
   @SerializedName("NetworkAclNum")
   private String networkAclNum = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("RequestId")
   private String requestId = null;
 
   @SerializedName("RouteTableIds")
   private List<String> routeTableIds = null;
+
+  @SerializedName("SecondaryCidrBlocks")
+  private List<String> secondaryCidrBlocks = null;
 
   @SerializedName("SecurityGroupIds")
   private List<String> securityGroupIds = null;
@@ -205,6 +214,24 @@ public class DescribeVpcAttributesResponse {
     this.dnsServers = dnsServers;
   }
 
+  public DescribeVpcAttributesResponse ipv6CidrBlock(String ipv6CidrBlock) {
+    this.ipv6CidrBlock = ipv6CidrBlock;
+    return this;
+  }
+
+   /**
+   * Get ipv6CidrBlock
+   * @return ipv6CidrBlock
+  **/
+  @Schema(description = "")
+  public String getIpv6CidrBlock() {
+    return ipv6CidrBlock;
+  }
+
+  public void setIpv6CidrBlock(String ipv6CidrBlock) {
+    this.ipv6CidrBlock = ipv6CidrBlock;
+  }
+
   public DescribeVpcAttributesResponse natGatewayIds(List<String> natGatewayIds) {
     this.natGatewayIds = natGatewayIds;
     return this;
@@ -249,6 +276,24 @@ public class DescribeVpcAttributesResponse {
     this.networkAclNum = networkAclNum;
   }
 
+  public DescribeVpcAttributesResponse projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public DescribeVpcAttributesResponse requestId(String requestId) {
     this.requestId = requestId;
     return this;
@@ -291,6 +336,32 @@ public class DescribeVpcAttributesResponse {
 
   public void setRouteTableIds(List<String> routeTableIds) {
     this.routeTableIds = routeTableIds;
+  }
+
+  public DescribeVpcAttributesResponse secondaryCidrBlocks(List<String> secondaryCidrBlocks) {
+    this.secondaryCidrBlocks = secondaryCidrBlocks;
+    return this;
+  }
+
+  public DescribeVpcAttributesResponse addSecondaryCidrBlocksItem(String secondaryCidrBlocksItem) {
+    if (this.secondaryCidrBlocks == null) {
+      this.secondaryCidrBlocks = new ArrayList<String>();
+    }
+    this.secondaryCidrBlocks.add(secondaryCidrBlocksItem);
+    return this;
+  }
+
+   /**
+   * Get secondaryCidrBlocks
+   * @return secondaryCidrBlocks
+  **/
+  @Schema(description = "")
+  public List<String> getSecondaryCidrBlocks() {
+    return secondaryCidrBlocks;
+  }
+
+  public void setSecondaryCidrBlocks(List<String> secondaryCidrBlocks) {
+    this.secondaryCidrBlocks = secondaryCidrBlocks;
   }
 
   public DescribeVpcAttributesResponse securityGroupIds(List<String> securityGroupIds) {
@@ -433,10 +504,13 @@ public class DescribeVpcAttributesResponse {
         Objects.equals(this.creationTime, describeVpcAttributesResponse.creationTime) &&
         Objects.equals(this.description, describeVpcAttributesResponse.description) &&
         Objects.equals(this.dnsServers, describeVpcAttributesResponse.dnsServers) &&
+        Objects.equals(this.ipv6CidrBlock, describeVpcAttributesResponse.ipv6CidrBlock) &&
         Objects.equals(this.natGatewayIds, describeVpcAttributesResponse.natGatewayIds) &&
         Objects.equals(this.networkAclNum, describeVpcAttributesResponse.networkAclNum) &&
+        Objects.equals(this.projectName, describeVpcAttributesResponse.projectName) &&
         Objects.equals(this.requestId, describeVpcAttributesResponse.requestId) &&
         Objects.equals(this.routeTableIds, describeVpcAttributesResponse.routeTableIds) &&
+        Objects.equals(this.secondaryCidrBlocks, describeVpcAttributesResponse.secondaryCidrBlocks) &&
         Objects.equals(this.securityGroupIds, describeVpcAttributesResponse.securityGroupIds) &&
         Objects.equals(this.status, describeVpcAttributesResponse.status) &&
         Objects.equals(this.subnetIds, describeVpcAttributesResponse.subnetIds) &&
@@ -447,7 +521,7 @@ public class DescribeVpcAttributesResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, associateCens, cidrBlock, creationTime, description, dnsServers, natGatewayIds, networkAclNum, requestId, routeTableIds, securityGroupIds, status, subnetIds, updateTime, vpcId, vpcName);
+    return Objects.hash(accountId, associateCens, cidrBlock, creationTime, description, dnsServers, ipv6CidrBlock, natGatewayIds, networkAclNum, projectName, requestId, routeTableIds, secondaryCidrBlocks, securityGroupIds, status, subnetIds, updateTime, vpcId, vpcName);
   }
 
 
@@ -462,10 +536,13 @@ public class DescribeVpcAttributesResponse {
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    dnsServers: ").append(toIndentedString(dnsServers)).append("\n");
+    sb.append("    ipv6CidrBlock: ").append(toIndentedString(ipv6CidrBlock)).append("\n");
     sb.append("    natGatewayIds: ").append(toIndentedString(natGatewayIds)).append("\n");
     sb.append("    networkAclNum: ").append(toIndentedString(networkAclNum)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    routeTableIds: ").append(toIndentedString(routeTableIds)).append("\n");
+    sb.append("    secondaryCidrBlocks: ").append(toIndentedString(secondaryCidrBlocks)).append("\n");
     sb.append("    securityGroupIds: ").append(toIndentedString(securityGroupIds)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    subnetIds: ").append(toIndentedString(subnetIds)).append("\n");

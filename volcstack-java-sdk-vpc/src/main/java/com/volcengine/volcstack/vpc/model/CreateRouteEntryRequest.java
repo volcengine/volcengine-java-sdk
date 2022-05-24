@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * CreateRouteEntryRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-13T17:16:40.504123+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:48.516414+08:00[Asia/Shanghai]")
 public class CreateRouteEntryRequest {
   @SerializedName("Description")
   private String description = null;
@@ -37,6 +37,9 @@ public class CreateRouteEntryRequest {
 
   @SerializedName("NextHopId")
   private String nextHopId = null;
+
+  @SerializedName("NextHopName")
+  private String nextHopName = null;
 
   @SerializedName("NextHopType")
   private String nextHopType = null;
@@ -101,6 +104,24 @@ public class CreateRouteEntryRequest {
 
   public void setNextHopId(String nextHopId) {
     this.nextHopId = nextHopId;
+  }
+
+  public CreateRouteEntryRequest nextHopName(String nextHopName) {
+    this.nextHopName = nextHopName;
+    return this;
+  }
+
+   /**
+   * Get nextHopName
+   * @return nextHopName
+  **/
+  @Schema(description = "")
+  public String getNextHopName() {
+    return nextHopName;
+  }
+
+  public void setNextHopName(String nextHopName) {
+    this.nextHopName = nextHopName;
   }
 
   public CreateRouteEntryRequest nextHopType(String nextHopType) {
@@ -172,6 +193,7 @@ public class CreateRouteEntryRequest {
     return Objects.equals(this.description, createRouteEntryRequest.description) &&
         Objects.equals(this.destinationCidrBlock, createRouteEntryRequest.destinationCidrBlock) &&
         Objects.equals(this.nextHopId, createRouteEntryRequest.nextHopId) &&
+        Objects.equals(this.nextHopName, createRouteEntryRequest.nextHopName) &&
         Objects.equals(this.nextHopType, createRouteEntryRequest.nextHopType) &&
         Objects.equals(this.routeEntryName, createRouteEntryRequest.routeEntryName) &&
         Objects.equals(this.routeTableId, createRouteEntryRequest.routeTableId);
@@ -179,7 +201,7 @@ public class CreateRouteEntryRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, destinationCidrBlock, nextHopId, nextHopType, routeEntryName, routeTableId);
+    return Objects.hash(description, destinationCidrBlock, nextHopId, nextHopName, nextHopType, routeEntryName, routeTableId);
   }
 
 
@@ -191,6 +213,7 @@ public class CreateRouteEntryRequest {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    destinationCidrBlock: ").append(toIndentedString(destinationCidrBlock)).append("\n");
     sb.append("    nextHopId: ").append(toIndentedString(nextHopId)).append("\n");
+    sb.append("    nextHopName: ").append(toIndentedString(nextHopName)).append("\n");
     sb.append("    nextHopType: ").append(toIndentedString(nextHopType)).append("\n");
     sb.append("    routeEntryName: ").append(toIndentedString(routeEntryName)).append("\n");
     sb.append("    routeTableId: ").append(toIndentedString(routeTableId)).append("\n");

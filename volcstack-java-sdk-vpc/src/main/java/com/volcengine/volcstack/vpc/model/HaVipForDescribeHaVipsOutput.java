@@ -29,7 +29,7 @@ import javax.validation.Valid;
  * HaVipForDescribeHaVipsOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-13T17:16:40.504123+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:48.516414+08:00[Asia/Shanghai]")
 public class HaVipForDescribeHaVipsOutput {
   @SerializedName("AccountId")
   private String accountId = null;
@@ -60,6 +60,9 @@ public class HaVipForDescribeHaVipsOutput {
 
   @SerializedName("MasterInstanceId")
   private String masterInstanceId = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
 
   @SerializedName("Status")
   private String status = null;
@@ -261,6 +264,24 @@ public class HaVipForDescribeHaVipsOutput {
     this.masterInstanceId = masterInstanceId;
   }
 
+  public HaVipForDescribeHaVipsOutput projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public HaVipForDescribeHaVipsOutput status(String status) {
     this.status = status;
     return this;
@@ -353,6 +374,7 @@ public class HaVipForDescribeHaVipsOutput {
         Objects.equals(this.haVipName, haVipForDescribeHaVipsOutput.haVipName) &&
         Objects.equals(this.ipAddress, haVipForDescribeHaVipsOutput.ipAddress) &&
         Objects.equals(this.masterInstanceId, haVipForDescribeHaVipsOutput.masterInstanceId) &&
+        Objects.equals(this.projectName, haVipForDescribeHaVipsOutput.projectName) &&
         Objects.equals(this.status, haVipForDescribeHaVipsOutput.status) &&
         Objects.equals(this.subnetId, haVipForDescribeHaVipsOutput.subnetId) &&
         Objects.equals(this.updatedAt, haVipForDescribeHaVipsOutput.updatedAt) &&
@@ -361,7 +383,7 @@ public class HaVipForDescribeHaVipsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, associatedEipAddress, associatedInstanceIds, associatedInstanceType, createdAt, description, haVipId, haVipName, ipAddress, masterInstanceId, status, subnetId, updatedAt, vpcId);
+    return Objects.hash(accountId, associatedEipAddress, associatedInstanceIds, associatedInstanceType, createdAt, description, haVipId, haVipName, ipAddress, masterInstanceId, projectName, status, subnetId, updatedAt, vpcId);
   }
 
 
@@ -380,6 +402,7 @@ public class HaVipForDescribeHaVipsOutput {
     sb.append("    haVipName: ").append(toIndentedString(haVipName)).append("\n");
     sb.append("    ipAddress: ").append(toIndentedString(ipAddress)).append("\n");
     sb.append("    masterInstanceId: ").append(toIndentedString(masterInstanceId)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
