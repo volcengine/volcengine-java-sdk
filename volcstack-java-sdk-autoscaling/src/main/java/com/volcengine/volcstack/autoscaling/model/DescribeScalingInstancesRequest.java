@@ -29,7 +29,7 @@ import javax.validation.Valid;
  * DescribeScalingInstancesRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-13T17:16:15.237208+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:12.731669+08:00[Asia/Shanghai]")
 public class DescribeScalingInstancesRequest {
   @SerializedName("CreationType")
   private String creationType = null;
@@ -42,6 +42,9 @@ public class DescribeScalingInstancesRequest {
 
   @SerializedName("PageSize")
   private Integer pageSize = null;
+
+  @SerializedName("ScalingActivityId")
+  private String scalingActivityId = null;
 
   @SerializedName("ScalingConfigurationId")
   private String scalingConfigurationId = null;
@@ -132,6 +135,24 @@ public class DescribeScalingInstancesRequest {
     this.pageSize = pageSize;
   }
 
+  public DescribeScalingInstancesRequest scalingActivityId(String scalingActivityId) {
+    this.scalingActivityId = scalingActivityId;
+    return this;
+  }
+
+   /**
+   * Get scalingActivityId
+   * @return scalingActivityId
+  **/
+  @Schema(description = "")
+  public String getScalingActivityId() {
+    return scalingActivityId;
+  }
+
+  public void setScalingActivityId(String scalingActivityId) {
+    this.scalingActivityId = scalingActivityId;
+  }
+
   public DescribeScalingInstancesRequest scalingConfigurationId(String scalingConfigurationId) {
     this.scalingConfigurationId = scalingConfigurationId;
     return this;
@@ -200,6 +221,7 @@ public class DescribeScalingInstancesRequest {
         Objects.equals(this.instanceIds, describeScalingInstancesRequest.instanceIds) &&
         Objects.equals(this.pageNumber, describeScalingInstancesRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeScalingInstancesRequest.pageSize) &&
+        Objects.equals(this.scalingActivityId, describeScalingInstancesRequest.scalingActivityId) &&
         Objects.equals(this.scalingConfigurationId, describeScalingInstancesRequest.scalingConfigurationId) &&
         Objects.equals(this.scalingGroupId, describeScalingInstancesRequest.scalingGroupId) &&
         Objects.equals(this.status, describeScalingInstancesRequest.status);
@@ -207,7 +229,7 @@ public class DescribeScalingInstancesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(creationType, instanceIds, pageNumber, pageSize, scalingConfigurationId, scalingGroupId, status);
+    return Objects.hash(creationType, instanceIds, pageNumber, pageSize, scalingActivityId, scalingConfigurationId, scalingGroupId, status);
   }
 
 
@@ -220,6 +242,7 @@ public class DescribeScalingInstancesRequest {
     sb.append("    instanceIds: ").append(toIndentedString(instanceIds)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    scalingActivityId: ").append(toIndentedString(scalingActivityId)).append("\n");
     sb.append("    scalingConfigurationId: ").append(toIndentedString(scalingConfigurationId)).append("\n");
     sb.append("    scalingGroupId: ").append(toIndentedString(scalingGroupId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
