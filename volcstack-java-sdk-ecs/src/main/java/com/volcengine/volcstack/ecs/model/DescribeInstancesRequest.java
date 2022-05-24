@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.volcstack.ecs.model.TagForDescribeInstancesInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -29,8 +30,14 @@ import javax.validation.Valid;
  * DescribeInstancesRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-13T17:16:32.628524+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:32.918937+08:00[Asia/Shanghai]")
 public class DescribeInstancesRequest {
+  @SerializedName("AccountId")
+  private String accountId = null;
+
+  @SerializedName("DeploymentSetIds")
+  private List<String> deploymentSetIds = null;
+
   @SerializedName("HpcClusterId")
   private String hpcClusterId = null;
 
@@ -43,8 +50,14 @@ public class DescribeInstancesRequest {
   @SerializedName("InstanceName")
   private String instanceName = null;
 
+  @SerializedName("InstanceType")
+  private String instanceType = null;
+
   @SerializedName("InstanceTypeFamilies")
   private List<String> instanceTypeFamilies = null;
+
+  @SerializedName("InstanceTypeId")
+  private String instanceTypeId = null;
 
   @SerializedName("InstanceTypeIds")
   private List<String> instanceTypeIds = null;
@@ -61,17 +74,76 @@ public class DescribeInstancesRequest {
   @SerializedName("NextToken")
   private String nextToken = null;
 
+  @SerializedName("NotInDeploymentSet")
+  private Boolean notInDeploymentSet = null;
+
+  @SerializedName("PageNumber")
+  private Integer pageNumber = null;
+
+  @SerializedName("PageSize")
+  private Integer pageSize = null;
+
   @SerializedName("PrimaryIpAddress")
   private String primaryIpAddress = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("Status")
   private String status = null;
+
+  @SerializedName("Tag")
+  private List<TagForDescribeInstancesInput> tag = null;
 
   @SerializedName("VpcId")
   private String vpcId = null;
 
   @SerializedName("ZoneId")
   private String zoneId = null;
+
+  public DescribeInstancesRequest accountId(String accountId) {
+    this.accountId = accountId;
+    return this;
+  }
+
+   /**
+   * Get accountId
+   * @return accountId
+  **/
+  @Schema(description = "")
+  public String getAccountId() {
+    return accountId;
+  }
+
+  public void setAccountId(String accountId) {
+    this.accountId = accountId;
+  }
+
+  public DescribeInstancesRequest deploymentSetIds(List<String> deploymentSetIds) {
+    this.deploymentSetIds = deploymentSetIds;
+    return this;
+  }
+
+  public DescribeInstancesRequest addDeploymentSetIdsItem(String deploymentSetIdsItem) {
+    if (this.deploymentSetIds == null) {
+      this.deploymentSetIds = new ArrayList<String>();
+    }
+    this.deploymentSetIds.add(deploymentSetIdsItem);
+    return this;
+  }
+
+   /**
+   * Get deploymentSetIds
+   * @return deploymentSetIds
+  **/
+  @Schema(description = "")
+  public List<String> getDeploymentSetIds() {
+    return deploymentSetIds;
+  }
+
+  public void setDeploymentSetIds(List<String> deploymentSetIds) {
+    this.deploymentSetIds = deploymentSetIds;
+  }
 
   public DescribeInstancesRequest hpcClusterId(String hpcClusterId) {
     this.hpcClusterId = hpcClusterId;
@@ -153,6 +225,24 @@ public class DescribeInstancesRequest {
     this.instanceName = instanceName;
   }
 
+  public DescribeInstancesRequest instanceType(String instanceType) {
+    this.instanceType = instanceType;
+    return this;
+  }
+
+   /**
+   * Get instanceType
+   * @return instanceType
+  **/
+  @Schema(description = "")
+  public String getInstanceType() {
+    return instanceType;
+  }
+
+  public void setInstanceType(String instanceType) {
+    this.instanceType = instanceType;
+  }
+
   public DescribeInstancesRequest instanceTypeFamilies(List<String> instanceTypeFamilies) {
     this.instanceTypeFamilies = instanceTypeFamilies;
     return this;
@@ -177,6 +267,24 @@ public class DescribeInstancesRequest {
 
   public void setInstanceTypeFamilies(List<String> instanceTypeFamilies) {
     this.instanceTypeFamilies = instanceTypeFamilies;
+  }
+
+  public DescribeInstancesRequest instanceTypeId(String instanceTypeId) {
+    this.instanceTypeId = instanceTypeId;
+    return this;
+  }
+
+   /**
+   * Get instanceTypeId
+   * @return instanceTypeId
+  **/
+  @Schema(description = "")
+  public String getInstanceTypeId() {
+    return instanceTypeId;
+  }
+
+  public void setInstanceTypeId(String instanceTypeId) {
+    this.instanceTypeId = instanceTypeId;
   }
 
   public DescribeInstancesRequest instanceTypeIds(List<String> instanceTypeIds) {
@@ -285,6 +393,60 @@ public class DescribeInstancesRequest {
     this.nextToken = nextToken;
   }
 
+  public DescribeInstancesRequest notInDeploymentSet(Boolean notInDeploymentSet) {
+    this.notInDeploymentSet = notInDeploymentSet;
+    return this;
+  }
+
+   /**
+   * Get notInDeploymentSet
+   * @return notInDeploymentSet
+  **/
+  @Schema(description = "")
+  public Boolean isNotInDeploymentSet() {
+    return notInDeploymentSet;
+  }
+
+  public void setNotInDeploymentSet(Boolean notInDeploymentSet) {
+    this.notInDeploymentSet = notInDeploymentSet;
+  }
+
+  public DescribeInstancesRequest pageNumber(Integer pageNumber) {
+    this.pageNumber = pageNumber;
+    return this;
+  }
+
+   /**
+   * Get pageNumber
+   * @return pageNumber
+  **/
+  @Schema(description = "")
+  public Integer getPageNumber() {
+    return pageNumber;
+  }
+
+  public void setPageNumber(Integer pageNumber) {
+    this.pageNumber = pageNumber;
+  }
+
+  public DescribeInstancesRequest pageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+    return this;
+  }
+
+   /**
+   * Get pageSize
+   * @return pageSize
+  **/
+  @Schema(description = "")
+  public Integer getPageSize() {
+    return pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
   public DescribeInstancesRequest primaryIpAddress(String primaryIpAddress) {
     this.primaryIpAddress = primaryIpAddress;
     return this;
@@ -303,6 +465,24 @@ public class DescribeInstancesRequest {
     this.primaryIpAddress = primaryIpAddress;
   }
 
+  public DescribeInstancesRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public DescribeInstancesRequest status(String status) {
     this.status = status;
     return this;
@@ -319,6 +499,33 @@ public class DescribeInstancesRequest {
 
   public void setStatus(String status) {
     this.status = status;
+  }
+
+  public DescribeInstancesRequest tag(List<TagForDescribeInstancesInput> tag) {
+    this.tag = tag;
+    return this;
+  }
+
+  public DescribeInstancesRequest addTagItem(TagForDescribeInstancesInput tagItem) {
+    if (this.tag == null) {
+      this.tag = new ArrayList<TagForDescribeInstancesInput>();
+    }
+    this.tag.add(tagItem);
+    return this;
+  }
+
+   /**
+   * Get tag
+   * @return tag
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForDescribeInstancesInput> getTag() {
+    return tag;
+  }
+
+  public void setTag(List<TagForDescribeInstancesInput> tag) {
+    this.tag = tag;
   }
 
   public DescribeInstancesRequest vpcId(String vpcId) {
@@ -367,25 +574,34 @@ public class DescribeInstancesRequest {
       return false;
     }
     DescribeInstancesRequest describeInstancesRequest = (DescribeInstancesRequest) o;
-    return Objects.equals(this.hpcClusterId, describeInstancesRequest.hpcClusterId) &&
+    return Objects.equals(this.accountId, describeInstancesRequest.accountId) &&
+        Objects.equals(this.deploymentSetIds, describeInstancesRequest.deploymentSetIds) &&
+        Objects.equals(this.hpcClusterId, describeInstancesRequest.hpcClusterId) &&
         Objects.equals(this.instanceChargeType, describeInstancesRequest.instanceChargeType) &&
         Objects.equals(this.instanceIds, describeInstancesRequest.instanceIds) &&
         Objects.equals(this.instanceName, describeInstancesRequest.instanceName) &&
+        Objects.equals(this.instanceType, describeInstancesRequest.instanceType) &&
         Objects.equals(this.instanceTypeFamilies, describeInstancesRequest.instanceTypeFamilies) &&
+        Objects.equals(this.instanceTypeId, describeInstancesRequest.instanceTypeId) &&
         Objects.equals(this.instanceTypeIds, describeInstancesRequest.instanceTypeIds) &&
         Objects.equals(this.instanceTypes, describeInstancesRequest.instanceTypes) &&
         Objects.equals(this.keyPairName, describeInstancesRequest.keyPairName) &&
         Objects.equals(this.maxResults, describeInstancesRequest.maxResults) &&
         Objects.equals(this.nextToken, describeInstancesRequest.nextToken) &&
+        Objects.equals(this.notInDeploymentSet, describeInstancesRequest.notInDeploymentSet) &&
+        Objects.equals(this.pageNumber, describeInstancesRequest.pageNumber) &&
+        Objects.equals(this.pageSize, describeInstancesRequest.pageSize) &&
         Objects.equals(this.primaryIpAddress, describeInstancesRequest.primaryIpAddress) &&
+        Objects.equals(this.projectName, describeInstancesRequest.projectName) &&
         Objects.equals(this.status, describeInstancesRequest.status) &&
+        Objects.equals(this.tag, describeInstancesRequest.tag) &&
         Objects.equals(this.vpcId, describeInstancesRequest.vpcId) &&
         Objects.equals(this.zoneId, describeInstancesRequest.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hpcClusterId, instanceChargeType, instanceIds, instanceName, instanceTypeFamilies, instanceTypeIds, instanceTypes, keyPairName, maxResults, nextToken, primaryIpAddress, status, vpcId, zoneId);
+    return Objects.hash(accountId, deploymentSetIds, hpcClusterId, instanceChargeType, instanceIds, instanceName, instanceType, instanceTypeFamilies, instanceTypeId, instanceTypeIds, instanceTypes, keyPairName, maxResults, nextToken, notInDeploymentSet, pageNumber, pageSize, primaryIpAddress, projectName, status, tag, vpcId, zoneId);
   }
 
 
@@ -394,18 +610,27 @@ public class DescribeInstancesRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeInstancesRequest {\n");
     
+    sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
+    sb.append("    deploymentSetIds: ").append(toIndentedString(deploymentSetIds)).append("\n");
     sb.append("    hpcClusterId: ").append(toIndentedString(hpcClusterId)).append("\n");
     sb.append("    instanceChargeType: ").append(toIndentedString(instanceChargeType)).append("\n");
     sb.append("    instanceIds: ").append(toIndentedString(instanceIds)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
+    sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("    instanceTypeFamilies: ").append(toIndentedString(instanceTypeFamilies)).append("\n");
+    sb.append("    instanceTypeId: ").append(toIndentedString(instanceTypeId)).append("\n");
     sb.append("    instanceTypeIds: ").append(toIndentedString(instanceTypeIds)).append("\n");
     sb.append("    instanceTypes: ").append(toIndentedString(instanceTypes)).append("\n");
     sb.append("    keyPairName: ").append(toIndentedString(keyPairName)).append("\n");
     sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
     sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
+    sb.append("    notInDeploymentSet: ").append(toIndentedString(notInDeploymentSet)).append("\n");
+    sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
+    sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    primaryIpAddress: ").append(toIndentedString(primaryIpAddress)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    tag: ").append(toIndentedString(tag)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");

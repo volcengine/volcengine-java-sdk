@@ -27,6 +27,8 @@ import java.io.IOException;
 
 import javax.validation.constraints.*;
 
+import com.volcengine.volcstack.autoscaling.model.AttachDBInstancesRequest;
+import com.volcengine.volcstack.autoscaling.model.AttachDBInstancesResponse;
 import com.volcengine.volcstack.autoscaling.model.AttachInstancesRequest;
 import com.volcengine.volcstack.autoscaling.model.AttachInstancesResponse;
 import com.volcengine.volcstack.autoscaling.model.AttachServerGroupsRequest;
@@ -63,6 +65,8 @@ import com.volcengine.volcstack.autoscaling.model.DescribeScalingInstancesReques
 import com.volcengine.volcstack.autoscaling.model.DescribeScalingInstancesResponse;
 import com.volcengine.volcstack.autoscaling.model.DescribeScalingPoliciesRequest;
 import com.volcengine.volcstack.autoscaling.model.DescribeScalingPoliciesResponse;
+import com.volcengine.volcstack.autoscaling.model.DetachDBInstancesRequest;
+import com.volcengine.volcstack.autoscaling.model.DetachDBInstancesResponse;
 import com.volcengine.volcstack.autoscaling.model.DetachInstancesRequest;
 import com.volcengine.volcstack.autoscaling.model.DetachInstancesResponse;
 import com.volcengine.volcstack.autoscaling.model.DetachServerGroupsRequest;
@@ -116,6 +120,130 @@ public class AutoScalingApi {
     }
 
     /**
+     * Build call for attachDBInstances
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call attachDBInstancesCall(AttachDBInstancesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/AttachDBInstances/2020-01-01/auto_scaling/get/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcstackSign" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call attachDBInstancesValidateBeforeCall(AttachDBInstancesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling attachDBInstances(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = attachDBInstancesCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return AttachDBInstancesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public AttachDBInstancesResponse attachDBInstances(AttachDBInstancesRequest body) throws ApiException {
+        ApiResponse<AttachDBInstancesResponse> resp = attachDBInstancesWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;AttachDBInstancesResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<AttachDBInstancesResponse> attachDBInstancesWithHttpInfo( @NotNull AttachDBInstancesRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = attachDBInstancesValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<AttachDBInstancesResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call attachDBInstancesAsync(AttachDBInstancesRequest body, final ApiCallback<AttachDBInstancesResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = attachDBInstancesValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<AttachDBInstancesResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for attachInstances
      * @param body  (required)
      * @param progressListener Progress listener
@@ -127,7 +255,7 @@ public class AutoScalingApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/AttachInstances/2020-01-01/AUTO_SCALING/get/";
+        String localVarPath = "/AttachInstances/2020-01-01/auto_scaling/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -251,7 +379,7 @@ public class AutoScalingApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/AttachServerGroups/2020-01-01/AUTO_SCALING/get/";
+        String localVarPath = "/AttachServerGroups/2020-01-01/auto_scaling/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -375,7 +503,7 @@ public class AutoScalingApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/CompleteLifecycleActivity/2020-01-01/AUTO_SCALING/get/";
+        String localVarPath = "/CompleteLifecycleActivity/2020-01-01/auto_scaling/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -499,7 +627,7 @@ public class AutoScalingApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/CreateLifecycleHook/2020-01-01/AUTO_SCALING/get/";
+        String localVarPath = "/CreateLifecycleHook/2020-01-01/auto_scaling/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -623,7 +751,7 @@ public class AutoScalingApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/CreateScalingConfiguration/2020-01-01/AUTO_SCALING/get/";
+        String localVarPath = "/CreateScalingConfiguration/2020-01-01/auto_scaling/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -747,7 +875,7 @@ public class AutoScalingApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/CreateScalingGroup/2020-01-01/AUTO_SCALING/get/";
+        String localVarPath = "/CreateScalingGroup/2020-01-01/auto_scaling/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -871,7 +999,7 @@ public class AutoScalingApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/CreateScalingPolicy/2020-01-01/AUTO_SCALING/get/";
+        String localVarPath = "/CreateScalingPolicy/2020-01-01/auto_scaling/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -995,7 +1123,7 @@ public class AutoScalingApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteLifecycleHook/2020-01-01/AUTO_SCALING/get/";
+        String localVarPath = "/DeleteLifecycleHook/2020-01-01/auto_scaling/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1119,7 +1247,7 @@ public class AutoScalingApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteScalingConfiguration/2020-01-01/AUTO_SCALING/get/";
+        String localVarPath = "/DeleteScalingConfiguration/2020-01-01/auto_scaling/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1243,7 +1371,7 @@ public class AutoScalingApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteScalingGroup/2020-01-01/AUTO_SCALING/get/";
+        String localVarPath = "/DeleteScalingGroup/2020-01-01/auto_scaling/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1367,7 +1495,7 @@ public class AutoScalingApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteScalingPolicy/2020-01-01/AUTO_SCALING/get/";
+        String localVarPath = "/DeleteScalingPolicy/2020-01-01/auto_scaling/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1491,7 +1619,7 @@ public class AutoScalingApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeLifecycleActivities/2020-01-01/AUTO_SCALING/get/";
+        String localVarPath = "/DescribeLifecycleActivities/2020-01-01/auto_scaling/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1615,7 +1743,7 @@ public class AutoScalingApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeLifecycleHooks/2020-01-01/AUTO_SCALING/get/";
+        String localVarPath = "/DescribeLifecycleHooks/2020-01-01/auto_scaling/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1739,7 +1867,7 @@ public class AutoScalingApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeScalingActivities/2020-01-01/AUTO_SCALING/get/";
+        String localVarPath = "/DescribeScalingActivities/2020-01-01/auto_scaling/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1863,7 +1991,7 @@ public class AutoScalingApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeScalingConfigurations/2020-01-01/AUTO_SCALING/get/";
+        String localVarPath = "/DescribeScalingConfigurations/2020-01-01/auto_scaling/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1987,7 +2115,7 @@ public class AutoScalingApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeScalingGroups/2020-01-01/AUTO_SCALING/get/";
+        String localVarPath = "/DescribeScalingGroups/2020-01-01/auto_scaling/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2111,7 +2239,7 @@ public class AutoScalingApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeScalingInstances/2020-01-01/AUTO_SCALING/get/";
+        String localVarPath = "/DescribeScalingInstances/2020-01-01/auto_scaling/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2235,7 +2363,7 @@ public class AutoScalingApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeScalingPolicies/2020-01-01/AUTO_SCALING/get/";
+        String localVarPath = "/DescribeScalingPolicies/2020-01-01/auto_scaling/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2348,6 +2476,130 @@ public class AutoScalingApi {
         return call;
     }
     /**
+     * Build call for detachDBInstances
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call detachDBInstancesCall(DetachDBInstancesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/DetachDBInstances/2020-01-01/auto_scaling/get/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcstackSign" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call detachDBInstancesValidateBeforeCall(DetachDBInstancesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling detachDBInstances(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = detachDBInstancesCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return DetachDBInstancesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public DetachDBInstancesResponse detachDBInstances(DetachDBInstancesRequest body) throws ApiException {
+        ApiResponse<DetachDBInstancesResponse> resp = detachDBInstancesWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;DetachDBInstancesResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<DetachDBInstancesResponse> detachDBInstancesWithHttpInfo( @NotNull DetachDBInstancesRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = detachDBInstancesValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<DetachDBInstancesResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call detachDBInstancesAsync(DetachDBInstancesRequest body, final ApiCallback<DetachDBInstancesResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = detachDBInstancesValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<DetachDBInstancesResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for detachInstances
      * @param body  (required)
      * @param progressListener Progress listener
@@ -2359,7 +2611,7 @@ public class AutoScalingApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DetachInstances/2020-01-01/AUTO_SCALING/get/";
+        String localVarPath = "/DetachInstances/2020-01-01/auto_scaling/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2483,7 +2735,7 @@ public class AutoScalingApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DetachServerGroups/2020-01-01/AUTO_SCALING/get/";
+        String localVarPath = "/DetachServerGroups/2020-01-01/auto_scaling/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2607,7 +2859,7 @@ public class AutoScalingApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DisableScalingGroup/2020-01-01/AUTO_SCALING/get/";
+        String localVarPath = "/DisableScalingGroup/2020-01-01/auto_scaling/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2731,7 +2983,7 @@ public class AutoScalingApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DisableScalingPolicy/2020-01-01/AUTO_SCALING/get/";
+        String localVarPath = "/DisableScalingPolicy/2020-01-01/auto_scaling/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2855,7 +3107,7 @@ public class AutoScalingApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/EnableScalingConfiguration/2020-01-01/AUTO_SCALING/get/";
+        String localVarPath = "/EnableScalingConfiguration/2020-01-01/auto_scaling/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2979,7 +3231,7 @@ public class AutoScalingApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/EnableScalingGroup/2020-01-01/AUTO_SCALING/get/";
+        String localVarPath = "/EnableScalingGroup/2020-01-01/auto_scaling/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3103,7 +3355,7 @@ public class AutoScalingApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/EnableScalingPolicy/2020-01-01/AUTO_SCALING/get/";
+        String localVarPath = "/EnableScalingPolicy/2020-01-01/auto_scaling/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3227,7 +3479,7 @@ public class AutoScalingApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ModifyLifecycleHook/2020-01-01/AUTO_SCALING/get/";
+        String localVarPath = "/ModifyLifecycleHook/2020-01-01/auto_scaling/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3351,7 +3603,7 @@ public class AutoScalingApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ModifyScalingConfiguration/2020-01-01/AUTO_SCALING/get/";
+        String localVarPath = "/ModifyScalingConfiguration/2020-01-01/auto_scaling/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3475,7 +3727,7 @@ public class AutoScalingApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ModifyScalingGroup/2020-01-01/AUTO_SCALING/get/";
+        String localVarPath = "/ModifyScalingGroup/2020-01-01/auto_scaling/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3599,7 +3851,7 @@ public class AutoScalingApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ModifyScalingPolicy/2020-01-01/AUTO_SCALING/get/";
+        String localVarPath = "/ModifyScalingPolicy/2020-01-01/auto_scaling/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3723,7 +3975,7 @@ public class AutoScalingApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/RemoveInstances/2020-01-01/AUTO_SCALING/get/";
+        String localVarPath = "/RemoveInstances/2020-01-01/auto_scaling/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3847,7 +4099,7 @@ public class AutoScalingApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/SetInstancesProtection/2020-01-01/AUTO_SCALING/get/";
+        String localVarPath = "/SetInstancesProtection/2020-01-01/auto_scaling/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();

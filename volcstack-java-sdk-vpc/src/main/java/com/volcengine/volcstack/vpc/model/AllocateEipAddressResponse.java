@@ -21,19 +21,27 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
  * AllocateEipAddressResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-13T17:16:40.504123+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:48.516414+08:00[Asia/Shanghai]")
 public class AllocateEipAddressResponse {
   @SerializedName("AllocationId")
   private String allocationId = null;
 
+  @SerializedName("AllocationIds")
+  private List<String> allocationIds = null;
+
   @SerializedName("EipAddress")
   private String eipAddress = null;
+
+  @SerializedName("PreOrderNumber")
+  private String preOrderNumber = null;
 
   @SerializedName("RequestId")
   private String requestId = null;
@@ -56,6 +64,32 @@ public class AllocateEipAddressResponse {
     this.allocationId = allocationId;
   }
 
+  public AllocateEipAddressResponse allocationIds(List<String> allocationIds) {
+    this.allocationIds = allocationIds;
+    return this;
+  }
+
+  public AllocateEipAddressResponse addAllocationIdsItem(String allocationIdsItem) {
+    if (this.allocationIds == null) {
+      this.allocationIds = new ArrayList<String>();
+    }
+    this.allocationIds.add(allocationIdsItem);
+    return this;
+  }
+
+   /**
+   * Get allocationIds
+   * @return allocationIds
+  **/
+  @Schema(description = "")
+  public List<String> getAllocationIds() {
+    return allocationIds;
+  }
+
+  public void setAllocationIds(List<String> allocationIds) {
+    this.allocationIds = allocationIds;
+  }
+
   public AllocateEipAddressResponse eipAddress(String eipAddress) {
     this.eipAddress = eipAddress;
     return this;
@@ -72,6 +106,24 @@ public class AllocateEipAddressResponse {
 
   public void setEipAddress(String eipAddress) {
     this.eipAddress = eipAddress;
+  }
+
+  public AllocateEipAddressResponse preOrderNumber(String preOrderNumber) {
+    this.preOrderNumber = preOrderNumber;
+    return this;
+  }
+
+   /**
+   * Get preOrderNumber
+   * @return preOrderNumber
+  **/
+  @Schema(description = "")
+  public String getPreOrderNumber() {
+    return preOrderNumber;
+  }
+
+  public void setPreOrderNumber(String preOrderNumber) {
+    this.preOrderNumber = preOrderNumber;
   }
 
   public AllocateEipAddressResponse requestId(String requestId) {
@@ -103,13 +155,15 @@ public class AllocateEipAddressResponse {
     }
     AllocateEipAddressResponse allocateEipAddressResponse = (AllocateEipAddressResponse) o;
     return Objects.equals(this.allocationId, allocateEipAddressResponse.allocationId) &&
+        Objects.equals(this.allocationIds, allocateEipAddressResponse.allocationIds) &&
         Objects.equals(this.eipAddress, allocateEipAddressResponse.eipAddress) &&
+        Objects.equals(this.preOrderNumber, allocateEipAddressResponse.preOrderNumber) &&
         Objects.equals(this.requestId, allocateEipAddressResponse.requestId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allocationId, eipAddress, requestId);
+    return Objects.hash(allocationId, allocationIds, eipAddress, preOrderNumber, requestId);
   }
 
 
@@ -119,7 +173,9 @@ public class AllocateEipAddressResponse {
     sb.append("class AllocateEipAddressResponse {\n");
     
     sb.append("    allocationId: ").append(toIndentedString(allocationId)).append("\n");
+    sb.append("    allocationIds: ").append(toIndentedString(allocationIds)).append("\n");
     sb.append("    eipAddress: ").append(toIndentedString(eipAddress)).append("\n");
+    sb.append("    preOrderNumber: ").append(toIndentedString(preOrderNumber)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -19,8 +19,12 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.volcstack.ecs.model.CpuOptionsForRunInstancesInput;
+import com.volcengine.volcstack.ecs.model.EipForRunInstancesInput;
 import com.volcengine.volcstack.ecs.model.NetworkInterfaceForRunInstancesInput;
+import com.volcengine.volcstack.ecs.model.TagForRunInstancesInput;
 import com.volcengine.volcstack.ecs.model.VolumeForRunInstancesInput;
+import com.volcengine.volcstack.ecs.model.VolumeIdGroupForRunInstancesInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -31,25 +35,43 @@ import javax.validation.Valid;
  * RunInstancesRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-13T17:16:32.628524+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:32.918937+08:00[Asia/Shanghai]")
 public class RunInstancesRequest {
+  @SerializedName("AccountId")
+  private String accountId = null;
+
+  @SerializedName("AntiAffinityRuleId")
+  private String antiAffinityRuleId = null;
+
   @SerializedName("AutoRenew")
   private Boolean autoRenew = null;
 
   @SerializedName("AutoRenewPeriod")
   private Integer autoRenewPeriod = null;
 
-  @SerializedName("ClientToken")
-  private String clientToken = null;
-
   @SerializedName("Count")
   private Integer count = null;
+
+  @SerializedName("CpuOptions")
+  private CpuOptionsForRunInstancesInput cpuOptions = null;
+
+  @SerializedName("DeploymentSetId")
+  private String deploymentSetId = null;
 
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("DryRun")
+  private Boolean dryRun = null;
+
+  @SerializedName("Eip")
+  private EipForRunInstancesInput eip = null;
+
   @SerializedName("HostName")
   private String hostName = null;
+
+  @SerializedName("Hostname")
+  private String hostname = null;
 
   @SerializedName("HpcClusterId")
   private String hpcClusterId = null;
@@ -69,6 +91,15 @@ public class RunInstancesRequest {
   @SerializedName("InstanceTypeId")
   private String instanceTypeId = null;
 
+  @SerializedName("Ipv6Address")
+  private List<String> ipv6Address = null;
+
+  @SerializedName("Ipv6AddressCount")
+  private Integer ipv6AddressCount = null;
+
+  @SerializedName("Kerberos")
+  private Boolean kerberos = null;
+
   @SerializedName("KeyPairName")
   private String keyPairName = null;
 
@@ -84,11 +115,17 @@ public class RunInstancesRequest {
   @SerializedName("PeriodUnit")
   private String periodUnit = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("SecurityEnhancementStrategy")
   private String securityEnhancementStrategy = null;
 
   @SerializedName("SuffixIndex")
   private Integer suffixIndex = null;
+
+  @SerializedName("Tag")
+  private List<TagForRunInstancesInput> tag = null;
 
   @SerializedName("UniqueSuffix")
   private Boolean uniqueSuffix = null;
@@ -96,11 +133,50 @@ public class RunInstancesRequest {
   @SerializedName("UserData")
   private String userData = null;
 
+  @SerializedName("VolumeIdGroups")
+  private List<VolumeIdGroupForRunInstancesInput> volumeIdGroups = null;
+
   @SerializedName("Volumes")
   private List<VolumeForRunInstancesInput> volumes = null;
 
   @SerializedName("ZoneId")
   private String zoneId = null;
+
+  public RunInstancesRequest accountId(String accountId) {
+    this.accountId = accountId;
+    return this;
+  }
+
+   /**
+   * Get accountId
+   * @return accountId
+  **/
+  @Schema(description = "")
+  public String getAccountId() {
+    return accountId;
+  }
+
+  public void setAccountId(String accountId) {
+    this.accountId = accountId;
+  }
+
+  public RunInstancesRequest antiAffinityRuleId(String antiAffinityRuleId) {
+    this.antiAffinityRuleId = antiAffinityRuleId;
+    return this;
+  }
+
+   /**
+   * Get antiAffinityRuleId
+   * @return antiAffinityRuleId
+  **/
+  @Schema(description = "")
+  public String getAntiAffinityRuleId() {
+    return antiAffinityRuleId;
+  }
+
+  public void setAntiAffinityRuleId(String antiAffinityRuleId) {
+    this.antiAffinityRuleId = antiAffinityRuleId;
+  }
 
   public RunInstancesRequest autoRenew(Boolean autoRenew) {
     this.autoRenew = autoRenew;
@@ -138,24 +214,6 @@ public class RunInstancesRequest {
     this.autoRenewPeriod = autoRenewPeriod;
   }
 
-  public RunInstancesRequest clientToken(String clientToken) {
-    this.clientToken = clientToken;
-    return this;
-  }
-
-   /**
-   * Get clientToken
-   * @return clientToken
-  **/
-  @Schema(description = "")
-  public String getClientToken() {
-    return clientToken;
-  }
-
-  public void setClientToken(String clientToken) {
-    this.clientToken = clientToken;
-  }
-
   public RunInstancesRequest count(Integer count) {
     this.count = count;
     return this;
@@ -172,6 +230,43 @@ public class RunInstancesRequest {
 
   public void setCount(Integer count) {
     this.count = count;
+  }
+
+  public RunInstancesRequest cpuOptions(CpuOptionsForRunInstancesInput cpuOptions) {
+    this.cpuOptions = cpuOptions;
+    return this;
+  }
+
+   /**
+   * Get cpuOptions
+   * @return cpuOptions
+  **/
+  @Valid
+  @Schema(description = "")
+  public CpuOptionsForRunInstancesInput getCpuOptions() {
+    return cpuOptions;
+  }
+
+  public void setCpuOptions(CpuOptionsForRunInstancesInput cpuOptions) {
+    this.cpuOptions = cpuOptions;
+  }
+
+  public RunInstancesRequest deploymentSetId(String deploymentSetId) {
+    this.deploymentSetId = deploymentSetId;
+    return this;
+  }
+
+   /**
+   * Get deploymentSetId
+   * @return deploymentSetId
+  **/
+  @Schema(description = "")
+  public String getDeploymentSetId() {
+    return deploymentSetId;
+  }
+
+  public void setDeploymentSetId(String deploymentSetId) {
+    this.deploymentSetId = deploymentSetId;
   }
 
   public RunInstancesRequest description(String description) {
@@ -192,6 +287,43 @@ public class RunInstancesRequest {
     this.description = description;
   }
 
+  public RunInstancesRequest dryRun(Boolean dryRun) {
+    this.dryRun = dryRun;
+    return this;
+  }
+
+   /**
+   * Get dryRun
+   * @return dryRun
+  **/
+  @Schema(description = "")
+  public Boolean isDryRun() {
+    return dryRun;
+  }
+
+  public void setDryRun(Boolean dryRun) {
+    this.dryRun = dryRun;
+  }
+
+  public RunInstancesRequest eip(EipForRunInstancesInput eip) {
+    this.eip = eip;
+    return this;
+  }
+
+   /**
+   * Get eip
+   * @return eip
+  **/
+  @Valid
+  @Schema(description = "")
+  public EipForRunInstancesInput getEip() {
+    return eip;
+  }
+
+  public void setEip(EipForRunInstancesInput eip) {
+    this.eip = eip;
+  }
+
   public RunInstancesRequest hostName(String hostName) {
     this.hostName = hostName;
     return this;
@@ -208,6 +340,24 @@ public class RunInstancesRequest {
 
   public void setHostName(String hostName) {
     this.hostName = hostName;
+  }
+
+  public RunInstancesRequest hostname(String hostname) {
+    this.hostname = hostname;
+    return this;
+  }
+
+   /**
+   * Get hostname
+   * @return hostname
+  **/
+  @Schema(description = "")
+  public String getHostname() {
+    return hostname;
+  }
+
+  public void setHostname(String hostname) {
+    this.hostname = hostname;
   }
 
   public RunInstancesRequest hpcClusterId(String hpcClusterId) {
@@ -318,6 +468,68 @@ public class RunInstancesRequest {
     this.instanceTypeId = instanceTypeId;
   }
 
+  public RunInstancesRequest ipv6Address(List<String> ipv6Address) {
+    this.ipv6Address = ipv6Address;
+    return this;
+  }
+
+  public RunInstancesRequest addIpv6AddressItem(String ipv6AddressItem) {
+    if (this.ipv6Address == null) {
+      this.ipv6Address = new ArrayList<String>();
+    }
+    this.ipv6Address.add(ipv6AddressItem);
+    return this;
+  }
+
+   /**
+   * Get ipv6Address
+   * @return ipv6Address
+  **/
+  @Schema(description = "")
+  public List<String> getIpv6Address() {
+    return ipv6Address;
+  }
+
+  public void setIpv6Address(List<String> ipv6Address) {
+    this.ipv6Address = ipv6Address;
+  }
+
+  public RunInstancesRequest ipv6AddressCount(Integer ipv6AddressCount) {
+    this.ipv6AddressCount = ipv6AddressCount;
+    return this;
+  }
+
+   /**
+   * Get ipv6AddressCount
+   * @return ipv6AddressCount
+  **/
+  @Schema(description = "")
+  public Integer getIpv6AddressCount() {
+    return ipv6AddressCount;
+  }
+
+  public void setIpv6AddressCount(Integer ipv6AddressCount) {
+    this.ipv6AddressCount = ipv6AddressCount;
+  }
+
+  public RunInstancesRequest kerberos(Boolean kerberos) {
+    this.kerberos = kerberos;
+    return this;
+  }
+
+   /**
+   * Get kerberos
+   * @return kerberos
+  **/
+  @Schema(description = "")
+  public Boolean isKerberos() {
+    return kerberos;
+  }
+
+  public void setKerberos(Boolean kerberos) {
+    this.kerberos = kerberos;
+  }
+
   public RunInstancesRequest keyPairName(String keyPairName) {
     this.keyPairName = keyPairName;
     return this;
@@ -417,6 +629,24 @@ public class RunInstancesRequest {
     this.periodUnit = periodUnit;
   }
 
+  public RunInstancesRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public RunInstancesRequest securityEnhancementStrategy(String securityEnhancementStrategy) {
     this.securityEnhancementStrategy = securityEnhancementStrategy;
     return this;
@@ -453,6 +683,33 @@ public class RunInstancesRequest {
     this.suffixIndex = suffixIndex;
   }
 
+  public RunInstancesRequest tag(List<TagForRunInstancesInput> tag) {
+    this.tag = tag;
+    return this;
+  }
+
+  public RunInstancesRequest addTagItem(TagForRunInstancesInput tagItem) {
+    if (this.tag == null) {
+      this.tag = new ArrayList<TagForRunInstancesInput>();
+    }
+    this.tag.add(tagItem);
+    return this;
+  }
+
+   /**
+   * Get tag
+   * @return tag
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForRunInstancesInput> getTag() {
+    return tag;
+  }
+
+  public void setTag(List<TagForRunInstancesInput> tag) {
+    this.tag = tag;
+  }
+
   public RunInstancesRequest uniqueSuffix(Boolean uniqueSuffix) {
     this.uniqueSuffix = uniqueSuffix;
     return this;
@@ -487,6 +744,33 @@ public class RunInstancesRequest {
 
   public void setUserData(String userData) {
     this.userData = userData;
+  }
+
+  public RunInstancesRequest volumeIdGroups(List<VolumeIdGroupForRunInstancesInput> volumeIdGroups) {
+    this.volumeIdGroups = volumeIdGroups;
+    return this;
+  }
+
+  public RunInstancesRequest addVolumeIdGroupsItem(VolumeIdGroupForRunInstancesInput volumeIdGroupsItem) {
+    if (this.volumeIdGroups == null) {
+      this.volumeIdGroups = new ArrayList<VolumeIdGroupForRunInstancesInput>();
+    }
+    this.volumeIdGroups.add(volumeIdGroupsItem);
+    return this;
+  }
+
+   /**
+   * Get volumeIdGroups
+   * @return volumeIdGroups
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<VolumeIdGroupForRunInstancesInput> getVolumeIdGroups() {
+    return volumeIdGroups;
+  }
+
+  public void setVolumeIdGroups(List<VolumeIdGroupForRunInstancesInput> volumeIdGroups) {
+    this.volumeIdGroups = volumeIdGroups;
   }
 
   public RunInstancesRequest volumes(List<VolumeForRunInstancesInput> volumes) {
@@ -544,34 +828,46 @@ public class RunInstancesRequest {
       return false;
     }
     RunInstancesRequest runInstancesRequest = (RunInstancesRequest) o;
-    return Objects.equals(this.autoRenew, runInstancesRequest.autoRenew) &&
+    return Objects.equals(this.accountId, runInstancesRequest.accountId) &&
+        Objects.equals(this.antiAffinityRuleId, runInstancesRequest.antiAffinityRuleId) &&
+        Objects.equals(this.autoRenew, runInstancesRequest.autoRenew) &&
         Objects.equals(this.autoRenewPeriod, runInstancesRequest.autoRenewPeriod) &&
-        Objects.equals(this.clientToken, runInstancesRequest.clientToken) &&
         Objects.equals(this.count, runInstancesRequest.count) &&
+        Objects.equals(this.cpuOptions, runInstancesRequest.cpuOptions) &&
+        Objects.equals(this.deploymentSetId, runInstancesRequest.deploymentSetId) &&
         Objects.equals(this.description, runInstancesRequest.description) &&
+        Objects.equals(this.dryRun, runInstancesRequest.dryRun) &&
+        Objects.equals(this.eip, runInstancesRequest.eip) &&
         Objects.equals(this.hostName, runInstancesRequest.hostName) &&
+        Objects.equals(this.hostname, runInstancesRequest.hostname) &&
         Objects.equals(this.hpcClusterId, runInstancesRequest.hpcClusterId) &&
         Objects.equals(this.imageId, runInstancesRequest.imageId) &&
         Objects.equals(this.instanceChargeType, runInstancesRequest.instanceChargeType) &&
         Objects.equals(this.instanceName, runInstancesRequest.instanceName) &&
         Objects.equals(this.instanceType, runInstancesRequest.instanceType) &&
         Objects.equals(this.instanceTypeId, runInstancesRequest.instanceTypeId) &&
+        Objects.equals(this.ipv6Address, runInstancesRequest.ipv6Address) &&
+        Objects.equals(this.ipv6AddressCount, runInstancesRequest.ipv6AddressCount) &&
+        Objects.equals(this.kerberos, runInstancesRequest.kerberos) &&
         Objects.equals(this.keyPairName, runInstancesRequest.keyPairName) &&
         Objects.equals(this.networkInterfaces, runInstancesRequest.networkInterfaces) &&
         Objects.equals(this.password, runInstancesRequest.password) &&
         Objects.equals(this.period, runInstancesRequest.period) &&
         Objects.equals(this.periodUnit, runInstancesRequest.periodUnit) &&
+        Objects.equals(this.projectName, runInstancesRequest.projectName) &&
         Objects.equals(this.securityEnhancementStrategy, runInstancesRequest.securityEnhancementStrategy) &&
         Objects.equals(this.suffixIndex, runInstancesRequest.suffixIndex) &&
+        Objects.equals(this.tag, runInstancesRequest.tag) &&
         Objects.equals(this.uniqueSuffix, runInstancesRequest.uniqueSuffix) &&
         Objects.equals(this.userData, runInstancesRequest.userData) &&
+        Objects.equals(this.volumeIdGroups, runInstancesRequest.volumeIdGroups) &&
         Objects.equals(this.volumes, runInstancesRequest.volumes) &&
         Objects.equals(this.zoneId, runInstancesRequest.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoRenew, autoRenewPeriod, clientToken, count, description, hostName, hpcClusterId, imageId, instanceChargeType, instanceName, instanceType, instanceTypeId, keyPairName, networkInterfaces, password, period, periodUnit, securityEnhancementStrategy, suffixIndex, uniqueSuffix, userData, volumes, zoneId);
+    return Objects.hash(accountId, antiAffinityRuleId, autoRenew, autoRenewPeriod, count, cpuOptions, deploymentSetId, description, dryRun, eip, hostName, hostname, hpcClusterId, imageId, instanceChargeType, instanceName, instanceType, instanceTypeId, ipv6Address, ipv6AddressCount, kerberos, keyPairName, networkInterfaces, password, period, periodUnit, projectName, securityEnhancementStrategy, suffixIndex, tag, uniqueSuffix, userData, volumeIdGroups, volumes, zoneId);
   }
 
 
@@ -580,27 +876,39 @@ public class RunInstancesRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class RunInstancesRequest {\n");
     
+    sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
+    sb.append("    antiAffinityRuleId: ").append(toIndentedString(antiAffinityRuleId)).append("\n");
     sb.append("    autoRenew: ").append(toIndentedString(autoRenew)).append("\n");
     sb.append("    autoRenewPeriod: ").append(toIndentedString(autoRenewPeriod)).append("\n");
-    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    count: ").append(toIndentedString(count)).append("\n");
+    sb.append("    cpuOptions: ").append(toIndentedString(cpuOptions)).append("\n");
+    sb.append("    deploymentSetId: ").append(toIndentedString(deploymentSetId)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    dryRun: ").append(toIndentedString(dryRun)).append("\n");
+    sb.append("    eip: ").append(toIndentedString(eip)).append("\n");
     sb.append("    hostName: ").append(toIndentedString(hostName)).append("\n");
+    sb.append("    hostname: ").append(toIndentedString(hostname)).append("\n");
     sb.append("    hpcClusterId: ").append(toIndentedString(hpcClusterId)).append("\n");
     sb.append("    imageId: ").append(toIndentedString(imageId)).append("\n");
     sb.append("    instanceChargeType: ").append(toIndentedString(instanceChargeType)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("    instanceTypeId: ").append(toIndentedString(instanceTypeId)).append("\n");
+    sb.append("    ipv6Address: ").append(toIndentedString(ipv6Address)).append("\n");
+    sb.append("    ipv6AddressCount: ").append(toIndentedString(ipv6AddressCount)).append("\n");
+    sb.append("    kerberos: ").append(toIndentedString(kerberos)).append("\n");
     sb.append("    keyPairName: ").append(toIndentedString(keyPairName)).append("\n");
     sb.append("    networkInterfaces: ").append(toIndentedString(networkInterfaces)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    period: ").append(toIndentedString(period)).append("\n");
     sb.append("    periodUnit: ").append(toIndentedString(periodUnit)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    securityEnhancementStrategy: ").append(toIndentedString(securityEnhancementStrategy)).append("\n");
     sb.append("    suffixIndex: ").append(toIndentedString(suffixIndex)).append("\n");
+    sb.append("    tag: ").append(toIndentedString(tag)).append("\n");
     sb.append("    uniqueSuffix: ").append(toIndentedString(uniqueSuffix)).append("\n");
     sb.append("    userData: ").append(toIndentedString(userData)).append("\n");
+    sb.append("    volumeIdGroups: ").append(toIndentedString(volumeIdGroups)).append("\n");
     sb.append("    volumes: ").append(toIndentedString(volumes)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");
