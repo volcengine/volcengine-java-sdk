@@ -29,7 +29,7 @@ import javax.validation.Valid;
  * DescribeBgpPeersRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-13T17:16:28.121303+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:27.325524+08:00[Asia/Shanghai]")
 public class DescribeBgpPeersRequest {
   @SerializedName("BgpPeerIds")
   private List<String> bgpPeerIds = null;

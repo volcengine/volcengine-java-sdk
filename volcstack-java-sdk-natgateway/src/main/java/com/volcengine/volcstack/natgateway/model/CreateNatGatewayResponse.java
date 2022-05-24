@@ -27,10 +27,13 @@ import javax.validation.Valid;
  * CreateNatGatewayResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-13T17:16:35.637696+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:41.250123+08:00[Asia/Shanghai]")
 public class CreateNatGatewayResponse {
   @SerializedName("NatGatewayId")
   private String natGatewayId = null;
+
+  @SerializedName("PreOrderNumber")
+  private String preOrderNumber = null;
 
   @SerializedName("RequestId")
   private String requestId = null;
@@ -51,6 +54,24 @@ public class CreateNatGatewayResponse {
 
   public void setNatGatewayId(String natGatewayId) {
     this.natGatewayId = natGatewayId;
+  }
+
+  public CreateNatGatewayResponse preOrderNumber(String preOrderNumber) {
+    this.preOrderNumber = preOrderNumber;
+    return this;
+  }
+
+   /**
+   * Get preOrderNumber
+   * @return preOrderNumber
+  **/
+  @Schema(description = "")
+  public String getPreOrderNumber() {
+    return preOrderNumber;
+  }
+
+  public void setPreOrderNumber(String preOrderNumber) {
+    this.preOrderNumber = preOrderNumber;
   }
 
   public CreateNatGatewayResponse requestId(String requestId) {
@@ -82,12 +103,13 @@ public class CreateNatGatewayResponse {
     }
     CreateNatGatewayResponse createNatGatewayResponse = (CreateNatGatewayResponse) o;
     return Objects.equals(this.natGatewayId, createNatGatewayResponse.natGatewayId) &&
+        Objects.equals(this.preOrderNumber, createNatGatewayResponse.preOrderNumber) &&
         Objects.equals(this.requestId, createNatGatewayResponse.requestId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(natGatewayId, requestId);
+    return Objects.hash(natGatewayId, preOrderNumber, requestId);
   }
 
 
@@ -97,6 +119,7 @@ public class CreateNatGatewayResponse {
     sb.append("class CreateNatGatewayResponse {\n");
     
     sb.append("    natGatewayId: ").append(toIndentedString(natGatewayId)).append("\n");
+    sb.append("    preOrderNumber: ").append(toIndentedString(preOrderNumber)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("}");
     return sb.toString();

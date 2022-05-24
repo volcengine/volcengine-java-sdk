@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * ModifyEipAddressAttributesRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-13T17:16:40.504123+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:48.516414+08:00[Asia/Shanghai]")
 public class ModifyEipAddressAttributesRequest {
   @SerializedName("AllocationId")
   private String allocationId = null;

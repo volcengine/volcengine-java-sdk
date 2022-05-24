@@ -29,13 +29,16 @@ import javax.validation.Valid;
  * ScalingPolicyForDescribeScalingPoliciesOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-13T17:16:15.237208+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:12.731669+08:00[Asia/Shanghai]")
 public class ScalingPolicyForDescribeScalingPoliciesOutput {
   @SerializedName("AdjustmentType")
   private String adjustmentType = null;
 
   @SerializedName("AdjustmentValue")
   private Integer adjustmentValue = null;
+
+  @SerializedName("AlarmId")
+  private String alarmId = null;
 
   @SerializedName("AlarmPolicy")
   private AlarmPolicyForDescribeScalingPoliciesOutput alarmPolicy = null;
@@ -95,6 +98,24 @@ public class ScalingPolicyForDescribeScalingPoliciesOutput {
 
   public void setAdjustmentValue(Integer adjustmentValue) {
     this.adjustmentValue = adjustmentValue;
+  }
+
+  public ScalingPolicyForDescribeScalingPoliciesOutput alarmId(String alarmId) {
+    this.alarmId = alarmId;
+    return this;
+  }
+
+   /**
+   * Get alarmId
+   * @return alarmId
+  **/
+  @Schema(description = "")
+  public String getAlarmId() {
+    return alarmId;
+  }
+
+  public void setAlarmId(String alarmId) {
+    this.alarmId = alarmId;
   }
 
   public ScalingPolicyForDescribeScalingPoliciesOutput alarmPolicy(AlarmPolicyForDescribeScalingPoliciesOutput alarmPolicy) {
@@ -255,6 +276,7 @@ public class ScalingPolicyForDescribeScalingPoliciesOutput {
     ScalingPolicyForDescribeScalingPoliciesOutput scalingPolicyForDescribeScalingPoliciesOutput = (ScalingPolicyForDescribeScalingPoliciesOutput) o;
     return Objects.equals(this.adjustmentType, scalingPolicyForDescribeScalingPoliciesOutput.adjustmentType) &&
         Objects.equals(this.adjustmentValue, scalingPolicyForDescribeScalingPoliciesOutput.adjustmentValue) &&
+        Objects.equals(this.alarmId, scalingPolicyForDescribeScalingPoliciesOutput.alarmId) &&
         Objects.equals(this.alarmPolicy, scalingPolicyForDescribeScalingPoliciesOutput.alarmPolicy) &&
         Objects.equals(this.cooldown, scalingPolicyForDescribeScalingPoliciesOutput.cooldown) &&
         Objects.equals(this.scalingGroupId, scalingPolicyForDescribeScalingPoliciesOutput.scalingGroupId) &&
@@ -267,7 +289,7 @@ public class ScalingPolicyForDescribeScalingPoliciesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(adjustmentType, adjustmentValue, alarmPolicy, cooldown, scalingGroupId, scalingPolicyId, scalingPolicyName, scalingPolicyType, scheduledPolicy, status);
+    return Objects.hash(adjustmentType, adjustmentValue, alarmId, alarmPolicy, cooldown, scalingGroupId, scalingPolicyId, scalingPolicyName, scalingPolicyType, scheduledPolicy, status);
   }
 
 
@@ -278,6 +300,7 @@ public class ScalingPolicyForDescribeScalingPoliciesOutput {
     
     sb.append("    adjustmentType: ").append(toIndentedString(adjustmentType)).append("\n");
     sb.append("    adjustmentValue: ").append(toIndentedString(adjustmentValue)).append("\n");
+    sb.append("    alarmId: ").append(toIndentedString(alarmId)).append("\n");
     sb.append("    alarmPolicy: ").append(toIndentedString(alarmPolicy)).append("\n");
     sb.append("    cooldown: ").append(toIndentedString(cooldown)).append("\n");
     sb.append("    scalingGroupId: ").append(toIndentedString(scalingGroupId)).append("\n");
