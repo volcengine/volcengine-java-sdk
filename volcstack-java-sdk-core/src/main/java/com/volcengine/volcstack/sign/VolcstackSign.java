@@ -178,6 +178,9 @@ public class VolcstackSign implements Authentication {
         StringBuilder canonicalHeaders = new StringBuilder("");
         StringBuilder signedHeaders = new StringBuilder("");
         for (String key : listHeaderKeys) {
+            if (!key.equalsIgnoreCase("x-date")){
+                continue;
+            }
             canonicalHeaders.append(key.toLowerCase());
             canonicalHeaders.append(":");
             canonicalHeaders.append(headerParams.get(key));

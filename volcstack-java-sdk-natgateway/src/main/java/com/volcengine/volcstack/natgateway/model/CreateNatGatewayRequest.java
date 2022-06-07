@@ -27,13 +27,72 @@ import javax.validation.Valid;
  * CreateNatGatewayRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-13T17:16:35.637696+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:41.250123+08:00[Asia/Shanghai]")
 public class CreateNatGatewayRequest {
+  @SerializedName("BillingType")
+  private Integer billingType = null;
+
   @SerializedName("Description")
   private String description = null;
 
   @SerializedName("NatGatewayName")
   private String natGatewayName = null;
+
+  @SerializedName("Period")
+  private Integer period = null;
+
+  /**
+   * Gets or Sets periodUnit
+   */
+  @JsonAdapter(PeriodUnitEnum.Adapter.class)
+  public enum PeriodUnitEnum {
+    MONTH("Month"),
+    YEAR("Year");
+
+    private String value;
+
+    PeriodUnitEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static PeriodUnitEnum fromValue(String input) {
+      for (PeriodUnitEnum b : PeriodUnitEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<PeriodUnitEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final PeriodUnitEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public PeriodUnitEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return PeriodUnitEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("PeriodUnit")
+  private PeriodUnitEnum periodUnit = null;
+
+  @SerializedName("RemainRenewTimes")
+  private Integer remainRenewTimes = null;
+
+  @SerializedName("RenewPeriod")
+  private Integer renewPeriod = null;
+
+  @SerializedName("RenewType")
+  private Integer renewType = null;
 
   /**
    * Gets or Sets spec
@@ -86,6 +145,26 @@ public class CreateNatGatewayRequest {
   @SerializedName("VpcId")
   private String vpcId = null;
 
+  public CreateNatGatewayRequest billingType(Integer billingType) {
+    this.billingType = billingType;
+    return this;
+  }
+
+   /**
+   * Get billingType
+   * minimum: 1
+   * maximum: 1
+   * @return billingType
+  **/
+ @Min(1) @Max(1)  @Schema(description = "")
+  public Integer getBillingType() {
+    return billingType;
+  }
+
+  public void setBillingType(Integer billingType) {
+    this.billingType = billingType;
+  }
+
   public CreateNatGatewayRequest description(String description) {
     this.description = description;
     return this;
@@ -120,6 +199,98 @@ public class CreateNatGatewayRequest {
 
   public void setNatGatewayName(String natGatewayName) {
     this.natGatewayName = natGatewayName;
+  }
+
+  public CreateNatGatewayRequest period(Integer period) {
+    this.period = period;
+    return this;
+  }
+
+   /**
+   * Get period
+   * @return period
+  **/
+  @Schema(description = "")
+  public Integer getPeriod() {
+    return period;
+  }
+
+  public void setPeriod(Integer period) {
+    this.period = period;
+  }
+
+  public CreateNatGatewayRequest periodUnit(PeriodUnitEnum periodUnit) {
+    this.periodUnit = periodUnit;
+    return this;
+  }
+
+   /**
+   * Get periodUnit
+   * @return periodUnit
+  **/
+  @Schema(description = "")
+  public PeriodUnitEnum getPeriodUnit() {
+    return periodUnit;
+  }
+
+  public void setPeriodUnit(PeriodUnitEnum periodUnit) {
+    this.periodUnit = periodUnit;
+  }
+
+  public CreateNatGatewayRequest remainRenewTimes(Integer remainRenewTimes) {
+    this.remainRenewTimes = remainRenewTimes;
+    return this;
+  }
+
+   /**
+   * Get remainRenewTimes
+   * @return remainRenewTimes
+  **/
+  @Schema(description = "")
+  public Integer getRemainRenewTimes() {
+    return remainRenewTimes;
+  }
+
+  public void setRemainRenewTimes(Integer remainRenewTimes) {
+    this.remainRenewTimes = remainRenewTimes;
+  }
+
+  public CreateNatGatewayRequest renewPeriod(Integer renewPeriod) {
+    this.renewPeriod = renewPeriod;
+    return this;
+  }
+
+   /**
+   * Get renewPeriod
+   * @return renewPeriod
+  **/
+  @Schema(description = "")
+  public Integer getRenewPeriod() {
+    return renewPeriod;
+  }
+
+  public void setRenewPeriod(Integer renewPeriod) {
+    this.renewPeriod = renewPeriod;
+  }
+
+  public CreateNatGatewayRequest renewType(Integer renewType) {
+    this.renewType = renewType;
+    return this;
+  }
+
+   /**
+   * Get renewType
+   * minimum: 1
+   * maximum: 3
+   * @return renewType
+  **/
+ @Min(1) @Max(3)  @Schema(description = "")
+  public Integer getRenewType() {
+    return renewType;
+  }
+
+  public void setRenewType(Integer renewType) {
+    this.renewType = renewType;
   }
 
   public CreateNatGatewayRequest spec(SpecEnum spec) {
@@ -187,8 +358,14 @@ public class CreateNatGatewayRequest {
       return false;
     }
     CreateNatGatewayRequest createNatGatewayRequest = (CreateNatGatewayRequest) o;
-    return Objects.equals(this.description, createNatGatewayRequest.description) &&
+    return Objects.equals(this.billingType, createNatGatewayRequest.billingType) &&
+        Objects.equals(this.description, createNatGatewayRequest.description) &&
         Objects.equals(this.natGatewayName, createNatGatewayRequest.natGatewayName) &&
+        Objects.equals(this.period, createNatGatewayRequest.period) &&
+        Objects.equals(this.periodUnit, createNatGatewayRequest.periodUnit) &&
+        Objects.equals(this.remainRenewTimes, createNatGatewayRequest.remainRenewTimes) &&
+        Objects.equals(this.renewPeriod, createNatGatewayRequest.renewPeriod) &&
+        Objects.equals(this.renewType, createNatGatewayRequest.renewType) &&
         Objects.equals(this.spec, createNatGatewayRequest.spec) &&
         Objects.equals(this.subnetId, createNatGatewayRequest.subnetId) &&
         Objects.equals(this.vpcId, createNatGatewayRequest.vpcId);
@@ -196,7 +373,7 @@ public class CreateNatGatewayRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, natGatewayName, spec, subnetId, vpcId);
+    return Objects.hash(billingType, description, natGatewayName, period, periodUnit, remainRenewTimes, renewPeriod, renewType, spec, subnetId, vpcId);
   }
 
 
@@ -205,8 +382,14 @@ public class CreateNatGatewayRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateNatGatewayRequest {\n");
     
+    sb.append("    billingType: ").append(toIndentedString(billingType)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    natGatewayName: ").append(toIndentedString(natGatewayName)).append("\n");
+    sb.append("    period: ").append(toIndentedString(period)).append("\n");
+    sb.append("    periodUnit: ").append(toIndentedString(periodUnit)).append("\n");
+    sb.append("    remainRenewTimes: ").append(toIndentedString(remainRenewTimes)).append("\n");
+    sb.append("    renewPeriod: ").append(toIndentedString(renewPeriod)).append("\n");
+    sb.append("    renewType: ").append(toIndentedString(renewType)).append("\n");
     sb.append("    spec: ").append(toIndentedString(spec)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");

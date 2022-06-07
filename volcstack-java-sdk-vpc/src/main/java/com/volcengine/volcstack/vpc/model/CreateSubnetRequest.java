@@ -27,13 +27,16 @@ import javax.validation.Valid;
  * CreateSubnetRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-13T17:16:40.504123+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:48.516414+08:00[Asia/Shanghai]")
 public class CreateSubnetRequest {
   @SerializedName("CidrBlock")
   private String cidrBlock = null;
 
   @SerializedName("Description")
   private String description = null;
+
+  @SerializedName("IPv6CidrBlock")
+  private Integer ipv6CidrBlock = null;
 
   @SerializedName("SubnetName")
   private String subnetName = null;
@@ -79,6 +82,26 @@ public class CreateSubnetRequest {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public CreateSubnetRequest ipv6CidrBlock(Integer ipv6CidrBlock) {
+    this.ipv6CidrBlock = ipv6CidrBlock;
+    return this;
+  }
+
+   /**
+   * Get ipv6CidrBlock
+   * minimum: 0
+   * maximum: 255
+   * @return ipv6CidrBlock
+  **/
+ @Min(0) @Max(255)  @Schema(description = "")
+  public Integer getIpv6CidrBlock() {
+    return ipv6CidrBlock;
+  }
+
+  public void setIpv6CidrBlock(Integer ipv6CidrBlock) {
+    this.ipv6CidrBlock = ipv6CidrBlock;
   }
 
   public CreateSubnetRequest subnetName(String subnetName) {
@@ -149,6 +172,7 @@ public class CreateSubnetRequest {
     CreateSubnetRequest createSubnetRequest = (CreateSubnetRequest) o;
     return Objects.equals(this.cidrBlock, createSubnetRequest.cidrBlock) &&
         Objects.equals(this.description, createSubnetRequest.description) &&
+        Objects.equals(this.ipv6CidrBlock, createSubnetRequest.ipv6CidrBlock) &&
         Objects.equals(this.subnetName, createSubnetRequest.subnetName) &&
         Objects.equals(this.vpcId, createSubnetRequest.vpcId) &&
         Objects.equals(this.zoneId, createSubnetRequest.zoneId);
@@ -156,7 +180,7 @@ public class CreateSubnetRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cidrBlock, description, subnetName, vpcId, zoneId);
+    return Objects.hash(cidrBlock, description, ipv6CidrBlock, subnetName, vpcId, zoneId);
   }
 
 
@@ -167,6 +191,7 @@ public class CreateSubnetRequest {
     
     sb.append("    cidrBlock: ").append(toIndentedString(cidrBlock)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    ipv6CidrBlock: ").append(toIndentedString(ipv6CidrBlock)).append("\n");
     sb.append("    subnetName: ").append(toIndentedString(subnetName)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");

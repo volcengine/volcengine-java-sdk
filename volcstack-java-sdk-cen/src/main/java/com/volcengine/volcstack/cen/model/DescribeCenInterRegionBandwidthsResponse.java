@@ -30,7 +30,7 @@ import javax.validation.Valid;
  * DescribeCenInterRegionBandwidthsResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-13T17:16:19.441439+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:17.092992+08:00[Asia/Shanghai]")
 public class DescribeCenInterRegionBandwidthsResponse {
   @SerializedName("InterRegionBandwidths")
   private List<InterRegionBandwidthForDescribeCenInterRegionBandwidthsOutput> interRegionBandwidths = null;
