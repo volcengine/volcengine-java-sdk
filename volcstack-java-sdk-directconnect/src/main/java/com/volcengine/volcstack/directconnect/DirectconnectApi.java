@@ -117,7 +117,7 @@ public class DirectconnectApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ConfirmDirectConnectConnection/2020-04-01/DIRECTCONNECT/get/";
+        String localVarPath = "/ConfirmDirectConnectConnection/2020-04-01/directconnect/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -241,7 +241,7 @@ public class DirectconnectApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/CreateBgpPeer/2020-04-01/DIRECTCONNECT/get/";
+        String localVarPath = "/CreateBgpPeer/2020-04-01/directconnect/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -365,7 +365,7 @@ public class DirectconnectApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/CreateDirectConnectGateway/2020-04-01/DIRECTCONNECT/get/";
+        String localVarPath = "/CreateDirectConnectGateway/2020-04-01/directconnect/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -489,7 +489,7 @@ public class DirectconnectApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/CreateDirectConnectGatewayRoute/2020-04-01/DIRECTCONNECT/get/";
+        String localVarPath = "/CreateDirectConnectGatewayRoute/2020-04-01/directconnect/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -613,7 +613,7 @@ public class DirectconnectApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/CreateDirectConnectVirtualInterface/2020-04-01/DIRECTCONNECT/get/";
+        String localVarPath = "/CreateDirectConnectVirtualInterface/2020-04-01/directconnect/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -737,7 +737,7 @@ public class DirectconnectApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/CreateSharedDirectConnectConnection/2020-04-01/DIRECTCONNECT/get/";
+        String localVarPath = "/CreateSharedDirectConnectConnection/2020-04-01/directconnect/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -861,7 +861,7 @@ public class DirectconnectApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteBgpPeer/2020-04-01/DIRECTCONNECT/get/";
+        String localVarPath = "/DeleteBgpPeer/2020-04-01/directconnect/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -985,7 +985,7 @@ public class DirectconnectApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteDirectConnectConnection/2020-04-01/DIRECTCONNECT/get/";
+        String localVarPath = "/DeleteDirectConnectConnection/2020-04-01/directconnect/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1109,7 +1109,7 @@ public class DirectconnectApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteDirectConnectGateway/2020-04-01/DIRECTCONNECT/get/";
+        String localVarPath = "/DeleteDirectConnectGateway/2020-04-01/directconnect/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1233,7 +1233,7 @@ public class DirectconnectApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteDirectConnectGatewayRoute/2020-04-01/DIRECTCONNECT/get/";
+        String localVarPath = "/DeleteDirectConnectGatewayRoute/2020-04-01/directconnect/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1357,7 +1357,7 @@ public class DirectconnectApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteDirectConnectVirtualInterface/2020-04-01/DIRECTCONNECT/get/";
+        String localVarPath = "/DeleteDirectConnectVirtualInterface/2020-04-01/directconnect/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1481,7 +1481,7 @@ public class DirectconnectApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeBgpPeerAttributes/2020-04-01/DIRECTCONNECT/get/";
+        String localVarPath = "/DescribeBgpPeerAttributes/2020-04-01/directconnect/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1605,7 +1605,7 @@ public class DirectconnectApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeBgpPeers/2020-04-01/DIRECTCONNECT/get/";
+        String localVarPath = "/DescribeBgpPeers/2020-04-01/directconnect/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1729,7 +1729,7 @@ public class DirectconnectApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeDirectConnectConnectionAttributes/2020-04-01/DIRECTCONNECT/get/";
+        String localVarPath = "/DescribeDirectConnectConnectionAttributes/2020-04-01/directconnect/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1853,7 +1853,7 @@ public class DirectconnectApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeDirectConnectConnections/2020-04-01/DIRECTCONNECT/get/";
+        String localVarPath = "/DescribeDirectConnectConnections/2020-04-01/directconnect/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1977,7 +1977,7 @@ public class DirectconnectApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeDirectConnectGatewayAttributes/2020-04-01/DIRECTCONNECT/get/";
+        String localVarPath = "/DescribeDirectConnectGatewayAttributes/2020-04-01/directconnect/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2101,7 +2101,7 @@ public class DirectconnectApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeDirectConnectGatewayRouteAttributes/2020-04-01/DIRECTCONNECT/get/";
+        String localVarPath = "/DescribeDirectConnectGatewayRouteAttributes/2020-04-01/directconnect/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2225,7 +2225,7 @@ public class DirectconnectApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeDirectConnectGatewayRoutes/2020-04-01/DIRECTCONNECT/get/";
+        String localVarPath = "/DescribeDirectConnectGatewayRoutes/2020-04-01/directconnect/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2349,7 +2349,7 @@ public class DirectconnectApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeDirectConnectGateways/2020-04-01/DIRECTCONNECT/get/";
+        String localVarPath = "/DescribeDirectConnectGateways/2020-04-01/directconnect/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2473,7 +2473,7 @@ public class DirectconnectApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeDirectConnectVirtualInterfaceAttributes/2020-04-01/DIRECTCONNECT/get/";
+        String localVarPath = "/DescribeDirectConnectVirtualInterfaceAttributes/2020-04-01/directconnect/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2597,7 +2597,7 @@ public class DirectconnectApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeDirectConnectVirtualInterfaces/2020-04-01/DIRECTCONNECT/get/";
+        String localVarPath = "/DescribeDirectConnectVirtualInterfaces/2020-04-01/directconnect/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2721,7 +2721,7 @@ public class DirectconnectApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeSharedDirectConnectConnections/2020-04-01/DIRECTCONNECT/get/";
+        String localVarPath = "/DescribeSharedDirectConnectConnections/2020-04-01/directconnect/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2845,7 +2845,7 @@ public class DirectconnectApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ModifyBgpPeerAttributes/2020-04-01/DIRECTCONNECT/get/";
+        String localVarPath = "/ModifyBgpPeerAttributes/2020-04-01/directconnect/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2969,7 +2969,7 @@ public class DirectconnectApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ModifyDirectConnectConnectionAttributes/2020-04-01/DIRECTCONNECT/get/";
+        String localVarPath = "/ModifyDirectConnectConnectionAttributes/2020-04-01/directconnect/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3093,7 +3093,7 @@ public class DirectconnectApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ModifyDirectConnectGatewayAttributes/2020-04-01/DIRECTCONNECT/get/";
+        String localVarPath = "/ModifyDirectConnectGatewayAttributes/2020-04-01/directconnect/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3217,7 +3217,7 @@ public class DirectconnectApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ModifyDirectConnectVirtualInterfaceAttributes/2020-04-01/DIRECTCONNECT/get/";
+        String localVarPath = "/ModifyDirectConnectVirtualInterfaceAttributes/2020-04-01/directconnect/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();

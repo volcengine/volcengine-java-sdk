@@ -4,7 +4,7 @@
     <groupId>com.volcengine</groupId>
     <artifactId>volcstack-java-sdk</artifactId>
     <packaging>pom</packaging>
-    <version>0.1.0-SHAPSHOT</version>
+    <version>0.1.1</version>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.source.version>1.7</java.source.version>
@@ -72,14 +72,16 @@
         </dependencies>
     </dependencyManagement>
     <distributionManagement>
-        <snapshotRepository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
         <repository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+            <id>maven.byted.org</id>
+            <name>maven.byted.org</name>
+            <url>https://artifact-maven.byted.org/repository/releases/</url>
         </repository>
+        <snapshotRepository>
+            <id>maven.byted.org</id>
+            <name>maven.byted.org</name>
+            <url>https://artifact-maven.byted.org/repository/releases/</url>
+        </snapshotRepository>
     </distributionManagement>
     <build>
         <plugins>

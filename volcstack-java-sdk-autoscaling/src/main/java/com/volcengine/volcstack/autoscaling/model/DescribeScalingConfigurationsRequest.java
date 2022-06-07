@@ -29,7 +29,7 @@ import javax.validation.Valid;
  * DescribeScalingConfigurationsRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-13T17:16:15.237208+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:12.731669+08:00[Asia/Shanghai]")
 public class DescribeScalingConfigurationsRequest {
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
@@ -45,6 +45,9 @@ public class DescribeScalingConfigurationsRequest {
 
   @SerializedName("ScalingGroupId")
   private String scalingGroupId = null;
+
+  @SerializedName("ZoneId")
+  private String zoneId = null;
 
   public DescribeScalingConfigurationsRequest pageNumber(Integer pageNumber) {
     this.pageNumber = pageNumber;
@@ -152,6 +155,24 @@ public class DescribeScalingConfigurationsRequest {
     this.scalingGroupId = scalingGroupId;
   }
 
+  public DescribeScalingConfigurationsRequest zoneId(String zoneId) {
+    this.zoneId = zoneId;
+    return this;
+  }
+
+   /**
+   * Get zoneId
+   * @return zoneId
+  **/
+  @Schema(description = "")
+  public String getZoneId() {
+    return zoneId;
+  }
+
+  public void setZoneId(String zoneId) {
+    this.zoneId = zoneId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -166,12 +187,13 @@ public class DescribeScalingConfigurationsRequest {
         Objects.equals(this.pageSize, describeScalingConfigurationsRequest.pageSize) &&
         Objects.equals(this.scalingConfigurationIds, describeScalingConfigurationsRequest.scalingConfigurationIds) &&
         Objects.equals(this.scalingConfigurationNames, describeScalingConfigurationsRequest.scalingConfigurationNames) &&
-        Objects.equals(this.scalingGroupId, describeScalingConfigurationsRequest.scalingGroupId);
+        Objects.equals(this.scalingGroupId, describeScalingConfigurationsRequest.scalingGroupId) &&
+        Objects.equals(this.zoneId, describeScalingConfigurationsRequest.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pageNumber, pageSize, scalingConfigurationIds, scalingConfigurationNames, scalingGroupId);
+    return Objects.hash(pageNumber, pageSize, scalingConfigurationIds, scalingConfigurationNames, scalingGroupId, zoneId);
   }
 
 
@@ -185,6 +207,7 @@ public class DescribeScalingConfigurationsRequest {
     sb.append("    scalingConfigurationIds: ").append(toIndentedString(scalingConfigurationIds)).append("\n");
     sb.append("    scalingConfigurationNames: ").append(toIndentedString(scalingConfigurationNames)).append("\n");
     sb.append("    scalingGroupId: ").append(toIndentedString(scalingGroupId)).append("\n");
+    sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -121,7 +121,7 @@ public class CenApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/AssociateCenBandwidthPackage/2020-04-01/CEN/get/";
+        String localVarPath = "/AssociateCenBandwidthPackage/2020-04-01/cen/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -245,7 +245,7 @@ public class CenApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/AttachInstanceToCen/2020-04-01/CEN/get/";
+        String localVarPath = "/AttachInstanceToCen/2020-04-01/cen/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -369,7 +369,7 @@ public class CenApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/CreateCen/2020-04-01/CEN/get/";
+        String localVarPath = "/CreateCen/2020-04-01/cen/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -493,7 +493,7 @@ public class CenApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/CreateCenBandwidthPackage/2020-04-01/CEN/get/";
+        String localVarPath = "/CreateCenBandwidthPackage/2020-04-01/cen/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -617,7 +617,7 @@ public class CenApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/CreateCenInterRegionBandwidth/2020-04-01/CEN/get/";
+        String localVarPath = "/CreateCenInterRegionBandwidth/2020-04-01/cen/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -741,7 +741,7 @@ public class CenApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteCen/2020-04-01/CEN/get/";
+        String localVarPath = "/DeleteCen/2020-04-01/cen/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -865,7 +865,7 @@ public class CenApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteCenBandwidthPackage/2020-04-01/CEN/get/";
+        String localVarPath = "/DeleteCenBandwidthPackage/2020-04-01/cen/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -989,7 +989,7 @@ public class CenApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteCenInterRegionBandwidth/2020-04-01/CEN/get/";
+        String localVarPath = "/DeleteCenInterRegionBandwidth/2020-04-01/cen/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1113,7 +1113,7 @@ public class CenApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeCenAttachedInstanceAttributes/2020-04-01/CEN/get/";
+        String localVarPath = "/DescribeCenAttachedInstanceAttributes/2020-04-01/cen/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1237,7 +1237,7 @@ public class CenApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeCenAttachedInstances/2020-04-01/CEN/get/";
+        String localVarPath = "/DescribeCenAttachedInstances/2020-04-01/cen/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1361,7 +1361,7 @@ public class CenApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeCenAttributes/2020-04-01/CEN/get/";
+        String localVarPath = "/DescribeCenAttributes/2020-04-01/cen/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1485,7 +1485,7 @@ public class CenApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeCenBandwidthPackageAttributes/2020-04-01/CEN/get/";
+        String localVarPath = "/DescribeCenBandwidthPackageAttributes/2020-04-01/cen/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1609,7 +1609,7 @@ public class CenApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeCenBandwidthPackages/2020-04-01/CEN/get/";
+        String localVarPath = "/DescribeCenBandwidthPackages/2020-04-01/cen/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1733,7 +1733,7 @@ public class CenApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeCenBandwidthPackagesBilling/2020-04-01/CEN/get/";
+        String localVarPath = "/DescribeCenBandwidthPackagesBilling/2020-04-01/cen/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1857,7 +1857,7 @@ public class CenApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeCenInterRegionBandwidthAttributes/2020-04-01/CEN/get/";
+        String localVarPath = "/DescribeCenInterRegionBandwidthAttributes/2020-04-01/cen/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1981,7 +1981,7 @@ public class CenApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeCenInterRegionBandwidths/2020-04-01/CEN/get/";
+        String localVarPath = "/DescribeCenInterRegionBandwidths/2020-04-01/cen/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2105,7 +2105,7 @@ public class CenApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeCenRouteEntries/2020-04-01/CEN/get/";
+        String localVarPath = "/DescribeCenRouteEntries/2020-04-01/cen/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2229,7 +2229,7 @@ public class CenApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeCenSupportedRegions/2020-04-01/CEN/get/";
+        String localVarPath = "/DescribeCenSupportedRegions/2020-04-01/cen/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2353,7 +2353,7 @@ public class CenApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeCens/2020-04-01/CEN/get/";
+        String localVarPath = "/DescribeCens/2020-04-01/cen/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2477,7 +2477,7 @@ public class CenApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DetachInstanceFromCen/2020-04-01/CEN/get/";
+        String localVarPath = "/DetachInstanceFromCen/2020-04-01/cen/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2601,7 +2601,7 @@ public class CenApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DisassociateCenBandwidthPackage/2020-04-01/CEN/get/";
+        String localVarPath = "/DisassociateCenBandwidthPackage/2020-04-01/cen/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2725,7 +2725,7 @@ public class CenApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ModifyCenAttributes/2020-04-01/CEN/get/";
+        String localVarPath = "/ModifyCenAttributes/2020-04-01/cen/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2849,7 +2849,7 @@ public class CenApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ModifyCenBandwidthPackageAttributes/2020-04-01/CEN/get/";
+        String localVarPath = "/ModifyCenBandwidthPackageAttributes/2020-04-01/cen/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2973,7 +2973,7 @@ public class CenApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ModifyCenInterRegionBandwidthAttributes/2020-04-01/CEN/get/";
+        String localVarPath = "/ModifyCenInterRegionBandwidthAttributes/2020-04-01/cen/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3097,7 +3097,7 @@ public class CenApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/PublishCenRouteEntry/2020-04-01/CEN/get/";
+        String localVarPath = "/PublishCenRouteEntry/2020-04-01/cen/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3221,7 +3221,7 @@ public class CenApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/RenewCenBandwidthPackage/2020-04-01/CEN/get/";
+        String localVarPath = "/RenewCenBandwidthPackage/2020-04-01/cen/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3345,7 +3345,7 @@ public class CenApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/SetCenBandwidthPackageRenewal/2020-04-01/CEN/get/";
+        String localVarPath = "/SetCenBandwidthPackageRenewal/2020-04-01/cen/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3469,7 +3469,7 @@ public class CenApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/WithdrawCenRouteEntry/2020-04-01/CEN/get/";
+        String localVarPath = "/WithdrawCenRouteEntry/2020-04-01/cen/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();

@@ -21,16 +21,21 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
  * ReleaseEipAddressRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-13T17:16:40.504123+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:48.516414+08:00[Asia/Shanghai]")
 public class ReleaseEipAddressRequest {
   @SerializedName("AllocationId")
   private String allocationId = null;
+
+  @SerializedName("AllocationIds")
+  private List<String> allocationIds = null;
 
   public ReleaseEipAddressRequest allocationId(String allocationId) {
     this.allocationId = allocationId;
@@ -51,6 +56,32 @@ public class ReleaseEipAddressRequest {
     this.allocationId = allocationId;
   }
 
+  public ReleaseEipAddressRequest allocationIds(List<String> allocationIds) {
+    this.allocationIds = allocationIds;
+    return this;
+  }
+
+  public ReleaseEipAddressRequest addAllocationIdsItem(String allocationIdsItem) {
+    if (this.allocationIds == null) {
+      this.allocationIds = new ArrayList<String>();
+    }
+    this.allocationIds.add(allocationIdsItem);
+    return this;
+  }
+
+   /**
+   * Get allocationIds
+   * @return allocationIds
+  **/
+  @Schema(description = "")
+  public List<String> getAllocationIds() {
+    return allocationIds;
+  }
+
+  public void setAllocationIds(List<String> allocationIds) {
+    this.allocationIds = allocationIds;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -61,12 +92,13 @@ public class ReleaseEipAddressRequest {
       return false;
     }
     ReleaseEipAddressRequest releaseEipAddressRequest = (ReleaseEipAddressRequest) o;
-    return Objects.equals(this.allocationId, releaseEipAddressRequest.allocationId);
+    return Objects.equals(this.allocationId, releaseEipAddressRequest.allocationId) &&
+        Objects.equals(this.allocationIds, releaseEipAddressRequest.allocationIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allocationId);
+    return Objects.hash(allocationId, allocationIds);
   }
 
 
@@ -76,6 +108,7 @@ public class ReleaseEipAddressRequest {
     sb.append("class ReleaseEipAddressRequest {\n");
     
     sb.append("    allocationId: ").append(toIndentedString(allocationId)).append("\n");
+    sb.append("    allocationIds: ").append(toIndentedString(allocationIds)).append("\n");
     sb.append("}");
     return sb.toString();
   }

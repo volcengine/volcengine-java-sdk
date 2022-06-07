@@ -29,10 +29,73 @@ import javax.validation.Valid;
  * VolumeForDescribeInstanceTypesOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-13T17:16:32.628524+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:32.918937+08:00[Asia/Shanghai]")
 public class VolumeForDescribeInstanceTypesOutput {
+  @SerializedName("MaximumBandwidthMbps")
+  private String maximumBandwidthMbps = null;
+
+  @SerializedName("MaximumCount")
+  private Integer maximumCount = null;
+
+  @SerializedName("MaximumIops")
+  private Integer maximumIops = null;
+
   @SerializedName("SupportedVolumeTypes")
   private List<String> supportedVolumeTypes = null;
+
+  public VolumeForDescribeInstanceTypesOutput maximumBandwidthMbps(String maximumBandwidthMbps) {
+    this.maximumBandwidthMbps = maximumBandwidthMbps;
+    return this;
+  }
+
+   /**
+   * Get maximumBandwidthMbps
+   * @return maximumBandwidthMbps
+  **/
+  @Schema(description = "")
+  public String getMaximumBandwidthMbps() {
+    return maximumBandwidthMbps;
+  }
+
+  public void setMaximumBandwidthMbps(String maximumBandwidthMbps) {
+    this.maximumBandwidthMbps = maximumBandwidthMbps;
+  }
+
+  public VolumeForDescribeInstanceTypesOutput maximumCount(Integer maximumCount) {
+    this.maximumCount = maximumCount;
+    return this;
+  }
+
+   /**
+   * Get maximumCount
+   * @return maximumCount
+  **/
+  @Schema(description = "")
+  public Integer getMaximumCount() {
+    return maximumCount;
+  }
+
+  public void setMaximumCount(Integer maximumCount) {
+    this.maximumCount = maximumCount;
+  }
+
+  public VolumeForDescribeInstanceTypesOutput maximumIops(Integer maximumIops) {
+    this.maximumIops = maximumIops;
+    return this;
+  }
+
+   /**
+   * Get maximumIops
+   * @return maximumIops
+  **/
+  @Schema(description = "")
+  public Integer getMaximumIops() {
+    return maximumIops;
+  }
+
+  public void setMaximumIops(Integer maximumIops) {
+    this.maximumIops = maximumIops;
+  }
 
   public VolumeForDescribeInstanceTypesOutput supportedVolumeTypes(List<String> supportedVolumeTypes) {
     this.supportedVolumeTypes = supportedVolumeTypes;
@@ -70,12 +133,15 @@ public class VolumeForDescribeInstanceTypesOutput {
       return false;
     }
     VolumeForDescribeInstanceTypesOutput volumeForDescribeInstanceTypesOutput = (VolumeForDescribeInstanceTypesOutput) o;
-    return Objects.equals(this.supportedVolumeTypes, volumeForDescribeInstanceTypesOutput.supportedVolumeTypes);
+    return Objects.equals(this.maximumBandwidthMbps, volumeForDescribeInstanceTypesOutput.maximumBandwidthMbps) &&
+        Objects.equals(this.maximumCount, volumeForDescribeInstanceTypesOutput.maximumCount) &&
+        Objects.equals(this.maximumIops, volumeForDescribeInstanceTypesOutput.maximumIops) &&
+        Objects.equals(this.supportedVolumeTypes, volumeForDescribeInstanceTypesOutput.supportedVolumeTypes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(supportedVolumeTypes);
+    return Objects.hash(maximumBandwidthMbps, maximumCount, maximumIops, supportedVolumeTypes);
   }
 
 
@@ -84,6 +150,9 @@ public class VolumeForDescribeInstanceTypesOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class VolumeForDescribeInstanceTypesOutput {\n");
     
+    sb.append("    maximumBandwidthMbps: ").append(toIndentedString(maximumBandwidthMbps)).append("\n");
+    sb.append("    maximumCount: ").append(toIndentedString(maximumCount)).append("\n");
+    sb.append("    maximumIops: ").append(toIndentedString(maximumIops)).append("\n");
     sb.append("    supportedVolumeTypes: ").append(toIndentedString(supportedVolumeTypes)).append("\n");
     sb.append("}");
     return sb.toString();

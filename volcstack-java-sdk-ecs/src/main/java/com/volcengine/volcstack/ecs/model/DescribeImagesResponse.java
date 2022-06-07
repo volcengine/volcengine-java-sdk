@@ -30,13 +30,19 @@ import javax.validation.Valid;
  * DescribeImagesResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-13T17:16:32.628524+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:32.918937+08:00[Asia/Shanghai]")
 public class DescribeImagesResponse {
   @SerializedName("Images")
   private List<ImageForDescribeImagesOutput> images = null;
 
   @SerializedName("NextToken")
   private String nextToken = null;
+
+  @SerializedName("PageNumber")
+  private Integer pageNumber = null;
+
+  @SerializedName("PageSize")
+  private Integer pageSize = null;
 
   @SerializedName("TotalCount")
   private Integer totalCount = null;
@@ -86,6 +92,42 @@ public class DescribeImagesResponse {
     this.nextToken = nextToken;
   }
 
+  public DescribeImagesResponse pageNumber(Integer pageNumber) {
+    this.pageNumber = pageNumber;
+    return this;
+  }
+
+   /**
+   * Get pageNumber
+   * @return pageNumber
+  **/
+  @Schema(description = "")
+  public Integer getPageNumber() {
+    return pageNumber;
+  }
+
+  public void setPageNumber(Integer pageNumber) {
+    this.pageNumber = pageNumber;
+  }
+
+  public DescribeImagesResponse pageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+    return this;
+  }
+
+   /**
+   * Get pageSize
+   * @return pageSize
+  **/
+  @Schema(description = "")
+  public Integer getPageSize() {
+    return pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
   public DescribeImagesResponse totalCount(Integer totalCount) {
     this.totalCount = totalCount;
     return this;
@@ -116,12 +158,14 @@ public class DescribeImagesResponse {
     DescribeImagesResponse describeImagesResponse = (DescribeImagesResponse) o;
     return Objects.equals(this.images, describeImagesResponse.images) &&
         Objects.equals(this.nextToken, describeImagesResponse.nextToken) &&
+        Objects.equals(this.pageNumber, describeImagesResponse.pageNumber) &&
+        Objects.equals(this.pageSize, describeImagesResponse.pageSize) &&
         Objects.equals(this.totalCount, describeImagesResponse.totalCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(images, nextToken, totalCount);
+    return Objects.hash(images, nextToken, pageNumber, pageSize, totalCount);
   }
 
 
@@ -132,6 +176,8 @@ public class DescribeImagesResponse {
     
     sb.append("    images: ").append(toIndentedString(images)).append("\n");
     sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
+    sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
+    sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("}");
     return sb.toString();
