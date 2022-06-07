@@ -1012,12 +1012,16 @@ public class ApiClient {
         return false;
     }
 
+    private void updateQueryParams(List<Pair> queryParams,String[] param){
+        queryParams.add(new Pair("Action", param[1]));
+        queryParams.add(new Pair("Version", param[2]));
+    }
+
     private ServiceInfo addPairAndGetServiceInfo(String path, List<Pair> queryParams, Map<String, String> headerParams) {
         String[] param = path.split("/");
 
         if (!isApplicationJsonBody(headerParams) && !isPostBody(headerParams)) {
-            queryParams.add(new Pair("Action", param[1]));
-            queryParams.add(new Pair("Version", param[2]));
+            updateQueryParams(queryParams,param);
         }
         return new ServiceInfo(param[3], param[4]);
     }
@@ -1046,6 +1050,7 @@ public class ApiClient {
     private void buildSimpleRequest(Object body, List<Pair> queryParams, Map<String, String> headerParams, StringBuilder builder, String chain) throws Exception {
         if (isApplicationJsonBody(headerParams)) {
             builder.append(json.serialize(body));
+            return;
         }
         Class<?> clazz = body.getClass();
 
@@ -1182,8 +1187,14 @@ public class ApiClient {
                 formParams.put(pair.getName(), pair.getValue());
             }
             reqBody = buildRequestBodyFormEncoding(formParams);
+            // fix action & version
+            queryParams.clear();
+            updateQueryParams(queryParams,path.split("/"));
         } else if ("multipart/form-data".equals(contentType)) {
             reqBody = buildRequestBodyMultipart(formParams);
+            // fix action & version
+            queryParams.clear();
+            updateQueryParams(queryParams,path.split("/"));
         } else if (body == null) {
             if ("DELETE".equals(method)) {
                 // allow calling DELETE without sending a request body
@@ -1192,8 +1203,14 @@ public class ApiClient {
                 // use an empty request body (for POST, PUT and PATCH)
                 reqBody = RequestBody.create(MediaType.parse(contentType), "");
             }
+            // fix action & version
+            queryParams.clear();
+            updateQueryParams(queryParams,path.split("/"));
         } else {
             reqBody = serialize(body, contentType);
+            // fix action & version
+            queryParams.clear();
+            updateQueryParams(queryParams,path.split("/"));
         }
         //sign
         updateParamsForAuth(authNames, queryParams, headerParams, serviceInfo, getPayload(contentType,
