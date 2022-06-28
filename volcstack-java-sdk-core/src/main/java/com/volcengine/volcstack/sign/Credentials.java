@@ -40,7 +40,7 @@ public class Credentials {
         Credentials credentials = new Credentials();
         credentials.accessKey = System.getenv("VOLCSTACK_ACCESS_KEY");
         credentials.secretKey = System.getenv("VOLCSTACK_SECRET_KEY");
-        credentials.secretKey = System.getenv("VOLCSTACK_SESSION_TOKEN");
+        credentials.sessionToken = System.getenv("VOLCSTACK_SESSION_TOKEN");
         return credentials;
     }
 
