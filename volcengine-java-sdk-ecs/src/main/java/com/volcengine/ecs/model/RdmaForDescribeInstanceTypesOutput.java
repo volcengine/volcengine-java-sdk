@@ -27,52 +27,10 @@ import javax.validation.Valid;
  * RdmaForDescribeInstanceTypesOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:32.918937+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T19:55:14.870161+08:00[Asia/Shanghai]")
 public class RdmaForDescribeInstanceTypesOutput {
-  @SerializedName("RdmaEniBandwidth")
-  private String rdmaEniBandwidth = null;
-
-  @SerializedName("RdmaEniCount")
-  private Integer rdmaEniCount = null;
-
   @SerializedName("RdmaNetworkInterfaces")
   private Integer rdmaNetworkInterfaces = null;
-
-  public RdmaForDescribeInstanceTypesOutput rdmaEniBandwidth(String rdmaEniBandwidth) {
-    this.rdmaEniBandwidth = rdmaEniBandwidth;
-    return this;
-  }
-
-   /**
-   * Get rdmaEniBandwidth
-   * @return rdmaEniBandwidth
-  **/
-  @Schema(description = "")
-  public String getRdmaEniBandwidth() {
-    return rdmaEniBandwidth;
-  }
-
-  public void setRdmaEniBandwidth(String rdmaEniBandwidth) {
-    this.rdmaEniBandwidth = rdmaEniBandwidth;
-  }
-
-  public RdmaForDescribeInstanceTypesOutput rdmaEniCount(Integer rdmaEniCount) {
-    this.rdmaEniCount = rdmaEniCount;
-    return this;
-  }
-
-   /**
-   * Get rdmaEniCount
-   * @return rdmaEniCount
-  **/
-  @Schema(description = "")
-  public Integer getRdmaEniCount() {
-    return rdmaEniCount;
-  }
-
-  public void setRdmaEniCount(Integer rdmaEniCount) {
-    this.rdmaEniCount = rdmaEniCount;
-  }
 
   public RdmaForDescribeInstanceTypesOutput rdmaNetworkInterfaces(Integer rdmaNetworkInterfaces) {
     this.rdmaNetworkInterfaces = rdmaNetworkInterfaces;
@@ -102,14 +60,12 @@ public class RdmaForDescribeInstanceTypesOutput {
       return false;
     }
     RdmaForDescribeInstanceTypesOutput rdmaForDescribeInstanceTypesOutput = (RdmaForDescribeInstanceTypesOutput) o;
-    return Objects.equals(this.rdmaEniBandwidth, rdmaForDescribeInstanceTypesOutput.rdmaEniBandwidth) &&
-        Objects.equals(this.rdmaEniCount, rdmaForDescribeInstanceTypesOutput.rdmaEniCount) &&
-        Objects.equals(this.rdmaNetworkInterfaces, rdmaForDescribeInstanceTypesOutput.rdmaNetworkInterfaces);
+    return Objects.equals(this.rdmaNetworkInterfaces, rdmaForDescribeInstanceTypesOutput.rdmaNetworkInterfaces);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(rdmaEniBandwidth, rdmaEniCount, rdmaNetworkInterfaces);
+    return Objects.hash(rdmaNetworkInterfaces);
   }
 
 
@@ -118,8 +74,6 @@ public class RdmaForDescribeInstanceTypesOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class RdmaForDescribeInstanceTypesOutput {\n");
     
-    sb.append("    rdmaEniBandwidth: ").append(toIndentedString(rdmaEniBandwidth)).append("\n");
-    sb.append("    rdmaEniCount: ").append(toIndentedString(rdmaEniCount)).append("\n");
     sb.append("    rdmaNetworkInterfaces: ").append(toIndentedString(rdmaNetworkInterfaces)).append("\n");
     sb.append("}");
     return sb.toString();

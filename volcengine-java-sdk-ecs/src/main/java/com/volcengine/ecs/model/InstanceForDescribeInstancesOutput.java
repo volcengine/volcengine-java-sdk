@@ -19,11 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.ecs.model.EipAddressForDescribeInstancesOutput;
-import com.volcengine.ecs.model.InstanceTypeForDescribeInstancesOutput;
 import com.volcengine.ecs.model.NetworkInterfaceForDescribeInstancesOutput;
-import com.volcengine.ecs.model.TagForDescribeInstancesOutput;
-import com.volcengine.ecs.model.VolumeForDescribeInstancesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -34,37 +30,22 @@ import javax.validation.Valid;
  * InstanceForDescribeInstancesOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:32.918937+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T19:55:14.870161+08:00[Asia/Shanghai]")
 public class InstanceForDescribeInstancesOutput {
-  @SerializedName("AccountId")
-  private String accountId = null;
-
   @SerializedName("Cpus")
   private Integer cpus = null;
 
   @SerializedName("CreatedAt")
   private String createdAt = null;
 
-  @SerializedName("DeploymentSetId")
-  private String deploymentSetId = null;
-
   @SerializedName("Description")
   private String description = null;
-
-  @SerializedName("EipAddress")
-  private EipAddressForDescribeInstancesOutput eipAddress = null;
 
   @SerializedName("ExpiredAt")
   private String expiredAt = null;
 
   @SerializedName("HostName")
   private String hostName = null;
-
-  @SerializedName("Hostname")
-  private String hostname = null;
-
-  @SerializedName("Id")
-  private String id = null;
 
   @SerializedName("ImageId")
   private String imageId = null;
@@ -77,9 +58,6 @@ public class InstanceForDescribeInstancesOutput {
 
   @SerializedName("InstanceName")
   private String instanceName = null;
-
-  @SerializedName("InstanceType")
-  private InstanceTypeForDescribeInstancesOutput instanceType = null;
 
   @SerializedName("InstanceTypeId")
   private String instanceTypeId = null;
@@ -102,23 +80,8 @@ public class InstanceForDescribeInstancesOutput {
   @SerializedName("OsType")
   private String osType = null;
 
-  @SerializedName("OverdueAt")
-  private String overdueAt = null;
-
-  @SerializedName("OverdueReclaimedAt")
-  private String overdueReclaimedAt = null;
-
-  @SerializedName("ProjectName")
-  private String projectName = null;
-
   @SerializedName("RdmaIpAddresses")
   private List<String> rdmaIpAddresses = null;
-
-  @SerializedName("ReclaimedAt")
-  private String reclaimedAt = null;
-
-  @SerializedName("RenewType")
-  private Integer renewType = null;
 
   @SerializedName("Status")
   private String status = null;
@@ -126,47 +89,14 @@ public class InstanceForDescribeInstancesOutput {
   @SerializedName("StoppedMode")
   private String stoppedMode = null;
 
-  @SerializedName("Tags")
-  private List<TagForDescribeInstancesOutput> tags = null;
-
-  @SerializedName("TradeStatus")
-  private Integer tradeStatus = null;
-
   @SerializedName("UpdatedAt")
   private String updatedAt = null;
-
-  @SerializedName("UserData")
-  private String userData = null;
-
-  @SerializedName("Uuid")
-  private String uuid = null;
-
-  @SerializedName("Volumes")
-  private List<VolumeForDescribeInstancesOutput> volumes = null;
 
   @SerializedName("VpcId")
   private String vpcId = null;
 
   @SerializedName("ZoneId")
   private String zoneId = null;
-
-  public InstanceForDescribeInstancesOutput accountId(String accountId) {
-    this.accountId = accountId;
-    return this;
-  }
-
-   /**
-   * Get accountId
-   * @return accountId
-  **/
-  @Schema(description = "")
-  public String getAccountId() {
-    return accountId;
-  }
-
-  public void setAccountId(String accountId) {
-    this.accountId = accountId;
-  }
 
   public InstanceForDescribeInstancesOutput cpus(Integer cpus) {
     this.cpus = cpus;
@@ -204,24 +134,6 @@ public class InstanceForDescribeInstancesOutput {
     this.createdAt = createdAt;
   }
 
-  public InstanceForDescribeInstancesOutput deploymentSetId(String deploymentSetId) {
-    this.deploymentSetId = deploymentSetId;
-    return this;
-  }
-
-   /**
-   * Get deploymentSetId
-   * @return deploymentSetId
-  **/
-  @Schema(description = "")
-  public String getDeploymentSetId() {
-    return deploymentSetId;
-  }
-
-  public void setDeploymentSetId(String deploymentSetId) {
-    this.deploymentSetId = deploymentSetId;
-  }
-
   public InstanceForDescribeInstancesOutput description(String description) {
     this.description = description;
     return this;
@@ -238,25 +150,6 @@ public class InstanceForDescribeInstancesOutput {
 
   public void setDescription(String description) {
     this.description = description;
-  }
-
-  public InstanceForDescribeInstancesOutput eipAddress(EipAddressForDescribeInstancesOutput eipAddress) {
-    this.eipAddress = eipAddress;
-    return this;
-  }
-
-   /**
-   * Get eipAddress
-   * @return eipAddress
-  **/
-  @Valid
-  @Schema(description = "")
-  public EipAddressForDescribeInstancesOutput getEipAddress() {
-    return eipAddress;
-  }
-
-  public void setEipAddress(EipAddressForDescribeInstancesOutput eipAddress) {
-    this.eipAddress = eipAddress;
   }
 
   public InstanceForDescribeInstancesOutput expiredAt(String expiredAt) {
@@ -293,42 +186,6 @@ public class InstanceForDescribeInstancesOutput {
 
   public void setHostName(String hostName) {
     this.hostName = hostName;
-  }
-
-  public InstanceForDescribeInstancesOutput hostname(String hostname) {
-    this.hostname = hostname;
-    return this;
-  }
-
-   /**
-   * Get hostname
-   * @return hostname
-  **/
-  @Schema(description = "")
-  public String getHostname() {
-    return hostname;
-  }
-
-  public void setHostname(String hostname) {
-    this.hostname = hostname;
-  }
-
-  public InstanceForDescribeInstancesOutput id(String id) {
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * Get id
-   * @return id
-  **/
-  @Schema(description = "")
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
   }
 
   public InstanceForDescribeInstancesOutput imageId(String imageId) {
@@ -401,25 +258,6 @@ public class InstanceForDescribeInstancesOutput {
 
   public void setInstanceName(String instanceName) {
     this.instanceName = instanceName;
-  }
-
-  public InstanceForDescribeInstancesOutput instanceType(InstanceTypeForDescribeInstancesOutput instanceType) {
-    this.instanceType = instanceType;
-    return this;
-  }
-
-   /**
-   * Get instanceType
-   * @return instanceType
-  **/
-  @Valid
-  @Schema(description = "")
-  public InstanceTypeForDescribeInstancesOutput getInstanceType() {
-    return instanceType;
-  }
-
-  public void setInstanceType(InstanceTypeForDescribeInstancesOutput instanceType) {
-    this.instanceType = instanceType;
   }
 
   public InstanceForDescribeInstancesOutput instanceTypeId(String instanceTypeId) {
@@ -557,60 +395,6 @@ public class InstanceForDescribeInstancesOutput {
     this.osType = osType;
   }
 
-  public InstanceForDescribeInstancesOutput overdueAt(String overdueAt) {
-    this.overdueAt = overdueAt;
-    return this;
-  }
-
-   /**
-   * Get overdueAt
-   * @return overdueAt
-  **/
-  @Schema(description = "")
-  public String getOverdueAt() {
-    return overdueAt;
-  }
-
-  public void setOverdueAt(String overdueAt) {
-    this.overdueAt = overdueAt;
-  }
-
-  public InstanceForDescribeInstancesOutput overdueReclaimedAt(String overdueReclaimedAt) {
-    this.overdueReclaimedAt = overdueReclaimedAt;
-    return this;
-  }
-
-   /**
-   * Get overdueReclaimedAt
-   * @return overdueReclaimedAt
-  **/
-  @Schema(description = "")
-  public String getOverdueReclaimedAt() {
-    return overdueReclaimedAt;
-  }
-
-  public void setOverdueReclaimedAt(String overdueReclaimedAt) {
-    this.overdueReclaimedAt = overdueReclaimedAt;
-  }
-
-  public InstanceForDescribeInstancesOutput projectName(String projectName) {
-    this.projectName = projectName;
-    return this;
-  }
-
-   /**
-   * Get projectName
-   * @return projectName
-  **/
-  @Schema(description = "")
-  public String getProjectName() {
-    return projectName;
-  }
-
-  public void setProjectName(String projectName) {
-    this.projectName = projectName;
-  }
-
   public InstanceForDescribeInstancesOutput rdmaIpAddresses(List<String> rdmaIpAddresses) {
     this.rdmaIpAddresses = rdmaIpAddresses;
     return this;
@@ -635,42 +419,6 @@ public class InstanceForDescribeInstancesOutput {
 
   public void setRdmaIpAddresses(List<String> rdmaIpAddresses) {
     this.rdmaIpAddresses = rdmaIpAddresses;
-  }
-
-  public InstanceForDescribeInstancesOutput reclaimedAt(String reclaimedAt) {
-    this.reclaimedAt = reclaimedAt;
-    return this;
-  }
-
-   /**
-   * Get reclaimedAt
-   * @return reclaimedAt
-  **/
-  @Schema(description = "")
-  public String getReclaimedAt() {
-    return reclaimedAt;
-  }
-
-  public void setReclaimedAt(String reclaimedAt) {
-    this.reclaimedAt = reclaimedAt;
-  }
-
-  public InstanceForDescribeInstancesOutput renewType(Integer renewType) {
-    this.renewType = renewType;
-    return this;
-  }
-
-   /**
-   * Get renewType
-   * @return renewType
-  **/
-  @Schema(description = "")
-  public Integer getRenewType() {
-    return renewType;
-  }
-
-  public void setRenewType(Integer renewType) {
-    this.renewType = renewType;
   }
 
   public InstanceForDescribeInstancesOutput status(String status) {
@@ -709,51 +457,6 @@ public class InstanceForDescribeInstancesOutput {
     this.stoppedMode = stoppedMode;
   }
 
-  public InstanceForDescribeInstancesOutput tags(List<TagForDescribeInstancesOutput> tags) {
-    this.tags = tags;
-    return this;
-  }
-
-  public InstanceForDescribeInstancesOutput addTagsItem(TagForDescribeInstancesOutput tagsItem) {
-    if (this.tags == null) {
-      this.tags = new ArrayList<TagForDescribeInstancesOutput>();
-    }
-    this.tags.add(tagsItem);
-    return this;
-  }
-
-   /**
-   * Get tags
-   * @return tags
-  **/
-  @Valid
-  @Schema(description = "")
-  public List<TagForDescribeInstancesOutput> getTags() {
-    return tags;
-  }
-
-  public void setTags(List<TagForDescribeInstancesOutput> tags) {
-    this.tags = tags;
-  }
-
-  public InstanceForDescribeInstancesOutput tradeStatus(Integer tradeStatus) {
-    this.tradeStatus = tradeStatus;
-    return this;
-  }
-
-   /**
-   * Get tradeStatus
-   * @return tradeStatus
-  **/
-  @Schema(description = "")
-  public Integer getTradeStatus() {
-    return tradeStatus;
-  }
-
-  public void setTradeStatus(Integer tradeStatus) {
-    this.tradeStatus = tradeStatus;
-  }
-
   public InstanceForDescribeInstancesOutput updatedAt(String updatedAt) {
     this.updatedAt = updatedAt;
     return this;
@@ -770,69 +473,6 @@ public class InstanceForDescribeInstancesOutput {
 
   public void setUpdatedAt(String updatedAt) {
     this.updatedAt = updatedAt;
-  }
-
-  public InstanceForDescribeInstancesOutput userData(String userData) {
-    this.userData = userData;
-    return this;
-  }
-
-   /**
-   * Get userData
-   * @return userData
-  **/
-  @Schema(description = "")
-  public String getUserData() {
-    return userData;
-  }
-
-  public void setUserData(String userData) {
-    this.userData = userData;
-  }
-
-  public InstanceForDescribeInstancesOutput uuid(String uuid) {
-    this.uuid = uuid;
-    return this;
-  }
-
-   /**
-   * Get uuid
-   * @return uuid
-  **/
-  @Schema(description = "")
-  public String getUuid() {
-    return uuid;
-  }
-
-  public void setUuid(String uuid) {
-    this.uuid = uuid;
-  }
-
-  public InstanceForDescribeInstancesOutput volumes(List<VolumeForDescribeInstancesOutput> volumes) {
-    this.volumes = volumes;
-    return this;
-  }
-
-  public InstanceForDescribeInstancesOutput addVolumesItem(VolumeForDescribeInstancesOutput volumesItem) {
-    if (this.volumes == null) {
-      this.volumes = new ArrayList<VolumeForDescribeInstancesOutput>();
-    }
-    this.volumes.add(volumesItem);
-    return this;
-  }
-
-   /**
-   * Get volumes
-   * @return volumes
-  **/
-  @Valid
-  @Schema(description = "")
-  public List<VolumeForDescribeInstancesOutput> getVolumes() {
-    return volumes;
-  }
-
-  public void setVolumes(List<VolumeForDescribeInstancesOutput> volumes) {
-    this.volumes = volumes;
   }
 
   public InstanceForDescribeInstancesOutput vpcId(String vpcId) {
@@ -881,21 +521,15 @@ public class InstanceForDescribeInstancesOutput {
       return false;
     }
     InstanceForDescribeInstancesOutput instanceForDescribeInstancesOutput = (InstanceForDescribeInstancesOutput) o;
-    return Objects.equals(this.accountId, instanceForDescribeInstancesOutput.accountId) &&
-        Objects.equals(this.cpus, instanceForDescribeInstancesOutput.cpus) &&
+    return Objects.equals(this.cpus, instanceForDescribeInstancesOutput.cpus) &&
         Objects.equals(this.createdAt, instanceForDescribeInstancesOutput.createdAt) &&
-        Objects.equals(this.deploymentSetId, instanceForDescribeInstancesOutput.deploymentSetId) &&
         Objects.equals(this.description, instanceForDescribeInstancesOutput.description) &&
-        Objects.equals(this.eipAddress, instanceForDescribeInstancesOutput.eipAddress) &&
         Objects.equals(this.expiredAt, instanceForDescribeInstancesOutput.expiredAt) &&
         Objects.equals(this.hostName, instanceForDescribeInstancesOutput.hostName) &&
-        Objects.equals(this.hostname, instanceForDescribeInstancesOutput.hostname) &&
-        Objects.equals(this.id, instanceForDescribeInstancesOutput.id) &&
         Objects.equals(this.imageId, instanceForDescribeInstancesOutput.imageId) &&
         Objects.equals(this.instanceChargeType, instanceForDescribeInstancesOutput.instanceChargeType) &&
         Objects.equals(this.instanceId, instanceForDescribeInstancesOutput.instanceId) &&
         Objects.equals(this.instanceName, instanceForDescribeInstancesOutput.instanceName) &&
-        Objects.equals(this.instanceType, instanceForDescribeInstancesOutput.instanceType) &&
         Objects.equals(this.instanceTypeId, instanceForDescribeInstancesOutput.instanceTypeId) &&
         Objects.equals(this.keyPairId, instanceForDescribeInstancesOutput.keyPairId) &&
         Objects.equals(this.keyPairName, instanceForDescribeInstancesOutput.keyPairName) &&
@@ -903,27 +537,17 @@ public class InstanceForDescribeInstancesOutput {
         Objects.equals(this.networkInterfaces, instanceForDescribeInstancesOutput.networkInterfaces) &&
         Objects.equals(this.osName, instanceForDescribeInstancesOutput.osName) &&
         Objects.equals(this.osType, instanceForDescribeInstancesOutput.osType) &&
-        Objects.equals(this.overdueAt, instanceForDescribeInstancesOutput.overdueAt) &&
-        Objects.equals(this.overdueReclaimedAt, instanceForDescribeInstancesOutput.overdueReclaimedAt) &&
-        Objects.equals(this.projectName, instanceForDescribeInstancesOutput.projectName) &&
         Objects.equals(this.rdmaIpAddresses, instanceForDescribeInstancesOutput.rdmaIpAddresses) &&
-        Objects.equals(this.reclaimedAt, instanceForDescribeInstancesOutput.reclaimedAt) &&
-        Objects.equals(this.renewType, instanceForDescribeInstancesOutput.renewType) &&
         Objects.equals(this.status, instanceForDescribeInstancesOutput.status) &&
         Objects.equals(this.stoppedMode, instanceForDescribeInstancesOutput.stoppedMode) &&
-        Objects.equals(this.tags, instanceForDescribeInstancesOutput.tags) &&
-        Objects.equals(this.tradeStatus, instanceForDescribeInstancesOutput.tradeStatus) &&
         Objects.equals(this.updatedAt, instanceForDescribeInstancesOutput.updatedAt) &&
-        Objects.equals(this.userData, instanceForDescribeInstancesOutput.userData) &&
-        Objects.equals(this.uuid, instanceForDescribeInstancesOutput.uuid) &&
-        Objects.equals(this.volumes, instanceForDescribeInstancesOutput.volumes) &&
         Objects.equals(this.vpcId, instanceForDescribeInstancesOutput.vpcId) &&
         Objects.equals(this.zoneId, instanceForDescribeInstancesOutput.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, cpus, createdAt, deploymentSetId, description, eipAddress, expiredAt, hostName, hostname, id, imageId, instanceChargeType, instanceId, instanceName, instanceType, instanceTypeId, keyPairId, keyPairName, memorySize, networkInterfaces, osName, osType, overdueAt, overdueReclaimedAt, projectName, rdmaIpAddresses, reclaimedAt, renewType, status, stoppedMode, tags, tradeStatus, updatedAt, userData, uuid, volumes, vpcId, zoneId);
+    return Objects.hash(cpus, createdAt, description, expiredAt, hostName, imageId, instanceChargeType, instanceId, instanceName, instanceTypeId, keyPairId, keyPairName, memorySize, networkInterfaces, osName, osType, rdmaIpAddresses, status, stoppedMode, updatedAt, vpcId, zoneId);
   }
 
 
@@ -932,21 +556,15 @@ public class InstanceForDescribeInstancesOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class InstanceForDescribeInstancesOutput {\n");
     
-    sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    cpus: ").append(toIndentedString(cpus)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
-    sb.append("    deploymentSetId: ").append(toIndentedString(deploymentSetId)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    eipAddress: ").append(toIndentedString(eipAddress)).append("\n");
     sb.append("    expiredAt: ").append(toIndentedString(expiredAt)).append("\n");
     sb.append("    hostName: ").append(toIndentedString(hostName)).append("\n");
-    sb.append("    hostname: ").append(toIndentedString(hostname)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    imageId: ").append(toIndentedString(imageId)).append("\n");
     sb.append("    instanceChargeType: ").append(toIndentedString(instanceChargeType)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
-    sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("    instanceTypeId: ").append(toIndentedString(instanceTypeId)).append("\n");
     sb.append("    keyPairId: ").append(toIndentedString(keyPairId)).append("\n");
     sb.append("    keyPairName: ").append(toIndentedString(keyPairName)).append("\n");
@@ -954,20 +572,10 @@ public class InstanceForDescribeInstancesOutput {
     sb.append("    networkInterfaces: ").append(toIndentedString(networkInterfaces)).append("\n");
     sb.append("    osName: ").append(toIndentedString(osName)).append("\n");
     sb.append("    osType: ").append(toIndentedString(osType)).append("\n");
-    sb.append("    overdueAt: ").append(toIndentedString(overdueAt)).append("\n");
-    sb.append("    overdueReclaimedAt: ").append(toIndentedString(overdueReclaimedAt)).append("\n");
-    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    rdmaIpAddresses: ").append(toIndentedString(rdmaIpAddresses)).append("\n");
-    sb.append("    reclaimedAt: ").append(toIndentedString(reclaimedAt)).append("\n");
-    sb.append("    renewType: ").append(toIndentedString(renewType)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    stoppedMode: ").append(toIndentedString(stoppedMode)).append("\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
-    sb.append("    tradeStatus: ").append(toIndentedString(tradeStatus)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
-    sb.append("    userData: ").append(toIndentedString(userData)).append("\n");
-    sb.append("    uuid: ").append(toIndentedString(uuid)).append("\n");
-    sb.append("    volumes: ").append(toIndentedString(volumes)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");

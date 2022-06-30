@@ -28,7 +28,7 @@ import javax.validation.Valid;
  * SubnetForDescribeSubnetsOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:48.516414+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T19:55:25.796697+08:00[Asia/Shanghai]")
 public class SubnetForDescribeSubnetsOutput {
   @SerializedName("AccountId")
   private String accountId = null;
@@ -45,14 +45,8 @@ public class SubnetForDescribeSubnetsOutput {
   @SerializedName("Description")
   private String description = null;
 
-  @SerializedName("IPv6CidrBlock")
-  private String ipv6CidrBlock = null;
-
   @SerializedName("NetworkAclId")
   private String networkAclId = null;
-
-  @SerializedName("ProjectName")
-  private String projectName = null;
 
   @SerializedName("RouteTable")
   private RouteTableForDescribeSubnetsOutput routeTable = null;
@@ -168,24 +162,6 @@ public class SubnetForDescribeSubnetsOutput {
     this.description = description;
   }
 
-  public SubnetForDescribeSubnetsOutput ipv6CidrBlock(String ipv6CidrBlock) {
-    this.ipv6CidrBlock = ipv6CidrBlock;
-    return this;
-  }
-
-   /**
-   * Get ipv6CidrBlock
-   * @return ipv6CidrBlock
-  **/
-  @Schema(description = "")
-  public String getIpv6CidrBlock() {
-    return ipv6CidrBlock;
-  }
-
-  public void setIpv6CidrBlock(String ipv6CidrBlock) {
-    this.ipv6CidrBlock = ipv6CidrBlock;
-  }
-
   public SubnetForDescribeSubnetsOutput networkAclId(String networkAclId) {
     this.networkAclId = networkAclId;
     return this;
@@ -202,24 +178,6 @@ public class SubnetForDescribeSubnetsOutput {
 
   public void setNetworkAclId(String networkAclId) {
     this.networkAclId = networkAclId;
-  }
-
-  public SubnetForDescribeSubnetsOutput projectName(String projectName) {
-    this.projectName = projectName;
-    return this;
-  }
-
-   /**
-   * Get projectName
-   * @return projectName
-  **/
-  @Schema(description = "")
-  public String getProjectName() {
-    return projectName;
-  }
-
-  public void setProjectName(String projectName) {
-    this.projectName = projectName;
   }
 
   public SubnetForDescribeSubnetsOutput routeTable(RouteTableForDescribeSubnetsOutput routeTable) {
@@ -382,9 +340,7 @@ public class SubnetForDescribeSubnetsOutput {
         Objects.equals(this.cidrBlock, subnetForDescribeSubnetsOutput.cidrBlock) &&
         Objects.equals(this.creationTime, subnetForDescribeSubnetsOutput.creationTime) &&
         Objects.equals(this.description, subnetForDescribeSubnetsOutput.description) &&
-        Objects.equals(this.ipv6CidrBlock, subnetForDescribeSubnetsOutput.ipv6CidrBlock) &&
         Objects.equals(this.networkAclId, subnetForDescribeSubnetsOutput.networkAclId) &&
-        Objects.equals(this.projectName, subnetForDescribeSubnetsOutput.projectName) &&
         Objects.equals(this.routeTable, subnetForDescribeSubnetsOutput.routeTable) &&
         Objects.equals(this.status, subnetForDescribeSubnetsOutput.status) &&
         Objects.equals(this.subnetId, subnetForDescribeSubnetsOutput.subnetId) &&
@@ -397,7 +353,7 @@ public class SubnetForDescribeSubnetsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, availableIpAddressCount, cidrBlock, creationTime, description, ipv6CidrBlock, networkAclId, projectName, routeTable, status, subnetId, subnetName, totalIpv4Count, updateTime, vpcId, zoneId);
+    return Objects.hash(accountId, availableIpAddressCount, cidrBlock, creationTime, description, networkAclId, routeTable, status, subnetId, subnetName, totalIpv4Count, updateTime, vpcId, zoneId);
   }
 
 
@@ -411,9 +367,7 @@ public class SubnetForDescribeSubnetsOutput {
     sb.append("    cidrBlock: ").append(toIndentedString(cidrBlock)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    ipv6CidrBlock: ").append(toIndentedString(ipv6CidrBlock)).append("\n");
     sb.append("    networkAclId: ").append(toIndentedString(networkAclId)).append("\n");
-    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    routeTable: ").append(toIndentedString(routeTable)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");

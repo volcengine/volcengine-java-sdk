@@ -30,11 +30,8 @@ import javax.validation.Valid;
  * DescribeServerGroupAttributesResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:21.106708+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T19:55:03.376515+08:00[Asia/Shanghai]")
 public class DescribeServerGroupAttributesResponse {
-  @SerializedName("Description")
-  private String description = null;
-
   @SerializedName("Listeners")
   private List<String> listeners = null;
 
@@ -52,24 +49,6 @@ public class DescribeServerGroupAttributesResponse {
 
   @SerializedName("Servers")
   private List<ServerForDescribeServerGroupAttributesOutput> servers = null;
-
-  public DescribeServerGroupAttributesResponse description(String description) {
-    this.description = description;
-    return this;
-  }
-
-   /**
-   * Get description
-   * @return description
-  **/
-  @Schema(description = "")
-  public String getDescription() {
-    return description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
 
   public DescribeServerGroupAttributesResponse listeners(List<String> listeners) {
     this.listeners = listeners;
@@ -206,8 +185,7 @@ public class DescribeServerGroupAttributesResponse {
       return false;
     }
     DescribeServerGroupAttributesResponse describeServerGroupAttributesResponse = (DescribeServerGroupAttributesResponse) o;
-    return Objects.equals(this.description, describeServerGroupAttributesResponse.description) &&
-        Objects.equals(this.listeners, describeServerGroupAttributesResponse.listeners) &&
+    return Objects.equals(this.listeners, describeServerGroupAttributesResponse.listeners) &&
         Objects.equals(this.loadBalancerId, describeServerGroupAttributesResponse.loadBalancerId) &&
         Objects.equals(this.requestId, describeServerGroupAttributesResponse.requestId) &&
         Objects.equals(this.serverGroupId, describeServerGroupAttributesResponse.serverGroupId) &&
@@ -217,7 +195,7 @@ public class DescribeServerGroupAttributesResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, listeners, loadBalancerId, requestId, serverGroupId, serverGroupName, servers);
+    return Objects.hash(listeners, loadBalancerId, requestId, serverGroupId, serverGroupName, servers);
   }
 
 
@@ -226,7 +204,6 @@ public class DescribeServerGroupAttributesResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeServerGroupAttributesResponse {\n");
     
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    listeners: ").append(toIndentedString(listeners)).append("\n");
     sb.append("    loadBalancerId: ").append(toIndentedString(loadBalancerId)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");

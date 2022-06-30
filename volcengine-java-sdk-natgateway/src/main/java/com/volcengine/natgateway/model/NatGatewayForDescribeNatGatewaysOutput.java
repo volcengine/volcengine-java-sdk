@@ -30,7 +30,7 @@ import javax.validation.Valid;
  * NatGatewayForDescribeNatGatewaysOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:41.250123+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T19:55:19.361595+08:00[Asia/Shanghai]")
 public class NatGatewayForDescribeNatGatewaysOutput {
   @SerializedName("BillingType")
   private Integer billingType = null;
@@ -50,9 +50,6 @@ public class NatGatewayForDescribeNatGatewaysOutput {
   @SerializedName("EipAddresses")
   private List<EipAddressForDescribeNatGatewaysOutput> eipAddresses = null;
 
-  @SerializedName("ExpiredTime")
-  private String expiredTime = null;
-
   @SerializedName("LockReason")
   private String lockReason = null;
 
@@ -67,9 +64,6 @@ public class NatGatewayForDescribeNatGatewaysOutput {
 
   @SerializedName("OverdueTime")
   private String overdueTime = null;
-
-  @SerializedName("ProjectName")
-  private String projectName = null;
 
   @SerializedName("Spec")
   private String spec = null;
@@ -203,24 +197,6 @@ public class NatGatewayForDescribeNatGatewaysOutput {
     this.eipAddresses = eipAddresses;
   }
 
-  public NatGatewayForDescribeNatGatewaysOutput expiredTime(String expiredTime) {
-    this.expiredTime = expiredTime;
-    return this;
-  }
-
-   /**
-   * Get expiredTime
-   * @return expiredTime
-  **/
-  @Schema(description = "")
-  public String getExpiredTime() {
-    return expiredTime;
-  }
-
-  public void setExpiredTime(String expiredTime) {
-    this.expiredTime = expiredTime;
-  }
-
   public NatGatewayForDescribeNatGatewaysOutput lockReason(String lockReason) {
     this.lockReason = lockReason;
     return this;
@@ -309,24 +285,6 @@ public class NatGatewayForDescribeNatGatewaysOutput {
 
   public void setOverdueTime(String overdueTime) {
     this.overdueTime = overdueTime;
-  }
-
-  public NatGatewayForDescribeNatGatewaysOutput projectName(String projectName) {
-    this.projectName = projectName;
-    return this;
-  }
-
-   /**
-   * Get projectName
-   * @return projectName
-  **/
-  @Schema(description = "")
-  public String getProjectName() {
-    return projectName;
-  }
-
-  public void setProjectName(String projectName) {
-    this.projectName = projectName;
   }
 
   public NatGatewayForDescribeNatGatewaysOutput spec(String spec) {
@@ -435,13 +393,11 @@ public class NatGatewayForDescribeNatGatewaysOutput {
         Objects.equals(this.deletedTime, natGatewayForDescribeNatGatewaysOutput.deletedTime) &&
         Objects.equals(this.description, natGatewayForDescribeNatGatewaysOutput.description) &&
         Objects.equals(this.eipAddresses, natGatewayForDescribeNatGatewaysOutput.eipAddresses) &&
-        Objects.equals(this.expiredTime, natGatewayForDescribeNatGatewaysOutput.expiredTime) &&
         Objects.equals(this.lockReason, natGatewayForDescribeNatGatewaysOutput.lockReason) &&
         Objects.equals(this.natGatewayId, natGatewayForDescribeNatGatewaysOutput.natGatewayId) &&
         Objects.equals(this.natGatewayName, natGatewayForDescribeNatGatewaysOutput.natGatewayName) &&
         Objects.equals(this.networkInterfaceId, natGatewayForDescribeNatGatewaysOutput.networkInterfaceId) &&
         Objects.equals(this.overdueTime, natGatewayForDescribeNatGatewaysOutput.overdueTime) &&
-        Objects.equals(this.projectName, natGatewayForDescribeNatGatewaysOutput.projectName) &&
         Objects.equals(this.spec, natGatewayForDescribeNatGatewaysOutput.spec) &&
         Objects.equals(this.status, natGatewayForDescribeNatGatewaysOutput.status) &&
         Objects.equals(this.subnetId, natGatewayForDescribeNatGatewaysOutput.subnetId) &&
@@ -451,7 +407,7 @@ public class NatGatewayForDescribeNatGatewaysOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(billingType, businessStatus, creationTime, deletedTime, description, eipAddresses, expiredTime, lockReason, natGatewayId, natGatewayName, networkInterfaceId, overdueTime, projectName, spec, status, subnetId, updatedAt, vpcId);
+    return Objects.hash(billingType, businessStatus, creationTime, deletedTime, description, eipAddresses, lockReason, natGatewayId, natGatewayName, networkInterfaceId, overdueTime, spec, status, subnetId, updatedAt, vpcId);
   }
 
 
@@ -466,13 +422,11 @@ public class NatGatewayForDescribeNatGatewaysOutput {
     sb.append("    deletedTime: ").append(toIndentedString(deletedTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    eipAddresses: ").append(toIndentedString(eipAddresses)).append("\n");
-    sb.append("    expiredTime: ").append(toIndentedString(expiredTime)).append("\n");
     sb.append("    lockReason: ").append(toIndentedString(lockReason)).append("\n");
     sb.append("    natGatewayId: ").append(toIndentedString(natGatewayId)).append("\n");
     sb.append("    natGatewayName: ").append(toIndentedString(natGatewayName)).append("\n");
     sb.append("    networkInterfaceId: ").append(toIndentedString(networkInterfaceId)).append("\n");
     sb.append("    overdueTime: ").append(toIndentedString(overdueTime)).append("\n");
-    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    spec: ").append(toIndentedString(spec)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");

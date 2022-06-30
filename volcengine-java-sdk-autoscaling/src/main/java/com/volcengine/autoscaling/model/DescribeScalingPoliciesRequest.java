@@ -29,11 +29,8 @@ import javax.validation.Valid;
  * DescribeScalingPoliciesRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:12.731669+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T19:54:53.055566+08:00[Asia/Shanghai]")
 public class DescribeScalingPoliciesRequest {
-  @SerializedName("AlarmIds")
-  private List<String> alarmIds = null;
-
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
 
@@ -51,32 +48,6 @@ public class DescribeScalingPoliciesRequest {
 
   @SerializedName("ScalingPolicyType")
   private String scalingPolicyType = null;
-
-  public DescribeScalingPoliciesRequest alarmIds(List<String> alarmIds) {
-    this.alarmIds = alarmIds;
-    return this;
-  }
-
-  public DescribeScalingPoliciesRequest addAlarmIdsItem(String alarmIdsItem) {
-    if (this.alarmIds == null) {
-      this.alarmIds = new ArrayList<String>();
-    }
-    this.alarmIds.add(alarmIdsItem);
-    return this;
-  }
-
-   /**
-   * Get alarmIds
-   * @return alarmIds
-  **/
-  @Schema(description = "")
-  public List<String> getAlarmIds() {
-    return alarmIds;
-  }
-
-  public void setAlarmIds(List<String> alarmIds) {
-    this.alarmIds = alarmIds;
-  }
 
   public DescribeScalingPoliciesRequest pageNumber(Integer pageNumber) {
     this.pageNumber = pageNumber;
@@ -212,8 +183,7 @@ public class DescribeScalingPoliciesRequest {
       return false;
     }
     DescribeScalingPoliciesRequest describeScalingPoliciesRequest = (DescribeScalingPoliciesRequest) o;
-    return Objects.equals(this.alarmIds, describeScalingPoliciesRequest.alarmIds) &&
-        Objects.equals(this.pageNumber, describeScalingPoliciesRequest.pageNumber) &&
+    return Objects.equals(this.pageNumber, describeScalingPoliciesRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeScalingPoliciesRequest.pageSize) &&
         Objects.equals(this.scalingGroupId, describeScalingPoliciesRequest.scalingGroupId) &&
         Objects.equals(this.scalingPolicyIds, describeScalingPoliciesRequest.scalingPolicyIds) &&
@@ -223,7 +193,7 @@ public class DescribeScalingPoliciesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(alarmIds, pageNumber, pageSize, scalingGroupId, scalingPolicyIds, scalingPolicyNames, scalingPolicyType);
+    return Objects.hash(pageNumber, pageSize, scalingGroupId, scalingPolicyIds, scalingPolicyNames, scalingPolicyType);
   }
 
 
@@ -232,7 +202,6 @@ public class DescribeScalingPoliciesRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeScalingPoliciesRequest {\n");
     
-    sb.append("    alarmIds: ").append(toIndentedString(alarmIds)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    scalingGroupId: ").append(toIndentedString(scalingGroupId)).append("\n");

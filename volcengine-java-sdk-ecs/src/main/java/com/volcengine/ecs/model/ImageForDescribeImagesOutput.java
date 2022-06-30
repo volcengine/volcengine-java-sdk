@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * ImageForDescribeImagesOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:32.918937+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T19:55:14.870161+08:00[Asia/Shanghai]")
 public class ImageForDescribeImagesOutput {
   @SerializedName("Architecture")
   private String architecture = null;
@@ -44,9 +44,6 @@ public class ImageForDescribeImagesOutput {
   @SerializedName("ImageName")
   private String imageName = null;
 
-  @SerializedName("ImageOwnerId")
-  private String imageOwnerId = null;
-
   @SerializedName("IsSupportCloudInit")
   private Boolean isSupportCloudInit = null;
 
@@ -61,9 +58,6 @@ public class ImageForDescribeImagesOutput {
 
   @SerializedName("PlatformVersion")
   private String platformVersion = null;
-
-  @SerializedName("ReleaseVersion")
-  private String releaseVersion = null;
 
   @SerializedName("ShareStatus")
   private String shareStatus = null;
@@ -173,24 +167,6 @@ public class ImageForDescribeImagesOutput {
     this.imageName = imageName;
   }
 
-  public ImageForDescribeImagesOutput imageOwnerId(String imageOwnerId) {
-    this.imageOwnerId = imageOwnerId;
-    return this;
-  }
-
-   /**
-   * Get imageOwnerId
-   * @return imageOwnerId
-  **/
-  @Schema(description = "")
-  public String getImageOwnerId() {
-    return imageOwnerId;
-  }
-
-  public void setImageOwnerId(String imageOwnerId) {
-    this.imageOwnerId = imageOwnerId;
-  }
-
   public ImageForDescribeImagesOutput isSupportCloudInit(Boolean isSupportCloudInit) {
     this.isSupportCloudInit = isSupportCloudInit;
     return this;
@@ -279,24 +255,6 @@ public class ImageForDescribeImagesOutput {
 
   public void setPlatformVersion(String platformVersion) {
     this.platformVersion = platformVersion;
-  }
-
-  public ImageForDescribeImagesOutput releaseVersion(String releaseVersion) {
-    this.releaseVersion = releaseVersion;
-    return this;
-  }
-
-   /**
-   * Get releaseVersion
-   * @return releaseVersion
-  **/
-  @Schema(description = "")
-  public String getReleaseVersion() {
-    return releaseVersion;
-  }
-
-  public void setReleaseVersion(String releaseVersion) {
-    this.releaseVersion = releaseVersion;
   }
 
   public ImageForDescribeImagesOutput shareStatus(String shareStatus) {
@@ -422,13 +380,11 @@ public class ImageForDescribeImagesOutput {
         Objects.equals(this.description, imageForDescribeImagesOutput.description) &&
         Objects.equals(this.imageId, imageForDescribeImagesOutput.imageId) &&
         Objects.equals(this.imageName, imageForDescribeImagesOutput.imageName) &&
-        Objects.equals(this.imageOwnerId, imageForDescribeImagesOutput.imageOwnerId) &&
         Objects.equals(this.isSupportCloudInit, imageForDescribeImagesOutput.isSupportCloudInit) &&
         Objects.equals(this.osName, imageForDescribeImagesOutput.osName) &&
         Objects.equals(this.osType, imageForDescribeImagesOutput.osType) &&
         Objects.equals(this.platform, imageForDescribeImagesOutput.platform) &&
         Objects.equals(this.platformVersion, imageForDescribeImagesOutput.platformVersion) &&
-        Objects.equals(this.releaseVersion, imageForDescribeImagesOutput.releaseVersion) &&
         Objects.equals(this.shareStatus, imageForDescribeImagesOutput.shareStatus) &&
         Objects.equals(this.size, imageForDescribeImagesOutput.size) &&
         Objects.equals(this.status, imageForDescribeImagesOutput.status) &&
@@ -439,7 +395,7 @@ public class ImageForDescribeImagesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(architecture, createdAt, description, imageId, imageName, imageOwnerId, isSupportCloudInit, osName, osType, platform, platformVersion, releaseVersion, shareStatus, size, status, updatedAt, virtualSize, visibility);
+    return Objects.hash(architecture, createdAt, description, imageId, imageName, isSupportCloudInit, osName, osType, platform, platformVersion, shareStatus, size, status, updatedAt, virtualSize, visibility);
   }
 
 
@@ -453,13 +409,11 @@ public class ImageForDescribeImagesOutput {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    imageId: ").append(toIndentedString(imageId)).append("\n");
     sb.append("    imageName: ").append(toIndentedString(imageName)).append("\n");
-    sb.append("    imageOwnerId: ").append(toIndentedString(imageOwnerId)).append("\n");
     sb.append("    isSupportCloudInit: ").append(toIndentedString(isSupportCloudInit)).append("\n");
     sb.append("    osName: ").append(toIndentedString(osName)).append("\n");
     sb.append("    osType: ").append(toIndentedString(osType)).append("\n");
     sb.append("    platform: ").append(toIndentedString(platform)).append("\n");
     sb.append("    platformVersion: ").append(toIndentedString(platformVersion)).append("\n");
-    sb.append("    releaseVersion: ").append(toIndentedString(releaseVersion)).append("\n");
     sb.append("    shareStatus: ").append(toIndentedString(shareStatus)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");

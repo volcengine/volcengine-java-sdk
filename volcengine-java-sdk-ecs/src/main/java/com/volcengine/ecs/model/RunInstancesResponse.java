@@ -29,13 +29,10 @@ import javax.validation.Valid;
  * RunInstancesResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:32.918937+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T19:55:14.870161+08:00[Asia/Shanghai]")
 public class RunInstancesResponse {
   @SerializedName("InstanceIds")
   private List<String> instanceIds = null;
-
-  @SerializedName("PreorderIds")
-  private List<String> preorderIds = null;
 
   public RunInstancesResponse instanceIds(List<String> instanceIds) {
     this.instanceIds = instanceIds;
@@ -63,32 +60,6 @@ public class RunInstancesResponse {
     this.instanceIds = instanceIds;
   }
 
-  public RunInstancesResponse preorderIds(List<String> preorderIds) {
-    this.preorderIds = preorderIds;
-    return this;
-  }
-
-  public RunInstancesResponse addPreorderIdsItem(String preorderIdsItem) {
-    if (this.preorderIds == null) {
-      this.preorderIds = new ArrayList<String>();
-    }
-    this.preorderIds.add(preorderIdsItem);
-    return this;
-  }
-
-   /**
-   * Get preorderIds
-   * @return preorderIds
-  **/
-  @Schema(description = "")
-  public List<String> getPreorderIds() {
-    return preorderIds;
-  }
-
-  public void setPreorderIds(List<String> preorderIds) {
-    this.preorderIds = preorderIds;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -99,13 +70,12 @@ public class RunInstancesResponse {
       return false;
     }
     RunInstancesResponse runInstancesResponse = (RunInstancesResponse) o;
-    return Objects.equals(this.instanceIds, runInstancesResponse.instanceIds) &&
-        Objects.equals(this.preorderIds, runInstancesResponse.preorderIds);
+    return Objects.equals(this.instanceIds, runInstancesResponse.instanceIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceIds, preorderIds);
+    return Objects.hash(instanceIds);
   }
 
 
@@ -115,7 +85,6 @@ public class RunInstancesResponse {
     sb.append("class RunInstancesResponse {\n");
     
     sb.append("    instanceIds: ").append(toIndentedString(instanceIds)).append("\n");
-    sb.append("    preorderIds: ").append(toIndentedString(preorderIds)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -27,52 +27,10 @@ import javax.validation.Valid;
  * DeleteVolumeRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:45.652685+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T19:55:22.782496+08:00[Asia/Shanghai]")
 public class DeleteVolumeRequest {
-  @SerializedName("AccountId")
-  private String accountId = null;
-
-  @SerializedName("ProjectName")
-  private String projectName = null;
-
   @SerializedName("VolumeId")
   private String volumeId = null;
-
-  public DeleteVolumeRequest accountId(String accountId) {
-    this.accountId = accountId;
-    return this;
-  }
-
-   /**
-   * Get accountId
-   * @return accountId
-  **/
-  @Schema(description = "")
-  public String getAccountId() {
-    return accountId;
-  }
-
-  public void setAccountId(String accountId) {
-    this.accountId = accountId;
-  }
-
-  public DeleteVolumeRequest projectName(String projectName) {
-    this.projectName = projectName;
-    return this;
-  }
-
-   /**
-   * Get projectName
-   * @return projectName
-  **/
-  @Schema(description = "")
-  public String getProjectName() {
-    return projectName;
-  }
-
-  public void setProjectName(String projectName) {
-    this.projectName = projectName;
-  }
 
   public DeleteVolumeRequest volumeId(String volumeId) {
     this.volumeId = volumeId;
@@ -102,14 +60,12 @@ public class DeleteVolumeRequest {
       return false;
     }
     DeleteVolumeRequest deleteVolumeRequest = (DeleteVolumeRequest) o;
-    return Objects.equals(this.accountId, deleteVolumeRequest.accountId) &&
-        Objects.equals(this.projectName, deleteVolumeRequest.projectName) &&
-        Objects.equals(this.volumeId, deleteVolumeRequest.volumeId);
+    return Objects.equals(this.volumeId, deleteVolumeRequest.volumeId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, projectName, volumeId);
+    return Objects.hash(volumeId);
   }
 
 
@@ -118,8 +74,6 @@ public class DeleteVolumeRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteVolumeRequest {\n");
     
-    sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
-    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    volumeId: ").append(toIndentedString(volumeId)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -27,34 +27,13 @@ import javax.validation.Valid;
  * DetachVolumeRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:45.652685+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T19:55:22.782496+08:00[Asia/Shanghai]")
 public class DetachVolumeRequest {
-  @SerializedName("DeleteWithInstance")
-  private Boolean deleteWithInstance = null;
-
   @SerializedName("InstanceId")
   private String instanceId = null;
 
   @SerializedName("VolumeId")
   private String volumeId = null;
-
-  public DetachVolumeRequest deleteWithInstance(Boolean deleteWithInstance) {
-    this.deleteWithInstance = deleteWithInstance;
-    return this;
-  }
-
-   /**
-   * Get deleteWithInstance
-   * @return deleteWithInstance
-  **/
-  @Schema(description = "")
-  public Boolean isDeleteWithInstance() {
-    return deleteWithInstance;
-  }
-
-  public void setDeleteWithInstance(Boolean deleteWithInstance) {
-    this.deleteWithInstance = deleteWithInstance;
-  }
 
   public DetachVolumeRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
@@ -102,14 +81,13 @@ public class DetachVolumeRequest {
       return false;
     }
     DetachVolumeRequest detachVolumeRequest = (DetachVolumeRequest) o;
-    return Objects.equals(this.deleteWithInstance, detachVolumeRequest.deleteWithInstance) &&
-        Objects.equals(this.instanceId, detachVolumeRequest.instanceId) &&
+    return Objects.equals(this.instanceId, detachVolumeRequest.instanceId) &&
         Objects.equals(this.volumeId, detachVolumeRequest.volumeId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleteWithInstance, instanceId, volumeId);
+    return Objects.hash(instanceId, volumeId);
   }
 
 
@@ -118,7 +96,6 @@ public class DetachVolumeRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DetachVolumeRequest {\n");
     
-    sb.append("    deleteWithInstance: ").append(toIndentedString(deleteWithInstance)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    volumeId: ").append(toIndentedString(volumeId)).append("\n");
     sb.append("}");

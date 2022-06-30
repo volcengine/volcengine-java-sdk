@@ -29,7 +29,7 @@ import javax.validation.Valid;
  * DescribeEipAddressesRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:48.516414+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T19:55:25.796697+08:00[Asia/Shanghai]")
 public class DescribeEipAddressesRequest {
   @SerializedName("AllocationIds")
   private List<String> allocationIds = null;
@@ -83,9 +83,6 @@ public class DescribeEipAddressesRequest {
     }
   }  @SerializedName("AssociatedInstanceType")
   private AssociatedInstanceTypeEnum associatedInstanceType = null;
-
-  @SerializedName("BandwidthPackageId")
-  private String bandwidthPackageId = null;
 
   @SerializedName("BillingType")
   private Integer billingType = null;
@@ -259,24 +256,6 @@ public class DescribeEipAddressesRequest {
     this.associatedInstanceType = associatedInstanceType;
   }
 
-  public DescribeEipAddressesRequest bandwidthPackageId(String bandwidthPackageId) {
-    this.bandwidthPackageId = bandwidthPackageId;
-    return this;
-  }
-
-   /**
-   * Get bandwidthPackageId
-   * @return bandwidthPackageId
-  **/
-  @Schema(description = "")
-  public String getBandwidthPackageId() {
-    return bandwidthPackageId;
-  }
-
-  public void setBandwidthPackageId(String bandwidthPackageId) {
-    this.bandwidthPackageId = bandwidthPackageId;
-  }
-
   public DescribeEipAddressesRequest billingType(Integer billingType) {
     this.billingType = billingType;
     return this;
@@ -445,7 +424,6 @@ public class DescribeEipAddressesRequest {
     return Objects.equals(this.allocationIds, describeEipAddressesRequest.allocationIds) &&
         Objects.equals(this.associatedInstanceId, describeEipAddressesRequest.associatedInstanceId) &&
         Objects.equals(this.associatedInstanceType, describeEipAddressesRequest.associatedInstanceType) &&
-        Objects.equals(this.bandwidthPackageId, describeEipAddressesRequest.bandwidthPackageId) &&
         Objects.equals(this.billingType, describeEipAddressesRequest.billingType) &&
         Objects.equals(this.eipAddresses, describeEipAddressesRequest.eipAddresses) &&
         Objects.equals(this.ISP, describeEipAddressesRequest.ISP) &&
@@ -458,7 +436,7 @@ public class DescribeEipAddressesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allocationIds, associatedInstanceId, associatedInstanceType, bandwidthPackageId, billingType, eipAddresses, ISP, name, pageNumber, pageSize, securityProtectionEnabled, status);
+    return Objects.hash(allocationIds, associatedInstanceId, associatedInstanceType, billingType, eipAddresses, ISP, name, pageNumber, pageSize, securityProtectionEnabled, status);
   }
 
 
@@ -470,7 +448,6 @@ public class DescribeEipAddressesRequest {
     sb.append("    allocationIds: ").append(toIndentedString(allocationIds)).append("\n");
     sb.append("    associatedInstanceId: ").append(toIndentedString(associatedInstanceId)).append("\n");
     sb.append("    associatedInstanceType: ").append(toIndentedString(associatedInstanceType)).append("\n");
-    sb.append("    bandwidthPackageId: ").append(toIndentedString(bandwidthPackageId)).append("\n");
     sb.append("    billingType: ").append(toIndentedString(billingType)).append("\n");
     sb.append("    eipAddresses: ").append(toIndentedString(eipAddresses)).append("\n");
     sb.append("    ISP: ").append(toIndentedString(ISP)).append("\n");

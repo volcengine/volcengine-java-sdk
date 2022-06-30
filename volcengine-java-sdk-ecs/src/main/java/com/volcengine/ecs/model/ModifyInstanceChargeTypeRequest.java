@@ -29,16 +29,13 @@ import javax.validation.Valid;
  * ModifyInstanceChargeTypeRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:32.918937+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T19:55:14.870161+08:00[Asia/Shanghai]")
 public class ModifyInstanceChargeTypeRequest {
   @SerializedName("AutoPay")
   private Boolean autoPay = null;
 
-  @SerializedName("AutoRenew")
-  private Boolean autoRenew = null;
-
-  @SerializedName("DryRun")
-  private Boolean dryRun = null;
+  @SerializedName("ClientToken")
+  private String clientToken = null;
 
   @SerializedName("IncludeDataVolumes")
   private Boolean includeDataVolumes = null;
@@ -73,40 +70,22 @@ public class ModifyInstanceChargeTypeRequest {
     this.autoPay = autoPay;
   }
 
-  public ModifyInstanceChargeTypeRequest autoRenew(Boolean autoRenew) {
-    this.autoRenew = autoRenew;
+  public ModifyInstanceChargeTypeRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
     return this;
   }
 
    /**
-   * Get autoRenew
-   * @return autoRenew
+   * Get clientToken
+   * @return clientToken
   **/
   @Schema(description = "")
-  public Boolean isAutoRenew() {
-    return autoRenew;
+  public String getClientToken() {
+    return clientToken;
   }
 
-  public void setAutoRenew(Boolean autoRenew) {
-    this.autoRenew = autoRenew;
-  }
-
-  public ModifyInstanceChargeTypeRequest dryRun(Boolean dryRun) {
-    this.dryRun = dryRun;
-    return this;
-  }
-
-   /**
-   * Get dryRun
-   * @return dryRun
-  **/
-  @Schema(description = "")
-  public Boolean isDryRun() {
-    return dryRun;
-  }
-
-  public void setDryRun(Boolean dryRun) {
-    this.dryRun = dryRun;
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
   }
 
   public ModifyInstanceChargeTypeRequest includeDataVolumes(Boolean includeDataVolumes) {
@@ -218,8 +197,7 @@ public class ModifyInstanceChargeTypeRequest {
     }
     ModifyInstanceChargeTypeRequest modifyInstanceChargeTypeRequest = (ModifyInstanceChargeTypeRequest) o;
     return Objects.equals(this.autoPay, modifyInstanceChargeTypeRequest.autoPay) &&
-        Objects.equals(this.autoRenew, modifyInstanceChargeTypeRequest.autoRenew) &&
-        Objects.equals(this.dryRun, modifyInstanceChargeTypeRequest.dryRun) &&
+        Objects.equals(this.clientToken, modifyInstanceChargeTypeRequest.clientToken) &&
         Objects.equals(this.includeDataVolumes, modifyInstanceChargeTypeRequest.includeDataVolumes) &&
         Objects.equals(this.instanceChargeType, modifyInstanceChargeTypeRequest.instanceChargeType) &&
         Objects.equals(this.instanceIds, modifyInstanceChargeTypeRequest.instanceIds) &&
@@ -229,7 +207,7 @@ public class ModifyInstanceChargeTypeRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoPay, autoRenew, dryRun, includeDataVolumes, instanceChargeType, instanceIds, period, periodUnit);
+    return Objects.hash(autoPay, clientToken, includeDataVolumes, instanceChargeType, instanceIds, period, periodUnit);
   }
 
 
@@ -239,8 +217,7 @@ public class ModifyInstanceChargeTypeRequest {
     sb.append("class ModifyInstanceChargeTypeRequest {\n");
     
     sb.append("    autoPay: ").append(toIndentedString(autoPay)).append("\n");
-    sb.append("    autoRenew: ").append(toIndentedString(autoRenew)).append("\n");
-    sb.append("    dryRun: ").append(toIndentedString(dryRun)).append("\n");
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    includeDataVolumes: ").append(toIndentedString(includeDataVolumes)).append("\n");
     sb.append("    instanceChargeType: ").append(toIndentedString(instanceChargeType)).append("\n");
     sb.append("    instanceIds: ").append(toIndentedString(instanceIds)).append("\n");

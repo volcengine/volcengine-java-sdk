@@ -27,10 +27,10 @@ import javax.validation.Valid;
  * ReplaceSystemVolumeRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:32.918937+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T19:55:14.870161+08:00[Asia/Shanghai]")
 public class ReplaceSystemVolumeRequest {
-  @SerializedName("DryRun")
-  private Boolean dryRun = null;
+  @SerializedName("ClientToken")
+  private String clientToken = null;
 
   @SerializedName("ImageId")
   private String imageId = null;
@@ -50,22 +50,22 @@ public class ReplaceSystemVolumeRequest {
   @SerializedName("UserData")
   private String userData = null;
 
-  public ReplaceSystemVolumeRequest dryRun(Boolean dryRun) {
-    this.dryRun = dryRun;
+  public ReplaceSystemVolumeRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
     return this;
   }
 
    /**
-   * Get dryRun
-   * @return dryRun
+   * Get clientToken
+   * @return clientToken
   **/
   @Schema(description = "")
-  public Boolean isDryRun() {
-    return dryRun;
+  public String getClientToken() {
+    return clientToken;
   }
 
-  public void setDryRun(Boolean dryRun) {
-    this.dryRun = dryRun;
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
   }
 
   public ReplaceSystemVolumeRequest imageId(String imageId) {
@@ -186,7 +186,7 @@ public class ReplaceSystemVolumeRequest {
       return false;
     }
     ReplaceSystemVolumeRequest replaceSystemVolumeRequest = (ReplaceSystemVolumeRequest) o;
-    return Objects.equals(this.dryRun, replaceSystemVolumeRequest.dryRun) &&
+    return Objects.equals(this.clientToken, replaceSystemVolumeRequest.clientToken) &&
         Objects.equals(this.imageId, replaceSystemVolumeRequest.imageId) &&
         Objects.equals(this.instanceId, replaceSystemVolumeRequest.instanceId) &&
         Objects.equals(this.keyPairName, replaceSystemVolumeRequest.keyPairName) &&
@@ -197,7 +197,7 @@ public class ReplaceSystemVolumeRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dryRun, imageId, instanceId, keyPairName, password, size, userData);
+    return Objects.hash(clientToken, imageId, instanceId, keyPairName, password, size, userData);
   }
 
 
@@ -206,7 +206,7 @@ public class ReplaceSystemVolumeRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ReplaceSystemVolumeRequest {\n");
     
-    sb.append("    dryRun: ").append(toIndentedString(dryRun)).append("\n");
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    imageId: ").append(toIndentedString(imageId)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    keyPairName: ").append(toIndentedString(keyPairName)).append("\n");

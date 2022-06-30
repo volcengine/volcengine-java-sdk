@@ -29,7 +29,7 @@ import javax.validation.Valid;
  * ModifyNetworkInterfaceAttributesRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:48.516414+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T19:55:25.796697+08:00[Asia/Shanghai]")
 public class ModifyNetworkInterfaceAttributesRequest {
   @SerializedName("Description")
   private String description = null;
@@ -39,9 +39,6 @@ public class ModifyNetworkInterfaceAttributesRequest {
 
   @SerializedName("NetworkInterfaceName")
   private String networkInterfaceName = null;
-
-  @SerializedName("PortSecurityEnabled")
-  private Boolean portSecurityEnabled = null;
 
   @SerializedName("SecurityGroupIds")
   private List<String> securityGroupIds = null;
@@ -101,24 +98,6 @@ public class ModifyNetworkInterfaceAttributesRequest {
     this.networkInterfaceName = networkInterfaceName;
   }
 
-  public ModifyNetworkInterfaceAttributesRequest portSecurityEnabled(Boolean portSecurityEnabled) {
-    this.portSecurityEnabled = portSecurityEnabled;
-    return this;
-  }
-
-   /**
-   * Get portSecurityEnabled
-   * @return portSecurityEnabled
-  **/
-  @Schema(description = "")
-  public Boolean isPortSecurityEnabled() {
-    return portSecurityEnabled;
-  }
-
-  public void setPortSecurityEnabled(Boolean portSecurityEnabled) {
-    this.portSecurityEnabled = portSecurityEnabled;
-  }
-
   public ModifyNetworkInterfaceAttributesRequest securityGroupIds(List<String> securityGroupIds) {
     this.securityGroupIds = securityGroupIds;
     return this;
@@ -158,13 +137,12 @@ public class ModifyNetworkInterfaceAttributesRequest {
     return Objects.equals(this.description, modifyNetworkInterfaceAttributesRequest.description) &&
         Objects.equals(this.networkInterfaceId, modifyNetworkInterfaceAttributesRequest.networkInterfaceId) &&
         Objects.equals(this.networkInterfaceName, modifyNetworkInterfaceAttributesRequest.networkInterfaceName) &&
-        Objects.equals(this.portSecurityEnabled, modifyNetworkInterfaceAttributesRequest.portSecurityEnabled) &&
         Objects.equals(this.securityGroupIds, modifyNetworkInterfaceAttributesRequest.securityGroupIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, networkInterfaceId, networkInterfaceName, portSecurityEnabled, securityGroupIds);
+    return Objects.hash(description, networkInterfaceId, networkInterfaceName, securityGroupIds);
   }
 
 
@@ -176,7 +154,6 @@ public class ModifyNetworkInterfaceAttributesRequest {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    networkInterfaceId: ").append(toIndentedString(networkInterfaceId)).append("\n");
     sb.append("    networkInterfaceName: ").append(toIndentedString(networkInterfaceName)).append("\n");
-    sb.append("    portSecurityEnabled: ").append(toIndentedString(portSecurityEnabled)).append("\n");
     sb.append("    securityGroupIds: ").append(toIndentedString(securityGroupIds)).append("\n");
     sb.append("}");
     return sb.toString();
