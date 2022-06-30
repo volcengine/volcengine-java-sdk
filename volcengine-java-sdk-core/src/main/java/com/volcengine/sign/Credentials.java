@@ -38,9 +38,9 @@ public class Credentials {
 
     public static Credentials getEnvCredentials() {
         Credentials credentials = new Credentials();
-        credentials.accessKey = System.getenv("Volcengine_ACCESS_KEY");
-        credentials.secretKey = System.getenv("Volcengine_SECRET_KEY");
-        credentials.sessionToken = System.getenv("Volcengine_SESSION_TOKEN");
+        credentials.accessKey = System.getenv("VOLCENGINE_ACCESS_KEY");
+        credentials.secretKey = System.getenv("VOLCENGINE_SECRET_KEY");
+        credentials.sessionToken = System.getenv("VOLCENGINE_SESSION_TOKEN");
         return credentials;
     }
 
