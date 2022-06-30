@@ -35,19 +35,10 @@ import javax.validation.Valid;
  * InstanceTypeForDescribeInstanceTypesOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:32.918937+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T20:18:05.921659+08:00[Asia/Shanghai]")
 public class InstanceTypeForDescribeInstanceTypesOutput {
-  @SerializedName("Architecture")
-  private String architecture = null;
-
-  @SerializedName("Cpu")
-  private Integer cpu = null;
-
   @SerializedName("Gpu")
   private GpuForDescribeInstanceTypesOutput gpu = null;
-
-  @SerializedName("Id")
-  private String id = null;
 
   @SerializedName("InstanceTypeFamily")
   private String instanceTypeFamily = null;
@@ -58,26 +49,8 @@ public class InstanceTypeForDescribeInstanceTypesOutput {
   @SerializedName("LocalVolumes")
   private List<LocalVolumeForDescribeInstanceTypesOutput> localVolumes = null;
 
-  @SerializedName("Mem")
-  private Integer mem = null;
-
   @SerializedName("Memory")
   private MemoryForDescribeInstanceTypesOutput memory = null;
-
-  @SerializedName("NetKppsQuota")
-  private Integer netKppsQuota = null;
-
-  @SerializedName("NetMbpsQuota")
-  private Integer netMbpsQuota = null;
-
-  @SerializedName("NetSessionQuota")
-  private Integer netSessionQuota = null;
-
-  @SerializedName("NetworkInterfaceNumQuota")
-  private Integer networkInterfaceNumQuota = null;
-
-  @SerializedName("PrivateIpQuota")
-  private Integer privateIpQuota = null;
 
   @SerializedName("Processor")
   private ProcessorForDescribeInstanceTypesOutput processor = null;
@@ -85,50 +58,8 @@ public class InstanceTypeForDescribeInstanceTypesOutput {
   @SerializedName("Rdma")
   private RdmaForDescribeInstanceTypesOutput rdma = null;
 
-  @SerializedName("Type")
-  private String type = null;
-
   @SerializedName("Volume")
   private VolumeForDescribeInstanceTypesOutput volume = null;
-
-  @SerializedName("VolumeTypes")
-  private List<String> volumeTypes = null;
-
-  public InstanceTypeForDescribeInstanceTypesOutput architecture(String architecture) {
-    this.architecture = architecture;
-    return this;
-  }
-
-   /**
-   * Get architecture
-   * @return architecture
-  **/
-  @Schema(description = "")
-  public String getArchitecture() {
-    return architecture;
-  }
-
-  public void setArchitecture(String architecture) {
-    this.architecture = architecture;
-  }
-
-  public InstanceTypeForDescribeInstanceTypesOutput cpu(Integer cpu) {
-    this.cpu = cpu;
-    return this;
-  }
-
-   /**
-   * Get cpu
-   * @return cpu
-  **/
-  @Schema(description = "")
-  public Integer getCpu() {
-    return cpu;
-  }
-
-  public void setCpu(Integer cpu) {
-    this.cpu = cpu;
-  }
 
   public InstanceTypeForDescribeInstanceTypesOutput gpu(GpuForDescribeInstanceTypesOutput gpu) {
     this.gpu = gpu;
@@ -147,24 +78,6 @@ public class InstanceTypeForDescribeInstanceTypesOutput {
 
   public void setGpu(GpuForDescribeInstanceTypesOutput gpu) {
     this.gpu = gpu;
-  }
-
-  public InstanceTypeForDescribeInstanceTypesOutput id(String id) {
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * Get id
-   * @return id
-  **/
-  @Schema(description = "")
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
   }
 
   public InstanceTypeForDescribeInstanceTypesOutput instanceTypeFamily(String instanceTypeFamily) {
@@ -230,24 +143,6 @@ public class InstanceTypeForDescribeInstanceTypesOutput {
     this.localVolumes = localVolumes;
   }
 
-  public InstanceTypeForDescribeInstanceTypesOutput mem(Integer mem) {
-    this.mem = mem;
-    return this;
-  }
-
-   /**
-   * Get mem
-   * @return mem
-  **/
-  @Schema(description = "")
-  public Integer getMem() {
-    return mem;
-  }
-
-  public void setMem(Integer mem) {
-    this.mem = mem;
-  }
-
   public InstanceTypeForDescribeInstanceTypesOutput memory(MemoryForDescribeInstanceTypesOutput memory) {
     this.memory = memory;
     return this;
@@ -265,96 +160,6 @@ public class InstanceTypeForDescribeInstanceTypesOutput {
 
   public void setMemory(MemoryForDescribeInstanceTypesOutput memory) {
     this.memory = memory;
-  }
-
-  public InstanceTypeForDescribeInstanceTypesOutput netKppsQuota(Integer netKppsQuota) {
-    this.netKppsQuota = netKppsQuota;
-    return this;
-  }
-
-   /**
-   * Get netKppsQuota
-   * @return netKppsQuota
-  **/
-  @Schema(description = "")
-  public Integer getNetKppsQuota() {
-    return netKppsQuota;
-  }
-
-  public void setNetKppsQuota(Integer netKppsQuota) {
-    this.netKppsQuota = netKppsQuota;
-  }
-
-  public InstanceTypeForDescribeInstanceTypesOutput netMbpsQuota(Integer netMbpsQuota) {
-    this.netMbpsQuota = netMbpsQuota;
-    return this;
-  }
-
-   /**
-   * Get netMbpsQuota
-   * @return netMbpsQuota
-  **/
-  @Schema(description = "")
-  public Integer getNetMbpsQuota() {
-    return netMbpsQuota;
-  }
-
-  public void setNetMbpsQuota(Integer netMbpsQuota) {
-    this.netMbpsQuota = netMbpsQuota;
-  }
-
-  public InstanceTypeForDescribeInstanceTypesOutput netSessionQuota(Integer netSessionQuota) {
-    this.netSessionQuota = netSessionQuota;
-    return this;
-  }
-
-   /**
-   * Get netSessionQuota
-   * @return netSessionQuota
-  **/
-  @Schema(description = "")
-  public Integer getNetSessionQuota() {
-    return netSessionQuota;
-  }
-
-  public void setNetSessionQuota(Integer netSessionQuota) {
-    this.netSessionQuota = netSessionQuota;
-  }
-
-  public InstanceTypeForDescribeInstanceTypesOutput networkInterfaceNumQuota(Integer networkInterfaceNumQuota) {
-    this.networkInterfaceNumQuota = networkInterfaceNumQuota;
-    return this;
-  }
-
-   /**
-   * Get networkInterfaceNumQuota
-   * @return networkInterfaceNumQuota
-  **/
-  @Schema(description = "")
-  public Integer getNetworkInterfaceNumQuota() {
-    return networkInterfaceNumQuota;
-  }
-
-  public void setNetworkInterfaceNumQuota(Integer networkInterfaceNumQuota) {
-    this.networkInterfaceNumQuota = networkInterfaceNumQuota;
-  }
-
-  public InstanceTypeForDescribeInstanceTypesOutput privateIpQuota(Integer privateIpQuota) {
-    this.privateIpQuota = privateIpQuota;
-    return this;
-  }
-
-   /**
-   * Get privateIpQuota
-   * @return privateIpQuota
-  **/
-  @Schema(description = "")
-  public Integer getPrivateIpQuota() {
-    return privateIpQuota;
-  }
-
-  public void setPrivateIpQuota(Integer privateIpQuota) {
-    this.privateIpQuota = privateIpQuota;
   }
 
   public InstanceTypeForDescribeInstanceTypesOutput processor(ProcessorForDescribeInstanceTypesOutput processor) {
@@ -395,24 +200,6 @@ public class InstanceTypeForDescribeInstanceTypesOutput {
     this.rdma = rdma;
   }
 
-  public InstanceTypeForDescribeInstanceTypesOutput type(String type) {
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * Get type
-   * @return type
-  **/
-  @Schema(description = "")
-  public String getType() {
-    return type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
-
   public InstanceTypeForDescribeInstanceTypesOutput volume(VolumeForDescribeInstanceTypesOutput volume) {
     this.volume = volume;
     return this;
@@ -432,32 +219,6 @@ public class InstanceTypeForDescribeInstanceTypesOutput {
     this.volume = volume;
   }
 
-  public InstanceTypeForDescribeInstanceTypesOutput volumeTypes(List<String> volumeTypes) {
-    this.volumeTypes = volumeTypes;
-    return this;
-  }
-
-  public InstanceTypeForDescribeInstanceTypesOutput addVolumeTypesItem(String volumeTypesItem) {
-    if (this.volumeTypes == null) {
-      this.volumeTypes = new ArrayList<String>();
-    }
-    this.volumeTypes.add(volumeTypesItem);
-    return this;
-  }
-
-   /**
-   * Get volumeTypes
-   * @return volumeTypes
-  **/
-  @Schema(description = "")
-  public List<String> getVolumeTypes() {
-    return volumeTypes;
-  }
-
-  public void setVolumeTypes(List<String> volumeTypes) {
-    this.volumeTypes = volumeTypes;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -468,30 +229,19 @@ public class InstanceTypeForDescribeInstanceTypesOutput {
       return false;
     }
     InstanceTypeForDescribeInstanceTypesOutput instanceTypeForDescribeInstanceTypesOutput = (InstanceTypeForDescribeInstanceTypesOutput) o;
-    return Objects.equals(this.architecture, instanceTypeForDescribeInstanceTypesOutput.architecture) &&
-        Objects.equals(this.cpu, instanceTypeForDescribeInstanceTypesOutput.cpu) &&
-        Objects.equals(this.gpu, instanceTypeForDescribeInstanceTypesOutput.gpu) &&
-        Objects.equals(this.id, instanceTypeForDescribeInstanceTypesOutput.id) &&
+    return Objects.equals(this.gpu, instanceTypeForDescribeInstanceTypesOutput.gpu) &&
         Objects.equals(this.instanceTypeFamily, instanceTypeForDescribeInstanceTypesOutput.instanceTypeFamily) &&
         Objects.equals(this.instanceTypeId, instanceTypeForDescribeInstanceTypesOutput.instanceTypeId) &&
         Objects.equals(this.localVolumes, instanceTypeForDescribeInstanceTypesOutput.localVolumes) &&
-        Objects.equals(this.mem, instanceTypeForDescribeInstanceTypesOutput.mem) &&
         Objects.equals(this.memory, instanceTypeForDescribeInstanceTypesOutput.memory) &&
-        Objects.equals(this.netKppsQuota, instanceTypeForDescribeInstanceTypesOutput.netKppsQuota) &&
-        Objects.equals(this.netMbpsQuota, instanceTypeForDescribeInstanceTypesOutput.netMbpsQuota) &&
-        Objects.equals(this.netSessionQuota, instanceTypeForDescribeInstanceTypesOutput.netSessionQuota) &&
-        Objects.equals(this.networkInterfaceNumQuota, instanceTypeForDescribeInstanceTypesOutput.networkInterfaceNumQuota) &&
-        Objects.equals(this.privateIpQuota, instanceTypeForDescribeInstanceTypesOutput.privateIpQuota) &&
         Objects.equals(this.processor, instanceTypeForDescribeInstanceTypesOutput.processor) &&
         Objects.equals(this.rdma, instanceTypeForDescribeInstanceTypesOutput.rdma) &&
-        Objects.equals(this.type, instanceTypeForDescribeInstanceTypesOutput.type) &&
-        Objects.equals(this.volume, instanceTypeForDescribeInstanceTypesOutput.volume) &&
-        Objects.equals(this.volumeTypes, instanceTypeForDescribeInstanceTypesOutput.volumeTypes);
+        Objects.equals(this.volume, instanceTypeForDescribeInstanceTypesOutput.volume);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(architecture, cpu, gpu, id, instanceTypeFamily, instanceTypeId, localVolumes, mem, memory, netKppsQuota, netMbpsQuota, netSessionQuota, networkInterfaceNumQuota, privateIpQuota, processor, rdma, type, volume, volumeTypes);
+    return Objects.hash(gpu, instanceTypeFamily, instanceTypeId, localVolumes, memory, processor, rdma, volume);
   }
 
 
@@ -500,25 +250,14 @@ public class InstanceTypeForDescribeInstanceTypesOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class InstanceTypeForDescribeInstanceTypesOutput {\n");
     
-    sb.append("    architecture: ").append(toIndentedString(architecture)).append("\n");
-    sb.append("    cpu: ").append(toIndentedString(cpu)).append("\n");
     sb.append("    gpu: ").append(toIndentedString(gpu)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    instanceTypeFamily: ").append(toIndentedString(instanceTypeFamily)).append("\n");
     sb.append("    instanceTypeId: ").append(toIndentedString(instanceTypeId)).append("\n");
     sb.append("    localVolumes: ").append(toIndentedString(localVolumes)).append("\n");
-    sb.append("    mem: ").append(toIndentedString(mem)).append("\n");
     sb.append("    memory: ").append(toIndentedString(memory)).append("\n");
-    sb.append("    netKppsQuota: ").append(toIndentedString(netKppsQuota)).append("\n");
-    sb.append("    netMbpsQuota: ").append(toIndentedString(netMbpsQuota)).append("\n");
-    sb.append("    netSessionQuota: ").append(toIndentedString(netSessionQuota)).append("\n");
-    sb.append("    networkInterfaceNumQuota: ").append(toIndentedString(networkInterfaceNumQuota)).append("\n");
-    sb.append("    privateIpQuota: ").append(toIndentedString(privateIpQuota)).append("\n");
     sb.append("    processor: ").append(toIndentedString(processor)).append("\n");
     sb.append("    rdma: ").append(toIndentedString(rdma)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    volume: ").append(toIndentedString(volume)).append("\n");
-    sb.append("    volumeTypes: ").append(toIndentedString(volumeTypes)).append("\n");
     sb.append("}");
     return sb.toString();
   }

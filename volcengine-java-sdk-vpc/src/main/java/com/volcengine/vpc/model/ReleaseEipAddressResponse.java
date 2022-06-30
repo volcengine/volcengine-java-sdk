@@ -27,31 +27,10 @@ import javax.validation.Valid;
  * ReleaseEipAddressResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:48.516414+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T20:18:16.579539+08:00[Asia/Shanghai]")
 public class ReleaseEipAddressResponse {
-  @SerializedName("PreOrderNumber")
-  private String preOrderNumber = null;
-
   @SerializedName("RequestId")
   private String requestId = null;
-
-  public ReleaseEipAddressResponse preOrderNumber(String preOrderNumber) {
-    this.preOrderNumber = preOrderNumber;
-    return this;
-  }
-
-   /**
-   * Get preOrderNumber
-   * @return preOrderNumber
-  **/
-  @Schema(description = "")
-  public String getPreOrderNumber() {
-    return preOrderNumber;
-  }
-
-  public void setPreOrderNumber(String preOrderNumber) {
-    this.preOrderNumber = preOrderNumber;
-  }
 
   public ReleaseEipAddressResponse requestId(String requestId) {
     this.requestId = requestId;
@@ -81,13 +60,12 @@ public class ReleaseEipAddressResponse {
       return false;
     }
     ReleaseEipAddressResponse releaseEipAddressResponse = (ReleaseEipAddressResponse) o;
-    return Objects.equals(this.preOrderNumber, releaseEipAddressResponse.preOrderNumber) &&
-        Objects.equals(this.requestId, releaseEipAddressResponse.requestId);
+    return Objects.equals(this.requestId, releaseEipAddressResponse.requestId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(preOrderNumber, requestId);
+    return Objects.hash(requestId);
   }
 
 
@@ -96,7 +74,6 @@ public class ReleaseEipAddressResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class ReleaseEipAddressResponse {\n");
     
-    sb.append("    preOrderNumber: ").append(toIndentedString(preOrderNumber)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("}");
     return sb.toString();

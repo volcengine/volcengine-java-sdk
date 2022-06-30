@@ -27,22 +27,13 @@ import javax.validation.Valid;
  * VolumeForRunInstancesInput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:32.918937+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T20:18:05.921659+08:00[Asia/Shanghai]")
 public class VolumeForRunInstancesInput {
   @SerializedName("DeleteWithInstance")
   private String deleteWithInstance = null;
 
-  @SerializedName("Description")
-  private String description = null;
-
   @SerializedName("Size")
   private Integer size = null;
-
-  @SerializedName("SnapshotId")
-  private String snapshotId = null;
-
-  @SerializedName("VolumeName")
-  private String volumeName = null;
 
   @SerializedName("VolumeType")
   private String volumeType = null;
@@ -65,24 +56,6 @@ public class VolumeForRunInstancesInput {
     this.deleteWithInstance = deleteWithInstance;
   }
 
-  public VolumeForRunInstancesInput description(String description) {
-    this.description = description;
-    return this;
-  }
-
-   /**
-   * Get description
-   * @return description
-  **/
-  @Schema(description = "")
-  public String getDescription() {
-    return description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
   public VolumeForRunInstancesInput size(Integer size) {
     this.size = size;
     return this;
@@ -99,42 +72,6 @@ public class VolumeForRunInstancesInput {
 
   public void setSize(Integer size) {
     this.size = size;
-  }
-
-  public VolumeForRunInstancesInput snapshotId(String snapshotId) {
-    this.snapshotId = snapshotId;
-    return this;
-  }
-
-   /**
-   * Get snapshotId
-   * @return snapshotId
-  **/
-  @Schema(description = "")
-  public String getSnapshotId() {
-    return snapshotId;
-  }
-
-  public void setSnapshotId(String snapshotId) {
-    this.snapshotId = snapshotId;
-  }
-
-  public VolumeForRunInstancesInput volumeName(String volumeName) {
-    this.volumeName = volumeName;
-    return this;
-  }
-
-   /**
-   * Get volumeName
-   * @return volumeName
-  **/
-  @Schema(description = "")
-  public String getVolumeName() {
-    return volumeName;
-  }
-
-  public void setVolumeName(String volumeName) {
-    this.volumeName = volumeName;
   }
 
   public VolumeForRunInstancesInput volumeType(String volumeType) {
@@ -166,16 +103,13 @@ public class VolumeForRunInstancesInput {
     }
     VolumeForRunInstancesInput volumeForRunInstancesInput = (VolumeForRunInstancesInput) o;
     return Objects.equals(this.deleteWithInstance, volumeForRunInstancesInput.deleteWithInstance) &&
-        Objects.equals(this.description, volumeForRunInstancesInput.description) &&
         Objects.equals(this.size, volumeForRunInstancesInput.size) &&
-        Objects.equals(this.snapshotId, volumeForRunInstancesInput.snapshotId) &&
-        Objects.equals(this.volumeName, volumeForRunInstancesInput.volumeName) &&
         Objects.equals(this.volumeType, volumeForRunInstancesInput.volumeType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleteWithInstance, description, size, snapshotId, volumeName, volumeType);
+    return Objects.hash(deleteWithInstance, size, volumeType);
   }
 
 
@@ -185,10 +119,7 @@ public class VolumeForRunInstancesInput {
     sb.append("class VolumeForRunInstancesInput {\n");
     
     sb.append("    deleteWithInstance: ").append(toIndentedString(deleteWithInstance)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
-    sb.append("    snapshotId: ").append(toIndentedString(snapshotId)).append("\n");
-    sb.append("    volumeName: ").append(toIndentedString(volumeName)).append("\n");
     sb.append("    volumeType: ").append(toIndentedString(volumeType)).append("\n");
     sb.append("}");
     return sb.toString();

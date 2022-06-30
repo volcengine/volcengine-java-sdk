@@ -28,16 +28,13 @@ import javax.validation.Valid;
  * AlarmPolicyForCreateScalingPolicyInput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:12.731669+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T20:17:46.205154+08:00[Asia/Shanghai]")
 public class AlarmPolicyForCreateScalingPolicyInput {
   @SerializedName("Condition")
   private AlarmPolicyConditionForCreateScalingPolicyInput condition = null;
 
   @SerializedName("EvaluationCount")
   private Integer evaluationCount = null;
-
-  @SerializedName("RuleId")
-  private String ruleId = null;
 
   @SerializedName("RuleType")
   private String ruleType = null;
@@ -79,24 +76,6 @@ public class AlarmPolicyForCreateScalingPolicyInput {
     this.evaluationCount = evaluationCount;
   }
 
-  public AlarmPolicyForCreateScalingPolicyInput ruleId(String ruleId) {
-    this.ruleId = ruleId;
-    return this;
-  }
-
-   /**
-   * Get ruleId
-   * @return ruleId
-  **/
-  @Schema(description = "")
-  public String getRuleId() {
-    return ruleId;
-  }
-
-  public void setRuleId(String ruleId) {
-    this.ruleId = ruleId;
-  }
-
   public AlarmPolicyForCreateScalingPolicyInput ruleType(String ruleType) {
     this.ruleType = ruleType;
     return this;
@@ -127,13 +106,12 @@ public class AlarmPolicyForCreateScalingPolicyInput {
     AlarmPolicyForCreateScalingPolicyInput alarmPolicyForCreateScalingPolicyInput = (AlarmPolicyForCreateScalingPolicyInput) o;
     return Objects.equals(this.condition, alarmPolicyForCreateScalingPolicyInput.condition) &&
         Objects.equals(this.evaluationCount, alarmPolicyForCreateScalingPolicyInput.evaluationCount) &&
-        Objects.equals(this.ruleId, alarmPolicyForCreateScalingPolicyInput.ruleId) &&
         Objects.equals(this.ruleType, alarmPolicyForCreateScalingPolicyInput.ruleType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(condition, evaluationCount, ruleId, ruleType);
+    return Objects.hash(condition, evaluationCount, ruleType);
   }
 
 
@@ -144,7 +122,6 @@ public class AlarmPolicyForCreateScalingPolicyInput {
     
     sb.append("    condition: ").append(toIndentedString(condition)).append("\n");
     sb.append("    evaluationCount: ").append(toIndentedString(evaluationCount)).append("\n");
-    sb.append("    ruleId: ").append(toIndentedString(ruleId)).append("\n");
     sb.append("    ruleType: ").append(toIndentedString(ruleType)).append("\n");
     sb.append("}");
     return sb.toString();

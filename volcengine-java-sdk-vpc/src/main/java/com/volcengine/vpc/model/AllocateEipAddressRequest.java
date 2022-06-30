@@ -29,19 +29,13 @@ import javax.validation.Valid;
  * AllocateEipAddressRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:48.516414+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T20:18:16.579539+08:00[Asia/Shanghai]")
 public class AllocateEipAddressRequest {
-  @SerializedName("AllocationId")
-  private String allocationId = null;
-
   @SerializedName("Bandwidth")
   private Integer bandwidth = null;
 
   @SerializedName("BillingType")
   private Integer billingType = null;
-
-  @SerializedName("Count")
-  private Integer count = null;
 
   @SerializedName("Description")
   private String description = null;
@@ -101,29 +95,8 @@ public class AllocateEipAddressRequest {
   @SerializedName("PeriodUnit")
   private Integer periodUnit = null;
 
-  @SerializedName("RenewType")
-  private Integer renewType = null;
-
   @SerializedName("SecurityProtectionTypes")
   private List<String> securityProtectionTypes = null;
-
-  public AllocateEipAddressRequest allocationId(String allocationId) {
-    this.allocationId = allocationId;
-    return this;
-  }
-
-   /**
-   * Get allocationId
-   * @return allocationId
-  **/
-  @Schema(description = "")
-  public String getAllocationId() {
-    return allocationId;
-  }
-
-  public void setAllocationId(String allocationId) {
-    this.allocationId = allocationId;
-  }
 
   public AllocateEipAddressRequest bandwidth(Integer bandwidth) {
     this.bandwidth = bandwidth;
@@ -163,24 +136,6 @@ public class AllocateEipAddressRequest {
 
   public void setBillingType(Integer billingType) {
     this.billingType = billingType;
-  }
-
-  public AllocateEipAddressRequest count(Integer count) {
-    this.count = count;
-    return this;
-  }
-
-   /**
-   * Get count
-   * @return count
-  **/
-  @Schema(description = "")
-  public Integer getCount() {
-    return count;
-  }
-
-  public void setCount(Integer count) {
-    this.count = count;
   }
 
   public AllocateEipAddressRequest description(String description) {
@@ -275,26 +230,6 @@ public class AllocateEipAddressRequest {
     this.periodUnit = periodUnit;
   }
 
-  public AllocateEipAddressRequest renewType(Integer renewType) {
-    this.renewType = renewType;
-    return this;
-  }
-
-   /**
-   * Get renewType
-   * minimum: 1
-   * maximum: 3
-   * @return renewType
-  **/
- @Min(1) @Max(3)  @Schema(description = "")
-  public Integer getRenewType() {
-    return renewType;
-  }
-
-  public void setRenewType(Integer renewType) {
-    this.renewType = renewType;
-  }
-
   public AllocateEipAddressRequest securityProtectionTypes(List<String> securityProtectionTypes) {
     this.securityProtectionTypes = securityProtectionTypes;
     return this;
@@ -331,22 +266,19 @@ public class AllocateEipAddressRequest {
       return false;
     }
     AllocateEipAddressRequest allocateEipAddressRequest = (AllocateEipAddressRequest) o;
-    return Objects.equals(this.allocationId, allocateEipAddressRequest.allocationId) &&
-        Objects.equals(this.bandwidth, allocateEipAddressRequest.bandwidth) &&
+    return Objects.equals(this.bandwidth, allocateEipAddressRequest.bandwidth) &&
         Objects.equals(this.billingType, allocateEipAddressRequest.billingType) &&
-        Objects.equals(this.count, allocateEipAddressRequest.count) &&
         Objects.equals(this.description, allocateEipAddressRequest.description) &&
         Objects.equals(this.ISP, allocateEipAddressRequest.ISP) &&
         Objects.equals(this.name, allocateEipAddressRequest.name) &&
         Objects.equals(this.period, allocateEipAddressRequest.period) &&
         Objects.equals(this.periodUnit, allocateEipAddressRequest.periodUnit) &&
-        Objects.equals(this.renewType, allocateEipAddressRequest.renewType) &&
         Objects.equals(this.securityProtectionTypes, allocateEipAddressRequest.securityProtectionTypes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allocationId, bandwidth, billingType, count, description, ISP, name, period, periodUnit, renewType, securityProtectionTypes);
+    return Objects.hash(bandwidth, billingType, description, ISP, name, period, periodUnit, securityProtectionTypes);
   }
 
 
@@ -355,16 +287,13 @@ public class AllocateEipAddressRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class AllocateEipAddressRequest {\n");
     
-    sb.append("    allocationId: ").append(toIndentedString(allocationId)).append("\n");
     sb.append("    bandwidth: ").append(toIndentedString(bandwidth)).append("\n");
     sb.append("    billingType: ").append(toIndentedString(billingType)).append("\n");
-    sb.append("    count: ").append(toIndentedString(count)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    ISP: ").append(toIndentedString(ISP)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    period: ").append(toIndentedString(period)).append("\n");
     sb.append("    periodUnit: ").append(toIndentedString(periodUnit)).append("\n");
-    sb.append("    renewType: ").append(toIndentedString(renewType)).append("\n");
     sb.append("    securityProtectionTypes: ").append(toIndentedString(securityProtectionTypes)).append("\n");
     sb.append("}");
     return sb.toString();

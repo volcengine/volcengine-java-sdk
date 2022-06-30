@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * CreateSharedDirectConnectConnectionResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:27.325524+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T20:18:01.352154+08:00[Asia/Shanghai]")
 public class CreateSharedDirectConnectConnectionResponse {
   @SerializedName("RequestId")
   private String requestId = null;
