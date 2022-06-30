@@ -50,7 +50,7 @@
   <dependencies>
     <dependency>
       <groupId>com.volcengine</groupId>
-	  <artifactId>volcstack-java-sdk-bom</artifactId>
+	  <artifactId>volcengine-java-sdk-bom</artifactId>
         <version>0.1.2</version>
 	  <type>pom</type>
       <scope>import</scope>
@@ -66,12 +66,12 @@
 <dependencies>
   <dependency>
     <groupId>com.volcengine</groupId>
-    <artifactId>volcstack-java-sdk-vpc</artifactId>
+    <artifactId>volcengine-java-sdk-vpc</artifactId>
     <version>0.1.2</version>
   </dependency>
   <dependency>
     <groupId>com.volcengine</groupId>
-    <artifactId>volcstack-java-sdk-ecs</artifactId>
+    <artifactId>volcengine-java-sdk-ecs</artifactId>
     <version>0.1.2</version>
   </dependency>
 </dependencies>
@@ -81,10 +81,10 @@
 
 **通过环境变量导入**:
 ```
-export VOLCSTACK_ACCESS_KEY=your ak
-export VOLCSTACK_SECRET_KEY=your sk
+export Volcengine_ACCESS_KEY=your ak
+export Volcengine_SECRET_KEY=your sk
 #如果使用token
-export VOLCSTACK_SESSION_TOKEN=token
+export Volcengine_SESSION_TOKEN=token
 ```
 
 **代码方式引入**：
@@ -97,12 +97,12 @@ Credentials credentials = Credentials.getCredentials(ak,sk，token);
 
 #### Example ####
 ```java
-import com.volcengine.volcstack.ApiClient;
-import com.volcengine.volcstack.ApiException;
-import com.volcengine.volcstack.sign.Credentials;
-import com.volcengine.volcstack.vpc.VpcApi;
-import com.volcengine.volcstack.vpc.model.DescribeVpcsRequest;
-import com.volcengine.volcstack.vpc.model.DescribeVpcsResponse;
+import com.volcengine.ApiClient;
+import com.volcengine.ApiException;
+import com.volcengine.sign.Credentials;
+import com.volcengine.vpc.VpcApi;
+import com.volcengine.vpc.model.DescribeVpcsRequest;
+import com.volcengine.vpc.model.DescribeVpcsResponse;
 
 import java.util.ArrayList;
 import java.util.List;
