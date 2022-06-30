@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * ModifyRouteEntryResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T19:55:25.796697+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T20:18:16.579539+08:00[Asia/Shanghai]")
 public class ModifyRouteEntryResponse {
   @SerializedName("RequestId")
   private String requestId = null;

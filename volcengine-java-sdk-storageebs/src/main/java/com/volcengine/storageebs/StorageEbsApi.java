@@ -112,7 +112,7 @@ public class StorageEbsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "volcstackSign" };
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -236,7 +236,7 @@ public class StorageEbsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "volcstackSign" };
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -360,7 +360,7 @@ public class StorageEbsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "volcstackSign" };
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -484,7 +484,7 @@ public class StorageEbsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "volcstackSign" };
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -608,7 +608,7 @@ public class StorageEbsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "volcstackSign" };
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -732,7 +732,7 @@ public class StorageEbsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "volcstackSign" };
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -856,7 +856,7 @@ public class StorageEbsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "volcstackSign" };
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     

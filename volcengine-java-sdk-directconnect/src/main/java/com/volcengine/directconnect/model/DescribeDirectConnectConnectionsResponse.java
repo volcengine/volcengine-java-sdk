@@ -30,7 +30,7 @@ import javax.validation.Valid;
  * DescribeDirectConnectConnectionsResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T19:55:09.552456+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T20:18:01.352154+08:00[Asia/Shanghai]")
 public class DescribeDirectConnectConnectionsResponse {
   @SerializedName("DirectConnectConnections")
   private List<DirectConnectConnectionForDescribeDirectConnectConnectionsOutput> directConnectConnections = null;
