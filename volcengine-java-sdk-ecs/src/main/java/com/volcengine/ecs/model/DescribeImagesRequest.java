@@ -29,25 +29,10 @@ import javax.validation.Valid;
  * DescribeImagesRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:32.918937+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T20:18:05.921659+08:00[Asia/Shanghai]")
 public class DescribeImagesRequest {
-  @SerializedName("AccountId")
-  private String accountId = null;
-
-  @SerializedName("Architecture")
-  private String architecture = null;
-
-  @SerializedName("DiskFormat")
-  private String diskFormat = null;
-
-  @SerializedName("EndTime")
-  private String endTime = null;
-
   @SerializedName("ImageIds")
   private List<String> imageIds = null;
-
-  @SerializedName("ImageName")
-  private String imageName = null;
 
   @SerializedName("ImageStatus")
   private String imageStatus = null;
@@ -67,92 +52,11 @@ public class DescribeImagesRequest {
   @SerializedName("OsType")
   private String osType = null;
 
-  @SerializedName("PageNumber")
-  private Integer pageNumber = null;
-
-  @SerializedName("PageSize")
-  private Integer pageSize = null;
-
-  @SerializedName("StartTime")
-  private String startTime = null;
-
   @SerializedName("Status")
   private List<String> status = null;
 
   @SerializedName("Visibility")
   private String visibility = null;
-
-  public DescribeImagesRequest accountId(String accountId) {
-    this.accountId = accountId;
-    return this;
-  }
-
-   /**
-   * Get accountId
-   * @return accountId
-  **/
-  @Schema(description = "")
-  public String getAccountId() {
-    return accountId;
-  }
-
-  public void setAccountId(String accountId) {
-    this.accountId = accountId;
-  }
-
-  public DescribeImagesRequest architecture(String architecture) {
-    this.architecture = architecture;
-    return this;
-  }
-
-   /**
-   * Get architecture
-   * @return architecture
-  **/
-  @Schema(description = "")
-  public String getArchitecture() {
-    return architecture;
-  }
-
-  public void setArchitecture(String architecture) {
-    this.architecture = architecture;
-  }
-
-  public DescribeImagesRequest diskFormat(String diskFormat) {
-    this.diskFormat = diskFormat;
-    return this;
-  }
-
-   /**
-   * Get diskFormat
-   * @return diskFormat
-  **/
-  @Schema(description = "")
-  public String getDiskFormat() {
-    return diskFormat;
-  }
-
-  public void setDiskFormat(String diskFormat) {
-    this.diskFormat = diskFormat;
-  }
-
-  public DescribeImagesRequest endTime(String endTime) {
-    this.endTime = endTime;
-    return this;
-  }
-
-   /**
-   * Get endTime
-   * @return endTime
-  **/
-  @Schema(description = "")
-  public String getEndTime() {
-    return endTime;
-  }
-
-  public void setEndTime(String endTime) {
-    this.endTime = endTime;
-  }
 
   public DescribeImagesRequest imageIds(List<String> imageIds) {
     this.imageIds = imageIds;
@@ -178,24 +82,6 @@ public class DescribeImagesRequest {
 
   public void setImageIds(List<String> imageIds) {
     this.imageIds = imageIds;
-  }
-
-  public DescribeImagesRequest imageName(String imageName) {
-    this.imageName = imageName;
-    return this;
-  }
-
-   /**
-   * Get imageName
-   * @return imageName
-  **/
-  @Schema(description = "")
-  public String getImageName() {
-    return imageName;
-  }
-
-  public void setImageName(String imageName) {
-    this.imageName = imageName;
   }
 
   public DescribeImagesRequest imageStatus(String imageStatus) {
@@ -306,60 +192,6 @@ public class DescribeImagesRequest {
     this.osType = osType;
   }
 
-  public DescribeImagesRequest pageNumber(Integer pageNumber) {
-    this.pageNumber = pageNumber;
-    return this;
-  }
-
-   /**
-   * Get pageNumber
-   * @return pageNumber
-  **/
-  @Schema(description = "")
-  public Integer getPageNumber() {
-    return pageNumber;
-  }
-
-  public void setPageNumber(Integer pageNumber) {
-    this.pageNumber = pageNumber;
-  }
-
-  public DescribeImagesRequest pageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-    return this;
-  }
-
-   /**
-   * Get pageSize
-   * @return pageSize
-  **/
-  @Schema(description = "")
-  public Integer getPageSize() {
-    return pageSize;
-  }
-
-  public void setPageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-  }
-
-  public DescribeImagesRequest startTime(String startTime) {
-    this.startTime = startTime;
-    return this;
-  }
-
-   /**
-   * Get startTime
-   * @return startTime
-  **/
-  @Schema(description = "")
-  public String getStartTime() {
-    return startTime;
-  }
-
-  public void setStartTime(String startTime) {
-    this.startTime = startTime;
-  }
-
   public DescribeImagesRequest status(List<String> status) {
     this.status = status;
     return this;
@@ -414,28 +246,20 @@ public class DescribeImagesRequest {
       return false;
     }
     DescribeImagesRequest describeImagesRequest = (DescribeImagesRequest) o;
-    return Objects.equals(this.accountId, describeImagesRequest.accountId) &&
-        Objects.equals(this.architecture, describeImagesRequest.architecture) &&
-        Objects.equals(this.diskFormat, describeImagesRequest.diskFormat) &&
-        Objects.equals(this.endTime, describeImagesRequest.endTime) &&
-        Objects.equals(this.imageIds, describeImagesRequest.imageIds) &&
-        Objects.equals(this.imageName, describeImagesRequest.imageName) &&
+    return Objects.equals(this.imageIds, describeImagesRequest.imageIds) &&
         Objects.equals(this.imageStatus, describeImagesRequest.imageStatus) &&
         Objects.equals(this.instanceTypeId, describeImagesRequest.instanceTypeId) &&
         Objects.equals(this.isSupportCloudInit, describeImagesRequest.isSupportCloudInit) &&
         Objects.equals(this.maxResults, describeImagesRequest.maxResults) &&
         Objects.equals(this.nextToken, describeImagesRequest.nextToken) &&
         Objects.equals(this.osType, describeImagesRequest.osType) &&
-        Objects.equals(this.pageNumber, describeImagesRequest.pageNumber) &&
-        Objects.equals(this.pageSize, describeImagesRequest.pageSize) &&
-        Objects.equals(this.startTime, describeImagesRequest.startTime) &&
         Objects.equals(this.status, describeImagesRequest.status) &&
         Objects.equals(this.visibility, describeImagesRequest.visibility);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, architecture, diskFormat, endTime, imageIds, imageName, imageStatus, instanceTypeId, isSupportCloudInit, maxResults, nextToken, osType, pageNumber, pageSize, startTime, status, visibility);
+    return Objects.hash(imageIds, imageStatus, instanceTypeId, isSupportCloudInit, maxResults, nextToken, osType, status, visibility);
   }
 
 
@@ -444,21 +268,13 @@ public class DescribeImagesRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeImagesRequest {\n");
     
-    sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
-    sb.append("    architecture: ").append(toIndentedString(architecture)).append("\n");
-    sb.append("    diskFormat: ").append(toIndentedString(diskFormat)).append("\n");
-    sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
     sb.append("    imageIds: ").append(toIndentedString(imageIds)).append("\n");
-    sb.append("    imageName: ").append(toIndentedString(imageName)).append("\n");
     sb.append("    imageStatus: ").append(toIndentedString(imageStatus)).append("\n");
     sb.append("    instanceTypeId: ").append(toIndentedString(instanceTypeId)).append("\n");
     sb.append("    isSupportCloudInit: ").append(toIndentedString(isSupportCloudInit)).append("\n");
     sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
     sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
     sb.append("    osType: ").append(toIndentedString(osType)).append("\n");
-    sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
-    sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
-    sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    visibility: ").append(toIndentedString(visibility)).append("\n");
     sb.append("}");

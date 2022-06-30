@@ -19,7 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.storageebs.model.FieldMaskForDescribeVolumesInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -30,17 +29,8 @@ import javax.validation.Valid;
  * DescribeVolumesRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:45.652685+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T20:18:13.538566+08:00[Asia/Shanghai]")
 public class DescribeVolumesRequest {
-  @SerializedName("AccountId")
-  private String accountId = null;
-
-  @SerializedName("AutoSnapshotPolicyId")
-  private String autoSnapshotPolicyId = null;
-
-  @SerializedName("FieldMask")
-  private FieldMaskForDescribeVolumesInput fieldMask = null;
-
   @SerializedName("InstanceId")
   private String instanceId = null;
 
@@ -52,9 +42,6 @@ public class DescribeVolumesRequest {
 
   @SerializedName("PageSize")
   private Integer pageSize = null;
-
-  @SerializedName("ProjectName")
-  private String projectName = null;
 
   @SerializedName("VolumeIds")
   private List<String> volumeIds = null;
@@ -70,61 +57,6 @@ public class DescribeVolumesRequest {
 
   @SerializedName("ZoneId")
   private String zoneId = null;
-
-  public DescribeVolumesRequest accountId(String accountId) {
-    this.accountId = accountId;
-    return this;
-  }
-
-   /**
-   * Get accountId
-   * @return accountId
-  **/
-  @Schema(description = "")
-  public String getAccountId() {
-    return accountId;
-  }
-
-  public void setAccountId(String accountId) {
-    this.accountId = accountId;
-  }
-
-  public DescribeVolumesRequest autoSnapshotPolicyId(String autoSnapshotPolicyId) {
-    this.autoSnapshotPolicyId = autoSnapshotPolicyId;
-    return this;
-  }
-
-   /**
-   * Get autoSnapshotPolicyId
-   * @return autoSnapshotPolicyId
-  **/
-  @Schema(description = "")
-  public String getAutoSnapshotPolicyId() {
-    return autoSnapshotPolicyId;
-  }
-
-  public void setAutoSnapshotPolicyId(String autoSnapshotPolicyId) {
-    this.autoSnapshotPolicyId = autoSnapshotPolicyId;
-  }
-
-  public DescribeVolumesRequest fieldMask(FieldMaskForDescribeVolumesInput fieldMask) {
-    this.fieldMask = fieldMask;
-    return this;
-  }
-
-   /**
-   * Get fieldMask
-   * @return fieldMask
-  **/
-  @Valid
-  @Schema(description = "")
-  public FieldMaskForDescribeVolumesInput getFieldMask() {
-    return fieldMask;
-  }
-
-  public void setFieldMask(FieldMaskForDescribeVolumesInput fieldMask) {
-    this.fieldMask = fieldMask;
-  }
 
   public DescribeVolumesRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
@@ -196,24 +128,6 @@ public class DescribeVolumesRequest {
 
   public void setPageSize(Integer pageSize) {
     this.pageSize = pageSize;
-  }
-
-  public DescribeVolumesRequest projectName(String projectName) {
-    this.projectName = projectName;
-    return this;
-  }
-
-   /**
-   * Get projectName
-   * @return projectName
-  **/
-  @Schema(description = "")
-  public String getProjectName() {
-    return projectName;
-  }
-
-  public void setProjectName(String projectName) {
-    this.projectName = projectName;
   }
 
   public DescribeVolumesRequest volumeIds(List<String> volumeIds) {
@@ -324,14 +238,10 @@ public class DescribeVolumesRequest {
       return false;
     }
     DescribeVolumesRequest describeVolumesRequest = (DescribeVolumesRequest) o;
-    return Objects.equals(this.accountId, describeVolumesRequest.accountId) &&
-        Objects.equals(this.autoSnapshotPolicyId, describeVolumesRequest.autoSnapshotPolicyId) &&
-        Objects.equals(this.fieldMask, describeVolumesRequest.fieldMask) &&
-        Objects.equals(this.instanceId, describeVolumesRequest.instanceId) &&
+    return Objects.equals(this.instanceId, describeVolumesRequest.instanceId) &&
         Objects.equals(this.kind, describeVolumesRequest.kind) &&
         Objects.equals(this.pageNumber, describeVolumesRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeVolumesRequest.pageSize) &&
-        Objects.equals(this.projectName, describeVolumesRequest.projectName) &&
         Objects.equals(this.volumeIds, describeVolumesRequest.volumeIds) &&
         Objects.equals(this.volumeName, describeVolumesRequest.volumeName) &&
         Objects.equals(this.volumeStatus, describeVolumesRequest.volumeStatus) &&
@@ -341,7 +251,7 @@ public class DescribeVolumesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, autoSnapshotPolicyId, fieldMask, instanceId, kind, pageNumber, pageSize, projectName, volumeIds, volumeName, volumeStatus, volumeType, zoneId);
+    return Objects.hash(instanceId, kind, pageNumber, pageSize, volumeIds, volumeName, volumeStatus, volumeType, zoneId);
   }
 
 
@@ -350,14 +260,10 @@ public class DescribeVolumesRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeVolumesRequest {\n");
     
-    sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
-    sb.append("    autoSnapshotPolicyId: ").append(toIndentedString(autoSnapshotPolicyId)).append("\n");
-    sb.append("    fieldMask: ").append(toIndentedString(fieldMask)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    kind: ").append(toIndentedString(kind)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
-    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    volumeIds: ").append(toIndentedString(volumeIds)).append("\n");
     sb.append("    volumeName: ").append(toIndentedString(volumeName)).append("\n");
     sb.append("    volumeStatus: ").append(toIndentedString(volumeStatus)).append("\n");

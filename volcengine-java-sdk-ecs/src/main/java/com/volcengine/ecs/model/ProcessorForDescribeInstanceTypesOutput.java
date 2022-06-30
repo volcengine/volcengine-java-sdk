@@ -27,31 +27,10 @@ import javax.validation.Valid;
  * ProcessorForDescribeInstanceTypesOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:32.918937+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T20:18:05.921659+08:00[Asia/Shanghai]")
 public class ProcessorForDescribeInstanceTypesOutput {
-  @SerializedName("Architecture")
-  private String architecture = null;
-
   @SerializedName("Cpus")
   private Integer cpus = null;
-
-  public ProcessorForDescribeInstanceTypesOutput architecture(String architecture) {
-    this.architecture = architecture;
-    return this;
-  }
-
-   /**
-   * Get architecture
-   * @return architecture
-  **/
-  @Schema(description = "")
-  public String getArchitecture() {
-    return architecture;
-  }
-
-  public void setArchitecture(String architecture) {
-    this.architecture = architecture;
-  }
 
   public ProcessorForDescribeInstanceTypesOutput cpus(Integer cpus) {
     this.cpus = cpus;
@@ -81,13 +60,12 @@ public class ProcessorForDescribeInstanceTypesOutput {
       return false;
     }
     ProcessorForDescribeInstanceTypesOutput processorForDescribeInstanceTypesOutput = (ProcessorForDescribeInstanceTypesOutput) o;
-    return Objects.equals(this.architecture, processorForDescribeInstanceTypesOutput.architecture) &&
-        Objects.equals(this.cpus, processorForDescribeInstanceTypesOutput.cpus);
+    return Objects.equals(this.cpus, processorForDescribeInstanceTypesOutput.cpus);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(architecture, cpus);
+    return Objects.hash(cpus);
   }
 
 
@@ -96,7 +74,6 @@ public class ProcessorForDescribeInstanceTypesOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProcessorForDescribeInstanceTypesOutput {\n");
     
-    sb.append("    architecture: ").append(toIndentedString(architecture)).append("\n");
     sb.append("    cpus: ").append(toIndentedString(cpus)).append("\n");
     sb.append("}");
     return sb.toString();

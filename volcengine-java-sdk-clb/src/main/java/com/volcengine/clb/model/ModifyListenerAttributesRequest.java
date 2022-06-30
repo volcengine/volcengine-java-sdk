@@ -30,7 +30,7 @@ import javax.validation.Valid;
  * ModifyListenerAttributesRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:21.106708+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T20:17:55.725105+08:00[Asia/Shanghai]")
 public class ModifyListenerAttributesRequest {
   @SerializedName("AclIds")
   private List<String> aclIds = null;
@@ -64,6 +64,9 @@ public class ModifyListenerAttributesRequest {
 
   @SerializedName("Scheduler")
   private String scheduler = null;
+
+  @SerializedName("ServerGroupId")
+  private String serverGroupId = null;
 
   public ModifyListenerAttributesRequest aclIds(List<String> aclIds) {
     this.aclIds = aclIds;
@@ -273,6 +276,24 @@ public class ModifyListenerAttributesRequest {
     this.scheduler = scheduler;
   }
 
+  public ModifyListenerAttributesRequest serverGroupId(String serverGroupId) {
+    this.serverGroupId = serverGroupId;
+    return this;
+  }
+
+   /**
+   * Get serverGroupId
+   * @return serverGroupId
+  **/
+  @Schema(description = "")
+  public String getServerGroupId() {
+    return serverGroupId;
+  }
+
+  public void setServerGroupId(String serverGroupId) {
+    this.serverGroupId = serverGroupId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -293,12 +314,13 @@ public class ModifyListenerAttributesRequest {
         Objects.equals(this.healthCheck, modifyListenerAttributesRequest.healthCheck) &&
         Objects.equals(this.listenerId, modifyListenerAttributesRequest.listenerId) &&
         Objects.equals(this.listenerName, modifyListenerAttributesRequest.listenerName) &&
-        Objects.equals(this.scheduler, modifyListenerAttributesRequest.scheduler);
+        Objects.equals(this.scheduler, modifyListenerAttributesRequest.scheduler) &&
+        Objects.equals(this.serverGroupId, modifyListenerAttributesRequest.serverGroupId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclIds, aclStatus, aclType, certificateId, description, enabled, establishedTimeout, healthCheck, listenerId, listenerName, scheduler);
+    return Objects.hash(aclIds, aclStatus, aclType, certificateId, description, enabled, establishedTimeout, healthCheck, listenerId, listenerName, scheduler, serverGroupId);
   }
 
 
@@ -318,6 +340,7 @@ public class ModifyListenerAttributesRequest {
     sb.append("    listenerId: ").append(toIndentedString(listenerId)).append("\n");
     sb.append("    listenerName: ").append(toIndentedString(listenerName)).append("\n");
     sb.append("    scheduler: ").append(toIndentedString(scheduler)).append("\n");
+    sb.append("    serverGroupId: ").append(toIndentedString(serverGroupId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

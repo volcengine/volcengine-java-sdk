@@ -31,7 +31,7 @@ import javax.validation.Valid;
  * NetworkInterfaceSetForDescribeNetworkInterfacesOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:48.516414+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T20:18:16.579539+08:00[Asia/Shanghai]")
 public class NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
   @SerializedName("AccountId")
   private String accountId = null;
@@ -48,9 +48,6 @@ public class NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
   @SerializedName("DeviceId")
   private String deviceId = null;
 
-  @SerializedName("IPv6Sets")
-  private List<String> ipv6Sets = null;
-
   @SerializedName("MacAddress")
   private String macAddress = null;
 
@@ -66,14 +63,8 @@ public class NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
   @SerializedName("PrimaryIpAddress")
   private String primaryIpAddress = null;
 
-  @SerializedName("PrivateIpAddresses")
-  private List<String> privateIpAddresses = null;
-
   @SerializedName("PrivateIpSets")
   private PrivateIpSetsForDescribeNetworkInterfacesOutput privateIpSets = null;
-
-  @SerializedName("ProjectName")
-  private String projectName = null;
 
   @SerializedName("SecurityGroupIds")
   private List<String> securityGroupIds = null;
@@ -193,32 +184,6 @@ public class NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
     this.deviceId = deviceId;
   }
 
-  public NetworkInterfaceSetForDescribeNetworkInterfacesOutput ipv6Sets(List<String> ipv6Sets) {
-    this.ipv6Sets = ipv6Sets;
-    return this;
-  }
-
-  public NetworkInterfaceSetForDescribeNetworkInterfacesOutput addIpv6SetsItem(String ipv6SetsItem) {
-    if (this.ipv6Sets == null) {
-      this.ipv6Sets = new ArrayList<String>();
-    }
-    this.ipv6Sets.add(ipv6SetsItem);
-    return this;
-  }
-
-   /**
-   * Get ipv6Sets
-   * @return ipv6Sets
-  **/
-  @Schema(description = "")
-  public List<String> getIpv6Sets() {
-    return ipv6Sets;
-  }
-
-  public void setIpv6Sets(List<String> ipv6Sets) {
-    this.ipv6Sets = ipv6Sets;
-  }
-
   public NetworkInterfaceSetForDescribeNetworkInterfacesOutput macAddress(String macAddress) {
     this.macAddress = macAddress;
     return this;
@@ -309,32 +274,6 @@ public class NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
     this.primaryIpAddress = primaryIpAddress;
   }
 
-  public NetworkInterfaceSetForDescribeNetworkInterfacesOutput privateIpAddresses(List<String> privateIpAddresses) {
-    this.privateIpAddresses = privateIpAddresses;
-    return this;
-  }
-
-  public NetworkInterfaceSetForDescribeNetworkInterfacesOutput addPrivateIpAddressesItem(String privateIpAddressesItem) {
-    if (this.privateIpAddresses == null) {
-      this.privateIpAddresses = new ArrayList<String>();
-    }
-    this.privateIpAddresses.add(privateIpAddressesItem);
-    return this;
-  }
-
-   /**
-   * Get privateIpAddresses
-   * @return privateIpAddresses
-  **/
-  @Schema(description = "")
-  public List<String> getPrivateIpAddresses() {
-    return privateIpAddresses;
-  }
-
-  public void setPrivateIpAddresses(List<String> privateIpAddresses) {
-    this.privateIpAddresses = privateIpAddresses;
-  }
-
   public NetworkInterfaceSetForDescribeNetworkInterfacesOutput privateIpSets(PrivateIpSetsForDescribeNetworkInterfacesOutput privateIpSets) {
     this.privateIpSets = privateIpSets;
     return this;
@@ -352,24 +291,6 @@ public class NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
 
   public void setPrivateIpSets(PrivateIpSetsForDescribeNetworkInterfacesOutput privateIpSets) {
     this.privateIpSets = privateIpSets;
-  }
-
-  public NetworkInterfaceSetForDescribeNetworkInterfacesOutput projectName(String projectName) {
-    this.projectName = projectName;
-    return this;
-  }
-
-   /**
-   * Get projectName
-   * @return projectName
-  **/
-  @Schema(description = "")
-  public String getProjectName() {
-    return projectName;
-  }
-
-  public void setProjectName(String projectName) {
-    this.projectName = projectName;
   }
 
   public NetworkInterfaceSetForDescribeNetworkInterfacesOutput securityGroupIds(List<String> securityGroupIds) {
@@ -557,15 +478,12 @@ public class NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
         Objects.equals(this.createdAt, networkInterfaceSetForDescribeNetworkInterfacesOutput.createdAt) &&
         Objects.equals(this.description, networkInterfaceSetForDescribeNetworkInterfacesOutput.description) &&
         Objects.equals(this.deviceId, networkInterfaceSetForDescribeNetworkInterfacesOutput.deviceId) &&
-        Objects.equals(this.ipv6Sets, networkInterfaceSetForDescribeNetworkInterfacesOutput.ipv6Sets) &&
         Objects.equals(this.macAddress, networkInterfaceSetForDescribeNetworkInterfacesOutput.macAddress) &&
         Objects.equals(this.networkInterfaceId, networkInterfaceSetForDescribeNetworkInterfacesOutput.networkInterfaceId) &&
         Objects.equals(this.networkInterfaceName, networkInterfaceSetForDescribeNetworkInterfacesOutput.networkInterfaceName) &&
         Objects.equals(this.portSecurityEnabled, networkInterfaceSetForDescribeNetworkInterfacesOutput.portSecurityEnabled) &&
         Objects.equals(this.primaryIpAddress, networkInterfaceSetForDescribeNetworkInterfacesOutput.primaryIpAddress) &&
-        Objects.equals(this.privateIpAddresses, networkInterfaceSetForDescribeNetworkInterfacesOutput.privateIpAddresses) &&
         Objects.equals(this.privateIpSets, networkInterfaceSetForDescribeNetworkInterfacesOutput.privateIpSets) &&
-        Objects.equals(this.projectName, networkInterfaceSetForDescribeNetworkInterfacesOutput.projectName) &&
         Objects.equals(this.securityGroupIds, networkInterfaceSetForDescribeNetworkInterfacesOutput.securityGroupIds) &&
         Objects.equals(this.serviceManaged, networkInterfaceSetForDescribeNetworkInterfacesOutput.serviceManaged) &&
         Objects.equals(this.status, networkInterfaceSetForDescribeNetworkInterfacesOutput.status) &&
@@ -579,7 +497,7 @@ public class NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, associatedElasticIp, createdAt, description, deviceId, ipv6Sets, macAddress, networkInterfaceId, networkInterfaceName, portSecurityEnabled, primaryIpAddress, privateIpAddresses, privateIpSets, projectName, securityGroupIds, serviceManaged, status, subnetId, type, updatedAt, vpcId, vpcName, zoneId);
+    return Objects.hash(accountId, associatedElasticIp, createdAt, description, deviceId, macAddress, networkInterfaceId, networkInterfaceName, portSecurityEnabled, primaryIpAddress, privateIpSets, securityGroupIds, serviceManaged, status, subnetId, type, updatedAt, vpcId, vpcName, zoneId);
   }
 
 
@@ -593,15 +511,12 @@ public class NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    deviceId: ").append(toIndentedString(deviceId)).append("\n");
-    sb.append("    ipv6Sets: ").append(toIndentedString(ipv6Sets)).append("\n");
     sb.append("    macAddress: ").append(toIndentedString(macAddress)).append("\n");
     sb.append("    networkInterfaceId: ").append(toIndentedString(networkInterfaceId)).append("\n");
     sb.append("    networkInterfaceName: ").append(toIndentedString(networkInterfaceName)).append("\n");
     sb.append("    portSecurityEnabled: ").append(toIndentedString(portSecurityEnabled)).append("\n");
     sb.append("    primaryIpAddress: ").append(toIndentedString(primaryIpAddress)).append("\n");
-    sb.append("    privateIpAddresses: ").append(toIndentedString(privateIpAddresses)).append("\n");
     sb.append("    privateIpSets: ").append(toIndentedString(privateIpSets)).append("\n");
-    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    securityGroupIds: ").append(toIndentedString(securityGroupIds)).append("\n");
     sb.append("    serviceManaged: ").append(toIndentedString(serviceManaged)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");

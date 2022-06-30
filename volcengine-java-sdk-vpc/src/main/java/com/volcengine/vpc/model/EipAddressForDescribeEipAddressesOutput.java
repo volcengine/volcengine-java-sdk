@@ -29,7 +29,7 @@ import javax.validation.Valid;
  * EipAddressForDescribeEipAddressesOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:48.516414+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T20:18:16.579539+08:00[Asia/Shanghai]")
 public class EipAddressForDescribeEipAddressesOutput {
   @SerializedName("AllocationId")
   private String allocationId = null;
@@ -78,9 +78,6 @@ public class EipAddressForDescribeEipAddressesOutput {
 
   @SerializedName("OverdueTime")
   private String overdueTime = null;
-
-  @SerializedName("ProjectName")
-  private String projectName = null;
 
   @SerializedName("SecurityProtectionTypes")
   private List<String> securityProtectionTypes = null;
@@ -379,24 +376,6 @@ public class EipAddressForDescribeEipAddressesOutput {
     this.overdueTime = overdueTime;
   }
 
-  public EipAddressForDescribeEipAddressesOutput projectName(String projectName) {
-    this.projectName = projectName;
-    return this;
-  }
-
-   /**
-   * Get projectName
-   * @return projectName
-  **/
-  @Schema(description = "")
-  public String getProjectName() {
-    return projectName;
-  }
-
-  public void setProjectName(String projectName) {
-    this.projectName = projectName;
-  }
-
   public EipAddressForDescribeEipAddressesOutput securityProtectionTypes(List<String> securityProtectionTypes) {
     this.securityProtectionTypes = securityProtectionTypes;
     return this;
@@ -485,7 +464,6 @@ public class EipAddressForDescribeEipAddressesOutput {
         Objects.equals(this.lockReason, eipAddressForDescribeEipAddressesOutput.lockReason) &&
         Objects.equals(this.name, eipAddressForDescribeEipAddressesOutput.name) &&
         Objects.equals(this.overdueTime, eipAddressForDescribeEipAddressesOutput.overdueTime) &&
-        Objects.equals(this.projectName, eipAddressForDescribeEipAddressesOutput.projectName) &&
         Objects.equals(this.securityProtectionTypes, eipAddressForDescribeEipAddressesOutput.securityProtectionTypes) &&
         Objects.equals(this.status, eipAddressForDescribeEipAddressesOutput.status) &&
         Objects.equals(this.updatedAt, eipAddressForDescribeEipAddressesOutput.updatedAt);
@@ -493,7 +471,7 @@ public class EipAddressForDescribeEipAddressesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allocationId, allocationTime, bandwidth, bandwidthPackageId, billingType, businessStatus, deletedTime, description, eipAddress, expiredTime, ISP, instanceId, instanceType, lockReason, name, overdueTime, projectName, securityProtectionTypes, status, updatedAt);
+    return Objects.hash(allocationId, allocationTime, bandwidth, bandwidthPackageId, billingType, businessStatus, deletedTime, description, eipAddress, expiredTime, ISP, instanceId, instanceType, lockReason, name, overdueTime, securityProtectionTypes, status, updatedAt);
   }
 
 
@@ -518,7 +496,6 @@ public class EipAddressForDescribeEipAddressesOutput {
     sb.append("    lockReason: ").append(toIndentedString(lockReason)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    overdueTime: ").append(toIndentedString(overdueTime)).append("\n");
-    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    securityProtectionTypes: ").append(toIndentedString(securityProtectionTypes)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");

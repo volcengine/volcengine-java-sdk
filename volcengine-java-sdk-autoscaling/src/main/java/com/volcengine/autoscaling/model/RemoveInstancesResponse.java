@@ -14,42 +14,14 @@ package com.volcengine.autoscaling.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.v3.oas.annotations.media.Schema;
-import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
  * RemoveInstancesResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:12.731669+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T20:17:46.205154+08:00[Asia/Shanghai]")
 public class RemoveInstancesResponse {
-  @SerializedName("ScalingActivityId")
-  private String scalingActivityId = null;
-
-  public RemoveInstancesResponse scalingActivityId(String scalingActivityId) {
-    this.scalingActivityId = scalingActivityId;
-    return this;
-  }
-
-   /**
-   * Get scalingActivityId
-   * @return scalingActivityId
-  **/
-  @Schema(description = "")
-  public String getScalingActivityId() {
-    return scalingActivityId;
-  }
-
-  public void setScalingActivityId(String scalingActivityId) {
-    this.scalingActivityId = scalingActivityId;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -59,13 +31,12 @@ public class RemoveInstancesResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RemoveInstancesResponse removeInstancesResponse = (RemoveInstancesResponse) o;
-    return Objects.equals(this.scalingActivityId, removeInstancesResponse.scalingActivityId);
+    return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(scalingActivityId);
+    return Objects.hash();
   }
 
 
@@ -74,7 +45,6 @@ public class RemoveInstancesResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class RemoveInstancesResponse {\n");
     
-    sb.append("    scalingActivityId: ").append(toIndentedString(scalingActivityId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

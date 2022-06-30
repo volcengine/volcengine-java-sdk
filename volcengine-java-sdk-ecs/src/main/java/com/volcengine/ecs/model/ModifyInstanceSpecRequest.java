@@ -27,10 +27,10 @@ import javax.validation.Valid;
  * ModifyInstanceSpecRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:32.918937+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T20:18:05.921659+08:00[Asia/Shanghai]")
 public class ModifyInstanceSpecRequest {
-  @SerializedName("DryRun")
-  private Boolean dryRun = null;
+  @SerializedName("ClientToken")
+  private String clientToken = null;
 
   @SerializedName("InstanceId")
   private String instanceId = null;
@@ -38,25 +38,22 @@ public class ModifyInstanceSpecRequest {
   @SerializedName("InstanceType")
   private String instanceType = null;
 
-  @SerializedName("InstanceTypeId")
-  private String instanceTypeId = null;
-
-  public ModifyInstanceSpecRequest dryRun(Boolean dryRun) {
-    this.dryRun = dryRun;
+  public ModifyInstanceSpecRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
     return this;
   }
 
    /**
-   * Get dryRun
-   * @return dryRun
+   * Get clientToken
+   * @return clientToken
   **/
   @Schema(description = "")
-  public Boolean isDryRun() {
-    return dryRun;
+  public String getClientToken() {
+    return clientToken;
   }
 
-  public void setDryRun(Boolean dryRun) {
-    this.dryRun = dryRun;
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
   }
 
   public ModifyInstanceSpecRequest instanceId(String instanceId) {
@@ -95,24 +92,6 @@ public class ModifyInstanceSpecRequest {
     this.instanceType = instanceType;
   }
 
-  public ModifyInstanceSpecRequest instanceTypeId(String instanceTypeId) {
-    this.instanceTypeId = instanceTypeId;
-    return this;
-  }
-
-   /**
-   * Get instanceTypeId
-   * @return instanceTypeId
-  **/
-  @Schema(description = "")
-  public String getInstanceTypeId() {
-    return instanceTypeId;
-  }
-
-  public void setInstanceTypeId(String instanceTypeId) {
-    this.instanceTypeId = instanceTypeId;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -123,15 +102,14 @@ public class ModifyInstanceSpecRequest {
       return false;
     }
     ModifyInstanceSpecRequest modifyInstanceSpecRequest = (ModifyInstanceSpecRequest) o;
-    return Objects.equals(this.dryRun, modifyInstanceSpecRequest.dryRun) &&
+    return Objects.equals(this.clientToken, modifyInstanceSpecRequest.clientToken) &&
         Objects.equals(this.instanceId, modifyInstanceSpecRequest.instanceId) &&
-        Objects.equals(this.instanceType, modifyInstanceSpecRequest.instanceType) &&
-        Objects.equals(this.instanceTypeId, modifyInstanceSpecRequest.instanceTypeId);
+        Objects.equals(this.instanceType, modifyInstanceSpecRequest.instanceType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dryRun, instanceId, instanceType, instanceTypeId);
+    return Objects.hash(clientToken, instanceId, instanceType);
   }
 
 
@@ -140,10 +118,9 @@ public class ModifyInstanceSpecRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ModifyInstanceSpecRequest {\n");
     
-    sb.append("    dryRun: ").append(toIndentedString(dryRun)).append("\n");
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
-    sb.append("    instanceTypeId: ").append(toIndentedString(instanceTypeId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

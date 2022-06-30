@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * RevokeSecurityGroupIngressRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:48.516414+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T20:18:16.579539+08:00[Asia/Shanghai]")
 public class RevokeSecurityGroupIngressRequest {
   @SerializedName("CidrIp")
   private String cidrIp = null;

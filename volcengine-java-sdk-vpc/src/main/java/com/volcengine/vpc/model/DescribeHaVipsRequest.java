@@ -29,10 +29,13 @@ import javax.validation.Valid;
  * DescribeHaVipsRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:48.516414+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T20:18:16.579539+08:00[Asia/Shanghai]")
 public class DescribeHaVipsRequest {
   @SerializedName("HaVipIds")
   private List<String> haVipIds = null;
+
+  @SerializedName("HaVipName")
+  private String haVipName = null;
 
   @SerializedName("IpAddress")
   private String ipAddress = null;
@@ -76,6 +79,24 @@ public class DescribeHaVipsRequest {
 
   public void setHaVipIds(List<String> haVipIds) {
     this.haVipIds = haVipIds;
+  }
+
+  public DescribeHaVipsRequest haVipName(String haVipName) {
+    this.haVipName = haVipName;
+    return this;
+  }
+
+   /**
+   * Get haVipName
+   * @return haVipName
+  **/
+  @Schema(description = "")
+  public String getHaVipName() {
+    return haVipName;
+  }
+
+  public void setHaVipName(String haVipName) {
+    this.haVipName = haVipName;
   }
 
   public DescribeHaVipsRequest ipAddress(String ipAddress) {
@@ -198,6 +219,7 @@ public class DescribeHaVipsRequest {
     }
     DescribeHaVipsRequest describeHaVipsRequest = (DescribeHaVipsRequest) o;
     return Objects.equals(this.haVipIds, describeHaVipsRequest.haVipIds) &&
+        Objects.equals(this.haVipName, describeHaVipsRequest.haVipName) &&
         Objects.equals(this.ipAddress, describeHaVipsRequest.ipAddress) &&
         Objects.equals(this.pageNumber, describeHaVipsRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeHaVipsRequest.pageSize) &&
@@ -208,7 +230,7 @@ public class DescribeHaVipsRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(haVipIds, ipAddress, pageNumber, pageSize, status, subnetId, vpcId);
+    return Objects.hash(haVipIds, haVipName, ipAddress, pageNumber, pageSize, status, subnetId, vpcId);
   }
 
 
@@ -218,6 +240,7 @@ public class DescribeHaVipsRequest {
     sb.append("class DescribeHaVipsRequest {\n");
     
     sb.append("    haVipIds: ").append(toIndentedString(haVipIds)).append("\n");
+    sb.append("    haVipName: ").append(toIndentedString(haVipName)).append("\n");
     sb.append("    ipAddress: ").append(toIndentedString(ipAddress)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
