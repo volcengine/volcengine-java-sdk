@@ -28,7 +28,7 @@ import javax.validation.Valid;
  * AlarmPolicyForDescribeScalingPoliciesOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T19:54:53.055566+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T20:17:46.205154+08:00[Asia/Shanghai]")
 public class AlarmPolicyForDescribeScalingPoliciesOutput {
   @SerializedName("Condition")
   private ConditionForDescribeScalingPoliciesOutput condition = null;

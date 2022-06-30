@@ -29,7 +29,7 @@ import javax.validation.Valid;
  * CenRouteEntryForDescribeCenRouteEntriesOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T19:54:58.517508+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T20:17:51.288534+08:00[Asia/Shanghai]")
 public class CenRouteEntryForDescribeCenRouteEntriesOutput {
   @SerializedName("AsPath")
   private List<String> asPath = null;

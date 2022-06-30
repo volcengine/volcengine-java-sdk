@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * EipForModifyScalingConfigurationInput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T19:54:53.055566+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T20:17:46.205154+08:00[Asia/Shanghai]")
 public class EipForModifyScalingConfigurationInput {
   @SerializedName("Bandwidth")
   private Integer bandwidth = null;

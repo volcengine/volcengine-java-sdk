@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * CreateVolumeRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T19:55:22.782496+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T20:18:13.538566+08:00[Asia/Shanghai]")
 public class CreateVolumeRequest {
   @SerializedName("Description")
   private String description = null;
