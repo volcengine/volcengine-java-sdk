@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * ModifySecurityGroupRuleDescriptionsIngressRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:48.516414+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T19:55:25.796697+08:00[Asia/Shanghai]")
 public class ModifySecurityGroupRuleDescriptionsIngressRequest {
   @SerializedName("CidrIp")
   private String cidrIp = null;
@@ -52,6 +52,9 @@ public class ModifySecurityGroupRuleDescriptionsIngressRequest {
 
   @SerializedName("SecurityGroupId")
   private String securityGroupId = null;
+
+  @SerializedName("SourceGroupId")
+  private String sourceGroupId = null;
 
   public ModifySecurityGroupRuleDescriptionsIngressRequest cidrIp(String cidrIp) {
     this.cidrIp = cidrIp;
@@ -202,6 +205,24 @@ public class ModifySecurityGroupRuleDescriptionsIngressRequest {
     this.securityGroupId = securityGroupId;
   }
 
+  public ModifySecurityGroupRuleDescriptionsIngressRequest sourceGroupId(String sourceGroupId) {
+    this.sourceGroupId = sourceGroupId;
+    return this;
+  }
+
+   /**
+   * Get sourceGroupId
+   * @return sourceGroupId
+  **/
+  @Schema(description = "")
+  public String getSourceGroupId() {
+    return sourceGroupId;
+  }
+
+  public void setSourceGroupId(String sourceGroupId) {
+    this.sourceGroupId = sourceGroupId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -219,12 +240,13 @@ public class ModifySecurityGroupRuleDescriptionsIngressRequest {
         Objects.equals(this.portStart, modifySecurityGroupRuleDescriptionsIngressRequest.portStart) &&
         Objects.equals(this.priority, modifySecurityGroupRuleDescriptionsIngressRequest.priority) &&
         Objects.equals(this.protocol, modifySecurityGroupRuleDescriptionsIngressRequest.protocol) &&
-        Objects.equals(this.securityGroupId, modifySecurityGroupRuleDescriptionsIngressRequest.securityGroupId);
+        Objects.equals(this.securityGroupId, modifySecurityGroupRuleDescriptionsIngressRequest.securityGroupId) &&
+        Objects.equals(this.sourceGroupId, modifySecurityGroupRuleDescriptionsIngressRequest.sourceGroupId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cidrIp, description, policy, portEnd, portStart, priority, protocol, securityGroupId);
+    return Objects.hash(cidrIp, description, policy, portEnd, portStart, priority, protocol, securityGroupId, sourceGroupId);
   }
 
 
@@ -241,6 +263,7 @@ public class ModifySecurityGroupRuleDescriptionsIngressRequest {
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
     sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
     sb.append("    securityGroupId: ").append(toIndentedString(securityGroupId)).append("\n");
+    sb.append("    sourceGroupId: ").append(toIndentedString(sourceGroupId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

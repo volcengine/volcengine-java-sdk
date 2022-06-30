@@ -27,16 +27,13 @@ import javax.validation.Valid;
  * SecurityGroupForDescribeSecurityGroupsOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:48.516414+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T19:55:25.796697+08:00[Asia/Shanghai]")
 public class SecurityGroupForDescribeSecurityGroupsOutput {
   @SerializedName("CreationTime")
   private String creationTime = null;
 
   @SerializedName("Description")
   private String description = null;
-
-  @SerializedName("ProjectName")
-  private String projectName = null;
 
   @SerializedName("SecurityGroupId")
   private String securityGroupId = null;
@@ -87,24 +84,6 @@ public class SecurityGroupForDescribeSecurityGroupsOutput {
 
   public void setDescription(String description) {
     this.description = description;
-  }
-
-  public SecurityGroupForDescribeSecurityGroupsOutput projectName(String projectName) {
-    this.projectName = projectName;
-    return this;
-  }
-
-   /**
-   * Get projectName
-   * @return projectName
-  **/
-  @Schema(description = "")
-  public String getProjectName() {
-    return projectName;
-  }
-
-  public void setProjectName(String projectName) {
-    this.projectName = projectName;
   }
 
   public SecurityGroupForDescribeSecurityGroupsOutput securityGroupId(String securityGroupId) {
@@ -209,7 +188,6 @@ public class SecurityGroupForDescribeSecurityGroupsOutput {
     SecurityGroupForDescribeSecurityGroupsOutput securityGroupForDescribeSecurityGroupsOutput = (SecurityGroupForDescribeSecurityGroupsOutput) o;
     return Objects.equals(this.creationTime, securityGroupForDescribeSecurityGroupsOutput.creationTime) &&
         Objects.equals(this.description, securityGroupForDescribeSecurityGroupsOutput.description) &&
-        Objects.equals(this.projectName, securityGroupForDescribeSecurityGroupsOutput.projectName) &&
         Objects.equals(this.securityGroupId, securityGroupForDescribeSecurityGroupsOutput.securityGroupId) &&
         Objects.equals(this.securityGroupName, securityGroupForDescribeSecurityGroupsOutput.securityGroupName) &&
         Objects.equals(this.status, securityGroupForDescribeSecurityGroupsOutput.status) &&
@@ -219,7 +197,7 @@ public class SecurityGroupForDescribeSecurityGroupsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(creationTime, description, projectName, securityGroupId, securityGroupName, status, type, vpcId);
+    return Objects.hash(creationTime, description, securityGroupId, securityGroupName, status, type, vpcId);
   }
 
 
@@ -230,7 +208,6 @@ public class SecurityGroupForDescribeSecurityGroupsOutput {
     
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    securityGroupId: ").append(toIndentedString(securityGroupId)).append("\n");
     sb.append("    securityGroupName: ").append(toIndentedString(securityGroupName)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");

@@ -30,7 +30,7 @@ import javax.validation.Valid;
  * ListenerForDescribeListenersOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:21.106708+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T19:55:03.376515+08:00[Asia/Shanghai]")
 public class ListenerForDescribeListenersOutput {
   @SerializedName("AclIds")
   private List<String> aclIds = null;
@@ -46,9 +46,6 @@ public class ListenerForDescribeListenersOutput {
 
   @SerializedName("CreateTime")
   private String createTime = null;
-
-  @SerializedName("Description")
-  private String description = null;
 
   @SerializedName("Enabled")
   private String enabled = null;
@@ -173,24 +170,6 @@ public class ListenerForDescribeListenersOutput {
 
   public void setCreateTime(String createTime) {
     this.createTime = createTime;
-  }
-
-  public ListenerForDescribeListenersOutput description(String description) {
-    this.description = description;
-    return this;
-  }
-
-   /**
-   * Get description
-   * @return description
-  **/
-  @Schema(description = "")
-  public String getDescription() {
-    return description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
   }
 
   public ListenerForDescribeListenersOutput enabled(String enabled) {
@@ -371,7 +350,6 @@ public class ListenerForDescribeListenersOutput {
         Objects.equals(this.aclType, listenerForDescribeListenersOutput.aclType) &&
         Objects.equals(this.certificateId, listenerForDescribeListenersOutput.certificateId) &&
         Objects.equals(this.createTime, listenerForDescribeListenersOutput.createTime) &&
-        Objects.equals(this.description, listenerForDescribeListenersOutput.description) &&
         Objects.equals(this.enabled, listenerForDescribeListenersOutput.enabled) &&
         Objects.equals(this.healthCheck, listenerForDescribeListenersOutput.healthCheck) &&
         Objects.equals(this.listenerId, listenerForDescribeListenersOutput.listenerId) &&
@@ -385,7 +363,7 @@ public class ListenerForDescribeListenersOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclIds, aclStatus, aclType, certificateId, createTime, description, enabled, healthCheck, listenerId, listenerName, port, protocol, serverGroupId, status, updateTime);
+    return Objects.hash(aclIds, aclStatus, aclType, certificateId, createTime, enabled, healthCheck, listenerId, listenerName, port, protocol, serverGroupId, status, updateTime);
   }
 
 
@@ -399,7 +377,6 @@ public class ListenerForDescribeListenersOutput {
     sb.append("    aclType: ").append(toIndentedString(aclType)).append("\n");
     sb.append("    certificateId: ").append(toIndentedString(certificateId)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    healthCheck: ").append(toIndentedString(healthCheck)).append("\n");
     sb.append("    listenerId: ").append(toIndentedString(listenerId)).append("\n");

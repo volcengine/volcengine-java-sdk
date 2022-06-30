@@ -154,7 +154,7 @@ public class CenApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        String[] localVarAuthNames = new String[] { "volcstackSign" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -278,7 +278,7 @@ public class CenApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        String[] localVarAuthNames = new String[] { "volcstackSign" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -402,7 +402,7 @@ public class CenApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        String[] localVarAuthNames = new String[] { "volcstackSign" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -526,7 +526,7 @@ public class CenApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        String[] localVarAuthNames = new String[] { "volcstackSign" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -650,7 +650,7 @@ public class CenApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        String[] localVarAuthNames = new String[] { "volcstackSign" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -774,7 +774,7 @@ public class CenApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        String[] localVarAuthNames = new String[] { "volcstackSign" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -898,7 +898,7 @@ public class CenApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        String[] localVarAuthNames = new String[] { "volcstackSign" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -1022,7 +1022,7 @@ public class CenApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        String[] localVarAuthNames = new String[] { "volcstackSign" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -1146,7 +1146,7 @@ public class CenApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        String[] localVarAuthNames = new String[] { "volcstackSign" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -1270,7 +1270,7 @@ public class CenApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        String[] localVarAuthNames = new String[] { "volcstackSign" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -1394,7 +1394,7 @@ public class CenApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        String[] localVarAuthNames = new String[] { "volcstackSign" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -1518,7 +1518,7 @@ public class CenApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        String[] localVarAuthNames = new String[] { "volcstackSign" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -1642,7 +1642,7 @@ public class CenApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        String[] localVarAuthNames = new String[] { "volcstackSign" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -1766,7 +1766,7 @@ public class CenApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        String[] localVarAuthNames = new String[] { "volcstackSign" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -1890,7 +1890,7 @@ public class CenApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        String[] localVarAuthNames = new String[] { "volcstackSign" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -2014,7 +2014,7 @@ public class CenApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        String[] localVarAuthNames = new String[] { "volcstackSign" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -2138,7 +2138,7 @@ public class CenApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        String[] localVarAuthNames = new String[] { "volcstackSign" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -2262,7 +2262,7 @@ public class CenApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        String[] localVarAuthNames = new String[] { "volcstackSign" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -2386,7 +2386,7 @@ public class CenApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        String[] localVarAuthNames = new String[] { "volcstackSign" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -2510,7 +2510,7 @@ public class CenApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        String[] localVarAuthNames = new String[] { "volcstackSign" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -2634,7 +2634,7 @@ public class CenApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        String[] localVarAuthNames = new String[] { "volcstackSign" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -2758,7 +2758,7 @@ public class CenApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        String[] localVarAuthNames = new String[] { "volcstackSign" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -2882,7 +2882,7 @@ public class CenApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        String[] localVarAuthNames = new String[] { "volcstackSign" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -3006,7 +3006,7 @@ public class CenApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        String[] localVarAuthNames = new String[] { "volcstackSign" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -3130,7 +3130,7 @@ public class CenApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        String[] localVarAuthNames = new String[] { "volcstackSign" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -3254,7 +3254,7 @@ public class CenApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        String[] localVarAuthNames = new String[] { "volcstackSign" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -3378,7 +3378,7 @@ public class CenApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        String[] localVarAuthNames = new String[] { "volcstackSign" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -3502,7 +3502,7 @@ public class CenApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        String[] localVarAuthNames = new String[] { "volcstackSign" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     

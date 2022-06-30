@@ -21,76 +21,16 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
  * ZoneForDescribeZonesOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:32.918937+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T19:55:14.870161+08:00[Asia/Shanghai]")
 public class ZoneForDescribeZonesOutput {
-  @SerializedName("InstanceTypes")
-  private List<String> instanceTypes = null;
-
-  @SerializedName("VolumeTypes")
-  private List<String> volumeTypes = null;
-
   @SerializedName("ZoneId")
   private String zoneId = null;
-
-  public ZoneForDescribeZonesOutput instanceTypes(List<String> instanceTypes) {
-    this.instanceTypes = instanceTypes;
-    return this;
-  }
-
-  public ZoneForDescribeZonesOutput addInstanceTypesItem(String instanceTypesItem) {
-    if (this.instanceTypes == null) {
-      this.instanceTypes = new ArrayList<String>();
-    }
-    this.instanceTypes.add(instanceTypesItem);
-    return this;
-  }
-
-   /**
-   * Get instanceTypes
-   * @return instanceTypes
-  **/
-  @Schema(description = "")
-  public List<String> getInstanceTypes() {
-    return instanceTypes;
-  }
-
-  public void setInstanceTypes(List<String> instanceTypes) {
-    this.instanceTypes = instanceTypes;
-  }
-
-  public ZoneForDescribeZonesOutput volumeTypes(List<String> volumeTypes) {
-    this.volumeTypes = volumeTypes;
-    return this;
-  }
-
-  public ZoneForDescribeZonesOutput addVolumeTypesItem(String volumeTypesItem) {
-    if (this.volumeTypes == null) {
-      this.volumeTypes = new ArrayList<String>();
-    }
-    this.volumeTypes.add(volumeTypesItem);
-    return this;
-  }
-
-   /**
-   * Get volumeTypes
-   * @return volumeTypes
-  **/
-  @Schema(description = "")
-  public List<String> getVolumeTypes() {
-    return volumeTypes;
-  }
-
-  public void setVolumeTypes(List<String> volumeTypes) {
-    this.volumeTypes = volumeTypes;
-  }
 
   public ZoneForDescribeZonesOutput zoneId(String zoneId) {
     this.zoneId = zoneId;
@@ -120,14 +60,12 @@ public class ZoneForDescribeZonesOutput {
       return false;
     }
     ZoneForDescribeZonesOutput zoneForDescribeZonesOutput = (ZoneForDescribeZonesOutput) o;
-    return Objects.equals(this.instanceTypes, zoneForDescribeZonesOutput.instanceTypes) &&
-        Objects.equals(this.volumeTypes, zoneForDescribeZonesOutput.volumeTypes) &&
-        Objects.equals(this.zoneId, zoneForDescribeZonesOutput.zoneId);
+    return Objects.equals(this.zoneId, zoneForDescribeZonesOutput.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceTypes, volumeTypes, zoneId);
+    return Objects.hash(zoneId);
   }
 
 
@@ -136,8 +74,6 @@ public class ZoneForDescribeZonesOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ZoneForDescribeZonesOutput {\n");
     
-    sb.append("    instanceTypes: ").append(toIndentedString(instanceTypes)).append("\n");
-    sb.append("    volumeTypes: ").append(toIndentedString(volumeTypes)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");
     return sb.toString();

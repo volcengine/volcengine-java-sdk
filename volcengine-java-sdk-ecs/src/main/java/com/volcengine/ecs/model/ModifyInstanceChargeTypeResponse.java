@@ -21,21 +21,16 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
  * ModifyInstanceChargeTypeResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:32.918937+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T19:55:14.870161+08:00[Asia/Shanghai]")
 public class ModifyInstanceChargeTypeResponse {
   @SerializedName("OrderId")
   private String orderId = null;
-
-  @SerializedName("PreorderIds")
-  private List<String> preorderIds = null;
 
   public ModifyInstanceChargeTypeResponse orderId(String orderId) {
     this.orderId = orderId;
@@ -55,32 +50,6 @@ public class ModifyInstanceChargeTypeResponse {
     this.orderId = orderId;
   }
 
-  public ModifyInstanceChargeTypeResponse preorderIds(List<String> preorderIds) {
-    this.preorderIds = preorderIds;
-    return this;
-  }
-
-  public ModifyInstanceChargeTypeResponse addPreorderIdsItem(String preorderIdsItem) {
-    if (this.preorderIds == null) {
-      this.preorderIds = new ArrayList<String>();
-    }
-    this.preorderIds.add(preorderIdsItem);
-    return this;
-  }
-
-   /**
-   * Get preorderIds
-   * @return preorderIds
-  **/
-  @Schema(description = "")
-  public List<String> getPreorderIds() {
-    return preorderIds;
-  }
-
-  public void setPreorderIds(List<String> preorderIds) {
-    this.preorderIds = preorderIds;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -91,13 +60,12 @@ public class ModifyInstanceChargeTypeResponse {
       return false;
     }
     ModifyInstanceChargeTypeResponse modifyInstanceChargeTypeResponse = (ModifyInstanceChargeTypeResponse) o;
-    return Objects.equals(this.orderId, modifyInstanceChargeTypeResponse.orderId) &&
-        Objects.equals(this.preorderIds, modifyInstanceChargeTypeResponse.preorderIds);
+    return Objects.equals(this.orderId, modifyInstanceChargeTypeResponse.orderId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(orderId, preorderIds);
+    return Objects.hash(orderId);
   }
 
 
@@ -107,7 +75,6 @@ public class ModifyInstanceChargeTypeResponse {
     sb.append("class ModifyInstanceChargeTypeResponse {\n");
     
     sb.append("    orderId: ").append(toIndentedString(orderId)).append("\n");
-    sb.append("    preorderIds: ").append(toIndentedString(preorderIds)).append("\n");
     sb.append("}");
     return sb.toString();
   }

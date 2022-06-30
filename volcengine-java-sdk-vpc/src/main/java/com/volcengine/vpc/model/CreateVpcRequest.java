@@ -29,7 +29,7 @@ import javax.validation.Valid;
  * CreateVpcRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:48.516414+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T19:55:25.796697+08:00[Asia/Shanghai]")
 public class CreateVpcRequest {
   @SerializedName("CidrBlock")
   private String cidrBlock = null;
@@ -39,12 +39,6 @@ public class CreateVpcRequest {
 
   @SerializedName("DnsServers")
   private List<String> dnsServers = null;
-
-  @SerializedName("EnableIPv6")
-  private String enableIPv6 = null;
-
-  @SerializedName("IPv6CidrBlock")
-  private String ipv6CidrBlock = null;
 
   @SerializedName("VpcName")
   private String vpcName = null;
@@ -112,42 +106,6 @@ public class CreateVpcRequest {
     this.dnsServers = dnsServers;
   }
 
-  public CreateVpcRequest enableIPv6(String enableIPv6) {
-    this.enableIPv6 = enableIPv6;
-    return this;
-  }
-
-   /**
-   * Get enableIPv6
-   * @return enableIPv6
-  **/
-  @Schema(description = "")
-  public String getEnableIPv6() {
-    return enableIPv6;
-  }
-
-  public void setEnableIPv6(String enableIPv6) {
-    this.enableIPv6 = enableIPv6;
-  }
-
-  public CreateVpcRequest ipv6CidrBlock(String ipv6CidrBlock) {
-    this.ipv6CidrBlock = ipv6CidrBlock;
-    return this;
-  }
-
-   /**
-   * Get ipv6CidrBlock
-   * @return ipv6CidrBlock
-  **/
-  @Schema(description = "")
-  public String getIpv6CidrBlock() {
-    return ipv6CidrBlock;
-  }
-
-  public void setIpv6CidrBlock(String ipv6CidrBlock) {
-    this.ipv6CidrBlock = ipv6CidrBlock;
-  }
-
   public CreateVpcRequest vpcName(String vpcName) {
     this.vpcName = vpcName;
     return this;
@@ -179,14 +137,12 @@ public class CreateVpcRequest {
     return Objects.equals(this.cidrBlock, createVpcRequest.cidrBlock) &&
         Objects.equals(this.description, createVpcRequest.description) &&
         Objects.equals(this.dnsServers, createVpcRequest.dnsServers) &&
-        Objects.equals(this.enableIPv6, createVpcRequest.enableIPv6) &&
-        Objects.equals(this.ipv6CidrBlock, createVpcRequest.ipv6CidrBlock) &&
         Objects.equals(this.vpcName, createVpcRequest.vpcName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cidrBlock, description, dnsServers, enableIPv6, ipv6CidrBlock, vpcName);
+    return Objects.hash(cidrBlock, description, dnsServers, vpcName);
   }
 
 
@@ -198,8 +154,6 @@ public class CreateVpcRequest {
     sb.append("    cidrBlock: ").append(toIndentedString(cidrBlock)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    dnsServers: ").append(toIndentedString(dnsServers)).append("\n");
-    sb.append("    enableIPv6: ").append(toIndentedString(enableIPv6)).append("\n");
-    sb.append("    ipv6CidrBlock: ").append(toIndentedString(ipv6CidrBlock)).append("\n");
     sb.append("    vpcName: ").append(toIndentedString(vpcName)).append("\n");
     sb.append("}");
     return sb.toString();

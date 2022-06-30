@@ -29,8 +29,11 @@ import javax.validation.Valid;
  * DescribeLoadBalancersRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:21.106708+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T19:55:03.376515+08:00[Asia/Shanghai]")
 public class DescribeLoadBalancersRequest {
+  @SerializedName("EniAddress")
+  private String eniAddress = null;
+
   @SerializedName("LoadBalancerIds")
   private List<String> loadBalancerIds = null;
 
@@ -43,11 +46,26 @@ public class DescribeLoadBalancersRequest {
   @SerializedName("PageSize")
   private Integer pageSize = null;
 
-  @SerializedName("Type")
-  private String type = null;
-
   @SerializedName("VpcId")
   private String vpcId = null;
+
+  public DescribeLoadBalancersRequest eniAddress(String eniAddress) {
+    this.eniAddress = eniAddress;
+    return this;
+  }
+
+   /**
+   * Get eniAddress
+   * @return eniAddress
+  **/
+  @Schema(description = "")
+  public String getEniAddress() {
+    return eniAddress;
+  }
+
+  public void setEniAddress(String eniAddress) {
+    this.eniAddress = eniAddress;
+  }
 
   public DescribeLoadBalancersRequest loadBalancerIds(List<String> loadBalancerIds) {
     this.loadBalancerIds = loadBalancerIds;
@@ -129,24 +147,6 @@ public class DescribeLoadBalancersRequest {
     this.pageSize = pageSize;
   }
 
-  public DescribeLoadBalancersRequest type(String type) {
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * Get type
-   * @return type
-  **/
-  @Schema(description = "")
-  public String getType() {
-    return type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
-
   public DescribeLoadBalancersRequest vpcId(String vpcId) {
     this.vpcId = vpcId;
     return this;
@@ -175,17 +175,17 @@ public class DescribeLoadBalancersRequest {
       return false;
     }
     DescribeLoadBalancersRequest describeLoadBalancersRequest = (DescribeLoadBalancersRequest) o;
-    return Objects.equals(this.loadBalancerIds, describeLoadBalancersRequest.loadBalancerIds) &&
+    return Objects.equals(this.eniAddress, describeLoadBalancersRequest.eniAddress) &&
+        Objects.equals(this.loadBalancerIds, describeLoadBalancersRequest.loadBalancerIds) &&
         Objects.equals(this.loadBalancerName, describeLoadBalancersRequest.loadBalancerName) &&
         Objects.equals(this.pageNumber, describeLoadBalancersRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeLoadBalancersRequest.pageSize) &&
-        Objects.equals(this.type, describeLoadBalancersRequest.type) &&
         Objects.equals(this.vpcId, describeLoadBalancersRequest.vpcId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(loadBalancerIds, loadBalancerName, pageNumber, pageSize, type, vpcId);
+    return Objects.hash(eniAddress, loadBalancerIds, loadBalancerName, pageNumber, pageSize, vpcId);
   }
 
 
@@ -194,11 +194,11 @@ public class DescribeLoadBalancersRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeLoadBalancersRequest {\n");
     
+    sb.append("    eniAddress: ").append(toIndentedString(eniAddress)).append("\n");
     sb.append("    loadBalancerIds: ").append(toIndentedString(loadBalancerIds)).append("\n");
     sb.append("    loadBalancerName: ").append(toIndentedString(loadBalancerName)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("}");
     return sb.toString();

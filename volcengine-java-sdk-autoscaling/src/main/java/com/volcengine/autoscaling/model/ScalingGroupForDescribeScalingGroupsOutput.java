@@ -30,7 +30,7 @@ import javax.validation.Valid;
  * ScalingGroupForDescribeScalingGroupsOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:12.731669+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T19:54:53.055566+08:00[Asia/Shanghai]")
 public class ScalingGroupForDescribeScalingGroupsOutput {
   @SerializedName("ActiveScalingConfigurationId")
   private String activeScalingConfigurationId = null;
@@ -38,17 +38,11 @@ public class ScalingGroupForDescribeScalingGroupsOutput {
   @SerializedName("CreatedAt")
   private String createdAt = null;
 
-  @SerializedName("DBInstanceIds")
-  private List<String> dbInstanceIds = null;
-
   @SerializedName("DefaultCooldown")
   private Integer defaultCooldown = null;
 
   @SerializedName("DesireInstanceNumber")
   private Integer desireInstanceNumber = null;
-
-  @SerializedName("InstanceTerminatePolicy")
-  private String instanceTerminatePolicy = null;
 
   @SerializedName("LifecycleState")
   private String lifecycleState = null;
@@ -58,9 +52,6 @@ public class ScalingGroupForDescribeScalingGroupsOutput {
 
   @SerializedName("MinInstanceNumber")
   private Integer minInstanceNumber = null;
-
-  @SerializedName("MultiAZPolicy")
-  private String multiAZPolicy = null;
 
   @SerializedName("ScalingGroupId")
   private String scalingGroupId = null;
@@ -119,32 +110,6 @@ public class ScalingGroupForDescribeScalingGroupsOutput {
     this.createdAt = createdAt;
   }
 
-  public ScalingGroupForDescribeScalingGroupsOutput dbInstanceIds(List<String> dbInstanceIds) {
-    this.dbInstanceIds = dbInstanceIds;
-    return this;
-  }
-
-  public ScalingGroupForDescribeScalingGroupsOutput addDbInstanceIdsItem(String dbInstanceIdsItem) {
-    if (this.dbInstanceIds == null) {
-      this.dbInstanceIds = new ArrayList<String>();
-    }
-    this.dbInstanceIds.add(dbInstanceIdsItem);
-    return this;
-  }
-
-   /**
-   * Get dbInstanceIds
-   * @return dbInstanceIds
-  **/
-  @Schema(description = "")
-  public List<String> getDbInstanceIds() {
-    return dbInstanceIds;
-  }
-
-  public void setDbInstanceIds(List<String> dbInstanceIds) {
-    this.dbInstanceIds = dbInstanceIds;
-  }
-
   public ScalingGroupForDescribeScalingGroupsOutput defaultCooldown(Integer defaultCooldown) {
     this.defaultCooldown = defaultCooldown;
     return this;
@@ -179,24 +144,6 @@ public class ScalingGroupForDescribeScalingGroupsOutput {
 
   public void setDesireInstanceNumber(Integer desireInstanceNumber) {
     this.desireInstanceNumber = desireInstanceNumber;
-  }
-
-  public ScalingGroupForDescribeScalingGroupsOutput instanceTerminatePolicy(String instanceTerminatePolicy) {
-    this.instanceTerminatePolicy = instanceTerminatePolicy;
-    return this;
-  }
-
-   /**
-   * Get instanceTerminatePolicy
-   * @return instanceTerminatePolicy
-  **/
-  @Schema(description = "")
-  public String getInstanceTerminatePolicy() {
-    return instanceTerminatePolicy;
-  }
-
-  public void setInstanceTerminatePolicy(String instanceTerminatePolicy) {
-    this.instanceTerminatePolicy = instanceTerminatePolicy;
   }
 
   public ScalingGroupForDescribeScalingGroupsOutput lifecycleState(String lifecycleState) {
@@ -251,24 +198,6 @@ public class ScalingGroupForDescribeScalingGroupsOutput {
 
   public void setMinInstanceNumber(Integer minInstanceNumber) {
     this.minInstanceNumber = minInstanceNumber;
-  }
-
-  public ScalingGroupForDescribeScalingGroupsOutput multiAZPolicy(String multiAZPolicy) {
-    this.multiAZPolicy = multiAZPolicy;
-    return this;
-  }
-
-   /**
-   * Get multiAZPolicy
-   * @return multiAZPolicy
-  **/
-  @Schema(description = "")
-  public String getMultiAZPolicy() {
-    return multiAZPolicy;
-  }
-
-  public void setMultiAZPolicy(String multiAZPolicy) {
-    this.multiAZPolicy = multiAZPolicy;
   }
 
   public ScalingGroupForDescribeScalingGroupsOutput scalingGroupId(String scalingGroupId) {
@@ -426,14 +355,11 @@ public class ScalingGroupForDescribeScalingGroupsOutput {
     ScalingGroupForDescribeScalingGroupsOutput scalingGroupForDescribeScalingGroupsOutput = (ScalingGroupForDescribeScalingGroupsOutput) o;
     return Objects.equals(this.activeScalingConfigurationId, scalingGroupForDescribeScalingGroupsOutput.activeScalingConfigurationId) &&
         Objects.equals(this.createdAt, scalingGroupForDescribeScalingGroupsOutput.createdAt) &&
-        Objects.equals(this.dbInstanceIds, scalingGroupForDescribeScalingGroupsOutput.dbInstanceIds) &&
         Objects.equals(this.defaultCooldown, scalingGroupForDescribeScalingGroupsOutput.defaultCooldown) &&
         Objects.equals(this.desireInstanceNumber, scalingGroupForDescribeScalingGroupsOutput.desireInstanceNumber) &&
-        Objects.equals(this.instanceTerminatePolicy, scalingGroupForDescribeScalingGroupsOutput.instanceTerminatePolicy) &&
         Objects.equals(this.lifecycleState, scalingGroupForDescribeScalingGroupsOutput.lifecycleState) &&
         Objects.equals(this.maxInstanceNumber, scalingGroupForDescribeScalingGroupsOutput.maxInstanceNumber) &&
         Objects.equals(this.minInstanceNumber, scalingGroupForDescribeScalingGroupsOutput.minInstanceNumber) &&
-        Objects.equals(this.multiAZPolicy, scalingGroupForDescribeScalingGroupsOutput.multiAZPolicy) &&
         Objects.equals(this.scalingGroupId, scalingGroupForDescribeScalingGroupsOutput.scalingGroupId) &&
         Objects.equals(this.scalingGroupName, scalingGroupForDescribeScalingGroupsOutput.scalingGroupName) &&
         Objects.equals(this.serverGroupAttributes, scalingGroupForDescribeScalingGroupsOutput.serverGroupAttributes) &&
@@ -445,7 +371,7 @@ public class ScalingGroupForDescribeScalingGroupsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(activeScalingConfigurationId, createdAt, dbInstanceIds, defaultCooldown, desireInstanceNumber, instanceTerminatePolicy, lifecycleState, maxInstanceNumber, minInstanceNumber, multiAZPolicy, scalingGroupId, scalingGroupName, serverGroupAttributes, subnetIds, totalInstanceCount, updatedAt, vpcId);
+    return Objects.hash(activeScalingConfigurationId, createdAt, defaultCooldown, desireInstanceNumber, lifecycleState, maxInstanceNumber, minInstanceNumber, scalingGroupId, scalingGroupName, serverGroupAttributes, subnetIds, totalInstanceCount, updatedAt, vpcId);
   }
 
 
@@ -456,14 +382,11 @@ public class ScalingGroupForDescribeScalingGroupsOutput {
     
     sb.append("    activeScalingConfigurationId: ").append(toIndentedString(activeScalingConfigurationId)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
-    sb.append("    dbInstanceIds: ").append(toIndentedString(dbInstanceIds)).append("\n");
     sb.append("    defaultCooldown: ").append(toIndentedString(defaultCooldown)).append("\n");
     sb.append("    desireInstanceNumber: ").append(toIndentedString(desireInstanceNumber)).append("\n");
-    sb.append("    instanceTerminatePolicy: ").append(toIndentedString(instanceTerminatePolicy)).append("\n");
     sb.append("    lifecycleState: ").append(toIndentedString(lifecycleState)).append("\n");
     sb.append("    maxInstanceNumber: ").append(toIndentedString(maxInstanceNumber)).append("\n");
     sb.append("    minInstanceNumber: ").append(toIndentedString(minInstanceNumber)).append("\n");
-    sb.append("    multiAZPolicy: ").append(toIndentedString(multiAZPolicy)).append("\n");
     sb.append("    scalingGroupId: ").append(toIndentedString(scalingGroupId)).append("\n");
     sb.append("    scalingGroupName: ").append(toIndentedString(scalingGroupName)).append("\n");
     sb.append("    serverGroupAttributes: ").append(toIndentedString(serverGroupAttributes)).append("\n");

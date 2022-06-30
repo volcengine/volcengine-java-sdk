@@ -27,14 +27,8 @@ import javax.validation.Valid;
  * VolumeForDescribeVolumesOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:45.652685+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T19:55:22.782496+08:00[Asia/Shanghai]")
 public class VolumeForDescribeVolumesOutput {
-  @SerializedName("AutoSnapshotPolicyId")
-  private String autoSnapshotPolicyId = null;
-
-  @SerializedName("AutoSnapshotPolicyName")
-  private String autoSnapshotPolicyName = null;
-
   @SerializedName("BillingType")
   private Integer billingType = null;
 
@@ -50,9 +44,6 @@ public class VolumeForDescribeVolumesOutput {
   @SerializedName("DeviceName")
   private String deviceName = null;
 
-  @SerializedName("ErrorDetail")
-  private String errorDetail = null;
-
   @SerializedName("ExpiredTime")
   private String expiredTime = null;
 
@@ -65,12 +56,6 @@ public class VolumeForDescribeVolumesOutput {
   @SerializedName("Kind")
   private String kind = null;
 
-  @SerializedName("OverdueReclaimTime")
-  private String overdueReclaimTime = null;
-
-  @SerializedName("OverdueTime")
-  private String overdueTime = null;
-
   @SerializedName("PayType")
   private String payType = null;
 
@@ -79,9 +64,6 @@ public class VolumeForDescribeVolumesOutput {
 
   @SerializedName("Size")
   private String size = null;
-
-  @SerializedName("SourceSnapshotId")
-  private String sourceSnapshotId = null;
 
   @SerializedName("Status")
   private String status = null;
@@ -103,42 +85,6 @@ public class VolumeForDescribeVolumesOutput {
 
   @SerializedName("ZoneId")
   private String zoneId = null;
-
-  public VolumeForDescribeVolumesOutput autoSnapshotPolicyId(String autoSnapshotPolicyId) {
-    this.autoSnapshotPolicyId = autoSnapshotPolicyId;
-    return this;
-  }
-
-   /**
-   * Get autoSnapshotPolicyId
-   * @return autoSnapshotPolicyId
-  **/
-  @Schema(description = "")
-  public String getAutoSnapshotPolicyId() {
-    return autoSnapshotPolicyId;
-  }
-
-  public void setAutoSnapshotPolicyId(String autoSnapshotPolicyId) {
-    this.autoSnapshotPolicyId = autoSnapshotPolicyId;
-  }
-
-  public VolumeForDescribeVolumesOutput autoSnapshotPolicyName(String autoSnapshotPolicyName) {
-    this.autoSnapshotPolicyName = autoSnapshotPolicyName;
-    return this;
-  }
-
-   /**
-   * Get autoSnapshotPolicyName
-   * @return autoSnapshotPolicyName
-  **/
-  @Schema(description = "")
-  public String getAutoSnapshotPolicyName() {
-    return autoSnapshotPolicyName;
-  }
-
-  public void setAutoSnapshotPolicyName(String autoSnapshotPolicyName) {
-    this.autoSnapshotPolicyName = autoSnapshotPolicyName;
-  }
 
   public VolumeForDescribeVolumesOutput billingType(Integer billingType) {
     this.billingType = billingType;
@@ -230,24 +176,6 @@ public class VolumeForDescribeVolumesOutput {
     this.deviceName = deviceName;
   }
 
-  public VolumeForDescribeVolumesOutput errorDetail(String errorDetail) {
-    this.errorDetail = errorDetail;
-    return this;
-  }
-
-   /**
-   * Get errorDetail
-   * @return errorDetail
-  **/
-  @Schema(description = "")
-  public String getErrorDetail() {
-    return errorDetail;
-  }
-
-  public void setErrorDetail(String errorDetail) {
-    this.errorDetail = errorDetail;
-  }
-
   public VolumeForDescribeVolumesOutput expiredTime(String expiredTime) {
     this.expiredTime = expiredTime;
     return this;
@@ -320,42 +248,6 @@ public class VolumeForDescribeVolumesOutput {
     this.kind = kind;
   }
 
-  public VolumeForDescribeVolumesOutput overdueReclaimTime(String overdueReclaimTime) {
-    this.overdueReclaimTime = overdueReclaimTime;
-    return this;
-  }
-
-   /**
-   * Get overdueReclaimTime
-   * @return overdueReclaimTime
-  **/
-  @Schema(description = "")
-  public String getOverdueReclaimTime() {
-    return overdueReclaimTime;
-  }
-
-  public void setOverdueReclaimTime(String overdueReclaimTime) {
-    this.overdueReclaimTime = overdueReclaimTime;
-  }
-
-  public VolumeForDescribeVolumesOutput overdueTime(String overdueTime) {
-    this.overdueTime = overdueTime;
-    return this;
-  }
-
-   /**
-   * Get overdueTime
-   * @return overdueTime
-  **/
-  @Schema(description = "")
-  public String getOverdueTime() {
-    return overdueTime;
-  }
-
-  public void setOverdueTime(String overdueTime) {
-    this.overdueTime = overdueTime;
-  }
-
   public VolumeForDescribeVolumesOutput payType(String payType) {
     this.payType = payType;
     return this;
@@ -408,24 +300,6 @@ public class VolumeForDescribeVolumesOutput {
 
   public void setSize(String size) {
     this.size = size;
-  }
-
-  public VolumeForDescribeVolumesOutput sourceSnapshotId(String sourceSnapshotId) {
-    this.sourceSnapshotId = sourceSnapshotId;
-    return this;
-  }
-
-   /**
-   * Get sourceSnapshotId
-   * @return sourceSnapshotId
-  **/
-  @Schema(description = "")
-  public String getSourceSnapshotId() {
-    return sourceSnapshotId;
-  }
-
-  public void setSourceSnapshotId(String sourceSnapshotId) {
-    this.sourceSnapshotId = sourceSnapshotId;
   }
 
   public VolumeForDescribeVolumesOutput status(String status) {
@@ -564,24 +438,18 @@ public class VolumeForDescribeVolumesOutput {
       return false;
     }
     VolumeForDescribeVolumesOutput volumeForDescribeVolumesOutput = (VolumeForDescribeVolumesOutput) o;
-    return Objects.equals(this.autoSnapshotPolicyId, volumeForDescribeVolumesOutput.autoSnapshotPolicyId) &&
-        Objects.equals(this.autoSnapshotPolicyName, volumeForDescribeVolumesOutput.autoSnapshotPolicyName) &&
-        Objects.equals(this.billingType, volumeForDescribeVolumesOutput.billingType) &&
+    return Objects.equals(this.billingType, volumeForDescribeVolumesOutput.billingType) &&
         Objects.equals(this.createdAt, volumeForDescribeVolumesOutput.createdAt) &&
         Objects.equals(this.deleteWithInstance, volumeForDescribeVolumesOutput.deleteWithInstance) &&
         Objects.equals(this.description, volumeForDescribeVolumesOutput.description) &&
         Objects.equals(this.deviceName, volumeForDescribeVolumesOutput.deviceName) &&
-        Objects.equals(this.errorDetail, volumeForDescribeVolumesOutput.errorDetail) &&
         Objects.equals(this.expiredTime, volumeForDescribeVolumesOutput.expiredTime) &&
         Objects.equals(this.imageId, volumeForDescribeVolumesOutput.imageId) &&
         Objects.equals(this.instanceId, volumeForDescribeVolumesOutput.instanceId) &&
         Objects.equals(this.kind, volumeForDescribeVolumesOutput.kind) &&
-        Objects.equals(this.overdueReclaimTime, volumeForDescribeVolumesOutput.overdueReclaimTime) &&
-        Objects.equals(this.overdueTime, volumeForDescribeVolumesOutput.overdueTime) &&
         Objects.equals(this.payType, volumeForDescribeVolumesOutput.payType) &&
         Objects.equals(this.renewType, volumeForDescribeVolumesOutput.renewType) &&
         Objects.equals(this.size, volumeForDescribeVolumesOutput.size) &&
-        Objects.equals(this.sourceSnapshotId, volumeForDescribeVolumesOutput.sourceSnapshotId) &&
         Objects.equals(this.status, volumeForDescribeVolumesOutput.status) &&
         Objects.equals(this.tradeStatus, volumeForDescribeVolumesOutput.tradeStatus) &&
         Objects.equals(this.updatedAt, volumeForDescribeVolumesOutput.updatedAt) &&
@@ -593,7 +461,7 @@ public class VolumeForDescribeVolumesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoSnapshotPolicyId, autoSnapshotPolicyName, billingType, createdAt, deleteWithInstance, description, deviceName, errorDetail, expiredTime, imageId, instanceId, kind, overdueReclaimTime, overdueTime, payType, renewType, size, sourceSnapshotId, status, tradeStatus, updatedAt, volumeId, volumeName, volumeType, zoneId);
+    return Objects.hash(billingType, createdAt, deleteWithInstance, description, deviceName, expiredTime, imageId, instanceId, kind, payType, renewType, size, status, tradeStatus, updatedAt, volumeId, volumeName, volumeType, zoneId);
   }
 
 
@@ -602,24 +470,18 @@ public class VolumeForDescribeVolumesOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class VolumeForDescribeVolumesOutput {\n");
     
-    sb.append("    autoSnapshotPolicyId: ").append(toIndentedString(autoSnapshotPolicyId)).append("\n");
-    sb.append("    autoSnapshotPolicyName: ").append(toIndentedString(autoSnapshotPolicyName)).append("\n");
     sb.append("    billingType: ").append(toIndentedString(billingType)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    deleteWithInstance: ").append(toIndentedString(deleteWithInstance)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    deviceName: ").append(toIndentedString(deviceName)).append("\n");
-    sb.append("    errorDetail: ").append(toIndentedString(errorDetail)).append("\n");
     sb.append("    expiredTime: ").append(toIndentedString(expiredTime)).append("\n");
     sb.append("    imageId: ").append(toIndentedString(imageId)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    kind: ").append(toIndentedString(kind)).append("\n");
-    sb.append("    overdueReclaimTime: ").append(toIndentedString(overdueReclaimTime)).append("\n");
-    sb.append("    overdueTime: ").append(toIndentedString(overdueTime)).append("\n");
     sb.append("    payType: ").append(toIndentedString(payType)).append("\n");
     sb.append("    renewType: ").append(toIndentedString(renewType)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
-    sb.append("    sourceSnapshotId: ").append(toIndentedString(sourceSnapshotId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tradeStatus: ").append(toIndentedString(tradeStatus)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");

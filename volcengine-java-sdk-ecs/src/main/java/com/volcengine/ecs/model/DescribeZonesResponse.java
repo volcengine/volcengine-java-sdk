@@ -30,7 +30,7 @@ import javax.validation.Valid;
  * DescribeZonesResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:32.918937+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T19:55:14.870161+08:00[Asia/Shanghai]")
 public class DescribeZonesResponse {
   @SerializedName("Zones")
   private List<ZoneForDescribeZonesOutput> zones = null;

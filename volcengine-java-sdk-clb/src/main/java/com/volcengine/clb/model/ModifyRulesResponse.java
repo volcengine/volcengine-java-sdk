@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * ModifyRulesResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:21.106708+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T19:55:03.376515+08:00[Asia/Shanghai]")
 public class ModifyRulesResponse {
   @SerializedName("RequestId")
   private String requestId = null;

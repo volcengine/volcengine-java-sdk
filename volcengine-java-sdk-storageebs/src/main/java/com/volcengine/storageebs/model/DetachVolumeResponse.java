@@ -20,7 +20,7 @@ import javax.validation.Valid;
  * DetachVolumeResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:45.652685+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T19:55:22.782496+08:00[Asia/Shanghai]")
 public class DetachVolumeResponse {
 
   @Override

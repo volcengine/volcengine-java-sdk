@@ -29,7 +29,7 @@ import javax.validation.Valid;
  * DescribeCenInterRegionBandwidthsRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:17.092992+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T19:54:58.517508+08:00[Asia/Shanghai]")
 public class DescribeCenInterRegionBandwidthsRequest {
   @SerializedName("CenId")
   private String cenId = null;

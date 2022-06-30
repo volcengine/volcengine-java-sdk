@@ -28,19 +28,13 @@ import javax.validation.Valid;
  * GpuDeviceForDescribeInstanceTypesOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:32.918937+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T19:55:14.870161+08:00[Asia/Shanghai]")
 public class GpuDeviceForDescribeInstanceTypesOutput {
   @SerializedName("Count")
   private Integer count = null;
 
-  @SerializedName("Mem")
-  private Integer mem = null;
-
   @SerializedName("Memory")
   private MemoryForDescribeInstanceTypesOutput memory = null;
-
-  @SerializedName("Model")
-  private String model = null;
 
   @SerializedName("ProductName")
   private String productName = null;
@@ -63,24 +57,6 @@ public class GpuDeviceForDescribeInstanceTypesOutput {
     this.count = count;
   }
 
-  public GpuDeviceForDescribeInstanceTypesOutput mem(Integer mem) {
-    this.mem = mem;
-    return this;
-  }
-
-   /**
-   * Get mem
-   * @return mem
-  **/
-  @Schema(description = "")
-  public Integer getMem() {
-    return mem;
-  }
-
-  public void setMem(Integer mem) {
-    this.mem = mem;
-  }
-
   public GpuDeviceForDescribeInstanceTypesOutput memory(MemoryForDescribeInstanceTypesOutput memory) {
     this.memory = memory;
     return this;
@@ -98,24 +74,6 @@ public class GpuDeviceForDescribeInstanceTypesOutput {
 
   public void setMemory(MemoryForDescribeInstanceTypesOutput memory) {
     this.memory = memory;
-  }
-
-  public GpuDeviceForDescribeInstanceTypesOutput model(String model) {
-    this.model = model;
-    return this;
-  }
-
-   /**
-   * Get model
-   * @return model
-  **/
-  @Schema(description = "")
-  public String getModel() {
-    return model;
-  }
-
-  public void setModel(String model) {
-    this.model = model;
   }
 
   public GpuDeviceForDescribeInstanceTypesOutput productName(String productName) {
@@ -147,15 +105,13 @@ public class GpuDeviceForDescribeInstanceTypesOutput {
     }
     GpuDeviceForDescribeInstanceTypesOutput gpuDeviceForDescribeInstanceTypesOutput = (GpuDeviceForDescribeInstanceTypesOutput) o;
     return Objects.equals(this.count, gpuDeviceForDescribeInstanceTypesOutput.count) &&
-        Objects.equals(this.mem, gpuDeviceForDescribeInstanceTypesOutput.mem) &&
         Objects.equals(this.memory, gpuDeviceForDescribeInstanceTypesOutput.memory) &&
-        Objects.equals(this.model, gpuDeviceForDescribeInstanceTypesOutput.model) &&
         Objects.equals(this.productName, gpuDeviceForDescribeInstanceTypesOutput.productName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(count, mem, memory, model, productName);
+    return Objects.hash(count, memory, productName);
   }
 
 
@@ -165,9 +121,7 @@ public class GpuDeviceForDescribeInstanceTypesOutput {
     sb.append("class GpuDeviceForDescribeInstanceTypesOutput {\n");
     
     sb.append("    count: ").append(toIndentedString(count)).append("\n");
-    sb.append("    mem: ").append(toIndentedString(mem)).append("\n");
     sb.append("    memory: ").append(toIndentedString(memory)).append("\n");
-    sb.append("    model: ").append(toIndentedString(model)).append("\n");
     sb.append("    productName: ").append(toIndentedString(productName)).append("\n");
     sb.append("}");
     return sb.toString();

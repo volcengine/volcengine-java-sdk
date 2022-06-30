@@ -33,13 +33,10 @@ import javax.validation.Valid;
  * DescribeLoadBalancerAttributesResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:21.106708+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T19:55:03.376515+08:00[Asia/Shanghai]")
 public class DescribeLoadBalancerAttributesResponse {
   @SerializedName("AccessLog")
   private AccessLogForDescribeLoadBalancerAttributesOutput accessLog = null;
-
-  @SerializedName("BusinessStatus")
-  private String businessStatus = null;
 
   @SerializedName("CreateTime")
   private String createTime = null;
@@ -58,9 +55,6 @@ public class DescribeLoadBalancerAttributesResponse {
 
   @SerializedName("EipID")
   private String eipID = null;
-
-  @SerializedName("Enabled")
-  private Boolean enabled = null;
 
   @SerializedName("EniAddress")
   private String eniAddress = null;
@@ -136,24 +130,6 @@ public class DescribeLoadBalancerAttributesResponse {
 
   public void setAccessLog(AccessLogForDescribeLoadBalancerAttributesOutput accessLog) {
     this.accessLog = accessLog;
-  }
-
-  public DescribeLoadBalancerAttributesResponse businessStatus(String businessStatus) {
-    this.businessStatus = businessStatus;
-    return this;
-  }
-
-   /**
-   * Get businessStatus
-   * @return businessStatus
-  **/
-  @Schema(description = "")
-  public String getBusinessStatus() {
-    return businessStatus;
-  }
-
-  public void setBusinessStatus(String businessStatus) {
-    this.businessStatus = businessStatus;
   }
 
   public DescribeLoadBalancerAttributesResponse createTime(String createTime) {
@@ -263,24 +239,6 @@ public class DescribeLoadBalancerAttributesResponse {
 
   public void setEipID(String eipID) {
     this.eipID = eipID;
-  }
-
-  public DescribeLoadBalancerAttributesResponse enabled(Boolean enabled) {
-    this.enabled = enabled;
-    return this;
-  }
-
-   /**
-   * Get enabled
-   * @return enabled
-  **/
-  @Schema(description = "")
-  public Boolean isEnabled() {
-    return enabled;
-  }
-
-  public void setEnabled(Boolean enabled) {
-    this.enabled = enabled;
   }
 
   public DescribeLoadBalancerAttributesResponse eniAddress(String eniAddress) {
@@ -654,14 +612,12 @@ public class DescribeLoadBalancerAttributesResponse {
     }
     DescribeLoadBalancerAttributesResponse describeLoadBalancerAttributesResponse = (DescribeLoadBalancerAttributesResponse) o;
     return Objects.equals(this.accessLog, describeLoadBalancerAttributesResponse.accessLog) &&
-        Objects.equals(this.businessStatus, describeLoadBalancerAttributesResponse.businessStatus) &&
         Objects.equals(this.createTime, describeLoadBalancerAttributesResponse.createTime) &&
         Objects.equals(this.deletedTime, describeLoadBalancerAttributesResponse.deletedTime) &&
         Objects.equals(this.description, describeLoadBalancerAttributesResponse.description) &&
         Objects.equals(this.eip, describeLoadBalancerAttributesResponse.eip) &&
         Objects.equals(this.eipAddress, describeLoadBalancerAttributesResponse.eipAddress) &&
         Objects.equals(this.eipID, describeLoadBalancerAttributesResponse.eipID) &&
-        Objects.equals(this.enabled, describeLoadBalancerAttributesResponse.enabled) &&
         Objects.equals(this.eniAddress, describeLoadBalancerAttributesResponse.eniAddress) &&
         Objects.equals(this.eniID, describeLoadBalancerAttributesResponse.eniID) &&
         Objects.equals(this.expiredTime, describeLoadBalancerAttributesResponse.expiredTime) &&
@@ -685,7 +641,7 @@ public class DescribeLoadBalancerAttributesResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessLog, businessStatus, createTime, deletedTime, description, eip, eipAddress, eipID, enabled, eniAddress, eniID, expiredTime, listeners, loadBalancerBillingType, loadBalancerId, loadBalancerName, loadBalancerSpec, lockReason, modificationProtectionReason, modificationProtectionStatus, overdueTime, requestId, serverGroups, status, subnetId, type, updateTime, vpcId);
+    return Objects.hash(accessLog, createTime, deletedTime, description, eip, eipAddress, eipID, eniAddress, eniID, expiredTime, listeners, loadBalancerBillingType, loadBalancerId, loadBalancerName, loadBalancerSpec, lockReason, modificationProtectionReason, modificationProtectionStatus, overdueTime, requestId, serverGroups, status, subnetId, type, updateTime, vpcId);
   }
 
 
@@ -695,14 +651,12 @@ public class DescribeLoadBalancerAttributesResponse {
     sb.append("class DescribeLoadBalancerAttributesResponse {\n");
     
     sb.append("    accessLog: ").append(toIndentedString(accessLog)).append("\n");
-    sb.append("    businessStatus: ").append(toIndentedString(businessStatus)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    deletedTime: ").append(toIndentedString(deletedTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    eip: ").append(toIndentedString(eip)).append("\n");
     sb.append("    eipAddress: ").append(toIndentedString(eipAddress)).append("\n");
     sb.append("    eipID: ").append(toIndentedString(eipID)).append("\n");
-    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    eniAddress: ").append(toIndentedString(eniAddress)).append("\n");
     sb.append("    eniID: ").append(toIndentedString(eniID)).append("\n");
     sb.append("    expiredTime: ").append(toIndentedString(expiredTime)).append("\n");
