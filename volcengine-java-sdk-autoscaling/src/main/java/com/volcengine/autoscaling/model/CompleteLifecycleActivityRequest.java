@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * CompleteLifecycleActivityRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T20:17:46.205154+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-04T12:08:52.868690+08:00[Asia/Shanghai]")
 public class CompleteLifecycleActivityRequest {
   @SerializedName("LifecycleActivityId")
   private String lifecycleActivityId = null;

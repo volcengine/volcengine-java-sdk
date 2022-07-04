@@ -27,10 +27,13 @@ import javax.validation.Valid;
  * EipForCreateScalingConfigurationInput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T20:17:46.205154+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-04T12:08:52.868690+08:00[Asia/Shanghai]")
 public class EipForCreateScalingConfigurationInput {
   @SerializedName("Bandwidth")
   private Integer bandwidth = null;
+
+  @SerializedName("BillingType")
+  private String billingType = null;
 
   @SerializedName("ISP")
   private String ISP = null;
@@ -51,6 +54,24 @@ public class EipForCreateScalingConfigurationInput {
 
   public void setBandwidth(Integer bandwidth) {
     this.bandwidth = bandwidth;
+  }
+
+  public EipForCreateScalingConfigurationInput billingType(String billingType) {
+    this.billingType = billingType;
+    return this;
+  }
+
+   /**
+   * Get billingType
+   * @return billingType
+  **/
+  @Schema(description = "")
+  public String getBillingType() {
+    return billingType;
+  }
+
+  public void setBillingType(String billingType) {
+    this.billingType = billingType;
   }
 
   public EipForCreateScalingConfigurationInput ISP(String ISP) {
@@ -82,12 +103,13 @@ public class EipForCreateScalingConfigurationInput {
     }
     EipForCreateScalingConfigurationInput eipForCreateScalingConfigurationInput = (EipForCreateScalingConfigurationInput) o;
     return Objects.equals(this.bandwidth, eipForCreateScalingConfigurationInput.bandwidth) &&
+        Objects.equals(this.billingType, eipForCreateScalingConfigurationInput.billingType) &&
         Objects.equals(this.ISP, eipForCreateScalingConfigurationInput.ISP);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidth, ISP);
+    return Objects.hash(bandwidth, billingType, ISP);
   }
 
 
@@ -97,6 +119,7 @@ public class EipForCreateScalingConfigurationInput {
     sb.append("class EipForCreateScalingConfigurationInput {\n");
     
     sb.append("    bandwidth: ").append(toIndentedString(bandwidth)).append("\n");
+    sb.append("    billingType: ").append(toIndentedString(billingType)).append("\n");
     sb.append("    ISP: ").append(toIndentedString(ISP)).append("\n");
     sb.append("}");
     return sb.toString();
