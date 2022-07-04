@@ -29,7 +29,7 @@ import javax.validation.Valid;
  * DetachDBInstancesRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:12.731669+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-04T12:08:52.868690+08:00[Asia/Shanghai]")
 public class DetachDBInstancesRequest {
   @SerializedName("DBInstanceIds")
   private List<String> dbInstanceIds = null;
