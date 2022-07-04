@@ -29,10 +29,13 @@ import javax.validation.Valid;
  * ModifyScalingGroupRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T20:17:46.205154+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-04T12:08:52.868690+08:00[Asia/Shanghai]")
 public class ModifyScalingGroupRequest {
   @SerializedName("ActiveScalingConfigurationId")
   private String activeScalingConfigurationId = null;
+
+  @SerializedName("DefaultCooldown")
+  private Integer defaultCooldown = null;
 
   @SerializedName("DesireInstanceNumber")
   private Integer desireInstanceNumber = null;
@@ -71,6 +74,24 @@ public class ModifyScalingGroupRequest {
 
   public void setActiveScalingConfigurationId(String activeScalingConfigurationId) {
     this.activeScalingConfigurationId = activeScalingConfigurationId;
+  }
+
+  public ModifyScalingGroupRequest defaultCooldown(Integer defaultCooldown) {
+    this.defaultCooldown = defaultCooldown;
+    return this;
+  }
+
+   /**
+   * Get defaultCooldown
+   * @return defaultCooldown
+  **/
+  @Schema(description = "")
+  public Integer getDefaultCooldown() {
+    return defaultCooldown;
+  }
+
+  public void setDefaultCooldown(Integer defaultCooldown) {
+    this.defaultCooldown = defaultCooldown;
   }
 
   public ModifyScalingGroupRequest desireInstanceNumber(Integer desireInstanceNumber) {
@@ -218,6 +239,7 @@ public class ModifyScalingGroupRequest {
     }
     ModifyScalingGroupRequest modifyScalingGroupRequest = (ModifyScalingGroupRequest) o;
     return Objects.equals(this.activeScalingConfigurationId, modifyScalingGroupRequest.activeScalingConfigurationId) &&
+        Objects.equals(this.defaultCooldown, modifyScalingGroupRequest.defaultCooldown) &&
         Objects.equals(this.desireInstanceNumber, modifyScalingGroupRequest.desireInstanceNumber) &&
         Objects.equals(this.instanceTerminatePolicy, modifyScalingGroupRequest.instanceTerminatePolicy) &&
         Objects.equals(this.maxInstanceNumber, modifyScalingGroupRequest.maxInstanceNumber) &&
@@ -229,7 +251,7 @@ public class ModifyScalingGroupRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(activeScalingConfigurationId, desireInstanceNumber, instanceTerminatePolicy, maxInstanceNumber, minInstanceNumber, scalingGroupId, scalingGroupName, subnetIds);
+    return Objects.hash(activeScalingConfigurationId, defaultCooldown, desireInstanceNumber, instanceTerminatePolicy, maxInstanceNumber, minInstanceNumber, scalingGroupId, scalingGroupName, subnetIds);
   }
 
 
@@ -239,6 +261,7 @@ public class ModifyScalingGroupRequest {
     sb.append("class ModifyScalingGroupRequest {\n");
     
     sb.append("    activeScalingConfigurationId: ").append(toIndentedString(activeScalingConfigurationId)).append("\n");
+    sb.append("    defaultCooldown: ").append(toIndentedString(defaultCooldown)).append("\n");
     sb.append("    desireInstanceNumber: ").append(toIndentedString(desireInstanceNumber)).append("\n");
     sb.append("    instanceTerminatePolicy: ").append(toIndentedString(instanceTerminatePolicy)).append("\n");
     sb.append("    maxInstanceNumber: ").append(toIndentedString(maxInstanceNumber)).append("\n");
