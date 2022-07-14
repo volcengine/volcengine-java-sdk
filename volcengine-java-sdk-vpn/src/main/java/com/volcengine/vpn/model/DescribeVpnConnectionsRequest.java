@@ -29,7 +29,7 @@ import javax.validation.Valid;
  * DescribeVpnConnectionsRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T20:18:23.808118+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:23:33.618811+08:00[Asia/Shanghai]")
 public class DescribeVpnConnectionsRequest {
   @SerializedName("CustomerGatewayId")
   private String customerGatewayId = null;
@@ -39,9 +39,6 @@ public class DescribeVpnConnectionsRequest {
 
   @SerializedName("PageSize")
   private Integer pageSize = null;
-
-  @SerializedName("Status")
-  private String status = null;
 
   @SerializedName("VpnConnectionIds")
   private List<String> vpnConnectionIds = null;
@@ -104,24 +101,6 @@ public class DescribeVpnConnectionsRequest {
 
   public void setPageSize(Integer pageSize) {
     this.pageSize = pageSize;
-  }
-
-  public DescribeVpnConnectionsRequest status(String status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Get status
-   * @return status
-  **/
-  @Schema(description = "")
-  public String getStatus() {
-    return status;
-  }
-
-  public void setStatus(String status) {
-    this.status = status;
   }
 
   public DescribeVpnConnectionsRequest vpnConnectionIds(List<String> vpnConnectionIds) {
@@ -199,7 +178,6 @@ public class DescribeVpnConnectionsRequest {
     return Objects.equals(this.customerGatewayId, describeVpnConnectionsRequest.customerGatewayId) &&
         Objects.equals(this.pageNumber, describeVpnConnectionsRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeVpnConnectionsRequest.pageSize) &&
-        Objects.equals(this.status, describeVpnConnectionsRequest.status) &&
         Objects.equals(this.vpnConnectionIds, describeVpnConnectionsRequest.vpnConnectionIds) &&
         Objects.equals(this.vpnConnectionName, describeVpnConnectionsRequest.vpnConnectionName) &&
         Objects.equals(this.vpnGatewayId, describeVpnConnectionsRequest.vpnGatewayId);
@@ -207,7 +185,7 @@ public class DescribeVpnConnectionsRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(customerGatewayId, pageNumber, pageSize, status, vpnConnectionIds, vpnConnectionName, vpnGatewayId);
+    return Objects.hash(customerGatewayId, pageNumber, pageSize, vpnConnectionIds, vpnConnectionName, vpnGatewayId);
   }
 
 
@@ -219,7 +197,6 @@ public class DescribeVpnConnectionsRequest {
     sb.append("    customerGatewayId: ").append(toIndentedString(customerGatewayId)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    vpnConnectionIds: ").append(toIndentedString(vpnConnectionIds)).append("\n");
     sb.append("    vpnConnectionName: ").append(toIndentedString(vpnConnectionName)).append("\n");
     sb.append("    vpnGatewayId: ").append(toIndentedString(vpnGatewayId)).append("\n");

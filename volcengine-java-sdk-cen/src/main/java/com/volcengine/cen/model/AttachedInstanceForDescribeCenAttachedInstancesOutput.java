@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * AttachedInstanceForDescribeCenAttachedInstancesOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T20:17:51.288534+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:22:50.791272+08:00[Asia/Shanghai]")
 public class AttachedInstanceForDescribeCenAttachedInstancesOutput {
   @SerializedName("CenId")
   private String cenId = null;
@@ -37,6 +37,9 @@ public class AttachedInstanceForDescribeCenAttachedInstancesOutput {
 
   @SerializedName("InstanceId")
   private String instanceId = null;
+
+  @SerializedName("InstanceOwnerId")
+  private String instanceOwnerId = null;
 
   @SerializedName("InstanceRegionId")
   private String instanceRegionId = null;
@@ -99,6 +102,24 @@ public class AttachedInstanceForDescribeCenAttachedInstancesOutput {
 
   public void setInstanceId(String instanceId) {
     this.instanceId = instanceId;
+  }
+
+  public AttachedInstanceForDescribeCenAttachedInstancesOutput instanceOwnerId(String instanceOwnerId) {
+    this.instanceOwnerId = instanceOwnerId;
+    return this;
+  }
+
+   /**
+   * Get instanceOwnerId
+   * @return instanceOwnerId
+  **/
+  @Schema(description = "")
+  public String getInstanceOwnerId() {
+    return instanceOwnerId;
+  }
+
+  public void setInstanceOwnerId(String instanceOwnerId) {
+    this.instanceOwnerId = instanceOwnerId;
   }
 
   public AttachedInstanceForDescribeCenAttachedInstancesOutput instanceRegionId(String instanceRegionId) {
@@ -168,6 +189,7 @@ public class AttachedInstanceForDescribeCenAttachedInstancesOutput {
     return Objects.equals(this.cenId, attachedInstanceForDescribeCenAttachedInstancesOutput.cenId) &&
         Objects.equals(this.creationTime, attachedInstanceForDescribeCenAttachedInstancesOutput.creationTime) &&
         Objects.equals(this.instanceId, attachedInstanceForDescribeCenAttachedInstancesOutput.instanceId) &&
+        Objects.equals(this.instanceOwnerId, attachedInstanceForDescribeCenAttachedInstancesOutput.instanceOwnerId) &&
         Objects.equals(this.instanceRegionId, attachedInstanceForDescribeCenAttachedInstancesOutput.instanceRegionId) &&
         Objects.equals(this.instanceType, attachedInstanceForDescribeCenAttachedInstancesOutput.instanceType) &&
         Objects.equals(this.status, attachedInstanceForDescribeCenAttachedInstancesOutput.status);
@@ -175,7 +197,7 @@ public class AttachedInstanceForDescribeCenAttachedInstancesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cenId, creationTime, instanceId, instanceRegionId, instanceType, status);
+    return Objects.hash(cenId, creationTime, instanceId, instanceOwnerId, instanceRegionId, instanceType, status);
   }
 
 
@@ -187,6 +209,7 @@ public class AttachedInstanceForDescribeCenAttachedInstancesOutput {
     sb.append("    cenId: ").append(toIndentedString(cenId)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    instanceOwnerId: ").append(toIndentedString(instanceOwnerId)).append("\n");
     sb.append("    instanceRegionId: ").append(toIndentedString(instanceRegionId)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");

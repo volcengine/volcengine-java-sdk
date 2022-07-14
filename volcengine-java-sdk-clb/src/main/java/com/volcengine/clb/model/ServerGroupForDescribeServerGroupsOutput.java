@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * ServerGroupForDescribeServerGroupsOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T20:17:55.725105+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:22:55.791591+08:00[Asia/Shanghai]")
 public class ServerGroupForDescribeServerGroupsOutput {
   @SerializedName("CreateTime")
   private String createTime = null;

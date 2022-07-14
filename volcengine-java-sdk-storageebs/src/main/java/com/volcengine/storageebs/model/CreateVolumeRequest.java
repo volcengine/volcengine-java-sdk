@@ -27,8 +27,11 @@ import javax.validation.Valid;
  * CreateVolumeRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T20:18:13.538566+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:23:15.605776+08:00[Asia/Shanghai]")
 public class CreateVolumeRequest {
+  @SerializedName("ClientToken")
+  private String clientToken = null;
+
   @SerializedName("Description")
   private String description = null;
 
@@ -49,6 +52,24 @@ public class CreateVolumeRequest {
 
   @SerializedName("ZoneId")
   private String zoneId = null;
+
+  public CreateVolumeRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
 
   public CreateVolumeRequest description(String description) {
     this.description = description;
@@ -186,7 +207,8 @@ public class CreateVolumeRequest {
       return false;
     }
     CreateVolumeRequest createVolumeRequest = (CreateVolumeRequest) o;
-    return Objects.equals(this.description, createVolumeRequest.description) &&
+    return Objects.equals(this.clientToken, createVolumeRequest.clientToken) &&
+        Objects.equals(this.description, createVolumeRequest.description) &&
         Objects.equals(this.kind, createVolumeRequest.kind) &&
         Objects.equals(this.size, createVolumeRequest.size) &&
         Objects.equals(this.volumeChargeType, createVolumeRequest.volumeChargeType) &&
@@ -197,7 +219,7 @@ public class CreateVolumeRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, kind, size, volumeChargeType, volumeName, volumeType, zoneId);
+    return Objects.hash(clientToken, description, kind, size, volumeChargeType, volumeName, volumeType, zoneId);
   }
 
 
@@ -206,6 +228,7 @@ public class CreateVolumeRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateVolumeRequest {\n");
     
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    kind: ").append(toIndentedString(kind)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");

@@ -27,16 +27,37 @@ import javax.validation.Valid;
  * CreateCustomerGatewayRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T20:18:23.808118+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:23:33.618811+08:00[Asia/Shanghai]")
 public class CreateCustomerGatewayRequest {
+  @SerializedName("ClientToken")
+  private String clientToken = null;
+
   @SerializedName("CustomerGatewayName")
   private String customerGatewayName = null;
 
   @SerializedName("Description")
   private String description = null;
 
-  @SerializedName("IPAddress")
+  @SerializedName("IpAddress")
   private String ipAddress = null;
+
+  public CreateCustomerGatewayRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
 
   public CreateCustomerGatewayRequest customerGatewayName(String customerGatewayName) {
     this.customerGatewayName = customerGatewayName;
@@ -103,14 +124,15 @@ public class CreateCustomerGatewayRequest {
       return false;
     }
     CreateCustomerGatewayRequest createCustomerGatewayRequest = (CreateCustomerGatewayRequest) o;
-    return Objects.equals(this.customerGatewayName, createCustomerGatewayRequest.customerGatewayName) &&
+    return Objects.equals(this.clientToken, createCustomerGatewayRequest.clientToken) &&
+        Objects.equals(this.customerGatewayName, createCustomerGatewayRequest.customerGatewayName) &&
         Objects.equals(this.description, createCustomerGatewayRequest.description) &&
         Objects.equals(this.ipAddress, createCustomerGatewayRequest.ipAddress);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(customerGatewayName, description, ipAddress);
+    return Objects.hash(clientToken, customerGatewayName, description, ipAddress);
   }
 
 
@@ -119,6 +141,7 @@ public class CreateCustomerGatewayRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateCustomerGatewayRequest {\n");
     
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    customerGatewayName: ").append(toIndentedString(customerGatewayName)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    ipAddress: ").append(toIndentedString(ipAddress)).append("\n");

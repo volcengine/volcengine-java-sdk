@@ -29,52 +29,10 @@ import javax.validation.Valid;
  * DeleteInstancesRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:32.918937+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:23:02.442504+08:00[Asia/Shanghai]")
 public class DeleteInstancesRequest {
-  @SerializedName("DryRun")
-  private Boolean dryRun = null;
-
-  @SerializedName("Force")
-  private Boolean force = null;
-
   @SerializedName("InstanceIds")
   private List<String> instanceIds = null;
-
-  public DeleteInstancesRequest dryRun(Boolean dryRun) {
-    this.dryRun = dryRun;
-    return this;
-  }
-
-   /**
-   * Get dryRun
-   * @return dryRun
-  **/
-  @Schema(description = "")
-  public Boolean isDryRun() {
-    return dryRun;
-  }
-
-  public void setDryRun(Boolean dryRun) {
-    this.dryRun = dryRun;
-  }
-
-  public DeleteInstancesRequest force(Boolean force) {
-    this.force = force;
-    return this;
-  }
-
-   /**
-   * Get force
-   * @return force
-  **/
-  @Schema(description = "")
-  public Boolean isForce() {
-    return force;
-  }
-
-  public void setForce(Boolean force) {
-    this.force = force;
-  }
 
   public DeleteInstancesRequest instanceIds(List<String> instanceIds) {
     this.instanceIds = instanceIds;
@@ -112,14 +70,12 @@ public class DeleteInstancesRequest {
       return false;
     }
     DeleteInstancesRequest deleteInstancesRequest = (DeleteInstancesRequest) o;
-    return Objects.equals(this.dryRun, deleteInstancesRequest.dryRun) &&
-        Objects.equals(this.force, deleteInstancesRequest.force) &&
-        Objects.equals(this.instanceIds, deleteInstancesRequest.instanceIds);
+    return Objects.equals(this.instanceIds, deleteInstancesRequest.instanceIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dryRun, force, instanceIds);
+    return Objects.hash(instanceIds);
   }
 
 
@@ -128,8 +84,6 @@ public class DeleteInstancesRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteInstancesRequest {\n");
     
-    sb.append("    dryRun: ").append(toIndentedString(dryRun)).append("\n");
-    sb.append("    force: ").append(toIndentedString(force)).append("\n");
     sb.append("    instanceIds: ").append(toIndentedString(instanceIds)).append("\n");
     sb.append("}");
     return sb.toString();

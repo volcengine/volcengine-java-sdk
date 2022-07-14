@@ -27,19 +27,19 @@ import javax.validation.Valid;
  * ImportImageRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:32.918937+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:23:02.442504+08:00[Asia/Shanghai]")
 public class ImportImageRequest {
   @SerializedName("Architecture")
   private String architecture = null;
+
+  @SerializedName("BootMode")
+  private String bootMode = null;
 
   @SerializedName("Description")
   private String description = null;
 
   @SerializedName("ImageName")
   private String imageName = null;
-
-  @SerializedName("Name")
-  private String name = null;
 
   @SerializedName("OsType")
   private String osType = null;
@@ -69,6 +69,24 @@ public class ImportImageRequest {
 
   public void setArchitecture(String architecture) {
     this.architecture = architecture;
+  }
+
+  public ImportImageRequest bootMode(String bootMode) {
+    this.bootMode = bootMode;
+    return this;
+  }
+
+   /**
+   * Get bootMode
+   * @return bootMode
+  **/
+  @Schema(description = "")
+  public String getBootMode() {
+    return bootMode;
+  }
+
+  public void setBootMode(String bootMode) {
+    this.bootMode = bootMode;
   }
 
   public ImportImageRequest description(String description) {
@@ -105,24 +123,6 @@ public class ImportImageRequest {
 
   public void setImageName(String imageName) {
     this.imageName = imageName;
-  }
-
-  public ImportImageRequest name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Get name
-   * @return name
-  **/
-  @Schema(description = "")
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
   }
 
   public ImportImageRequest osType(String osType) {
@@ -208,9 +208,9 @@ public class ImportImageRequest {
     }
     ImportImageRequest importImageRequest = (ImportImageRequest) o;
     return Objects.equals(this.architecture, importImageRequest.architecture) &&
+        Objects.equals(this.bootMode, importImageRequest.bootMode) &&
         Objects.equals(this.description, importImageRequest.description) &&
         Objects.equals(this.imageName, importImageRequest.imageName) &&
-        Objects.equals(this.name, importImageRequest.name) &&
         Objects.equals(this.osType, importImageRequest.osType) &&
         Objects.equals(this.platform, importImageRequest.platform) &&
         Objects.equals(this.platformVersion, importImageRequest.platformVersion) &&
@@ -219,7 +219,7 @@ public class ImportImageRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(architecture, description, imageName, name, osType, platform, platformVersion, url);
+    return Objects.hash(architecture, bootMode, description, imageName, osType, platform, platformVersion, url);
   }
 
 
@@ -229,9 +229,9 @@ public class ImportImageRequest {
     sb.append("class ImportImageRequest {\n");
     
     sb.append("    architecture: ").append(toIndentedString(architecture)).append("\n");
+    sb.append("    bootMode: ").append(toIndentedString(bootMode)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    imageName: ").append(toIndentedString(imageName)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    osType: ").append(toIndentedString(osType)).append("\n");
     sb.append("    platform: ").append(toIndentedString(platform)).append("\n");
     sb.append("    platformVersion: ").append(toIndentedString(platformVersion)).append("\n");

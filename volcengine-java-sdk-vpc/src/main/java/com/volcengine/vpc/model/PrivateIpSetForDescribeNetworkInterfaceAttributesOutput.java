@@ -28,7 +28,7 @@ import javax.validation.Valid;
  * PrivateIpSetForDescribeNetworkInterfaceAttributesOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T20:18:16.579539+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:23:24.287880+08:00[Asia/Shanghai]")
 public class PrivateIpSetForDescribeNetworkInterfaceAttributesOutput {
   @SerializedName("AssociatedElasticIp")
   private AssociatedElasticIpForDescribeNetworkInterfaceAttributesOutput associatedElasticIp = null;
