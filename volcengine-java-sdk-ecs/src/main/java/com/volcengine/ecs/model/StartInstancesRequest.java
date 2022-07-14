@@ -29,31 +29,10 @@ import javax.validation.Valid;
  * StartInstancesRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:32.918937+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:23:02.442504+08:00[Asia/Shanghai]")
 public class StartInstancesRequest {
-  @SerializedName("DryRun")
-  private Boolean dryRun = null;
-
   @SerializedName("InstanceIds")
   private List<String> instanceIds = null;
-
-  public StartInstancesRequest dryRun(Boolean dryRun) {
-    this.dryRun = dryRun;
-    return this;
-  }
-
-   /**
-   * Get dryRun
-   * @return dryRun
-  **/
-  @Schema(description = "")
-  public Boolean isDryRun() {
-    return dryRun;
-  }
-
-  public void setDryRun(Boolean dryRun) {
-    this.dryRun = dryRun;
-  }
 
   public StartInstancesRequest instanceIds(List<String> instanceIds) {
     this.instanceIds = instanceIds;
@@ -91,13 +70,12 @@ public class StartInstancesRequest {
       return false;
     }
     StartInstancesRequest startInstancesRequest = (StartInstancesRequest) o;
-    return Objects.equals(this.dryRun, startInstancesRequest.dryRun) &&
-        Objects.equals(this.instanceIds, startInstancesRequest.instanceIds);
+    return Objects.equals(this.instanceIds, startInstancesRequest.instanceIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dryRun, instanceIds);
+    return Objects.hash(instanceIds);
   }
 
 
@@ -106,7 +84,6 @@ public class StartInstancesRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class StartInstancesRequest {\n");
     
-    sb.append("    dryRun: ").append(toIndentedString(dryRun)).append("\n");
     sb.append("    instanceIds: ").append(toIndentedString(instanceIds)).append("\n");
     sb.append("}");
     return sb.toString();

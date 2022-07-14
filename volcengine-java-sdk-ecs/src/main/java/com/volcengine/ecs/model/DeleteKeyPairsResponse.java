@@ -14,14 +14,54 @@ package com.volcengine.ecs.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import com.volcengine.ecs.model.OperationDetailForDeleteKeyPairsOutput;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
  * DeleteKeyPairsResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:32.918937+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:23:02.442504+08:00[Asia/Shanghai]")
 public class DeleteKeyPairsResponse {
+  @SerializedName("OperationDetails")
+  private List<OperationDetailForDeleteKeyPairsOutput> operationDetails = null;
+
+  public DeleteKeyPairsResponse operationDetails(List<OperationDetailForDeleteKeyPairsOutput> operationDetails) {
+    this.operationDetails = operationDetails;
+    return this;
+  }
+
+  public DeleteKeyPairsResponse addOperationDetailsItem(OperationDetailForDeleteKeyPairsOutput operationDetailsItem) {
+    if (this.operationDetails == null) {
+      this.operationDetails = new ArrayList<OperationDetailForDeleteKeyPairsOutput>();
+    }
+    this.operationDetails.add(operationDetailsItem);
+    return this;
+  }
+
+   /**
+   * Get operationDetails
+   * @return operationDetails
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<OperationDetailForDeleteKeyPairsOutput> getOperationDetails() {
+    return operationDetails;
+  }
+
+  public void setOperationDetails(List<OperationDetailForDeleteKeyPairsOutput> operationDetails) {
+    this.operationDetails = operationDetails;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -31,12 +71,13 @@ public class DeleteKeyPairsResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return true;
+    DeleteKeyPairsResponse deleteKeyPairsResponse = (DeleteKeyPairsResponse) o;
+    return Objects.equals(this.operationDetails, deleteKeyPairsResponse.operationDetails);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash();
+    return Objects.hash(operationDetails);
   }
 
 
@@ -45,6 +86,7 @@ public class DeleteKeyPairsResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteKeyPairsResponse {\n");
     
+    sb.append("    operationDetails: ").append(toIndentedString(operationDetails)).append("\n");
     sb.append("}");
     return sb.toString();
   }

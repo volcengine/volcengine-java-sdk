@@ -27,13 +27,16 @@ import javax.validation.Valid;
  * AttachInstanceToCenRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T20:17:51.288534+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:22:50.791272+08:00[Asia/Shanghai]")
 public class AttachInstanceToCenRequest {
   @SerializedName("CenId")
   private String cenId = null;
 
   @SerializedName("InstanceId")
   private String instanceId = null;
+
+  @SerializedName("InstanceOwnerId")
+  private String instanceOwnerId = null;
 
   @SerializedName("InstanceRegionId")
   private String instanceRegionId = null;
@@ -77,6 +80,24 @@ public class AttachInstanceToCenRequest {
 
   public void setInstanceId(String instanceId) {
     this.instanceId = instanceId;
+  }
+
+  public AttachInstanceToCenRequest instanceOwnerId(String instanceOwnerId) {
+    this.instanceOwnerId = instanceOwnerId;
+    return this;
+  }
+
+   /**
+   * Get instanceOwnerId
+   * @return instanceOwnerId
+  **/
+  @Schema(description = "")
+  public String getInstanceOwnerId() {
+    return instanceOwnerId;
+  }
+
+  public void setInstanceOwnerId(String instanceOwnerId) {
+    this.instanceOwnerId = instanceOwnerId;
   }
 
   public AttachInstanceToCenRequest instanceRegionId(String instanceRegionId) {
@@ -129,13 +150,14 @@ public class AttachInstanceToCenRequest {
     AttachInstanceToCenRequest attachInstanceToCenRequest = (AttachInstanceToCenRequest) o;
     return Objects.equals(this.cenId, attachInstanceToCenRequest.cenId) &&
         Objects.equals(this.instanceId, attachInstanceToCenRequest.instanceId) &&
+        Objects.equals(this.instanceOwnerId, attachInstanceToCenRequest.instanceOwnerId) &&
         Objects.equals(this.instanceRegionId, attachInstanceToCenRequest.instanceRegionId) &&
         Objects.equals(this.instanceType, attachInstanceToCenRequest.instanceType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cenId, instanceId, instanceRegionId, instanceType);
+    return Objects.hash(cenId, instanceId, instanceOwnerId, instanceRegionId, instanceType);
   }
 
 
@@ -146,6 +168,7 @@ public class AttachInstanceToCenRequest {
     
     sb.append("    cenId: ").append(toIndentedString(cenId)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    instanceOwnerId: ").append(toIndentedString(instanceOwnerId)).append("\n");
     sb.append("    instanceRegionId: ").append(toIndentedString(instanceRegionId)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("}");

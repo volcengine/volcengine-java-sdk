@@ -27,37 +27,13 @@ import javax.validation.Valid;
  * CreateKeyPairRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:32.918937+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:23:02.442504+08:00[Asia/Shanghai]")
 public class CreateKeyPairRequest {
-  @SerializedName("AccountId")
-  private String accountId = null;
-
   @SerializedName("Description")
   private String description = null;
 
   @SerializedName("KeyPairName")
   private String keyPairName = null;
-
-  @SerializedName("ProjectName")
-  private String projectName = null;
-
-  public CreateKeyPairRequest accountId(String accountId) {
-    this.accountId = accountId;
-    return this;
-  }
-
-   /**
-   * Get accountId
-   * @return accountId
-  **/
-  @Schema(description = "")
-  public String getAccountId() {
-    return accountId;
-  }
-
-  public void setAccountId(String accountId) {
-    this.accountId = accountId;
-  }
 
   public CreateKeyPairRequest description(String description) {
     this.description = description;
@@ -95,24 +71,6 @@ public class CreateKeyPairRequest {
     this.keyPairName = keyPairName;
   }
 
-  public CreateKeyPairRequest projectName(String projectName) {
-    this.projectName = projectName;
-    return this;
-  }
-
-   /**
-   * Get projectName
-   * @return projectName
-  **/
-  @Schema(description = "")
-  public String getProjectName() {
-    return projectName;
-  }
-
-  public void setProjectName(String projectName) {
-    this.projectName = projectName;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -123,15 +81,13 @@ public class CreateKeyPairRequest {
       return false;
     }
     CreateKeyPairRequest createKeyPairRequest = (CreateKeyPairRequest) o;
-    return Objects.equals(this.accountId, createKeyPairRequest.accountId) &&
-        Objects.equals(this.description, createKeyPairRequest.description) &&
-        Objects.equals(this.keyPairName, createKeyPairRequest.keyPairName) &&
-        Objects.equals(this.projectName, createKeyPairRequest.projectName);
+    return Objects.equals(this.description, createKeyPairRequest.description) &&
+        Objects.equals(this.keyPairName, createKeyPairRequest.keyPairName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, description, keyPairName, projectName);
+    return Objects.hash(description, keyPairName);
   }
 
 
@@ -140,10 +96,8 @@ public class CreateKeyPairRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateKeyPairRequest {\n");
     
-    sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    keyPairName: ").append(toIndentedString(keyPairName)).append("\n");
-    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

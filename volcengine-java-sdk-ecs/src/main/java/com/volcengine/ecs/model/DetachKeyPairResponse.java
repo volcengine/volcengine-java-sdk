@@ -19,35 +19,47 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.ecs.model.OperationDetailForDetachKeyPairOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
  * DetachKeyPairResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:32.918937+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:23:02.442504+08:00[Asia/Shanghai]")
 public class DetachKeyPairResponse {
-  @SerializedName("KeyPairName")
-  private String keyPairName = null;
+  @SerializedName("OperationDetails")
+  private List<OperationDetailForDetachKeyPairOutput> operationDetails = null;
 
-  public DetachKeyPairResponse keyPairName(String keyPairName) {
-    this.keyPairName = keyPairName;
+  public DetachKeyPairResponse operationDetails(List<OperationDetailForDetachKeyPairOutput> operationDetails) {
+    this.operationDetails = operationDetails;
+    return this;
+  }
+
+  public DetachKeyPairResponse addOperationDetailsItem(OperationDetailForDetachKeyPairOutput operationDetailsItem) {
+    if (this.operationDetails == null) {
+      this.operationDetails = new ArrayList<OperationDetailForDetachKeyPairOutput>();
+    }
+    this.operationDetails.add(operationDetailsItem);
     return this;
   }
 
    /**
-   * Get keyPairName
-   * @return keyPairName
+   * Get operationDetails
+   * @return operationDetails
   **/
+  @Valid
   @Schema(description = "")
-  public String getKeyPairName() {
-    return keyPairName;
+  public List<OperationDetailForDetachKeyPairOutput> getOperationDetails() {
+    return operationDetails;
   }
 
-  public void setKeyPairName(String keyPairName) {
-    this.keyPairName = keyPairName;
+  public void setOperationDetails(List<OperationDetailForDetachKeyPairOutput> operationDetails) {
+    this.operationDetails = operationDetails;
   }
 
 
@@ -60,12 +72,12 @@ public class DetachKeyPairResponse {
       return false;
     }
     DetachKeyPairResponse detachKeyPairResponse = (DetachKeyPairResponse) o;
-    return Objects.equals(this.keyPairName, detachKeyPairResponse.keyPairName);
+    return Objects.equals(this.operationDetails, detachKeyPairResponse.operationDetails);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(keyPairName);
+    return Objects.hash(operationDetails);
   }
 
 
@@ -74,7 +86,7 @@ public class DetachKeyPairResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class DetachKeyPairResponse {\n");
     
-    sb.append("    keyPairName: ").append(toIndentedString(keyPairName)).append("\n");
+    sb.append("    operationDetails: ").append(toIndentedString(operationDetails)).append("\n");
     sb.append("}");
     return sb.toString();
   }

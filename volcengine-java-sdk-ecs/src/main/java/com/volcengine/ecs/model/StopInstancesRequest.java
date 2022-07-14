@@ -29,11 +29,8 @@ import javax.validation.Valid;
  * StopInstancesRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:32.918937+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:23:02.442504+08:00[Asia/Shanghai]")
 public class StopInstancesRequest {
-  @SerializedName("DryRun")
-  private Boolean dryRun = null;
-
   @SerializedName("ForceStop")
   private Boolean forceStop = null;
 
@@ -42,24 +39,6 @@ public class StopInstancesRequest {
 
   @SerializedName("StoppedMode")
   private String stoppedMode = null;
-
-  public StopInstancesRequest dryRun(Boolean dryRun) {
-    this.dryRun = dryRun;
-    return this;
-  }
-
-   /**
-   * Get dryRun
-   * @return dryRun
-  **/
-  @Schema(description = "")
-  public Boolean isDryRun() {
-    return dryRun;
-  }
-
-  public void setDryRun(Boolean dryRun) {
-    this.dryRun = dryRun;
-  }
 
   public StopInstancesRequest forceStop(Boolean forceStop) {
     this.forceStop = forceStop;
@@ -133,15 +112,14 @@ public class StopInstancesRequest {
       return false;
     }
     StopInstancesRequest stopInstancesRequest = (StopInstancesRequest) o;
-    return Objects.equals(this.dryRun, stopInstancesRequest.dryRun) &&
-        Objects.equals(this.forceStop, stopInstancesRequest.forceStop) &&
+    return Objects.equals(this.forceStop, stopInstancesRequest.forceStop) &&
         Objects.equals(this.instanceIds, stopInstancesRequest.instanceIds) &&
         Objects.equals(this.stoppedMode, stopInstancesRequest.stoppedMode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dryRun, forceStop, instanceIds, stoppedMode);
+    return Objects.hash(forceStop, instanceIds, stoppedMode);
   }
 
 
@@ -150,7 +128,6 @@ public class StopInstancesRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class StopInstancesRequest {\n");
     
-    sb.append("    dryRun: ").append(toIndentedString(dryRun)).append("\n");
     sb.append("    forceStop: ").append(toIndentedString(forceStop)).append("\n");
     sb.append("    instanceIds: ").append(toIndentedString(instanceIds)).append("\n");
     sb.append("    stoppedMode: ").append(toIndentedString(stoppedMode)).append("\n");

@@ -29,7 +29,7 @@ import javax.validation.Valid;
  * DescribeCenBandwidthPackageAttributesResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T20:17:51.288534+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:22:50.791272+08:00[Asia/Shanghai]")
 public class DescribeCenBandwidthPackageAttributesResponse {
   @SerializedName("AccountId")
   private String accountId = null;
@@ -75,9 +75,6 @@ public class DescribeCenBandwidthPackageAttributesResponse {
 
   @SerializedName("Status")
   private String status = null;
-
-  @SerializedName("UpdateTime")
-  private String updateTime = null;
 
   public DescribeCenBandwidthPackageAttributesResponse accountId(String accountId) {
     this.accountId = accountId;
@@ -357,24 +354,6 @@ public class DescribeCenBandwidthPackageAttributesResponse {
     this.status = status;
   }
 
-  public DescribeCenBandwidthPackageAttributesResponse updateTime(String updateTime) {
-    this.updateTime = updateTime;
-    return this;
-  }
-
-   /**
-   * Get updateTime
-   * @return updateTime
-  **/
-  @Schema(description = "")
-  public String getUpdateTime() {
-    return updateTime;
-  }
-
-  public void setUpdateTime(String updateTime) {
-    this.updateTime = updateTime;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -399,13 +378,12 @@ public class DescribeCenBandwidthPackageAttributesResponse {
         Objects.equals(this.localGeographicRegionSetId, describeCenBandwidthPackageAttributesResponse.localGeographicRegionSetId) &&
         Objects.equals(this.peerGeographicRegionSetId, describeCenBandwidthPackageAttributesResponse.peerGeographicRegionSetId) &&
         Objects.equals(this.remainingBandwidth, describeCenBandwidthPackageAttributesResponse.remainingBandwidth) &&
-        Objects.equals(this.status, describeCenBandwidthPackageAttributesResponse.status) &&
-        Objects.equals(this.updateTime, describeCenBandwidthPackageAttributesResponse.updateTime);
+        Objects.equals(this.status, describeCenBandwidthPackageAttributesResponse.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, bandwidth, billingType, businessStatus, cenBandwidthPackageId, cenBandwidthPackageName, cenIds, creationTime, deletedTime, description, expiredTime, localGeographicRegionSetId, peerGeographicRegionSetId, remainingBandwidth, status, updateTime);
+    return Objects.hash(accountId, bandwidth, billingType, businessStatus, cenBandwidthPackageId, cenBandwidthPackageName, cenIds, creationTime, deletedTime, description, expiredTime, localGeographicRegionSetId, peerGeographicRegionSetId, remainingBandwidth, status);
   }
 
 
@@ -429,7 +407,6 @@ public class DescribeCenBandwidthPackageAttributesResponse {
     sb.append("    peerGeographicRegionSetId: ").append(toIndentedString(peerGeographicRegionSetId)).append("\n");
     sb.append("    remainingBandwidth: ").append(toIndentedString(remainingBandwidth)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("}");
     return sb.toString();
   }

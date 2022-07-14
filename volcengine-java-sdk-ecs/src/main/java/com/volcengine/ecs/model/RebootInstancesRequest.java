@@ -29,34 +29,13 @@ import javax.validation.Valid;
  * RebootInstancesRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:32.918937+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:23:02.442504+08:00[Asia/Shanghai]")
 public class RebootInstancesRequest {
-  @SerializedName("DryRun")
-  private Boolean dryRun = null;
-
   @SerializedName("ForceStop")
   private Boolean forceStop = null;
 
   @SerializedName("InstanceIds")
   private List<String> instanceIds = null;
-
-  public RebootInstancesRequest dryRun(Boolean dryRun) {
-    this.dryRun = dryRun;
-    return this;
-  }
-
-   /**
-   * Get dryRun
-   * @return dryRun
-  **/
-  @Schema(description = "")
-  public Boolean isDryRun() {
-    return dryRun;
-  }
-
-  public void setDryRun(Boolean dryRun) {
-    this.dryRun = dryRun;
-  }
 
   public RebootInstancesRequest forceStop(Boolean forceStop) {
     this.forceStop = forceStop;
@@ -112,14 +91,13 @@ public class RebootInstancesRequest {
       return false;
     }
     RebootInstancesRequest rebootInstancesRequest = (RebootInstancesRequest) o;
-    return Objects.equals(this.dryRun, rebootInstancesRequest.dryRun) &&
-        Objects.equals(this.forceStop, rebootInstancesRequest.forceStop) &&
+    return Objects.equals(this.forceStop, rebootInstancesRequest.forceStop) &&
         Objects.equals(this.instanceIds, rebootInstancesRequest.instanceIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dryRun, forceStop, instanceIds);
+    return Objects.hash(forceStop, instanceIds);
   }
 
 
@@ -128,7 +106,6 @@ public class RebootInstancesRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class RebootInstancesRequest {\n");
     
-    sb.append("    dryRun: ").append(toIndentedString(dryRun)).append("\n");
     sb.append("    forceStop: ").append(toIndentedString(forceStop)).append("\n");
     sb.append("    instanceIds: ").append(toIndentedString(instanceIds)).append("\n");
     sb.append("}");

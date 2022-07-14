@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * KeyPairForDescribeKeyPairsOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:32.918937+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:23:02.442504+08:00[Asia/Shanghai]")
 public class KeyPairForDescribeKeyPairsOutput {
   @SerializedName("CreatedAt")
   private String createdAt = null;
@@ -43,9 +43,6 @@ public class KeyPairForDescribeKeyPairsOutput {
 
   @SerializedName("KeyPairName")
   private String keyPairName = null;
-
-  @SerializedName("ProjectName")
-  private String projectName = null;
 
   @SerializedName("UpdatedAt")
   private String updatedAt = null;
@@ -140,24 +137,6 @@ public class KeyPairForDescribeKeyPairsOutput {
     this.keyPairName = keyPairName;
   }
 
-  public KeyPairForDescribeKeyPairsOutput projectName(String projectName) {
-    this.projectName = projectName;
-    return this;
-  }
-
-   /**
-   * Get projectName
-   * @return projectName
-  **/
-  @Schema(description = "")
-  public String getProjectName() {
-    return projectName;
-  }
-
-  public void setProjectName(String projectName) {
-    this.projectName = projectName;
-  }
-
   public KeyPairForDescribeKeyPairsOutput updatedAt(String updatedAt) {
     this.updatedAt = updatedAt;
     return this;
@@ -191,13 +170,12 @@ public class KeyPairForDescribeKeyPairsOutput {
         Objects.equals(this.fingerPrint, keyPairForDescribeKeyPairsOutput.fingerPrint) &&
         Objects.equals(this.keyPairId, keyPairForDescribeKeyPairsOutput.keyPairId) &&
         Objects.equals(this.keyPairName, keyPairForDescribeKeyPairsOutput.keyPairName) &&
-        Objects.equals(this.projectName, keyPairForDescribeKeyPairsOutput.projectName) &&
         Objects.equals(this.updatedAt, keyPairForDescribeKeyPairsOutput.updatedAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, description, fingerPrint, keyPairId, keyPairName, projectName, updatedAt);
+    return Objects.hash(createdAt, description, fingerPrint, keyPairId, keyPairName, updatedAt);
   }
 
 
@@ -211,7 +189,6 @@ public class KeyPairForDescribeKeyPairsOutput {
     sb.append("    fingerPrint: ").append(toIndentedString(fingerPrint)).append("\n");
     sb.append("    keyPairId: ").append(toIndentedString(keyPairId)).append("\n");
     sb.append("    keyPairName: ").append(toIndentedString(keyPairName)).append("\n");
-    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("}");
     return sb.toString();

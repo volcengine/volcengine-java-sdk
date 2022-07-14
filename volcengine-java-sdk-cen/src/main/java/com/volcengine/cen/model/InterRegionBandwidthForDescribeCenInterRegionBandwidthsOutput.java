@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * InterRegionBandwidthForDescribeCenInterRegionBandwidthsOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T20:17:51.288534+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:22:50.791272+08:00[Asia/Shanghai]")
 public class InterRegionBandwidthForDescribeCenInterRegionBandwidthsOutput {
   @SerializedName("Bandwidth")
   private Integer bandwidth = null;
@@ -49,9 +49,6 @@ public class InterRegionBandwidthForDescribeCenInterRegionBandwidthsOutput {
 
   @SerializedName("Status")
   private String status = null;
-
-  @SerializedName("UpdateTime")
-  private String updateTime = null;
 
   public InterRegionBandwidthForDescribeCenInterRegionBandwidthsOutput bandwidth(Integer bandwidth) {
     this.bandwidth = bandwidth;
@@ -179,24 +176,6 @@ public class InterRegionBandwidthForDescribeCenInterRegionBandwidthsOutput {
     this.status = status;
   }
 
-  public InterRegionBandwidthForDescribeCenInterRegionBandwidthsOutput updateTime(String updateTime) {
-    this.updateTime = updateTime;
-    return this;
-  }
-
-   /**
-   * Get updateTime
-   * @return updateTime
-  **/
-  @Schema(description = "")
-  public String getUpdateTime() {
-    return updateTime;
-  }
-
-  public void setUpdateTime(String updateTime) {
-    this.updateTime = updateTime;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -213,13 +192,12 @@ public class InterRegionBandwidthForDescribeCenInterRegionBandwidthsOutput {
         Objects.equals(this.interRegionBandwidthId, interRegionBandwidthForDescribeCenInterRegionBandwidthsOutput.interRegionBandwidthId) &&
         Objects.equals(this.localRegionId, interRegionBandwidthForDescribeCenInterRegionBandwidthsOutput.localRegionId) &&
         Objects.equals(this.peerRegionId, interRegionBandwidthForDescribeCenInterRegionBandwidthsOutput.peerRegionId) &&
-        Objects.equals(this.status, interRegionBandwidthForDescribeCenInterRegionBandwidthsOutput.status) &&
-        Objects.equals(this.updateTime, interRegionBandwidthForDescribeCenInterRegionBandwidthsOutput.updateTime);
+        Objects.equals(this.status, interRegionBandwidthForDescribeCenInterRegionBandwidthsOutput.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidth, cenId, creationTime, interRegionBandwidthId, localRegionId, peerRegionId, status, updateTime);
+    return Objects.hash(bandwidth, cenId, creationTime, interRegionBandwidthId, localRegionId, peerRegionId, status);
   }
 
 
@@ -235,7 +213,6 @@ public class InterRegionBandwidthForDescribeCenInterRegionBandwidthsOutput {
     sb.append("    localRegionId: ").append(toIndentedString(localRegionId)).append("\n");
     sb.append("    peerRegionId: ").append(toIndentedString(peerRegionId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("}");
     return sb.toString();
   }

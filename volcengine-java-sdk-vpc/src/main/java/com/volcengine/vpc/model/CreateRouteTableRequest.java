@@ -27,8 +27,11 @@ import javax.validation.Valid;
  * CreateRouteTableRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T20:18:16.579539+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:23:24.287880+08:00[Asia/Shanghai]")
 public class CreateRouteTableRequest {
+  @SerializedName("ClientToken")
+  private String clientToken = null;
+
   @SerializedName("Description")
   private String description = null;
 
@@ -37,6 +40,24 @@ public class CreateRouteTableRequest {
 
   @SerializedName("VpcId")
   private String vpcId = null;
+
+  public CreateRouteTableRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
 
   public CreateRouteTableRequest description(String description) {
     this.description = description;
@@ -103,14 +124,15 @@ public class CreateRouteTableRequest {
       return false;
     }
     CreateRouteTableRequest createRouteTableRequest = (CreateRouteTableRequest) o;
-    return Objects.equals(this.description, createRouteTableRequest.description) &&
+    return Objects.equals(this.clientToken, createRouteTableRequest.clientToken) &&
+        Objects.equals(this.description, createRouteTableRequest.description) &&
         Objects.equals(this.routeTableName, createRouteTableRequest.routeTableName) &&
         Objects.equals(this.vpcId, createRouteTableRequest.vpcId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, routeTableName, vpcId);
+    return Objects.hash(clientToken, description, routeTableName, vpcId);
   }
 
 
@@ -119,6 +141,7 @@ public class CreateRouteTableRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateRouteTableRequest {\n");
     
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    routeTableName: ").append(toIndentedString(routeTableName)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");

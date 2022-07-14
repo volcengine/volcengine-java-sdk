@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * CreateVpnGatewayRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T20:18:23.808118+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:23:33.618811+08:00[Asia/Shanghai]")
 public class CreateVpnGatewayRequest {
   @SerializedName("Bandwidth")
   private Integer bandwidth = null;
@@ -84,15 +84,6 @@ public class CreateVpnGatewayRequest {
     }
   }  @SerializedName("PeriodUnit")
   private PeriodUnitEnum periodUnit = null;
-
-  @SerializedName("RemainRenewTimes")
-  private Integer remainRenewTimes = null;
-
-  @SerializedName("RenewPeriod")
-  private Integer renewPeriod = null;
-
-  @SerializedName("RenewType")
-  private Integer renewType = null;
 
   @SerializedName("SubnetId")
   private String subnetId = null;
@@ -198,62 +189,6 @@ public class CreateVpnGatewayRequest {
     this.periodUnit = periodUnit;
   }
 
-  public CreateVpnGatewayRequest remainRenewTimes(Integer remainRenewTimes) {
-    this.remainRenewTimes = remainRenewTimes;
-    return this;
-  }
-
-   /**
-   * Get remainRenewTimes
-   * @return remainRenewTimes
-  **/
-  @Schema(description = "")
-  public Integer getRemainRenewTimes() {
-    return remainRenewTimes;
-  }
-
-  public void setRemainRenewTimes(Integer remainRenewTimes) {
-    this.remainRenewTimes = remainRenewTimes;
-  }
-
-  public CreateVpnGatewayRequest renewPeriod(Integer renewPeriod) {
-    this.renewPeriod = renewPeriod;
-    return this;
-  }
-
-   /**
-   * Get renewPeriod
-   * @return renewPeriod
-  **/
-  @Schema(description = "")
-  public Integer getRenewPeriod() {
-    return renewPeriod;
-  }
-
-  public void setRenewPeriod(Integer renewPeriod) {
-    this.renewPeriod = renewPeriod;
-  }
-
-  public CreateVpnGatewayRequest renewType(Integer renewType) {
-    this.renewType = renewType;
-    return this;
-  }
-
-   /**
-   * Get renewType
-   * minimum: 1
-   * maximum: 3
-   * @return renewType
-  **/
- @Min(1) @Max(3)  @Schema(description = "")
-  public Integer getRenewType() {
-    return renewType;
-  }
-
-  public void setRenewType(Integer renewType) {
-    this.renewType = renewType;
-  }
-
   public CreateVpnGatewayRequest subnetId(String subnetId) {
     this.subnetId = subnetId;
     return this;
@@ -325,9 +260,6 @@ public class CreateVpnGatewayRequest {
         Objects.equals(this.description, createVpnGatewayRequest.description) &&
         Objects.equals(this.period, createVpnGatewayRequest.period) &&
         Objects.equals(this.periodUnit, createVpnGatewayRequest.periodUnit) &&
-        Objects.equals(this.remainRenewTimes, createVpnGatewayRequest.remainRenewTimes) &&
-        Objects.equals(this.renewPeriod, createVpnGatewayRequest.renewPeriod) &&
-        Objects.equals(this.renewType, createVpnGatewayRequest.renewType) &&
         Objects.equals(this.subnetId, createVpnGatewayRequest.subnetId) &&
         Objects.equals(this.vpcId, createVpnGatewayRequest.vpcId) &&
         Objects.equals(this.vpnGatewayName, createVpnGatewayRequest.vpnGatewayName);
@@ -335,7 +267,7 @@ public class CreateVpnGatewayRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidth, billingType, description, period, periodUnit, remainRenewTimes, renewPeriod, renewType, subnetId, vpcId, vpnGatewayName);
+    return Objects.hash(bandwidth, billingType, description, period, periodUnit, subnetId, vpcId, vpnGatewayName);
   }
 
 
@@ -349,9 +281,6 @@ public class CreateVpnGatewayRequest {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    period: ").append(toIndentedString(period)).append("\n");
     sb.append("    periodUnit: ").append(toIndentedString(periodUnit)).append("\n");
-    sb.append("    remainRenewTimes: ").append(toIndentedString(remainRenewTimes)).append("\n");
-    sb.append("    renewPeriod: ").append(toIndentedString(renewPeriod)).append("\n");
-    sb.append("    renewType: ").append(toIndentedString(renewType)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("    vpnGatewayName: ").append(toIndentedString(vpnGatewayName)).append("\n");
