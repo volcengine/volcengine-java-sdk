@@ -27,40 +27,16 @@ import javax.validation.Valid;
  * ImportKeyPairRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:32.918937+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:23:02.442504+08:00[Asia/Shanghai]")
 public class ImportKeyPairRequest {
-  @SerializedName("AccountId")
-  private String accountId = null;
-
   @SerializedName("Description")
   private String description = null;
 
   @SerializedName("KeyPairName")
   private String keyPairName = null;
 
-  @SerializedName("ProjectName")
-  private String projectName = null;
-
   @SerializedName("PublicKey")
   private String publicKey = null;
-
-  public ImportKeyPairRequest accountId(String accountId) {
-    this.accountId = accountId;
-    return this;
-  }
-
-   /**
-   * Get accountId
-   * @return accountId
-  **/
-  @Schema(description = "")
-  public String getAccountId() {
-    return accountId;
-  }
-
-  public void setAccountId(String accountId) {
-    this.accountId = accountId;
-  }
 
   public ImportKeyPairRequest description(String description) {
     this.description = description;
@@ -98,24 +74,6 @@ public class ImportKeyPairRequest {
     this.keyPairName = keyPairName;
   }
 
-  public ImportKeyPairRequest projectName(String projectName) {
-    this.projectName = projectName;
-    return this;
-  }
-
-   /**
-   * Get projectName
-   * @return projectName
-  **/
-  @Schema(description = "")
-  public String getProjectName() {
-    return projectName;
-  }
-
-  public void setProjectName(String projectName) {
-    this.projectName = projectName;
-  }
-
   public ImportKeyPairRequest publicKey(String publicKey) {
     this.publicKey = publicKey;
     return this;
@@ -144,16 +102,14 @@ public class ImportKeyPairRequest {
       return false;
     }
     ImportKeyPairRequest importKeyPairRequest = (ImportKeyPairRequest) o;
-    return Objects.equals(this.accountId, importKeyPairRequest.accountId) &&
-        Objects.equals(this.description, importKeyPairRequest.description) &&
+    return Objects.equals(this.description, importKeyPairRequest.description) &&
         Objects.equals(this.keyPairName, importKeyPairRequest.keyPairName) &&
-        Objects.equals(this.projectName, importKeyPairRequest.projectName) &&
         Objects.equals(this.publicKey, importKeyPairRequest.publicKey);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, description, keyPairName, projectName, publicKey);
+    return Objects.hash(description, keyPairName, publicKey);
   }
 
 
@@ -162,10 +118,8 @@ public class ImportKeyPairRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ImportKeyPairRequest {\n");
     
-    sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    keyPairName: ").append(toIndentedString(keyPairName)).append("\n");
-    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    publicKey: ").append(toIndentedString(publicKey)).append("\n");
     sb.append("}");
     return sb.toString();

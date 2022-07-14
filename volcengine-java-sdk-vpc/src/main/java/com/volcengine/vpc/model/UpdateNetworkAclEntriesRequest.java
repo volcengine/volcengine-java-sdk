@@ -31,8 +31,11 @@ import javax.validation.Valid;
  * UpdateNetworkAclEntriesRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:48.516414+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:23:24.287880+08:00[Asia/Shanghai]")
 public class UpdateNetworkAclEntriesRequest {
+  @SerializedName("ClientToken")
+  private String clientToken = null;
+
   @SerializedName("EgressAclEntries")
   private List<EgressAclEntryForUpdateNetworkAclEntriesInput> egressAclEntries = null;
 
@@ -47,6 +50,24 @@ public class UpdateNetworkAclEntriesRequest {
 
   @SerializedName("UpdateIngressAclEntries")
   private Boolean updateIngressAclEntries = null;
+
+  public UpdateNetworkAclEntriesRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
 
   public UpdateNetworkAclEntriesRequest egressAclEntries(List<EgressAclEntryForUpdateNetworkAclEntriesInput> egressAclEntries) {
     this.egressAclEntries = egressAclEntries;
@@ -167,7 +188,8 @@ public class UpdateNetworkAclEntriesRequest {
       return false;
     }
     UpdateNetworkAclEntriesRequest updateNetworkAclEntriesRequest = (UpdateNetworkAclEntriesRequest) o;
-    return Objects.equals(this.egressAclEntries, updateNetworkAclEntriesRequest.egressAclEntries) &&
+    return Objects.equals(this.clientToken, updateNetworkAclEntriesRequest.clientToken) &&
+        Objects.equals(this.egressAclEntries, updateNetworkAclEntriesRequest.egressAclEntries) &&
         Objects.equals(this.ingressAclEntries, updateNetworkAclEntriesRequest.ingressAclEntries) &&
         Objects.equals(this.networkAclId, updateNetworkAclEntriesRequest.networkAclId) &&
         Objects.equals(this.updateEgressAclEntries, updateNetworkAclEntriesRequest.updateEgressAclEntries) &&
@@ -176,7 +198,7 @@ public class UpdateNetworkAclEntriesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(egressAclEntries, ingressAclEntries, networkAclId, updateEgressAclEntries, updateIngressAclEntries);
+    return Objects.hash(clientToken, egressAclEntries, ingressAclEntries, networkAclId, updateEgressAclEntries, updateIngressAclEntries);
   }
 
 
@@ -185,6 +207,7 @@ public class UpdateNetworkAclEntriesRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateNetworkAclEntriesRequest {\n");
     
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    egressAclEntries: ").append(toIndentedString(egressAclEntries)).append("\n");
     sb.append("    ingressAclEntries: ").append(toIndentedString(ingressAclEntries)).append("\n");
     sb.append("    networkAclId: ").append(toIndentedString(networkAclId)).append("\n");

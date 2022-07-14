@@ -27,10 +27,13 @@ import javax.validation.Valid;
  * CreateCenRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T20:17:51.288534+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:22:50.791272+08:00[Asia/Shanghai]")
 public class CreateCenRequest {
   @SerializedName("CenName")
   private String cenName = null;
+
+  @SerializedName("ClientToken")
+  private String clientToken = null;
 
   @SerializedName("Description")
   private String description = null;
@@ -51,6 +54,24 @@ public class CreateCenRequest {
 
   public void setCenName(String cenName) {
     this.cenName = cenName;
+  }
+
+  public CreateCenRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
   }
 
   public CreateCenRequest description(String description) {
@@ -82,12 +103,13 @@ public class CreateCenRequest {
     }
     CreateCenRequest createCenRequest = (CreateCenRequest) o;
     return Objects.equals(this.cenName, createCenRequest.cenName) &&
+        Objects.equals(this.clientToken, createCenRequest.clientToken) &&
         Objects.equals(this.description, createCenRequest.description);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cenName, description);
+    return Objects.hash(cenName, clientToken, description);
   }
 
 
@@ -97,6 +119,7 @@ public class CreateCenRequest {
     sb.append("class CreateCenRequest {\n");
     
     sb.append("    cenName: ").append(toIndentedString(cenName)).append("\n");
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("}");
     return sb.toString();

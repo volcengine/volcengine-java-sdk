@@ -29,31 +29,10 @@ import javax.validation.Valid;
  * DeleteKeyPairsRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:32.918937+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:23:02.442504+08:00[Asia/Shanghai]")
 public class DeleteKeyPairsRequest {
-  @SerializedName("AccountId")
-  private String accountId = null;
-
   @SerializedName("KeyPairNames")
   private List<String> keyPairNames = null;
-
-  public DeleteKeyPairsRequest accountId(String accountId) {
-    this.accountId = accountId;
-    return this;
-  }
-
-   /**
-   * Get accountId
-   * @return accountId
-  **/
-  @Schema(description = "")
-  public String getAccountId() {
-    return accountId;
-  }
-
-  public void setAccountId(String accountId) {
-    this.accountId = accountId;
-  }
 
   public DeleteKeyPairsRequest keyPairNames(List<String> keyPairNames) {
     this.keyPairNames = keyPairNames;
@@ -91,13 +70,12 @@ public class DeleteKeyPairsRequest {
       return false;
     }
     DeleteKeyPairsRequest deleteKeyPairsRequest = (DeleteKeyPairsRequest) o;
-    return Objects.equals(this.accountId, deleteKeyPairsRequest.accountId) &&
-        Objects.equals(this.keyPairNames, deleteKeyPairsRequest.keyPairNames);
+    return Objects.equals(this.keyPairNames, deleteKeyPairsRequest.keyPairNames);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, keyPairNames);
+    return Objects.hash(keyPairNames);
   }
 
 
@@ -106,7 +84,6 @@ public class DeleteKeyPairsRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteKeyPairsRequest {\n");
     
-    sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    keyPairNames: ").append(toIndentedString(keyPairNames)).append("\n");
     sb.append("}");
     return sb.toString();

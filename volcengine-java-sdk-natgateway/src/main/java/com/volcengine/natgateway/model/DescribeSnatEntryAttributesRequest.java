@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * DescribeSnatEntryAttributesRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T20:18:10.205069+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:23:08.555290+08:00[Asia/Shanghai]")
 public class DescribeSnatEntryAttributesRequest {
   @SerializedName("SnatEntryId")
   private String snatEntryId = null;

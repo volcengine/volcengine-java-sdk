@@ -29,7 +29,7 @@ import javax.validation.Valid;
  * CenBandwidthPackageForDescribeCenBandwidthPackagesOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T20:17:51.288534+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:22:50.791272+08:00[Asia/Shanghai]")
 public class CenBandwidthPackageForDescribeCenBandwidthPackagesOutput {
   @SerializedName("AccountId")
   private String accountId = null;
@@ -39,9 +39,6 @@ public class CenBandwidthPackageForDescribeCenBandwidthPackagesOutput {
 
   @SerializedName("BillingType")
   private Integer billingType = null;
-
-  @SerializedName("BusinessStatus")
-  private String businessStatus = null;
 
   @SerializedName("CenBandwidthPackageId")
   private String cenBandwidthPackageId = null;
@@ -75,9 +72,6 @@ public class CenBandwidthPackageForDescribeCenBandwidthPackagesOutput {
 
   @SerializedName("Status")
   private String status = null;
-
-  @SerializedName("UpdateTime")
-  private String updateTime = null;
 
   public CenBandwidthPackageForDescribeCenBandwidthPackagesOutput accountId(String accountId) {
     this.accountId = accountId;
@@ -131,24 +125,6 @@ public class CenBandwidthPackageForDescribeCenBandwidthPackagesOutput {
 
   public void setBillingType(Integer billingType) {
     this.billingType = billingType;
-  }
-
-  public CenBandwidthPackageForDescribeCenBandwidthPackagesOutput businessStatus(String businessStatus) {
-    this.businessStatus = businessStatus;
-    return this;
-  }
-
-   /**
-   * Get businessStatus
-   * @return businessStatus
-  **/
-  @Schema(description = "")
-  public String getBusinessStatus() {
-    return businessStatus;
-  }
-
-  public void setBusinessStatus(String businessStatus) {
-    this.businessStatus = businessStatus;
   }
 
   public CenBandwidthPackageForDescribeCenBandwidthPackagesOutput cenBandwidthPackageId(String cenBandwidthPackageId) {
@@ -357,24 +333,6 @@ public class CenBandwidthPackageForDescribeCenBandwidthPackagesOutput {
     this.status = status;
   }
 
-  public CenBandwidthPackageForDescribeCenBandwidthPackagesOutput updateTime(String updateTime) {
-    this.updateTime = updateTime;
-    return this;
-  }
-
-   /**
-   * Get updateTime
-   * @return updateTime
-  **/
-  @Schema(description = "")
-  public String getUpdateTime() {
-    return updateTime;
-  }
-
-  public void setUpdateTime(String updateTime) {
-    this.updateTime = updateTime;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -388,7 +346,6 @@ public class CenBandwidthPackageForDescribeCenBandwidthPackagesOutput {
     return Objects.equals(this.accountId, cenBandwidthPackageForDescribeCenBandwidthPackagesOutput.accountId) &&
         Objects.equals(this.bandwidth, cenBandwidthPackageForDescribeCenBandwidthPackagesOutput.bandwidth) &&
         Objects.equals(this.billingType, cenBandwidthPackageForDescribeCenBandwidthPackagesOutput.billingType) &&
-        Objects.equals(this.businessStatus, cenBandwidthPackageForDescribeCenBandwidthPackagesOutput.businessStatus) &&
         Objects.equals(this.cenBandwidthPackageId, cenBandwidthPackageForDescribeCenBandwidthPackagesOutput.cenBandwidthPackageId) &&
         Objects.equals(this.cenBandwidthPackageName, cenBandwidthPackageForDescribeCenBandwidthPackagesOutput.cenBandwidthPackageName) &&
         Objects.equals(this.cenIds, cenBandwidthPackageForDescribeCenBandwidthPackagesOutput.cenIds) &&
@@ -399,13 +356,12 @@ public class CenBandwidthPackageForDescribeCenBandwidthPackagesOutput {
         Objects.equals(this.localGeographicRegionSetId, cenBandwidthPackageForDescribeCenBandwidthPackagesOutput.localGeographicRegionSetId) &&
         Objects.equals(this.peerGeographicRegionSetId, cenBandwidthPackageForDescribeCenBandwidthPackagesOutput.peerGeographicRegionSetId) &&
         Objects.equals(this.remainingBandwidth, cenBandwidthPackageForDescribeCenBandwidthPackagesOutput.remainingBandwidth) &&
-        Objects.equals(this.status, cenBandwidthPackageForDescribeCenBandwidthPackagesOutput.status) &&
-        Objects.equals(this.updateTime, cenBandwidthPackageForDescribeCenBandwidthPackagesOutput.updateTime);
+        Objects.equals(this.status, cenBandwidthPackageForDescribeCenBandwidthPackagesOutput.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, bandwidth, billingType, businessStatus, cenBandwidthPackageId, cenBandwidthPackageName, cenIds, creationTime, deletedTime, description, expiredTime, localGeographicRegionSetId, peerGeographicRegionSetId, remainingBandwidth, status, updateTime);
+    return Objects.hash(accountId, bandwidth, billingType, cenBandwidthPackageId, cenBandwidthPackageName, cenIds, creationTime, deletedTime, description, expiredTime, localGeographicRegionSetId, peerGeographicRegionSetId, remainingBandwidth, status);
   }
 
 
@@ -417,7 +373,6 @@ public class CenBandwidthPackageForDescribeCenBandwidthPackagesOutput {
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    bandwidth: ").append(toIndentedString(bandwidth)).append("\n");
     sb.append("    billingType: ").append(toIndentedString(billingType)).append("\n");
-    sb.append("    businessStatus: ").append(toIndentedString(businessStatus)).append("\n");
     sb.append("    cenBandwidthPackageId: ").append(toIndentedString(cenBandwidthPackageId)).append("\n");
     sb.append("    cenBandwidthPackageName: ").append(toIndentedString(cenBandwidthPackageName)).append("\n");
     sb.append("    cenIds: ").append(toIndentedString(cenIds)).append("\n");
@@ -429,7 +384,6 @@ public class CenBandwidthPackageForDescribeCenBandwidthPackagesOutput {
     sb.append("    peerGeographicRegionSetId: ").append(toIndentedString(peerGeographicRegionSetId)).append("\n");
     sb.append("    remainingBandwidth: ").append(toIndentedString(remainingBandwidth)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("}");
     return sb.toString();
   }

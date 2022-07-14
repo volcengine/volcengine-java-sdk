@@ -27,48 +27,27 @@ import javax.validation.Valid;
  * EipAddressForDescribeInstancesOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:32.918937+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:23:02.442504+08:00[Asia/Shanghai]")
 public class EipAddressForDescribeInstancesOutput {
-  @SerializedName("Bandwidth")
-  private Integer bandwidth = null;
+  @SerializedName("AllocationId")
+  private String allocationId = null;
 
-  @SerializedName("IpAddress")
-  private String ipAddress = null;
-
-  public EipAddressForDescribeInstancesOutput bandwidth(Integer bandwidth) {
-    this.bandwidth = bandwidth;
+  public EipAddressForDescribeInstancesOutput allocationId(String allocationId) {
+    this.allocationId = allocationId;
     return this;
   }
 
    /**
-   * Get bandwidth
-   * @return bandwidth
+   * Get allocationId
+   * @return allocationId
   **/
   @Schema(description = "")
-  public Integer getBandwidth() {
-    return bandwidth;
+  public String getAllocationId() {
+    return allocationId;
   }
 
-  public void setBandwidth(Integer bandwidth) {
-    this.bandwidth = bandwidth;
-  }
-
-  public EipAddressForDescribeInstancesOutput ipAddress(String ipAddress) {
-    this.ipAddress = ipAddress;
-    return this;
-  }
-
-   /**
-   * Get ipAddress
-   * @return ipAddress
-  **/
-  @Schema(description = "")
-  public String getIpAddress() {
-    return ipAddress;
-  }
-
-  public void setIpAddress(String ipAddress) {
-    this.ipAddress = ipAddress;
+  public void setAllocationId(String allocationId) {
+    this.allocationId = allocationId;
   }
 
 
@@ -81,13 +60,12 @@ public class EipAddressForDescribeInstancesOutput {
       return false;
     }
     EipAddressForDescribeInstancesOutput eipAddressForDescribeInstancesOutput = (EipAddressForDescribeInstancesOutput) o;
-    return Objects.equals(this.bandwidth, eipAddressForDescribeInstancesOutput.bandwidth) &&
-        Objects.equals(this.ipAddress, eipAddressForDescribeInstancesOutput.ipAddress);
+    return Objects.equals(this.allocationId, eipAddressForDescribeInstancesOutput.allocationId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidth, ipAddress);
+    return Objects.hash(allocationId);
   }
 
 
@@ -96,8 +74,7 @@ public class EipAddressForDescribeInstancesOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class EipAddressForDescribeInstancesOutput {\n");
     
-    sb.append("    bandwidth: ").append(toIndentedString(bandwidth)).append("\n");
-    sb.append("    ipAddress: ").append(toIndentedString(ipAddress)).append("\n");
+    sb.append("    allocationId: ").append(toIndentedString(allocationId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

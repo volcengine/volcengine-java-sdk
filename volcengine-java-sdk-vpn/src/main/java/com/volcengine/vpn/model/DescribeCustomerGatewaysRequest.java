@@ -29,7 +29,7 @@ import javax.validation.Valid;
  * DescribeCustomerGatewaysRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T20:18:23.808118+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:23:33.618811+08:00[Asia/Shanghai]")
 public class DescribeCustomerGatewaysRequest {
   @SerializedName("CustomerGatewayIds")
   private List<String> customerGatewayIds = null;
@@ -37,7 +37,7 @@ public class DescribeCustomerGatewaysRequest {
   @SerializedName("CustomerGatewayName")
   private String customerGatewayName = null;
 
-  @SerializedName("IPAddress")
+  @SerializedName("IpAddress")
   private String ipAddress = null;
 
   @SerializedName("PageNumber")
@@ -45,9 +45,6 @@ public class DescribeCustomerGatewaysRequest {
 
   @SerializedName("PageSize")
   private Integer pageSize = null;
-
-  @SerializedName("Status")
-  private String status = null;
 
   public DescribeCustomerGatewaysRequest customerGatewayIds(List<String> customerGatewayIds) {
     this.customerGatewayIds = customerGatewayIds;
@@ -147,24 +144,6 @@ public class DescribeCustomerGatewaysRequest {
     this.pageSize = pageSize;
   }
 
-  public DescribeCustomerGatewaysRequest status(String status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Get status
-   * @return status
-  **/
-  @Schema(description = "")
-  public String getStatus() {
-    return status;
-  }
-
-  public void setStatus(String status) {
-    this.status = status;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -179,13 +158,12 @@ public class DescribeCustomerGatewaysRequest {
         Objects.equals(this.customerGatewayName, describeCustomerGatewaysRequest.customerGatewayName) &&
         Objects.equals(this.ipAddress, describeCustomerGatewaysRequest.ipAddress) &&
         Objects.equals(this.pageNumber, describeCustomerGatewaysRequest.pageNumber) &&
-        Objects.equals(this.pageSize, describeCustomerGatewaysRequest.pageSize) &&
-        Objects.equals(this.status, describeCustomerGatewaysRequest.status);
+        Objects.equals(this.pageSize, describeCustomerGatewaysRequest.pageSize);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(customerGatewayIds, customerGatewayName, ipAddress, pageNumber, pageSize, status);
+    return Objects.hash(customerGatewayIds, customerGatewayName, ipAddress, pageNumber, pageSize);
   }
 
 
@@ -199,7 +177,6 @@ public class DescribeCustomerGatewaysRequest {
     sb.append("    ipAddress: ").append(toIndentedString(ipAddress)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
     return sb.toString();
   }

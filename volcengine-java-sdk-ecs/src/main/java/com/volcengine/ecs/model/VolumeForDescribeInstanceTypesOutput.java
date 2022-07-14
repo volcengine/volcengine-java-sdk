@@ -29,10 +29,31 @@ import javax.validation.Valid;
  * VolumeForDescribeInstanceTypesOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T20:18:05.921659+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:23:02.442504+08:00[Asia/Shanghai]")
 public class VolumeForDescribeInstanceTypesOutput {
+  @SerializedName("MaximumCount")
+  private Integer maximumCount = null;
+
   @SerializedName("SupportedVolumeTypes")
   private List<String> supportedVolumeTypes = null;
+
+  public VolumeForDescribeInstanceTypesOutput maximumCount(Integer maximumCount) {
+    this.maximumCount = maximumCount;
+    return this;
+  }
+
+   /**
+   * Get maximumCount
+   * @return maximumCount
+  **/
+  @Schema(description = "")
+  public Integer getMaximumCount() {
+    return maximumCount;
+  }
+
+  public void setMaximumCount(Integer maximumCount) {
+    this.maximumCount = maximumCount;
+  }
 
   public VolumeForDescribeInstanceTypesOutput supportedVolumeTypes(List<String> supportedVolumeTypes) {
     this.supportedVolumeTypes = supportedVolumeTypes;
@@ -70,12 +91,13 @@ public class VolumeForDescribeInstanceTypesOutput {
       return false;
     }
     VolumeForDescribeInstanceTypesOutput volumeForDescribeInstanceTypesOutput = (VolumeForDescribeInstanceTypesOutput) o;
-    return Objects.equals(this.supportedVolumeTypes, volumeForDescribeInstanceTypesOutput.supportedVolumeTypes);
+    return Objects.equals(this.maximumCount, volumeForDescribeInstanceTypesOutput.maximumCount) &&
+        Objects.equals(this.supportedVolumeTypes, volumeForDescribeInstanceTypesOutput.supportedVolumeTypes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(supportedVolumeTypes);
+    return Objects.hash(maximumCount, supportedVolumeTypes);
   }
 
 
@@ -84,6 +106,7 @@ public class VolumeForDescribeInstanceTypesOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class VolumeForDescribeInstanceTypesOutput {\n");
     
+    sb.append("    maximumCount: ").append(toIndentedString(maximumCount)).append("\n");
     sb.append("    supportedVolumeTypes: ").append(toIndentedString(supportedVolumeTypes)).append("\n");
     sb.append("}");
     return sb.toString();

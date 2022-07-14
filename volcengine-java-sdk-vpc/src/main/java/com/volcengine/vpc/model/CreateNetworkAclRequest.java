@@ -27,8 +27,11 @@ import javax.validation.Valid;
  * CreateNetworkAclRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:48.516414+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:23:24.287880+08:00[Asia/Shanghai]")
 public class CreateNetworkAclRequest {
+  @SerializedName("ClientToken")
+  private String clientToken = null;
+
   @SerializedName("Description")
   private String description = null;
 
@@ -37,6 +40,24 @@ public class CreateNetworkAclRequest {
 
   @SerializedName("VpcId")
   private String vpcId = null;
+
+  public CreateNetworkAclRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
 
   public CreateNetworkAclRequest description(String description) {
     this.description = description;
@@ -103,14 +124,15 @@ public class CreateNetworkAclRequest {
       return false;
     }
     CreateNetworkAclRequest createNetworkAclRequest = (CreateNetworkAclRequest) o;
-    return Objects.equals(this.description, createNetworkAclRequest.description) &&
+    return Objects.equals(this.clientToken, createNetworkAclRequest.clientToken) &&
+        Objects.equals(this.description, createNetworkAclRequest.description) &&
         Objects.equals(this.networkAclName, createNetworkAclRequest.networkAclName) &&
         Objects.equals(this.vpcId, createNetworkAclRequest.vpcId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, networkAclName, vpcId);
+    return Objects.hash(clientToken, description, networkAclName, vpcId);
   }
 
 
@@ -119,6 +141,7 @@ public class CreateNetworkAclRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateNetworkAclRequest {\n");
     
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    networkAclName: ").append(toIndentedString(networkAclName)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
