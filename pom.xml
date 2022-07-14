@@ -124,7 +124,6 @@
         <module>volcengine-java-sdk-ecs</module>
         <module>volcengine-java-sdk-storageebs</module>
         <module>volcengine-java-sdk-natgateway</module>
-        <module>volcengine-java-sdk-directconnect</module>
         <module>volcengine-java-sdk-bom</module>
         <module>volcengine-java-sdk-autoscaling</module>
         <module>volcengine-java-sdk-vke</module>

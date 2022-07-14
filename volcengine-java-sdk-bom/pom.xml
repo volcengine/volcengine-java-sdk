@@ -33,12 +33,6 @@
             </dependency>
             <dependency>
                 <groupId>com.volcengine</groupId>
-                <artifactId>volcengine-java-sdk-directconnect</artifactId>
-                <optional>false</optional>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.volcengine</groupId>
                 <artifactId>volcengine-java-sdk-ecs</artifactId>
                 <optional>false</optional>
                 <version>${project.version}</version>
