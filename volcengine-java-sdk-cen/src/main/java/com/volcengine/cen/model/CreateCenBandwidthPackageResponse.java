@@ -27,13 +27,10 @@ import javax.validation.Valid;
  * CreateCenBandwidthPackageResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T20:17:51.288534+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:22:50.791272+08:00[Asia/Shanghai]")
 public class CreateCenBandwidthPackageResponse {
   @SerializedName("CenBandwidthPackageId")
   private String cenBandwidthPackageId = null;
-
-  @SerializedName("PreOrderNumber")
-  private String preOrderNumber = null;
 
   public CreateCenBandwidthPackageResponse cenBandwidthPackageId(String cenBandwidthPackageId) {
     this.cenBandwidthPackageId = cenBandwidthPackageId;
@@ -53,24 +50,6 @@ public class CreateCenBandwidthPackageResponse {
     this.cenBandwidthPackageId = cenBandwidthPackageId;
   }
 
-  public CreateCenBandwidthPackageResponse preOrderNumber(String preOrderNumber) {
-    this.preOrderNumber = preOrderNumber;
-    return this;
-  }
-
-   /**
-   * Get preOrderNumber
-   * @return preOrderNumber
-  **/
-  @Schema(description = "")
-  public String getPreOrderNumber() {
-    return preOrderNumber;
-  }
-
-  public void setPreOrderNumber(String preOrderNumber) {
-    this.preOrderNumber = preOrderNumber;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -81,13 +60,12 @@ public class CreateCenBandwidthPackageResponse {
       return false;
     }
     CreateCenBandwidthPackageResponse createCenBandwidthPackageResponse = (CreateCenBandwidthPackageResponse) o;
-    return Objects.equals(this.cenBandwidthPackageId, createCenBandwidthPackageResponse.cenBandwidthPackageId) &&
-        Objects.equals(this.preOrderNumber, createCenBandwidthPackageResponse.preOrderNumber);
+    return Objects.equals(this.cenBandwidthPackageId, createCenBandwidthPackageResponse.cenBandwidthPackageId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cenBandwidthPackageId, preOrderNumber);
+    return Objects.hash(cenBandwidthPackageId);
   }
 
 
@@ -97,7 +75,6 @@ public class CreateCenBandwidthPackageResponse {
     sb.append("class CreateCenBandwidthPackageResponse {\n");
     
     sb.append("    cenBandwidthPackageId: ").append(toIndentedString(cenBandwidthPackageId)).append("\n");
-    sb.append("    preOrderNumber: ").append(toIndentedString(preOrderNumber)).append("\n");
     sb.append("}");
     return sb.toString();
   }

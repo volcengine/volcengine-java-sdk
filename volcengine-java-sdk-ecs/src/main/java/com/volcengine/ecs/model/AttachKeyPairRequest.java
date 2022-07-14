@@ -29,11 +29,8 @@ import javax.validation.Valid;
  * AttachKeyPairRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:32.918937+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:23:02.442504+08:00[Asia/Shanghai]")
 public class AttachKeyPairRequest {
-  @SerializedName("AccountId")
-  private String accountId = null;
-
   @SerializedName("InstanceIds")
   private List<String> instanceIds = null;
 
@@ -42,24 +39,6 @@ public class AttachKeyPairRequest {
 
   @SerializedName("KeyPairName")
   private String keyPairName = null;
-
-  public AttachKeyPairRequest accountId(String accountId) {
-    this.accountId = accountId;
-    return this;
-  }
-
-   /**
-   * Get accountId
-   * @return accountId
-  **/
-  @Schema(description = "")
-  public String getAccountId() {
-    return accountId;
-  }
-
-  public void setAccountId(String accountId) {
-    this.accountId = accountId;
-  }
 
   public AttachKeyPairRequest instanceIds(List<String> instanceIds) {
     this.instanceIds = instanceIds;
@@ -133,15 +112,14 @@ public class AttachKeyPairRequest {
       return false;
     }
     AttachKeyPairRequest attachKeyPairRequest = (AttachKeyPairRequest) o;
-    return Objects.equals(this.accountId, attachKeyPairRequest.accountId) &&
-        Objects.equals(this.instanceIds, attachKeyPairRequest.instanceIds) &&
+    return Objects.equals(this.instanceIds, attachKeyPairRequest.instanceIds) &&
         Objects.equals(this.keyPairId, attachKeyPairRequest.keyPairId) &&
         Objects.equals(this.keyPairName, attachKeyPairRequest.keyPairName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, instanceIds, keyPairId, keyPairName);
+    return Objects.hash(instanceIds, keyPairId, keyPairName);
   }
 
 
@@ -150,7 +128,6 @@ public class AttachKeyPairRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class AttachKeyPairRequest {\n");
     
-    sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    instanceIds: ").append(toIndentedString(instanceIds)).append("\n");
     sb.append("    keyPairId: ").append(toIndentedString(keyPairId)).append("\n");
     sb.append("    keyPairName: ").append(toIndentedString(keyPairName)).append("\n");

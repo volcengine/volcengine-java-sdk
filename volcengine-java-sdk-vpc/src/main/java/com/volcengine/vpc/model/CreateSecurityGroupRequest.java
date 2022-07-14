@@ -27,8 +27,11 @@ import javax.validation.Valid;
  * CreateSecurityGroupRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T20:18:16.579539+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:23:24.287880+08:00[Asia/Shanghai]")
 public class CreateSecurityGroupRequest {
+  @SerializedName("ClientToken")
+  private String clientToken = null;
+
   @SerializedName("Description")
   private String description = null;
 
@@ -37,6 +40,24 @@ public class CreateSecurityGroupRequest {
 
   @SerializedName("VpcId")
   private String vpcId = null;
+
+  public CreateSecurityGroupRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
 
   public CreateSecurityGroupRequest description(String description) {
     this.description = description;
@@ -103,14 +124,15 @@ public class CreateSecurityGroupRequest {
       return false;
     }
     CreateSecurityGroupRequest createSecurityGroupRequest = (CreateSecurityGroupRequest) o;
-    return Objects.equals(this.description, createSecurityGroupRequest.description) &&
+    return Objects.equals(this.clientToken, createSecurityGroupRequest.clientToken) &&
+        Objects.equals(this.description, createSecurityGroupRequest.description) &&
         Objects.equals(this.securityGroupName, createSecurityGroupRequest.securityGroupName) &&
         Objects.equals(this.vpcId, createSecurityGroupRequest.vpcId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, securityGroupName, vpcId);
+    return Objects.hash(clientToken, description, securityGroupName, vpcId);
   }
 
 
@@ -119,6 +141,7 @@ public class CreateSecurityGroupRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateSecurityGroupRequest {\n");
     
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    securityGroupName: ").append(toIndentedString(securityGroupName)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");

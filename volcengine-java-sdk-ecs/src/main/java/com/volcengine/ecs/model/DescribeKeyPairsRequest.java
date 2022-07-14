@@ -29,16 +29,10 @@ import javax.validation.Valid;
  * DescribeKeyPairsRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:32.918937+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:23:02.442504+08:00[Asia/Shanghai]")
 public class DescribeKeyPairsRequest {
-  @SerializedName("AccountId")
-  private String accountId = null;
-
   @SerializedName("FingerPrint")
   private String fingerPrint = null;
-
-  @SerializedName("KeyPairId")
-  private String keyPairId = null;
 
   @SerializedName("KeyPairIds")
   private List<String> keyPairIds = null;
@@ -54,33 +48,6 @@ public class DescribeKeyPairsRequest {
 
   @SerializedName("NextToken")
   private String nextToken = null;
-
-  @SerializedName("PageNumber")
-  private Integer pageNumber = null;
-
-  @SerializedName("PageSize")
-  private Integer pageSize = null;
-
-  @SerializedName("ProjectName")
-  private String projectName = null;
-
-  public DescribeKeyPairsRequest accountId(String accountId) {
-    this.accountId = accountId;
-    return this;
-  }
-
-   /**
-   * Get accountId
-   * @return accountId
-  **/
-  @Schema(description = "")
-  public String getAccountId() {
-    return accountId;
-  }
-
-  public void setAccountId(String accountId) {
-    this.accountId = accountId;
-  }
 
   public DescribeKeyPairsRequest fingerPrint(String fingerPrint) {
     this.fingerPrint = fingerPrint;
@@ -98,24 +65,6 @@ public class DescribeKeyPairsRequest {
 
   public void setFingerPrint(String fingerPrint) {
     this.fingerPrint = fingerPrint;
-  }
-
-  public DescribeKeyPairsRequest keyPairId(String keyPairId) {
-    this.keyPairId = keyPairId;
-    return this;
-  }
-
-   /**
-   * Get keyPairId
-   * @return keyPairId
-  **/
-  @Schema(description = "")
-  public String getKeyPairId() {
-    return keyPairId;
-  }
-
-  public void setKeyPairId(String keyPairId) {
-    this.keyPairId = keyPairId;
   }
 
   public DescribeKeyPairsRequest keyPairIds(List<String> keyPairIds) {
@@ -224,60 +173,6 @@ public class DescribeKeyPairsRequest {
     this.nextToken = nextToken;
   }
 
-  public DescribeKeyPairsRequest pageNumber(Integer pageNumber) {
-    this.pageNumber = pageNumber;
-    return this;
-  }
-
-   /**
-   * Get pageNumber
-   * @return pageNumber
-  **/
-  @Schema(description = "")
-  public Integer getPageNumber() {
-    return pageNumber;
-  }
-
-  public void setPageNumber(Integer pageNumber) {
-    this.pageNumber = pageNumber;
-  }
-
-  public DescribeKeyPairsRequest pageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-    return this;
-  }
-
-   /**
-   * Get pageSize
-   * @return pageSize
-  **/
-  @Schema(description = "")
-  public Integer getPageSize() {
-    return pageSize;
-  }
-
-  public void setPageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-  }
-
-  public DescribeKeyPairsRequest projectName(String projectName) {
-    this.projectName = projectName;
-    return this;
-  }
-
-   /**
-   * Get projectName
-   * @return projectName
-  **/
-  @Schema(description = "")
-  public String getProjectName() {
-    return projectName;
-  }
-
-  public void setProjectName(String projectName) {
-    this.projectName = projectName;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -288,22 +183,17 @@ public class DescribeKeyPairsRequest {
       return false;
     }
     DescribeKeyPairsRequest describeKeyPairsRequest = (DescribeKeyPairsRequest) o;
-    return Objects.equals(this.accountId, describeKeyPairsRequest.accountId) &&
-        Objects.equals(this.fingerPrint, describeKeyPairsRequest.fingerPrint) &&
-        Objects.equals(this.keyPairId, describeKeyPairsRequest.keyPairId) &&
+    return Objects.equals(this.fingerPrint, describeKeyPairsRequest.fingerPrint) &&
         Objects.equals(this.keyPairIds, describeKeyPairsRequest.keyPairIds) &&
         Objects.equals(this.keyPairName, describeKeyPairsRequest.keyPairName) &&
         Objects.equals(this.keyPairNames, describeKeyPairsRequest.keyPairNames) &&
         Objects.equals(this.maxResults, describeKeyPairsRequest.maxResults) &&
-        Objects.equals(this.nextToken, describeKeyPairsRequest.nextToken) &&
-        Objects.equals(this.pageNumber, describeKeyPairsRequest.pageNumber) &&
-        Objects.equals(this.pageSize, describeKeyPairsRequest.pageSize) &&
-        Objects.equals(this.projectName, describeKeyPairsRequest.projectName);
+        Objects.equals(this.nextToken, describeKeyPairsRequest.nextToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, fingerPrint, keyPairId, keyPairIds, keyPairName, keyPairNames, maxResults, nextToken, pageNumber, pageSize, projectName);
+    return Objects.hash(fingerPrint, keyPairIds, keyPairName, keyPairNames, maxResults, nextToken);
   }
 
 
@@ -312,17 +202,12 @@ public class DescribeKeyPairsRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeKeyPairsRequest {\n");
     
-    sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    fingerPrint: ").append(toIndentedString(fingerPrint)).append("\n");
-    sb.append("    keyPairId: ").append(toIndentedString(keyPairId)).append("\n");
     sb.append("    keyPairIds: ").append(toIndentedString(keyPairIds)).append("\n");
     sb.append("    keyPairName: ").append(toIndentedString(keyPairName)).append("\n");
     sb.append("    keyPairNames: ").append(toIndentedString(keyPairNames)).append("\n");
     sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
     sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
-    sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
-    sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
-    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

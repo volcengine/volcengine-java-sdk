@@ -19,8 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.vpn.model.IkeConfigForCreateVpnConnectionInput;
-import com.volcengine.vpn.model.IpsecConfigForCreateVpnConnectionInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -29,34 +27,95 @@ import javax.validation.Valid;
  * CreateVpnConnectionRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T20:18:23.808118+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:23:33.618811+08:00[Asia/Shanghai]")
 public class CreateVpnConnectionRequest {
+  @SerializedName("ClientToken")
+  private String clientToken = null;
+
   @SerializedName("CustomerGatewayId")
   private String customerGatewayId = null;
 
   @SerializedName("Description")
   private String description = null;
 
+  /**
+   * Gets or Sets dpdAction
+   */
+  @JsonAdapter(DpdActionEnum.Adapter.class)
+  public enum DpdActionEnum {
+    NONE("none"),
+    CLEAR("clear"),
+    HOLD("hold"),
+    RESTART("restart");
+
+    private String value;
+
+    DpdActionEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static DpdActionEnum fromValue(String input) {
+      for (DpdActionEnum b : DpdActionEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<DpdActionEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final DpdActionEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public DpdActionEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return DpdActionEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("DpdAction")
+  private DpdActionEnum dpdAction = null;
+
   @SerializedName("IkeConfig")
-  private IkeConfigForCreateVpnConnectionInput ikeConfig = null;
+  private String ikeConfig = null;
 
   @SerializedName("IpsecConfig")
-  private IpsecConfigForCreateVpnConnectionInput ipsecConfig = null;
-
-  @SerializedName("LocalSubnet")
-  private String localSubnet = null;
+  private String ipsecConfig = null;
 
   @SerializedName("NatTraversal")
   private Boolean natTraversal = null;
-
-  @SerializedName("RemoteSubnet")
-  private String remoteSubnet = null;
 
   @SerializedName("VpnConnectionName")
   private String vpnConnectionName = null;
 
   @SerializedName("VpnGatewayId")
   private String vpnGatewayId = null;
+
+  public CreateVpnConnectionRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
 
   public CreateVpnConnectionRequest customerGatewayId(String customerGatewayId) {
     this.customerGatewayId = customerGatewayId;
@@ -95,7 +154,25 @@ public class CreateVpnConnectionRequest {
     this.description = description;
   }
 
-  public CreateVpnConnectionRequest ikeConfig(IkeConfigForCreateVpnConnectionInput ikeConfig) {
+  public CreateVpnConnectionRequest dpdAction(DpdActionEnum dpdAction) {
+    this.dpdAction = dpdAction;
+    return this;
+  }
+
+   /**
+   * Get dpdAction
+   * @return dpdAction
+  **/
+  @Schema(description = "")
+  public DpdActionEnum getDpdAction() {
+    return dpdAction;
+  }
+
+  public void setDpdAction(DpdActionEnum dpdAction) {
+    this.dpdAction = dpdAction;
+  }
+
+  public CreateVpnConnectionRequest ikeConfig(String ikeConfig) {
     this.ikeConfig = ikeConfig;
     return this;
   }
@@ -104,17 +181,16 @@ public class CreateVpnConnectionRequest {
    * Get ikeConfig
    * @return ikeConfig
   **/
-  @Valid
   @Schema(description = "")
-  public IkeConfigForCreateVpnConnectionInput getIkeConfig() {
+  public String getIkeConfig() {
     return ikeConfig;
   }
 
-  public void setIkeConfig(IkeConfigForCreateVpnConnectionInput ikeConfig) {
+  public void setIkeConfig(String ikeConfig) {
     this.ikeConfig = ikeConfig;
   }
 
-  public CreateVpnConnectionRequest ipsecConfig(IpsecConfigForCreateVpnConnectionInput ipsecConfig) {
+  public CreateVpnConnectionRequest ipsecConfig(String ipsecConfig) {
     this.ipsecConfig = ipsecConfig;
     return this;
   }
@@ -123,33 +199,13 @@ public class CreateVpnConnectionRequest {
    * Get ipsecConfig
    * @return ipsecConfig
   **/
-  @Valid
   @Schema(description = "")
-  public IpsecConfigForCreateVpnConnectionInput getIpsecConfig() {
+  public String getIpsecConfig() {
     return ipsecConfig;
   }
 
-  public void setIpsecConfig(IpsecConfigForCreateVpnConnectionInput ipsecConfig) {
+  public void setIpsecConfig(String ipsecConfig) {
     this.ipsecConfig = ipsecConfig;
-  }
-
-  public CreateVpnConnectionRequest localSubnet(String localSubnet) {
-    this.localSubnet = localSubnet;
-    return this;
-  }
-
-   /**
-   * Get localSubnet
-   * @return localSubnet
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getLocalSubnet() {
-    return localSubnet;
-  }
-
-  public void setLocalSubnet(String localSubnet) {
-    this.localSubnet = localSubnet;
   }
 
   public CreateVpnConnectionRequest natTraversal(Boolean natTraversal) {
@@ -168,25 +224,6 @@ public class CreateVpnConnectionRequest {
 
   public void setNatTraversal(Boolean natTraversal) {
     this.natTraversal = natTraversal;
-  }
-
-  public CreateVpnConnectionRequest remoteSubnet(String remoteSubnet) {
-    this.remoteSubnet = remoteSubnet;
-    return this;
-  }
-
-   /**
-   * Get remoteSubnet
-   * @return remoteSubnet
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getRemoteSubnet() {
-    return remoteSubnet;
-  }
-
-  public void setRemoteSubnet(String remoteSubnet) {
-    this.remoteSubnet = remoteSubnet;
   }
 
   public CreateVpnConnectionRequest vpnConnectionName(String vpnConnectionName) {
@@ -236,20 +273,20 @@ public class CreateVpnConnectionRequest {
       return false;
     }
     CreateVpnConnectionRequest createVpnConnectionRequest = (CreateVpnConnectionRequest) o;
-    return Objects.equals(this.customerGatewayId, createVpnConnectionRequest.customerGatewayId) &&
+    return Objects.equals(this.clientToken, createVpnConnectionRequest.clientToken) &&
+        Objects.equals(this.customerGatewayId, createVpnConnectionRequest.customerGatewayId) &&
         Objects.equals(this.description, createVpnConnectionRequest.description) &&
+        Objects.equals(this.dpdAction, createVpnConnectionRequest.dpdAction) &&
         Objects.equals(this.ikeConfig, createVpnConnectionRequest.ikeConfig) &&
         Objects.equals(this.ipsecConfig, createVpnConnectionRequest.ipsecConfig) &&
-        Objects.equals(this.localSubnet, createVpnConnectionRequest.localSubnet) &&
         Objects.equals(this.natTraversal, createVpnConnectionRequest.natTraversal) &&
-        Objects.equals(this.remoteSubnet, createVpnConnectionRequest.remoteSubnet) &&
         Objects.equals(this.vpnConnectionName, createVpnConnectionRequest.vpnConnectionName) &&
         Objects.equals(this.vpnGatewayId, createVpnConnectionRequest.vpnGatewayId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(customerGatewayId, description, ikeConfig, ipsecConfig, localSubnet, natTraversal, remoteSubnet, vpnConnectionName, vpnGatewayId);
+    return Objects.hash(clientToken, customerGatewayId, description, dpdAction, ikeConfig, ipsecConfig, natTraversal, vpnConnectionName, vpnGatewayId);
   }
 
 
@@ -258,13 +295,13 @@ public class CreateVpnConnectionRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateVpnConnectionRequest {\n");
     
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    customerGatewayId: ").append(toIndentedString(customerGatewayId)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    dpdAction: ").append(toIndentedString(dpdAction)).append("\n");
     sb.append("    ikeConfig: ").append(toIndentedString(ikeConfig)).append("\n");
     sb.append("    ipsecConfig: ").append(toIndentedString(ipsecConfig)).append("\n");
-    sb.append("    localSubnet: ").append(toIndentedString(localSubnet)).append("\n");
     sb.append("    natTraversal: ").append(toIndentedString(natTraversal)).append("\n");
-    sb.append("    remoteSubnet: ").append(toIndentedString(remoteSubnet)).append("\n");
     sb.append("    vpnConnectionName: ").append(toIndentedString(vpnConnectionName)).append("\n");
     sb.append("    vpnGatewayId: ").append(toIndentedString(vpnGatewayId)).append("\n");
     sb.append("}");

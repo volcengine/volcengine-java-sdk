@@ -27,10 +27,31 @@ import javax.validation.Valid;
  * MemoryForDescribeInstanceTypesOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T20:18:05.921659+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:23:02.442504+08:00[Asia/Shanghai]")
 public class MemoryForDescribeInstanceTypesOutput {
+  @SerializedName("EncryptedSize")
+  private Integer encryptedSize = null;
+
   @SerializedName("Size")
   private Integer size = null;
+
+  public MemoryForDescribeInstanceTypesOutput encryptedSize(Integer encryptedSize) {
+    this.encryptedSize = encryptedSize;
+    return this;
+  }
+
+   /**
+   * Get encryptedSize
+   * @return encryptedSize
+  **/
+  @Schema(description = "")
+  public Integer getEncryptedSize() {
+    return encryptedSize;
+  }
+
+  public void setEncryptedSize(Integer encryptedSize) {
+    this.encryptedSize = encryptedSize;
+  }
 
   public MemoryForDescribeInstanceTypesOutput size(Integer size) {
     this.size = size;
@@ -60,12 +81,13 @@ public class MemoryForDescribeInstanceTypesOutput {
       return false;
     }
     MemoryForDescribeInstanceTypesOutput memoryForDescribeInstanceTypesOutput = (MemoryForDescribeInstanceTypesOutput) o;
-    return Objects.equals(this.size, memoryForDescribeInstanceTypesOutput.size);
+    return Objects.equals(this.encryptedSize, memoryForDescribeInstanceTypesOutput.encryptedSize) &&
+        Objects.equals(this.size, memoryForDescribeInstanceTypesOutput.size);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(size);
+    return Objects.hash(encryptedSize, size);
   }
 
 
@@ -74,6 +96,7 @@ public class MemoryForDescribeInstanceTypesOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class MemoryForDescribeInstanceTypesOutput {\n");
     
+    sb.append("    encryptedSize: ").append(toIndentedString(encryptedSize)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("}");
     return sb.toString();

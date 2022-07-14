@@ -19,6 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.ecs.model.EipAddressForDescribeInstancesOutput;
+import com.volcengine.ecs.model.LocalVolumeForDescribeInstancesOutput;
 import com.volcengine.ecs.model.NetworkInterfaceForDescribeInstancesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -30,7 +32,7 @@ import javax.validation.Valid;
  * InstanceForDescribeInstancesOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T20:18:05.921659+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:23:02.442504+08:00[Asia/Shanghai]")
 public class InstanceForDescribeInstancesOutput {
   @SerializedName("Cpus")
   private Integer cpus = null;
@@ -40,6 +42,9 @@ public class InstanceForDescribeInstancesOutput {
 
   @SerializedName("Description")
   private String description = null;
+
+  @SerializedName("EipAddress")
+  private EipAddressForDescribeInstancesOutput eipAddress = null;
 
   @SerializedName("ExpiredAt")
   private String expiredAt = null;
@@ -68,6 +73,9 @@ public class InstanceForDescribeInstancesOutput {
   @SerializedName("KeyPairName")
   private String keyPairName = null;
 
+  @SerializedName("LocalVolumes")
+  private List<LocalVolumeForDescribeInstancesOutput> localVolumes = null;
+
   @SerializedName("MemorySize")
   private Integer memorySize = null;
 
@@ -91,6 +99,9 @@ public class InstanceForDescribeInstancesOutput {
 
   @SerializedName("UpdatedAt")
   private String updatedAt = null;
+
+  @SerializedName("Uuid")
+  private String uuid = null;
 
   @SerializedName("VpcId")
   private String vpcId = null;
@@ -150,6 +161,25 @@ public class InstanceForDescribeInstancesOutput {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public InstanceForDescribeInstancesOutput eipAddress(EipAddressForDescribeInstancesOutput eipAddress) {
+    this.eipAddress = eipAddress;
+    return this;
+  }
+
+   /**
+   * Get eipAddress
+   * @return eipAddress
+  **/
+  @Valid
+  @Schema(description = "")
+  public EipAddressForDescribeInstancesOutput getEipAddress() {
+    return eipAddress;
+  }
+
+  public void setEipAddress(EipAddressForDescribeInstancesOutput eipAddress) {
+    this.eipAddress = eipAddress;
   }
 
   public InstanceForDescribeInstancesOutput expiredAt(String expiredAt) {
@@ -314,6 +344,33 @@ public class InstanceForDescribeInstancesOutput {
     this.keyPairName = keyPairName;
   }
 
+  public InstanceForDescribeInstancesOutput localVolumes(List<LocalVolumeForDescribeInstancesOutput> localVolumes) {
+    this.localVolumes = localVolumes;
+    return this;
+  }
+
+  public InstanceForDescribeInstancesOutput addLocalVolumesItem(LocalVolumeForDescribeInstancesOutput localVolumesItem) {
+    if (this.localVolumes == null) {
+      this.localVolumes = new ArrayList<LocalVolumeForDescribeInstancesOutput>();
+    }
+    this.localVolumes.add(localVolumesItem);
+    return this;
+  }
+
+   /**
+   * Get localVolumes
+   * @return localVolumes
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<LocalVolumeForDescribeInstancesOutput> getLocalVolumes() {
+    return localVolumes;
+  }
+
+  public void setLocalVolumes(List<LocalVolumeForDescribeInstancesOutput> localVolumes) {
+    this.localVolumes = localVolumes;
+  }
+
   public InstanceForDescribeInstancesOutput memorySize(Integer memorySize) {
     this.memorySize = memorySize;
     return this;
@@ -475,6 +532,24 @@ public class InstanceForDescribeInstancesOutput {
     this.updatedAt = updatedAt;
   }
 
+  public InstanceForDescribeInstancesOutput uuid(String uuid) {
+    this.uuid = uuid;
+    return this;
+  }
+
+   /**
+   * Get uuid
+   * @return uuid
+  **/
+  @Schema(description = "")
+  public String getUuid() {
+    return uuid;
+  }
+
+  public void setUuid(String uuid) {
+    this.uuid = uuid;
+  }
+
   public InstanceForDescribeInstancesOutput vpcId(String vpcId) {
     this.vpcId = vpcId;
     return this;
@@ -524,6 +599,7 @@ public class InstanceForDescribeInstancesOutput {
     return Objects.equals(this.cpus, instanceForDescribeInstancesOutput.cpus) &&
         Objects.equals(this.createdAt, instanceForDescribeInstancesOutput.createdAt) &&
         Objects.equals(this.description, instanceForDescribeInstancesOutput.description) &&
+        Objects.equals(this.eipAddress, instanceForDescribeInstancesOutput.eipAddress) &&
         Objects.equals(this.expiredAt, instanceForDescribeInstancesOutput.expiredAt) &&
         Objects.equals(this.hostName, instanceForDescribeInstancesOutput.hostName) &&
         Objects.equals(this.imageId, instanceForDescribeInstancesOutput.imageId) &&
@@ -533,6 +609,7 @@ public class InstanceForDescribeInstancesOutput {
         Objects.equals(this.instanceTypeId, instanceForDescribeInstancesOutput.instanceTypeId) &&
         Objects.equals(this.keyPairId, instanceForDescribeInstancesOutput.keyPairId) &&
         Objects.equals(this.keyPairName, instanceForDescribeInstancesOutput.keyPairName) &&
+        Objects.equals(this.localVolumes, instanceForDescribeInstancesOutput.localVolumes) &&
         Objects.equals(this.memorySize, instanceForDescribeInstancesOutput.memorySize) &&
         Objects.equals(this.networkInterfaces, instanceForDescribeInstancesOutput.networkInterfaces) &&
         Objects.equals(this.osName, instanceForDescribeInstancesOutput.osName) &&
@@ -541,13 +618,14 @@ public class InstanceForDescribeInstancesOutput {
         Objects.equals(this.status, instanceForDescribeInstancesOutput.status) &&
         Objects.equals(this.stoppedMode, instanceForDescribeInstancesOutput.stoppedMode) &&
         Objects.equals(this.updatedAt, instanceForDescribeInstancesOutput.updatedAt) &&
+        Objects.equals(this.uuid, instanceForDescribeInstancesOutput.uuid) &&
         Objects.equals(this.vpcId, instanceForDescribeInstancesOutput.vpcId) &&
         Objects.equals(this.zoneId, instanceForDescribeInstancesOutput.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cpus, createdAt, description, expiredAt, hostName, imageId, instanceChargeType, instanceId, instanceName, instanceTypeId, keyPairId, keyPairName, memorySize, networkInterfaces, osName, osType, rdmaIpAddresses, status, stoppedMode, updatedAt, vpcId, zoneId);
+    return Objects.hash(cpus, createdAt, description, eipAddress, expiredAt, hostName, imageId, instanceChargeType, instanceId, instanceName, instanceTypeId, keyPairId, keyPairName, localVolumes, memorySize, networkInterfaces, osName, osType, rdmaIpAddresses, status, stoppedMode, updatedAt, uuid, vpcId, zoneId);
   }
 
 
@@ -559,6 +637,7 @@ public class InstanceForDescribeInstancesOutput {
     sb.append("    cpus: ").append(toIndentedString(cpus)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    eipAddress: ").append(toIndentedString(eipAddress)).append("\n");
     sb.append("    expiredAt: ").append(toIndentedString(expiredAt)).append("\n");
     sb.append("    hostName: ").append(toIndentedString(hostName)).append("\n");
     sb.append("    imageId: ").append(toIndentedString(imageId)).append("\n");
@@ -568,6 +647,7 @@ public class InstanceForDescribeInstancesOutput {
     sb.append("    instanceTypeId: ").append(toIndentedString(instanceTypeId)).append("\n");
     sb.append("    keyPairId: ").append(toIndentedString(keyPairId)).append("\n");
     sb.append("    keyPairName: ").append(toIndentedString(keyPairName)).append("\n");
+    sb.append("    localVolumes: ").append(toIndentedString(localVolumes)).append("\n");
     sb.append("    memorySize: ").append(toIndentedString(memorySize)).append("\n");
     sb.append("    networkInterfaces: ").append(toIndentedString(networkInterfaces)).append("\n");
     sb.append("    osName: ").append(toIndentedString(osName)).append("\n");
@@ -576,6 +656,7 @@ public class InstanceForDescribeInstancesOutput {
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    stoppedMode: ").append(toIndentedString(stoppedMode)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
+    sb.append("    uuid: ").append(toIndentedString(uuid)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");

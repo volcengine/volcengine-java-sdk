@@ -27,13 +27,34 @@ import javax.validation.Valid;
  * ExtendVolumeRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T20:18:13.538566+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:23:15.605776+08:00[Asia/Shanghai]")
 public class ExtendVolumeRequest {
+  @SerializedName("ClientToken")
+  private String clientToken = null;
+
   @SerializedName("NewSize")
   private String newSize = null;
 
   @SerializedName("VolumeId")
   private String volumeId = null;
+
+  public ExtendVolumeRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
 
   public ExtendVolumeRequest newSize(String newSize) {
     this.newSize = newSize;
@@ -81,13 +102,14 @@ public class ExtendVolumeRequest {
       return false;
     }
     ExtendVolumeRequest extendVolumeRequest = (ExtendVolumeRequest) o;
-    return Objects.equals(this.newSize, extendVolumeRequest.newSize) &&
+    return Objects.equals(this.clientToken, extendVolumeRequest.clientToken) &&
+        Objects.equals(this.newSize, extendVolumeRequest.newSize) &&
         Objects.equals(this.volumeId, extendVolumeRequest.volumeId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(newSize, volumeId);
+    return Objects.hash(clientToken, newSize, volumeId);
   }
 
 
@@ -96,6 +118,7 @@ public class ExtendVolumeRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ExtendVolumeRequest {\n");
     
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    newSize: ").append(toIndentedString(newSize)).append("\n");
     sb.append("    volumeId: ").append(toIndentedString(volumeId)).append("\n");
     sb.append("}");

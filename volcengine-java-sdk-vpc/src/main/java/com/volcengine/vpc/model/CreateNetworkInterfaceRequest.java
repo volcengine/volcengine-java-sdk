@@ -29,8 +29,11 @@ import javax.validation.Valid;
  * CreateNetworkInterfaceRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T20:18:16.579539+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:23:24.287880+08:00[Asia/Shanghai]")
 public class CreateNetworkInterfaceRequest {
+  @SerializedName("ClientToken")
+  private String clientToken = null;
+
   @SerializedName("Description")
   private String description = null;
 
@@ -54,6 +57,24 @@ public class CreateNetworkInterfaceRequest {
 
   @SerializedName("SubnetId")
   private String subnetId = null;
+
+  public CreateNetworkInterfaceRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
 
   public CreateNetworkInterfaceRequest description(String description) {
     this.description = description;
@@ -226,7 +247,8 @@ public class CreateNetworkInterfaceRequest {
       return false;
     }
     CreateNetworkInterfaceRequest createNetworkInterfaceRequest = (CreateNetworkInterfaceRequest) o;
-    return Objects.equals(this.description, createNetworkInterfaceRequest.description) &&
+    return Objects.equals(this.clientToken, createNetworkInterfaceRequest.clientToken) &&
+        Objects.equals(this.description, createNetworkInterfaceRequest.description) &&
         Objects.equals(this.networkInterfaceName, createNetworkInterfaceRequest.networkInterfaceName) &&
         Objects.equals(this.portSecurityEnabled, createNetworkInterfaceRequest.portSecurityEnabled) &&
         Objects.equals(this.primaryIpAddress, createNetworkInterfaceRequest.primaryIpAddress) &&
@@ -238,7 +260,7 @@ public class CreateNetworkInterfaceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, networkInterfaceName, portSecurityEnabled, primaryIpAddress, privateIpAddress, secondaryPrivateIpAddressCount, securityGroupIds, subnetId);
+    return Objects.hash(clientToken, description, networkInterfaceName, portSecurityEnabled, primaryIpAddress, privateIpAddress, secondaryPrivateIpAddressCount, securityGroupIds, subnetId);
   }
 
 
@@ -247,6 +269,7 @@ public class CreateNetworkInterfaceRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateNetworkInterfaceRequest {\n");
     
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    networkInterfaceName: ").append(toIndentedString(networkInterfaceName)).append("\n");
     sb.append("    portSecurityEnabled: ").append(toIndentedString(portSecurityEnabled)).append("\n");

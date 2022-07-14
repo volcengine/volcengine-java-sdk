@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * VpnGatewayForDescribeVpnGatewaysBillingOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T20:18:23.808118+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:23:33.618811+08:00[Asia/Shanghai]")
 public class VpnGatewayForDescribeVpnGatewaysBillingOutput {
   @SerializedName("BillingStatus")
   private Integer billingStatus = null;
