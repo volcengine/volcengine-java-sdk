@@ -19,8 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.vpn.model.IkeConfigForModifyVpnConnectionAttributesInput;
-import com.volcengine.vpn.model.IpsecConfigForModifyVpnConnectionAttributesInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -29,25 +27,65 @@ import javax.validation.Valid;
  * ModifyVpnConnectionAttributesRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T20:18:23.808118+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:23:33.618811+08:00[Asia/Shanghai]")
 public class ModifyVpnConnectionAttributesRequest {
   @SerializedName("Description")
   private String description = null;
 
+  /**
+   * Gets or Sets dpdAction
+   */
+  @JsonAdapter(DpdActionEnum.Adapter.class)
+  public enum DpdActionEnum {
+    NONE("none"),
+    CLEAR("clear"),
+    HOLD("hold"),
+    RESTART("restart");
+
+    private String value;
+
+    DpdActionEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static DpdActionEnum fromValue(String input) {
+      for (DpdActionEnum b : DpdActionEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<DpdActionEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final DpdActionEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public DpdActionEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return DpdActionEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("DpdAction")
+  private DpdActionEnum dpdAction = null;
+
   @SerializedName("IkeConfig")
-  private IkeConfigForModifyVpnConnectionAttributesInput ikeConfig = null;
+  private String ikeConfig = null;
 
   @SerializedName("IpsecConfig")
-  private IpsecConfigForModifyVpnConnectionAttributesInput ipsecConfig = null;
-
-  @SerializedName("LocalSubnet")
-  private String localSubnet = null;
+  private String ipsecConfig = null;
 
   @SerializedName("NatTraversal")
   private Boolean natTraversal = null;
-
-  @SerializedName("RemoteSubnet")
-  private String remoteSubnet = null;
 
   @SerializedName("VpnConnectionId")
   private String vpnConnectionId = null;
@@ -73,7 +111,25 @@ public class ModifyVpnConnectionAttributesRequest {
     this.description = description;
   }
 
-  public ModifyVpnConnectionAttributesRequest ikeConfig(IkeConfigForModifyVpnConnectionAttributesInput ikeConfig) {
+  public ModifyVpnConnectionAttributesRequest dpdAction(DpdActionEnum dpdAction) {
+    this.dpdAction = dpdAction;
+    return this;
+  }
+
+   /**
+   * Get dpdAction
+   * @return dpdAction
+  **/
+  @Schema(description = "")
+  public DpdActionEnum getDpdAction() {
+    return dpdAction;
+  }
+
+  public void setDpdAction(DpdActionEnum dpdAction) {
+    this.dpdAction = dpdAction;
+  }
+
+  public ModifyVpnConnectionAttributesRequest ikeConfig(String ikeConfig) {
     this.ikeConfig = ikeConfig;
     return this;
   }
@@ -82,17 +138,16 @@ public class ModifyVpnConnectionAttributesRequest {
    * Get ikeConfig
    * @return ikeConfig
   **/
-  @Valid
   @Schema(description = "")
-  public IkeConfigForModifyVpnConnectionAttributesInput getIkeConfig() {
+  public String getIkeConfig() {
     return ikeConfig;
   }
 
-  public void setIkeConfig(IkeConfigForModifyVpnConnectionAttributesInput ikeConfig) {
+  public void setIkeConfig(String ikeConfig) {
     this.ikeConfig = ikeConfig;
   }
 
-  public ModifyVpnConnectionAttributesRequest ipsecConfig(IpsecConfigForModifyVpnConnectionAttributesInput ipsecConfig) {
+  public ModifyVpnConnectionAttributesRequest ipsecConfig(String ipsecConfig) {
     this.ipsecConfig = ipsecConfig;
     return this;
   }
@@ -101,32 +156,13 @@ public class ModifyVpnConnectionAttributesRequest {
    * Get ipsecConfig
    * @return ipsecConfig
   **/
-  @Valid
   @Schema(description = "")
-  public IpsecConfigForModifyVpnConnectionAttributesInput getIpsecConfig() {
+  public String getIpsecConfig() {
     return ipsecConfig;
   }
 
-  public void setIpsecConfig(IpsecConfigForModifyVpnConnectionAttributesInput ipsecConfig) {
+  public void setIpsecConfig(String ipsecConfig) {
     this.ipsecConfig = ipsecConfig;
-  }
-
-  public ModifyVpnConnectionAttributesRequest localSubnet(String localSubnet) {
-    this.localSubnet = localSubnet;
-    return this;
-  }
-
-   /**
-   * Get localSubnet
-   * @return localSubnet
-  **/
-  @Schema(description = "")
-  public String getLocalSubnet() {
-    return localSubnet;
-  }
-
-  public void setLocalSubnet(String localSubnet) {
-    this.localSubnet = localSubnet;
   }
 
   public ModifyVpnConnectionAttributesRequest natTraversal(Boolean natTraversal) {
@@ -145,24 +181,6 @@ public class ModifyVpnConnectionAttributesRequest {
 
   public void setNatTraversal(Boolean natTraversal) {
     this.natTraversal = natTraversal;
-  }
-
-  public ModifyVpnConnectionAttributesRequest remoteSubnet(String remoteSubnet) {
-    this.remoteSubnet = remoteSubnet;
-    return this;
-  }
-
-   /**
-   * Get remoteSubnet
-   * @return remoteSubnet
-  **/
-  @Schema(description = "")
-  public String getRemoteSubnet() {
-    return remoteSubnet;
-  }
-
-  public void setRemoteSubnet(String remoteSubnet) {
-    this.remoteSubnet = remoteSubnet;
   }
 
   public ModifyVpnConnectionAttributesRequest vpnConnectionId(String vpnConnectionId) {
@@ -213,18 +231,17 @@ public class ModifyVpnConnectionAttributesRequest {
     }
     ModifyVpnConnectionAttributesRequest modifyVpnConnectionAttributesRequest = (ModifyVpnConnectionAttributesRequest) o;
     return Objects.equals(this.description, modifyVpnConnectionAttributesRequest.description) &&
+        Objects.equals(this.dpdAction, modifyVpnConnectionAttributesRequest.dpdAction) &&
         Objects.equals(this.ikeConfig, modifyVpnConnectionAttributesRequest.ikeConfig) &&
         Objects.equals(this.ipsecConfig, modifyVpnConnectionAttributesRequest.ipsecConfig) &&
-        Objects.equals(this.localSubnet, modifyVpnConnectionAttributesRequest.localSubnet) &&
         Objects.equals(this.natTraversal, modifyVpnConnectionAttributesRequest.natTraversal) &&
-        Objects.equals(this.remoteSubnet, modifyVpnConnectionAttributesRequest.remoteSubnet) &&
         Objects.equals(this.vpnConnectionId, modifyVpnConnectionAttributesRequest.vpnConnectionId) &&
         Objects.equals(this.vpnConnectionName, modifyVpnConnectionAttributesRequest.vpnConnectionName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, ikeConfig, ipsecConfig, localSubnet, natTraversal, remoteSubnet, vpnConnectionId, vpnConnectionName);
+    return Objects.hash(description, dpdAction, ikeConfig, ipsecConfig, natTraversal, vpnConnectionId, vpnConnectionName);
   }
 
 
@@ -234,11 +251,10 @@ public class ModifyVpnConnectionAttributesRequest {
     sb.append("class ModifyVpnConnectionAttributesRequest {\n");
     
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    dpdAction: ").append(toIndentedString(dpdAction)).append("\n");
     sb.append("    ikeConfig: ").append(toIndentedString(ikeConfig)).append("\n");
     sb.append("    ipsecConfig: ").append(toIndentedString(ipsecConfig)).append("\n");
-    sb.append("    localSubnet: ").append(toIndentedString(localSubnet)).append("\n");
     sb.append("    natTraversal: ").append(toIndentedString(natTraversal)).append("\n");
-    sb.append("    remoteSubnet: ").append(toIndentedString(remoteSubnet)).append("\n");
     sb.append("    vpnConnectionId: ").append(toIndentedString(vpnConnectionId)).append("\n");
     sb.append("    vpnConnectionName: ").append(toIndentedString(vpnConnectionName)).append("\n");
     sb.append("}");

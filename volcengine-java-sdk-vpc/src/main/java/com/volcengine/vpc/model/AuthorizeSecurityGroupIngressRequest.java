@@ -27,10 +27,13 @@ import javax.validation.Valid;
  * AuthorizeSecurityGroupIngressRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T20:18:16.579539+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:23:24.287880+08:00[Asia/Shanghai]")
 public class AuthorizeSecurityGroupIngressRequest {
   @SerializedName("CidrIp")
   private String cidrIp = null;
+
+  @SerializedName("ClientToken")
+  private String clientToken = null;
 
   @SerializedName("Description")
   private String description = null;
@@ -73,6 +76,24 @@ public class AuthorizeSecurityGroupIngressRequest {
 
   public void setCidrIp(String cidrIp) {
     this.cidrIp = cidrIp;
+  }
+
+  public AuthorizeSecurityGroupIngressRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
   }
 
   public AuthorizeSecurityGroupIngressRequest description(String description) {
@@ -234,6 +255,7 @@ public class AuthorizeSecurityGroupIngressRequest {
     }
     AuthorizeSecurityGroupIngressRequest authorizeSecurityGroupIngressRequest = (AuthorizeSecurityGroupIngressRequest) o;
     return Objects.equals(this.cidrIp, authorizeSecurityGroupIngressRequest.cidrIp) &&
+        Objects.equals(this.clientToken, authorizeSecurityGroupIngressRequest.clientToken) &&
         Objects.equals(this.description, authorizeSecurityGroupIngressRequest.description) &&
         Objects.equals(this.policy, authorizeSecurityGroupIngressRequest.policy) &&
         Objects.equals(this.portEnd, authorizeSecurityGroupIngressRequest.portEnd) &&
@@ -246,7 +268,7 @@ public class AuthorizeSecurityGroupIngressRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cidrIp, description, policy, portEnd, portStart, priority, protocol, securityGroupId, sourceGroupId);
+    return Objects.hash(cidrIp, clientToken, description, policy, portEnd, portStart, priority, protocol, securityGroupId, sourceGroupId);
   }
 
 
@@ -256,6 +278,7 @@ public class AuthorizeSecurityGroupIngressRequest {
     sb.append("class AuthorizeSecurityGroupIngressRequest {\n");
     
     sb.append("    cidrIp: ").append(toIndentedString(cidrIp)).append("\n");
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    policy: ").append(toIndentedString(policy)).append("\n");
     sb.append("    portEnd: ").append(toIndentedString(portEnd)).append("\n");

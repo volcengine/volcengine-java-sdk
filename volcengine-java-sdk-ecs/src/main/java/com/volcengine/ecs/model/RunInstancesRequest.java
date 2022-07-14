@@ -31,7 +31,7 @@ import javax.validation.Valid;
  * RunInstancesRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T20:18:05.921659+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:23:02.442504+08:00[Asia/Shanghai]")
 public class RunInstancesRequest {
   @SerializedName("AutoRenew")
   private Boolean autoRenew = null;
@@ -45,8 +45,14 @@ public class RunInstancesRequest {
   @SerializedName("Count")
   private Integer count = null;
 
+  @SerializedName("CreditSpecification")
+  private String creditSpecification = null;
+
   @SerializedName("Description")
   private String description = null;
+
+  @SerializedName("DryRun")
+  private Boolean dryRun = null;
 
   @SerializedName("HostName")
   private String hostName = null;
@@ -71,6 +77,9 @@ public class RunInstancesRequest {
 
   @SerializedName("KeyPairName")
   private String keyPairName = null;
+
+  @SerializedName("MinCount")
+  private Integer minCount = null;
 
   @SerializedName("NetworkInterfaces")
   private List<NetworkInterfaceForRunInstancesInput> networkInterfaces = null;
@@ -174,6 +183,24 @@ public class RunInstancesRequest {
     this.count = count;
   }
 
+  public RunInstancesRequest creditSpecification(String creditSpecification) {
+    this.creditSpecification = creditSpecification;
+    return this;
+  }
+
+   /**
+   * Get creditSpecification
+   * @return creditSpecification
+  **/
+  @Schema(description = "")
+  public String getCreditSpecification() {
+    return creditSpecification;
+  }
+
+  public void setCreditSpecification(String creditSpecification) {
+    this.creditSpecification = creditSpecification;
+  }
+
   public RunInstancesRequest description(String description) {
     this.description = description;
     return this;
@@ -190,6 +217,24 @@ public class RunInstancesRequest {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public RunInstancesRequest dryRun(Boolean dryRun) {
+    this.dryRun = dryRun;
+    return this;
+  }
+
+   /**
+   * Get dryRun
+   * @return dryRun
+  **/
+  @Schema(description = "")
+  public Boolean isDryRun() {
+    return dryRun;
+  }
+
+  public void setDryRun(Boolean dryRun) {
+    this.dryRun = dryRun;
   }
 
   public RunInstancesRequest hostName(String hostName) {
@@ -334,6 +379,24 @@ public class RunInstancesRequest {
 
   public void setKeyPairName(String keyPairName) {
     this.keyPairName = keyPairName;
+  }
+
+  public RunInstancesRequest minCount(Integer minCount) {
+    this.minCount = minCount;
+    return this;
+  }
+
+   /**
+   * Get minCount
+   * @return minCount
+  **/
+  @Schema(description = "")
+  public Integer getMinCount() {
+    return minCount;
+  }
+
+  public void setMinCount(Integer minCount) {
+    this.minCount = minCount;
   }
 
   public RunInstancesRequest networkInterfaces(List<NetworkInterfaceForRunInstancesInput> networkInterfaces) {
@@ -548,7 +611,9 @@ public class RunInstancesRequest {
         Objects.equals(this.autoRenewPeriod, runInstancesRequest.autoRenewPeriod) &&
         Objects.equals(this.clientToken, runInstancesRequest.clientToken) &&
         Objects.equals(this.count, runInstancesRequest.count) &&
+        Objects.equals(this.creditSpecification, runInstancesRequest.creditSpecification) &&
         Objects.equals(this.description, runInstancesRequest.description) &&
+        Objects.equals(this.dryRun, runInstancesRequest.dryRun) &&
         Objects.equals(this.hostName, runInstancesRequest.hostName) &&
         Objects.equals(this.hpcClusterId, runInstancesRequest.hpcClusterId) &&
         Objects.equals(this.imageId, runInstancesRequest.imageId) &&
@@ -557,6 +622,7 @@ public class RunInstancesRequest {
         Objects.equals(this.instanceType, runInstancesRequest.instanceType) &&
         Objects.equals(this.instanceTypeId, runInstancesRequest.instanceTypeId) &&
         Objects.equals(this.keyPairName, runInstancesRequest.keyPairName) &&
+        Objects.equals(this.minCount, runInstancesRequest.minCount) &&
         Objects.equals(this.networkInterfaces, runInstancesRequest.networkInterfaces) &&
         Objects.equals(this.password, runInstancesRequest.password) &&
         Objects.equals(this.period, runInstancesRequest.period) &&
@@ -571,7 +637,7 @@ public class RunInstancesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoRenew, autoRenewPeriod, clientToken, count, description, hostName, hpcClusterId, imageId, instanceChargeType, instanceName, instanceType, instanceTypeId, keyPairName, networkInterfaces, password, period, periodUnit, securityEnhancementStrategy, suffixIndex, uniqueSuffix, userData, volumes, zoneId);
+    return Objects.hash(autoRenew, autoRenewPeriod, clientToken, count, creditSpecification, description, dryRun, hostName, hpcClusterId, imageId, instanceChargeType, instanceName, instanceType, instanceTypeId, keyPairName, minCount, networkInterfaces, password, period, periodUnit, securityEnhancementStrategy, suffixIndex, uniqueSuffix, userData, volumes, zoneId);
   }
 
 
@@ -584,7 +650,9 @@ public class RunInstancesRequest {
     sb.append("    autoRenewPeriod: ").append(toIndentedString(autoRenewPeriod)).append("\n");
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    count: ").append(toIndentedString(count)).append("\n");
+    sb.append("    creditSpecification: ").append(toIndentedString(creditSpecification)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    dryRun: ").append(toIndentedString(dryRun)).append("\n");
     sb.append("    hostName: ").append(toIndentedString(hostName)).append("\n");
     sb.append("    hpcClusterId: ").append(toIndentedString(hpcClusterId)).append("\n");
     sb.append("    imageId: ").append(toIndentedString(imageId)).append("\n");
@@ -593,6 +661,7 @@ public class RunInstancesRequest {
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("    instanceTypeId: ").append(toIndentedString(instanceTypeId)).append("\n");
     sb.append("    keyPairName: ").append(toIndentedString(keyPairName)).append("\n");
+    sb.append("    minCount: ").append(toIndentedString(minCount)).append("\n");
     sb.append("    networkInterfaces: ").append(toIndentedString(networkInterfaces)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    period: ").append(toIndentedString(period)).append("\n");

@@ -27,31 +27,10 @@ import javax.validation.Valid;
  * ModifyVpnGatewayAttributesResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T20:18:23.808118+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:23:33.618811+08:00[Asia/Shanghai]")
 public class ModifyVpnGatewayAttributesResponse {
-  @SerializedName("PreOrderNumber")
-  private String preOrderNumber = null;
-
   @SerializedName("RequestId")
   private String requestId = null;
-
-  public ModifyVpnGatewayAttributesResponse preOrderNumber(String preOrderNumber) {
-    this.preOrderNumber = preOrderNumber;
-    return this;
-  }
-
-   /**
-   * Get preOrderNumber
-   * @return preOrderNumber
-  **/
-  @Schema(description = "")
-  public String getPreOrderNumber() {
-    return preOrderNumber;
-  }
-
-  public void setPreOrderNumber(String preOrderNumber) {
-    this.preOrderNumber = preOrderNumber;
-  }
 
   public ModifyVpnGatewayAttributesResponse requestId(String requestId) {
     this.requestId = requestId;
@@ -81,13 +60,12 @@ public class ModifyVpnGatewayAttributesResponse {
       return false;
     }
     ModifyVpnGatewayAttributesResponse modifyVpnGatewayAttributesResponse = (ModifyVpnGatewayAttributesResponse) o;
-    return Objects.equals(this.preOrderNumber, modifyVpnGatewayAttributesResponse.preOrderNumber) &&
-        Objects.equals(this.requestId, modifyVpnGatewayAttributesResponse.requestId);
+    return Objects.equals(this.requestId, modifyVpnGatewayAttributesResponse.requestId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(preOrderNumber, requestId);
+    return Objects.hash(requestId);
   }
 
 
@@ -96,7 +74,6 @@ public class ModifyVpnGatewayAttributesResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class ModifyVpnGatewayAttributesResponse {\n");
     
-    sb.append("    preOrderNumber: ").append(toIndentedString(preOrderNumber)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("}");
     return sb.toString();

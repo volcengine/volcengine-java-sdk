@@ -30,7 +30,7 @@ import javax.validation.Valid;
  * NatGatewayForDescribeNatGatewaysOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T20:18:10.205069+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:23:08.555290+08:00[Asia/Shanghai]")
 public class NatGatewayForDescribeNatGatewaysOutput {
   @SerializedName("BillingType")
   private Integer billingType = null;
@@ -49,6 +49,9 @@ public class NatGatewayForDescribeNatGatewaysOutput {
 
   @SerializedName("EipAddresses")
   private List<EipAddressForDescribeNatGatewaysOutput> eipAddresses = null;
+
+  @SerializedName("ExpiredTime")
+  private String expiredTime = null;
 
   @SerializedName("LockReason")
   private String lockReason = null;
@@ -195,6 +198,24 @@ public class NatGatewayForDescribeNatGatewaysOutput {
 
   public void setEipAddresses(List<EipAddressForDescribeNatGatewaysOutput> eipAddresses) {
     this.eipAddresses = eipAddresses;
+  }
+
+  public NatGatewayForDescribeNatGatewaysOutput expiredTime(String expiredTime) {
+    this.expiredTime = expiredTime;
+    return this;
+  }
+
+   /**
+   * Get expiredTime
+   * @return expiredTime
+  **/
+  @Schema(description = "")
+  public String getExpiredTime() {
+    return expiredTime;
+  }
+
+  public void setExpiredTime(String expiredTime) {
+    this.expiredTime = expiredTime;
   }
 
   public NatGatewayForDescribeNatGatewaysOutput lockReason(String lockReason) {
@@ -393,6 +414,7 @@ public class NatGatewayForDescribeNatGatewaysOutput {
         Objects.equals(this.deletedTime, natGatewayForDescribeNatGatewaysOutput.deletedTime) &&
         Objects.equals(this.description, natGatewayForDescribeNatGatewaysOutput.description) &&
         Objects.equals(this.eipAddresses, natGatewayForDescribeNatGatewaysOutput.eipAddresses) &&
+        Objects.equals(this.expiredTime, natGatewayForDescribeNatGatewaysOutput.expiredTime) &&
         Objects.equals(this.lockReason, natGatewayForDescribeNatGatewaysOutput.lockReason) &&
         Objects.equals(this.natGatewayId, natGatewayForDescribeNatGatewaysOutput.natGatewayId) &&
         Objects.equals(this.natGatewayName, natGatewayForDescribeNatGatewaysOutput.natGatewayName) &&
@@ -407,7 +429,7 @@ public class NatGatewayForDescribeNatGatewaysOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(billingType, businessStatus, creationTime, deletedTime, description, eipAddresses, lockReason, natGatewayId, natGatewayName, networkInterfaceId, overdueTime, spec, status, subnetId, updatedAt, vpcId);
+    return Objects.hash(billingType, businessStatus, creationTime, deletedTime, description, eipAddresses, expiredTime, lockReason, natGatewayId, natGatewayName, networkInterfaceId, overdueTime, spec, status, subnetId, updatedAt, vpcId);
   }
 
 
@@ -422,6 +444,7 @@ public class NatGatewayForDescribeNatGatewaysOutput {
     sb.append("    deletedTime: ").append(toIndentedString(deletedTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    eipAddresses: ").append(toIndentedString(eipAddresses)).append("\n");
+    sb.append("    expiredTime: ").append(toIndentedString(expiredTime)).append("\n");
     sb.append("    lockReason: ").append(toIndentedString(lockReason)).append("\n");
     sb.append("    natGatewayId: ").append(toIndentedString(natGatewayId)).append("\n");
     sb.append("    natGatewayName: ").append(toIndentedString(natGatewayName)).append("\n");

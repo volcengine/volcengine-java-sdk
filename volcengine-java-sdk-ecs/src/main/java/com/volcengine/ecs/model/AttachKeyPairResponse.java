@@ -19,35 +19,47 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.ecs.model.OperationDetailForAttachKeyPairOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
  * AttachKeyPairResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:32.918937+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:23:02.442504+08:00[Asia/Shanghai]")
 public class AttachKeyPairResponse {
-  @SerializedName("KeyPairName")
-  private String keyPairName = null;
+  @SerializedName("OperationDetails")
+  private List<OperationDetailForAttachKeyPairOutput> operationDetails = null;
 
-  public AttachKeyPairResponse keyPairName(String keyPairName) {
-    this.keyPairName = keyPairName;
+  public AttachKeyPairResponse operationDetails(List<OperationDetailForAttachKeyPairOutput> operationDetails) {
+    this.operationDetails = operationDetails;
+    return this;
+  }
+
+  public AttachKeyPairResponse addOperationDetailsItem(OperationDetailForAttachKeyPairOutput operationDetailsItem) {
+    if (this.operationDetails == null) {
+      this.operationDetails = new ArrayList<OperationDetailForAttachKeyPairOutput>();
+    }
+    this.operationDetails.add(operationDetailsItem);
     return this;
   }
 
    /**
-   * Get keyPairName
-   * @return keyPairName
+   * Get operationDetails
+   * @return operationDetails
   **/
+  @Valid
   @Schema(description = "")
-  public String getKeyPairName() {
-    return keyPairName;
+  public List<OperationDetailForAttachKeyPairOutput> getOperationDetails() {
+    return operationDetails;
   }
 
-  public void setKeyPairName(String keyPairName) {
-    this.keyPairName = keyPairName;
+  public void setOperationDetails(List<OperationDetailForAttachKeyPairOutput> operationDetails) {
+    this.operationDetails = operationDetails;
   }
 
 
@@ -60,12 +72,12 @@ public class AttachKeyPairResponse {
       return false;
     }
     AttachKeyPairResponse attachKeyPairResponse = (AttachKeyPairResponse) o;
-    return Objects.equals(this.keyPairName, attachKeyPairResponse.keyPairName);
+    return Objects.equals(this.operationDetails, attachKeyPairResponse.operationDetails);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(keyPairName);
+    return Objects.hash(operationDetails);
   }
 
 
@@ -74,7 +86,7 @@ public class AttachKeyPairResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class AttachKeyPairResponse {\n");
     
-    sb.append("    keyPairName: ").append(toIndentedString(keyPairName)).append("\n");
+    sb.append("    operationDetails: ").append(toIndentedString(operationDetails)).append("\n");
     sb.append("}");
     return sb.toString();
   }

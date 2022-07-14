@@ -27,11 +27,8 @@ import javax.validation.Valid;
  * ModifyKeyPairAttributeRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:32.918937+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:23:02.442504+08:00[Asia/Shanghai]")
 public class ModifyKeyPairAttributeRequest {
-  @SerializedName("AccountId")
-  private String accountId = null;
-
   @SerializedName("Description")
   private String description = null;
 
@@ -40,24 +37,6 @@ public class ModifyKeyPairAttributeRequest {
 
   @SerializedName("KeyPairName")
   private String keyPairName = null;
-
-  public ModifyKeyPairAttributeRequest accountId(String accountId) {
-    this.accountId = accountId;
-    return this;
-  }
-
-   /**
-   * Get accountId
-   * @return accountId
-  **/
-  @Schema(description = "")
-  public String getAccountId() {
-    return accountId;
-  }
-
-  public void setAccountId(String accountId) {
-    this.accountId = accountId;
-  }
 
   public ModifyKeyPairAttributeRequest description(String description) {
     this.description = description;
@@ -123,15 +102,14 @@ public class ModifyKeyPairAttributeRequest {
       return false;
     }
     ModifyKeyPairAttributeRequest modifyKeyPairAttributeRequest = (ModifyKeyPairAttributeRequest) o;
-    return Objects.equals(this.accountId, modifyKeyPairAttributeRequest.accountId) &&
-        Objects.equals(this.description, modifyKeyPairAttributeRequest.description) &&
+    return Objects.equals(this.description, modifyKeyPairAttributeRequest.description) &&
         Objects.equals(this.keyPairId, modifyKeyPairAttributeRequest.keyPairId) &&
         Objects.equals(this.keyPairName, modifyKeyPairAttributeRequest.keyPairName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, description, keyPairId, keyPairName);
+    return Objects.hash(description, keyPairId, keyPairName);
   }
 
 
@@ -140,7 +118,6 @@ public class ModifyKeyPairAttributeRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ModifyKeyPairAttributeRequest {\n");
     
-    sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    keyPairId: ").append(toIndentedString(keyPairId)).append("\n");
     sb.append("    keyPairName: ").append(toIndentedString(keyPairName)).append("\n");

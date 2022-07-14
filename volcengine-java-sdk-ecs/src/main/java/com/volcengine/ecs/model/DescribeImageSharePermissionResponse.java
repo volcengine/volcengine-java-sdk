@@ -30,7 +30,7 @@ import javax.validation.Valid;
  * DescribeImageSharePermissionResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:32.918937+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:23:02.442504+08:00[Asia/Shanghai]")
 public class DescribeImageSharePermissionResponse {
   @SerializedName("Accounts")
   private List<AccountForDescribeImageSharePermissionOutput> accounts = null;
@@ -38,11 +38,8 @@ public class DescribeImageSharePermissionResponse {
   @SerializedName("ImageId")
   private String imageId = null;
 
-  @SerializedName("PageNumber")
-  private Integer pageNumber = null;
-
-  @SerializedName("PageSize")
-  private Integer pageSize = null;
+  @SerializedName("NextToken")
+  private String nextToken = null;
 
   @SerializedName("TotalCount")
   private Integer totalCount = null;
@@ -92,40 +89,22 @@ public class DescribeImageSharePermissionResponse {
     this.imageId = imageId;
   }
 
-  public DescribeImageSharePermissionResponse pageNumber(Integer pageNumber) {
-    this.pageNumber = pageNumber;
+  public DescribeImageSharePermissionResponse nextToken(String nextToken) {
+    this.nextToken = nextToken;
     return this;
   }
 
    /**
-   * Get pageNumber
-   * @return pageNumber
+   * Get nextToken
+   * @return nextToken
   **/
   @Schema(description = "")
-  public Integer getPageNumber() {
-    return pageNumber;
+  public String getNextToken() {
+    return nextToken;
   }
 
-  public void setPageNumber(Integer pageNumber) {
-    this.pageNumber = pageNumber;
-  }
-
-  public DescribeImageSharePermissionResponse pageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-    return this;
-  }
-
-   /**
-   * Get pageSize
-   * @return pageSize
-  **/
-  @Schema(description = "")
-  public Integer getPageSize() {
-    return pageSize;
-  }
-
-  public void setPageSize(Integer pageSize) {
-    this.pageSize = pageSize;
+  public void setNextToken(String nextToken) {
+    this.nextToken = nextToken;
   }
 
   public DescribeImageSharePermissionResponse totalCount(Integer totalCount) {
@@ -158,14 +137,13 @@ public class DescribeImageSharePermissionResponse {
     DescribeImageSharePermissionResponse describeImageSharePermissionResponse = (DescribeImageSharePermissionResponse) o;
     return Objects.equals(this.accounts, describeImageSharePermissionResponse.accounts) &&
         Objects.equals(this.imageId, describeImageSharePermissionResponse.imageId) &&
-        Objects.equals(this.pageNumber, describeImageSharePermissionResponse.pageNumber) &&
-        Objects.equals(this.pageSize, describeImageSharePermissionResponse.pageSize) &&
+        Objects.equals(this.nextToken, describeImageSharePermissionResponse.nextToken) &&
         Objects.equals(this.totalCount, describeImageSharePermissionResponse.totalCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accounts, imageId, pageNumber, pageSize, totalCount);
+    return Objects.hash(accounts, imageId, nextToken, totalCount);
   }
 
 
@@ -176,8 +154,7 @@ public class DescribeImageSharePermissionResponse {
     
     sb.append("    accounts: ").append(toIndentedString(accounts)).append("\n");
     sb.append("    imageId: ").append(toIndentedString(imageId)).append("\n");
-    sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
-    sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
     sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("}");
     return sb.toString();

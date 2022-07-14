@@ -27,10 +27,13 @@ import javax.validation.Valid;
  * CreateSubnetRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T20:18:16.579539+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:23:24.287880+08:00[Asia/Shanghai]")
 public class CreateSubnetRequest {
   @SerializedName("CidrBlock")
   private String cidrBlock = null;
+
+  @SerializedName("ClientToken")
+  private String clientToken = null;
 
   @SerializedName("Description")
   private String description = null;
@@ -61,6 +64,24 @@ public class CreateSubnetRequest {
 
   public void setCidrBlock(String cidrBlock) {
     this.cidrBlock = cidrBlock;
+  }
+
+  public CreateSubnetRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
   }
 
   public CreateSubnetRequest description(String description) {
@@ -148,6 +169,7 @@ public class CreateSubnetRequest {
     }
     CreateSubnetRequest createSubnetRequest = (CreateSubnetRequest) o;
     return Objects.equals(this.cidrBlock, createSubnetRequest.cidrBlock) &&
+        Objects.equals(this.clientToken, createSubnetRequest.clientToken) &&
         Objects.equals(this.description, createSubnetRequest.description) &&
         Objects.equals(this.subnetName, createSubnetRequest.subnetName) &&
         Objects.equals(this.vpcId, createSubnetRequest.vpcId) &&
@@ -156,7 +178,7 @@ public class CreateSubnetRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cidrBlock, description, subnetName, vpcId, zoneId);
+    return Objects.hash(cidrBlock, clientToken, description, subnetName, vpcId, zoneId);
   }
 
 
@@ -166,6 +188,7 @@ public class CreateSubnetRequest {
     sb.append("class CreateSubnetRequest {\n");
     
     sb.append("    cidrBlock: ").append(toIndentedString(cidrBlock)).append("\n");
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    subnetName: ").append(toIndentedString(subnetName)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");

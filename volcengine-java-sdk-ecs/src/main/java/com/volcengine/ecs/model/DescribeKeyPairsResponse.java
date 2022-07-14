@@ -30,22 +30,13 @@ import javax.validation.Valid;
  * DescribeKeyPairsResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:32.918937+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:23:02.442504+08:00[Asia/Shanghai]")
 public class DescribeKeyPairsResponse {
   @SerializedName("KeyPairs")
   private List<KeyPairForDescribeKeyPairsOutput> keyPairs = null;
 
   @SerializedName("NextToken")
   private String nextToken = null;
-
-  @SerializedName("PageNumber")
-  private Integer pageNumber = null;
-
-  @SerializedName("PageSize")
-  private Integer pageSize = null;
-
-  @SerializedName("TotalCount")
-  private Integer totalCount = null;
 
   public DescribeKeyPairsResponse keyPairs(List<KeyPairForDescribeKeyPairsOutput> keyPairs) {
     this.keyPairs = keyPairs;
@@ -92,60 +83,6 @@ public class DescribeKeyPairsResponse {
     this.nextToken = nextToken;
   }
 
-  public DescribeKeyPairsResponse pageNumber(Integer pageNumber) {
-    this.pageNumber = pageNumber;
-    return this;
-  }
-
-   /**
-   * Get pageNumber
-   * @return pageNumber
-  **/
-  @Schema(description = "")
-  public Integer getPageNumber() {
-    return pageNumber;
-  }
-
-  public void setPageNumber(Integer pageNumber) {
-    this.pageNumber = pageNumber;
-  }
-
-  public DescribeKeyPairsResponse pageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-    return this;
-  }
-
-   /**
-   * Get pageSize
-   * @return pageSize
-  **/
-  @Schema(description = "")
-  public Integer getPageSize() {
-    return pageSize;
-  }
-
-  public void setPageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-  }
-
-  public DescribeKeyPairsResponse totalCount(Integer totalCount) {
-    this.totalCount = totalCount;
-    return this;
-  }
-
-   /**
-   * Get totalCount
-   * @return totalCount
-  **/
-  @Schema(description = "")
-  public Integer getTotalCount() {
-    return totalCount;
-  }
-
-  public void setTotalCount(Integer totalCount) {
-    this.totalCount = totalCount;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -157,15 +94,12 @@ public class DescribeKeyPairsResponse {
     }
     DescribeKeyPairsResponse describeKeyPairsResponse = (DescribeKeyPairsResponse) o;
     return Objects.equals(this.keyPairs, describeKeyPairsResponse.keyPairs) &&
-        Objects.equals(this.nextToken, describeKeyPairsResponse.nextToken) &&
-        Objects.equals(this.pageNumber, describeKeyPairsResponse.pageNumber) &&
-        Objects.equals(this.pageSize, describeKeyPairsResponse.pageSize) &&
-        Objects.equals(this.totalCount, describeKeyPairsResponse.totalCount);
+        Objects.equals(this.nextToken, describeKeyPairsResponse.nextToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(keyPairs, nextToken, pageNumber, pageSize, totalCount);
+    return Objects.hash(keyPairs, nextToken);
   }
 
 
@@ -176,9 +110,6 @@ public class DescribeKeyPairsResponse {
     
     sb.append("    keyPairs: ").append(toIndentedString(keyPairs)).append("\n");
     sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
-    sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
-    sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
-    sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("}");
     return sb.toString();
   }

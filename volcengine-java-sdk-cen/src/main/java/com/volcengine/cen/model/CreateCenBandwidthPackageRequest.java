@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * CreateCenBandwidthPackageRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T20:17:51.288534+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:22:50.791272+08:00[Asia/Shanghai]")
 public class CreateCenBandwidthPackageRequest {
   @SerializedName("Bandwidth")
   private Integer bandwidth = null;
@@ -40,6 +40,9 @@ public class CreateCenBandwidthPackageRequest {
 
   @SerializedName("CenId")
   private String cenId = null;
+
+  @SerializedName("ClientToken")
+  private String clientToken = null;
 
   @SerializedName("Description")
   private String description = null;
@@ -96,57 +99,6 @@ public class CreateCenBandwidthPackageRequest {
     }
   }  @SerializedName("PeriodUnit")
   private PeriodUnitEnum periodUnit = null;
-
-  @SerializedName("RemainRenewTimes")
-  private Integer remainRenewTimes = null;
-
-  @SerializedName("RenewPeriod")
-  private Integer renewPeriod = null;
-
-  /**
-   * Gets or Sets renewType
-   */
-  @JsonAdapter(RenewTypeEnum.Adapter.class)
-  public enum RenewTypeEnum {
-    MANUAL("Manual"),
-    AUTO("Auto"),
-    NORENEW("NoRenew");
-
-    private String value;
-
-    RenewTypeEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static RenewTypeEnum fromValue(String input) {
-      for (RenewTypeEnum b : RenewTypeEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<RenewTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final RenewTypeEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public RenewTypeEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return RenewTypeEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("RenewType")
-  private RenewTypeEnum renewType = null;
 
   public CreateCenBandwidthPackageRequest bandwidth(Integer bandwidth) {
     this.bandwidth = bandwidth;
@@ -220,6 +172,24 @@ public class CreateCenBandwidthPackageRequest {
 
   public void setCenId(String cenId) {
     this.cenId = cenId;
+  }
+
+  public CreateCenBandwidthPackageRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
   }
 
   public CreateCenBandwidthPackageRequest description(String description) {
@@ -314,60 +284,6 @@ public class CreateCenBandwidthPackageRequest {
     this.periodUnit = periodUnit;
   }
 
-  public CreateCenBandwidthPackageRequest remainRenewTimes(Integer remainRenewTimes) {
-    this.remainRenewTimes = remainRenewTimes;
-    return this;
-  }
-
-   /**
-   * Get remainRenewTimes
-   * @return remainRenewTimes
-  **/
-  @Schema(description = "")
-  public Integer getRemainRenewTimes() {
-    return remainRenewTimes;
-  }
-
-  public void setRemainRenewTimes(Integer remainRenewTimes) {
-    this.remainRenewTimes = remainRenewTimes;
-  }
-
-  public CreateCenBandwidthPackageRequest renewPeriod(Integer renewPeriod) {
-    this.renewPeriod = renewPeriod;
-    return this;
-  }
-
-   /**
-   * Get renewPeriod
-   * @return renewPeriod
-  **/
-  @Schema(description = "")
-  public Integer getRenewPeriod() {
-    return renewPeriod;
-  }
-
-  public void setRenewPeriod(Integer renewPeriod) {
-    this.renewPeriod = renewPeriod;
-  }
-
-  public CreateCenBandwidthPackageRequest renewType(RenewTypeEnum renewType) {
-    this.renewType = renewType;
-    return this;
-  }
-
-   /**
-   * Get renewType
-   * @return renewType
-  **/
-  @Schema(description = "")
-  public RenewTypeEnum getRenewType() {
-    return renewType;
-  }
-
-  public void setRenewType(RenewTypeEnum renewType) {
-    this.renewType = renewType;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -382,19 +298,17 @@ public class CreateCenBandwidthPackageRequest {
         Objects.equals(this.billingType, createCenBandwidthPackageRequest.billingType) &&
         Objects.equals(this.cenBandwidthPackageName, createCenBandwidthPackageRequest.cenBandwidthPackageName) &&
         Objects.equals(this.cenId, createCenBandwidthPackageRequest.cenId) &&
+        Objects.equals(this.clientToken, createCenBandwidthPackageRequest.clientToken) &&
         Objects.equals(this.description, createCenBandwidthPackageRequest.description) &&
         Objects.equals(this.localGeographicRegionSetId, createCenBandwidthPackageRequest.localGeographicRegionSetId) &&
         Objects.equals(this.peerGeographicRegionSetId, createCenBandwidthPackageRequest.peerGeographicRegionSetId) &&
         Objects.equals(this.period, createCenBandwidthPackageRequest.period) &&
-        Objects.equals(this.periodUnit, createCenBandwidthPackageRequest.periodUnit) &&
-        Objects.equals(this.remainRenewTimes, createCenBandwidthPackageRequest.remainRenewTimes) &&
-        Objects.equals(this.renewPeriod, createCenBandwidthPackageRequest.renewPeriod) &&
-        Objects.equals(this.renewType, createCenBandwidthPackageRequest.renewType);
+        Objects.equals(this.periodUnit, createCenBandwidthPackageRequest.periodUnit);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidth, billingType, cenBandwidthPackageName, cenId, description, localGeographicRegionSetId, peerGeographicRegionSetId, period, periodUnit, remainRenewTimes, renewPeriod, renewType);
+    return Objects.hash(bandwidth, billingType, cenBandwidthPackageName, cenId, clientToken, description, localGeographicRegionSetId, peerGeographicRegionSetId, period, periodUnit);
   }
 
 
@@ -407,14 +321,12 @@ public class CreateCenBandwidthPackageRequest {
     sb.append("    billingType: ").append(toIndentedString(billingType)).append("\n");
     sb.append("    cenBandwidthPackageName: ").append(toIndentedString(cenBandwidthPackageName)).append("\n");
     sb.append("    cenId: ").append(toIndentedString(cenId)).append("\n");
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    localGeographicRegionSetId: ").append(toIndentedString(localGeographicRegionSetId)).append("\n");
     sb.append("    peerGeographicRegionSetId: ").append(toIndentedString(peerGeographicRegionSetId)).append("\n");
     sb.append("    period: ").append(toIndentedString(period)).append("\n");
     sb.append("    periodUnit: ").append(toIndentedString(periodUnit)).append("\n");
-    sb.append("    remainRenewTimes: ").append(toIndentedString(remainRenewTimes)).append("\n");
-    sb.append("    renewPeriod: ").append(toIndentedString(renewPeriod)).append("\n");
-    sb.append("    renewType: ").append(toIndentedString(renewType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

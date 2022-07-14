@@ -29,11 +29,8 @@ import javax.validation.Valid;
  * DescribeCenInterRegionBandwidthsRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T20:17:51.288534+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:22:50.791272+08:00[Asia/Shanghai]")
 public class DescribeCenInterRegionBandwidthsRequest {
-  @SerializedName("CenId")
-  private String cenId = null;
-
   @SerializedName("InterRegionBandwidthIds")
   private List<String> interRegionBandwidthIds = null;
 
@@ -42,24 +39,6 @@ public class DescribeCenInterRegionBandwidthsRequest {
 
   @SerializedName("PageSize")
   private String pageSize = null;
-
-  public DescribeCenInterRegionBandwidthsRequest cenId(String cenId) {
-    this.cenId = cenId;
-    return this;
-  }
-
-   /**
-   * Get cenId
-   * @return cenId
-  **/
-  @Schema(description = "")
-  public String getCenId() {
-    return cenId;
-  }
-
-  public void setCenId(String cenId) {
-    this.cenId = cenId;
-  }
 
   public DescribeCenInterRegionBandwidthsRequest interRegionBandwidthIds(List<String> interRegionBandwidthIds) {
     this.interRegionBandwidthIds = interRegionBandwidthIds;
@@ -133,15 +112,14 @@ public class DescribeCenInterRegionBandwidthsRequest {
       return false;
     }
     DescribeCenInterRegionBandwidthsRequest describeCenInterRegionBandwidthsRequest = (DescribeCenInterRegionBandwidthsRequest) o;
-    return Objects.equals(this.cenId, describeCenInterRegionBandwidthsRequest.cenId) &&
-        Objects.equals(this.interRegionBandwidthIds, describeCenInterRegionBandwidthsRequest.interRegionBandwidthIds) &&
+    return Objects.equals(this.interRegionBandwidthIds, describeCenInterRegionBandwidthsRequest.interRegionBandwidthIds) &&
         Objects.equals(this.pageNumber, describeCenInterRegionBandwidthsRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeCenInterRegionBandwidthsRequest.pageSize);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cenId, interRegionBandwidthIds, pageNumber, pageSize);
+    return Objects.hash(interRegionBandwidthIds, pageNumber, pageSize);
   }
 
 
@@ -150,7 +128,6 @@ public class DescribeCenInterRegionBandwidthsRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeCenInterRegionBandwidthsRequest {\n");
     
-    sb.append("    cenId: ").append(toIndentedString(cenId)).append("\n");
     sb.append("    interRegionBandwidthIds: ").append(toIndentedString(interRegionBandwidthIds)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");

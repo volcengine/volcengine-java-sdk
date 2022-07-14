@@ -27,11 +27,8 @@ import javax.validation.Valid;
  * DescribeCensRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T20:17:51.288534+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:22:50.791272+08:00[Asia/Shanghai]")
 public class DescribeCensRequest {
-  @SerializedName("CenIds")
-  private String cenIds = null;
-
   @SerializedName("CenName")
   private String cenName = null;
 
@@ -40,24 +37,6 @@ public class DescribeCensRequest {
 
   @SerializedName("PageSize")
   private Integer pageSize = null;
-
-  public DescribeCensRequest cenIds(String cenIds) {
-    this.cenIds = cenIds;
-    return this;
-  }
-
-   /**
-   * Get cenIds
-   * @return cenIds
-  **/
-  @Schema(description = "")
-  public String getCenIds() {
-    return cenIds;
-  }
-
-  public void setCenIds(String cenIds) {
-    this.cenIds = cenIds;
-  }
 
   public DescribeCensRequest cenName(String cenName) {
     this.cenName = cenName;
@@ -123,15 +102,14 @@ public class DescribeCensRequest {
       return false;
     }
     DescribeCensRequest describeCensRequest = (DescribeCensRequest) o;
-    return Objects.equals(this.cenIds, describeCensRequest.cenIds) &&
-        Objects.equals(this.cenName, describeCensRequest.cenName) &&
+    return Objects.equals(this.cenName, describeCensRequest.cenName) &&
         Objects.equals(this.pageNumber, describeCensRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeCensRequest.pageSize);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cenIds, cenName, pageNumber, pageSize);
+    return Objects.hash(cenName, pageNumber, pageSize);
   }
 
 
@@ -140,7 +118,6 @@ public class DescribeCensRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeCensRequest {\n");
     
-    sb.append("    cenIds: ").append(toIndentedString(cenIds)).append("\n");
     sb.append("    cenName: ").append(toIndentedString(cenName)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");

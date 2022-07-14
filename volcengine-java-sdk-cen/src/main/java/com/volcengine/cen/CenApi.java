@@ -51,8 +51,6 @@ import com.volcengine.cen.model.DescribeCenAttributesRequest;
 import com.volcengine.cen.model.DescribeCenAttributesResponse;
 import com.volcengine.cen.model.DescribeCenBandwidthPackageAttributesRequest;
 import com.volcengine.cen.model.DescribeCenBandwidthPackageAttributesResponse;
-import com.volcengine.cen.model.DescribeCenBandwidthPackagesBillingRequest;
-import com.volcengine.cen.model.DescribeCenBandwidthPackagesBillingResponse;
 import com.volcengine.cen.model.DescribeCenBandwidthPackagesRequest;
 import com.volcengine.cen.model.DescribeCenBandwidthPackagesResponse;
 import com.volcengine.cen.model.DescribeCenInterRegionBandwidthAttributesRequest;
@@ -61,28 +59,26 @@ import com.volcengine.cen.model.DescribeCenInterRegionBandwidthsRequest;
 import com.volcengine.cen.model.DescribeCenInterRegionBandwidthsResponse;
 import com.volcengine.cen.model.DescribeCenRouteEntriesRequest;
 import com.volcengine.cen.model.DescribeCenRouteEntriesResponse;
-import com.volcengine.cen.model.DescribeCenSupportedRegionsRequest;
-import com.volcengine.cen.model.DescribeCenSupportedRegionsResponse;
 import com.volcengine.cen.model.DescribeCensRequest;
 import com.volcengine.cen.model.DescribeCensResponse;
+import com.volcengine.cen.model.DescribeGrantRulesToCenRequest;
+import com.volcengine.cen.model.DescribeGrantRulesToCenResponse;
+import com.volcengine.cen.model.DescribeInstanceGrantedRulesRequest;
+import com.volcengine.cen.model.DescribeInstanceGrantedRulesResponse;
 import com.volcengine.cen.model.DetachInstanceFromCenRequest;
 import com.volcengine.cen.model.DetachInstanceFromCenResponse;
 import com.volcengine.cen.model.DisassociateCenBandwidthPackageRequest;
 import com.volcengine.cen.model.DisassociateCenBandwidthPackageResponse;
+import com.volcengine.cen.model.GrantInstanceToCenRequest;
+import com.volcengine.cen.model.GrantInstanceToCenResponse;
 import com.volcengine.cen.model.ModifyCenAttributesRequest;
 import com.volcengine.cen.model.ModifyCenAttributesResponse;
 import com.volcengine.cen.model.ModifyCenBandwidthPackageAttributesRequest;
 import com.volcengine.cen.model.ModifyCenBandwidthPackageAttributesResponse;
 import com.volcengine.cen.model.ModifyCenInterRegionBandwidthAttributesRequest;
 import com.volcengine.cen.model.ModifyCenInterRegionBandwidthAttributesResponse;
-import com.volcengine.cen.model.PublishCenRouteEntryRequest;
-import com.volcengine.cen.model.PublishCenRouteEntryResponse;
-import com.volcengine.cen.model.RenewCenBandwidthPackageRequest;
-import com.volcengine.cen.model.RenewCenBandwidthPackageResponse;
-import com.volcengine.cen.model.SetCenBandwidthPackageRenewalRequest;
-import com.volcengine.cen.model.SetCenBandwidthPackageRenewalResponse;
-import com.volcengine.cen.model.WithdrawCenRouteEntryRequest;
-import com.volcengine.cen.model.WithdrawCenRouteEntryResponse;
+import com.volcengine.cen.model.RevokeInstanceFromCenRequest;
+import com.volcengine.cen.model.RevokeInstanceFromCenResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -1722,130 +1718,6 @@ public class CenApi {
         return call;
     }
     /**
-     * Build call for describeCenBandwidthPackagesBilling
-     * @param body  (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call describeCenBandwidthPackagesBillingCall(DescribeCenBandwidthPackagesBillingRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
-        
-        // create path and map variables
-        String localVarPath = "/DescribeCenBandwidthPackagesBilling/2020-04-01/cen/get/";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "text/plain"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call describeCenBandwidthPackagesBillingValidateBeforeCall(DescribeCenBandwidthPackagesBillingRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling describeCenBandwidthPackagesBilling(Async)");
-        }
-        
-        com.squareup.okhttp.Call call = describeCenBandwidthPackagesBillingCall(body, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * 
-     * 
-     * @param body  (required)
-     * @return DescribeCenBandwidthPackagesBillingResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public DescribeCenBandwidthPackagesBillingResponse describeCenBandwidthPackagesBilling(DescribeCenBandwidthPackagesBillingRequest body) throws ApiException {
-        ApiResponse<DescribeCenBandwidthPackagesBillingResponse> resp = describeCenBandwidthPackagesBillingWithHttpInfo(body);
-        return resp.getData();
-    }
-
-    /**
-     * 
-     * 
-     * @param body  (required)
-     * @return ApiResponse&lt;DescribeCenBandwidthPackagesBillingResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<DescribeCenBandwidthPackagesBillingResponse> describeCenBandwidthPackagesBillingWithHttpInfo( @NotNull DescribeCenBandwidthPackagesBillingRequest body) throws ApiException {
-        com.squareup.okhttp.Call call = describeCenBandwidthPackagesBillingValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<DescribeCenBandwidthPackagesBillingResponse>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param body  (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call describeCenBandwidthPackagesBillingAsync(DescribeCenBandwidthPackagesBillingRequest body, final ApiCallback<DescribeCenBandwidthPackagesBillingResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = describeCenBandwidthPackagesBillingValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<DescribeCenBandwidthPackagesBillingResponse>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
      * Build call for describeCenInterRegionBandwidthAttributes
      * @param body  (required)
      * @param progressListener Progress listener
@@ -2218,130 +2090,6 @@ public class CenApi {
         return call;
     }
     /**
-     * Build call for describeCenSupportedRegions
-     * @param body  (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call describeCenSupportedRegionsCall(DescribeCenSupportedRegionsRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
-        
-        // create path and map variables
-        String localVarPath = "/DescribeCenSupportedRegions/2020-04-01/cen/get/";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "text/plain"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call describeCenSupportedRegionsValidateBeforeCall(DescribeCenSupportedRegionsRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling describeCenSupportedRegions(Async)");
-        }
-        
-        com.squareup.okhttp.Call call = describeCenSupportedRegionsCall(body, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * 
-     * 
-     * @param body  (required)
-     * @return DescribeCenSupportedRegionsResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public DescribeCenSupportedRegionsResponse describeCenSupportedRegions(DescribeCenSupportedRegionsRequest body) throws ApiException {
-        ApiResponse<DescribeCenSupportedRegionsResponse> resp = describeCenSupportedRegionsWithHttpInfo(body);
-        return resp.getData();
-    }
-
-    /**
-     * 
-     * 
-     * @param body  (required)
-     * @return ApiResponse&lt;DescribeCenSupportedRegionsResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<DescribeCenSupportedRegionsResponse> describeCenSupportedRegionsWithHttpInfo( @NotNull DescribeCenSupportedRegionsRequest body) throws ApiException {
-        com.squareup.okhttp.Call call = describeCenSupportedRegionsValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<DescribeCenSupportedRegionsResponse>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param body  (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call describeCenSupportedRegionsAsync(DescribeCenSupportedRegionsRequest body, final ApiCallback<DescribeCenSupportedRegionsResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = describeCenSupportedRegionsValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<DescribeCenSupportedRegionsResponse>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
      * Build call for describeCens
      * @param body  (required)
      * @param progressListener Progress listener
@@ -2462,6 +2210,254 @@ public class CenApi {
 
         com.squareup.okhttp.Call call = describeCensValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<DescribeCensResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for describeGrantRulesToCen
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call describeGrantRulesToCenCall(DescribeGrantRulesToCenRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/DescribeGrantRulesToCen/2020-04-01/cen/get/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call describeGrantRulesToCenValidateBeforeCall(DescribeGrantRulesToCenRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling describeGrantRulesToCen(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = describeGrantRulesToCenCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return DescribeGrantRulesToCenResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public DescribeGrantRulesToCenResponse describeGrantRulesToCen(DescribeGrantRulesToCenRequest body) throws ApiException {
+        ApiResponse<DescribeGrantRulesToCenResponse> resp = describeGrantRulesToCenWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;DescribeGrantRulesToCenResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<DescribeGrantRulesToCenResponse> describeGrantRulesToCenWithHttpInfo( @NotNull DescribeGrantRulesToCenRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = describeGrantRulesToCenValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<DescribeGrantRulesToCenResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call describeGrantRulesToCenAsync(DescribeGrantRulesToCenRequest body, final ApiCallback<DescribeGrantRulesToCenResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = describeGrantRulesToCenValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<DescribeGrantRulesToCenResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for describeInstanceGrantedRules
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call describeInstanceGrantedRulesCall(DescribeInstanceGrantedRulesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/DescribeInstanceGrantedRules/2020-04-01/cen/get/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call describeInstanceGrantedRulesValidateBeforeCall(DescribeInstanceGrantedRulesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling describeInstanceGrantedRules(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = describeInstanceGrantedRulesCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return DescribeInstanceGrantedRulesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public DescribeInstanceGrantedRulesResponse describeInstanceGrantedRules(DescribeInstanceGrantedRulesRequest body) throws ApiException {
+        ApiResponse<DescribeInstanceGrantedRulesResponse> resp = describeInstanceGrantedRulesWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;DescribeInstanceGrantedRulesResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<DescribeInstanceGrantedRulesResponse> describeInstanceGrantedRulesWithHttpInfo( @NotNull DescribeInstanceGrantedRulesRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = describeInstanceGrantedRulesValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<DescribeInstanceGrantedRulesResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call describeInstanceGrantedRulesAsync(DescribeInstanceGrantedRulesRequest body, final ApiCallback<DescribeInstanceGrantedRulesResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = describeInstanceGrantedRulesValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<DescribeInstanceGrantedRulesResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -2710,6 +2706,130 @@ public class CenApi {
 
         com.squareup.okhttp.Call call = disassociateCenBandwidthPackageValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<DisassociateCenBandwidthPackageResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for grantInstanceToCen
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call grantInstanceToCenCall(GrantInstanceToCenRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/GrantInstanceToCen/2020-04-01/cen/get/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call grantInstanceToCenValidateBeforeCall(GrantInstanceToCenRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling grantInstanceToCen(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = grantInstanceToCenCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return GrantInstanceToCenResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public GrantInstanceToCenResponse grantInstanceToCen(GrantInstanceToCenRequest body) throws ApiException {
+        ApiResponse<GrantInstanceToCenResponse> resp = grantInstanceToCenWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;GrantInstanceToCenResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<GrantInstanceToCenResponse> grantInstanceToCenWithHttpInfo( @NotNull GrantInstanceToCenRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = grantInstanceToCenValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<GrantInstanceToCenResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call grantInstanceToCenAsync(GrantInstanceToCenRequest body, final ApiCallback<GrantInstanceToCenResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = grantInstanceToCenValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<GrantInstanceToCenResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -3086,18 +3206,18 @@ public class CenApi {
         return call;
     }
     /**
-     * Build call for publishCenRouteEntry
+     * Build call for revokeInstanceFromCen
      * @param body  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call publishCenRouteEntryCall(PublishCenRouteEntryRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call revokeInstanceFromCenCall(RevokeInstanceFromCenRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/PublishCenRouteEntry/2020-04-01/cen/get/";
+        String localVarPath = "/RevokeInstanceFromCen/2020-04-01/cen/get/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3135,13 +3255,13 @@ public class CenApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call publishCenRouteEntryValidateBeforeCall(PublishCenRouteEntryRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call revokeInstanceFromCenValidateBeforeCall(RevokeInstanceFromCenRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'body' is set
         if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling publishCenRouteEntry(Async)");
+            throw new ApiException("Missing the required parameter 'body' when calling revokeInstanceFromCen(Async)");
         }
         
-        com.squareup.okhttp.Call call = publishCenRouteEntryCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = revokeInstanceFromCenCall(body, progressListener, progressRequestListener);
         return call;
 
         
@@ -3154,11 +3274,11 @@ public class CenApi {
      * 
      * 
      * @param body  (required)
-     * @return PublishCenRouteEntryResponse
+     * @return RevokeInstanceFromCenResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public PublishCenRouteEntryResponse publishCenRouteEntry(PublishCenRouteEntryRequest body) throws ApiException {
-        ApiResponse<PublishCenRouteEntryResponse> resp = publishCenRouteEntryWithHttpInfo(body);
+    public RevokeInstanceFromCenResponse revokeInstanceFromCen(RevokeInstanceFromCenRequest body) throws ApiException {
+        ApiResponse<RevokeInstanceFromCenResponse> resp = revokeInstanceFromCenWithHttpInfo(body);
         return resp.getData();
     }
 
@@ -3166,12 +3286,12 @@ public class CenApi {
      * 
      * 
      * @param body  (required)
-     * @return ApiResponse&lt;PublishCenRouteEntryResponse&gt;
+     * @return ApiResponse&lt;RevokeInstanceFromCenResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<PublishCenRouteEntryResponse> publishCenRouteEntryWithHttpInfo( @NotNull PublishCenRouteEntryRequest body) throws ApiException {
-        com.squareup.okhttp.Call call = publishCenRouteEntryValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<PublishCenRouteEntryResponse>(){}.getType();
+    public ApiResponse<RevokeInstanceFromCenResponse> revokeInstanceFromCenWithHttpInfo( @NotNull RevokeInstanceFromCenRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = revokeInstanceFromCenValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<RevokeInstanceFromCenResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -3183,7 +3303,7 @@ public class CenApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call publishCenRouteEntryAsync(PublishCenRouteEntryRequest body, final ApiCallback<PublishCenRouteEntryResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call revokeInstanceFromCenAsync(RevokeInstanceFromCenRequest body, final ApiCallback<RevokeInstanceFromCenResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3204,380 +3324,8 @@ public class CenApi {
             };
         }
 
-        com.squareup.okhttp.Call call = publishCenRouteEntryValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<PublishCenRouteEntryResponse>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for renewCenBandwidthPackage
-     * @param body  (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call renewCenBandwidthPackageCall(RenewCenBandwidthPackageRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
-        
-        // create path and map variables
-        String localVarPath = "/RenewCenBandwidthPackage/2020-04-01/cen/get/";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "text/plain"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call renewCenBandwidthPackageValidateBeforeCall(RenewCenBandwidthPackageRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling renewCenBandwidthPackage(Async)");
-        }
-        
-        com.squareup.okhttp.Call call = renewCenBandwidthPackageCall(body, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * 
-     * 
-     * @param body  (required)
-     * @return RenewCenBandwidthPackageResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public RenewCenBandwidthPackageResponse renewCenBandwidthPackage(RenewCenBandwidthPackageRequest body) throws ApiException {
-        ApiResponse<RenewCenBandwidthPackageResponse> resp = renewCenBandwidthPackageWithHttpInfo(body);
-        return resp.getData();
-    }
-
-    /**
-     * 
-     * 
-     * @param body  (required)
-     * @return ApiResponse&lt;RenewCenBandwidthPackageResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<RenewCenBandwidthPackageResponse> renewCenBandwidthPackageWithHttpInfo( @NotNull RenewCenBandwidthPackageRequest body) throws ApiException {
-        com.squareup.okhttp.Call call = renewCenBandwidthPackageValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<RenewCenBandwidthPackageResponse>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param body  (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call renewCenBandwidthPackageAsync(RenewCenBandwidthPackageRequest body, final ApiCallback<RenewCenBandwidthPackageResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = renewCenBandwidthPackageValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<RenewCenBandwidthPackageResponse>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for setCenBandwidthPackageRenewal
-     * @param body  (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call setCenBandwidthPackageRenewalCall(SetCenBandwidthPackageRenewalRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
-        
-        // create path and map variables
-        String localVarPath = "/SetCenBandwidthPackageRenewal/2020-04-01/cen/get/";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "text/plain"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call setCenBandwidthPackageRenewalValidateBeforeCall(SetCenBandwidthPackageRenewalRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling setCenBandwidthPackageRenewal(Async)");
-        }
-        
-        com.squareup.okhttp.Call call = setCenBandwidthPackageRenewalCall(body, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * 
-     * 
-     * @param body  (required)
-     * @return SetCenBandwidthPackageRenewalResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public SetCenBandwidthPackageRenewalResponse setCenBandwidthPackageRenewal(SetCenBandwidthPackageRenewalRequest body) throws ApiException {
-        ApiResponse<SetCenBandwidthPackageRenewalResponse> resp = setCenBandwidthPackageRenewalWithHttpInfo(body);
-        return resp.getData();
-    }
-
-    /**
-     * 
-     * 
-     * @param body  (required)
-     * @return ApiResponse&lt;SetCenBandwidthPackageRenewalResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<SetCenBandwidthPackageRenewalResponse> setCenBandwidthPackageRenewalWithHttpInfo( @NotNull SetCenBandwidthPackageRenewalRequest body) throws ApiException {
-        com.squareup.okhttp.Call call = setCenBandwidthPackageRenewalValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<SetCenBandwidthPackageRenewalResponse>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param body  (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call setCenBandwidthPackageRenewalAsync(SetCenBandwidthPackageRenewalRequest body, final ApiCallback<SetCenBandwidthPackageRenewalResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = setCenBandwidthPackageRenewalValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<SetCenBandwidthPackageRenewalResponse>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for withdrawCenRouteEntry
-     * @param body  (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call withdrawCenRouteEntryCall(WithdrawCenRouteEntryRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
-        
-        // create path and map variables
-        String localVarPath = "/WithdrawCenRouteEntry/2020-04-01/cen/get/";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "text/plain"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call withdrawCenRouteEntryValidateBeforeCall(WithdrawCenRouteEntryRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling withdrawCenRouteEntry(Async)");
-        }
-        
-        com.squareup.okhttp.Call call = withdrawCenRouteEntryCall(body, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * 
-     * 
-     * @param body  (required)
-     * @return WithdrawCenRouteEntryResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public WithdrawCenRouteEntryResponse withdrawCenRouteEntry(WithdrawCenRouteEntryRequest body) throws ApiException {
-        ApiResponse<WithdrawCenRouteEntryResponse> resp = withdrawCenRouteEntryWithHttpInfo(body);
-        return resp.getData();
-    }
-
-    /**
-     * 
-     * 
-     * @param body  (required)
-     * @return ApiResponse&lt;WithdrawCenRouteEntryResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<WithdrawCenRouteEntryResponse> withdrawCenRouteEntryWithHttpInfo( @NotNull WithdrawCenRouteEntryRequest body) throws ApiException {
-        com.squareup.okhttp.Call call = withdrawCenRouteEntryValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<WithdrawCenRouteEntryResponse>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param body  (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call withdrawCenRouteEntryAsync(WithdrawCenRouteEntryRequest body, final ApiCallback<WithdrawCenRouteEntryResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = withdrawCenRouteEntryValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<WithdrawCenRouteEntryResponse>(){}.getType();
+        com.squareup.okhttp.Call call = revokeInstanceFromCenValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<RevokeInstanceFromCenResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
