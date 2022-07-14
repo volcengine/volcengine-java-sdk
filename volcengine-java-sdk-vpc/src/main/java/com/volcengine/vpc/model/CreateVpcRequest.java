@@ -29,10 +29,13 @@ import javax.validation.Valid;
  * CreateVpcRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T20:18:16.579539+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:23:24.287880+08:00[Asia/Shanghai]")
 public class CreateVpcRequest {
   @SerializedName("CidrBlock")
   private String cidrBlock = null;
+
+  @SerializedName("ClientToken")
+  private String clientToken = null;
 
   @SerializedName("Description")
   private String description = null;
@@ -60,6 +63,24 @@ public class CreateVpcRequest {
 
   public void setCidrBlock(String cidrBlock) {
     this.cidrBlock = cidrBlock;
+  }
+
+  public CreateVpcRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
   }
 
   public CreateVpcRequest description(String description) {
@@ -135,6 +156,7 @@ public class CreateVpcRequest {
     }
     CreateVpcRequest createVpcRequest = (CreateVpcRequest) o;
     return Objects.equals(this.cidrBlock, createVpcRequest.cidrBlock) &&
+        Objects.equals(this.clientToken, createVpcRequest.clientToken) &&
         Objects.equals(this.description, createVpcRequest.description) &&
         Objects.equals(this.dnsServers, createVpcRequest.dnsServers) &&
         Objects.equals(this.vpcName, createVpcRequest.vpcName);
@@ -142,7 +164,7 @@ public class CreateVpcRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cidrBlock, description, dnsServers, vpcName);
+    return Objects.hash(cidrBlock, clientToken, description, dnsServers, vpcName);
   }
 
 
@@ -152,6 +174,7 @@ public class CreateVpcRequest {
     sb.append("class CreateVpcRequest {\n");
     
     sb.append("    cidrBlock: ").append(toIndentedString(cidrBlock)).append("\n");
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    dnsServers: ").append(toIndentedString(dnsServers)).append("\n");
     sb.append("    vpcName: ").append(toIndentedString(vpcName)).append("\n");

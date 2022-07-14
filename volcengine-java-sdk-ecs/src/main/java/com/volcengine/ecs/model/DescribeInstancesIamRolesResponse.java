@@ -30,13 +30,10 @@ import javax.validation.Valid;
  * DescribeInstancesIamRolesResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:32.918937+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:23:02.442504+08:00[Asia/Shanghai]")
 public class DescribeInstancesIamRolesResponse {
   @SerializedName("InstancesIamRoles")
   private List<InstancesIamRoleForDescribeInstancesIamRolesOutput> instancesIamRoles = null;
-
-  @SerializedName("NextToken")
-  private String nextToken = null;
 
   public DescribeInstancesIamRolesResponse instancesIamRoles(List<InstancesIamRoleForDescribeInstancesIamRolesOutput> instancesIamRoles) {
     this.instancesIamRoles = instancesIamRoles;
@@ -65,24 +62,6 @@ public class DescribeInstancesIamRolesResponse {
     this.instancesIamRoles = instancesIamRoles;
   }
 
-  public DescribeInstancesIamRolesResponse nextToken(String nextToken) {
-    this.nextToken = nextToken;
-    return this;
-  }
-
-   /**
-   * Get nextToken
-   * @return nextToken
-  **/
-  @Schema(description = "")
-  public String getNextToken() {
-    return nextToken;
-  }
-
-  public void setNextToken(String nextToken) {
-    this.nextToken = nextToken;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -93,13 +72,12 @@ public class DescribeInstancesIamRolesResponse {
       return false;
     }
     DescribeInstancesIamRolesResponse describeInstancesIamRolesResponse = (DescribeInstancesIamRolesResponse) o;
-    return Objects.equals(this.instancesIamRoles, describeInstancesIamRolesResponse.instancesIamRoles) &&
-        Objects.equals(this.nextToken, describeInstancesIamRolesResponse.nextToken);
+    return Objects.equals(this.instancesIamRoles, describeInstancesIamRolesResponse.instancesIamRoles);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instancesIamRoles, nextToken);
+    return Objects.hash(instancesIamRoles);
   }
 
 
@@ -109,7 +87,6 @@ public class DescribeInstancesIamRolesResponse {
     sb.append("class DescribeInstancesIamRolesResponse {\n");
     
     sb.append("    instancesIamRoles: ").append(toIndentedString(instancesIamRoles)).append("\n");
-    sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -27,16 +27,16 @@ import javax.validation.Valid;
  * DescribeCenAttachedInstanceAttributesResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T20:17:51.288534+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:22:50.791272+08:00[Asia/Shanghai]")
 public class DescribeCenAttachedInstanceAttributesResponse {
   @SerializedName("CenId")
   private String cenId = null;
 
-  @SerializedName("CreationTime")
-  private String creationTime = null;
-
   @SerializedName("InstanceId")
   private String instanceId = null;
+
+  @SerializedName("InstanceOwnerId")
+  private String instanceOwnerId = null;
 
   @SerializedName("InstanceRegionId")
   private String instanceRegionId = null;
@@ -65,24 +65,6 @@ public class DescribeCenAttachedInstanceAttributesResponse {
     this.cenId = cenId;
   }
 
-  public DescribeCenAttachedInstanceAttributesResponse creationTime(String creationTime) {
-    this.creationTime = creationTime;
-    return this;
-  }
-
-   /**
-   * Get creationTime
-   * @return creationTime
-  **/
-  @Schema(description = "")
-  public String getCreationTime() {
-    return creationTime;
-  }
-
-  public void setCreationTime(String creationTime) {
-    this.creationTime = creationTime;
-  }
-
   public DescribeCenAttachedInstanceAttributesResponse instanceId(String instanceId) {
     this.instanceId = instanceId;
     return this;
@@ -99,6 +81,24 @@ public class DescribeCenAttachedInstanceAttributesResponse {
 
   public void setInstanceId(String instanceId) {
     this.instanceId = instanceId;
+  }
+
+  public DescribeCenAttachedInstanceAttributesResponse instanceOwnerId(String instanceOwnerId) {
+    this.instanceOwnerId = instanceOwnerId;
+    return this;
+  }
+
+   /**
+   * Get instanceOwnerId
+   * @return instanceOwnerId
+  **/
+  @Schema(description = "")
+  public String getInstanceOwnerId() {
+    return instanceOwnerId;
+  }
+
+  public void setInstanceOwnerId(String instanceOwnerId) {
+    this.instanceOwnerId = instanceOwnerId;
   }
 
   public DescribeCenAttachedInstanceAttributesResponse instanceRegionId(String instanceRegionId) {
@@ -166,8 +166,8 @@ public class DescribeCenAttachedInstanceAttributesResponse {
     }
     DescribeCenAttachedInstanceAttributesResponse describeCenAttachedInstanceAttributesResponse = (DescribeCenAttachedInstanceAttributesResponse) o;
     return Objects.equals(this.cenId, describeCenAttachedInstanceAttributesResponse.cenId) &&
-        Objects.equals(this.creationTime, describeCenAttachedInstanceAttributesResponse.creationTime) &&
         Objects.equals(this.instanceId, describeCenAttachedInstanceAttributesResponse.instanceId) &&
+        Objects.equals(this.instanceOwnerId, describeCenAttachedInstanceAttributesResponse.instanceOwnerId) &&
         Objects.equals(this.instanceRegionId, describeCenAttachedInstanceAttributesResponse.instanceRegionId) &&
         Objects.equals(this.instanceType, describeCenAttachedInstanceAttributesResponse.instanceType) &&
         Objects.equals(this.status, describeCenAttachedInstanceAttributesResponse.status);
@@ -175,7 +175,7 @@ public class DescribeCenAttachedInstanceAttributesResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cenId, creationTime, instanceId, instanceRegionId, instanceType, status);
+    return Objects.hash(cenId, instanceId, instanceOwnerId, instanceRegionId, instanceType, status);
   }
 
 
@@ -185,8 +185,8 @@ public class DescribeCenAttachedInstanceAttributesResponse {
     sb.append("class DescribeCenAttachedInstanceAttributesResponse {\n");
     
     sb.append("    cenId: ").append(toIndentedString(cenId)).append("\n");
-    sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    instanceOwnerId: ").append(toIndentedString(instanceOwnerId)).append("\n");
     sb.append("    instanceRegionId: ").append(toIndentedString(instanceRegionId)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");

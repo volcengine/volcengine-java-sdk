@@ -31,10 +31,13 @@ import javax.validation.Valid;
  * DescribeVpnConnectionAttributesResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T20:18:23.808118+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:23:33.618811+08:00[Asia/Shanghai]")
 public class DescribeVpnConnectionAttributesResponse {
   @SerializedName("AccountId")
   private String accountId = null;
+
+  @SerializedName("ConnectStatus")
+  private String connectStatus = null;
 
   @SerializedName("CreationTime")
   private String creationTime = null;
@@ -44,6 +47,9 @@ public class DescribeVpnConnectionAttributesResponse {
 
   @SerializedName("Description")
   private String description = null;
+
+  @SerializedName("DpdAction")
+  private String dpdAction = null;
 
   @SerializedName("IkeConfig")
   private IkeConfigForDescribeVpnConnectionAttributesOutput ikeConfig = null;
@@ -94,6 +100,24 @@ public class DescribeVpnConnectionAttributesResponse {
 
   public void setAccountId(String accountId) {
     this.accountId = accountId;
+  }
+
+  public DescribeVpnConnectionAttributesResponse connectStatus(String connectStatus) {
+    this.connectStatus = connectStatus;
+    return this;
+  }
+
+   /**
+   * Get connectStatus
+   * @return connectStatus
+  **/
+  @Schema(description = "")
+  public String getConnectStatus() {
+    return connectStatus;
+  }
+
+  public void setConnectStatus(String connectStatus) {
+    this.connectStatus = connectStatus;
   }
 
   public DescribeVpnConnectionAttributesResponse creationTime(String creationTime) {
@@ -148,6 +172,24 @@ public class DescribeVpnConnectionAttributesResponse {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public DescribeVpnConnectionAttributesResponse dpdAction(String dpdAction) {
+    this.dpdAction = dpdAction;
+    return this;
+  }
+
+   /**
+   * Get dpdAction
+   * @return dpdAction
+  **/
+  @Schema(description = "")
+  public String getDpdAction() {
+    return dpdAction;
+  }
+
+  public void setDpdAction(String dpdAction) {
+    this.dpdAction = dpdAction;
   }
 
   public DescribeVpnConnectionAttributesResponse ikeConfig(IkeConfigForDescribeVpnConnectionAttributesOutput ikeConfig) {
@@ -377,9 +419,11 @@ public class DescribeVpnConnectionAttributesResponse {
     }
     DescribeVpnConnectionAttributesResponse describeVpnConnectionAttributesResponse = (DescribeVpnConnectionAttributesResponse) o;
     return Objects.equals(this.accountId, describeVpnConnectionAttributesResponse.accountId) &&
+        Objects.equals(this.connectStatus, describeVpnConnectionAttributesResponse.connectStatus) &&
         Objects.equals(this.creationTime, describeVpnConnectionAttributesResponse.creationTime) &&
         Objects.equals(this.customerGatewayId, describeVpnConnectionAttributesResponse.customerGatewayId) &&
         Objects.equals(this.description, describeVpnConnectionAttributesResponse.description) &&
+        Objects.equals(this.dpdAction, describeVpnConnectionAttributesResponse.dpdAction) &&
         Objects.equals(this.ikeConfig, describeVpnConnectionAttributesResponse.ikeConfig) &&
         Objects.equals(this.ipsecConfig, describeVpnConnectionAttributesResponse.ipsecConfig) &&
         Objects.equals(this.localSubnet, describeVpnConnectionAttributesResponse.localSubnet) &&
@@ -395,7 +439,7 @@ public class DescribeVpnConnectionAttributesResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, creationTime, customerGatewayId, description, ikeConfig, ipsecConfig, localSubnet, natTraversal, remoteSubnet, requestId, status, updateTime, vpnConnectionId, vpnConnectionName, vpnGatewayId);
+    return Objects.hash(accountId, connectStatus, creationTime, customerGatewayId, description, dpdAction, ikeConfig, ipsecConfig, localSubnet, natTraversal, remoteSubnet, requestId, status, updateTime, vpnConnectionId, vpnConnectionName, vpnGatewayId);
   }
 
 
@@ -405,9 +449,11 @@ public class DescribeVpnConnectionAttributesResponse {
     sb.append("class DescribeVpnConnectionAttributesResponse {\n");
     
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
+    sb.append("    connectStatus: ").append(toIndentedString(connectStatus)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    customerGatewayId: ").append(toIndentedString(customerGatewayId)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    dpdAction: ").append(toIndentedString(dpdAction)).append("\n");
     sb.append("    ikeConfig: ").append(toIndentedString(ikeConfig)).append("\n");
     sb.append("    ipsecConfig: ").append(toIndentedString(ipsecConfig)).append("\n");
     sb.append("    localSubnet: ").append(toIndentedString(localSubnet)).append("\n");

@@ -27,8 +27,11 @@ import javax.validation.Valid;
  * CreateRouteEntryRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T20:18:16.579539+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:23:24.287880+08:00[Asia/Shanghai]")
 public class CreateRouteEntryRequest {
+  @SerializedName("ClientToken")
+  private String clientToken = null;
+
   @SerializedName("Description")
   private String description = null;
 
@@ -46,6 +49,24 @@ public class CreateRouteEntryRequest {
 
   @SerializedName("RouteTableId")
   private String routeTableId = null;
+
+  public CreateRouteEntryRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
 
   public CreateRouteEntryRequest description(String description) {
     this.description = description;
@@ -169,7 +190,8 @@ public class CreateRouteEntryRequest {
       return false;
     }
     CreateRouteEntryRequest createRouteEntryRequest = (CreateRouteEntryRequest) o;
-    return Objects.equals(this.description, createRouteEntryRequest.description) &&
+    return Objects.equals(this.clientToken, createRouteEntryRequest.clientToken) &&
+        Objects.equals(this.description, createRouteEntryRequest.description) &&
         Objects.equals(this.destinationCidrBlock, createRouteEntryRequest.destinationCidrBlock) &&
         Objects.equals(this.nextHopId, createRouteEntryRequest.nextHopId) &&
         Objects.equals(this.nextHopType, createRouteEntryRequest.nextHopType) &&
@@ -179,7 +201,7 @@ public class CreateRouteEntryRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, destinationCidrBlock, nextHopId, nextHopType, routeEntryName, routeTableId);
+    return Objects.hash(clientToken, description, destinationCidrBlock, nextHopId, nextHopType, routeEntryName, routeTableId);
   }
 
 
@@ -188,6 +210,7 @@ public class CreateRouteEntryRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateRouteEntryRequest {\n");
     
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    destinationCidrBlock: ").append(toIndentedString(destinationCidrBlock)).append("\n");
     sb.append("    nextHopId: ").append(toIndentedString(nextHopId)).append("\n");

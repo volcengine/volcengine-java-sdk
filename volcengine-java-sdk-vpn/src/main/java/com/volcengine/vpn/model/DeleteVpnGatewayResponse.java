@@ -27,31 +27,10 @@ import javax.validation.Valid;
  * DeleteVpnGatewayResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T20:18:23.808118+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:23:33.618811+08:00[Asia/Shanghai]")
 public class DeleteVpnGatewayResponse {
-  @SerializedName("PreOrderNumber")
-  private String preOrderNumber = null;
-
   @SerializedName("RequestId")
   private String requestId = null;
-
-  public DeleteVpnGatewayResponse preOrderNumber(String preOrderNumber) {
-    this.preOrderNumber = preOrderNumber;
-    return this;
-  }
-
-   /**
-   * Get preOrderNumber
-   * @return preOrderNumber
-  **/
-  @Schema(description = "")
-  public String getPreOrderNumber() {
-    return preOrderNumber;
-  }
-
-  public void setPreOrderNumber(String preOrderNumber) {
-    this.preOrderNumber = preOrderNumber;
-  }
 
   public DeleteVpnGatewayResponse requestId(String requestId) {
     this.requestId = requestId;
@@ -81,13 +60,12 @@ public class DeleteVpnGatewayResponse {
       return false;
     }
     DeleteVpnGatewayResponse deleteVpnGatewayResponse = (DeleteVpnGatewayResponse) o;
-    return Objects.equals(this.preOrderNumber, deleteVpnGatewayResponse.preOrderNumber) &&
-        Objects.equals(this.requestId, deleteVpnGatewayResponse.requestId);
+    return Objects.equals(this.requestId, deleteVpnGatewayResponse.requestId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(preOrderNumber, requestId);
+    return Objects.hash(requestId);
   }
 
 
@@ -96,7 +74,6 @@ public class DeleteVpnGatewayResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteVpnGatewayResponse {\n");
     
-    sb.append("    preOrderNumber: ").append(toIndentedString(preOrderNumber)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("}");
     return sb.toString();

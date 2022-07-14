@@ -27,13 +27,10 @@ import javax.validation.Valid;
  * CreateVpnGatewayResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T20:18:23.808118+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:23:33.618811+08:00[Asia/Shanghai]")
 public class CreateVpnGatewayResponse {
   @SerializedName("OrderId")
   private String orderId = null;
-
-  @SerializedName("PreOrderNumber")
-  private String preOrderNumber = null;
 
   @SerializedName("RequestId")
   private String requestId = null;
@@ -57,24 +54,6 @@ public class CreateVpnGatewayResponse {
 
   public void setOrderId(String orderId) {
     this.orderId = orderId;
-  }
-
-  public CreateVpnGatewayResponse preOrderNumber(String preOrderNumber) {
-    this.preOrderNumber = preOrderNumber;
-    return this;
-  }
-
-   /**
-   * Get preOrderNumber
-   * @return preOrderNumber
-  **/
-  @Schema(description = "")
-  public String getPreOrderNumber() {
-    return preOrderNumber;
-  }
-
-  public void setPreOrderNumber(String preOrderNumber) {
-    this.preOrderNumber = preOrderNumber;
   }
 
   public CreateVpnGatewayResponse requestId(String requestId) {
@@ -124,14 +103,13 @@ public class CreateVpnGatewayResponse {
     }
     CreateVpnGatewayResponse createVpnGatewayResponse = (CreateVpnGatewayResponse) o;
     return Objects.equals(this.orderId, createVpnGatewayResponse.orderId) &&
-        Objects.equals(this.preOrderNumber, createVpnGatewayResponse.preOrderNumber) &&
         Objects.equals(this.requestId, createVpnGatewayResponse.requestId) &&
         Objects.equals(this.vpnGatewayId, createVpnGatewayResponse.vpnGatewayId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(orderId, preOrderNumber, requestId, vpnGatewayId);
+    return Objects.hash(orderId, requestId, vpnGatewayId);
   }
 
 
@@ -141,7 +119,6 @@ public class CreateVpnGatewayResponse {
     sb.append("class CreateVpnGatewayResponse {\n");
     
     sb.append("    orderId: ").append(toIndentedString(orderId)).append("\n");
-    sb.append("    preOrderNumber: ").append(toIndentedString(preOrderNumber)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    vpnGatewayId: ").append(toIndentedString(vpnGatewayId)).append("\n");
     sb.append("}");

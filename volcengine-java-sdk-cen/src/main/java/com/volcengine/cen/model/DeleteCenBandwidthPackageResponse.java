@@ -14,42 +14,14 @@ package com.volcengine.cen.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.v3.oas.annotations.media.Schema;
-import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
  * DeleteCenBandwidthPackageResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T20:17:51.288534+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:22:50.791272+08:00[Asia/Shanghai]")
 public class DeleteCenBandwidthPackageResponse {
-  @SerializedName("PreOrderNumber")
-  private String preOrderNumber = null;
-
-  public DeleteCenBandwidthPackageResponse preOrderNumber(String preOrderNumber) {
-    this.preOrderNumber = preOrderNumber;
-    return this;
-  }
-
-   /**
-   * Get preOrderNumber
-   * @return preOrderNumber
-  **/
-  @Schema(description = "")
-  public String getPreOrderNumber() {
-    return preOrderNumber;
-  }
-
-  public void setPreOrderNumber(String preOrderNumber) {
-    this.preOrderNumber = preOrderNumber;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -59,13 +31,12 @@ public class DeleteCenBandwidthPackageResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeleteCenBandwidthPackageResponse deleteCenBandwidthPackageResponse = (DeleteCenBandwidthPackageResponse) o;
-    return Objects.equals(this.preOrderNumber, deleteCenBandwidthPackageResponse.preOrderNumber);
+    return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(preOrderNumber);
+    return Objects.hash();
   }
 
 
@@ -74,7 +45,6 @@ public class DeleteCenBandwidthPackageResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteCenBandwidthPackageResponse {\n");
     
-    sb.append("    preOrderNumber: ").append(toIndentedString(preOrderNumber)).append("\n");
     sb.append("}");
     return sb.toString();
   }

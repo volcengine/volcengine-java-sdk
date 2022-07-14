@@ -29,7 +29,7 @@ import javax.validation.Valid;
  * DescribeVpnGatewayRoutesRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-06-30T20:18:23.808118+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:23:33.618811+08:00[Asia/Shanghai]")
 public class DescribeVpnGatewayRoutesRequest {
   @SerializedName("DestinationCidrBlock")
   private String destinationCidrBlock = null;
@@ -42,9 +42,6 @@ public class DescribeVpnGatewayRoutesRequest {
 
   @SerializedName("PageSize")
   private Integer pageSize = null;
-
-  @SerializedName("Status")
-  private String status = null;
 
   @SerializedName("VpnGatewayId")
   private String vpnGatewayId = null;
@@ -124,24 +121,6 @@ public class DescribeVpnGatewayRoutesRequest {
     this.pageSize = pageSize;
   }
 
-  public DescribeVpnGatewayRoutesRequest status(String status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Get status
-   * @return status
-  **/
-  @Schema(description = "")
-  public String getStatus() {
-    return status;
-  }
-
-  public void setStatus(String status) {
-    this.status = status;
-  }
-
   public DescribeVpnGatewayRoutesRequest vpnGatewayId(String vpnGatewayId) {
     this.vpnGatewayId = vpnGatewayId;
     return this;
@@ -200,14 +179,13 @@ public class DescribeVpnGatewayRoutesRequest {
         Objects.equals(this.nextHopId, describeVpnGatewayRoutesRequest.nextHopId) &&
         Objects.equals(this.pageNumber, describeVpnGatewayRoutesRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeVpnGatewayRoutesRequest.pageSize) &&
-        Objects.equals(this.status, describeVpnGatewayRoutesRequest.status) &&
         Objects.equals(this.vpnGatewayId, describeVpnGatewayRoutesRequest.vpnGatewayId) &&
         Objects.equals(this.vpnGatewayRouteIds, describeVpnGatewayRoutesRequest.vpnGatewayRouteIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(destinationCidrBlock, nextHopId, pageNumber, pageSize, status, vpnGatewayId, vpnGatewayRouteIds);
+    return Objects.hash(destinationCidrBlock, nextHopId, pageNumber, pageSize, vpnGatewayId, vpnGatewayRouteIds);
   }
 
 
@@ -220,7 +198,6 @@ public class DescribeVpnGatewayRoutesRequest {
     sb.append("    nextHopId: ").append(toIndentedString(nextHopId)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    vpnGatewayId: ").append(toIndentedString(vpnGatewayId)).append("\n");
     sb.append("    vpnGatewayRouteIds: ").append(toIndentedString(vpnGatewayRouteIds)).append("\n");
     sb.append("}");

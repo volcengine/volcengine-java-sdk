@@ -27,16 +27,16 @@ import javax.validation.Valid;
  * DescribeImageSharePermissionRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-05-24T15:52:32.918937+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:23:02.442504+08:00[Asia/Shanghai]")
 public class DescribeImageSharePermissionRequest {
   @SerializedName("ImageId")
   private String imageId = null;
 
-  @SerializedName("PageNumber")
-  private Integer pageNumber = null;
+  @SerializedName("MaxResults")
+  private Integer maxResults = null;
 
-  @SerializedName("PageSize")
-  private Integer pageSize = null;
+  @SerializedName("NextToken")
+  private String nextToken = null;
 
   public DescribeImageSharePermissionRequest imageId(String imageId) {
     this.imageId = imageId;
@@ -56,40 +56,40 @@ public class DescribeImageSharePermissionRequest {
     this.imageId = imageId;
   }
 
-  public DescribeImageSharePermissionRequest pageNumber(Integer pageNumber) {
-    this.pageNumber = pageNumber;
+  public DescribeImageSharePermissionRequest maxResults(Integer maxResults) {
+    this.maxResults = maxResults;
     return this;
   }
 
    /**
-   * Get pageNumber
-   * @return pageNumber
+   * Get maxResults
+   * @return maxResults
   **/
   @Schema(description = "")
-  public Integer getPageNumber() {
-    return pageNumber;
+  public Integer getMaxResults() {
+    return maxResults;
   }
 
-  public void setPageNumber(Integer pageNumber) {
-    this.pageNumber = pageNumber;
+  public void setMaxResults(Integer maxResults) {
+    this.maxResults = maxResults;
   }
 
-  public DescribeImageSharePermissionRequest pageSize(Integer pageSize) {
-    this.pageSize = pageSize;
+  public DescribeImageSharePermissionRequest nextToken(String nextToken) {
+    this.nextToken = nextToken;
     return this;
   }
 
    /**
-   * Get pageSize
-   * @return pageSize
+   * Get nextToken
+   * @return nextToken
   **/
   @Schema(description = "")
-  public Integer getPageSize() {
-    return pageSize;
+  public String getNextToken() {
+    return nextToken;
   }
 
-  public void setPageSize(Integer pageSize) {
-    this.pageSize = pageSize;
+  public void setNextToken(String nextToken) {
+    this.nextToken = nextToken;
   }
 
 
@@ -103,13 +103,13 @@ public class DescribeImageSharePermissionRequest {
     }
     DescribeImageSharePermissionRequest describeImageSharePermissionRequest = (DescribeImageSharePermissionRequest) o;
     return Objects.equals(this.imageId, describeImageSharePermissionRequest.imageId) &&
-        Objects.equals(this.pageNumber, describeImageSharePermissionRequest.pageNumber) &&
-        Objects.equals(this.pageSize, describeImageSharePermissionRequest.pageSize);
+        Objects.equals(this.maxResults, describeImageSharePermissionRequest.maxResults) &&
+        Objects.equals(this.nextToken, describeImageSharePermissionRequest.nextToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(imageId, pageNumber, pageSize);
+    return Objects.hash(imageId, maxResults, nextToken);
   }
 
 
@@ -119,8 +119,8 @@ public class DescribeImageSharePermissionRequest {
     sb.append("class DescribeImageSharePermissionRequest {\n");
     
     sb.append("    imageId: ").append(toIndentedString(imageId)).append("\n");
-    sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
-    sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
+    sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
     sb.append("}");
     return sb.toString();
   }
