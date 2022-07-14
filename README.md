@@ -1,4 +1,4 @@
-# Volcstack SDK for Java
+# Volcengine SDK for Java
 
 ## Table of Contents
 * Requirements
@@ -81,10 +81,10 @@
 
 **通过环境变量导入**:
 ```
-export Volcengine_ACCESS_KEY=your ak
-export Volcengine_SECRET_KEY=your sk
+export VOLCENGINE_ACCESS_KEY=your ak
+export VOLCENGINE_SECRET_KEY=your sk
 #如果使用token
-export Volcengine_SESSION_TOKEN=token
+export VOLCENGINE_SESSION_TOKEN=token
 ```
 
 **代码方式引入**：
