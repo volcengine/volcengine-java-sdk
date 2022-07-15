@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * DescribeDBInstanceRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:23:11.413715+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:46.453185+08:00[Asia/Shanghai]")
 public class DescribeDBInstanceRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;

@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * RecoveryDBInstanceRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:23:11.413715+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:46.453185+08:00[Asia/Shanghai]")
 public class RecoveryDBInstanceRequest {
   @SerializedName("AutoRenew")
   private Boolean autoRenew = null;

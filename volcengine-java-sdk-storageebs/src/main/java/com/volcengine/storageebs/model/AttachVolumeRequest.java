@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * AttachVolumeRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:23:15.605776+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:50.925084+08:00[Asia/Shanghai]")
 public class AttachVolumeRequest {
   @SerializedName("DeleteWithInstance")
   private Boolean deleteWithInstance = null;
