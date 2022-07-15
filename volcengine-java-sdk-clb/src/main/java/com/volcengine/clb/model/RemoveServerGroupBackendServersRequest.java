@@ -29,7 +29,7 @@ import javax.validation.Valid;
  * RemoveServerGroupBackendServersRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:22:55.791591+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:28.835190+08:00[Asia/Shanghai]")
 public class RemoveServerGroupBackendServersRequest {
   @SerializedName("ServerGroupId")
   private String serverGroupId = null;

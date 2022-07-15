@@ -30,7 +30,7 @@ import javax.validation.Valid;
  * NatGatewayForDescribeNatGatewaysOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:23:08.555290+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:42.841+08:00[Asia/Shanghai]")
 public class NatGatewayForDescribeNatGatewaysOutput {
   @SerializedName("BillingType")
   private Integer billingType = null;

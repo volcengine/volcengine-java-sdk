@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * DisableScalingPolicyResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:22:44.255986+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:18.429222+08:00[Asia/Shanghai]")
 public class DisableScalingPolicyResponse {
   @SerializedName("ScalingPolicyId")
   private String scalingPolicyId = null;
