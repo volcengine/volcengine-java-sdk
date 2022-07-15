@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * RdmaForDescribeInstanceTypesOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:23:02.442504+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:35.752778+08:00[Asia/Shanghai]")
 public class RdmaForDescribeInstanceTypesOutput {
   @SerializedName("RdmaNetworkInterfaces")
   private Integer rdmaNetworkInterfaces = null;
