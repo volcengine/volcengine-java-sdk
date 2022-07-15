@@ -29,7 +29,7 @@ import javax.validation.Valid;
  * ModifyScalingPolicyRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:22:44.255986+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:18.429222+08:00[Asia/Shanghai]")
 public class ModifyScalingPolicyRequest {
   @SerializedName("AdjustmentType")
   private String adjustmentType = null;

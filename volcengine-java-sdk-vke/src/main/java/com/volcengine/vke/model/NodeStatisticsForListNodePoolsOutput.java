@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * NodeStatisticsForListNodePoolsOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-14T18:23:18.459744+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:54.001539+08:00[Asia/Shanghai]")
 public class NodeStatisticsForListNodePoolsOutput {
   @SerializedName("CreatingCount")
   private Integer creatingCount = null;
