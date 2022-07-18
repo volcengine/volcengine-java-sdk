@@ -43,7 +43,7 @@ package com.volcengine;
 
     private boolean isValidString(String arg) {
         if (arg == null) return false;
-        if (arg.trim().isEmpty()) return false;
+//        if (arg.trim().isEmpty()) return false;
 
         return true;
     }
