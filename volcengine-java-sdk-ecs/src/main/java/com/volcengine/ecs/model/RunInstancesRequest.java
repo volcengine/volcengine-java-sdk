@@ -31,7 +31,7 @@ import javax.validation.Valid;
  * RunInstancesRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:35.752778+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-08-01T17:18:25.441969+08:00[Asia/Shanghai]")
 public class RunInstancesRequest {
   @SerializedName("AutoRenew")
   private Boolean autoRenew = null;
@@ -92,6 +92,9 @@ public class RunInstancesRequest {
 
   @SerializedName("PeriodUnit")
   private String periodUnit = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
 
   @SerializedName("SecurityEnhancementStrategy")
   private String securityEnhancementStrategy = null;
@@ -480,6 +483,24 @@ public class RunInstancesRequest {
     this.periodUnit = periodUnit;
   }
 
+  public RunInstancesRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public RunInstancesRequest securityEnhancementStrategy(String securityEnhancementStrategy) {
     this.securityEnhancementStrategy = securityEnhancementStrategy;
     return this;
@@ -627,6 +648,7 @@ public class RunInstancesRequest {
         Objects.equals(this.password, runInstancesRequest.password) &&
         Objects.equals(this.period, runInstancesRequest.period) &&
         Objects.equals(this.periodUnit, runInstancesRequest.periodUnit) &&
+        Objects.equals(this.projectName, runInstancesRequest.projectName) &&
         Objects.equals(this.securityEnhancementStrategy, runInstancesRequest.securityEnhancementStrategy) &&
         Objects.equals(this.suffixIndex, runInstancesRequest.suffixIndex) &&
         Objects.equals(this.uniqueSuffix, runInstancesRequest.uniqueSuffix) &&
@@ -637,7 +659,7 @@ public class RunInstancesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoRenew, autoRenewPeriod, clientToken, count, creditSpecification, description, dryRun, hostName, hpcClusterId, imageId, instanceChargeType, instanceName, instanceType, instanceTypeId, keyPairName, minCount, networkInterfaces, password, period, periodUnit, securityEnhancementStrategy, suffixIndex, uniqueSuffix, userData, volumes, zoneId);
+    return Objects.hash(autoRenew, autoRenewPeriod, clientToken, count, creditSpecification, description, dryRun, hostName, hpcClusterId, imageId, instanceChargeType, instanceName, instanceType, instanceTypeId, keyPairName, minCount, networkInterfaces, password, period, periodUnit, projectName, securityEnhancementStrategy, suffixIndex, uniqueSuffix, userData, volumes, zoneId);
   }
 
 
@@ -666,6 +688,7 @@ public class RunInstancesRequest {
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    period: ").append(toIndentedString(period)).append("\n");
     sb.append("    periodUnit: ").append(toIndentedString(periodUnit)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    securityEnhancementStrategy: ").append(toIndentedString(securityEnhancementStrategy)).append("\n");
     sb.append("    suffixIndex: ").append(toIndentedString(suffixIndex)).append("\n");
     sb.append("    uniqueSuffix: ").append(toIndentedString(uniqueSuffix)).append("\n");

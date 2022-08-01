@@ -32,7 +32,7 @@ import javax.validation.Valid;
  * InstanceForDescribeInstancesOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:35.752778+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-08-01T17:18:25.441969+08:00[Asia/Shanghai]")
 public class InstanceForDescribeInstancesOutput {
   @SerializedName("Cpus")
   private Integer cpus = null;
@@ -87,6 +87,9 @@ public class InstanceForDescribeInstancesOutput {
 
   @SerializedName("OsType")
   private String osType = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
 
   @SerializedName("RdmaIpAddresses")
   private List<String> rdmaIpAddresses = null;
@@ -452,6 +455,24 @@ public class InstanceForDescribeInstancesOutput {
     this.osType = osType;
   }
 
+  public InstanceForDescribeInstancesOutput projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public InstanceForDescribeInstancesOutput rdmaIpAddresses(List<String> rdmaIpAddresses) {
     this.rdmaIpAddresses = rdmaIpAddresses;
     return this;
@@ -614,6 +635,7 @@ public class InstanceForDescribeInstancesOutput {
         Objects.equals(this.networkInterfaces, instanceForDescribeInstancesOutput.networkInterfaces) &&
         Objects.equals(this.osName, instanceForDescribeInstancesOutput.osName) &&
         Objects.equals(this.osType, instanceForDescribeInstancesOutput.osType) &&
+        Objects.equals(this.projectName, instanceForDescribeInstancesOutput.projectName) &&
         Objects.equals(this.rdmaIpAddresses, instanceForDescribeInstancesOutput.rdmaIpAddresses) &&
         Objects.equals(this.status, instanceForDescribeInstancesOutput.status) &&
         Objects.equals(this.stoppedMode, instanceForDescribeInstancesOutput.stoppedMode) &&
@@ -625,7 +647,7 @@ public class InstanceForDescribeInstancesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cpus, createdAt, description, eipAddress, expiredAt, hostName, imageId, instanceChargeType, instanceId, instanceName, instanceTypeId, keyPairId, keyPairName, localVolumes, memorySize, networkInterfaces, osName, osType, rdmaIpAddresses, status, stoppedMode, updatedAt, uuid, vpcId, zoneId);
+    return Objects.hash(cpus, createdAt, description, eipAddress, expiredAt, hostName, imageId, instanceChargeType, instanceId, instanceName, instanceTypeId, keyPairId, keyPairName, localVolumes, memorySize, networkInterfaces, osName, osType, projectName, rdmaIpAddresses, status, stoppedMode, updatedAt, uuid, vpcId, zoneId);
   }
 
 
@@ -652,6 +674,7 @@ public class InstanceForDescribeInstancesOutput {
     sb.append("    networkInterfaces: ").append(toIndentedString(networkInterfaces)).append("\n");
     sb.append("    osName: ").append(toIndentedString(osName)).append("\n");
     sb.append("    osType: ").append(toIndentedString(osType)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    rdmaIpAddresses: ").append(toIndentedString(rdmaIpAddresses)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    stoppedMode: ").append(toIndentedString(stoppedMode)).append("\n");

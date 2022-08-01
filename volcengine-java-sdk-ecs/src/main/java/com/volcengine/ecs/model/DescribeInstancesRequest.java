@@ -29,7 +29,7 @@ import javax.validation.Valid;
  * DescribeInstancesRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:35.752778+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-08-01T17:18:25.441969+08:00[Asia/Shanghai]")
 public class DescribeInstancesRequest {
   @SerializedName("HpcClusterId")
   private String hpcClusterId = null;
@@ -63,6 +63,9 @@ public class DescribeInstancesRequest {
 
   @SerializedName("PrimaryIpAddress")
   private String primaryIpAddress = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
 
   @SerializedName("Status")
   private String status = null;
@@ -303,6 +306,24 @@ public class DescribeInstancesRequest {
     this.primaryIpAddress = primaryIpAddress;
   }
 
+  public DescribeInstancesRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public DescribeInstancesRequest status(String status) {
     this.status = status;
     return this;
@@ -378,6 +399,7 @@ public class DescribeInstancesRequest {
         Objects.equals(this.maxResults, describeInstancesRequest.maxResults) &&
         Objects.equals(this.nextToken, describeInstancesRequest.nextToken) &&
         Objects.equals(this.primaryIpAddress, describeInstancesRequest.primaryIpAddress) &&
+        Objects.equals(this.projectName, describeInstancesRequest.projectName) &&
         Objects.equals(this.status, describeInstancesRequest.status) &&
         Objects.equals(this.vpcId, describeInstancesRequest.vpcId) &&
         Objects.equals(this.zoneId, describeInstancesRequest.zoneId);
@@ -385,7 +407,7 @@ public class DescribeInstancesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hpcClusterId, instanceChargeType, instanceIds, instanceName, instanceTypeFamilies, instanceTypeIds, instanceTypes, keyPairName, maxResults, nextToken, primaryIpAddress, status, vpcId, zoneId);
+    return Objects.hash(hpcClusterId, instanceChargeType, instanceIds, instanceName, instanceTypeFamilies, instanceTypeIds, instanceTypes, keyPairName, maxResults, nextToken, primaryIpAddress, projectName, status, vpcId, zoneId);
   }
 
 
@@ -405,6 +427,7 @@ public class DescribeInstancesRequest {
     sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
     sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
     sb.append("    primaryIpAddress: ").append(toIndentedString(primaryIpAddress)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
