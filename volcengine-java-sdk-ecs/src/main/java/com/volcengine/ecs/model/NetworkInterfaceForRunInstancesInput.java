@@ -29,13 +29,34 @@ import javax.validation.Valid;
  * NetworkInterfaceForRunInstancesInput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:35.752778+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-08-01T17:18:25.441969+08:00[Asia/Shanghai]")
 public class NetworkInterfaceForRunInstancesInput {
+  @SerializedName("PrimaryIpAddress")
+  private String primaryIpAddress = null;
+
   @SerializedName("SecurityGroupIds")
   private List<String> securityGroupIds = null;
 
   @SerializedName("SubnetId")
   private String subnetId = null;
+
+  public NetworkInterfaceForRunInstancesInput primaryIpAddress(String primaryIpAddress) {
+    this.primaryIpAddress = primaryIpAddress;
+    return this;
+  }
+
+   /**
+   * Get primaryIpAddress
+   * @return primaryIpAddress
+  **/
+  @Schema(description = "")
+  public String getPrimaryIpAddress() {
+    return primaryIpAddress;
+  }
+
+  public void setPrimaryIpAddress(String primaryIpAddress) {
+    this.primaryIpAddress = primaryIpAddress;
+  }
 
   public NetworkInterfaceForRunInstancesInput securityGroupIds(List<String> securityGroupIds) {
     this.securityGroupIds = securityGroupIds;
@@ -91,13 +112,14 @@ public class NetworkInterfaceForRunInstancesInput {
       return false;
     }
     NetworkInterfaceForRunInstancesInput networkInterfaceForRunInstancesInput = (NetworkInterfaceForRunInstancesInput) o;
-    return Objects.equals(this.securityGroupIds, networkInterfaceForRunInstancesInput.securityGroupIds) &&
+    return Objects.equals(this.primaryIpAddress, networkInterfaceForRunInstancesInput.primaryIpAddress) &&
+        Objects.equals(this.securityGroupIds, networkInterfaceForRunInstancesInput.securityGroupIds) &&
         Objects.equals(this.subnetId, networkInterfaceForRunInstancesInput.subnetId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(securityGroupIds, subnetId);
+    return Objects.hash(primaryIpAddress, securityGroupIds, subnetId);
   }
 
 
@@ -106,6 +128,7 @@ public class NetworkInterfaceForRunInstancesInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class NetworkInterfaceForRunInstancesInput {\n");
     
+    sb.append("    primaryIpAddress: ").append(toIndentedString(primaryIpAddress)).append("\n");
     sb.append("    securityGroupIds: ").append(toIndentedString(securityGroupIds)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("}");
