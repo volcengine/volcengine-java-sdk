@@ -29,7 +29,7 @@ import javax.validation.Valid;
  * DescribeVolumesRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:50.925084+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-08-01T17:18:31.130773+08:00[Asia/Shanghai]")
 public class DescribeVolumesRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;
@@ -42,6 +42,9 @@ public class DescribeVolumesRequest {
 
   @SerializedName("PageSize")
   private Integer pageSize = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
 
   @SerializedName("VolumeIds")
   private List<String> volumeIds = null;
@@ -128,6 +131,24 @@ public class DescribeVolumesRequest {
 
   public void setPageSize(Integer pageSize) {
     this.pageSize = pageSize;
+  }
+
+  public DescribeVolumesRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
   }
 
   public DescribeVolumesRequest volumeIds(List<String> volumeIds) {
@@ -242,6 +263,7 @@ public class DescribeVolumesRequest {
         Objects.equals(this.kind, describeVolumesRequest.kind) &&
         Objects.equals(this.pageNumber, describeVolumesRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeVolumesRequest.pageSize) &&
+        Objects.equals(this.projectName, describeVolumesRequest.projectName) &&
         Objects.equals(this.volumeIds, describeVolumesRequest.volumeIds) &&
         Objects.equals(this.volumeName, describeVolumesRequest.volumeName) &&
         Objects.equals(this.volumeStatus, describeVolumesRequest.volumeStatus) &&
@@ -251,7 +273,7 @@ public class DescribeVolumesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, kind, pageNumber, pageSize, volumeIds, volumeName, volumeStatus, volumeType, zoneId);
+    return Objects.hash(instanceId, kind, pageNumber, pageSize, projectName, volumeIds, volumeName, volumeStatus, volumeType, zoneId);
   }
 
 
@@ -264,6 +286,7 @@ public class DescribeVolumesRequest {
     sb.append("    kind: ").append(toIndentedString(kind)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    volumeIds: ").append(toIndentedString(volumeIds)).append("\n");
     sb.append("    volumeName: ").append(toIndentedString(volumeName)).append("\n");
     sb.append("    volumeStatus: ").append(toIndentedString(volumeStatus)).append("\n");

@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * DeleteVolumeRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:50.925084+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-08-01T17:18:31.130773+08:00[Asia/Shanghai]")
 public class DeleteVolumeRequest {
   @SerializedName("VolumeId")
   private String volumeId = null;

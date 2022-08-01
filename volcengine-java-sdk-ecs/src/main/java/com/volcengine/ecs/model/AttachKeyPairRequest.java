@@ -29,7 +29,7 @@ import javax.validation.Valid;
  * AttachKeyPairRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:35.752778+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-08-01T17:18:25.441969+08:00[Asia/Shanghai]")
 public class AttachKeyPairRequest {
   @SerializedName("InstanceIds")
   private List<String> instanceIds = null;

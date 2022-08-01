@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * VolumeForDescribeVolumesOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:50.925084+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-08-01T17:18:31.130773+08:00[Asia/Shanghai]")
 public class VolumeForDescribeVolumesOutput {
   @SerializedName("BillingType")
   private Integer billingType = null;
@@ -58,6 +58,9 @@ public class VolumeForDescribeVolumesOutput {
 
   @SerializedName("PayType")
   private String payType = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
 
   @SerializedName("RenewType")
   private Integer renewType = null;
@@ -266,6 +269,24 @@ public class VolumeForDescribeVolumesOutput {
     this.payType = payType;
   }
 
+  public VolumeForDescribeVolumesOutput projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public VolumeForDescribeVolumesOutput renewType(Integer renewType) {
     this.renewType = renewType;
     return this;
@@ -448,6 +469,7 @@ public class VolumeForDescribeVolumesOutput {
         Objects.equals(this.instanceId, volumeForDescribeVolumesOutput.instanceId) &&
         Objects.equals(this.kind, volumeForDescribeVolumesOutput.kind) &&
         Objects.equals(this.payType, volumeForDescribeVolumesOutput.payType) &&
+        Objects.equals(this.projectName, volumeForDescribeVolumesOutput.projectName) &&
         Objects.equals(this.renewType, volumeForDescribeVolumesOutput.renewType) &&
         Objects.equals(this.size, volumeForDescribeVolumesOutput.size) &&
         Objects.equals(this.status, volumeForDescribeVolumesOutput.status) &&
@@ -461,7 +483,7 @@ public class VolumeForDescribeVolumesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(billingType, createdAt, deleteWithInstance, description, deviceName, expiredTime, imageId, instanceId, kind, payType, renewType, size, status, tradeStatus, updatedAt, volumeId, volumeName, volumeType, zoneId);
+    return Objects.hash(billingType, createdAt, deleteWithInstance, description, deviceName, expiredTime, imageId, instanceId, kind, payType, projectName, renewType, size, status, tradeStatus, updatedAt, volumeId, volumeName, volumeType, zoneId);
   }
 
 
@@ -480,6 +502,7 @@ public class VolumeForDescribeVolumesOutput {
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    kind: ").append(toIndentedString(kind)).append("\n");
     sb.append("    payType: ").append(toIndentedString(payType)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    renewType: ").append(toIndentedString(renewType)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
