@@ -19,47 +19,35 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.ecs.model.OperationDetailForAttachKeyPairOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * AttachKeyPairResponse
+ * DescribeInstanceECSTerminalUrlResponse
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-08-10T10:51:36.170610+08:00[Asia/Shanghai]")
-public class AttachKeyPairResponse {
-  @SerializedName("OperationDetails")
-  private List<OperationDetailForAttachKeyPairOutput> operationDetails = null;
+public class DescribeInstanceECSTerminalUrlResponse {
+  @SerializedName("EcsTerminalUrl")
+  private String ecsTerminalUrl = null;
 
-  public AttachKeyPairResponse operationDetails(List<OperationDetailForAttachKeyPairOutput> operationDetails) {
-    this.operationDetails = operationDetails;
-    return this;
-  }
-
-  public AttachKeyPairResponse addOperationDetailsItem(OperationDetailForAttachKeyPairOutput operationDetailsItem) {
-    if (this.operationDetails == null) {
-      this.operationDetails = new ArrayList<OperationDetailForAttachKeyPairOutput>();
-    }
-    this.operationDetails.add(operationDetailsItem);
+  public DescribeInstanceECSTerminalUrlResponse ecsTerminalUrl(String ecsTerminalUrl) {
+    this.ecsTerminalUrl = ecsTerminalUrl;
     return this;
   }
 
    /**
-   * Get operationDetails
-   * @return operationDetails
+   * Get ecsTerminalUrl
+   * @return ecsTerminalUrl
   **/
-  @Valid
   @Schema(description = "")
-  public List<OperationDetailForAttachKeyPairOutput> getOperationDetails() {
-    return operationDetails;
+  public String getEcsTerminalUrl() {
+    return ecsTerminalUrl;
   }
 
-  public void setOperationDetails(List<OperationDetailForAttachKeyPairOutput> operationDetails) {
-    this.operationDetails = operationDetails;
+  public void setEcsTerminalUrl(String ecsTerminalUrl) {
+    this.ecsTerminalUrl = ecsTerminalUrl;
   }
 
 
@@ -71,22 +59,22 @@ public class AttachKeyPairResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AttachKeyPairResponse attachKeyPairResponse = (AttachKeyPairResponse) o;
-    return Objects.equals(this.operationDetails, attachKeyPairResponse.operationDetails);
+    DescribeInstanceECSTerminalUrlResponse describeInstanceECSTerminalUrlResponse = (DescribeInstanceECSTerminalUrlResponse) o;
+    return Objects.equals(this.ecsTerminalUrl, describeInstanceECSTerminalUrlResponse.ecsTerminalUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(operationDetails);
+    return Objects.hash(ecsTerminalUrl);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AttachKeyPairResponse {\n");
+    sb.append("class DescribeInstanceECSTerminalUrlResponse {\n");
     
-    sb.append("    operationDetails: ").append(toIndentedString(operationDetails)).append("\n");
+    sb.append("    ecsTerminalUrl: ").append(toIndentedString(ecsTerminalUrl)).append("\n");
     sb.append("}");
     return sb.toString();
   }
