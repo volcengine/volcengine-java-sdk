@@ -35,7 +35,7 @@ import javax.validation.Valid;
  * InstanceTypeForDescribeInstanceTypesOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-08-10T10:51:36.170610+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-08-15T17:09:47.140014+08:00[Asia/Shanghai]")
 public class InstanceTypeForDescribeInstanceTypesOutput {
   @SerializedName("Gpu")
   private GpuForDescribeInstanceTypesOutput gpu = null;
