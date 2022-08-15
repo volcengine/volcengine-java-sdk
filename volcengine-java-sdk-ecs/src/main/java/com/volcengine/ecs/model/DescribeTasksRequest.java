@@ -21,42 +21,29 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DescribeImageSharePermissionRequest
+ * DescribeTasksRequest
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-08-15T17:09:47.140014+08:00[Asia/Shanghai]")
-public class DescribeImageSharePermissionRequest {
-  @SerializedName("ImageId")
-  private String imageId = null;
-
+public class DescribeTasksRequest {
   @SerializedName("MaxResults")
-  private Integer maxResults = null;
+  private String maxResults = null;
 
   @SerializedName("NextToken")
   private String nextToken = null;
 
-  public DescribeImageSharePermissionRequest imageId(String imageId) {
-    this.imageId = imageId;
-    return this;
-  }
+  @SerializedName("ResourceId")
+  private String resourceId = null;
 
-   /**
-   * Get imageId
-   * @return imageId
-  **/
-  @Schema(description = "")
-  public String getImageId() {
-    return imageId;
-  }
+  @SerializedName("TaskIds")
+  private List<String> taskIds = null;
 
-  public void setImageId(String imageId) {
-    this.imageId = imageId;
-  }
-
-  public DescribeImageSharePermissionRequest maxResults(Integer maxResults) {
+  public DescribeTasksRequest maxResults(String maxResults) {
     this.maxResults = maxResults;
     return this;
   }
@@ -66,15 +53,15 @@ public class DescribeImageSharePermissionRequest {
    * @return maxResults
   **/
   @Schema(description = "")
-  public Integer getMaxResults() {
+  public String getMaxResults() {
     return maxResults;
   }
 
-  public void setMaxResults(Integer maxResults) {
+  public void setMaxResults(String maxResults) {
     this.maxResults = maxResults;
   }
 
-  public DescribeImageSharePermissionRequest nextToken(String nextToken) {
+  public DescribeTasksRequest nextToken(String nextToken) {
     this.nextToken = nextToken;
     return this;
   }
@@ -92,6 +79,50 @@ public class DescribeImageSharePermissionRequest {
     this.nextToken = nextToken;
   }
 
+  public DescribeTasksRequest resourceId(String resourceId) {
+    this.resourceId = resourceId;
+    return this;
+  }
+
+   /**
+   * Get resourceId
+   * @return resourceId
+  **/
+  @Schema(description = "")
+  public String getResourceId() {
+    return resourceId;
+  }
+
+  public void setResourceId(String resourceId) {
+    this.resourceId = resourceId;
+  }
+
+  public DescribeTasksRequest taskIds(List<String> taskIds) {
+    this.taskIds = taskIds;
+    return this;
+  }
+
+  public DescribeTasksRequest addTaskIdsItem(String taskIdsItem) {
+    if (this.taskIds == null) {
+      this.taskIds = new ArrayList<String>();
+    }
+    this.taskIds.add(taskIdsItem);
+    return this;
+  }
+
+   /**
+   * Get taskIds
+   * @return taskIds
+  **/
+  @Schema(description = "")
+  public List<String> getTaskIds() {
+    return taskIds;
+  }
+
+  public void setTaskIds(List<String> taskIds) {
+    this.taskIds = taskIds;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -101,26 +132,28 @@ public class DescribeImageSharePermissionRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DescribeImageSharePermissionRequest describeImageSharePermissionRequest = (DescribeImageSharePermissionRequest) o;
-    return Objects.equals(this.imageId, describeImageSharePermissionRequest.imageId) &&
-        Objects.equals(this.maxResults, describeImageSharePermissionRequest.maxResults) &&
-        Objects.equals(this.nextToken, describeImageSharePermissionRequest.nextToken);
+    DescribeTasksRequest describeTasksRequest = (DescribeTasksRequest) o;
+    return Objects.equals(this.maxResults, describeTasksRequest.maxResults) &&
+        Objects.equals(this.nextToken, describeTasksRequest.nextToken) &&
+        Objects.equals(this.resourceId, describeTasksRequest.resourceId) &&
+        Objects.equals(this.taskIds, describeTasksRequest.taskIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(imageId, maxResults, nextToken);
+    return Objects.hash(maxResults, nextToken, resourceId, taskIds);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DescribeImageSharePermissionRequest {\n");
+    sb.append("class DescribeTasksRequest {\n");
     
-    sb.append("    imageId: ").append(toIndentedString(imageId)).append("\n");
     sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
     sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
+    sb.append("    resourceId: ").append(toIndentedString(resourceId)).append("\n");
+    sb.append("    taskIds: ").append(toIndentedString(taskIds)).append("\n");
     sb.append("}");
     return sb.toString();
   }
