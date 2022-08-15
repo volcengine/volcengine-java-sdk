@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.ecs.model.OperationDetailForDisassociateInstancesIamRoleOutput;
+import com.volcengine.ecs.model.TaskForDescribeTasksOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -27,39 +27,60 @@ import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DisassociateInstancesIamRoleResponse
+ * DescribeTasksResponse
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-08-15T17:09:47.140014+08:00[Asia/Shanghai]")
-public class DisassociateInstancesIamRoleResponse {
-  @SerializedName("OperationDetails")
-  private List<OperationDetailForDisassociateInstancesIamRoleOutput> operationDetails = null;
+public class DescribeTasksResponse {
+  @SerializedName("NextToken")
+  private String nextToken = null;
 
-  public DisassociateInstancesIamRoleResponse operationDetails(List<OperationDetailForDisassociateInstancesIamRoleOutput> operationDetails) {
-    this.operationDetails = operationDetails;
-    return this;
-  }
+  @SerializedName("Tasks")
+  private List<TaskForDescribeTasksOutput> tasks = null;
 
-  public DisassociateInstancesIamRoleResponse addOperationDetailsItem(OperationDetailForDisassociateInstancesIamRoleOutput operationDetailsItem) {
-    if (this.operationDetails == null) {
-      this.operationDetails = new ArrayList<OperationDetailForDisassociateInstancesIamRoleOutput>();
-    }
-    this.operationDetails.add(operationDetailsItem);
+  public DescribeTasksResponse nextToken(String nextToken) {
+    this.nextToken = nextToken;
     return this;
   }
 
    /**
-   * Get operationDetails
-   * @return operationDetails
+   * Get nextToken
+   * @return nextToken
+  **/
+  @Schema(description = "")
+  public String getNextToken() {
+    return nextToken;
+  }
+
+  public void setNextToken(String nextToken) {
+    this.nextToken = nextToken;
+  }
+
+  public DescribeTasksResponse tasks(List<TaskForDescribeTasksOutput> tasks) {
+    this.tasks = tasks;
+    return this;
+  }
+
+  public DescribeTasksResponse addTasksItem(TaskForDescribeTasksOutput tasksItem) {
+    if (this.tasks == null) {
+      this.tasks = new ArrayList<TaskForDescribeTasksOutput>();
+    }
+    this.tasks.add(tasksItem);
+    return this;
+  }
+
+   /**
+   * Get tasks
+   * @return tasks
   **/
   @Valid
   @Schema(description = "")
-  public List<OperationDetailForDisassociateInstancesIamRoleOutput> getOperationDetails() {
-    return operationDetails;
+  public List<TaskForDescribeTasksOutput> getTasks() {
+    return tasks;
   }
 
-  public void setOperationDetails(List<OperationDetailForDisassociateInstancesIamRoleOutput> operationDetails) {
-    this.operationDetails = operationDetails;
+  public void setTasks(List<TaskForDescribeTasksOutput> tasks) {
+    this.tasks = tasks;
   }
 
 
@@ -71,22 +92,24 @@ public class DisassociateInstancesIamRoleResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DisassociateInstancesIamRoleResponse disassociateInstancesIamRoleResponse = (DisassociateInstancesIamRoleResponse) o;
-    return Objects.equals(this.operationDetails, disassociateInstancesIamRoleResponse.operationDetails);
+    DescribeTasksResponse describeTasksResponse = (DescribeTasksResponse) o;
+    return Objects.equals(this.nextToken, describeTasksResponse.nextToken) &&
+        Objects.equals(this.tasks, describeTasksResponse.tasks);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(operationDetails);
+    return Objects.hash(nextToken, tasks);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DisassociateInstancesIamRoleResponse {\n");
+    sb.append("class DescribeTasksResponse {\n");
     
-    sb.append("    operationDetails: ").append(toIndentedString(operationDetails)).append("\n");
+    sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
+    sb.append("    tasks: ").append(toIndentedString(tasks)).append("\n");
     sb.append("}");
     return sb.toString();
   }
