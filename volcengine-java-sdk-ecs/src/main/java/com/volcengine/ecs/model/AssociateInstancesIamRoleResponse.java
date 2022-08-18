@@ -19,58 +19,47 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.ecs.model.ErrorForStartInstancesOutput;
+import com.volcengine.ecs.model.OperationDetailForAssociateInstancesIamRoleOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * OperationDetailForStartInstancesOutput
+ * AssociateInstancesIamRoleResponse
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-08-18T12:02:03.744330+08:00[Asia/Shanghai]")
-public class OperationDetailForStartInstancesOutput {
-  @SerializedName("Error")
-  private ErrorForStartInstancesOutput error = null;
+public class AssociateInstancesIamRoleResponse {
+  @SerializedName("OperationDetails")
+  private List<OperationDetailForAssociateInstancesIamRoleOutput> operationDetails = null;
 
-  @SerializedName("InstanceId")
-  private String instanceId = null;
+  public AssociateInstancesIamRoleResponse operationDetails(List<OperationDetailForAssociateInstancesIamRoleOutput> operationDetails) {
+    this.operationDetails = operationDetails;
+    return this;
+  }
 
-  public OperationDetailForStartInstancesOutput error(ErrorForStartInstancesOutput error) {
-    this.error = error;
+  public AssociateInstancesIamRoleResponse addOperationDetailsItem(OperationDetailForAssociateInstancesIamRoleOutput operationDetailsItem) {
+    if (this.operationDetails == null) {
+      this.operationDetails = new ArrayList<OperationDetailForAssociateInstancesIamRoleOutput>();
+    }
+    this.operationDetails.add(operationDetailsItem);
     return this;
   }
 
    /**
-   * Get error
-   * @return error
+   * Get operationDetails
+   * @return operationDetails
   **/
   @Valid
   @Schema(description = "")
-  public ErrorForStartInstancesOutput getError() {
-    return error;
+  public List<OperationDetailForAssociateInstancesIamRoleOutput> getOperationDetails() {
+    return operationDetails;
   }
 
-  public void setError(ErrorForStartInstancesOutput error) {
-    this.error = error;
-  }
-
-  public OperationDetailForStartInstancesOutput instanceId(String instanceId) {
-    this.instanceId = instanceId;
-    return this;
-  }
-
-   /**
-   * Get instanceId
-   * @return instanceId
-  **/
-  @Schema(description = "")
-  public String getInstanceId() {
-    return instanceId;
-  }
-
-  public void setInstanceId(String instanceId) {
-    this.instanceId = instanceId;
+  public void setOperationDetails(List<OperationDetailForAssociateInstancesIamRoleOutput> operationDetails) {
+    this.operationDetails = operationDetails;
   }
 
 
@@ -82,24 +71,22 @@ public class OperationDetailForStartInstancesOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    OperationDetailForStartInstancesOutput operationDetailForStartInstancesOutput = (OperationDetailForStartInstancesOutput) o;
-    return Objects.equals(this.error, operationDetailForStartInstancesOutput.error) &&
-        Objects.equals(this.instanceId, operationDetailForStartInstancesOutput.instanceId);
+    AssociateInstancesIamRoleResponse associateInstancesIamRoleResponse = (AssociateInstancesIamRoleResponse) o;
+    return Objects.equals(this.operationDetails, associateInstancesIamRoleResponse.operationDetails);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(error, instanceId);
+    return Objects.hash(operationDetails);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class OperationDetailForStartInstancesOutput {\n");
+    sb.append("class AssociateInstancesIamRoleResponse {\n");
     
-    sb.append("    error: ").append(toIndentedString(error)).append("\n");
-    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    operationDetails: ").append(toIndentedString(operationDetails)).append("\n");
     sb.append("}");
     return sb.toString();
   }
