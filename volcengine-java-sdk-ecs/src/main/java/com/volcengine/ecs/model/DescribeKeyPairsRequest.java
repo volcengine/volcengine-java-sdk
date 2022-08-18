@@ -29,7 +29,7 @@ import javax.validation.Valid;
  * DescribeKeyPairsRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-08-15T17:09:47.140014+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-08-18T12:02:03.744330+08:00[Asia/Shanghai]")
 public class DescribeKeyPairsRequest {
   @SerializedName("FingerPrint")
   private String fingerPrint = null;

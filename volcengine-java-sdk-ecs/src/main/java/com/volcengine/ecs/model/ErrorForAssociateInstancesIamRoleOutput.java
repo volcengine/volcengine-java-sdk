@@ -19,58 +19,56 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.ecs.model.ErrorForStartInstancesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * OperationDetailForStartInstancesOutput
+ * ErrorForAssociateInstancesIamRoleOutput
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-08-18T12:02:03.744330+08:00[Asia/Shanghai]")
-public class OperationDetailForStartInstancesOutput {
-  @SerializedName("Error")
-  private ErrorForStartInstancesOutput error = null;
+public class ErrorForAssociateInstancesIamRoleOutput {
+  @SerializedName("Code")
+  private String code = null;
 
-  @SerializedName("InstanceId")
-  private String instanceId = null;
+  @SerializedName("Message")
+  private String message = null;
 
-  public OperationDetailForStartInstancesOutput error(ErrorForStartInstancesOutput error) {
-    this.error = error;
+  public ErrorForAssociateInstancesIamRoleOutput code(String code) {
+    this.code = code;
     return this;
   }
 
    /**
-   * Get error
-   * @return error
+   * Get code
+   * @return code
   **/
-  @Valid
   @Schema(description = "")
-  public ErrorForStartInstancesOutput getError() {
-    return error;
+  public String getCode() {
+    return code;
   }
 
-  public void setError(ErrorForStartInstancesOutput error) {
-    this.error = error;
+  public void setCode(String code) {
+    this.code = code;
   }
 
-  public OperationDetailForStartInstancesOutput instanceId(String instanceId) {
-    this.instanceId = instanceId;
+  public ErrorForAssociateInstancesIamRoleOutput message(String message) {
+    this.message = message;
     return this;
   }
 
    /**
-   * Get instanceId
-   * @return instanceId
+   * Get message
+   * @return message
   **/
   @Schema(description = "")
-  public String getInstanceId() {
-    return instanceId;
+  public String getMessage() {
+    return message;
   }
 
-  public void setInstanceId(String instanceId) {
-    this.instanceId = instanceId;
+  public void setMessage(String message) {
+    this.message = message;
   }
 
 
@@ -82,24 +80,24 @@ public class OperationDetailForStartInstancesOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    OperationDetailForStartInstancesOutput operationDetailForStartInstancesOutput = (OperationDetailForStartInstancesOutput) o;
-    return Objects.equals(this.error, operationDetailForStartInstancesOutput.error) &&
-        Objects.equals(this.instanceId, operationDetailForStartInstancesOutput.instanceId);
+    ErrorForAssociateInstancesIamRoleOutput errorForAssociateInstancesIamRoleOutput = (ErrorForAssociateInstancesIamRoleOutput) o;
+    return Objects.equals(this.code, errorForAssociateInstancesIamRoleOutput.code) &&
+        Objects.equals(this.message, errorForAssociateInstancesIamRoleOutput.message);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(error, instanceId);
+    return Objects.hash(code, message);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class OperationDetailForStartInstancesOutput {\n");
+    sb.append("class ErrorForAssociateInstancesIamRoleOutput {\n");
     
-    sb.append("    error: ").append(toIndentedString(error)).append("\n");
-    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("}");
     return sb.toString();
   }
