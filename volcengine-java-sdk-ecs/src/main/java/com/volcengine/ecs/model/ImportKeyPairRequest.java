@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * ImportKeyPairRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-08-10T10:51:36.170610+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-08-18T12:02:03.744330+08:00[Asia/Shanghai]")
 public class ImportKeyPairRequest {
   @SerializedName("Description")
   private String description = null;

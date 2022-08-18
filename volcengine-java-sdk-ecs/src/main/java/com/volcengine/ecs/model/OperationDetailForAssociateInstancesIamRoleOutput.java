@@ -19,24 +19,24 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.ecs.model.ErrorForStartInstancesOutput;
+import com.volcengine.ecs.model.ErrorForAssociateInstancesIamRoleOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * OperationDetailForStartInstancesOutput
+ * OperationDetailForAssociateInstancesIamRoleOutput
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-08-18T12:02:03.744330+08:00[Asia/Shanghai]")
-public class OperationDetailForStartInstancesOutput {
+public class OperationDetailForAssociateInstancesIamRoleOutput {
   @SerializedName("Error")
-  private ErrorForStartInstancesOutput error = null;
+  private ErrorForAssociateInstancesIamRoleOutput error = null;
 
   @SerializedName("InstanceId")
   private String instanceId = null;
 
-  public OperationDetailForStartInstancesOutput error(ErrorForStartInstancesOutput error) {
+  public OperationDetailForAssociateInstancesIamRoleOutput error(ErrorForAssociateInstancesIamRoleOutput error) {
     this.error = error;
     return this;
   }
@@ -47,15 +47,15 @@ public class OperationDetailForStartInstancesOutput {
   **/
   @Valid
   @Schema(description = "")
-  public ErrorForStartInstancesOutput getError() {
+  public ErrorForAssociateInstancesIamRoleOutput getError() {
     return error;
   }
 
-  public void setError(ErrorForStartInstancesOutput error) {
+  public void setError(ErrorForAssociateInstancesIamRoleOutput error) {
     this.error = error;
   }
 
-  public OperationDetailForStartInstancesOutput instanceId(String instanceId) {
+  public OperationDetailForAssociateInstancesIamRoleOutput instanceId(String instanceId) {
     this.instanceId = instanceId;
     return this;
   }
@@ -82,9 +82,9 @@ public class OperationDetailForStartInstancesOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    OperationDetailForStartInstancesOutput operationDetailForStartInstancesOutput = (OperationDetailForStartInstancesOutput) o;
-    return Objects.equals(this.error, operationDetailForStartInstancesOutput.error) &&
-        Objects.equals(this.instanceId, operationDetailForStartInstancesOutput.instanceId);
+    OperationDetailForAssociateInstancesIamRoleOutput operationDetailForAssociateInstancesIamRoleOutput = (OperationDetailForAssociateInstancesIamRoleOutput) o;
+    return Objects.equals(this.error, operationDetailForAssociateInstancesIamRoleOutput.error) &&
+        Objects.equals(this.instanceId, operationDetailForAssociateInstancesIamRoleOutput.instanceId);
   }
 
   @Override
@@ -96,7 +96,7 @@ public class OperationDetailForStartInstancesOutput {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class OperationDetailForStartInstancesOutput {\n");
+    sb.append("class OperationDetailForAssociateInstancesIamRoleOutput {\n");
     
     sb.append("    error: ").append(toIndentedString(error)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");

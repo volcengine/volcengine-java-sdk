@@ -19,7 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.ecs.model.ImageForDescribeImagesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -27,48 +26,42 @@ import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DescribeImagesResponse
+ * DescribeTasksRequest
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-08-18T12:02:03.744330+08:00[Asia/Shanghai]")
-public class DescribeImagesResponse {
-  @SerializedName("Images")
-  private List<ImageForDescribeImagesOutput> images = null;
+public class DescribeTasksRequest {
+  @SerializedName("MaxResults")
+  private String maxResults = null;
 
   @SerializedName("NextToken")
   private String nextToken = null;
 
-  @SerializedName("TotalCount")
-  private Integer totalCount = null;
+  @SerializedName("ResourceId")
+  private String resourceId = null;
 
-  public DescribeImagesResponse images(List<ImageForDescribeImagesOutput> images) {
-    this.images = images;
-    return this;
-  }
+  @SerializedName("TaskIds")
+  private List<String> taskIds = null;
 
-  public DescribeImagesResponse addImagesItem(ImageForDescribeImagesOutput imagesItem) {
-    if (this.images == null) {
-      this.images = new ArrayList<ImageForDescribeImagesOutput>();
-    }
-    this.images.add(imagesItem);
+  public DescribeTasksRequest maxResults(String maxResults) {
+    this.maxResults = maxResults;
     return this;
   }
 
    /**
-   * Get images
-   * @return images
+   * Get maxResults
+   * @return maxResults
   **/
-  @Valid
   @Schema(description = "")
-  public List<ImageForDescribeImagesOutput> getImages() {
-    return images;
+  public String getMaxResults() {
+    return maxResults;
   }
 
-  public void setImages(List<ImageForDescribeImagesOutput> images) {
-    this.images = images;
+  public void setMaxResults(String maxResults) {
+    this.maxResults = maxResults;
   }
 
-  public DescribeImagesResponse nextToken(String nextToken) {
+  public DescribeTasksRequest nextToken(String nextToken) {
     this.nextToken = nextToken;
     return this;
   }
@@ -86,22 +79,48 @@ public class DescribeImagesResponse {
     this.nextToken = nextToken;
   }
 
-  public DescribeImagesResponse totalCount(Integer totalCount) {
-    this.totalCount = totalCount;
+  public DescribeTasksRequest resourceId(String resourceId) {
+    this.resourceId = resourceId;
     return this;
   }
 
    /**
-   * Get totalCount
-   * @return totalCount
+   * Get resourceId
+   * @return resourceId
   **/
   @Schema(description = "")
-  public Integer getTotalCount() {
-    return totalCount;
+  public String getResourceId() {
+    return resourceId;
   }
 
-  public void setTotalCount(Integer totalCount) {
-    this.totalCount = totalCount;
+  public void setResourceId(String resourceId) {
+    this.resourceId = resourceId;
+  }
+
+  public DescribeTasksRequest taskIds(List<String> taskIds) {
+    this.taskIds = taskIds;
+    return this;
+  }
+
+  public DescribeTasksRequest addTaskIdsItem(String taskIdsItem) {
+    if (this.taskIds == null) {
+      this.taskIds = new ArrayList<String>();
+    }
+    this.taskIds.add(taskIdsItem);
+    return this;
+  }
+
+   /**
+   * Get taskIds
+   * @return taskIds
+  **/
+  @Schema(description = "")
+  public List<String> getTaskIds() {
+    return taskIds;
+  }
+
+  public void setTaskIds(List<String> taskIds) {
+    this.taskIds = taskIds;
   }
 
 
@@ -113,26 +132,28 @@ public class DescribeImagesResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DescribeImagesResponse describeImagesResponse = (DescribeImagesResponse) o;
-    return Objects.equals(this.images, describeImagesResponse.images) &&
-        Objects.equals(this.nextToken, describeImagesResponse.nextToken) &&
-        Objects.equals(this.totalCount, describeImagesResponse.totalCount);
+    DescribeTasksRequest describeTasksRequest = (DescribeTasksRequest) o;
+    return Objects.equals(this.maxResults, describeTasksRequest.maxResults) &&
+        Objects.equals(this.nextToken, describeTasksRequest.nextToken) &&
+        Objects.equals(this.resourceId, describeTasksRequest.resourceId) &&
+        Objects.equals(this.taskIds, describeTasksRequest.taskIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(images, nextToken, totalCount);
+    return Objects.hash(maxResults, nextToken, resourceId, taskIds);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DescribeImagesResponse {\n");
+    sb.append("class DescribeTasksRequest {\n");
     
-    sb.append("    images: ").append(toIndentedString(images)).append("\n");
+    sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
     sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
-    sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
+    sb.append("    resourceId: ").append(toIndentedString(resourceId)).append("\n");
+    sb.append("    taskIds: ").append(toIndentedString(taskIds)).append("\n");
     sb.append("}");
     return sb.toString();
   }
