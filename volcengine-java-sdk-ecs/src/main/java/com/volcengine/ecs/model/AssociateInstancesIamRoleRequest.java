@@ -26,18 +26,18 @@ import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DisassociateInstancesIamRoleRequest
+ * AssociateInstancesIamRoleRequest
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-08-18T12:02:03.744330+08:00[Asia/Shanghai]")
-public class DisassociateInstancesIamRoleRequest {
+public class AssociateInstancesIamRoleRequest {
   @SerializedName("IamRoleName")
   private String iamRoleName = null;
 
   @SerializedName("InstanceIds")
   private List<String> instanceIds = null;
 
-  public DisassociateInstancesIamRoleRequest iamRoleName(String iamRoleName) {
+  public AssociateInstancesIamRoleRequest iamRoleName(String iamRoleName) {
     this.iamRoleName = iamRoleName;
     return this;
   }
@@ -55,12 +55,12 @@ public class DisassociateInstancesIamRoleRequest {
     this.iamRoleName = iamRoleName;
   }
 
-  public DisassociateInstancesIamRoleRequest instanceIds(List<String> instanceIds) {
+  public AssociateInstancesIamRoleRequest instanceIds(List<String> instanceIds) {
     this.instanceIds = instanceIds;
     return this;
   }
 
-  public DisassociateInstancesIamRoleRequest addInstanceIdsItem(String instanceIdsItem) {
+  public AssociateInstancesIamRoleRequest addInstanceIdsItem(String instanceIdsItem) {
     if (this.instanceIds == null) {
       this.instanceIds = new ArrayList<String>();
     }
@@ -90,9 +90,9 @@ public class DisassociateInstancesIamRoleRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DisassociateInstancesIamRoleRequest disassociateInstancesIamRoleRequest = (DisassociateInstancesIamRoleRequest) o;
-    return Objects.equals(this.iamRoleName, disassociateInstancesIamRoleRequest.iamRoleName) &&
-        Objects.equals(this.instanceIds, disassociateInstancesIamRoleRequest.instanceIds);
+    AssociateInstancesIamRoleRequest associateInstancesIamRoleRequest = (AssociateInstancesIamRoleRequest) o;
+    return Objects.equals(this.iamRoleName, associateInstancesIamRoleRequest.iamRoleName) &&
+        Objects.equals(this.instanceIds, associateInstancesIamRoleRequest.instanceIds);
   }
 
   @Override
@@ -104,7 +104,7 @@ public class DisassociateInstancesIamRoleRequest {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DisassociateInstancesIamRoleRequest {\n");
+    sb.append("class AssociateInstancesIamRoleRequest {\n");
     
     sb.append("    iamRoleName: ").append(toIndentedString(iamRoleName)).append("\n");
     sb.append("    instanceIds: ").append(toIndentedString(instanceIds)).append("\n");
