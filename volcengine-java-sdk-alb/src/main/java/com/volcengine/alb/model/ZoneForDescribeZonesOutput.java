@@ -24,30 +24,30 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DisableAccessLogResponse
+ * ZoneForDescribeZonesOutput
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-08-26T18:47:55.368678+08:00[Asia/Shanghai]")
-public class DisableAccessLogResponse {
-  @SerializedName("RequestId")
-  private String requestId = null;
+public class ZoneForDescribeZonesOutput {
+  @SerializedName("ZoneId")
+  private String zoneId = null;
 
-  public DisableAccessLogResponse requestId(String requestId) {
-    this.requestId = requestId;
+  public ZoneForDescribeZonesOutput zoneId(String zoneId) {
+    this.zoneId = zoneId;
     return this;
   }
 
    /**
-   * Get requestId
-   * @return requestId
+   * Get zoneId
+   * @return zoneId
   **/
   @Schema(description = "")
-  public String getRequestId() {
-    return requestId;
+  public String getZoneId() {
+    return zoneId;
   }
 
-  public void setRequestId(String requestId) {
-    this.requestId = requestId;
+  public void setZoneId(String zoneId) {
+    this.zoneId = zoneId;
   }
 
 
@@ -59,22 +59,22 @@ public class DisableAccessLogResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DisableAccessLogResponse disableAccessLogResponse = (DisableAccessLogResponse) o;
-    return Objects.equals(this.requestId, disableAccessLogResponse.requestId);
+    ZoneForDescribeZonesOutput zoneForDescribeZonesOutput = (ZoneForDescribeZonesOutput) o;
+    return Objects.equals(this.zoneId, zoneForDescribeZonesOutput.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestId);
+    return Objects.hash(zoneId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DisableAccessLogResponse {\n");
+    sb.append("class ZoneForDescribeZonesOutput {\n");
     
-    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
+    sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

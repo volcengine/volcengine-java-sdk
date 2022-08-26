@@ -19,20 +19,26 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.alb.model.ZoneForDescribeZonesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DisableAccessLogResponse
+ * DescribeZonesResponse
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-08-26T18:47:55.368678+08:00[Asia/Shanghai]")
-public class DisableAccessLogResponse {
+public class DescribeZonesResponse {
   @SerializedName("RequestId")
   private String requestId = null;
 
-  public DisableAccessLogResponse requestId(String requestId) {
+  @SerializedName("Zones")
+  private List<ZoneForDescribeZonesOutput> zones = null;
+
+  public DescribeZonesResponse requestId(String requestId) {
     this.requestId = requestId;
     return this;
   }
@@ -50,6 +56,33 @@ public class DisableAccessLogResponse {
     this.requestId = requestId;
   }
 
+  public DescribeZonesResponse zones(List<ZoneForDescribeZonesOutput> zones) {
+    this.zones = zones;
+    return this;
+  }
+
+  public DescribeZonesResponse addZonesItem(ZoneForDescribeZonesOutput zonesItem) {
+    if (this.zones == null) {
+      this.zones = new ArrayList<ZoneForDescribeZonesOutput>();
+    }
+    this.zones.add(zonesItem);
+    return this;
+  }
+
+   /**
+   * Get zones
+   * @return zones
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<ZoneForDescribeZonesOutput> getZones() {
+    return zones;
+  }
+
+  public void setZones(List<ZoneForDescribeZonesOutput> zones) {
+    this.zones = zones;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -59,22 +92,24 @@ public class DisableAccessLogResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DisableAccessLogResponse disableAccessLogResponse = (DisableAccessLogResponse) o;
-    return Objects.equals(this.requestId, disableAccessLogResponse.requestId);
+    DescribeZonesResponse describeZonesResponse = (DescribeZonesResponse) o;
+    return Objects.equals(this.requestId, describeZonesResponse.requestId) &&
+        Objects.equals(this.zones, describeZonesResponse.zones);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestId);
+    return Objects.hash(requestId, zones);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DisableAccessLogResponse {\n");
+    sb.append("class DescribeZonesResponse {\n");
     
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
+    sb.append("    zones: ").append(toIndentedString(zones)).append("\n");
     sb.append("}");
     return sb.toString();
   }
