@@ -14,42 +14,14 @@ package com.volcengine.alb.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.v3.oas.annotations.media.Schema;
-import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DisableAccessLogResponse
+ * DescribeZonesRequest
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-08-26T18:47:55.368678+08:00[Asia/Shanghai]")
-public class DisableAccessLogResponse {
-  @SerializedName("RequestId")
-  private String requestId = null;
-
-  public DisableAccessLogResponse requestId(String requestId) {
-    this.requestId = requestId;
-    return this;
-  }
-
-   /**
-   * Get requestId
-   * @return requestId
-  **/
-  @Schema(description = "")
-  public String getRequestId() {
-    return requestId;
-  }
-
-  public void setRequestId(String requestId) {
-    this.requestId = requestId;
-  }
-
+public class DescribeZonesRequest {
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -59,22 +31,20 @@ public class DisableAccessLogResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DisableAccessLogResponse disableAccessLogResponse = (DisableAccessLogResponse) o;
-    return Objects.equals(this.requestId, disableAccessLogResponse.requestId);
+    return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestId);
+    return Objects.hash();
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DisableAccessLogResponse {\n");
+    sb.append("class DescribeZonesRequest {\n");
     
-    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -27,13 +27,16 @@ import javax.validation.Valid;
  * LoadBalancerForDescribeLoadBalancersOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-18T11:53:48.716788+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-08-26T18:47:55.368678+08:00[Asia/Shanghai]")
 public class LoadBalancerForDescribeLoadBalancersOutput {
   @SerializedName("BusinessStatus")
   private String businessStatus = null;
 
   @SerializedName("CreateTime")
   private String createTime = null;
+
+  @SerializedName("DNSName")
+  private String dnSName = null;
 
   @SerializedName("DeletedTime")
   private String deletedTime = null;
@@ -120,6 +123,24 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
 
   public void setCreateTime(String createTime) {
     this.createTime = createTime;
+  }
+
+  public LoadBalancerForDescribeLoadBalancersOutput dnSName(String dnSName) {
+    this.dnSName = dnSName;
+    return this;
+  }
+
+   /**
+   * Get dnSName
+   * @return dnSName
+  **/
+  @Schema(description = "")
+  public String getDnSName() {
+    return dnSName;
+  }
+
+  public void setDnSName(String dnSName) {
+    this.dnSName = dnSName;
   }
 
   public LoadBalancerForDescribeLoadBalancersOutput deletedTime(String deletedTime) {
@@ -440,6 +461,7 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
     LoadBalancerForDescribeLoadBalancersOutput loadBalancerForDescribeLoadBalancersOutput = (LoadBalancerForDescribeLoadBalancersOutput) o;
     return Objects.equals(this.businessStatus, loadBalancerForDescribeLoadBalancersOutput.businessStatus) &&
         Objects.equals(this.createTime, loadBalancerForDescribeLoadBalancersOutput.createTime) &&
+        Objects.equals(this.dnSName, loadBalancerForDescribeLoadBalancersOutput.dnSName) &&
         Objects.equals(this.deletedTime, loadBalancerForDescribeLoadBalancersOutput.deletedTime) &&
         Objects.equals(this.description, loadBalancerForDescribeLoadBalancersOutput.description) &&
         Objects.equals(this.eipAddress, loadBalancerForDescribeLoadBalancersOutput.eipAddress) &&
@@ -461,7 +483,7 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(businessStatus, createTime, deletedTime, description, eipAddress, eipId, eniAddress, eniId, loadBalancerBillingType, loadBalancerId, loadBalancerName, loadBalancerSpec, lockReason, overdueTime, status, subnetId, type, updateTime, vpcId);
+    return Objects.hash(businessStatus, createTime, dnSName, deletedTime, description, eipAddress, eipId, eniAddress, eniId, loadBalancerBillingType, loadBalancerId, loadBalancerName, loadBalancerSpec, lockReason, overdueTime, status, subnetId, type, updateTime, vpcId);
   }
 
 
@@ -472,6 +494,7 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
     
     sb.append("    businessStatus: ").append(toIndentedString(businessStatus)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
+    sb.append("    dnSName: ").append(toIndentedString(dnSName)).append("\n");
     sb.append("    deletedTime: ").append(toIndentedString(deletedTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    eipAddress: ").append(toIndentedString(eipAddress)).append("\n");

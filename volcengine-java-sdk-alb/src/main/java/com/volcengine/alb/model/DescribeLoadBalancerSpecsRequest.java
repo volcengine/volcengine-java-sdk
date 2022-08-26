@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * DescribeLoadBalancerSpecsRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-18T11:53:48.716788+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-08-26T18:47:55.368678+08:00[Asia/Shanghai]")
 public class DescribeLoadBalancerSpecsRequest {
   @SerializedName("EnglishSpec")
   private String englishSpec = null;

@@ -24,30 +24,51 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DisableAccessLogResponse
+ * ZoneMappingForCreateLoadBalancerInput
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-08-26T18:47:55.368678+08:00[Asia/Shanghai]")
-public class DisableAccessLogResponse {
-  @SerializedName("RequestId")
-  private String requestId = null;
+public class ZoneMappingForCreateLoadBalancerInput {
+  @SerializedName("SubnetId")
+  private String subnetId = null;
 
-  public DisableAccessLogResponse requestId(String requestId) {
-    this.requestId = requestId;
+  @SerializedName("ZoneId")
+  private String zoneId = null;
+
+  public ZoneMappingForCreateLoadBalancerInput subnetId(String subnetId) {
+    this.subnetId = subnetId;
     return this;
   }
 
    /**
-   * Get requestId
-   * @return requestId
+   * Get subnetId
+   * @return subnetId
   **/
   @Schema(description = "")
-  public String getRequestId() {
-    return requestId;
+  public String getSubnetId() {
+    return subnetId;
   }
 
-  public void setRequestId(String requestId) {
-    this.requestId = requestId;
+  public void setSubnetId(String subnetId) {
+    this.subnetId = subnetId;
+  }
+
+  public ZoneMappingForCreateLoadBalancerInput zoneId(String zoneId) {
+    this.zoneId = zoneId;
+    return this;
+  }
+
+   /**
+   * Get zoneId
+   * @return zoneId
+  **/
+  @Schema(description = "")
+  public String getZoneId() {
+    return zoneId;
+  }
+
+  public void setZoneId(String zoneId) {
+    this.zoneId = zoneId;
   }
 
 
@@ -59,22 +80,24 @@ public class DisableAccessLogResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DisableAccessLogResponse disableAccessLogResponse = (DisableAccessLogResponse) o;
-    return Objects.equals(this.requestId, disableAccessLogResponse.requestId);
+    ZoneMappingForCreateLoadBalancerInput zoneMappingForCreateLoadBalancerInput = (ZoneMappingForCreateLoadBalancerInput) o;
+    return Objects.equals(this.subnetId, zoneMappingForCreateLoadBalancerInput.subnetId) &&
+        Objects.equals(this.zoneId, zoneMappingForCreateLoadBalancerInput.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestId);
+    return Objects.hash(subnetId, zoneId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DisableAccessLogResponse {\n");
+    sb.append("class ZoneMappingForCreateLoadBalancerInput {\n");
     
-    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
+    sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
+    sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
