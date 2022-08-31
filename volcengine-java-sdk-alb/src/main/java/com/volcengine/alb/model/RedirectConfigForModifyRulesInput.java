@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * RedirectConfigForModifyRulesInput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-08-31T15:08:51.023818+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-08-31T15:50:05.609740+08:00[Asia/Shanghai]")
 public class RedirectConfigForModifyRulesInput {
   @SerializedName("RedirectDomain")
   private String redirectDomain = null;
