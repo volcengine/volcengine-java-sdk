@@ -19,19 +19,19 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.alb.model.EipForDescribeLoadBalancerAttributesOutput;
+import com.volcengine.alb.model.EipForDescribeLoadBalancersOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * LoadBalancerAddressForDescribeLoadBalancerAttributesOutput
+ * LoadBalancerAddressForDescribeLoadBalancersOutput
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-08-31T15:08:51.023818+08:00[Asia/Shanghai]")
-public class LoadBalancerAddressForDescribeLoadBalancerAttributesOutput {
+public class LoadBalancerAddressForDescribeLoadBalancersOutput {
   @SerializedName("Eip")
-  private EipForDescribeLoadBalancerAttributesOutput eip = null;
+  private EipForDescribeLoadBalancersOutput eip = null;
 
   @SerializedName("EipAddress")
   private String eipAddress = null;
@@ -45,7 +45,7 @@ public class LoadBalancerAddressForDescribeLoadBalancerAttributesOutput {
   @SerializedName("EniId")
   private String eniId = null;
 
-  public LoadBalancerAddressForDescribeLoadBalancerAttributesOutput eip(EipForDescribeLoadBalancerAttributesOutput eip) {
+  public LoadBalancerAddressForDescribeLoadBalancersOutput eip(EipForDescribeLoadBalancersOutput eip) {
     this.eip = eip;
     return this;
   }
@@ -56,15 +56,15 @@ public class LoadBalancerAddressForDescribeLoadBalancerAttributesOutput {
   **/
   @Valid
   @Schema(description = "")
-  public EipForDescribeLoadBalancerAttributesOutput getEip() {
+  public EipForDescribeLoadBalancersOutput getEip() {
     return eip;
   }
 
-  public void setEip(EipForDescribeLoadBalancerAttributesOutput eip) {
+  public void setEip(EipForDescribeLoadBalancersOutput eip) {
     this.eip = eip;
   }
 
-  public LoadBalancerAddressForDescribeLoadBalancerAttributesOutput eipAddress(String eipAddress) {
+  public LoadBalancerAddressForDescribeLoadBalancersOutput eipAddress(String eipAddress) {
     this.eipAddress = eipAddress;
     return this;
   }
@@ -82,7 +82,7 @@ public class LoadBalancerAddressForDescribeLoadBalancerAttributesOutput {
     this.eipAddress = eipAddress;
   }
 
-  public LoadBalancerAddressForDescribeLoadBalancerAttributesOutput eipId(String eipId) {
+  public LoadBalancerAddressForDescribeLoadBalancersOutput eipId(String eipId) {
     this.eipId = eipId;
     return this;
   }
@@ -100,7 +100,7 @@ public class LoadBalancerAddressForDescribeLoadBalancerAttributesOutput {
     this.eipId = eipId;
   }
 
-  public LoadBalancerAddressForDescribeLoadBalancerAttributesOutput eniAddress(String eniAddress) {
+  public LoadBalancerAddressForDescribeLoadBalancersOutput eniAddress(String eniAddress) {
     this.eniAddress = eniAddress;
     return this;
   }
@@ -118,7 +118,7 @@ public class LoadBalancerAddressForDescribeLoadBalancerAttributesOutput {
     this.eniAddress = eniAddress;
   }
 
-  public LoadBalancerAddressForDescribeLoadBalancerAttributesOutput eniId(String eniId) {
+  public LoadBalancerAddressForDescribeLoadBalancersOutput eniId(String eniId) {
     this.eniId = eniId;
     return this;
   }
@@ -145,12 +145,12 @@ public class LoadBalancerAddressForDescribeLoadBalancerAttributesOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    LoadBalancerAddressForDescribeLoadBalancerAttributesOutput loadBalancerAddressForDescribeLoadBalancerAttributesOutput = (LoadBalancerAddressForDescribeLoadBalancerAttributesOutput) o;
-    return Objects.equals(this.eip, loadBalancerAddressForDescribeLoadBalancerAttributesOutput.eip) &&
-        Objects.equals(this.eipAddress, loadBalancerAddressForDescribeLoadBalancerAttributesOutput.eipAddress) &&
-        Objects.equals(this.eipId, loadBalancerAddressForDescribeLoadBalancerAttributesOutput.eipId) &&
-        Objects.equals(this.eniAddress, loadBalancerAddressForDescribeLoadBalancerAttributesOutput.eniAddress) &&
-        Objects.equals(this.eniId, loadBalancerAddressForDescribeLoadBalancerAttributesOutput.eniId);
+    LoadBalancerAddressForDescribeLoadBalancersOutput loadBalancerAddressForDescribeLoadBalancersOutput = (LoadBalancerAddressForDescribeLoadBalancersOutput) o;
+    return Objects.equals(this.eip, loadBalancerAddressForDescribeLoadBalancersOutput.eip) &&
+        Objects.equals(this.eipAddress, loadBalancerAddressForDescribeLoadBalancersOutput.eipAddress) &&
+        Objects.equals(this.eipId, loadBalancerAddressForDescribeLoadBalancersOutput.eipId) &&
+        Objects.equals(this.eniAddress, loadBalancerAddressForDescribeLoadBalancersOutput.eniAddress) &&
+        Objects.equals(this.eniId, loadBalancerAddressForDescribeLoadBalancersOutput.eniId);
   }
 
   @Override
@@ -162,7 +162,7 @@ public class LoadBalancerAddressForDescribeLoadBalancerAttributesOutput {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class LoadBalancerAddressForDescribeLoadBalancerAttributesOutput {\n");
+    sb.append("class LoadBalancerAddressForDescribeLoadBalancersOutput {\n");
     
     sb.append("    eip: ").append(toIndentedString(eip)).append("\n");
     sb.append("    eipAddress: ").append(toIndentedString(eipAddress)).append("\n");

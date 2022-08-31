@@ -19,15 +19,18 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.alb.model.ZoneMappingForDescribeLoadBalancersOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
  * LoadBalancerForDescribeLoadBalancersOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-08-26T18:47:55.368678+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-08-31T15:08:51.023818+08:00[Asia/Shanghai]")
 public class LoadBalancerForDescribeLoadBalancersOutput {
   @SerializedName("BusinessStatus")
   private String businessStatus = null;
@@ -88,6 +91,9 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
 
   @SerializedName("VpcId")
   private String vpcId = null;
+
+  @SerializedName("ZoneMappings")
+  private List<ZoneMappingForDescribeLoadBalancersOutput> zoneMappings = null;
 
   public LoadBalancerForDescribeLoadBalancersOutput businessStatus(String businessStatus) {
     this.businessStatus = businessStatus;
@@ -449,6 +455,33 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
     this.vpcId = vpcId;
   }
 
+  public LoadBalancerForDescribeLoadBalancersOutput zoneMappings(List<ZoneMappingForDescribeLoadBalancersOutput> zoneMappings) {
+    this.zoneMappings = zoneMappings;
+    return this;
+  }
+
+  public LoadBalancerForDescribeLoadBalancersOutput addZoneMappingsItem(ZoneMappingForDescribeLoadBalancersOutput zoneMappingsItem) {
+    if (this.zoneMappings == null) {
+      this.zoneMappings = new ArrayList<ZoneMappingForDescribeLoadBalancersOutput>();
+    }
+    this.zoneMappings.add(zoneMappingsItem);
+    return this;
+  }
+
+   /**
+   * Get zoneMappings
+   * @return zoneMappings
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<ZoneMappingForDescribeLoadBalancersOutput> getZoneMappings() {
+    return zoneMappings;
+  }
+
+  public void setZoneMappings(List<ZoneMappingForDescribeLoadBalancersOutput> zoneMappings) {
+    this.zoneMappings = zoneMappings;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -478,12 +511,13 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
         Objects.equals(this.subnetId, loadBalancerForDescribeLoadBalancersOutput.subnetId) &&
         Objects.equals(this.type, loadBalancerForDescribeLoadBalancersOutput.type) &&
         Objects.equals(this.updateTime, loadBalancerForDescribeLoadBalancersOutput.updateTime) &&
-        Objects.equals(this.vpcId, loadBalancerForDescribeLoadBalancersOutput.vpcId);
+        Objects.equals(this.vpcId, loadBalancerForDescribeLoadBalancersOutput.vpcId) &&
+        Objects.equals(this.zoneMappings, loadBalancerForDescribeLoadBalancersOutput.zoneMappings);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(businessStatus, createTime, dnSName, deletedTime, description, eipAddress, eipId, eniAddress, eniId, loadBalancerBillingType, loadBalancerId, loadBalancerName, loadBalancerSpec, lockReason, overdueTime, status, subnetId, type, updateTime, vpcId);
+    return Objects.hash(businessStatus, createTime, dnSName, deletedTime, description, eipAddress, eipId, eniAddress, eniId, loadBalancerBillingType, loadBalancerId, loadBalancerName, loadBalancerSpec, lockReason, overdueTime, status, subnetId, type, updateTime, vpcId, zoneMappings);
   }
 
 
@@ -512,6 +546,7 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
+    sb.append("    zoneMappings: ").append(toIndentedString(zoneMappings)).append("\n");
     sb.append("}");
     return sb.toString();
   }

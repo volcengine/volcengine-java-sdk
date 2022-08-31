@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * DeleteCustomizedCfgRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-08-26T18:47:55.368678+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-08-31T15:08:51.023818+08:00[Asia/Shanghai]")
 public class DeleteCustomizedCfgRequest {
   @SerializedName("CustomizedCfgId")
   private String customizedCfgId = null;

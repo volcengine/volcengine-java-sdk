@@ -24,13 +24,16 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * EipBillingConfigForCreateLoadBalancerInput
+ * EipForDescribeLoadBalancersOutput
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-08-31T15:08:51.023818+08:00[Asia/Shanghai]")
-public class EipBillingConfigForCreateLoadBalancerInput {
+public class EipForDescribeLoadBalancersOutput {
   @SerializedName("Bandwidth")
   private Integer bandwidth = null;
+
+  @SerializedName("EipAddress")
+  private String eipAddress = null;
 
   @SerializedName("EipBillingType")
   private Integer eipBillingType = null;
@@ -38,7 +41,7 @@ public class EipBillingConfigForCreateLoadBalancerInput {
   @SerializedName("ISP")
   private String ISP = null;
 
-  public EipBillingConfigForCreateLoadBalancerInput bandwidth(Integer bandwidth) {
+  public EipForDescribeLoadBalancersOutput bandwidth(Integer bandwidth) {
     this.bandwidth = bandwidth;
     return this;
   }
@@ -56,7 +59,25 @@ public class EipBillingConfigForCreateLoadBalancerInput {
     this.bandwidth = bandwidth;
   }
 
-  public EipBillingConfigForCreateLoadBalancerInput eipBillingType(Integer eipBillingType) {
+  public EipForDescribeLoadBalancersOutput eipAddress(String eipAddress) {
+    this.eipAddress = eipAddress;
+    return this;
+  }
+
+   /**
+   * Get eipAddress
+   * @return eipAddress
+  **/
+  @Schema(description = "")
+  public String getEipAddress() {
+    return eipAddress;
+  }
+
+  public void setEipAddress(String eipAddress) {
+    this.eipAddress = eipAddress;
+  }
+
+  public EipForDescribeLoadBalancersOutput eipBillingType(Integer eipBillingType) {
     this.eipBillingType = eipBillingType;
     return this;
   }
@@ -74,7 +95,7 @@ public class EipBillingConfigForCreateLoadBalancerInput {
     this.eipBillingType = eipBillingType;
   }
 
-  public EipBillingConfigForCreateLoadBalancerInput ISP(String ISP) {
+  public EipForDescribeLoadBalancersOutput ISP(String ISP) {
     this.ISP = ISP;
     return this;
   }
@@ -101,24 +122,26 @@ public class EipBillingConfigForCreateLoadBalancerInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    EipBillingConfigForCreateLoadBalancerInput eipBillingConfigForCreateLoadBalancerInput = (EipBillingConfigForCreateLoadBalancerInput) o;
-    return Objects.equals(this.bandwidth, eipBillingConfigForCreateLoadBalancerInput.bandwidth) &&
-        Objects.equals(this.eipBillingType, eipBillingConfigForCreateLoadBalancerInput.eipBillingType) &&
-        Objects.equals(this.ISP, eipBillingConfigForCreateLoadBalancerInput.ISP);
+    EipForDescribeLoadBalancersOutput eipForDescribeLoadBalancersOutput = (EipForDescribeLoadBalancersOutput) o;
+    return Objects.equals(this.bandwidth, eipForDescribeLoadBalancersOutput.bandwidth) &&
+        Objects.equals(this.eipAddress, eipForDescribeLoadBalancersOutput.eipAddress) &&
+        Objects.equals(this.eipBillingType, eipForDescribeLoadBalancersOutput.eipBillingType) &&
+        Objects.equals(this.ISP, eipForDescribeLoadBalancersOutput.ISP);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidth, eipBillingType, ISP);
+    return Objects.hash(bandwidth, eipAddress, eipBillingType, ISP);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class EipBillingConfigForCreateLoadBalancerInput {\n");
+    sb.append("class EipForDescribeLoadBalancersOutput {\n");
     
     sb.append("    bandwidth: ").append(toIndentedString(bandwidth)).append("\n");
+    sb.append("    eipAddress: ").append(toIndentedString(eipAddress)).append("\n");
     sb.append("    eipBillingType: ").append(toIndentedString(eipBillingType)).append("\n");
     sb.append("    ISP: ").append(toIndentedString(ISP)).append("\n");
     sb.append("}");

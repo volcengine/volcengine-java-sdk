@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.alb.model.LoadBalancerAddressForDescribeLoadBalancerAttributesOutput;
+import com.volcengine.alb.model.LoadBalancerAddressForDescribeLoadBalancersOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -27,13 +27,13 @@ import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ZoneMappingForDescribeLoadBalancerAttributesOutput
+ * ZoneMappingForDescribeLoadBalancersOutput
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-08-31T15:08:51.023818+08:00[Asia/Shanghai]")
-public class ZoneMappingForDescribeLoadBalancerAttributesOutput {
+public class ZoneMappingForDescribeLoadBalancersOutput {
   @SerializedName("LoadBalancerAddresses")
-  private List<LoadBalancerAddressForDescribeLoadBalancerAttributesOutput> loadBalancerAddresses = null;
+  private List<LoadBalancerAddressForDescribeLoadBalancersOutput> loadBalancerAddresses = null;
 
   @SerializedName("SubnetId")
   private String subnetId = null;
@@ -41,14 +41,14 @@ public class ZoneMappingForDescribeLoadBalancerAttributesOutput {
   @SerializedName("ZoneId")
   private String zoneId = null;
 
-  public ZoneMappingForDescribeLoadBalancerAttributesOutput loadBalancerAddresses(List<LoadBalancerAddressForDescribeLoadBalancerAttributesOutput> loadBalancerAddresses) {
+  public ZoneMappingForDescribeLoadBalancersOutput loadBalancerAddresses(List<LoadBalancerAddressForDescribeLoadBalancersOutput> loadBalancerAddresses) {
     this.loadBalancerAddresses = loadBalancerAddresses;
     return this;
   }
 
-  public ZoneMappingForDescribeLoadBalancerAttributesOutput addLoadBalancerAddressesItem(LoadBalancerAddressForDescribeLoadBalancerAttributesOutput loadBalancerAddressesItem) {
+  public ZoneMappingForDescribeLoadBalancersOutput addLoadBalancerAddressesItem(LoadBalancerAddressForDescribeLoadBalancersOutput loadBalancerAddressesItem) {
     if (this.loadBalancerAddresses == null) {
-      this.loadBalancerAddresses = new ArrayList<LoadBalancerAddressForDescribeLoadBalancerAttributesOutput>();
+      this.loadBalancerAddresses = new ArrayList<LoadBalancerAddressForDescribeLoadBalancersOutput>();
     }
     this.loadBalancerAddresses.add(loadBalancerAddressesItem);
     return this;
@@ -60,15 +60,15 @@ public class ZoneMappingForDescribeLoadBalancerAttributesOutput {
   **/
   @Valid
   @Schema(description = "")
-  public List<LoadBalancerAddressForDescribeLoadBalancerAttributesOutput> getLoadBalancerAddresses() {
+  public List<LoadBalancerAddressForDescribeLoadBalancersOutput> getLoadBalancerAddresses() {
     return loadBalancerAddresses;
   }
 
-  public void setLoadBalancerAddresses(List<LoadBalancerAddressForDescribeLoadBalancerAttributesOutput> loadBalancerAddresses) {
+  public void setLoadBalancerAddresses(List<LoadBalancerAddressForDescribeLoadBalancersOutput> loadBalancerAddresses) {
     this.loadBalancerAddresses = loadBalancerAddresses;
   }
 
-  public ZoneMappingForDescribeLoadBalancerAttributesOutput subnetId(String subnetId) {
+  public ZoneMappingForDescribeLoadBalancersOutput subnetId(String subnetId) {
     this.subnetId = subnetId;
     return this;
   }
@@ -86,7 +86,7 @@ public class ZoneMappingForDescribeLoadBalancerAttributesOutput {
     this.subnetId = subnetId;
   }
 
-  public ZoneMappingForDescribeLoadBalancerAttributesOutput zoneId(String zoneId) {
+  public ZoneMappingForDescribeLoadBalancersOutput zoneId(String zoneId) {
     this.zoneId = zoneId;
     return this;
   }
@@ -113,10 +113,10 @@ public class ZoneMappingForDescribeLoadBalancerAttributesOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ZoneMappingForDescribeLoadBalancerAttributesOutput zoneMappingForDescribeLoadBalancerAttributesOutput = (ZoneMappingForDescribeLoadBalancerAttributesOutput) o;
-    return Objects.equals(this.loadBalancerAddresses, zoneMappingForDescribeLoadBalancerAttributesOutput.loadBalancerAddresses) &&
-        Objects.equals(this.subnetId, zoneMappingForDescribeLoadBalancerAttributesOutput.subnetId) &&
-        Objects.equals(this.zoneId, zoneMappingForDescribeLoadBalancerAttributesOutput.zoneId);
+    ZoneMappingForDescribeLoadBalancersOutput zoneMappingForDescribeLoadBalancersOutput = (ZoneMappingForDescribeLoadBalancersOutput) o;
+    return Objects.equals(this.loadBalancerAddresses, zoneMappingForDescribeLoadBalancersOutput.loadBalancerAddresses) &&
+        Objects.equals(this.subnetId, zoneMappingForDescribeLoadBalancersOutput.subnetId) &&
+        Objects.equals(this.zoneId, zoneMappingForDescribeLoadBalancersOutput.zoneId);
   }
 
   @Override
@@ -128,7 +128,7 @@ public class ZoneMappingForDescribeLoadBalancerAttributesOutput {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ZoneMappingForDescribeLoadBalancerAttributesOutput {\n");
+    sb.append("class ZoneMappingForDescribeLoadBalancersOutput {\n");
     
     sb.append("    loadBalancerAddresses: ").append(toIndentedString(loadBalancerAddresses)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
