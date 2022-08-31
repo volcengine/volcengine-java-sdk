@@ -4,7 +4,7 @@
     <groupId>com.volcengine</groupId>
     <artifactId>volcengine-java-sdk</artifactId>
     <packaging>pom</packaging>
-    <version>0.1.10</version>
+    <version>0.1.11</version>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.source.version>1.7</java.source.version>
@@ -129,5 +129,6 @@
         <module>volcengine-java-sdk-vke</module>
         <module>volcengine-java-sdk-rdsmysql</module>
         <module>volcengine-java-sdk-alb</module>
+        <module>volcengine-java-sdk-cr</module>
     </modules>
 </project>
