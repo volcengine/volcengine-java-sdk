@@ -27,13 +27,34 @@ import javax.validation.Valid;
  * DataVolumeForListNodePoolsOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:54.001539+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-15T17:50:31.831766+08:00[Asia/Shanghai]")
 public class DataVolumeForListNodePoolsOutput {
+  @SerializedName("MountPoint")
+  private String mountPoint = null;
+
   @SerializedName("Size")
   private Integer size = null;
 
   @SerializedName("Type")
   private String type = null;
+
+  public DataVolumeForListNodePoolsOutput mountPoint(String mountPoint) {
+    this.mountPoint = mountPoint;
+    return this;
+  }
+
+   /**
+   * Get mountPoint
+   * @return mountPoint
+  **/
+  @Schema(description = "")
+  public String getMountPoint() {
+    return mountPoint;
+  }
+
+  public void setMountPoint(String mountPoint) {
+    this.mountPoint = mountPoint;
+  }
 
   public DataVolumeForListNodePoolsOutput size(Integer size) {
     this.size = size;
@@ -81,13 +102,14 @@ public class DataVolumeForListNodePoolsOutput {
       return false;
     }
     DataVolumeForListNodePoolsOutput dataVolumeForListNodePoolsOutput = (DataVolumeForListNodePoolsOutput) o;
-    return Objects.equals(this.size, dataVolumeForListNodePoolsOutput.size) &&
+    return Objects.equals(this.mountPoint, dataVolumeForListNodePoolsOutput.mountPoint) &&
+        Objects.equals(this.size, dataVolumeForListNodePoolsOutput.size) &&
         Objects.equals(this.type, dataVolumeForListNodePoolsOutput.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(size, type);
+    return Objects.hash(mountPoint, size, type);
   }
 
 
@@ -96,6 +118,7 @@ public class DataVolumeForListNodePoolsOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class DataVolumeForListNodePoolsOutput {\n");
     
+    sb.append("    mountPoint: ").append(toIndentedString(mountPoint)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");

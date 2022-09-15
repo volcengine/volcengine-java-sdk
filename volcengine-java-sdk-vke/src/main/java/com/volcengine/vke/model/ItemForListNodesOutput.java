@@ -30,7 +30,7 @@ import javax.validation.Valid;
  * ItemForListNodesOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:54.001539+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-15T17:50:31.831766+08:00[Asia/Shanghai]")
 public class ItemForListNodesOutput {
   @SerializedName("AdditionalContainerStorageEnabled")
   private Boolean additionalContainerStorageEnabled = null;
@@ -112,6 +112,9 @@ public class ItemForListNodesOutput {
 
   @SerializedName("UpdateTime")
   private String updateTime = null;
+
+  @SerializedName("ZoneId")
+  private String zoneId = null;
 
   public ItemForListNodesOutput additionalContainerStorageEnabled(Boolean additionalContainerStorageEnabled) {
     this.additionalContainerStorageEnabled = additionalContainerStorageEnabled;
@@ -356,6 +359,24 @@ public class ItemForListNodesOutput {
     this.updateTime = updateTime;
   }
 
+  public ItemForListNodesOutput zoneId(String zoneId) {
+    this.zoneId = zoneId;
+    return this;
+  }
+
+   /**
+   * Get zoneId
+   * @return zoneId
+  **/
+  @Schema(description = "")
+  public String getZoneId() {
+    return zoneId;
+  }
+
+  public void setZoneId(String zoneId) {
+    this.zoneId = zoneId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -378,12 +399,13 @@ public class ItemForListNodesOutput {
         Objects.equals(this.nodePoolId, itemForListNodesOutput.nodePoolId) &&
         Objects.equals(this.roles, itemForListNodesOutput.roles) &&
         Objects.equals(this.status, itemForListNodesOutput.status) &&
-        Objects.equals(this.updateTime, itemForListNodesOutput.updateTime);
+        Objects.equals(this.updateTime, itemForListNodesOutput.updateTime) &&
+        Objects.equals(this.zoneId, itemForListNodesOutput.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalContainerStorageEnabled, clusterId, containerStoragePath, createClientToken, createTime, id, instanceId, isVirtual, name, nodePoolId, roles, status, updateTime);
+    return Objects.hash(additionalContainerStorageEnabled, clusterId, containerStoragePath, createClientToken, createTime, id, instanceId, isVirtual, name, nodePoolId, roles, status, updateTime, zoneId);
   }
 
 
@@ -405,6 +427,7 @@ public class ItemForListNodesOutput {
     sb.append("    roles: ").append(toIndentedString(roles)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
+    sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

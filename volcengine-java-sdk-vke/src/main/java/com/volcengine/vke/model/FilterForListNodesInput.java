@@ -30,7 +30,7 @@ import javax.validation.Valid;
  * FilterForListNodesInput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:54.001539+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-15T17:50:31.831766+08:00[Asia/Shanghai]")
 public class FilterForListNodesInput {
   @SerializedName("ClusterIds")
   private List<String> clusterIds = null;
@@ -49,6 +49,9 @@ public class FilterForListNodesInput {
 
   @SerializedName("Statuses")
   private List<StatusForListNodesInput> statuses = null;
+
+  @SerializedName("ZoneIds")
+  private List<String> zoneIds = null;
 
   public FilterForListNodesInput clusterIds(List<String> clusterIds) {
     this.clusterIds = clusterIds;
@@ -191,6 +194,32 @@ public class FilterForListNodesInput {
     this.statuses = statuses;
   }
 
+  public FilterForListNodesInput zoneIds(List<String> zoneIds) {
+    this.zoneIds = zoneIds;
+    return this;
+  }
+
+  public FilterForListNodesInput addZoneIdsItem(String zoneIdsItem) {
+    if (this.zoneIds == null) {
+      this.zoneIds = new ArrayList<String>();
+    }
+    this.zoneIds.add(zoneIdsItem);
+    return this;
+  }
+
+   /**
+   * Get zoneIds
+   * @return zoneIds
+  **/
+  @Schema(description = "")
+  public List<String> getZoneIds() {
+    return zoneIds;
+  }
+
+  public void setZoneIds(List<String> zoneIds) {
+    this.zoneIds = zoneIds;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -206,12 +235,13 @@ public class FilterForListNodesInput {
         Objects.equals(this.ids, filterForListNodesInput.ids) &&
         Objects.equals(this.name, filterForListNodesInput.name) &&
         Objects.equals(this.nodePoolIds, filterForListNodesInput.nodePoolIds) &&
-        Objects.equals(this.statuses, filterForListNodesInput.statuses);
+        Objects.equals(this.statuses, filterForListNodesInput.statuses) &&
+        Objects.equals(this.zoneIds, filterForListNodesInput.zoneIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterIds, createClientToken, ids, name, nodePoolIds, statuses);
+    return Objects.hash(clusterIds, createClientToken, ids, name, nodePoolIds, statuses, zoneIds);
   }
 
 
@@ -226,6 +256,7 @@ public class FilterForListNodesInput {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    nodePoolIds: ").append(toIndentedString(nodePoolIds)).append("\n");
     sb.append("    statuses: ").append(toIndentedString(statuses)).append("\n");
+    sb.append("    zoneIds: ").append(toIndentedString(zoneIds)).append("\n");
     sb.append("}");
     return sb.toString();
   }
