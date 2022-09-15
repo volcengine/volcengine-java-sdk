@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * SystemVolumeForCreateNodePoolInput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:54.001539+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-15T17:50:31.831766+08:00[Asia/Shanghai]")
 public class SystemVolumeForCreateNodePoolInput {
   @SerializedName("Size")
   private Integer size = null;
@@ -37,6 +37,8 @@ public class SystemVolumeForCreateNodePoolInput {
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
+    ESSD("ESSD"),
+    ESSD_FLEXPL("ESSD_FlexPL"),
     ESSD_PL0("ESSD_PL0"),
     ESSD_PL1("ESSD_PL1"),
     PTSSD("PTSSD");

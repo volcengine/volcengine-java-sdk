@@ -27,8 +27,11 @@ import javax.validation.Valid;
  * DataVolumeForCreateNodePoolInput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:54.001539+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-15T17:50:31.831766+08:00[Asia/Shanghai]")
 public class DataVolumeForCreateNodePoolInput {
+  @SerializedName("MountPoint")
+  private String mountPoint = null;
+
   @SerializedName("Size")
   private Integer size = null;
 
@@ -37,6 +40,8 @@ public class DataVolumeForCreateNodePoolInput {
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
+    ESSD("ESSD"),
+    ESSD_FLEXPL("ESSD_FlexPL"),
     ESSD_PL0("ESSD_PL0"),
     ESSD_PL1("ESSD_PL1"),
     PTSSD("PTSSD");
@@ -76,6 +81,24 @@ public class DataVolumeForCreateNodePoolInput {
     }
   }  @SerializedName("Type")
   private TypeEnum type = null;
+
+  public DataVolumeForCreateNodePoolInput mountPoint(String mountPoint) {
+    this.mountPoint = mountPoint;
+    return this;
+  }
+
+   /**
+   * Get mountPoint
+   * @return mountPoint
+  **/
+  @Schema(description = "")
+  public String getMountPoint() {
+    return mountPoint;
+  }
+
+  public void setMountPoint(String mountPoint) {
+    this.mountPoint = mountPoint;
+  }
 
   public DataVolumeForCreateNodePoolInput size(Integer size) {
     this.size = size;
@@ -123,13 +146,14 @@ public class DataVolumeForCreateNodePoolInput {
       return false;
     }
     DataVolumeForCreateNodePoolInput dataVolumeForCreateNodePoolInput = (DataVolumeForCreateNodePoolInput) o;
-    return Objects.equals(this.size, dataVolumeForCreateNodePoolInput.size) &&
+    return Objects.equals(this.mountPoint, dataVolumeForCreateNodePoolInput.mountPoint) &&
+        Objects.equals(this.size, dataVolumeForCreateNodePoolInput.size) &&
         Objects.equals(this.type, dataVolumeForCreateNodePoolInput.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(size, type);
+    return Objects.hash(mountPoint, size, type);
   }
 
 
@@ -138,6 +162,7 @@ public class DataVolumeForCreateNodePoolInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class DataVolumeForCreateNodePoolInput {\n");
     
+    sb.append("    mountPoint: ").append(toIndentedString(mountPoint)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
