@@ -30,55 +30,10 @@ import javax.validation.Valid;
  * FilterForListAddonsInput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-16T11:30:28.141424+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-19T12:20:19.967862+08:00[Asia/Shanghai]")
 public class FilterForListAddonsInput {
   @SerializedName("ClusterIds")
   private List<String> clusterIds = null;
-
-  /**
-   * Gets or Sets clusterTypes
-   */
-  @JsonAdapter(ClusterTypesEnum.Adapter.class)
-  public enum ClusterTypesEnum {
-    ONPREMISE("OnPremise"),
-    REGISTERED("Registered"),
-    STANDARD("Standard");
-
-    private String value;
-
-    ClusterTypesEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static ClusterTypesEnum fromValue(String input) {
-      for (ClusterTypesEnum b : ClusterTypesEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<ClusterTypesEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final ClusterTypesEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public ClusterTypesEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return ClusterTypesEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("ClusterTypes")
-  private List<ClusterTypesEnum> clusterTypes = null;
 
   @SerializedName("CreateClientToken")
   private String createClientToken = null;
@@ -204,32 +159,6 @@ public class FilterForListAddonsInput {
 
   public void setClusterIds(List<String> clusterIds) {
     this.clusterIds = clusterIds;
-  }
-
-  public FilterForListAddonsInput clusterTypes(List<ClusterTypesEnum> clusterTypes) {
-    this.clusterTypes = clusterTypes;
-    return this;
-  }
-
-  public FilterForListAddonsInput addClusterTypesItem(ClusterTypesEnum clusterTypesItem) {
-    if (this.clusterTypes == null) {
-      this.clusterTypes = new ArrayList<ClusterTypesEnum>();
-    }
-    this.clusterTypes.add(clusterTypesItem);
-    return this;
-  }
-
-   /**
-   * Get clusterTypes
-   * @return clusterTypes
-  **/
-  @Schema(description = "")
-  public List<ClusterTypesEnum> getClusterTypes() {
-    return clusterTypes;
-  }
-
-  public void setClusterTypes(List<ClusterTypesEnum> clusterTypes) {
-    this.clusterTypes = clusterTypes;
   }
 
   public FilterForListAddonsInput createClientToken(String createClientToken) {
@@ -384,7 +313,6 @@ public class FilterForListAddonsInput {
     }
     FilterForListAddonsInput filterForListAddonsInput = (FilterForListAddonsInput) o;
     return Objects.equals(this.clusterIds, filterForListAddonsInput.clusterIds) &&
-        Objects.equals(this.clusterTypes, filterForListAddonsInput.clusterTypes) &&
         Objects.equals(this.createClientToken, filterForListAddonsInput.createClientToken) &&
         Objects.equals(this.deployModes, filterForListAddonsInput.deployModes) &&
         Objects.equals(this.deployNodeTypes, filterForListAddonsInput.deployNodeTypes) &&
@@ -395,7 +323,7 @@ public class FilterForListAddonsInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterIds, clusterTypes, createClientToken, deployModes, deployNodeTypes, names, statuses, updateClientToken);
+    return Objects.hash(clusterIds, createClientToken, deployModes, deployNodeTypes, names, statuses, updateClientToken);
   }
 
 
@@ -405,7 +333,6 @@ public class FilterForListAddonsInput {
     sb.append("class FilterForListAddonsInput {\n");
     
     sb.append("    clusterIds: ").append(toIndentedString(clusterIds)).append("\n");
-    sb.append("    clusterTypes: ").append(toIndentedString(clusterTypes)).append("\n");
     sb.append("    createClientToken: ").append(toIndentedString(createClientToken)).append("\n");
     sb.append("    deployModes: ").append(toIndentedString(deployModes)).append("\n");
     sb.append("    deployNodeTypes: ").append(toIndentedString(deployNodeTypes)).append("\n");

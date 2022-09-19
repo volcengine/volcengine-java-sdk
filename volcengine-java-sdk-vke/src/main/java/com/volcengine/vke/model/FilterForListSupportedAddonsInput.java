@@ -29,7 +29,7 @@ import javax.validation.Valid;
  * FilterForListSupportedAddonsInput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-16T11:30:28.141424+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-19T12:20:19.967862+08:00[Asia/Shanghai]")
 public class FilterForListSupportedAddonsInput {
   /**
    * Gets or Sets categories
@@ -80,51 +80,6 @@ public class FilterForListSupportedAddonsInput {
     }
   }  @SerializedName("Categories")
   private List<CategoriesEnum> categories = null;
-
-  /**
-   * Gets or Sets clusterTypes
-   */
-  @JsonAdapter(ClusterTypesEnum.Adapter.class)
-  public enum ClusterTypesEnum {
-    ONPREMISE("OnPremise"),
-    REGISTERED("Registered"),
-    STANDARD("Standard");
-
-    private String value;
-
-    ClusterTypesEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static ClusterTypesEnum fromValue(String input) {
-      for (ClusterTypesEnum b : ClusterTypesEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<ClusterTypesEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final ClusterTypesEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public ClusterTypesEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return ClusterTypesEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("ClusterTypes")
-  private List<ClusterTypesEnum> clusterTypes = null;
 
   /**
    * Gets or Sets deployModes
@@ -336,32 +291,6 @@ public class FilterForListSupportedAddonsInput {
     this.categories = categories;
   }
 
-  public FilterForListSupportedAddonsInput clusterTypes(List<ClusterTypesEnum> clusterTypes) {
-    this.clusterTypes = clusterTypes;
-    return this;
-  }
-
-  public FilterForListSupportedAddonsInput addClusterTypesItem(ClusterTypesEnum clusterTypesItem) {
-    if (this.clusterTypes == null) {
-      this.clusterTypes = new ArrayList<ClusterTypesEnum>();
-    }
-    this.clusterTypes.add(clusterTypesItem);
-    return this;
-  }
-
-   /**
-   * Get clusterTypes
-   * @return clusterTypes
-  **/
-  @Schema(description = "")
-  public List<ClusterTypesEnum> getClusterTypes() {
-    return clusterTypes;
-  }
-
-  public void setClusterTypes(List<ClusterTypesEnum> clusterTypes) {
-    this.clusterTypes = clusterTypes;
-  }
-
   public FilterForListSupportedAddonsInput deployModes(List<DeployModesEnum> deployModes) {
     this.deployModes = deployModes;
     return this;
@@ -495,7 +424,6 @@ public class FilterForListSupportedAddonsInput {
     }
     FilterForListSupportedAddonsInput filterForListSupportedAddonsInput = (FilterForListSupportedAddonsInput) o;
     return Objects.equals(this.categories, filterForListSupportedAddonsInput.categories) &&
-        Objects.equals(this.clusterTypes, filterForListSupportedAddonsInput.clusterTypes) &&
         Objects.equals(this.deployModes, filterForListSupportedAddonsInput.deployModes) &&
         Objects.equals(this.deployNodeTypes, filterForListSupportedAddonsInput.deployNodeTypes) &&
         Objects.equals(this.name, filterForListSupportedAddonsInput.name) &&
@@ -505,7 +433,7 @@ public class FilterForListSupportedAddonsInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(categories, clusterTypes, deployModes, deployNodeTypes, name, necessaries, podNetworkModes);
+    return Objects.hash(categories, deployModes, deployNodeTypes, name, necessaries, podNetworkModes);
   }
 
 
@@ -515,7 +443,6 @@ public class FilterForListSupportedAddonsInput {
     sb.append("class FilterForListSupportedAddonsInput {\n");
     
     sb.append("    categories: ").append(toIndentedString(categories)).append("\n");
-    sb.append("    clusterTypes: ").append(toIndentedString(clusterTypes)).append("\n");
     sb.append("    deployModes: ").append(toIndentedString(deployModes)).append("\n");
     sb.append("    deployNodeTypes: ").append(toIndentedString(deployNodeTypes)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
