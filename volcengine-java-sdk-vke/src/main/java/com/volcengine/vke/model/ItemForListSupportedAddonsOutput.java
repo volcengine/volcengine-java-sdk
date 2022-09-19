@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vke.model.VersionForListSupportedAddonsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -29,7 +30,7 @@ import javax.validation.Valid;
  * ItemForListSupportedAddonsOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-16T11:30:28.141424+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-19T12:20:19.967862+08:00[Asia/Shanghai]")
 public class ItemForListSupportedAddonsOutput {
   /**
    * Gets or Sets categories
@@ -80,51 +81,6 @@ public class ItemForListSupportedAddonsOutput {
     }
   }  @SerializedName("Categories")
   private List<CategoriesEnum> categories = null;
-
-  /**
-   * Gets or Sets clusterTypes
-   */
-  @JsonAdapter(ClusterTypesEnum.Adapter.class)
-  public enum ClusterTypesEnum {
-    ONPREMISE("OnPremise"),
-    REGISTERED("Registered"),
-    STANDARD("Standard");
-
-    private String value;
-
-    ClusterTypesEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static ClusterTypesEnum fromValue(String input) {
-      for (ClusterTypesEnum b : ClusterTypesEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<ClusterTypesEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final ClusterTypesEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public ClusterTypesEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return ClusterTypesEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("ClusterTypes")
-  private List<ClusterTypesEnum> clusterTypes = null;
 
   @SerializedName("DeployMode")
   private String deployMode = null;
@@ -226,6 +182,9 @@ public class ItemForListSupportedAddonsOutput {
   }  @SerializedName("PodNetworkModes")
   private List<PodNetworkModesEnum> podNetworkModes = null;
 
+  @SerializedName("Versions")
+  private List<VersionForListSupportedAddonsOutput> versions = null;
+
   public ItemForListSupportedAddonsOutput categories(List<CategoriesEnum> categories) {
     this.categories = categories;
     return this;
@@ -250,32 +209,6 @@ public class ItemForListSupportedAddonsOutput {
 
   public void setCategories(List<CategoriesEnum> categories) {
     this.categories = categories;
-  }
-
-  public ItemForListSupportedAddonsOutput clusterTypes(List<ClusterTypesEnum> clusterTypes) {
-    this.clusterTypes = clusterTypes;
-    return this;
-  }
-
-  public ItemForListSupportedAddonsOutput addClusterTypesItem(ClusterTypesEnum clusterTypesItem) {
-    if (this.clusterTypes == null) {
-      this.clusterTypes = new ArrayList<ClusterTypesEnum>();
-    }
-    this.clusterTypes.add(clusterTypesItem);
-    return this;
-  }
-
-   /**
-   * Get clusterTypes
-   * @return clusterTypes
-  **/
-  @Schema(description = "")
-  public List<ClusterTypesEnum> getClusterTypes() {
-    return clusterTypes;
-  }
-
-  public void setClusterTypes(List<ClusterTypesEnum> clusterTypes) {
-    this.clusterTypes = clusterTypes;
   }
 
   public ItemForListSupportedAddonsOutput deployMode(String deployMode) {
@@ -384,6 +317,33 @@ public class ItemForListSupportedAddonsOutput {
     this.podNetworkModes = podNetworkModes;
   }
 
+  public ItemForListSupportedAddonsOutput versions(List<VersionForListSupportedAddonsOutput> versions) {
+    this.versions = versions;
+    return this;
+  }
+
+  public ItemForListSupportedAddonsOutput addVersionsItem(VersionForListSupportedAddonsOutput versionsItem) {
+    if (this.versions == null) {
+      this.versions = new ArrayList<VersionForListSupportedAddonsOutput>();
+    }
+    this.versions.add(versionsItem);
+    return this;
+  }
+
+   /**
+   * Get versions
+   * @return versions
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<VersionForListSupportedAddonsOutput> getVersions() {
+    return versions;
+  }
+
+  public void setVersions(List<VersionForListSupportedAddonsOutput> versions) {
+    this.versions = versions;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -395,17 +355,17 @@ public class ItemForListSupportedAddonsOutput {
     }
     ItemForListSupportedAddonsOutput itemForListSupportedAddonsOutput = (ItemForListSupportedAddonsOutput) o;
     return Objects.equals(this.categories, itemForListSupportedAddonsOutput.categories) &&
-        Objects.equals(this.clusterTypes, itemForListSupportedAddonsOutput.clusterTypes) &&
         Objects.equals(this.deployMode, itemForListSupportedAddonsOutput.deployMode) &&
         Objects.equals(this.deployNodeTypes, itemForListSupportedAddonsOutput.deployNodeTypes) &&
         Objects.equals(this.name, itemForListSupportedAddonsOutput.name) &&
         Objects.equals(this.necessary, itemForListSupportedAddonsOutput.necessary) &&
-        Objects.equals(this.podNetworkModes, itemForListSupportedAddonsOutput.podNetworkModes);
+        Objects.equals(this.podNetworkModes, itemForListSupportedAddonsOutput.podNetworkModes) &&
+        Objects.equals(this.versions, itemForListSupportedAddonsOutput.versions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(categories, clusterTypes, deployMode, deployNodeTypes, name, necessary, podNetworkModes);
+    return Objects.hash(categories, deployMode, deployNodeTypes, name, necessary, podNetworkModes, versions);
   }
 
 
@@ -415,12 +375,12 @@ public class ItemForListSupportedAddonsOutput {
     sb.append("class ItemForListSupportedAddonsOutput {\n");
     
     sb.append("    categories: ").append(toIndentedString(categories)).append("\n");
-    sb.append("    clusterTypes: ").append(toIndentedString(clusterTypes)).append("\n");
     sb.append("    deployMode: ").append(toIndentedString(deployMode)).append("\n");
     sb.append("    deployNodeTypes: ").append(toIndentedString(deployNodeTypes)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    necessary: ").append(toIndentedString(necessary)).append("\n");
     sb.append("    podNetworkModes: ").append(toIndentedString(podNetworkModes)).append("\n");
+    sb.append("    versions: ").append(toIndentedString(versions)).append("\n");
     sb.append("}");
     return sb.toString();
   }

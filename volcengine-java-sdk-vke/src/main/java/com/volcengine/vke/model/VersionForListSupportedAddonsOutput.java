@@ -19,7 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.vke.model.ConditionForListNodesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -27,60 +26,59 @@ import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * StatusForListNodesOutput
+ * VersionForListSupportedAddonsOutput
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-19T12:20:19.967862+08:00[Asia/Shanghai]")
-public class StatusForListNodesOutput {
-  @SerializedName("Conditions")
-  private List<ConditionForListNodesOutput> conditions = null;
+public class VersionForListSupportedAddonsOutput {
+  @SerializedName("CompatibleVersions")
+  private List<String> compatibleVersions = null;
 
-  @SerializedName("Phase")
-  private String phase = null;
+  @SerializedName("Version")
+  private String version = null;
 
-  public StatusForListNodesOutput conditions(List<ConditionForListNodesOutput> conditions) {
-    this.conditions = conditions;
+  public VersionForListSupportedAddonsOutput compatibleVersions(List<String> compatibleVersions) {
+    this.compatibleVersions = compatibleVersions;
     return this;
   }
 
-  public StatusForListNodesOutput addConditionsItem(ConditionForListNodesOutput conditionsItem) {
-    if (this.conditions == null) {
-      this.conditions = new ArrayList<ConditionForListNodesOutput>();
+  public VersionForListSupportedAddonsOutput addCompatibleVersionsItem(String compatibleVersionsItem) {
+    if (this.compatibleVersions == null) {
+      this.compatibleVersions = new ArrayList<String>();
     }
-    this.conditions.add(conditionsItem);
+    this.compatibleVersions.add(compatibleVersionsItem);
     return this;
   }
 
    /**
-   * Get conditions
-   * @return conditions
+   * Get compatibleVersions
+   * @return compatibleVersions
   **/
-  @Valid
   @Schema(description = "")
-  public List<ConditionForListNodesOutput> getConditions() {
-    return conditions;
+  public List<String> getCompatibleVersions() {
+    return compatibleVersions;
   }
 
-  public void setConditions(List<ConditionForListNodesOutput> conditions) {
-    this.conditions = conditions;
+  public void setCompatibleVersions(List<String> compatibleVersions) {
+    this.compatibleVersions = compatibleVersions;
   }
 
-  public StatusForListNodesOutput phase(String phase) {
-    this.phase = phase;
+  public VersionForListSupportedAddonsOutput version(String version) {
+    this.version = version;
     return this;
   }
 
    /**
-   * Get phase
-   * @return phase
+   * Get version
+   * @return version
   **/
   @Schema(description = "")
-  public String getPhase() {
-    return phase;
+  public String getVersion() {
+    return version;
   }
 
-  public void setPhase(String phase) {
-    this.phase = phase;
+  public void setVersion(String version) {
+    this.version = version;
   }
 
 
@@ -92,24 +90,24 @@ public class StatusForListNodesOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    StatusForListNodesOutput statusForListNodesOutput = (StatusForListNodesOutput) o;
-    return Objects.equals(this.conditions, statusForListNodesOutput.conditions) &&
-        Objects.equals(this.phase, statusForListNodesOutput.phase);
+    VersionForListSupportedAddonsOutput versionForListSupportedAddonsOutput = (VersionForListSupportedAddonsOutput) o;
+    return Objects.equals(this.compatibleVersions, versionForListSupportedAddonsOutput.compatibleVersions) &&
+        Objects.equals(this.version, versionForListSupportedAddonsOutput.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(conditions, phase);
+    return Objects.hash(compatibleVersions, version);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class StatusForListNodesOutput {\n");
+    sb.append("class VersionForListSupportedAddonsOutput {\n");
     
-    sb.append("    conditions: ").append(toIndentedString(conditions)).append("\n");
-    sb.append("    phase: ").append(toIndentedString(phase)).append("\n");
+    sb.append("    compatibleVersions: ").append(toIndentedString(compatibleVersions)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();
   }
