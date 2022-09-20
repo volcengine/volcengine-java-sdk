@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vpc.model.TagForCreateNetworkInterfaceInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -29,7 +30,7 @@ import javax.validation.Valid;
  * CreateNetworkInterfaceRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:59.626852+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-20T11:35:41.789411+08:00[Asia/Shanghai]")
 public class CreateNetworkInterfaceRequest {
   @SerializedName("ClientToken")
   private String clientToken = null;
@@ -49,6 +50,9 @@ public class CreateNetworkInterfaceRequest {
   @SerializedName("PrivateIpAddress")
   private List<String> privateIpAddress = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("SecondaryPrivateIpAddressCount")
   private Integer secondaryPrivateIpAddressCount = null;
 
@@ -57,6 +61,9 @@ public class CreateNetworkInterfaceRequest {
 
   @SerializedName("SubnetId")
   private String subnetId = null;
+
+  @SerializedName("Tags")
+  private List<TagForCreateNetworkInterfaceInput> tags = null;
 
   public CreateNetworkInterfaceRequest clientToken(String clientToken) {
     this.clientToken = clientToken;
@@ -174,6 +181,24 @@ public class CreateNetworkInterfaceRequest {
     this.privateIpAddress = privateIpAddress;
   }
 
+  public CreateNetworkInterfaceRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public CreateNetworkInterfaceRequest secondaryPrivateIpAddressCount(Integer secondaryPrivateIpAddressCount) {
     this.secondaryPrivateIpAddressCount = secondaryPrivateIpAddressCount;
     return this;
@@ -237,6 +262,33 @@ public class CreateNetworkInterfaceRequest {
     this.subnetId = subnetId;
   }
 
+  public CreateNetworkInterfaceRequest tags(List<TagForCreateNetworkInterfaceInput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public CreateNetworkInterfaceRequest addTagsItem(TagForCreateNetworkInterfaceInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForCreateNetworkInterfaceInput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForCreateNetworkInterfaceInput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForCreateNetworkInterfaceInput> tags) {
+    this.tags = tags;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -253,14 +305,16 @@ public class CreateNetworkInterfaceRequest {
         Objects.equals(this.portSecurityEnabled, createNetworkInterfaceRequest.portSecurityEnabled) &&
         Objects.equals(this.primaryIpAddress, createNetworkInterfaceRequest.primaryIpAddress) &&
         Objects.equals(this.privateIpAddress, createNetworkInterfaceRequest.privateIpAddress) &&
+        Objects.equals(this.projectName, createNetworkInterfaceRequest.projectName) &&
         Objects.equals(this.secondaryPrivateIpAddressCount, createNetworkInterfaceRequest.secondaryPrivateIpAddressCount) &&
         Objects.equals(this.securityGroupIds, createNetworkInterfaceRequest.securityGroupIds) &&
-        Objects.equals(this.subnetId, createNetworkInterfaceRequest.subnetId);
+        Objects.equals(this.subnetId, createNetworkInterfaceRequest.subnetId) &&
+        Objects.equals(this.tags, createNetworkInterfaceRequest.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, description, networkInterfaceName, portSecurityEnabled, primaryIpAddress, privateIpAddress, secondaryPrivateIpAddressCount, securityGroupIds, subnetId);
+    return Objects.hash(clientToken, description, networkInterfaceName, portSecurityEnabled, primaryIpAddress, privateIpAddress, projectName, secondaryPrivateIpAddressCount, securityGroupIds, subnetId, tags);
   }
 
 
@@ -275,9 +329,11 @@ public class CreateNetworkInterfaceRequest {
     sb.append("    portSecurityEnabled: ").append(toIndentedString(portSecurityEnabled)).append("\n");
     sb.append("    primaryIpAddress: ").append(toIndentedString(primaryIpAddress)).append("\n");
     sb.append("    privateIpAddress: ").append(toIndentedString(privateIpAddress)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    secondaryPrivateIpAddressCount: ").append(toIndentedString(secondaryPrivateIpAddressCount)).append("\n");
     sb.append("    securityGroupIds: ").append(toIndentedString(securityGroupIds)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }

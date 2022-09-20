@@ -29,7 +29,7 @@ import javax.validation.Valid;
  * RouterTableListForDescribeRouteTableListOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:59.626852+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-20T11:35:41.789411+08:00[Asia/Shanghai]")
 public class RouterTableListForDescribeRouteTableListOutput {
   @SerializedName("AccountId")
   private String accountId = null;
@@ -39,6 +39,9 @@ public class RouterTableListForDescribeRouteTableListOutput {
 
   @SerializedName("Description")
   private String description = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
 
   @SerializedName("RouteTableId")
   private String routeTableId = null;
@@ -113,6 +116,24 @@ public class RouterTableListForDescribeRouteTableListOutput {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public RouterTableListForDescribeRouteTableListOutput projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
   }
 
   public RouterTableListForDescribeRouteTableListOutput routeTableId(String routeTableId) {
@@ -262,6 +283,7 @@ public class RouterTableListForDescribeRouteTableListOutput {
     return Objects.equals(this.accountId, routerTableListForDescribeRouteTableListOutput.accountId) &&
         Objects.equals(this.creationTime, routerTableListForDescribeRouteTableListOutput.creationTime) &&
         Objects.equals(this.description, routerTableListForDescribeRouteTableListOutput.description) &&
+        Objects.equals(this.projectName, routerTableListForDescribeRouteTableListOutput.projectName) &&
         Objects.equals(this.routeTableId, routerTableListForDescribeRouteTableListOutput.routeTableId) &&
         Objects.equals(this.routeTableName, routerTableListForDescribeRouteTableListOutput.routeTableName) &&
         Objects.equals(this.routeTableType, routerTableListForDescribeRouteTableListOutput.routeTableType) &&
@@ -273,7 +295,7 @@ public class RouterTableListForDescribeRouteTableListOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, creationTime, description, routeTableId, routeTableName, routeTableType, subnetIds, updateTime, vpcId, vpcName);
+    return Objects.hash(accountId, creationTime, description, projectName, routeTableId, routeTableName, routeTableType, subnetIds, updateTime, vpcId, vpcName);
   }
 
 
@@ -285,6 +307,7 @@ public class RouterTableListForDescribeRouteTableListOutput {
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    routeTableId: ").append(toIndentedString(routeTableId)).append("\n");
     sb.append("    routeTableName: ").append(toIndentedString(routeTableName)).append("\n");
     sb.append("    routeTableType: ").append(toIndentedString(routeTableType)).append("\n");

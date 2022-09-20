@@ -29,13 +29,16 @@ import javax.validation.Valid;
  * DescribeSubnetsRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:59.626852+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-20T11:35:41.789411+08:00[Asia/Shanghai]")
 public class DescribeSubnetsRequest {
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
 
   @SerializedName("PageSize")
   private Integer pageSize = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
 
   @SerializedName("RouteTableId")
   private String routeTableId = null;
@@ -87,6 +90,24 @@ public class DescribeSubnetsRequest {
 
   public void setPageSize(Integer pageSize) {
     this.pageSize = pageSize;
+  }
+
+  public DescribeSubnetsRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
   }
 
   public DescribeSubnetsRequest routeTableId(String routeTableId) {
@@ -200,6 +221,7 @@ public class DescribeSubnetsRequest {
     DescribeSubnetsRequest describeSubnetsRequest = (DescribeSubnetsRequest) o;
     return Objects.equals(this.pageNumber, describeSubnetsRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeSubnetsRequest.pageSize) &&
+        Objects.equals(this.projectName, describeSubnetsRequest.projectName) &&
         Objects.equals(this.routeTableId, describeSubnetsRequest.routeTableId) &&
         Objects.equals(this.subnetIds, describeSubnetsRequest.subnetIds) &&
         Objects.equals(this.subnetName, describeSubnetsRequest.subnetName) &&
@@ -209,7 +231,7 @@ public class DescribeSubnetsRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(pageNumber, pageSize, routeTableId, subnetIds, subnetName, vpcId, zoneId);
+    return Objects.hash(pageNumber, pageSize, projectName, routeTableId, subnetIds, subnetName, vpcId, zoneId);
   }
 
 
@@ -220,6 +242,7 @@ public class DescribeSubnetsRequest {
     
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    routeTableId: ").append(toIndentedString(routeTableId)).append("\n");
     sb.append("    subnetIds: ").append(toIndentedString(subnetIds)).append("\n");
     sb.append("    subnetName: ").append(toIndentedString(subnetName)).append("\n");
