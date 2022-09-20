@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * EipAddressForDescribeNatGatewayAttributesOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:42.841+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-20T11:35:38.283928+08:00[Asia/Shanghai]")
 public class EipAddressForDescribeNatGatewayAttributesOutput {
   @SerializedName("AllocationId")
   private String allocationId = null;
