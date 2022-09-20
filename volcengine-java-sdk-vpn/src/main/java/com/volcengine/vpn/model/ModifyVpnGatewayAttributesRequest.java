@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * ModifyVpnGatewayAttributesRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:11:07.476466+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-20T11:35:51.103428+08:00[Asia/Shanghai]")
 public class ModifyVpnGatewayAttributesRequest {
   @SerializedName("Bandwidth")
   private Integer bandwidth = null;
@@ -49,10 +49,10 @@ public class ModifyVpnGatewayAttributesRequest {
    /**
    * Get bandwidth
    * minimum: 5
-   * maximum: 200
+   * maximum: 1000
    * @return bandwidth
   **/
- @Min(5) @Max(200)  @Schema(description = "")
+ @Min(5) @Max(1000)  @Schema(description = "")
   public Integer getBandwidth() {
     return bandwidth;
   }

@@ -29,7 +29,7 @@ import javax.validation.Valid;
  * CertificateForDescribeCertificatesOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:28.835190+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-20T11:35:20.753228+08:00[Asia/Shanghai]")
 public class CertificateForDescribeCertificatesOutput {
   @SerializedName("CertificateId")
   private String certificateId = null;
@@ -51,6 +51,9 @@ public class CertificateForDescribeCertificatesOutput {
 
   @SerializedName("Listeners")
   private List<String> listeners = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
 
   public CertificateForDescribeCertificatesOutput certificateId(String certificateId) {
     this.certificateId = certificateId;
@@ -186,6 +189,24 @@ public class CertificateForDescribeCertificatesOutput {
     this.listeners = listeners;
   }
 
+  public CertificateForDescribeCertificatesOutput projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -202,12 +223,13 @@ public class CertificateForDescribeCertificatesOutput {
         Objects.equals(this.description, certificateForDescribeCertificatesOutput.description) &&
         Objects.equals(this.domainName, certificateForDescribeCertificatesOutput.domainName) &&
         Objects.equals(this.expiredAt, certificateForDescribeCertificatesOutput.expiredAt) &&
-        Objects.equals(this.listeners, certificateForDescribeCertificatesOutput.listeners);
+        Objects.equals(this.listeners, certificateForDescribeCertificatesOutput.listeners) &&
+        Objects.equals(this.projectName, certificateForDescribeCertificatesOutput.projectName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(certificateId, certificateName, createTime, description, domainName, expiredAt, listeners);
+    return Objects.hash(certificateId, certificateName, createTime, description, domainName, expiredAt, listeners, projectName);
   }
 
 
@@ -223,6 +245,7 @@ public class CertificateForDescribeCertificatesOutput {
     sb.append("    domainName: ").append(toIndentedString(domainName)).append("\n");
     sb.append("    expiredAt: ").append(toIndentedString(expiredAt)).append("\n");
     sb.append("    listeners: ").append(toIndentedString(listeners)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

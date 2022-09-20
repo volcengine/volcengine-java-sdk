@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * DescribeRouteEntryListRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:59.626852+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-20T11:35:41.789411+08:00[Asia/Shanghai]")
 public class DescribeRouteEntryListRequest {
   @SerializedName("DestinationCidrBlock")
   private String destinationCidrBlock = null;
@@ -210,7 +210,8 @@ public class DescribeRouteEntryListRequest {
    * Get routeTableId
    * @return routeTableId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getRouteTableId() {
     return routeTableId;
   }

@@ -130,5 +130,6 @@
         <module>volcengine-java-sdk-rdsmysql</module>
         <module>volcengine-java-sdk-alb</module>
         <module>volcengine-java-sdk-cr</module>
+        <module>volcengine-java-sdk-directconnect</module>
     </modules>
 </project>

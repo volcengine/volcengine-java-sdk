@@ -28,7 +28,7 @@ import javax.validation.Valid;
  * SubnetForDescribeSubnetsOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:59.626852+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-20T11:35:41.789411+08:00[Asia/Shanghai]")
 public class SubnetForDescribeSubnetsOutput {
   @SerializedName("AccountId")
   private String accountId = null;
@@ -47,6 +47,9 @@ public class SubnetForDescribeSubnetsOutput {
 
   @SerializedName("NetworkAclId")
   private String networkAclId = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
 
   @SerializedName("RouteTable")
   private RouteTableForDescribeSubnetsOutput routeTable = null;
@@ -178,6 +181,24 @@ public class SubnetForDescribeSubnetsOutput {
 
   public void setNetworkAclId(String networkAclId) {
     this.networkAclId = networkAclId;
+  }
+
+  public SubnetForDescribeSubnetsOutput projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
   }
 
   public SubnetForDescribeSubnetsOutput routeTable(RouteTableForDescribeSubnetsOutput routeTable) {
@@ -341,6 +362,7 @@ public class SubnetForDescribeSubnetsOutput {
         Objects.equals(this.creationTime, subnetForDescribeSubnetsOutput.creationTime) &&
         Objects.equals(this.description, subnetForDescribeSubnetsOutput.description) &&
         Objects.equals(this.networkAclId, subnetForDescribeSubnetsOutput.networkAclId) &&
+        Objects.equals(this.projectName, subnetForDescribeSubnetsOutput.projectName) &&
         Objects.equals(this.routeTable, subnetForDescribeSubnetsOutput.routeTable) &&
         Objects.equals(this.status, subnetForDescribeSubnetsOutput.status) &&
         Objects.equals(this.subnetId, subnetForDescribeSubnetsOutput.subnetId) &&
@@ -353,7 +375,7 @@ public class SubnetForDescribeSubnetsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, availableIpAddressCount, cidrBlock, creationTime, description, networkAclId, routeTable, status, subnetId, subnetName, totalIpv4Count, updateTime, vpcId, zoneId);
+    return Objects.hash(accountId, availableIpAddressCount, cidrBlock, creationTime, description, networkAclId, projectName, routeTable, status, subnetId, subnetName, totalIpv4Count, updateTime, vpcId, zoneId);
   }
 
 
@@ -368,6 +390,7 @@ public class SubnetForDescribeSubnetsOutput {
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    networkAclId: ").append(toIndentedString(networkAclId)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    routeTable: ").append(toIndentedString(routeTable)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
