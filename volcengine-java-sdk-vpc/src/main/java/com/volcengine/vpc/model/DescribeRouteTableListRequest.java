@@ -27,13 +27,16 @@ import javax.validation.Valid;
  * DescribeRouteTableListRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:59.626852+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-20T11:35:41.789411+08:00[Asia/Shanghai]")
 public class DescribeRouteTableListRequest {
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
 
   @SerializedName("PageSize")
   private Integer pageSize = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
 
   @SerializedName("RouteTableId")
   private String routeTableId = null;
@@ -79,6 +82,24 @@ public class DescribeRouteTableListRequest {
 
   public void setPageSize(Integer pageSize) {
     this.pageSize = pageSize;
+  }
+
+  public DescribeRouteTableListRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
   }
 
   public DescribeRouteTableListRequest routeTableId(String routeTableId) {
@@ -147,6 +168,7 @@ public class DescribeRouteTableListRequest {
     DescribeRouteTableListRequest describeRouteTableListRequest = (DescribeRouteTableListRequest) o;
     return Objects.equals(this.pageNumber, describeRouteTableListRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeRouteTableListRequest.pageSize) &&
+        Objects.equals(this.projectName, describeRouteTableListRequest.projectName) &&
         Objects.equals(this.routeTableId, describeRouteTableListRequest.routeTableId) &&
         Objects.equals(this.routeTableName, describeRouteTableListRequest.routeTableName) &&
         Objects.equals(this.vpcId, describeRouteTableListRequest.vpcId);
@@ -154,7 +176,7 @@ public class DescribeRouteTableListRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(pageNumber, pageSize, routeTableId, routeTableName, vpcId);
+    return Objects.hash(pageNumber, pageSize, projectName, routeTableId, routeTableName, vpcId);
   }
 
 
@@ -165,6 +187,7 @@ public class DescribeRouteTableListRequest {
     
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    routeTableId: ").append(toIndentedString(routeTableId)).append("\n");
     sb.append("    routeTableName: ").append(toIndentedString(routeTableName)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");

@@ -19,21 +19,27 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vpc.model.TagForDescribeSecurityGroupsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
  * SecurityGroupForDescribeSecurityGroupsOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:59.626852+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-20T11:35:41.789411+08:00[Asia/Shanghai]")
 public class SecurityGroupForDescribeSecurityGroupsOutput {
   @SerializedName("CreationTime")
   private String creationTime = null;
 
   @SerializedName("Description")
   private String description = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
 
   @SerializedName("SecurityGroupId")
   private String securityGroupId = null;
@@ -43,6 +49,9 @@ public class SecurityGroupForDescribeSecurityGroupsOutput {
 
   @SerializedName("Status")
   private String status = null;
+
+  @SerializedName("Tags")
+  private List<TagForDescribeSecurityGroupsOutput> tags = null;
 
   @SerializedName("Type")
   private String type = null;
@@ -84,6 +93,24 @@ public class SecurityGroupForDescribeSecurityGroupsOutput {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public SecurityGroupForDescribeSecurityGroupsOutput projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
   }
 
   public SecurityGroupForDescribeSecurityGroupsOutput securityGroupId(String securityGroupId) {
@@ -140,6 +167,33 @@ public class SecurityGroupForDescribeSecurityGroupsOutput {
     this.status = status;
   }
 
+  public SecurityGroupForDescribeSecurityGroupsOutput tags(List<TagForDescribeSecurityGroupsOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public SecurityGroupForDescribeSecurityGroupsOutput addTagsItem(TagForDescribeSecurityGroupsOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForDescribeSecurityGroupsOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForDescribeSecurityGroupsOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForDescribeSecurityGroupsOutput> tags) {
+    this.tags = tags;
+  }
+
   public SecurityGroupForDescribeSecurityGroupsOutput type(String type) {
     this.type = type;
     return this;
@@ -188,16 +242,18 @@ public class SecurityGroupForDescribeSecurityGroupsOutput {
     SecurityGroupForDescribeSecurityGroupsOutput securityGroupForDescribeSecurityGroupsOutput = (SecurityGroupForDescribeSecurityGroupsOutput) o;
     return Objects.equals(this.creationTime, securityGroupForDescribeSecurityGroupsOutput.creationTime) &&
         Objects.equals(this.description, securityGroupForDescribeSecurityGroupsOutput.description) &&
+        Objects.equals(this.projectName, securityGroupForDescribeSecurityGroupsOutput.projectName) &&
         Objects.equals(this.securityGroupId, securityGroupForDescribeSecurityGroupsOutput.securityGroupId) &&
         Objects.equals(this.securityGroupName, securityGroupForDescribeSecurityGroupsOutput.securityGroupName) &&
         Objects.equals(this.status, securityGroupForDescribeSecurityGroupsOutput.status) &&
+        Objects.equals(this.tags, securityGroupForDescribeSecurityGroupsOutput.tags) &&
         Objects.equals(this.type, securityGroupForDescribeSecurityGroupsOutput.type) &&
         Objects.equals(this.vpcId, securityGroupForDescribeSecurityGroupsOutput.vpcId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(creationTime, description, securityGroupId, securityGroupName, status, type, vpcId);
+    return Objects.hash(creationTime, description, projectName, securityGroupId, securityGroupName, status, tags, type, vpcId);
   }
 
 
@@ -208,9 +264,11 @@ public class SecurityGroupForDescribeSecurityGroupsOutput {
     
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    securityGroupId: ").append(toIndentedString(securityGroupId)).append("\n");
     sb.append("    securityGroupName: ").append(toIndentedString(securityGroupName)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("}");

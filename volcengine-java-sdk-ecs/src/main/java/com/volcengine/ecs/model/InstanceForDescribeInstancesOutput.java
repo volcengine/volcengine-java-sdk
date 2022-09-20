@@ -19,9 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.ecs.model.CpuOptionsForDescribeInstancesOutput;
 import com.volcengine.ecs.model.EipAddressForDescribeInstancesOutput;
 import com.volcengine.ecs.model.LocalVolumeForDescribeInstancesOutput;
 import com.volcengine.ecs.model.NetworkInterfaceForDescribeInstancesOutput;
+import com.volcengine.ecs.model.TagForDescribeInstancesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -32,8 +34,11 @@ import javax.validation.Valid;
  * InstanceForDescribeInstancesOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-08-18T12:02:03.744330+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-20T11:35:32.100831+08:00[Asia/Shanghai]")
 public class InstanceForDescribeInstancesOutput {
+  @SerializedName("CpuOptions")
+  private CpuOptionsForDescribeInstancesOutput cpuOptions = null;
+
   @SerializedName("Cpus")
   private Integer cpus = null;
 
@@ -100,6 +105,9 @@ public class InstanceForDescribeInstancesOutput {
   @SerializedName("StoppedMode")
   private String stoppedMode = null;
 
+  @SerializedName("Tags")
+  private List<TagForDescribeInstancesOutput> tags = null;
+
   @SerializedName("UpdatedAt")
   private String updatedAt = null;
 
@@ -111,6 +119,25 @@ public class InstanceForDescribeInstancesOutput {
 
   @SerializedName("ZoneId")
   private String zoneId = null;
+
+  public InstanceForDescribeInstancesOutput cpuOptions(CpuOptionsForDescribeInstancesOutput cpuOptions) {
+    this.cpuOptions = cpuOptions;
+    return this;
+  }
+
+   /**
+   * Get cpuOptions
+   * @return cpuOptions
+  **/
+  @Valid
+  @Schema(description = "")
+  public CpuOptionsForDescribeInstancesOutput getCpuOptions() {
+    return cpuOptions;
+  }
+
+  public void setCpuOptions(CpuOptionsForDescribeInstancesOutput cpuOptions) {
+    this.cpuOptions = cpuOptions;
+  }
 
   public InstanceForDescribeInstancesOutput cpus(Integer cpus) {
     this.cpus = cpus;
@@ -535,6 +562,33 @@ public class InstanceForDescribeInstancesOutput {
     this.stoppedMode = stoppedMode;
   }
 
+  public InstanceForDescribeInstancesOutput tags(List<TagForDescribeInstancesOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public InstanceForDescribeInstancesOutput addTagsItem(TagForDescribeInstancesOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForDescribeInstancesOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForDescribeInstancesOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForDescribeInstancesOutput> tags) {
+    this.tags = tags;
+  }
+
   public InstanceForDescribeInstancesOutput updatedAt(String updatedAt) {
     this.updatedAt = updatedAt;
     return this;
@@ -617,7 +671,8 @@ public class InstanceForDescribeInstancesOutput {
       return false;
     }
     InstanceForDescribeInstancesOutput instanceForDescribeInstancesOutput = (InstanceForDescribeInstancesOutput) o;
-    return Objects.equals(this.cpus, instanceForDescribeInstancesOutput.cpus) &&
+    return Objects.equals(this.cpuOptions, instanceForDescribeInstancesOutput.cpuOptions) &&
+        Objects.equals(this.cpus, instanceForDescribeInstancesOutput.cpus) &&
         Objects.equals(this.createdAt, instanceForDescribeInstancesOutput.createdAt) &&
         Objects.equals(this.description, instanceForDescribeInstancesOutput.description) &&
         Objects.equals(this.eipAddress, instanceForDescribeInstancesOutput.eipAddress) &&
@@ -639,6 +694,7 @@ public class InstanceForDescribeInstancesOutput {
         Objects.equals(this.rdmaIpAddresses, instanceForDescribeInstancesOutput.rdmaIpAddresses) &&
         Objects.equals(this.status, instanceForDescribeInstancesOutput.status) &&
         Objects.equals(this.stoppedMode, instanceForDescribeInstancesOutput.stoppedMode) &&
+        Objects.equals(this.tags, instanceForDescribeInstancesOutput.tags) &&
         Objects.equals(this.updatedAt, instanceForDescribeInstancesOutput.updatedAt) &&
         Objects.equals(this.uuid, instanceForDescribeInstancesOutput.uuid) &&
         Objects.equals(this.vpcId, instanceForDescribeInstancesOutput.vpcId) &&
@@ -647,7 +703,7 @@ public class InstanceForDescribeInstancesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cpus, createdAt, description, eipAddress, expiredAt, hostName, imageId, instanceChargeType, instanceId, instanceName, instanceTypeId, keyPairId, keyPairName, localVolumes, memorySize, networkInterfaces, osName, osType, projectName, rdmaIpAddresses, status, stoppedMode, updatedAt, uuid, vpcId, zoneId);
+    return Objects.hash(cpuOptions, cpus, createdAt, description, eipAddress, expiredAt, hostName, imageId, instanceChargeType, instanceId, instanceName, instanceTypeId, keyPairId, keyPairName, localVolumes, memorySize, networkInterfaces, osName, osType, projectName, rdmaIpAddresses, status, stoppedMode, tags, updatedAt, uuid, vpcId, zoneId);
   }
 
 
@@ -656,6 +712,7 @@ public class InstanceForDescribeInstancesOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class InstanceForDescribeInstancesOutput {\n");
     
+    sb.append("    cpuOptions: ").append(toIndentedString(cpuOptions)).append("\n");
     sb.append("    cpus: ").append(toIndentedString(cpus)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
@@ -678,6 +735,7 @@ public class InstanceForDescribeInstancesOutput {
     sb.append("    rdmaIpAddresses: ").append(toIndentedString(rdmaIpAddresses)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    stoppedMode: ").append(toIndentedString(stoppedMode)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    uuid: ").append(toIndentedString(uuid)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
