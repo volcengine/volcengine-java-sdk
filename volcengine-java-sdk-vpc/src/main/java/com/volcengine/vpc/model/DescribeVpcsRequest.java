@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vpc.model.TagFilterForDescribeVpcsInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -29,13 +30,19 @@ import javax.validation.Valid;
  * DescribeVpcsRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:59.626852+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-20T11:35:41.789411+08:00[Asia/Shanghai]")
 public class DescribeVpcsRequest {
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
 
   @SerializedName("PageSize")
   private Integer pageSize = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
+  @SerializedName("TagFilters")
+  private List<TagFilterForDescribeVpcsInput> tagFilters = null;
 
   @SerializedName("VpcIds")
   private List<String> vpcIds = null;
@@ -78,6 +85,51 @@ public class DescribeVpcsRequest {
 
   public void setPageSize(Integer pageSize) {
     this.pageSize = pageSize;
+  }
+
+  public DescribeVpcsRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
+  public DescribeVpcsRequest tagFilters(List<TagFilterForDescribeVpcsInput> tagFilters) {
+    this.tagFilters = tagFilters;
+    return this;
+  }
+
+  public DescribeVpcsRequest addTagFiltersItem(TagFilterForDescribeVpcsInput tagFiltersItem) {
+    if (this.tagFilters == null) {
+      this.tagFilters = new ArrayList<TagFilterForDescribeVpcsInput>();
+    }
+    this.tagFilters.add(tagFiltersItem);
+    return this;
+  }
+
+   /**
+   * Get tagFilters
+   * @return tagFilters
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagFilterForDescribeVpcsInput> getTagFilters() {
+    return tagFilters;
+  }
+
+  public void setTagFilters(List<TagFilterForDescribeVpcsInput> tagFilters) {
+    this.tagFilters = tagFilters;
   }
 
   public DescribeVpcsRequest vpcIds(List<String> vpcIds) {
@@ -136,13 +188,15 @@ public class DescribeVpcsRequest {
     DescribeVpcsRequest describeVpcsRequest = (DescribeVpcsRequest) o;
     return Objects.equals(this.pageNumber, describeVpcsRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeVpcsRequest.pageSize) &&
+        Objects.equals(this.projectName, describeVpcsRequest.projectName) &&
+        Objects.equals(this.tagFilters, describeVpcsRequest.tagFilters) &&
         Objects.equals(this.vpcIds, describeVpcsRequest.vpcIds) &&
         Objects.equals(this.vpcName, describeVpcsRequest.vpcName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pageNumber, pageSize, vpcIds, vpcName);
+    return Objects.hash(pageNumber, pageSize, projectName, tagFilters, vpcIds, vpcName);
   }
 
 
@@ -153,6 +207,8 @@ public class DescribeVpcsRequest {
     
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("    vpcIds: ").append(toIndentedString(vpcIds)).append("\n");
     sb.append("    vpcName: ").append(toIndentedString(vpcName)).append("\n");
     sb.append("}");

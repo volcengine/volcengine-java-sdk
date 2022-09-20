@@ -27,13 +27,57 @@ import javax.validation.Valid;
  * PublicAccessNetworkConfigForUpdateClusterConfigInput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:54.001539+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-19T12:20:19.967862+08:00[Asia/Shanghai]")
 public class PublicAccessNetworkConfigForUpdateClusterConfigInput {
   @SerializedName("Bandwidth")
   private Integer bandwidth = null;
 
   @SerializedName("BillingType")
   private Integer billingType = null;
+
+  /**
+   * Gets or Sets isp
+   */
+  @JsonAdapter(IspEnum.Adapter.class)
+  public enum IspEnum {
+    BGP("BGP"),
+    CHINAMOBILE("ChinaMobile");
+
+    private String value;
+
+    IspEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static IspEnum fromValue(String input) {
+      for (IspEnum b : IspEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<IspEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final IspEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public IspEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return IspEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("Isp")
+  private IspEnum isp = null;
 
   public PublicAccessNetworkConfigForUpdateClusterConfigInput bandwidth(Integer bandwidth) {
     this.bandwidth = bandwidth;
@@ -71,6 +115,24 @@ public class PublicAccessNetworkConfigForUpdateClusterConfigInput {
     this.billingType = billingType;
   }
 
+  public PublicAccessNetworkConfigForUpdateClusterConfigInput isp(IspEnum isp) {
+    this.isp = isp;
+    return this;
+  }
+
+   /**
+   * Get isp
+   * @return isp
+  **/
+  @Schema(description = "")
+  public IspEnum getIsp() {
+    return isp;
+  }
+
+  public void setIsp(IspEnum isp) {
+    this.isp = isp;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -82,12 +144,13 @@ public class PublicAccessNetworkConfigForUpdateClusterConfigInput {
     }
     PublicAccessNetworkConfigForUpdateClusterConfigInput publicAccessNetworkConfigForUpdateClusterConfigInput = (PublicAccessNetworkConfigForUpdateClusterConfigInput) o;
     return Objects.equals(this.bandwidth, publicAccessNetworkConfigForUpdateClusterConfigInput.bandwidth) &&
-        Objects.equals(this.billingType, publicAccessNetworkConfigForUpdateClusterConfigInput.billingType);
+        Objects.equals(this.billingType, publicAccessNetworkConfigForUpdateClusterConfigInput.billingType) &&
+        Objects.equals(this.isp, publicAccessNetworkConfigForUpdateClusterConfigInput.isp);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidth, billingType);
+    return Objects.hash(bandwidth, billingType, isp);
   }
 
 
@@ -98,6 +161,7 @@ public class PublicAccessNetworkConfigForUpdateClusterConfigInput {
     
     sb.append("    bandwidth: ").append(toIndentedString(bandwidth)).append("\n");
     sb.append("    billingType: ").append(toIndentedString(billingType)).append("\n");
+    sb.append("    isp: ").append(toIndentedString(isp)).append("\n");
     sb.append("}");
     return sb.toString();
   }
