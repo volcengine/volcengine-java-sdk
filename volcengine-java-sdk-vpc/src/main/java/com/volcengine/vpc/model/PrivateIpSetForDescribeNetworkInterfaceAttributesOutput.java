@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.vpc.model.AssociatedElasticIpForDescribeNetworkInterfacesOutput;
+import com.volcengine.vpc.model.AssociatedElasticIpForDescribeNetworkInterfaceAttributesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -28,10 +28,10 @@ import javax.validation.Valid;
  * PrivateIpSetForDescribeNetworkInterfaceAttributesOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-20T11:35:41.789411+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-22T20:23:39.157783+08:00[Asia/Shanghai]")
 public class PrivateIpSetForDescribeNetworkInterfaceAttributesOutput {
   @SerializedName("AssociatedElasticIp")
-  private AssociatedElasticIpForDescribeNetworkInterfacesOutput associatedElasticIp = null;
+  private AssociatedElasticIpForDescribeNetworkInterfaceAttributesOutput associatedElasticIp = null;
 
   @SerializedName("Primary")
   private Boolean primary = null;
@@ -39,7 +39,7 @@ public class PrivateIpSetForDescribeNetworkInterfaceAttributesOutput {
   @SerializedName("PrivateIpAddress")
   private String privateIpAddress = null;
 
-  public PrivateIpSetForDescribeNetworkInterfaceAttributesOutput associatedElasticIp(AssociatedElasticIpForDescribeNetworkInterfacesOutput associatedElasticIp) {
+  public PrivateIpSetForDescribeNetworkInterfaceAttributesOutput associatedElasticIp(AssociatedElasticIpForDescribeNetworkInterfaceAttributesOutput associatedElasticIp) {
     this.associatedElasticIp = associatedElasticIp;
     return this;
   }
@@ -50,11 +50,11 @@ public class PrivateIpSetForDescribeNetworkInterfaceAttributesOutput {
   **/
   @Valid
   @Schema(description = "")
-  public AssociatedElasticIpForDescribeNetworkInterfacesOutput getAssociatedElasticIp() {
+  public AssociatedElasticIpForDescribeNetworkInterfaceAttributesOutput getAssociatedElasticIp() {
     return associatedElasticIp;
   }
 
-  public void setAssociatedElasticIp(AssociatedElasticIpForDescribeNetworkInterfacesOutput associatedElasticIp) {
+  public void setAssociatedElasticIp(AssociatedElasticIpForDescribeNetworkInterfaceAttributesOutput associatedElasticIp) {
     this.associatedElasticIp = associatedElasticIp;
   }
 

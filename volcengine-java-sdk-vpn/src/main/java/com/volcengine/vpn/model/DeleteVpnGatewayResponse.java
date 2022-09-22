@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * DeleteVpnGatewayResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-20T11:35:51.103428+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-22T20:23:47.673068+08:00[Asia/Shanghai]")
 public class DeleteVpnGatewayResponse {
   @SerializedName("RequestId")
   private String requestId = null;
