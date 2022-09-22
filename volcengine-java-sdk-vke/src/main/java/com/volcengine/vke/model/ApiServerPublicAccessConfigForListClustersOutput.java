@@ -22,16 +22,47 @@ import com.google.gson.stream.JsonWriter;
 import com.volcengine.vke.model.PublicAccessNetworkConfigForListClustersOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
  * ApiServerPublicAccessConfigForListClustersOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:54.001539+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-19T12:20:19.967862+08:00[Asia/Shanghai]")
 public class ApiServerPublicAccessConfigForListClustersOutput {
+  @SerializedName("AccessSourceIpsv4")
+  private List<String> accessSourceIpsv4 = null;
+
   @SerializedName("PublicAccessNetworkConfig")
   private PublicAccessNetworkConfigForListClustersOutput publicAccessNetworkConfig = null;
+
+  public ApiServerPublicAccessConfigForListClustersOutput accessSourceIpsv4(List<String> accessSourceIpsv4) {
+    this.accessSourceIpsv4 = accessSourceIpsv4;
+    return this;
+  }
+
+  public ApiServerPublicAccessConfigForListClustersOutput addAccessSourceIpsv4Item(String accessSourceIpsv4Item) {
+    if (this.accessSourceIpsv4 == null) {
+      this.accessSourceIpsv4 = new ArrayList<String>();
+    }
+    this.accessSourceIpsv4.add(accessSourceIpsv4Item);
+    return this;
+  }
+
+   /**
+   * Get accessSourceIpsv4
+   * @return accessSourceIpsv4
+  **/
+  @Schema(description = "")
+  public List<String> getAccessSourceIpsv4() {
+    return accessSourceIpsv4;
+  }
+
+  public void setAccessSourceIpsv4(List<String> accessSourceIpsv4) {
+    this.accessSourceIpsv4 = accessSourceIpsv4;
+  }
 
   public ApiServerPublicAccessConfigForListClustersOutput publicAccessNetworkConfig(PublicAccessNetworkConfigForListClustersOutput publicAccessNetworkConfig) {
     this.publicAccessNetworkConfig = publicAccessNetworkConfig;
@@ -62,12 +93,13 @@ public class ApiServerPublicAccessConfigForListClustersOutput {
       return false;
     }
     ApiServerPublicAccessConfigForListClustersOutput apiServerPublicAccessConfigForListClustersOutput = (ApiServerPublicAccessConfigForListClustersOutput) o;
-    return Objects.equals(this.publicAccessNetworkConfig, apiServerPublicAccessConfigForListClustersOutput.publicAccessNetworkConfig);
+    return Objects.equals(this.accessSourceIpsv4, apiServerPublicAccessConfigForListClustersOutput.accessSourceIpsv4) &&
+        Objects.equals(this.publicAccessNetworkConfig, apiServerPublicAccessConfigForListClustersOutput.publicAccessNetworkConfig);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(publicAccessNetworkConfig);
+    return Objects.hash(accessSourceIpsv4, publicAccessNetworkConfig);
   }
 
 
@@ -76,6 +108,7 @@ public class ApiServerPublicAccessConfigForListClustersOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ApiServerPublicAccessConfigForListClustersOutput {\n");
     
+    sb.append("    accessSourceIpsv4: ").append(toIndentedString(accessSourceIpsv4)).append("\n");
     sb.append("    publicAccessNetworkConfig: ").append(toIndentedString(publicAccessNetworkConfig)).append("\n");
     sb.append("}");
     return sb.toString();

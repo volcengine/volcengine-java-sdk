@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.ecs.model.NetworkInterfaceForRunInstancesInput;
+import com.volcengine.ecs.model.TagForRunInstancesInput;
 import com.volcengine.ecs.model.VolumeForRunInstancesInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -31,7 +32,7 @@ import javax.validation.Valid;
  * RunInstancesRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-08-18T12:02:03.744330+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-20T11:35:32.100831+08:00[Asia/Shanghai]")
 public class RunInstancesRequest {
   @SerializedName("AutoRenew")
   private Boolean autoRenew = null;
@@ -101,6 +102,9 @@ public class RunInstancesRequest {
 
   @SerializedName("SuffixIndex")
   private Integer suffixIndex = null;
+
+  @SerializedName("Tags")
+  private List<TagForRunInstancesInput> tags = null;
 
   @SerializedName("UniqueSuffix")
   private Boolean uniqueSuffix = null;
@@ -537,6 +541,33 @@ public class RunInstancesRequest {
     this.suffixIndex = suffixIndex;
   }
 
+  public RunInstancesRequest tags(List<TagForRunInstancesInput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public RunInstancesRequest addTagsItem(TagForRunInstancesInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForRunInstancesInput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForRunInstancesInput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForRunInstancesInput> tags) {
+    this.tags = tags;
+  }
+
   public RunInstancesRequest uniqueSuffix(Boolean uniqueSuffix) {
     this.uniqueSuffix = uniqueSuffix;
     return this;
@@ -651,6 +682,7 @@ public class RunInstancesRequest {
         Objects.equals(this.projectName, runInstancesRequest.projectName) &&
         Objects.equals(this.securityEnhancementStrategy, runInstancesRequest.securityEnhancementStrategy) &&
         Objects.equals(this.suffixIndex, runInstancesRequest.suffixIndex) &&
+        Objects.equals(this.tags, runInstancesRequest.tags) &&
         Objects.equals(this.uniqueSuffix, runInstancesRequest.uniqueSuffix) &&
         Objects.equals(this.userData, runInstancesRequest.userData) &&
         Objects.equals(this.volumes, runInstancesRequest.volumes) &&
@@ -659,7 +691,7 @@ public class RunInstancesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoRenew, autoRenewPeriod, clientToken, count, creditSpecification, description, dryRun, hostName, hpcClusterId, imageId, instanceChargeType, instanceName, instanceType, instanceTypeId, keyPairName, minCount, networkInterfaces, password, period, periodUnit, projectName, securityEnhancementStrategy, suffixIndex, uniqueSuffix, userData, volumes, zoneId);
+    return Objects.hash(autoRenew, autoRenewPeriod, clientToken, count, creditSpecification, description, dryRun, hostName, hpcClusterId, imageId, instanceChargeType, instanceName, instanceType, instanceTypeId, keyPairName, minCount, networkInterfaces, password, period, periodUnit, projectName, securityEnhancementStrategy, suffixIndex, tags, uniqueSuffix, userData, volumes, zoneId);
   }
 
 
@@ -691,6 +723,7 @@ public class RunInstancesRequest {
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    securityEnhancementStrategy: ").append(toIndentedString(securityEnhancementStrategy)).append("\n");
     sb.append("    suffixIndex: ").append(toIndentedString(suffixIndex)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    uniqueSuffix: ").append(toIndentedString(uniqueSuffix)).append("\n");
     sb.append("    userData: ").append(toIndentedString(userData)).append("\n");
     sb.append("    volumes: ").append(toIndentedString(volumes)).append("\n");

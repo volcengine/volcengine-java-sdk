@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.clb.model.TagFilterForDescribeLoadBalancersInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -29,7 +30,7 @@ import javax.validation.Valid;
  * DescribeLoadBalancersRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:28.835190+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-20T11:35:20.753228+08:00[Asia/Shanghai]")
 public class DescribeLoadBalancersRequest {
   @SerializedName("EniAddress")
   private String eniAddress = null;
@@ -45,6 +46,12 @@ public class DescribeLoadBalancersRequest {
 
   @SerializedName("PageSize")
   private Integer pageSize = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
+  @SerializedName("TagFilters")
+  private List<TagFilterForDescribeLoadBalancersInput> tagFilters = null;
 
   @SerializedName("VpcId")
   private String vpcId = null;
@@ -147,6 +154,51 @@ public class DescribeLoadBalancersRequest {
     this.pageSize = pageSize;
   }
 
+  public DescribeLoadBalancersRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
+  public DescribeLoadBalancersRequest tagFilters(List<TagFilterForDescribeLoadBalancersInput> tagFilters) {
+    this.tagFilters = tagFilters;
+    return this;
+  }
+
+  public DescribeLoadBalancersRequest addTagFiltersItem(TagFilterForDescribeLoadBalancersInput tagFiltersItem) {
+    if (this.tagFilters == null) {
+      this.tagFilters = new ArrayList<TagFilterForDescribeLoadBalancersInput>();
+    }
+    this.tagFilters.add(tagFiltersItem);
+    return this;
+  }
+
+   /**
+   * Get tagFilters
+   * @return tagFilters
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagFilterForDescribeLoadBalancersInput> getTagFilters() {
+    return tagFilters;
+  }
+
+  public void setTagFilters(List<TagFilterForDescribeLoadBalancersInput> tagFilters) {
+    this.tagFilters = tagFilters;
+  }
+
   public DescribeLoadBalancersRequest vpcId(String vpcId) {
     this.vpcId = vpcId;
     return this;
@@ -180,12 +232,14 @@ public class DescribeLoadBalancersRequest {
         Objects.equals(this.loadBalancerName, describeLoadBalancersRequest.loadBalancerName) &&
         Objects.equals(this.pageNumber, describeLoadBalancersRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeLoadBalancersRequest.pageSize) &&
+        Objects.equals(this.projectName, describeLoadBalancersRequest.projectName) &&
+        Objects.equals(this.tagFilters, describeLoadBalancersRequest.tagFilters) &&
         Objects.equals(this.vpcId, describeLoadBalancersRequest.vpcId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(eniAddress, loadBalancerIds, loadBalancerName, pageNumber, pageSize, vpcId);
+    return Objects.hash(eniAddress, loadBalancerIds, loadBalancerName, pageNumber, pageSize, projectName, tagFilters, vpcId);
   }
 
 
@@ -199,6 +253,8 @@ public class DescribeLoadBalancersRequest {
     sb.append("    loadBalancerName: ").append(toIndentedString(loadBalancerName)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("}");
     return sb.toString();

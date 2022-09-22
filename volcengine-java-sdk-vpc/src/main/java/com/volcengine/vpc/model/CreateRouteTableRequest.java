@@ -27,13 +27,16 @@ import javax.validation.Valid;
  * CreateRouteTableRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:59.626852+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-20T11:35:41.789411+08:00[Asia/Shanghai]")
 public class CreateRouteTableRequest {
   @SerializedName("ClientToken")
   private String clientToken = null;
 
   @SerializedName("Description")
   private String description = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
 
   @SerializedName("RouteTableName")
   private String routeTableName = null;
@@ -75,6 +78,24 @@ public class CreateRouteTableRequest {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public CreateRouteTableRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
   }
 
   public CreateRouteTableRequest routeTableName(String routeTableName) {
@@ -126,13 +147,14 @@ public class CreateRouteTableRequest {
     CreateRouteTableRequest createRouteTableRequest = (CreateRouteTableRequest) o;
     return Objects.equals(this.clientToken, createRouteTableRequest.clientToken) &&
         Objects.equals(this.description, createRouteTableRequest.description) &&
+        Objects.equals(this.projectName, createRouteTableRequest.projectName) &&
         Objects.equals(this.routeTableName, createRouteTableRequest.routeTableName) &&
         Objects.equals(this.vpcId, createRouteTableRequest.vpcId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, description, routeTableName, vpcId);
+    return Objects.hash(clientToken, description, projectName, routeTableName, vpcId);
   }
 
 
@@ -143,6 +165,7 @@ public class CreateRouteTableRequest {
     
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    routeTableName: ").append(toIndentedString(routeTableName)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("}");

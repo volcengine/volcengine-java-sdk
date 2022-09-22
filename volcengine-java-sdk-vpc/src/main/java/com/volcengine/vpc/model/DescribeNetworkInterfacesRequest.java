@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vpc.model.TagFilterForDescribeNetworkInterfacesInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -29,7 +30,7 @@ import javax.validation.Valid;
  * DescribeNetworkInterfacesRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:59.626852+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-20T11:35:41.789411+08:00[Asia/Shanghai]")
 public class DescribeNetworkInterfacesRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;
@@ -52,6 +53,9 @@ public class DescribeNetworkInterfacesRequest {
   @SerializedName("PrivateIpAddresses")
   private List<String> privateIpAddresses = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("SecurityGroupId")
   private String securityGroupId = null;
 
@@ -60,6 +64,9 @@ public class DescribeNetworkInterfacesRequest {
 
   @SerializedName("SubnetId")
   private String subnetId = null;
+
+  @SerializedName("TagFilters")
+  private List<TagFilterForDescribeNetworkInterfacesInput> tagFilters = null;
 
   @SerializedName("Type")
   private String type = null;
@@ -221,6 +228,24 @@ public class DescribeNetworkInterfacesRequest {
     this.privateIpAddresses = privateIpAddresses;
   }
 
+  public DescribeNetworkInterfacesRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public DescribeNetworkInterfacesRequest securityGroupId(String securityGroupId) {
     this.securityGroupId = securityGroupId;
     return this;
@@ -273,6 +298,33 @@ public class DescribeNetworkInterfacesRequest {
 
   public void setSubnetId(String subnetId) {
     this.subnetId = subnetId;
+  }
+
+  public DescribeNetworkInterfacesRequest tagFilters(List<TagFilterForDescribeNetworkInterfacesInput> tagFilters) {
+    this.tagFilters = tagFilters;
+    return this;
+  }
+
+  public DescribeNetworkInterfacesRequest addTagFiltersItem(TagFilterForDescribeNetworkInterfacesInput tagFiltersItem) {
+    if (this.tagFilters == null) {
+      this.tagFilters = new ArrayList<TagFilterForDescribeNetworkInterfacesInput>();
+    }
+    this.tagFilters.add(tagFiltersItem);
+    return this;
+  }
+
+   /**
+   * Get tagFilters
+   * @return tagFilters
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagFilterForDescribeNetworkInterfacesInput> getTagFilters() {
+    return tagFilters;
+  }
+
+  public void setTagFilters(List<TagFilterForDescribeNetworkInterfacesInput> tagFilters) {
+    this.tagFilters = tagFilters;
   }
 
   public DescribeNetworkInterfacesRequest type(String type) {
@@ -346,9 +398,11 @@ public class DescribeNetworkInterfacesRequest {
         Objects.equals(this.pageSize, describeNetworkInterfacesRequest.pageSize) &&
         Objects.equals(this.primaryIpAddresses, describeNetworkInterfacesRequest.primaryIpAddresses) &&
         Objects.equals(this.privateIpAddresses, describeNetworkInterfacesRequest.privateIpAddresses) &&
+        Objects.equals(this.projectName, describeNetworkInterfacesRequest.projectName) &&
         Objects.equals(this.securityGroupId, describeNetworkInterfacesRequest.securityGroupId) &&
         Objects.equals(this.status, describeNetworkInterfacesRequest.status) &&
         Objects.equals(this.subnetId, describeNetworkInterfacesRequest.subnetId) &&
+        Objects.equals(this.tagFilters, describeNetworkInterfacesRequest.tagFilters) &&
         Objects.equals(this.type, describeNetworkInterfacesRequest.type) &&
         Objects.equals(this.vpcId, describeNetworkInterfacesRequest.vpcId) &&
         Objects.equals(this.zoneId, describeNetworkInterfacesRequest.zoneId);
@@ -356,7 +410,7 @@ public class DescribeNetworkInterfacesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, networkInterfaceIds, networkInterfaceName, pageNumber, pageSize, primaryIpAddresses, privateIpAddresses, securityGroupId, status, subnetId, type, vpcId, zoneId);
+    return Objects.hash(instanceId, networkInterfaceIds, networkInterfaceName, pageNumber, pageSize, primaryIpAddresses, privateIpAddresses, projectName, securityGroupId, status, subnetId, tagFilters, type, vpcId, zoneId);
   }
 
 
@@ -372,9 +426,11 @@ public class DescribeNetworkInterfacesRequest {
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    primaryIpAddresses: ").append(toIndentedString(primaryIpAddresses)).append("\n");
     sb.append("    privateIpAddresses: ").append(toIndentedString(privateIpAddresses)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    securityGroupId: ").append(toIndentedString(securityGroupId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
+    sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
