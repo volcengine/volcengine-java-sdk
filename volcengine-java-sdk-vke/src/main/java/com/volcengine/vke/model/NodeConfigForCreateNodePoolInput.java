@@ -32,19 +32,75 @@ import javax.validation.Valid;
  * NodeConfigForCreateNodePoolInput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:54.001539+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-19T12:20:19.967862+08:00[Asia/Shanghai]")
 public class NodeConfigForCreateNodePoolInput {
   @SerializedName("AdditionalContainerStorageEnabled")
   private Boolean additionalContainerStorageEnabled = null;
 
+  @SerializedName("AutoRenew")
+  private Boolean autoRenew = null;
+
+  @SerializedName("AutoRenewPeriod")
+  private Integer autoRenewPeriod = null;
+
   @SerializedName("DataVolumes")
   private List<DataVolumeForCreateNodePoolInput> dataVolumes = null;
+
+  @SerializedName("ImageId")
+  private String imageId = null;
 
   @SerializedName("InitializeScript")
   private String initializeScript = null;
 
+  /**
+   * Gets or Sets instanceChargeType
+   */
+  @JsonAdapter(InstanceChargeTypeEnum.Adapter.class)
+  public enum InstanceChargeTypeEnum {
+    POSTPAID("PostPaid"),
+    PREPAID("PrePaid");
+
+    private String value;
+
+    InstanceChargeTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static InstanceChargeTypeEnum fromValue(String input) {
+      for (InstanceChargeTypeEnum b : InstanceChargeTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<InstanceChargeTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final InstanceChargeTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public InstanceChargeTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return InstanceChargeTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("InstanceChargeType")
+  private InstanceChargeTypeEnum instanceChargeType = null;
+
   @SerializedName("InstanceTypeIds")
   private List<String> instanceTypeIds = null;
+
+  @SerializedName("Period")
+  private Integer period = null;
 
   @SerializedName("Security")
   private SecurityForCreateNodePoolInput security = null;
@@ -71,6 +127,42 @@ public class NodeConfigForCreateNodePoolInput {
 
   public void setAdditionalContainerStorageEnabled(Boolean additionalContainerStorageEnabled) {
     this.additionalContainerStorageEnabled = additionalContainerStorageEnabled;
+  }
+
+  public NodeConfigForCreateNodePoolInput autoRenew(Boolean autoRenew) {
+    this.autoRenew = autoRenew;
+    return this;
+  }
+
+   /**
+   * Get autoRenew
+   * @return autoRenew
+  **/
+  @Schema(description = "")
+  public Boolean isAutoRenew() {
+    return autoRenew;
+  }
+
+  public void setAutoRenew(Boolean autoRenew) {
+    this.autoRenew = autoRenew;
+  }
+
+  public NodeConfigForCreateNodePoolInput autoRenewPeriod(Integer autoRenewPeriod) {
+    this.autoRenewPeriod = autoRenewPeriod;
+    return this;
+  }
+
+   /**
+   * Get autoRenewPeriod
+   * @return autoRenewPeriod
+  **/
+  @Schema(description = "")
+  public Integer getAutoRenewPeriod() {
+    return autoRenewPeriod;
+  }
+
+  public void setAutoRenewPeriod(Integer autoRenewPeriod) {
+    this.autoRenewPeriod = autoRenewPeriod;
   }
 
   public NodeConfigForCreateNodePoolInput dataVolumes(List<DataVolumeForCreateNodePoolInput> dataVolumes) {
@@ -100,6 +192,24 @@ public class NodeConfigForCreateNodePoolInput {
     this.dataVolumes = dataVolumes;
   }
 
+  public NodeConfigForCreateNodePoolInput imageId(String imageId) {
+    this.imageId = imageId;
+    return this;
+  }
+
+   /**
+   * Get imageId
+   * @return imageId
+  **/
+  @Schema(description = "")
+  public String getImageId() {
+    return imageId;
+  }
+
+  public void setImageId(String imageId) {
+    this.imageId = imageId;
+  }
+
   public NodeConfigForCreateNodePoolInput initializeScript(String initializeScript) {
     this.initializeScript = initializeScript;
     return this;
@@ -116,6 +226,24 @@ public class NodeConfigForCreateNodePoolInput {
 
   public void setInitializeScript(String initializeScript) {
     this.initializeScript = initializeScript;
+  }
+
+  public NodeConfigForCreateNodePoolInput instanceChargeType(InstanceChargeTypeEnum instanceChargeType) {
+    this.instanceChargeType = instanceChargeType;
+    return this;
+  }
+
+   /**
+   * Get instanceChargeType
+   * @return instanceChargeType
+  **/
+  @Schema(description = "")
+  public InstanceChargeTypeEnum getInstanceChargeType() {
+    return instanceChargeType;
+  }
+
+  public void setInstanceChargeType(InstanceChargeTypeEnum instanceChargeType) {
+    this.instanceChargeType = instanceChargeType;
   }
 
   public NodeConfigForCreateNodePoolInput instanceTypeIds(List<String> instanceTypeIds) {
@@ -142,6 +270,24 @@ public class NodeConfigForCreateNodePoolInput {
 
   public void setInstanceTypeIds(List<String> instanceTypeIds) {
     this.instanceTypeIds = instanceTypeIds;
+  }
+
+  public NodeConfigForCreateNodePoolInput period(Integer period) {
+    this.period = period;
+    return this;
+  }
+
+   /**
+   * Get period
+   * @return period
+  **/
+  @Schema(description = "")
+  public Integer getPeriod() {
+    return period;
+  }
+
+  public void setPeriod(Integer period) {
+    this.period = period;
   }
 
   public NodeConfigForCreateNodePoolInput security(SecurityForCreateNodePoolInput security) {
@@ -219,9 +365,14 @@ public class NodeConfigForCreateNodePoolInput {
     }
     NodeConfigForCreateNodePoolInput nodeConfigForCreateNodePoolInput = (NodeConfigForCreateNodePoolInput) o;
     return Objects.equals(this.additionalContainerStorageEnabled, nodeConfigForCreateNodePoolInput.additionalContainerStorageEnabled) &&
+        Objects.equals(this.autoRenew, nodeConfigForCreateNodePoolInput.autoRenew) &&
+        Objects.equals(this.autoRenewPeriod, nodeConfigForCreateNodePoolInput.autoRenewPeriod) &&
         Objects.equals(this.dataVolumes, nodeConfigForCreateNodePoolInput.dataVolumes) &&
+        Objects.equals(this.imageId, nodeConfigForCreateNodePoolInput.imageId) &&
         Objects.equals(this.initializeScript, nodeConfigForCreateNodePoolInput.initializeScript) &&
+        Objects.equals(this.instanceChargeType, nodeConfigForCreateNodePoolInput.instanceChargeType) &&
         Objects.equals(this.instanceTypeIds, nodeConfigForCreateNodePoolInput.instanceTypeIds) &&
+        Objects.equals(this.period, nodeConfigForCreateNodePoolInput.period) &&
         Objects.equals(this.security, nodeConfigForCreateNodePoolInput.security) &&
         Objects.equals(this.subnetIds, nodeConfigForCreateNodePoolInput.subnetIds) &&
         Objects.equals(this.systemVolume, nodeConfigForCreateNodePoolInput.systemVolume);
@@ -229,7 +380,7 @@ public class NodeConfigForCreateNodePoolInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalContainerStorageEnabled, dataVolumes, initializeScript, instanceTypeIds, security, subnetIds, systemVolume);
+    return Objects.hash(additionalContainerStorageEnabled, autoRenew, autoRenewPeriod, dataVolumes, imageId, initializeScript, instanceChargeType, instanceTypeIds, period, security, subnetIds, systemVolume);
   }
 
 
@@ -239,9 +390,14 @@ public class NodeConfigForCreateNodePoolInput {
     sb.append("class NodeConfigForCreateNodePoolInput {\n");
     
     sb.append("    additionalContainerStorageEnabled: ").append(toIndentedString(additionalContainerStorageEnabled)).append("\n");
+    sb.append("    autoRenew: ").append(toIndentedString(autoRenew)).append("\n");
+    sb.append("    autoRenewPeriod: ").append(toIndentedString(autoRenewPeriod)).append("\n");
     sb.append("    dataVolumes: ").append(toIndentedString(dataVolumes)).append("\n");
+    sb.append("    imageId: ").append(toIndentedString(imageId)).append("\n");
     sb.append("    initializeScript: ").append(toIndentedString(initializeScript)).append("\n");
+    sb.append("    instanceChargeType: ").append(toIndentedString(instanceChargeType)).append("\n");
     sb.append("    instanceTypeIds: ").append(toIndentedString(instanceTypeIds)).append("\n");
+    sb.append("    period: ").append(toIndentedString(period)).append("\n");
     sb.append("    security: ").append(toIndentedString(security)).append("\n");
     sb.append("    subnetIds: ").append(toIndentedString(subnetIds)).append("\n");
     sb.append("    systemVolume: ").append(toIndentedString(systemVolume)).append("\n");
