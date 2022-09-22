@@ -32,7 +32,7 @@ import javax.validation.Valid;
  * NetworkInterfaceSetForDescribeNetworkInterfacesOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-20T11:35:41.789411+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-22T20:23:39.157783+08:00[Asia/Shanghai]")
 public class NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
   @SerializedName("AccountId")
   private String accountId = null;
