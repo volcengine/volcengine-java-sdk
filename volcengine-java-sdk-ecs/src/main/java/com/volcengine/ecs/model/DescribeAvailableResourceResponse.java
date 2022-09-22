@@ -30,7 +30,7 @@ import javax.validation.Valid;
  * DescribeAvailableResourceResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-20T11:35:32.100831+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-22T20:23:28.947116+08:00[Asia/Shanghai]")
 public class DescribeAvailableResourceResponse {
   @SerializedName("AvailableZones")
   private List<AvailableZoneForDescribeAvailableResourceOutput> availableZones = null;
