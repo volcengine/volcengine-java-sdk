@@ -29,7 +29,7 @@ import javax.validation.Valid;
  * DescribeAclsRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:28.835190+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-22T20:23:16.891404+08:00[Asia/Shanghai]")
 public class DescribeAclsRequest {
   @SerializedName("AclIds")
   private List<String> aclIds = null;
@@ -42,6 +42,9 @@ public class DescribeAclsRequest {
 
   @SerializedName("PageSize")
   private Integer pageSize = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
 
   public DescribeAclsRequest aclIds(List<String> aclIds) {
     this.aclIds = aclIds;
@@ -123,6 +126,24 @@ public class DescribeAclsRequest {
     this.pageSize = pageSize;
   }
 
+  public DescribeAclsRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -136,12 +157,13 @@ public class DescribeAclsRequest {
     return Objects.equals(this.aclIds, describeAclsRequest.aclIds) &&
         Objects.equals(this.aclName, describeAclsRequest.aclName) &&
         Objects.equals(this.pageNumber, describeAclsRequest.pageNumber) &&
-        Objects.equals(this.pageSize, describeAclsRequest.pageSize);
+        Objects.equals(this.pageSize, describeAclsRequest.pageSize) &&
+        Objects.equals(this.projectName, describeAclsRequest.projectName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclIds, aclName, pageNumber, pageSize);
+    return Objects.hash(aclIds, aclName, pageNumber, pageSize, projectName);
   }
 
 
@@ -154,6 +176,7 @@ public class DescribeAclsRequest {
     sb.append("    aclName: ").append(toIndentedString(aclName)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

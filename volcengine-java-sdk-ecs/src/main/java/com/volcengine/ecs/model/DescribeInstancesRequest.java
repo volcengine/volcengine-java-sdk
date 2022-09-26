@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.ecs.model.TagFilterForDescribeInstancesInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -29,7 +30,7 @@ import javax.validation.Valid;
  * DescribeInstancesRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-08-18T12:02:03.744330+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-22T20:23:28.947116+08:00[Asia/Shanghai]")
 public class DescribeInstancesRequest {
   @SerializedName("HpcClusterId")
   private String hpcClusterId = null;
@@ -69,6 +70,9 @@ public class DescribeInstancesRequest {
 
   @SerializedName("Status")
   private String status = null;
+
+  @SerializedName("TagFilters")
+  private List<TagFilterForDescribeInstancesInput> tagFilters = null;
 
   @SerializedName("VpcId")
   private String vpcId = null;
@@ -342,6 +346,33 @@ public class DescribeInstancesRequest {
     this.status = status;
   }
 
+  public DescribeInstancesRequest tagFilters(List<TagFilterForDescribeInstancesInput> tagFilters) {
+    this.tagFilters = tagFilters;
+    return this;
+  }
+
+  public DescribeInstancesRequest addTagFiltersItem(TagFilterForDescribeInstancesInput tagFiltersItem) {
+    if (this.tagFilters == null) {
+      this.tagFilters = new ArrayList<TagFilterForDescribeInstancesInput>();
+    }
+    this.tagFilters.add(tagFiltersItem);
+    return this;
+  }
+
+   /**
+   * Get tagFilters
+   * @return tagFilters
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagFilterForDescribeInstancesInput> getTagFilters() {
+    return tagFilters;
+  }
+
+  public void setTagFilters(List<TagFilterForDescribeInstancesInput> tagFilters) {
+    this.tagFilters = tagFilters;
+  }
+
   public DescribeInstancesRequest vpcId(String vpcId) {
     this.vpcId = vpcId;
     return this;
@@ -401,13 +432,14 @@ public class DescribeInstancesRequest {
         Objects.equals(this.primaryIpAddress, describeInstancesRequest.primaryIpAddress) &&
         Objects.equals(this.projectName, describeInstancesRequest.projectName) &&
         Objects.equals(this.status, describeInstancesRequest.status) &&
+        Objects.equals(this.tagFilters, describeInstancesRequest.tagFilters) &&
         Objects.equals(this.vpcId, describeInstancesRequest.vpcId) &&
         Objects.equals(this.zoneId, describeInstancesRequest.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hpcClusterId, instanceChargeType, instanceIds, instanceName, instanceTypeFamilies, instanceTypeIds, instanceTypes, keyPairName, maxResults, nextToken, primaryIpAddress, projectName, status, vpcId, zoneId);
+    return Objects.hash(hpcClusterId, instanceChargeType, instanceIds, instanceName, instanceTypeFamilies, instanceTypeIds, instanceTypes, keyPairName, maxResults, nextToken, primaryIpAddress, projectName, status, tagFilters, vpcId, zoneId);
   }
 
 
@@ -429,6 +461,7 @@ public class DescribeInstancesRequest {
     sb.append("    primaryIpAddress: ").append(toIndentedString(primaryIpAddress)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");

@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vpc.model.AssociatedElasticIpForDescribeNetworkInterfaceAttributesOutput;
 import com.volcengine.vpc.model.PrivateIpSetsForDescribeNetworkInterfaceAttributesOutput;
+import com.volcengine.vpc.model.TagForDescribeNetworkInterfaceAttributesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -31,7 +32,7 @@ import javax.validation.Valid;
  * DescribeNetworkInterfaceAttributesResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:59.626852+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-22T20:23:39.157783+08:00[Asia/Shanghai]")
 public class DescribeNetworkInterfaceAttributesResponse {
   @SerializedName("AccountId")
   private String accountId = null;
@@ -80,6 +81,9 @@ public class DescribeNetworkInterfaceAttributesResponse {
 
   @SerializedName("SubnetId")
   private String subnetId = null;
+
+  @SerializedName("Tags")
+  private List<TagForDescribeNetworkInterfaceAttributesOutput> tags = null;
 
   @SerializedName("Type")
   private String type = null;
@@ -394,6 +398,33 @@ public class DescribeNetworkInterfaceAttributesResponse {
     this.subnetId = subnetId;
   }
 
+  public DescribeNetworkInterfaceAttributesResponse tags(List<TagForDescribeNetworkInterfaceAttributesOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public DescribeNetworkInterfaceAttributesResponse addTagsItem(TagForDescribeNetworkInterfaceAttributesOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForDescribeNetworkInterfaceAttributesOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForDescribeNetworkInterfaceAttributesOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForDescribeNetworkInterfaceAttributesOutput> tags) {
+    this.tags = tags;
+  }
+
   public DescribeNetworkInterfaceAttributesResponse type(String type) {
     this.type = type;
     return this;
@@ -510,6 +541,7 @@ public class DescribeNetworkInterfaceAttributesResponse {
         Objects.equals(this.serviceManaged, describeNetworkInterfaceAttributesResponse.serviceManaged) &&
         Objects.equals(this.status, describeNetworkInterfaceAttributesResponse.status) &&
         Objects.equals(this.subnetId, describeNetworkInterfaceAttributesResponse.subnetId) &&
+        Objects.equals(this.tags, describeNetworkInterfaceAttributesResponse.tags) &&
         Objects.equals(this.type, describeNetworkInterfaceAttributesResponse.type) &&
         Objects.equals(this.updatedAt, describeNetworkInterfaceAttributesResponse.updatedAt) &&
         Objects.equals(this.vpcId, describeNetworkInterfaceAttributesResponse.vpcId) &&
@@ -519,7 +551,7 @@ public class DescribeNetworkInterfaceAttributesResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, associatedElasticIp, createdAt, description, deviceId, macAddress, networkInterfaceId, networkInterfaceName, portSecurityEnabled, primaryIpAddress, privateIpSets, requestId, securityGroupIds, serviceManaged, status, subnetId, type, updatedAt, vpcId, vpcName, zoneId);
+    return Objects.hash(accountId, associatedElasticIp, createdAt, description, deviceId, macAddress, networkInterfaceId, networkInterfaceName, portSecurityEnabled, primaryIpAddress, privateIpSets, requestId, securityGroupIds, serviceManaged, status, subnetId, tags, type, updatedAt, vpcId, vpcName, zoneId);
   }
 
 
@@ -544,6 +576,7 @@ public class DescribeNetworkInterfaceAttributesResponse {
     sb.append("    serviceManaged: ").append(toIndentedString(serviceManaged)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");

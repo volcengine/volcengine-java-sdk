@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vpc.model.AssociatedElasticIpForDescribeNetworkInterfacesOutput;
 import com.volcengine.vpc.model.PrivateIpSetsForDescribeNetworkInterfacesOutput;
+import com.volcengine.vpc.model.TagForDescribeNetworkInterfacesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -31,7 +32,7 @@ import javax.validation.Valid;
  * NetworkInterfaceSetForDescribeNetworkInterfacesOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:59.626852+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-22T20:23:39.157783+08:00[Asia/Shanghai]")
 public class NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
   @SerializedName("AccountId")
   private String accountId = null;
@@ -66,6 +67,9 @@ public class NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
   @SerializedName("PrivateIpSets")
   private PrivateIpSetsForDescribeNetworkInterfacesOutput privateIpSets = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("SecurityGroupIds")
   private List<String> securityGroupIds = null;
 
@@ -77,6 +81,9 @@ public class NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
 
   @SerializedName("SubnetId")
   private String subnetId = null;
+
+  @SerializedName("Tags")
+  private List<TagForDescribeNetworkInterfacesOutput> tags = null;
 
   @SerializedName("Type")
   private String type = null;
@@ -293,6 +300,24 @@ public class NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
     this.privateIpSets = privateIpSets;
   }
 
+  public NetworkInterfaceSetForDescribeNetworkInterfacesOutput projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public NetworkInterfaceSetForDescribeNetworkInterfacesOutput securityGroupIds(List<String> securityGroupIds) {
     this.securityGroupIds = securityGroupIds;
     return this;
@@ -371,6 +396,33 @@ public class NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
 
   public void setSubnetId(String subnetId) {
     this.subnetId = subnetId;
+  }
+
+  public NetworkInterfaceSetForDescribeNetworkInterfacesOutput tags(List<TagForDescribeNetworkInterfacesOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public NetworkInterfaceSetForDescribeNetworkInterfacesOutput addTagsItem(TagForDescribeNetworkInterfacesOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForDescribeNetworkInterfacesOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForDescribeNetworkInterfacesOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForDescribeNetworkInterfacesOutput> tags) {
+    this.tags = tags;
   }
 
   public NetworkInterfaceSetForDescribeNetworkInterfacesOutput type(String type) {
@@ -484,10 +536,12 @@ public class NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
         Objects.equals(this.portSecurityEnabled, networkInterfaceSetForDescribeNetworkInterfacesOutput.portSecurityEnabled) &&
         Objects.equals(this.primaryIpAddress, networkInterfaceSetForDescribeNetworkInterfacesOutput.primaryIpAddress) &&
         Objects.equals(this.privateIpSets, networkInterfaceSetForDescribeNetworkInterfacesOutput.privateIpSets) &&
+        Objects.equals(this.projectName, networkInterfaceSetForDescribeNetworkInterfacesOutput.projectName) &&
         Objects.equals(this.securityGroupIds, networkInterfaceSetForDescribeNetworkInterfacesOutput.securityGroupIds) &&
         Objects.equals(this.serviceManaged, networkInterfaceSetForDescribeNetworkInterfacesOutput.serviceManaged) &&
         Objects.equals(this.status, networkInterfaceSetForDescribeNetworkInterfacesOutput.status) &&
         Objects.equals(this.subnetId, networkInterfaceSetForDescribeNetworkInterfacesOutput.subnetId) &&
+        Objects.equals(this.tags, networkInterfaceSetForDescribeNetworkInterfacesOutput.tags) &&
         Objects.equals(this.type, networkInterfaceSetForDescribeNetworkInterfacesOutput.type) &&
         Objects.equals(this.updatedAt, networkInterfaceSetForDescribeNetworkInterfacesOutput.updatedAt) &&
         Objects.equals(this.vpcId, networkInterfaceSetForDescribeNetworkInterfacesOutput.vpcId) &&
@@ -497,7 +551,7 @@ public class NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, associatedElasticIp, createdAt, description, deviceId, macAddress, networkInterfaceId, networkInterfaceName, portSecurityEnabled, primaryIpAddress, privateIpSets, securityGroupIds, serviceManaged, status, subnetId, type, updatedAt, vpcId, vpcName, zoneId);
+    return Objects.hash(accountId, associatedElasticIp, createdAt, description, deviceId, macAddress, networkInterfaceId, networkInterfaceName, portSecurityEnabled, primaryIpAddress, privateIpSets, projectName, securityGroupIds, serviceManaged, status, subnetId, tags, type, updatedAt, vpcId, vpcName, zoneId);
   }
 
 
@@ -517,10 +571,12 @@ public class NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
     sb.append("    portSecurityEnabled: ").append(toIndentedString(portSecurityEnabled)).append("\n");
     sb.append("    primaryIpAddress: ").append(toIndentedString(primaryIpAddress)).append("\n");
     sb.append("    privateIpSets: ").append(toIndentedString(privateIpSets)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    securityGroupIds: ").append(toIndentedString(securityGroupIds)).append("\n");
     sb.append("    serviceManaged: ").append(toIndentedString(serviceManaged)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");

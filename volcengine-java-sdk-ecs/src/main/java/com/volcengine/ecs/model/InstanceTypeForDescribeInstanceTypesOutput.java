@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import com.volcengine.ecs.model.GpuForDescribeInstanceTypesOutput;
 import com.volcengine.ecs.model.LocalVolumeForDescribeInstanceTypesOutput;
 import com.volcengine.ecs.model.MemoryForDescribeInstanceTypesOutput;
+import com.volcengine.ecs.model.NetworkForDescribeInstanceTypesOutput;
 import com.volcengine.ecs.model.ProcessorForDescribeInstanceTypesOutput;
 import com.volcengine.ecs.model.RdmaForDescribeInstanceTypesOutput;
 import com.volcengine.ecs.model.VolumeForDescribeInstanceTypesOutput;
@@ -35,7 +36,7 @@ import javax.validation.Valid;
  * InstanceTypeForDescribeInstanceTypesOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-08-18T12:02:03.744330+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-22T20:23:28.947116+08:00[Asia/Shanghai]")
 public class InstanceTypeForDescribeInstanceTypesOutput {
   @SerializedName("Gpu")
   private GpuForDescribeInstanceTypesOutput gpu = null;
@@ -51,6 +52,9 @@ public class InstanceTypeForDescribeInstanceTypesOutput {
 
   @SerializedName("Memory")
   private MemoryForDescribeInstanceTypesOutput memory = null;
+
+  @SerializedName("Network")
+  private NetworkForDescribeInstanceTypesOutput network = null;
 
   @SerializedName("Processor")
   private ProcessorForDescribeInstanceTypesOutput processor = null;
@@ -162,6 +166,25 @@ public class InstanceTypeForDescribeInstanceTypesOutput {
     this.memory = memory;
   }
 
+  public InstanceTypeForDescribeInstanceTypesOutput network(NetworkForDescribeInstanceTypesOutput network) {
+    this.network = network;
+    return this;
+  }
+
+   /**
+   * Get network
+   * @return network
+  **/
+  @Valid
+  @Schema(description = "")
+  public NetworkForDescribeInstanceTypesOutput getNetwork() {
+    return network;
+  }
+
+  public void setNetwork(NetworkForDescribeInstanceTypesOutput network) {
+    this.network = network;
+  }
+
   public InstanceTypeForDescribeInstanceTypesOutput processor(ProcessorForDescribeInstanceTypesOutput processor) {
     this.processor = processor;
     return this;
@@ -234,6 +257,7 @@ public class InstanceTypeForDescribeInstanceTypesOutput {
         Objects.equals(this.instanceTypeId, instanceTypeForDescribeInstanceTypesOutput.instanceTypeId) &&
         Objects.equals(this.localVolumes, instanceTypeForDescribeInstanceTypesOutput.localVolumes) &&
         Objects.equals(this.memory, instanceTypeForDescribeInstanceTypesOutput.memory) &&
+        Objects.equals(this.network, instanceTypeForDescribeInstanceTypesOutput.network) &&
         Objects.equals(this.processor, instanceTypeForDescribeInstanceTypesOutput.processor) &&
         Objects.equals(this.rdma, instanceTypeForDescribeInstanceTypesOutput.rdma) &&
         Objects.equals(this.volume, instanceTypeForDescribeInstanceTypesOutput.volume);
@@ -241,7 +265,7 @@ public class InstanceTypeForDescribeInstanceTypesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(gpu, instanceTypeFamily, instanceTypeId, localVolumes, memory, processor, rdma, volume);
+    return Objects.hash(gpu, instanceTypeFamily, instanceTypeId, localVolumes, memory, network, processor, rdma, volume);
   }
 
 
@@ -255,6 +279,7 @@ public class InstanceTypeForDescribeInstanceTypesOutput {
     sb.append("    instanceTypeId: ").append(toIndentedString(instanceTypeId)).append("\n");
     sb.append("    localVolumes: ").append(toIndentedString(localVolumes)).append("\n");
     sb.append("    memory: ").append(toIndentedString(memory)).append("\n");
+    sb.append("    network: ").append(toIndentedString(network)).append("\n");
     sb.append("    processor: ").append(toIndentedString(processor)).append("\n");
     sb.append("    rdma: ").append(toIndentedString(rdma)).append("\n");
     sb.append("    volume: ").append(toIndentedString(volume)).append("\n");

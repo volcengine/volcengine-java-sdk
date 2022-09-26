@@ -29,7 +29,7 @@ import javax.validation.Valid;
  * DescribeNetworkAclsRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:59.626852+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-22T20:23:39.157783+08:00[Asia/Shanghai]")
 public class DescribeNetworkAclsRequest {
   @SerializedName("NetworkAclIds")
   private List<String> networkAclIds = null;
@@ -42,6 +42,9 @@ public class DescribeNetworkAclsRequest {
 
   @SerializedName("PageSize")
   private Integer pageSize = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
 
   @SerializedName("SubnetId")
   private String subnetId = null;
@@ -130,6 +133,24 @@ public class DescribeNetworkAclsRequest {
     this.pageSize = pageSize;
   }
 
+  public DescribeNetworkAclsRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public DescribeNetworkAclsRequest subnetId(String subnetId) {
     this.subnetId = subnetId;
     return this;
@@ -180,13 +201,14 @@ public class DescribeNetworkAclsRequest {
         Objects.equals(this.networkAclName, describeNetworkAclsRequest.networkAclName) &&
         Objects.equals(this.pageNumber, describeNetworkAclsRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeNetworkAclsRequest.pageSize) &&
+        Objects.equals(this.projectName, describeNetworkAclsRequest.projectName) &&
         Objects.equals(this.subnetId, describeNetworkAclsRequest.subnetId) &&
         Objects.equals(this.vpcId, describeNetworkAclsRequest.vpcId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(networkAclIds, networkAclName, pageNumber, pageSize, subnetId, vpcId);
+    return Objects.hash(networkAclIds, networkAclName, pageNumber, pageSize, projectName, subnetId, vpcId);
   }
 
 
@@ -199,6 +221,7 @@ public class DescribeNetworkAclsRequest {
     sb.append("    networkAclName: ").append(toIndentedString(networkAclName)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("}");

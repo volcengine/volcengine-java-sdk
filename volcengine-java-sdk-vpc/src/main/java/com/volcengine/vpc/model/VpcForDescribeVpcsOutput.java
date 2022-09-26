@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vpc.model.AssociateCenForDescribeVpcsOutput;
+import com.volcengine.vpc.model.TagForDescribeVpcsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -30,7 +31,7 @@ import javax.validation.Valid;
  * VpcForDescribeVpcsOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:59.626852+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-22T20:23:39.157783+08:00[Asia/Shanghai]")
 public class VpcForDescribeVpcsOutput {
   @SerializedName("AccountId")
   private String accountId = null;
@@ -56,6 +57,9 @@ public class VpcForDescribeVpcsOutput {
   @SerializedName("NetworkAclNum")
   private String networkAclNum = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("RouteTableIds")
   private List<String> routeTableIds = null;
 
@@ -67,6 +71,9 @@ public class VpcForDescribeVpcsOutput {
 
   @SerializedName("SubnetIds")
   private List<String> subnetIds = null;
+
+  @SerializedName("Tags")
+  private List<TagForDescribeVpcsOutput> tags = null;
 
   @SerializedName("UpdateTime")
   private String updateTime = null;
@@ -246,6 +253,24 @@ public class VpcForDescribeVpcsOutput {
     this.networkAclNum = networkAclNum;
   }
 
+  public VpcForDescribeVpcsOutput projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public VpcForDescribeVpcsOutput routeTableIds(List<String> routeTableIds) {
     this.routeTableIds = routeTableIds;
     return this;
@@ -342,6 +367,33 @@ public class VpcForDescribeVpcsOutput {
     this.subnetIds = subnetIds;
   }
 
+  public VpcForDescribeVpcsOutput tags(List<TagForDescribeVpcsOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public VpcForDescribeVpcsOutput addTagsItem(TagForDescribeVpcsOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForDescribeVpcsOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForDescribeVpcsOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForDescribeVpcsOutput> tags) {
+    this.tags = tags;
+  }
+
   public VpcForDescribeVpcsOutput updateTime(String updateTime) {
     this.updateTime = updateTime;
     return this;
@@ -414,10 +466,12 @@ public class VpcForDescribeVpcsOutput {
         Objects.equals(this.dnsServers, vpcForDescribeVpcsOutput.dnsServers) &&
         Objects.equals(this.natGatewayIds, vpcForDescribeVpcsOutput.natGatewayIds) &&
         Objects.equals(this.networkAclNum, vpcForDescribeVpcsOutput.networkAclNum) &&
+        Objects.equals(this.projectName, vpcForDescribeVpcsOutput.projectName) &&
         Objects.equals(this.routeTableIds, vpcForDescribeVpcsOutput.routeTableIds) &&
         Objects.equals(this.securityGroupIds, vpcForDescribeVpcsOutput.securityGroupIds) &&
         Objects.equals(this.status, vpcForDescribeVpcsOutput.status) &&
         Objects.equals(this.subnetIds, vpcForDescribeVpcsOutput.subnetIds) &&
+        Objects.equals(this.tags, vpcForDescribeVpcsOutput.tags) &&
         Objects.equals(this.updateTime, vpcForDescribeVpcsOutput.updateTime) &&
         Objects.equals(this.vpcId, vpcForDescribeVpcsOutput.vpcId) &&
         Objects.equals(this.vpcName, vpcForDescribeVpcsOutput.vpcName);
@@ -425,7 +479,7 @@ public class VpcForDescribeVpcsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, associateCens, cidrBlock, creationTime, description, dnsServers, natGatewayIds, networkAclNum, routeTableIds, securityGroupIds, status, subnetIds, updateTime, vpcId, vpcName);
+    return Objects.hash(accountId, associateCens, cidrBlock, creationTime, description, dnsServers, natGatewayIds, networkAclNum, projectName, routeTableIds, securityGroupIds, status, subnetIds, tags, updateTime, vpcId, vpcName);
   }
 
 
@@ -442,10 +496,12 @@ public class VpcForDescribeVpcsOutput {
     sb.append("    dnsServers: ").append(toIndentedString(dnsServers)).append("\n");
     sb.append("    natGatewayIds: ").append(toIndentedString(natGatewayIds)).append("\n");
     sb.append("    networkAclNum: ").append(toIndentedString(networkAclNum)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    routeTableIds: ").append(toIndentedString(routeTableIds)).append("\n");
     sb.append("    securityGroupIds: ").append(toIndentedString(securityGroupIds)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    subnetIds: ").append(toIndentedString(subnetIds)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("    vpcName: ").append(toIndentedString(vpcName)).append("\n");

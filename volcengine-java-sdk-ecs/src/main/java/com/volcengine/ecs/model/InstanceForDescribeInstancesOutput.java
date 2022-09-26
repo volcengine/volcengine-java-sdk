@@ -19,9 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.ecs.model.CpuOptionsForDescribeInstancesOutput;
 import com.volcengine.ecs.model.EipAddressForDescribeInstancesOutput;
 import com.volcengine.ecs.model.LocalVolumeForDescribeInstancesOutput;
 import com.volcengine.ecs.model.NetworkInterfaceForDescribeInstancesOutput;
+import com.volcengine.ecs.model.TagForDescribeInstancesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -32,8 +34,11 @@ import javax.validation.Valid;
  * InstanceForDescribeInstancesOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-08-18T12:02:03.744330+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-22T20:23:28.947116+08:00[Asia/Shanghai]")
 public class InstanceForDescribeInstancesOutput {
+  @SerializedName("CpuOptions")
+  private CpuOptionsForDescribeInstancesOutput cpuOptions = null;
+
   @SerializedName("Cpus")
   private Integer cpus = null;
 
@@ -100,6 +105,9 @@ public class InstanceForDescribeInstancesOutput {
   @SerializedName("StoppedMode")
   private String stoppedMode = null;
 
+  @SerializedName("Tags")
+  private List<TagForDescribeInstancesOutput> tags = null;
+
   @SerializedName("UpdatedAt")
   private String updatedAt = null;
 
@@ -112,6 +120,25 @@ public class InstanceForDescribeInstancesOutput {
   @SerializedName("ZoneId")
   private String zoneId = null;
 
+  public InstanceForDescribeInstancesOutput cpuOptions(CpuOptionsForDescribeInstancesOutput cpuOptions) {
+    this.cpuOptions = cpuOptions;
+    return this;
+  }
+
+   /**
+   * Get cpuOptions
+   * @return cpuOptions
+  **/
+  @Valid
+  @Schema(description = "")
+  public CpuOptionsForDescribeInstancesOutput getCpuOptions() {
+    return cpuOptions;
+  }
+
+  public void setCpuOptions(CpuOptionsForDescribeInstancesOutput cpuOptions) {
+    this.cpuOptions = cpuOptions;
+  }
+
   public InstanceForDescribeInstancesOutput cpus(Integer cpus) {
     this.cpus = cpus;
     return this;
@@ -119,9 +146,10 @@ public class InstanceForDescribeInstancesOutput {
 
    /**
    * Get cpus
+   * minimum: 1
    * @return cpus
   **/
-  @Schema(description = "")
+ @Min(1)  @Schema(description = "")
   public Integer getCpus() {
     return cpus;
   }
@@ -157,7 +185,7 @@ public class InstanceForDescribeInstancesOutput {
    * Get description
    * @return description
   **/
-  @Schema(description = "")
+ @Size(max=256)  @Schema(description = "")
   public String getDescription() {
     return description;
   }
@@ -212,7 +240,7 @@ public class InstanceForDescribeInstancesOutput {
    * Get hostName
    * @return hostName
   **/
-  @Schema(description = "")
+ @Size(min=1)  @Schema(description = "")
   public String getHostName() {
     return hostName;
   }
@@ -284,7 +312,7 @@ public class InstanceForDescribeInstancesOutput {
    * Get instanceName
    * @return instanceName
   **/
-  @Schema(description = "")
+ @Size(min=1)  @Schema(description = "")
   public String getInstanceName() {
     return instanceName;
   }
@@ -302,7 +330,7 @@ public class InstanceForDescribeInstancesOutput {
    * Get instanceTypeId
    * @return instanceTypeId
   **/
-  @Schema(description = "")
+ @Size(min=1)  @Schema(description = "")
   public String getInstanceTypeId() {
     return instanceTypeId;
   }
@@ -381,9 +409,10 @@ public class InstanceForDescribeInstancesOutput {
 
    /**
    * Get memorySize
+   * minimum: 1024
    * @return memorySize
   **/
-  @Schema(description = "")
+ @Min(1024)  @Schema(description = "")
   public Integer getMemorySize() {
     return memorySize;
   }
@@ -535,6 +564,33 @@ public class InstanceForDescribeInstancesOutput {
     this.stoppedMode = stoppedMode;
   }
 
+  public InstanceForDescribeInstancesOutput tags(List<TagForDescribeInstancesOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public InstanceForDescribeInstancesOutput addTagsItem(TagForDescribeInstancesOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForDescribeInstancesOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForDescribeInstancesOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForDescribeInstancesOutput> tags) {
+    this.tags = tags;
+  }
+
   public InstanceForDescribeInstancesOutput updatedAt(String updatedAt) {
     this.updatedAt = updatedAt;
     return this;
@@ -598,7 +654,7 @@ public class InstanceForDescribeInstancesOutput {
    * Get zoneId
    * @return zoneId
   **/
-  @Schema(description = "")
+ @Size(min=1)  @Schema(description = "")
   public String getZoneId() {
     return zoneId;
   }
@@ -617,7 +673,8 @@ public class InstanceForDescribeInstancesOutput {
       return false;
     }
     InstanceForDescribeInstancesOutput instanceForDescribeInstancesOutput = (InstanceForDescribeInstancesOutput) o;
-    return Objects.equals(this.cpus, instanceForDescribeInstancesOutput.cpus) &&
+    return Objects.equals(this.cpuOptions, instanceForDescribeInstancesOutput.cpuOptions) &&
+        Objects.equals(this.cpus, instanceForDescribeInstancesOutput.cpus) &&
         Objects.equals(this.createdAt, instanceForDescribeInstancesOutput.createdAt) &&
         Objects.equals(this.description, instanceForDescribeInstancesOutput.description) &&
         Objects.equals(this.eipAddress, instanceForDescribeInstancesOutput.eipAddress) &&
@@ -639,6 +696,7 @@ public class InstanceForDescribeInstancesOutput {
         Objects.equals(this.rdmaIpAddresses, instanceForDescribeInstancesOutput.rdmaIpAddresses) &&
         Objects.equals(this.status, instanceForDescribeInstancesOutput.status) &&
         Objects.equals(this.stoppedMode, instanceForDescribeInstancesOutput.stoppedMode) &&
+        Objects.equals(this.tags, instanceForDescribeInstancesOutput.tags) &&
         Objects.equals(this.updatedAt, instanceForDescribeInstancesOutput.updatedAt) &&
         Objects.equals(this.uuid, instanceForDescribeInstancesOutput.uuid) &&
         Objects.equals(this.vpcId, instanceForDescribeInstancesOutput.vpcId) &&
@@ -647,7 +705,7 @@ public class InstanceForDescribeInstancesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cpus, createdAt, description, eipAddress, expiredAt, hostName, imageId, instanceChargeType, instanceId, instanceName, instanceTypeId, keyPairId, keyPairName, localVolumes, memorySize, networkInterfaces, osName, osType, projectName, rdmaIpAddresses, status, stoppedMode, updatedAt, uuid, vpcId, zoneId);
+    return Objects.hash(cpuOptions, cpus, createdAt, description, eipAddress, expiredAt, hostName, imageId, instanceChargeType, instanceId, instanceName, instanceTypeId, keyPairId, keyPairName, localVolumes, memorySize, networkInterfaces, osName, osType, projectName, rdmaIpAddresses, status, stoppedMode, tags, updatedAt, uuid, vpcId, zoneId);
   }
 
 
@@ -656,6 +714,7 @@ public class InstanceForDescribeInstancesOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class InstanceForDescribeInstancesOutput {\n");
     
+    sb.append("    cpuOptions: ").append(toIndentedString(cpuOptions)).append("\n");
     sb.append("    cpus: ").append(toIndentedString(cpus)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
@@ -678,6 +737,7 @@ public class InstanceForDescribeInstancesOutput {
     sb.append("    rdmaIpAddresses: ").append(toIndentedString(rdmaIpAddresses)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    stoppedMode: ").append(toIndentedString(stoppedMode)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    uuid: ").append(toIndentedString(uuid)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");

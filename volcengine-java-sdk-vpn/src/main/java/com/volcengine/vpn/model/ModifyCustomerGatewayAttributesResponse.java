@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * ModifyCustomerGatewayAttributesResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:11:07.476466+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-22T20:23:47.673068+08:00[Asia/Shanghai]")
 public class ModifyCustomerGatewayAttributesResponse {
   @SerializedName("RequestId")
   private String requestId = null;

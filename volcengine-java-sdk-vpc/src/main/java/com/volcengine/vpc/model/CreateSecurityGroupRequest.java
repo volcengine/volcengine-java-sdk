@@ -19,15 +19,18 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vpc.model.TagForCreateSecurityGroupInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
  * CreateSecurityGroupRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:59.626852+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-22T20:23:39.157783+08:00[Asia/Shanghai]")
 public class CreateSecurityGroupRequest {
   @SerializedName("ClientToken")
   private String clientToken = null;
@@ -35,8 +38,14 @@ public class CreateSecurityGroupRequest {
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("SecurityGroupName")
   private String securityGroupName = null;
+
+  @SerializedName("Tags")
+  private List<TagForCreateSecurityGroupInput> tags = null;
 
   @SerializedName("VpcId")
   private String vpcId = null;
@@ -77,6 +86,24 @@ public class CreateSecurityGroupRequest {
     this.description = description;
   }
 
+  public CreateSecurityGroupRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public CreateSecurityGroupRequest securityGroupName(String securityGroupName) {
     this.securityGroupName = securityGroupName;
     return this;
@@ -93,6 +120,33 @@ public class CreateSecurityGroupRequest {
 
   public void setSecurityGroupName(String securityGroupName) {
     this.securityGroupName = securityGroupName;
+  }
+
+  public CreateSecurityGroupRequest tags(List<TagForCreateSecurityGroupInput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public CreateSecurityGroupRequest addTagsItem(TagForCreateSecurityGroupInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForCreateSecurityGroupInput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForCreateSecurityGroupInput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForCreateSecurityGroupInput> tags) {
+    this.tags = tags;
   }
 
   public CreateSecurityGroupRequest vpcId(String vpcId) {
@@ -126,13 +180,15 @@ public class CreateSecurityGroupRequest {
     CreateSecurityGroupRequest createSecurityGroupRequest = (CreateSecurityGroupRequest) o;
     return Objects.equals(this.clientToken, createSecurityGroupRequest.clientToken) &&
         Objects.equals(this.description, createSecurityGroupRequest.description) &&
+        Objects.equals(this.projectName, createSecurityGroupRequest.projectName) &&
         Objects.equals(this.securityGroupName, createSecurityGroupRequest.securityGroupName) &&
+        Objects.equals(this.tags, createSecurityGroupRequest.tags) &&
         Objects.equals(this.vpcId, createSecurityGroupRequest.vpcId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, description, securityGroupName, vpcId);
+    return Objects.hash(clientToken, description, projectName, securityGroupName, tags, vpcId);
   }
 
 
@@ -143,7 +199,9 @@ public class CreateSecurityGroupRequest {
     
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    securityGroupName: ").append(toIndentedString(securityGroupName)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("}");
     return sb.toString();

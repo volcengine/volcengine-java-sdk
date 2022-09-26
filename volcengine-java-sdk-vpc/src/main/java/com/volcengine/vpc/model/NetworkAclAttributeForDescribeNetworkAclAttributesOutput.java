@@ -32,7 +32,7 @@ import javax.validation.Valid;
  * NetworkAclAttributeForDescribeNetworkAclAttributesOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:59.626852+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-22T20:23:39.157783+08:00[Asia/Shanghai]")
 public class NetworkAclAttributeForDescribeNetworkAclAttributesOutput {
   @SerializedName("CreationTime")
   private String creationTime = null;
@@ -51,6 +51,9 @@ public class NetworkAclAttributeForDescribeNetworkAclAttributesOutput {
 
   @SerializedName("NetworkAclName")
   private String networkAclName = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
 
   @SerializedName("Resources")
   private List<ResourceForDescribeNetworkAclAttributesOutput> resources = null;
@@ -190,6 +193,24 @@ public class NetworkAclAttributeForDescribeNetworkAclAttributesOutput {
     this.networkAclName = networkAclName;
   }
 
+  public NetworkAclAttributeForDescribeNetworkAclAttributesOutput projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public NetworkAclAttributeForDescribeNetworkAclAttributesOutput resources(List<ResourceForDescribeNetworkAclAttributesOutput> resources) {
     this.resources = resources;
     return this;
@@ -287,6 +308,7 @@ public class NetworkAclAttributeForDescribeNetworkAclAttributesOutput {
         Objects.equals(this.ingressAclEntries, networkAclAttributeForDescribeNetworkAclAttributesOutput.ingressAclEntries) &&
         Objects.equals(this.networkAclId, networkAclAttributeForDescribeNetworkAclAttributesOutput.networkAclId) &&
         Objects.equals(this.networkAclName, networkAclAttributeForDescribeNetworkAclAttributesOutput.networkAclName) &&
+        Objects.equals(this.projectName, networkAclAttributeForDescribeNetworkAclAttributesOutput.projectName) &&
         Objects.equals(this.resources, networkAclAttributeForDescribeNetworkAclAttributesOutput.resources) &&
         Objects.equals(this.status, networkAclAttributeForDescribeNetworkAclAttributesOutput.status) &&
         Objects.equals(this.updateTime, networkAclAttributeForDescribeNetworkAclAttributesOutput.updateTime) &&
@@ -295,7 +317,7 @@ public class NetworkAclAttributeForDescribeNetworkAclAttributesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(creationTime, description, egressAclEntries, ingressAclEntries, networkAclId, networkAclName, resources, status, updateTime, vpcId);
+    return Objects.hash(creationTime, description, egressAclEntries, ingressAclEntries, networkAclId, networkAclName, projectName, resources, status, updateTime, vpcId);
   }
 
 
@@ -310,6 +332,7 @@ public class NetworkAclAttributeForDescribeNetworkAclAttributesOutput {
     sb.append("    ingressAclEntries: ").append(toIndentedString(ingressAclEntries)).append("\n");
     sb.append("    networkAclId: ").append(toIndentedString(networkAclId)).append("\n");
     sb.append("    networkAclName: ").append(toIndentedString(networkAclName)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    resources: ").append(toIndentedString(resources)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");

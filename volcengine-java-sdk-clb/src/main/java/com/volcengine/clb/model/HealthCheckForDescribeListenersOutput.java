@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * HealthCheckForDescribeListenersOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:28.835190+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-22T20:23:16.891404+08:00[Asia/Shanghai]")
 public class HealthCheckForDescribeListenersOutput {
   @SerializedName("Domain")
   private String domain = null;
@@ -49,9 +49,6 @@ public class HealthCheckForDescribeListenersOutput {
 
   @SerializedName("Timeout")
   private Integer timeout = null;
-
-  @SerializedName("UnHealthyThreshold")
-  private Integer unHealthyThreshold = null;
 
   @SerializedName("Uri")
   private String uri = null;
@@ -182,24 +179,6 @@ public class HealthCheckForDescribeListenersOutput {
     this.timeout = timeout;
   }
 
-  public HealthCheckForDescribeListenersOutput unHealthyThreshold(Integer unHealthyThreshold) {
-    this.unHealthyThreshold = unHealthyThreshold;
-    return this;
-  }
-
-   /**
-   * Get unHealthyThreshold
-   * @return unHealthyThreshold
-  **/
-  @Schema(description = "")
-  public Integer getUnHealthyThreshold() {
-    return unHealthyThreshold;
-  }
-
-  public void setUnHealthyThreshold(Integer unHealthyThreshold) {
-    this.unHealthyThreshold = unHealthyThreshold;
-  }
-
   public HealthCheckForDescribeListenersOutput uri(String uri) {
     this.uri = uri;
     return this;
@@ -235,13 +214,12 @@ public class HealthCheckForDescribeListenersOutput {
         Objects.equals(this.interval, healthCheckForDescribeListenersOutput.interval) &&
         Objects.equals(this.method, healthCheckForDescribeListenersOutput.method) &&
         Objects.equals(this.timeout, healthCheckForDescribeListenersOutput.timeout) &&
-        Objects.equals(this.unHealthyThreshold, healthCheckForDescribeListenersOutput.unHealthyThreshold) &&
         Objects.equals(this.uri, healthCheckForDescribeListenersOutput.uri);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(domain, enabled, healthyThreshold, httpCode, interval, method, timeout, unHealthyThreshold, uri);
+    return Objects.hash(domain, enabled, healthyThreshold, httpCode, interval, method, timeout, uri);
   }
 
 
@@ -257,7 +235,6 @@ public class HealthCheckForDescribeListenersOutput {
     sb.append("    interval: ").append(toIndentedString(interval)).append("\n");
     sb.append("    method: ").append(toIndentedString(method)).append("\n");
     sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");
-    sb.append("    unHealthyThreshold: ").append(toIndentedString(unHealthyThreshold)).append("\n");
     sb.append("    uri: ").append(toIndentedString(uri)).append("\n");
     sb.append("}");
     return sb.toString();

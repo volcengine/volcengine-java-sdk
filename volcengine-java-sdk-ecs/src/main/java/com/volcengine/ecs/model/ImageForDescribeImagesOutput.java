@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * ImageForDescribeImagesOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-08-18T12:02:03.744330+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-22T20:23:28.947116+08:00[Asia/Shanghai]")
 public class ImageForDescribeImagesOutput {
   @SerializedName("Architecture")
   private String architecture = null;
@@ -125,7 +125,7 @@ public class ImageForDescribeImagesOutput {
    * Get description
    * @return description
   **/
-  @Schema(description = "")
+ @Size(max=255)  @Schema(description = "")
   public String getDescription() {
     return description;
   }
@@ -161,7 +161,7 @@ public class ImageForDescribeImagesOutput {
    * Get imageName
    * @return imageName
   **/
-  @Schema(description = "")
+ @Size(min=1,max=128)  @Schema(description = "")
   public String getImageName() {
     return imageName;
   }
@@ -303,9 +303,11 @@ public class ImageForDescribeImagesOutput {
 
    /**
    * Get size
+   * minimum: 1
+   * maximum: 2001
    * @return size
   **/
-  @Schema(description = "")
+ @Min(1) @Max(2001)  @Schema(description = "")
   public Integer getSize() {
     return size;
   }

@@ -29,13 +29,16 @@ import javax.validation.Valid;
  * HaVipForDescribeHaVipsOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:59.626852+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-22T20:23:39.157783+08:00[Asia/Shanghai]")
 public class HaVipForDescribeHaVipsOutput {
   @SerializedName("AccountId")
   private String accountId = null;
 
   @SerializedName("AssociatedEipAddress")
   private String associatedEipAddress = null;
+
+  @SerializedName("AssociatedEipId")
+  private String associatedEipId = null;
 
   @SerializedName("AssociatedInstanceIds")
   private List<String> associatedInstanceIds = null;
@@ -107,6 +110,24 @@ public class HaVipForDescribeHaVipsOutput {
 
   public void setAssociatedEipAddress(String associatedEipAddress) {
     this.associatedEipAddress = associatedEipAddress;
+  }
+
+  public HaVipForDescribeHaVipsOutput associatedEipId(String associatedEipId) {
+    this.associatedEipId = associatedEipId;
+    return this;
+  }
+
+   /**
+   * Get associatedEipId
+   * @return associatedEipId
+  **/
+  @Schema(description = "")
+  public String getAssociatedEipId() {
+    return associatedEipId;
+  }
+
+  public void setAssociatedEipId(String associatedEipId) {
+    this.associatedEipId = associatedEipId;
   }
 
   public HaVipForDescribeHaVipsOutput associatedInstanceIds(List<String> associatedInstanceIds) {
@@ -345,6 +366,7 @@ public class HaVipForDescribeHaVipsOutput {
     HaVipForDescribeHaVipsOutput haVipForDescribeHaVipsOutput = (HaVipForDescribeHaVipsOutput) o;
     return Objects.equals(this.accountId, haVipForDescribeHaVipsOutput.accountId) &&
         Objects.equals(this.associatedEipAddress, haVipForDescribeHaVipsOutput.associatedEipAddress) &&
+        Objects.equals(this.associatedEipId, haVipForDescribeHaVipsOutput.associatedEipId) &&
         Objects.equals(this.associatedInstanceIds, haVipForDescribeHaVipsOutput.associatedInstanceIds) &&
         Objects.equals(this.associatedInstanceType, haVipForDescribeHaVipsOutput.associatedInstanceType) &&
         Objects.equals(this.createdAt, haVipForDescribeHaVipsOutput.createdAt) &&
@@ -361,7 +383,7 @@ public class HaVipForDescribeHaVipsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, associatedEipAddress, associatedInstanceIds, associatedInstanceType, createdAt, description, haVipId, haVipName, ipAddress, masterInstanceId, status, subnetId, updatedAt, vpcId);
+    return Objects.hash(accountId, associatedEipAddress, associatedEipId, associatedInstanceIds, associatedInstanceType, createdAt, description, haVipId, haVipName, ipAddress, masterInstanceId, status, subnetId, updatedAt, vpcId);
   }
 
 
@@ -372,6 +394,7 @@ public class HaVipForDescribeHaVipsOutput {
     
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    associatedEipAddress: ").append(toIndentedString(associatedEipAddress)).append("\n");
+    sb.append("    associatedEipId: ").append(toIndentedString(associatedEipId)).append("\n");
     sb.append("    associatedInstanceIds: ").append(toIndentedString(associatedInstanceIds)).append("\n");
     sb.append("    associatedInstanceType: ").append(toIndentedString(associatedInstanceType)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");

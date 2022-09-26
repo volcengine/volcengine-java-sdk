@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vpc.model.AssociateCenForDescribeVpcAttributesOutput;
+import com.volcengine.vpc.model.TagForDescribeVpcAttributesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -30,7 +31,7 @@ import javax.validation.Valid;
  * DescribeVpcAttributesResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:59.626852+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-22T20:23:39.157783+08:00[Asia/Shanghai]")
 public class DescribeVpcAttributesResponse {
   @SerializedName("AccountId")
   private String accountId = null;
@@ -56,6 +57,9 @@ public class DescribeVpcAttributesResponse {
   @SerializedName("NetworkAclNum")
   private String networkAclNum = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("RequestId")
   private String requestId = null;
 
@@ -70,6 +74,9 @@ public class DescribeVpcAttributesResponse {
 
   @SerializedName("SubnetIds")
   private List<String> subnetIds = null;
+
+  @SerializedName("Tags")
+  private List<TagForDescribeVpcAttributesOutput> tags = null;
 
   @SerializedName("UpdateTime")
   private String updateTime = null;
@@ -249,6 +256,24 @@ public class DescribeVpcAttributesResponse {
     this.networkAclNum = networkAclNum;
   }
 
+  public DescribeVpcAttributesResponse projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public DescribeVpcAttributesResponse requestId(String requestId) {
     this.requestId = requestId;
     return this;
@@ -363,6 +388,33 @@ public class DescribeVpcAttributesResponse {
     this.subnetIds = subnetIds;
   }
 
+  public DescribeVpcAttributesResponse tags(List<TagForDescribeVpcAttributesOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public DescribeVpcAttributesResponse addTagsItem(TagForDescribeVpcAttributesOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForDescribeVpcAttributesOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForDescribeVpcAttributesOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForDescribeVpcAttributesOutput> tags) {
+    this.tags = tags;
+  }
+
   public DescribeVpcAttributesResponse updateTime(String updateTime) {
     this.updateTime = updateTime;
     return this;
@@ -435,11 +487,13 @@ public class DescribeVpcAttributesResponse {
         Objects.equals(this.dnsServers, describeVpcAttributesResponse.dnsServers) &&
         Objects.equals(this.natGatewayIds, describeVpcAttributesResponse.natGatewayIds) &&
         Objects.equals(this.networkAclNum, describeVpcAttributesResponse.networkAclNum) &&
+        Objects.equals(this.projectName, describeVpcAttributesResponse.projectName) &&
         Objects.equals(this.requestId, describeVpcAttributesResponse.requestId) &&
         Objects.equals(this.routeTableIds, describeVpcAttributesResponse.routeTableIds) &&
         Objects.equals(this.securityGroupIds, describeVpcAttributesResponse.securityGroupIds) &&
         Objects.equals(this.status, describeVpcAttributesResponse.status) &&
         Objects.equals(this.subnetIds, describeVpcAttributesResponse.subnetIds) &&
+        Objects.equals(this.tags, describeVpcAttributesResponse.tags) &&
         Objects.equals(this.updateTime, describeVpcAttributesResponse.updateTime) &&
         Objects.equals(this.vpcId, describeVpcAttributesResponse.vpcId) &&
         Objects.equals(this.vpcName, describeVpcAttributesResponse.vpcName);
@@ -447,7 +501,7 @@ public class DescribeVpcAttributesResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, associateCens, cidrBlock, creationTime, description, dnsServers, natGatewayIds, networkAclNum, requestId, routeTableIds, securityGroupIds, status, subnetIds, updateTime, vpcId, vpcName);
+    return Objects.hash(accountId, associateCens, cidrBlock, creationTime, description, dnsServers, natGatewayIds, networkAclNum, projectName, requestId, routeTableIds, securityGroupIds, status, subnetIds, tags, updateTime, vpcId, vpcName);
   }
 
 
@@ -464,11 +518,13 @@ public class DescribeVpcAttributesResponse {
     sb.append("    dnsServers: ").append(toIndentedString(dnsServers)).append("\n");
     sb.append("    natGatewayIds: ").append(toIndentedString(natGatewayIds)).append("\n");
     sb.append("    networkAclNum: ").append(toIndentedString(networkAclNum)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    routeTableIds: ").append(toIndentedString(routeTableIds)).append("\n");
     sb.append("    securityGroupIds: ").append(toIndentedString(securityGroupIds)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    subnetIds: ").append(toIndentedString(subnetIds)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("    vpcName: ").append(toIndentedString(vpcName)).append("\n");
