@@ -30,7 +30,7 @@ import javax.validation.Valid;
  * AddAclEntriesRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-18T11:53:48.716788+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-23T17:22:04.615963+08:00[Asia/Shanghai]")
 public class AddAclEntriesRequest {
   @SerializedName("AclEntries")
   private List<AclEntryForAddAclEntriesInput> aclEntries = null;
