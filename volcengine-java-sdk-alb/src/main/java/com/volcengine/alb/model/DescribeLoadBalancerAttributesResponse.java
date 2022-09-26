@@ -23,6 +23,7 @@ import com.volcengine.alb.model.AccessLogForDescribeLoadBalancerAttributesOutput
 import com.volcengine.alb.model.EipForDescribeLoadBalancerAttributesOutput;
 import com.volcengine.alb.model.HealthLogForDescribeLoadBalancerAttributesOutput;
 import com.volcengine.alb.model.ListenerForDescribeLoadBalancerAttributesOutput;
+import com.volcengine.alb.model.ZoneMappingForDescribeLoadBalancerAttributesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -33,7 +34,7 @@ import javax.validation.Valid;
  * DescribeLoadBalancerAttributesResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-18T11:53:48.716788+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-23T17:22:04.615963+08:00[Asia/Shanghai]")
 public class DescribeLoadBalancerAttributesResponse {
   @SerializedName("AccessLog")
   private AccessLogForDescribeLoadBalancerAttributesOutput accessLog = null;
@@ -43,6 +44,9 @@ public class DescribeLoadBalancerAttributesResponse {
 
   @SerializedName("CreateTime")
   private String createTime = null;
+
+  @SerializedName("DNSName")
+  private String dnSName = null;
 
   @SerializedName("DeletedTime")
   private String deletedTime = null;
@@ -110,6 +114,9 @@ public class DescribeLoadBalancerAttributesResponse {
   @SerializedName("VpcId")
   private String vpcId = null;
 
+  @SerializedName("ZoneMappings")
+  private List<ZoneMappingForDescribeLoadBalancerAttributesOutput> zoneMappings = null;
+
   public DescribeLoadBalancerAttributesResponse accessLog(AccessLogForDescribeLoadBalancerAttributesOutput accessLog) {
     this.accessLog = accessLog;
     return this;
@@ -163,6 +170,24 @@ public class DescribeLoadBalancerAttributesResponse {
 
   public void setCreateTime(String createTime) {
     this.createTime = createTime;
+  }
+
+  public DescribeLoadBalancerAttributesResponse dnSName(String dnSName) {
+    this.dnSName = dnSName;
+    return this;
+  }
+
+   /**
+   * Get dnSName
+   * @return dnSName
+  **/
+  @Schema(description = "")
+  public String getDnSName() {
+    return dnSName;
+  }
+
+  public void setDnSName(String dnSName) {
+    this.dnSName = dnSName;
   }
 
   public DescribeLoadBalancerAttributesResponse deletedTime(String deletedTime) {
@@ -572,6 +597,33 @@ public class DescribeLoadBalancerAttributesResponse {
     this.vpcId = vpcId;
   }
 
+  public DescribeLoadBalancerAttributesResponse zoneMappings(List<ZoneMappingForDescribeLoadBalancerAttributesOutput> zoneMappings) {
+    this.zoneMappings = zoneMappings;
+    return this;
+  }
+
+  public DescribeLoadBalancerAttributesResponse addZoneMappingsItem(ZoneMappingForDescribeLoadBalancerAttributesOutput zoneMappingsItem) {
+    if (this.zoneMappings == null) {
+      this.zoneMappings = new ArrayList<ZoneMappingForDescribeLoadBalancerAttributesOutput>();
+    }
+    this.zoneMappings.add(zoneMappingsItem);
+    return this;
+  }
+
+   /**
+   * Get zoneMappings
+   * @return zoneMappings
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<ZoneMappingForDescribeLoadBalancerAttributesOutput> getZoneMappings() {
+    return zoneMappings;
+  }
+
+  public void setZoneMappings(List<ZoneMappingForDescribeLoadBalancerAttributesOutput> zoneMappings) {
+    this.zoneMappings = zoneMappings;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -585,6 +637,7 @@ public class DescribeLoadBalancerAttributesResponse {
     return Objects.equals(this.accessLog, describeLoadBalancerAttributesResponse.accessLog) &&
         Objects.equals(this.businessStatus, describeLoadBalancerAttributesResponse.businessStatus) &&
         Objects.equals(this.createTime, describeLoadBalancerAttributesResponse.createTime) &&
+        Objects.equals(this.dnSName, describeLoadBalancerAttributesResponse.dnSName) &&
         Objects.equals(this.deletedTime, describeLoadBalancerAttributesResponse.deletedTime) &&
         Objects.equals(this.description, describeLoadBalancerAttributesResponse.description) &&
         Objects.equals(this.eip, describeLoadBalancerAttributesResponse.eip) &&
@@ -606,12 +659,13 @@ public class DescribeLoadBalancerAttributesResponse {
         Objects.equals(this.subnetId, describeLoadBalancerAttributesResponse.subnetId) &&
         Objects.equals(this.type, describeLoadBalancerAttributesResponse.type) &&
         Objects.equals(this.updateTime, describeLoadBalancerAttributesResponse.updateTime) &&
-        Objects.equals(this.vpcId, describeLoadBalancerAttributesResponse.vpcId);
+        Objects.equals(this.vpcId, describeLoadBalancerAttributesResponse.vpcId) &&
+        Objects.equals(this.zoneMappings, describeLoadBalancerAttributesResponse.zoneMappings);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessLog, businessStatus, createTime, deletedTime, description, eip, eipAddress, eipId, enabled, eniAddress, eniId, healthLog, listeners, loadBalancerBillingType, loadBalancerId, loadBalancerName, loadBalancerSpec, lockReason, overdueTime, requestId, status, subnetId, type, updateTime, vpcId);
+    return Objects.hash(accessLog, businessStatus, createTime, dnSName, deletedTime, description, eip, eipAddress, eipId, enabled, eniAddress, eniId, healthLog, listeners, loadBalancerBillingType, loadBalancerId, loadBalancerName, loadBalancerSpec, lockReason, overdueTime, requestId, status, subnetId, type, updateTime, vpcId, zoneMappings);
   }
 
 
@@ -623,6 +677,7 @@ public class DescribeLoadBalancerAttributesResponse {
     sb.append("    accessLog: ").append(toIndentedString(accessLog)).append("\n");
     sb.append("    businessStatus: ").append(toIndentedString(businessStatus)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
+    sb.append("    dnSName: ").append(toIndentedString(dnSName)).append("\n");
     sb.append("    deletedTime: ").append(toIndentedString(deletedTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    eip: ").append(toIndentedString(eip)).append("\n");
@@ -645,6 +700,7 @@ public class DescribeLoadBalancerAttributesResponse {
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
+    sb.append("    zoneMappings: ").append(toIndentedString(zoneMappings)).append("\n");
     sb.append("}");
     return sb.toString();
   }

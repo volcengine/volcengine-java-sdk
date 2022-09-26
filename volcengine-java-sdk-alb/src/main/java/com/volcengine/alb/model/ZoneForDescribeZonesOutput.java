@@ -24,30 +24,30 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DescribeLoadBalancerSpecsRequest
+ * ZoneForDescribeZonesOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-18T11:53:48.716788+08:00[Asia/Shanghai]")
-public class DescribeLoadBalancerSpecsRequest {
-  @SerializedName("EnglishSpec")
-  private String englishSpec = null;
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-23T17:22:04.615963+08:00[Asia/Shanghai]")
+public class ZoneForDescribeZonesOutput {
+  @SerializedName("ZoneId")
+  private String zoneId = null;
 
-  public DescribeLoadBalancerSpecsRequest englishSpec(String englishSpec) {
-    this.englishSpec = englishSpec;
+  public ZoneForDescribeZonesOutput zoneId(String zoneId) {
+    this.zoneId = zoneId;
     return this;
   }
 
    /**
-   * Get englishSpec
-   * @return englishSpec
+   * Get zoneId
+   * @return zoneId
   **/
   @Schema(description = "")
-  public String getEnglishSpec() {
-    return englishSpec;
+  public String getZoneId() {
+    return zoneId;
   }
 
-  public void setEnglishSpec(String englishSpec) {
-    this.englishSpec = englishSpec;
+  public void setZoneId(String zoneId) {
+    this.zoneId = zoneId;
   }
 
 
@@ -59,22 +59,22 @@ public class DescribeLoadBalancerSpecsRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DescribeLoadBalancerSpecsRequest describeLoadBalancerSpecsRequest = (DescribeLoadBalancerSpecsRequest) o;
-    return Objects.equals(this.englishSpec, describeLoadBalancerSpecsRequest.englishSpec);
+    ZoneForDescribeZonesOutput zoneForDescribeZonesOutput = (ZoneForDescribeZonesOutput) o;
+    return Objects.equals(this.zoneId, zoneForDescribeZonesOutput.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(englishSpec);
+    return Objects.hash(zoneId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DescribeLoadBalancerSpecsRequest {\n");
+    sb.append("class ZoneForDescribeZonesOutput {\n");
     
-    sb.append("    englishSpec: ").append(toIndentedString(englishSpec)).append("\n");
+    sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

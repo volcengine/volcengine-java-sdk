@@ -20,15 +20,18 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.alb.model.EipBillingConfigForCreateLoadBalancerInput;
+import com.volcengine.alb.model.ZoneMappingForCreateLoadBalancerInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
  * CreateLoadBalancerRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-18T11:53:48.716788+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-23T17:22:04.615963+08:00[Asia/Shanghai]")
 public class CreateLoadBalancerRequest {
   @SerializedName("Description")
   private String description = null;
@@ -53,6 +56,9 @@ public class CreateLoadBalancerRequest {
 
   @SerializedName("VpcId")
   private String vpcId = null;
+
+  @SerializedName("ZoneMappings")
+  private List<ZoneMappingForCreateLoadBalancerInput> zoneMappings = null;
 
   public CreateLoadBalancerRequest description(String description) {
     this.description = description;
@@ -202,6 +208,33 @@ public class CreateLoadBalancerRequest {
     this.vpcId = vpcId;
   }
 
+  public CreateLoadBalancerRequest zoneMappings(List<ZoneMappingForCreateLoadBalancerInput> zoneMappings) {
+    this.zoneMappings = zoneMappings;
+    return this;
+  }
+
+  public CreateLoadBalancerRequest addZoneMappingsItem(ZoneMappingForCreateLoadBalancerInput zoneMappingsItem) {
+    if (this.zoneMappings == null) {
+      this.zoneMappings = new ArrayList<ZoneMappingForCreateLoadBalancerInput>();
+    }
+    this.zoneMappings.add(zoneMappingsItem);
+    return this;
+  }
+
+   /**
+   * Get zoneMappings
+   * @return zoneMappings
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<ZoneMappingForCreateLoadBalancerInput> getZoneMappings() {
+    return zoneMappings;
+  }
+
+  public void setZoneMappings(List<ZoneMappingForCreateLoadBalancerInput> zoneMappings) {
+    this.zoneMappings = zoneMappings;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -219,12 +252,13 @@ public class CreateLoadBalancerRequest {
         Objects.equals(this.regionId, createLoadBalancerRequest.regionId) &&
         Objects.equals(this.subnetId, createLoadBalancerRequest.subnetId) &&
         Objects.equals(this.type, createLoadBalancerRequest.type) &&
-        Objects.equals(this.vpcId, createLoadBalancerRequest.vpcId);
+        Objects.equals(this.vpcId, createLoadBalancerRequest.vpcId) &&
+        Objects.equals(this.zoneMappings, createLoadBalancerRequest.zoneMappings);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, eipBillingConfig, loadBalancerBillingType, loadBalancerName, regionId, subnetId, type, vpcId);
+    return Objects.hash(description, eipBillingConfig, loadBalancerBillingType, loadBalancerName, regionId, subnetId, type, vpcId, zoneMappings);
   }
 
 
@@ -241,6 +275,7 @@ public class CreateLoadBalancerRequest {
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
+    sb.append("    zoneMappings: ").append(toIndentedString(zoneMappings)).append("\n");
     sb.append("}");
     return sb.toString();
   }
