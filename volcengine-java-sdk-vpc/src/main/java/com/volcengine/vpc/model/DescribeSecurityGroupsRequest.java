@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vpc.model.TagFilterForDescribeSecurityGroupsInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -29,7 +30,7 @@ import javax.validation.Valid;
  * DescribeSecurityGroupsRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:59.626852+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-22T20:23:39.157783+08:00[Asia/Shanghai]")
 public class DescribeSecurityGroupsRequest {
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
@@ -37,11 +38,17 @@ public class DescribeSecurityGroupsRequest {
   @SerializedName("PageSize")
   private Integer pageSize = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("SecurityGroupIds")
   private List<String> securityGroupIds = null;
 
   @SerializedName("SecurityGroupNames")
   private List<String> securityGroupNames = null;
+
+  @SerializedName("TagFilters")
+  private List<TagFilterForDescribeSecurityGroupsInput> tagFilters = null;
 
   @SerializedName("VpcId")
   private String vpcId = null;
@@ -81,6 +88,24 @@ public class DescribeSecurityGroupsRequest {
 
   public void setPageSize(Integer pageSize) {
     this.pageSize = pageSize;
+  }
+
+  public DescribeSecurityGroupsRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
   }
 
   public DescribeSecurityGroupsRequest securityGroupIds(List<String> securityGroupIds) {
@@ -135,6 +160,33 @@ public class DescribeSecurityGroupsRequest {
     this.securityGroupNames = securityGroupNames;
   }
 
+  public DescribeSecurityGroupsRequest tagFilters(List<TagFilterForDescribeSecurityGroupsInput> tagFilters) {
+    this.tagFilters = tagFilters;
+    return this;
+  }
+
+  public DescribeSecurityGroupsRequest addTagFiltersItem(TagFilterForDescribeSecurityGroupsInput tagFiltersItem) {
+    if (this.tagFilters == null) {
+      this.tagFilters = new ArrayList<TagFilterForDescribeSecurityGroupsInput>();
+    }
+    this.tagFilters.add(tagFiltersItem);
+    return this;
+  }
+
+   /**
+   * Get tagFilters
+   * @return tagFilters
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagFilterForDescribeSecurityGroupsInput> getTagFilters() {
+    return tagFilters;
+  }
+
+  public void setTagFilters(List<TagFilterForDescribeSecurityGroupsInput> tagFilters) {
+    this.tagFilters = tagFilters;
+  }
+
   public DescribeSecurityGroupsRequest vpcId(String vpcId) {
     this.vpcId = vpcId;
     return this;
@@ -165,14 +217,16 @@ public class DescribeSecurityGroupsRequest {
     DescribeSecurityGroupsRequest describeSecurityGroupsRequest = (DescribeSecurityGroupsRequest) o;
     return Objects.equals(this.pageNumber, describeSecurityGroupsRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeSecurityGroupsRequest.pageSize) &&
+        Objects.equals(this.projectName, describeSecurityGroupsRequest.projectName) &&
         Objects.equals(this.securityGroupIds, describeSecurityGroupsRequest.securityGroupIds) &&
         Objects.equals(this.securityGroupNames, describeSecurityGroupsRequest.securityGroupNames) &&
+        Objects.equals(this.tagFilters, describeSecurityGroupsRequest.tagFilters) &&
         Objects.equals(this.vpcId, describeSecurityGroupsRequest.vpcId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pageNumber, pageSize, securityGroupIds, securityGroupNames, vpcId);
+    return Objects.hash(pageNumber, pageSize, projectName, securityGroupIds, securityGroupNames, tagFilters, vpcId);
   }
 
 
@@ -183,8 +237,10 @@ public class DescribeSecurityGroupsRequest {
     
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    securityGroupIds: ").append(toIndentedString(securityGroupIds)).append("\n");
     sb.append("    securityGroupNames: ").append(toIndentedString(securityGroupNames)).append("\n");
+    sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("}");
     return sb.toString();

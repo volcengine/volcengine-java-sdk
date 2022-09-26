@@ -19,15 +19,18 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.clb.model.TagForDescribeLoadBalancersOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
  * LoadBalancerForDescribeLoadBalancersOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:28.835190+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-22T20:23:16.891404+08:00[Asia/Shanghai]")
 public class LoadBalancerForDescribeLoadBalancersOutput {
   @SerializedName("BusinessStatus")
   private String businessStatus = null;
@@ -80,11 +83,17 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
   @SerializedName("OverdueTime")
   private String overdueTime = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("Status")
   private String status = null;
 
   @SerializedName("SubnetId")
   private String subnetId = null;
+
+  @SerializedName("Tags")
+  private List<TagForDescribeLoadBalancersOutput> tags = null;
 
   @SerializedName("Type")
   private String type = null;
@@ -401,6 +410,24 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
     this.overdueTime = overdueTime;
   }
 
+  public LoadBalancerForDescribeLoadBalancersOutput projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public LoadBalancerForDescribeLoadBalancersOutput status(String status) {
     this.status = status;
     return this;
@@ -435,6 +462,33 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
 
   public void setSubnetId(String subnetId) {
     this.subnetId = subnetId;
+  }
+
+  public LoadBalancerForDescribeLoadBalancersOutput tags(List<TagForDescribeLoadBalancersOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public LoadBalancerForDescribeLoadBalancersOutput addTagsItem(TagForDescribeLoadBalancersOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForDescribeLoadBalancersOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForDescribeLoadBalancersOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForDescribeLoadBalancersOutput> tags) {
+    this.tags = tags;
   }
 
   public LoadBalancerForDescribeLoadBalancersOutput type(String type) {
@@ -518,8 +572,10 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
         Objects.equals(this.modificationProtectionReason, loadBalancerForDescribeLoadBalancersOutput.modificationProtectionReason) &&
         Objects.equals(this.modificationProtectionStatus, loadBalancerForDescribeLoadBalancersOutput.modificationProtectionStatus) &&
         Objects.equals(this.overdueTime, loadBalancerForDescribeLoadBalancersOutput.overdueTime) &&
+        Objects.equals(this.projectName, loadBalancerForDescribeLoadBalancersOutput.projectName) &&
         Objects.equals(this.status, loadBalancerForDescribeLoadBalancersOutput.status) &&
         Objects.equals(this.subnetId, loadBalancerForDescribeLoadBalancersOutput.subnetId) &&
+        Objects.equals(this.tags, loadBalancerForDescribeLoadBalancersOutput.tags) &&
         Objects.equals(this.type, loadBalancerForDescribeLoadBalancersOutput.type) &&
         Objects.equals(this.updateTime, loadBalancerForDescribeLoadBalancersOutput.updateTime) &&
         Objects.equals(this.vpcId, loadBalancerForDescribeLoadBalancersOutput.vpcId);
@@ -527,7 +583,7 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(businessStatus, createTime, deletedTime, description, eipAddress, eipID, eniAddress, eniID, expiredTime, loadBalancerBillingType, loadBalancerId, loadBalancerName, loadBalancerSpec, lockReason, modificationProtectionReason, modificationProtectionStatus, overdueTime, status, subnetId, type, updateTime, vpcId);
+    return Objects.hash(businessStatus, createTime, deletedTime, description, eipAddress, eipID, eniAddress, eniID, expiredTime, loadBalancerBillingType, loadBalancerId, loadBalancerName, loadBalancerSpec, lockReason, modificationProtectionReason, modificationProtectionStatus, overdueTime, projectName, status, subnetId, tags, type, updateTime, vpcId);
   }
 
 
@@ -553,8 +609,10 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
     sb.append("    modificationProtectionReason: ").append(toIndentedString(modificationProtectionReason)).append("\n");
     sb.append("    modificationProtectionStatus: ").append(toIndentedString(modificationProtectionStatus)).append("\n");
     sb.append("    overdueTime: ").append(toIndentedString(overdueTime)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");

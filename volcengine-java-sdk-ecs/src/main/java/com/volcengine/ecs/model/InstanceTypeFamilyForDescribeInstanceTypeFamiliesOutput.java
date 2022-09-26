@@ -29,7 +29,7 @@ import javax.validation.Valid;
  * InstanceTypeFamilyForDescribeInstanceTypeFamiliesOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-08-18T12:02:03.744330+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-22T20:23:28.947116+08:00[Asia/Shanghai]")
 public class InstanceTypeFamilyForDescribeInstanceTypeFamiliesOutput {
   @SerializedName("Generation")
   private String generation = null;

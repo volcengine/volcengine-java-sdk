@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vpc.model.PermissionForDescribeSecurityGroupAttributesOutput;
+import com.volcengine.vpc.model.TagForDescribeSecurityGroupAttributesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -30,7 +31,7 @@ import javax.validation.Valid;
  * DescribeSecurityGroupAttributesResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:59.626852+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-22T20:23:39.157783+08:00[Asia/Shanghai]")
 public class DescribeSecurityGroupAttributesResponse {
   @SerializedName("CreationTime")
   private String creationTime = null;
@@ -49,6 +50,9 @@ public class DescribeSecurityGroupAttributesResponse {
 
   @SerializedName("SecurityGroupName")
   private String securityGroupName = null;
+
+  @SerializedName("Tags")
+  private List<TagForDescribeSecurityGroupAttributesOutput> tags = null;
 
   @SerializedName("Type")
   private String type = null;
@@ -176,6 +180,33 @@ public class DescribeSecurityGroupAttributesResponse {
     this.securityGroupName = securityGroupName;
   }
 
+  public DescribeSecurityGroupAttributesResponse tags(List<TagForDescribeSecurityGroupAttributesOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public DescribeSecurityGroupAttributesResponse addTagsItem(TagForDescribeSecurityGroupAttributesOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForDescribeSecurityGroupAttributesOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForDescribeSecurityGroupAttributesOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForDescribeSecurityGroupAttributesOutput> tags) {
+    this.tags = tags;
+  }
+
   public DescribeSecurityGroupAttributesResponse type(String type) {
     this.type = type;
     return this;
@@ -246,6 +277,7 @@ public class DescribeSecurityGroupAttributesResponse {
         Objects.equals(this.requestId, describeSecurityGroupAttributesResponse.requestId) &&
         Objects.equals(this.securityGroupId, describeSecurityGroupAttributesResponse.securityGroupId) &&
         Objects.equals(this.securityGroupName, describeSecurityGroupAttributesResponse.securityGroupName) &&
+        Objects.equals(this.tags, describeSecurityGroupAttributesResponse.tags) &&
         Objects.equals(this.type, describeSecurityGroupAttributesResponse.type) &&
         Objects.equals(this.updateTime, describeSecurityGroupAttributesResponse.updateTime) &&
         Objects.equals(this.vpcId, describeSecurityGroupAttributesResponse.vpcId);
@@ -253,7 +285,7 @@ public class DescribeSecurityGroupAttributesResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(creationTime, description, permissions, requestId, securityGroupId, securityGroupName, type, updateTime, vpcId);
+    return Objects.hash(creationTime, description, permissions, requestId, securityGroupId, securityGroupName, tags, type, updateTime, vpcId);
   }
 
 
@@ -268,6 +300,7 @@ public class DescribeSecurityGroupAttributesResponse {
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    securityGroupId: ").append(toIndentedString(securityGroupId)).append("\n");
     sb.append("    securityGroupName: ").append(toIndentedString(securityGroupName)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");

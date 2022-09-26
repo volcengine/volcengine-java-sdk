@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vpc.model.TagForCreateVpcInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -29,7 +30,7 @@ import javax.validation.Valid;
  * CreateVpcRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:59.626852+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-22T20:23:39.157783+08:00[Asia/Shanghai]")
 public class CreateVpcRequest {
   @SerializedName("CidrBlock")
   private String cidrBlock = null;
@@ -42,6 +43,12 @@ public class CreateVpcRequest {
 
   @SerializedName("DnsServers")
   private List<String> dnsServers = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
+  @SerializedName("Tags")
+  private List<TagForCreateVpcInput> tags = null;
 
   @SerializedName("VpcName")
   private String vpcName = null;
@@ -127,6 +134,51 @@ public class CreateVpcRequest {
     this.dnsServers = dnsServers;
   }
 
+  public CreateVpcRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
+  public CreateVpcRequest tags(List<TagForCreateVpcInput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public CreateVpcRequest addTagsItem(TagForCreateVpcInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForCreateVpcInput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForCreateVpcInput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForCreateVpcInput> tags) {
+    this.tags = tags;
+  }
+
   public CreateVpcRequest vpcName(String vpcName) {
     this.vpcName = vpcName;
     return this;
@@ -159,12 +211,14 @@ public class CreateVpcRequest {
         Objects.equals(this.clientToken, createVpcRequest.clientToken) &&
         Objects.equals(this.description, createVpcRequest.description) &&
         Objects.equals(this.dnsServers, createVpcRequest.dnsServers) &&
+        Objects.equals(this.projectName, createVpcRequest.projectName) &&
+        Objects.equals(this.tags, createVpcRequest.tags) &&
         Objects.equals(this.vpcName, createVpcRequest.vpcName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cidrBlock, clientToken, description, dnsServers, vpcName);
+    return Objects.hash(cidrBlock, clientToken, description, dnsServers, projectName, tags, vpcName);
   }
 
 
@@ -177,6 +231,8 @@ public class CreateVpcRequest {
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    dnsServers: ").append(toIndentedString(dnsServers)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    vpcName: ").append(toIndentedString(vpcName)).append("\n");
     sb.append("}");
     return sb.toString();

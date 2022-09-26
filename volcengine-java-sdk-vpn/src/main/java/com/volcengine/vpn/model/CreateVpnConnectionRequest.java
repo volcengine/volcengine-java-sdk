@@ -21,13 +21,15 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
  * CreateVpnConnectionRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:11:07.476466+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-22T20:23:47.673068+08:00[Asia/Shanghai]")
 public class CreateVpnConnectionRequest {
   @SerializedName("ClientToken")
   private String clientToken = null;
@@ -90,8 +92,14 @@ public class CreateVpnConnectionRequest {
   @SerializedName("IpsecConfig")
   private String ipsecConfig = null;
 
+  @SerializedName("LocalSubnet")
+  private List<String> localSubnet = null;
+
   @SerializedName("NatTraversal")
   private Boolean natTraversal = null;
+
+  @SerializedName("RemoteSubnet")
+  private List<String> remoteSubnet = null;
 
   @SerializedName("VpnConnectionName")
   private String vpnConnectionName = null;
@@ -208,6 +216,32 @@ public class CreateVpnConnectionRequest {
     this.ipsecConfig = ipsecConfig;
   }
 
+  public CreateVpnConnectionRequest localSubnet(List<String> localSubnet) {
+    this.localSubnet = localSubnet;
+    return this;
+  }
+
+  public CreateVpnConnectionRequest addLocalSubnetItem(String localSubnetItem) {
+    if (this.localSubnet == null) {
+      this.localSubnet = new ArrayList<String>();
+    }
+    this.localSubnet.add(localSubnetItem);
+    return this;
+  }
+
+   /**
+   * Get localSubnet
+   * @return localSubnet
+  **/
+  @Schema(description = "")
+  public List<String> getLocalSubnet() {
+    return localSubnet;
+  }
+
+  public void setLocalSubnet(List<String> localSubnet) {
+    this.localSubnet = localSubnet;
+  }
+
   public CreateVpnConnectionRequest natTraversal(Boolean natTraversal) {
     this.natTraversal = natTraversal;
     return this;
@@ -224,6 +258,32 @@ public class CreateVpnConnectionRequest {
 
   public void setNatTraversal(Boolean natTraversal) {
     this.natTraversal = natTraversal;
+  }
+
+  public CreateVpnConnectionRequest remoteSubnet(List<String> remoteSubnet) {
+    this.remoteSubnet = remoteSubnet;
+    return this;
+  }
+
+  public CreateVpnConnectionRequest addRemoteSubnetItem(String remoteSubnetItem) {
+    if (this.remoteSubnet == null) {
+      this.remoteSubnet = new ArrayList<String>();
+    }
+    this.remoteSubnet.add(remoteSubnetItem);
+    return this;
+  }
+
+   /**
+   * Get remoteSubnet
+   * @return remoteSubnet
+  **/
+  @Schema(description = "")
+  public List<String> getRemoteSubnet() {
+    return remoteSubnet;
+  }
+
+  public void setRemoteSubnet(List<String> remoteSubnet) {
+    this.remoteSubnet = remoteSubnet;
   }
 
   public CreateVpnConnectionRequest vpnConnectionName(String vpnConnectionName) {
@@ -279,14 +339,16 @@ public class CreateVpnConnectionRequest {
         Objects.equals(this.dpdAction, createVpnConnectionRequest.dpdAction) &&
         Objects.equals(this.ikeConfig, createVpnConnectionRequest.ikeConfig) &&
         Objects.equals(this.ipsecConfig, createVpnConnectionRequest.ipsecConfig) &&
+        Objects.equals(this.localSubnet, createVpnConnectionRequest.localSubnet) &&
         Objects.equals(this.natTraversal, createVpnConnectionRequest.natTraversal) &&
+        Objects.equals(this.remoteSubnet, createVpnConnectionRequest.remoteSubnet) &&
         Objects.equals(this.vpnConnectionName, createVpnConnectionRequest.vpnConnectionName) &&
         Objects.equals(this.vpnGatewayId, createVpnConnectionRequest.vpnGatewayId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, customerGatewayId, description, dpdAction, ikeConfig, ipsecConfig, natTraversal, vpnConnectionName, vpnGatewayId);
+    return Objects.hash(clientToken, customerGatewayId, description, dpdAction, ikeConfig, ipsecConfig, localSubnet, natTraversal, remoteSubnet, vpnConnectionName, vpnGatewayId);
   }
 
 
@@ -301,7 +363,9 @@ public class CreateVpnConnectionRequest {
     sb.append("    dpdAction: ").append(toIndentedString(dpdAction)).append("\n");
     sb.append("    ikeConfig: ").append(toIndentedString(ikeConfig)).append("\n");
     sb.append("    ipsecConfig: ").append(toIndentedString(ipsecConfig)).append("\n");
+    sb.append("    localSubnet: ").append(toIndentedString(localSubnet)).append("\n");
     sb.append("    natTraversal: ").append(toIndentedString(natTraversal)).append("\n");
+    sb.append("    remoteSubnet: ").append(toIndentedString(remoteSubnet)).append("\n");
     sb.append("    vpnConnectionName: ").append(toIndentedString(vpnConnectionName)).append("\n");
     sb.append("    vpnGatewayId: ").append(toIndentedString(vpnGatewayId)).append("\n");
     sb.append("}");

@@ -20,15 +20,18 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.clb.model.EipBillingConfigForCreateLoadBalancerInput;
+import com.volcengine.clb.model.TagForCreateLoadBalancerInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
  * CreateLoadBalancerRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:28.835190+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-22T20:23:16.891404+08:00[Asia/Shanghai]")
 public class CreateLoadBalancerRequest {
   @SerializedName("Description")
   private String description = null;
@@ -60,11 +63,17 @@ public class CreateLoadBalancerRequest {
   @SerializedName("PeriodUnit")
   private String periodUnit = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("RegionId")
   private String regionId = null;
 
   @SerializedName("SubnetId")
   private String subnetId = null;
+
+  @SerializedName("Tags")
+  private List<TagForCreateLoadBalancerInput> tags = null;
 
   @SerializedName("Type")
   private String type = null;
@@ -254,6 +263,24 @@ public class CreateLoadBalancerRequest {
     this.periodUnit = periodUnit;
   }
 
+  public CreateLoadBalancerRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public CreateLoadBalancerRequest regionId(String regionId) {
     this.regionId = regionId;
     return this;
@@ -290,6 +317,33 @@ public class CreateLoadBalancerRequest {
 
   public void setSubnetId(String subnetId) {
     this.subnetId = subnetId;
+  }
+
+  public CreateLoadBalancerRequest tags(List<TagForCreateLoadBalancerInput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public CreateLoadBalancerRequest addTagsItem(TagForCreateLoadBalancerInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForCreateLoadBalancerInput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForCreateLoadBalancerInput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForCreateLoadBalancerInput> tags) {
+    this.tags = tags;
   }
 
   public CreateLoadBalancerRequest type(String type) {
@@ -349,15 +403,17 @@ public class CreateLoadBalancerRequest {
         Objects.equals(this.modificationProtectionStatus, createLoadBalancerRequest.modificationProtectionStatus) &&
         Objects.equals(this.period, createLoadBalancerRequest.period) &&
         Objects.equals(this.periodUnit, createLoadBalancerRequest.periodUnit) &&
+        Objects.equals(this.projectName, createLoadBalancerRequest.projectName) &&
         Objects.equals(this.regionId, createLoadBalancerRequest.regionId) &&
         Objects.equals(this.subnetId, createLoadBalancerRequest.subnetId) &&
+        Objects.equals(this.tags, createLoadBalancerRequest.tags) &&
         Objects.equals(this.type, createLoadBalancerRequest.type) &&
         Objects.equals(this.vpcId, createLoadBalancerRequest.vpcId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, eipBillingConfig, eniAddress, loadBalancerBillingType, loadBalancerName, loadBalancerSpec, modificationProtectionReason, modificationProtectionStatus, period, periodUnit, regionId, subnetId, type, vpcId);
+    return Objects.hash(description, eipBillingConfig, eniAddress, loadBalancerBillingType, loadBalancerName, loadBalancerSpec, modificationProtectionReason, modificationProtectionStatus, period, periodUnit, projectName, regionId, subnetId, tags, type, vpcId);
   }
 
 
@@ -376,8 +432,10 @@ public class CreateLoadBalancerRequest {
     sb.append("    modificationProtectionStatus: ").append(toIndentedString(modificationProtectionStatus)).append("\n");
     sb.append("    period: ").append(toIndentedString(period)).append("\n");
     sb.append("    periodUnit: ").append(toIndentedString(periodUnit)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    regionId: ").append(toIndentedString(regionId)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("}");

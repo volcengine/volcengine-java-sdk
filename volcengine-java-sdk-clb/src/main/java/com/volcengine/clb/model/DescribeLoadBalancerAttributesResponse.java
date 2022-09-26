@@ -23,6 +23,7 @@ import com.volcengine.clb.model.AccessLogForDescribeLoadBalancerAttributesOutput
 import com.volcengine.clb.model.EipForDescribeLoadBalancerAttributesOutput;
 import com.volcengine.clb.model.ListenerForDescribeLoadBalancerAttributesOutput;
 import com.volcengine.clb.model.ServerGroupForDescribeLoadBalancerAttributesOutput;
+import com.volcengine.clb.model.TagForDescribeLoadBalancerAttributesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -33,7 +34,7 @@ import javax.validation.Valid;
  * DescribeLoadBalancerAttributesResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:28.835190+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-22T20:23:16.891404+08:00[Asia/Shanghai]")
 public class DescribeLoadBalancerAttributesResponse {
   @SerializedName("AccessLog")
   private AccessLogForDescribeLoadBalancerAttributesOutput accessLog = null;
@@ -55,6 +56,9 @@ public class DescribeLoadBalancerAttributesResponse {
 
   @SerializedName("EipID")
   private String eipID = null;
+
+  @SerializedName("Enabled")
+  private Boolean enabled = null;
 
   @SerializedName("EniAddress")
   private String eniAddress = null;
@@ -92,6 +96,9 @@ public class DescribeLoadBalancerAttributesResponse {
   @SerializedName("OverdueTime")
   private String overdueTime = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("RequestId")
   private String requestId = null;
 
@@ -103,6 +110,9 @@ public class DescribeLoadBalancerAttributesResponse {
 
   @SerializedName("SubnetId")
   private String subnetId = null;
+
+  @SerializedName("Tags")
+  private List<TagForDescribeLoadBalancerAttributesOutput> tags = null;
 
   @SerializedName("Type")
   private String type = null;
@@ -239,6 +249,24 @@ public class DescribeLoadBalancerAttributesResponse {
 
   public void setEipID(String eipID) {
     this.eipID = eipID;
+  }
+
+  public DescribeLoadBalancerAttributesResponse enabled(Boolean enabled) {
+    this.enabled = enabled;
+    return this;
+  }
+
+   /**
+   * Get enabled
+   * @return enabled
+  **/
+  @Schema(description = "")
+  public Boolean isEnabled() {
+    return enabled;
+  }
+
+  public void setEnabled(Boolean enabled) {
+    this.enabled = enabled;
   }
 
   public DescribeLoadBalancerAttributesResponse eniAddress(String eniAddress) {
@@ -466,6 +494,24 @@ public class DescribeLoadBalancerAttributesResponse {
     this.overdueTime = overdueTime;
   }
 
+  public DescribeLoadBalancerAttributesResponse projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public DescribeLoadBalancerAttributesResponse requestId(String requestId) {
     this.requestId = requestId;
     return this;
@@ -547,6 +593,33 @@ public class DescribeLoadBalancerAttributesResponse {
     this.subnetId = subnetId;
   }
 
+  public DescribeLoadBalancerAttributesResponse tags(List<TagForDescribeLoadBalancerAttributesOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public DescribeLoadBalancerAttributesResponse addTagsItem(TagForDescribeLoadBalancerAttributesOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForDescribeLoadBalancerAttributesOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForDescribeLoadBalancerAttributesOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForDescribeLoadBalancerAttributesOutput> tags) {
+    this.tags = tags;
+  }
+
   public DescribeLoadBalancerAttributesResponse type(String type) {
     this.type = type;
     return this;
@@ -618,6 +691,7 @@ public class DescribeLoadBalancerAttributesResponse {
         Objects.equals(this.eip, describeLoadBalancerAttributesResponse.eip) &&
         Objects.equals(this.eipAddress, describeLoadBalancerAttributesResponse.eipAddress) &&
         Objects.equals(this.eipID, describeLoadBalancerAttributesResponse.eipID) &&
+        Objects.equals(this.enabled, describeLoadBalancerAttributesResponse.enabled) &&
         Objects.equals(this.eniAddress, describeLoadBalancerAttributesResponse.eniAddress) &&
         Objects.equals(this.eniID, describeLoadBalancerAttributesResponse.eniID) &&
         Objects.equals(this.expiredTime, describeLoadBalancerAttributesResponse.expiredTime) &&
@@ -630,10 +704,12 @@ public class DescribeLoadBalancerAttributesResponse {
         Objects.equals(this.modificationProtectionReason, describeLoadBalancerAttributesResponse.modificationProtectionReason) &&
         Objects.equals(this.modificationProtectionStatus, describeLoadBalancerAttributesResponse.modificationProtectionStatus) &&
         Objects.equals(this.overdueTime, describeLoadBalancerAttributesResponse.overdueTime) &&
+        Objects.equals(this.projectName, describeLoadBalancerAttributesResponse.projectName) &&
         Objects.equals(this.requestId, describeLoadBalancerAttributesResponse.requestId) &&
         Objects.equals(this.serverGroups, describeLoadBalancerAttributesResponse.serverGroups) &&
         Objects.equals(this.status, describeLoadBalancerAttributesResponse.status) &&
         Objects.equals(this.subnetId, describeLoadBalancerAttributesResponse.subnetId) &&
+        Objects.equals(this.tags, describeLoadBalancerAttributesResponse.tags) &&
         Objects.equals(this.type, describeLoadBalancerAttributesResponse.type) &&
         Objects.equals(this.updateTime, describeLoadBalancerAttributesResponse.updateTime) &&
         Objects.equals(this.vpcId, describeLoadBalancerAttributesResponse.vpcId);
@@ -641,7 +717,7 @@ public class DescribeLoadBalancerAttributesResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessLog, createTime, deletedTime, description, eip, eipAddress, eipID, eniAddress, eniID, expiredTime, listeners, loadBalancerBillingType, loadBalancerId, loadBalancerName, loadBalancerSpec, lockReason, modificationProtectionReason, modificationProtectionStatus, overdueTime, requestId, serverGroups, status, subnetId, type, updateTime, vpcId);
+    return Objects.hash(accessLog, createTime, deletedTime, description, eip, eipAddress, eipID, enabled, eniAddress, eniID, expiredTime, listeners, loadBalancerBillingType, loadBalancerId, loadBalancerName, loadBalancerSpec, lockReason, modificationProtectionReason, modificationProtectionStatus, overdueTime, projectName, requestId, serverGroups, status, subnetId, tags, type, updateTime, vpcId);
   }
 
 
@@ -657,6 +733,7 @@ public class DescribeLoadBalancerAttributesResponse {
     sb.append("    eip: ").append(toIndentedString(eip)).append("\n");
     sb.append("    eipAddress: ").append(toIndentedString(eipAddress)).append("\n");
     sb.append("    eipID: ").append(toIndentedString(eipID)).append("\n");
+    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    eniAddress: ").append(toIndentedString(eniAddress)).append("\n");
     sb.append("    eniID: ").append(toIndentedString(eniID)).append("\n");
     sb.append("    expiredTime: ").append(toIndentedString(expiredTime)).append("\n");
@@ -669,10 +746,12 @@ public class DescribeLoadBalancerAttributesResponse {
     sb.append("    modificationProtectionReason: ").append(toIndentedString(modificationProtectionReason)).append("\n");
     sb.append("    modificationProtectionStatus: ").append(toIndentedString(modificationProtectionStatus)).append("\n");
     sb.append("    overdueTime: ").append(toIndentedString(overdueTime)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    serverGroups: ").append(toIndentedString(serverGroups)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");

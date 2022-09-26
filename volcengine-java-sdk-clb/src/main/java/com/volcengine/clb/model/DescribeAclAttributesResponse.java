@@ -31,7 +31,7 @@ import javax.validation.Valid;
  * DescribeAclAttributesResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:28.835190+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-22T20:23:16.891404+08:00[Asia/Shanghai]")
 public class DescribeAclAttributesResponse {
   @SerializedName("AclEntries")
   private List<AclEntryForDescribeAclAttributesOutput> aclEntries = null;
@@ -50,6 +50,9 @@ public class DescribeAclAttributesResponse {
 
   @SerializedName("Listeners")
   private List<ListenerForDescribeAclAttributesOutput> listeners = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
 
   @SerializedName("RequestId")
   private String requestId = null;
@@ -186,6 +189,24 @@ public class DescribeAclAttributesResponse {
     this.listeners = listeners;
   }
 
+  public DescribeAclAttributesResponse projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public DescribeAclAttributesResponse requestId(String requestId) {
     this.requestId = requestId;
     return this;
@@ -256,6 +277,7 @@ public class DescribeAclAttributesResponse {
         Objects.equals(this.createTime, describeAclAttributesResponse.createTime) &&
         Objects.equals(this.description, describeAclAttributesResponse.description) &&
         Objects.equals(this.listeners, describeAclAttributesResponse.listeners) &&
+        Objects.equals(this.projectName, describeAclAttributesResponse.projectName) &&
         Objects.equals(this.requestId, describeAclAttributesResponse.requestId) &&
         Objects.equals(this.status, describeAclAttributesResponse.status) &&
         Objects.equals(this.updateTime, describeAclAttributesResponse.updateTime);
@@ -263,7 +285,7 @@ public class DescribeAclAttributesResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclEntries, aclId, aclName, createTime, description, listeners, requestId, status, updateTime);
+    return Objects.hash(aclEntries, aclId, aclName, createTime, description, listeners, projectName, requestId, status, updateTime);
   }
 
 
@@ -278,6 +300,7 @@ public class DescribeAclAttributesResponse {
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    listeners: ").append(toIndentedString(listeners)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");

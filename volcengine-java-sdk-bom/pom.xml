@@ -3,7 +3,7 @@
     <parent>
         <artifactId>volcengine-java-sdk</artifactId>
         <groupId>com.volcengine</groupId>
-        <version>1.0.3</version>
+       <version>0.1.14</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -82,6 +82,18 @@
             <dependency>
                 <groupId>com.volcengine</groupId>
                 <artifactId>volcengine-java-sdk-alb</artifactId>
+                <optional>false</optional>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.volcengine</groupId>
+                <artifactId>volcengine-java-sdk-cr</artifactId>
+                <optional>false</optional>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.volcengine</groupId>
+                <artifactId>volcengine-java-sdk-directconnect</artifactId>
                 <optional>false</optional>
                 <version>${project.version}</version>
             </dependency>

@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * UploadCertificateRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:28.835190+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-22T20:23:16.891404+08:00[Asia/Shanghai]")
 public class UploadCertificateRequest {
   @SerializedName("CertificateName")
   private String certificateName = null;
@@ -37,6 +37,9 @@ public class UploadCertificateRequest {
 
   @SerializedName("PrivateKey")
   private String privateKey = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
 
   @SerializedName("PublicKey")
   private String publicKey = null;
@@ -96,6 +99,24 @@ public class UploadCertificateRequest {
     this.privateKey = privateKey;
   }
 
+  public UploadCertificateRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public UploadCertificateRequest publicKey(String publicKey) {
     this.publicKey = publicKey;
     return this;
@@ -128,12 +149,13 @@ public class UploadCertificateRequest {
     return Objects.equals(this.certificateName, uploadCertificateRequest.certificateName) &&
         Objects.equals(this.description, uploadCertificateRequest.description) &&
         Objects.equals(this.privateKey, uploadCertificateRequest.privateKey) &&
+        Objects.equals(this.projectName, uploadCertificateRequest.projectName) &&
         Objects.equals(this.publicKey, uploadCertificateRequest.publicKey);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(certificateName, description, privateKey, publicKey);
+    return Objects.hash(certificateName, description, privateKey, projectName, publicKey);
   }
 
 
@@ -145,6 +167,7 @@ public class UploadCertificateRequest {
     sb.append("    certificateName: ").append(toIndentedString(certificateName)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    privateKey: ").append(toIndentedString(privateKey)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    publicKey: ").append(toIndentedString(publicKey)).append("\n");
     sb.append("}");
     return sb.toString();
