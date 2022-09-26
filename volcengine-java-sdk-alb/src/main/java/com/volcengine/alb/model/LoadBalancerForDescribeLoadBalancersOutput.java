@@ -19,21 +19,27 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.alb.model.ZoneMappingForDescribeLoadBalancersOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
  * LoadBalancerForDescribeLoadBalancersOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-18T11:53:48.716788+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-23T17:22:04.615963+08:00[Asia/Shanghai]")
 public class LoadBalancerForDescribeLoadBalancersOutput {
   @SerializedName("BusinessStatus")
   private String businessStatus = null;
 
   @SerializedName("CreateTime")
   private String createTime = null;
+
+  @SerializedName("DNSName")
+  private String dnSName = null;
 
   @SerializedName("DeletedTime")
   private String deletedTime = null;
@@ -86,6 +92,9 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
   @SerializedName("VpcId")
   private String vpcId = null;
 
+  @SerializedName("ZoneMappings")
+  private List<ZoneMappingForDescribeLoadBalancersOutput> zoneMappings = null;
+
   public LoadBalancerForDescribeLoadBalancersOutput businessStatus(String businessStatus) {
     this.businessStatus = businessStatus;
     return this;
@@ -120,6 +129,24 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
 
   public void setCreateTime(String createTime) {
     this.createTime = createTime;
+  }
+
+  public LoadBalancerForDescribeLoadBalancersOutput dnSName(String dnSName) {
+    this.dnSName = dnSName;
+    return this;
+  }
+
+   /**
+   * Get dnSName
+   * @return dnSName
+  **/
+  @Schema(description = "")
+  public String getDnSName() {
+    return dnSName;
+  }
+
+  public void setDnSName(String dnSName) {
+    this.dnSName = dnSName;
   }
 
   public LoadBalancerForDescribeLoadBalancersOutput deletedTime(String deletedTime) {
@@ -428,6 +455,33 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
     this.vpcId = vpcId;
   }
 
+  public LoadBalancerForDescribeLoadBalancersOutput zoneMappings(List<ZoneMappingForDescribeLoadBalancersOutput> zoneMappings) {
+    this.zoneMappings = zoneMappings;
+    return this;
+  }
+
+  public LoadBalancerForDescribeLoadBalancersOutput addZoneMappingsItem(ZoneMappingForDescribeLoadBalancersOutput zoneMappingsItem) {
+    if (this.zoneMappings == null) {
+      this.zoneMappings = new ArrayList<ZoneMappingForDescribeLoadBalancersOutput>();
+    }
+    this.zoneMappings.add(zoneMappingsItem);
+    return this;
+  }
+
+   /**
+   * Get zoneMappings
+   * @return zoneMappings
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<ZoneMappingForDescribeLoadBalancersOutput> getZoneMappings() {
+    return zoneMappings;
+  }
+
+  public void setZoneMappings(List<ZoneMappingForDescribeLoadBalancersOutput> zoneMappings) {
+    this.zoneMappings = zoneMappings;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -440,6 +494,7 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
     LoadBalancerForDescribeLoadBalancersOutput loadBalancerForDescribeLoadBalancersOutput = (LoadBalancerForDescribeLoadBalancersOutput) o;
     return Objects.equals(this.businessStatus, loadBalancerForDescribeLoadBalancersOutput.businessStatus) &&
         Objects.equals(this.createTime, loadBalancerForDescribeLoadBalancersOutput.createTime) &&
+        Objects.equals(this.dnSName, loadBalancerForDescribeLoadBalancersOutput.dnSName) &&
         Objects.equals(this.deletedTime, loadBalancerForDescribeLoadBalancersOutput.deletedTime) &&
         Objects.equals(this.description, loadBalancerForDescribeLoadBalancersOutput.description) &&
         Objects.equals(this.eipAddress, loadBalancerForDescribeLoadBalancersOutput.eipAddress) &&
@@ -456,12 +511,13 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
         Objects.equals(this.subnetId, loadBalancerForDescribeLoadBalancersOutput.subnetId) &&
         Objects.equals(this.type, loadBalancerForDescribeLoadBalancersOutput.type) &&
         Objects.equals(this.updateTime, loadBalancerForDescribeLoadBalancersOutput.updateTime) &&
-        Objects.equals(this.vpcId, loadBalancerForDescribeLoadBalancersOutput.vpcId);
+        Objects.equals(this.vpcId, loadBalancerForDescribeLoadBalancersOutput.vpcId) &&
+        Objects.equals(this.zoneMappings, loadBalancerForDescribeLoadBalancersOutput.zoneMappings);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(businessStatus, createTime, deletedTime, description, eipAddress, eipId, eniAddress, eniId, loadBalancerBillingType, loadBalancerId, loadBalancerName, loadBalancerSpec, lockReason, overdueTime, status, subnetId, type, updateTime, vpcId);
+    return Objects.hash(businessStatus, createTime, dnSName, deletedTime, description, eipAddress, eipId, eniAddress, eniId, loadBalancerBillingType, loadBalancerId, loadBalancerName, loadBalancerSpec, lockReason, overdueTime, status, subnetId, type, updateTime, vpcId, zoneMappings);
   }
 
 
@@ -472,6 +528,7 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
     
     sb.append("    businessStatus: ").append(toIndentedString(businessStatus)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
+    sb.append("    dnSName: ").append(toIndentedString(dnSName)).append("\n");
     sb.append("    deletedTime: ").append(toIndentedString(deletedTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    eipAddress: ").append(toIndentedString(eipAddress)).append("\n");
@@ -489,6 +546,7 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
+    sb.append("    zoneMappings: ").append(toIndentedString(zoneMappings)).append("\n");
     sb.append("}");
     return sb.toString();
   }
