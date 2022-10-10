@@ -24,31 +24,51 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DeleteNetworkInterfaceRequest
+ * TagForDescribeEipAddressAttributesOutput
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-10T13:58:53.827648+08:00[Asia/Shanghai]")
-public class DeleteNetworkInterfaceRequest {
-  @SerializedName("NetworkInterfaceId")
-  private String networkInterfaceId = null;
+public class TagForDescribeEipAddressAttributesOutput {
+  @SerializedName("Key")
+  private String key = null;
 
-  public DeleteNetworkInterfaceRequest networkInterfaceId(String networkInterfaceId) {
-    this.networkInterfaceId = networkInterfaceId;
+  @SerializedName("Value")
+  private String value = null;
+
+  public TagForDescribeEipAddressAttributesOutput key(String key) {
+    this.key = key;
     return this;
   }
 
    /**
-   * Get networkInterfaceId
-   * @return networkInterfaceId
+   * Get key
+   * @return key
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getNetworkInterfaceId() {
-    return networkInterfaceId;
+  @Schema(description = "")
+  public String getKey() {
+    return key;
   }
 
-  public void setNetworkInterfaceId(String networkInterfaceId) {
-    this.networkInterfaceId = networkInterfaceId;
+  public void setKey(String key) {
+    this.key = key;
+  }
+
+  public TagForDescribeEipAddressAttributesOutput value(String value) {
+    this.value = value;
+    return this;
+  }
+
+   /**
+   * Get value
+   * @return value
+  **/
+  @Schema(description = "")
+  public String getValue() {
+    return value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
   }
 
 
@@ -60,22 +80,24 @@ public class DeleteNetworkInterfaceRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeleteNetworkInterfaceRequest deleteNetworkInterfaceRequest = (DeleteNetworkInterfaceRequest) o;
-    return Objects.equals(this.networkInterfaceId, deleteNetworkInterfaceRequest.networkInterfaceId);
+    TagForDescribeEipAddressAttributesOutput tagForDescribeEipAddressAttributesOutput = (TagForDescribeEipAddressAttributesOutput) o;
+    return Objects.equals(this.key, tagForDescribeEipAddressAttributesOutput.key) &&
+        Objects.equals(this.value, tagForDescribeEipAddressAttributesOutput.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(networkInterfaceId);
+    return Objects.hash(key, value);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeleteNetworkInterfaceRequest {\n");
+    sb.append("class TagForDescribeEipAddressAttributesOutput {\n");
     
-    sb.append("    networkInterfaceId: ").append(toIndentedString(networkInterfaceId)).append("\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
   }
