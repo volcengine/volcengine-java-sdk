@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vpc.model.TagForAllocateEipAddressInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -29,7 +30,7 @@ import javax.validation.Valid;
  * AllocateEipAddressRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-22T20:23:39.157783+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-10T12:08:25.743848+08:00[Asia/Shanghai]")
 public class AllocateEipAddressRequest {
   @SerializedName("Bandwidth")
   private Integer bandwidth = null;
@@ -97,6 +98,9 @@ public class AllocateEipAddressRequest {
 
   @SerializedName("SecurityProtectionTypes")
   private List<String> securityProtectionTypes = null;
+
+  @SerializedName("Tags")
+  private List<TagForAllocateEipAddressInput> tags = null;
 
   public AllocateEipAddressRequest bandwidth(Integer bandwidth) {
     this.bandwidth = bandwidth;
@@ -256,6 +260,33 @@ public class AllocateEipAddressRequest {
     this.securityProtectionTypes = securityProtectionTypes;
   }
 
+  public AllocateEipAddressRequest tags(List<TagForAllocateEipAddressInput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public AllocateEipAddressRequest addTagsItem(TagForAllocateEipAddressInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForAllocateEipAddressInput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForAllocateEipAddressInput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForAllocateEipAddressInput> tags) {
+    this.tags = tags;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -273,12 +304,13 @@ public class AllocateEipAddressRequest {
         Objects.equals(this.name, allocateEipAddressRequest.name) &&
         Objects.equals(this.period, allocateEipAddressRequest.period) &&
         Objects.equals(this.periodUnit, allocateEipAddressRequest.periodUnit) &&
-        Objects.equals(this.securityProtectionTypes, allocateEipAddressRequest.securityProtectionTypes);
+        Objects.equals(this.securityProtectionTypes, allocateEipAddressRequest.securityProtectionTypes) &&
+        Objects.equals(this.tags, allocateEipAddressRequest.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidth, billingType, description, ISP, name, period, periodUnit, securityProtectionTypes);
+    return Objects.hash(bandwidth, billingType, description, ISP, name, period, periodUnit, securityProtectionTypes, tags);
   }
 
 
@@ -295,6 +327,7 @@ public class AllocateEipAddressRequest {
     sb.append("    period: ").append(toIndentedString(period)).append("\n");
     sb.append("    periodUnit: ").append(toIndentedString(periodUnit)).append("\n");
     sb.append("    securityProtectionTypes: ").append(toIndentedString(securityProtectionTypes)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }
