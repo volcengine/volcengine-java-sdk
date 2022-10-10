@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vpc.model.TagForDescribeEipAddressAttributesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -29,7 +30,7 @@ import javax.validation.Valid;
  * DescribeEipAddressAttributesResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-10T12:08:25.743848+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-10T13:58:53.827648+08:00[Asia/Shanghai]")
 public class DescribeEipAddressAttributesResponse {
   @SerializedName("AllocationId")
   private String allocationId = null;
@@ -79,6 +80,9 @@ public class DescribeEipAddressAttributesResponse {
   @SerializedName("OverdueTime")
   private String overdueTime = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("RequestId")
   private String requestId = null;
 
@@ -87,6 +91,9 @@ public class DescribeEipAddressAttributesResponse {
 
   @SerializedName("Status")
   private String status = null;
+
+  @SerializedName("Tags")
+  private List<TagForDescribeEipAddressAttributesOutput> tags = null;
 
   @SerializedName("UpdatedAt")
   private String updatedAt = null;
@@ -379,6 +386,24 @@ public class DescribeEipAddressAttributesResponse {
     this.overdueTime = overdueTime;
   }
 
+  public DescribeEipAddressAttributesResponse projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public DescribeEipAddressAttributesResponse requestId(String requestId) {
     this.requestId = requestId;
     return this;
@@ -441,6 +466,33 @@ public class DescribeEipAddressAttributesResponse {
     this.status = status;
   }
 
+  public DescribeEipAddressAttributesResponse tags(List<TagForDescribeEipAddressAttributesOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public DescribeEipAddressAttributesResponse addTagsItem(TagForDescribeEipAddressAttributesOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForDescribeEipAddressAttributesOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForDescribeEipAddressAttributesOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForDescribeEipAddressAttributesOutput> tags) {
+    this.tags = tags;
+  }
+
   public DescribeEipAddressAttributesResponse updatedAt(String updatedAt) {
     this.updatedAt = updatedAt;
     return this;
@@ -485,15 +537,17 @@ public class DescribeEipAddressAttributesResponse {
         Objects.equals(this.lockReason, describeEipAddressAttributesResponse.lockReason) &&
         Objects.equals(this.name, describeEipAddressAttributesResponse.name) &&
         Objects.equals(this.overdueTime, describeEipAddressAttributesResponse.overdueTime) &&
+        Objects.equals(this.projectName, describeEipAddressAttributesResponse.projectName) &&
         Objects.equals(this.requestId, describeEipAddressAttributesResponse.requestId) &&
         Objects.equals(this.securityProtectionTypes, describeEipAddressAttributesResponse.securityProtectionTypes) &&
         Objects.equals(this.status, describeEipAddressAttributesResponse.status) &&
+        Objects.equals(this.tags, describeEipAddressAttributesResponse.tags) &&
         Objects.equals(this.updatedAt, describeEipAddressAttributesResponse.updatedAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allocationId, allocationTime, bandwidth, bandwidthPackageId, billingType, businessStatus, deletedTime, description, eipAddress, expiredTime, ISP, instanceId, instanceType, lockReason, name, overdueTime, requestId, securityProtectionTypes, status, updatedAt);
+    return Objects.hash(allocationId, allocationTime, bandwidth, bandwidthPackageId, billingType, businessStatus, deletedTime, description, eipAddress, expiredTime, ISP, instanceId, instanceType, lockReason, name, overdueTime, projectName, requestId, securityProtectionTypes, status, tags, updatedAt);
   }
 
 
@@ -518,9 +572,11 @@ public class DescribeEipAddressAttributesResponse {
     sb.append("    lockReason: ").append(toIndentedString(lockReason)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    overdueTime: ").append(toIndentedString(overdueTime)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    securityProtectionTypes: ").append(toIndentedString(securityProtectionTypes)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("}");
     return sb.toString();
