@@ -30,7 +30,7 @@ import javax.validation.Valid;
  * DescribeRouteTableListResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-10T12:08:25.743848+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-10T13:58:53.827648+08:00[Asia/Shanghai]")
 public class DescribeRouteTableListResponse {
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
