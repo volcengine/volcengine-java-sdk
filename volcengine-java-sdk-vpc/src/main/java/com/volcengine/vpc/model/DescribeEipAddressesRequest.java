@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vpc.model.TagFilterForDescribeEipAddressesInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -29,7 +30,7 @@ import javax.validation.Valid;
  * DescribeEipAddressesRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-22T20:23:39.157783+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-10T12:08:25.743848+08:00[Asia/Shanghai]")
 public class DescribeEipAddressesRequest {
   @SerializedName("AllocationIds")
   private List<String> allocationIds = null;
@@ -193,6 +194,9 @@ public class DescribeEipAddressesRequest {
     }
   }  @SerializedName("Status")
   private StatusEnum status = null;
+
+  @SerializedName("TagFilters")
+  private List<TagFilterForDescribeEipAddressesInput> tagFilters = null;
 
   public DescribeEipAddressesRequest allocationIds(List<String> allocationIds) {
     this.allocationIds = allocationIds;
@@ -411,6 +415,33 @@ public class DescribeEipAddressesRequest {
     this.status = status;
   }
 
+  public DescribeEipAddressesRequest tagFilters(List<TagFilterForDescribeEipAddressesInput> tagFilters) {
+    this.tagFilters = tagFilters;
+    return this;
+  }
+
+  public DescribeEipAddressesRequest addTagFiltersItem(TagFilterForDescribeEipAddressesInput tagFiltersItem) {
+    if (this.tagFilters == null) {
+      this.tagFilters = new ArrayList<TagFilterForDescribeEipAddressesInput>();
+    }
+    this.tagFilters.add(tagFiltersItem);
+    return this;
+  }
+
+   /**
+   * Get tagFilters
+   * @return tagFilters
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagFilterForDescribeEipAddressesInput> getTagFilters() {
+    return tagFilters;
+  }
+
+  public void setTagFilters(List<TagFilterForDescribeEipAddressesInput> tagFilters) {
+    this.tagFilters = tagFilters;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -431,12 +462,13 @@ public class DescribeEipAddressesRequest {
         Objects.equals(this.pageNumber, describeEipAddressesRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeEipAddressesRequest.pageSize) &&
         Objects.equals(this.securityProtectionEnabled, describeEipAddressesRequest.securityProtectionEnabled) &&
-        Objects.equals(this.status, describeEipAddressesRequest.status);
+        Objects.equals(this.status, describeEipAddressesRequest.status) &&
+        Objects.equals(this.tagFilters, describeEipAddressesRequest.tagFilters);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allocationIds, associatedInstanceId, associatedInstanceType, billingType, eipAddresses, ISP, name, pageNumber, pageSize, securityProtectionEnabled, status);
+    return Objects.hash(allocationIds, associatedInstanceId, associatedInstanceType, billingType, eipAddresses, ISP, name, pageNumber, pageSize, securityProtectionEnabled, status, tagFilters);
   }
 
 
@@ -456,6 +488,7 @@ public class DescribeEipAddressesRequest {
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    securityProtectionEnabled: ").append(toIndentedString(securityProtectionEnabled)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("}");
     return sb.toString();
   }
