@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * ResourceTagForListTagsForResourcesOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-22T20:23:39.157783+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-10T12:08:25.743848+08:00[Asia/Shanghai]")
 public class ResourceTagForListTagsForResourcesOutput {
   @SerializedName("ResourceId")
   private String resourceId = null;
