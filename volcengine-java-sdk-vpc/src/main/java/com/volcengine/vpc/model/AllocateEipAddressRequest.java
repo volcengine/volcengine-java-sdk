@@ -30,13 +30,16 @@ import javax.validation.Valid;
  * AllocateEipAddressRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-10T12:08:25.743848+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-10T13:58:53.827648+08:00[Asia/Shanghai]")
 public class AllocateEipAddressRequest {
   @SerializedName("Bandwidth")
   private Integer bandwidth = null;
 
   @SerializedName("BillingType")
   private Integer billingType = null;
+
+  @SerializedName("ClientToken")
+  private String clientToken = null;
 
   @SerializedName("Description")
   private String description = null;
@@ -96,6 +99,9 @@ public class AllocateEipAddressRequest {
   @SerializedName("PeriodUnit")
   private Integer periodUnit = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("SecurityProtectionTypes")
   private List<String> securityProtectionTypes = null;
 
@@ -140,6 +146,24 @@ public class AllocateEipAddressRequest {
 
   public void setBillingType(Integer billingType) {
     this.billingType = billingType;
+  }
+
+  public AllocateEipAddressRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
   }
 
   public AllocateEipAddressRequest description(String description) {
@@ -234,6 +258,24 @@ public class AllocateEipAddressRequest {
     this.periodUnit = periodUnit;
   }
 
+  public AllocateEipAddressRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public AllocateEipAddressRequest securityProtectionTypes(List<String> securityProtectionTypes) {
     this.securityProtectionTypes = securityProtectionTypes;
     return this;
@@ -299,18 +341,20 @@ public class AllocateEipAddressRequest {
     AllocateEipAddressRequest allocateEipAddressRequest = (AllocateEipAddressRequest) o;
     return Objects.equals(this.bandwidth, allocateEipAddressRequest.bandwidth) &&
         Objects.equals(this.billingType, allocateEipAddressRequest.billingType) &&
+        Objects.equals(this.clientToken, allocateEipAddressRequest.clientToken) &&
         Objects.equals(this.description, allocateEipAddressRequest.description) &&
         Objects.equals(this.ISP, allocateEipAddressRequest.ISP) &&
         Objects.equals(this.name, allocateEipAddressRequest.name) &&
         Objects.equals(this.period, allocateEipAddressRequest.period) &&
         Objects.equals(this.periodUnit, allocateEipAddressRequest.periodUnit) &&
+        Objects.equals(this.projectName, allocateEipAddressRequest.projectName) &&
         Objects.equals(this.securityProtectionTypes, allocateEipAddressRequest.securityProtectionTypes) &&
         Objects.equals(this.tags, allocateEipAddressRequest.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidth, billingType, description, ISP, name, period, periodUnit, securityProtectionTypes, tags);
+    return Objects.hash(bandwidth, billingType, clientToken, description, ISP, name, period, periodUnit, projectName, securityProtectionTypes, tags);
   }
 
 
@@ -321,11 +365,13 @@ public class AllocateEipAddressRequest {
     
     sb.append("    bandwidth: ").append(toIndentedString(bandwidth)).append("\n");
     sb.append("    billingType: ").append(toIndentedString(billingType)).append("\n");
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    ISP: ").append(toIndentedString(ISP)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    period: ").append(toIndentedString(period)).append("\n");
     sb.append("    periodUnit: ").append(toIndentedString(periodUnit)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    securityProtectionTypes: ").append(toIndentedString(securityProtectionTypes)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");

@@ -30,7 +30,7 @@ import javax.validation.Valid;
  * DescribeEipAddressesRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-10T12:08:25.743848+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-10T13:58:53.827648+08:00[Asia/Shanghai]")
 public class DescribeEipAddressesRequest {
   @SerializedName("AllocationIds")
   private List<String> allocationIds = null;
@@ -145,6 +145,9 @@ public class DescribeEipAddressesRequest {
 
   @SerializedName("PageSize")
   private Integer pageSize = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
 
   @SerializedName("SecurityProtectionEnabled")
   private Boolean securityProtectionEnabled = null;
@@ -379,6 +382,24 @@ public class DescribeEipAddressesRequest {
     this.pageSize = pageSize;
   }
 
+  public DescribeEipAddressesRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public DescribeEipAddressesRequest securityProtectionEnabled(Boolean securityProtectionEnabled) {
     this.securityProtectionEnabled = securityProtectionEnabled;
     return this;
@@ -461,6 +482,7 @@ public class DescribeEipAddressesRequest {
         Objects.equals(this.name, describeEipAddressesRequest.name) &&
         Objects.equals(this.pageNumber, describeEipAddressesRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeEipAddressesRequest.pageSize) &&
+        Objects.equals(this.projectName, describeEipAddressesRequest.projectName) &&
         Objects.equals(this.securityProtectionEnabled, describeEipAddressesRequest.securityProtectionEnabled) &&
         Objects.equals(this.status, describeEipAddressesRequest.status) &&
         Objects.equals(this.tagFilters, describeEipAddressesRequest.tagFilters);
@@ -468,7 +490,7 @@ public class DescribeEipAddressesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allocationIds, associatedInstanceId, associatedInstanceType, billingType, eipAddresses, ISP, name, pageNumber, pageSize, securityProtectionEnabled, status, tagFilters);
+    return Objects.hash(allocationIds, associatedInstanceId, associatedInstanceType, billingType, eipAddresses, ISP, name, pageNumber, pageSize, projectName, securityProtectionEnabled, status, tagFilters);
   }
 
 
@@ -486,6 +508,7 @@ public class DescribeEipAddressesRequest {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    securityProtectionEnabled: ").append(toIndentedString(securityProtectionEnabled)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
