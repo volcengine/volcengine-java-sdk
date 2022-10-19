@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * AssociatedInstanceForDescribeAllowListDetailOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-19T10:12:05.954803+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-19T16:52:50.262695+08:00[Asia/Shanghai]")
 public class AssociatedInstanceForDescribeAllowListDetailOutput {
   @SerializedName("InstanceId")
   private String instanceId = null;
