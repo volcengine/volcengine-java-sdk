@@ -24,16 +24,19 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * MongosNodeSpecForDescribeNodeSpecsOutput
+ * ShardNodeSpecForDescribeNodeSpecsOutput
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-19T10:07:26.552898+08:00[Asia/Shanghai]")
-public class MongosNodeSpecForDescribeNodeSpecsOutput {
+public class ShardNodeSpecForDescribeNodeSpecsOutput {
   @SerializedName("CpuNum")
   private Double cpuNum = null;
 
   @SerializedName("MaxConn")
   private Long maxConn = null;
+
+  @SerializedName("MaxStorage")
+  private Long maxStorage = null;
 
   @SerializedName("MemInGb")
   private Double memInGb = null;
@@ -41,7 +44,7 @@ public class MongosNodeSpecForDescribeNodeSpecsOutput {
   @SerializedName("SpecName")
   private String specName = null;
 
-  public MongosNodeSpecForDescribeNodeSpecsOutput cpuNum(Double cpuNum) {
+  public ShardNodeSpecForDescribeNodeSpecsOutput cpuNum(Double cpuNum) {
     this.cpuNum = cpuNum;
     return this;
   }
@@ -59,7 +62,7 @@ public class MongosNodeSpecForDescribeNodeSpecsOutput {
     this.cpuNum = cpuNum;
   }
 
-  public MongosNodeSpecForDescribeNodeSpecsOutput maxConn(Long maxConn) {
+  public ShardNodeSpecForDescribeNodeSpecsOutput maxConn(Long maxConn) {
     this.maxConn = maxConn;
     return this;
   }
@@ -77,7 +80,25 @@ public class MongosNodeSpecForDescribeNodeSpecsOutput {
     this.maxConn = maxConn;
   }
 
-  public MongosNodeSpecForDescribeNodeSpecsOutput memInGb(Double memInGb) {
+  public ShardNodeSpecForDescribeNodeSpecsOutput maxStorage(Long maxStorage) {
+    this.maxStorage = maxStorage;
+    return this;
+  }
+
+   /**
+   * Get maxStorage
+   * @return maxStorage
+  **/
+  @Schema(description = "")
+  public Long getMaxStorage() {
+    return maxStorage;
+  }
+
+  public void setMaxStorage(Long maxStorage) {
+    this.maxStorage = maxStorage;
+  }
+
+  public ShardNodeSpecForDescribeNodeSpecsOutput memInGb(Double memInGb) {
     this.memInGb = memInGb;
     return this;
   }
@@ -95,7 +116,7 @@ public class MongosNodeSpecForDescribeNodeSpecsOutput {
     this.memInGb = memInGb;
   }
 
-  public MongosNodeSpecForDescribeNodeSpecsOutput specName(String specName) {
+  public ShardNodeSpecForDescribeNodeSpecsOutput specName(String specName) {
     this.specName = specName;
     return this;
   }
@@ -122,26 +143,28 @@ public class MongosNodeSpecForDescribeNodeSpecsOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MongosNodeSpecForDescribeNodeSpecsOutput mongosNodeSpecForDescribeNodeSpecsOutput = (MongosNodeSpecForDescribeNodeSpecsOutput) o;
-    return Objects.equals(this.cpuNum, mongosNodeSpecForDescribeNodeSpecsOutput.cpuNum) &&
-        Objects.equals(this.maxConn, mongosNodeSpecForDescribeNodeSpecsOutput.maxConn) &&
-        Objects.equals(this.memInGb, mongosNodeSpecForDescribeNodeSpecsOutput.memInGb) &&
-        Objects.equals(this.specName, mongosNodeSpecForDescribeNodeSpecsOutput.specName);
+    ShardNodeSpecForDescribeNodeSpecsOutput shardNodeSpecForDescribeNodeSpecsOutput = (ShardNodeSpecForDescribeNodeSpecsOutput) o;
+    return Objects.equals(this.cpuNum, shardNodeSpecForDescribeNodeSpecsOutput.cpuNum) &&
+        Objects.equals(this.maxConn, shardNodeSpecForDescribeNodeSpecsOutput.maxConn) &&
+        Objects.equals(this.maxStorage, shardNodeSpecForDescribeNodeSpecsOutput.maxStorage) &&
+        Objects.equals(this.memInGb, shardNodeSpecForDescribeNodeSpecsOutput.memInGb) &&
+        Objects.equals(this.specName, shardNodeSpecForDescribeNodeSpecsOutput.specName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cpuNum, maxConn, memInGb, specName);
+    return Objects.hash(cpuNum, maxConn, maxStorage, memInGb, specName);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class MongosNodeSpecForDescribeNodeSpecsOutput {\n");
+    sb.append("class ShardNodeSpecForDescribeNodeSpecsOutput {\n");
     
     sb.append("    cpuNum: ").append(toIndentedString(cpuNum)).append("\n");
     sb.append("    maxConn: ").append(toIndentedString(maxConn)).append("\n");
+    sb.append("    maxStorage: ").append(toIndentedString(maxStorage)).append("\n");
     sb.append("    memInGb: ").append(toIndentedString(memInGb)).append("\n");
     sb.append("    specName: ").append(toIndentedString(specName)).append("\n");
     sb.append("}");
