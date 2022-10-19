@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * CreateDBInstanceRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:46.453185+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-19T10:12:05.954803+08:00[Asia/Shanghai]")
 public class CreateDBInstanceRequest {
   @SerializedName("AutoRenew")
   private Boolean autoRenew = null;
@@ -82,9 +82,7 @@ public class CreateDBInstanceRequest {
    */
   @JsonAdapter(DbEngineEnum.Adapter.class)
   public enum DbEngineEnum {
-    MYSQL("MySQL"),
-    POSTGRES("Postgres"),
-    SQLSERVER("Sqlserver");
+    MYSQL("MySQL");
 
     private String value;
 
@@ -127,14 +125,8 @@ public class CreateDBInstanceRequest {
    */
   @JsonAdapter(DbEngineVersionEnum.Adapter.class)
   public enum DbEngineVersionEnum {
-    MYSQL_5_5("MySQL_5_5"),
-    MYSQL_5_6("MySQL_5_6"),
-    MYSQL_8_0("MySQL_8_0"),
-    MYSQL_COMMUNITY_5_7("MySQL_Community_5_7"),
-    POSTGRES_12("Postgres_12"),
-    SQLSERVER_2019_ENT("SQLServer_2019_Ent"),
-    SQLSERVER_2019_STD("SQLServer_2019_Std"),
-    SQLSERVER_2019_WEB("SQLServer_2019_Web");
+    _8_0("MySQL_8_0"),
+    COMMUNITY_5_7("MySQL_Community_5_7");
 
     private String value;
 
@@ -172,49 +164,8 @@ public class CreateDBInstanceRequest {
   }  @SerializedName("DBEngineVersion")
   private DbEngineVersionEnum dbEngineVersion = null;
 
-  /**
-   * Gets or Sets instanceCategory
-   */
-  @JsonAdapter(InstanceCategoryEnum.Adapter.class)
-  public enum InstanceCategoryEnum {
-    PRIMARY("Primary"),
-    READONLY("ReadOnly");
-
-    private String value;
-
-    InstanceCategoryEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static InstanceCategoryEnum fromValue(String input) {
-      for (InstanceCategoryEnum b : InstanceCategoryEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<InstanceCategoryEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final InstanceCategoryEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public InstanceCategoryEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return InstanceCategoryEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("InstanceCategory")
-  private InstanceCategoryEnum instanceCategory = null;
+  @SerializedName("InstanceName")
+  private String instanceName = null;
 
   @SerializedName("InstanceSpecName")
   private String instanceSpecName = null;
@@ -224,9 +175,6 @@ public class CreateDBInstanceRequest {
    */
   @JsonAdapter(InstanceTypeEnum.Adapter.class)
   public enum InstanceTypeEnum {
-    BASIC("Basic"),
-    CLUSTER("Cluster"),
-    FINANCE("Finance"),
     HA("HA");
 
     private String value;
@@ -312,8 +260,8 @@ public class CreateDBInstanceRequest {
   }  @SerializedName("PrepaidPeriod")
   private PrepaidPeriodEnum prepaidPeriod = null;
 
-  @SerializedName("Region")
-  private String region = null;
+  @SerializedName("ProjectName")
+  private String projectName = null;
 
   @SerializedName("StorageSpaceGB")
   private Integer storageSpaceGB = null;
@@ -324,7 +272,8 @@ public class CreateDBInstanceRequest {
   @JsonAdapter(StorageTypeEnum.Adapter.class)
   public enum StorageTypeEnum {
     CLOUDSTORAGE("CloudStorage"),
-    ESSDFLEXPL("ESSDFlexPL"),
+    ESSDPL1("ESSDPL1"),
+    ESSDPL2("ESSDPL2"),
     LOCALSSD("LocalSSD");
 
     private String value;
@@ -362,6 +311,15 @@ public class CreateDBInstanceRequest {
     }
   }  @SerializedName("StorageType")
   private StorageTypeEnum storageType = null;
+
+  @SerializedName("SubnetId")
+  private String subnetId = null;
+
+  @SerializedName("SuperAccountName")
+  private String superAccountName = null;
+
+  @SerializedName("SuperAccountPassword")
+  private String superAccountPassword = null;
 
   @SerializedName("UsedTime")
   private Integer usedTime = null;
@@ -444,22 +402,22 @@ public class CreateDBInstanceRequest {
     this.dbEngineVersion = dbEngineVersion;
   }
 
-  public CreateDBInstanceRequest instanceCategory(InstanceCategoryEnum instanceCategory) {
-    this.instanceCategory = instanceCategory;
+  public CreateDBInstanceRequest instanceName(String instanceName) {
+    this.instanceName = instanceName;
     return this;
   }
 
    /**
-   * Get instanceCategory
-   * @return instanceCategory
+   * Get instanceName
+   * @return instanceName
   **/
   @Schema(description = "")
-  public InstanceCategoryEnum getInstanceCategory() {
-    return instanceCategory;
+  public String getInstanceName() {
+    return instanceName;
   }
 
-  public void setInstanceCategory(InstanceCategoryEnum instanceCategory) {
-    this.instanceCategory = instanceCategory;
+  public void setInstanceName(String instanceName) {
+    this.instanceName = instanceName;
   }
 
   public CreateDBInstanceRequest instanceSpecName(String instanceSpecName) {
@@ -534,23 +492,22 @@ public class CreateDBInstanceRequest {
     this.prepaidPeriod = prepaidPeriod;
   }
 
-  public CreateDBInstanceRequest region(String region) {
-    this.region = region;
+  public CreateDBInstanceRequest projectName(String projectName) {
+    this.projectName = projectName;
     return this;
   }
 
    /**
-   * Get region
-   * @return region
+   * Get projectName
+   * @return projectName
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getRegion() {
-    return region;
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
   }
 
-  public void setRegion(String region) {
-    this.region = region;
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
   }
 
   public CreateDBInstanceRequest storageSpaceGB(Integer storageSpaceGB) {
@@ -588,6 +545,60 @@ public class CreateDBInstanceRequest {
 
   public void setStorageType(StorageTypeEnum storageType) {
     this.storageType = storageType;
+  }
+
+  public CreateDBInstanceRequest subnetId(String subnetId) {
+    this.subnetId = subnetId;
+    return this;
+  }
+
+   /**
+   * Get subnetId
+   * @return subnetId
+  **/
+  @Schema(description = "")
+  public String getSubnetId() {
+    return subnetId;
+  }
+
+  public void setSubnetId(String subnetId) {
+    this.subnetId = subnetId;
+  }
+
+  public CreateDBInstanceRequest superAccountName(String superAccountName) {
+    this.superAccountName = superAccountName;
+    return this;
+  }
+
+   /**
+   * Get superAccountName
+   * @return superAccountName
+  **/
+  @Schema(description = "")
+  public String getSuperAccountName() {
+    return superAccountName;
+  }
+
+  public void setSuperAccountName(String superAccountName) {
+    this.superAccountName = superAccountName;
+  }
+
+  public CreateDBInstanceRequest superAccountPassword(String superAccountPassword) {
+    this.superAccountPassword = superAccountPassword;
+    return this;
+  }
+
+   /**
+   * Get superAccountPassword
+   * @return superAccountPassword
+  **/
+  @Schema(description = "")
+  public String getSuperAccountPassword() {
+    return superAccountPassword;
+  }
+
+  public void setSuperAccountPassword(String superAccountPassword) {
+    this.superAccountPassword = superAccountPassword;
   }
 
   public CreateDBInstanceRequest usedTime(Integer usedTime) {
@@ -659,14 +670,17 @@ public class CreateDBInstanceRequest {
         Objects.equals(this.chargeType, createDBInstanceRequest.chargeType) &&
         Objects.equals(this.dbEngine, createDBInstanceRequest.dbEngine) &&
         Objects.equals(this.dbEngineVersion, createDBInstanceRequest.dbEngineVersion) &&
-        Objects.equals(this.instanceCategory, createDBInstanceRequest.instanceCategory) &&
+        Objects.equals(this.instanceName, createDBInstanceRequest.instanceName) &&
         Objects.equals(this.instanceSpecName, createDBInstanceRequest.instanceSpecName) &&
         Objects.equals(this.instanceType, createDBInstanceRequest.instanceType) &&
         Objects.equals(this.number, createDBInstanceRequest.number) &&
         Objects.equals(this.prepaidPeriod, createDBInstanceRequest.prepaidPeriod) &&
-        Objects.equals(this.region, createDBInstanceRequest.region) &&
+        Objects.equals(this.projectName, createDBInstanceRequest.projectName) &&
         Objects.equals(this.storageSpaceGB, createDBInstanceRequest.storageSpaceGB) &&
         Objects.equals(this.storageType, createDBInstanceRequest.storageType) &&
+        Objects.equals(this.subnetId, createDBInstanceRequest.subnetId) &&
+        Objects.equals(this.superAccountName, createDBInstanceRequest.superAccountName) &&
+        Objects.equals(this.superAccountPassword, createDBInstanceRequest.superAccountPassword) &&
         Objects.equals(this.usedTime, createDBInstanceRequest.usedTime) &&
         Objects.equals(this.vpcID, createDBInstanceRequest.vpcID) &&
         Objects.equals(this.zone, createDBInstanceRequest.zone);
@@ -674,7 +688,7 @@ public class CreateDBInstanceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoRenew, chargeType, dbEngine, dbEngineVersion, instanceCategory, instanceSpecName, instanceType, number, prepaidPeriod, region, storageSpaceGB, storageType, usedTime, vpcID, zone);
+    return Objects.hash(autoRenew, chargeType, dbEngine, dbEngineVersion, instanceName, instanceSpecName, instanceType, number, prepaidPeriod, projectName, storageSpaceGB, storageType, subnetId, superAccountName, superAccountPassword, usedTime, vpcID, zone);
   }
 
 
@@ -687,14 +701,17 @@ public class CreateDBInstanceRequest {
     sb.append("    chargeType: ").append(toIndentedString(chargeType)).append("\n");
     sb.append("    dbEngine: ").append(toIndentedString(dbEngine)).append("\n");
     sb.append("    dbEngineVersion: ").append(toIndentedString(dbEngineVersion)).append("\n");
-    sb.append("    instanceCategory: ").append(toIndentedString(instanceCategory)).append("\n");
+    sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    instanceSpecName: ").append(toIndentedString(instanceSpecName)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("    number: ").append(toIndentedString(number)).append("\n");
     sb.append("    prepaidPeriod: ").append(toIndentedString(prepaidPeriod)).append("\n");
-    sb.append("    region: ").append(toIndentedString(region)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    storageSpaceGB: ").append(toIndentedString(storageSpaceGB)).append("\n");
     sb.append("    storageType: ").append(toIndentedString(storageType)).append("\n");
+    sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
+    sb.append("    superAccountName: ").append(toIndentedString(superAccountName)).append("\n");
+    sb.append("    superAccountPassword: ").append(toIndentedString(superAccountPassword)).append("\n");
     sb.append("    usedTime: ").append(toIndentedString(usedTime)).append("\n");
     sb.append("    vpcID: ").append(toIndentedString(vpcID)).append("\n");
     sb.append("    zone: ").append(toIndentedString(zone)).append("\n");

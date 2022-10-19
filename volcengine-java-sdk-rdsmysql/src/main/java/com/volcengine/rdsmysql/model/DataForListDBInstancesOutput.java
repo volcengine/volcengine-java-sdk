@@ -30,22 +30,187 @@ import javax.validation.Valid;
  * DataForListDBInstancesOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:46.453185+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-19T10:12:05.954803+08:00[Asia/Shanghai]")
 public class DataForListDBInstancesOutput {
-  @SerializedName("ChargeStatus")
-  private String chargeStatus = null;
+  /**
+   * Gets or Sets chargeStatus
+   */
+  @JsonAdapter(ChargeStatusEnum.Adapter.class)
+  public enum ChargeStatusEnum {
+    NORMAL("Normal"),
+    OVERDUE("Overdue"),
+    UNPAID("Unpaid");
 
-  @SerializedName("ChargeType")
-  private String chargeType = null;
+    private String value;
+
+    ChargeStatusEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ChargeStatusEnum fromValue(String input) {
+      for (ChargeStatusEnum b : ChargeStatusEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ChargeStatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ChargeStatusEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ChargeStatusEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ChargeStatusEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("ChargeStatus")
+  private ChargeStatusEnum chargeStatus = null;
+
+  /**
+   * Gets or Sets chargeType
+   */
+  @JsonAdapter(ChargeTypeEnum.Adapter.class)
+  public enum ChargeTypeEnum {
+    NOTENABLED("NotEnabled"),
+    POSTPAID("PostPaid"),
+    PREPAID("Prepaid");
+
+    private String value;
+
+    ChargeTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ChargeTypeEnum fromValue(String input) {
+      for (ChargeTypeEnum b : ChargeTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ChargeTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ChargeTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ChargeTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ChargeTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("ChargeType")
+  private ChargeTypeEnum chargeType = null;
 
   @SerializedName("CreateTime")
   private String createTime = null;
 
-  @SerializedName("DBEngine")
-  private String dbEngine = null;
+  /**
+   * Gets or Sets dbEngine
+   */
+  @JsonAdapter(DbEngineEnum.Adapter.class)
+  public enum DbEngineEnum {
+    MYSQL("MySQL");
 
-  @SerializedName("DBEngineVersion")
-  private String dbEngineVersion = null;
+    private String value;
+
+    DbEngineEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static DbEngineEnum fromValue(String input) {
+      for (DbEngineEnum b : DbEngineEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<DbEngineEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final DbEngineEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public DbEngineEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return DbEngineEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("DBEngine")
+  private DbEngineEnum dbEngine = null;
+
+  /**
+   * Gets or Sets dbEngineVersion
+   */
+  @JsonAdapter(DbEngineVersionEnum.Adapter.class)
+  public enum DbEngineVersionEnum {
+    _8_0("MySQL_8_0"),
+    COMMUNITY_5_7("MySQL_Community_5_7");
+
+    private String value;
+
+    DbEngineVersionEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static DbEngineVersionEnum fromValue(String input) {
+      for (DbEngineVersionEnum b : DbEngineVersionEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<DbEngineVersionEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final DbEngineVersionEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public DbEngineVersionEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return DbEngineVersionEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("DBEngineVersion")
+  private DbEngineVersionEnum dbEngineVersion = null;
 
   @SerializedName("InstanceId")
   private String instanceId = null;
@@ -56,11 +221,116 @@ public class DataForListDBInstancesOutput {
   @SerializedName("InstanceSpec")
   private InstanceSpecForListDBInstancesOutput instanceSpec = null;
 
-  @SerializedName("InstanceStatus")
-  private String instanceStatus = null;
+  /**
+   * Gets or Sets instanceStatus
+   */
+  @JsonAdapter(InstanceStatusEnum.Adapter.class)
+  public enum InstanceStatusEnum {
+    ALLOWLISTMAINTAINING("AllowListMaintaining"),
+    CLOSED("Closed"),
+    CLOSING("Closing"),
+    CREATEFAILED("CreateFailed"),
+    CREATING("Creating"),
+    DELETING("Deleting"),
+    DESTROYED("Destroyed"),
+    DESTROYING("Destroying"),
+    ERROR("Error"),
+    IMPORTING("Importing"),
+    MAINTAINING("Maintaining"),
+    MASTERCHANGING("MasterChanging"),
+    MIGRATING("Migrating"),
+    RECLAIMING("Reclaiming"),
+    RECYCLED("Recycled"),
+    RELEASED("Released"),
+    RESTARTING("Restarting"),
+    RESTORING("Restoring"),
+    RESUMING("Resuming"),
+    RUNNING("Running"),
+    SSLUPDATING("SSLUpdating"),
+    TDEUPDATING("TDEUpdating"),
+    UNKNOWN("Unknown"),
+    UPDATING("Updating"),
+    UPGRADING("Upgrading"),
+    WAITINGPAID("WaitingPaid");
 
-  @SerializedName("InstanceType")
-  private String instanceType = null;
+    private String value;
+
+    InstanceStatusEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static InstanceStatusEnum fromValue(String input) {
+      for (InstanceStatusEnum b : InstanceStatusEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<InstanceStatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final InstanceStatusEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public InstanceStatusEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return InstanceStatusEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("InstanceStatus")
+  private InstanceStatusEnum instanceStatus = null;
+
+  /**
+   * Gets or Sets instanceType
+   */
+  @JsonAdapter(InstanceTypeEnum.Adapter.class)
+  public enum InstanceTypeEnum {
+    HA("HA");
+
+    private String value;
+
+    InstanceTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static InstanceTypeEnum fromValue(String input) {
+      for (InstanceTypeEnum b : InstanceTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<InstanceTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final InstanceTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public InstanceTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return InstanceTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("InstanceType")
+  private InstanceTypeEnum instanceType = null;
 
   @SerializedName("ReadOnlyInstanceIds")
   private List<String> readOnlyInstanceIds = null;
@@ -80,7 +350,7 @@ public class DataForListDBInstancesOutput {
   @SerializedName("Zone")
   private String zone = null;
 
-  public DataForListDBInstancesOutput chargeStatus(String chargeStatus) {
+  public DataForListDBInstancesOutput chargeStatus(ChargeStatusEnum chargeStatus) {
     this.chargeStatus = chargeStatus;
     return this;
   }
@@ -90,15 +360,15 @@ public class DataForListDBInstancesOutput {
    * @return chargeStatus
   **/
   @Schema(description = "")
-  public String getChargeStatus() {
+  public ChargeStatusEnum getChargeStatus() {
     return chargeStatus;
   }
 
-  public void setChargeStatus(String chargeStatus) {
+  public void setChargeStatus(ChargeStatusEnum chargeStatus) {
     this.chargeStatus = chargeStatus;
   }
 
-  public DataForListDBInstancesOutput chargeType(String chargeType) {
+  public DataForListDBInstancesOutput chargeType(ChargeTypeEnum chargeType) {
     this.chargeType = chargeType;
     return this;
   }
@@ -108,11 +378,11 @@ public class DataForListDBInstancesOutput {
    * @return chargeType
   **/
   @Schema(description = "")
-  public String getChargeType() {
+  public ChargeTypeEnum getChargeType() {
     return chargeType;
   }
 
-  public void setChargeType(String chargeType) {
+  public void setChargeType(ChargeTypeEnum chargeType) {
     this.chargeType = chargeType;
   }
 
@@ -134,7 +404,7 @@ public class DataForListDBInstancesOutput {
     this.createTime = createTime;
   }
 
-  public DataForListDBInstancesOutput dbEngine(String dbEngine) {
+  public DataForListDBInstancesOutput dbEngine(DbEngineEnum dbEngine) {
     this.dbEngine = dbEngine;
     return this;
   }
@@ -144,15 +414,15 @@ public class DataForListDBInstancesOutput {
    * @return dbEngine
   **/
   @Schema(description = "")
-  public String getDbEngine() {
+  public DbEngineEnum getDbEngine() {
     return dbEngine;
   }
 
-  public void setDbEngine(String dbEngine) {
+  public void setDbEngine(DbEngineEnum dbEngine) {
     this.dbEngine = dbEngine;
   }
 
-  public DataForListDBInstancesOutput dbEngineVersion(String dbEngineVersion) {
+  public DataForListDBInstancesOutput dbEngineVersion(DbEngineVersionEnum dbEngineVersion) {
     this.dbEngineVersion = dbEngineVersion;
     return this;
   }
@@ -162,11 +432,11 @@ public class DataForListDBInstancesOutput {
    * @return dbEngineVersion
   **/
   @Schema(description = "")
-  public String getDbEngineVersion() {
+  public DbEngineVersionEnum getDbEngineVersion() {
     return dbEngineVersion;
   }
 
-  public void setDbEngineVersion(String dbEngineVersion) {
+  public void setDbEngineVersion(DbEngineVersionEnum dbEngineVersion) {
     this.dbEngineVersion = dbEngineVersion;
   }
 
@@ -225,7 +495,7 @@ public class DataForListDBInstancesOutput {
     this.instanceSpec = instanceSpec;
   }
 
-  public DataForListDBInstancesOutput instanceStatus(String instanceStatus) {
+  public DataForListDBInstancesOutput instanceStatus(InstanceStatusEnum instanceStatus) {
     this.instanceStatus = instanceStatus;
     return this;
   }
@@ -235,15 +505,15 @@ public class DataForListDBInstancesOutput {
    * @return instanceStatus
   **/
   @Schema(description = "")
-  public String getInstanceStatus() {
+  public InstanceStatusEnum getInstanceStatus() {
     return instanceStatus;
   }
 
-  public void setInstanceStatus(String instanceStatus) {
+  public void setInstanceStatus(InstanceStatusEnum instanceStatus) {
     this.instanceStatus = instanceStatus;
   }
 
-  public DataForListDBInstancesOutput instanceType(String instanceType) {
+  public DataForListDBInstancesOutput instanceType(InstanceTypeEnum instanceType) {
     this.instanceType = instanceType;
     return this;
   }
@@ -253,11 +523,11 @@ public class DataForListDBInstancesOutput {
    * @return instanceType
   **/
   @Schema(description = "")
-  public String getInstanceType() {
+  public InstanceTypeEnum getInstanceType() {
     return instanceType;
   }
 
-  public void setInstanceType(String instanceType) {
+  public void setInstanceType(InstanceTypeEnum instanceType) {
     this.instanceType = instanceType;
   }
 

@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * RecoveryDBInstanceRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:46.453185+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-19T10:12:05.954803+08:00[Asia/Shanghai]")
 public class RecoveryDBInstanceRequest {
   @SerializedName("AutoRenew")
   private Boolean autoRenew = null;
@@ -138,9 +138,7 @@ public class RecoveryDBInstanceRequest {
    */
   @JsonAdapter(RecoveryTypeEnum.Adapter.class)
   public enum RecoveryTypeEnum {
-    INSTANCE("Instance"),
-    SLAVE("Slave"),
-    TABLE("Table");
+    INSTANCE("Instance");
 
     private String value;
 
@@ -190,7 +188,8 @@ public class RecoveryDBInstanceRequest {
   @JsonAdapter(StorageTypeEnum.Adapter.class)
   public enum StorageTypeEnum {
     CLOUDSTORAGE("CloudStorage"),
-    ESSDFLEXPL("ESSDFlexPL"),
+    ESSDPL1("ESSDPL1"),
+    ESSDPL2("ESSDPL2"),
     LOCALSSD("LocalSSD");
 
     private String value;

@@ -17,11 +17,11 @@ import java.util.Arrays;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * RevokeAccountPrivilegeResponse
+ * UpgradeAllowListVersionResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:46.453185+08:00[Asia/Shanghai]")
-public class RevokeAccountPrivilegeResponse {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-19T10:12:05.954803+08:00[Asia/Shanghai]")
+public class UpgradeAllowListVersionResponse {
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -43,7 +43,7 @@ public class RevokeAccountPrivilegeResponse {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RevokeAccountPrivilegeResponse {\n");
+    sb.append("class UpgradeAllowListVersionResponse {\n");
     
     sb.append("}");
     return sb.toString();

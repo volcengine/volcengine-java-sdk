@@ -30,16 +30,99 @@ import javax.validation.Valid;
  * DataForListAccountsOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:46.453185+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-19T10:12:05.954803+08:00[Asia/Shanghai]")
 public class DataForListAccountsOutput {
   @SerializedName("AccountName")
   private String accountName = null;
 
-  @SerializedName("AccountStatus")
-  private String accountStatus = null;
+  /**
+   * Gets or Sets accountStatus
+   */
+  @JsonAdapter(AccountStatusEnum.Adapter.class)
+  public enum AccountStatusEnum {
+    AVAILABLE("Available"),
+    UNAVAILABLE("Unavailable");
 
-  @SerializedName("AccountType")
-  private String accountType = null;
+    private String value;
+
+    AccountStatusEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static AccountStatusEnum fromValue(String input) {
+      for (AccountStatusEnum b : AccountStatusEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<AccountStatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final AccountStatusEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public AccountStatusEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return AccountStatusEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("AccountStatus")
+  private AccountStatusEnum accountStatus = null;
+
+  /**
+   * Gets or Sets accountType
+   */
+  @JsonAdapter(AccountTypeEnum.Adapter.class)
+  public enum AccountTypeEnum {
+    GRANT("Grant"),
+    NORMAL("Normal"),
+    SUPER("Super");
+
+    private String value;
+
+    AccountTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static AccountTypeEnum fromValue(String input) {
+      for (AccountTypeEnum b : AccountTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<AccountTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final AccountTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public AccountTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return AccountTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("AccountType")
+  private AccountTypeEnum accountType = null;
 
   @SerializedName("DBPrivileges")
   private List<DBPrivilegeForListAccountsOutput> dbPrivileges = null;
@@ -62,7 +145,7 @@ public class DataForListAccountsOutput {
     this.accountName = accountName;
   }
 
-  public DataForListAccountsOutput accountStatus(String accountStatus) {
+  public DataForListAccountsOutput accountStatus(AccountStatusEnum accountStatus) {
     this.accountStatus = accountStatus;
     return this;
   }
@@ -72,15 +155,15 @@ public class DataForListAccountsOutput {
    * @return accountStatus
   **/
   @Schema(description = "")
-  public String getAccountStatus() {
+  public AccountStatusEnum getAccountStatus() {
     return accountStatus;
   }
 
-  public void setAccountStatus(String accountStatus) {
+  public void setAccountStatus(AccountStatusEnum accountStatus) {
     this.accountStatus = accountStatus;
   }
 
-  public DataForListAccountsOutput accountType(String accountType) {
+  public DataForListAccountsOutput accountType(AccountTypeEnum accountType) {
     this.accountType = accountType;
     return this;
   }
@@ -90,11 +173,11 @@ public class DataForListAccountsOutput {
    * @return accountType
   **/
   @Schema(description = "")
-  public String getAccountType() {
+  public AccountTypeEnum getAccountType() {
     return accountType;
   }
 
-  public void setAccountType(String accountType) {
+  public void setAccountType(AccountTypeEnum accountType) {
     this.accountType = accountType;
   }
 
