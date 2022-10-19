@@ -27,15 +27,14 @@ import javax.validation.Valid;
  * CreateBackupRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:46.453185+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-19T10:12:05.954803+08:00[Asia/Shanghai]")
 public class CreateBackupRequest {
   /**
    * Gets or Sets backupDataType
    */
   @JsonAdapter(BackupDataTypeEnum.Adapter.class)
   public enum BackupDataTypeEnum {
-    DATA("Data"),
-    LOG("Log");
+    DATA("Data");
 
     private String value;
 
@@ -205,6 +204,9 @@ public class CreateBackupRequest {
   }  @SerializedName("BackupType")
   private BackupTypeEnum backupType = null;
 
+  @SerializedName("DBNames")
+  private String dbNames = null;
+
   @SerializedName("InstanceId")
   private String instanceId = null;
 
@@ -280,6 +282,24 @@ public class CreateBackupRequest {
     this.backupType = backupType;
   }
 
+  public CreateBackupRequest dbNames(String dbNames) {
+    this.dbNames = dbNames;
+    return this;
+  }
+
+   /**
+   * Get dbNames
+   * @return dbNames
+  **/
+  @Schema(description = "")
+  public String getDbNames() {
+    return dbNames;
+  }
+
+  public void setDbNames(String dbNames) {
+    this.dbNames = dbNames;
+  }
+
   public CreateBackupRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
     return this;
@@ -313,12 +333,13 @@ public class CreateBackupRequest {
         Objects.equals(this.backupMode, createBackupRequest.backupMode) &&
         Objects.equals(this.backupStrategy, createBackupRequest.backupStrategy) &&
         Objects.equals(this.backupType, createBackupRequest.backupType) &&
+        Objects.equals(this.dbNames, createBackupRequest.dbNames) &&
         Objects.equals(this.instanceId, createBackupRequest.instanceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(backupDataType, backupMode, backupStrategy, backupType, instanceId);
+    return Objects.hash(backupDataType, backupMode, backupStrategy, backupType, dbNames, instanceId);
   }
 
 
@@ -331,6 +352,7 @@ public class CreateBackupRequest {
     sb.append("    backupMode: ").append(toIndentedString(backupMode)).append("\n");
     sb.append("    backupStrategy: ").append(toIndentedString(backupStrategy)).append("\n");
     sb.append("    backupType: ").append(toIndentedString(backupType)).append("\n");
+    sb.append("    dbNames: ").append(toIndentedString(dbNames)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("}");
     return sb.toString();

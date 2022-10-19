@@ -29,7 +29,7 @@ import javax.validation.Valid;
  * DescribeDBInstanceResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:46.453185+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-19T10:12:05.954803+08:00[Asia/Shanghai]")
 public class DescribeDBInstanceResponse {
   @SerializedName("BasicInfo")
   private BasicInfoForDescribeDBInstanceOutput basicInfo = null;
@@ -37,11 +37,96 @@ public class DescribeDBInstanceResponse {
   @SerializedName("ConnectionInfo")
   private ConnectionInfoForDescribeDBInstanceOutput connectionInfo = null;
 
-  @SerializedName("DataSyncMode")
-  private String dataSyncMode = null;
+  /**
+   * Gets or Sets dataSyncMode
+   */
+  @JsonAdapter(DataSyncModeEnum.Adapter.class)
+  public enum DataSyncModeEnum {
+    ASYNC("Async"),
+    SEMISYNC("SemiSync"),
+    SYNC("Sync");
 
-  @SerializedName("StorageType")
-  private String storageType = null;
+    private String value;
+
+    DataSyncModeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static DataSyncModeEnum fromValue(String input) {
+      for (DataSyncModeEnum b : DataSyncModeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<DataSyncModeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final DataSyncModeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public DataSyncModeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return DataSyncModeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("DataSyncMode")
+  private DataSyncModeEnum dataSyncMode = null;
+
+  /**
+   * Gets or Sets storageType
+   */
+  @JsonAdapter(StorageTypeEnum.Adapter.class)
+  public enum StorageTypeEnum {
+    CLOUDSTORAGE("CloudStorage"),
+    ESSDPL1("ESSDPL1"),
+    ESSDPL2("ESSDPL2"),
+    LOCALSSD("LocalSSD");
+
+    private String value;
+
+    StorageTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static StorageTypeEnum fromValue(String input) {
+      for (StorageTypeEnum b : StorageTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<StorageTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final StorageTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public StorageTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return StorageTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("StorageType")
+  private StorageTypeEnum storageType = null;
 
   public DescribeDBInstanceResponse basicInfo(BasicInfoForDescribeDBInstanceOutput basicInfo) {
     this.basicInfo = basicInfo;
@@ -81,7 +166,7 @@ public class DescribeDBInstanceResponse {
     this.connectionInfo = connectionInfo;
   }
 
-  public DescribeDBInstanceResponse dataSyncMode(String dataSyncMode) {
+  public DescribeDBInstanceResponse dataSyncMode(DataSyncModeEnum dataSyncMode) {
     this.dataSyncMode = dataSyncMode;
     return this;
   }
@@ -91,15 +176,15 @@ public class DescribeDBInstanceResponse {
    * @return dataSyncMode
   **/
   @Schema(description = "")
-  public String getDataSyncMode() {
+  public DataSyncModeEnum getDataSyncMode() {
     return dataSyncMode;
   }
 
-  public void setDataSyncMode(String dataSyncMode) {
+  public void setDataSyncMode(DataSyncModeEnum dataSyncMode) {
     this.dataSyncMode = dataSyncMode;
   }
 
-  public DescribeDBInstanceResponse storageType(String storageType) {
+  public DescribeDBInstanceResponse storageType(StorageTypeEnum storageType) {
     this.storageType = storageType;
     return this;
   }
@@ -109,11 +194,11 @@ public class DescribeDBInstanceResponse {
    * @return storageType
   **/
   @Schema(description = "")
-  public String getStorageType() {
+  public StorageTypeEnum getStorageType() {
     return storageType;
   }
 
-  public void setStorageType(String storageType) {
+  public void setStorageType(StorageTypeEnum storageType) {
     this.storageType = storageType;
   }
 
