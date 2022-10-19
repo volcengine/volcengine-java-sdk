@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * ListDBInstancesRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:46.453185+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-19T10:12:05.954803+08:00[Asia/Shanghai]")
 public class ListDBInstancesRequest {
   @SerializedName("CreateEndTime")
   private String createEndTime = null;
@@ -111,9 +111,6 @@ public class ListDBInstancesRequest {
    */
   @JsonAdapter(InstanceTypeEnum.Adapter.class)
   public enum InstanceTypeEnum {
-    BASIC("Basic"),
-    CLUSTER("Cluster"),
-    FINANCE("Finance"),
     HA("HA");
 
     private String value;

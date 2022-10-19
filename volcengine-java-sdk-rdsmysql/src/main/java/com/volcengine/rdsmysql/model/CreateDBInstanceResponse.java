@@ -27,10 +27,13 @@ import javax.validation.Valid;
  * CreateDBInstanceResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:46.453185+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-19T10:12:05.954803+08:00[Asia/Shanghai]")
 public class CreateDBInstanceResponse {
   @SerializedName("InstanceId")
   private String instanceId = null;
+
+  @SerializedName("OrderNO")
+  private String orderNO = null;
 
   public CreateDBInstanceResponse instanceId(String instanceId) {
     this.instanceId = instanceId;
@@ -50,6 +53,24 @@ public class CreateDBInstanceResponse {
     this.instanceId = instanceId;
   }
 
+  public CreateDBInstanceResponse orderNO(String orderNO) {
+    this.orderNO = orderNO;
+    return this;
+  }
+
+   /**
+   * Get orderNO
+   * @return orderNO
+  **/
+  @Schema(description = "")
+  public String getOrderNO() {
+    return orderNO;
+  }
+
+  public void setOrderNO(String orderNO) {
+    this.orderNO = orderNO;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -60,12 +81,13 @@ public class CreateDBInstanceResponse {
       return false;
     }
     CreateDBInstanceResponse createDBInstanceResponse = (CreateDBInstanceResponse) o;
-    return Objects.equals(this.instanceId, createDBInstanceResponse.instanceId);
+    return Objects.equals(this.instanceId, createDBInstanceResponse.instanceId) &&
+        Objects.equals(this.orderNO, createDBInstanceResponse.orderNO);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId);
+    return Objects.hash(instanceId, orderNO);
   }
 
 
@@ -75,6 +97,7 @@ public class CreateDBInstanceResponse {
     sb.append("class CreateDBInstanceResponse {\n");
     
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    orderNO: ").append(toIndentedString(orderNO)).append("\n");
     sb.append("}");
     return sb.toString();
   }

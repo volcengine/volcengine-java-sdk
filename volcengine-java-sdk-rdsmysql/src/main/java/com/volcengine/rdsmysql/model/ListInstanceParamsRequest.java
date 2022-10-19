@@ -24,59 +24,15 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * RevokeAccountPrivilegeRequest
+ * ListInstanceParamsRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:46.453185+08:00[Asia/Shanghai]")
-public class RevokeAccountPrivilegeRequest {
-  @SerializedName("AccountName")
-  private String accountName = null;
-
-  @SerializedName("DBNames")
-  private String dbNames = null;
-
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-19T10:12:05.954803+08:00[Asia/Shanghai]")
+public class ListInstanceParamsRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;
 
-  public RevokeAccountPrivilegeRequest accountName(String accountName) {
-    this.accountName = accountName;
-    return this;
-  }
-
-   /**
-   * Get accountName
-   * @return accountName
-  **/
-  @NotNull
- @Size(min=2,max=32)  @Schema(required = true, description = "")
-  public String getAccountName() {
-    return accountName;
-  }
-
-  public void setAccountName(String accountName) {
-    this.accountName = accountName;
-  }
-
-  public RevokeAccountPrivilegeRequest dbNames(String dbNames) {
-    this.dbNames = dbNames;
-    return this;
-  }
-
-   /**
-   * Get dbNames
-   * @return dbNames
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getDbNames() {
-    return dbNames;
-  }
-
-  public void setDbNames(String dbNames) {
-    this.dbNames = dbNames;
-  }
-
-  public RevokeAccountPrivilegeRequest instanceId(String instanceId) {
+  public ListInstanceParamsRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
     return this;
   }
@@ -104,25 +60,21 @@ public class RevokeAccountPrivilegeRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RevokeAccountPrivilegeRequest revokeAccountPrivilegeRequest = (RevokeAccountPrivilegeRequest) o;
-    return Objects.equals(this.accountName, revokeAccountPrivilegeRequest.accountName) &&
-        Objects.equals(this.dbNames, revokeAccountPrivilegeRequest.dbNames) &&
-        Objects.equals(this.instanceId, revokeAccountPrivilegeRequest.instanceId);
+    ListInstanceParamsRequest listInstanceParamsRequest = (ListInstanceParamsRequest) o;
+    return Objects.equals(this.instanceId, listInstanceParamsRequest.instanceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountName, dbNames, instanceId);
+    return Objects.hash(instanceId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RevokeAccountPrivilegeRequest {\n");
+    sb.append("class ListInstanceParamsRequest {\n");
     
-    sb.append("    accountName: ").append(toIndentedString(accountName)).append("\n");
-    sb.append("    dbNames: ").append(toIndentedString(dbNames)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("}");
     return sb.toString();
