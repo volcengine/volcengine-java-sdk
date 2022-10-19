@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * DataForListBackupsOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:46.453185+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-19T10:12:05.954803+08:00[Asia/Shanghai]")
 public class DataForListBackupsOutput {
   @SerializedName("BackupEndTime")
   private String backupEndTime = null;
@@ -41,23 +41,229 @@ public class DataForListBackupsOutput {
   @SerializedName("BackupId")
   private String backupId = null;
 
-  @SerializedName("BackupMode")
-  private String backupMode = null;
+  /**
+   * Gets or Sets backupMode
+   */
+  @JsonAdapter(BackupModeEnum.Adapter.class)
+  public enum BackupModeEnum {
+    FULL("Full"),
+    INCREMENT("Increment");
+
+    private String value;
+
+    BackupModeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static BackupModeEnum fromValue(String input) {
+      for (BackupModeEnum b : BackupModeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<BackupModeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final BackupModeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public BackupModeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return BackupModeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("BackupMode")
+  private BackupModeEnum backupMode = null;
 
   @SerializedName("BackupStartTime")
   private String backupStartTime = null;
 
-  @SerializedName("BackupStatus")
-  private String backupStatus = null;
+  /**
+   * Gets or Sets backupStatus
+   */
+  @JsonAdapter(BackupStatusEnum.Adapter.class)
+  public enum BackupStatusEnum {
+    FAILED("Failed"),
+    RUNNING("Running"),
+    SUCCESS("Success");
 
-  @SerializedName("BackupStrategy")
-  private String backupStrategy = null;
+    private String value;
 
-  @SerializedName("BackupType")
-  private String backupType = null;
+    BackupStatusEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
 
-  @SerializedName("CreateType")
-  private String createType = null;
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static BackupStatusEnum fromValue(String input) {
+      for (BackupStatusEnum b : BackupStatusEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<BackupStatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final BackupStatusEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public BackupStatusEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return BackupStatusEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("BackupStatus")
+  private BackupStatusEnum backupStatus = null;
+
+  /**
+   * Gets or Sets backupStrategy
+   */
+  @JsonAdapter(BackupStrategyEnum.Adapter.class)
+  public enum BackupStrategyEnum {
+    DATABASE("Database"),
+    INSTANCE("Instance");
+
+    private String value;
+
+    BackupStrategyEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static BackupStrategyEnum fromValue(String input) {
+      for (BackupStrategyEnum b : BackupStrategyEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<BackupStrategyEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final BackupStrategyEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public BackupStrategyEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return BackupStrategyEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("BackupStrategy")
+  private BackupStrategyEnum backupStrategy = null;
+
+  /**
+   * Gets or Sets backupType
+   */
+  @JsonAdapter(BackupTypeEnum.Adapter.class)
+  public enum BackupTypeEnum {
+    LOGICAL("Logical"),
+    PHYSICAL("Physical");
+
+    private String value;
+
+    BackupTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static BackupTypeEnum fromValue(String input) {
+      for (BackupTypeEnum b : BackupTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<BackupTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final BackupTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public BackupTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return BackupTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("BackupType")
+  private BackupTypeEnum backupType = null;
+
+  /**
+   * Gets or Sets createType
+   */
+  @JsonAdapter(CreateTypeEnum.Adapter.class)
+  public enum CreateTypeEnum {
+    SYSTEM("System"),
+    USER("User");
+
+    private String value;
+
+    CreateTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static CreateTypeEnum fromValue(String input) {
+      for (CreateTypeEnum b : CreateTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<CreateTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final CreateTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public CreateTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return CreateTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("CreateType")
+  private CreateTypeEnum createType = null;
 
   public DataForListBackupsOutput backupEndTime(String backupEndTime) {
     this.backupEndTime = backupEndTime;
@@ -131,7 +337,7 @@ public class DataForListBackupsOutput {
     this.backupId = backupId;
   }
 
-  public DataForListBackupsOutput backupMode(String backupMode) {
+  public DataForListBackupsOutput backupMode(BackupModeEnum backupMode) {
     this.backupMode = backupMode;
     return this;
   }
@@ -141,11 +347,11 @@ public class DataForListBackupsOutput {
    * @return backupMode
   **/
   @Schema(description = "")
-  public String getBackupMode() {
+  public BackupModeEnum getBackupMode() {
     return backupMode;
   }
 
-  public void setBackupMode(String backupMode) {
+  public void setBackupMode(BackupModeEnum backupMode) {
     this.backupMode = backupMode;
   }
 
@@ -167,7 +373,7 @@ public class DataForListBackupsOutput {
     this.backupStartTime = backupStartTime;
   }
 
-  public DataForListBackupsOutput backupStatus(String backupStatus) {
+  public DataForListBackupsOutput backupStatus(BackupStatusEnum backupStatus) {
     this.backupStatus = backupStatus;
     return this;
   }
@@ -177,15 +383,15 @@ public class DataForListBackupsOutput {
    * @return backupStatus
   **/
   @Schema(description = "")
-  public String getBackupStatus() {
+  public BackupStatusEnum getBackupStatus() {
     return backupStatus;
   }
 
-  public void setBackupStatus(String backupStatus) {
+  public void setBackupStatus(BackupStatusEnum backupStatus) {
     this.backupStatus = backupStatus;
   }
 
-  public DataForListBackupsOutput backupStrategy(String backupStrategy) {
+  public DataForListBackupsOutput backupStrategy(BackupStrategyEnum backupStrategy) {
     this.backupStrategy = backupStrategy;
     return this;
   }
@@ -195,15 +401,15 @@ public class DataForListBackupsOutput {
    * @return backupStrategy
   **/
   @Schema(description = "")
-  public String getBackupStrategy() {
+  public BackupStrategyEnum getBackupStrategy() {
     return backupStrategy;
   }
 
-  public void setBackupStrategy(String backupStrategy) {
+  public void setBackupStrategy(BackupStrategyEnum backupStrategy) {
     this.backupStrategy = backupStrategy;
   }
 
-  public DataForListBackupsOutput backupType(String backupType) {
+  public DataForListBackupsOutput backupType(BackupTypeEnum backupType) {
     this.backupType = backupType;
     return this;
   }
@@ -213,15 +419,15 @@ public class DataForListBackupsOutput {
    * @return backupType
   **/
   @Schema(description = "")
-  public String getBackupType() {
+  public BackupTypeEnum getBackupType() {
     return backupType;
   }
 
-  public void setBackupType(String backupType) {
+  public void setBackupType(BackupTypeEnum backupType) {
     this.backupType = backupType;
   }
 
-  public DataForListBackupsOutput createType(String createType) {
+  public DataForListBackupsOutput createType(CreateTypeEnum createType) {
     this.createType = createType;
     return this;
   }
@@ -231,11 +437,11 @@ public class DataForListBackupsOutput {
    * @return createType
   **/
   @Schema(description = "")
-  public String getCreateType() {
+  public CreateTypeEnum getCreateType() {
     return createType;
   }
 
-  public void setCreateType(String createType) {
+  public void setCreateType(CreateTypeEnum createType) {
     this.createType = createType;
   }
 
