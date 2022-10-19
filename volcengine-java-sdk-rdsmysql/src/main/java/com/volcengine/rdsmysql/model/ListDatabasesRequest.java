@@ -27,52 +27,10 @@ import javax.validation.Valid;
  * ListDatabasesRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:46.453185+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-19T10:12:05.954803+08:00[Asia/Shanghai]")
 public class ListDatabasesRequest {
-  /**
-   * Gets or Sets dbStatus
-   */
-  @JsonAdapter(DbStatusEnum.Adapter.class)
-  public enum DbStatusEnum {
-    CREATING("Creating"),
-    DELETING("Deleting"),
-    RUNNING("Running");
-
-    private String value;
-
-    DbStatusEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static DbStatusEnum fromValue(String input) {
-      for (DbStatusEnum b : DbStatusEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<DbStatusEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final DbStatusEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public DbStatusEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return DbStatusEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("DBStatus")
-  private DbStatusEnum dbStatus = null;
+  @SerializedName("DBStatus")
+  private String dbStatus = null;
 
   @SerializedName("InstanceId")
   private String instanceId = null;
@@ -83,7 +41,7 @@ public class ListDatabasesRequest {
   @SerializedName("Offset")
   private Integer offset = null;
 
-  public ListDatabasesRequest dbStatus(DbStatusEnum dbStatus) {
+  public ListDatabasesRequest dbStatus(String dbStatus) {
     this.dbStatus = dbStatus;
     return this;
   }
@@ -93,11 +51,11 @@ public class ListDatabasesRequest {
    * @return dbStatus
   **/
   @Schema(description = "")
-  public DbStatusEnum getDbStatus() {
+  public String getDbStatus() {
     return dbStatus;
   }
 
-  public void setDbStatus(DbStatusEnum dbStatus) {
+  public void setDbStatus(String dbStatus) {
     this.dbStatus = dbStatus;
   }
 

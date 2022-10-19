@@ -27,10 +27,54 @@ import javax.validation.Valid;
  * DeleteDBInstanceRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:46.453185+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-19T10:12:05.954803+08:00[Asia/Shanghai]")
 public class DeleteDBInstanceRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;
+
+  /**
+   * Gets or Sets releasedKeepPolicy
+   */
+  @JsonAdapter(ReleasedKeepPolicyEnum.Adapter.class)
+  public enum ReleasedKeepPolicyEnum {
+    LASTEST("Lastest"),
+    NONE("None");
+
+    private String value;
+
+    ReleasedKeepPolicyEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ReleasedKeepPolicyEnum fromValue(String input) {
+      for (ReleasedKeepPolicyEnum b : ReleasedKeepPolicyEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ReleasedKeepPolicyEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ReleasedKeepPolicyEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ReleasedKeepPolicyEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ReleasedKeepPolicyEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("ReleasedKeepPolicy")
+  private ReleasedKeepPolicyEnum releasedKeepPolicy = null;
 
   public DeleteDBInstanceRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
@@ -51,6 +95,24 @@ public class DeleteDBInstanceRequest {
     this.instanceId = instanceId;
   }
 
+  public DeleteDBInstanceRequest releasedKeepPolicy(ReleasedKeepPolicyEnum releasedKeepPolicy) {
+    this.releasedKeepPolicy = releasedKeepPolicy;
+    return this;
+  }
+
+   /**
+   * Get releasedKeepPolicy
+   * @return releasedKeepPolicy
+  **/
+  @Schema(description = "")
+  public ReleasedKeepPolicyEnum getReleasedKeepPolicy() {
+    return releasedKeepPolicy;
+  }
+
+  public void setReleasedKeepPolicy(ReleasedKeepPolicyEnum releasedKeepPolicy) {
+    this.releasedKeepPolicy = releasedKeepPolicy;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -61,12 +123,13 @@ public class DeleteDBInstanceRequest {
       return false;
     }
     DeleteDBInstanceRequest deleteDBInstanceRequest = (DeleteDBInstanceRequest) o;
-    return Objects.equals(this.instanceId, deleteDBInstanceRequest.instanceId);
+    return Objects.equals(this.instanceId, deleteDBInstanceRequest.instanceId) &&
+        Objects.equals(this.releasedKeepPolicy, deleteDBInstanceRequest.releasedKeepPolicy);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId);
+    return Objects.hash(instanceId, releasedKeepPolicy);
   }
 
 
@@ -76,6 +139,7 @@ public class DeleteDBInstanceRequest {
     sb.append("class DeleteDBInstanceRequest {\n");
     
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    releasedKeepPolicy: ").append(toIndentedString(releasedKeepPolicy)).append("\n");
     sb.append("}");
     return sb.toString();
   }

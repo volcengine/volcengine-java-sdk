@@ -27,13 +27,95 @@ import javax.validation.Valid;
  * ConnectionInfoForDescribeDBInstanceOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:46.453185+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-19T10:12:05.954803+08:00[Asia/Shanghai]")
 public class ConnectionInfoForDescribeDBInstanceOutput {
-  @SerializedName("EnableReadOnly")
-  private String enableReadOnly = null;
+  /**
+   * Gets or Sets enableReadOnly
+   */
+  @JsonAdapter(EnableReadOnlyEnum.Adapter.class)
+  public enum EnableReadOnlyEnum {
+    DISABLE("Disable"),
+    ENABLE("Enable");
 
-  @SerializedName("EnableReadWriteSplitting")
-  private String enableReadWriteSplitting = null;
+    private String value;
+
+    EnableReadOnlyEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static EnableReadOnlyEnum fromValue(String input) {
+      for (EnableReadOnlyEnum b : EnableReadOnlyEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<EnableReadOnlyEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final EnableReadOnlyEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public EnableReadOnlyEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return EnableReadOnlyEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("EnableReadOnly")
+  private EnableReadOnlyEnum enableReadOnly = null;
+
+  /**
+   * Gets or Sets enableReadWriteSplitting
+   */
+  @JsonAdapter(EnableReadWriteSplittingEnum.Adapter.class)
+  public enum EnableReadWriteSplittingEnum {
+    DISABLE("Disable"),
+    ENABLE("Enable");
+
+    private String value;
+
+    EnableReadWriteSplittingEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static EnableReadWriteSplittingEnum fromValue(String input) {
+      for (EnableReadWriteSplittingEnum b : EnableReadWriteSplittingEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<EnableReadWriteSplittingEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final EnableReadWriteSplittingEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public EnableReadWriteSplittingEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return EnableReadWriteSplittingEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("EnableReadWriteSplitting")
+  private EnableReadWriteSplittingEnum enableReadWriteSplitting = null;
 
   @SerializedName("InternalDomain")
   private String internalDomain = null;
@@ -47,7 +129,7 @@ public class ConnectionInfoForDescribeDBInstanceOutput {
   @SerializedName("PublicPort")
   private String publicPort = null;
 
-  public ConnectionInfoForDescribeDBInstanceOutput enableReadOnly(String enableReadOnly) {
+  public ConnectionInfoForDescribeDBInstanceOutput enableReadOnly(EnableReadOnlyEnum enableReadOnly) {
     this.enableReadOnly = enableReadOnly;
     return this;
   }
@@ -57,15 +139,15 @@ public class ConnectionInfoForDescribeDBInstanceOutput {
    * @return enableReadOnly
   **/
   @Schema(description = "")
-  public String getEnableReadOnly() {
+  public EnableReadOnlyEnum getEnableReadOnly() {
     return enableReadOnly;
   }
 
-  public void setEnableReadOnly(String enableReadOnly) {
+  public void setEnableReadOnly(EnableReadOnlyEnum enableReadOnly) {
     this.enableReadOnly = enableReadOnly;
   }
 
-  public ConnectionInfoForDescribeDBInstanceOutput enableReadWriteSplitting(String enableReadWriteSplitting) {
+  public ConnectionInfoForDescribeDBInstanceOutput enableReadWriteSplitting(EnableReadWriteSplittingEnum enableReadWriteSplitting) {
     this.enableReadWriteSplitting = enableReadWriteSplitting;
     return this;
   }
@@ -75,11 +157,11 @@ public class ConnectionInfoForDescribeDBInstanceOutput {
    * @return enableReadWriteSplitting
   **/
   @Schema(description = "")
-  public String getEnableReadWriteSplitting() {
+  public EnableReadWriteSplittingEnum getEnableReadWriteSplitting() {
     return enableReadWriteSplitting;
   }
 
-  public void setEnableReadWriteSplitting(String enableReadWriteSplitting) {
+  public void setEnableReadWriteSplitting(EnableReadWriteSplittingEnum enableReadWriteSplitting) {
     this.enableReadWriteSplitting = enableReadWriteSplitting;
   }
 

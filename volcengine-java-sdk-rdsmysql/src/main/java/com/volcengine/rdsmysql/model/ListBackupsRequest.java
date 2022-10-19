@@ -27,15 +27,14 @@ import javax.validation.Valid;
  * ListBackupsRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:46.453185+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-19T10:12:05.954803+08:00[Asia/Shanghai]")
 public class ListBackupsRequest {
   /**
    * Gets or Sets backupDataType
    */
   @JsonAdapter(BackupDataTypeEnum.Adapter.class)
   public enum BackupDataTypeEnum {
-    DATA("Data"),
-    LOG("Log");
+    DATA("Data");
 
     private String value;
 
