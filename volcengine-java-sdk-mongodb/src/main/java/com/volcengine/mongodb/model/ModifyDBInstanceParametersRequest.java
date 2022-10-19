@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.mongodb.model.ParametersObjectForModifyDBInstanceParametersInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -27,13 +28,13 @@ import javax.validation.Valid;
  * ModifyDBInstanceParametersRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-10T12:08:21.110021+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-19T10:07:26.552898+08:00[Asia/Shanghai]")
 public class ModifyDBInstanceParametersRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;
 
-  @SerializedName("Parameters")
-  private String parameters = null;
+  @SerializedName("ParametersObject")
+  private ParametersObjectForModifyDBInstanceParametersInput parametersObject = null;
 
   public ModifyDBInstanceParametersRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
@@ -54,22 +55,23 @@ public class ModifyDBInstanceParametersRequest {
     this.instanceId = instanceId;
   }
 
-  public ModifyDBInstanceParametersRequest parameters(String parameters) {
-    this.parameters = parameters;
+  public ModifyDBInstanceParametersRequest parametersObject(ParametersObjectForModifyDBInstanceParametersInput parametersObject) {
+    this.parametersObject = parametersObject;
     return this;
   }
 
    /**
-   * Get parameters
-   * @return parameters
+   * Get parametersObject
+   * @return parametersObject
   **/
+  @Valid
   @Schema(description = "")
-  public String getParameters() {
-    return parameters;
+  public ParametersObjectForModifyDBInstanceParametersInput getParametersObject() {
+    return parametersObject;
   }
 
-  public void setParameters(String parameters) {
-    this.parameters = parameters;
+  public void setParametersObject(ParametersObjectForModifyDBInstanceParametersInput parametersObject) {
+    this.parametersObject = parametersObject;
   }
 
 
@@ -83,12 +85,12 @@ public class ModifyDBInstanceParametersRequest {
     }
     ModifyDBInstanceParametersRequest modifyDBInstanceParametersRequest = (ModifyDBInstanceParametersRequest) o;
     return Objects.equals(this.instanceId, modifyDBInstanceParametersRequest.instanceId) &&
-        Objects.equals(this.parameters, modifyDBInstanceParametersRequest.parameters);
+        Objects.equals(this.parametersObject, modifyDBInstanceParametersRequest.parametersObject);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, parameters);
+    return Objects.hash(instanceId, parametersObject);
   }
 
 
@@ -98,7 +100,7 @@ public class ModifyDBInstanceParametersRequest {
     sb.append("class ModifyDBInstanceParametersRequest {\n");
     
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
-    sb.append("    parameters: ").append(toIndentedString(parameters)).append("\n");
+    sb.append("    parametersObject: ").append(toIndentedString(parametersObject)).append("\n");
     sb.append("}");
     return sb.toString();
   }
