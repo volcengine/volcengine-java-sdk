@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * CreateDBInstanceRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-19T10:12:05.954803+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-19T16:52:50.262695+08:00[Asia/Shanghai]")
 public class CreateDBInstanceRequest {
   @SerializedName("AutoRenew")
   private Boolean autoRenew = null;
@@ -215,6 +215,9 @@ public class CreateDBInstanceRequest {
 
   @SerializedName("Number")
   private Integer number = null;
+
+  @SerializedName("ParameterTemplateId")
+  private String parameterTemplateId = null;
 
   /**
    * Gets or Sets prepaidPeriod
@@ -474,6 +477,24 @@ public class CreateDBInstanceRequest {
     this.number = number;
   }
 
+  public CreateDBInstanceRequest parameterTemplateId(String parameterTemplateId) {
+    this.parameterTemplateId = parameterTemplateId;
+    return this;
+  }
+
+   /**
+   * Get parameterTemplateId
+   * @return parameterTemplateId
+  **/
+  @Schema(description = "")
+  public String getParameterTemplateId() {
+    return parameterTemplateId;
+  }
+
+  public void setParameterTemplateId(String parameterTemplateId) {
+    this.parameterTemplateId = parameterTemplateId;
+  }
+
   public CreateDBInstanceRequest prepaidPeriod(PrepaidPeriodEnum prepaidPeriod) {
     this.prepaidPeriod = prepaidPeriod;
     return this;
@@ -674,6 +695,7 @@ public class CreateDBInstanceRequest {
         Objects.equals(this.instanceSpecName, createDBInstanceRequest.instanceSpecName) &&
         Objects.equals(this.instanceType, createDBInstanceRequest.instanceType) &&
         Objects.equals(this.number, createDBInstanceRequest.number) &&
+        Objects.equals(this.parameterTemplateId, createDBInstanceRequest.parameterTemplateId) &&
         Objects.equals(this.prepaidPeriod, createDBInstanceRequest.prepaidPeriod) &&
         Objects.equals(this.projectName, createDBInstanceRequest.projectName) &&
         Objects.equals(this.storageSpaceGB, createDBInstanceRequest.storageSpaceGB) &&
@@ -688,7 +710,7 @@ public class CreateDBInstanceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoRenew, chargeType, dbEngine, dbEngineVersion, instanceName, instanceSpecName, instanceType, number, prepaidPeriod, projectName, storageSpaceGB, storageType, subnetId, superAccountName, superAccountPassword, usedTime, vpcID, zone);
+    return Objects.hash(autoRenew, chargeType, dbEngine, dbEngineVersion, instanceName, instanceSpecName, instanceType, number, parameterTemplateId, prepaidPeriod, projectName, storageSpaceGB, storageType, subnetId, superAccountName, superAccountPassword, usedTime, vpcID, zone);
   }
 
 
@@ -705,6 +727,7 @@ public class CreateDBInstanceRequest {
     sb.append("    instanceSpecName: ").append(toIndentedString(instanceSpecName)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("    number: ").append(toIndentedString(number)).append("\n");
+    sb.append("    parameterTemplateId: ").append(toIndentedString(parameterTemplateId)).append("\n");
     sb.append("    prepaidPeriod: ").append(toIndentedString(prepaidPeriod)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    storageSpaceGB: ").append(toIndentedString(storageSpaceGB)).append("\n");
