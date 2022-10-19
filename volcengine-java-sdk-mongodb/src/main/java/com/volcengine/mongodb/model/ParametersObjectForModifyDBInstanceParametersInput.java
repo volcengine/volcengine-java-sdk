@@ -24,16 +24,13 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DescribeDBInstanceParametersRequest
+ * ParametersObjectForModifyDBInstanceParametersInput
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-19T10:07:26.552898+08:00[Asia/Shanghai]")
-public class DescribeDBInstanceParametersRequest {
-  @SerializedName("InstanceId")
-  private String instanceId = null;
-
-  @SerializedName("ParameterNames")
-  private String parameterNames = null;
+public class ParametersObjectForModifyDBInstanceParametersInput {
+  @SerializedName("ParameterName")
+  private String parameterName = null;
 
   /**
    * Gets or Sets parameterRole
@@ -82,44 +79,28 @@ public class DescribeDBInstanceParametersRequest {
   }  @SerializedName("ParameterRole")
   private ParameterRoleEnum parameterRole = null;
 
-  public DescribeDBInstanceParametersRequest instanceId(String instanceId) {
-    this.instanceId = instanceId;
+  @SerializedName("ParameterValue")
+  private String parameterValue = null;
+
+  public ParametersObjectForModifyDBInstanceParametersInput parameterName(String parameterName) {
+    this.parameterName = parameterName;
     return this;
   }
 
    /**
-   * Get instanceId
-   * @return instanceId
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getInstanceId() {
-    return instanceId;
-  }
-
-  public void setInstanceId(String instanceId) {
-    this.instanceId = instanceId;
-  }
-
-  public DescribeDBInstanceParametersRequest parameterNames(String parameterNames) {
-    this.parameterNames = parameterNames;
-    return this;
-  }
-
-   /**
-   * Get parameterNames
-   * @return parameterNames
+   * Get parameterName
+   * @return parameterName
   **/
   @Schema(description = "")
-  public String getParameterNames() {
-    return parameterNames;
+  public String getParameterName() {
+    return parameterName;
   }
 
-  public void setParameterNames(String parameterNames) {
-    this.parameterNames = parameterNames;
+  public void setParameterName(String parameterName) {
+    this.parameterName = parameterName;
   }
 
-  public DescribeDBInstanceParametersRequest parameterRole(ParameterRoleEnum parameterRole) {
+  public ParametersObjectForModifyDBInstanceParametersInput parameterRole(ParameterRoleEnum parameterRole) {
     this.parameterRole = parameterRole;
     return this;
   }
@@ -137,6 +118,24 @@ public class DescribeDBInstanceParametersRequest {
     this.parameterRole = parameterRole;
   }
 
+  public ParametersObjectForModifyDBInstanceParametersInput parameterValue(String parameterValue) {
+    this.parameterValue = parameterValue;
+    return this;
+  }
+
+   /**
+   * Get parameterValue
+   * @return parameterValue
+  **/
+  @Schema(description = "")
+  public String getParameterValue() {
+    return parameterValue;
+  }
+
+  public void setParameterValue(String parameterValue) {
+    this.parameterValue = parameterValue;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -146,26 +145,26 @@ public class DescribeDBInstanceParametersRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DescribeDBInstanceParametersRequest describeDBInstanceParametersRequest = (DescribeDBInstanceParametersRequest) o;
-    return Objects.equals(this.instanceId, describeDBInstanceParametersRequest.instanceId) &&
-        Objects.equals(this.parameterNames, describeDBInstanceParametersRequest.parameterNames) &&
-        Objects.equals(this.parameterRole, describeDBInstanceParametersRequest.parameterRole);
+    ParametersObjectForModifyDBInstanceParametersInput parametersObjectForModifyDBInstanceParametersInput = (ParametersObjectForModifyDBInstanceParametersInput) o;
+    return Objects.equals(this.parameterName, parametersObjectForModifyDBInstanceParametersInput.parameterName) &&
+        Objects.equals(this.parameterRole, parametersObjectForModifyDBInstanceParametersInput.parameterRole) &&
+        Objects.equals(this.parameterValue, parametersObjectForModifyDBInstanceParametersInput.parameterValue);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, parameterNames, parameterRole);
+    return Objects.hash(parameterName, parameterRole, parameterValue);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DescribeDBInstanceParametersRequest {\n");
+    sb.append("class ParametersObjectForModifyDBInstanceParametersInput {\n");
     
-    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
-    sb.append("    parameterNames: ").append(toIndentedString(parameterNames)).append("\n");
+    sb.append("    parameterName: ").append(toIndentedString(parameterName)).append("\n");
     sb.append("    parameterRole: ").append(toIndentedString(parameterRole)).append("\n");
+    sb.append("    parameterValue: ").append(toIndentedString(parameterValue)).append("\n");
     sb.append("}");
     return sb.toString();
   }
