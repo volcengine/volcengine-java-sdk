@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.mongodb.model.MongosNodeSpecForDescribeNodeSpecsOutput;
 import com.volcengine.mongodb.model.NodeSpecForDescribeNodeSpecsOutput;
+import com.volcengine.mongodb.model.ShardNodeSpecForDescribeNodeSpecsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -31,7 +32,7 @@ import javax.validation.Valid;
  * DescribeNodeSpecsResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-10T12:08:21.110021+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-19T10:07:26.552898+08:00[Asia/Shanghai]")
 public class DescribeNodeSpecsResponse {
   @SerializedName("MongosNodeSpecs")
   private List<MongosNodeSpecForDescribeNodeSpecsOutput> mongosNodeSpecs = null;
@@ -40,7 +41,7 @@ public class DescribeNodeSpecsResponse {
   private List<NodeSpecForDescribeNodeSpecsOutput> nodeSpecs = null;
 
   @SerializedName("ShardNodeSpecs")
-  private List<NodeSpecForDescribeNodeSpecsOutput> shardNodeSpecs = null;
+  private List<ShardNodeSpecForDescribeNodeSpecsOutput> shardNodeSpecs = null;
 
   public DescribeNodeSpecsResponse mongosNodeSpecs(List<MongosNodeSpecForDescribeNodeSpecsOutput> mongosNodeSpecs) {
     this.mongosNodeSpecs = mongosNodeSpecs;
@@ -96,14 +97,14 @@ public class DescribeNodeSpecsResponse {
     this.nodeSpecs = nodeSpecs;
   }
 
-  public DescribeNodeSpecsResponse shardNodeSpecs(List<NodeSpecForDescribeNodeSpecsOutput> shardNodeSpecs) {
+  public DescribeNodeSpecsResponse shardNodeSpecs(List<ShardNodeSpecForDescribeNodeSpecsOutput> shardNodeSpecs) {
     this.shardNodeSpecs = shardNodeSpecs;
     return this;
   }
 
-  public DescribeNodeSpecsResponse addShardNodeSpecsItem(NodeSpecForDescribeNodeSpecsOutput shardNodeSpecsItem) {
+  public DescribeNodeSpecsResponse addShardNodeSpecsItem(ShardNodeSpecForDescribeNodeSpecsOutput shardNodeSpecsItem) {
     if (this.shardNodeSpecs == null) {
-      this.shardNodeSpecs = new ArrayList<NodeSpecForDescribeNodeSpecsOutput>();
+      this.shardNodeSpecs = new ArrayList<ShardNodeSpecForDescribeNodeSpecsOutput>();
     }
     this.shardNodeSpecs.add(shardNodeSpecsItem);
     return this;
@@ -115,11 +116,11 @@ public class DescribeNodeSpecsResponse {
   **/
   @Valid
   @Schema(description = "")
-  public List<NodeSpecForDescribeNodeSpecsOutput> getShardNodeSpecs() {
+  public List<ShardNodeSpecForDescribeNodeSpecsOutput> getShardNodeSpecs() {
     return shardNodeSpecs;
   }
 
-  public void setShardNodeSpecs(List<NodeSpecForDescribeNodeSpecsOutput> shardNodeSpecs) {
+  public void setShardNodeSpecs(List<ShardNodeSpecForDescribeNodeSpecsOutput> shardNodeSpecs) {
     this.shardNodeSpecs = shardNodeSpecs;
   }
 
