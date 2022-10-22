@@ -19,58 +19,56 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.vke.model.SecurityForUpdateNodePoolConfigInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * NodeConfigForUpdateNodePoolConfigInput
+ * ForwardKubernetesApiResponse
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-22T17:04:04.290377+08:00[Asia/Shanghai]")
-public class NodeConfigForUpdateNodePoolConfigInput {
-  @SerializedName("InitializeScript")
-  private String initializeScript = null;
+public class ForwardKubernetesApiResponse {
+  @SerializedName("Body")
+  private String body = null;
 
-  @SerializedName("Security")
-  private SecurityForUpdateNodePoolConfigInput security = null;
+  @SerializedName("Code")
+  private Integer code = null;
 
-  public NodeConfigForUpdateNodePoolConfigInput initializeScript(String initializeScript) {
-    this.initializeScript = initializeScript;
+  public ForwardKubernetesApiResponse body(String body) {
+    this.body = body;
     return this;
   }
 
    /**
-   * Get initializeScript
-   * @return initializeScript
+   * Get body
+   * @return body
   **/
   @Schema(description = "")
-  public String getInitializeScript() {
-    return initializeScript;
+  public String getBody() {
+    return body;
   }
 
-  public void setInitializeScript(String initializeScript) {
-    this.initializeScript = initializeScript;
+  public void setBody(String body) {
+    this.body = body;
   }
 
-  public NodeConfigForUpdateNodePoolConfigInput security(SecurityForUpdateNodePoolConfigInput security) {
-    this.security = security;
+  public ForwardKubernetesApiResponse code(Integer code) {
+    this.code = code;
     return this;
   }
 
    /**
-   * Get security
-   * @return security
+   * Get code
+   * @return code
   **/
-  @Valid
   @Schema(description = "")
-  public SecurityForUpdateNodePoolConfigInput getSecurity() {
-    return security;
+  public Integer getCode() {
+    return code;
   }
 
-  public void setSecurity(SecurityForUpdateNodePoolConfigInput security) {
-    this.security = security;
+  public void setCode(Integer code) {
+    this.code = code;
   }
 
 
@@ -82,24 +80,24 @@ public class NodeConfigForUpdateNodePoolConfigInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    NodeConfigForUpdateNodePoolConfigInput nodeConfigForUpdateNodePoolConfigInput = (NodeConfigForUpdateNodePoolConfigInput) o;
-    return Objects.equals(this.initializeScript, nodeConfigForUpdateNodePoolConfigInput.initializeScript) &&
-        Objects.equals(this.security, nodeConfigForUpdateNodePoolConfigInput.security);
+    ForwardKubernetesApiResponse forwardKubernetesApiResponse = (ForwardKubernetesApiResponse) o;
+    return Objects.equals(this.body, forwardKubernetesApiResponse.body) &&
+        Objects.equals(this.code, forwardKubernetesApiResponse.code);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(initializeScript, security);
+    return Objects.hash(body, code);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class NodeConfigForUpdateNodePoolConfigInput {\n");
+    sb.append("class ForwardKubernetesApiResponse {\n");
     
-    sb.append("    initializeScript: ").append(toIndentedString(initializeScript)).append("\n");
-    sb.append("    security: ").append(toIndentedString(security)).append("\n");
+    sb.append("    body: ").append(toIndentedString(body)).append("\n");
+    sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("}");
     return sb.toString();
   }
