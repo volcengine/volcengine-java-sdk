@@ -19,8 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.vke.model.LabelForCreateNodePoolInput;
-import com.volcengine.vke.model.TaintForCreateNodePoolInput;
+import com.volcengine.vke.model.LabelForListNodesOutput;
+import com.volcengine.vke.model.TaintForListNodesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -28,21 +28,21 @@ import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * KubernetesConfigForCreateNodePoolInput
+ * KubernetesConfigForListNodesOutput
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-22T17:04:04.290377+08:00[Asia/Shanghai]")
-public class KubernetesConfigForCreateNodePoolInput {
+public class KubernetesConfigForListNodesOutput {
   @SerializedName("Cordon")
   private Boolean cordon = null;
 
   @SerializedName("Labels")
-  private List<LabelForCreateNodePoolInput> labels = null;
+  private List<LabelForListNodesOutput> labels = null;
 
   @SerializedName("Taints")
-  private List<TaintForCreateNodePoolInput> taints = null;
+  private List<TaintForListNodesOutput> taints = null;
 
-  public KubernetesConfigForCreateNodePoolInput cordon(Boolean cordon) {
+  public KubernetesConfigForListNodesOutput cordon(Boolean cordon) {
     this.cordon = cordon;
     return this;
   }
@@ -60,14 +60,14 @@ public class KubernetesConfigForCreateNodePoolInput {
     this.cordon = cordon;
   }
 
-  public KubernetesConfigForCreateNodePoolInput labels(List<LabelForCreateNodePoolInput> labels) {
+  public KubernetesConfigForListNodesOutput labels(List<LabelForListNodesOutput> labels) {
     this.labels = labels;
     return this;
   }
 
-  public KubernetesConfigForCreateNodePoolInput addLabelsItem(LabelForCreateNodePoolInput labelsItem) {
+  public KubernetesConfigForListNodesOutput addLabelsItem(LabelForListNodesOutput labelsItem) {
     if (this.labels == null) {
-      this.labels = new ArrayList<LabelForCreateNodePoolInput>();
+      this.labels = new ArrayList<LabelForListNodesOutput>();
     }
     this.labels.add(labelsItem);
     return this;
@@ -79,22 +79,22 @@ public class KubernetesConfigForCreateNodePoolInput {
   **/
   @Valid
   @Schema(description = "")
-  public List<LabelForCreateNodePoolInput> getLabels() {
+  public List<LabelForListNodesOutput> getLabels() {
     return labels;
   }
 
-  public void setLabels(List<LabelForCreateNodePoolInput> labels) {
+  public void setLabels(List<LabelForListNodesOutput> labels) {
     this.labels = labels;
   }
 
-  public KubernetesConfigForCreateNodePoolInput taints(List<TaintForCreateNodePoolInput> taints) {
+  public KubernetesConfigForListNodesOutput taints(List<TaintForListNodesOutput> taints) {
     this.taints = taints;
     return this;
   }
 
-  public KubernetesConfigForCreateNodePoolInput addTaintsItem(TaintForCreateNodePoolInput taintsItem) {
+  public KubernetesConfigForListNodesOutput addTaintsItem(TaintForListNodesOutput taintsItem) {
     if (this.taints == null) {
-      this.taints = new ArrayList<TaintForCreateNodePoolInput>();
+      this.taints = new ArrayList<TaintForListNodesOutput>();
     }
     this.taints.add(taintsItem);
     return this;
@@ -106,11 +106,11 @@ public class KubernetesConfigForCreateNodePoolInput {
   **/
   @Valid
   @Schema(description = "")
-  public List<TaintForCreateNodePoolInput> getTaints() {
+  public List<TaintForListNodesOutput> getTaints() {
     return taints;
   }
 
-  public void setTaints(List<TaintForCreateNodePoolInput> taints) {
+  public void setTaints(List<TaintForListNodesOutput> taints) {
     this.taints = taints;
   }
 
@@ -123,10 +123,10 @@ public class KubernetesConfigForCreateNodePoolInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    KubernetesConfigForCreateNodePoolInput kubernetesConfigForCreateNodePoolInput = (KubernetesConfigForCreateNodePoolInput) o;
-    return Objects.equals(this.cordon, kubernetesConfigForCreateNodePoolInput.cordon) &&
-        Objects.equals(this.labels, kubernetesConfigForCreateNodePoolInput.labels) &&
-        Objects.equals(this.taints, kubernetesConfigForCreateNodePoolInput.taints);
+    KubernetesConfigForListNodesOutput kubernetesConfigForListNodesOutput = (KubernetesConfigForListNodesOutput) o;
+    return Objects.equals(this.cordon, kubernetesConfigForListNodesOutput.cordon) &&
+        Objects.equals(this.labels, kubernetesConfigForListNodesOutput.labels) &&
+        Objects.equals(this.taints, kubernetesConfigForListNodesOutput.taints);
   }
 
   @Override
@@ -138,7 +138,7 @@ public class KubernetesConfigForCreateNodePoolInput {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class KubernetesConfigForCreateNodePoolInput {\n");
+    sb.append("class KubernetesConfigForListNodesOutput {\n");
     
     sb.append("    cordon: ").append(toIndentedString(cordon)).append("\n");
     sb.append("    labels: ").append(toIndentedString(labels)).append("\n");

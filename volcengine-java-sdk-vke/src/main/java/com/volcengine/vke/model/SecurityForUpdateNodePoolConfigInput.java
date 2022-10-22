@@ -30,7 +30,7 @@ import javax.validation.Valid;
  * SecurityForUpdateNodePoolConfigInput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-19T12:20:19.967862+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-22T17:04:04.290377+08:00[Asia/Shanghai]")
 public class SecurityForUpdateNodePoolConfigInput {
   @SerializedName("Login")
   private LoginForUpdateNodePoolConfigInput login = null;

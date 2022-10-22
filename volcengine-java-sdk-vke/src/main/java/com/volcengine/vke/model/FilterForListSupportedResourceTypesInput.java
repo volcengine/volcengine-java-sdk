@@ -29,10 +29,80 @@ import javax.validation.Valid;
  * FilterForListSupportedResourceTypesInput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-19T12:20:19.967862+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-22T17:04:04.290377+08:00[Asia/Shanghai]")
 public class FilterForListSupportedResourceTypesInput {
+  /**
+   * Gets or Sets resourceTypes
+   */
+  @JsonAdapter(ResourceTypesEnum.Adapter.class)
+  public enum ResourceTypesEnum {
+    ECS("Ecs"),
+    ZONE("Zone");
+
+    private String value;
+
+    ResourceTypesEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ResourceTypesEnum fromValue(String input) {
+      for (ResourceTypesEnum b : ResourceTypesEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ResourceTypesEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ResourceTypesEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ResourceTypesEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ResourceTypesEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("ResourceTypes")
+  private List<ResourceTypesEnum> resourceTypes = null;
+
   @SerializedName("ZoneIds")
   private List<String> zoneIds = null;
+
+  public FilterForListSupportedResourceTypesInput resourceTypes(List<ResourceTypesEnum> resourceTypes) {
+    this.resourceTypes = resourceTypes;
+    return this;
+  }
+
+  public FilterForListSupportedResourceTypesInput addResourceTypesItem(ResourceTypesEnum resourceTypesItem) {
+    if (this.resourceTypes == null) {
+      this.resourceTypes = new ArrayList<ResourceTypesEnum>();
+    }
+    this.resourceTypes.add(resourceTypesItem);
+    return this;
+  }
+
+   /**
+   * Get resourceTypes
+   * @return resourceTypes
+  **/
+  @Schema(description = "")
+  public List<ResourceTypesEnum> getResourceTypes() {
+    return resourceTypes;
+  }
+
+  public void setResourceTypes(List<ResourceTypesEnum> resourceTypes) {
+    this.resourceTypes = resourceTypes;
+  }
 
   public FilterForListSupportedResourceTypesInput zoneIds(List<String> zoneIds) {
     this.zoneIds = zoneIds;
@@ -70,12 +140,13 @@ public class FilterForListSupportedResourceTypesInput {
       return false;
     }
     FilterForListSupportedResourceTypesInput filterForListSupportedResourceTypesInput = (FilterForListSupportedResourceTypesInput) o;
-    return Objects.equals(this.zoneIds, filterForListSupportedResourceTypesInput.zoneIds);
+    return Objects.equals(this.resourceTypes, filterForListSupportedResourceTypesInput.resourceTypes) &&
+        Objects.equals(this.zoneIds, filterForListSupportedResourceTypesInput.zoneIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(zoneIds);
+    return Objects.hash(resourceTypes, zoneIds);
   }
 
 
@@ -84,6 +155,7 @@ public class FilterForListSupportedResourceTypesInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class FilterForListSupportedResourceTypesInput {\n");
     
+    sb.append("    resourceTypes: ").append(toIndentedString(resourceTypes)).append("\n");
     sb.append("    zoneIds: ").append(toIndentedString(zoneIds)).append("\n");
     sb.append("}");
     return sb.toString();

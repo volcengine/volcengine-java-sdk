@@ -24,11 +24,11 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * TaintForCreateNodePoolInput
+ * TaintForCreateNodesInput
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-22T17:04:04.290377+08:00[Asia/Shanghai]")
-public class TaintForCreateNodePoolInput {
+public class TaintForCreateNodesInput {
   /**
    * Gets or Sets effect
    */
@@ -80,7 +80,7 @@ public class TaintForCreateNodePoolInput {
   @SerializedName("Value")
   private String value = null;
 
-  public TaintForCreateNodePoolInput effect(EffectEnum effect) {
+  public TaintForCreateNodesInput effect(EffectEnum effect) {
     this.effect = effect;
     return this;
   }
@@ -98,7 +98,7 @@ public class TaintForCreateNodePoolInput {
     this.effect = effect;
   }
 
-  public TaintForCreateNodePoolInput key(String key) {
+  public TaintForCreateNodesInput key(String key) {
     this.key = key;
     return this;
   }
@@ -116,7 +116,7 @@ public class TaintForCreateNodePoolInput {
     this.key = key;
   }
 
-  public TaintForCreateNodePoolInput value(String value) {
+  public TaintForCreateNodesInput value(String value) {
     this.value = value;
     return this;
   }
@@ -143,10 +143,10 @@ public class TaintForCreateNodePoolInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TaintForCreateNodePoolInput taintForCreateNodePoolInput = (TaintForCreateNodePoolInput) o;
-    return Objects.equals(this.effect, taintForCreateNodePoolInput.effect) &&
-        Objects.equals(this.key, taintForCreateNodePoolInput.key) &&
-        Objects.equals(this.value, taintForCreateNodePoolInput.value);
+    TaintForCreateNodesInput taintForCreateNodesInput = (TaintForCreateNodesInput) o;
+    return Objects.equals(this.effect, taintForCreateNodesInput.effect) &&
+        Objects.equals(this.key, taintForCreateNodesInput.key) &&
+        Objects.equals(this.value, taintForCreateNodesInput.value);
   }
 
   @Override
@@ -158,7 +158,7 @@ public class TaintForCreateNodePoolInput {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TaintForCreateNodePoolInput {\n");
+    sb.append("class TaintForCreateNodesInput {\n");
     
     sb.append("    effect: ").append(toIndentedString(effect)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
