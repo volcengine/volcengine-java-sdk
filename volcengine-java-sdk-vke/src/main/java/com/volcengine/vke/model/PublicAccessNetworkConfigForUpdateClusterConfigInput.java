@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * PublicAccessNetworkConfigForUpdateClusterConfigInput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-19T12:20:19.967862+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-25T10:54:23.552084+08:00[Asia/Shanghai]")
 public class PublicAccessNetworkConfigForUpdateClusterConfigInput {
   @SerializedName("Bandwidth")
   private Integer bandwidth = null;
@@ -41,7 +41,9 @@ public class PublicAccessNetworkConfigForUpdateClusterConfigInput {
   @JsonAdapter(IspEnum.Adapter.class)
   public enum IspEnum {
     BGP("BGP"),
-    CHINAMOBILE("ChinaMobile");
+    CHINAMOBILE("ChinaMobile"),
+    CHINATELECOM("ChinaTelecom"),
+    CHINAUNICOM("ChinaUnicom");
 
     private String value;
 
