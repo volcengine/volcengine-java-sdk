@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vke.model.KubernetesConfigForListNodesOutput;
 import com.volcengine.vke.model.StatusForListNodesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -30,7 +31,7 @@ import javax.validation.Valid;
  * ItemForListNodesOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-19T12:20:19.967862+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-25T10:54:23.552084+08:00[Asia/Shanghai]")
 public class ItemForListNodesOutput {
   @SerializedName("AdditionalContainerStorageEnabled")
   private Boolean additionalContainerStorageEnabled = null;
@@ -50,11 +51,17 @@ public class ItemForListNodesOutput {
   @SerializedName("Id")
   private String id = null;
 
+  @SerializedName("InitializeScript")
+  private String initializeScript = null;
+
   @SerializedName("InstanceId")
   private String instanceId = null;
 
   @SerializedName("IsVirtual")
   private Boolean isVirtual = null;
+
+  @SerializedName("KubernetesConfig")
+  private KubernetesConfigForListNodesOutput kubernetesConfig = null;
 
   @SerializedName("Name")
   private String name = null;
@@ -224,6 +231,24 @@ public class ItemForListNodesOutput {
     this.id = id;
   }
 
+  public ItemForListNodesOutput initializeScript(String initializeScript) {
+    this.initializeScript = initializeScript;
+    return this;
+  }
+
+   /**
+   * Get initializeScript
+   * @return initializeScript
+  **/
+  @Schema(description = "")
+  public String getInitializeScript() {
+    return initializeScript;
+  }
+
+  public void setInitializeScript(String initializeScript) {
+    this.initializeScript = initializeScript;
+  }
+
   public ItemForListNodesOutput instanceId(String instanceId) {
     this.instanceId = instanceId;
     return this;
@@ -258,6 +283,25 @@ public class ItemForListNodesOutput {
 
   public void setIsVirtual(Boolean isVirtual) {
     this.isVirtual = isVirtual;
+  }
+
+  public ItemForListNodesOutput kubernetesConfig(KubernetesConfigForListNodesOutput kubernetesConfig) {
+    this.kubernetesConfig = kubernetesConfig;
+    return this;
+  }
+
+   /**
+   * Get kubernetesConfig
+   * @return kubernetesConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public KubernetesConfigForListNodesOutput getKubernetesConfig() {
+    return kubernetesConfig;
+  }
+
+  public void setKubernetesConfig(KubernetesConfigForListNodesOutput kubernetesConfig) {
+    this.kubernetesConfig = kubernetesConfig;
   }
 
   public ItemForListNodesOutput name(String name) {
@@ -393,8 +437,10 @@ public class ItemForListNodesOutput {
         Objects.equals(this.createClientToken, itemForListNodesOutput.createClientToken) &&
         Objects.equals(this.createTime, itemForListNodesOutput.createTime) &&
         Objects.equals(this.id, itemForListNodesOutput.id) &&
+        Objects.equals(this.initializeScript, itemForListNodesOutput.initializeScript) &&
         Objects.equals(this.instanceId, itemForListNodesOutput.instanceId) &&
         Objects.equals(this.isVirtual, itemForListNodesOutput.isVirtual) &&
+        Objects.equals(this.kubernetesConfig, itemForListNodesOutput.kubernetesConfig) &&
         Objects.equals(this.name, itemForListNodesOutput.name) &&
         Objects.equals(this.nodePoolId, itemForListNodesOutput.nodePoolId) &&
         Objects.equals(this.roles, itemForListNodesOutput.roles) &&
@@ -405,7 +451,7 @@ public class ItemForListNodesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalContainerStorageEnabled, clusterId, containerStoragePath, createClientToken, createTime, id, instanceId, isVirtual, name, nodePoolId, roles, status, updateTime, zoneId);
+    return Objects.hash(additionalContainerStorageEnabled, clusterId, containerStoragePath, createClientToken, createTime, id, initializeScript, instanceId, isVirtual, kubernetesConfig, name, nodePoolId, roles, status, updateTime, zoneId);
   }
 
 
@@ -420,8 +466,10 @@ public class ItemForListNodesOutput {
     sb.append("    createClientToken: ").append(toIndentedString(createClientToken)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    initializeScript: ").append(toIndentedString(initializeScript)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    isVirtual: ").append(toIndentedString(isVirtual)).append("\n");
+    sb.append("    kubernetesConfig: ").append(toIndentedString(kubernetesConfig)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    nodePoolId: ").append(toIndentedString(nodePoolId)).append("\n");
     sb.append("    roles: ").append(toIndentedString(roles)).append("\n");

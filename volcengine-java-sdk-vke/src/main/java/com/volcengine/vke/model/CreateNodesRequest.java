@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vke.model.KubernetesConfigForCreateNodesInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -29,7 +30,7 @@ import javax.validation.Valid;
  * CreateNodesRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-19T12:20:19.967862+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-25T10:54:23.552084+08:00[Asia/Shanghai]")
 public class CreateNodesRequest {
   @SerializedName("AdditionalContainerStorageEnabled")
   private Boolean additionalContainerStorageEnabled = null;
@@ -43,11 +44,17 @@ public class CreateNodesRequest {
   @SerializedName("ContainerStoragePath")
   private String containerStoragePath = null;
 
+  @SerializedName("InitializeScript")
+  private String initializeScript = null;
+
   @SerializedName("InstanceIds")
   private List<String> instanceIds = null;
 
   @SerializedName("KeepInstanceName")
   private Boolean keepInstanceName = null;
+
+  @SerializedName("KubernetesConfig")
+  private KubernetesConfigForCreateNodesInput kubernetesConfig = null;
 
   public CreateNodesRequest additionalContainerStorageEnabled(Boolean additionalContainerStorageEnabled) {
     this.additionalContainerStorageEnabled = additionalContainerStorageEnabled;
@@ -121,6 +128,24 @@ public class CreateNodesRequest {
     this.containerStoragePath = containerStoragePath;
   }
 
+  public CreateNodesRequest initializeScript(String initializeScript) {
+    this.initializeScript = initializeScript;
+    return this;
+  }
+
+   /**
+   * Get initializeScript
+   * @return initializeScript
+  **/
+  @Schema(description = "")
+  public String getInitializeScript() {
+    return initializeScript;
+  }
+
+  public void setInitializeScript(String initializeScript) {
+    this.initializeScript = initializeScript;
+  }
+
   public CreateNodesRequest instanceIds(List<String> instanceIds) {
     this.instanceIds = instanceIds;
     return this;
@@ -165,6 +190,25 @@ public class CreateNodesRequest {
     this.keepInstanceName = keepInstanceName;
   }
 
+  public CreateNodesRequest kubernetesConfig(KubernetesConfigForCreateNodesInput kubernetesConfig) {
+    this.kubernetesConfig = kubernetesConfig;
+    return this;
+  }
+
+   /**
+   * Get kubernetesConfig
+   * @return kubernetesConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public KubernetesConfigForCreateNodesInput getKubernetesConfig() {
+    return kubernetesConfig;
+  }
+
+  public void setKubernetesConfig(KubernetesConfigForCreateNodesInput kubernetesConfig) {
+    this.kubernetesConfig = kubernetesConfig;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -179,13 +223,15 @@ public class CreateNodesRequest {
         Objects.equals(this.clientToken, createNodesRequest.clientToken) &&
         Objects.equals(this.clusterId, createNodesRequest.clusterId) &&
         Objects.equals(this.containerStoragePath, createNodesRequest.containerStoragePath) &&
+        Objects.equals(this.initializeScript, createNodesRequest.initializeScript) &&
         Objects.equals(this.instanceIds, createNodesRequest.instanceIds) &&
-        Objects.equals(this.keepInstanceName, createNodesRequest.keepInstanceName);
+        Objects.equals(this.keepInstanceName, createNodesRequest.keepInstanceName) &&
+        Objects.equals(this.kubernetesConfig, createNodesRequest.kubernetesConfig);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalContainerStorageEnabled, clientToken, clusterId, containerStoragePath, instanceIds, keepInstanceName);
+    return Objects.hash(additionalContainerStorageEnabled, clientToken, clusterId, containerStoragePath, initializeScript, instanceIds, keepInstanceName, kubernetesConfig);
   }
 
 
@@ -198,8 +244,10 @@ public class CreateNodesRequest {
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    containerStoragePath: ").append(toIndentedString(containerStoragePath)).append("\n");
+    sb.append("    initializeScript: ").append(toIndentedString(initializeScript)).append("\n");
     sb.append("    instanceIds: ").append(toIndentedString(instanceIds)).append("\n");
     sb.append("    keepInstanceName: ").append(toIndentedString(keepInstanceName)).append("\n");
+    sb.append("    kubernetesConfig: ").append(toIndentedString(kubernetesConfig)).append("\n");
     sb.append("}");
     return sb.toString();
   }
