@@ -29,7 +29,7 @@ import javax.validation.Valid;
  * CreateDefaultNodePoolRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-22T17:04:04.290377+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-25T10:54:23.552084+08:00[Asia/Shanghai]")
 public class CreateDefaultNodePoolRequest {
   @SerializedName("ClientToken")
   private String clientToken = null;
