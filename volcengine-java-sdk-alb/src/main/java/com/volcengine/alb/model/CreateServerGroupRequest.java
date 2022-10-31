@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.alb.model.HealthCheckForCreateServerGroupInput;
+import com.volcengine.alb.model.StickySessionConfigForCreateServerGroupInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -28,7 +29,7 @@ import javax.validation.Valid;
  * CreateServerGroupRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-23T17:22:04.615963+08:00[Asia/Shanghai]")
+
 public class CreateServerGroupRequest {
   @SerializedName("Description")
   private String description = null;
@@ -41,6 +42,9 @@ public class CreateServerGroupRequest {
 
   @SerializedName("ServerGroupName")
   private String serverGroupName = null;
+
+  @SerializedName("StickySessionConfig")
+  private StickySessionConfigForCreateServerGroupInput stickySessionConfig = null;
 
   @SerializedName("VpcId")
   private String vpcId = null;
@@ -118,6 +122,25 @@ public class CreateServerGroupRequest {
     this.serverGroupName = serverGroupName;
   }
 
+  public CreateServerGroupRequest stickySessionConfig(StickySessionConfigForCreateServerGroupInput stickySessionConfig) {
+    this.stickySessionConfig = stickySessionConfig;
+    return this;
+  }
+
+   /**
+   * Get stickySessionConfig
+   * @return stickySessionConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public StickySessionConfigForCreateServerGroupInput getStickySessionConfig() {
+    return stickySessionConfig;
+  }
+
+  public void setStickySessionConfig(StickySessionConfigForCreateServerGroupInput stickySessionConfig) {
+    this.stickySessionConfig = stickySessionConfig;
+  }
+
   public CreateServerGroupRequest vpcId(String vpcId) {
     this.vpcId = vpcId;
     return this;
@@ -151,12 +174,13 @@ public class CreateServerGroupRequest {
         Objects.equals(this.healthCheck, createServerGroupRequest.healthCheck) &&
         Objects.equals(this.scheduler, createServerGroupRequest.scheduler) &&
         Objects.equals(this.serverGroupName, createServerGroupRequest.serverGroupName) &&
+        Objects.equals(this.stickySessionConfig, createServerGroupRequest.stickySessionConfig) &&
         Objects.equals(this.vpcId, createServerGroupRequest.vpcId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, healthCheck, scheduler, serverGroupName, vpcId);
+    return Objects.hash(description, healthCheck, scheduler, serverGroupName, stickySessionConfig, vpcId);
   }
 
 
@@ -169,6 +193,7 @@ public class CreateServerGroupRequest {
     sb.append("    healthCheck: ").append(toIndentedString(healthCheck)).append("\n");
     sb.append("    scheduler: ").append(toIndentedString(scheduler)).append("\n");
     sb.append("    serverGroupName: ").append(toIndentedString(serverGroupName)).append("\n");
+    sb.append("    stickySessionConfig: ").append(toIndentedString(stickySessionConfig)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("}");
     return sb.toString();

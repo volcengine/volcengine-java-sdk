@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.alb.model.HealthCheckForDescribeServerGroupsOutput;
+import com.volcengine.alb.model.StickySessionConfigForDescribeServerGroupsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -30,7 +31,7 @@ import javax.validation.Valid;
  * ServerGroupForDescribeServerGroupsOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-23T17:22:04.615963+08:00[Asia/Shanghai]")
+
 public class ServerGroupForDescribeServerGroupsOutput {
   @SerializedName("CreateTime")
   private String createTime = null;
@@ -58,6 +59,9 @@ public class ServerGroupForDescribeServerGroupsOutput {
 
   @SerializedName("Status")
   private String status = null;
+
+  @SerializedName("StickySessionConfig")
+  private StickySessionConfigForDescribeServerGroupsOutput stickySessionConfig = null;
 
   @SerializedName("UpdateTime")
   private String updateTime = null;
@@ -236,6 +240,25 @@ public class ServerGroupForDescribeServerGroupsOutput {
     this.status = status;
   }
 
+  public ServerGroupForDescribeServerGroupsOutput stickySessionConfig(StickySessionConfigForDescribeServerGroupsOutput stickySessionConfig) {
+    this.stickySessionConfig = stickySessionConfig;
+    return this;
+  }
+
+   /**
+   * Get stickySessionConfig
+   * @return stickySessionConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public StickySessionConfigForDescribeServerGroupsOutput getStickySessionConfig() {
+    return stickySessionConfig;
+  }
+
+  public void setStickySessionConfig(StickySessionConfigForDescribeServerGroupsOutput stickySessionConfig) {
+    this.stickySessionConfig = stickySessionConfig;
+  }
+
   public ServerGroupForDescribeServerGroupsOutput updateTime(String updateTime) {
     this.updateTime = updateTime;
     return this;
@@ -291,13 +314,14 @@ public class ServerGroupForDescribeServerGroupsOutput {
         Objects.equals(this.serverGroupId, serverGroupForDescribeServerGroupsOutput.serverGroupId) &&
         Objects.equals(this.serverGroupName, serverGroupForDescribeServerGroupsOutput.serverGroupName) &&
         Objects.equals(this.status, serverGroupForDescribeServerGroupsOutput.status) &&
+        Objects.equals(this.stickySessionConfig, serverGroupForDescribeServerGroupsOutput.stickySessionConfig) &&
         Objects.equals(this.updateTime, serverGroupForDescribeServerGroupsOutput.updateTime) &&
         Objects.equals(this.vpcId, serverGroupForDescribeServerGroupsOutput.vpcId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createTime, description, healthCheck, listeners, scheduler, serverCount, serverGroupId, serverGroupName, status, updateTime, vpcId);
+    return Objects.hash(createTime, description, healthCheck, listeners, scheduler, serverCount, serverGroupId, serverGroupName, status, stickySessionConfig, updateTime, vpcId);
   }
 
 
@@ -315,6 +339,7 @@ public class ServerGroupForDescribeServerGroupsOutput {
     sb.append("    serverGroupId: ").append(toIndentedString(serverGroupId)).append("\n");
     sb.append("    serverGroupName: ").append(toIndentedString(serverGroupName)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    stickySessionConfig: ").append(toIndentedString(stickySessionConfig)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("}");
