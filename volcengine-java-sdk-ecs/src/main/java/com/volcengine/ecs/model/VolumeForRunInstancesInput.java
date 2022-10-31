@@ -27,10 +27,10 @@ import javax.validation.Valid;
  * VolumeForRunInstancesInput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-22T20:23:28.947116+08:00[Asia/Shanghai]")
+
 public class VolumeForRunInstancesInput {
   @SerializedName("DeleteWithInstance")
-  private String deleteWithInstance = null;
+  private Boolean deleteWithInstance = null;
 
   @SerializedName("Size")
   private Integer size = null;
@@ -38,7 +38,7 @@ public class VolumeForRunInstancesInput {
   @SerializedName("VolumeType")
   private String volumeType = null;
 
-  public VolumeForRunInstancesInput deleteWithInstance(String deleteWithInstance) {
+  public VolumeForRunInstancesInput deleteWithInstance(Boolean deleteWithInstance) {
     this.deleteWithInstance = deleteWithInstance;
     return this;
   }
@@ -48,11 +48,11 @@ public class VolumeForRunInstancesInput {
    * @return deleteWithInstance
   **/
   @Schema(description = "")
-  public String getDeleteWithInstance() {
+  public Boolean isDeleteWithInstance() {
     return deleteWithInstance;
   }
 
-  public void setDeleteWithInstance(String deleteWithInstance) {
+  public void setDeleteWithInstance(Boolean deleteWithInstance) {
     this.deleteWithInstance = deleteWithInstance;
   }
 

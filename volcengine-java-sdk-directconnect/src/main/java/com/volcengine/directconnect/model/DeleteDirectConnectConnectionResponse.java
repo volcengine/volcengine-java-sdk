@@ -27,10 +27,31 @@ import javax.validation.Valid;
  * DeleteDirectConnectConnectionResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-22T20:23:22.987183+08:00[Asia/Shanghai]")
+
 public class DeleteDirectConnectConnectionResponse {
+  @SerializedName("PreOrderNumber")
+  private String preOrderNumber = null;
+
   @SerializedName("RequestId")
   private String requestId = null;
+
+  public DeleteDirectConnectConnectionResponse preOrderNumber(String preOrderNumber) {
+    this.preOrderNumber = preOrderNumber;
+    return this;
+  }
+
+   /**
+   * Get preOrderNumber
+   * @return preOrderNumber
+  **/
+  @Schema(description = "")
+  public String getPreOrderNumber() {
+    return preOrderNumber;
+  }
+
+  public void setPreOrderNumber(String preOrderNumber) {
+    this.preOrderNumber = preOrderNumber;
+  }
 
   public DeleteDirectConnectConnectionResponse requestId(String requestId) {
     this.requestId = requestId;
@@ -60,12 +81,13 @@ public class DeleteDirectConnectConnectionResponse {
       return false;
     }
     DeleteDirectConnectConnectionResponse deleteDirectConnectConnectionResponse = (DeleteDirectConnectConnectionResponse) o;
-    return Objects.equals(this.requestId, deleteDirectConnectConnectionResponse.requestId);
+    return Objects.equals(this.preOrderNumber, deleteDirectConnectConnectionResponse.preOrderNumber) &&
+        Objects.equals(this.requestId, deleteDirectConnectConnectionResponse.requestId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestId);
+    return Objects.hash(preOrderNumber, requestId);
   }
 
 
@@ -74,6 +96,7 @@ public class DeleteDirectConnectConnectionResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteDirectConnectConnectionResponse {\n");
     
+    sb.append("    preOrderNumber: ").append(toIndentedString(preOrderNumber)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("}");
     return sb.toString();

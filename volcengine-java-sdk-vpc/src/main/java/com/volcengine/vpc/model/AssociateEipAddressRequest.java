@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * AssociateEipAddressRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-12T11:38:08.781574+08:00[Asia/Shanghai]")
+
 public class AssociateEipAddressRequest {
   @SerializedName("AllocationId")
   private String allocationId = null;
@@ -43,7 +43,6 @@ public class AssociateEipAddressRequest {
     NAT("Nat"),
     NETWORKINTERFACE("NetworkInterface"),
     CLBINSTANCE("ClbInstance"),
-    ALBINSTANCE("AlbInstance"),
     ECSINSTANCE("EcsInstance"),
     HAVIP("HaVip");
 

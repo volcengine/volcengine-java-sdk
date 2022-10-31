@@ -29,7 +29,7 @@ import javax.validation.Valid;
  * VolumeForDescribeInstanceTypesOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-22T20:23:28.947116+08:00[Asia/Shanghai]")
+
 public class VolumeForDescribeInstanceTypesOutput {
   @SerializedName("MaximumCount")
   private Integer maximumCount = null;

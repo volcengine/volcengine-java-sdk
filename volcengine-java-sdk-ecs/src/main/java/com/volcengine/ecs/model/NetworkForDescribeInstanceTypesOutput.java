@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * NetworkForDescribeInstanceTypesOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-22T20:23:28.947116+08:00[Asia/Shanghai]")
+
 public class NetworkForDescribeInstanceTypesOutput {
   @SerializedName("MaximumNetworkInterfaces")
   private Integer maximumNetworkInterfaces = null;
