@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * HealthCheckForCreateListenerInput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-22T20:23:16.891404+08:00[Asia/Shanghai]")
+
 public class HealthCheckForCreateListenerInput {
   @SerializedName("Domain")
   private String domain = null;
@@ -52,6 +52,12 @@ public class HealthCheckForCreateListenerInput {
 
   @SerializedName("URI")
   private String URI = null;
+
+  @SerializedName("UdpExpect")
+  private String udpExpect = null;
+
+  @SerializedName("UdpRequest")
+  private String udpRequest = null;
 
   @SerializedName("UnhealthyThreshold")
   private Integer unhealthyThreshold = null;
@@ -200,6 +206,42 @@ public class HealthCheckForCreateListenerInput {
     this.URI = URI;
   }
 
+  public HealthCheckForCreateListenerInput udpExpect(String udpExpect) {
+    this.udpExpect = udpExpect;
+    return this;
+  }
+
+   /**
+   * Get udpExpect
+   * @return udpExpect
+  **/
+  @Schema(description = "")
+  public String getUdpExpect() {
+    return udpExpect;
+  }
+
+  public void setUdpExpect(String udpExpect) {
+    this.udpExpect = udpExpect;
+  }
+
+  public HealthCheckForCreateListenerInput udpRequest(String udpRequest) {
+    this.udpRequest = udpRequest;
+    return this;
+  }
+
+   /**
+   * Get udpRequest
+   * @return udpRequest
+  **/
+  @Schema(description = "")
+  public String getUdpRequest() {
+    return udpRequest;
+  }
+
+  public void setUdpRequest(String udpRequest) {
+    this.udpRequest = udpRequest;
+  }
+
   public HealthCheckForCreateListenerInput unhealthyThreshold(Integer unhealthyThreshold) {
     this.unhealthyThreshold = unhealthyThreshold;
     return this;
@@ -236,12 +278,14 @@ public class HealthCheckForCreateListenerInput {
         Objects.equals(this.method, healthCheckForCreateListenerInput.method) &&
         Objects.equals(this.timeout, healthCheckForCreateListenerInput.timeout) &&
         Objects.equals(this.URI, healthCheckForCreateListenerInput.URI) &&
+        Objects.equals(this.udpExpect, healthCheckForCreateListenerInput.udpExpect) &&
+        Objects.equals(this.udpRequest, healthCheckForCreateListenerInput.udpRequest) &&
         Objects.equals(this.unhealthyThreshold, healthCheckForCreateListenerInput.unhealthyThreshold);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(domain, enabled, healthyThreshold, httpCode, interval, method, timeout, URI, unhealthyThreshold);
+    return Objects.hash(domain, enabled, healthyThreshold, httpCode, interval, method, timeout, URI, udpExpect, udpRequest, unhealthyThreshold);
   }
 
 
@@ -258,6 +302,8 @@ public class HealthCheckForCreateListenerInput {
     sb.append("    method: ").append(toIndentedString(method)).append("\n");
     sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");
     sb.append("    URI: ").append(toIndentedString(URI)).append("\n");
+    sb.append("    udpExpect: ").append(toIndentedString(udpExpect)).append("\n");
+    sb.append("    udpRequest: ").append(toIndentedString(udpRequest)).append("\n");
     sb.append("    unhealthyThreshold: ").append(toIndentedString(unhealthyThreshold)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * DeleteDirectConnectVirtualInterfaceRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-22T20:23:22.987183+08:00[Asia/Shanghai]")
+
 public class DeleteDirectConnectVirtualInterfaceRequest {
   @SerializedName("VirtualInterfaceId")
   private String virtualInterfaceId = null;

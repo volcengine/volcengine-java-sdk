@@ -34,7 +34,7 @@ import javax.validation.Valid;
  * InstanceForDescribeInstancesOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-22T20:23:28.947116+08:00[Asia/Shanghai]")
+
 public class InstanceForDescribeInstancesOutput {
   @SerializedName("CpuOptions")
   private CpuOptionsForDescribeInstancesOutput cpuOptions = null;
@@ -146,10 +146,9 @@ public class InstanceForDescribeInstancesOutput {
 
    /**
    * Get cpus
-   * minimum: 1
    * @return cpus
   **/
- @Min(1)  @Schema(description = "")
+  @Schema(description = "")
   public Integer getCpus() {
     return cpus;
   }
@@ -185,7 +184,7 @@ public class InstanceForDescribeInstancesOutput {
    * Get description
    * @return description
   **/
- @Size(max=256)  @Schema(description = "")
+  @Schema(description = "")
   public String getDescription() {
     return description;
   }
@@ -240,7 +239,7 @@ public class InstanceForDescribeInstancesOutput {
    * Get hostName
    * @return hostName
   **/
- @Size(min=1)  @Schema(description = "")
+  @Schema(description = "")
   public String getHostName() {
     return hostName;
   }
@@ -312,7 +311,7 @@ public class InstanceForDescribeInstancesOutput {
    * Get instanceName
    * @return instanceName
   **/
- @Size(min=1)  @Schema(description = "")
+  @Schema(description = "")
   public String getInstanceName() {
     return instanceName;
   }
@@ -330,7 +329,7 @@ public class InstanceForDescribeInstancesOutput {
    * Get instanceTypeId
    * @return instanceTypeId
   **/
- @Size(min=1)  @Schema(description = "")
+  @Schema(description = "")
   public String getInstanceTypeId() {
     return instanceTypeId;
   }
@@ -409,10 +408,9 @@ public class InstanceForDescribeInstancesOutput {
 
    /**
    * Get memorySize
-   * minimum: 1024
    * @return memorySize
   **/
- @Min(1024)  @Schema(description = "")
+  @Schema(description = "")
   public Integer getMemorySize() {
     return memorySize;
   }
@@ -654,7 +652,7 @@ public class InstanceForDescribeInstancesOutput {
    * Get zoneId
    * @return zoneId
   **/
- @Size(min=1)  @Schema(description = "")
+  @Schema(description = "")
   public String getZoneId() {
     return zoneId;
   }

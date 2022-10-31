@@ -30,8 +30,14 @@ import javax.validation.Valid;
  * CreateDirectConnectVirtualInterfaceRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-22T20:23:22.987183+08:00[Asia/Shanghai]")
+
 public class CreateDirectConnectVirtualInterfaceRequest {
+  @SerializedName("BfdDetectInterval")
+  private Integer bfdDetectInterval = null;
+
+  @SerializedName("BfdDetectMultiplier")
+  private Integer bfdDetectMultiplier = null;
+
   @SerializedName("Description")
   private String description = null;
 
@@ -40,6 +46,9 @@ public class CreateDirectConnectVirtualInterfaceRequest {
 
   @SerializedName("DirectConnectGatewayId")
   private String directConnectGatewayId = null;
+
+  @SerializedName("EnableBfd")
+  private Boolean enableBfd = null;
 
   @SerializedName("LocalIp")
   private String localIp = null;
@@ -106,6 +115,46 @@ public class CreateDirectConnectVirtualInterfaceRequest {
   @SerializedName("VlanId")
   private Integer vlanId = null;
 
+  public CreateDirectConnectVirtualInterfaceRequest bfdDetectInterval(Integer bfdDetectInterval) {
+    this.bfdDetectInterval = bfdDetectInterval;
+    return this;
+  }
+
+   /**
+   * Get bfdDetectInterval
+   * minimum: 200
+   * maximum: 1000
+   * @return bfdDetectInterval
+  **/
+ @Min(200) @Max(1000)  @Schema(description = "")
+  public Integer getBfdDetectInterval() {
+    return bfdDetectInterval;
+  }
+
+  public void setBfdDetectInterval(Integer bfdDetectInterval) {
+    this.bfdDetectInterval = bfdDetectInterval;
+  }
+
+  public CreateDirectConnectVirtualInterfaceRequest bfdDetectMultiplier(Integer bfdDetectMultiplier) {
+    this.bfdDetectMultiplier = bfdDetectMultiplier;
+    return this;
+  }
+
+   /**
+   * Get bfdDetectMultiplier
+   * minimum: 3
+   * maximum: 10
+   * @return bfdDetectMultiplier
+  **/
+ @Min(3) @Max(10)  @Schema(description = "")
+  public Integer getBfdDetectMultiplier() {
+    return bfdDetectMultiplier;
+  }
+
+  public void setBfdDetectMultiplier(Integer bfdDetectMultiplier) {
+    this.bfdDetectMultiplier = bfdDetectMultiplier;
+  }
+
   public CreateDirectConnectVirtualInterfaceRequest description(String description) {
     this.description = description;
     return this;
@@ -160,6 +209,24 @@ public class CreateDirectConnectVirtualInterfaceRequest {
 
   public void setDirectConnectGatewayId(String directConnectGatewayId) {
     this.directConnectGatewayId = directConnectGatewayId;
+  }
+
+  public CreateDirectConnectVirtualInterfaceRequest enableBfd(Boolean enableBfd) {
+    this.enableBfd = enableBfd;
+    return this;
+  }
+
+   /**
+   * Get enableBfd
+   * @return enableBfd
+  **/
+  @Schema(description = "")
+  public Boolean isEnableBfd() {
+    return enableBfd;
+  }
+
+  public void setEnableBfd(Boolean enableBfd) {
+    this.enableBfd = enableBfd;
   }
 
   public CreateDirectConnectVirtualInterfaceRequest localIp(String localIp) {
@@ -328,9 +395,12 @@ public class CreateDirectConnectVirtualInterfaceRequest {
       return false;
     }
     CreateDirectConnectVirtualInterfaceRequest createDirectConnectVirtualInterfaceRequest = (CreateDirectConnectVirtualInterfaceRequest) o;
-    return Objects.equals(this.description, createDirectConnectVirtualInterfaceRequest.description) &&
+    return Objects.equals(this.bfdDetectInterval, createDirectConnectVirtualInterfaceRequest.bfdDetectInterval) &&
+        Objects.equals(this.bfdDetectMultiplier, createDirectConnectVirtualInterfaceRequest.bfdDetectMultiplier) &&
+        Objects.equals(this.description, createDirectConnectVirtualInterfaceRequest.description) &&
         Objects.equals(this.directConnectConnectionId, createDirectConnectVirtualInterfaceRequest.directConnectConnectionId) &&
         Objects.equals(this.directConnectGatewayId, createDirectConnectVirtualInterfaceRequest.directConnectGatewayId) &&
+        Objects.equals(this.enableBfd, createDirectConnectVirtualInterfaceRequest.enableBfd) &&
         Objects.equals(this.localIp, createDirectConnectVirtualInterfaceRequest.localIp) &&
         Objects.equals(this.localIpv6Ip, createDirectConnectVirtualInterfaceRequest.localIpv6Ip) &&
         Objects.equals(this.peerIp, createDirectConnectVirtualInterfaceRequest.peerIp) &&
@@ -343,7 +413,7 @@ public class CreateDirectConnectVirtualInterfaceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, directConnectConnectionId, directConnectGatewayId, localIp, localIpv6Ip, peerIp, peerIpv6Ip, routeType, tags, virtualInterfaceName, vlanId);
+    return Objects.hash(bfdDetectInterval, bfdDetectMultiplier, description, directConnectConnectionId, directConnectGatewayId, enableBfd, localIp, localIpv6Ip, peerIp, peerIpv6Ip, routeType, tags, virtualInterfaceName, vlanId);
   }
 
 
@@ -352,9 +422,12 @@ public class CreateDirectConnectVirtualInterfaceRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateDirectConnectVirtualInterfaceRequest {\n");
     
+    sb.append("    bfdDetectInterval: ").append(toIndentedString(bfdDetectInterval)).append("\n");
+    sb.append("    bfdDetectMultiplier: ").append(toIndentedString(bfdDetectMultiplier)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    directConnectConnectionId: ").append(toIndentedString(directConnectConnectionId)).append("\n");
     sb.append("    directConnectGatewayId: ").append(toIndentedString(directConnectGatewayId)).append("\n");
+    sb.append("    enableBfd: ").append(toIndentedString(enableBfd)).append("\n");
     sb.append("    localIp: ").append(toIndentedString(localIp)).append("\n");
     sb.append("    localIpv6Ip: ").append(toIndentedString(localIpv6Ip)).append("\n");
     sb.append("    peerIp: ").append(toIndentedString(peerIp)).append("\n");
