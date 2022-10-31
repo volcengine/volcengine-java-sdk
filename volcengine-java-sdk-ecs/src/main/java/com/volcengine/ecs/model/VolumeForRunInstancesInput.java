@@ -30,7 +30,7 @@ import javax.validation.Valid;
 
 public class VolumeForRunInstancesInput {
   @SerializedName("DeleteWithInstance")
-  private Boolean deleteWithInstance = null;
+  private String deleteWithInstance = null;
 
   @SerializedName("Size")
   private Integer size = null;
@@ -38,7 +38,7 @@ public class VolumeForRunInstancesInput {
   @SerializedName("VolumeType")
   private String volumeType = null;
 
-  public VolumeForRunInstancesInput deleteWithInstance(Boolean deleteWithInstance) {
+  public VolumeForRunInstancesInput deleteWithInstance(String deleteWithInstance) {
     this.deleteWithInstance = deleteWithInstance;
     return this;
   }
@@ -48,11 +48,11 @@ public class VolumeForRunInstancesInput {
    * @return deleteWithInstance
   **/
   @Schema(description = "")
-  public Boolean isDeleteWithInstance() {
+  public String getDeleteWithInstance() {
     return deleteWithInstance;
   }
 
-  public void setDeleteWithInstance(Boolean deleteWithInstance) {
+  public void setDeleteWithInstance(String deleteWithInstance) {
     this.deleteWithInstance = deleteWithInstance;
   }
 
