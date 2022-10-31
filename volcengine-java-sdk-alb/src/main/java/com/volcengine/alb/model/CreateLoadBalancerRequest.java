@@ -31,8 +31,11 @@ import javax.validation.Valid;
  * CreateLoadBalancerRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-23T17:22:04.615963+08:00[Asia/Shanghai]")
+
 public class CreateLoadBalancerRequest {
+  @SerializedName("BandwidthPackageId")
+  private String bandwidthPackageId = null;
+
   @SerializedName("Description")
   private String description = null;
 
@@ -59,6 +62,24 @@ public class CreateLoadBalancerRequest {
 
   @SerializedName("ZoneMappings")
   private List<ZoneMappingForCreateLoadBalancerInput> zoneMappings = null;
+
+  public CreateLoadBalancerRequest bandwidthPackageId(String bandwidthPackageId) {
+    this.bandwidthPackageId = bandwidthPackageId;
+    return this;
+  }
+
+   /**
+   * Get bandwidthPackageId
+   * @return bandwidthPackageId
+  **/
+  @Schema(description = "")
+  public String getBandwidthPackageId() {
+    return bandwidthPackageId;
+  }
+
+  public void setBandwidthPackageId(String bandwidthPackageId) {
+    this.bandwidthPackageId = bandwidthPackageId;
+  }
 
   public CreateLoadBalancerRequest description(String description) {
     this.description = description;
@@ -161,8 +182,7 @@ public class CreateLoadBalancerRequest {
    * Get subnetId
    * @return subnetId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getSubnetId() {
     return subnetId;
   }
@@ -245,7 +265,8 @@ public class CreateLoadBalancerRequest {
       return false;
     }
     CreateLoadBalancerRequest createLoadBalancerRequest = (CreateLoadBalancerRequest) o;
-    return Objects.equals(this.description, createLoadBalancerRequest.description) &&
+    return Objects.equals(this.bandwidthPackageId, createLoadBalancerRequest.bandwidthPackageId) &&
+        Objects.equals(this.description, createLoadBalancerRequest.description) &&
         Objects.equals(this.eipBillingConfig, createLoadBalancerRequest.eipBillingConfig) &&
         Objects.equals(this.loadBalancerBillingType, createLoadBalancerRequest.loadBalancerBillingType) &&
         Objects.equals(this.loadBalancerName, createLoadBalancerRequest.loadBalancerName) &&
@@ -258,7 +279,7 @@ public class CreateLoadBalancerRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, eipBillingConfig, loadBalancerBillingType, loadBalancerName, regionId, subnetId, type, vpcId, zoneMappings);
+    return Objects.hash(bandwidthPackageId, description, eipBillingConfig, loadBalancerBillingType, loadBalancerName, regionId, subnetId, type, vpcId, zoneMappings);
   }
 
 
@@ -267,6 +288,7 @@ public class CreateLoadBalancerRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateLoadBalancerRequest {\n");
     
+    sb.append("    bandwidthPackageId: ").append(toIndentedString(bandwidthPackageId)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    eipBillingConfig: ").append(toIndentedString(eipBillingConfig)).append("\n");
     sb.append("    loadBalancerBillingType: ").append(toIndentedString(loadBalancerBillingType)).append("\n");
