@@ -20,21 +20,30 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vke.model.SecurityForCreateDefaultNodePoolInput;
+import com.volcengine.vke.model.TagForCreateDefaultNodePoolInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
  * NodeConfigForCreateDefaultNodePoolInput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-25T10:54:23.552084+08:00[Asia/Shanghai]")
+
 public class NodeConfigForCreateDefaultNodePoolInput {
   @SerializedName("InitializeScript")
   private String initializeScript = null;
 
+  @SerializedName("NamePrefix")
+  private String namePrefix = null;
+
   @SerializedName("Security")
   private SecurityForCreateDefaultNodePoolInput security = null;
+
+  @SerializedName("Tags")
+  private List<TagForCreateDefaultNodePoolInput> tags = null;
 
   public NodeConfigForCreateDefaultNodePoolInput initializeScript(String initializeScript) {
     this.initializeScript = initializeScript;
@@ -52,6 +61,24 @@ public class NodeConfigForCreateDefaultNodePoolInput {
 
   public void setInitializeScript(String initializeScript) {
     this.initializeScript = initializeScript;
+  }
+
+  public NodeConfigForCreateDefaultNodePoolInput namePrefix(String namePrefix) {
+    this.namePrefix = namePrefix;
+    return this;
+  }
+
+   /**
+   * Get namePrefix
+   * @return namePrefix
+  **/
+  @Schema(description = "")
+  public String getNamePrefix() {
+    return namePrefix;
+  }
+
+  public void setNamePrefix(String namePrefix) {
+    this.namePrefix = namePrefix;
   }
 
   public NodeConfigForCreateDefaultNodePoolInput security(SecurityForCreateDefaultNodePoolInput security) {
@@ -73,6 +100,33 @@ public class NodeConfigForCreateDefaultNodePoolInput {
     this.security = security;
   }
 
+  public NodeConfigForCreateDefaultNodePoolInput tags(List<TagForCreateDefaultNodePoolInput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public NodeConfigForCreateDefaultNodePoolInput addTagsItem(TagForCreateDefaultNodePoolInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForCreateDefaultNodePoolInput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForCreateDefaultNodePoolInput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForCreateDefaultNodePoolInput> tags) {
+    this.tags = tags;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -84,12 +138,14 @@ public class NodeConfigForCreateDefaultNodePoolInput {
     }
     NodeConfigForCreateDefaultNodePoolInput nodeConfigForCreateDefaultNodePoolInput = (NodeConfigForCreateDefaultNodePoolInput) o;
     return Objects.equals(this.initializeScript, nodeConfigForCreateDefaultNodePoolInput.initializeScript) &&
-        Objects.equals(this.security, nodeConfigForCreateDefaultNodePoolInput.security);
+        Objects.equals(this.namePrefix, nodeConfigForCreateDefaultNodePoolInput.namePrefix) &&
+        Objects.equals(this.security, nodeConfigForCreateDefaultNodePoolInput.security) &&
+        Objects.equals(this.tags, nodeConfigForCreateDefaultNodePoolInput.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(initializeScript, security);
+    return Objects.hash(initializeScript, namePrefix, security, tags);
   }
 
 
@@ -99,7 +155,9 @@ public class NodeConfigForCreateDefaultNodePoolInput {
     sb.append("class NodeConfigForCreateDefaultNodePoolInput {\n");
     
     sb.append("    initializeScript: ").append(toIndentedString(initializeScript)).append("\n");
+    sb.append("    namePrefix: ").append(toIndentedString(namePrefix)).append("\n");
     sb.append("    security: ").append(toIndentedString(security)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }
