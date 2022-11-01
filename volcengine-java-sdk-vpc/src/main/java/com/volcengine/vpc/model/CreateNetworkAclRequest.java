@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * CreateNetworkAclRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-12T11:38:08.781574+08:00[Asia/Shanghai]")
+
 public class CreateNetworkAclRequest {
   @SerializedName("ClientToken")
   private String clientToken = null;
@@ -37,6 +37,9 @@ public class CreateNetworkAclRequest {
 
   @SerializedName("NetworkAclName")
   private String networkAclName = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
 
   @SerializedName("VpcId")
   private String vpcId = null;
@@ -95,6 +98,24 @@ public class CreateNetworkAclRequest {
     this.networkAclName = networkAclName;
   }
 
+  public CreateNetworkAclRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public CreateNetworkAclRequest vpcId(String vpcId) {
     this.vpcId = vpcId;
     return this;
@@ -127,12 +148,13 @@ public class CreateNetworkAclRequest {
     return Objects.equals(this.clientToken, createNetworkAclRequest.clientToken) &&
         Objects.equals(this.description, createNetworkAclRequest.description) &&
         Objects.equals(this.networkAclName, createNetworkAclRequest.networkAclName) &&
+        Objects.equals(this.projectName, createNetworkAclRequest.projectName) &&
         Objects.equals(this.vpcId, createNetworkAclRequest.vpcId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, description, networkAclName, vpcId);
+    return Objects.hash(clientToken, description, networkAclName, projectName, vpcId);
   }
 
 
@@ -144,6 +166,7 @@ public class CreateNetworkAclRequest {
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    networkAclName: ").append(toIndentedString(networkAclName)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("}");
     return sb.toString();

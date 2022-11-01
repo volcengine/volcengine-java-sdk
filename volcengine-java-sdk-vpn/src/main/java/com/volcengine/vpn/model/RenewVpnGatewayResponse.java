@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * RenewVpnGatewayResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-22T20:23:47.673068+08:00[Asia/Shanghai]")
+
 public class RenewVpnGatewayResponse {
   @SerializedName("RequestId")
   private String requestId = null;
