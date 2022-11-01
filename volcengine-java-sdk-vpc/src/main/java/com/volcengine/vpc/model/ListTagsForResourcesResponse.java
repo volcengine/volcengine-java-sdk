@@ -30,7 +30,7 @@ import javax.validation.Valid;
  * ListTagsForResourcesResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-12T11:38:08.781574+08:00[Asia/Shanghai]")
+
 public class ListTagsForResourcesResponse {
   @SerializedName("NextToken")
   private String nextToken = null;

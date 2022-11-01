@@ -31,7 +31,7 @@ import javax.validation.Valid;
  * DescribeDirectConnectGatewayAttributesResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-22T20:23:22.987183+08:00[Asia/Shanghai]")
+
 public class DescribeDirectConnectGatewayAttributesResponse {
   @SerializedName("AccountId")
   private String accountId = null;
