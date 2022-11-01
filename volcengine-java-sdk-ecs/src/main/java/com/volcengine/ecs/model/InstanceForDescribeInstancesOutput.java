@@ -57,6 +57,9 @@ public class InstanceForDescribeInstancesOutput {
   @SerializedName("HostName")
   private String hostName = null;
 
+  @SerializedName("Hostname")
+  private String hostname = null;
+
   @SerializedName("ImageId")
   private String imageId = null;
 
@@ -246,6 +249,24 @@ public class InstanceForDescribeInstancesOutput {
 
   public void setHostName(String hostName) {
     this.hostName = hostName;
+  }
+
+  public InstanceForDescribeInstancesOutput hostname(String hostname) {
+    this.hostname = hostname;
+    return this;
+  }
+
+   /**
+   * Get hostname
+   * @return hostname
+  **/
+  @Schema(description = "")
+  public String getHostname() {
+    return hostname;
+  }
+
+  public void setHostname(String hostname) {
+    this.hostname = hostname;
   }
 
   public InstanceForDescribeInstancesOutput imageId(String imageId) {
@@ -678,6 +699,7 @@ public class InstanceForDescribeInstancesOutput {
         Objects.equals(this.eipAddress, instanceForDescribeInstancesOutput.eipAddress) &&
         Objects.equals(this.expiredAt, instanceForDescribeInstancesOutput.expiredAt) &&
         Objects.equals(this.hostName, instanceForDescribeInstancesOutput.hostName) &&
+        Objects.equals(this.hostname, instanceForDescribeInstancesOutput.hostname) &&
         Objects.equals(this.imageId, instanceForDescribeInstancesOutput.imageId) &&
         Objects.equals(this.instanceChargeType, instanceForDescribeInstancesOutput.instanceChargeType) &&
         Objects.equals(this.instanceId, instanceForDescribeInstancesOutput.instanceId) &&
@@ -703,7 +725,7 @@ public class InstanceForDescribeInstancesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cpuOptions, cpus, createdAt, description, eipAddress, expiredAt, hostName, imageId, instanceChargeType, instanceId, instanceName, instanceTypeId, keyPairId, keyPairName, localVolumes, memorySize, networkInterfaces, osName, osType, projectName, rdmaIpAddresses, status, stoppedMode, tags, updatedAt, uuid, vpcId, zoneId);
+    return Objects.hash(cpuOptions, cpus, createdAt, description, eipAddress, expiredAt, hostName, hostname, imageId, instanceChargeType, instanceId, instanceName, instanceTypeId, keyPairId, keyPairName, localVolumes, memorySize, networkInterfaces, osName, osType, projectName, rdmaIpAddresses, status, stoppedMode, tags, updatedAt, uuid, vpcId, zoneId);
   }
 
 
@@ -719,6 +741,7 @@ public class InstanceForDescribeInstancesOutput {
     sb.append("    eipAddress: ").append(toIndentedString(eipAddress)).append("\n");
     sb.append("    expiredAt: ").append(toIndentedString(expiredAt)).append("\n");
     sb.append("    hostName: ").append(toIndentedString(hostName)).append("\n");
+    sb.append("    hostname: ").append(toIndentedString(hostname)).append("\n");
     sb.append("    imageId: ").append(toIndentedString(imageId)).append("\n");
     sb.append("    instanceChargeType: ").append(toIndentedString(instanceChargeType)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");

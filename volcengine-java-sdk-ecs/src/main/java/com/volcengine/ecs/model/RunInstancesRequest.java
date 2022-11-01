@@ -58,6 +58,9 @@ public class RunInstancesRequest {
   @SerializedName("HostName")
   private String hostName = null;
 
+  @SerializedName("Hostname")
+  private String hostname = null;
+
   @SerializedName("HpcClusterId")
   private String hpcClusterId = null;
 
@@ -260,6 +263,24 @@ public class RunInstancesRequest {
 
   public void setHostName(String hostName) {
     this.hostName = hostName;
+  }
+
+  public RunInstancesRequest hostname(String hostname) {
+    this.hostname = hostname;
+    return this;
+  }
+
+   /**
+   * Get hostname
+   * @return hostname
+  **/
+  @Schema(description = "")
+  public String getHostname() {
+    return hostname;
+  }
+
+  public void setHostname(String hostname) {
+    this.hostname = hostname;
   }
 
   public RunInstancesRequest hpcClusterId(String hpcClusterId) {
@@ -667,6 +688,7 @@ public class RunInstancesRequest {
         Objects.equals(this.description, runInstancesRequest.description) &&
         Objects.equals(this.dryRun, runInstancesRequest.dryRun) &&
         Objects.equals(this.hostName, runInstancesRequest.hostName) &&
+        Objects.equals(this.hostname, runInstancesRequest.hostname) &&
         Objects.equals(this.hpcClusterId, runInstancesRequest.hpcClusterId) &&
         Objects.equals(this.imageId, runInstancesRequest.imageId) &&
         Objects.equals(this.instanceChargeType, runInstancesRequest.instanceChargeType) &&
@@ -691,7 +713,7 @@ public class RunInstancesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoRenew, autoRenewPeriod, clientToken, count, creditSpecification, description, dryRun, hostName, hpcClusterId, imageId, instanceChargeType, instanceName, instanceType, instanceTypeId, keyPairName, minCount, networkInterfaces, password, period, periodUnit, projectName, securityEnhancementStrategy, suffixIndex, tags, uniqueSuffix, userData, volumes, zoneId);
+    return Objects.hash(autoRenew, autoRenewPeriod, clientToken, count, creditSpecification, description, dryRun, hostName, hostname, hpcClusterId, imageId, instanceChargeType, instanceName, instanceType, instanceTypeId, keyPairName, minCount, networkInterfaces, password, period, periodUnit, projectName, securityEnhancementStrategy, suffixIndex, tags, uniqueSuffix, userData, volumes, zoneId);
   }
 
 
@@ -708,6 +730,7 @@ public class RunInstancesRequest {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    dryRun: ").append(toIndentedString(dryRun)).append("\n");
     sb.append("    hostName: ").append(toIndentedString(hostName)).append("\n");
+    sb.append("    hostname: ").append(toIndentedString(hostname)).append("\n");
     sb.append("    hpcClusterId: ").append(toIndentedString(hpcClusterId)).append("\n");
     sb.append("    imageId: ").append(toIndentedString(imageId)).append("\n");
     sb.append("    instanceChargeType: ").append(toIndentedString(instanceChargeType)).append("\n");
