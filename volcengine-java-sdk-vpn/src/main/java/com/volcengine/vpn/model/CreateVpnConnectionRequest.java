@@ -29,7 +29,7 @@ import javax.validation.Valid;
  * CreateVpnConnectionRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-22T20:23:47.673068+08:00[Asia/Shanghai]")
+
 public class CreateVpnConnectionRequest {
   @SerializedName("ClientToken")
   private String clientToken = null;

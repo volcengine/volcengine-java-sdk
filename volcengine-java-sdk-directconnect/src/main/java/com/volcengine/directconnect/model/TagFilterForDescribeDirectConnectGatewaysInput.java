@@ -29,7 +29,7 @@ import javax.validation.Valid;
  * TagFilterForDescribeDirectConnectGatewaysInput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-22T20:23:22.987183+08:00[Asia/Shanghai]")
+
 public class TagFilterForDescribeDirectConnectGatewaysInput {
   @SerializedName("Key")
   private String key = null;

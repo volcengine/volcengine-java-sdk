@@ -30,7 +30,7 @@ import javax.validation.Valid;
  * DescribeListenerAttributesResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-22T20:23:16.891404+08:00[Asia/Shanghai]")
+
 public class DescribeListenerAttributesResponse {
   @SerializedName("AclIds")
   private List<String> aclIds = null;
