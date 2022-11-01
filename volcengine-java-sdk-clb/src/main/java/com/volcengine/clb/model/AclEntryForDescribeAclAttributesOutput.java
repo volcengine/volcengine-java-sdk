@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * AclEntryForDescribeAclAttributesOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-22T20:23:16.891404+08:00[Asia/Shanghai]")
+
 public class AclEntryForDescribeAclAttributesOutput {
   @SerializedName("Description")
   private String description = null;
