@@ -43,7 +43,6 @@ public class AssociateEipAddressRequest {
     NAT("Nat"),
     NETWORKINTERFACE("NetworkInterface"),
     CLBINSTANCE("ClbInstance"),
-    ALBINSTANCE("AlbInstance"),
     ECSINSTANCE("EcsInstance"),
     HAVIP("HaVip");
 

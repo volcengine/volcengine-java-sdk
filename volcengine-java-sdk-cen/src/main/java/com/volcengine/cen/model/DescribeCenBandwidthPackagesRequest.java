@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.cen.model.TagFilterForDescribeCenBandwidthPackagesInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -29,7 +30,7 @@ import javax.validation.Valid;
  * DescribeCenBandwidthPackagesRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:24.026407+08:00[Asia/Shanghai]")
+
 public class DescribeCenBandwidthPackagesRequest {
   @SerializedName("CenBandwidthPackageIds")
   private List<String> cenBandwidthPackageIds = null;
@@ -51,6 +52,12 @@ public class DescribeCenBandwidthPackagesRequest {
 
   @SerializedName("PeerGeographicRegionSetId")
   private String peerGeographicRegionSetId = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
+  @SerializedName("TagFilters")
+  private List<TagFilterForDescribeCenBandwidthPackagesInput> tagFilters = null;
 
   public DescribeCenBandwidthPackagesRequest cenBandwidthPackageIds(List<String> cenBandwidthPackageIds) {
     this.cenBandwidthPackageIds = cenBandwidthPackageIds;
@@ -186,6 +193,51 @@ public class DescribeCenBandwidthPackagesRequest {
     this.peerGeographicRegionSetId = peerGeographicRegionSetId;
   }
 
+  public DescribeCenBandwidthPackagesRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
+  public DescribeCenBandwidthPackagesRequest tagFilters(List<TagFilterForDescribeCenBandwidthPackagesInput> tagFilters) {
+    this.tagFilters = tagFilters;
+    return this;
+  }
+
+  public DescribeCenBandwidthPackagesRequest addTagFiltersItem(TagFilterForDescribeCenBandwidthPackagesInput tagFiltersItem) {
+    if (this.tagFilters == null) {
+      this.tagFilters = new ArrayList<TagFilterForDescribeCenBandwidthPackagesInput>();
+    }
+    this.tagFilters.add(tagFiltersItem);
+    return this;
+  }
+
+   /**
+   * Get tagFilters
+   * @return tagFilters
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagFilterForDescribeCenBandwidthPackagesInput> getTagFilters() {
+    return tagFilters;
+  }
+
+  public void setTagFilters(List<TagFilterForDescribeCenBandwidthPackagesInput> tagFilters) {
+    this.tagFilters = tagFilters;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -202,12 +254,14 @@ public class DescribeCenBandwidthPackagesRequest {
         Objects.equals(this.localGeographicRegionSetId, describeCenBandwidthPackagesRequest.localGeographicRegionSetId) &&
         Objects.equals(this.pageNumber, describeCenBandwidthPackagesRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeCenBandwidthPackagesRequest.pageSize) &&
-        Objects.equals(this.peerGeographicRegionSetId, describeCenBandwidthPackagesRequest.peerGeographicRegionSetId);
+        Objects.equals(this.peerGeographicRegionSetId, describeCenBandwidthPackagesRequest.peerGeographicRegionSetId) &&
+        Objects.equals(this.projectName, describeCenBandwidthPackagesRequest.projectName) &&
+        Objects.equals(this.tagFilters, describeCenBandwidthPackagesRequest.tagFilters);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cenBandwidthPackageIds, cenBandwidthPackageName, cenId, localGeographicRegionSetId, pageNumber, pageSize, peerGeographicRegionSetId);
+    return Objects.hash(cenBandwidthPackageIds, cenBandwidthPackageName, cenId, localGeographicRegionSetId, pageNumber, pageSize, peerGeographicRegionSetId, projectName, tagFilters);
   }
 
 
@@ -223,6 +277,8 @@ public class DescribeCenBandwidthPackagesRequest {
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    peerGeographicRegionSetId: ").append(toIndentedString(peerGeographicRegionSetId)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("}");
     return sb.toString();
   }
