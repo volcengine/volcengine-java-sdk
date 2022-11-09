@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.cen.model.TagForCreateCenBandwidthPackageInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -99,6 +102,12 @@ public class CreateCenBandwidthPackageRequest {
     }
   }  @SerializedName("PeriodUnit")
   private PeriodUnitEnum periodUnit = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
+  @SerializedName("Tags")
+  private List<TagForCreateCenBandwidthPackageInput> tags = null;
 
   public CreateCenBandwidthPackageRequest bandwidth(Integer bandwidth) {
     this.bandwidth = bandwidth;
@@ -284,6 +293,51 @@ public class CreateCenBandwidthPackageRequest {
     this.periodUnit = periodUnit;
   }
 
+  public CreateCenBandwidthPackageRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
+  public CreateCenBandwidthPackageRequest tags(List<TagForCreateCenBandwidthPackageInput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public CreateCenBandwidthPackageRequest addTagsItem(TagForCreateCenBandwidthPackageInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForCreateCenBandwidthPackageInput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForCreateCenBandwidthPackageInput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForCreateCenBandwidthPackageInput> tags) {
+    this.tags = tags;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -303,12 +357,14 @@ public class CreateCenBandwidthPackageRequest {
         Objects.equals(this.localGeographicRegionSetId, createCenBandwidthPackageRequest.localGeographicRegionSetId) &&
         Objects.equals(this.peerGeographicRegionSetId, createCenBandwidthPackageRequest.peerGeographicRegionSetId) &&
         Objects.equals(this.period, createCenBandwidthPackageRequest.period) &&
-        Objects.equals(this.periodUnit, createCenBandwidthPackageRequest.periodUnit);
+        Objects.equals(this.periodUnit, createCenBandwidthPackageRequest.periodUnit) &&
+        Objects.equals(this.projectName, createCenBandwidthPackageRequest.projectName) &&
+        Objects.equals(this.tags, createCenBandwidthPackageRequest.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidth, billingType, cenBandwidthPackageName, cenId, clientToken, description, localGeographicRegionSetId, peerGeographicRegionSetId, period, periodUnit);
+    return Objects.hash(bandwidth, billingType, cenBandwidthPackageName, cenId, clientToken, description, localGeographicRegionSetId, peerGeographicRegionSetId, period, periodUnit, projectName, tags);
   }
 
 
@@ -327,6 +383,8 @@ public class CreateCenBandwidthPackageRequest {
     sb.append("    peerGeographicRegionSetId: ").append(toIndentedString(peerGeographicRegionSetId)).append("\n");
     sb.append("    period: ").append(toIndentedString(period)).append("\n");
     sb.append("    periodUnit: ").append(toIndentedString(periodUnit)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }

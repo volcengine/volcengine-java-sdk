@@ -29,29 +29,8 @@ import javax.validation.Valid;
 
 
 public class DeleteDirectConnectGatewayResponse {
-  @SerializedName("PreOrderNumber")
-  private String preOrderNumber = null;
-
   @SerializedName("RequestId")
   private String requestId = null;
-
-  public DeleteDirectConnectGatewayResponse preOrderNumber(String preOrderNumber) {
-    this.preOrderNumber = preOrderNumber;
-    return this;
-  }
-
-   /**
-   * Get preOrderNumber
-   * @return preOrderNumber
-  **/
-  @Schema(description = "")
-  public String getPreOrderNumber() {
-    return preOrderNumber;
-  }
-
-  public void setPreOrderNumber(String preOrderNumber) {
-    this.preOrderNumber = preOrderNumber;
-  }
 
   public DeleteDirectConnectGatewayResponse requestId(String requestId) {
     this.requestId = requestId;
@@ -81,13 +60,12 @@ public class DeleteDirectConnectGatewayResponse {
       return false;
     }
     DeleteDirectConnectGatewayResponse deleteDirectConnectGatewayResponse = (DeleteDirectConnectGatewayResponse) o;
-    return Objects.equals(this.preOrderNumber, deleteDirectConnectGatewayResponse.preOrderNumber) &&
-        Objects.equals(this.requestId, deleteDirectConnectGatewayResponse.requestId);
+    return Objects.equals(this.requestId, deleteDirectConnectGatewayResponse.requestId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(preOrderNumber, requestId);
+    return Objects.hash(requestId);
   }
 
 
@@ -96,7 +74,6 @@ public class DeleteDirectConnectGatewayResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteDirectConnectGatewayResponse {\n");
     
-    sb.append("    preOrderNumber: ").append(toIndentedString(preOrderNumber)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("}");
     return sb.toString();

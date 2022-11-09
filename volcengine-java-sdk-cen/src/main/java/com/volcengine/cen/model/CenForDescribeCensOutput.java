@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.cen.model.TagForDescribeCensOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -49,8 +50,14 @@ public class CenForDescribeCensOutput {
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("Status")
   private String status = null;
+
+  @SerializedName("Tags")
+  private List<TagForDescribeCensOutput> tags = null;
 
   @SerializedName("UpdateTime")
   private String updateTime = null;
@@ -171,6 +178,24 @@ public class CenForDescribeCensOutput {
     this.description = description;
   }
 
+  public CenForDescribeCensOutput projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public CenForDescribeCensOutput status(String status) {
     this.status = status;
     return this;
@@ -187,6 +212,33 @@ public class CenForDescribeCensOutput {
 
   public void setStatus(String status) {
     this.status = status;
+  }
+
+  public CenForDescribeCensOutput tags(List<TagForDescribeCensOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public CenForDescribeCensOutput addTagsItem(TagForDescribeCensOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForDescribeCensOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForDescribeCensOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForDescribeCensOutput> tags) {
+    this.tags = tags;
   }
 
   public CenForDescribeCensOutput updateTime(String updateTime) {
@@ -223,13 +275,15 @@ public class CenForDescribeCensOutput {
         Objects.equals(this.cenName, cenForDescribeCensOutput.cenName) &&
         Objects.equals(this.creationTime, cenForDescribeCensOutput.creationTime) &&
         Objects.equals(this.description, cenForDescribeCensOutput.description) &&
+        Objects.equals(this.projectName, cenForDescribeCensOutput.projectName) &&
         Objects.equals(this.status, cenForDescribeCensOutput.status) &&
+        Objects.equals(this.tags, cenForDescribeCensOutput.tags) &&
         Objects.equals(this.updateTime, cenForDescribeCensOutput.updateTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, cenBandwidthPackageIds, cenId, cenName, creationTime, description, status, updateTime);
+    return Objects.hash(accountId, cenBandwidthPackageIds, cenId, cenName, creationTime, description, projectName, status, tags, updateTime);
   }
 
 
@@ -244,7 +298,9 @@ public class CenForDescribeCensOutput {
     sb.append("    cenName: ").append(toIndentedString(cenName)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("}");
     return sb.toString();

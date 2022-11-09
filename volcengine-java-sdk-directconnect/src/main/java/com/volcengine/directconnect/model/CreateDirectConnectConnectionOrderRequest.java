@@ -82,57 +82,6 @@ public class CreateDirectConnectConnectionOrderRequest {
   }  @SerializedName("PeriodUnit")
   private PeriodUnitEnum periodUnit = null;
 
-  @SerializedName("RemainRenewTimes")
-  private Integer remainRenewTimes = null;
-
-  @SerializedName("RenewPeriod")
-  private Integer renewPeriod = null;
-
-  /**
-   * Gets or Sets renewType
-   */
-  @JsonAdapter(RenewTypeEnum.Adapter.class)
-  public enum RenewTypeEnum {
-    MANUAL("Manual"),
-    AUTO("Auto"),
-    NORENEW("NoRenew");
-
-    private String value;
-
-    RenewTypeEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static RenewTypeEnum fromValue(String input) {
-      for (RenewTypeEnum b : RenewTypeEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<RenewTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final RenewTypeEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public RenewTypeEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return RenewTypeEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("RenewType")
-  private RenewTypeEnum renewType = null;
-
   public CreateDirectConnectConnectionOrderRequest clientToken(String clientToken) {
     this.clientToken = clientToken;
     return this;
@@ -206,60 +155,6 @@ public class CreateDirectConnectConnectionOrderRequest {
     this.periodUnit = periodUnit;
   }
 
-  public CreateDirectConnectConnectionOrderRequest remainRenewTimes(Integer remainRenewTimes) {
-    this.remainRenewTimes = remainRenewTimes;
-    return this;
-  }
-
-   /**
-   * Get remainRenewTimes
-   * @return remainRenewTimes
-  **/
-  @Schema(description = "")
-  public Integer getRemainRenewTimes() {
-    return remainRenewTimes;
-  }
-
-  public void setRemainRenewTimes(Integer remainRenewTimes) {
-    this.remainRenewTimes = remainRenewTimes;
-  }
-
-  public CreateDirectConnectConnectionOrderRequest renewPeriod(Integer renewPeriod) {
-    this.renewPeriod = renewPeriod;
-    return this;
-  }
-
-   /**
-   * Get renewPeriod
-   * @return renewPeriod
-  **/
-  @Schema(description = "")
-  public Integer getRenewPeriod() {
-    return renewPeriod;
-  }
-
-  public void setRenewPeriod(Integer renewPeriod) {
-    this.renewPeriod = renewPeriod;
-  }
-
-  public CreateDirectConnectConnectionOrderRequest renewType(RenewTypeEnum renewType) {
-    this.renewType = renewType;
-    return this;
-  }
-
-   /**
-   * Get renewType
-   * @return renewType
-  **/
-  @Schema(description = "")
-  public RenewTypeEnum getRenewType() {
-    return renewType;
-  }
-
-  public void setRenewType(RenewTypeEnum renewType) {
-    this.renewType = renewType;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -273,15 +168,12 @@ public class CreateDirectConnectConnectionOrderRequest {
     return Objects.equals(this.clientToken, createDirectConnectConnectionOrderRequest.clientToken) &&
         Objects.equals(this.directConnectConnectionId, createDirectConnectConnectionOrderRequest.directConnectConnectionId) &&
         Objects.equals(this.period, createDirectConnectConnectionOrderRequest.period) &&
-        Objects.equals(this.periodUnit, createDirectConnectConnectionOrderRequest.periodUnit) &&
-        Objects.equals(this.remainRenewTimes, createDirectConnectConnectionOrderRequest.remainRenewTimes) &&
-        Objects.equals(this.renewPeriod, createDirectConnectConnectionOrderRequest.renewPeriod) &&
-        Objects.equals(this.renewType, createDirectConnectConnectionOrderRequest.renewType);
+        Objects.equals(this.periodUnit, createDirectConnectConnectionOrderRequest.periodUnit);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, directConnectConnectionId, period, periodUnit, remainRenewTimes, renewPeriod, renewType);
+    return Objects.hash(clientToken, directConnectConnectionId, period, periodUnit);
   }
 
 
@@ -294,9 +186,6 @@ public class CreateDirectConnectConnectionOrderRequest {
     sb.append("    directConnectConnectionId: ").append(toIndentedString(directConnectConnectionId)).append("\n");
     sb.append("    period: ").append(toIndentedString(period)).append("\n");
     sb.append("    periodUnit: ").append(toIndentedString(periodUnit)).append("\n");
-    sb.append("    remainRenewTimes: ").append(toIndentedString(remainRenewTimes)).append("\n");
-    sb.append("    renewPeriod: ").append(toIndentedString(renewPeriod)).append("\n");
-    sb.append("    renewType: ").append(toIndentedString(renewType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

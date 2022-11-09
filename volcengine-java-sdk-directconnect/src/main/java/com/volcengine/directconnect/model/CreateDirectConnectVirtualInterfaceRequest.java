@@ -32,6 +32,9 @@ import javax.validation.Valid;
 
 
 public class CreateDirectConnectVirtualInterfaceRequest {
+  @SerializedName("Bandwidth")
+  private Integer bandwidth = null;
+
   @SerializedName("BfdDetectInterval")
   private Integer bfdDetectInterval = null;
 
@@ -53,14 +56,8 @@ public class CreateDirectConnectVirtualInterfaceRequest {
   @SerializedName("LocalIp")
   private String localIp = null;
 
-  @SerializedName("LocalIpv6Ip")
-  private String localIpv6Ip = null;
-
   @SerializedName("PeerIp")
   private String peerIp = null;
-
-  @SerializedName("PeerIpv6Ip")
-  private String peerIpv6Ip = null;
 
   /**
    * Gets or Sets routeType
@@ -114,6 +111,24 @@ public class CreateDirectConnectVirtualInterfaceRequest {
 
   @SerializedName("VlanId")
   private Integer vlanId = null;
+
+  public CreateDirectConnectVirtualInterfaceRequest bandwidth(Integer bandwidth) {
+    this.bandwidth = bandwidth;
+    return this;
+  }
+
+   /**
+   * Get bandwidth
+   * @return bandwidth
+  **/
+  @Schema(description = "")
+  public Integer getBandwidth() {
+    return bandwidth;
+  }
+
+  public void setBandwidth(Integer bandwidth) {
+    this.bandwidth = bandwidth;
+  }
 
   public CreateDirectConnectVirtualInterfaceRequest bfdDetectInterval(Integer bfdDetectInterval) {
     this.bfdDetectInterval = bfdDetectInterval;
@@ -248,24 +263,6 @@ public class CreateDirectConnectVirtualInterfaceRequest {
     this.localIp = localIp;
   }
 
-  public CreateDirectConnectVirtualInterfaceRequest localIpv6Ip(String localIpv6Ip) {
-    this.localIpv6Ip = localIpv6Ip;
-    return this;
-  }
-
-   /**
-   * Get localIpv6Ip
-   * @return localIpv6Ip
-  **/
-  @Schema(description = "")
-  public String getLocalIpv6Ip() {
-    return localIpv6Ip;
-  }
-
-  public void setLocalIpv6Ip(String localIpv6Ip) {
-    this.localIpv6Ip = localIpv6Ip;
-  }
-
   public CreateDirectConnectVirtualInterfaceRequest peerIp(String peerIp) {
     this.peerIp = peerIp;
     return this;
@@ -283,24 +280,6 @@ public class CreateDirectConnectVirtualInterfaceRequest {
 
   public void setPeerIp(String peerIp) {
     this.peerIp = peerIp;
-  }
-
-  public CreateDirectConnectVirtualInterfaceRequest peerIpv6Ip(String peerIpv6Ip) {
-    this.peerIpv6Ip = peerIpv6Ip;
-    return this;
-  }
-
-   /**
-   * Get peerIpv6Ip
-   * @return peerIpv6Ip
-  **/
-  @Schema(description = "")
-  public String getPeerIpv6Ip() {
-    return peerIpv6Ip;
-  }
-
-  public void setPeerIpv6Ip(String peerIpv6Ip) {
-    this.peerIpv6Ip = peerIpv6Ip;
   }
 
   public CreateDirectConnectVirtualInterfaceRequest routeType(RouteTypeEnum routeType) {
@@ -395,16 +374,15 @@ public class CreateDirectConnectVirtualInterfaceRequest {
       return false;
     }
     CreateDirectConnectVirtualInterfaceRequest createDirectConnectVirtualInterfaceRequest = (CreateDirectConnectVirtualInterfaceRequest) o;
-    return Objects.equals(this.bfdDetectInterval, createDirectConnectVirtualInterfaceRequest.bfdDetectInterval) &&
+    return Objects.equals(this.bandwidth, createDirectConnectVirtualInterfaceRequest.bandwidth) &&
+        Objects.equals(this.bfdDetectInterval, createDirectConnectVirtualInterfaceRequest.bfdDetectInterval) &&
         Objects.equals(this.bfdDetectMultiplier, createDirectConnectVirtualInterfaceRequest.bfdDetectMultiplier) &&
         Objects.equals(this.description, createDirectConnectVirtualInterfaceRequest.description) &&
         Objects.equals(this.directConnectConnectionId, createDirectConnectVirtualInterfaceRequest.directConnectConnectionId) &&
         Objects.equals(this.directConnectGatewayId, createDirectConnectVirtualInterfaceRequest.directConnectGatewayId) &&
         Objects.equals(this.enableBfd, createDirectConnectVirtualInterfaceRequest.enableBfd) &&
         Objects.equals(this.localIp, createDirectConnectVirtualInterfaceRequest.localIp) &&
-        Objects.equals(this.localIpv6Ip, createDirectConnectVirtualInterfaceRequest.localIpv6Ip) &&
         Objects.equals(this.peerIp, createDirectConnectVirtualInterfaceRequest.peerIp) &&
-        Objects.equals(this.peerIpv6Ip, createDirectConnectVirtualInterfaceRequest.peerIpv6Ip) &&
         Objects.equals(this.routeType, createDirectConnectVirtualInterfaceRequest.routeType) &&
         Objects.equals(this.tags, createDirectConnectVirtualInterfaceRequest.tags) &&
         Objects.equals(this.virtualInterfaceName, createDirectConnectVirtualInterfaceRequest.virtualInterfaceName) &&
@@ -413,7 +391,7 @@ public class CreateDirectConnectVirtualInterfaceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bfdDetectInterval, bfdDetectMultiplier, description, directConnectConnectionId, directConnectGatewayId, enableBfd, localIp, localIpv6Ip, peerIp, peerIpv6Ip, routeType, tags, virtualInterfaceName, vlanId);
+    return Objects.hash(bandwidth, bfdDetectInterval, bfdDetectMultiplier, description, directConnectConnectionId, directConnectGatewayId, enableBfd, localIp, peerIp, routeType, tags, virtualInterfaceName, vlanId);
   }
 
 
@@ -422,6 +400,7 @@ public class CreateDirectConnectVirtualInterfaceRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateDirectConnectVirtualInterfaceRequest {\n");
     
+    sb.append("    bandwidth: ").append(toIndentedString(bandwidth)).append("\n");
     sb.append("    bfdDetectInterval: ").append(toIndentedString(bfdDetectInterval)).append("\n");
     sb.append("    bfdDetectMultiplier: ").append(toIndentedString(bfdDetectMultiplier)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
@@ -429,9 +408,7 @@ public class CreateDirectConnectVirtualInterfaceRequest {
     sb.append("    directConnectGatewayId: ").append(toIndentedString(directConnectGatewayId)).append("\n");
     sb.append("    enableBfd: ").append(toIndentedString(enableBfd)).append("\n");
     sb.append("    localIp: ").append(toIndentedString(localIp)).append("\n");
-    sb.append("    localIpv6Ip: ").append(toIndentedString(localIpv6Ip)).append("\n");
     sb.append("    peerIp: ").append(toIndentedString(peerIp)).append("\n");
-    sb.append("    peerIpv6Ip: ").append(toIndentedString(peerIpv6Ip)).append("\n");
     sb.append("    routeType: ").append(toIndentedString(routeType)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    virtualInterfaceName: ").append(toIndentedString(virtualInterfaceName)).append("\n");
