@@ -34,11 +34,17 @@ public class DescribeVpnConnectionsRequest {
   @SerializedName("CustomerGatewayId")
   private String customerGatewayId = null;
 
+  @SerializedName("NegotiateInstantly")
+  private String negotiateInstantly = null;
+
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
 
   @SerializedName("PageSize")
   private Integer pageSize = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
 
   @SerializedName("VpnConnectionIds")
   private List<String> vpnConnectionIds = null;
@@ -65,6 +71,24 @@ public class DescribeVpnConnectionsRequest {
 
   public void setCustomerGatewayId(String customerGatewayId) {
     this.customerGatewayId = customerGatewayId;
+  }
+
+  public DescribeVpnConnectionsRequest negotiateInstantly(String negotiateInstantly) {
+    this.negotiateInstantly = negotiateInstantly;
+    return this;
+  }
+
+   /**
+   * Get negotiateInstantly
+   * @return negotiateInstantly
+  **/
+  @Schema(description = "")
+  public String getNegotiateInstantly() {
+    return negotiateInstantly;
+  }
+
+  public void setNegotiateInstantly(String negotiateInstantly) {
+    this.negotiateInstantly = negotiateInstantly;
   }
 
   public DescribeVpnConnectionsRequest pageNumber(Integer pageNumber) {
@@ -101,6 +125,24 @@ public class DescribeVpnConnectionsRequest {
 
   public void setPageSize(Integer pageSize) {
     this.pageSize = pageSize;
+  }
+
+  public DescribeVpnConnectionsRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
   }
 
   public DescribeVpnConnectionsRequest vpnConnectionIds(List<String> vpnConnectionIds) {
@@ -176,8 +218,10 @@ public class DescribeVpnConnectionsRequest {
     }
     DescribeVpnConnectionsRequest describeVpnConnectionsRequest = (DescribeVpnConnectionsRequest) o;
     return Objects.equals(this.customerGatewayId, describeVpnConnectionsRequest.customerGatewayId) &&
+        Objects.equals(this.negotiateInstantly, describeVpnConnectionsRequest.negotiateInstantly) &&
         Objects.equals(this.pageNumber, describeVpnConnectionsRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeVpnConnectionsRequest.pageSize) &&
+        Objects.equals(this.projectName, describeVpnConnectionsRequest.projectName) &&
         Objects.equals(this.vpnConnectionIds, describeVpnConnectionsRequest.vpnConnectionIds) &&
         Objects.equals(this.vpnConnectionName, describeVpnConnectionsRequest.vpnConnectionName) &&
         Objects.equals(this.vpnGatewayId, describeVpnConnectionsRequest.vpnGatewayId);
@@ -185,7 +229,7 @@ public class DescribeVpnConnectionsRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(customerGatewayId, pageNumber, pageSize, vpnConnectionIds, vpnConnectionName, vpnGatewayId);
+    return Objects.hash(customerGatewayId, negotiateInstantly, pageNumber, pageSize, projectName, vpnConnectionIds, vpnConnectionName, vpnGatewayId);
   }
 
 
@@ -195,8 +239,10 @@ public class DescribeVpnConnectionsRequest {
     sb.append("class DescribeVpnConnectionsRequest {\n");
     
     sb.append("    customerGatewayId: ").append(toIndentedString(customerGatewayId)).append("\n");
+    sb.append("    negotiateInstantly: ").append(toIndentedString(negotiateInstantly)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    vpnConnectionIds: ").append(toIndentedString(vpnConnectionIds)).append("\n");
     sb.append("    vpnConnectionName: ").append(toIndentedString(vpnConnectionName)).append("\n");
     sb.append("    vpnGatewayId: ").append(toIndentedString(vpnGatewayId)).append("\n");

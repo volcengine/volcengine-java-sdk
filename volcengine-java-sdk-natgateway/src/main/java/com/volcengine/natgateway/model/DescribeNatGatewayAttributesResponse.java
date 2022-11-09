@@ -86,6 +86,9 @@ public class DescribeNatGatewayAttributesResponse {
   @SerializedName("VpcId")
   private String vpcId = null;
 
+  @SerializedName("ZoneId")
+  private String zoneId = null;
+
   public DescribeNatGatewayAttributesResponse billingType(Integer billingType) {
     this.billingType = billingType;
     return this;
@@ -419,6 +422,24 @@ public class DescribeNatGatewayAttributesResponse {
     this.vpcId = vpcId;
   }
 
+  public DescribeNatGatewayAttributesResponse zoneId(String zoneId) {
+    this.zoneId = zoneId;
+    return this;
+  }
+
+   /**
+   * Get zoneId
+   * @return zoneId
+  **/
+  @Schema(description = "")
+  public String getZoneId() {
+    return zoneId;
+  }
+
+  public void setZoneId(String zoneId) {
+    this.zoneId = zoneId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -446,12 +467,13 @@ public class DescribeNatGatewayAttributesResponse {
         Objects.equals(this.status, describeNatGatewayAttributesResponse.status) &&
         Objects.equals(this.subnetId, describeNatGatewayAttributesResponse.subnetId) &&
         Objects.equals(this.updatedAt, describeNatGatewayAttributesResponse.updatedAt) &&
-        Objects.equals(this.vpcId, describeNatGatewayAttributesResponse.vpcId);
+        Objects.equals(this.vpcId, describeNatGatewayAttributesResponse.vpcId) &&
+        Objects.equals(this.zoneId, describeNatGatewayAttributesResponse.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(billingType, businessStatus, creationTime, deletedTime, description, eipAddresses, expiredTime, lockReason, natGatewayId, natGatewayName, networkInterfaceId, overdueTime, requestId, spec, status, subnetId, updatedAt, vpcId);
+    return Objects.hash(billingType, businessStatus, creationTime, deletedTime, description, eipAddresses, expiredTime, lockReason, natGatewayId, natGatewayName, networkInterfaceId, overdueTime, requestId, spec, status, subnetId, updatedAt, vpcId, zoneId);
   }
 
 
@@ -478,6 +500,7 @@ public class DescribeNatGatewayAttributesResponse {
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
+    sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -92,6 +92,9 @@ public class ModifyVpnConnectionAttributesRequest {
   @SerializedName("NatTraversal")
   private Boolean natTraversal = null;
 
+  @SerializedName("NegotiateInstantly")
+  private Boolean negotiateInstantly = null;
+
   @SerializedName("RemoteSubnet")
   private List<String> remoteSubnet = null;
 
@@ -217,6 +220,24 @@ public class ModifyVpnConnectionAttributesRequest {
     this.natTraversal = natTraversal;
   }
 
+  public ModifyVpnConnectionAttributesRequest negotiateInstantly(Boolean negotiateInstantly) {
+    this.negotiateInstantly = negotiateInstantly;
+    return this;
+  }
+
+   /**
+   * Get negotiateInstantly
+   * @return negotiateInstantly
+  **/
+  @Schema(description = "")
+  public Boolean isNegotiateInstantly() {
+    return negotiateInstantly;
+  }
+
+  public void setNegotiateInstantly(Boolean negotiateInstantly) {
+    this.negotiateInstantly = negotiateInstantly;
+  }
+
   public ModifyVpnConnectionAttributesRequest remoteSubnet(List<String> remoteSubnet) {
     this.remoteSubnet = remoteSubnet;
     return this;
@@ -296,6 +317,7 @@ public class ModifyVpnConnectionAttributesRequest {
         Objects.equals(this.ipsecConfig, modifyVpnConnectionAttributesRequest.ipsecConfig) &&
         Objects.equals(this.localSubnet, modifyVpnConnectionAttributesRequest.localSubnet) &&
         Objects.equals(this.natTraversal, modifyVpnConnectionAttributesRequest.natTraversal) &&
+        Objects.equals(this.negotiateInstantly, modifyVpnConnectionAttributesRequest.negotiateInstantly) &&
         Objects.equals(this.remoteSubnet, modifyVpnConnectionAttributesRequest.remoteSubnet) &&
         Objects.equals(this.vpnConnectionId, modifyVpnConnectionAttributesRequest.vpnConnectionId) &&
         Objects.equals(this.vpnConnectionName, modifyVpnConnectionAttributesRequest.vpnConnectionName);
@@ -303,7 +325,7 @@ public class ModifyVpnConnectionAttributesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, dpdAction, ikeConfig, ipsecConfig, localSubnet, natTraversal, remoteSubnet, vpnConnectionId, vpnConnectionName);
+    return Objects.hash(description, dpdAction, ikeConfig, ipsecConfig, localSubnet, natTraversal, negotiateInstantly, remoteSubnet, vpnConnectionId, vpnConnectionName);
   }
 
 
@@ -318,6 +340,7 @@ public class ModifyVpnConnectionAttributesRequest {
     sb.append("    ipsecConfig: ").append(toIndentedString(ipsecConfig)).append("\n");
     sb.append("    localSubnet: ").append(toIndentedString(localSubnet)).append("\n");
     sb.append("    natTraversal: ").append(toIndentedString(natTraversal)).append("\n");
+    sb.append("    negotiateInstantly: ").append(toIndentedString(negotiateInstantly)).append("\n");
     sb.append("    remoteSubnet: ").append(toIndentedString(remoteSubnet)).append("\n");
     sb.append("    vpnConnectionId: ").append(toIndentedString(vpnConnectionId)).append("\n");
     sb.append("    vpnConnectionName: ").append(toIndentedString(vpnConnectionName)).append("\n");
