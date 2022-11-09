@@ -38,50 +38,6 @@ public class CreateBgpPeerRequest {
   @SerializedName("Description")
   private String description = null;
 
-  /**
-   * Gets or Sets ipVersion
-   */
-  @JsonAdapter(IpVersionEnum.Adapter.class)
-  public enum IpVersionEnum {
-    IPV4("IPv4"),
-    IPV6("IPv6");
-
-    private String value;
-
-    IpVersionEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static IpVersionEnum fromValue(String input) {
-      for (IpVersionEnum b : IpVersionEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<IpVersionEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final IpVersionEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public IpVersionEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return IpVersionEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("IpVersion")
-  private IpVersionEnum ipVersion = null;
-
   @SerializedName("RemoteAsn")
   private Integer remoteAsn = null;
 
@@ -142,24 +98,6 @@ public class CreateBgpPeerRequest {
     this.description = description;
   }
 
-  public CreateBgpPeerRequest ipVersion(IpVersionEnum ipVersion) {
-    this.ipVersion = ipVersion;
-    return this;
-  }
-
-   /**
-   * Get ipVersion
-   * @return ipVersion
-  **/
-  @Schema(description = "")
-  public IpVersionEnum getIpVersion() {
-    return ipVersion;
-  }
-
-  public void setIpVersion(IpVersionEnum ipVersion) {
-    this.ipVersion = ipVersion;
-  }
-
   public CreateBgpPeerRequest remoteAsn(Integer remoteAsn) {
     this.remoteAsn = remoteAsn;
     return this;
@@ -211,14 +149,13 @@ public class CreateBgpPeerRequest {
     return Objects.equals(this.authKey, createBgpPeerRequest.authKey) &&
         Objects.equals(this.bgpPeerName, createBgpPeerRequest.bgpPeerName) &&
         Objects.equals(this.description, createBgpPeerRequest.description) &&
-        Objects.equals(this.ipVersion, createBgpPeerRequest.ipVersion) &&
         Objects.equals(this.remoteAsn, createBgpPeerRequest.remoteAsn) &&
         Objects.equals(this.virtualInterfaceId, createBgpPeerRequest.virtualInterfaceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(authKey, bgpPeerName, description, ipVersion, remoteAsn, virtualInterfaceId);
+    return Objects.hash(authKey, bgpPeerName, description, remoteAsn, virtualInterfaceId);
   }
 
 
@@ -230,7 +167,6 @@ public class CreateBgpPeerRequest {
     sb.append("    authKey: ").append(toIndentedString(authKey)).append("\n");
     sb.append("    bgpPeerName: ").append(toIndentedString(bgpPeerName)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    ipVersion: ").append(toIndentedString(ipVersion)).append("\n");
     sb.append("    remoteAsn: ").append(toIndentedString(remoteAsn)).append("\n");
     sb.append("    virtualInterfaceId: ").append(toIndentedString(virtualInterfaceId)).append("\n");
     sb.append("}");

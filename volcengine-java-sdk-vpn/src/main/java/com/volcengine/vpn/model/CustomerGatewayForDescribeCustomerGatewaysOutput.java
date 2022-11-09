@@ -50,6 +50,9 @@ public class CustomerGatewayForDescribeCustomerGatewaysOutput {
   @SerializedName("IpAddress")
   private String ipAddress = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("Status")
   private String status = null;
 
@@ -182,6 +185,24 @@ public class CustomerGatewayForDescribeCustomerGatewaysOutput {
     this.ipAddress = ipAddress;
   }
 
+  public CustomerGatewayForDescribeCustomerGatewaysOutput projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public CustomerGatewayForDescribeCustomerGatewaysOutput status(String status) {
     this.status = status;
     return this;
@@ -235,13 +256,14 @@ public class CustomerGatewayForDescribeCustomerGatewaysOutput {
         Objects.equals(this.customerGatewayName, customerGatewayForDescribeCustomerGatewaysOutput.customerGatewayName) &&
         Objects.equals(this.description, customerGatewayForDescribeCustomerGatewaysOutput.description) &&
         Objects.equals(this.ipAddress, customerGatewayForDescribeCustomerGatewaysOutput.ipAddress) &&
+        Objects.equals(this.projectName, customerGatewayForDescribeCustomerGatewaysOutput.projectName) &&
         Objects.equals(this.status, customerGatewayForDescribeCustomerGatewaysOutput.status) &&
         Objects.equals(this.updateTime, customerGatewayForDescribeCustomerGatewaysOutput.updateTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, connectionCount, creationTime, customerGatewayId, customerGatewayName, description, ipAddress, status, updateTime);
+    return Objects.hash(accountId, connectionCount, creationTime, customerGatewayId, customerGatewayName, description, ipAddress, projectName, status, updateTime);
   }
 
 
@@ -257,6 +279,7 @@ public class CustomerGatewayForDescribeCustomerGatewaysOutput {
     sb.append("    customerGatewayName: ").append(toIndentedString(customerGatewayName)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    ipAddress: ").append(toIndentedString(ipAddress)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("}");

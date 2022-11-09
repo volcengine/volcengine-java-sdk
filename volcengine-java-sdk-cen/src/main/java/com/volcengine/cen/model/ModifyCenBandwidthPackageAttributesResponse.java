@@ -20,7 +20,7 @@ import javax.validation.Valid;
  * ModifyCenBandwidthPackageAttributesResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:24.026407+08:00[Asia/Shanghai]")
+
 public class ModifyCenBandwidthPackageAttributesResponse {
 
   @Override

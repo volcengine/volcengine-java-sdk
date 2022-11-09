@@ -69,6 +69,9 @@ public class BandwidthPackageForDescribeBandwidthPackagesOutput {
   @SerializedName("ProjectName")
   private String projectName = null;
 
+  @SerializedName("SecurityProtectionTypes")
+  private List<String> securityProtectionTypes = null;
+
   @SerializedName("Status")
   private String status = null;
 
@@ -303,6 +306,32 @@ public class BandwidthPackageForDescribeBandwidthPackagesOutput {
     this.projectName = projectName;
   }
 
+  public BandwidthPackageForDescribeBandwidthPackagesOutput securityProtectionTypes(List<String> securityProtectionTypes) {
+    this.securityProtectionTypes = securityProtectionTypes;
+    return this;
+  }
+
+  public BandwidthPackageForDescribeBandwidthPackagesOutput addSecurityProtectionTypesItem(String securityProtectionTypesItem) {
+    if (this.securityProtectionTypes == null) {
+      this.securityProtectionTypes = new ArrayList<String>();
+    }
+    this.securityProtectionTypes.add(securityProtectionTypesItem);
+    return this;
+  }
+
+   /**
+   * Get securityProtectionTypes
+   * @return securityProtectionTypes
+  **/
+  @Schema(description = "")
+  public List<String> getSecurityProtectionTypes() {
+    return securityProtectionTypes;
+  }
+
+  public void setSecurityProtectionTypes(List<String> securityProtectionTypes) {
+    this.securityProtectionTypes = securityProtectionTypes;
+  }
+
   public BandwidthPackageForDescribeBandwidthPackagesOutput status(String status) {
     this.status = status;
     return this;
@@ -388,6 +417,7 @@ public class BandwidthPackageForDescribeBandwidthPackagesOutput {
         Objects.equals(this.ISP, bandwidthPackageForDescribeBandwidthPackagesOutput.ISP) &&
         Objects.equals(this.overdueTime, bandwidthPackageForDescribeBandwidthPackagesOutput.overdueTime) &&
         Objects.equals(this.projectName, bandwidthPackageForDescribeBandwidthPackagesOutput.projectName) &&
+        Objects.equals(this.securityProtectionTypes, bandwidthPackageForDescribeBandwidthPackagesOutput.securityProtectionTypes) &&
         Objects.equals(this.status, bandwidthPackageForDescribeBandwidthPackagesOutput.status) &&
         Objects.equals(this.tags, bandwidthPackageForDescribeBandwidthPackagesOutput.tags) &&
         Objects.equals(this.updateTime, bandwidthPackageForDescribeBandwidthPackagesOutput.updateTime);
@@ -395,7 +425,7 @@ public class BandwidthPackageForDescribeBandwidthPackagesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidth, bandwidthPackageId, bandwidthPackageName, billingType, businessStatus, creationTime, deletedTime, description, eipAddresses, ISP, overdueTime, projectName, status, tags, updateTime);
+    return Objects.hash(bandwidth, bandwidthPackageId, bandwidthPackageName, billingType, businessStatus, creationTime, deletedTime, description, eipAddresses, ISP, overdueTime, projectName, securityProtectionTypes, status, tags, updateTime);
   }
 
 
@@ -416,6 +446,7 @@ public class BandwidthPackageForDescribeBandwidthPackagesOutput {
     sb.append("    ISP: ").append(toIndentedString(ISP)).append("\n");
     sb.append("    overdueTime: ").append(toIndentedString(overdueTime)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    securityProtectionTypes: ").append(toIndentedString(securityProtectionTypes)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");

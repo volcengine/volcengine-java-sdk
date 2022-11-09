@@ -62,6 +62,9 @@ public class CreateDirectConnectConnectionRequest {
   @SerializedName("PeerLocation")
   private String peerLocation = null;
 
+  @SerializedName("PortSpec")
+  private String portSpec = null;
+
   @SerializedName("PortType")
   private String portType = null;
 
@@ -255,6 +258,25 @@ public class CreateDirectConnectConnectionRequest {
     this.peerLocation = peerLocation;
   }
 
+  public CreateDirectConnectConnectionRequest portSpec(String portSpec) {
+    this.portSpec = portSpec;
+    return this;
+  }
+
+   /**
+   * Get portSpec
+   * @return portSpec
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getPortSpec() {
+    return portSpec;
+  }
+
+  public void setPortSpec(String portSpec) {
+    this.portSpec = portSpec;
+  }
+
   public CreateDirectConnectConnectionRequest portType(String portType) {
     this.portType = portType;
     return this;
@@ -321,13 +343,14 @@ public class CreateDirectConnectConnectionRequest {
         Objects.equals(this.directConnectConnectionName, createDirectConnectConnectionRequest.directConnectConnectionName) &&
         Objects.equals(this.lineOperator, createDirectConnectConnectionRequest.lineOperator) &&
         Objects.equals(this.peerLocation, createDirectConnectConnectionRequest.peerLocation) &&
+        Objects.equals(this.portSpec, createDirectConnectConnectionRequest.portSpec) &&
         Objects.equals(this.portType, createDirectConnectConnectionRequest.portType) &&
         Objects.equals(this.tags, createDirectConnectConnectionRequest.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidth, clientToken, customerContactEmail, customerContactPhone, customerName, description, directConnectAccessPointId, directConnectConnectionName, lineOperator, peerLocation, portType, tags);
+    return Objects.hash(bandwidth, clientToken, customerContactEmail, customerContactPhone, customerName, description, directConnectAccessPointId, directConnectConnectionName, lineOperator, peerLocation, portSpec, portType, tags);
   }
 
 
@@ -346,6 +369,7 @@ public class CreateDirectConnectConnectionRequest {
     sb.append("    directConnectConnectionName: ").append(toIndentedString(directConnectConnectionName)).append("\n");
     sb.append("    lineOperator: ").append(toIndentedString(lineOperator)).append("\n");
     sb.append("    peerLocation: ").append(toIndentedString(peerLocation)).append("\n");
+    sb.append("    portSpec: ").append(toIndentedString(portSpec)).append("\n");
     sb.append("    portType: ").append(toIndentedString(portType)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");

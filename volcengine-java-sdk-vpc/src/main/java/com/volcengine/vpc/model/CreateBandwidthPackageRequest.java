@@ -93,6 +93,9 @@ public class CreateBandwidthPackageRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
 
+  @SerializedName("SecurityProtectionTypes")
+  private List<String> securityProtectionTypes = null;
+
   @SerializedName("Tags")
   private List<TagForCreateBandwidthPackageInput> tags = null;
 
@@ -209,6 +212,32 @@ public class CreateBandwidthPackageRequest {
     this.projectName = projectName;
   }
 
+  public CreateBandwidthPackageRequest securityProtectionTypes(List<String> securityProtectionTypes) {
+    this.securityProtectionTypes = securityProtectionTypes;
+    return this;
+  }
+
+  public CreateBandwidthPackageRequest addSecurityProtectionTypesItem(String securityProtectionTypesItem) {
+    if (this.securityProtectionTypes == null) {
+      this.securityProtectionTypes = new ArrayList<String>();
+    }
+    this.securityProtectionTypes.add(securityProtectionTypesItem);
+    return this;
+  }
+
+   /**
+   * Get securityProtectionTypes
+   * @return securityProtectionTypes
+  **/
+  @Schema(description = "")
+  public List<String> getSecurityProtectionTypes() {
+    return securityProtectionTypes;
+  }
+
+  public void setSecurityProtectionTypes(List<String> securityProtectionTypes) {
+    this.securityProtectionTypes = securityProtectionTypes;
+  }
+
   public CreateBandwidthPackageRequest tags(List<TagForCreateBandwidthPackageInput> tags) {
     this.tags = tags;
     return this;
@@ -252,12 +281,13 @@ public class CreateBandwidthPackageRequest {
         Objects.equals(this.description, createBandwidthPackageRequest.description) &&
         Objects.equals(this.ISP, createBandwidthPackageRequest.ISP) &&
         Objects.equals(this.projectName, createBandwidthPackageRequest.projectName) &&
+        Objects.equals(this.securityProtectionTypes, createBandwidthPackageRequest.securityProtectionTypes) &&
         Objects.equals(this.tags, createBandwidthPackageRequest.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidth, bandwidthPackageName, billingType, description, ISP, projectName, tags);
+    return Objects.hash(bandwidth, bandwidthPackageName, billingType, description, ISP, projectName, securityProtectionTypes, tags);
   }
 
 
@@ -272,6 +302,7 @@ public class CreateBandwidthPackageRequest {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    ISP: ").append(toIndentedString(ISP)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    securityProtectionTypes: ").append(toIndentedString(securityProtectionTypes)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -1108,14 +1108,27 @@ public class ApiClient {
     }
 
     private void buildBodyOrParameter(Field field,Object v,List<Pair> queryParams, Map<String, String> headerParams, StringBuilder builder, String chain)throws Exception{
+        String name;
+        String defaultName = getMethodName(field.getName());
+        if (field.getAnnotation(SerializedName.class) != null){
+            SerializedName s = field.getAnnotation(SerializedName.class);
+            if (!s.value().equals(defaultName)){
+                name = s.value();
+            }else{
+                name =defaultName;
+            }
+        }else{
+            name = defaultName;
+        }
+
         if (isPostBody(headerParams)) {
             builder.append(chain);
-            builder.append(getMethodName(field.getName()));
+            builder.append(name);
             builder.append("=");
             builder.append(v);
             builder.append("&");
         }else {
-            Pair pair = new Pair(chain + getMethodName(field.getName()), v.toString());
+            Pair pair = new Pair(chain + name, v.toString());
             queryParams.add(pair);
         }
     }
