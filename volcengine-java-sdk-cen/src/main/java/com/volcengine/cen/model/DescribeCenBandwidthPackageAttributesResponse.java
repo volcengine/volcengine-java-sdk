@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.cen.model.TagForDescribeCenBandwidthPackageAttributesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -70,11 +71,17 @@ public class DescribeCenBandwidthPackageAttributesResponse {
   @SerializedName("PeerGeographicRegionSetId")
   private String peerGeographicRegionSetId = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("RemainingBandwidth")
   private Integer remainingBandwidth = null;
 
   @SerializedName("Status")
   private String status = null;
+
+  @SerializedName("Tags")
+  private List<TagForDescribeCenBandwidthPackageAttributesOutput> tags = null;
 
   public DescribeCenBandwidthPackageAttributesResponse accountId(String accountId) {
     this.accountId = accountId;
@@ -318,6 +325,24 @@ public class DescribeCenBandwidthPackageAttributesResponse {
     this.peerGeographicRegionSetId = peerGeographicRegionSetId;
   }
 
+  public DescribeCenBandwidthPackageAttributesResponse projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public DescribeCenBandwidthPackageAttributesResponse remainingBandwidth(Integer remainingBandwidth) {
     this.remainingBandwidth = remainingBandwidth;
     return this;
@@ -354,6 +379,33 @@ public class DescribeCenBandwidthPackageAttributesResponse {
     this.status = status;
   }
 
+  public DescribeCenBandwidthPackageAttributesResponse tags(List<TagForDescribeCenBandwidthPackageAttributesOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public DescribeCenBandwidthPackageAttributesResponse addTagsItem(TagForDescribeCenBandwidthPackageAttributesOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForDescribeCenBandwidthPackageAttributesOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForDescribeCenBandwidthPackageAttributesOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForDescribeCenBandwidthPackageAttributesOutput> tags) {
+    this.tags = tags;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -377,13 +429,15 @@ public class DescribeCenBandwidthPackageAttributesResponse {
         Objects.equals(this.expiredTime, describeCenBandwidthPackageAttributesResponse.expiredTime) &&
         Objects.equals(this.localGeographicRegionSetId, describeCenBandwidthPackageAttributesResponse.localGeographicRegionSetId) &&
         Objects.equals(this.peerGeographicRegionSetId, describeCenBandwidthPackageAttributesResponse.peerGeographicRegionSetId) &&
+        Objects.equals(this.projectName, describeCenBandwidthPackageAttributesResponse.projectName) &&
         Objects.equals(this.remainingBandwidth, describeCenBandwidthPackageAttributesResponse.remainingBandwidth) &&
-        Objects.equals(this.status, describeCenBandwidthPackageAttributesResponse.status);
+        Objects.equals(this.status, describeCenBandwidthPackageAttributesResponse.status) &&
+        Objects.equals(this.tags, describeCenBandwidthPackageAttributesResponse.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, bandwidth, billingType, businessStatus, cenBandwidthPackageId, cenBandwidthPackageName, cenIds, creationTime, deletedTime, description, expiredTime, localGeographicRegionSetId, peerGeographicRegionSetId, remainingBandwidth, status);
+    return Objects.hash(accountId, bandwidth, billingType, businessStatus, cenBandwidthPackageId, cenBandwidthPackageName, cenIds, creationTime, deletedTime, description, expiredTime, localGeographicRegionSetId, peerGeographicRegionSetId, projectName, remainingBandwidth, status, tags);
   }
 
 
@@ -405,8 +459,10 @@ public class DescribeCenBandwidthPackageAttributesResponse {
     sb.append("    expiredTime: ").append(toIndentedString(expiredTime)).append("\n");
     sb.append("    localGeographicRegionSetId: ").append(toIndentedString(localGeographicRegionSetId)).append("\n");
     sb.append("    peerGeographicRegionSetId: ").append(toIndentedString(peerGeographicRegionSetId)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    remainingBandwidth: ").append(toIndentedString(remainingBandwidth)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }

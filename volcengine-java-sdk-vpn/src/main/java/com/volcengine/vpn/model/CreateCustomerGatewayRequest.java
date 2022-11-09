@@ -41,6 +41,9 @@ public class CreateCustomerGatewayRequest {
   @SerializedName("IpAddress")
   private String ipAddress = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   public CreateCustomerGatewayRequest clientToken(String clientToken) {
     this.clientToken = clientToken;
     return this;
@@ -114,6 +117,24 @@ public class CreateCustomerGatewayRequest {
     this.ipAddress = ipAddress;
   }
 
+  public CreateCustomerGatewayRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -127,12 +148,13 @@ public class CreateCustomerGatewayRequest {
     return Objects.equals(this.clientToken, createCustomerGatewayRequest.clientToken) &&
         Objects.equals(this.customerGatewayName, createCustomerGatewayRequest.customerGatewayName) &&
         Objects.equals(this.description, createCustomerGatewayRequest.description) &&
-        Objects.equals(this.ipAddress, createCustomerGatewayRequest.ipAddress);
+        Objects.equals(this.ipAddress, createCustomerGatewayRequest.ipAddress) &&
+        Objects.equals(this.projectName, createCustomerGatewayRequest.projectName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, customerGatewayName, description, ipAddress);
+    return Objects.hash(clientToken, customerGatewayName, description, ipAddress, projectName);
   }
 
 
@@ -145,6 +167,7 @@ public class CreateCustomerGatewayRequest {
     sb.append("    customerGatewayName: ").append(toIndentedString(customerGatewayName)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    ipAddress: ").append(toIndentedString(ipAddress)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

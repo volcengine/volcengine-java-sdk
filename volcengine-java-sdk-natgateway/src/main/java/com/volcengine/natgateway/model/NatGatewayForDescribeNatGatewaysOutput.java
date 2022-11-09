@@ -83,6 +83,9 @@ public class NatGatewayForDescribeNatGatewaysOutput {
   @SerializedName("VpcId")
   private String vpcId = null;
 
+  @SerializedName("ZoneId")
+  private String zoneId = null;
+
   public NatGatewayForDescribeNatGatewaysOutput billingType(Integer billingType) {
     this.billingType = billingType;
     return this;
@@ -398,6 +401,24 @@ public class NatGatewayForDescribeNatGatewaysOutput {
     this.vpcId = vpcId;
   }
 
+  public NatGatewayForDescribeNatGatewaysOutput zoneId(String zoneId) {
+    this.zoneId = zoneId;
+    return this;
+  }
+
+   /**
+   * Get zoneId
+   * @return zoneId
+  **/
+  @Schema(description = "")
+  public String getZoneId() {
+    return zoneId;
+  }
+
+  public void setZoneId(String zoneId) {
+    this.zoneId = zoneId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -424,12 +445,13 @@ public class NatGatewayForDescribeNatGatewaysOutput {
         Objects.equals(this.status, natGatewayForDescribeNatGatewaysOutput.status) &&
         Objects.equals(this.subnetId, natGatewayForDescribeNatGatewaysOutput.subnetId) &&
         Objects.equals(this.updatedAt, natGatewayForDescribeNatGatewaysOutput.updatedAt) &&
-        Objects.equals(this.vpcId, natGatewayForDescribeNatGatewaysOutput.vpcId);
+        Objects.equals(this.vpcId, natGatewayForDescribeNatGatewaysOutput.vpcId) &&
+        Objects.equals(this.zoneId, natGatewayForDescribeNatGatewaysOutput.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(billingType, businessStatus, creationTime, deletedTime, description, eipAddresses, expiredTime, lockReason, natGatewayId, natGatewayName, networkInterfaceId, overdueTime, spec, status, subnetId, updatedAt, vpcId);
+    return Objects.hash(billingType, businessStatus, creationTime, deletedTime, description, eipAddresses, expiredTime, lockReason, natGatewayId, natGatewayName, networkInterfaceId, overdueTime, spec, status, subnetId, updatedAt, vpcId, zoneId);
   }
 
 
@@ -455,6 +477,7 @@ public class NatGatewayForDescribeNatGatewaysOutput {
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
+    sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

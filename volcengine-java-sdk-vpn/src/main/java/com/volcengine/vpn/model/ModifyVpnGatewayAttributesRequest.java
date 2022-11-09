@@ -35,6 +35,9 @@ public class ModifyVpnGatewayAttributesRequest {
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("NegotiateInstantly")
+  private String negotiateInstantly = null;
+
   @SerializedName("VpnGatewayId")
   private String vpnGatewayId = null;
 
@@ -77,6 +80,24 @@ public class ModifyVpnGatewayAttributesRequest {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public ModifyVpnGatewayAttributesRequest negotiateInstantly(String negotiateInstantly) {
+    this.negotiateInstantly = negotiateInstantly;
+    return this;
+  }
+
+   /**
+   * Get negotiateInstantly
+   * @return negotiateInstantly
+  **/
+  @Schema(description = "")
+  public String getNegotiateInstantly() {
+    return negotiateInstantly;
+  }
+
+  public void setNegotiateInstantly(String negotiateInstantly) {
+    this.negotiateInstantly = negotiateInstantly;
   }
 
   public ModifyVpnGatewayAttributesRequest vpnGatewayId(String vpnGatewayId) {
@@ -128,13 +149,14 @@ public class ModifyVpnGatewayAttributesRequest {
     ModifyVpnGatewayAttributesRequest modifyVpnGatewayAttributesRequest = (ModifyVpnGatewayAttributesRequest) o;
     return Objects.equals(this.bandwidth, modifyVpnGatewayAttributesRequest.bandwidth) &&
         Objects.equals(this.description, modifyVpnGatewayAttributesRequest.description) &&
+        Objects.equals(this.negotiateInstantly, modifyVpnGatewayAttributesRequest.negotiateInstantly) &&
         Objects.equals(this.vpnGatewayId, modifyVpnGatewayAttributesRequest.vpnGatewayId) &&
         Objects.equals(this.vpnGatewayName, modifyVpnGatewayAttributesRequest.vpnGatewayName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidth, description, vpnGatewayId, vpnGatewayName);
+    return Objects.hash(bandwidth, description, negotiateInstantly, vpnGatewayId, vpnGatewayName);
   }
 
 
@@ -145,6 +167,7 @@ public class ModifyVpnGatewayAttributesRequest {
     
     sb.append("    bandwidth: ").append(toIndentedString(bandwidth)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    negotiateInstantly: ").append(toIndentedString(negotiateInstantly)).append("\n");
     sb.append("    vpnGatewayId: ").append(toIndentedString(vpnGatewayId)).append("\n");
     sb.append("    vpnGatewayName: ").append(toIndentedString(vpnGatewayName)).append("\n");
     sb.append("}");

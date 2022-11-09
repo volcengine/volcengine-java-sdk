@@ -87,6 +87,9 @@ public class DescribeBandwidthPackagesRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
 
+  @SerializedName("SecurityProtectionEnabled")
+  private Boolean securityProtectionEnabled = null;
+
   @SerializedName("TagFilters")
   private List<TagFilterForDescribeBandwidthPackagesInput> tagFilters = null;
 
@@ -170,6 +173,24 @@ public class DescribeBandwidthPackagesRequest {
     this.projectName = projectName;
   }
 
+  public DescribeBandwidthPackagesRequest securityProtectionEnabled(Boolean securityProtectionEnabled) {
+    this.securityProtectionEnabled = securityProtectionEnabled;
+    return this;
+  }
+
+   /**
+   * Get securityProtectionEnabled
+   * @return securityProtectionEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isSecurityProtectionEnabled() {
+    return securityProtectionEnabled;
+  }
+
+  public void setSecurityProtectionEnabled(Boolean securityProtectionEnabled) {
+    this.securityProtectionEnabled = securityProtectionEnabled;
+  }
+
   public DescribeBandwidthPackagesRequest tagFilters(List<TagFilterForDescribeBandwidthPackagesInput> tagFilters) {
     this.tagFilters = tagFilters;
     return this;
@@ -211,12 +232,13 @@ public class DescribeBandwidthPackagesRequest {
         Objects.equals(this.bandwidthPackageName, describeBandwidthPackagesRequest.bandwidthPackageName) &&
         Objects.equals(this.ISP, describeBandwidthPackagesRequest.ISP) &&
         Objects.equals(this.projectName, describeBandwidthPackagesRequest.projectName) &&
+        Objects.equals(this.securityProtectionEnabled, describeBandwidthPackagesRequest.securityProtectionEnabled) &&
         Objects.equals(this.tagFilters, describeBandwidthPackagesRequest.tagFilters);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidthPackageIds, bandwidthPackageName, ISP, projectName, tagFilters);
+    return Objects.hash(bandwidthPackageIds, bandwidthPackageName, ISP, projectName, securityProtectionEnabled, tagFilters);
   }
 
 
@@ -229,6 +251,7 @@ public class DescribeBandwidthPackagesRequest {
     sb.append("    bandwidthPackageName: ").append(toIndentedString(bandwidthPackageName)).append("\n");
     sb.append("    ISP: ").append(toIndentedString(ISP)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    securityProtectionEnabled: ").append(toIndentedString(securityProtectionEnabled)).append("\n");
     sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("}");
     return sb.toString();

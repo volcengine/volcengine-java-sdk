@@ -102,6 +102,9 @@ public class InstanceForDescribeInstancesOutput {
   @SerializedName("RdmaIpAddresses")
   private List<String> rdmaIpAddresses = null;
 
+  @SerializedName("SpotStrategy")
+  private String spotStrategy = null;
+
   @SerializedName("Status")
   private String status = null;
 
@@ -547,6 +550,24 @@ public class InstanceForDescribeInstancesOutput {
     this.rdmaIpAddresses = rdmaIpAddresses;
   }
 
+  public InstanceForDescribeInstancesOutput spotStrategy(String spotStrategy) {
+    this.spotStrategy = spotStrategy;
+    return this;
+  }
+
+   /**
+   * Get spotStrategy
+   * @return spotStrategy
+  **/
+  @Schema(description = "")
+  public String getSpotStrategy() {
+    return spotStrategy;
+  }
+
+  public void setSpotStrategy(String spotStrategy) {
+    this.spotStrategy = spotStrategy;
+  }
+
   public InstanceForDescribeInstancesOutput status(String status) {
     this.status = status;
     return this;
@@ -714,6 +735,7 @@ public class InstanceForDescribeInstancesOutput {
         Objects.equals(this.osType, instanceForDescribeInstancesOutput.osType) &&
         Objects.equals(this.projectName, instanceForDescribeInstancesOutput.projectName) &&
         Objects.equals(this.rdmaIpAddresses, instanceForDescribeInstancesOutput.rdmaIpAddresses) &&
+        Objects.equals(this.spotStrategy, instanceForDescribeInstancesOutput.spotStrategy) &&
         Objects.equals(this.status, instanceForDescribeInstancesOutput.status) &&
         Objects.equals(this.stoppedMode, instanceForDescribeInstancesOutput.stoppedMode) &&
         Objects.equals(this.tags, instanceForDescribeInstancesOutput.tags) &&
@@ -725,7 +747,7 @@ public class InstanceForDescribeInstancesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cpuOptions, cpus, createdAt, description, eipAddress, expiredAt, hostName, hostname, imageId, instanceChargeType, instanceId, instanceName, instanceTypeId, keyPairId, keyPairName, localVolumes, memorySize, networkInterfaces, osName, osType, projectName, rdmaIpAddresses, status, stoppedMode, tags, updatedAt, uuid, vpcId, zoneId);
+    return Objects.hash(cpuOptions, cpus, createdAt, description, eipAddress, expiredAt, hostName, hostname, imageId, instanceChargeType, instanceId, instanceName, instanceTypeId, keyPairId, keyPairName, localVolumes, memorySize, networkInterfaces, osName, osType, projectName, rdmaIpAddresses, spotStrategy, status, stoppedMode, tags, updatedAt, uuid, vpcId, zoneId);
   }
 
 
@@ -756,6 +778,7 @@ public class InstanceForDescribeInstancesOutput {
     sb.append("    osType: ").append(toIndentedString(osType)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    rdmaIpAddresses: ").append(toIndentedString(rdmaIpAddresses)).append("\n");
+    sb.append("    spotStrategy: ").append(toIndentedString(spotStrategy)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    stoppedMode: ").append(toIndentedString(stoppedMode)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
