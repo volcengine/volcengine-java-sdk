@@ -41,7 +41,8 @@ public class DescribeNetworkAclAttributesRequest {
    * Get networkAclId
    * @return networkAclId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getNetworkAclId() {
     return networkAclId;
   }

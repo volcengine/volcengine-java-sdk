@@ -62,6 +62,9 @@ public class DescribeVpnGatewayAttributesResponse {
   @SerializedName("LockReason")
   private String lockReason = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("RequestId")
   private String requestId = null;
 
@@ -284,6 +287,24 @@ public class DescribeVpnGatewayAttributesResponse {
     this.lockReason = lockReason;
   }
 
+  public DescribeVpnGatewayAttributesResponse projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public DescribeVpnGatewayAttributesResponse requestId(String requestId) {
     this.requestId = requestId;
     return this;
@@ -449,6 +470,7 @@ public class DescribeVpnGatewayAttributesResponse {
         Objects.equals(this.expiredTime, describeVpnGatewayAttributesResponse.expiredTime) &&
         Objects.equals(this.ipAddress, describeVpnGatewayAttributesResponse.ipAddress) &&
         Objects.equals(this.lockReason, describeVpnGatewayAttributesResponse.lockReason) &&
+        Objects.equals(this.projectName, describeVpnGatewayAttributesResponse.projectName) &&
         Objects.equals(this.requestId, describeVpnGatewayAttributesResponse.requestId) &&
         Objects.equals(this.routeCount, describeVpnGatewayAttributesResponse.routeCount) &&
         Objects.equals(this.status, describeVpnGatewayAttributesResponse.status) &&
@@ -461,7 +483,7 @@ public class DescribeVpnGatewayAttributesResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, bandwidth, billingType, businessStatus, connectionCount, creationTime, deletedTime, description, expiredTime, ipAddress, lockReason, requestId, routeCount, status, subnetId, updateTime, vpcId, vpnGatewayId, vpnGatewayName);
+    return Objects.hash(accountId, bandwidth, billingType, businessStatus, connectionCount, creationTime, deletedTime, description, expiredTime, ipAddress, lockReason, projectName, requestId, routeCount, status, subnetId, updateTime, vpcId, vpnGatewayId, vpnGatewayName);
   }
 
 
@@ -481,6 +503,7 @@ public class DescribeVpnGatewayAttributesResponse {
     sb.append("    expiredTime: ").append(toIndentedString(expiredTime)).append("\n");
     sb.append("    ipAddress: ").append(toIndentedString(ipAddress)).append("\n");
     sb.append("    lockReason: ").append(toIndentedString(lockReason)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    routeCount: ").append(toIndentedString(routeCount)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");

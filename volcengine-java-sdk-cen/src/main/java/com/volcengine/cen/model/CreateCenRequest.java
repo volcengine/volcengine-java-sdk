@@ -19,15 +19,18 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.cen.model.TagForCreateCenInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
  * CreateCenRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:24.026407+08:00[Asia/Shanghai]")
+
 public class CreateCenRequest {
   @SerializedName("CenName")
   private String cenName = null;
@@ -37,6 +40,12 @@ public class CreateCenRequest {
 
   @SerializedName("Description")
   private String description = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
+  @SerializedName("Tags")
+  private List<TagForCreateCenInput> tags = null;
 
   public CreateCenRequest cenName(String cenName) {
     this.cenName = cenName;
@@ -92,6 +101,51 @@ public class CreateCenRequest {
     this.description = description;
   }
 
+  public CreateCenRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
+  public CreateCenRequest tags(List<TagForCreateCenInput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public CreateCenRequest addTagsItem(TagForCreateCenInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForCreateCenInput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForCreateCenInput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForCreateCenInput> tags) {
+    this.tags = tags;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -104,12 +158,14 @@ public class CreateCenRequest {
     CreateCenRequest createCenRequest = (CreateCenRequest) o;
     return Objects.equals(this.cenName, createCenRequest.cenName) &&
         Objects.equals(this.clientToken, createCenRequest.clientToken) &&
-        Objects.equals(this.description, createCenRequest.description);
+        Objects.equals(this.description, createCenRequest.description) &&
+        Objects.equals(this.projectName, createCenRequest.projectName) &&
+        Objects.equals(this.tags, createCenRequest.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cenName, clientToken, description);
+    return Objects.hash(cenName, clientToken, description, projectName, tags);
   }
 
 
@@ -121,6 +177,8 @@ public class CreateCenRequest {
     sb.append("    cenName: ").append(toIndentedString(cenName)).append("\n");
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }

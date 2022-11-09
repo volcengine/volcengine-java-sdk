@@ -62,14 +62,8 @@ public class VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput {
   @SerializedName("LocalIp")
   private String localIp = null;
 
-  @SerializedName("LocalIpv6Ip")
-  private String localIpv6Ip = null;
-
   @SerializedName("PeerIp")
   private String peerIp = null;
-
-  @SerializedName("PeerIpv6Ip")
-  private String peerIpv6Ip = null;
 
   @SerializedName("RouteType")
   private String routeType = null;
@@ -272,24 +266,6 @@ public class VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput {
     this.localIp = localIp;
   }
 
-  public VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput localIpv6Ip(String localIpv6Ip) {
-    this.localIpv6Ip = localIpv6Ip;
-    return this;
-  }
-
-   /**
-   * Get localIpv6Ip
-   * @return localIpv6Ip
-  **/
-  @Schema(description = "")
-  public String getLocalIpv6Ip() {
-    return localIpv6Ip;
-  }
-
-  public void setLocalIpv6Ip(String localIpv6Ip) {
-    this.localIpv6Ip = localIpv6Ip;
-  }
-
   public VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput peerIp(String peerIp) {
     this.peerIp = peerIp;
     return this;
@@ -306,24 +282,6 @@ public class VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput {
 
   public void setPeerIp(String peerIp) {
     this.peerIp = peerIp;
-  }
-
-  public VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput peerIpv6Ip(String peerIpv6Ip) {
-    this.peerIpv6Ip = peerIpv6Ip;
-    return this;
-  }
-
-   /**
-   * Get peerIpv6Ip
-   * @return peerIpv6Ip
-  **/
-  @Schema(description = "")
-  public String getPeerIpv6Ip() {
-    return peerIpv6Ip;
-  }
-
-  public void setPeerIpv6Ip(String peerIpv6Ip) {
-    this.peerIpv6Ip = peerIpv6Ip;
   }
 
   public VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput routeType(String routeType) {
@@ -481,9 +439,7 @@ public class VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput {
         Objects.equals(this.directConnectGatewayId, virtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput.directConnectGatewayId) &&
         Objects.equals(this.enableBfd, virtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput.enableBfd) &&
         Objects.equals(this.localIp, virtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput.localIp) &&
-        Objects.equals(this.localIpv6Ip, virtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput.localIpv6Ip) &&
         Objects.equals(this.peerIp, virtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput.peerIp) &&
-        Objects.equals(this.peerIpv6Ip, virtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput.peerIpv6Ip) &&
         Objects.equals(this.routeType, virtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput.routeType) &&
         Objects.equals(this.status, virtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput.status) &&
         Objects.equals(this.tags, virtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput.tags) &&
@@ -495,7 +451,7 @@ public class VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, bandwidth, bfdDetectInterval, bfdDetectMultiplier, creationTime, description, directConnectConnectionId, directConnectGatewayId, enableBfd, localIp, localIpv6Ip, peerIp, peerIpv6Ip, routeType, status, tags, updateTime, virtualInterfaceId, virtualInterfaceName, vlanId);
+    return Objects.hash(accountId, bandwidth, bfdDetectInterval, bfdDetectMultiplier, creationTime, description, directConnectConnectionId, directConnectGatewayId, enableBfd, localIp, peerIp, routeType, status, tags, updateTime, virtualInterfaceId, virtualInterfaceName, vlanId);
   }
 
 
@@ -514,9 +470,7 @@ public class VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput {
     sb.append("    directConnectGatewayId: ").append(toIndentedString(directConnectGatewayId)).append("\n");
     sb.append("    enableBfd: ").append(toIndentedString(enableBfd)).append("\n");
     sb.append("    localIp: ").append(toIndentedString(localIp)).append("\n");
-    sb.append("    localIpv6Ip: ").append(toIndentedString(localIpv6Ip)).append("\n");
     sb.append("    peerIp: ").append(toIndentedString(peerIp)).append("\n");
-    sb.append("    peerIpv6Ip: ").append(toIndentedString(peerIpv6Ip)).append("\n");
     sb.append("    routeType: ").append(toIndentedString(routeType)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
