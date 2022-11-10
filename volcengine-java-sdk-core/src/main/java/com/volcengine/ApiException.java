@@ -86,4 +86,12 @@ import java.util.Map;
     public String getResponseBody() {
         return responseBody;
     }
+
+
+    @Override
+    public String toString() {
+        String s = getClass().getName();
+        String message = responseBody;
+        return (message != null) ? (s + ": " + message) : s;
+    }
 }
