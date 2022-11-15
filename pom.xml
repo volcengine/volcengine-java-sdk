@@ -21,6 +21,7 @@
         <common-lang-version>2.6</common-lang-version>
         <javax.annotation-version>1.3.2</javax.annotation-version>
         <javax.validation-version>2.0.1.Final</javax.validation-version>
+        <dep.maven.server>maven</dep.maven.server>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -75,12 +76,12 @@
         <repository>
             <id>maven.byted.org</id>
             <name>maven.byted.org</name>
-            <url>https://artifact-maven.byted.org/repository/releases/</url>
+            <url>https://${dep.maven.server}/repository/releases/</url>
         </repository>
         <snapshotRepository>
             <id>maven.byted.org</id>
             <name>maven.byted.org</name>
-            <url>https://artifact-maven.byted.org/repository/releases/</url>
+            <url>https://${dep.maven.server}/repository/releases/</url>
         </snapshotRepository>
     </distributionManagement>
     <build>
