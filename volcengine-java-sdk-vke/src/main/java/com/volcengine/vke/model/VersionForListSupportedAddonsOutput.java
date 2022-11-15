@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vke.model.CompatibilityForListSupportedAddonsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -31,11 +32,41 @@ import javax.validation.Valid;
 
 
 public class VersionForListSupportedAddonsOutput {
+  @SerializedName("Compatibilities")
+  private List<CompatibilityForListSupportedAddonsOutput> compatibilities = null;
+
   @SerializedName("CompatibleVersions")
   private List<String> compatibleVersions = null;
 
   @SerializedName("Version")
   private String version = null;
+
+  public VersionForListSupportedAddonsOutput compatibilities(List<CompatibilityForListSupportedAddonsOutput> compatibilities) {
+    this.compatibilities = compatibilities;
+    return this;
+  }
+
+  public VersionForListSupportedAddonsOutput addCompatibilitiesItem(CompatibilityForListSupportedAddonsOutput compatibilitiesItem) {
+    if (this.compatibilities == null) {
+      this.compatibilities = new ArrayList<CompatibilityForListSupportedAddonsOutput>();
+    }
+    this.compatibilities.add(compatibilitiesItem);
+    return this;
+  }
+
+   /**
+   * Get compatibilities
+   * @return compatibilities
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<CompatibilityForListSupportedAddonsOutput> getCompatibilities() {
+    return compatibilities;
+  }
+
+  public void setCompatibilities(List<CompatibilityForListSupportedAddonsOutput> compatibilities) {
+    this.compatibilities = compatibilities;
+  }
 
   public VersionForListSupportedAddonsOutput compatibleVersions(List<String> compatibleVersions) {
     this.compatibleVersions = compatibleVersions;
@@ -91,13 +122,14 @@ public class VersionForListSupportedAddonsOutput {
       return false;
     }
     VersionForListSupportedAddonsOutput versionForListSupportedAddonsOutput = (VersionForListSupportedAddonsOutput) o;
-    return Objects.equals(this.compatibleVersions, versionForListSupportedAddonsOutput.compatibleVersions) &&
+    return Objects.equals(this.compatibilities, versionForListSupportedAddonsOutput.compatibilities) &&
+        Objects.equals(this.compatibleVersions, versionForListSupportedAddonsOutput.compatibleVersions) &&
         Objects.equals(this.version, versionForListSupportedAddonsOutput.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(compatibleVersions, version);
+    return Objects.hash(compatibilities, compatibleVersions, version);
   }
 
 
@@ -106,6 +138,7 @@ public class VersionForListSupportedAddonsOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class VersionForListSupportedAddonsOutput {\n");
     
+    sb.append("    compatibilities: ").append(toIndentedString(compatibilities)).append("\n");
     sb.append("    compatibleVersions: ").append(toIndentedString(compatibleVersions)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
