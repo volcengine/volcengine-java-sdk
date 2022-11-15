@@ -265,6 +265,9 @@ public class FilterForListSupportedAddonsInput {
   }  @SerializedName("PodNetworkModes")
   private List<PodNetworkModesEnum> podNetworkModes = null;
 
+  @SerializedName("Versions.Compatibilities.KubernetesVersions")
+  private List<String> versionsCompatibilitiesKubernetesVersions = null;
+
   public FilterForListSupportedAddonsInput categories(List<CategoriesEnum> categories) {
     this.categories = categories;
     return this;
@@ -413,6 +416,32 @@ public class FilterForListSupportedAddonsInput {
     this.podNetworkModes = podNetworkModes;
   }
 
+  public FilterForListSupportedAddonsInput versionsCompatibilitiesKubernetesVersions(List<String> versionsCompatibilitiesKubernetesVersions) {
+    this.versionsCompatibilitiesKubernetesVersions = versionsCompatibilitiesKubernetesVersions;
+    return this;
+  }
+
+  public FilterForListSupportedAddonsInput addVersionsCompatibilitiesKubernetesVersionsItem(String versionsCompatibilitiesKubernetesVersionsItem) {
+    if (this.versionsCompatibilitiesKubernetesVersions == null) {
+      this.versionsCompatibilitiesKubernetesVersions = new ArrayList<String>();
+    }
+    this.versionsCompatibilitiesKubernetesVersions.add(versionsCompatibilitiesKubernetesVersionsItem);
+    return this;
+  }
+
+   /**
+   * Get versionsCompatibilitiesKubernetesVersions
+   * @return versionsCompatibilitiesKubernetesVersions
+  **/
+  @Schema(description = "")
+  public List<String> getVersionsCompatibilitiesKubernetesVersions() {
+    return versionsCompatibilitiesKubernetesVersions;
+  }
+
+  public void setVersionsCompatibilitiesKubernetesVersions(List<String> versionsCompatibilitiesKubernetesVersions) {
+    this.versionsCompatibilitiesKubernetesVersions = versionsCompatibilitiesKubernetesVersions;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -428,12 +457,13 @@ public class FilterForListSupportedAddonsInput {
         Objects.equals(this.deployNodeTypes, filterForListSupportedAddonsInput.deployNodeTypes) &&
         Objects.equals(this.name, filterForListSupportedAddonsInput.name) &&
         Objects.equals(this.necessaries, filterForListSupportedAddonsInput.necessaries) &&
-        Objects.equals(this.podNetworkModes, filterForListSupportedAddonsInput.podNetworkModes);
+        Objects.equals(this.podNetworkModes, filterForListSupportedAddonsInput.podNetworkModes) &&
+        Objects.equals(this.versionsCompatibilitiesKubernetesVersions, filterForListSupportedAddonsInput.versionsCompatibilitiesKubernetesVersions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(categories, deployModes, deployNodeTypes, name, necessaries, podNetworkModes);
+    return Objects.hash(categories, deployModes, deployNodeTypes, name, necessaries, podNetworkModes, versionsCompatibilitiesKubernetesVersions);
   }
 
 
@@ -448,6 +478,7 @@ public class FilterForListSupportedAddonsInput {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    necessaries: ").append(toIndentedString(necessaries)).append("\n");
     sb.append("    podNetworkModes: ").append(toIndentedString(podNetworkModes)).append("\n");
+    sb.append("    versionsCompatibilitiesKubernetesVersions: ").append(toIndentedString(versionsCompatibilitiesKubernetesVersions)).append("\n");
     sb.append("}");
     return sb.toString();
   }
