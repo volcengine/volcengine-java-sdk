@@ -22,15 +22,18 @@ import com.google.gson.stream.JsonWriter;
 import com.volcengine.vke.model.AutoScalingForCreateNodePoolInput;
 import com.volcengine.vke.model.KubernetesConfigForCreateNodePoolInput;
 import com.volcengine.vke.model.NodeConfigForCreateNodePoolInput;
+import com.volcengine.vke.model.TagForCreateNodePoolInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
  * CreateNodePoolRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-25T10:54:23.552084+08:00[Asia/Shanghai]")
+
 public class CreateNodePoolRequest {
   @SerializedName("AutoScaling")
   private AutoScalingForCreateNodePoolInput autoScaling = null;
@@ -49,6 +52,9 @@ public class CreateNodePoolRequest {
 
   @SerializedName("NodeConfig")
   private NodeConfigForCreateNodePoolInput nodeConfig = null;
+
+  @SerializedName("Tags")
+  private List<TagForCreateNodePoolInput> tags = null;
 
   public CreateNodePoolRequest autoScaling(AutoScalingForCreateNodePoolInput autoScaling) {
     this.autoScaling = autoScaling;
@@ -161,6 +167,33 @@ public class CreateNodePoolRequest {
     this.nodeConfig = nodeConfig;
   }
 
+  public CreateNodePoolRequest tags(List<TagForCreateNodePoolInput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public CreateNodePoolRequest addTagsItem(TagForCreateNodePoolInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForCreateNodePoolInput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForCreateNodePoolInput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForCreateNodePoolInput> tags) {
+    this.tags = tags;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -176,12 +209,13 @@ public class CreateNodePoolRequest {
         Objects.equals(this.clusterId, createNodePoolRequest.clusterId) &&
         Objects.equals(this.kubernetesConfig, createNodePoolRequest.kubernetesConfig) &&
         Objects.equals(this.name, createNodePoolRequest.name) &&
-        Objects.equals(this.nodeConfig, createNodePoolRequest.nodeConfig);
+        Objects.equals(this.nodeConfig, createNodePoolRequest.nodeConfig) &&
+        Objects.equals(this.tags, createNodePoolRequest.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoScaling, clientToken, clusterId, kubernetesConfig, name, nodeConfig);
+    return Objects.hash(autoScaling, clientToken, clusterId, kubernetesConfig, name, nodeConfig, tags);
   }
 
 
@@ -196,6 +230,7 @@ public class CreateNodePoolRequest {
     sb.append("    kubernetesConfig: ").append(toIndentedString(kubernetesConfig)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    nodeConfig: ").append(toIndentedString(nodeConfig)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }
