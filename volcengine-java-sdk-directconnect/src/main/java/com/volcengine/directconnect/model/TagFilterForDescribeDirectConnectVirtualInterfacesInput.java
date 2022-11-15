@@ -21,21 +21,16 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
  * TagFilterForDescribeDirectConnectVirtualInterfacesInput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-22T20:23:22.987183+08:00[Asia/Shanghai]")
+
 public class TagFilterForDescribeDirectConnectVirtualInterfacesInput {
   @SerializedName("Key")
   private String key = null;
-
-  @SerializedName("Values")
-  private List<String> values = null;
 
   public TagFilterForDescribeDirectConnectVirtualInterfacesInput key(String key) {
     this.key = key;
@@ -55,32 +50,6 @@ public class TagFilterForDescribeDirectConnectVirtualInterfacesInput {
     this.key = key;
   }
 
-  public TagFilterForDescribeDirectConnectVirtualInterfacesInput values(List<String> values) {
-    this.values = values;
-    return this;
-  }
-
-  public TagFilterForDescribeDirectConnectVirtualInterfacesInput addValuesItem(String valuesItem) {
-    if (this.values == null) {
-      this.values = new ArrayList<String>();
-    }
-    this.values.add(valuesItem);
-    return this;
-  }
-
-   /**
-   * Get values
-   * @return values
-  **/
-  @Schema(description = "")
-  public List<String> getValues() {
-    return values;
-  }
-
-  public void setValues(List<String> values) {
-    this.values = values;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -91,13 +60,12 @@ public class TagFilterForDescribeDirectConnectVirtualInterfacesInput {
       return false;
     }
     TagFilterForDescribeDirectConnectVirtualInterfacesInput tagFilterForDescribeDirectConnectVirtualInterfacesInput = (TagFilterForDescribeDirectConnectVirtualInterfacesInput) o;
-    return Objects.equals(this.key, tagFilterForDescribeDirectConnectVirtualInterfacesInput.key) &&
-        Objects.equals(this.values, tagFilterForDescribeDirectConnectVirtualInterfacesInput.values);
+    return Objects.equals(this.key, tagFilterForDescribeDirectConnectVirtualInterfacesInput.key);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(key, values);
+    return Objects.hash(key);
   }
 
 
@@ -107,7 +75,6 @@ public class TagFilterForDescribeDirectConnectVirtualInterfacesInput {
     sb.append("class TagFilterForDescribeDirectConnectVirtualInterfacesInput {\n");
     
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
-    sb.append("    values: ").append(toIndentedString(values)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -29,7 +29,7 @@ import javax.validation.Valid;
  * DeleteInstancesRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-22T20:23:28.947116+08:00[Asia/Shanghai]")
+
 public class DeleteInstancesRequest {
   @SerializedName("InstanceIds")
   private List<String> instanceIds = null;

@@ -27,13 +27,10 @@ import javax.validation.Valid;
  * CreateDirectConnectGatewayResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-22T20:23:22.987183+08:00[Asia/Shanghai]")
+
 public class CreateDirectConnectGatewayResponse {
   @SerializedName("DirectConnectGatewayId")
   private String directConnectGatewayId = null;
-
-  @SerializedName("PreOrderNumber")
-  private String preOrderNumber = null;
 
   @SerializedName("RequestId")
   private String requestId = null;
@@ -54,24 +51,6 @@ public class CreateDirectConnectGatewayResponse {
 
   public void setDirectConnectGatewayId(String directConnectGatewayId) {
     this.directConnectGatewayId = directConnectGatewayId;
-  }
-
-  public CreateDirectConnectGatewayResponse preOrderNumber(String preOrderNumber) {
-    this.preOrderNumber = preOrderNumber;
-    return this;
-  }
-
-   /**
-   * Get preOrderNumber
-   * @return preOrderNumber
-  **/
-  @Schema(description = "")
-  public String getPreOrderNumber() {
-    return preOrderNumber;
-  }
-
-  public void setPreOrderNumber(String preOrderNumber) {
-    this.preOrderNumber = preOrderNumber;
   }
 
   public CreateDirectConnectGatewayResponse requestId(String requestId) {
@@ -103,13 +82,12 @@ public class CreateDirectConnectGatewayResponse {
     }
     CreateDirectConnectGatewayResponse createDirectConnectGatewayResponse = (CreateDirectConnectGatewayResponse) o;
     return Objects.equals(this.directConnectGatewayId, createDirectConnectGatewayResponse.directConnectGatewayId) &&
-        Objects.equals(this.preOrderNumber, createDirectConnectGatewayResponse.preOrderNumber) &&
         Objects.equals(this.requestId, createDirectConnectGatewayResponse.requestId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(directConnectGatewayId, preOrderNumber, requestId);
+    return Objects.hash(directConnectGatewayId, requestId);
   }
 
 
@@ -119,7 +97,6 @@ public class CreateDirectConnectGatewayResponse {
     sb.append("class CreateDirectConnectGatewayResponse {\n");
     
     sb.append("    directConnectGatewayId: ").append(toIndentedString(directConnectGatewayId)).append("\n");
-    sb.append("    preOrderNumber: ").append(toIndentedString(preOrderNumber)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("}");
     return sb.toString();

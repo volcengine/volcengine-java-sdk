@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * ModifyKeyPairAttributeResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-22T20:23:28.947116+08:00[Asia/Shanghai]")
+
 public class ModifyKeyPairAttributeResponse {
   @SerializedName("KeyPairName")
   private String keyPairName = null;

@@ -27,22 +27,86 @@ import javax.validation.Valid;
  * ModifyDirectConnectVirtualInterfaceAttributesRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-22T20:23:22.987183+08:00[Asia/Shanghai]")
+
 public class ModifyDirectConnectVirtualInterfaceAttributesRequest {
+  @SerializedName("Bandwidth")
+  private Integer bandwidth = null;
+
+  @SerializedName("BfdDetectInterval")
+  private Integer bfdDetectInterval = null;
+
+  @SerializedName("BfdDetectMultiplier")
+  private Integer bfdDetectMultiplier = null;
+
   @SerializedName("Description")
   private String description = null;
 
-  @SerializedName("LocalIpv6Ip")
-  private String localIpv6Ip = null;
-
-  @SerializedName("PeerIpv6Ip")
-  private String peerIpv6Ip = null;
+  @SerializedName("EnableBfd")
+  private Boolean enableBfd = null;
 
   @SerializedName("VirtualInterfaceId")
   private String virtualInterfaceId = null;
 
   @SerializedName("VirtualInterfaceName")
   private String virtualInterfaceName = null;
+
+  public ModifyDirectConnectVirtualInterfaceAttributesRequest bandwidth(Integer bandwidth) {
+    this.bandwidth = bandwidth;
+    return this;
+  }
+
+   /**
+   * Get bandwidth
+   * @return bandwidth
+  **/
+  @Schema(description = "")
+  public Integer getBandwidth() {
+    return bandwidth;
+  }
+
+  public void setBandwidth(Integer bandwidth) {
+    this.bandwidth = bandwidth;
+  }
+
+  public ModifyDirectConnectVirtualInterfaceAttributesRequest bfdDetectInterval(Integer bfdDetectInterval) {
+    this.bfdDetectInterval = bfdDetectInterval;
+    return this;
+  }
+
+   /**
+   * Get bfdDetectInterval
+   * minimum: 200
+   * maximum: 1000
+   * @return bfdDetectInterval
+  **/
+ @Min(200) @Max(1000)  @Schema(description = "")
+  public Integer getBfdDetectInterval() {
+    return bfdDetectInterval;
+  }
+
+  public void setBfdDetectInterval(Integer bfdDetectInterval) {
+    this.bfdDetectInterval = bfdDetectInterval;
+  }
+
+  public ModifyDirectConnectVirtualInterfaceAttributesRequest bfdDetectMultiplier(Integer bfdDetectMultiplier) {
+    this.bfdDetectMultiplier = bfdDetectMultiplier;
+    return this;
+  }
+
+   /**
+   * Get bfdDetectMultiplier
+   * minimum: 3
+   * maximum: 10
+   * @return bfdDetectMultiplier
+  **/
+ @Min(3) @Max(10)  @Schema(description = "")
+  public Integer getBfdDetectMultiplier() {
+    return bfdDetectMultiplier;
+  }
+
+  public void setBfdDetectMultiplier(Integer bfdDetectMultiplier) {
+    this.bfdDetectMultiplier = bfdDetectMultiplier;
+  }
 
   public ModifyDirectConnectVirtualInterfaceAttributesRequest description(String description) {
     this.description = description;
@@ -62,40 +126,22 @@ public class ModifyDirectConnectVirtualInterfaceAttributesRequest {
     this.description = description;
   }
 
-  public ModifyDirectConnectVirtualInterfaceAttributesRequest localIpv6Ip(String localIpv6Ip) {
-    this.localIpv6Ip = localIpv6Ip;
+  public ModifyDirectConnectVirtualInterfaceAttributesRequest enableBfd(Boolean enableBfd) {
+    this.enableBfd = enableBfd;
     return this;
   }
 
    /**
-   * Get localIpv6Ip
-   * @return localIpv6Ip
+   * Get enableBfd
+   * @return enableBfd
   **/
   @Schema(description = "")
-  public String getLocalIpv6Ip() {
-    return localIpv6Ip;
+  public Boolean isEnableBfd() {
+    return enableBfd;
   }
 
-  public void setLocalIpv6Ip(String localIpv6Ip) {
-    this.localIpv6Ip = localIpv6Ip;
-  }
-
-  public ModifyDirectConnectVirtualInterfaceAttributesRequest peerIpv6Ip(String peerIpv6Ip) {
-    this.peerIpv6Ip = peerIpv6Ip;
-    return this;
-  }
-
-   /**
-   * Get peerIpv6Ip
-   * @return peerIpv6Ip
-  **/
-  @Schema(description = "")
-  public String getPeerIpv6Ip() {
-    return peerIpv6Ip;
-  }
-
-  public void setPeerIpv6Ip(String peerIpv6Ip) {
-    this.peerIpv6Ip = peerIpv6Ip;
+  public void setEnableBfd(Boolean enableBfd) {
+    this.enableBfd = enableBfd;
   }
 
   public ModifyDirectConnectVirtualInterfaceAttributesRequest virtualInterfaceId(String virtualInterfaceId) {
@@ -145,16 +191,18 @@ public class ModifyDirectConnectVirtualInterfaceAttributesRequest {
       return false;
     }
     ModifyDirectConnectVirtualInterfaceAttributesRequest modifyDirectConnectVirtualInterfaceAttributesRequest = (ModifyDirectConnectVirtualInterfaceAttributesRequest) o;
-    return Objects.equals(this.description, modifyDirectConnectVirtualInterfaceAttributesRequest.description) &&
-        Objects.equals(this.localIpv6Ip, modifyDirectConnectVirtualInterfaceAttributesRequest.localIpv6Ip) &&
-        Objects.equals(this.peerIpv6Ip, modifyDirectConnectVirtualInterfaceAttributesRequest.peerIpv6Ip) &&
+    return Objects.equals(this.bandwidth, modifyDirectConnectVirtualInterfaceAttributesRequest.bandwidth) &&
+        Objects.equals(this.bfdDetectInterval, modifyDirectConnectVirtualInterfaceAttributesRequest.bfdDetectInterval) &&
+        Objects.equals(this.bfdDetectMultiplier, modifyDirectConnectVirtualInterfaceAttributesRequest.bfdDetectMultiplier) &&
+        Objects.equals(this.description, modifyDirectConnectVirtualInterfaceAttributesRequest.description) &&
+        Objects.equals(this.enableBfd, modifyDirectConnectVirtualInterfaceAttributesRequest.enableBfd) &&
         Objects.equals(this.virtualInterfaceId, modifyDirectConnectVirtualInterfaceAttributesRequest.virtualInterfaceId) &&
         Objects.equals(this.virtualInterfaceName, modifyDirectConnectVirtualInterfaceAttributesRequest.virtualInterfaceName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, localIpv6Ip, peerIpv6Ip, virtualInterfaceId, virtualInterfaceName);
+    return Objects.hash(bandwidth, bfdDetectInterval, bfdDetectMultiplier, description, enableBfd, virtualInterfaceId, virtualInterfaceName);
   }
 
 
@@ -163,9 +211,11 @@ public class ModifyDirectConnectVirtualInterfaceAttributesRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ModifyDirectConnectVirtualInterfaceAttributesRequest {\n");
     
+    sb.append("    bandwidth: ").append(toIndentedString(bandwidth)).append("\n");
+    sb.append("    bfdDetectInterval: ").append(toIndentedString(bfdDetectInterval)).append("\n");
+    sb.append("    bfdDetectMultiplier: ").append(toIndentedString(bfdDetectMultiplier)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    localIpv6Ip: ").append(toIndentedString(localIpv6Ip)).append("\n");
-    sb.append("    peerIpv6Ip: ").append(toIndentedString(peerIpv6Ip)).append("\n");
+    sb.append("    enableBfd: ").append(toIndentedString(enableBfd)).append("\n");
     sb.append("    virtualInterfaceId: ").append(toIndentedString(virtualInterfaceId)).append("\n");
     sb.append("    virtualInterfaceName: ").append(toIndentedString(virtualInterfaceName)).append("\n");
     sb.append("}");

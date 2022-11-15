@@ -32,7 +32,7 @@ import javax.validation.Valid;
  * RunInstancesRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-22T20:23:28.947116+08:00[Asia/Shanghai]")
+
 public class RunInstancesRequest {
   @SerializedName("AutoRenew")
   private Boolean autoRenew = null;
@@ -58,6 +58,9 @@ public class RunInstancesRequest {
   @SerializedName("HostName")
   private String hostName = null;
 
+  @SerializedName("Hostname")
+  private String hostname = null;
+
   @SerializedName("HpcClusterId")
   private String hpcClusterId = null;
 
@@ -75,6 +78,9 @@ public class RunInstancesRequest {
 
   @SerializedName("InstanceTypeId")
   private String instanceTypeId = null;
+
+  @SerializedName("KeepImageCredential")
+  private Boolean keepImageCredential = null;
 
   @SerializedName("KeyPairName")
   private String keyPairName = null;
@@ -99,6 +105,9 @@ public class RunInstancesRequest {
 
   @SerializedName("SecurityEnhancementStrategy")
   private String securityEnhancementStrategy = null;
+
+  @SerializedName("SpotStrategy")
+  private String spotStrategy = null;
 
   @SerializedName("SuffixIndex")
   private Integer suffixIndex = null;
@@ -262,6 +271,24 @@ public class RunInstancesRequest {
     this.hostName = hostName;
   }
 
+  public RunInstancesRequest hostname(String hostname) {
+    this.hostname = hostname;
+    return this;
+  }
+
+   /**
+   * Get hostname
+   * @return hostname
+  **/
+  @Schema(description = "")
+  public String getHostname() {
+    return hostname;
+  }
+
+  public void setHostname(String hostname) {
+    this.hostname = hostname;
+  }
+
   public RunInstancesRequest hpcClusterId(String hpcClusterId) {
     this.hpcClusterId = hpcClusterId;
     return this;
@@ -368,6 +395,24 @@ public class RunInstancesRequest {
 
   public void setInstanceTypeId(String instanceTypeId) {
     this.instanceTypeId = instanceTypeId;
+  }
+
+  public RunInstancesRequest keepImageCredential(Boolean keepImageCredential) {
+    this.keepImageCredential = keepImageCredential;
+    return this;
+  }
+
+   /**
+   * Get keepImageCredential
+   * @return keepImageCredential
+  **/
+  @Schema(description = "")
+  public Boolean isKeepImageCredential() {
+    return keepImageCredential;
+  }
+
+  public void setKeepImageCredential(Boolean keepImageCredential) {
+    this.keepImageCredential = keepImageCredential;
   }
 
   public RunInstancesRequest keyPairName(String keyPairName) {
@@ -523,6 +568,24 @@ public class RunInstancesRequest {
     this.securityEnhancementStrategy = securityEnhancementStrategy;
   }
 
+  public RunInstancesRequest spotStrategy(String spotStrategy) {
+    this.spotStrategy = spotStrategy;
+    return this;
+  }
+
+   /**
+   * Get spotStrategy
+   * @return spotStrategy
+  **/
+  @Schema(description = "")
+  public String getSpotStrategy() {
+    return spotStrategy;
+  }
+
+  public void setSpotStrategy(String spotStrategy) {
+    this.spotStrategy = spotStrategy;
+  }
+
   public RunInstancesRequest suffixIndex(Integer suffixIndex) {
     this.suffixIndex = suffixIndex;
     return this;
@@ -667,12 +730,14 @@ public class RunInstancesRequest {
         Objects.equals(this.description, runInstancesRequest.description) &&
         Objects.equals(this.dryRun, runInstancesRequest.dryRun) &&
         Objects.equals(this.hostName, runInstancesRequest.hostName) &&
+        Objects.equals(this.hostname, runInstancesRequest.hostname) &&
         Objects.equals(this.hpcClusterId, runInstancesRequest.hpcClusterId) &&
         Objects.equals(this.imageId, runInstancesRequest.imageId) &&
         Objects.equals(this.instanceChargeType, runInstancesRequest.instanceChargeType) &&
         Objects.equals(this.instanceName, runInstancesRequest.instanceName) &&
         Objects.equals(this.instanceType, runInstancesRequest.instanceType) &&
         Objects.equals(this.instanceTypeId, runInstancesRequest.instanceTypeId) &&
+        Objects.equals(this.keepImageCredential, runInstancesRequest.keepImageCredential) &&
         Objects.equals(this.keyPairName, runInstancesRequest.keyPairName) &&
         Objects.equals(this.minCount, runInstancesRequest.minCount) &&
         Objects.equals(this.networkInterfaces, runInstancesRequest.networkInterfaces) &&
@@ -681,6 +746,7 @@ public class RunInstancesRequest {
         Objects.equals(this.periodUnit, runInstancesRequest.periodUnit) &&
         Objects.equals(this.projectName, runInstancesRequest.projectName) &&
         Objects.equals(this.securityEnhancementStrategy, runInstancesRequest.securityEnhancementStrategy) &&
+        Objects.equals(this.spotStrategy, runInstancesRequest.spotStrategy) &&
         Objects.equals(this.suffixIndex, runInstancesRequest.suffixIndex) &&
         Objects.equals(this.tags, runInstancesRequest.tags) &&
         Objects.equals(this.uniqueSuffix, runInstancesRequest.uniqueSuffix) &&
@@ -691,7 +757,7 @@ public class RunInstancesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoRenew, autoRenewPeriod, clientToken, count, creditSpecification, description, dryRun, hostName, hpcClusterId, imageId, instanceChargeType, instanceName, instanceType, instanceTypeId, keyPairName, minCount, networkInterfaces, password, period, periodUnit, projectName, securityEnhancementStrategy, suffixIndex, tags, uniqueSuffix, userData, volumes, zoneId);
+    return Objects.hash(autoRenew, autoRenewPeriod, clientToken, count, creditSpecification, description, dryRun, hostName, hostname, hpcClusterId, imageId, instanceChargeType, instanceName, instanceType, instanceTypeId, keepImageCredential, keyPairName, minCount, networkInterfaces, password, period, periodUnit, projectName, securityEnhancementStrategy, spotStrategy, suffixIndex, tags, uniqueSuffix, userData, volumes, zoneId);
   }
 
 
@@ -708,12 +774,14 @@ public class RunInstancesRequest {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    dryRun: ").append(toIndentedString(dryRun)).append("\n");
     sb.append("    hostName: ").append(toIndentedString(hostName)).append("\n");
+    sb.append("    hostname: ").append(toIndentedString(hostname)).append("\n");
     sb.append("    hpcClusterId: ").append(toIndentedString(hpcClusterId)).append("\n");
     sb.append("    imageId: ").append(toIndentedString(imageId)).append("\n");
     sb.append("    instanceChargeType: ").append(toIndentedString(instanceChargeType)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("    instanceTypeId: ").append(toIndentedString(instanceTypeId)).append("\n");
+    sb.append("    keepImageCredential: ").append(toIndentedString(keepImageCredential)).append("\n");
     sb.append("    keyPairName: ").append(toIndentedString(keyPairName)).append("\n");
     sb.append("    minCount: ").append(toIndentedString(minCount)).append("\n");
     sb.append("    networkInterfaces: ").append(toIndentedString(networkInterfaces)).append("\n");
@@ -722,6 +790,7 @@ public class RunInstancesRequest {
     sb.append("    periodUnit: ").append(toIndentedString(periodUnit)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    securityEnhancementStrategy: ").append(toIndentedString(securityEnhancementStrategy)).append("\n");
+    sb.append("    spotStrategy: ").append(toIndentedString(spotStrategy)).append("\n");
     sb.append("    suffixIndex: ").append(toIndentedString(suffixIndex)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    uniqueSuffix: ").append(toIndentedString(uniqueSuffix)).append("\n");

@@ -30,10 +30,13 @@ import javax.validation.Valid;
  * AllocateEipAddressRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-12T11:38:08.781574+08:00[Asia/Shanghai]")
+
 public class AllocateEipAddressRequest {
   @SerializedName("Bandwidth")
   private Integer bandwidth = null;
+
+  @SerializedName("BandwidthPackageId")
+  private String bandwidthPackageId = null;
 
   @SerializedName("BillingType")
   private Integer billingType = null;
@@ -126,6 +129,24 @@ public class AllocateEipAddressRequest {
 
   public void setBandwidth(Integer bandwidth) {
     this.bandwidth = bandwidth;
+  }
+
+  public AllocateEipAddressRequest bandwidthPackageId(String bandwidthPackageId) {
+    this.bandwidthPackageId = bandwidthPackageId;
+    return this;
+  }
+
+   /**
+   * Get bandwidthPackageId
+   * @return bandwidthPackageId
+  **/
+  @Schema(description = "")
+  public String getBandwidthPackageId() {
+    return bandwidthPackageId;
+  }
+
+  public void setBandwidthPackageId(String bandwidthPackageId) {
+    this.bandwidthPackageId = bandwidthPackageId;
   }
 
   public AllocateEipAddressRequest billingType(Integer billingType) {
@@ -340,6 +361,7 @@ public class AllocateEipAddressRequest {
     }
     AllocateEipAddressRequest allocateEipAddressRequest = (AllocateEipAddressRequest) o;
     return Objects.equals(this.bandwidth, allocateEipAddressRequest.bandwidth) &&
+        Objects.equals(this.bandwidthPackageId, allocateEipAddressRequest.bandwidthPackageId) &&
         Objects.equals(this.billingType, allocateEipAddressRequest.billingType) &&
         Objects.equals(this.clientToken, allocateEipAddressRequest.clientToken) &&
         Objects.equals(this.description, allocateEipAddressRequest.description) &&
@@ -354,7 +376,7 @@ public class AllocateEipAddressRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidth, billingType, clientToken, description, ISP, name, period, periodUnit, projectName, securityProtectionTypes, tags);
+    return Objects.hash(bandwidth, bandwidthPackageId, billingType, clientToken, description, ISP, name, period, periodUnit, projectName, securityProtectionTypes, tags);
   }
 
 
@@ -364,6 +386,7 @@ public class AllocateEipAddressRequest {
     sb.append("class AllocateEipAddressRequest {\n");
     
     sb.append("    bandwidth: ").append(toIndentedString(bandwidth)).append("\n");
+    sb.append("    bandwidthPackageId: ").append(toIndentedString(bandwidthPackageId)).append("\n");
     sb.append("    billingType: ").append(toIndentedString(billingType)).append("\n");
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
