@@ -29,7 +29,7 @@ import javax.validation.Valid;
  * CreateVpnConnectionRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-22T20:23:47.673068+08:00[Asia/Shanghai]")
+
 public class CreateVpnConnectionRequest {
   @SerializedName("ClientToken")
   private String clientToken = null;
@@ -97,6 +97,9 @@ public class CreateVpnConnectionRequest {
 
   @SerializedName("NatTraversal")
   private Boolean natTraversal = null;
+
+  @SerializedName("NegotiateInstantly")
+  private Boolean negotiateInstantly = null;
 
   @SerializedName("RemoteSubnet")
   private List<String> remoteSubnet = null;
@@ -260,6 +263,24 @@ public class CreateVpnConnectionRequest {
     this.natTraversal = natTraversal;
   }
 
+  public CreateVpnConnectionRequest negotiateInstantly(Boolean negotiateInstantly) {
+    this.negotiateInstantly = negotiateInstantly;
+    return this;
+  }
+
+   /**
+   * Get negotiateInstantly
+   * @return negotiateInstantly
+  **/
+  @Schema(description = "")
+  public Boolean isNegotiateInstantly() {
+    return negotiateInstantly;
+  }
+
+  public void setNegotiateInstantly(Boolean negotiateInstantly) {
+    this.negotiateInstantly = negotiateInstantly;
+  }
+
   public CreateVpnConnectionRequest remoteSubnet(List<String> remoteSubnet) {
     this.remoteSubnet = remoteSubnet;
     return this;
@@ -341,6 +362,7 @@ public class CreateVpnConnectionRequest {
         Objects.equals(this.ipsecConfig, createVpnConnectionRequest.ipsecConfig) &&
         Objects.equals(this.localSubnet, createVpnConnectionRequest.localSubnet) &&
         Objects.equals(this.natTraversal, createVpnConnectionRequest.natTraversal) &&
+        Objects.equals(this.negotiateInstantly, createVpnConnectionRequest.negotiateInstantly) &&
         Objects.equals(this.remoteSubnet, createVpnConnectionRequest.remoteSubnet) &&
         Objects.equals(this.vpnConnectionName, createVpnConnectionRequest.vpnConnectionName) &&
         Objects.equals(this.vpnGatewayId, createVpnConnectionRequest.vpnGatewayId);
@@ -348,7 +370,7 @@ public class CreateVpnConnectionRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, customerGatewayId, description, dpdAction, ikeConfig, ipsecConfig, localSubnet, natTraversal, remoteSubnet, vpnConnectionName, vpnGatewayId);
+    return Objects.hash(clientToken, customerGatewayId, description, dpdAction, ikeConfig, ipsecConfig, localSubnet, natTraversal, negotiateInstantly, remoteSubnet, vpnConnectionName, vpnGatewayId);
   }
 
 
@@ -365,6 +387,7 @@ public class CreateVpnConnectionRequest {
     sb.append("    ipsecConfig: ").append(toIndentedString(ipsecConfig)).append("\n");
     sb.append("    localSubnet: ").append(toIndentedString(localSubnet)).append("\n");
     sb.append("    natTraversal: ").append(toIndentedString(natTraversal)).append("\n");
+    sb.append("    negotiateInstantly: ").append(toIndentedString(negotiateInstantly)).append("\n");
     sb.append("    remoteSubnet: ").append(toIndentedString(remoteSubnet)).append("\n");
     sb.append("    vpnConnectionName: ").append(toIndentedString(vpnConnectionName)).append("\n");
     sb.append("    vpnGatewayId: ").append(toIndentedString(vpnGatewayId)).append("\n");

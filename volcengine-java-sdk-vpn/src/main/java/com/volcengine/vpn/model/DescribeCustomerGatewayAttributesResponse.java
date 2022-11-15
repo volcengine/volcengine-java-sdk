@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * DescribeCustomerGatewayAttributesResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-22T20:23:47.673068+08:00[Asia/Shanghai]")
+
 public class DescribeCustomerGatewayAttributesResponse {
   @SerializedName("AccountId")
   private String accountId = null;
@@ -49,6 +49,9 @@ public class DescribeCustomerGatewayAttributesResponse {
 
   @SerializedName("IpAddress")
   private String ipAddress = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
 
   @SerializedName("RequestId")
   private String requestId = null;
@@ -185,6 +188,24 @@ public class DescribeCustomerGatewayAttributesResponse {
     this.ipAddress = ipAddress;
   }
 
+  public DescribeCustomerGatewayAttributesResponse projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public DescribeCustomerGatewayAttributesResponse requestId(String requestId) {
     this.requestId = requestId;
     return this;
@@ -256,6 +277,7 @@ public class DescribeCustomerGatewayAttributesResponse {
         Objects.equals(this.customerGatewayName, describeCustomerGatewayAttributesResponse.customerGatewayName) &&
         Objects.equals(this.description, describeCustomerGatewayAttributesResponse.description) &&
         Objects.equals(this.ipAddress, describeCustomerGatewayAttributesResponse.ipAddress) &&
+        Objects.equals(this.projectName, describeCustomerGatewayAttributesResponse.projectName) &&
         Objects.equals(this.requestId, describeCustomerGatewayAttributesResponse.requestId) &&
         Objects.equals(this.status, describeCustomerGatewayAttributesResponse.status) &&
         Objects.equals(this.updateTime, describeCustomerGatewayAttributesResponse.updateTime);
@@ -263,7 +285,7 @@ public class DescribeCustomerGatewayAttributesResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, connectionCount, creationTime, customerGatewayId, customerGatewayName, description, ipAddress, requestId, status, updateTime);
+    return Objects.hash(accountId, connectionCount, creationTime, customerGatewayId, customerGatewayName, description, ipAddress, projectName, requestId, status, updateTime);
   }
 
 
@@ -279,6 +301,7 @@ public class DescribeCustomerGatewayAttributesResponse {
     sb.append("    customerGatewayName: ").append(toIndentedString(customerGatewayName)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    ipAddress: ").append(toIndentedString(ipAddress)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");

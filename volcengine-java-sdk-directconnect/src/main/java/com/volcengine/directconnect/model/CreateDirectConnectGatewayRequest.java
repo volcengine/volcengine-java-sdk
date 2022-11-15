@@ -30,7 +30,7 @@ import javax.validation.Valid;
  * CreateDirectConnectGatewayRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-22T20:23:22.987183+08:00[Asia/Shanghai]")
+
 public class CreateDirectConnectGatewayRequest {
   @SerializedName("ClientToken")
   private String clientToken = null;
@@ -40,9 +40,6 @@ public class CreateDirectConnectGatewayRequest {
 
   @SerializedName("DirectConnectGatewayName")
   private String directConnectGatewayName = null;
-
-  @SerializedName("EnableIpv6")
-  private Boolean enableIpv6 = null;
 
   @SerializedName("Tags")
   private List<TagForCreateDirectConnectGatewayInput> tags = null;
@@ -102,24 +99,6 @@ public class CreateDirectConnectGatewayRequest {
     this.directConnectGatewayName = directConnectGatewayName;
   }
 
-  public CreateDirectConnectGatewayRequest enableIpv6(Boolean enableIpv6) {
-    this.enableIpv6 = enableIpv6;
-    return this;
-  }
-
-   /**
-   * Get enableIpv6
-   * @return enableIpv6
-  **/
-  @Schema(description = "")
-  public Boolean isEnableIpv6() {
-    return enableIpv6;
-  }
-
-  public void setEnableIpv6(Boolean enableIpv6) {
-    this.enableIpv6 = enableIpv6;
-  }
-
   public CreateDirectConnectGatewayRequest tags(List<TagForCreateDirectConnectGatewayInput> tags) {
     this.tags = tags;
     return this;
@@ -160,13 +139,12 @@ public class CreateDirectConnectGatewayRequest {
     return Objects.equals(this.clientToken, createDirectConnectGatewayRequest.clientToken) &&
         Objects.equals(this.description, createDirectConnectGatewayRequest.description) &&
         Objects.equals(this.directConnectGatewayName, createDirectConnectGatewayRequest.directConnectGatewayName) &&
-        Objects.equals(this.enableIpv6, createDirectConnectGatewayRequest.enableIpv6) &&
         Objects.equals(this.tags, createDirectConnectGatewayRequest.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, description, directConnectGatewayName, enableIpv6, tags);
+    return Objects.hash(clientToken, description, directConnectGatewayName, tags);
   }
 
 
@@ -178,7 +156,6 @@ public class CreateDirectConnectGatewayRequest {
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    directConnectGatewayName: ").append(toIndentedString(directConnectGatewayName)).append("\n");
-    sb.append("    enableIpv6: ").append(toIndentedString(enableIpv6)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();

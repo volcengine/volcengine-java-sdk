@@ -30,7 +30,7 @@ import javax.validation.Valid;
  * DescribeVpcsResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-12T11:38:08.781574+08:00[Asia/Shanghai]")
+
 public class DescribeVpcsResponse {
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
