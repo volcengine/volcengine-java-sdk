@@ -24,15 +24,18 @@ import com.volcengine.vke.model.NodeStatisticsForListClustersOutput;
 import com.volcengine.vke.model.PodsConfigForListClustersOutput;
 import com.volcengine.vke.model.ServicesConfigForListClustersOutput;
 import com.volcengine.vke.model.StatusForListClustersOutput;
+import com.volcengine.vke.model.TagForListClustersOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
  * ItemForListClustersOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-25T10:54:23.552084+08:00[Asia/Shanghai]")
+
 public class ItemForListClustersOutput {
   @SerializedName("ChargeType")
   private String chargeType = null;
@@ -72,6 +75,9 @@ public class ItemForListClustersOutput {
 
   @SerializedName("Status")
   private StatusForListClustersOutput status = null;
+
+  @SerializedName("Tags")
+  private List<TagForListClustersOutput> tags = null;
 
   @SerializedName("UpdateClientToken")
   private String updateClientToken = null;
@@ -318,6 +324,33 @@ public class ItemForListClustersOutput {
     this.status = status;
   }
 
+  public ItemForListClustersOutput tags(List<TagForListClustersOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public ItemForListClustersOutput addTagsItem(TagForListClustersOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForListClustersOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForListClustersOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForListClustersOutput> tags) {
+    this.tags = tags;
+  }
+
   public ItemForListClustersOutput updateClientToken(String updateClientToken) {
     this.updateClientToken = updateClientToken;
     return this;
@@ -377,13 +410,14 @@ public class ItemForListClustersOutput {
         Objects.equals(this.podsConfig, itemForListClustersOutput.podsConfig) &&
         Objects.equals(this.servicesConfig, itemForListClustersOutput.servicesConfig) &&
         Objects.equals(this.status, itemForListClustersOutput.status) &&
+        Objects.equals(this.tags, itemForListClustersOutput.tags) &&
         Objects.equals(this.updateClientToken, itemForListClustersOutput.updateClientToken) &&
         Objects.equals(this.updateTime, itemForListClustersOutput.updateTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(chargeType, clusterConfig, createClientToken, createTime, deleteProtectionEnabled, description, id, kubernetesVersion, name, nodeStatistics, podsConfig, servicesConfig, status, updateClientToken, updateTime);
+    return Objects.hash(chargeType, clusterConfig, createClientToken, createTime, deleteProtectionEnabled, description, id, kubernetesVersion, name, nodeStatistics, podsConfig, servicesConfig, status, tags, updateClientToken, updateTime);
   }
 
 
@@ -405,6 +439,7 @@ public class ItemForListClustersOutput {
     sb.append("    podsConfig: ").append(toIndentedString(podsConfig)).append("\n");
     sb.append("    servicesConfig: ").append(toIndentedString(servicesConfig)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updateClientToken: ").append(toIndentedString(updateClientToken)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("}");
