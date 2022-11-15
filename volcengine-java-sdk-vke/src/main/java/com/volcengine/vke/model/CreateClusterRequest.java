@@ -22,15 +22,18 @@ import com.google.gson.stream.JsonWriter;
 import com.volcengine.vke.model.ClusterConfigForCreateClusterInput;
 import com.volcengine.vke.model.PodsConfigForCreateClusterInput;
 import com.volcengine.vke.model.ServicesConfigForCreateClusterInput;
+import com.volcengine.vke.model.TagForCreateClusterInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
  * CreateClusterRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-25T10:54:23.552084+08:00[Asia/Shanghai]")
+
 public class CreateClusterRequest {
   @SerializedName("ClientToken")
   private String clientToken = null;
@@ -52,6 +55,9 @@ public class CreateClusterRequest {
 
   @SerializedName("ServicesConfig")
   private ServicesConfigForCreateClusterInput servicesConfig = null;
+
+  @SerializedName("Tags")
+  private List<TagForCreateClusterInput> tags = null;
 
   public CreateClusterRequest clientToken(String clientToken) {
     this.clientToken = clientToken;
@@ -182,6 +188,33 @@ public class CreateClusterRequest {
     this.servicesConfig = servicesConfig;
   }
 
+  public CreateClusterRequest tags(List<TagForCreateClusterInput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public CreateClusterRequest addTagsItem(TagForCreateClusterInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForCreateClusterInput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForCreateClusterInput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForCreateClusterInput> tags) {
+    this.tags = tags;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -198,12 +231,13 @@ public class CreateClusterRequest {
         Objects.equals(this.description, createClusterRequest.description) &&
         Objects.equals(this.name, createClusterRequest.name) &&
         Objects.equals(this.podsConfig, createClusterRequest.podsConfig) &&
-        Objects.equals(this.servicesConfig, createClusterRequest.servicesConfig);
+        Objects.equals(this.servicesConfig, createClusterRequest.servicesConfig) &&
+        Objects.equals(this.tags, createClusterRequest.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, clusterConfig, deleteProtectionEnabled, description, name, podsConfig, servicesConfig);
+    return Objects.hash(clientToken, clusterConfig, deleteProtectionEnabled, description, name, podsConfig, servicesConfig, tags);
   }
 
 
@@ -219,6 +253,7 @@ public class CreateClusterRequest {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    podsConfig: ").append(toIndentedString(podsConfig)).append("\n");
     sb.append("    servicesConfig: ").append(toIndentedString(servicesConfig)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import com.volcengine.vke.model.DataVolumeForListNodePoolsOutput;
 import com.volcengine.vke.model.SecurityForListNodePoolsOutput;
 import com.volcengine.vke.model.SystemVolumeForListNodePoolsOutput;
+import com.volcengine.vke.model.TagForListNodePoolsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -32,7 +33,7 @@ import javax.validation.Valid;
  * NodeConfigForListNodePoolsOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-25T10:54:23.552084+08:00[Asia/Shanghai]")
+
 public class NodeConfigForListNodePoolsOutput {
   @SerializedName("AdditionalContainerStorageEnabled")
   private Boolean additionalContainerStorageEnabled = null;
@@ -58,6 +59,9 @@ public class NodeConfigForListNodePoolsOutput {
   @SerializedName("InstanceTypeIds")
   private List<String> instanceTypeIds = null;
 
+  @SerializedName("NamePrefix")
+  private String namePrefix = null;
+
   @SerializedName("Period")
   private Integer period = null;
 
@@ -69,6 +73,9 @@ public class NodeConfigForListNodePoolsOutput {
 
   @SerializedName("SystemVolume")
   private SystemVolumeForListNodePoolsOutput systemVolume = null;
+
+  @SerializedName("Tags")
+  private List<TagForListNodePoolsOutput> tags = null;
 
   public NodeConfigForListNodePoolsOutput additionalContainerStorageEnabled(Boolean additionalContainerStorageEnabled) {
     this.additionalContainerStorageEnabled = additionalContainerStorageEnabled;
@@ -231,6 +238,24 @@ public class NodeConfigForListNodePoolsOutput {
     this.instanceTypeIds = instanceTypeIds;
   }
 
+  public NodeConfigForListNodePoolsOutput namePrefix(String namePrefix) {
+    this.namePrefix = namePrefix;
+    return this;
+  }
+
+   /**
+   * Get namePrefix
+   * @return namePrefix
+  **/
+  @Schema(description = "")
+  public String getNamePrefix() {
+    return namePrefix;
+  }
+
+  public void setNamePrefix(String namePrefix) {
+    this.namePrefix = namePrefix;
+  }
+
   public NodeConfigForListNodePoolsOutput period(Integer period) {
     this.period = period;
     return this;
@@ -313,6 +338,33 @@ public class NodeConfigForListNodePoolsOutput {
     this.systemVolume = systemVolume;
   }
 
+  public NodeConfigForListNodePoolsOutput tags(List<TagForListNodePoolsOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public NodeConfigForListNodePoolsOutput addTagsItem(TagForListNodePoolsOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForListNodePoolsOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForListNodePoolsOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForListNodePoolsOutput> tags) {
+    this.tags = tags;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -331,15 +383,17 @@ public class NodeConfigForListNodePoolsOutput {
         Objects.equals(this.initializeScript, nodeConfigForListNodePoolsOutput.initializeScript) &&
         Objects.equals(this.instanceChargeType, nodeConfigForListNodePoolsOutput.instanceChargeType) &&
         Objects.equals(this.instanceTypeIds, nodeConfigForListNodePoolsOutput.instanceTypeIds) &&
+        Objects.equals(this.namePrefix, nodeConfigForListNodePoolsOutput.namePrefix) &&
         Objects.equals(this.period, nodeConfigForListNodePoolsOutput.period) &&
         Objects.equals(this.security, nodeConfigForListNodePoolsOutput.security) &&
         Objects.equals(this.subnetIds, nodeConfigForListNodePoolsOutput.subnetIds) &&
-        Objects.equals(this.systemVolume, nodeConfigForListNodePoolsOutput.systemVolume);
+        Objects.equals(this.systemVolume, nodeConfigForListNodePoolsOutput.systemVolume) &&
+        Objects.equals(this.tags, nodeConfigForListNodePoolsOutput.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalContainerStorageEnabled, autoRenew, autoRenewPeriod, dataVolumes, imageId, initializeScript, instanceChargeType, instanceTypeIds, period, security, subnetIds, systemVolume);
+    return Objects.hash(additionalContainerStorageEnabled, autoRenew, autoRenewPeriod, dataVolumes, imageId, initializeScript, instanceChargeType, instanceTypeIds, namePrefix, period, security, subnetIds, systemVolume, tags);
   }
 
 
@@ -356,10 +410,12 @@ public class NodeConfigForListNodePoolsOutput {
     sb.append("    initializeScript: ").append(toIndentedString(initializeScript)).append("\n");
     sb.append("    instanceChargeType: ").append(toIndentedString(instanceChargeType)).append("\n");
     sb.append("    instanceTypeIds: ").append(toIndentedString(instanceTypeIds)).append("\n");
+    sb.append("    namePrefix: ").append(toIndentedString(namePrefix)).append("\n");
     sb.append("    period: ").append(toIndentedString(period)).append("\n");
     sb.append("    security: ").append(toIndentedString(security)).append("\n");
     sb.append("    subnetIds: ").append(toIndentedString(subnetIds)).append("\n");
     sb.append("    systemVolume: ").append(toIndentedString(systemVolume)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }
