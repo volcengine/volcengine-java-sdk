@@ -34,7 +34,7 @@ import javax.validation.Valid;
  * DescribeLoadBalancerAttributesResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-23T17:22:04.615963+08:00[Asia/Shanghai]")
+
 public class DescribeLoadBalancerAttributesResponse {
   @SerializedName("AccessLog")
   private AccessLogForDescribeLoadBalancerAttributesOutput accessLog = null;

@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.alb.model.HealthCheckForDescribeServerGroupAttributesOutput;
 import com.volcengine.alb.model.ServerForDescribeServerGroupAttributesOutput;
+import com.volcengine.alb.model.StickySessionConfigForDescribeServerGroupAttributesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -31,7 +32,7 @@ import javax.validation.Valid;
  * DescribeServerGroupAttributesResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-23T17:22:04.615963+08:00[Asia/Shanghai]")
+
 public class DescribeServerGroupAttributesResponse {
   @SerializedName("Description")
   private String description = null;
@@ -59,6 +60,9 @@ public class DescribeServerGroupAttributesResponse {
 
   @SerializedName("Status")
   private String status = null;
+
+  @SerializedName("StickySessionConfig")
+  private StickySessionConfigForDescribeServerGroupAttributesOutput stickySessionConfig = null;
 
   @SerializedName("VpcId")
   private String vpcId = null;
@@ -243,6 +247,25 @@ public class DescribeServerGroupAttributesResponse {
     this.status = status;
   }
 
+  public DescribeServerGroupAttributesResponse stickySessionConfig(StickySessionConfigForDescribeServerGroupAttributesOutput stickySessionConfig) {
+    this.stickySessionConfig = stickySessionConfig;
+    return this;
+  }
+
+   /**
+   * Get stickySessionConfig
+   * @return stickySessionConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public StickySessionConfigForDescribeServerGroupAttributesOutput getStickySessionConfig() {
+    return stickySessionConfig;
+  }
+
+  public void setStickySessionConfig(StickySessionConfigForDescribeServerGroupAttributesOutput stickySessionConfig) {
+    this.stickySessionConfig = stickySessionConfig;
+  }
+
   public DescribeServerGroupAttributesResponse vpcId(String vpcId) {
     this.vpcId = vpcId;
     return this;
@@ -280,12 +303,13 @@ public class DescribeServerGroupAttributesResponse {
         Objects.equals(this.serverGroupName, describeServerGroupAttributesResponse.serverGroupName) &&
         Objects.equals(this.servers, describeServerGroupAttributesResponse.servers) &&
         Objects.equals(this.status, describeServerGroupAttributesResponse.status) &&
+        Objects.equals(this.stickySessionConfig, describeServerGroupAttributesResponse.stickySessionConfig) &&
         Objects.equals(this.vpcId, describeServerGroupAttributesResponse.vpcId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, healthCheck, listeners, requestId, scheduler, serverGroupId, serverGroupName, servers, status, vpcId);
+    return Objects.hash(description, healthCheck, listeners, requestId, scheduler, serverGroupId, serverGroupName, servers, status, stickySessionConfig, vpcId);
   }
 
 
@@ -303,6 +327,7 @@ public class DescribeServerGroupAttributesResponse {
     sb.append("    serverGroupName: ").append(toIndentedString(serverGroupName)).append("\n");
     sb.append("    servers: ").append(toIndentedString(servers)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    stickySessionConfig: ").append(toIndentedString(stickySessionConfig)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("}");
     return sb.toString();
