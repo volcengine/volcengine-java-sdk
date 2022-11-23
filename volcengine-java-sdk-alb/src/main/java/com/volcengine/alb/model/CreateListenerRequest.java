@@ -30,7 +30,7 @@ import javax.validation.Valid;
  * CreateListenerRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-23T17:22:04.615963+08:00[Asia/Shanghai]")
+
 public class CreateListenerRequest {
   @SerializedName("AclIds")
   private List<String> aclIds = null;
@@ -40,6 +40,9 @@ public class CreateListenerRequest {
 
   @SerializedName("AclType")
   private String aclType = null;
+
+  @SerializedName("CACertificateId")
+  private String caCertificateId = null;
 
   @SerializedName("CertificateId")
   private String certificateId = null;
@@ -134,6 +137,24 @@ public class CreateListenerRequest {
 
   public void setAclType(String aclType) {
     this.aclType = aclType;
+  }
+
+  public CreateListenerRequest caCertificateId(String caCertificateId) {
+    this.caCertificateId = caCertificateId;
+    return this;
+  }
+
+   /**
+   * Get caCertificateId
+   * @return caCertificateId
+  **/
+  @Schema(description = "")
+  public String getCaCertificateId() {
+    return caCertificateId;
+  }
+
+  public void setCaCertificateId(String caCertificateId) {
+    this.caCertificateId = caCertificateId;
   }
 
   public CreateListenerRequest certificateId(String certificateId) {
@@ -360,6 +381,7 @@ public class CreateListenerRequest {
     return Objects.equals(this.aclIds, createListenerRequest.aclIds) &&
         Objects.equals(this.aclStatus, createListenerRequest.aclStatus) &&
         Objects.equals(this.aclType, createListenerRequest.aclType) &&
+        Objects.equals(this.caCertificateId, createListenerRequest.caCertificateId) &&
         Objects.equals(this.certificateId, createListenerRequest.certificateId) &&
         Objects.equals(this.description, createListenerRequest.description) &&
         Objects.equals(this.domainExtensions, createListenerRequest.domainExtensions) &&
@@ -375,7 +397,7 @@ public class CreateListenerRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclIds, aclStatus, aclType, certificateId, description, domainExtensions, enableHttp2, enableQuic, enabled, listenerName, loadBalancerId, port, protocol, serverGroupId);
+    return Objects.hash(aclIds, aclStatus, aclType, caCertificateId, certificateId, description, domainExtensions, enableHttp2, enableQuic, enabled, listenerName, loadBalancerId, port, protocol, serverGroupId);
   }
 
 
@@ -387,6 +409,7 @@ public class CreateListenerRequest {
     sb.append("    aclIds: ").append(toIndentedString(aclIds)).append("\n");
     sb.append("    aclStatus: ").append(toIndentedString(aclStatus)).append("\n");
     sb.append("    aclType: ").append(toIndentedString(aclType)).append("\n");
+    sb.append("    caCertificateId: ").append(toIndentedString(caCertificateId)).append("\n");
     sb.append("    certificateId: ").append(toIndentedString(certificateId)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    domainExtensions: ").append(toIndentedString(domainExtensions)).append("\n");

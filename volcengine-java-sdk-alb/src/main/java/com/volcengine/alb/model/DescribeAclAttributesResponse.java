@@ -31,7 +31,7 @@ import javax.validation.Valid;
  * DescribeAclAttributesResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-23T17:22:04.615963+08:00[Asia/Shanghai]")
+
 public class DescribeAclAttributesResponse {
   @SerializedName("AclEntries")
   private List<AclEntryForDescribeAclAttributesOutput> aclEntries = null;
@@ -53,6 +53,9 @@ public class DescribeAclAttributesResponse {
 
   @SerializedName("RequestId")
   private String requestId = null;
+
+  @SerializedName("Status")
+  private String status = null;
 
   @SerializedName("UpdateTime")
   private String updateTime = null;
@@ -201,6 +204,24 @@ public class DescribeAclAttributesResponse {
     this.requestId = requestId;
   }
 
+  public DescribeAclAttributesResponse status(String status) {
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * Get status
+   * @return status
+  **/
+  @Schema(description = "")
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
   public DescribeAclAttributesResponse updateTime(String updateTime) {
     this.updateTime = updateTime;
     return this;
@@ -236,12 +257,13 @@ public class DescribeAclAttributesResponse {
         Objects.equals(this.description, describeAclAttributesResponse.description) &&
         Objects.equals(this.listeners, describeAclAttributesResponse.listeners) &&
         Objects.equals(this.requestId, describeAclAttributesResponse.requestId) &&
+        Objects.equals(this.status, describeAclAttributesResponse.status) &&
         Objects.equals(this.updateTime, describeAclAttributesResponse.updateTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclEntries, aclId, aclName, createTime, description, listeners, requestId, updateTime);
+    return Objects.hash(aclEntries, aclId, aclName, createTime, description, listeners, requestId, status, updateTime);
   }
 
 
@@ -257,6 +279,7 @@ public class DescribeAclAttributesResponse {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    listeners: ").append(toIndentedString(listeners)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("}");
     return sb.toString();
