@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.alb.model.HealthCheckForModifyServerGroupAttributesInput;
+import com.volcengine.alb.model.StickySessionConfigForModifyServerGroupAttributesInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -28,7 +29,7 @@ import javax.validation.Valid;
  * ModifyServerGroupAttributesRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-23T17:22:04.615963+08:00[Asia/Shanghai]")
+
 public class ModifyServerGroupAttributesRequest {
   @SerializedName("Description")
   private String description = null;
@@ -44,6 +45,9 @@ public class ModifyServerGroupAttributesRequest {
 
   @SerializedName("ServerGroupName")
   private String serverGroupName = null;
+
+  @SerializedName("StickySessionConfig")
+  private StickySessionConfigForModifyServerGroupAttributesInput stickySessionConfig = null;
 
   public ModifyServerGroupAttributesRequest description(String description) {
     this.description = description;
@@ -137,6 +141,25 @@ public class ModifyServerGroupAttributesRequest {
     this.serverGroupName = serverGroupName;
   }
 
+  public ModifyServerGroupAttributesRequest stickySessionConfig(StickySessionConfigForModifyServerGroupAttributesInput stickySessionConfig) {
+    this.stickySessionConfig = stickySessionConfig;
+    return this;
+  }
+
+   /**
+   * Get stickySessionConfig
+   * @return stickySessionConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public StickySessionConfigForModifyServerGroupAttributesInput getStickySessionConfig() {
+    return stickySessionConfig;
+  }
+
+  public void setStickySessionConfig(StickySessionConfigForModifyServerGroupAttributesInput stickySessionConfig) {
+    this.stickySessionConfig = stickySessionConfig;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -151,12 +174,13 @@ public class ModifyServerGroupAttributesRequest {
         Objects.equals(this.healthCheck, modifyServerGroupAttributesRequest.healthCheck) &&
         Objects.equals(this.scheduler, modifyServerGroupAttributesRequest.scheduler) &&
         Objects.equals(this.serverGroupId, modifyServerGroupAttributesRequest.serverGroupId) &&
-        Objects.equals(this.serverGroupName, modifyServerGroupAttributesRequest.serverGroupName);
+        Objects.equals(this.serverGroupName, modifyServerGroupAttributesRequest.serverGroupName) &&
+        Objects.equals(this.stickySessionConfig, modifyServerGroupAttributesRequest.stickySessionConfig);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, healthCheck, scheduler, serverGroupId, serverGroupName);
+    return Objects.hash(description, healthCheck, scheduler, serverGroupId, serverGroupName, stickySessionConfig);
   }
 
 
@@ -170,6 +194,7 @@ public class ModifyServerGroupAttributesRequest {
     sb.append("    scheduler: ").append(toIndentedString(scheduler)).append("\n");
     sb.append("    serverGroupId: ").append(toIndentedString(serverGroupId)).append("\n");
     sb.append("    serverGroupName: ").append(toIndentedString(serverGroupName)).append("\n");
+    sb.append("    stickySessionConfig: ").append(toIndentedString(stickySessionConfig)).append("\n");
     sb.append("}");
     return sb.toString();
   }

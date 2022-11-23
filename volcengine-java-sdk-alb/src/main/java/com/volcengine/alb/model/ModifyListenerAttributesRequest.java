@@ -30,7 +30,7 @@ import javax.validation.Valid;
  * ModifyListenerAttributesRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-23T17:22:04.615963+08:00[Asia/Shanghai]")
+
 public class ModifyListenerAttributesRequest {
   @SerializedName("AclIds")
   private List<String> aclIds = null;
@@ -40,6 +40,9 @@ public class ModifyListenerAttributesRequest {
 
   @SerializedName("AclType")
   private String aclType = null;
+
+  @SerializedName("CACertificateId")
+  private String caCertificateId = null;
 
   @SerializedName("CertificateId")
   private String certificateId = null;
@@ -131,6 +134,24 @@ public class ModifyListenerAttributesRequest {
 
   public void setAclType(String aclType) {
     this.aclType = aclType;
+  }
+
+  public ModifyListenerAttributesRequest caCertificateId(String caCertificateId) {
+    this.caCertificateId = caCertificateId;
+    return this;
+  }
+
+   /**
+   * Get caCertificateId
+   * @return caCertificateId
+  **/
+  @Schema(description = "")
+  public String getCaCertificateId() {
+    return caCertificateId;
+  }
+
+  public void setCaCertificateId(String caCertificateId) {
+    this.caCertificateId = caCertificateId;
   }
 
   public ModifyListenerAttributesRequest certificateId(String certificateId) {
@@ -336,6 +357,7 @@ public class ModifyListenerAttributesRequest {
     return Objects.equals(this.aclIds, modifyListenerAttributesRequest.aclIds) &&
         Objects.equals(this.aclStatus, modifyListenerAttributesRequest.aclStatus) &&
         Objects.equals(this.aclType, modifyListenerAttributesRequest.aclType) &&
+        Objects.equals(this.caCertificateId, modifyListenerAttributesRequest.caCertificateId) &&
         Objects.equals(this.certificateId, modifyListenerAttributesRequest.certificateId) &&
         Objects.equals(this.customizedCfgId, modifyListenerAttributesRequest.customizedCfgId) &&
         Objects.equals(this.description, modifyListenerAttributesRequest.description) &&
@@ -350,7 +372,7 @@ public class ModifyListenerAttributesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclIds, aclStatus, aclType, certificateId, customizedCfgId, description, domainExtensions, enableHttp2, enableQuic, enabled, listenerId, listenerName, serverGroupId);
+    return Objects.hash(aclIds, aclStatus, aclType, caCertificateId, certificateId, customizedCfgId, description, domainExtensions, enableHttp2, enableQuic, enabled, listenerId, listenerName, serverGroupId);
   }
 
 
@@ -362,6 +384,7 @@ public class ModifyListenerAttributesRequest {
     sb.append("    aclIds: ").append(toIndentedString(aclIds)).append("\n");
     sb.append("    aclStatus: ").append(toIndentedString(aclStatus)).append("\n");
     sb.append("    aclType: ").append(toIndentedString(aclType)).append("\n");
+    sb.append("    caCertificateId: ").append(toIndentedString(caCertificateId)).append("\n");
     sb.append("    certificateId: ").append(toIndentedString(certificateId)).append("\n");
     sb.append("    customizedCfgId: ").append(toIndentedString(customizedCfgId)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");

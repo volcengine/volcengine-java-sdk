@@ -30,7 +30,7 @@ import javax.validation.Valid;
  * DescribeHealthCheckTemplatesResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-23T17:22:04.615963+08:00[Asia/Shanghai]")
+
 public class DescribeHealthCheckTemplatesResponse {
   @SerializedName("HealthCheckTemplates")
   private List<HealthCheckTemplateForDescribeHealthCheckTemplatesOutput> healthCheckTemplates = null;

@@ -31,7 +31,7 @@ import javax.validation.Valid;
  * DescribeListenerAttributesResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-23T17:22:04.615963+08:00[Asia/Shanghai]")
+
 public class DescribeListenerAttributesResponse {
   @SerializedName("AclIds")
   private List<String> aclIds = null;
@@ -41,6 +41,9 @@ public class DescribeListenerAttributesResponse {
 
   @SerializedName("AclType")
   private String aclType = null;
+
+  @SerializedName("CACertificateId")
+  private String caCertificateId = null;
 
   @SerializedName("CertificateId")
   private String certificateId = null;
@@ -156,6 +159,24 @@ public class DescribeListenerAttributesResponse {
 
   public void setAclType(String aclType) {
     this.aclType = aclType;
+  }
+
+  public DescribeListenerAttributesResponse caCertificateId(String caCertificateId) {
+    this.caCertificateId = caCertificateId;
+    return this;
+  }
+
+   /**
+   * Get caCertificateId
+   * @return caCertificateId
+  **/
+  @Schema(description = "")
+  public String getCaCertificateId() {
+    return caCertificateId;
+  }
+
+  public void setCaCertificateId(String caCertificateId) {
+    this.caCertificateId = caCertificateId;
   }
 
   public DescribeListenerAttributesResponse certificateId(String certificateId) {
@@ -513,6 +534,7 @@ public class DescribeListenerAttributesResponse {
     return Objects.equals(this.aclIds, describeListenerAttributesResponse.aclIds) &&
         Objects.equals(this.aclStatus, describeListenerAttributesResponse.aclStatus) &&
         Objects.equals(this.aclType, describeListenerAttributesResponse.aclType) &&
+        Objects.equals(this.caCertificateId, describeListenerAttributesResponse.caCertificateId) &&
         Objects.equals(this.certificateId, describeListenerAttributesResponse.certificateId) &&
         Objects.equals(this.createTime, describeListenerAttributesResponse.createTime) &&
         Objects.equals(this.customizedCfgId, describeListenerAttributesResponse.customizedCfgId) &&
@@ -535,7 +557,7 @@ public class DescribeListenerAttributesResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclIds, aclStatus, aclType, certificateId, createTime, customizedCfgId, description, domainExtensions, enableHttp2, enableQuic, enabled, listenerId, listenerName, loadBalancerId, port, protocol, requestId, serverGroupId, serverGroups, status, updateTime);
+    return Objects.hash(aclIds, aclStatus, aclType, caCertificateId, certificateId, createTime, customizedCfgId, description, domainExtensions, enableHttp2, enableQuic, enabled, listenerId, listenerName, loadBalancerId, port, protocol, requestId, serverGroupId, serverGroups, status, updateTime);
   }
 
 
@@ -547,6 +569,7 @@ public class DescribeListenerAttributesResponse {
     sb.append("    aclIds: ").append(toIndentedString(aclIds)).append("\n");
     sb.append("    aclStatus: ").append(toIndentedString(aclStatus)).append("\n");
     sb.append("    aclType: ").append(toIndentedString(aclType)).append("\n");
+    sb.append("    caCertificateId: ").append(toIndentedString(caCertificateId)).append("\n");
     sb.append("    certificateId: ").append(toIndentedString(certificateId)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    customizedCfgId: ").append(toIndentedString(customizedCfgId)).append("\n");
