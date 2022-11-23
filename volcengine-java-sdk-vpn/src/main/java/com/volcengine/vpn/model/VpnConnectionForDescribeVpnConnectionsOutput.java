@@ -31,7 +31,7 @@ import javax.validation.Valid;
  * VpnConnectionForDescribeVpnConnectionsOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-22T20:23:47.673068+08:00[Asia/Shanghai]")
+
 public class VpnConnectionForDescribeVpnConnectionsOutput {
   @SerializedName("AccountId")
   private String accountId = null;
@@ -62,6 +62,9 @@ public class VpnConnectionForDescribeVpnConnectionsOutput {
 
   @SerializedName("NatTraversal")
   private Boolean natTraversal = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
 
   @SerializedName("RemoteSubnet")
   private List<String> remoteSubnet = null;
@@ -271,6 +274,24 @@ public class VpnConnectionForDescribeVpnConnectionsOutput {
     this.natTraversal = natTraversal;
   }
 
+  public VpnConnectionForDescribeVpnConnectionsOutput projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public VpnConnectionForDescribeVpnConnectionsOutput remoteSubnet(List<String> remoteSubnet) {
     this.remoteSubnet = remoteSubnet;
     return this;
@@ -407,6 +428,7 @@ public class VpnConnectionForDescribeVpnConnectionsOutput {
         Objects.equals(this.ipsecConfig, vpnConnectionForDescribeVpnConnectionsOutput.ipsecConfig) &&
         Objects.equals(this.localSubnet, vpnConnectionForDescribeVpnConnectionsOutput.localSubnet) &&
         Objects.equals(this.natTraversal, vpnConnectionForDescribeVpnConnectionsOutput.natTraversal) &&
+        Objects.equals(this.projectName, vpnConnectionForDescribeVpnConnectionsOutput.projectName) &&
         Objects.equals(this.remoteSubnet, vpnConnectionForDescribeVpnConnectionsOutput.remoteSubnet) &&
         Objects.equals(this.status, vpnConnectionForDescribeVpnConnectionsOutput.status) &&
         Objects.equals(this.updateTime, vpnConnectionForDescribeVpnConnectionsOutput.updateTime) &&
@@ -417,7 +439,7 @@ public class VpnConnectionForDescribeVpnConnectionsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, connectStatus, creationTime, customerGatewayId, description, dpdAction, ikeConfig, ipsecConfig, localSubnet, natTraversal, remoteSubnet, status, updateTime, vpnConnectionId, vpnConnectionName, vpnGatewayId);
+    return Objects.hash(accountId, connectStatus, creationTime, customerGatewayId, description, dpdAction, ikeConfig, ipsecConfig, localSubnet, natTraversal, projectName, remoteSubnet, status, updateTime, vpnConnectionId, vpnConnectionName, vpnGatewayId);
   }
 
 
@@ -436,6 +458,7 @@ public class VpnConnectionForDescribeVpnConnectionsOutput {
     sb.append("    ipsecConfig: ").append(toIndentedString(ipsecConfig)).append("\n");
     sb.append("    localSubnet: ").append(toIndentedString(localSubnet)).append("\n");
     sb.append("    natTraversal: ").append(toIndentedString(natTraversal)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    remoteSubnet: ").append(toIndentedString(remoteSubnet)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");

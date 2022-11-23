@@ -31,7 +31,7 @@ import javax.validation.Valid;
  * DirectConnectGatewayForDescribeDirectConnectGatewaysOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-22T20:23:22.987183+08:00[Asia/Shanghai]")
+
 public class DirectConnectGatewayForDescribeDirectConnectGatewaysOutput {
   @SerializedName("AccountId")
   private String accountId = null;
@@ -56,9 +56,6 @@ public class DirectConnectGatewayForDescribeDirectConnectGatewaysOutput {
 
   @SerializedName("DirectConnectGatewayName")
   private String directConnectGatewayName = null;
-
-  @SerializedName("EnableIpv6")
-  private Boolean enableIpv6 = null;
 
   @SerializedName("LockReason")
   private String lockReason = null;
@@ -228,24 +225,6 @@ public class DirectConnectGatewayForDescribeDirectConnectGatewaysOutput {
     this.directConnectGatewayName = directConnectGatewayName;
   }
 
-  public DirectConnectGatewayForDescribeDirectConnectGatewaysOutput enableIpv6(Boolean enableIpv6) {
-    this.enableIpv6 = enableIpv6;
-    return this;
-  }
-
-   /**
-   * Get enableIpv6
-   * @return enableIpv6
-  **/
-  @Schema(description = "")
-  public Boolean isEnableIpv6() {
-    return enableIpv6;
-  }
-
-  public void setEnableIpv6(Boolean enableIpv6) {
-    this.enableIpv6 = enableIpv6;
-  }
-
   public DirectConnectGatewayForDescribeDirectConnectGatewaysOutput lockReason(String lockReason) {
     this.lockReason = lockReason;
     return this;
@@ -363,7 +342,6 @@ public class DirectConnectGatewayForDescribeDirectConnectGatewaysOutput {
         Objects.equals(this.description, directConnectGatewayForDescribeDirectConnectGatewaysOutput.description) &&
         Objects.equals(this.directConnectGatewayId, directConnectGatewayForDescribeDirectConnectGatewaysOutput.directConnectGatewayId) &&
         Objects.equals(this.directConnectGatewayName, directConnectGatewayForDescribeDirectConnectGatewaysOutput.directConnectGatewayName) &&
-        Objects.equals(this.enableIpv6, directConnectGatewayForDescribeDirectConnectGatewaysOutput.enableIpv6) &&
         Objects.equals(this.lockReason, directConnectGatewayForDescribeDirectConnectGatewaysOutput.lockReason) &&
         Objects.equals(this.overdueTime, directConnectGatewayForDescribeDirectConnectGatewaysOutput.overdueTime) &&
         Objects.equals(this.status, directConnectGatewayForDescribeDirectConnectGatewaysOutput.status) &&
@@ -373,7 +351,7 @@ public class DirectConnectGatewayForDescribeDirectConnectGatewaysOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, associateCens, businessStatus, creationTime, deletedTime, description, directConnectGatewayId, directConnectGatewayName, enableIpv6, lockReason, overdueTime, status, tags, updateTime);
+    return Objects.hash(accountId, associateCens, businessStatus, creationTime, deletedTime, description, directConnectGatewayId, directConnectGatewayName, lockReason, overdueTime, status, tags, updateTime);
   }
 
 
@@ -390,7 +368,6 @@ public class DirectConnectGatewayForDescribeDirectConnectGatewaysOutput {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    directConnectGatewayId: ").append(toIndentedString(directConnectGatewayId)).append("\n");
     sb.append("    directConnectGatewayName: ").append(toIndentedString(directConnectGatewayName)).append("\n");
-    sb.append("    enableIpv6: ").append(toIndentedString(enableIpv6)).append("\n");
     sb.append("    lockReason: ").append(toIndentedString(lockReason)).append("\n");
     sb.append("    overdueTime: ").append(toIndentedString(overdueTime)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");

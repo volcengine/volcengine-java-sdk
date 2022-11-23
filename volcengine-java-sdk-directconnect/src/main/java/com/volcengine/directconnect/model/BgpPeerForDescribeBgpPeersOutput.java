@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * BgpPeerForDescribeBgpPeersOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-22T20:23:22.987183+08:00[Asia/Shanghai]")
+
 public class BgpPeerForDescribeBgpPeersOutput {
   @SerializedName("AccountId")
   private String accountId = null;
@@ -46,9 +46,6 @@ public class BgpPeerForDescribeBgpPeersOutput {
 
   @SerializedName("Description")
   private String description = null;
-
-  @SerializedName("IpVersion")
-  private String ipVersion = null;
 
   @SerializedName("LocalAsn")
   private Integer localAsn = null;
@@ -176,24 +173,6 @@ public class BgpPeerForDescribeBgpPeersOutput {
     this.description = description;
   }
 
-  public BgpPeerForDescribeBgpPeersOutput ipVersion(String ipVersion) {
-    this.ipVersion = ipVersion;
-    return this;
-  }
-
-   /**
-   * Get ipVersion
-   * @return ipVersion
-  **/
-  @Schema(description = "")
-  public String getIpVersion() {
-    return ipVersion;
-  }
-
-  public void setIpVersion(String ipVersion) {
-    this.ipVersion = ipVersion;
-  }
-
   public BgpPeerForDescribeBgpPeersOutput localAsn(Integer localAsn) {
     this.localAsn = localAsn;
     return this;
@@ -318,7 +297,6 @@ public class BgpPeerForDescribeBgpPeersOutput {
         Objects.equals(this.bgpPeerName, bgpPeerForDescribeBgpPeersOutput.bgpPeerName) &&
         Objects.equals(this.creationTime, bgpPeerForDescribeBgpPeersOutput.creationTime) &&
         Objects.equals(this.description, bgpPeerForDescribeBgpPeersOutput.description) &&
-        Objects.equals(this.ipVersion, bgpPeerForDescribeBgpPeersOutput.ipVersion) &&
         Objects.equals(this.localAsn, bgpPeerForDescribeBgpPeersOutput.localAsn) &&
         Objects.equals(this.remoteAsn, bgpPeerForDescribeBgpPeersOutput.remoteAsn) &&
         Objects.equals(this.sessionStatus, bgpPeerForDescribeBgpPeersOutput.sessionStatus) &&
@@ -329,7 +307,7 @@ public class BgpPeerForDescribeBgpPeersOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, authKey, bgpPeerId, bgpPeerName, creationTime, description, ipVersion, localAsn, remoteAsn, sessionStatus, status, updateTime, virtualInterfaceId);
+    return Objects.hash(accountId, authKey, bgpPeerId, bgpPeerName, creationTime, description, localAsn, remoteAsn, sessionStatus, status, updateTime, virtualInterfaceId);
   }
 
 
@@ -344,7 +322,6 @@ public class BgpPeerForDescribeBgpPeersOutput {
     sb.append("    bgpPeerName: ").append(toIndentedString(bgpPeerName)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    ipVersion: ").append(toIndentedString(ipVersion)).append("\n");
     sb.append("    localAsn: ").append(toIndentedString(localAsn)).append("\n");
     sb.append("    remoteAsn: ").append(toIndentedString(remoteAsn)).append("\n");
     sb.append("    sessionStatus: ").append(toIndentedString(sessionStatus)).append("\n");

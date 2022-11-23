@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * ModifyDirectConnectGatewayAttributesRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-22T20:23:22.987183+08:00[Asia/Shanghai]")
+
 public class ModifyDirectConnectGatewayAttributesRequest {
   @SerializedName("Description")
   private String description = null;
@@ -37,9 +37,6 @@ public class ModifyDirectConnectGatewayAttributesRequest {
 
   @SerializedName("DirectConnectGatewayName")
   private String directConnectGatewayName = null;
-
-  @SerializedName("EnableIpv6")
-  private Boolean enableIpv6 = null;
 
   public ModifyDirectConnectGatewayAttributesRequest description(String description) {
     this.description = description;
@@ -96,24 +93,6 @@ public class ModifyDirectConnectGatewayAttributesRequest {
     this.directConnectGatewayName = directConnectGatewayName;
   }
 
-  public ModifyDirectConnectGatewayAttributesRequest enableIpv6(Boolean enableIpv6) {
-    this.enableIpv6 = enableIpv6;
-    return this;
-  }
-
-   /**
-   * Get enableIpv6
-   * @return enableIpv6
-  **/
-  @Schema(description = "")
-  public Boolean isEnableIpv6() {
-    return enableIpv6;
-  }
-
-  public void setEnableIpv6(Boolean enableIpv6) {
-    this.enableIpv6 = enableIpv6;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -126,13 +105,12 @@ public class ModifyDirectConnectGatewayAttributesRequest {
     ModifyDirectConnectGatewayAttributesRequest modifyDirectConnectGatewayAttributesRequest = (ModifyDirectConnectGatewayAttributesRequest) o;
     return Objects.equals(this.description, modifyDirectConnectGatewayAttributesRequest.description) &&
         Objects.equals(this.directConnectGatewayId, modifyDirectConnectGatewayAttributesRequest.directConnectGatewayId) &&
-        Objects.equals(this.directConnectGatewayName, modifyDirectConnectGatewayAttributesRequest.directConnectGatewayName) &&
-        Objects.equals(this.enableIpv6, modifyDirectConnectGatewayAttributesRequest.enableIpv6);
+        Objects.equals(this.directConnectGatewayName, modifyDirectConnectGatewayAttributesRequest.directConnectGatewayName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, directConnectGatewayId, directConnectGatewayName, enableIpv6);
+    return Objects.hash(description, directConnectGatewayId, directConnectGatewayName);
   }
 
 
@@ -144,7 +122,6 @@ public class ModifyDirectConnectGatewayAttributesRequest {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    directConnectGatewayId: ").append(toIndentedString(directConnectGatewayId)).append("\n");
     sb.append("    directConnectGatewayName: ").append(toIndentedString(directConnectGatewayName)).append("\n");
-    sb.append("    enableIpv6: ").append(toIndentedString(enableIpv6)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -30,13 +30,19 @@ import javax.validation.Valid;
  * DirectConnectConnectionForDescribeDirectConnectConnectionsOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-22T20:23:22.987183+08:00[Asia/Shanghai]")
+
 public class DirectConnectConnectionForDescribeDirectConnectConnectionsOutput {
   @SerializedName("AccountId")
   private String accountId = null;
 
   @SerializedName("Bandwidth")
   private Integer bandwidth = null;
+
+  @SerializedName("BillingType")
+  private Integer billingType = null;
+
+  @SerializedName("BusinessStatus")
+  private String businessStatus = null;
 
   @SerializedName("ConnectionType")
   private String connectionType = null;
@@ -53,6 +59,9 @@ public class DirectConnectConnectionForDescribeDirectConnectConnectionsOutput {
   @SerializedName("CustomerName")
   private String customerName = null;
 
+  @SerializedName("DeletedTime")
+  private String deletedTime = null;
+
   @SerializedName("Description")
   private String description = null;
 
@@ -65,6 +74,9 @@ public class DirectConnectConnectionForDescribeDirectConnectConnectionsOutput {
   @SerializedName("DirectConnectConnectionName")
   private String directConnectConnectionName = null;
 
+  @SerializedName("ExpiredTime")
+  private String expiredTime = null;
+
   @SerializedName("LineOperator")
   private String lineOperator = null;
 
@@ -76,6 +88,9 @@ public class DirectConnectConnectionForDescribeDirectConnectConnectionsOutput {
 
   @SerializedName("PeerLocation")
   private String peerLocation = null;
+
+  @SerializedName("PortSpec")
+  private String portSpec = null;
 
   @SerializedName("PortType")
   private String portType = null;
@@ -126,6 +141,42 @@ public class DirectConnectConnectionForDescribeDirectConnectConnectionsOutput {
 
   public void setBandwidth(Integer bandwidth) {
     this.bandwidth = bandwidth;
+  }
+
+  public DirectConnectConnectionForDescribeDirectConnectConnectionsOutput billingType(Integer billingType) {
+    this.billingType = billingType;
+    return this;
+  }
+
+   /**
+   * Get billingType
+   * @return billingType
+  **/
+  @Schema(description = "")
+  public Integer getBillingType() {
+    return billingType;
+  }
+
+  public void setBillingType(Integer billingType) {
+    this.billingType = billingType;
+  }
+
+  public DirectConnectConnectionForDescribeDirectConnectConnectionsOutput businessStatus(String businessStatus) {
+    this.businessStatus = businessStatus;
+    return this;
+  }
+
+   /**
+   * Get businessStatus
+   * @return businessStatus
+  **/
+  @Schema(description = "")
+  public String getBusinessStatus() {
+    return businessStatus;
+  }
+
+  public void setBusinessStatus(String businessStatus) {
+    this.businessStatus = businessStatus;
   }
 
   public DirectConnectConnectionForDescribeDirectConnectConnectionsOutput connectionType(String connectionType) {
@@ -218,6 +269,24 @@ public class DirectConnectConnectionForDescribeDirectConnectConnectionsOutput {
     this.customerName = customerName;
   }
 
+  public DirectConnectConnectionForDescribeDirectConnectConnectionsOutput deletedTime(String deletedTime) {
+    this.deletedTime = deletedTime;
+    return this;
+  }
+
+   /**
+   * Get deletedTime
+   * @return deletedTime
+  **/
+  @Schema(description = "")
+  public String getDeletedTime() {
+    return deletedTime;
+  }
+
+  public void setDeletedTime(String deletedTime) {
+    this.deletedTime = deletedTime;
+  }
+
   public DirectConnectConnectionForDescribeDirectConnectConnectionsOutput description(String description) {
     this.description = description;
     return this;
@@ -290,6 +359,24 @@ public class DirectConnectConnectionForDescribeDirectConnectConnectionsOutput {
     this.directConnectConnectionName = directConnectConnectionName;
   }
 
+  public DirectConnectConnectionForDescribeDirectConnectConnectionsOutput expiredTime(String expiredTime) {
+    this.expiredTime = expiredTime;
+    return this;
+  }
+
+   /**
+   * Get expiredTime
+   * @return expiredTime
+  **/
+  @Schema(description = "")
+  public String getExpiredTime() {
+    return expiredTime;
+  }
+
+  public void setExpiredTime(String expiredTime) {
+    this.expiredTime = expiredTime;
+  }
+
   public DirectConnectConnectionForDescribeDirectConnectConnectionsOutput lineOperator(String lineOperator) {
     this.lineOperator = lineOperator;
     return this;
@@ -360,6 +447,24 @@ public class DirectConnectConnectionForDescribeDirectConnectConnectionsOutput {
 
   public void setPeerLocation(String peerLocation) {
     this.peerLocation = peerLocation;
+  }
+
+  public DirectConnectConnectionForDescribeDirectConnectConnectionsOutput portSpec(String portSpec) {
+    this.portSpec = portSpec;
+    return this;
+  }
+
+   /**
+   * Get portSpec
+   * @return portSpec
+  **/
+  @Schema(description = "")
+  public String getPortSpec() {
+    return portSpec;
+  }
+
+  public void setPortSpec(String portSpec) {
+    this.portSpec = portSpec;
   }
 
   public DirectConnectConnectionForDescribeDirectConnectConnectionsOutput portType(String portType) {
@@ -473,19 +578,24 @@ public class DirectConnectConnectionForDescribeDirectConnectConnectionsOutput {
     DirectConnectConnectionForDescribeDirectConnectConnectionsOutput directConnectConnectionForDescribeDirectConnectConnectionsOutput = (DirectConnectConnectionForDescribeDirectConnectConnectionsOutput) o;
     return Objects.equals(this.accountId, directConnectConnectionForDescribeDirectConnectConnectionsOutput.accountId) &&
         Objects.equals(this.bandwidth, directConnectConnectionForDescribeDirectConnectConnectionsOutput.bandwidth) &&
+        Objects.equals(this.billingType, directConnectConnectionForDescribeDirectConnectConnectionsOutput.billingType) &&
+        Objects.equals(this.businessStatus, directConnectConnectionForDescribeDirectConnectConnectionsOutput.businessStatus) &&
         Objects.equals(this.connectionType, directConnectConnectionForDescribeDirectConnectConnectionsOutput.connectionType) &&
         Objects.equals(this.creationTime, directConnectConnectionForDescribeDirectConnectConnectionsOutput.creationTime) &&
         Objects.equals(this.customerContactEmail, directConnectConnectionForDescribeDirectConnectConnectionsOutput.customerContactEmail) &&
         Objects.equals(this.customerContactPhone, directConnectConnectionForDescribeDirectConnectConnectionsOutput.customerContactPhone) &&
         Objects.equals(this.customerName, directConnectConnectionForDescribeDirectConnectConnectionsOutput.customerName) &&
+        Objects.equals(this.deletedTime, directConnectConnectionForDescribeDirectConnectConnectionsOutput.deletedTime) &&
         Objects.equals(this.description, directConnectConnectionForDescribeDirectConnectConnectionsOutput.description) &&
         Objects.equals(this.directConnectAccessPointId, directConnectConnectionForDescribeDirectConnectConnectionsOutput.directConnectAccessPointId) &&
         Objects.equals(this.directConnectConnectionId, directConnectConnectionForDescribeDirectConnectConnectionsOutput.directConnectConnectionId) &&
         Objects.equals(this.directConnectConnectionName, directConnectConnectionForDescribeDirectConnectConnectionsOutput.directConnectConnectionName) &&
+        Objects.equals(this.expiredTime, directConnectConnectionForDescribeDirectConnectConnectionsOutput.expiredTime) &&
         Objects.equals(this.lineOperator, directConnectConnectionForDescribeDirectConnectConnectionsOutput.lineOperator) &&
         Objects.equals(this.parentConnectionAccountId, directConnectConnectionForDescribeDirectConnectConnectionsOutput.parentConnectionAccountId) &&
         Objects.equals(this.parentConnectionId, directConnectConnectionForDescribeDirectConnectConnectionsOutput.parentConnectionId) &&
         Objects.equals(this.peerLocation, directConnectConnectionForDescribeDirectConnectConnectionsOutput.peerLocation) &&
+        Objects.equals(this.portSpec, directConnectConnectionForDescribeDirectConnectConnectionsOutput.portSpec) &&
         Objects.equals(this.portType, directConnectConnectionForDescribeDirectConnectConnectionsOutput.portType) &&
         Objects.equals(this.status, directConnectConnectionForDescribeDirectConnectConnectionsOutput.status) &&
         Objects.equals(this.tags, directConnectConnectionForDescribeDirectConnectConnectionsOutput.tags) &&
@@ -495,7 +605,7 @@ public class DirectConnectConnectionForDescribeDirectConnectConnectionsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, bandwidth, connectionType, creationTime, customerContactEmail, customerContactPhone, customerName, description, directConnectAccessPointId, directConnectConnectionId, directConnectConnectionName, lineOperator, parentConnectionAccountId, parentConnectionId, peerLocation, portType, status, tags, updateTime, vlanId);
+    return Objects.hash(accountId, bandwidth, billingType, businessStatus, connectionType, creationTime, customerContactEmail, customerContactPhone, customerName, deletedTime, description, directConnectAccessPointId, directConnectConnectionId, directConnectConnectionName, expiredTime, lineOperator, parentConnectionAccountId, parentConnectionId, peerLocation, portSpec, portType, status, tags, updateTime, vlanId);
   }
 
 
@@ -506,19 +616,24 @@ public class DirectConnectConnectionForDescribeDirectConnectConnectionsOutput {
     
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    bandwidth: ").append(toIndentedString(bandwidth)).append("\n");
+    sb.append("    billingType: ").append(toIndentedString(billingType)).append("\n");
+    sb.append("    businessStatus: ").append(toIndentedString(businessStatus)).append("\n");
     sb.append("    connectionType: ").append(toIndentedString(connectionType)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    customerContactEmail: ").append(toIndentedString(customerContactEmail)).append("\n");
     sb.append("    customerContactPhone: ").append(toIndentedString(customerContactPhone)).append("\n");
     sb.append("    customerName: ").append(toIndentedString(customerName)).append("\n");
+    sb.append("    deletedTime: ").append(toIndentedString(deletedTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    directConnectAccessPointId: ").append(toIndentedString(directConnectAccessPointId)).append("\n");
     sb.append("    directConnectConnectionId: ").append(toIndentedString(directConnectConnectionId)).append("\n");
     sb.append("    directConnectConnectionName: ").append(toIndentedString(directConnectConnectionName)).append("\n");
+    sb.append("    expiredTime: ").append(toIndentedString(expiredTime)).append("\n");
     sb.append("    lineOperator: ").append(toIndentedString(lineOperator)).append("\n");
     sb.append("    parentConnectionAccountId: ").append(toIndentedString(parentConnectionAccountId)).append("\n");
     sb.append("    parentConnectionId: ").append(toIndentedString(parentConnectionId)).append("\n");
     sb.append("    peerLocation: ").append(toIndentedString(peerLocation)).append("\n");
+    sb.append("    portSpec: ").append(toIndentedString(portSpec)).append("\n");
     sb.append("    portType: ").append(toIndentedString(portType)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");

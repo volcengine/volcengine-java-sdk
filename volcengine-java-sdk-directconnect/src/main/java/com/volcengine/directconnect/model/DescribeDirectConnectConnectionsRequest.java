@@ -30,16 +30,22 @@ import javax.validation.Valid;
  * DescribeDirectConnectConnectionsRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-22T20:23:22.987183+08:00[Asia/Shanghai]")
+
 public class DescribeDirectConnectConnectionsRequest {
   @SerializedName("AccessPoint")
   private String accessPoint = null;
+
+  @SerializedName("ConnectionType")
+  private String connectionType = null;
 
   @SerializedName("DirectConnectConnectionIds")
   private List<String> directConnectConnectionIds = null;
 
   @SerializedName("DirectConnectConnectionName")
   private String directConnectConnectionName = null;
+
+  @SerializedName("LineOperator")
+  private String lineOperator = null;
 
   @SerializedName("Operator")
   private String operator = null;
@@ -72,6 +78,24 @@ public class DescribeDirectConnectConnectionsRequest {
 
   public void setAccessPoint(String accessPoint) {
     this.accessPoint = accessPoint;
+  }
+
+  public DescribeDirectConnectConnectionsRequest connectionType(String connectionType) {
+    this.connectionType = connectionType;
+    return this;
+  }
+
+   /**
+   * Get connectionType
+   * @return connectionType
+  **/
+  @Schema(description = "")
+  public String getConnectionType() {
+    return connectionType;
+  }
+
+  public void setConnectionType(String connectionType) {
+    this.connectionType = connectionType;
   }
 
   public DescribeDirectConnectConnectionsRequest directConnectConnectionIds(List<String> directConnectConnectionIds) {
@@ -116,6 +140,24 @@ public class DescribeDirectConnectConnectionsRequest {
 
   public void setDirectConnectConnectionName(String directConnectConnectionName) {
     this.directConnectConnectionName = directConnectConnectionName;
+  }
+
+  public DescribeDirectConnectConnectionsRequest lineOperator(String lineOperator) {
+    this.lineOperator = lineOperator;
+    return this;
+  }
+
+   /**
+   * Get lineOperator
+   * @return lineOperator
+  **/
+  @Schema(description = "")
+  public String getLineOperator() {
+    return lineOperator;
+  }
+
+  public void setLineOperator(String lineOperator) {
+    this.lineOperator = lineOperator;
   }
 
   public DescribeDirectConnectConnectionsRequest operator(String operator) {
@@ -228,8 +270,10 @@ public class DescribeDirectConnectConnectionsRequest {
     }
     DescribeDirectConnectConnectionsRequest describeDirectConnectConnectionsRequest = (DescribeDirectConnectConnectionsRequest) o;
     return Objects.equals(this.accessPoint, describeDirectConnectConnectionsRequest.accessPoint) &&
+        Objects.equals(this.connectionType, describeDirectConnectConnectionsRequest.connectionType) &&
         Objects.equals(this.directConnectConnectionIds, describeDirectConnectConnectionsRequest.directConnectConnectionIds) &&
         Objects.equals(this.directConnectConnectionName, describeDirectConnectConnectionsRequest.directConnectConnectionName) &&
+        Objects.equals(this.lineOperator, describeDirectConnectConnectionsRequest.lineOperator) &&
         Objects.equals(this.operator, describeDirectConnectConnectionsRequest.operator) &&
         Objects.equals(this.pageNumber, describeDirectConnectConnectionsRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeDirectConnectConnectionsRequest.pageSize) &&
@@ -239,7 +283,7 @@ public class DescribeDirectConnectConnectionsRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessPoint, directConnectConnectionIds, directConnectConnectionName, operator, pageNumber, pageSize, peerLocation, tagFilters);
+    return Objects.hash(accessPoint, connectionType, directConnectConnectionIds, directConnectConnectionName, lineOperator, operator, pageNumber, pageSize, peerLocation, tagFilters);
   }
 
 
@@ -249,8 +293,10 @@ public class DescribeDirectConnectConnectionsRequest {
     sb.append("class DescribeDirectConnectConnectionsRequest {\n");
     
     sb.append("    accessPoint: ").append(toIndentedString(accessPoint)).append("\n");
+    sb.append("    connectionType: ").append(toIndentedString(connectionType)).append("\n");
     sb.append("    directConnectConnectionIds: ").append(toIndentedString(directConnectConnectionIds)).append("\n");
     sb.append("    directConnectConnectionName: ").append(toIndentedString(directConnectConnectionName)).append("\n");
+    sb.append("    lineOperator: ").append(toIndentedString(lineOperator)).append("\n");
     sb.append("    operator: ").append(toIndentedString(operator)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
