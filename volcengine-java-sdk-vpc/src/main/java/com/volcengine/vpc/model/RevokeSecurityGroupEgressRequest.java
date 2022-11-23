@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * RevokeSecurityGroupEgressRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-12T11:38:08.781574+08:00[Asia/Shanghai]")
+
 public class RevokeSecurityGroupEgressRequest {
   @SerializedName("CidrIp")
   private String cidrIp = null;
@@ -65,8 +65,7 @@ public class RevokeSecurityGroupEgressRequest {
    * Get cidrIp
    * @return cidrIp
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getCidrIp() {
     return cidrIp;
   }

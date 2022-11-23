@@ -21,15 +21,18 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vke.model.KubernetesConfigForCreateDefaultNodePoolInput;
 import com.volcengine.vke.model.NodeConfigForCreateDefaultNodePoolInput;
+import com.volcengine.vke.model.TagForCreateDefaultNodePoolInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
  * CreateDefaultNodePoolRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-25T10:54:23.552084+08:00[Asia/Shanghai]")
+
 public class CreateDefaultNodePoolRequest {
   @SerializedName("ClientToken")
   private String clientToken = null;
@@ -42,6 +45,9 @@ public class CreateDefaultNodePoolRequest {
 
   @SerializedName("NodeConfig")
   private NodeConfigForCreateDefaultNodePoolInput nodeConfig = null;
+
+  @SerializedName("Tags")
+  private List<TagForCreateDefaultNodePoolInput> tags = null;
 
   public CreateDefaultNodePoolRequest clientToken(String clientToken) {
     this.clientToken = clientToken;
@@ -117,6 +123,33 @@ public class CreateDefaultNodePoolRequest {
     this.nodeConfig = nodeConfig;
   }
 
+  public CreateDefaultNodePoolRequest tags(List<TagForCreateDefaultNodePoolInput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public CreateDefaultNodePoolRequest addTagsItem(TagForCreateDefaultNodePoolInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForCreateDefaultNodePoolInput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForCreateDefaultNodePoolInput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForCreateDefaultNodePoolInput> tags) {
+    this.tags = tags;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -130,12 +163,13 @@ public class CreateDefaultNodePoolRequest {
     return Objects.equals(this.clientToken, createDefaultNodePoolRequest.clientToken) &&
         Objects.equals(this.clusterId, createDefaultNodePoolRequest.clusterId) &&
         Objects.equals(this.kubernetesConfig, createDefaultNodePoolRequest.kubernetesConfig) &&
-        Objects.equals(this.nodeConfig, createDefaultNodePoolRequest.nodeConfig);
+        Objects.equals(this.nodeConfig, createDefaultNodePoolRequest.nodeConfig) &&
+        Objects.equals(this.tags, createDefaultNodePoolRequest.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, clusterId, kubernetesConfig, nodeConfig);
+    return Objects.hash(clientToken, clusterId, kubernetesConfig, nodeConfig, tags);
   }
 
 
@@ -148,6 +182,7 @@ public class CreateDefaultNodePoolRequest {
     sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    kubernetesConfig: ").append(toIndentedString(kubernetesConfig)).append("\n");
     sb.append("    nodeConfig: ").append(toIndentedString(nodeConfig)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }

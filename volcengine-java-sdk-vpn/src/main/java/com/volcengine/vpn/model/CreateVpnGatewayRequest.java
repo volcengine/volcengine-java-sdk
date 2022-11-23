@@ -19,15 +19,18 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vpn.model.TagForCreateVpnGatewayInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
  * CreateVpnGatewayRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-22T20:23:47.673068+08:00[Asia/Shanghai]")
+
 public class CreateVpnGatewayRequest {
   @SerializedName("Bandwidth")
   private Integer bandwidth = null;
@@ -85,8 +88,14 @@ public class CreateVpnGatewayRequest {
   }  @SerializedName("PeriodUnit")
   private PeriodUnitEnum periodUnit = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("SubnetId")
   private String subnetId = null;
+
+  @SerializedName("Tags")
+  private List<TagForCreateVpnGatewayInput> tags = null;
 
   @SerializedName("VpcId")
   private String vpcId = null;
@@ -189,6 +198,24 @@ public class CreateVpnGatewayRequest {
     this.periodUnit = periodUnit;
   }
 
+  public CreateVpnGatewayRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public CreateVpnGatewayRequest subnetId(String subnetId) {
     this.subnetId = subnetId;
     return this;
@@ -206,6 +233,33 @@ public class CreateVpnGatewayRequest {
 
   public void setSubnetId(String subnetId) {
     this.subnetId = subnetId;
+  }
+
+  public CreateVpnGatewayRequest tags(List<TagForCreateVpnGatewayInput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public CreateVpnGatewayRequest addTagsItem(TagForCreateVpnGatewayInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForCreateVpnGatewayInput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForCreateVpnGatewayInput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForCreateVpnGatewayInput> tags) {
+    this.tags = tags;
   }
 
   public CreateVpnGatewayRequest vpcId(String vpcId) {
@@ -260,14 +314,16 @@ public class CreateVpnGatewayRequest {
         Objects.equals(this.description, createVpnGatewayRequest.description) &&
         Objects.equals(this.period, createVpnGatewayRequest.period) &&
         Objects.equals(this.periodUnit, createVpnGatewayRequest.periodUnit) &&
+        Objects.equals(this.projectName, createVpnGatewayRequest.projectName) &&
         Objects.equals(this.subnetId, createVpnGatewayRequest.subnetId) &&
+        Objects.equals(this.tags, createVpnGatewayRequest.tags) &&
         Objects.equals(this.vpcId, createVpnGatewayRequest.vpcId) &&
         Objects.equals(this.vpnGatewayName, createVpnGatewayRequest.vpnGatewayName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidth, billingType, description, period, periodUnit, subnetId, vpcId, vpnGatewayName);
+    return Objects.hash(bandwidth, billingType, description, period, periodUnit, projectName, subnetId, tags, vpcId, vpnGatewayName);
   }
 
 
@@ -281,7 +337,9 @@ public class CreateVpnGatewayRequest {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    period: ").append(toIndentedString(period)).append("\n");
     sb.append("    periodUnit: ").append(toIndentedString(periodUnit)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("    vpnGatewayName: ").append(toIndentedString(vpnGatewayName)).append("\n");
     sb.append("}");

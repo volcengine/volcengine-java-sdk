@@ -20,19 +20,22 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vke.model.AutoScalingForListNodePoolsOutput;
+import com.volcengine.vke.model.ConvertTagForListNodePoolsOutput;
 import com.volcengine.vke.model.KubernetesConfigForListNodePoolsOutput;
 import com.volcengine.vke.model.NodeConfigForListNodePoolsOutput;
 import com.volcengine.vke.model.NodeStatisticsForListNodePoolsOutput;
 import com.volcengine.vke.model.StatusForListNodePoolsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
  * ItemForListNodePoolsOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-25T10:54:23.552084+08:00[Asia/Shanghai]")
+
 public class ItemForListNodePoolsOutput {
   @SerializedName("AutoScaling")
   private AutoScalingForListNodePoolsOutput autoScaling = null;
@@ -63,6 +66,9 @@ public class ItemForListNodePoolsOutput {
 
   @SerializedName("Status")
   private StatusForListNodePoolsOutput status = null;
+
+  @SerializedName("Tags")
+  private List<ConvertTagForListNodePoolsOutput> tags = null;
 
   @SerializedName("UpdateClientToken")
   private String updateClientToken = null;
@@ -255,6 +261,33 @@ public class ItemForListNodePoolsOutput {
     this.status = status;
   }
 
+  public ItemForListNodePoolsOutput tags(List<ConvertTagForListNodePoolsOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public ItemForListNodePoolsOutput addTagsItem(ConvertTagForListNodePoolsOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<ConvertTagForListNodePoolsOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<ConvertTagForListNodePoolsOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<ConvertTagForListNodePoolsOutput> tags) {
+    this.tags = tags;
+  }
+
   public ItemForListNodePoolsOutput updateClientToken(String updateClientToken) {
     this.updateClientToken = updateClientToken;
     return this;
@@ -311,13 +344,14 @@ public class ItemForListNodePoolsOutput {
         Objects.equals(this.nodeConfig, itemForListNodePoolsOutput.nodeConfig) &&
         Objects.equals(this.nodeStatistics, itemForListNodePoolsOutput.nodeStatistics) &&
         Objects.equals(this.status, itemForListNodePoolsOutput.status) &&
+        Objects.equals(this.tags, itemForListNodePoolsOutput.tags) &&
         Objects.equals(this.updateClientToken, itemForListNodePoolsOutput.updateClientToken) &&
         Objects.equals(this.updateTime, itemForListNodePoolsOutput.updateTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoScaling, clusterId, createClientToken, createTime, id, kubernetesConfig, name, nodeConfig, nodeStatistics, status, updateClientToken, updateTime);
+    return Objects.hash(autoScaling, clusterId, createClientToken, createTime, id, kubernetesConfig, name, nodeConfig, nodeStatistics, status, tags, updateClientToken, updateTime);
   }
 
 
@@ -336,6 +370,7 @@ public class ItemForListNodePoolsOutput {
     sb.append("    nodeConfig: ").append(toIndentedString(nodeConfig)).append("\n");
     sb.append("    nodeStatistics: ").append(toIndentedString(nodeStatistics)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updateClientToken: ").append(toIndentedString(updateClientToken)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("}");

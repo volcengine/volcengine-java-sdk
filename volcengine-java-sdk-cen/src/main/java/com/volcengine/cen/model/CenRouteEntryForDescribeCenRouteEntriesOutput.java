@@ -29,7 +29,7 @@ import javax.validation.Valid;
  * CenRouteEntryForDescribeCenRouteEntriesOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:24.026407+08:00[Asia/Shanghai]")
+
 public class CenRouteEntryForDescribeCenRouteEntriesOutput {
   @SerializedName("AsPath")
   private List<String> asPath = null;
@@ -54,6 +54,9 @@ public class CenRouteEntryForDescribeCenRouteEntriesOutput {
 
   @SerializedName("Status")
   private String status = null;
+
+  @SerializedName("Type")
+  private String type = null;
 
   public CenRouteEntryForDescribeCenRouteEntriesOutput asPath(List<String> asPath) {
     this.asPath = asPath;
@@ -207,6 +210,24 @@ public class CenRouteEntryForDescribeCenRouteEntriesOutput {
     this.status = status;
   }
 
+  public CenRouteEntryForDescribeCenRouteEntriesOutput type(String type) {
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @Schema(description = "")
+  public String getType() {
+    return type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -224,12 +245,13 @@ public class CenRouteEntryForDescribeCenRouteEntriesOutput {
         Objects.equals(this.instanceRegionId, cenRouteEntryForDescribeCenRouteEntriesOutput.instanceRegionId) &&
         Objects.equals(this.instanceType, cenRouteEntryForDescribeCenRouteEntriesOutput.instanceType) &&
         Objects.equals(this.publishStatus, cenRouteEntryForDescribeCenRouteEntriesOutput.publishStatus) &&
-        Objects.equals(this.status, cenRouteEntryForDescribeCenRouteEntriesOutput.status);
+        Objects.equals(this.status, cenRouteEntryForDescribeCenRouteEntriesOutput.status) &&
+        Objects.equals(this.type, cenRouteEntryForDescribeCenRouteEntriesOutput.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(asPath, cenId, destinationCidrBlock, instanceId, instanceRegionId, instanceType, publishStatus, status);
+    return Objects.hash(asPath, cenId, destinationCidrBlock, instanceId, instanceRegionId, instanceType, publishStatus, status, type);
   }
 
 
@@ -246,6 +268,7 @@ public class CenRouteEntryForDescribeCenRouteEntriesOutput {
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("    publishStatus: ").append(toIndentedString(publishStatus)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * IpsecConfigForDescribeVpnConnectionAttributesOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-22T20:23:47.673068+08:00[Asia/Shanghai]")
+
 public class IpsecConfigForDescribeVpnConnectionAttributesOutput {
   @SerializedName("AuthAlg")
   private String authAlg = null;

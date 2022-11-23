@@ -27,8 +27,17 @@ import javax.validation.Valid;
  * ModifyDirectConnectConnectionAttributesRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-22T20:23:22.987183+08:00[Asia/Shanghai]")
+
 public class ModifyDirectConnectConnectionAttributesRequest {
+  @SerializedName("CustomerContactEmail")
+  private String customerContactEmail = null;
+
+  @SerializedName("CustomerContactPhone")
+  private String customerContactPhone = null;
+
+  @SerializedName("CustomerName")
+  private String customerName = null;
+
   @SerializedName("Description")
   private String description = null;
 
@@ -37,6 +46,60 @@ public class ModifyDirectConnectConnectionAttributesRequest {
 
   @SerializedName("DirectConnectConnectionName")
   private String directConnectConnectionName = null;
+
+  public ModifyDirectConnectConnectionAttributesRequest customerContactEmail(String customerContactEmail) {
+    this.customerContactEmail = customerContactEmail;
+    return this;
+  }
+
+   /**
+   * Get customerContactEmail
+   * @return customerContactEmail
+  **/
+  @Schema(description = "")
+  public String getCustomerContactEmail() {
+    return customerContactEmail;
+  }
+
+  public void setCustomerContactEmail(String customerContactEmail) {
+    this.customerContactEmail = customerContactEmail;
+  }
+
+  public ModifyDirectConnectConnectionAttributesRequest customerContactPhone(String customerContactPhone) {
+    this.customerContactPhone = customerContactPhone;
+    return this;
+  }
+
+   /**
+   * Get customerContactPhone
+   * @return customerContactPhone
+  **/
+  @Schema(description = "")
+  public String getCustomerContactPhone() {
+    return customerContactPhone;
+  }
+
+  public void setCustomerContactPhone(String customerContactPhone) {
+    this.customerContactPhone = customerContactPhone;
+  }
+
+  public ModifyDirectConnectConnectionAttributesRequest customerName(String customerName) {
+    this.customerName = customerName;
+    return this;
+  }
+
+   /**
+   * Get customerName
+   * @return customerName
+  **/
+  @Schema(description = "")
+  public String getCustomerName() {
+    return customerName;
+  }
+
+  public void setCustomerName(String customerName) {
+    this.customerName = customerName;
+  }
 
   public ModifyDirectConnectConnectionAttributesRequest description(String description) {
     this.description = description;
@@ -103,14 +166,17 @@ public class ModifyDirectConnectConnectionAttributesRequest {
       return false;
     }
     ModifyDirectConnectConnectionAttributesRequest modifyDirectConnectConnectionAttributesRequest = (ModifyDirectConnectConnectionAttributesRequest) o;
-    return Objects.equals(this.description, modifyDirectConnectConnectionAttributesRequest.description) &&
+    return Objects.equals(this.customerContactEmail, modifyDirectConnectConnectionAttributesRequest.customerContactEmail) &&
+        Objects.equals(this.customerContactPhone, modifyDirectConnectConnectionAttributesRequest.customerContactPhone) &&
+        Objects.equals(this.customerName, modifyDirectConnectConnectionAttributesRequest.customerName) &&
+        Objects.equals(this.description, modifyDirectConnectConnectionAttributesRequest.description) &&
         Objects.equals(this.directConnectConnectionId, modifyDirectConnectConnectionAttributesRequest.directConnectConnectionId) &&
         Objects.equals(this.directConnectConnectionName, modifyDirectConnectConnectionAttributesRequest.directConnectConnectionName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, directConnectConnectionId, directConnectConnectionName);
+    return Objects.hash(customerContactEmail, customerContactPhone, customerName, description, directConnectConnectionId, directConnectConnectionName);
   }
 
 
@@ -119,6 +185,9 @@ public class ModifyDirectConnectConnectionAttributesRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ModifyDirectConnectConnectionAttributesRequest {\n");
     
+    sb.append("    customerContactEmail: ").append(toIndentedString(customerContactEmail)).append("\n");
+    sb.append("    customerContactPhone: ").append(toIndentedString(customerContactPhone)).append("\n");
+    sb.append("    customerName: ").append(toIndentedString(customerName)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    directConnectConnectionId: ").append(toIndentedString(directConnectConnectionId)).append("\n");
     sb.append("    directConnectConnectionName: ").append(toIndentedString(directConnectConnectionName)).append("\n");

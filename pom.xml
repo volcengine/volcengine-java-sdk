@@ -4,7 +4,7 @@
     <groupId>com.volcengine</groupId>
     <artifactId>volcengine-java-sdk</artifactId>
     <packaging>pom</packaging>
-    <version>1.3.0</version>
+    <version>0.1.26</version>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.source.version>1.7</java.source.version>
@@ -75,12 +75,14 @@
         <repository>
             <id>maven.byted.org</id>
             <name>maven.byted.org</name>
-            <url>https://artifact-maven.byted.org/repository/releases/</url>
+            <!--suppress UnresolvedMavenProperty -->
+            <url>https://${MAVEN_SERVER}/repository/releases/</url>
         </repository>
         <snapshotRepository>
             <id>maven.byted.org</id>
             <name>maven.byted.org</name>
-            <url>https://artifact-maven.byted.org/repository/releases/</url>
+            <!--suppress UnresolvedMavenProperty -->
+            <url>https://${MAVEN_SERVER}/repository/releases/</url>
         </snapshotRepository>
     </distributionManagement>
     <build>

@@ -29,10 +29,10 @@ import javax.validation.Valid;
  * DescribeDirectConnectAccessPointsRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-22T20:23:22.987183+08:00[Asia/Shanghai]")
+
 public class DescribeDirectConnectAccessPointsRequest {
-  @SerializedName("DescribeDirectConnectAccessPointIds")
-  private List<String> describeDirectConnectAccessPointIds = null;
+  @SerializedName("DirectConnectAccessPointIds")
+  private List<String> directConnectAccessPointIds = null;
 
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
@@ -40,30 +40,30 @@ public class DescribeDirectConnectAccessPointsRequest {
   @SerializedName("PageSize")
   private Integer pageSize = null;
 
-  public DescribeDirectConnectAccessPointsRequest describeDirectConnectAccessPointIds(List<String> describeDirectConnectAccessPointIds) {
-    this.describeDirectConnectAccessPointIds = describeDirectConnectAccessPointIds;
+  public DescribeDirectConnectAccessPointsRequest directConnectAccessPointIds(List<String> directConnectAccessPointIds) {
+    this.directConnectAccessPointIds = directConnectAccessPointIds;
     return this;
   }
 
-  public DescribeDirectConnectAccessPointsRequest addDescribeDirectConnectAccessPointIdsItem(String describeDirectConnectAccessPointIdsItem) {
-    if (this.describeDirectConnectAccessPointIds == null) {
-      this.describeDirectConnectAccessPointIds = new ArrayList<String>();
+  public DescribeDirectConnectAccessPointsRequest addDirectConnectAccessPointIdsItem(String directConnectAccessPointIdsItem) {
+    if (this.directConnectAccessPointIds == null) {
+      this.directConnectAccessPointIds = new ArrayList<String>();
     }
-    this.describeDirectConnectAccessPointIds.add(describeDirectConnectAccessPointIdsItem);
+    this.directConnectAccessPointIds.add(directConnectAccessPointIdsItem);
     return this;
   }
 
    /**
-   * Get describeDirectConnectAccessPointIds
-   * @return describeDirectConnectAccessPointIds
+   * Get directConnectAccessPointIds
+   * @return directConnectAccessPointIds
   **/
   @Schema(description = "")
-  public List<String> getDescribeDirectConnectAccessPointIds() {
-    return describeDirectConnectAccessPointIds;
+  public List<String> getDirectConnectAccessPointIds() {
+    return directConnectAccessPointIds;
   }
 
-  public void setDescribeDirectConnectAccessPointIds(List<String> describeDirectConnectAccessPointIds) {
-    this.describeDirectConnectAccessPointIds = describeDirectConnectAccessPointIds;
+  public void setDirectConnectAccessPointIds(List<String> directConnectAccessPointIds) {
+    this.directConnectAccessPointIds = directConnectAccessPointIds;
   }
 
   public DescribeDirectConnectAccessPointsRequest pageNumber(Integer pageNumber) {
@@ -112,14 +112,14 @@ public class DescribeDirectConnectAccessPointsRequest {
       return false;
     }
     DescribeDirectConnectAccessPointsRequest describeDirectConnectAccessPointsRequest = (DescribeDirectConnectAccessPointsRequest) o;
-    return Objects.equals(this.describeDirectConnectAccessPointIds, describeDirectConnectAccessPointsRequest.describeDirectConnectAccessPointIds) &&
+    return Objects.equals(this.directConnectAccessPointIds, describeDirectConnectAccessPointsRequest.directConnectAccessPointIds) &&
         Objects.equals(this.pageNumber, describeDirectConnectAccessPointsRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeDirectConnectAccessPointsRequest.pageSize);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(describeDirectConnectAccessPointIds, pageNumber, pageSize);
+    return Objects.hash(directConnectAccessPointIds, pageNumber, pageSize);
   }
 
 
@@ -128,7 +128,7 @@ public class DescribeDirectConnectAccessPointsRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeDirectConnectAccessPointsRequest {\n");
     
-    sb.append("    describeDirectConnectAccessPointIds: ").append(toIndentedString(describeDirectConnectAccessPointIds)).append("\n");
+    sb.append("    directConnectAccessPointIds: ").append(toIndentedString(directConnectAccessPointIds)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("}");

@@ -30,7 +30,7 @@ import javax.validation.Valid;
  * DescribeInstancesIamRolesResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-09-22T20:23:28.947116+08:00[Asia/Shanghai]")
+
 public class DescribeInstancesIamRolesResponse {
   @SerializedName("InstancesIamRoles")
   private List<InstancesIamRoleForDescribeInstancesIamRolesOutput> instancesIamRoles = null;
