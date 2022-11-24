@@ -47,6 +47,9 @@ public class CreateClusterRequest {
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("KubernetesVersion")
+  private String kubernetesVersion = null;
+
   @SerializedName("Name")
   private String name = null;
 
@@ -130,6 +133,24 @@ public class CreateClusterRequest {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public CreateClusterRequest kubernetesVersion(String kubernetesVersion) {
+    this.kubernetesVersion = kubernetesVersion;
+    return this;
+  }
+
+   /**
+   * Get kubernetesVersion
+   * @return kubernetesVersion
+  **/
+  @Schema(description = "")
+  public String getKubernetesVersion() {
+    return kubernetesVersion;
+  }
+
+  public void setKubernetesVersion(String kubernetesVersion) {
+    this.kubernetesVersion = kubernetesVersion;
   }
 
   public CreateClusterRequest name(String name) {
@@ -229,6 +250,7 @@ public class CreateClusterRequest {
         Objects.equals(this.clusterConfig, createClusterRequest.clusterConfig) &&
         Objects.equals(this.deleteProtectionEnabled, createClusterRequest.deleteProtectionEnabled) &&
         Objects.equals(this.description, createClusterRequest.description) &&
+        Objects.equals(this.kubernetesVersion, createClusterRequest.kubernetesVersion) &&
         Objects.equals(this.name, createClusterRequest.name) &&
         Objects.equals(this.podsConfig, createClusterRequest.podsConfig) &&
         Objects.equals(this.servicesConfig, createClusterRequest.servicesConfig) &&
@@ -237,7 +259,7 @@ public class CreateClusterRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, clusterConfig, deleteProtectionEnabled, description, name, podsConfig, servicesConfig, tags);
+    return Objects.hash(clientToken, clusterConfig, deleteProtectionEnabled, description, kubernetesVersion, name, podsConfig, servicesConfig, tags);
   }
 
 
@@ -250,6 +272,7 @@ public class CreateClusterRequest {
     sb.append("    clusterConfig: ").append(toIndentedString(clusterConfig)).append("\n");
     sb.append("    deleteProtectionEnabled: ").append(toIndentedString(deleteProtectionEnabled)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    kubernetesVersion: ").append(toIndentedString(kubernetesVersion)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    podsConfig: ").append(toIndentedString(podsConfig)).append("\n");
     sb.append("    servicesConfig: ").append(toIndentedString(servicesConfig)).append("\n");
