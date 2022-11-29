@@ -49,6 +49,9 @@ public class CustomizedCfgForDescribeCustomizedCfgsOutput {
   @SerializedName("Listeners")
   private List<String> listeners = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("Status")
   private String status = null;
 
@@ -171,6 +174,24 @@ public class CustomizedCfgForDescribeCustomizedCfgsOutput {
     this.listeners = listeners;
   }
 
+  public CustomizedCfgForDescribeCustomizedCfgsOutput projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public CustomizedCfgForDescribeCustomizedCfgsOutput status(String status) {
     this.status = status;
     return this;
@@ -223,13 +244,14 @@ public class CustomizedCfgForDescribeCustomizedCfgsOutput {
         Objects.equals(this.customizedCfgName, customizedCfgForDescribeCustomizedCfgsOutput.customizedCfgName) &&
         Objects.equals(this.description, customizedCfgForDescribeCustomizedCfgsOutput.description) &&
         Objects.equals(this.listeners, customizedCfgForDescribeCustomizedCfgsOutput.listeners) &&
+        Objects.equals(this.projectName, customizedCfgForDescribeCustomizedCfgsOutput.projectName) &&
         Objects.equals(this.status, customizedCfgForDescribeCustomizedCfgsOutput.status) &&
         Objects.equals(this.updateTime, customizedCfgForDescribeCustomizedCfgsOutput.updateTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createTime, customizedCfgContent, customizedCfgId, customizedCfgName, description, listeners, status, updateTime);
+    return Objects.hash(createTime, customizedCfgContent, customizedCfgId, customizedCfgName, description, listeners, projectName, status, updateTime);
   }
 
 
@@ -244,6 +266,7 @@ public class CustomizedCfgForDescribeCustomizedCfgsOutput {
     sb.append("    customizedCfgName: ").append(toIndentedString(customizedCfgName)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    listeners: ").append(toIndentedString(listeners)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("}");

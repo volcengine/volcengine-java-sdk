@@ -77,6 +77,9 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
   @SerializedName("OverdueTime")
   private String overdueTime = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("Status")
   private String status = null;
 
@@ -365,6 +368,24 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
     this.overdueTime = overdueTime;
   }
 
+  public LoadBalancerForDescribeLoadBalancersOutput projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public LoadBalancerForDescribeLoadBalancersOutput status(String status) {
     this.status = status;
     return this;
@@ -507,6 +528,7 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
         Objects.equals(this.loadBalancerSpec, loadBalancerForDescribeLoadBalancersOutput.loadBalancerSpec) &&
         Objects.equals(this.lockReason, loadBalancerForDescribeLoadBalancersOutput.lockReason) &&
         Objects.equals(this.overdueTime, loadBalancerForDescribeLoadBalancersOutput.overdueTime) &&
+        Objects.equals(this.projectName, loadBalancerForDescribeLoadBalancersOutput.projectName) &&
         Objects.equals(this.status, loadBalancerForDescribeLoadBalancersOutput.status) &&
         Objects.equals(this.subnetId, loadBalancerForDescribeLoadBalancersOutput.subnetId) &&
         Objects.equals(this.type, loadBalancerForDescribeLoadBalancersOutput.type) &&
@@ -517,7 +539,7 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(businessStatus, createTime, dnSName, deletedTime, description, eipAddress, eipId, eniAddress, eniId, loadBalancerBillingType, loadBalancerId, loadBalancerName, loadBalancerSpec, lockReason, overdueTime, status, subnetId, type, updateTime, vpcId, zoneMappings);
+    return Objects.hash(businessStatus, createTime, dnSName, deletedTime, description, eipAddress, eipId, eniAddress, eniId, loadBalancerBillingType, loadBalancerId, loadBalancerName, loadBalancerSpec, lockReason, overdueTime, projectName, status, subnetId, type, updateTime, vpcId, zoneMappings);
   }
 
 
@@ -541,6 +563,7 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
     sb.append("    loadBalancerSpec: ").append(toIndentedString(loadBalancerSpec)).append("\n");
     sb.append("    lockReason: ").append(toIndentedString(lockReason)).append("\n");
     sb.append("    overdueTime: ").append(toIndentedString(overdueTime)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");

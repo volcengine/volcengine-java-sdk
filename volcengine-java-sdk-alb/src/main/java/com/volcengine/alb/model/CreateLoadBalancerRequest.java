@@ -48,6 +48,9 @@ public class CreateLoadBalancerRequest {
   @SerializedName("LoadBalancerName")
   private String loadBalancerName = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("RegionId")
   private String regionId = null;
 
@@ -152,6 +155,24 @@ public class CreateLoadBalancerRequest {
 
   public void setLoadBalancerName(String loadBalancerName) {
     this.loadBalancerName = loadBalancerName;
+  }
+
+  public CreateLoadBalancerRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
   }
 
   public CreateLoadBalancerRequest regionId(String regionId) {
@@ -270,6 +291,7 @@ public class CreateLoadBalancerRequest {
         Objects.equals(this.eipBillingConfig, createLoadBalancerRequest.eipBillingConfig) &&
         Objects.equals(this.loadBalancerBillingType, createLoadBalancerRequest.loadBalancerBillingType) &&
         Objects.equals(this.loadBalancerName, createLoadBalancerRequest.loadBalancerName) &&
+        Objects.equals(this.projectName, createLoadBalancerRequest.projectName) &&
         Objects.equals(this.regionId, createLoadBalancerRequest.regionId) &&
         Objects.equals(this.subnetId, createLoadBalancerRequest.subnetId) &&
         Objects.equals(this.type, createLoadBalancerRequest.type) &&
@@ -279,7 +301,7 @@ public class CreateLoadBalancerRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidthPackageId, description, eipBillingConfig, loadBalancerBillingType, loadBalancerName, regionId, subnetId, type, vpcId, zoneMappings);
+    return Objects.hash(bandwidthPackageId, description, eipBillingConfig, loadBalancerBillingType, loadBalancerName, projectName, regionId, subnetId, type, vpcId, zoneMappings);
   }
 
 
@@ -293,6 +315,7 @@ public class CreateLoadBalancerRequest {
     sb.append("    eipBillingConfig: ").append(toIndentedString(eipBillingConfig)).append("\n");
     sb.append("    loadBalancerBillingType: ").append(toIndentedString(loadBalancerBillingType)).append("\n");
     sb.append("    loadBalancerName: ").append(toIndentedString(loadBalancerName)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    regionId: ").append(toIndentedString(regionId)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");

@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -40,6 +42,9 @@ public class EipForDescribeLoadBalancersOutput {
 
   @SerializedName("ISP")
   private String ISP = null;
+
+  @SerializedName("SecurityProtectionTypes")
+  private List<String> securityProtectionTypes = null;
 
   public EipForDescribeLoadBalancersOutput bandwidth(Integer bandwidth) {
     this.bandwidth = bandwidth;
@@ -113,6 +118,32 @@ public class EipForDescribeLoadBalancersOutput {
     this.ISP = ISP;
   }
 
+  public EipForDescribeLoadBalancersOutput securityProtectionTypes(List<String> securityProtectionTypes) {
+    this.securityProtectionTypes = securityProtectionTypes;
+    return this;
+  }
+
+  public EipForDescribeLoadBalancersOutput addSecurityProtectionTypesItem(String securityProtectionTypesItem) {
+    if (this.securityProtectionTypes == null) {
+      this.securityProtectionTypes = new ArrayList<String>();
+    }
+    this.securityProtectionTypes.add(securityProtectionTypesItem);
+    return this;
+  }
+
+   /**
+   * Get securityProtectionTypes
+   * @return securityProtectionTypes
+  **/
+  @Schema(description = "")
+  public List<String> getSecurityProtectionTypes() {
+    return securityProtectionTypes;
+  }
+
+  public void setSecurityProtectionTypes(List<String> securityProtectionTypes) {
+    this.securityProtectionTypes = securityProtectionTypes;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -126,12 +157,13 @@ public class EipForDescribeLoadBalancersOutput {
     return Objects.equals(this.bandwidth, eipForDescribeLoadBalancersOutput.bandwidth) &&
         Objects.equals(this.eipAddress, eipForDescribeLoadBalancersOutput.eipAddress) &&
         Objects.equals(this.eipBillingType, eipForDescribeLoadBalancersOutput.eipBillingType) &&
-        Objects.equals(this.ISP, eipForDescribeLoadBalancersOutput.ISP);
+        Objects.equals(this.ISP, eipForDescribeLoadBalancersOutput.ISP) &&
+        Objects.equals(this.securityProtectionTypes, eipForDescribeLoadBalancersOutput.securityProtectionTypes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidth, eipAddress, eipBillingType, ISP);
+    return Objects.hash(bandwidth, eipAddress, eipBillingType, ISP, securityProtectionTypes);
   }
 
 
@@ -144,6 +176,7 @@ public class EipForDescribeLoadBalancersOutput {
     sb.append("    eipAddress: ").append(toIndentedString(eipAddress)).append("\n");
     sb.append("    eipBillingType: ").append(toIndentedString(eipBillingType)).append("\n");
     sb.append("    ISP: ").append(toIndentedString(ISP)).append("\n");
+    sb.append("    securityProtectionTypes: ").append(toIndentedString(securityProtectionTypes)).append("\n");
     sb.append("}");
     return sb.toString();
   }

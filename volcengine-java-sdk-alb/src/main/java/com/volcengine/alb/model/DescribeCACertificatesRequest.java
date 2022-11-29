@@ -43,6 +43,9 @@ public class DescribeCACertificatesRequest {
   @SerializedName("PageSize")
   private Integer pageSize = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   public DescribeCACertificatesRequest caCertificateIds(List<String> caCertificateIds) {
     this.caCertificateIds = caCertificateIds;
     return this;
@@ -123,6 +126,24 @@ public class DescribeCACertificatesRequest {
     this.pageSize = pageSize;
   }
 
+  public DescribeCACertificatesRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -136,12 +157,13 @@ public class DescribeCACertificatesRequest {
     return Objects.equals(this.caCertificateIds, describeCACertificatesRequest.caCertificateIds) &&
         Objects.equals(this.caCertificateName, describeCACertificatesRequest.caCertificateName) &&
         Objects.equals(this.pageNumber, describeCACertificatesRequest.pageNumber) &&
-        Objects.equals(this.pageSize, describeCACertificatesRequest.pageSize);
+        Objects.equals(this.pageSize, describeCACertificatesRequest.pageSize) &&
+        Objects.equals(this.projectName, describeCACertificatesRequest.projectName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(caCertificateIds, caCertificateName, pageNumber, pageSize);
+    return Objects.hash(caCertificateIds, caCertificateName, pageNumber, pageSize, projectName);
   }
 
 
@@ -154,6 +176,7 @@ public class DescribeCACertificatesRequest {
     sb.append("    caCertificateName: ").append(toIndentedString(caCertificateName)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");
     return sb.toString();
   }
