@@ -46,6 +46,9 @@ public class DescribeListenersRequest {
   @SerializedName("PageSize")
   private Integer pageSize = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   public DescribeListenersRequest listenerIds(List<String> listenerIds) {
     this.listenerIds = listenerIds;
     return this;
@@ -144,6 +147,24 @@ public class DescribeListenersRequest {
     this.pageSize = pageSize;
   }
 
+  public DescribeListenersRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -158,12 +179,13 @@ public class DescribeListenersRequest {
         Objects.equals(this.listenerName, describeListenersRequest.listenerName) &&
         Objects.equals(this.loadBalancerId, describeListenersRequest.loadBalancerId) &&
         Objects.equals(this.pageNumber, describeListenersRequest.pageNumber) &&
-        Objects.equals(this.pageSize, describeListenersRequest.pageSize);
+        Objects.equals(this.pageSize, describeListenersRequest.pageSize) &&
+        Objects.equals(this.projectName, describeListenersRequest.projectName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(listenerIds, listenerName, loadBalancerId, pageNumber, pageSize);
+    return Objects.hash(listenerIds, listenerName, loadBalancerId, pageNumber, pageSize, projectName);
   }
 
 
@@ -177,6 +199,7 @@ public class DescribeListenersRequest {
     sb.append("    loadBalancerId: ").append(toIndentedString(loadBalancerId)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");
     return sb.toString();
   }
