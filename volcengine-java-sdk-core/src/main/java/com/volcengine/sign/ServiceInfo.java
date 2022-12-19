@@ -1,8 +1,8 @@
 package com.volcengine.sign;
 
 /**
- * @Author: xuyaming@bytedance.com
- * @Date: 2022/3/18 14:08
+ * xuyaming@bytedance.com
+ * 2022/3/18 14:08
  */
 public class ServiceInfo {
     private String serviceName;

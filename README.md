@@ -31,6 +31,9 @@
 建议使用Maven构建自己的项目，添加需要的相应模块的依赖，示例如下：
 
 ##### Init maven setting.xml #####
+如果您使用的版本大于0.1.27 可以不进行设置 直接使用中央仓库进行依赖
+
+如果您使用的版本小于或者等于0.1.27
 需要使用字节跳动的maven仓库来完成依赖，请先到maven安装目录的conf/setting.xml
 在<mirrors/>标签中增加
 
@@ -51,7 +54,7 @@
     <dependency>
       <groupId>com.volcengine</groupId>
 	  <artifactId>volcengine-java-sdk-bom</artifactId>
-       <version>0.1.28</version>
+       <version>0.1.29</version>
 	  <type>pom</type>
       <scope>import</scope>
     </dependency>
@@ -67,12 +70,12 @@
   <dependency>
     <groupId>com.volcengine</groupId>
     <artifactId>volcengine-java-sdk-vpc</artifactId>
-   <version>0.1.28</version>
+   <version>0.1.29</version>
   </dependency>
   <dependency>
     <groupId>com.volcengine</groupId>
     <artifactId>volcengine-java-sdk-ecs</artifactId>
-   <version>0.1.28</version>
+   <version>0.1.29</version>
   </dependency>
 </dependencies>
 ```
