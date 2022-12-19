@@ -3,8 +3,8 @@ package com.volcengine.model;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * @Author: xuyaming@bytedance.com
- * @Date: 2022/3/18 15:20
+ * xuyaming@bytedance.com
+ * 2022/3/18 15:20
  */
 public class ResponseMetadata {
     @SerializedName("RequestId")
