@@ -851,7 +851,7 @@ public class ApiClient {
     }
 
     /**
-     * {@link #execute(Call, Type)}
+     * {@link #execute(Call, Type, boolean...)}
      *
      * @param <T>  Type
      * @param call An instance of the Call object
@@ -902,7 +902,7 @@ public class ApiClient {
      * @param call       The callback to be executed when the API call finishes
      * @param returnType Return type
      * @param callback   ApiCallback
-     * @see #execute(Call, Type)
+     * @see #execute(Call, Type, boolean...) 
      */
     @SuppressWarnings("unchecked")
     public <T> void executeAsync(Call call, final Type returnType, final ApiCallback<T> callback) {
