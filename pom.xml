@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.volcengine</groupId>
     <artifactId>volcengine-java-sdk</artifactId>
     <packaging>pom</packaging>
-    <version>0.1.30</version>
+    <version>0.1.31</version>
     <name>volcengine-java-sdk</name>
     <url>https://open.volcengineapi.com</url>
     <description>The Java SDK For Volcengine</description>
@@ -94,7 +93,6 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
     <profiles>
         <profile>
             <id>public</id>
@@ -176,7 +174,6 @@
             </distributionManagement>
         </profile>
     </profiles>
-
     <build>
         <plugins>
             <plugin>
@@ -226,5 +223,6 @@
         <module>volcengine-java-sdk-cr</module>
         <module>volcengine-java-sdk-directconnect</module>
         <module>volcengine-java-sdk-mongodb</module>
+        <module>volcengine-java-sdk-volcobserve</module>
     </modules>
 </project>
