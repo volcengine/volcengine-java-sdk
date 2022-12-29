@@ -38,6 +38,9 @@ public class CreateCustomizedCfgRequest {
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   public CreateCustomizedCfgRequest customizedCfgContent(String customizedCfgContent) {
     this.customizedCfgContent = customizedCfgContent;
     return this;
@@ -94,6 +97,24 @@ public class CreateCustomizedCfgRequest {
     this.description = description;
   }
 
+  public CreateCustomizedCfgRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -106,12 +127,13 @@ public class CreateCustomizedCfgRequest {
     CreateCustomizedCfgRequest createCustomizedCfgRequest = (CreateCustomizedCfgRequest) o;
     return Objects.equals(this.customizedCfgContent, createCustomizedCfgRequest.customizedCfgContent) &&
         Objects.equals(this.customizedCfgName, createCustomizedCfgRequest.customizedCfgName) &&
-        Objects.equals(this.description, createCustomizedCfgRequest.description);
+        Objects.equals(this.description, createCustomizedCfgRequest.description) &&
+        Objects.equals(this.projectName, createCustomizedCfgRequest.projectName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(customizedCfgContent, customizedCfgName, description);
+    return Objects.hash(customizedCfgContent, customizedCfgName, description, projectName);
   }
 
 
@@ -123,6 +145,7 @@ public class CreateCustomizedCfgRequest {
     sb.append("    customizedCfgContent: ").append(toIndentedString(customizedCfgContent)).append("\n");
     sb.append("    customizedCfgName: ").append(toIndentedString(customizedCfgName)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");
     return sb.toString();
   }
