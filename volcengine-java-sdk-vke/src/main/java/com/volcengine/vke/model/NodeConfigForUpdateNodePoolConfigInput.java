@@ -47,6 +47,9 @@ public class NodeConfigForUpdateNodePoolConfigInput {
   @SerializedName("DataVolumes")
   private List<DataVolumeForUpdateNodePoolConfigInput> dataVolumes = null;
 
+  @SerializedName("HpcClusterIds")
+  private List<String> hpcClusterIds = null;
+
   @SerializedName("InitializeScript")
   private String initializeScript = null;
 
@@ -150,6 +153,32 @@ public class NodeConfigForUpdateNodePoolConfigInput {
 
   public void setDataVolumes(List<DataVolumeForUpdateNodePoolConfigInput> dataVolumes) {
     this.dataVolumes = dataVolumes;
+  }
+
+  public NodeConfigForUpdateNodePoolConfigInput hpcClusterIds(List<String> hpcClusterIds) {
+    this.hpcClusterIds = hpcClusterIds;
+    return this;
+  }
+
+  public NodeConfigForUpdateNodePoolConfigInput addHpcClusterIdsItem(String hpcClusterIdsItem) {
+    if (this.hpcClusterIds == null) {
+      this.hpcClusterIds = new ArrayList<String>();
+    }
+    this.hpcClusterIds.add(hpcClusterIdsItem);
+    return this;
+  }
+
+   /**
+   * Get hpcClusterIds
+   * @return hpcClusterIds
+  **/
+  @Schema(description = "")
+  public List<String> getHpcClusterIds() {
+    return hpcClusterIds;
+  }
+
+  public void setHpcClusterIds(List<String> hpcClusterIds) {
+    this.hpcClusterIds = hpcClusterIds;
   }
 
   public NodeConfigForUpdateNodePoolConfigInput initializeScript(String initializeScript) {
@@ -337,6 +366,7 @@ public class NodeConfigForUpdateNodePoolConfigInput {
         Objects.equals(this.autoRenew, nodeConfigForUpdateNodePoolConfigInput.autoRenew) &&
         Objects.equals(this.autoRenewPeriod, nodeConfigForUpdateNodePoolConfigInput.autoRenewPeriod) &&
         Objects.equals(this.dataVolumes, nodeConfigForUpdateNodePoolConfigInput.dataVolumes) &&
+        Objects.equals(this.hpcClusterIds, nodeConfigForUpdateNodePoolConfigInput.hpcClusterIds) &&
         Objects.equals(this.initializeScript, nodeConfigForUpdateNodePoolConfigInput.initializeScript) &&
         Objects.equals(this.instanceTypeIds, nodeConfigForUpdateNodePoolConfigInput.instanceTypeIds) &&
         Objects.equals(this.namePrefix, nodeConfigForUpdateNodePoolConfigInput.namePrefix) &&
@@ -349,7 +379,7 @@ public class NodeConfigForUpdateNodePoolConfigInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalContainerStorageEnabled, autoRenew, autoRenewPeriod, dataVolumes, initializeScript, instanceTypeIds, namePrefix, period, security, subnetIds, systemVolume, tags);
+    return Objects.hash(additionalContainerStorageEnabled, autoRenew, autoRenewPeriod, dataVolumes, hpcClusterIds, initializeScript, instanceTypeIds, namePrefix, period, security, subnetIds, systemVolume, tags);
   }
 
 
@@ -362,6 +392,7 @@ public class NodeConfigForUpdateNodePoolConfigInput {
     sb.append("    autoRenew: ").append(toIndentedString(autoRenew)).append("\n");
     sb.append("    autoRenewPeriod: ").append(toIndentedString(autoRenewPeriod)).append("\n");
     sb.append("    dataVolumes: ").append(toIndentedString(dataVolumes)).append("\n");
+    sb.append("    hpcClusterIds: ").append(toIndentedString(hpcClusterIds)).append("\n");
     sb.append("    initializeScript: ").append(toIndentedString(initializeScript)).append("\n");
     sb.append("    instanceTypeIds: ").append(toIndentedString(instanceTypeIds)).append("\n");
     sb.append("    namePrefix: ").append(toIndentedString(namePrefix)).append("\n");

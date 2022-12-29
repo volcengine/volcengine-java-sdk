@@ -13,8 +13,8 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
- * @Author: xuyaming@bytedance.com
- * @Date: 2022/3/18 13:13
+ * xuyaming@bytedance.com
+ * 2022/3/18 13:13
  */
 public class VolcstackSign implements Authentication {
 

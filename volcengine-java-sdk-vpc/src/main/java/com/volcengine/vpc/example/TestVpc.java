@@ -11,8 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @Author: xuyaming@bytedance.com
- * @Date: 2022/3/22 18:56
+ * xuyaming@bytedance.com
+ * 2022/3/22 18:56
  */
 public class TestVpc {
     public static void main(String[] args)throws Exception {
