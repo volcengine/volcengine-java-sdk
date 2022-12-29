@@ -43,6 +43,9 @@ public class DescribeServerGroupAttributesResponse {
   @SerializedName("Listeners")
   private List<String> listeners = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("RequestId")
   private String requestId = null;
 
@@ -128,6 +131,24 @@ public class DescribeServerGroupAttributesResponse {
 
   public void setListeners(List<String> listeners) {
     this.listeners = listeners;
+  }
+
+  public DescribeServerGroupAttributesResponse projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
   }
 
   public DescribeServerGroupAttributesResponse requestId(String requestId) {
@@ -297,6 +318,7 @@ public class DescribeServerGroupAttributesResponse {
     return Objects.equals(this.description, describeServerGroupAttributesResponse.description) &&
         Objects.equals(this.healthCheck, describeServerGroupAttributesResponse.healthCheck) &&
         Objects.equals(this.listeners, describeServerGroupAttributesResponse.listeners) &&
+        Objects.equals(this.projectName, describeServerGroupAttributesResponse.projectName) &&
         Objects.equals(this.requestId, describeServerGroupAttributesResponse.requestId) &&
         Objects.equals(this.scheduler, describeServerGroupAttributesResponse.scheduler) &&
         Objects.equals(this.serverGroupId, describeServerGroupAttributesResponse.serverGroupId) &&
@@ -309,7 +331,7 @@ public class DescribeServerGroupAttributesResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, healthCheck, listeners, requestId, scheduler, serverGroupId, serverGroupName, servers, status, stickySessionConfig, vpcId);
+    return Objects.hash(description, healthCheck, listeners, projectName, requestId, scheduler, serverGroupId, serverGroupName, servers, status, stickySessionConfig, vpcId);
   }
 
 
@@ -321,6 +343,7 @@ public class DescribeServerGroupAttributesResponse {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    healthCheck: ").append(toIndentedString(healthCheck)).append("\n");
     sb.append("    listeners: ").append(toIndentedString(listeners)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    scheduler: ").append(toIndentedString(scheduler)).append("\n");
     sb.append("    serverGroupId: ").append(toIndentedString(serverGroupId)).append("\n");

@@ -50,6 +50,9 @@ public class DescribeCustomizedCfgAttributesResponse {
   @SerializedName("Listeners")
   private List<ListenerForDescribeCustomizedCfgAttributesOutput> listeners = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("RequestId")
   private String requestId = null;
 
@@ -176,6 +179,24 @@ public class DescribeCustomizedCfgAttributesResponse {
     this.listeners = listeners;
   }
 
+  public DescribeCustomizedCfgAttributesResponse projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public DescribeCustomizedCfgAttributesResponse requestId(String requestId) {
     this.requestId = requestId;
     return this;
@@ -246,6 +267,7 @@ public class DescribeCustomizedCfgAttributesResponse {
         Objects.equals(this.customizedCfgName, describeCustomizedCfgAttributesResponse.customizedCfgName) &&
         Objects.equals(this.description, describeCustomizedCfgAttributesResponse.description) &&
         Objects.equals(this.listeners, describeCustomizedCfgAttributesResponse.listeners) &&
+        Objects.equals(this.projectName, describeCustomizedCfgAttributesResponse.projectName) &&
         Objects.equals(this.requestId, describeCustomizedCfgAttributesResponse.requestId) &&
         Objects.equals(this.status, describeCustomizedCfgAttributesResponse.status) &&
         Objects.equals(this.updateTime, describeCustomizedCfgAttributesResponse.updateTime);
@@ -253,7 +275,7 @@ public class DescribeCustomizedCfgAttributesResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createTime, customizedCfgContent, customizedCfgId, customizedCfgName, description, listeners, requestId, status, updateTime);
+    return Objects.hash(createTime, customizedCfgContent, customizedCfgId, customizedCfgName, description, listeners, projectName, requestId, status, updateTime);
   }
 
 
@@ -268,6 +290,7 @@ public class DescribeCustomizedCfgAttributesResponse {
     sb.append("    customizedCfgName: ").append(toIndentedString(customizedCfgName)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    listeners: ").append(toIndentedString(listeners)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
