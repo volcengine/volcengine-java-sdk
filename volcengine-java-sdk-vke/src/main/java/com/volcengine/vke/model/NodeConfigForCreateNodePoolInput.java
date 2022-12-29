@@ -47,6 +47,9 @@ public class NodeConfigForCreateNodePoolInput {
   @SerializedName("DataVolumes")
   private List<DataVolumeForCreateNodePoolInput> dataVolumes = null;
 
+  @SerializedName("HpcClusterIds")
+  private List<String> hpcClusterIds = null;
+
   @SerializedName("ImageId")
   private String imageId = null;
 
@@ -197,6 +200,32 @@ public class NodeConfigForCreateNodePoolInput {
 
   public void setDataVolumes(List<DataVolumeForCreateNodePoolInput> dataVolumes) {
     this.dataVolumes = dataVolumes;
+  }
+
+  public NodeConfigForCreateNodePoolInput hpcClusterIds(List<String> hpcClusterIds) {
+    this.hpcClusterIds = hpcClusterIds;
+    return this;
+  }
+
+  public NodeConfigForCreateNodePoolInput addHpcClusterIdsItem(String hpcClusterIdsItem) {
+    if (this.hpcClusterIds == null) {
+      this.hpcClusterIds = new ArrayList<String>();
+    }
+    this.hpcClusterIds.add(hpcClusterIdsItem);
+    return this;
+  }
+
+   /**
+   * Get hpcClusterIds
+   * @return hpcClusterIds
+  **/
+  @Schema(description = "")
+  public List<String> getHpcClusterIds() {
+    return hpcClusterIds;
+  }
+
+  public void setHpcClusterIds(List<String> hpcClusterIds) {
+    this.hpcClusterIds = hpcClusterIds;
   }
 
   public NodeConfigForCreateNodePoolInput imageId(String imageId) {
@@ -420,6 +449,7 @@ public class NodeConfigForCreateNodePoolInput {
         Objects.equals(this.autoRenew, nodeConfigForCreateNodePoolInput.autoRenew) &&
         Objects.equals(this.autoRenewPeriod, nodeConfigForCreateNodePoolInput.autoRenewPeriod) &&
         Objects.equals(this.dataVolumes, nodeConfigForCreateNodePoolInput.dataVolumes) &&
+        Objects.equals(this.hpcClusterIds, nodeConfigForCreateNodePoolInput.hpcClusterIds) &&
         Objects.equals(this.imageId, nodeConfigForCreateNodePoolInput.imageId) &&
         Objects.equals(this.initializeScript, nodeConfigForCreateNodePoolInput.initializeScript) &&
         Objects.equals(this.instanceChargeType, nodeConfigForCreateNodePoolInput.instanceChargeType) &&
@@ -434,7 +464,7 @@ public class NodeConfigForCreateNodePoolInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalContainerStorageEnabled, autoRenew, autoRenewPeriod, dataVolumes, imageId, initializeScript, instanceChargeType, instanceTypeIds, namePrefix, period, security, subnetIds, systemVolume, tags);
+    return Objects.hash(additionalContainerStorageEnabled, autoRenew, autoRenewPeriod, dataVolumes, hpcClusterIds, imageId, initializeScript, instanceChargeType, instanceTypeIds, namePrefix, period, security, subnetIds, systemVolume, tags);
   }
 
 
@@ -447,6 +477,7 @@ public class NodeConfigForCreateNodePoolInput {
     sb.append("    autoRenew: ").append(toIndentedString(autoRenew)).append("\n");
     sb.append("    autoRenewPeriod: ").append(toIndentedString(autoRenewPeriod)).append("\n");
     sb.append("    dataVolumes: ").append(toIndentedString(dataVolumes)).append("\n");
+    sb.append("    hpcClusterIds: ").append(toIndentedString(hpcClusterIds)).append("\n");
     sb.append("    imageId: ").append(toIndentedString(imageId)).append("\n");
     sb.append("    initializeScript: ").append(toIndentedString(initializeScript)).append("\n");
     sb.append("    instanceChargeType: ").append(toIndentedString(instanceChargeType)).append("\n");

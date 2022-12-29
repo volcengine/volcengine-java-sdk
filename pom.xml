@@ -1,10 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.volcengine</groupId>
     <artifactId>volcengine-java-sdk</artifactId>
     <packaging>pom</packaging>
     <version>0.1.31</version>
+    <name>volcengine-java-sdk</name>
+    <url>https://open.volcengineapi.com</url>
+    <description>The Java SDK For Volcengine</description>
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <scm>
+        <url>scm:git:https://github.com/volcengine/volcengine-java-sdk.git</url>
+        <connection>scm:git:https://github.com/volcengine/volcengine-java-sdk.git</connection>
+        <developerConnection>scm:https://github.com/volcengine/volcengine-java-sdk.git</developerConnection>
+    </scm>
+    <developers>
+        <developer>
+            <id>volcengine</id>
+            <name>volcengine-java-sdk</name>
+            <email>volcengine@bytedance.com</email>
+        </developer>
+    </developers>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.source.version>1.7</java.source.version>
@@ -71,20 +94,89 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-    <distributionManagement>
-        <repository>
-            <id>maven.byted.org</id>
-            <name>maven.byted.org</name>
-            <!--suppress UnresolvedMavenProperty -->
-            <url>https://${MAVEN_SERVER}/repository/releases/</url>
-        </repository>
-        <snapshotRepository>
-            <id>maven.byted.org</id>
-            <name>maven.byted.org</name>
-            <!--suppress UnresolvedMavenProperty -->
-            <url>https://${MAVEN_SERVER}/repository/releases/</url>
-        </snapshotRepository>
-    </distributionManagement>
+
+    <profiles>
+        <profile>
+            <id>public</id>
+            <distributionManagement>
+                <snapshotRepository>
+                    <id>sonatype-nexus-staging</id>
+                    <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+                </snapshotRepository>
+                <repository>
+                    <id>sonatype-nexus-staging</id>
+                    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+                </repository>
+            </distributionManagement>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>attach-javadocs</id>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>${dep.maven-surefire-plugin.version}</version>
+                        <configuration>
+                            <argLine>-Dfile.encoding=UTF-8</argLine>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>1.6</version>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.sonatype.plugins</groupId>
+                        <artifactId>nexus-staging-maven-plugin</artifactId>
+                        <version>1.6.7</version>
+                        <extensions>true</extensions>
+                        <configuration>
+                            <serverId>sonatype-nexus-staging</serverId>
+                            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                            <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>byted</id>
+            <distributionManagement>
+                <repository>
+                    <id>maven.byted.org</id>
+                    <name>maven.byted.org</name>
+                    <!--suppress UnresolvedMavenProperty -->
+                    <url>https://${MAVEN_SERVER}/repository/releases/</url>
+                </repository>
+                <snapshotRepository>
+                    <id>maven.byted.org</id>
+                    <name>maven.byted.org</name>
+                    <!--suppress UnresolvedMavenProperty -->
+                    <url>https://${MAVEN_SERVER}/repository/releases/</url>
+                </snapshotRepository>
+            </distributionManagement>
+        </profile>
+    </profiles>
+
     <build>
         <plugins>
             <plugin>

@@ -690,12 +690,13 @@ public class ApiClient {
      * @param <T>        Type
      * @param response   HTTP response
      * @param returnType The type of the Java object
+     * @param isCommon                The flag for Universal
      * @return The deserialized Java object
      * @throws ApiException If fail to deserialize response body, i.e. cannot read response body
      *                      or the Content-Type of the response is not supported.
      */
     @SuppressWarnings("unchecked")
-    public <T> T deserialize(Response response, Type returnType) throws ApiException {
+    public <T> T deserialize(Response response, Type returnType,boolean ...isCommon) throws ApiException {
         if (response == null || returnType == null) {
             return null;
         }
@@ -728,15 +729,16 @@ public class ApiClient {
 
         StringBuilder builder = new StringBuilder();
 
-        if (!convertResponseBody(respBody,builder)){
-            throw new ApiException(
-                    response.code(),
-                    response.headers().toMultimap(),
-                    respBody);
-        }else {
-            respBody = builder.toString();
+        if (isCommon.length == 0 || !isCommon[0]) {
+            if (!convertResponseBody(respBody, builder)) {
+                throw new ApiException(
+                        response.code(),
+                        response.headers().toMultimap(),
+                        respBody);
+            } else {
+                respBody = builder.toString();
+            }
         }
-
 
         String contentType = response.headers().get("Content-Type");
         if (contentType == null) {
@@ -849,7 +851,7 @@ public class ApiClient {
     }
 
     /**
-     * {@link #execute(Call, Type)}
+     * {@link #execute(Call, Type, boolean...)}
      *
      * @param <T>  Type
      * @param call An instance of the Call object
@@ -866,15 +868,16 @@ public class ApiClient {
      * @param returnType The return type used to deserialize HTTP response body
      * @param <T>        The return type corresponding to (same with) returnType
      * @param call       Call
+     * @param isCommon                The flag for Universal
      * @return ApiResponse object containing response status, headers and
      * data, which is a Java object deserialized from response body and would be null
      * when returnType is null.
      * @throws ApiException If fail to execute the call
      */
-    public <T> ApiResponse<T> execute(Call call, final Type returnType) throws ApiException {
+    public <T> ApiResponse<T> execute(Call call, final Type returnType,boolean ...isCommon) throws ApiException {
         try {
             Response response = call.execute();
-            T data = handleResponse(response, returnType);
+            T data = handleResponse(response, returnType,isCommon);
             return new ApiResponse<T>(response.code(), response.headers().toMultimap(), data);
         } catch (IOException e) {
             throw new ApiException(e);
@@ -899,7 +902,7 @@ public class ApiClient {
      * @param call       The callback to be executed when the API call finishes
      * @param returnType Return type
      * @param callback   ApiCallback
-     * @see #execute(Call, Type)
+     * @see #execute(Call, Type, boolean...) 
      */
     @SuppressWarnings("unchecked")
     public <T> void executeAsync(Call call, final Type returnType, final ApiCallback<T> callback) {
@@ -929,11 +932,12 @@ public class ApiClient {
      * @param <T>        Type
      * @param response   Response
      * @param returnType Return type
+     * @param isCommon                The flag for Universal
      * @return Type
      * @throws ApiException If the response has a unsuccessful status code or
      *                      fail to deserialize the response body
      */
-    public <T> T handleResponse(Response response, Type returnType) throws ApiException {
+    public <T> T handleResponse(Response response, Type returnType, boolean ...isCommon) throws ApiException {
         if (response.isSuccessful()) {
             if (returnType == null || response.code() == 204) {
                 // returning null if the returnType is not defined,
@@ -947,7 +951,7 @@ public class ApiClient {
                 }
                 return null;
             } else {
-                return deserialize(response, returnType);
+                return deserialize(response, returnType,isCommon);
             }
         } else {
             String respBody = null;
@@ -974,11 +978,12 @@ public class ApiClient {
      * @param formParams              The form parameters
      * @param authNames               The authentications to apply
      * @param progressRequestListener Progress request listener
+     * @param isCommon                The flag for Universal
      * @return The HTTP call
      * @throws ApiException If fail to serialize the request body object
      */
-    public Call buildCall(String path, String method, List<Pair> queryParams, List<Pair> collectionQueryParams, Object body, Map<String, String> headerParams, Map<String, Object> formParams, String[] authNames, ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Request request = buildRequest(path, method, queryParams, collectionQueryParams, body, headerParams, formParams, authNames, progressRequestListener);
+    public Call buildCall(String path, String method, List<Pair> queryParams, List<Pair> collectionQueryParams, Object body, Map<String, String> headerParams, Map<String, Object> formParams, String[] authNames, ProgressRequestBody.ProgressRequestListener progressRequestListener, boolean... isCommon) throws ApiException {
+        Request request = buildRequest(path, method, queryParams, collectionQueryParams, body, headerParams, formParams, authNames, progressRequestListener,isCommon);
 
         return httpClient.newCall(request);
     }
@@ -1012,7 +1017,7 @@ public class ApiClient {
         return false;
     }
 
-    private void updateQueryParams(List<Pair> queryParams,String[] param){
+    private void updateQueryParams(List<Pair> queryParams, String[] param) {
         queryParams.add(new Pair("Action", param[1]));
         queryParams.add(new Pair("Version", param[2]));
     }
@@ -1021,7 +1026,7 @@ public class ApiClient {
         String[] param = path.split("/");
 
         if (!isApplicationJsonBody(headerParams) && !isPostBody(headerParams)) {
-            updateQueryParams(queryParams,param);
+            updateQueryParams(queryParams, param);
         }
         return new ServiceInfo(param[3], param[4]);
     }
@@ -1036,7 +1041,7 @@ public class ApiClient {
     }
 
     @SuppressWarnings("all")
-    private boolean convertResponseBody(String source,StringBuilder stringBuilder) {
+    private boolean convertResponseBody(String source, StringBuilder stringBuilder) {
         Type t = new TypeToken<Map<String, ?>>() {
         }.getType();
         Map<String, ?> temp = json.deserialize(source, t);
@@ -1047,12 +1052,34 @@ public class ApiClient {
         return false;
     }
 
-    private void buildSimpleRequest(Object body, List<Pair> queryParams, Map<String, String> headerParams, StringBuilder builder, String chain) throws Exception {
+    private void buildSimpleRequest(Object body, List<Pair> queryParams, Map<String, String> headerParams, StringBuilder builder, String chain, boolean... isCommon) throws Exception {
         if (isApplicationJsonBody(headerParams)) {
             builder.append(json.serialize(body));
             return;
         }
         Class<?> clazz = body.getClass();
+
+        if (isCommon.length > 0 && isCommon[0]) {
+            try {
+                @SuppressWarnings("unchecked")
+                Map<String, Object> map = (Map<String, Object>) body;
+                if (isPostBody(headerParams)) {
+                    for (Entry<String, Object> entry : map.entrySet()) {
+                        builder.append(entry.getKey());
+                        builder.append("=");
+                        builder.append(entry.getValue().toString());
+                        builder.append("&");
+                    }
+                } else {
+                    for (Entry<String, Object> entry : map.entrySet()) {
+                        Pair pair = new Pair(entry.getKey(), entry.getValue().toString());
+                        queryParams.add(pair);
+                    }
+                }
+            } catch (Exception e) {
+                throw new ApiException(e);
+            }
+        }
 
         if (!clazz.getName().startsWith("com.volcengine")) {
             if (isPostBody(headerParams)) {
@@ -1086,19 +1113,19 @@ public class ApiClient {
                     }
                 } else {
                     if (!field.getType().getName().startsWith("com.volcengine")) {
-                        buildBodyOrParameter(field,value,queryParams,headerParams,builder,chain);
+                        buildBodyOrParameter(field, value, queryParams, headerParams, builder, chain);
                     } else if (field.getType().isEnum()) {
                         try {
                             Method method = field.getType().getDeclaredMethod("getValue");
                             Object v = method.invoke(value);
-                            if (v!= null ){
-                                buildBodyOrParameter(field,v,queryParams,headerParams,builder,chain);
+                            if (v != null) {
+                                buildBodyOrParameter(field, v, queryParams, headerParams, builder, chain);
                             }
                         } catch (NoSuchMethodException e) {
                             throw new ApiException("sdk internal error,please contract us in github,ErrorCode is EnumNotGetValueMethod");
                         }
 
-                    }else {
+                    } else {
                         String key = chain + getMethodName(field.getName());
                         buildSimpleRequest(value, queryParams, headerParams, builder, key);
                     }
@@ -1107,17 +1134,17 @@ public class ApiClient {
         }
     }
 
-    private void buildBodyOrParameter(Field field,Object v,List<Pair> queryParams, Map<String, String> headerParams, StringBuilder builder, String chain)throws Exception{
+    private void buildBodyOrParameter(Field field, Object v, List<Pair> queryParams, Map<String, String> headerParams, StringBuilder builder, String chain) throws Exception {
         String name;
         String defaultName = getMethodName(field.getName());
-        if (field.getAnnotation(SerializedName.class) != null){
+        if (field.getAnnotation(SerializedName.class) != null) {
             SerializedName s = field.getAnnotation(SerializedName.class);
-            if (!s.value().equals(defaultName)){
+            if (!s.value().equals(defaultName)) {
                 name = s.value();
-            }else{
-                name =defaultName;
+            } else {
+                name = defaultName;
             }
-        }else{
+        } else {
             name = defaultName;
         }
 
@@ -1127,7 +1154,7 @@ public class ApiClient {
             builder.append("=");
             builder.append(v);
             builder.append("&");
-        }else {
+        } else {
             Pair pair = new Pair(chain + name, v.toString());
             queryParams.add(pair);
         }
@@ -1169,10 +1196,11 @@ public class ApiClient {
      * @param formParams              The form parameters
      * @param authNames               The authentications to apply
      * @param progressRequestListener Progress request listener
+     * @param isCommon                The flag for Universal
      * @return The HTTP request
      * @throws ApiException If fail to serialize the request body object
      */
-    public Request buildRequest(String path, String method, List<Pair> queryParams, List<Pair> collectionQueryParams, Object body, Map<String, String> headerParams, Map<String, Object> formParams, String[] authNames, ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Request buildRequest(String path, String method, List<Pair> queryParams, List<Pair> collectionQueryParams, Object body, Map<String, String> headerParams, Map<String, Object> formParams, String[] authNames, ProgressRequestBody.ProgressRequestListener progressRequestListener, boolean... isCommon) throws ApiException {
 
         getDefaultContentType(headerParams);
 
@@ -1182,7 +1210,7 @@ public class ApiClient {
         StringBuilder bodyBuilder = new StringBuilder();
 
         try {
-            buildSimpleRequest(body, queryParams, headerParams, bodyBuilder, "");
+            buildSimpleRequest(body, queryParams, headerParams, bodyBuilder, "", isCommon);
         } catch (Exception e) {
             throw new ApiException(e);
         }
@@ -1202,12 +1230,12 @@ public class ApiClient {
             reqBody = buildRequestBodyFormEncoding(formParams);
             // fix action & version
             queryParams.clear();
-            updateQueryParams(queryParams,path.split("/"));
+            updateQueryParams(queryParams, path.split("/"));
         } else if ("multipart/form-data".equals(contentType)) {
             reqBody = buildRequestBodyMultipart(formParams);
             // fix action & version
             queryParams.clear();
-            updateQueryParams(queryParams,path.split("/"));
+            updateQueryParams(queryParams, path.split("/"));
         } else if (body == null) {
             if ("DELETE".equals(method)) {
                 // allow calling DELETE without sending a request body
@@ -1218,12 +1246,12 @@ public class ApiClient {
             }
             // fix action & version
             queryParams.clear();
-            updateQueryParams(queryParams,path.split("/"));
+            updateQueryParams(queryParams, path.split("/"));
         } else {
             reqBody = serialize(body, contentType);
             // fix action & version
             queryParams.clear();
-            updateQueryParams(queryParams,path.split("/"));
+            updateQueryParams(queryParams, path.split("/"));
         }
         //sign
         updateParamsForAuth(authNames, queryParams, headerParams, serviceInfo, getPayload(contentType,
@@ -1339,7 +1367,7 @@ public class ApiClient {
                 if (volcengineSign.getCredentials() == null) {
                     throw new RuntimeException("Credentials must set when ApiClient init");
                 }
-                if (StringUtils.isEmpty(credentials.getAccessKey()) || StringUtils.isEmpty(credentials.getSecretKey())){
+                if (StringUtils.isEmpty(credentials.getAccessKey()) || StringUtils.isEmpty(credentials.getSecretKey())) {
                     throw new RuntimeException("AccessKey and SecretKey must set when ApiClient init Credentials");
                 }
                 if (StringUtils.isEmpty(volcengineSign.getRegion())) {
