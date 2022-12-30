@@ -60,6 +60,9 @@ public class ServerGroupForDescribeServerGroupsOutput {
   @SerializedName("ServerGroupName")
   private String serverGroupName = null;
 
+  @SerializedName("ServerGroupType")
+  private String serverGroupType = null;
+
   @SerializedName("Status")
   private String status = null;
 
@@ -243,6 +246,24 @@ public class ServerGroupForDescribeServerGroupsOutput {
     this.serverGroupName = serverGroupName;
   }
 
+  public ServerGroupForDescribeServerGroupsOutput serverGroupType(String serverGroupType) {
+    this.serverGroupType = serverGroupType;
+    return this;
+  }
+
+   /**
+   * Get serverGroupType
+   * @return serverGroupType
+  **/
+  @Schema(description = "")
+  public String getServerGroupType() {
+    return serverGroupType;
+  }
+
+  public void setServerGroupType(String serverGroupType) {
+    this.serverGroupType = serverGroupType;
+  }
+
   public ServerGroupForDescribeServerGroupsOutput status(String status) {
     this.status = status;
     return this;
@@ -335,6 +356,7 @@ public class ServerGroupForDescribeServerGroupsOutput {
         Objects.equals(this.serverCount, serverGroupForDescribeServerGroupsOutput.serverCount) &&
         Objects.equals(this.serverGroupId, serverGroupForDescribeServerGroupsOutput.serverGroupId) &&
         Objects.equals(this.serverGroupName, serverGroupForDescribeServerGroupsOutput.serverGroupName) &&
+        Objects.equals(this.serverGroupType, serverGroupForDescribeServerGroupsOutput.serverGroupType) &&
         Objects.equals(this.status, serverGroupForDescribeServerGroupsOutput.status) &&
         Objects.equals(this.stickySessionConfig, serverGroupForDescribeServerGroupsOutput.stickySessionConfig) &&
         Objects.equals(this.updateTime, serverGroupForDescribeServerGroupsOutput.updateTime) &&
@@ -343,7 +365,7 @@ public class ServerGroupForDescribeServerGroupsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createTime, description, healthCheck, listeners, projectName, scheduler, serverCount, serverGroupId, serverGroupName, status, stickySessionConfig, updateTime, vpcId);
+    return Objects.hash(createTime, description, healthCheck, listeners, projectName, scheduler, serverCount, serverGroupId, serverGroupName, serverGroupType, status, stickySessionConfig, updateTime, vpcId);
   }
 
 
@@ -361,6 +383,7 @@ public class ServerGroupForDescribeServerGroupsOutput {
     sb.append("    serverCount: ").append(toIndentedString(serverCount)).append("\n");
     sb.append("    serverGroupId: ").append(toIndentedString(serverGroupId)).append("\n");
     sb.append("    serverGroupName: ").append(toIndentedString(serverGroupName)).append("\n");
+    sb.append("    serverGroupType: ").append(toIndentedString(serverGroupType)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    stickySessionConfig: ").append(toIndentedString(stickySessionConfig)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");

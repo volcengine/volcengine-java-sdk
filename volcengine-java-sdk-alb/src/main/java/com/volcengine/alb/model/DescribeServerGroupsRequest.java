@@ -46,6 +46,9 @@ public class DescribeServerGroupsRequest {
   @SerializedName("ServerGroupNames")
   private List<String> serverGroupNames = null;
 
+  @SerializedName("ServerGroupType")
+  private String serverGroupType = null;
+
   @SerializedName("VpcID")
   private String vpcID = null;
 
@@ -155,6 +158,24 @@ public class DescribeServerGroupsRequest {
     this.serverGroupNames = serverGroupNames;
   }
 
+  public DescribeServerGroupsRequest serverGroupType(String serverGroupType) {
+    this.serverGroupType = serverGroupType;
+    return this;
+  }
+
+   /**
+   * Get serverGroupType
+   * @return serverGroupType
+  **/
+  @Schema(description = "")
+  public String getServerGroupType() {
+    return serverGroupType;
+  }
+
+  public void setServerGroupType(String serverGroupType) {
+    this.serverGroupType = serverGroupType;
+  }
+
   public DescribeServerGroupsRequest vpcID(String vpcID) {
     this.vpcID = vpcID;
     return this;
@@ -188,12 +209,13 @@ public class DescribeServerGroupsRequest {
         Objects.equals(this.projectName, describeServerGroupsRequest.projectName) &&
         Objects.equals(this.serverGroupIds, describeServerGroupsRequest.serverGroupIds) &&
         Objects.equals(this.serverGroupNames, describeServerGroupsRequest.serverGroupNames) &&
+        Objects.equals(this.serverGroupType, describeServerGroupsRequest.serverGroupType) &&
         Objects.equals(this.vpcID, describeServerGroupsRequest.vpcID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pageNumber, pageSize, projectName, serverGroupIds, serverGroupNames, vpcID);
+    return Objects.hash(pageNumber, pageSize, projectName, serverGroupIds, serverGroupNames, serverGroupType, vpcID);
   }
 
 
@@ -207,6 +229,7 @@ public class DescribeServerGroupsRequest {
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    serverGroupIds: ").append(toIndentedString(serverGroupIds)).append("\n");
     sb.append("    serverGroupNames: ").append(toIndentedString(serverGroupNames)).append("\n");
+    sb.append("    serverGroupType: ").append(toIndentedString(serverGroupType)).append("\n");
     sb.append("    vpcID: ").append(toIndentedString(vpcID)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -58,6 +58,9 @@ public class DescribeServerGroupAttributesResponse {
   @SerializedName("ServerGroupName")
   private String serverGroupName = null;
 
+  @SerializedName("ServerGroupType")
+  private String serverGroupType = null;
+
   @SerializedName("Servers")
   private List<ServerForDescribeServerGroupAttributesOutput> servers = null;
 
@@ -223,6 +226,24 @@ public class DescribeServerGroupAttributesResponse {
     this.serverGroupName = serverGroupName;
   }
 
+  public DescribeServerGroupAttributesResponse serverGroupType(String serverGroupType) {
+    this.serverGroupType = serverGroupType;
+    return this;
+  }
+
+   /**
+   * Get serverGroupType
+   * @return serverGroupType
+  **/
+  @Schema(description = "")
+  public String getServerGroupType() {
+    return serverGroupType;
+  }
+
+  public void setServerGroupType(String serverGroupType) {
+    this.serverGroupType = serverGroupType;
+  }
+
   public DescribeServerGroupAttributesResponse servers(List<ServerForDescribeServerGroupAttributesOutput> servers) {
     this.servers = servers;
     return this;
@@ -323,6 +344,7 @@ public class DescribeServerGroupAttributesResponse {
         Objects.equals(this.scheduler, describeServerGroupAttributesResponse.scheduler) &&
         Objects.equals(this.serverGroupId, describeServerGroupAttributesResponse.serverGroupId) &&
         Objects.equals(this.serverGroupName, describeServerGroupAttributesResponse.serverGroupName) &&
+        Objects.equals(this.serverGroupType, describeServerGroupAttributesResponse.serverGroupType) &&
         Objects.equals(this.servers, describeServerGroupAttributesResponse.servers) &&
         Objects.equals(this.status, describeServerGroupAttributesResponse.status) &&
         Objects.equals(this.stickySessionConfig, describeServerGroupAttributesResponse.stickySessionConfig) &&
@@ -331,7 +353,7 @@ public class DescribeServerGroupAttributesResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, healthCheck, listeners, projectName, requestId, scheduler, serverGroupId, serverGroupName, servers, status, stickySessionConfig, vpcId);
+    return Objects.hash(description, healthCheck, listeners, projectName, requestId, scheduler, serverGroupId, serverGroupName, serverGroupType, servers, status, stickySessionConfig, vpcId);
   }
 
 
@@ -348,6 +370,7 @@ public class DescribeServerGroupAttributesResponse {
     sb.append("    scheduler: ").append(toIndentedString(scheduler)).append("\n");
     sb.append("    serverGroupId: ").append(toIndentedString(serverGroupId)).append("\n");
     sb.append("    serverGroupName: ").append(toIndentedString(serverGroupName)).append("\n");
+    sb.append("    serverGroupType: ").append(toIndentedString(serverGroupType)).append("\n");
     sb.append("    servers: ").append(toIndentedString(servers)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    stickySessionConfig: ").append(toIndentedString(stickySessionConfig)).append("\n");
