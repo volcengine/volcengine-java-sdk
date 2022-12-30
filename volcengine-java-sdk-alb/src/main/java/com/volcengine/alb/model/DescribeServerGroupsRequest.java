@@ -37,6 +37,9 @@ public class DescribeServerGroupsRequest {
   @SerializedName("PageSize")
   private Integer pageSize = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("ServerGroupIds")
   private List<String> serverGroupIds = null;
 
@@ -80,6 +83,24 @@ public class DescribeServerGroupsRequest {
 
   public void setPageSize(Integer pageSize) {
     this.pageSize = pageSize;
+  }
+
+  public DescribeServerGroupsRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
   }
 
   public DescribeServerGroupsRequest serverGroupIds(List<String> serverGroupIds) {
@@ -164,6 +185,7 @@ public class DescribeServerGroupsRequest {
     DescribeServerGroupsRequest describeServerGroupsRequest = (DescribeServerGroupsRequest) o;
     return Objects.equals(this.pageNumber, describeServerGroupsRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeServerGroupsRequest.pageSize) &&
+        Objects.equals(this.projectName, describeServerGroupsRequest.projectName) &&
         Objects.equals(this.serverGroupIds, describeServerGroupsRequest.serverGroupIds) &&
         Objects.equals(this.serverGroupNames, describeServerGroupsRequest.serverGroupNames) &&
         Objects.equals(this.vpcID, describeServerGroupsRequest.vpcID);
@@ -171,7 +193,7 @@ public class DescribeServerGroupsRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(pageNumber, pageSize, serverGroupIds, serverGroupNames, vpcID);
+    return Objects.hash(pageNumber, pageSize, projectName, serverGroupIds, serverGroupNames, vpcID);
   }
 
 
@@ -182,6 +204,7 @@ public class DescribeServerGroupsRequest {
     
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    serverGroupIds: ").append(toIndentedString(serverGroupIds)).append("\n");
     sb.append("    serverGroupNames: ").append(toIndentedString(serverGroupNames)).append("\n");
     sb.append("    vpcID: ").append(toIndentedString(vpcID)).append("\n");
