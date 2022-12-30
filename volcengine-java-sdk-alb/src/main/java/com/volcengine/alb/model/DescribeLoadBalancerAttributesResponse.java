@@ -23,6 +23,7 @@ import com.volcengine.alb.model.AccessLogForDescribeLoadBalancerAttributesOutput
 import com.volcengine.alb.model.EipForDescribeLoadBalancerAttributesOutput;
 import com.volcengine.alb.model.HealthLogForDescribeLoadBalancerAttributesOutput;
 import com.volcengine.alb.model.ListenerForDescribeLoadBalancerAttributesOutput;
+import com.volcengine.alb.model.TLSAccessLogForDescribeLoadBalancerAttributesOutput;
 import com.volcengine.alb.model.ZoneMappingForDescribeLoadBalancerAttributesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -90,6 +91,9 @@ public class DescribeLoadBalancerAttributesResponse {
   @SerializedName("LoadBalancerSpec")
   private String loadBalancerSpec = null;
 
+  @SerializedName("LocalAddresses")
+  private List<String> localAddresses = null;
+
   @SerializedName("LockReason")
   private String lockReason = null;
 
@@ -107,6 +111,9 @@ public class DescribeLoadBalancerAttributesResponse {
 
   @SerializedName("SubnetId")
   private String subnetId = null;
+
+  @SerializedName("TLSAccessLog")
+  private TLSAccessLogForDescribeLoadBalancerAttributesOutput tlSAccessLog = null;
 
   @SerializedName("Type")
   private String type = null;
@@ -456,6 +463,32 @@ public class DescribeLoadBalancerAttributesResponse {
     this.loadBalancerSpec = loadBalancerSpec;
   }
 
+  public DescribeLoadBalancerAttributesResponse localAddresses(List<String> localAddresses) {
+    this.localAddresses = localAddresses;
+    return this;
+  }
+
+  public DescribeLoadBalancerAttributesResponse addLocalAddressesItem(String localAddressesItem) {
+    if (this.localAddresses == null) {
+      this.localAddresses = new ArrayList<String>();
+    }
+    this.localAddresses.add(localAddressesItem);
+    return this;
+  }
+
+   /**
+   * Get localAddresses
+   * @return localAddresses
+  **/
+  @Schema(description = "")
+  public List<String> getLocalAddresses() {
+    return localAddresses;
+  }
+
+  public void setLocalAddresses(List<String> localAddresses) {
+    this.localAddresses = localAddresses;
+  }
+
   public DescribeLoadBalancerAttributesResponse lockReason(String lockReason) {
     this.lockReason = lockReason;
     return this;
@@ -562,6 +595,25 @@ public class DescribeLoadBalancerAttributesResponse {
 
   public void setSubnetId(String subnetId) {
     this.subnetId = subnetId;
+  }
+
+  public DescribeLoadBalancerAttributesResponse tlSAccessLog(TLSAccessLogForDescribeLoadBalancerAttributesOutput tlSAccessLog) {
+    this.tlSAccessLog = tlSAccessLog;
+    return this;
+  }
+
+   /**
+   * Get tlSAccessLog
+   * @return tlSAccessLog
+  **/
+  @Valid
+  @Schema(description = "")
+  public TLSAccessLogForDescribeLoadBalancerAttributesOutput getTlSAccessLog() {
+    return tlSAccessLog;
+  }
+
+  public void setTlSAccessLog(TLSAccessLogForDescribeLoadBalancerAttributesOutput tlSAccessLog) {
+    this.tlSAccessLog = tlSAccessLog;
   }
 
   public DescribeLoadBalancerAttributesResponse type(String type) {
@@ -673,12 +725,14 @@ public class DescribeLoadBalancerAttributesResponse {
         Objects.equals(this.loadBalancerId, describeLoadBalancerAttributesResponse.loadBalancerId) &&
         Objects.equals(this.loadBalancerName, describeLoadBalancerAttributesResponse.loadBalancerName) &&
         Objects.equals(this.loadBalancerSpec, describeLoadBalancerAttributesResponse.loadBalancerSpec) &&
+        Objects.equals(this.localAddresses, describeLoadBalancerAttributesResponse.localAddresses) &&
         Objects.equals(this.lockReason, describeLoadBalancerAttributesResponse.lockReason) &&
         Objects.equals(this.overdueTime, describeLoadBalancerAttributesResponse.overdueTime) &&
         Objects.equals(this.projectName, describeLoadBalancerAttributesResponse.projectName) &&
         Objects.equals(this.requestId, describeLoadBalancerAttributesResponse.requestId) &&
         Objects.equals(this.status, describeLoadBalancerAttributesResponse.status) &&
         Objects.equals(this.subnetId, describeLoadBalancerAttributesResponse.subnetId) &&
+        Objects.equals(this.tlSAccessLog, describeLoadBalancerAttributesResponse.tlSAccessLog) &&
         Objects.equals(this.type, describeLoadBalancerAttributesResponse.type) &&
         Objects.equals(this.updateTime, describeLoadBalancerAttributesResponse.updateTime) &&
         Objects.equals(this.vpcId, describeLoadBalancerAttributesResponse.vpcId) &&
@@ -687,7 +741,7 @@ public class DescribeLoadBalancerAttributesResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessLog, businessStatus, createTime, dnSName, deletedTime, description, eip, eipAddress, eipId, enabled, eniAddress, eniId, healthLog, listeners, loadBalancerBillingType, loadBalancerId, loadBalancerName, loadBalancerSpec, lockReason, overdueTime, projectName, requestId, status, subnetId, type, updateTime, vpcId, zoneMappings);
+    return Objects.hash(accessLog, businessStatus, createTime, dnSName, deletedTime, description, eip, eipAddress, eipId, enabled, eniAddress, eniId, healthLog, listeners, loadBalancerBillingType, loadBalancerId, loadBalancerName, loadBalancerSpec, localAddresses, lockReason, overdueTime, projectName, requestId, status, subnetId, tlSAccessLog, type, updateTime, vpcId, zoneMappings);
   }
 
 
@@ -714,12 +768,14 @@ public class DescribeLoadBalancerAttributesResponse {
     sb.append("    loadBalancerId: ").append(toIndentedString(loadBalancerId)).append("\n");
     sb.append("    loadBalancerName: ").append(toIndentedString(loadBalancerName)).append("\n");
     sb.append("    loadBalancerSpec: ").append(toIndentedString(loadBalancerSpec)).append("\n");
+    sb.append("    localAddresses: ").append(toIndentedString(localAddresses)).append("\n");
     sb.append("    lockReason: ").append(toIndentedString(lockReason)).append("\n");
     sb.append("    overdueTime: ").append(toIndentedString(overdueTime)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
+    sb.append("    tlSAccessLog: ").append(toIndentedString(tlSAccessLog)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
