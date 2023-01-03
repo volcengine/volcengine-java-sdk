@@ -226,5 +226,6 @@
         <module>volcengine-java-sdk-cr</module>
         <module>volcengine-java-sdk-directconnect</module>
         <module>volcengine-java-sdk-mongodb</module>
+        <module>volcengine-java-sdk-volcobserve</module>
     </modules>
 </project>
