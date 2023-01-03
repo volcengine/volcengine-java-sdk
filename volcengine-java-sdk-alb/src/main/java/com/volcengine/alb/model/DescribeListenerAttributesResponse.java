@@ -81,6 +81,9 @@ public class DescribeListenerAttributesResponse {
   @SerializedName("Port")
   private Integer port = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("Protocol")
   private String protocol = null;
 
@@ -404,6 +407,24 @@ public class DescribeListenerAttributesResponse {
     this.port = port;
   }
 
+  public DescribeListenerAttributesResponse projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public DescribeListenerAttributesResponse protocol(String protocol) {
     this.protocol = protocol;
     return this;
@@ -547,6 +568,7 @@ public class DescribeListenerAttributesResponse {
         Objects.equals(this.listenerName, describeListenerAttributesResponse.listenerName) &&
         Objects.equals(this.loadBalancerId, describeListenerAttributesResponse.loadBalancerId) &&
         Objects.equals(this.port, describeListenerAttributesResponse.port) &&
+        Objects.equals(this.projectName, describeListenerAttributesResponse.projectName) &&
         Objects.equals(this.protocol, describeListenerAttributesResponse.protocol) &&
         Objects.equals(this.requestId, describeListenerAttributesResponse.requestId) &&
         Objects.equals(this.serverGroupId, describeListenerAttributesResponse.serverGroupId) &&
@@ -557,7 +579,7 @@ public class DescribeListenerAttributesResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclIds, aclStatus, aclType, caCertificateId, certificateId, createTime, customizedCfgId, description, domainExtensions, enableHttp2, enableQuic, enabled, listenerId, listenerName, loadBalancerId, port, protocol, requestId, serverGroupId, serverGroups, status, updateTime);
+    return Objects.hash(aclIds, aclStatus, aclType, caCertificateId, certificateId, createTime, customizedCfgId, description, domainExtensions, enableHttp2, enableQuic, enabled, listenerId, listenerName, loadBalancerId, port, projectName, protocol, requestId, serverGroupId, serverGroups, status, updateTime);
   }
 
 
@@ -582,6 +604,7 @@ public class DescribeListenerAttributesResponse {
     sb.append("    listenerName: ").append(toIndentedString(listenerName)).append("\n");
     sb.append("    loadBalancerId: ").append(toIndentedString(loadBalancerId)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    serverGroupId: ").append(toIndentedString(serverGroupId)).append("\n");

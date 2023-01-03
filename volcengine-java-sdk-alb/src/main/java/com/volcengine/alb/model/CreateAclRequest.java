@@ -35,6 +35,9 @@ public class CreateAclRequest {
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   public CreateAclRequest aclName(String aclName) {
     this.aclName = aclName;
     return this;
@@ -71,6 +74,24 @@ public class CreateAclRequest {
     this.description = description;
   }
 
+  public CreateAclRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -82,12 +103,13 @@ public class CreateAclRequest {
     }
     CreateAclRequest createAclRequest = (CreateAclRequest) o;
     return Objects.equals(this.aclName, createAclRequest.aclName) &&
-        Objects.equals(this.description, createAclRequest.description);
+        Objects.equals(this.description, createAclRequest.description) &&
+        Objects.equals(this.projectName, createAclRequest.projectName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclName, description);
+    return Objects.hash(aclName, description, projectName);
   }
 
 
@@ -98,6 +120,7 @@ public class CreateAclRequest {
     
     sb.append("    aclName: ").append(toIndentedString(aclName)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");
     return sb.toString();
   }
