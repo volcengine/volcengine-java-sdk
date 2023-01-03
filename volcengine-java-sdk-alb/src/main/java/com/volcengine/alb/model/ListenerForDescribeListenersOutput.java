@@ -81,6 +81,9 @@ public class ListenerForDescribeListenersOutput {
   @SerializedName("Port")
   private Integer port = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("Protocol")
   private String protocol = null;
 
@@ -401,6 +404,24 @@ public class ListenerForDescribeListenersOutput {
     this.port = port;
   }
 
+  public ListenerForDescribeListenersOutput projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public ListenerForDescribeListenersOutput protocol(String protocol) {
     this.protocol = protocol;
     return this;
@@ -526,6 +547,7 @@ public class ListenerForDescribeListenersOutput {
         Objects.equals(this.listenerName, listenerForDescribeListenersOutput.listenerName) &&
         Objects.equals(this.loadBalancerId, listenerForDescribeListenersOutput.loadBalancerId) &&
         Objects.equals(this.port, listenerForDescribeListenersOutput.port) &&
+        Objects.equals(this.projectName, listenerForDescribeListenersOutput.projectName) &&
         Objects.equals(this.protocol, listenerForDescribeListenersOutput.protocol) &&
         Objects.equals(this.serverGroupId, listenerForDescribeListenersOutput.serverGroupId) &&
         Objects.equals(this.serverGroups, listenerForDescribeListenersOutput.serverGroups) &&
@@ -535,7 +557,7 @@ public class ListenerForDescribeListenersOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclIds, aclStatus, aclType, caCertificateId, certificateId, createTime, customizedCfgId, description, domainExtensions, enableHttp2, enableQuic, enabled, listenerId, listenerName, loadBalancerId, port, protocol, serverGroupId, serverGroups, status, updateTime);
+    return Objects.hash(aclIds, aclStatus, aclType, caCertificateId, certificateId, createTime, customizedCfgId, description, domainExtensions, enableHttp2, enableQuic, enabled, listenerId, listenerName, loadBalancerId, port, projectName, protocol, serverGroupId, serverGroups, status, updateTime);
   }
 
 
@@ -560,6 +582,7 @@ public class ListenerForDescribeListenersOutput {
     sb.append("    listenerName: ").append(toIndentedString(listenerName)).append("\n");
     sb.append("    loadBalancerId: ").append(toIndentedString(loadBalancerId)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
     sb.append("    serverGroupId: ").append(toIndentedString(serverGroupId)).append("\n");
     sb.append("    serverGroups: ").append(toIndentedString(serverGroups)).append("\n");

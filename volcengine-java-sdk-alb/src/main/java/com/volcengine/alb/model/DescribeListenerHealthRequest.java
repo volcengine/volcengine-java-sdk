@@ -37,6 +37,9 @@ public class DescribeListenerHealthRequest {
   @SerializedName("OnlyUnHealthy")
   private String onlyUnHealthy = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   public DescribeListenerHealthRequest listenerIds(List<String> listenerIds) {
     this.listenerIds = listenerIds;
     return this;
@@ -81,6 +84,24 @@ public class DescribeListenerHealthRequest {
     this.onlyUnHealthy = onlyUnHealthy;
   }
 
+  public DescribeListenerHealthRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -92,12 +113,13 @@ public class DescribeListenerHealthRequest {
     }
     DescribeListenerHealthRequest describeListenerHealthRequest = (DescribeListenerHealthRequest) o;
     return Objects.equals(this.listenerIds, describeListenerHealthRequest.listenerIds) &&
-        Objects.equals(this.onlyUnHealthy, describeListenerHealthRequest.onlyUnHealthy);
+        Objects.equals(this.onlyUnHealthy, describeListenerHealthRequest.onlyUnHealthy) &&
+        Objects.equals(this.projectName, describeListenerHealthRequest.projectName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(listenerIds, onlyUnHealthy);
+    return Objects.hash(listenerIds, onlyUnHealthy, projectName);
   }
 
 
@@ -108,6 +130,7 @@ public class DescribeListenerHealthRequest {
     
     sb.append("    listenerIds: ").append(toIndentedString(listenerIds)).append("\n");
     sb.append("    onlyUnHealthy: ").append(toIndentedString(onlyUnHealthy)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");
     return sb.toString();
   }
