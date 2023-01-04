@@ -7,7 +7,7 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>volcengine-java-sdk-directconnect</artifactId>
+    <artifactId>volcengine-java-sdk-volcobserve</artifactId>
     <dependencies>
         <dependency>
             <groupId>com.volcengine</groupId>
