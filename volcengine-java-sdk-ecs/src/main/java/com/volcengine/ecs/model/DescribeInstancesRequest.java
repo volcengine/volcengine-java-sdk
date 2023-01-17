@@ -32,6 +32,9 @@ import javax.validation.Valid;
 
 
 public class DescribeInstancesRequest {
+  @SerializedName("DeploymentSetIds")
+  private List<String> deploymentSetIds = null;
+
   @SerializedName("HpcClusterId")
   private String hpcClusterId = null;
 
@@ -79,6 +82,32 @@ public class DescribeInstancesRequest {
 
   @SerializedName("ZoneId")
   private String zoneId = null;
+
+  public DescribeInstancesRequest deploymentSetIds(List<String> deploymentSetIds) {
+    this.deploymentSetIds = deploymentSetIds;
+    return this;
+  }
+
+  public DescribeInstancesRequest addDeploymentSetIdsItem(String deploymentSetIdsItem) {
+    if (this.deploymentSetIds == null) {
+      this.deploymentSetIds = new ArrayList<String>();
+    }
+    this.deploymentSetIds.add(deploymentSetIdsItem);
+    return this;
+  }
+
+   /**
+   * Get deploymentSetIds
+   * @return deploymentSetIds
+  **/
+  @Schema(description = "")
+  public List<String> getDeploymentSetIds() {
+    return deploymentSetIds;
+  }
+
+  public void setDeploymentSetIds(List<String> deploymentSetIds) {
+    this.deploymentSetIds = deploymentSetIds;
+  }
 
   public DescribeInstancesRequest hpcClusterId(String hpcClusterId) {
     this.hpcClusterId = hpcClusterId;
@@ -419,7 +448,8 @@ public class DescribeInstancesRequest {
       return false;
     }
     DescribeInstancesRequest describeInstancesRequest = (DescribeInstancesRequest) o;
-    return Objects.equals(this.hpcClusterId, describeInstancesRequest.hpcClusterId) &&
+    return Objects.equals(this.deploymentSetIds, describeInstancesRequest.deploymentSetIds) &&
+        Objects.equals(this.hpcClusterId, describeInstancesRequest.hpcClusterId) &&
         Objects.equals(this.instanceChargeType, describeInstancesRequest.instanceChargeType) &&
         Objects.equals(this.instanceIds, describeInstancesRequest.instanceIds) &&
         Objects.equals(this.instanceName, describeInstancesRequest.instanceName) &&
@@ -439,7 +469,7 @@ public class DescribeInstancesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hpcClusterId, instanceChargeType, instanceIds, instanceName, instanceTypeFamilies, instanceTypeIds, instanceTypes, keyPairName, maxResults, nextToken, primaryIpAddress, projectName, status, tagFilters, vpcId, zoneId);
+    return Objects.hash(deploymentSetIds, hpcClusterId, instanceChargeType, instanceIds, instanceName, instanceTypeFamilies, instanceTypeIds, instanceTypes, keyPairName, maxResults, nextToken, primaryIpAddress, projectName, status, tagFilters, vpcId, zoneId);
   }
 
 
@@ -448,6 +478,7 @@ public class DescribeInstancesRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeInstancesRequest {\n");
     
+    sb.append("    deploymentSetIds: ").append(toIndentedString(deploymentSetIds)).append("\n");
     sb.append("    hpcClusterId: ").append(toIndentedString(hpcClusterId)).append("\n");
     sb.append("    instanceChargeType: ").append(toIndentedString(instanceChargeType)).append("\n");
     sb.append("    instanceIds: ").append(toIndentedString(instanceIds)).append("\n");

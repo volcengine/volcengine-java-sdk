@@ -49,6 +49,9 @@ public class DescribeSnatEntriesRequest {
   @SerializedName("SnatEntryName")
   private String snatEntryName = null;
 
+  @SerializedName("SourceCidr")
+  private String sourceCidr = null;
+
   @SerializedName("SubnetId")
   private String subnetId = null;
 
@@ -169,6 +172,24 @@ public class DescribeSnatEntriesRequest {
     this.snatEntryName = snatEntryName;
   }
 
+  public DescribeSnatEntriesRequest sourceCidr(String sourceCidr) {
+    this.sourceCidr = sourceCidr;
+    return this;
+  }
+
+   /**
+   * Get sourceCidr
+   * @return sourceCidr
+  **/
+  @Schema(description = "")
+  public String getSourceCidr() {
+    return sourceCidr;
+  }
+
+  public void setSourceCidr(String sourceCidr) {
+    this.sourceCidr = sourceCidr;
+  }
+
   public DescribeSnatEntriesRequest subnetId(String subnetId) {
     this.subnetId = subnetId;
     return this;
@@ -203,12 +224,13 @@ public class DescribeSnatEntriesRequest {
         Objects.equals(this.pageSize, describeSnatEntriesRequest.pageSize) &&
         Objects.equals(this.snatEntryIds, describeSnatEntriesRequest.snatEntryIds) &&
         Objects.equals(this.snatEntryName, describeSnatEntriesRequest.snatEntryName) &&
+        Objects.equals(this.sourceCidr, describeSnatEntriesRequest.sourceCidr) &&
         Objects.equals(this.subnetId, describeSnatEntriesRequest.subnetId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(eipId, natGatewayId, pageNumber, pageSize, snatEntryIds, snatEntryName, subnetId);
+    return Objects.hash(eipId, natGatewayId, pageNumber, pageSize, snatEntryIds, snatEntryName, sourceCidr, subnetId);
   }
 
 
@@ -223,6 +245,7 @@ public class DescribeSnatEntriesRequest {
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    snatEntryIds: ").append(toIndentedString(snatEntryIds)).append("\n");
     sb.append("    snatEntryName: ").append(toIndentedString(snatEntryName)).append("\n");
+    sb.append("    sourceCidr: ").append(toIndentedString(sourceCidr)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("}");
     return sb.toString();

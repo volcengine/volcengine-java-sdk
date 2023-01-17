@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vpn.model.TagForDescribeVpnGatewayAttributesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -76,6 +79,9 @@ public class DescribeVpnGatewayAttributesResponse {
 
   @SerializedName("SubnetId")
   private String subnetId = null;
+
+  @SerializedName("Tags")
+  private List<TagForDescribeVpnGatewayAttributesOutput> tags = null;
 
   @SerializedName("UpdateTime")
   private String updateTime = null;
@@ -377,6 +383,33 @@ public class DescribeVpnGatewayAttributesResponse {
     this.subnetId = subnetId;
   }
 
+  public DescribeVpnGatewayAttributesResponse tags(List<TagForDescribeVpnGatewayAttributesOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public DescribeVpnGatewayAttributesResponse addTagsItem(TagForDescribeVpnGatewayAttributesOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForDescribeVpnGatewayAttributesOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForDescribeVpnGatewayAttributesOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForDescribeVpnGatewayAttributesOutput> tags) {
+    this.tags = tags;
+  }
+
   public DescribeVpnGatewayAttributesResponse updateTime(String updateTime) {
     this.updateTime = updateTime;
     return this;
@@ -475,6 +508,7 @@ public class DescribeVpnGatewayAttributesResponse {
         Objects.equals(this.routeCount, describeVpnGatewayAttributesResponse.routeCount) &&
         Objects.equals(this.status, describeVpnGatewayAttributesResponse.status) &&
         Objects.equals(this.subnetId, describeVpnGatewayAttributesResponse.subnetId) &&
+        Objects.equals(this.tags, describeVpnGatewayAttributesResponse.tags) &&
         Objects.equals(this.updateTime, describeVpnGatewayAttributesResponse.updateTime) &&
         Objects.equals(this.vpcId, describeVpnGatewayAttributesResponse.vpcId) &&
         Objects.equals(this.vpnGatewayId, describeVpnGatewayAttributesResponse.vpnGatewayId) &&
@@ -483,7 +517,7 @@ public class DescribeVpnGatewayAttributesResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, bandwidth, billingType, businessStatus, connectionCount, creationTime, deletedTime, description, expiredTime, ipAddress, lockReason, projectName, requestId, routeCount, status, subnetId, updateTime, vpcId, vpnGatewayId, vpnGatewayName);
+    return Objects.hash(accountId, bandwidth, billingType, businessStatus, connectionCount, creationTime, deletedTime, description, expiredTime, ipAddress, lockReason, projectName, requestId, routeCount, status, subnetId, tags, updateTime, vpcId, vpnGatewayId, vpnGatewayName);
   }
 
 
@@ -508,6 +542,7 @@ public class DescribeVpnGatewayAttributesResponse {
     sb.append("    routeCount: ").append(toIndentedString(routeCount)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("    vpnGatewayId: ").append(toIndentedString(vpnGatewayId)).append("\n");

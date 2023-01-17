@@ -29,6 +29,9 @@ import javax.validation.Valid;
 
 
 public class NetworkForDescribeInstanceTypesOutput {
+  @SerializedName("MaximumBandwidthMbps")
+  private Integer maximumBandwidthMbps = null;
+
   @SerializedName("MaximumNetworkInterfaces")
   private Integer maximumNetworkInterfaces = null;
 
@@ -37,6 +40,27 @@ public class NetworkForDescribeInstanceTypesOutput {
 
   @SerializedName("MaximumQueuesPerNetworkInterface")
   private Integer maximumQueuesPerNetworkInterface = null;
+
+  @SerializedName("MaximumThroughputKpps")
+  private Integer maximumThroughputKpps = null;
+
+  public NetworkForDescribeInstanceTypesOutput maximumBandwidthMbps(Integer maximumBandwidthMbps) {
+    this.maximumBandwidthMbps = maximumBandwidthMbps;
+    return this;
+  }
+
+   /**
+   * Get maximumBandwidthMbps
+   * @return maximumBandwidthMbps
+  **/
+  @Schema(description = "")
+  public Integer getMaximumBandwidthMbps() {
+    return maximumBandwidthMbps;
+  }
+
+  public void setMaximumBandwidthMbps(Integer maximumBandwidthMbps) {
+    this.maximumBandwidthMbps = maximumBandwidthMbps;
+  }
 
   public NetworkForDescribeInstanceTypesOutput maximumNetworkInterfaces(Integer maximumNetworkInterfaces) {
     this.maximumNetworkInterfaces = maximumNetworkInterfaces;
@@ -92,6 +116,24 @@ public class NetworkForDescribeInstanceTypesOutput {
     this.maximumQueuesPerNetworkInterface = maximumQueuesPerNetworkInterface;
   }
 
+  public NetworkForDescribeInstanceTypesOutput maximumThroughputKpps(Integer maximumThroughputKpps) {
+    this.maximumThroughputKpps = maximumThroughputKpps;
+    return this;
+  }
+
+   /**
+   * Get maximumThroughputKpps
+   * @return maximumThroughputKpps
+  **/
+  @Schema(description = "")
+  public Integer getMaximumThroughputKpps() {
+    return maximumThroughputKpps;
+  }
+
+  public void setMaximumThroughputKpps(Integer maximumThroughputKpps) {
+    this.maximumThroughputKpps = maximumThroughputKpps;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -102,14 +144,16 @@ public class NetworkForDescribeInstanceTypesOutput {
       return false;
     }
     NetworkForDescribeInstanceTypesOutput networkForDescribeInstanceTypesOutput = (NetworkForDescribeInstanceTypesOutput) o;
-    return Objects.equals(this.maximumNetworkInterfaces, networkForDescribeInstanceTypesOutput.maximumNetworkInterfaces) &&
+    return Objects.equals(this.maximumBandwidthMbps, networkForDescribeInstanceTypesOutput.maximumBandwidthMbps) &&
+        Objects.equals(this.maximumNetworkInterfaces, networkForDescribeInstanceTypesOutput.maximumNetworkInterfaces) &&
         Objects.equals(this.maximumPrivateIpv4AddressesPerNetworkInterface, networkForDescribeInstanceTypesOutput.maximumPrivateIpv4AddressesPerNetworkInterface) &&
-        Objects.equals(this.maximumQueuesPerNetworkInterface, networkForDescribeInstanceTypesOutput.maximumQueuesPerNetworkInterface);
+        Objects.equals(this.maximumQueuesPerNetworkInterface, networkForDescribeInstanceTypesOutput.maximumQueuesPerNetworkInterface) &&
+        Objects.equals(this.maximumThroughputKpps, networkForDescribeInstanceTypesOutput.maximumThroughputKpps);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(maximumNetworkInterfaces, maximumPrivateIpv4AddressesPerNetworkInterface, maximumQueuesPerNetworkInterface);
+    return Objects.hash(maximumBandwidthMbps, maximumNetworkInterfaces, maximumPrivateIpv4AddressesPerNetworkInterface, maximumQueuesPerNetworkInterface, maximumThroughputKpps);
   }
 
 
@@ -118,9 +162,11 @@ public class NetworkForDescribeInstanceTypesOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class NetworkForDescribeInstanceTypesOutput {\n");
     
+    sb.append("    maximumBandwidthMbps: ").append(toIndentedString(maximumBandwidthMbps)).append("\n");
     sb.append("    maximumNetworkInterfaces: ").append(toIndentedString(maximumNetworkInterfaces)).append("\n");
     sb.append("    maximumPrivateIpv4AddressesPerNetworkInterface: ").append(toIndentedString(maximumPrivateIpv4AddressesPerNetworkInterface)).append("\n");
     sb.append("    maximumQueuesPerNetworkInterface: ").append(toIndentedString(maximumQueuesPerNetworkInterface)).append("\n");
+    sb.append("    maximumThroughputKpps: ").append(toIndentedString(maximumThroughputKpps)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -50,6 +50,9 @@ public class ImportImageRequest {
   @SerializedName("PlatformVersion")
   private String platformVersion = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("Url")
   private String url = null;
 
@@ -179,6 +182,24 @@ public class ImportImageRequest {
     this.platformVersion = platformVersion;
   }
 
+  public ImportImageRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public ImportImageRequest url(String url) {
     this.url = url;
     return this;
@@ -214,12 +235,13 @@ public class ImportImageRequest {
         Objects.equals(this.osType, importImageRequest.osType) &&
         Objects.equals(this.platform, importImageRequest.platform) &&
         Objects.equals(this.platformVersion, importImageRequest.platformVersion) &&
+        Objects.equals(this.projectName, importImageRequest.projectName) &&
         Objects.equals(this.url, importImageRequest.url);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(architecture, bootMode, description, imageName, osType, platform, platformVersion, url);
+    return Objects.hash(architecture, bootMode, description, imageName, osType, platform, platformVersion, projectName, url);
   }
 
 
@@ -235,6 +257,7 @@ public class ImportImageRequest {
     sb.append("    osType: ").append(toIndentedString(osType)).append("\n");
     sb.append("    platform: ").append(toIndentedString(platform)).append("\n");
     sb.append("    platformVersion: ").append(toIndentedString(platformVersion)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("}");
     return sb.toString();
