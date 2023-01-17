@@ -53,8 +53,17 @@ public class CreateDirectConnectVirtualInterfaceRequest {
   @SerializedName("EnableBfd")
   private Boolean enableBfd = null;
 
+  @SerializedName("EnableNqa")
+  private Boolean enableNqa = null;
+
   @SerializedName("LocalIp")
   private String localIp = null;
+
+  @SerializedName("NqaDetectInterval")
+  private Integer nqaDetectInterval = null;
+
+  @SerializedName("NqaDetectMultiplier")
+  private Integer nqaDetectMultiplier = null;
 
   @SerializedName("PeerIp")
   private String peerIp = null;
@@ -244,6 +253,24 @@ public class CreateDirectConnectVirtualInterfaceRequest {
     this.enableBfd = enableBfd;
   }
 
+  public CreateDirectConnectVirtualInterfaceRequest enableNqa(Boolean enableNqa) {
+    this.enableNqa = enableNqa;
+    return this;
+  }
+
+   /**
+   * Get enableNqa
+   * @return enableNqa
+  **/
+  @Schema(description = "")
+  public Boolean isEnableNqa() {
+    return enableNqa;
+  }
+
+  public void setEnableNqa(Boolean enableNqa) {
+    this.enableNqa = enableNqa;
+  }
+
   public CreateDirectConnectVirtualInterfaceRequest localIp(String localIp) {
     this.localIp = localIp;
     return this;
@@ -261,6 +288,46 @@ public class CreateDirectConnectVirtualInterfaceRequest {
 
   public void setLocalIp(String localIp) {
     this.localIp = localIp;
+  }
+
+  public CreateDirectConnectVirtualInterfaceRequest nqaDetectInterval(Integer nqaDetectInterval) {
+    this.nqaDetectInterval = nqaDetectInterval;
+    return this;
+  }
+
+   /**
+   * Get nqaDetectInterval
+   * minimum: 1000
+   * maximum: 5000
+   * @return nqaDetectInterval
+  **/
+ @Min(1000) @Max(5000)  @Schema(description = "")
+  public Integer getNqaDetectInterval() {
+    return nqaDetectInterval;
+  }
+
+  public void setNqaDetectInterval(Integer nqaDetectInterval) {
+    this.nqaDetectInterval = nqaDetectInterval;
+  }
+
+  public CreateDirectConnectVirtualInterfaceRequest nqaDetectMultiplier(Integer nqaDetectMultiplier) {
+    this.nqaDetectMultiplier = nqaDetectMultiplier;
+    return this;
+  }
+
+   /**
+   * Get nqaDetectMultiplier
+   * minimum: 3
+   * maximum: 8
+   * @return nqaDetectMultiplier
+  **/
+ @Min(3) @Max(8)  @Schema(description = "")
+  public Integer getNqaDetectMultiplier() {
+    return nqaDetectMultiplier;
+  }
+
+  public void setNqaDetectMultiplier(Integer nqaDetectMultiplier) {
+    this.nqaDetectMultiplier = nqaDetectMultiplier;
   }
 
   public CreateDirectConnectVirtualInterfaceRequest peerIp(String peerIp) {
@@ -381,7 +448,10 @@ public class CreateDirectConnectVirtualInterfaceRequest {
         Objects.equals(this.directConnectConnectionId, createDirectConnectVirtualInterfaceRequest.directConnectConnectionId) &&
         Objects.equals(this.directConnectGatewayId, createDirectConnectVirtualInterfaceRequest.directConnectGatewayId) &&
         Objects.equals(this.enableBfd, createDirectConnectVirtualInterfaceRequest.enableBfd) &&
+        Objects.equals(this.enableNqa, createDirectConnectVirtualInterfaceRequest.enableNqa) &&
         Objects.equals(this.localIp, createDirectConnectVirtualInterfaceRequest.localIp) &&
+        Objects.equals(this.nqaDetectInterval, createDirectConnectVirtualInterfaceRequest.nqaDetectInterval) &&
+        Objects.equals(this.nqaDetectMultiplier, createDirectConnectVirtualInterfaceRequest.nqaDetectMultiplier) &&
         Objects.equals(this.peerIp, createDirectConnectVirtualInterfaceRequest.peerIp) &&
         Objects.equals(this.routeType, createDirectConnectVirtualInterfaceRequest.routeType) &&
         Objects.equals(this.tags, createDirectConnectVirtualInterfaceRequest.tags) &&
@@ -391,7 +461,7 @@ public class CreateDirectConnectVirtualInterfaceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidth, bfdDetectInterval, bfdDetectMultiplier, description, directConnectConnectionId, directConnectGatewayId, enableBfd, localIp, peerIp, routeType, tags, virtualInterfaceName, vlanId);
+    return Objects.hash(bandwidth, bfdDetectInterval, bfdDetectMultiplier, description, directConnectConnectionId, directConnectGatewayId, enableBfd, enableNqa, localIp, nqaDetectInterval, nqaDetectMultiplier, peerIp, routeType, tags, virtualInterfaceName, vlanId);
   }
 
 
@@ -407,7 +477,10 @@ public class CreateDirectConnectVirtualInterfaceRequest {
     sb.append("    directConnectConnectionId: ").append(toIndentedString(directConnectConnectionId)).append("\n");
     sb.append("    directConnectGatewayId: ").append(toIndentedString(directConnectGatewayId)).append("\n");
     sb.append("    enableBfd: ").append(toIndentedString(enableBfd)).append("\n");
+    sb.append("    enableNqa: ").append(toIndentedString(enableNqa)).append("\n");
     sb.append("    localIp: ").append(toIndentedString(localIp)).append("\n");
+    sb.append("    nqaDetectInterval: ").append(toIndentedString(nqaDetectInterval)).append("\n");
+    sb.append("    nqaDetectMultiplier: ").append(toIndentedString(nqaDetectMultiplier)).append("\n");
     sb.append("    peerIp: ").append(toIndentedString(peerIp)).append("\n");
     sb.append("    routeType: ").append(toIndentedString(routeType)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");

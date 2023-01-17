@@ -38,6 +38,9 @@ public class CreateSnatEntryRequest {
   @SerializedName("SnatEntryName")
   private String snatEntryName = null;
 
+  @SerializedName("SourceCidr")
+  private String sourceCidr = null;
+
   @SerializedName("SubnetId")
   private String subnetId = null;
 
@@ -97,6 +100,24 @@ public class CreateSnatEntryRequest {
     this.snatEntryName = snatEntryName;
   }
 
+  public CreateSnatEntryRequest sourceCidr(String sourceCidr) {
+    this.sourceCidr = sourceCidr;
+    return this;
+  }
+
+   /**
+   * Get sourceCidr
+   * @return sourceCidr
+  **/
+  @Schema(description = "")
+  public String getSourceCidr() {
+    return sourceCidr;
+  }
+
+  public void setSourceCidr(String sourceCidr) {
+    this.sourceCidr = sourceCidr;
+  }
+
   public CreateSnatEntryRequest subnetId(String subnetId) {
     this.subnetId = subnetId;
     return this;
@@ -128,12 +149,13 @@ public class CreateSnatEntryRequest {
     return Objects.equals(this.eipId, createSnatEntryRequest.eipId) &&
         Objects.equals(this.natGatewayId, createSnatEntryRequest.natGatewayId) &&
         Objects.equals(this.snatEntryName, createSnatEntryRequest.snatEntryName) &&
+        Objects.equals(this.sourceCidr, createSnatEntryRequest.sourceCidr) &&
         Objects.equals(this.subnetId, createSnatEntryRequest.subnetId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(eipId, natGatewayId, snatEntryName, subnetId);
+    return Objects.hash(eipId, natGatewayId, snatEntryName, sourceCidr, subnetId);
   }
 
 
@@ -145,6 +167,7 @@ public class CreateSnatEntryRequest {
     sb.append("    eipId: ").append(toIndentedString(eipId)).append("\n");
     sb.append("    natGatewayId: ").append(toIndentedString(natGatewayId)).append("\n");
     sb.append("    snatEntryName: ").append(toIndentedString(snatEntryName)).append("\n");
+    sb.append("    sourceCidr: ").append(toIndentedString(sourceCidr)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("}");
     return sb.toString();

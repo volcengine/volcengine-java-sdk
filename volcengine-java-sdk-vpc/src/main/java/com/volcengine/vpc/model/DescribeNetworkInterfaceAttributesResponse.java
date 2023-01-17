@@ -67,6 +67,9 @@ public class DescribeNetworkInterfaceAttributesResponse {
   @SerializedName("PrivateIpSets")
   private PrivateIpSetsForDescribeNetworkInterfaceAttributesOutput privateIpSets = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("RequestId")
   private String requestId = null;
 
@@ -298,6 +301,24 @@ public class DescribeNetworkInterfaceAttributesResponse {
 
   public void setPrivateIpSets(PrivateIpSetsForDescribeNetworkInterfaceAttributesOutput privateIpSets) {
     this.privateIpSets = privateIpSets;
+  }
+
+  public DescribeNetworkInterfaceAttributesResponse projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
   }
 
   public DescribeNetworkInterfaceAttributesResponse requestId(String requestId) {
@@ -536,6 +557,7 @@ public class DescribeNetworkInterfaceAttributesResponse {
         Objects.equals(this.portSecurityEnabled, describeNetworkInterfaceAttributesResponse.portSecurityEnabled) &&
         Objects.equals(this.primaryIpAddress, describeNetworkInterfaceAttributesResponse.primaryIpAddress) &&
         Objects.equals(this.privateIpSets, describeNetworkInterfaceAttributesResponse.privateIpSets) &&
+        Objects.equals(this.projectName, describeNetworkInterfaceAttributesResponse.projectName) &&
         Objects.equals(this.requestId, describeNetworkInterfaceAttributesResponse.requestId) &&
         Objects.equals(this.securityGroupIds, describeNetworkInterfaceAttributesResponse.securityGroupIds) &&
         Objects.equals(this.serviceManaged, describeNetworkInterfaceAttributesResponse.serviceManaged) &&
@@ -551,7 +573,7 @@ public class DescribeNetworkInterfaceAttributesResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, associatedElasticIp, createdAt, description, deviceId, macAddress, networkInterfaceId, networkInterfaceName, portSecurityEnabled, primaryIpAddress, privateIpSets, requestId, securityGroupIds, serviceManaged, status, subnetId, tags, type, updatedAt, vpcId, vpcName, zoneId);
+    return Objects.hash(accountId, associatedElasticIp, createdAt, description, deviceId, macAddress, networkInterfaceId, networkInterfaceName, portSecurityEnabled, primaryIpAddress, privateIpSets, projectName, requestId, securityGroupIds, serviceManaged, status, subnetId, tags, type, updatedAt, vpcId, vpcName, zoneId);
   }
 
 
@@ -571,6 +593,7 @@ public class DescribeNetworkInterfaceAttributesResponse {
     sb.append("    portSecurityEnabled: ").append(toIndentedString(portSecurityEnabled)).append("\n");
     sb.append("    primaryIpAddress: ").append(toIndentedString(primaryIpAddress)).append("\n");
     sb.append("    privateIpSets: ").append(toIndentedString(privateIpSets)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    securityGroupIds: ").append(toIndentedString(securityGroupIds)).append("\n");
     sb.append("    serviceManaged: ").append(toIndentedString(serviceManaged)).append("\n");

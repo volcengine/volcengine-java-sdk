@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.natgateway.model.EipAddressForDescribeNatGatewaysOutput;
+import com.volcengine.natgateway.model.TagForDescribeNatGatewaysOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -68,6 +69,9 @@ public class NatGatewayForDescribeNatGatewaysOutput {
   @SerializedName("OverdueTime")
   private String overdueTime = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("Spec")
   private String spec = null;
 
@@ -76,6 +80,9 @@ public class NatGatewayForDescribeNatGatewaysOutput {
 
   @SerializedName("SubnetId")
   private String subnetId = null;
+
+  @SerializedName("Tags")
+  private List<TagForDescribeNatGatewaysOutput> tags = null;
 
   @SerializedName("UpdatedAt")
   private String updatedAt = null;
@@ -311,6 +318,24 @@ public class NatGatewayForDescribeNatGatewaysOutput {
     this.overdueTime = overdueTime;
   }
 
+  public NatGatewayForDescribeNatGatewaysOutput projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public NatGatewayForDescribeNatGatewaysOutput spec(String spec) {
     this.spec = spec;
     return this;
@@ -363,6 +388,33 @@ public class NatGatewayForDescribeNatGatewaysOutput {
 
   public void setSubnetId(String subnetId) {
     this.subnetId = subnetId;
+  }
+
+  public NatGatewayForDescribeNatGatewaysOutput tags(List<TagForDescribeNatGatewaysOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public NatGatewayForDescribeNatGatewaysOutput addTagsItem(TagForDescribeNatGatewaysOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForDescribeNatGatewaysOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForDescribeNatGatewaysOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForDescribeNatGatewaysOutput> tags) {
+    this.tags = tags;
   }
 
   public NatGatewayForDescribeNatGatewaysOutput updatedAt(String updatedAt) {
@@ -441,9 +493,11 @@ public class NatGatewayForDescribeNatGatewaysOutput {
         Objects.equals(this.natGatewayName, natGatewayForDescribeNatGatewaysOutput.natGatewayName) &&
         Objects.equals(this.networkInterfaceId, natGatewayForDescribeNatGatewaysOutput.networkInterfaceId) &&
         Objects.equals(this.overdueTime, natGatewayForDescribeNatGatewaysOutput.overdueTime) &&
+        Objects.equals(this.projectName, natGatewayForDescribeNatGatewaysOutput.projectName) &&
         Objects.equals(this.spec, natGatewayForDescribeNatGatewaysOutput.spec) &&
         Objects.equals(this.status, natGatewayForDescribeNatGatewaysOutput.status) &&
         Objects.equals(this.subnetId, natGatewayForDescribeNatGatewaysOutput.subnetId) &&
+        Objects.equals(this.tags, natGatewayForDescribeNatGatewaysOutput.tags) &&
         Objects.equals(this.updatedAt, natGatewayForDescribeNatGatewaysOutput.updatedAt) &&
         Objects.equals(this.vpcId, natGatewayForDescribeNatGatewaysOutput.vpcId) &&
         Objects.equals(this.zoneId, natGatewayForDescribeNatGatewaysOutput.zoneId);
@@ -451,7 +505,7 @@ public class NatGatewayForDescribeNatGatewaysOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(billingType, businessStatus, creationTime, deletedTime, description, eipAddresses, expiredTime, lockReason, natGatewayId, natGatewayName, networkInterfaceId, overdueTime, spec, status, subnetId, updatedAt, vpcId, zoneId);
+    return Objects.hash(billingType, businessStatus, creationTime, deletedTime, description, eipAddresses, expiredTime, lockReason, natGatewayId, natGatewayName, networkInterfaceId, overdueTime, projectName, spec, status, subnetId, tags, updatedAt, vpcId, zoneId);
   }
 
 
@@ -472,9 +526,11 @@ public class NatGatewayForDescribeNatGatewaysOutput {
     sb.append("    natGatewayName: ").append(toIndentedString(natGatewayName)).append("\n");
     sb.append("    networkInterfaceId: ").append(toIndentedString(networkInterfaceId)).append("\n");
     sb.append("    overdueTime: ").append(toIndentedString(overdueTime)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    spec: ").append(toIndentedString(spec)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");

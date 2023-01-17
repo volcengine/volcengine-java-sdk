@@ -33,6 +33,9 @@ import javax.validation.Valid;
 
 
 public class CreateLoadBalancerRequest {
+  @SerializedName("ClientToken")
+  private String clientToken = null;
+
   @SerializedName("Description")
   private String description = null;
 
@@ -50,6 +53,9 @@ public class CreateLoadBalancerRequest {
 
   @SerializedName("LoadBalancerSpec")
   private String loadBalancerSpec = null;
+
+  @SerializedName("MasterZoneId")
+  private String masterZoneId = null;
 
   @SerializedName("ModificationProtectionReason")
   private String modificationProtectionReason = null;
@@ -69,6 +75,9 @@ public class CreateLoadBalancerRequest {
   @SerializedName("RegionId")
   private String regionId = null;
 
+  @SerializedName("SlaveZoneId")
+  private String slaveZoneId = null;
+
   @SerializedName("SubnetId")
   private String subnetId = null;
 
@@ -80,6 +89,24 @@ public class CreateLoadBalancerRequest {
 
   @SerializedName("VpcId")
   private String vpcId = null;
+
+  public CreateLoadBalancerRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
 
   public CreateLoadBalancerRequest description(String description) {
     this.description = description;
@@ -181,14 +208,31 @@ public class CreateLoadBalancerRequest {
    * Get loadBalancerSpec
    * @return loadBalancerSpec
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getLoadBalancerSpec() {
     return loadBalancerSpec;
   }
 
   public void setLoadBalancerSpec(String loadBalancerSpec) {
     this.loadBalancerSpec = loadBalancerSpec;
+  }
+
+  public CreateLoadBalancerRequest masterZoneId(String masterZoneId) {
+    this.masterZoneId = masterZoneId;
+    return this;
+  }
+
+   /**
+   * Get masterZoneId
+   * @return masterZoneId
+  **/
+  @Schema(description = "")
+  public String getMasterZoneId() {
+    return masterZoneId;
+  }
+
+  public void setMasterZoneId(String masterZoneId) {
+    this.masterZoneId = masterZoneId;
   }
 
   public CreateLoadBalancerRequest modificationProtectionReason(String modificationProtectionReason) {
@@ -300,6 +344,24 @@ public class CreateLoadBalancerRequest {
     this.regionId = regionId;
   }
 
+  public CreateLoadBalancerRequest slaveZoneId(String slaveZoneId) {
+    this.slaveZoneId = slaveZoneId;
+    return this;
+  }
+
+   /**
+   * Get slaveZoneId
+   * @return slaveZoneId
+  **/
+  @Schema(description = "")
+  public String getSlaveZoneId() {
+    return slaveZoneId;
+  }
+
+  public void setSlaveZoneId(String slaveZoneId) {
+    this.slaveZoneId = slaveZoneId;
+  }
+
   public CreateLoadBalancerRequest subnetId(String subnetId) {
     this.subnetId = subnetId;
     return this;
@@ -393,18 +455,21 @@ public class CreateLoadBalancerRequest {
       return false;
     }
     CreateLoadBalancerRequest createLoadBalancerRequest = (CreateLoadBalancerRequest) o;
-    return Objects.equals(this.description, createLoadBalancerRequest.description) &&
+    return Objects.equals(this.clientToken, createLoadBalancerRequest.clientToken) &&
+        Objects.equals(this.description, createLoadBalancerRequest.description) &&
         Objects.equals(this.eipBillingConfig, createLoadBalancerRequest.eipBillingConfig) &&
         Objects.equals(this.eniAddress, createLoadBalancerRequest.eniAddress) &&
         Objects.equals(this.loadBalancerBillingType, createLoadBalancerRequest.loadBalancerBillingType) &&
         Objects.equals(this.loadBalancerName, createLoadBalancerRequest.loadBalancerName) &&
         Objects.equals(this.loadBalancerSpec, createLoadBalancerRequest.loadBalancerSpec) &&
+        Objects.equals(this.masterZoneId, createLoadBalancerRequest.masterZoneId) &&
         Objects.equals(this.modificationProtectionReason, createLoadBalancerRequest.modificationProtectionReason) &&
         Objects.equals(this.modificationProtectionStatus, createLoadBalancerRequest.modificationProtectionStatus) &&
         Objects.equals(this.period, createLoadBalancerRequest.period) &&
         Objects.equals(this.periodUnit, createLoadBalancerRequest.periodUnit) &&
         Objects.equals(this.projectName, createLoadBalancerRequest.projectName) &&
         Objects.equals(this.regionId, createLoadBalancerRequest.regionId) &&
+        Objects.equals(this.slaveZoneId, createLoadBalancerRequest.slaveZoneId) &&
         Objects.equals(this.subnetId, createLoadBalancerRequest.subnetId) &&
         Objects.equals(this.tags, createLoadBalancerRequest.tags) &&
         Objects.equals(this.type, createLoadBalancerRequest.type) &&
@@ -413,7 +478,7 @@ public class CreateLoadBalancerRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, eipBillingConfig, eniAddress, loadBalancerBillingType, loadBalancerName, loadBalancerSpec, modificationProtectionReason, modificationProtectionStatus, period, periodUnit, projectName, regionId, subnetId, tags, type, vpcId);
+    return Objects.hash(clientToken, description, eipBillingConfig, eniAddress, loadBalancerBillingType, loadBalancerName, loadBalancerSpec, masterZoneId, modificationProtectionReason, modificationProtectionStatus, period, periodUnit, projectName, regionId, slaveZoneId, subnetId, tags, type, vpcId);
   }
 
 
@@ -422,18 +487,21 @@ public class CreateLoadBalancerRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateLoadBalancerRequest {\n");
     
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    eipBillingConfig: ").append(toIndentedString(eipBillingConfig)).append("\n");
     sb.append("    eniAddress: ").append(toIndentedString(eniAddress)).append("\n");
     sb.append("    loadBalancerBillingType: ").append(toIndentedString(loadBalancerBillingType)).append("\n");
     sb.append("    loadBalancerName: ").append(toIndentedString(loadBalancerName)).append("\n");
     sb.append("    loadBalancerSpec: ").append(toIndentedString(loadBalancerSpec)).append("\n");
+    sb.append("    masterZoneId: ").append(toIndentedString(masterZoneId)).append("\n");
     sb.append("    modificationProtectionReason: ").append(toIndentedString(modificationProtectionReason)).append("\n");
     sb.append("    modificationProtectionStatus: ").append(toIndentedString(modificationProtectionStatus)).append("\n");
     sb.append("    period: ").append(toIndentedString(period)).append("\n");
     sb.append("    periodUnit: ").append(toIndentedString(periodUnit)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    regionId: ").append(toIndentedString(regionId)).append("\n");
+    sb.append("    slaveZoneId: ").append(toIndentedString(slaveZoneId)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
