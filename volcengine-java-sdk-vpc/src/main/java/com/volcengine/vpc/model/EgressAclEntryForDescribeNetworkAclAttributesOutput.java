@@ -47,6 +47,9 @@ public class EgressAclEntryForDescribeNetworkAclAttributesOutput {
   @SerializedName("Port")
   private String port = null;
 
+  @SerializedName("Priority")
+  private Integer priority = null;
+
   @SerializedName("Protocol")
   private String protocol = null;
 
@@ -158,6 +161,24 @@ public class EgressAclEntryForDescribeNetworkAclAttributesOutput {
     this.port = port;
   }
 
+  public EgressAclEntryForDescribeNetworkAclAttributesOutput priority(Integer priority) {
+    this.priority = priority;
+    return this;
+  }
+
+   /**
+   * Get priority
+   * @return priority
+  **/
+  @Schema(description = "")
+  public Integer getPriority() {
+    return priority;
+  }
+
+  public void setPriority(Integer priority) {
+    this.priority = priority;
+  }
+
   public EgressAclEntryForDescribeNetworkAclAttributesOutput protocol(String protocol) {
     this.protocol = protocol;
     return this;
@@ -192,12 +213,13 @@ public class EgressAclEntryForDescribeNetworkAclAttributesOutput {
         Objects.equals(this.networkAclEntryName, egressAclEntryForDescribeNetworkAclAttributesOutput.networkAclEntryName) &&
         Objects.equals(this.policy, egressAclEntryForDescribeNetworkAclAttributesOutput.policy) &&
         Objects.equals(this.port, egressAclEntryForDescribeNetworkAclAttributesOutput.port) &&
+        Objects.equals(this.priority, egressAclEntryForDescribeNetworkAclAttributesOutput.priority) &&
         Objects.equals(this.protocol, egressAclEntryForDescribeNetworkAclAttributesOutput.protocol);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, destinationCidrIp, networkAclEntryId, networkAclEntryName, policy, port, protocol);
+    return Objects.hash(description, destinationCidrIp, networkAclEntryId, networkAclEntryName, policy, port, priority, protocol);
   }
 
 
@@ -212,6 +234,7 @@ public class EgressAclEntryForDescribeNetworkAclAttributesOutput {
     sb.append("    networkAclEntryName: ").append(toIndentedString(networkAclEntryName)).append("\n");
     sb.append("    policy: ").append(toIndentedString(policy)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
+    sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
     sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
     sb.append("}");
     return sb.toString();

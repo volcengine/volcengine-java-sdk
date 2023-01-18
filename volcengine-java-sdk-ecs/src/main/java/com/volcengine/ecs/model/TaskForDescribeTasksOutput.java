@@ -98,7 +98,8 @@ public class TaskForDescribeTasksOutput {
   public enum TypeEnum {
     UNKNOWNTYPE("UnknownType"),
     EXPORTIMAGE("ExportImage"),
-    COPYIMAGE("CopyImage");
+    COPYIMAGE("CopyImage"),
+    PREHEATIMAGE("PreheatImage");
 
     private String value;
 

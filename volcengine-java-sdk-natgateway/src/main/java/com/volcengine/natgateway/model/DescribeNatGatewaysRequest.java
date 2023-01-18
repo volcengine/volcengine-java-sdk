@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.natgateway.model.TagFilterForDescribeNatGatewaysInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -45,6 +46,9 @@ public class DescribeNatGatewaysRequest {
 
   @SerializedName("PageSize")
   private Integer pageSize = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
 
   /**
    * Gets or Sets spec
@@ -93,6 +97,9 @@ public class DescribeNatGatewaysRequest {
 
   @SerializedName("SubnetId")
   private String subnetId = null;
+
+  @SerializedName("TagFilters")
+  private List<TagFilterForDescribeNatGatewaysInput> tagFilters = null;
 
   @SerializedName("VpcId")
   private String vpcId = null;
@@ -196,6 +203,24 @@ public class DescribeNatGatewaysRequest {
     this.pageSize = pageSize;
   }
 
+  public DescribeNatGatewaysRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public DescribeNatGatewaysRequest spec(SpecEnum spec) {
     this.spec = spec;
     return this;
@@ -232,6 +257,33 @@ public class DescribeNatGatewaysRequest {
     this.subnetId = subnetId;
   }
 
+  public DescribeNatGatewaysRequest tagFilters(List<TagFilterForDescribeNatGatewaysInput> tagFilters) {
+    this.tagFilters = tagFilters;
+    return this;
+  }
+
+  public DescribeNatGatewaysRequest addTagFiltersItem(TagFilterForDescribeNatGatewaysInput tagFiltersItem) {
+    if (this.tagFilters == null) {
+      this.tagFilters = new ArrayList<TagFilterForDescribeNatGatewaysInput>();
+    }
+    this.tagFilters.add(tagFiltersItem);
+    return this;
+  }
+
+   /**
+   * Get tagFilters
+   * @return tagFilters
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagFilterForDescribeNatGatewaysInput> getTagFilters() {
+    return tagFilters;
+  }
+
+  public void setTagFilters(List<TagFilterForDescribeNatGatewaysInput> tagFilters) {
+    this.tagFilters = tagFilters;
+  }
+
   public DescribeNatGatewaysRequest vpcId(String vpcId) {
     this.vpcId = vpcId;
     return this;
@@ -265,14 +317,16 @@ public class DescribeNatGatewaysRequest {
         Objects.equals(this.natGatewayName, describeNatGatewaysRequest.natGatewayName) &&
         Objects.equals(this.pageNumber, describeNatGatewaysRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeNatGatewaysRequest.pageSize) &&
+        Objects.equals(this.projectName, describeNatGatewaysRequest.projectName) &&
         Objects.equals(this.spec, describeNatGatewaysRequest.spec) &&
         Objects.equals(this.subnetId, describeNatGatewaysRequest.subnetId) &&
+        Objects.equals(this.tagFilters, describeNatGatewaysRequest.tagFilters) &&
         Objects.equals(this.vpcId, describeNatGatewaysRequest.vpcId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, natGatewayIds, natGatewayName, pageNumber, pageSize, spec, subnetId, vpcId);
+    return Objects.hash(description, natGatewayIds, natGatewayName, pageNumber, pageSize, projectName, spec, subnetId, tagFilters, vpcId);
   }
 
 
@@ -286,8 +340,10 @@ public class DescribeNatGatewaysRequest {
     sb.append("    natGatewayName: ").append(toIndentedString(natGatewayName)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    spec: ").append(toIndentedString(spec)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
+    sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("}");
     return sb.toString();

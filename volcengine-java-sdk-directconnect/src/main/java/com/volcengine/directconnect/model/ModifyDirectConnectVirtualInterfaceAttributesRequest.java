@@ -44,6 +44,15 @@ public class ModifyDirectConnectVirtualInterfaceAttributesRequest {
   @SerializedName("EnableBfd")
   private Boolean enableBfd = null;
 
+  @SerializedName("EnableNqa")
+  private Boolean enableNqa = null;
+
+  @SerializedName("NqaDetectInterval")
+  private Integer nqaDetectInterval = null;
+
+  @SerializedName("NqaDetectMultiplier")
+  private Integer nqaDetectMultiplier = null;
+
   @SerializedName("VirtualInterfaceId")
   private String virtualInterfaceId = null;
 
@@ -144,6 +153,64 @@ public class ModifyDirectConnectVirtualInterfaceAttributesRequest {
     this.enableBfd = enableBfd;
   }
 
+  public ModifyDirectConnectVirtualInterfaceAttributesRequest enableNqa(Boolean enableNqa) {
+    this.enableNqa = enableNqa;
+    return this;
+  }
+
+   /**
+   * Get enableNqa
+   * @return enableNqa
+  **/
+  @Schema(description = "")
+  public Boolean isEnableNqa() {
+    return enableNqa;
+  }
+
+  public void setEnableNqa(Boolean enableNqa) {
+    this.enableNqa = enableNqa;
+  }
+
+  public ModifyDirectConnectVirtualInterfaceAttributesRequest nqaDetectInterval(Integer nqaDetectInterval) {
+    this.nqaDetectInterval = nqaDetectInterval;
+    return this;
+  }
+
+   /**
+   * Get nqaDetectInterval
+   * minimum: 1000
+   * maximum: 5000
+   * @return nqaDetectInterval
+  **/
+ @Min(1000) @Max(5000)  @Schema(description = "")
+  public Integer getNqaDetectInterval() {
+    return nqaDetectInterval;
+  }
+
+  public void setNqaDetectInterval(Integer nqaDetectInterval) {
+    this.nqaDetectInterval = nqaDetectInterval;
+  }
+
+  public ModifyDirectConnectVirtualInterfaceAttributesRequest nqaDetectMultiplier(Integer nqaDetectMultiplier) {
+    this.nqaDetectMultiplier = nqaDetectMultiplier;
+    return this;
+  }
+
+   /**
+   * Get nqaDetectMultiplier
+   * minimum: 3
+   * maximum: 8
+   * @return nqaDetectMultiplier
+  **/
+ @Min(3) @Max(8)  @Schema(description = "")
+  public Integer getNqaDetectMultiplier() {
+    return nqaDetectMultiplier;
+  }
+
+  public void setNqaDetectMultiplier(Integer nqaDetectMultiplier) {
+    this.nqaDetectMultiplier = nqaDetectMultiplier;
+  }
+
   public ModifyDirectConnectVirtualInterfaceAttributesRequest virtualInterfaceId(String virtualInterfaceId) {
     this.virtualInterfaceId = virtualInterfaceId;
     return this;
@@ -196,13 +263,16 @@ public class ModifyDirectConnectVirtualInterfaceAttributesRequest {
         Objects.equals(this.bfdDetectMultiplier, modifyDirectConnectVirtualInterfaceAttributesRequest.bfdDetectMultiplier) &&
         Objects.equals(this.description, modifyDirectConnectVirtualInterfaceAttributesRequest.description) &&
         Objects.equals(this.enableBfd, modifyDirectConnectVirtualInterfaceAttributesRequest.enableBfd) &&
+        Objects.equals(this.enableNqa, modifyDirectConnectVirtualInterfaceAttributesRequest.enableNqa) &&
+        Objects.equals(this.nqaDetectInterval, modifyDirectConnectVirtualInterfaceAttributesRequest.nqaDetectInterval) &&
+        Objects.equals(this.nqaDetectMultiplier, modifyDirectConnectVirtualInterfaceAttributesRequest.nqaDetectMultiplier) &&
         Objects.equals(this.virtualInterfaceId, modifyDirectConnectVirtualInterfaceAttributesRequest.virtualInterfaceId) &&
         Objects.equals(this.virtualInterfaceName, modifyDirectConnectVirtualInterfaceAttributesRequest.virtualInterfaceName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidth, bfdDetectInterval, bfdDetectMultiplier, description, enableBfd, virtualInterfaceId, virtualInterfaceName);
+    return Objects.hash(bandwidth, bfdDetectInterval, bfdDetectMultiplier, description, enableBfd, enableNqa, nqaDetectInterval, nqaDetectMultiplier, virtualInterfaceId, virtualInterfaceName);
   }
 
 
@@ -216,6 +286,9 @@ public class ModifyDirectConnectVirtualInterfaceAttributesRequest {
     sb.append("    bfdDetectMultiplier: ").append(toIndentedString(bfdDetectMultiplier)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    enableBfd: ").append(toIndentedString(enableBfd)).append("\n");
+    sb.append("    enableNqa: ").append(toIndentedString(enableNqa)).append("\n");
+    sb.append("    nqaDetectInterval: ").append(toIndentedString(nqaDetectInterval)).append("\n");
+    sb.append("    nqaDetectMultiplier: ").append(toIndentedString(nqaDetectMultiplier)).append("\n");
     sb.append("    virtualInterfaceId: ").append(toIndentedString(virtualInterfaceId)).append("\n");
     sb.append("    virtualInterfaceName: ").append(toIndentedString(virtualInterfaceName)).append("\n");
     sb.append("}");

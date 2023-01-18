@@ -29,8 +29,35 @@ import javax.validation.Valid;
 
 
 public class ProcessorForDescribeInstanceTypesOutput {
+  @SerializedName("BaseFrequency")
+  private Float baseFrequency = null;
+
   @SerializedName("Cpus")
   private Integer cpus = null;
+
+  @SerializedName("Model")
+  private String model = null;
+
+  @SerializedName("TurboFrequency")
+  private Float turboFrequency = null;
+
+  public ProcessorForDescribeInstanceTypesOutput baseFrequency(Float baseFrequency) {
+    this.baseFrequency = baseFrequency;
+    return this;
+  }
+
+   /**
+   * Get baseFrequency
+   * @return baseFrequency
+  **/
+  @Schema(description = "")
+  public Float getBaseFrequency() {
+    return baseFrequency;
+  }
+
+  public void setBaseFrequency(Float baseFrequency) {
+    this.baseFrequency = baseFrequency;
+  }
 
   public ProcessorForDescribeInstanceTypesOutput cpus(Integer cpus) {
     this.cpus = cpus;
@@ -50,6 +77,42 @@ public class ProcessorForDescribeInstanceTypesOutput {
     this.cpus = cpus;
   }
 
+  public ProcessorForDescribeInstanceTypesOutput model(String model) {
+    this.model = model;
+    return this;
+  }
+
+   /**
+   * Get model
+   * @return model
+  **/
+  @Schema(description = "")
+  public String getModel() {
+    return model;
+  }
+
+  public void setModel(String model) {
+    this.model = model;
+  }
+
+  public ProcessorForDescribeInstanceTypesOutput turboFrequency(Float turboFrequency) {
+    this.turboFrequency = turboFrequency;
+    return this;
+  }
+
+   /**
+   * Get turboFrequency
+   * @return turboFrequency
+  **/
+  @Schema(description = "")
+  public Float getTurboFrequency() {
+    return turboFrequency;
+  }
+
+  public void setTurboFrequency(Float turboFrequency) {
+    this.turboFrequency = turboFrequency;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -60,12 +123,15 @@ public class ProcessorForDescribeInstanceTypesOutput {
       return false;
     }
     ProcessorForDescribeInstanceTypesOutput processorForDescribeInstanceTypesOutput = (ProcessorForDescribeInstanceTypesOutput) o;
-    return Objects.equals(this.cpus, processorForDescribeInstanceTypesOutput.cpus);
+    return Objects.equals(this.baseFrequency, processorForDescribeInstanceTypesOutput.baseFrequency) &&
+        Objects.equals(this.cpus, processorForDescribeInstanceTypesOutput.cpus) &&
+        Objects.equals(this.model, processorForDescribeInstanceTypesOutput.model) &&
+        Objects.equals(this.turboFrequency, processorForDescribeInstanceTypesOutput.turboFrequency);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cpus);
+    return Objects.hash(baseFrequency, cpus, model, turboFrequency);
   }
 
 
@@ -74,7 +140,10 @@ public class ProcessorForDescribeInstanceTypesOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProcessorForDescribeInstanceTypesOutput {\n");
     
+    sb.append("    baseFrequency: ").append(toIndentedString(baseFrequency)).append("\n");
     sb.append("    cpus: ").append(toIndentedString(cpus)).append("\n");
+    sb.append("    model: ").append(toIndentedString(model)).append("\n");
+    sb.append("    turboFrequency: ").append(toIndentedString(turboFrequency)).append("\n");
     sb.append("}");
     return sb.toString();
   }

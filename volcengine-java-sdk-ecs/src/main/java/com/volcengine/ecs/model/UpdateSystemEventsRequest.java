@@ -34,6 +34,12 @@ public class UpdateSystemEventsRequest {
   @SerializedName("EventIds")
   private List<String> eventIds = null;
 
+  @SerializedName("OperatedEndAt")
+  private String operatedEndAt = null;
+
+  @SerializedName("OperatedStartAt")
+  private String operatedStartAt = null;
+
   @SerializedName("Status")
   private String status = null;
 
@@ -64,6 +70,42 @@ public class UpdateSystemEventsRequest {
 
   public void setEventIds(List<String> eventIds) {
     this.eventIds = eventIds;
+  }
+
+  public UpdateSystemEventsRequest operatedEndAt(String operatedEndAt) {
+    this.operatedEndAt = operatedEndAt;
+    return this;
+  }
+
+   /**
+   * Get operatedEndAt
+   * @return operatedEndAt
+  **/
+  @Schema(description = "")
+  public String getOperatedEndAt() {
+    return operatedEndAt;
+  }
+
+  public void setOperatedEndAt(String operatedEndAt) {
+    this.operatedEndAt = operatedEndAt;
+  }
+
+  public UpdateSystemEventsRequest operatedStartAt(String operatedStartAt) {
+    this.operatedStartAt = operatedStartAt;
+    return this;
+  }
+
+   /**
+   * Get operatedStartAt
+   * @return operatedStartAt
+  **/
+  @Schema(description = "")
+  public String getOperatedStartAt() {
+    return operatedStartAt;
+  }
+
+  public void setOperatedStartAt(String operatedStartAt) {
+    this.operatedStartAt = operatedStartAt;
   }
 
   public UpdateSystemEventsRequest status(String status) {
@@ -113,13 +155,15 @@ public class UpdateSystemEventsRequest {
     }
     UpdateSystemEventsRequest updateSystemEventsRequest = (UpdateSystemEventsRequest) o;
     return Objects.equals(this.eventIds, updateSystemEventsRequest.eventIds) &&
+        Objects.equals(this.operatedEndAt, updateSystemEventsRequest.operatedEndAt) &&
+        Objects.equals(this.operatedStartAt, updateSystemEventsRequest.operatedStartAt) &&
         Objects.equals(this.status, updateSystemEventsRequest.status) &&
         Objects.equals(this.updatedAt, updateSystemEventsRequest.updatedAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(eventIds, status, updatedAt);
+    return Objects.hash(eventIds, operatedEndAt, operatedStartAt, status, updatedAt);
   }
 
 
@@ -129,6 +173,8 @@ public class UpdateSystemEventsRequest {
     sb.append("class UpdateSystemEventsRequest {\n");
     
     sb.append("    eventIds: ").append(toIndentedString(eventIds)).append("\n");
+    sb.append("    operatedEndAt: ").append(toIndentedString(operatedEndAt)).append("\n");
+    sb.append("    operatedStartAt: ").append(toIndentedString(operatedStartAt)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("}");

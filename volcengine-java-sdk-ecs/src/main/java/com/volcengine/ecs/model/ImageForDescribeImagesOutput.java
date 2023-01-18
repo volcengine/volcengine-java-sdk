@@ -62,6 +62,9 @@ public class ImageForDescribeImagesOutput {
   @SerializedName("PlatformVersion")
   private String platformVersion = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("ShareStatus")
   private String shareStatus = null;
 
@@ -278,6 +281,24 @@ public class ImageForDescribeImagesOutput {
     this.platformVersion = platformVersion;
   }
 
+  public ImageForDescribeImagesOutput projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public ImageForDescribeImagesOutput shareStatus(String shareStatus) {
     this.shareStatus = shareStatus;
     return this;
@@ -407,6 +428,7 @@ public class ImageForDescribeImagesOutput {
         Objects.equals(this.osType, imageForDescribeImagesOutput.osType) &&
         Objects.equals(this.platform, imageForDescribeImagesOutput.platform) &&
         Objects.equals(this.platformVersion, imageForDescribeImagesOutput.platformVersion) &&
+        Objects.equals(this.projectName, imageForDescribeImagesOutput.projectName) &&
         Objects.equals(this.shareStatus, imageForDescribeImagesOutput.shareStatus) &&
         Objects.equals(this.size, imageForDescribeImagesOutput.size) &&
         Objects.equals(this.status, imageForDescribeImagesOutput.status) &&
@@ -417,7 +439,7 @@ public class ImageForDescribeImagesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(architecture, createdAt, description, imageId, imageName, imageOwnerId, isSupportCloudInit, osName, osType, platform, platformVersion, shareStatus, size, status, updatedAt, virtualSize, visibility);
+    return Objects.hash(architecture, createdAt, description, imageId, imageName, imageOwnerId, isSupportCloudInit, osName, osType, platform, platformVersion, projectName, shareStatus, size, status, updatedAt, virtualSize, visibility);
   }
 
 
@@ -437,6 +459,7 @@ public class ImageForDescribeImagesOutput {
     sb.append("    osType: ").append(toIndentedString(osType)).append("\n");
     sb.append("    platform: ").append(toIndentedString(platform)).append("\n");
     sb.append("    platformVersion: ").append(toIndentedString(platformVersion)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    shareStatus: ").append(toIndentedString(shareStatus)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
