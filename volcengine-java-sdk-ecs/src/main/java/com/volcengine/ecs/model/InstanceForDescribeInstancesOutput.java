@@ -45,6 +45,9 @@ public class InstanceForDescribeInstancesOutput {
   @SerializedName("CreatedAt")
   private String createdAt = null;
 
+  @SerializedName("DeploymentSetId")
+  private String deploymentSetId = null;
+
   @SerializedName("Description")
   private String description = null;
 
@@ -179,6 +182,24 @@ public class InstanceForDescribeInstancesOutput {
 
   public void setCreatedAt(String createdAt) {
     this.createdAt = createdAt;
+  }
+
+  public InstanceForDescribeInstancesOutput deploymentSetId(String deploymentSetId) {
+    this.deploymentSetId = deploymentSetId;
+    return this;
+  }
+
+   /**
+   * Get deploymentSetId
+   * @return deploymentSetId
+  **/
+  @Schema(description = "")
+  public String getDeploymentSetId() {
+    return deploymentSetId;
+  }
+
+  public void setDeploymentSetId(String deploymentSetId) {
+    this.deploymentSetId = deploymentSetId;
   }
 
   public InstanceForDescribeInstancesOutput description(String description) {
@@ -716,6 +737,7 @@ public class InstanceForDescribeInstancesOutput {
     return Objects.equals(this.cpuOptions, instanceForDescribeInstancesOutput.cpuOptions) &&
         Objects.equals(this.cpus, instanceForDescribeInstancesOutput.cpus) &&
         Objects.equals(this.createdAt, instanceForDescribeInstancesOutput.createdAt) &&
+        Objects.equals(this.deploymentSetId, instanceForDescribeInstancesOutput.deploymentSetId) &&
         Objects.equals(this.description, instanceForDescribeInstancesOutput.description) &&
         Objects.equals(this.eipAddress, instanceForDescribeInstancesOutput.eipAddress) &&
         Objects.equals(this.expiredAt, instanceForDescribeInstancesOutput.expiredAt) &&
@@ -747,7 +769,7 @@ public class InstanceForDescribeInstancesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cpuOptions, cpus, createdAt, description, eipAddress, expiredAt, hostName, hostname, imageId, instanceChargeType, instanceId, instanceName, instanceTypeId, keyPairId, keyPairName, localVolumes, memorySize, networkInterfaces, osName, osType, projectName, rdmaIpAddresses, spotStrategy, status, stoppedMode, tags, updatedAt, uuid, vpcId, zoneId);
+    return Objects.hash(cpuOptions, cpus, createdAt, deploymentSetId, description, eipAddress, expiredAt, hostName, hostname, imageId, instanceChargeType, instanceId, instanceName, instanceTypeId, keyPairId, keyPairName, localVolumes, memorySize, networkInterfaces, osName, osType, projectName, rdmaIpAddresses, spotStrategy, status, stoppedMode, tags, updatedAt, uuid, vpcId, zoneId);
   }
 
 
@@ -759,6 +781,7 @@ public class InstanceForDescribeInstancesOutput {
     sb.append("    cpuOptions: ").append(toIndentedString(cpuOptions)).append("\n");
     sb.append("    cpus: ").append(toIndentedString(cpus)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    deploymentSetId: ").append(toIndentedString(deploymentSetId)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    eipAddress: ").append(toIndentedString(eipAddress)).append("\n");
     sb.append("    expiredAt: ").append(toIndentedString(expiredAt)).append("\n");

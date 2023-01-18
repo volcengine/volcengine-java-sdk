@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -32,6 +34,9 @@ public class EipForDescribeLoadBalancerAttributesOutput {
   @SerializedName("Bandwidth")
   private Integer bandwidth = null;
 
+  @SerializedName("BandwidthPackageId")
+  private String bandwidthPackageId = null;
+
   @SerializedName("EipAddress")
   private String eipAddress = null;
 
@@ -40,6 +45,9 @@ public class EipForDescribeLoadBalancerAttributesOutput {
 
   @SerializedName("ISP")
   private String ISP = null;
+
+  @SerializedName("SecurityProtectionTypes")
+  private List<String> securityProtectionTypes = null;
 
   public EipForDescribeLoadBalancerAttributesOutput bandwidth(Integer bandwidth) {
     this.bandwidth = bandwidth;
@@ -57,6 +65,24 @@ public class EipForDescribeLoadBalancerAttributesOutput {
 
   public void setBandwidth(Integer bandwidth) {
     this.bandwidth = bandwidth;
+  }
+
+  public EipForDescribeLoadBalancerAttributesOutput bandwidthPackageId(String bandwidthPackageId) {
+    this.bandwidthPackageId = bandwidthPackageId;
+    return this;
+  }
+
+   /**
+   * Get bandwidthPackageId
+   * @return bandwidthPackageId
+  **/
+  @Schema(description = "")
+  public String getBandwidthPackageId() {
+    return bandwidthPackageId;
+  }
+
+  public void setBandwidthPackageId(String bandwidthPackageId) {
+    this.bandwidthPackageId = bandwidthPackageId;
   }
 
   public EipForDescribeLoadBalancerAttributesOutput eipAddress(String eipAddress) {
@@ -113,6 +139,32 @@ public class EipForDescribeLoadBalancerAttributesOutput {
     this.ISP = ISP;
   }
 
+  public EipForDescribeLoadBalancerAttributesOutput securityProtectionTypes(List<String> securityProtectionTypes) {
+    this.securityProtectionTypes = securityProtectionTypes;
+    return this;
+  }
+
+  public EipForDescribeLoadBalancerAttributesOutput addSecurityProtectionTypesItem(String securityProtectionTypesItem) {
+    if (this.securityProtectionTypes == null) {
+      this.securityProtectionTypes = new ArrayList<String>();
+    }
+    this.securityProtectionTypes.add(securityProtectionTypesItem);
+    return this;
+  }
+
+   /**
+   * Get securityProtectionTypes
+   * @return securityProtectionTypes
+  **/
+  @Schema(description = "")
+  public List<String> getSecurityProtectionTypes() {
+    return securityProtectionTypes;
+  }
+
+  public void setSecurityProtectionTypes(List<String> securityProtectionTypes) {
+    this.securityProtectionTypes = securityProtectionTypes;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -124,14 +176,16 @@ public class EipForDescribeLoadBalancerAttributesOutput {
     }
     EipForDescribeLoadBalancerAttributesOutput eipForDescribeLoadBalancerAttributesOutput = (EipForDescribeLoadBalancerAttributesOutput) o;
     return Objects.equals(this.bandwidth, eipForDescribeLoadBalancerAttributesOutput.bandwidth) &&
+        Objects.equals(this.bandwidthPackageId, eipForDescribeLoadBalancerAttributesOutput.bandwidthPackageId) &&
         Objects.equals(this.eipAddress, eipForDescribeLoadBalancerAttributesOutput.eipAddress) &&
         Objects.equals(this.eipBillingType, eipForDescribeLoadBalancerAttributesOutput.eipBillingType) &&
-        Objects.equals(this.ISP, eipForDescribeLoadBalancerAttributesOutput.ISP);
+        Objects.equals(this.ISP, eipForDescribeLoadBalancerAttributesOutput.ISP) &&
+        Objects.equals(this.securityProtectionTypes, eipForDescribeLoadBalancerAttributesOutput.securityProtectionTypes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidth, eipAddress, eipBillingType, ISP);
+    return Objects.hash(bandwidth, bandwidthPackageId, eipAddress, eipBillingType, ISP, securityProtectionTypes);
   }
 
 
@@ -141,9 +195,11 @@ public class EipForDescribeLoadBalancerAttributesOutput {
     sb.append("class EipForDescribeLoadBalancerAttributesOutput {\n");
     
     sb.append("    bandwidth: ").append(toIndentedString(bandwidth)).append("\n");
+    sb.append("    bandwidthPackageId: ").append(toIndentedString(bandwidthPackageId)).append("\n");
     sb.append("    eipAddress: ").append(toIndentedString(eipAddress)).append("\n");
     sb.append("    eipBillingType: ").append(toIndentedString(eipBillingType)).append("\n");
     sb.append("    ISP: ").append(toIndentedString(ISP)).append("\n");
+    sb.append("    securityProtectionTypes: ").append(toIndentedString(securityProtectionTypes)).append("\n");
     sb.append("}");
     return sb.toString();
   }
