@@ -52,6 +52,9 @@ public class DescribeImagesRequest {
   @SerializedName("OsType")
   private String osType = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("Status")
   private List<String> status = null;
 
@@ -192,6 +195,24 @@ public class DescribeImagesRequest {
     this.osType = osType;
   }
 
+  public DescribeImagesRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public DescribeImagesRequest status(List<String> status) {
     this.status = status;
     return this;
@@ -253,13 +274,14 @@ public class DescribeImagesRequest {
         Objects.equals(this.maxResults, describeImagesRequest.maxResults) &&
         Objects.equals(this.nextToken, describeImagesRequest.nextToken) &&
         Objects.equals(this.osType, describeImagesRequest.osType) &&
+        Objects.equals(this.projectName, describeImagesRequest.projectName) &&
         Objects.equals(this.status, describeImagesRequest.status) &&
         Objects.equals(this.visibility, describeImagesRequest.visibility);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(imageIds, imageStatus, instanceTypeId, isSupportCloudInit, maxResults, nextToken, osType, status, visibility);
+    return Objects.hash(imageIds, imageStatus, instanceTypeId, isSupportCloudInit, maxResults, nextToken, osType, projectName, status, visibility);
   }
 
 
@@ -275,6 +297,7 @@ public class DescribeImagesRequest {
     sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
     sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
     sb.append("    osType: ").append(toIndentedString(osType)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    visibility: ").append(toIndentedString(visibility)).append("\n");
     sb.append("}");

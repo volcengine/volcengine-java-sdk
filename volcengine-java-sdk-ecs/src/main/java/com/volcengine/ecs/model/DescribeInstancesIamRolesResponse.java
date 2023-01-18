@@ -35,6 +35,9 @@ public class DescribeInstancesIamRolesResponse {
   @SerializedName("InstancesIamRoles")
   private List<InstancesIamRoleForDescribeInstancesIamRolesOutput> instancesIamRoles = null;
 
+  @SerializedName("NextToken")
+  private String nextToken = null;
+
   public DescribeInstancesIamRolesResponse instancesIamRoles(List<InstancesIamRoleForDescribeInstancesIamRolesOutput> instancesIamRoles) {
     this.instancesIamRoles = instancesIamRoles;
     return this;
@@ -62,6 +65,24 @@ public class DescribeInstancesIamRolesResponse {
     this.instancesIamRoles = instancesIamRoles;
   }
 
+  public DescribeInstancesIamRolesResponse nextToken(String nextToken) {
+    this.nextToken = nextToken;
+    return this;
+  }
+
+   /**
+   * Get nextToken
+   * @return nextToken
+  **/
+  @Schema(description = "")
+  public String getNextToken() {
+    return nextToken;
+  }
+
+  public void setNextToken(String nextToken) {
+    this.nextToken = nextToken;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -72,12 +93,13 @@ public class DescribeInstancesIamRolesResponse {
       return false;
     }
     DescribeInstancesIamRolesResponse describeInstancesIamRolesResponse = (DescribeInstancesIamRolesResponse) o;
-    return Objects.equals(this.instancesIamRoles, describeInstancesIamRolesResponse.instancesIamRoles);
+    return Objects.equals(this.instancesIamRoles, describeInstancesIamRolesResponse.instancesIamRoles) &&
+        Objects.equals(this.nextToken, describeInstancesIamRolesResponse.nextToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instancesIamRoles);
+    return Objects.hash(instancesIamRoles, nextToken);
   }
 
 
@@ -87,6 +109,7 @@ public class DescribeInstancesIamRolesResponse {
     sb.append("class DescribeInstancesIamRolesResponse {\n");
     
     sb.append("    instancesIamRoles: ").append(toIndentedString(instancesIamRoles)).append("\n");
+    sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
     sb.append("}");
     return sb.toString();
   }

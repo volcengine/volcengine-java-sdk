@@ -74,6 +74,9 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
   @SerializedName("LockReason")
   private String lockReason = null;
 
+  @SerializedName("MasterZoneId")
+  private String masterZoneId = null;
+
   @SerializedName("ModificationProtectionReason")
   private String modificationProtectionReason = null;
 
@@ -85,6 +88,9 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
 
   @SerializedName("ProjectName")
   private String projectName = null;
+
+  @SerializedName("SlaveZoneId")
+  private String slaveZoneId = null;
 
   @SerializedName("Status")
   private String status = null;
@@ -356,6 +362,24 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
     this.lockReason = lockReason;
   }
 
+  public LoadBalancerForDescribeLoadBalancersOutput masterZoneId(String masterZoneId) {
+    this.masterZoneId = masterZoneId;
+    return this;
+  }
+
+   /**
+   * Get masterZoneId
+   * @return masterZoneId
+  **/
+  @Schema(description = "")
+  public String getMasterZoneId() {
+    return masterZoneId;
+  }
+
+  public void setMasterZoneId(String masterZoneId) {
+    this.masterZoneId = masterZoneId;
+  }
+
   public LoadBalancerForDescribeLoadBalancersOutput modificationProtectionReason(String modificationProtectionReason) {
     this.modificationProtectionReason = modificationProtectionReason;
     return this;
@@ -426,6 +450,24 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
 
   public void setProjectName(String projectName) {
     this.projectName = projectName;
+  }
+
+  public LoadBalancerForDescribeLoadBalancersOutput slaveZoneId(String slaveZoneId) {
+    this.slaveZoneId = slaveZoneId;
+    return this;
+  }
+
+   /**
+   * Get slaveZoneId
+   * @return slaveZoneId
+  **/
+  @Schema(description = "")
+  public String getSlaveZoneId() {
+    return slaveZoneId;
+  }
+
+  public void setSlaveZoneId(String slaveZoneId) {
+    this.slaveZoneId = slaveZoneId;
   }
 
   public LoadBalancerForDescribeLoadBalancersOutput status(String status) {
@@ -569,10 +611,12 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
         Objects.equals(this.loadBalancerName, loadBalancerForDescribeLoadBalancersOutput.loadBalancerName) &&
         Objects.equals(this.loadBalancerSpec, loadBalancerForDescribeLoadBalancersOutput.loadBalancerSpec) &&
         Objects.equals(this.lockReason, loadBalancerForDescribeLoadBalancersOutput.lockReason) &&
+        Objects.equals(this.masterZoneId, loadBalancerForDescribeLoadBalancersOutput.masterZoneId) &&
         Objects.equals(this.modificationProtectionReason, loadBalancerForDescribeLoadBalancersOutput.modificationProtectionReason) &&
         Objects.equals(this.modificationProtectionStatus, loadBalancerForDescribeLoadBalancersOutput.modificationProtectionStatus) &&
         Objects.equals(this.overdueTime, loadBalancerForDescribeLoadBalancersOutput.overdueTime) &&
         Objects.equals(this.projectName, loadBalancerForDescribeLoadBalancersOutput.projectName) &&
+        Objects.equals(this.slaveZoneId, loadBalancerForDescribeLoadBalancersOutput.slaveZoneId) &&
         Objects.equals(this.status, loadBalancerForDescribeLoadBalancersOutput.status) &&
         Objects.equals(this.subnetId, loadBalancerForDescribeLoadBalancersOutput.subnetId) &&
         Objects.equals(this.tags, loadBalancerForDescribeLoadBalancersOutput.tags) &&
@@ -583,7 +627,7 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(businessStatus, createTime, deletedTime, description, eipAddress, eipID, eniAddress, eniID, expiredTime, loadBalancerBillingType, loadBalancerId, loadBalancerName, loadBalancerSpec, lockReason, modificationProtectionReason, modificationProtectionStatus, overdueTime, projectName, status, subnetId, tags, type, updateTime, vpcId);
+    return Objects.hash(businessStatus, createTime, deletedTime, description, eipAddress, eipID, eniAddress, eniID, expiredTime, loadBalancerBillingType, loadBalancerId, loadBalancerName, loadBalancerSpec, lockReason, masterZoneId, modificationProtectionReason, modificationProtectionStatus, overdueTime, projectName, slaveZoneId, status, subnetId, tags, type, updateTime, vpcId);
   }
 
 
@@ -606,10 +650,12 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
     sb.append("    loadBalancerName: ").append(toIndentedString(loadBalancerName)).append("\n");
     sb.append("    loadBalancerSpec: ").append(toIndentedString(loadBalancerSpec)).append("\n");
     sb.append("    lockReason: ").append(toIndentedString(lockReason)).append("\n");
+    sb.append("    masterZoneId: ").append(toIndentedString(masterZoneId)).append("\n");
     sb.append("    modificationProtectionReason: ").append(toIndentedString(modificationProtectionReason)).append("\n");
     sb.append("    modificationProtectionStatus: ").append(toIndentedString(modificationProtectionStatus)).append("\n");
     sb.append("    overdueTime: ").append(toIndentedString(overdueTime)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    slaveZoneId: ").append(toIndentedString(slaveZoneId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");

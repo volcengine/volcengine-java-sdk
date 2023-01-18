@@ -39,6 +39,9 @@ public class DescribeLoadBalancerAttributesResponse {
   @SerializedName("AccessLog")
   private AccessLogForDescribeLoadBalancerAttributesOutput accessLog = null;
 
+  @SerializedName("BusinessStatus")
+  private String businessStatus = null;
+
   @SerializedName("CreateTime")
   private String createTime = null;
 
@@ -87,6 +90,12 @@ public class DescribeLoadBalancerAttributesResponse {
   @SerializedName("LockReason")
   private String lockReason = null;
 
+  @SerializedName("LogTopicId")
+  private String logTopicId = null;
+
+  @SerializedName("MasterZoneId")
+  private String masterZoneId = null;
+
   @SerializedName("ModificationProtectionReason")
   private String modificationProtectionReason = null;
 
@@ -104,6 +113,9 @@ public class DescribeLoadBalancerAttributesResponse {
 
   @SerializedName("ServerGroups")
   private List<ServerGroupForDescribeLoadBalancerAttributesOutput> serverGroups = null;
+
+  @SerializedName("SlaveZoneId")
+  private String slaveZoneId = null;
 
   @SerializedName("Status")
   private String status = null;
@@ -140,6 +152,24 @@ public class DescribeLoadBalancerAttributesResponse {
 
   public void setAccessLog(AccessLogForDescribeLoadBalancerAttributesOutput accessLog) {
     this.accessLog = accessLog;
+  }
+
+  public DescribeLoadBalancerAttributesResponse businessStatus(String businessStatus) {
+    this.businessStatus = businessStatus;
+    return this;
+  }
+
+   /**
+   * Get businessStatus
+   * @return businessStatus
+  **/
+  @Schema(description = "")
+  public String getBusinessStatus() {
+    return businessStatus;
+  }
+
+  public void setBusinessStatus(String businessStatus) {
+    this.businessStatus = businessStatus;
   }
 
   public DescribeLoadBalancerAttributesResponse createTime(String createTime) {
@@ -440,6 +470,42 @@ public class DescribeLoadBalancerAttributesResponse {
     this.lockReason = lockReason;
   }
 
+  public DescribeLoadBalancerAttributesResponse logTopicId(String logTopicId) {
+    this.logTopicId = logTopicId;
+    return this;
+  }
+
+   /**
+   * Get logTopicId
+   * @return logTopicId
+  **/
+  @Schema(description = "")
+  public String getLogTopicId() {
+    return logTopicId;
+  }
+
+  public void setLogTopicId(String logTopicId) {
+    this.logTopicId = logTopicId;
+  }
+
+  public DescribeLoadBalancerAttributesResponse masterZoneId(String masterZoneId) {
+    this.masterZoneId = masterZoneId;
+    return this;
+  }
+
+   /**
+   * Get masterZoneId
+   * @return masterZoneId
+  **/
+  @Schema(description = "")
+  public String getMasterZoneId() {
+    return masterZoneId;
+  }
+
+  public void setMasterZoneId(String masterZoneId) {
+    this.masterZoneId = masterZoneId;
+  }
+
   public DescribeLoadBalancerAttributesResponse modificationProtectionReason(String modificationProtectionReason) {
     this.modificationProtectionReason = modificationProtectionReason;
     return this;
@@ -555,6 +621,24 @@ public class DescribeLoadBalancerAttributesResponse {
 
   public void setServerGroups(List<ServerGroupForDescribeLoadBalancerAttributesOutput> serverGroups) {
     this.serverGroups = serverGroups;
+  }
+
+  public DescribeLoadBalancerAttributesResponse slaveZoneId(String slaveZoneId) {
+    this.slaveZoneId = slaveZoneId;
+    return this;
+  }
+
+   /**
+   * Get slaveZoneId
+   * @return slaveZoneId
+  **/
+  @Schema(description = "")
+  public String getSlaveZoneId() {
+    return slaveZoneId;
+  }
+
+  public void setSlaveZoneId(String slaveZoneId) {
+    this.slaveZoneId = slaveZoneId;
   }
 
   public DescribeLoadBalancerAttributesResponse status(String status) {
@@ -685,6 +769,7 @@ public class DescribeLoadBalancerAttributesResponse {
     }
     DescribeLoadBalancerAttributesResponse describeLoadBalancerAttributesResponse = (DescribeLoadBalancerAttributesResponse) o;
     return Objects.equals(this.accessLog, describeLoadBalancerAttributesResponse.accessLog) &&
+        Objects.equals(this.businessStatus, describeLoadBalancerAttributesResponse.businessStatus) &&
         Objects.equals(this.createTime, describeLoadBalancerAttributesResponse.createTime) &&
         Objects.equals(this.deletedTime, describeLoadBalancerAttributesResponse.deletedTime) &&
         Objects.equals(this.description, describeLoadBalancerAttributesResponse.description) &&
@@ -701,12 +786,15 @@ public class DescribeLoadBalancerAttributesResponse {
         Objects.equals(this.loadBalancerName, describeLoadBalancerAttributesResponse.loadBalancerName) &&
         Objects.equals(this.loadBalancerSpec, describeLoadBalancerAttributesResponse.loadBalancerSpec) &&
         Objects.equals(this.lockReason, describeLoadBalancerAttributesResponse.lockReason) &&
+        Objects.equals(this.logTopicId, describeLoadBalancerAttributesResponse.logTopicId) &&
+        Objects.equals(this.masterZoneId, describeLoadBalancerAttributesResponse.masterZoneId) &&
         Objects.equals(this.modificationProtectionReason, describeLoadBalancerAttributesResponse.modificationProtectionReason) &&
         Objects.equals(this.modificationProtectionStatus, describeLoadBalancerAttributesResponse.modificationProtectionStatus) &&
         Objects.equals(this.overdueTime, describeLoadBalancerAttributesResponse.overdueTime) &&
         Objects.equals(this.projectName, describeLoadBalancerAttributesResponse.projectName) &&
         Objects.equals(this.requestId, describeLoadBalancerAttributesResponse.requestId) &&
         Objects.equals(this.serverGroups, describeLoadBalancerAttributesResponse.serverGroups) &&
+        Objects.equals(this.slaveZoneId, describeLoadBalancerAttributesResponse.slaveZoneId) &&
         Objects.equals(this.status, describeLoadBalancerAttributesResponse.status) &&
         Objects.equals(this.subnetId, describeLoadBalancerAttributesResponse.subnetId) &&
         Objects.equals(this.tags, describeLoadBalancerAttributesResponse.tags) &&
@@ -717,7 +805,7 @@ public class DescribeLoadBalancerAttributesResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessLog, createTime, deletedTime, description, eip, eipAddress, eipID, enabled, eniAddress, eniID, expiredTime, listeners, loadBalancerBillingType, loadBalancerId, loadBalancerName, loadBalancerSpec, lockReason, modificationProtectionReason, modificationProtectionStatus, overdueTime, projectName, requestId, serverGroups, status, subnetId, tags, type, updateTime, vpcId);
+    return Objects.hash(accessLog, businessStatus, createTime, deletedTime, description, eip, eipAddress, eipID, enabled, eniAddress, eniID, expiredTime, listeners, loadBalancerBillingType, loadBalancerId, loadBalancerName, loadBalancerSpec, lockReason, logTopicId, masterZoneId, modificationProtectionReason, modificationProtectionStatus, overdueTime, projectName, requestId, serverGroups, slaveZoneId, status, subnetId, tags, type, updateTime, vpcId);
   }
 
 
@@ -727,6 +815,7 @@ public class DescribeLoadBalancerAttributesResponse {
     sb.append("class DescribeLoadBalancerAttributesResponse {\n");
     
     sb.append("    accessLog: ").append(toIndentedString(accessLog)).append("\n");
+    sb.append("    businessStatus: ").append(toIndentedString(businessStatus)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    deletedTime: ").append(toIndentedString(deletedTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
@@ -743,12 +832,15 @@ public class DescribeLoadBalancerAttributesResponse {
     sb.append("    loadBalancerName: ").append(toIndentedString(loadBalancerName)).append("\n");
     sb.append("    loadBalancerSpec: ").append(toIndentedString(loadBalancerSpec)).append("\n");
     sb.append("    lockReason: ").append(toIndentedString(lockReason)).append("\n");
+    sb.append("    logTopicId: ").append(toIndentedString(logTopicId)).append("\n");
+    sb.append("    masterZoneId: ").append(toIndentedString(masterZoneId)).append("\n");
     sb.append("    modificationProtectionReason: ").append(toIndentedString(modificationProtectionReason)).append("\n");
     sb.append("    modificationProtectionStatus: ").append(toIndentedString(modificationProtectionStatus)).append("\n");
     sb.append("    overdueTime: ").append(toIndentedString(overdueTime)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    serverGroups: ").append(toIndentedString(serverGroups)).append("\n");
+    sb.append("    slaveZoneId: ").append(toIndentedString(slaveZoneId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");

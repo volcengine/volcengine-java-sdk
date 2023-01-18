@@ -38,6 +38,9 @@ public class DescribeDirectConnectConnectionsRequest {
   @SerializedName("ConnectionType")
   private String connectionType = null;
 
+  @SerializedName("DirectConnectAccessPointId")
+  private String directConnectAccessPointId = null;
+
   @SerializedName("DirectConnectConnectionIds")
   private List<String> directConnectConnectionIds = null;
 
@@ -96,6 +99,24 @@ public class DescribeDirectConnectConnectionsRequest {
 
   public void setConnectionType(String connectionType) {
     this.connectionType = connectionType;
+  }
+
+  public DescribeDirectConnectConnectionsRequest directConnectAccessPointId(String directConnectAccessPointId) {
+    this.directConnectAccessPointId = directConnectAccessPointId;
+    return this;
+  }
+
+   /**
+   * Get directConnectAccessPointId
+   * @return directConnectAccessPointId
+  **/
+  @Schema(description = "")
+  public String getDirectConnectAccessPointId() {
+    return directConnectAccessPointId;
+  }
+
+  public void setDirectConnectAccessPointId(String directConnectAccessPointId) {
+    this.directConnectAccessPointId = directConnectAccessPointId;
   }
 
   public DescribeDirectConnectConnectionsRequest directConnectConnectionIds(List<String> directConnectConnectionIds) {
@@ -271,6 +292,7 @@ public class DescribeDirectConnectConnectionsRequest {
     DescribeDirectConnectConnectionsRequest describeDirectConnectConnectionsRequest = (DescribeDirectConnectConnectionsRequest) o;
     return Objects.equals(this.accessPoint, describeDirectConnectConnectionsRequest.accessPoint) &&
         Objects.equals(this.connectionType, describeDirectConnectConnectionsRequest.connectionType) &&
+        Objects.equals(this.directConnectAccessPointId, describeDirectConnectConnectionsRequest.directConnectAccessPointId) &&
         Objects.equals(this.directConnectConnectionIds, describeDirectConnectConnectionsRequest.directConnectConnectionIds) &&
         Objects.equals(this.directConnectConnectionName, describeDirectConnectConnectionsRequest.directConnectConnectionName) &&
         Objects.equals(this.lineOperator, describeDirectConnectConnectionsRequest.lineOperator) &&
@@ -283,7 +305,7 @@ public class DescribeDirectConnectConnectionsRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessPoint, connectionType, directConnectConnectionIds, directConnectConnectionName, lineOperator, operator, pageNumber, pageSize, peerLocation, tagFilters);
+    return Objects.hash(accessPoint, connectionType, directConnectAccessPointId, directConnectConnectionIds, directConnectConnectionName, lineOperator, operator, pageNumber, pageSize, peerLocation, tagFilters);
   }
 
 
@@ -294,6 +316,7 @@ public class DescribeDirectConnectConnectionsRequest {
     
     sb.append("    accessPoint: ").append(toIndentedString(accessPoint)).append("\n");
     sb.append("    connectionType: ").append(toIndentedString(connectionType)).append("\n");
+    sb.append("    directConnectAccessPointId: ").append(toIndentedString(directConnectAccessPointId)).append("\n");
     sb.append("    directConnectConnectionIds: ").append(toIndentedString(directConnectConnectionIds)).append("\n");
     sb.append("    directConnectConnectionName: ").append(toIndentedString(directConnectConnectionName)).append("\n");
     sb.append("    lineOperator: ").append(toIndentedString(lineOperator)).append("\n");

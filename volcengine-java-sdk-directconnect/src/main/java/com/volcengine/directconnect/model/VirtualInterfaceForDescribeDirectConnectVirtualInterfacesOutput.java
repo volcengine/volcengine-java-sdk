@@ -59,8 +59,17 @@ public class VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput {
   @SerializedName("EnableBfd")
   private Boolean enableBfd = null;
 
+  @SerializedName("EnableNqa")
+  private Boolean enableNqa = null;
+
   @SerializedName("LocalIp")
   private String localIp = null;
+
+  @SerializedName("NqaDetectInterval")
+  private Integer nqaDetectInterval = null;
+
+  @SerializedName("NqaDetectMultiplier")
+  private Integer nqaDetectMultiplier = null;
 
   @SerializedName("PeerIp")
   private String peerIp = null;
@@ -248,6 +257,24 @@ public class VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput {
     this.enableBfd = enableBfd;
   }
 
+  public VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput enableNqa(Boolean enableNqa) {
+    this.enableNqa = enableNqa;
+    return this;
+  }
+
+   /**
+   * Get enableNqa
+   * @return enableNqa
+  **/
+  @Schema(description = "")
+  public Boolean isEnableNqa() {
+    return enableNqa;
+  }
+
+  public void setEnableNqa(Boolean enableNqa) {
+    this.enableNqa = enableNqa;
+  }
+
   public VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput localIp(String localIp) {
     this.localIp = localIp;
     return this;
@@ -264,6 +291,42 @@ public class VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput {
 
   public void setLocalIp(String localIp) {
     this.localIp = localIp;
+  }
+
+  public VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput nqaDetectInterval(Integer nqaDetectInterval) {
+    this.nqaDetectInterval = nqaDetectInterval;
+    return this;
+  }
+
+   /**
+   * Get nqaDetectInterval
+   * @return nqaDetectInterval
+  **/
+  @Schema(description = "")
+  public Integer getNqaDetectInterval() {
+    return nqaDetectInterval;
+  }
+
+  public void setNqaDetectInterval(Integer nqaDetectInterval) {
+    this.nqaDetectInterval = nqaDetectInterval;
+  }
+
+  public VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput nqaDetectMultiplier(Integer nqaDetectMultiplier) {
+    this.nqaDetectMultiplier = nqaDetectMultiplier;
+    return this;
+  }
+
+   /**
+   * Get nqaDetectMultiplier
+   * @return nqaDetectMultiplier
+  **/
+  @Schema(description = "")
+  public Integer getNqaDetectMultiplier() {
+    return nqaDetectMultiplier;
+  }
+
+  public void setNqaDetectMultiplier(Integer nqaDetectMultiplier) {
+    this.nqaDetectMultiplier = nqaDetectMultiplier;
   }
 
   public VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput peerIp(String peerIp) {
@@ -438,7 +501,10 @@ public class VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput {
         Objects.equals(this.directConnectConnectionId, virtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput.directConnectConnectionId) &&
         Objects.equals(this.directConnectGatewayId, virtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput.directConnectGatewayId) &&
         Objects.equals(this.enableBfd, virtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput.enableBfd) &&
+        Objects.equals(this.enableNqa, virtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput.enableNqa) &&
         Objects.equals(this.localIp, virtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput.localIp) &&
+        Objects.equals(this.nqaDetectInterval, virtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput.nqaDetectInterval) &&
+        Objects.equals(this.nqaDetectMultiplier, virtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput.nqaDetectMultiplier) &&
         Objects.equals(this.peerIp, virtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput.peerIp) &&
         Objects.equals(this.routeType, virtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput.routeType) &&
         Objects.equals(this.status, virtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput.status) &&
@@ -451,7 +517,7 @@ public class VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, bandwidth, bfdDetectInterval, bfdDetectMultiplier, creationTime, description, directConnectConnectionId, directConnectGatewayId, enableBfd, localIp, peerIp, routeType, status, tags, updateTime, virtualInterfaceId, virtualInterfaceName, vlanId);
+    return Objects.hash(accountId, bandwidth, bfdDetectInterval, bfdDetectMultiplier, creationTime, description, directConnectConnectionId, directConnectGatewayId, enableBfd, enableNqa, localIp, nqaDetectInterval, nqaDetectMultiplier, peerIp, routeType, status, tags, updateTime, virtualInterfaceId, virtualInterfaceName, vlanId);
   }
 
 
@@ -469,7 +535,10 @@ public class VirtualInterfaceForDescribeDirectConnectVirtualInterfacesOutput {
     sb.append("    directConnectConnectionId: ").append(toIndentedString(directConnectConnectionId)).append("\n");
     sb.append("    directConnectGatewayId: ").append(toIndentedString(directConnectGatewayId)).append("\n");
     sb.append("    enableBfd: ").append(toIndentedString(enableBfd)).append("\n");
+    sb.append("    enableNqa: ").append(toIndentedString(enableNqa)).append("\n");
     sb.append("    localIp: ").append(toIndentedString(localIp)).append("\n");
+    sb.append("    nqaDetectInterval: ").append(toIndentedString(nqaDetectInterval)).append("\n");
+    sb.append("    nqaDetectMultiplier: ").append(toIndentedString(nqaDetectMultiplier)).append("\n");
     sb.append("    peerIp: ").append(toIndentedString(peerIp)).append("\n");
     sb.append("    routeType: ").append(toIndentedString(routeType)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
