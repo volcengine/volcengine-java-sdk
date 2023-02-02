@@ -32,11 +32,17 @@ public class DescribeAvailableResourceRequest {
   @SerializedName("DestinationResource")
   private String destinationResource = null;
 
+  @SerializedName("InstanceChargeType")
+  private String instanceChargeType = null;
+
   @SerializedName("InstanceType")
   private String instanceType = null;
 
   @SerializedName("InstanceTypeId")
   private String instanceTypeId = null;
+
+  @SerializedName("SpotStrategy")
+  private String spotStrategy = null;
 
   @SerializedName("ZoneId")
   private String zoneId = null;
@@ -57,6 +63,24 @@ public class DescribeAvailableResourceRequest {
 
   public void setDestinationResource(String destinationResource) {
     this.destinationResource = destinationResource;
+  }
+
+  public DescribeAvailableResourceRequest instanceChargeType(String instanceChargeType) {
+    this.instanceChargeType = instanceChargeType;
+    return this;
+  }
+
+   /**
+   * Get instanceChargeType
+   * @return instanceChargeType
+  **/
+  @Schema(description = "")
+  public String getInstanceChargeType() {
+    return instanceChargeType;
+  }
+
+  public void setInstanceChargeType(String instanceChargeType) {
+    this.instanceChargeType = instanceChargeType;
   }
 
   public DescribeAvailableResourceRequest instanceType(String instanceType) {
@@ -95,6 +119,24 @@ public class DescribeAvailableResourceRequest {
     this.instanceTypeId = instanceTypeId;
   }
 
+  public DescribeAvailableResourceRequest spotStrategy(String spotStrategy) {
+    this.spotStrategy = spotStrategy;
+    return this;
+  }
+
+   /**
+   * Get spotStrategy
+   * @return spotStrategy
+  **/
+  @Schema(description = "")
+  public String getSpotStrategy() {
+    return spotStrategy;
+  }
+
+  public void setSpotStrategy(String spotStrategy) {
+    this.spotStrategy = spotStrategy;
+  }
+
   public DescribeAvailableResourceRequest zoneId(String zoneId) {
     this.zoneId = zoneId;
     return this;
@@ -124,14 +166,16 @@ public class DescribeAvailableResourceRequest {
     }
     DescribeAvailableResourceRequest describeAvailableResourceRequest = (DescribeAvailableResourceRequest) o;
     return Objects.equals(this.destinationResource, describeAvailableResourceRequest.destinationResource) &&
+        Objects.equals(this.instanceChargeType, describeAvailableResourceRequest.instanceChargeType) &&
         Objects.equals(this.instanceType, describeAvailableResourceRequest.instanceType) &&
         Objects.equals(this.instanceTypeId, describeAvailableResourceRequest.instanceTypeId) &&
+        Objects.equals(this.spotStrategy, describeAvailableResourceRequest.spotStrategy) &&
         Objects.equals(this.zoneId, describeAvailableResourceRequest.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(destinationResource, instanceType, instanceTypeId, zoneId);
+    return Objects.hash(destinationResource, instanceChargeType, instanceType, instanceTypeId, spotStrategy, zoneId);
   }
 
 
@@ -141,8 +185,10 @@ public class DescribeAvailableResourceRequest {
     sb.append("class DescribeAvailableResourceRequest {\n");
     
     sb.append("    destinationResource: ").append(toIndentedString(destinationResource)).append("\n");
+    sb.append("    instanceChargeType: ").append(toIndentedString(instanceChargeType)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("    instanceTypeId: ").append(toIndentedString(instanceTypeId)).append("\n");
+    sb.append("    spotStrategy: ").append(toIndentedString(spotStrategy)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");
     return sb.toString();

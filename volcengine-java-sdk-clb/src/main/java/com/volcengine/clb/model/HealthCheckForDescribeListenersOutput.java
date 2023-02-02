@@ -50,6 +50,12 @@ public class HealthCheckForDescribeListenersOutput {
   @SerializedName("Timeout")
   private Integer timeout = null;
 
+  @SerializedName("UdpExpect")
+  private String udpExpect = null;
+
+  @SerializedName("UdpRequest")
+  private String udpRequest = null;
+
   @SerializedName("Uri")
   private String uri = null;
 
@@ -179,6 +185,42 @@ public class HealthCheckForDescribeListenersOutput {
     this.timeout = timeout;
   }
 
+  public HealthCheckForDescribeListenersOutput udpExpect(String udpExpect) {
+    this.udpExpect = udpExpect;
+    return this;
+  }
+
+   /**
+   * Get udpExpect
+   * @return udpExpect
+  **/
+  @Schema(description = "")
+  public String getUdpExpect() {
+    return udpExpect;
+  }
+
+  public void setUdpExpect(String udpExpect) {
+    this.udpExpect = udpExpect;
+  }
+
+  public HealthCheckForDescribeListenersOutput udpRequest(String udpRequest) {
+    this.udpRequest = udpRequest;
+    return this;
+  }
+
+   /**
+   * Get udpRequest
+   * @return udpRequest
+  **/
+  @Schema(description = "")
+  public String getUdpRequest() {
+    return udpRequest;
+  }
+
+  public void setUdpRequest(String udpRequest) {
+    this.udpRequest = udpRequest;
+  }
+
   public HealthCheckForDescribeListenersOutput uri(String uri) {
     this.uri = uri;
     return this;
@@ -214,12 +256,14 @@ public class HealthCheckForDescribeListenersOutput {
         Objects.equals(this.interval, healthCheckForDescribeListenersOutput.interval) &&
         Objects.equals(this.method, healthCheckForDescribeListenersOutput.method) &&
         Objects.equals(this.timeout, healthCheckForDescribeListenersOutput.timeout) &&
+        Objects.equals(this.udpExpect, healthCheckForDescribeListenersOutput.udpExpect) &&
+        Objects.equals(this.udpRequest, healthCheckForDescribeListenersOutput.udpRequest) &&
         Objects.equals(this.uri, healthCheckForDescribeListenersOutput.uri);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(domain, enabled, healthyThreshold, httpCode, interval, method, timeout, uri);
+    return Objects.hash(domain, enabled, healthyThreshold, httpCode, interval, method, timeout, udpExpect, udpRequest, uri);
   }
 
 
@@ -235,6 +279,8 @@ public class HealthCheckForDescribeListenersOutput {
     sb.append("    interval: ").append(toIndentedString(interval)).append("\n");
     sb.append("    method: ").append(toIndentedString(method)).append("\n");
     sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");
+    sb.append("    udpExpect: ").append(toIndentedString(udpExpect)).append("\n");
+    sb.append("    udpRequest: ").append(toIndentedString(udpRequest)).append("\n");
     sb.append("    uri: ").append(toIndentedString(uri)).append("\n");
     sb.append("}");
     return sb.toString();

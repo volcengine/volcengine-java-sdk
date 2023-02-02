@@ -36,6 +36,12 @@ public class VpnConnectionForDescribeVpnConnectionsOutput {
   @SerializedName("AccountId")
   private String accountId = null;
 
+  @SerializedName("AttachStatus")
+  private String attachStatus = null;
+
+  @SerializedName("AttachType")
+  private String attachType = null;
+
   @SerializedName("ConnectStatus")
   private String connectStatus = null;
 
@@ -62,6 +68,9 @@ public class VpnConnectionForDescribeVpnConnectionsOutput {
 
   @SerializedName("NatTraversal")
   private Boolean natTraversal = null;
+
+  @SerializedName("NegotiateInstantly")
+  private Boolean negotiateInstantly = null;
 
   @SerializedName("ProjectName")
   private String projectName = null;
@@ -100,6 +109,42 @@ public class VpnConnectionForDescribeVpnConnectionsOutput {
 
   public void setAccountId(String accountId) {
     this.accountId = accountId;
+  }
+
+  public VpnConnectionForDescribeVpnConnectionsOutput attachStatus(String attachStatus) {
+    this.attachStatus = attachStatus;
+    return this;
+  }
+
+   /**
+   * Get attachStatus
+   * @return attachStatus
+  **/
+  @Schema(description = "")
+  public String getAttachStatus() {
+    return attachStatus;
+  }
+
+  public void setAttachStatus(String attachStatus) {
+    this.attachStatus = attachStatus;
+  }
+
+  public VpnConnectionForDescribeVpnConnectionsOutput attachType(String attachType) {
+    this.attachType = attachType;
+    return this;
+  }
+
+   /**
+   * Get attachType
+   * @return attachType
+  **/
+  @Schema(description = "")
+  public String getAttachType() {
+    return attachType;
+  }
+
+  public void setAttachType(String attachType) {
+    this.attachType = attachType;
   }
 
   public VpnConnectionForDescribeVpnConnectionsOutput connectStatus(String connectStatus) {
@@ -274,6 +319,24 @@ public class VpnConnectionForDescribeVpnConnectionsOutput {
     this.natTraversal = natTraversal;
   }
 
+  public VpnConnectionForDescribeVpnConnectionsOutput negotiateInstantly(Boolean negotiateInstantly) {
+    this.negotiateInstantly = negotiateInstantly;
+    return this;
+  }
+
+   /**
+   * Get negotiateInstantly
+   * @return negotiateInstantly
+  **/
+  @Schema(description = "")
+  public Boolean isNegotiateInstantly() {
+    return negotiateInstantly;
+  }
+
+  public void setNegotiateInstantly(Boolean negotiateInstantly) {
+    this.negotiateInstantly = negotiateInstantly;
+  }
+
   public VpnConnectionForDescribeVpnConnectionsOutput projectName(String projectName) {
     this.projectName = projectName;
     return this;
@@ -419,6 +482,8 @@ public class VpnConnectionForDescribeVpnConnectionsOutput {
     }
     VpnConnectionForDescribeVpnConnectionsOutput vpnConnectionForDescribeVpnConnectionsOutput = (VpnConnectionForDescribeVpnConnectionsOutput) o;
     return Objects.equals(this.accountId, vpnConnectionForDescribeVpnConnectionsOutput.accountId) &&
+        Objects.equals(this.attachStatus, vpnConnectionForDescribeVpnConnectionsOutput.attachStatus) &&
+        Objects.equals(this.attachType, vpnConnectionForDescribeVpnConnectionsOutput.attachType) &&
         Objects.equals(this.connectStatus, vpnConnectionForDescribeVpnConnectionsOutput.connectStatus) &&
         Objects.equals(this.creationTime, vpnConnectionForDescribeVpnConnectionsOutput.creationTime) &&
         Objects.equals(this.customerGatewayId, vpnConnectionForDescribeVpnConnectionsOutput.customerGatewayId) &&
@@ -428,6 +493,7 @@ public class VpnConnectionForDescribeVpnConnectionsOutput {
         Objects.equals(this.ipsecConfig, vpnConnectionForDescribeVpnConnectionsOutput.ipsecConfig) &&
         Objects.equals(this.localSubnet, vpnConnectionForDescribeVpnConnectionsOutput.localSubnet) &&
         Objects.equals(this.natTraversal, vpnConnectionForDescribeVpnConnectionsOutput.natTraversal) &&
+        Objects.equals(this.negotiateInstantly, vpnConnectionForDescribeVpnConnectionsOutput.negotiateInstantly) &&
         Objects.equals(this.projectName, vpnConnectionForDescribeVpnConnectionsOutput.projectName) &&
         Objects.equals(this.remoteSubnet, vpnConnectionForDescribeVpnConnectionsOutput.remoteSubnet) &&
         Objects.equals(this.status, vpnConnectionForDescribeVpnConnectionsOutput.status) &&
@@ -439,7 +505,7 @@ public class VpnConnectionForDescribeVpnConnectionsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, connectStatus, creationTime, customerGatewayId, description, dpdAction, ikeConfig, ipsecConfig, localSubnet, natTraversal, projectName, remoteSubnet, status, updateTime, vpnConnectionId, vpnConnectionName, vpnGatewayId);
+    return Objects.hash(accountId, attachStatus, attachType, connectStatus, creationTime, customerGatewayId, description, dpdAction, ikeConfig, ipsecConfig, localSubnet, natTraversal, negotiateInstantly, projectName, remoteSubnet, status, updateTime, vpnConnectionId, vpnConnectionName, vpnGatewayId);
   }
 
 
@@ -449,6 +515,8 @@ public class VpnConnectionForDescribeVpnConnectionsOutput {
     sb.append("class VpnConnectionForDescribeVpnConnectionsOutput {\n");
     
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
+    sb.append("    attachStatus: ").append(toIndentedString(attachStatus)).append("\n");
+    sb.append("    attachType: ").append(toIndentedString(attachType)).append("\n");
     sb.append("    connectStatus: ").append(toIndentedString(connectStatus)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    customerGatewayId: ").append(toIndentedString(customerGatewayId)).append("\n");
@@ -458,6 +526,7 @@ public class VpnConnectionForDescribeVpnConnectionsOutput {
     sb.append("    ipsecConfig: ").append(toIndentedString(ipsecConfig)).append("\n");
     sb.append("    localSubnet: ").append(toIndentedString(localSubnet)).append("\n");
     sb.append("    natTraversal: ").append(toIndentedString(natTraversal)).append("\n");
+    sb.append("    negotiateInstantly: ").append(toIndentedString(negotiateInstantly)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    remoteSubnet: ").append(toIndentedString(remoteSubnet)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");

@@ -29,11 +29,38 @@ import javax.validation.Valid;
 
 
 public class DescribeSecurityGroupAttributesRequest {
+  @SerializedName("CidrIp")
+  private String cidrIp = null;
+
   @SerializedName("Direction")
   private String direction = null;
 
+  @SerializedName("Protocol")
+  private String protocol = null;
+
   @SerializedName("SecurityGroupId")
   private String securityGroupId = null;
+
+  @SerializedName("SourceGroupId")
+  private String sourceGroupId = null;
+
+  public DescribeSecurityGroupAttributesRequest cidrIp(String cidrIp) {
+    this.cidrIp = cidrIp;
+    return this;
+  }
+
+   /**
+   * Get cidrIp
+   * @return cidrIp
+  **/
+  @Schema(description = "")
+  public String getCidrIp() {
+    return cidrIp;
+  }
+
+  public void setCidrIp(String cidrIp) {
+    this.cidrIp = cidrIp;
+  }
 
   public DescribeSecurityGroupAttributesRequest direction(String direction) {
     this.direction = direction;
@@ -51,6 +78,24 @@ public class DescribeSecurityGroupAttributesRequest {
 
   public void setDirection(String direction) {
     this.direction = direction;
+  }
+
+  public DescribeSecurityGroupAttributesRequest protocol(String protocol) {
+    this.protocol = protocol;
+    return this;
+  }
+
+   /**
+   * Get protocol
+   * @return protocol
+  **/
+  @Schema(description = "")
+  public String getProtocol() {
+    return protocol;
+  }
+
+  public void setProtocol(String protocol) {
+    this.protocol = protocol;
   }
 
   public DescribeSecurityGroupAttributesRequest securityGroupId(String securityGroupId) {
@@ -72,6 +117,24 @@ public class DescribeSecurityGroupAttributesRequest {
     this.securityGroupId = securityGroupId;
   }
 
+  public DescribeSecurityGroupAttributesRequest sourceGroupId(String sourceGroupId) {
+    this.sourceGroupId = sourceGroupId;
+    return this;
+  }
+
+   /**
+   * Get sourceGroupId
+   * @return sourceGroupId
+  **/
+  @Schema(description = "")
+  public String getSourceGroupId() {
+    return sourceGroupId;
+  }
+
+  public void setSourceGroupId(String sourceGroupId) {
+    this.sourceGroupId = sourceGroupId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -82,13 +145,16 @@ public class DescribeSecurityGroupAttributesRequest {
       return false;
     }
     DescribeSecurityGroupAttributesRequest describeSecurityGroupAttributesRequest = (DescribeSecurityGroupAttributesRequest) o;
-    return Objects.equals(this.direction, describeSecurityGroupAttributesRequest.direction) &&
-        Objects.equals(this.securityGroupId, describeSecurityGroupAttributesRequest.securityGroupId);
+    return Objects.equals(this.cidrIp, describeSecurityGroupAttributesRequest.cidrIp) &&
+        Objects.equals(this.direction, describeSecurityGroupAttributesRequest.direction) &&
+        Objects.equals(this.protocol, describeSecurityGroupAttributesRequest.protocol) &&
+        Objects.equals(this.securityGroupId, describeSecurityGroupAttributesRequest.securityGroupId) &&
+        Objects.equals(this.sourceGroupId, describeSecurityGroupAttributesRequest.sourceGroupId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(direction, securityGroupId);
+    return Objects.hash(cidrIp, direction, protocol, securityGroupId, sourceGroupId);
   }
 
 
@@ -97,8 +163,11 @@ public class DescribeSecurityGroupAttributesRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeSecurityGroupAttributesRequest {\n");
     
+    sb.append("    cidrIp: ").append(toIndentedString(cidrIp)).append("\n");
     sb.append("    direction: ").append(toIndentedString(direction)).append("\n");
+    sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
     sb.append("    securityGroupId: ").append(toIndentedString(securityGroupId)).append("\n");
+    sb.append("    sourceGroupId: ").append(toIndentedString(sourceGroupId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

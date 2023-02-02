@@ -50,6 +50,9 @@ public class InterRegionBandwidthForDescribeCenInterRegionBandwidthsOutput {
   @SerializedName("Status")
   private String status = null;
 
+  @SerializedName("UpdateTime")
+  private String updateTime = null;
+
   public InterRegionBandwidthForDescribeCenInterRegionBandwidthsOutput bandwidth(Integer bandwidth) {
     this.bandwidth = bandwidth;
     return this;
@@ -176,6 +179,24 @@ public class InterRegionBandwidthForDescribeCenInterRegionBandwidthsOutput {
     this.status = status;
   }
 
+  public InterRegionBandwidthForDescribeCenInterRegionBandwidthsOutput updateTime(String updateTime) {
+    this.updateTime = updateTime;
+    return this;
+  }
+
+   /**
+   * Get updateTime
+   * @return updateTime
+  **/
+  @Schema(description = "")
+  public String getUpdateTime() {
+    return updateTime;
+  }
+
+  public void setUpdateTime(String updateTime) {
+    this.updateTime = updateTime;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -192,12 +213,13 @@ public class InterRegionBandwidthForDescribeCenInterRegionBandwidthsOutput {
         Objects.equals(this.interRegionBandwidthId, interRegionBandwidthForDescribeCenInterRegionBandwidthsOutput.interRegionBandwidthId) &&
         Objects.equals(this.localRegionId, interRegionBandwidthForDescribeCenInterRegionBandwidthsOutput.localRegionId) &&
         Objects.equals(this.peerRegionId, interRegionBandwidthForDescribeCenInterRegionBandwidthsOutput.peerRegionId) &&
-        Objects.equals(this.status, interRegionBandwidthForDescribeCenInterRegionBandwidthsOutput.status);
+        Objects.equals(this.status, interRegionBandwidthForDescribeCenInterRegionBandwidthsOutput.status) &&
+        Objects.equals(this.updateTime, interRegionBandwidthForDescribeCenInterRegionBandwidthsOutput.updateTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidth, cenId, creationTime, interRegionBandwidthId, localRegionId, peerRegionId, status);
+    return Objects.hash(bandwidth, cenId, creationTime, interRegionBandwidthId, localRegionId, peerRegionId, status, updateTime);
   }
 
 
@@ -213,6 +235,7 @@ public class InterRegionBandwidthForDescribeCenInterRegionBandwidthsOutput {
     sb.append("    localRegionId: ").append(toIndentedString(localRegionId)).append("\n");
     sb.append("    peerRegionId: ").append(toIndentedString(peerRegionId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("}");
     return sb.toString();
   }

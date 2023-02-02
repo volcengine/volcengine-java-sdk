@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.natgateway.model.TagForCreateNatGatewayInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -88,6 +91,9 @@ public class CreateNatGatewayRequest {
   }  @SerializedName("PeriodUnit")
   private PeriodUnitEnum periodUnit = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   /**
    * Gets or Sets spec
    */
@@ -135,6 +141,9 @@ public class CreateNatGatewayRequest {
 
   @SerializedName("SubnetId")
   private String subnetId = null;
+
+  @SerializedName("Tags")
+  private List<TagForCreateNatGatewayInput> tags = null;
 
   @SerializedName("VpcId")
   private String vpcId = null;
@@ -249,6 +258,24 @@ public class CreateNatGatewayRequest {
     this.periodUnit = periodUnit;
   }
 
+  public CreateNatGatewayRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public CreateNatGatewayRequest spec(SpecEnum spec) {
     this.spec = spec;
     return this;
@@ -283,6 +310,33 @@ public class CreateNatGatewayRequest {
 
   public void setSubnetId(String subnetId) {
     this.subnetId = subnetId;
+  }
+
+  public CreateNatGatewayRequest tags(List<TagForCreateNatGatewayInput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public CreateNatGatewayRequest addTagsItem(TagForCreateNatGatewayInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForCreateNatGatewayInput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForCreateNatGatewayInput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForCreateNatGatewayInput> tags) {
+    this.tags = tags;
   }
 
   public CreateNatGatewayRequest vpcId(String vpcId) {
@@ -320,14 +374,16 @@ public class CreateNatGatewayRequest {
         Objects.equals(this.natGatewayName, createNatGatewayRequest.natGatewayName) &&
         Objects.equals(this.period, createNatGatewayRequest.period) &&
         Objects.equals(this.periodUnit, createNatGatewayRequest.periodUnit) &&
+        Objects.equals(this.projectName, createNatGatewayRequest.projectName) &&
         Objects.equals(this.spec, createNatGatewayRequest.spec) &&
         Objects.equals(this.subnetId, createNatGatewayRequest.subnetId) &&
+        Objects.equals(this.tags, createNatGatewayRequest.tags) &&
         Objects.equals(this.vpcId, createNatGatewayRequest.vpcId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(billingType, clientToken, description, natGatewayName, period, periodUnit, spec, subnetId, vpcId);
+    return Objects.hash(billingType, clientToken, description, natGatewayName, period, periodUnit, projectName, spec, subnetId, tags, vpcId);
   }
 
 
@@ -342,8 +398,10 @@ public class CreateNatGatewayRequest {
     sb.append("    natGatewayName: ").append(toIndentedString(natGatewayName)).append("\n");
     sb.append("    period: ").append(toIndentedString(period)).append("\n");
     sb.append("    periodUnit: ").append(toIndentedString(periodUnit)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    spec: ").append(toIndentedString(spec)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("}");
     return sb.toString();

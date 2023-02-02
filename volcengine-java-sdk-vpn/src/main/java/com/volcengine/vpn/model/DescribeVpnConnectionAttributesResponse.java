@@ -36,6 +36,12 @@ public class DescribeVpnConnectionAttributesResponse {
   @SerializedName("AccountId")
   private String accountId = null;
 
+  @SerializedName("AttachStatus")
+  private String attachStatus = null;
+
+  @SerializedName("AttachType")
+  private String attachType = null;
+
   @SerializedName("ConnectStatus")
   private String connectStatus = null;
 
@@ -106,6 +112,42 @@ public class DescribeVpnConnectionAttributesResponse {
 
   public void setAccountId(String accountId) {
     this.accountId = accountId;
+  }
+
+  public DescribeVpnConnectionAttributesResponse attachStatus(String attachStatus) {
+    this.attachStatus = attachStatus;
+    return this;
+  }
+
+   /**
+   * Get attachStatus
+   * @return attachStatus
+  **/
+  @Schema(description = "")
+  public String getAttachStatus() {
+    return attachStatus;
+  }
+
+  public void setAttachStatus(String attachStatus) {
+    this.attachStatus = attachStatus;
+  }
+
+  public DescribeVpnConnectionAttributesResponse attachType(String attachType) {
+    this.attachType = attachType;
+    return this;
+  }
+
+   /**
+   * Get attachType
+   * @return attachType
+  **/
+  @Schema(description = "")
+  public String getAttachType() {
+    return attachType;
+  }
+
+  public void setAttachType(String attachType) {
+    this.attachType = attachType;
   }
 
   public DescribeVpnConnectionAttributesResponse connectStatus(String connectStatus) {
@@ -461,6 +503,8 @@ public class DescribeVpnConnectionAttributesResponse {
     }
     DescribeVpnConnectionAttributesResponse describeVpnConnectionAttributesResponse = (DescribeVpnConnectionAttributesResponse) o;
     return Objects.equals(this.accountId, describeVpnConnectionAttributesResponse.accountId) &&
+        Objects.equals(this.attachStatus, describeVpnConnectionAttributesResponse.attachStatus) &&
+        Objects.equals(this.attachType, describeVpnConnectionAttributesResponse.attachType) &&
         Objects.equals(this.connectStatus, describeVpnConnectionAttributesResponse.connectStatus) &&
         Objects.equals(this.creationTime, describeVpnConnectionAttributesResponse.creationTime) &&
         Objects.equals(this.customerGatewayId, describeVpnConnectionAttributesResponse.customerGatewayId) &&
@@ -483,7 +527,7 @@ public class DescribeVpnConnectionAttributesResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, connectStatus, creationTime, customerGatewayId, description, dpdAction, ikeConfig, ipsecConfig, localSubnet, natTraversal, negotiateInstantly, projectName, remoteSubnet, requestId, status, updateTime, vpnConnectionId, vpnConnectionName, vpnGatewayId);
+    return Objects.hash(accountId, attachStatus, attachType, connectStatus, creationTime, customerGatewayId, description, dpdAction, ikeConfig, ipsecConfig, localSubnet, natTraversal, negotiateInstantly, projectName, remoteSubnet, requestId, status, updateTime, vpnConnectionId, vpnConnectionName, vpnGatewayId);
   }
 
 
@@ -493,6 +537,8 @@ public class DescribeVpnConnectionAttributesResponse {
     sb.append("class DescribeVpnConnectionAttributesResponse {\n");
     
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
+    sb.append("    attachStatus: ").append(toIndentedString(attachStatus)).append("\n");
+    sb.append("    attachType: ").append(toIndentedString(attachType)).append("\n");
     sb.append("    connectStatus: ").append(toIndentedString(connectStatus)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    customerGatewayId: ").append(toIndentedString(customerGatewayId)).append("\n");

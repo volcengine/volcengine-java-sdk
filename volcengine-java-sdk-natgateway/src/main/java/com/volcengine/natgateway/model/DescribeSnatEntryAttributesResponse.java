@@ -47,6 +47,9 @@ public class DescribeSnatEntryAttributesResponse {
   @SerializedName("SnatEntryName")
   private String snatEntryName = null;
 
+  @SerializedName("SourceCidr")
+  private String sourceCidr = null;
+
   @SerializedName("Status")
   private String status = null;
 
@@ -161,6 +164,24 @@ public class DescribeSnatEntryAttributesResponse {
     this.snatEntryName = snatEntryName;
   }
 
+  public DescribeSnatEntryAttributesResponse sourceCidr(String sourceCidr) {
+    this.sourceCidr = sourceCidr;
+    return this;
+  }
+
+   /**
+   * Get sourceCidr
+   * @return sourceCidr
+  **/
+  @Schema(description = "")
+  public String getSourceCidr() {
+    return sourceCidr;
+  }
+
+  public void setSourceCidr(String sourceCidr) {
+    this.sourceCidr = sourceCidr;
+  }
+
   public DescribeSnatEntryAttributesResponse status(String status) {
     this.status = status;
     return this;
@@ -213,13 +234,14 @@ public class DescribeSnatEntryAttributesResponse {
         Objects.equals(this.requestId, describeSnatEntryAttributesResponse.requestId) &&
         Objects.equals(this.snatEntryId, describeSnatEntryAttributesResponse.snatEntryId) &&
         Objects.equals(this.snatEntryName, describeSnatEntryAttributesResponse.snatEntryName) &&
+        Objects.equals(this.sourceCidr, describeSnatEntryAttributesResponse.sourceCidr) &&
         Objects.equals(this.status, describeSnatEntryAttributesResponse.status) &&
         Objects.equals(this.subnetId, describeSnatEntryAttributesResponse.subnetId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(eipAddress, eipId, natGatewayId, requestId, snatEntryId, snatEntryName, status, subnetId);
+    return Objects.hash(eipAddress, eipId, natGatewayId, requestId, snatEntryId, snatEntryName, sourceCidr, status, subnetId);
   }
 
 
@@ -234,6 +256,7 @@ public class DescribeSnatEntryAttributesResponse {
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    snatEntryId: ").append(toIndentedString(snatEntryId)).append("\n");
     sb.append("    snatEntryName: ").append(toIndentedString(snatEntryName)).append("\n");
+    sb.append("    sourceCidr: ").append(toIndentedString(sourceCidr)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("}");

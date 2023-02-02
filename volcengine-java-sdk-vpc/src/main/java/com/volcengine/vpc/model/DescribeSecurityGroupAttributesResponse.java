@@ -42,6 +42,9 @@ public class DescribeSecurityGroupAttributesResponse {
   @SerializedName("Permissions")
   private List<PermissionForDescribeSecurityGroupAttributesOutput> permissions = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("RequestId")
   private String requestId = null;
 
@@ -124,6 +127,24 @@ public class DescribeSecurityGroupAttributesResponse {
 
   public void setPermissions(List<PermissionForDescribeSecurityGroupAttributesOutput> permissions) {
     this.permissions = permissions;
+  }
+
+  public DescribeSecurityGroupAttributesResponse projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
   }
 
   public DescribeSecurityGroupAttributesResponse requestId(String requestId) {
@@ -274,6 +295,7 @@ public class DescribeSecurityGroupAttributesResponse {
     return Objects.equals(this.creationTime, describeSecurityGroupAttributesResponse.creationTime) &&
         Objects.equals(this.description, describeSecurityGroupAttributesResponse.description) &&
         Objects.equals(this.permissions, describeSecurityGroupAttributesResponse.permissions) &&
+        Objects.equals(this.projectName, describeSecurityGroupAttributesResponse.projectName) &&
         Objects.equals(this.requestId, describeSecurityGroupAttributesResponse.requestId) &&
         Objects.equals(this.securityGroupId, describeSecurityGroupAttributesResponse.securityGroupId) &&
         Objects.equals(this.securityGroupName, describeSecurityGroupAttributesResponse.securityGroupName) &&
@@ -285,7 +307,7 @@ public class DescribeSecurityGroupAttributesResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(creationTime, description, permissions, requestId, securityGroupId, securityGroupName, tags, type, updateTime, vpcId);
+    return Objects.hash(creationTime, description, permissions, projectName, requestId, securityGroupId, securityGroupName, tags, type, updateTime, vpcId);
   }
 
 
@@ -297,6 +319,7 @@ public class DescribeSecurityGroupAttributesResponse {
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    securityGroupId: ").append(toIndentedString(securityGroupId)).append("\n");
     sb.append("    securityGroupName: ").append(toIndentedString(securityGroupName)).append("\n");
