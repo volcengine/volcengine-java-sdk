@@ -46,6 +46,9 @@ public class CreateServerGroupRequest {
   @SerializedName("ServerGroupName")
   private String serverGroupName = null;
 
+  @SerializedName("ServerGroupType")
+  private String serverGroupType = null;
+
   @SerializedName("StickySessionConfig")
   private StickySessionConfigForCreateServerGroupInput stickySessionConfig = null;
 
@@ -143,6 +146,24 @@ public class CreateServerGroupRequest {
     this.serverGroupName = serverGroupName;
   }
 
+  public CreateServerGroupRequest serverGroupType(String serverGroupType) {
+    this.serverGroupType = serverGroupType;
+    return this;
+  }
+
+   /**
+   * Get serverGroupType
+   * @return serverGroupType
+  **/
+  @Schema(description = "")
+  public String getServerGroupType() {
+    return serverGroupType;
+  }
+
+  public void setServerGroupType(String serverGroupType) {
+    this.serverGroupType = serverGroupType;
+  }
+
   public CreateServerGroupRequest stickySessionConfig(StickySessionConfigForCreateServerGroupInput stickySessionConfig) {
     this.stickySessionConfig = stickySessionConfig;
     return this;
@@ -196,13 +217,14 @@ public class CreateServerGroupRequest {
         Objects.equals(this.projectName, createServerGroupRequest.projectName) &&
         Objects.equals(this.scheduler, createServerGroupRequest.scheduler) &&
         Objects.equals(this.serverGroupName, createServerGroupRequest.serverGroupName) &&
+        Objects.equals(this.serverGroupType, createServerGroupRequest.serverGroupType) &&
         Objects.equals(this.stickySessionConfig, createServerGroupRequest.stickySessionConfig) &&
         Objects.equals(this.vpcId, createServerGroupRequest.vpcId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, healthCheck, projectName, scheduler, serverGroupName, stickySessionConfig, vpcId);
+    return Objects.hash(description, healthCheck, projectName, scheduler, serverGroupName, serverGroupType, stickySessionConfig, vpcId);
   }
 
 
@@ -216,6 +238,7 @@ public class CreateServerGroupRequest {
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    scheduler: ").append(toIndentedString(scheduler)).append("\n");
     sb.append("    serverGroupName: ").append(toIndentedString(serverGroupName)).append("\n");
+    sb.append("    serverGroupType: ").append(toIndentedString(serverGroupType)).append("\n");
     sb.append("    stickySessionConfig: ").append(toIndentedString(stickySessionConfig)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("}");
