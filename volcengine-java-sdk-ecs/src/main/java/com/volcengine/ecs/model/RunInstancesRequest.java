@@ -49,6 +49,9 @@ public class RunInstancesRequest {
   @SerializedName("CreditSpecification")
   private String creditSpecification = null;
 
+  @SerializedName("DeploymentSetId")
+  private String deploymentSetId = null;
+
   @SerializedName("Description")
   private String description = null;
 
@@ -215,6 +218,24 @@ public class RunInstancesRequest {
 
   public void setCreditSpecification(String creditSpecification) {
     this.creditSpecification = creditSpecification;
+  }
+
+  public RunInstancesRequest deploymentSetId(String deploymentSetId) {
+    this.deploymentSetId = deploymentSetId;
+    return this;
+  }
+
+   /**
+   * Get deploymentSetId
+   * @return deploymentSetId
+  **/
+  @Schema(description = "")
+  public String getDeploymentSetId() {
+    return deploymentSetId;
+  }
+
+  public void setDeploymentSetId(String deploymentSetId) {
+    this.deploymentSetId = deploymentSetId;
   }
 
   public RunInstancesRequest description(String description) {
@@ -727,6 +748,7 @@ public class RunInstancesRequest {
         Objects.equals(this.clientToken, runInstancesRequest.clientToken) &&
         Objects.equals(this.count, runInstancesRequest.count) &&
         Objects.equals(this.creditSpecification, runInstancesRequest.creditSpecification) &&
+        Objects.equals(this.deploymentSetId, runInstancesRequest.deploymentSetId) &&
         Objects.equals(this.description, runInstancesRequest.description) &&
         Objects.equals(this.dryRun, runInstancesRequest.dryRun) &&
         Objects.equals(this.hostName, runInstancesRequest.hostName) &&
@@ -757,7 +779,7 @@ public class RunInstancesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoRenew, autoRenewPeriod, clientToken, count, creditSpecification, description, dryRun, hostName, hostname, hpcClusterId, imageId, instanceChargeType, instanceName, instanceType, instanceTypeId, keepImageCredential, keyPairName, minCount, networkInterfaces, password, period, periodUnit, projectName, securityEnhancementStrategy, spotStrategy, suffixIndex, tags, uniqueSuffix, userData, volumes, zoneId);
+    return Objects.hash(autoRenew, autoRenewPeriod, clientToken, count, creditSpecification, deploymentSetId, description, dryRun, hostName, hostname, hpcClusterId, imageId, instanceChargeType, instanceName, instanceType, instanceTypeId, keepImageCredential, keyPairName, minCount, networkInterfaces, password, period, periodUnit, projectName, securityEnhancementStrategy, spotStrategy, suffixIndex, tags, uniqueSuffix, userData, volumes, zoneId);
   }
 
 
@@ -771,6 +793,7 @@ public class RunInstancesRequest {
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    count: ").append(toIndentedString(count)).append("\n");
     sb.append("    creditSpecification: ").append(toIndentedString(creditSpecification)).append("\n");
+    sb.append("    deploymentSetId: ").append(toIndentedString(deploymentSetId)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    dryRun: ").append(toIndentedString(dryRun)).append("\n");
     sb.append("    hostName: ").append(toIndentedString(hostName)).append("\n");

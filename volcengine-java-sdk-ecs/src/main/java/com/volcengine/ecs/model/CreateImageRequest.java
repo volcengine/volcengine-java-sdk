@@ -38,6 +38,9 @@ public class CreateImageRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   public CreateImageRequest description(String description) {
     this.description = description;
     return this;
@@ -92,6 +95,24 @@ public class CreateImageRequest {
     this.instanceId = instanceId;
   }
 
+  public CreateImageRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -104,12 +125,13 @@ public class CreateImageRequest {
     CreateImageRequest createImageRequest = (CreateImageRequest) o;
     return Objects.equals(this.description, createImageRequest.description) &&
         Objects.equals(this.imageName, createImageRequest.imageName) &&
-        Objects.equals(this.instanceId, createImageRequest.instanceId);
+        Objects.equals(this.instanceId, createImageRequest.instanceId) &&
+        Objects.equals(this.projectName, createImageRequest.projectName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, imageName, instanceId);
+    return Objects.hash(description, imageName, instanceId, projectName);
   }
 
 
@@ -121,6 +143,7 @@ public class CreateImageRequest {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    imageName: ").append(toIndentedString(imageName)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

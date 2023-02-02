@@ -44,6 +44,9 @@ public class IngressAclEntryForDescribeNetworkAclAttributesOutput {
   @SerializedName("Port")
   private String port = null;
 
+  @SerializedName("Priority")
+  private Integer priority = null;
+
   @SerializedName("Protocol")
   private String protocol = null;
 
@@ -140,6 +143,24 @@ public class IngressAclEntryForDescribeNetworkAclAttributesOutput {
     this.port = port;
   }
 
+  public IngressAclEntryForDescribeNetworkAclAttributesOutput priority(Integer priority) {
+    this.priority = priority;
+    return this;
+  }
+
+   /**
+   * Get priority
+   * @return priority
+  **/
+  @Schema(description = "")
+  public Integer getPriority() {
+    return priority;
+  }
+
+  public void setPriority(Integer priority) {
+    this.priority = priority;
+  }
+
   public IngressAclEntryForDescribeNetworkAclAttributesOutput protocol(String protocol) {
     this.protocol = protocol;
     return this;
@@ -191,13 +212,14 @@ public class IngressAclEntryForDescribeNetworkAclAttributesOutput {
         Objects.equals(this.networkAclEntryName, ingressAclEntryForDescribeNetworkAclAttributesOutput.networkAclEntryName) &&
         Objects.equals(this.policy, ingressAclEntryForDescribeNetworkAclAttributesOutput.policy) &&
         Objects.equals(this.port, ingressAclEntryForDescribeNetworkAclAttributesOutput.port) &&
+        Objects.equals(this.priority, ingressAclEntryForDescribeNetworkAclAttributesOutput.priority) &&
         Objects.equals(this.protocol, ingressAclEntryForDescribeNetworkAclAttributesOutput.protocol) &&
         Objects.equals(this.sourceCidrIp, ingressAclEntryForDescribeNetworkAclAttributesOutput.sourceCidrIp);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, networkAclEntryId, networkAclEntryName, policy, port, protocol, sourceCidrIp);
+    return Objects.hash(description, networkAclEntryId, networkAclEntryName, policy, port, priority, protocol, sourceCidrIp);
   }
 
 
@@ -211,6 +233,7 @@ public class IngressAclEntryForDescribeNetworkAclAttributesOutput {
     sb.append("    networkAclEntryName: ").append(toIndentedString(networkAclEntryName)).append("\n");
     sb.append("    policy: ").append(toIndentedString(policy)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
+    sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
     sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
     sb.append("    sourceCidrIp: ").append(toIndentedString(sourceCidrIp)).append("\n");
     sb.append("}");

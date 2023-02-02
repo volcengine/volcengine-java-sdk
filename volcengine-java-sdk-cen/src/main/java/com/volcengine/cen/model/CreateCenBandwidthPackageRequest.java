@@ -135,10 +135,10 @@ public class CreateCenBandwidthPackageRequest {
    /**
    * Get billingType
    * minimum: 1
-   * maximum: 1
+   * maximum: 4
    * @return billingType
   **/
- @Min(1) @Max(1)  @Schema(description = "")
+ @Min(1) @Max(4)  @Schema(description = "")
   public Integer getBillingType() {
     return billingType;
   }

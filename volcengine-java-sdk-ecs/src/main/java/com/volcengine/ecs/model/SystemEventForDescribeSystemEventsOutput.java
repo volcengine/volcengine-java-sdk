@@ -54,7 +54,8 @@ public class SystemEventForDescribeSystemEventsOutput {
     SUCCEEDED("Succeeded"),
     FAILED("Failed"),
     INQUIRING("Inquiring"),
-    SCHEDULED("Scheduled");
+    SCHEDULED("Scheduled"),
+    REJECTED("Rejected");
 
     private String value;
 
@@ -115,7 +116,9 @@ public class SystemEventForDescribeSystemEventsOutput {
     ACCOUNTUNBALANCED_DELETE("AccountUnbalanced_Delete"),
     INSTANCECHARGETYPE_CHANGE("InstanceChargeType_Change"),
     INSTANCECONFIGURATION_CHANGE("InstanceConfiguration_Change"),
-    FILESYSTEMREADONLY_CHANGE("FileSystemReadOnly_Change");
+    FILESYSTEMREADONLY_CHANGE("FileSystemReadOnly_Change"),
+    REBOOTINSTANCE("RebootInstance"),
+    INSTANCEFAILURE("InstanceFailure");
 
     private String value;
 

@@ -38,8 +38,14 @@ import javax.validation.Valid;
 
 
 public class InstanceTypeForDescribeInstanceTypesOutput {
+  @SerializedName("BaselineCredit")
+  private Long baselineCredit = null;
+
   @SerializedName("Gpu")
   private GpuForDescribeInstanceTypesOutput gpu = null;
+
+  @SerializedName("InitialCredit")
+  private Long initialCredit = null;
 
   @SerializedName("InstanceTypeFamily")
   private String instanceTypeFamily = null;
@@ -65,6 +71,24 @@ public class InstanceTypeForDescribeInstanceTypesOutput {
   @SerializedName("Volume")
   private VolumeForDescribeInstanceTypesOutput volume = null;
 
+  public InstanceTypeForDescribeInstanceTypesOutput baselineCredit(Long baselineCredit) {
+    this.baselineCredit = baselineCredit;
+    return this;
+  }
+
+   /**
+   * Get baselineCredit
+   * @return baselineCredit
+  **/
+  @Schema(description = "")
+  public Long getBaselineCredit() {
+    return baselineCredit;
+  }
+
+  public void setBaselineCredit(Long baselineCredit) {
+    this.baselineCredit = baselineCredit;
+  }
+
   public InstanceTypeForDescribeInstanceTypesOutput gpu(GpuForDescribeInstanceTypesOutput gpu) {
     this.gpu = gpu;
     return this;
@@ -82,6 +106,24 @@ public class InstanceTypeForDescribeInstanceTypesOutput {
 
   public void setGpu(GpuForDescribeInstanceTypesOutput gpu) {
     this.gpu = gpu;
+  }
+
+  public InstanceTypeForDescribeInstanceTypesOutput initialCredit(Long initialCredit) {
+    this.initialCredit = initialCredit;
+    return this;
+  }
+
+   /**
+   * Get initialCredit
+   * @return initialCredit
+  **/
+  @Schema(description = "")
+  public Long getInitialCredit() {
+    return initialCredit;
+  }
+
+  public void setInitialCredit(Long initialCredit) {
+    this.initialCredit = initialCredit;
   }
 
   public InstanceTypeForDescribeInstanceTypesOutput instanceTypeFamily(String instanceTypeFamily) {
@@ -252,7 +294,9 @@ public class InstanceTypeForDescribeInstanceTypesOutput {
       return false;
     }
     InstanceTypeForDescribeInstanceTypesOutput instanceTypeForDescribeInstanceTypesOutput = (InstanceTypeForDescribeInstanceTypesOutput) o;
-    return Objects.equals(this.gpu, instanceTypeForDescribeInstanceTypesOutput.gpu) &&
+    return Objects.equals(this.baselineCredit, instanceTypeForDescribeInstanceTypesOutput.baselineCredit) &&
+        Objects.equals(this.gpu, instanceTypeForDescribeInstanceTypesOutput.gpu) &&
+        Objects.equals(this.initialCredit, instanceTypeForDescribeInstanceTypesOutput.initialCredit) &&
         Objects.equals(this.instanceTypeFamily, instanceTypeForDescribeInstanceTypesOutput.instanceTypeFamily) &&
         Objects.equals(this.instanceTypeId, instanceTypeForDescribeInstanceTypesOutput.instanceTypeId) &&
         Objects.equals(this.localVolumes, instanceTypeForDescribeInstanceTypesOutput.localVolumes) &&
@@ -265,7 +309,7 @@ public class InstanceTypeForDescribeInstanceTypesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(gpu, instanceTypeFamily, instanceTypeId, localVolumes, memory, network, processor, rdma, volume);
+    return Objects.hash(baselineCredit, gpu, initialCredit, instanceTypeFamily, instanceTypeId, localVolumes, memory, network, processor, rdma, volume);
   }
 
 
@@ -274,7 +318,9 @@ public class InstanceTypeForDescribeInstanceTypesOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class InstanceTypeForDescribeInstanceTypesOutput {\n");
     
+    sb.append("    baselineCredit: ").append(toIndentedString(baselineCredit)).append("\n");
     sb.append("    gpu: ").append(toIndentedString(gpu)).append("\n");
+    sb.append("    initialCredit: ").append(toIndentedString(initialCredit)).append("\n");
     sb.append("    instanceTypeFamily: ").append(toIndentedString(instanceTypeFamily)).append("\n");
     sb.append("    instanceTypeId: ").append(toIndentedString(instanceTypeId)).append("\n");
     sb.append("    localVolumes: ").append(toIndentedString(localVolumes)).append("\n");
