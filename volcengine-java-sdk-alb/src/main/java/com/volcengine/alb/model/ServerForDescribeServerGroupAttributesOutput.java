@@ -41,6 +41,9 @@ public class ServerForDescribeServerGroupAttributesOutput {
   @SerializedName("Port")
   private Integer port = null;
 
+  @SerializedName("RemoteEnabled")
+  private String remoteEnabled = null;
+
   @SerializedName("ServerId")
   private String serverId = null;
 
@@ -122,6 +125,24 @@ public class ServerForDescribeServerGroupAttributesOutput {
     this.port = port;
   }
 
+  public ServerForDescribeServerGroupAttributesOutput remoteEnabled(String remoteEnabled) {
+    this.remoteEnabled = remoteEnabled;
+    return this;
+  }
+
+   /**
+   * Get remoteEnabled
+   * @return remoteEnabled
+  **/
+  @Schema(description = "")
+  public String getRemoteEnabled() {
+    return remoteEnabled;
+  }
+
+  public void setRemoteEnabled(String remoteEnabled) {
+    this.remoteEnabled = remoteEnabled;
+  }
+
   public ServerForDescribeServerGroupAttributesOutput serverId(String serverId) {
     this.serverId = serverId;
     return this;
@@ -190,6 +211,7 @@ public class ServerForDescribeServerGroupAttributesOutput {
         Objects.equals(this.instanceId, serverForDescribeServerGroupAttributesOutput.instanceId) &&
         Objects.equals(this.ip, serverForDescribeServerGroupAttributesOutput.ip) &&
         Objects.equals(this.port, serverForDescribeServerGroupAttributesOutput.port) &&
+        Objects.equals(this.remoteEnabled, serverForDescribeServerGroupAttributesOutput.remoteEnabled) &&
         Objects.equals(this.serverId, serverForDescribeServerGroupAttributesOutput.serverId) &&
         Objects.equals(this.type, serverForDescribeServerGroupAttributesOutput.type) &&
         Objects.equals(this.weight, serverForDescribeServerGroupAttributesOutput.weight);
@@ -197,7 +219,7 @@ public class ServerForDescribeServerGroupAttributesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, instanceId, ip, port, serverId, type, weight);
+    return Objects.hash(description, instanceId, ip, port, remoteEnabled, serverId, type, weight);
   }
 
 
@@ -210,6 +232,7 @@ public class ServerForDescribeServerGroupAttributesOutput {
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    ip: ").append(toIndentedString(ip)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
+    sb.append("    remoteEnabled: ").append(toIndentedString(remoteEnabled)).append("\n");
     sb.append("    serverId: ").append(toIndentedString(serverId)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    weight: ").append(toIndentedString(weight)).append("\n");

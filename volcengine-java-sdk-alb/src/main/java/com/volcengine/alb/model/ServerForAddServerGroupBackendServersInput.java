@@ -41,6 +41,9 @@ public class ServerForAddServerGroupBackendServersInput {
   @SerializedName("Port")
   private Integer port = null;
 
+  @SerializedName("RemoteEnabled")
+  private String remoteEnabled = null;
+
   @SerializedName("Type")
   private String type = null;
 
@@ -122,6 +125,24 @@ public class ServerForAddServerGroupBackendServersInput {
     this.port = port;
   }
 
+  public ServerForAddServerGroupBackendServersInput remoteEnabled(String remoteEnabled) {
+    this.remoteEnabled = remoteEnabled;
+    return this;
+  }
+
+   /**
+   * Get remoteEnabled
+   * @return remoteEnabled
+  **/
+  @Schema(description = "")
+  public String getRemoteEnabled() {
+    return remoteEnabled;
+  }
+
+  public void setRemoteEnabled(String remoteEnabled) {
+    this.remoteEnabled = remoteEnabled;
+  }
+
   public ServerForAddServerGroupBackendServersInput type(String type) {
     this.type = type;
     return this;
@@ -173,13 +194,14 @@ public class ServerForAddServerGroupBackendServersInput {
         Objects.equals(this.instanceId, serverForAddServerGroupBackendServersInput.instanceId) &&
         Objects.equals(this.ip, serverForAddServerGroupBackendServersInput.ip) &&
         Objects.equals(this.port, serverForAddServerGroupBackendServersInput.port) &&
+        Objects.equals(this.remoteEnabled, serverForAddServerGroupBackendServersInput.remoteEnabled) &&
         Objects.equals(this.type, serverForAddServerGroupBackendServersInput.type) &&
         Objects.equals(this.weight, serverForAddServerGroupBackendServersInput.weight);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, instanceId, ip, port, type, weight);
+    return Objects.hash(description, instanceId, ip, port, remoteEnabled, type, weight);
   }
 
 
@@ -192,6 +214,7 @@ public class ServerForAddServerGroupBackendServersInput {
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    ip: ").append(toIndentedString(ip)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
+    sb.append("    remoteEnabled: ").append(toIndentedString(remoteEnabled)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    weight: ").append(toIndentedString(weight)).append("\n");
     sb.append("}");
