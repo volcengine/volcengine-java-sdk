@@ -54,7 +54,7 @@
     <dependency>
       <groupId>com.volcengine</groupId>
 	  <artifactId>volcengine-java-sdk-bom</artifactId>
-       <version>0.1.35</version>
+    <version>0.1.36</version>
 	  <type>pom</type>
       <scope>import</scope>
     </dependency>
@@ -70,12 +70,12 @@
   <dependency>
     <groupId>com.volcengine</groupId>
     <artifactId>volcengine-java-sdk-vpc</artifactId>
-   <version>0.1.35</version>
+   <version>0.1.36</version>
   </dependency>
   <dependency>
     <groupId>com.volcengine</groupId>
     <artifactId>volcengine-java-sdk-ecs</artifactId>
-   <version>0.1.35</version>
+   <version>0.1.36</version>
   </dependency>
 </dependencies>
 ```

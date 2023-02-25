@@ -19,11 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vke.model.HeaderForForwardKubernetesApiInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -39,7 +39,7 @@ public class ForwardKubernetesApiRequest {
   private String clusterId = null;
 
   @SerializedName("Headers")
-  private Map<String, List<String>> headers = null;
+  private List<HeaderForForwardKubernetesApiInput> headers = null;
 
   @SerializedName("Method")
   private String method = null;
@@ -83,16 +83,16 @@ public class ForwardKubernetesApiRequest {
     this.clusterId = clusterId;
   }
 
-  public ForwardKubernetesApiRequest headers(Map<String, List<String>> headers) {
+  public ForwardKubernetesApiRequest headers(List<HeaderForForwardKubernetesApiInput> headers) {
     this.headers = headers;
     return this;
   }
 
-  public ForwardKubernetesApiRequest putHeadersItem(String key, List<String> headersItem) {
+  public ForwardKubernetesApiRequest addHeadersItem(HeaderForForwardKubernetesApiInput headersItem) {
     if (this.headers == null) {
-      this.headers = new HashMap<String, List<String>>();
+      this.headers = new ArrayList<HeaderForForwardKubernetesApiInput>();
     }
-    this.headers.put(key, headersItem);
+    this.headers.add(headersItem);
     return this;
   }
 
@@ -102,11 +102,11 @@ public class ForwardKubernetesApiRequest {
   **/
   @Valid
   @Schema(description = "")
-  public Map<String, List<String>> getHeaders() {
+  public List<HeaderForForwardKubernetesApiInput> getHeaders() {
     return headers;
   }
 
-  public void setHeaders(Map<String, List<String>> headers) {
+  public void setHeaders(List<HeaderForForwardKubernetesApiInput> headers) {
     this.headers = headers;
   }
 
