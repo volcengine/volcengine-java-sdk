@@ -30,7 +30,7 @@ import javax.validation.Valid;
  * ListNamespacesResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-08-31T20:47:55.450016+08:00[Asia/Shanghai]")
+
 public class ListNamespacesResponse {
   @SerializedName("Items")
   private List<ItemForListNamespacesOutput> items = null;

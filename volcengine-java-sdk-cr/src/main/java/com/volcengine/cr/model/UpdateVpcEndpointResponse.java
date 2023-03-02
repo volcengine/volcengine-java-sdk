@@ -17,11 +17,11 @@ import java.util.Arrays;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * CreateRepositoryResponse
+ * UpdateVpcEndpointResponse
  */
 
 
-public class CreateRepositoryResponse {
+public class UpdateVpcEndpointResponse {
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -43,7 +43,7 @@ public class CreateRepositoryResponse {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateRepositoryResponse {\n");
+    sb.append("class UpdateVpcEndpointResponse {\n");
     
     sb.append("}");
     return sb.toString();

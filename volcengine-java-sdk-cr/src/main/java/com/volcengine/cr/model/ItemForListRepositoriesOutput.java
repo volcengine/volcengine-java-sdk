@@ -27,13 +27,16 @@ import javax.validation.Valid;
  * ItemForListRepositoriesOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-08-31T20:47:55.450016+08:00[Asia/Shanghai]")
+
 public class ItemForListRepositoriesOutput {
   @SerializedName("AccessLevel")
   private String accessLevel = null;
 
   @SerializedName("CreateTime")
   private String createTime = null;
+
+  @SerializedName("Description")
+  private String description = null;
 
   @SerializedName("Name")
   private String name = null;
@@ -75,6 +78,24 @@ public class ItemForListRepositoriesOutput {
 
   public void setCreateTime(String createTime) {
     this.createTime = createTime;
+  }
+
+  public ItemForListRepositoriesOutput description(String description) {
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Get description
+   * @return description
+  **/
+  @Schema(description = "")
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   public ItemForListRepositoriesOutput name(String name) {
@@ -125,13 +146,14 @@ public class ItemForListRepositoriesOutput {
     ItemForListRepositoriesOutput itemForListRepositoriesOutput = (ItemForListRepositoriesOutput) o;
     return Objects.equals(this.accessLevel, itemForListRepositoriesOutput.accessLevel) &&
         Objects.equals(this.createTime, itemForListRepositoriesOutput.createTime) &&
+        Objects.equals(this.description, itemForListRepositoriesOutput.description) &&
         Objects.equals(this.name, itemForListRepositoriesOutput.name) &&
         Objects.equals(this.updateTime, itemForListRepositoriesOutput.updateTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessLevel, createTime, name, updateTime);
+    return Objects.hash(accessLevel, createTime, description, name, updateTime);
   }
 
 
@@ -142,6 +164,7 @@ public class ItemForListRepositoriesOutput {
     
     sb.append("    accessLevel: ").append(toIndentedString(accessLevel)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("}");
