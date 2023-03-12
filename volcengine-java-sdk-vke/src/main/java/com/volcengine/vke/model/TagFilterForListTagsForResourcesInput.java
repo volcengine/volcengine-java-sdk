@@ -26,18 +26,18 @@ import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * TagFilterForListTagsForResourceInput
+ * TagFilterForListTagsForResourcesInput
  */
 
 
-public class TagFilterForListTagsForResourceInput {
+public class TagFilterForListTagsForResourcesInput {
   @SerializedName("Key")
   private String key = null;
 
   @SerializedName("Values")
   private List<String> values = null;
 
-  public TagFilterForListTagsForResourceInput key(String key) {
+  public TagFilterForListTagsForResourcesInput key(String key) {
     this.key = key;
     return this;
   }
@@ -55,12 +55,12 @@ public class TagFilterForListTagsForResourceInput {
     this.key = key;
   }
 
-  public TagFilterForListTagsForResourceInput values(List<String> values) {
+  public TagFilterForListTagsForResourcesInput values(List<String> values) {
     this.values = values;
     return this;
   }
 
-  public TagFilterForListTagsForResourceInput addValuesItem(String valuesItem) {
+  public TagFilterForListTagsForResourcesInput addValuesItem(String valuesItem) {
     if (this.values == null) {
       this.values = new ArrayList<String>();
     }
@@ -90,9 +90,9 @@ public class TagFilterForListTagsForResourceInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TagFilterForListTagsForResourceInput tagFilterForListTagsForResourceInput = (TagFilterForListTagsForResourceInput) o;
-    return Objects.equals(this.key, tagFilterForListTagsForResourceInput.key) &&
-        Objects.equals(this.values, tagFilterForListTagsForResourceInput.values);
+    TagFilterForListTagsForResourcesInput tagFilterForListTagsForResourcesInput = (TagFilterForListTagsForResourcesInput) o;
+    return Objects.equals(this.key, tagFilterForListTagsForResourcesInput.key) &&
+        Objects.equals(this.values, tagFilterForListTagsForResourcesInput.values);
   }
 
   @Override
@@ -104,7 +104,7 @@ public class TagFilterForListTagsForResourceInput {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TagFilterForListTagsForResourceInput {\n");
+    sb.append("class TagFilterForListTagsForResourcesInput {\n");
     
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    values: ").append(toIndentedString(values)).append("\n");
