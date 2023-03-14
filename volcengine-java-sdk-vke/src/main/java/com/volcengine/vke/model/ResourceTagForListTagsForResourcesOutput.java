@@ -24,11 +24,11 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ResourceTagForListTagsForResourceOutput
+ * ResourceTagForListTagsForResourcesOutput
  */
 
 
-public class ResourceTagForListTagsForResourceOutput {
+public class ResourceTagForListTagsForResourcesOutput {
   @SerializedName("ResourceId")
   private String resourceId = null;
 
@@ -44,7 +44,7 @@ public class ResourceTagForListTagsForResourceOutput {
   @SerializedName("Type")
   private String type = null;
 
-  public ResourceTagForListTagsForResourceOutput resourceId(String resourceId) {
+  public ResourceTagForListTagsForResourcesOutput resourceId(String resourceId) {
     this.resourceId = resourceId;
     return this;
   }
@@ -62,7 +62,7 @@ public class ResourceTagForListTagsForResourceOutput {
     this.resourceId = resourceId;
   }
 
-  public ResourceTagForListTagsForResourceOutput resourceType(String resourceType) {
+  public ResourceTagForListTagsForResourcesOutput resourceType(String resourceType) {
     this.resourceType = resourceType;
     return this;
   }
@@ -80,7 +80,7 @@ public class ResourceTagForListTagsForResourceOutput {
     this.resourceType = resourceType;
   }
 
-  public ResourceTagForListTagsForResourceOutput tagKey(String tagKey) {
+  public ResourceTagForListTagsForResourcesOutput tagKey(String tagKey) {
     this.tagKey = tagKey;
     return this;
   }
@@ -98,7 +98,7 @@ public class ResourceTagForListTagsForResourceOutput {
     this.tagKey = tagKey;
   }
 
-  public ResourceTagForListTagsForResourceOutput tagValue(String tagValue) {
+  public ResourceTagForListTagsForResourcesOutput tagValue(String tagValue) {
     this.tagValue = tagValue;
     return this;
   }
@@ -116,7 +116,7 @@ public class ResourceTagForListTagsForResourceOutput {
     this.tagValue = tagValue;
   }
 
-  public ResourceTagForListTagsForResourceOutput type(String type) {
+  public ResourceTagForListTagsForResourcesOutput type(String type) {
     this.type = type;
     return this;
   }
@@ -143,12 +143,12 @@ public class ResourceTagForListTagsForResourceOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ResourceTagForListTagsForResourceOutput resourceTagForListTagsForResourceOutput = (ResourceTagForListTagsForResourceOutput) o;
-    return Objects.equals(this.resourceId, resourceTagForListTagsForResourceOutput.resourceId) &&
-        Objects.equals(this.resourceType, resourceTagForListTagsForResourceOutput.resourceType) &&
-        Objects.equals(this.tagKey, resourceTagForListTagsForResourceOutput.tagKey) &&
-        Objects.equals(this.tagValue, resourceTagForListTagsForResourceOutput.tagValue) &&
-        Objects.equals(this.type, resourceTagForListTagsForResourceOutput.type);
+    ResourceTagForListTagsForResourcesOutput resourceTagForListTagsForResourcesOutput = (ResourceTagForListTagsForResourcesOutput) o;
+    return Objects.equals(this.resourceId, resourceTagForListTagsForResourcesOutput.resourceId) &&
+        Objects.equals(this.resourceType, resourceTagForListTagsForResourcesOutput.resourceType) &&
+        Objects.equals(this.tagKey, resourceTagForListTagsForResourcesOutput.tagKey) &&
+        Objects.equals(this.tagValue, resourceTagForListTagsForResourcesOutput.tagValue) &&
+        Objects.equals(this.type, resourceTagForListTagsForResourcesOutput.type);
   }
 
   @Override
@@ -160,7 +160,7 @@ public class ResourceTagForListTagsForResourceOutput {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ResourceTagForListTagsForResourceOutput {\n");
+    sb.append("class ResourceTagForListTagsForResourcesOutput {\n");
     
     sb.append("    resourceId: ").append(toIndentedString(resourceId)).append("\n");
     sb.append("    resourceType: ").append(toIndentedString(resourceType)).append("\n");

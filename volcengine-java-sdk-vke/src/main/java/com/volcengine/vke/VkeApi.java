@@ -65,8 +65,8 @@ import com.volcengine.vke.model.ListSupportedAddonsRequest;
 import com.volcengine.vke.model.ListSupportedAddonsResponse;
 import com.volcengine.vke.model.ListSupportedResourceTypesRequest;
 import com.volcengine.vke.model.ListSupportedResourceTypesResponse;
-import com.volcengine.vke.model.ListTagsForResourceRequest;
-import com.volcengine.vke.model.ListTagsForResourceResponse;
+import com.volcengine.vke.model.ListTagsForResourcesRequest;
+import com.volcengine.vke.model.ListTagsForResourcesResponse;
 import com.volcengine.vke.model.TagResourcesRequest;
 import com.volcengine.vke.model.TagResourcesResponse;
 import com.volcengine.vke.model.UntagResourcesRequest;
@@ -2462,18 +2462,18 @@ public class VkeApi {
         return call;
     }
     /**
-     * Build call for listTagsForResource
+     * Build call for listTagsForResources
      * @param body  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call listTagsForResourceCall(ListTagsForResourceRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call listTagsForResourcesCall(ListTagsForResourcesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ListTagsForResource/2022-05-12/vke/post/";
+        String localVarPath = "/ListTagsForResources/2022-05-12/vke/post/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2511,13 +2511,13 @@ public class VkeApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call listTagsForResourceValidateBeforeCall(ListTagsForResourceRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call listTagsForResourcesValidateBeforeCall(ListTagsForResourcesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'body' is set
         if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling listTagsForResource(Async)");
+            throw new ApiException("Missing the required parameter 'body' when calling listTagsForResources(Async)");
         }
         
-        com.squareup.okhttp.Call call = listTagsForResourceCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = listTagsForResourcesCall(body, progressListener, progressRequestListener);
         return call;
 
         
@@ -2530,11 +2530,11 @@ public class VkeApi {
      * 
      * 
      * @param body  (required)
-     * @return ListTagsForResourceResponse
+     * @return ListTagsForResourcesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ListTagsForResourceResponse listTagsForResource(ListTagsForResourceRequest body) throws ApiException {
-        ApiResponse<ListTagsForResourceResponse> resp = listTagsForResourceWithHttpInfo(body);
+    public ListTagsForResourcesResponse listTagsForResources(ListTagsForResourcesRequest body) throws ApiException {
+        ApiResponse<ListTagsForResourcesResponse> resp = listTagsForResourcesWithHttpInfo(body);
         return resp.getData();
     }
 
@@ -2542,12 +2542,12 @@ public class VkeApi {
      * 
      * 
      * @param body  (required)
-     * @return ApiResponse&lt;ListTagsForResourceResponse&gt;
+     * @return ApiResponse&lt;ListTagsForResourcesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ListTagsForResourceResponse> listTagsForResourceWithHttpInfo( @NotNull ListTagsForResourceRequest body) throws ApiException {
-        com.squareup.okhttp.Call call = listTagsForResourceValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<ListTagsForResourceResponse>(){}.getType();
+    public ApiResponse<ListTagsForResourcesResponse> listTagsForResourcesWithHttpInfo( @NotNull ListTagsForResourcesRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = listTagsForResourcesValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<ListTagsForResourcesResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -2559,7 +2559,7 @@ public class VkeApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call listTagsForResourceAsync(ListTagsForResourceRequest body, final ApiCallback<ListTagsForResourceResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call listTagsForResourcesAsync(ListTagsForResourcesRequest body, final ApiCallback<ListTagsForResourcesResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2580,8 +2580,8 @@ public class VkeApi {
             };
         }
 
-        com.squareup.okhttp.Call call = listTagsForResourceValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ListTagsForResourceResponse>(){}.getType();
+        com.squareup.okhttp.Call call = listTagsForResourcesValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ListTagsForResourcesResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
