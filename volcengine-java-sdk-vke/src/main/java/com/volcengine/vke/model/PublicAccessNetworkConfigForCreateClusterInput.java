@@ -32,6 +32,9 @@ public class PublicAccessNetworkConfigForCreateClusterInput {
   @SerializedName("Bandwidth")
   private Integer bandwidth = null;
 
+  @SerializedName("BillingType")
+  private Integer billingType = null;
+
   public PublicAccessNetworkConfigForCreateClusterInput bandwidth(Integer bandwidth) {
     this.bandwidth = bandwidth;
     return this;
@@ -50,6 +53,24 @@ public class PublicAccessNetworkConfigForCreateClusterInput {
     this.bandwidth = bandwidth;
   }
 
+  public PublicAccessNetworkConfigForCreateClusterInput billingType(Integer billingType) {
+    this.billingType = billingType;
+    return this;
+  }
+
+   /**
+   * Get billingType
+   * @return billingType
+  **/
+  @Schema(description = "")
+  public Integer getBillingType() {
+    return billingType;
+  }
+
+  public void setBillingType(Integer billingType) {
+    this.billingType = billingType;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -60,12 +81,13 @@ public class PublicAccessNetworkConfigForCreateClusterInput {
       return false;
     }
     PublicAccessNetworkConfigForCreateClusterInput publicAccessNetworkConfigForCreateClusterInput = (PublicAccessNetworkConfigForCreateClusterInput) o;
-    return Objects.equals(this.bandwidth, publicAccessNetworkConfigForCreateClusterInput.bandwidth);
+    return Objects.equals(this.bandwidth, publicAccessNetworkConfigForCreateClusterInput.bandwidth) &&
+        Objects.equals(this.billingType, publicAccessNetworkConfigForCreateClusterInput.billingType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidth);
+    return Objects.hash(bandwidth, billingType);
   }
 
 
@@ -75,6 +97,7 @@ public class PublicAccessNetworkConfigForCreateClusterInput {
     sb.append("class PublicAccessNetworkConfigForCreateClusterInput {\n");
     
     sb.append("    bandwidth: ").append(toIndentedString(bandwidth)).append("\n");
+    sb.append("    billingType: ").append(toIndentedString(billingType)).append("\n");
     sb.append("}");
     return sb.toString();
   }
