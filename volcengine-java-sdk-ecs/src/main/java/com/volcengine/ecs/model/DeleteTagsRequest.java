@@ -31,6 +31,9 @@ import javax.validation.Valid;
 
 
 public class DeleteTagsRequest {
+  @SerializedName("ClientToken")
+  private String clientToken = null;
+
   @SerializedName("ResourceIds")
   private List<String> resourceIds = null;
 
@@ -39,6 +42,24 @@ public class DeleteTagsRequest {
 
   @SerializedName("TagKeys")
   private List<String> tagKeys = null;
+
+  public DeleteTagsRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
 
   public DeleteTagsRequest resourceIds(List<String> resourceIds) {
     this.resourceIds = resourceIds;
@@ -120,14 +141,15 @@ public class DeleteTagsRequest {
       return false;
     }
     DeleteTagsRequest deleteTagsRequest = (DeleteTagsRequest) o;
-    return Objects.equals(this.resourceIds, deleteTagsRequest.resourceIds) &&
+    return Objects.equals(this.clientToken, deleteTagsRequest.clientToken) &&
+        Objects.equals(this.resourceIds, deleteTagsRequest.resourceIds) &&
         Objects.equals(this.resourceType, deleteTagsRequest.resourceType) &&
         Objects.equals(this.tagKeys, deleteTagsRequest.tagKeys);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(resourceIds, resourceType, tagKeys);
+    return Objects.hash(clientToken, resourceIds, resourceType, tagKeys);
   }
 
 
@@ -136,6 +158,7 @@ public class DeleteTagsRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteTagsRequest {\n");
     
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    resourceIds: ").append(toIndentedString(resourceIds)).append("\n");
     sb.append("    resourceType: ").append(toIndentedString(resourceType)).append("\n");
     sb.append("    tagKeys: ").append(toIndentedString(tagKeys)).append("\n");

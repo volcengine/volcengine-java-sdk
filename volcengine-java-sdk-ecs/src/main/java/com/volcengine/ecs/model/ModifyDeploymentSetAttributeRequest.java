@@ -29,6 +29,9 @@ import javax.validation.Valid;
 
 
 public class ModifyDeploymentSetAttributeRequest {
+  @SerializedName("ClientToken")
+  private String clientToken = null;
+
   @SerializedName("DeploymentSetId")
   private String deploymentSetId = null;
 
@@ -37,6 +40,24 @@ public class ModifyDeploymentSetAttributeRequest {
 
   @SerializedName("Description")
   private String description = null;
+
+  public ModifyDeploymentSetAttributeRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
 
   public ModifyDeploymentSetAttributeRequest deploymentSetId(String deploymentSetId) {
     this.deploymentSetId = deploymentSetId;
@@ -102,14 +123,15 @@ public class ModifyDeploymentSetAttributeRequest {
       return false;
     }
     ModifyDeploymentSetAttributeRequest modifyDeploymentSetAttributeRequest = (ModifyDeploymentSetAttributeRequest) o;
-    return Objects.equals(this.deploymentSetId, modifyDeploymentSetAttributeRequest.deploymentSetId) &&
+    return Objects.equals(this.clientToken, modifyDeploymentSetAttributeRequest.clientToken) &&
+        Objects.equals(this.deploymentSetId, modifyDeploymentSetAttributeRequest.deploymentSetId) &&
         Objects.equals(this.deploymentSetName, modifyDeploymentSetAttributeRequest.deploymentSetName) &&
         Objects.equals(this.description, modifyDeploymentSetAttributeRequest.description);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(deploymentSetId, deploymentSetName, description);
+    return Objects.hash(clientToken, deploymentSetId, deploymentSetName, description);
   }
 
 
@@ -118,6 +140,7 @@ public class ModifyDeploymentSetAttributeRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ModifyDeploymentSetAttributeRequest {\n");
     
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    deploymentSetId: ").append(toIndentedString(deploymentSetId)).append("\n");
     sb.append("    deploymentSetName: ").append(toIndentedString(deploymentSetName)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");

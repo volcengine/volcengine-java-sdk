@@ -31,6 +31,9 @@ import javax.validation.Valid;
 
 
 public class AttachKeyPairRequest {
+  @SerializedName("ClientToken")
+  private String clientToken = null;
+
   @SerializedName("InstanceIds")
   private List<String> instanceIds = null;
 
@@ -39,6 +42,24 @@ public class AttachKeyPairRequest {
 
   @SerializedName("KeyPairName")
   private String keyPairName = null;
+
+  public AttachKeyPairRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
 
   public AttachKeyPairRequest instanceIds(List<String> instanceIds) {
     this.instanceIds = instanceIds;
@@ -112,14 +133,15 @@ public class AttachKeyPairRequest {
       return false;
     }
     AttachKeyPairRequest attachKeyPairRequest = (AttachKeyPairRequest) o;
-    return Objects.equals(this.instanceIds, attachKeyPairRequest.instanceIds) &&
+    return Objects.equals(this.clientToken, attachKeyPairRequest.clientToken) &&
+        Objects.equals(this.instanceIds, attachKeyPairRequest.instanceIds) &&
         Objects.equals(this.keyPairId, attachKeyPairRequest.keyPairId) &&
         Objects.equals(this.keyPairName, attachKeyPairRequest.keyPairName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceIds, keyPairId, keyPairName);
+    return Objects.hash(clientToken, instanceIds, keyPairId, keyPairName);
   }
 
 
@@ -128,6 +150,7 @@ public class AttachKeyPairRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class AttachKeyPairRequest {\n");
     
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    instanceIds: ").append(toIndentedString(instanceIds)).append("\n");
     sb.append("    keyPairId: ").append(toIndentedString(keyPairId)).append("\n");
     sb.append("    keyPairName: ").append(toIndentedString(keyPairName)).append("\n");

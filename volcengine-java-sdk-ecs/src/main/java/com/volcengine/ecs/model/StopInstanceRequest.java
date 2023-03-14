@@ -29,6 +29,9 @@ import javax.validation.Valid;
 
 
 public class StopInstanceRequest {
+  @SerializedName("ClientToken")
+  private String clientToken = null;
+
   @SerializedName("ForceStop")
   private Boolean forceStop = null;
 
@@ -37,6 +40,24 @@ public class StopInstanceRequest {
 
   @SerializedName("StoppedMode")
   private String stoppedMode = null;
+
+  public StopInstanceRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
 
   public StopInstanceRequest forceStop(Boolean forceStop) {
     this.forceStop = forceStop;
@@ -102,14 +123,15 @@ public class StopInstanceRequest {
       return false;
     }
     StopInstanceRequest stopInstanceRequest = (StopInstanceRequest) o;
-    return Objects.equals(this.forceStop, stopInstanceRequest.forceStop) &&
+    return Objects.equals(this.clientToken, stopInstanceRequest.clientToken) &&
+        Objects.equals(this.forceStop, stopInstanceRequest.forceStop) &&
         Objects.equals(this.instanceId, stopInstanceRequest.instanceId) &&
         Objects.equals(this.stoppedMode, stopInstanceRequest.stoppedMode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(forceStop, instanceId, stoppedMode);
+    return Objects.hash(clientToken, forceStop, instanceId, stoppedMode);
   }
 
 
@@ -118,6 +140,7 @@ public class StopInstanceRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class StopInstanceRequest {\n");
     
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    forceStop: ").append(toIndentedString(forceStop)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    stoppedMode: ").append(toIndentedString(stoppedMode)).append("\n");
