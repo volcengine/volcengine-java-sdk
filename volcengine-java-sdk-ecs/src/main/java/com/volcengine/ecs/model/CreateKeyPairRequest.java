@@ -29,11 +29,32 @@ import javax.validation.Valid;
 
 
 public class CreateKeyPairRequest {
+  @SerializedName("ClientToken")
+  private String clientToken = null;
+
   @SerializedName("Description")
   private String description = null;
 
   @SerializedName("KeyPairName")
   private String keyPairName = null;
+
+  public CreateKeyPairRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
 
   public CreateKeyPairRequest description(String description) {
     this.description = description;
@@ -81,13 +102,14 @@ public class CreateKeyPairRequest {
       return false;
     }
     CreateKeyPairRequest createKeyPairRequest = (CreateKeyPairRequest) o;
-    return Objects.equals(this.description, createKeyPairRequest.description) &&
+    return Objects.equals(this.clientToken, createKeyPairRequest.clientToken) &&
+        Objects.equals(this.description, createKeyPairRequest.description) &&
         Objects.equals(this.keyPairName, createKeyPairRequest.keyPairName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, keyPairName);
+    return Objects.hash(clientToken, description, keyPairName);
   }
 
 
@@ -96,6 +118,7 @@ public class CreateKeyPairRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateKeyPairRequest {\n");
     
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    keyPairName: ").append(toIndentedString(keyPairName)).append("\n");
     sb.append("}");

@@ -81,6 +81,9 @@ public class DescribeVpcAttributesResponse {
   @SerializedName("UpdateTime")
   private String updateTime = null;
 
+  @SerializedName("UserCidrBlocks")
+  private List<String> userCidrBlocks = null;
+
   @SerializedName("VpcId")
   private String vpcId = null;
 
@@ -433,6 +436,32 @@ public class DescribeVpcAttributesResponse {
     this.updateTime = updateTime;
   }
 
+  public DescribeVpcAttributesResponse userCidrBlocks(List<String> userCidrBlocks) {
+    this.userCidrBlocks = userCidrBlocks;
+    return this;
+  }
+
+  public DescribeVpcAttributesResponse addUserCidrBlocksItem(String userCidrBlocksItem) {
+    if (this.userCidrBlocks == null) {
+      this.userCidrBlocks = new ArrayList<String>();
+    }
+    this.userCidrBlocks.add(userCidrBlocksItem);
+    return this;
+  }
+
+   /**
+   * Get userCidrBlocks
+   * @return userCidrBlocks
+  **/
+  @Schema(description = "")
+  public List<String> getUserCidrBlocks() {
+    return userCidrBlocks;
+  }
+
+  public void setUserCidrBlocks(List<String> userCidrBlocks) {
+    this.userCidrBlocks = userCidrBlocks;
+  }
+
   public DescribeVpcAttributesResponse vpcId(String vpcId) {
     this.vpcId = vpcId;
     return this;
@@ -495,13 +524,14 @@ public class DescribeVpcAttributesResponse {
         Objects.equals(this.subnetIds, describeVpcAttributesResponse.subnetIds) &&
         Objects.equals(this.tags, describeVpcAttributesResponse.tags) &&
         Objects.equals(this.updateTime, describeVpcAttributesResponse.updateTime) &&
+        Objects.equals(this.userCidrBlocks, describeVpcAttributesResponse.userCidrBlocks) &&
         Objects.equals(this.vpcId, describeVpcAttributesResponse.vpcId) &&
         Objects.equals(this.vpcName, describeVpcAttributesResponse.vpcName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, associateCens, cidrBlock, creationTime, description, dnsServers, natGatewayIds, networkAclNum, projectName, requestId, routeTableIds, securityGroupIds, status, subnetIds, tags, updateTime, vpcId, vpcName);
+    return Objects.hash(accountId, associateCens, cidrBlock, creationTime, description, dnsServers, natGatewayIds, networkAclNum, projectName, requestId, routeTableIds, securityGroupIds, status, subnetIds, tags, updateTime, userCidrBlocks, vpcId, vpcName);
   }
 
 
@@ -526,6 +556,7 @@ public class DescribeVpcAttributesResponse {
     sb.append("    subnetIds: ").append(toIndentedString(subnetIds)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
+    sb.append("    userCidrBlocks: ").append(toIndentedString(userCidrBlocks)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("    vpcName: ").append(toIndentedString(vpcName)).append("\n");
     sb.append("}");

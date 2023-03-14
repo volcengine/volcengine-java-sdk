@@ -44,6 +44,12 @@ public class DescribeCenRouteEntriesRequest {
   @SerializedName("InstanceType")
   private String instanceType = null;
 
+  @SerializedName("PageNumber")
+  private Integer pageNumber = null;
+
+  @SerializedName("PageSize")
+  private Integer pageSize = null;
+
   public DescribeCenRouteEntriesRequest cenId(String cenId) {
     this.cenId = cenId;
     return this;
@@ -134,6 +140,42 @@ public class DescribeCenRouteEntriesRequest {
     this.instanceType = instanceType;
   }
 
+  public DescribeCenRouteEntriesRequest pageNumber(Integer pageNumber) {
+    this.pageNumber = pageNumber;
+    return this;
+  }
+
+   /**
+   * Get pageNumber
+   * @return pageNumber
+  **/
+  @Schema(description = "")
+  public Integer getPageNumber() {
+    return pageNumber;
+  }
+
+  public void setPageNumber(Integer pageNumber) {
+    this.pageNumber = pageNumber;
+  }
+
+  public DescribeCenRouteEntriesRequest pageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+    return this;
+  }
+
+   /**
+   * Get pageSize
+   * @return pageSize
+  **/
+  @Schema(description = "")
+  public Integer getPageSize() {
+    return pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -148,12 +190,14 @@ public class DescribeCenRouteEntriesRequest {
         Objects.equals(this.destinationCidrBlock, describeCenRouteEntriesRequest.destinationCidrBlock) &&
         Objects.equals(this.instanceId, describeCenRouteEntriesRequest.instanceId) &&
         Objects.equals(this.instanceRegionId, describeCenRouteEntriesRequest.instanceRegionId) &&
-        Objects.equals(this.instanceType, describeCenRouteEntriesRequest.instanceType);
+        Objects.equals(this.instanceType, describeCenRouteEntriesRequest.instanceType) &&
+        Objects.equals(this.pageNumber, describeCenRouteEntriesRequest.pageNumber) &&
+        Objects.equals(this.pageSize, describeCenRouteEntriesRequest.pageSize);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cenId, destinationCidrBlock, instanceId, instanceRegionId, instanceType);
+    return Objects.hash(cenId, destinationCidrBlock, instanceId, instanceRegionId, instanceType, pageNumber, pageSize);
   }
 
 
@@ -167,6 +211,8 @@ public class DescribeCenRouteEntriesRequest {
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    instanceRegionId: ").append(toIndentedString(instanceRegionId)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
+    sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
+    sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("}");
     return sb.toString();
   }

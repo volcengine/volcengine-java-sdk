@@ -29,6 +29,9 @@ import javax.validation.Valid;
 
 
 public class ModifyInstanceAttributeRequest {
+  @SerializedName("ClientToken")
+  private String clientToken = null;
+
   @SerializedName("Description")
   private String description = null;
 
@@ -43,6 +46,24 @@ public class ModifyInstanceAttributeRequest {
 
   @SerializedName("UserData")
   private String userData = null;
+
+  public ModifyInstanceAttributeRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
 
   public ModifyInstanceAttributeRequest description(String description) {
     this.description = description;
@@ -144,7 +165,8 @@ public class ModifyInstanceAttributeRequest {
       return false;
     }
     ModifyInstanceAttributeRequest modifyInstanceAttributeRequest = (ModifyInstanceAttributeRequest) o;
-    return Objects.equals(this.description, modifyInstanceAttributeRequest.description) &&
+    return Objects.equals(this.clientToken, modifyInstanceAttributeRequest.clientToken) &&
+        Objects.equals(this.description, modifyInstanceAttributeRequest.description) &&
         Objects.equals(this.instanceId, modifyInstanceAttributeRequest.instanceId) &&
         Objects.equals(this.instanceName, modifyInstanceAttributeRequest.instanceName) &&
         Objects.equals(this.password, modifyInstanceAttributeRequest.password) &&
@@ -153,7 +175,7 @@ public class ModifyInstanceAttributeRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, instanceId, instanceName, password, userData);
+    return Objects.hash(clientToken, description, instanceId, instanceName, password, userData);
   }
 
 
@@ -162,6 +184,7 @@ public class ModifyInstanceAttributeRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ModifyInstanceAttributeRequest {\n");
     
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");

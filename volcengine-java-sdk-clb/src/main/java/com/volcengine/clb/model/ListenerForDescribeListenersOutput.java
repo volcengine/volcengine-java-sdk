@@ -59,11 +59,20 @@ public class ListenerForDescribeListenersOutput {
   @SerializedName("ListenerName")
   private String listenerName = null;
 
+  @SerializedName("PersistenceTimeout")
+  private Integer persistenceTimeout = null;
+
+  @SerializedName("PersistenceType")
+  private String persistenceType = null;
+
   @SerializedName("Port")
   private Integer port = null;
 
   @SerializedName("Protocol")
   private String protocol = null;
+
+  @SerializedName("ProxyProtocolType")
+  private String proxyProtocolType = null;
 
   @SerializedName("ServerGroupId")
   private String serverGroupId = null;
@@ -245,6 +254,42 @@ public class ListenerForDescribeListenersOutput {
     this.listenerName = listenerName;
   }
 
+  public ListenerForDescribeListenersOutput persistenceTimeout(Integer persistenceTimeout) {
+    this.persistenceTimeout = persistenceTimeout;
+    return this;
+  }
+
+   /**
+   * Get persistenceTimeout
+   * @return persistenceTimeout
+  **/
+  @Schema(description = "")
+  public Integer getPersistenceTimeout() {
+    return persistenceTimeout;
+  }
+
+  public void setPersistenceTimeout(Integer persistenceTimeout) {
+    this.persistenceTimeout = persistenceTimeout;
+  }
+
+  public ListenerForDescribeListenersOutput persistenceType(String persistenceType) {
+    this.persistenceType = persistenceType;
+    return this;
+  }
+
+   /**
+   * Get persistenceType
+   * @return persistenceType
+  **/
+  @Schema(description = "")
+  public String getPersistenceType() {
+    return persistenceType;
+  }
+
+  public void setPersistenceType(String persistenceType) {
+    this.persistenceType = persistenceType;
+  }
+
   public ListenerForDescribeListenersOutput port(Integer port) {
     this.port = port;
     return this;
@@ -279,6 +324,24 @@ public class ListenerForDescribeListenersOutput {
 
   public void setProtocol(String protocol) {
     this.protocol = protocol;
+  }
+
+  public ListenerForDescribeListenersOutput proxyProtocolType(String proxyProtocolType) {
+    this.proxyProtocolType = proxyProtocolType;
+    return this;
+  }
+
+   /**
+   * Get proxyProtocolType
+   * @return proxyProtocolType
+  **/
+  @Schema(description = "")
+  public String getProxyProtocolType() {
+    return proxyProtocolType;
+  }
+
+  public void setProxyProtocolType(String proxyProtocolType) {
+    this.proxyProtocolType = proxyProtocolType;
   }
 
   public ListenerForDescribeListenersOutput serverGroupId(String serverGroupId) {
@@ -354,8 +417,11 @@ public class ListenerForDescribeListenersOutput {
         Objects.equals(this.healthCheck, listenerForDescribeListenersOutput.healthCheck) &&
         Objects.equals(this.listenerId, listenerForDescribeListenersOutput.listenerId) &&
         Objects.equals(this.listenerName, listenerForDescribeListenersOutput.listenerName) &&
+        Objects.equals(this.persistenceTimeout, listenerForDescribeListenersOutput.persistenceTimeout) &&
+        Objects.equals(this.persistenceType, listenerForDescribeListenersOutput.persistenceType) &&
         Objects.equals(this.port, listenerForDescribeListenersOutput.port) &&
         Objects.equals(this.protocol, listenerForDescribeListenersOutput.protocol) &&
+        Objects.equals(this.proxyProtocolType, listenerForDescribeListenersOutput.proxyProtocolType) &&
         Objects.equals(this.serverGroupId, listenerForDescribeListenersOutput.serverGroupId) &&
         Objects.equals(this.status, listenerForDescribeListenersOutput.status) &&
         Objects.equals(this.updateTime, listenerForDescribeListenersOutput.updateTime);
@@ -363,7 +429,7 @@ public class ListenerForDescribeListenersOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclIds, aclStatus, aclType, certificateId, createTime, enabled, healthCheck, listenerId, listenerName, port, protocol, serverGroupId, status, updateTime);
+    return Objects.hash(aclIds, aclStatus, aclType, certificateId, createTime, enabled, healthCheck, listenerId, listenerName, persistenceTimeout, persistenceType, port, protocol, proxyProtocolType, serverGroupId, status, updateTime);
   }
 
 
@@ -381,8 +447,11 @@ public class ListenerForDescribeListenersOutput {
     sb.append("    healthCheck: ").append(toIndentedString(healthCheck)).append("\n");
     sb.append("    listenerId: ").append(toIndentedString(listenerId)).append("\n");
     sb.append("    listenerName: ").append(toIndentedString(listenerName)).append("\n");
+    sb.append("    persistenceTimeout: ").append(toIndentedString(persistenceTimeout)).append("\n");
+    sb.append("    persistenceType: ").append(toIndentedString(persistenceType)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
+    sb.append("    proxyProtocolType: ").append(toIndentedString(proxyProtocolType)).append("\n");
     sb.append("    serverGroupId: ").append(toIndentedString(serverGroupId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");

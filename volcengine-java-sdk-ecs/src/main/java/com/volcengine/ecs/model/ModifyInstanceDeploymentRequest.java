@@ -29,11 +29,32 @@ import javax.validation.Valid;
 
 
 public class ModifyInstanceDeploymentRequest {
+  @SerializedName("ClientToken")
+  private String clientToken = null;
+
   @SerializedName("DeploymentSetId")
   private String deploymentSetId = null;
 
   @SerializedName("InstanceId")
   private String instanceId = null;
+
+  public ModifyInstanceDeploymentRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
 
   public ModifyInstanceDeploymentRequest deploymentSetId(String deploymentSetId) {
     this.deploymentSetId = deploymentSetId;
@@ -81,13 +102,14 @@ public class ModifyInstanceDeploymentRequest {
       return false;
     }
     ModifyInstanceDeploymentRequest modifyInstanceDeploymentRequest = (ModifyInstanceDeploymentRequest) o;
-    return Objects.equals(this.deploymentSetId, modifyInstanceDeploymentRequest.deploymentSetId) &&
+    return Objects.equals(this.clientToken, modifyInstanceDeploymentRequest.clientToken) &&
+        Objects.equals(this.deploymentSetId, modifyInstanceDeploymentRequest.deploymentSetId) &&
         Objects.equals(this.instanceId, modifyInstanceDeploymentRequest.instanceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(deploymentSetId, instanceId);
+    return Objects.hash(clientToken, deploymentSetId, instanceId);
   }
 
 
@@ -96,6 +118,7 @@ public class ModifyInstanceDeploymentRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ModifyInstanceDeploymentRequest {\n");
     
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    deploymentSetId: ").append(toIndentedString(deploymentSetId)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("}");

@@ -27,10 +27,31 @@ import javax.validation.Valid;
  * DeleteVolumeRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-08-01T17:18:31.130773+08:00[Asia/Shanghai]")
+
 public class DeleteVolumeRequest {
+  @SerializedName("ClientToken")
+  private String clientToken = null;
+
   @SerializedName("VolumeId")
   private String volumeId = null;
+
+  public DeleteVolumeRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
 
   public DeleteVolumeRequest volumeId(String volumeId) {
     this.volumeId = volumeId;
@@ -60,12 +81,13 @@ public class DeleteVolumeRequest {
       return false;
     }
     DeleteVolumeRequest deleteVolumeRequest = (DeleteVolumeRequest) o;
-    return Objects.equals(this.volumeId, deleteVolumeRequest.volumeId);
+    return Objects.equals(this.clientToken, deleteVolumeRequest.clientToken) &&
+        Objects.equals(this.volumeId, deleteVolumeRequest.volumeId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(volumeId);
+    return Objects.hash(clientToken, volumeId);
   }
 
 
@@ -74,6 +96,7 @@ public class DeleteVolumeRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteVolumeRequest {\n");
     
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    volumeId: ").append(toIndentedString(volumeId)).append("\n");
     sb.append("}");
     return sb.toString();

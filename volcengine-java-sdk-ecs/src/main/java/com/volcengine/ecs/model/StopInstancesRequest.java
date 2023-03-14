@@ -31,6 +31,9 @@ import javax.validation.Valid;
 
 
 public class StopInstancesRequest {
+  @SerializedName("ClientToken")
+  private String clientToken = null;
+
   @SerializedName("ForceStop")
   private Boolean forceStop = null;
 
@@ -39,6 +42,24 @@ public class StopInstancesRequest {
 
   @SerializedName("StoppedMode")
   private String stoppedMode = null;
+
+  public StopInstancesRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
 
   public StopInstancesRequest forceStop(Boolean forceStop) {
     this.forceStop = forceStop;
@@ -112,14 +133,15 @@ public class StopInstancesRequest {
       return false;
     }
     StopInstancesRequest stopInstancesRequest = (StopInstancesRequest) o;
-    return Objects.equals(this.forceStop, stopInstancesRequest.forceStop) &&
+    return Objects.equals(this.clientToken, stopInstancesRequest.clientToken) &&
+        Objects.equals(this.forceStop, stopInstancesRequest.forceStop) &&
         Objects.equals(this.instanceIds, stopInstancesRequest.instanceIds) &&
         Objects.equals(this.stoppedMode, stopInstancesRequest.stoppedMode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(forceStop, instanceIds, stoppedMode);
+    return Objects.hash(clientToken, forceStop, instanceIds, stoppedMode);
   }
 
 
@@ -128,6 +150,7 @@ public class StopInstancesRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class StopInstancesRequest {\n");
     
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    forceStop: ").append(toIndentedString(forceStop)).append("\n");
     sb.append("    instanceIds: ").append(toIndentedString(instanceIds)).append("\n");
     sb.append("    stoppedMode: ").append(toIndentedString(stoppedMode)).append("\n");
