@@ -31,6 +31,50 @@ import javax.validation.Valid;
 
 
 public class CreateVpnConnectionRequest {
+  /**
+   * Gets or Sets attachType
+   */
+  @JsonAdapter(AttachTypeEnum.Adapter.class)
+  public enum AttachTypeEnum {
+    VPNGATEWAY("VpnGateway"),
+    TRANSITROUTER("TransitRouter");
+
+    private String value;
+
+    AttachTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static AttachTypeEnum fromValue(String input) {
+      for (AttachTypeEnum b : AttachTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<AttachTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final AttachTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public AttachTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return AttachTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("AttachType")
+  private AttachTypeEnum attachType = null;
+
   @SerializedName("ClientToken")
   private String clientToken = null;
 
@@ -95,6 +139,9 @@ public class CreateVpnConnectionRequest {
   @SerializedName("LocalSubnet")
   private List<String> localSubnet = null;
 
+  @SerializedName("LogEnabled")
+  private Boolean logEnabled = null;
+
   @SerializedName("NatTraversal")
   private Boolean natTraversal = null;
 
@@ -112,6 +159,24 @@ public class CreateVpnConnectionRequest {
 
   @SerializedName("VpnGatewayId")
   private String vpnGatewayId = null;
+
+  public CreateVpnConnectionRequest attachType(AttachTypeEnum attachType) {
+    this.attachType = attachType;
+    return this;
+  }
+
+   /**
+   * Get attachType
+   * @return attachType
+  **/
+  @Schema(description = "")
+  public AttachTypeEnum getAttachType() {
+    return attachType;
+  }
+
+  public void setAttachType(AttachTypeEnum attachType) {
+    this.attachType = attachType;
+  }
 
   public CreateVpnConnectionRequest clientToken(String clientToken) {
     this.clientToken = clientToken;
@@ -248,6 +313,24 @@ public class CreateVpnConnectionRequest {
     this.localSubnet = localSubnet;
   }
 
+  public CreateVpnConnectionRequest logEnabled(Boolean logEnabled) {
+    this.logEnabled = logEnabled;
+    return this;
+  }
+
+   /**
+   * Get logEnabled
+   * @return logEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isLogEnabled() {
+    return logEnabled;
+  }
+
+  public void setLogEnabled(Boolean logEnabled) {
+    this.logEnabled = logEnabled;
+  }
+
   public CreateVpnConnectionRequest natTraversal(Boolean natTraversal) {
     this.natTraversal = natTraversal;
     return this;
@@ -375,13 +458,15 @@ public class CreateVpnConnectionRequest {
       return false;
     }
     CreateVpnConnectionRequest createVpnConnectionRequest = (CreateVpnConnectionRequest) o;
-    return Objects.equals(this.clientToken, createVpnConnectionRequest.clientToken) &&
+    return Objects.equals(this.attachType, createVpnConnectionRequest.attachType) &&
+        Objects.equals(this.clientToken, createVpnConnectionRequest.clientToken) &&
         Objects.equals(this.customerGatewayId, createVpnConnectionRequest.customerGatewayId) &&
         Objects.equals(this.description, createVpnConnectionRequest.description) &&
         Objects.equals(this.dpdAction, createVpnConnectionRequest.dpdAction) &&
         Objects.equals(this.ikeConfig, createVpnConnectionRequest.ikeConfig) &&
         Objects.equals(this.ipsecConfig, createVpnConnectionRequest.ipsecConfig) &&
         Objects.equals(this.localSubnet, createVpnConnectionRequest.localSubnet) &&
+        Objects.equals(this.logEnabled, createVpnConnectionRequest.logEnabled) &&
         Objects.equals(this.natTraversal, createVpnConnectionRequest.natTraversal) &&
         Objects.equals(this.negotiateInstantly, createVpnConnectionRequest.negotiateInstantly) &&
         Objects.equals(this.projectName, createVpnConnectionRequest.projectName) &&
@@ -392,7 +477,7 @@ public class CreateVpnConnectionRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, customerGatewayId, description, dpdAction, ikeConfig, ipsecConfig, localSubnet, natTraversal, negotiateInstantly, projectName, remoteSubnet, vpnConnectionName, vpnGatewayId);
+    return Objects.hash(attachType, clientToken, customerGatewayId, description, dpdAction, ikeConfig, ipsecConfig, localSubnet, logEnabled, natTraversal, negotiateInstantly, projectName, remoteSubnet, vpnConnectionName, vpnGatewayId);
   }
 
 
@@ -401,6 +486,7 @@ public class CreateVpnConnectionRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateVpnConnectionRequest {\n");
     
+    sb.append("    attachType: ").append(toIndentedString(attachType)).append("\n");
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    customerGatewayId: ").append(toIndentedString(customerGatewayId)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
@@ -408,6 +494,7 @@ public class CreateVpnConnectionRequest {
     sb.append("    ikeConfig: ").append(toIndentedString(ikeConfig)).append("\n");
     sb.append("    ipsecConfig: ").append(toIndentedString(ipsecConfig)).append("\n");
     sb.append("    localSubnet: ").append(toIndentedString(localSubnet)).append("\n");
+    sb.append("    logEnabled: ").append(toIndentedString(logEnabled)).append("\n");
     sb.append("    natTraversal: ").append(toIndentedString(natTraversal)).append("\n");
     sb.append("    negotiateInstantly: ").append(toIndentedString(negotiateInstantly)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");

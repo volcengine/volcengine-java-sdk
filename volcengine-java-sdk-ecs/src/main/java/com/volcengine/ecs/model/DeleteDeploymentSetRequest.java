@@ -29,8 +29,29 @@ import javax.validation.Valid;
 
 
 public class DeleteDeploymentSetRequest {
+  @SerializedName("ClientToken")
+  private String clientToken = null;
+
   @SerializedName("DeploymentSetId")
   private String deploymentSetId = null;
+
+  public DeleteDeploymentSetRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
 
   public DeleteDeploymentSetRequest deploymentSetId(String deploymentSetId) {
     this.deploymentSetId = deploymentSetId;
@@ -60,12 +81,13 @@ public class DeleteDeploymentSetRequest {
       return false;
     }
     DeleteDeploymentSetRequest deleteDeploymentSetRequest = (DeleteDeploymentSetRequest) o;
-    return Objects.equals(this.deploymentSetId, deleteDeploymentSetRequest.deploymentSetId);
+    return Objects.equals(this.clientToken, deleteDeploymentSetRequest.clientToken) &&
+        Objects.equals(this.deploymentSetId, deleteDeploymentSetRequest.deploymentSetId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(deploymentSetId);
+    return Objects.hash(clientToken, deploymentSetId);
   }
 
 
@@ -74,6 +96,7 @@ public class DeleteDeploymentSetRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteDeploymentSetRequest {\n");
     
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    deploymentSetId: ").append(toIndentedString(deploymentSetId)).append("\n");
     sb.append("}");
     return sb.toString();

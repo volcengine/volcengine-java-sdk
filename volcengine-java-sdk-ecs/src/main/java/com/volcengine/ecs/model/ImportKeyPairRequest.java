@@ -29,6 +29,9 @@ import javax.validation.Valid;
 
 
 public class ImportKeyPairRequest {
+  @SerializedName("ClientToken")
+  private String clientToken = null;
+
   @SerializedName("Description")
   private String description = null;
 
@@ -37,6 +40,24 @@ public class ImportKeyPairRequest {
 
   @SerializedName("PublicKey")
   private String publicKey = null;
+
+  public ImportKeyPairRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
 
   public ImportKeyPairRequest description(String description) {
     this.description = description;
@@ -102,14 +123,15 @@ public class ImportKeyPairRequest {
       return false;
     }
     ImportKeyPairRequest importKeyPairRequest = (ImportKeyPairRequest) o;
-    return Objects.equals(this.description, importKeyPairRequest.description) &&
+    return Objects.equals(this.clientToken, importKeyPairRequest.clientToken) &&
+        Objects.equals(this.description, importKeyPairRequest.description) &&
         Objects.equals(this.keyPairName, importKeyPairRequest.keyPairName) &&
         Objects.equals(this.publicKey, importKeyPairRequest.publicKey);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, keyPairName, publicKey);
+    return Objects.hash(clientToken, description, keyPairName, publicKey);
   }
 
 
@@ -118,6 +140,7 @@ public class ImportKeyPairRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ImportKeyPairRequest {\n");
     
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    keyPairName: ").append(toIndentedString(keyPairName)).append("\n");
     sb.append("    publicKey: ").append(toIndentedString(publicKey)).append("\n");

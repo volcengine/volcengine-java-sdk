@@ -74,6 +74,9 @@ public class DirectConnectConnectionForDescribeDirectConnectConnectionsOutput {
   @SerializedName("DirectConnectConnectionName")
   private String directConnectConnectionName = null;
 
+  @SerializedName("ExpectBandwidth")
+  private Integer expectBandwidth = null;
+
   @SerializedName("ExpiredTime")
   private String expiredTime = null;
 
@@ -359,6 +362,24 @@ public class DirectConnectConnectionForDescribeDirectConnectConnectionsOutput {
     this.directConnectConnectionName = directConnectConnectionName;
   }
 
+  public DirectConnectConnectionForDescribeDirectConnectConnectionsOutput expectBandwidth(Integer expectBandwidth) {
+    this.expectBandwidth = expectBandwidth;
+    return this;
+  }
+
+   /**
+   * Get expectBandwidth
+   * @return expectBandwidth
+  **/
+  @Schema(description = "")
+  public Integer getExpectBandwidth() {
+    return expectBandwidth;
+  }
+
+  public void setExpectBandwidth(Integer expectBandwidth) {
+    this.expectBandwidth = expectBandwidth;
+  }
+
   public DirectConnectConnectionForDescribeDirectConnectConnectionsOutput expiredTime(String expiredTime) {
     this.expiredTime = expiredTime;
     return this;
@@ -590,6 +611,7 @@ public class DirectConnectConnectionForDescribeDirectConnectConnectionsOutput {
         Objects.equals(this.directConnectAccessPointId, directConnectConnectionForDescribeDirectConnectConnectionsOutput.directConnectAccessPointId) &&
         Objects.equals(this.directConnectConnectionId, directConnectConnectionForDescribeDirectConnectConnectionsOutput.directConnectConnectionId) &&
         Objects.equals(this.directConnectConnectionName, directConnectConnectionForDescribeDirectConnectConnectionsOutput.directConnectConnectionName) &&
+        Objects.equals(this.expectBandwidth, directConnectConnectionForDescribeDirectConnectConnectionsOutput.expectBandwidth) &&
         Objects.equals(this.expiredTime, directConnectConnectionForDescribeDirectConnectConnectionsOutput.expiredTime) &&
         Objects.equals(this.lineOperator, directConnectConnectionForDescribeDirectConnectConnectionsOutput.lineOperator) &&
         Objects.equals(this.parentConnectionAccountId, directConnectConnectionForDescribeDirectConnectConnectionsOutput.parentConnectionAccountId) &&
@@ -605,7 +627,7 @@ public class DirectConnectConnectionForDescribeDirectConnectConnectionsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, bandwidth, billingType, businessStatus, connectionType, creationTime, customerContactEmail, customerContactPhone, customerName, deletedTime, description, directConnectAccessPointId, directConnectConnectionId, directConnectConnectionName, expiredTime, lineOperator, parentConnectionAccountId, parentConnectionId, peerLocation, portSpec, portType, status, tags, updateTime, vlanId);
+    return Objects.hash(accountId, bandwidth, billingType, businessStatus, connectionType, creationTime, customerContactEmail, customerContactPhone, customerName, deletedTime, description, directConnectAccessPointId, directConnectConnectionId, directConnectConnectionName, expectBandwidth, expiredTime, lineOperator, parentConnectionAccountId, parentConnectionId, peerLocation, portSpec, portType, status, tags, updateTime, vlanId);
   }
 
 
@@ -628,6 +650,7 @@ public class DirectConnectConnectionForDescribeDirectConnectConnectionsOutput {
     sb.append("    directConnectAccessPointId: ").append(toIndentedString(directConnectAccessPointId)).append("\n");
     sb.append("    directConnectConnectionId: ").append(toIndentedString(directConnectConnectionId)).append("\n");
     sb.append("    directConnectConnectionName: ").append(toIndentedString(directConnectConnectionName)).append("\n");
+    sb.append("    expectBandwidth: ").append(toIndentedString(expectBandwidth)).append("\n");
     sb.append("    expiredTime: ").append(toIndentedString(expiredTime)).append("\n");
     sb.append("    lineOperator: ").append(toIndentedString(lineOperator)).append("\n");
     sb.append("    parentConnectionAccountId: ").append(toIndentedString(parentConnectionAccountId)).append("\n");

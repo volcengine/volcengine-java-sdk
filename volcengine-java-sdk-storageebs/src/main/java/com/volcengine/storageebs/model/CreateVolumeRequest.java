@@ -19,15 +19,18 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.storageebs.model.TagForCreateVolumeInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
  * CreateVolumeRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-08-01T17:18:31.130773+08:00[Asia/Shanghai]")
+
 public class CreateVolumeRequest {
   @SerializedName("ClientToken")
   private String clientToken = null;
@@ -43,6 +46,9 @@ public class CreateVolumeRequest {
 
   @SerializedName("Size")
   private String size = null;
+
+  @SerializedName("Tags")
+  private List<TagForCreateVolumeInput> tags = null;
 
   @SerializedName("VolumeChargeType")
   private String volumeChargeType = null;
@@ -146,6 +152,33 @@ public class CreateVolumeRequest {
     this.size = size;
   }
 
+  public CreateVolumeRequest tags(List<TagForCreateVolumeInput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public CreateVolumeRequest addTagsItem(TagForCreateVolumeInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForCreateVolumeInput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForCreateVolumeInput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForCreateVolumeInput> tags) {
+    this.tags = tags;
+  }
+
   public CreateVolumeRequest volumeChargeType(String volumeChargeType) {
     this.volumeChargeType = volumeChargeType;
     return this;
@@ -233,6 +266,7 @@ public class CreateVolumeRequest {
         Objects.equals(this.kind, createVolumeRequest.kind) &&
         Objects.equals(this.projectName, createVolumeRequest.projectName) &&
         Objects.equals(this.size, createVolumeRequest.size) &&
+        Objects.equals(this.tags, createVolumeRequest.tags) &&
         Objects.equals(this.volumeChargeType, createVolumeRequest.volumeChargeType) &&
         Objects.equals(this.volumeName, createVolumeRequest.volumeName) &&
         Objects.equals(this.volumeType, createVolumeRequest.volumeType) &&
@@ -241,7 +275,7 @@ public class CreateVolumeRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, description, kind, projectName, size, volumeChargeType, volumeName, volumeType, zoneId);
+    return Objects.hash(clientToken, description, kind, projectName, size, tags, volumeChargeType, volumeName, volumeType, zoneId);
   }
 
 
@@ -255,6 +289,7 @@ public class CreateVolumeRequest {
     sb.append("    kind: ").append(toIndentedString(kind)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    volumeChargeType: ").append(toIndentedString(volumeChargeType)).append("\n");
     sb.append("    volumeName: ").append(toIndentedString(volumeName)).append("\n");
     sb.append("    volumeType: ").append(toIndentedString(volumeType)).append("\n");
