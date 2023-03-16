@@ -219,6 +219,7 @@
         <module>volcengine-java-sdk-autoscaling</module>
         <module>volcengine-java-sdk-vke</module>
         <module>volcengine-java-sdk-rdsmysql</module>
+        <module>volcengine-java-sdk-rdsmysqlv2</module>
         <module>volcengine-java-sdk-alb</module>
         <module>volcengine-java-sdk-cr</module>
         <module>volcengine-java-sdk-directconnect</module>
