@@ -19,44 +19,26 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.cr.model.VpcForGetVpcEndpointOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * GetPublicEndpointResponse
+ * GetVpcEndpointResponse
  */
 
 
-public class GetPublicEndpointResponse {
-  @SerializedName("Enabled")
-  private Boolean enabled = null;
-
+public class GetVpcEndpointResponse {
   @SerializedName("Registry")
   private String registry = null;
 
-  @SerializedName("Status")
-  private String status = null;
+  @SerializedName("Vpcs")
+  private List<VpcForGetVpcEndpointOutput> vpcs = null;
 
-  public GetPublicEndpointResponse enabled(Boolean enabled) {
-    this.enabled = enabled;
-    return this;
-  }
-
-   /**
-   * Get enabled
-   * @return enabled
-  **/
-  @Schema(description = "")
-  public Boolean isEnabled() {
-    return enabled;
-  }
-
-  public void setEnabled(Boolean enabled) {
-    this.enabled = enabled;
-  }
-
-  public GetPublicEndpointResponse registry(String registry) {
+  public GetVpcEndpointResponse registry(String registry) {
     this.registry = registry;
     return this;
   }
@@ -74,22 +56,31 @@ public class GetPublicEndpointResponse {
     this.registry = registry;
   }
 
-  public GetPublicEndpointResponse status(String status) {
-    this.status = status;
+  public GetVpcEndpointResponse vpcs(List<VpcForGetVpcEndpointOutput> vpcs) {
+    this.vpcs = vpcs;
+    return this;
+  }
+
+  public GetVpcEndpointResponse addVpcsItem(VpcForGetVpcEndpointOutput vpcsItem) {
+    if (this.vpcs == null) {
+      this.vpcs = new ArrayList<VpcForGetVpcEndpointOutput>();
+    }
+    this.vpcs.add(vpcsItem);
     return this;
   }
 
    /**
-   * Get status
-   * @return status
+   * Get vpcs
+   * @return vpcs
   **/
+  @Valid
   @Schema(description = "")
-  public String getStatus() {
-    return status;
+  public List<VpcForGetVpcEndpointOutput> getVpcs() {
+    return vpcs;
   }
 
-  public void setStatus(String status) {
-    this.status = status;
+  public void setVpcs(List<VpcForGetVpcEndpointOutput> vpcs) {
+    this.vpcs = vpcs;
   }
 
 
@@ -101,26 +92,24 @@ public class GetPublicEndpointResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GetPublicEndpointResponse getPublicEndpointResponse = (GetPublicEndpointResponse) o;
-    return Objects.equals(this.enabled, getPublicEndpointResponse.enabled) &&
-        Objects.equals(this.registry, getPublicEndpointResponse.registry) &&
-        Objects.equals(this.status, getPublicEndpointResponse.status);
+    GetVpcEndpointResponse getVpcEndpointResponse = (GetVpcEndpointResponse) o;
+    return Objects.equals(this.registry, getVpcEndpointResponse.registry) &&
+        Objects.equals(this.vpcs, getVpcEndpointResponse.vpcs);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(enabled, registry, status);
+    return Objects.hash(registry, vpcs);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetPublicEndpointResponse {\n");
+    sb.append("class GetVpcEndpointResponse {\n");
     
-    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    registry: ").append(toIndentedString(registry)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    vpcs: ").append(toIndentedString(vpcs)).append("\n");
     sb.append("}");
     return sb.toString();
   }

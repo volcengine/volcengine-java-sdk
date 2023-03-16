@@ -21,54 +21,43 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DeleteNamespaceRequest
+ * FilterForGetVpcEndpointInput
  */
 
 
-public class DeleteNamespaceRequest {
-  @SerializedName("Name")
-  private String name = null;
+public class FilterForGetVpcEndpointInput {
+  @SerializedName("Statuses")
+  private List<String> statuses = null;
 
-  @SerializedName("Registry")
-  private String registry = null;
+  public FilterForGetVpcEndpointInput statuses(List<String> statuses) {
+    this.statuses = statuses;
+    return this;
+  }
 
-  public DeleteNamespaceRequest name(String name) {
-    this.name = name;
+  public FilterForGetVpcEndpointInput addStatusesItem(String statusesItem) {
+    if (this.statuses == null) {
+      this.statuses = new ArrayList<String>();
+    }
+    this.statuses.add(statusesItem);
     return this;
   }
 
    /**
-   * Get name
-   * @return name
+   * Get statuses
+   * @return statuses
   **/
   @Schema(description = "")
-  public String getName() {
-    return name;
+  public List<String> getStatuses() {
+    return statuses;
   }
 
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public DeleteNamespaceRequest registry(String registry) {
-    this.registry = registry;
-    return this;
-  }
-
-   /**
-   * Get registry
-   * @return registry
-  **/
-  @Schema(description = "")
-  public String getRegistry() {
-    return registry;
-  }
-
-  public void setRegistry(String registry) {
-    this.registry = registry;
+  public void setStatuses(List<String> statuses) {
+    this.statuses = statuses;
   }
 
 
@@ -80,24 +69,22 @@ public class DeleteNamespaceRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeleteNamespaceRequest deleteNamespaceRequest = (DeleteNamespaceRequest) o;
-    return Objects.equals(this.name, deleteNamespaceRequest.name) &&
-        Objects.equals(this.registry, deleteNamespaceRequest.registry);
+    FilterForGetVpcEndpointInput filterForGetVpcEndpointInput = (FilterForGetVpcEndpointInput) o;
+    return Objects.equals(this.statuses, filterForGetVpcEndpointInput.statuses);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, registry);
+    return Objects.hash(statuses);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeleteNamespaceRequest {\n");
+    sb.append("class FilterForGetVpcEndpointInput {\n");
     
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    registry: ").append(toIndentedString(registry)).append("\n");
+    sb.append("    statuses: ").append(toIndentedString(statuses)).append("\n");
     sb.append("}");
     return sb.toString();
   }
