@@ -224,5 +224,6 @@
         <module>volcengine-java-sdk-directconnect</module>
         <module>volcengine-java-sdk-mongodb</module>
         <module>volcengine-java-sdk-volcobserve</module>
+        <module>volcengine-java-sdk-rdsmysqlv2</module>
     </modules>
 </project>
