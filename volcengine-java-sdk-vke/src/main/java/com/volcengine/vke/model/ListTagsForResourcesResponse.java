@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.vke.model.ResourceTagForListTagsForResourceOutput;
+import com.volcengine.vke.model.ResourceTagForListTagsForResourcesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -27,18 +27,18 @@ import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ListTagsForResourceResponse
+ * ListTagsForResourcesResponse
  */
 
 
-public class ListTagsForResourceResponse {
+public class ListTagsForResourcesResponse {
   @SerializedName("NextToken")
   private String nextToken = null;
 
   @SerializedName("ResourceTags")
-  private List<ResourceTagForListTagsForResourceOutput> resourceTags = null;
+  private List<ResourceTagForListTagsForResourcesOutput> resourceTags = null;
 
-  public ListTagsForResourceResponse nextToken(String nextToken) {
+  public ListTagsForResourcesResponse nextToken(String nextToken) {
     this.nextToken = nextToken;
     return this;
   }
@@ -56,14 +56,14 @@ public class ListTagsForResourceResponse {
     this.nextToken = nextToken;
   }
 
-  public ListTagsForResourceResponse resourceTags(List<ResourceTagForListTagsForResourceOutput> resourceTags) {
+  public ListTagsForResourcesResponse resourceTags(List<ResourceTagForListTagsForResourcesOutput> resourceTags) {
     this.resourceTags = resourceTags;
     return this;
   }
 
-  public ListTagsForResourceResponse addResourceTagsItem(ResourceTagForListTagsForResourceOutput resourceTagsItem) {
+  public ListTagsForResourcesResponse addResourceTagsItem(ResourceTagForListTagsForResourcesOutput resourceTagsItem) {
     if (this.resourceTags == null) {
-      this.resourceTags = new ArrayList<ResourceTagForListTagsForResourceOutput>();
+      this.resourceTags = new ArrayList<ResourceTagForListTagsForResourcesOutput>();
     }
     this.resourceTags.add(resourceTagsItem);
     return this;
@@ -75,11 +75,11 @@ public class ListTagsForResourceResponse {
   **/
   @Valid
   @Schema(description = "")
-  public List<ResourceTagForListTagsForResourceOutput> getResourceTags() {
+  public List<ResourceTagForListTagsForResourcesOutput> getResourceTags() {
     return resourceTags;
   }
 
-  public void setResourceTags(List<ResourceTagForListTagsForResourceOutput> resourceTags) {
+  public void setResourceTags(List<ResourceTagForListTagsForResourcesOutput> resourceTags) {
     this.resourceTags = resourceTags;
   }
 
@@ -92,9 +92,9 @@ public class ListTagsForResourceResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ListTagsForResourceResponse listTagsForResourceResponse = (ListTagsForResourceResponse) o;
-    return Objects.equals(this.nextToken, listTagsForResourceResponse.nextToken) &&
-        Objects.equals(this.resourceTags, listTagsForResourceResponse.resourceTags);
+    ListTagsForResourcesResponse listTagsForResourcesResponse = (ListTagsForResourcesResponse) o;
+    return Objects.equals(this.nextToken, listTagsForResourcesResponse.nextToken) &&
+        Objects.equals(this.resourceTags, listTagsForResourcesResponse.resourceTags);
   }
 
   @Override
@@ -106,7 +106,7 @@ public class ListTagsForResourceResponse {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ListTagsForResourceResponse {\n");
+    sb.append("class ListTagsForResourcesResponse {\n");
     
     sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
     sb.append("    resourceTags: ").append(toIndentedString(resourceTags)).append("\n");

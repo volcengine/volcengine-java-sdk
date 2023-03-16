@@ -55,7 +55,8 @@ public class SystemEventForDescribeSystemEventsOutput {
     FAILED("Failed"),
     INQUIRING("Inquiring"),
     SCHEDULED("Scheduled"),
-    REJECTED("Rejected");
+    REJECTED("Rejected"),
+    CANCELED("Canceled");
 
     private String value;
 
@@ -118,7 +119,8 @@ public class SystemEventForDescribeSystemEventsOutput {
     INSTANCECONFIGURATION_CHANGE("InstanceConfiguration_Change"),
     FILESYSTEMREADONLY_CHANGE("FileSystemReadOnly_Change"),
     REBOOTINSTANCE("RebootInstance"),
-    INSTANCEFAILURE("InstanceFailure");
+    INSTANCEFAILURE("InstanceFailure"),
+    APPLICATIONFAILURE("ApplicationFailure");
 
     private String value;
 

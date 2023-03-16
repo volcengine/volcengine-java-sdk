@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.vke.model.TagFilterForListTagsForResourceInput;
+import com.volcengine.vke.model.TagFilterForListTagsForResourcesInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -27,11 +27,11 @@ import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ListTagsForResourceRequest
+ * ListTagsForResourcesRequest
  */
 
 
-public class ListTagsForResourceRequest {
+public class ListTagsForResourcesRequest {
   @SerializedName("MaxResults")
   private Integer maxResults = null;
 
@@ -86,7 +86,7 @@ public class ListTagsForResourceRequest {
   private ResourceTypeEnum resourceType = null;
 
   @SerializedName("TagFilters")
-  private List<TagFilterForListTagsForResourceInput> tagFilters = null;
+  private List<TagFilterForListTagsForResourcesInput> tagFilters = null;
 
   /**
    * Gets or Sets type
@@ -132,7 +132,7 @@ public class ListTagsForResourceRequest {
   }  @SerializedName("Type")
   private TypeEnum type = null;
 
-  public ListTagsForResourceRequest maxResults(Integer maxResults) {
+  public ListTagsForResourcesRequest maxResults(Integer maxResults) {
     this.maxResults = maxResults;
     return this;
   }
@@ -150,7 +150,7 @@ public class ListTagsForResourceRequest {
     this.maxResults = maxResults;
   }
 
-  public ListTagsForResourceRequest nextToken(String nextToken) {
+  public ListTagsForResourcesRequest nextToken(String nextToken) {
     this.nextToken = nextToken;
     return this;
   }
@@ -168,12 +168,12 @@ public class ListTagsForResourceRequest {
     this.nextToken = nextToken;
   }
 
-  public ListTagsForResourceRequest resourceIds(List<String> resourceIds) {
+  public ListTagsForResourcesRequest resourceIds(List<String> resourceIds) {
     this.resourceIds = resourceIds;
     return this;
   }
 
-  public ListTagsForResourceRequest addResourceIdsItem(String resourceIdsItem) {
+  public ListTagsForResourcesRequest addResourceIdsItem(String resourceIdsItem) {
     if (this.resourceIds == null) {
       this.resourceIds = new ArrayList<String>();
     }
@@ -194,7 +194,7 @@ public class ListTagsForResourceRequest {
     this.resourceIds = resourceIds;
   }
 
-  public ListTagsForResourceRequest resourceType(ResourceTypeEnum resourceType) {
+  public ListTagsForResourcesRequest resourceType(ResourceTypeEnum resourceType) {
     this.resourceType = resourceType;
     return this;
   }
@@ -212,14 +212,14 @@ public class ListTagsForResourceRequest {
     this.resourceType = resourceType;
   }
 
-  public ListTagsForResourceRequest tagFilters(List<TagFilterForListTagsForResourceInput> tagFilters) {
+  public ListTagsForResourcesRequest tagFilters(List<TagFilterForListTagsForResourcesInput> tagFilters) {
     this.tagFilters = tagFilters;
     return this;
   }
 
-  public ListTagsForResourceRequest addTagFiltersItem(TagFilterForListTagsForResourceInput tagFiltersItem) {
+  public ListTagsForResourcesRequest addTagFiltersItem(TagFilterForListTagsForResourcesInput tagFiltersItem) {
     if (this.tagFilters == null) {
-      this.tagFilters = new ArrayList<TagFilterForListTagsForResourceInput>();
+      this.tagFilters = new ArrayList<TagFilterForListTagsForResourcesInput>();
     }
     this.tagFilters.add(tagFiltersItem);
     return this;
@@ -231,15 +231,15 @@ public class ListTagsForResourceRequest {
   **/
   @Valid
   @Schema(description = "")
-  public List<TagFilterForListTagsForResourceInput> getTagFilters() {
+  public List<TagFilterForListTagsForResourcesInput> getTagFilters() {
     return tagFilters;
   }
 
-  public void setTagFilters(List<TagFilterForListTagsForResourceInput> tagFilters) {
+  public void setTagFilters(List<TagFilterForListTagsForResourcesInput> tagFilters) {
     this.tagFilters = tagFilters;
   }
 
-  public ListTagsForResourceRequest type(TypeEnum type) {
+  public ListTagsForResourcesRequest type(TypeEnum type) {
     this.type = type;
     return this;
   }
@@ -266,13 +266,13 @@ public class ListTagsForResourceRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ListTagsForResourceRequest listTagsForResourceRequest = (ListTagsForResourceRequest) o;
-    return Objects.equals(this.maxResults, listTagsForResourceRequest.maxResults) &&
-        Objects.equals(this.nextToken, listTagsForResourceRequest.nextToken) &&
-        Objects.equals(this.resourceIds, listTagsForResourceRequest.resourceIds) &&
-        Objects.equals(this.resourceType, listTagsForResourceRequest.resourceType) &&
-        Objects.equals(this.tagFilters, listTagsForResourceRequest.tagFilters) &&
-        Objects.equals(this.type, listTagsForResourceRequest.type);
+    ListTagsForResourcesRequest listTagsForResourcesRequest = (ListTagsForResourcesRequest) o;
+    return Objects.equals(this.maxResults, listTagsForResourcesRequest.maxResults) &&
+        Objects.equals(this.nextToken, listTagsForResourcesRequest.nextToken) &&
+        Objects.equals(this.resourceIds, listTagsForResourcesRequest.resourceIds) &&
+        Objects.equals(this.resourceType, listTagsForResourcesRequest.resourceType) &&
+        Objects.equals(this.tagFilters, listTagsForResourcesRequest.tagFilters) &&
+        Objects.equals(this.type, listTagsForResourcesRequest.type);
   }
 
   @Override
@@ -284,7 +284,7 @@ public class ListTagsForResourceRequest {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ListTagsForResourceRequest {\n");
+    sb.append("class ListTagsForResourcesRequest {\n");
     
     sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
     sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");

@@ -47,6 +47,9 @@ public class SecurityGroupForDescribeSecurityGroupsOutput {
   @SerializedName("SecurityGroupName")
   private String securityGroupName = null;
 
+  @SerializedName("ServiceManaged")
+  private Boolean serviceManaged = null;
+
   @SerializedName("Status")
   private String status = null;
 
@@ -149,6 +152,24 @@ public class SecurityGroupForDescribeSecurityGroupsOutput {
     this.securityGroupName = securityGroupName;
   }
 
+  public SecurityGroupForDescribeSecurityGroupsOutput serviceManaged(Boolean serviceManaged) {
+    this.serviceManaged = serviceManaged;
+    return this;
+  }
+
+   /**
+   * Get serviceManaged
+   * @return serviceManaged
+  **/
+  @Schema(description = "")
+  public Boolean isServiceManaged() {
+    return serviceManaged;
+  }
+
+  public void setServiceManaged(Boolean serviceManaged) {
+    this.serviceManaged = serviceManaged;
+  }
+
   public SecurityGroupForDescribeSecurityGroupsOutput status(String status) {
     this.status = status;
     return this;
@@ -245,6 +266,7 @@ public class SecurityGroupForDescribeSecurityGroupsOutput {
         Objects.equals(this.projectName, securityGroupForDescribeSecurityGroupsOutput.projectName) &&
         Objects.equals(this.securityGroupId, securityGroupForDescribeSecurityGroupsOutput.securityGroupId) &&
         Objects.equals(this.securityGroupName, securityGroupForDescribeSecurityGroupsOutput.securityGroupName) &&
+        Objects.equals(this.serviceManaged, securityGroupForDescribeSecurityGroupsOutput.serviceManaged) &&
         Objects.equals(this.status, securityGroupForDescribeSecurityGroupsOutput.status) &&
         Objects.equals(this.tags, securityGroupForDescribeSecurityGroupsOutput.tags) &&
         Objects.equals(this.type, securityGroupForDescribeSecurityGroupsOutput.type) &&
@@ -253,7 +275,7 @@ public class SecurityGroupForDescribeSecurityGroupsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(creationTime, description, projectName, securityGroupId, securityGroupName, status, tags, type, vpcId);
+    return Objects.hash(creationTime, description, projectName, securityGroupId, securityGroupName, serviceManaged, status, tags, type, vpcId);
   }
 
 
@@ -267,6 +289,7 @@ public class SecurityGroupForDescribeSecurityGroupsOutput {
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    securityGroupId: ").append(toIndentedString(securityGroupId)).append("\n");
     sb.append("    securityGroupName: ").append(toIndentedString(securityGroupName)).append("\n");
+    sb.append("    serviceManaged: ").append(toIndentedString(serviceManaged)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");

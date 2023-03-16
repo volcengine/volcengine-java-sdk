@@ -131,6 +131,7 @@ public class FilterForListSupportedAddonsInput {
    */
   @JsonAdapter(DeployNodeTypesEnum.Adapter.class)
   public enum DeployNodeTypesEnum {
+    EDGENODE("EdgeNode"),
     NODE("Node"),
     VIRTUALNODE("VirtualNode");
 

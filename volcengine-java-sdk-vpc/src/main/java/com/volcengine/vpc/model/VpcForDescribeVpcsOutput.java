@@ -78,6 +78,9 @@ public class VpcForDescribeVpcsOutput {
   @SerializedName("UpdateTime")
   private String updateTime = null;
 
+  @SerializedName("UserCidrBlocks")
+  private List<String> userCidrBlocks = null;
+
   @SerializedName("VpcId")
   private String vpcId = null;
 
@@ -412,6 +415,32 @@ public class VpcForDescribeVpcsOutput {
     this.updateTime = updateTime;
   }
 
+  public VpcForDescribeVpcsOutput userCidrBlocks(List<String> userCidrBlocks) {
+    this.userCidrBlocks = userCidrBlocks;
+    return this;
+  }
+
+  public VpcForDescribeVpcsOutput addUserCidrBlocksItem(String userCidrBlocksItem) {
+    if (this.userCidrBlocks == null) {
+      this.userCidrBlocks = new ArrayList<String>();
+    }
+    this.userCidrBlocks.add(userCidrBlocksItem);
+    return this;
+  }
+
+   /**
+   * Get userCidrBlocks
+   * @return userCidrBlocks
+  **/
+  @Schema(description = "")
+  public List<String> getUserCidrBlocks() {
+    return userCidrBlocks;
+  }
+
+  public void setUserCidrBlocks(List<String> userCidrBlocks) {
+    this.userCidrBlocks = userCidrBlocks;
+  }
+
   public VpcForDescribeVpcsOutput vpcId(String vpcId) {
     this.vpcId = vpcId;
     return this;
@@ -473,13 +502,14 @@ public class VpcForDescribeVpcsOutput {
         Objects.equals(this.subnetIds, vpcForDescribeVpcsOutput.subnetIds) &&
         Objects.equals(this.tags, vpcForDescribeVpcsOutput.tags) &&
         Objects.equals(this.updateTime, vpcForDescribeVpcsOutput.updateTime) &&
+        Objects.equals(this.userCidrBlocks, vpcForDescribeVpcsOutput.userCidrBlocks) &&
         Objects.equals(this.vpcId, vpcForDescribeVpcsOutput.vpcId) &&
         Objects.equals(this.vpcName, vpcForDescribeVpcsOutput.vpcName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, associateCens, cidrBlock, creationTime, description, dnsServers, natGatewayIds, networkAclNum, projectName, routeTableIds, securityGroupIds, status, subnetIds, tags, updateTime, vpcId, vpcName);
+    return Objects.hash(accountId, associateCens, cidrBlock, creationTime, description, dnsServers, natGatewayIds, networkAclNum, projectName, routeTableIds, securityGroupIds, status, subnetIds, tags, updateTime, userCidrBlocks, vpcId, vpcName);
   }
 
 
@@ -503,6 +533,7 @@ public class VpcForDescribeVpcsOutput {
     sb.append("    subnetIds: ").append(toIndentedString(subnetIds)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
+    sb.append("    userCidrBlocks: ").append(toIndentedString(userCidrBlocks)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("    vpcName: ").append(toIndentedString(vpcName)).append("\n");
     sb.append("}");

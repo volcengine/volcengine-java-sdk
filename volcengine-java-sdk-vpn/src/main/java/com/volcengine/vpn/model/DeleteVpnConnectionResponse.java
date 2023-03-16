@@ -29,8 +29,29 @@ import javax.validation.Valid;
 
 
 public class DeleteVpnConnectionResponse {
+  @SerializedName("OrderId")
+  private String orderId = null;
+
   @SerializedName("RequestId")
   private String requestId = null;
+
+  public DeleteVpnConnectionResponse orderId(String orderId) {
+    this.orderId = orderId;
+    return this;
+  }
+
+   /**
+   * Get orderId
+   * @return orderId
+  **/
+  @Schema(description = "")
+  public String getOrderId() {
+    return orderId;
+  }
+
+  public void setOrderId(String orderId) {
+    this.orderId = orderId;
+  }
 
   public DeleteVpnConnectionResponse requestId(String requestId) {
     this.requestId = requestId;
@@ -60,12 +81,13 @@ public class DeleteVpnConnectionResponse {
       return false;
     }
     DeleteVpnConnectionResponse deleteVpnConnectionResponse = (DeleteVpnConnectionResponse) o;
-    return Objects.equals(this.requestId, deleteVpnConnectionResponse.requestId);
+    return Objects.equals(this.orderId, deleteVpnConnectionResponse.orderId) &&
+        Objects.equals(this.requestId, deleteVpnConnectionResponse.requestId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestId);
+    return Objects.hash(orderId, requestId);
   }
 
 
@@ -74,6 +96,7 @@ public class DeleteVpnConnectionResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteVpnConnectionResponse {\n");
     
+    sb.append("    orderId: ").append(toIndentedString(orderId)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("}");
     return sb.toString();
