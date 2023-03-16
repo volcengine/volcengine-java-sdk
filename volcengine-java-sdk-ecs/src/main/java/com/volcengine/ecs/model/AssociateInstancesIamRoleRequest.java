@@ -31,11 +31,32 @@ import javax.validation.Valid;
 
 
 public class AssociateInstancesIamRoleRequest {
+  @SerializedName("ClientToken")
+  private String clientToken = null;
+
   @SerializedName("IamRoleName")
   private String iamRoleName = null;
 
   @SerializedName("InstanceIds")
   private List<String> instanceIds = null;
+
+  public AssociateInstancesIamRoleRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
 
   public AssociateInstancesIamRoleRequest iamRoleName(String iamRoleName) {
     this.iamRoleName = iamRoleName;
@@ -91,13 +112,14 @@ public class AssociateInstancesIamRoleRequest {
       return false;
     }
     AssociateInstancesIamRoleRequest associateInstancesIamRoleRequest = (AssociateInstancesIamRoleRequest) o;
-    return Objects.equals(this.iamRoleName, associateInstancesIamRoleRequest.iamRoleName) &&
+    return Objects.equals(this.clientToken, associateInstancesIamRoleRequest.clientToken) &&
+        Objects.equals(this.iamRoleName, associateInstancesIamRoleRequest.iamRoleName) &&
         Objects.equals(this.instanceIds, associateInstancesIamRoleRequest.instanceIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(iamRoleName, instanceIds);
+    return Objects.hash(clientToken, iamRoleName, instanceIds);
   }
 
 
@@ -106,6 +128,7 @@ public class AssociateInstancesIamRoleRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class AssociateInstancesIamRoleRequest {\n");
     
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    iamRoleName: ").append(toIndentedString(iamRoleName)).append("\n");
     sb.append("    instanceIds: ").append(toIndentedString(instanceIds)).append("\n");
     sb.append("}");

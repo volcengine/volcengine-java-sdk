@@ -90,6 +90,7 @@ public class ItemForListSupportedAddonsOutput {
    */
   @JsonAdapter(DeployNodeTypesEnum.Adapter.class)
   public enum DeployNodeTypesEnum {
+    EDGENODE("EdgeNode"),
     NODE("Node"),
     VIRTUALNODE("VirtualNode");
 

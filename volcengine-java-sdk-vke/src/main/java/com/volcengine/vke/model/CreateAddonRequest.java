@@ -82,6 +82,51 @@ public class CreateAddonRequest {
   }  @SerializedName("DeployMode")
   private DeployModeEnum deployMode = null;
 
+  /**
+   * Gets or Sets deployNodeType
+   */
+  @JsonAdapter(DeployNodeTypeEnum.Adapter.class)
+  public enum DeployNodeTypeEnum {
+    EDGENODE("EdgeNode"),
+    NODE("Node"),
+    VIRTUALNODE("VirtualNode");
+
+    private String value;
+
+    DeployNodeTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static DeployNodeTypeEnum fromValue(String input) {
+      for (DeployNodeTypeEnum b : DeployNodeTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<DeployNodeTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final DeployNodeTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public DeployNodeTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return DeployNodeTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("DeployNodeType")
+  private DeployNodeTypeEnum deployNodeType = null;
+
   @SerializedName("Name")
   private String name = null;
 
@@ -160,6 +205,24 @@ public class CreateAddonRequest {
     this.deployMode = deployMode;
   }
 
+  public CreateAddonRequest deployNodeType(DeployNodeTypeEnum deployNodeType) {
+    this.deployNodeType = deployNodeType;
+    return this;
+  }
+
+   /**
+   * Get deployNodeType
+   * @return deployNodeType
+  **/
+  @Schema(description = "")
+  public DeployNodeTypeEnum getDeployNodeType() {
+    return deployNodeType;
+  }
+
+  public void setDeployNodeType(DeployNodeTypeEnum deployNodeType) {
+    this.deployNodeType = deployNodeType;
+  }
+
   public CreateAddonRequest name(String name) {
     this.name = name;
     return this;
@@ -210,13 +273,14 @@ public class CreateAddonRequest {
         Objects.equals(this.clusterId, createAddonRequest.clusterId) &&
         Objects.equals(this.config, createAddonRequest.config) &&
         Objects.equals(this.deployMode, createAddonRequest.deployMode) &&
+        Objects.equals(this.deployNodeType, createAddonRequest.deployNodeType) &&
         Objects.equals(this.name, createAddonRequest.name) &&
         Objects.equals(this.version, createAddonRequest.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, clusterId, config, deployMode, name, version);
+    return Objects.hash(clientToken, clusterId, config, deployMode, deployNodeType, name, version);
   }
 
 
@@ -229,6 +293,7 @@ public class CreateAddonRequest {
     sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    config: ").append(toIndentedString(config)).append("\n");
     sb.append("    deployMode: ").append(toIndentedString(deployMode)).append("\n");
+    sb.append("    deployNodeType: ").append(toIndentedString(deployNodeType)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
