@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * DBAddressForDescribeDBEndpointOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-19T10:07:26.552898+08:00[Asia/Shanghai]")
+
 public class DBAddressForDescribeDBEndpointOutput {
   @SerializedName("AddressDomain")
   private String addressDomain = null;
@@ -38,49 +38,8 @@ public class DBAddressForDescribeDBEndpointOutput {
   @SerializedName("AddressPort")
   private String addressPort = null;
 
-  /**
-   * Gets or Sets addressType
-   */
-  @JsonAdapter(AddressTypeEnum.Adapter.class)
-  public enum AddressTypeEnum {
-    PRIMARY("Primary"),
-    SECONDARY("Secondary");
-
-    private String value;
-
-    AddressTypeEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static AddressTypeEnum fromValue(String input) {
-      for (AddressTypeEnum b : AddressTypeEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<AddressTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final AddressTypeEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public AddressTypeEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return AddressTypeEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("AddressType")
-  private AddressTypeEnum addressType = null;
+  @SerializedName("AddressType")
+  private String addressType = null;
 
   @SerializedName("EipId")
   private String eipId = null;
@@ -142,7 +101,7 @@ public class DBAddressForDescribeDBEndpointOutput {
     this.addressPort = addressPort;
   }
 
-  public DBAddressForDescribeDBEndpointOutput addressType(AddressTypeEnum addressType) {
+  public DBAddressForDescribeDBEndpointOutput addressType(String addressType) {
     this.addressType = addressType;
     return this;
   }
@@ -152,11 +111,11 @@ public class DBAddressForDescribeDBEndpointOutput {
    * @return addressType
   **/
   @Schema(description = "")
-  public AddressTypeEnum getAddressType() {
+  public String getAddressType() {
     return addressType;
   }
 
-  public void setAddressType(AddressTypeEnum addressType) {
+  public void setAddressType(String addressType) {
     this.addressType = addressType;
   }
 

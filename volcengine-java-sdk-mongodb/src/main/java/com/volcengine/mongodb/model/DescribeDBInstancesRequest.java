@@ -19,15 +19,18 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.mongodb.model.TagFilterForDescribeDBInstancesInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
  * DescribeDBInstancesRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-19T10:07:26.552898+08:00[Asia/Shanghai]")
+
 public class DescribeDBInstancesRequest {
   @SerializedName("CreateEndTime")
   private String createEndTime = null;
@@ -251,6 +254,9 @@ public class DescribeDBInstancesRequest {
   @SerializedName("PageSize")
   private Integer pageSize = null;
 
+  @SerializedName("TagFilters")
+  private List<TagFilterForDescribeDBInstancesInput> tagFilters = null;
+
   @SerializedName("UpdateEndTime")
   private String updateEndTime = null;
 
@@ -443,6 +449,33 @@ public class DescribeDBInstancesRequest {
     this.pageSize = pageSize;
   }
 
+  public DescribeDBInstancesRequest tagFilters(List<TagFilterForDescribeDBInstancesInput> tagFilters) {
+    this.tagFilters = tagFilters;
+    return this;
+  }
+
+  public DescribeDBInstancesRequest addTagFiltersItem(TagFilterForDescribeDBInstancesInput tagFiltersItem) {
+    if (this.tagFilters == null) {
+      this.tagFilters = new ArrayList<TagFilterForDescribeDBInstancesInput>();
+    }
+    this.tagFilters.add(tagFiltersItem);
+    return this;
+  }
+
+   /**
+   * Get tagFilters
+   * @return tagFilters
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagFilterForDescribeDBInstancesInput> getTagFilters() {
+    return tagFilters;
+  }
+
+  public void setTagFilters(List<TagFilterForDescribeDBInstancesInput> tagFilters) {
+    this.tagFilters = tagFilters;
+  }
+
   public DescribeDBInstancesRequest updateEndTime(String updateEndTime) {
     this.updateEndTime = updateEndTime;
     return this;
@@ -535,6 +568,7 @@ public class DescribeDBInstancesRequest {
         Objects.equals(this.instanceType, describeDBInstancesRequest.instanceType) &&
         Objects.equals(this.pageNumber, describeDBInstancesRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeDBInstancesRequest.pageSize) &&
+        Objects.equals(this.tagFilters, describeDBInstancesRequest.tagFilters) &&
         Objects.equals(this.updateEndTime, describeDBInstancesRequest.updateEndTime) &&
         Objects.equals(this.updateStartTime, describeDBInstancesRequest.updateStartTime) &&
         Objects.equals(this.vpcId, describeDBInstancesRequest.vpcId) &&
@@ -543,7 +577,7 @@ public class DescribeDBInstancesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createEndTime, createStartTime, dbEngine, dbEngineVersion, instanceId, instanceName, instanceStatus, instanceType, pageNumber, pageSize, updateEndTime, updateStartTime, vpcId, zoneId);
+    return Objects.hash(createEndTime, createStartTime, dbEngine, dbEngineVersion, instanceId, instanceName, instanceStatus, instanceType, pageNumber, pageSize, tagFilters, updateEndTime, updateStartTime, vpcId, zoneId);
   }
 
 
@@ -562,6 +596,7 @@ public class DescribeDBInstancesRequest {
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("    updateEndTime: ").append(toIndentedString(updateEndTime)).append("\n");
     sb.append("    updateStartTime: ").append(toIndentedString(updateStartTime)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
