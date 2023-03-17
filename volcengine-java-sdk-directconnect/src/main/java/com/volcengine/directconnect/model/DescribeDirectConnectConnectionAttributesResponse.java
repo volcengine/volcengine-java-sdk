@@ -74,6 +74,9 @@ public class DescribeDirectConnectConnectionAttributesResponse {
   @SerializedName("DirectConnectConnectionName")
   private String directConnectConnectionName = null;
 
+  @SerializedName("ExpectBandwidth")
+  private Integer expectBandwidth = null;
+
   @SerializedName("ExpiredTime")
   private String expiredTime = null;
 
@@ -362,6 +365,24 @@ public class DescribeDirectConnectConnectionAttributesResponse {
     this.directConnectConnectionName = directConnectConnectionName;
   }
 
+  public DescribeDirectConnectConnectionAttributesResponse expectBandwidth(Integer expectBandwidth) {
+    this.expectBandwidth = expectBandwidth;
+    return this;
+  }
+
+   /**
+   * Get expectBandwidth
+   * @return expectBandwidth
+  **/
+  @Schema(description = "")
+  public Integer getExpectBandwidth() {
+    return expectBandwidth;
+  }
+
+  public void setExpectBandwidth(Integer expectBandwidth) {
+    this.expectBandwidth = expectBandwidth;
+  }
+
   public DescribeDirectConnectConnectionAttributesResponse expiredTime(String expiredTime) {
     this.expiredTime = expiredTime;
     return this;
@@ -611,6 +632,7 @@ public class DescribeDirectConnectConnectionAttributesResponse {
         Objects.equals(this.directConnectAccessPointId, describeDirectConnectConnectionAttributesResponse.directConnectAccessPointId) &&
         Objects.equals(this.directConnectConnectionId, describeDirectConnectConnectionAttributesResponse.directConnectConnectionId) &&
         Objects.equals(this.directConnectConnectionName, describeDirectConnectConnectionAttributesResponse.directConnectConnectionName) &&
+        Objects.equals(this.expectBandwidth, describeDirectConnectConnectionAttributesResponse.expectBandwidth) &&
         Objects.equals(this.expiredTime, describeDirectConnectConnectionAttributesResponse.expiredTime) &&
         Objects.equals(this.lineOperator, describeDirectConnectConnectionAttributesResponse.lineOperator) &&
         Objects.equals(this.parentConnectionAccountId, describeDirectConnectConnectionAttributesResponse.parentConnectionAccountId) &&
@@ -627,7 +649,7 @@ public class DescribeDirectConnectConnectionAttributesResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, bandwidth, billingType, businessStatus, connectionType, creationTime, customerContactEmail, customerContactPhone, customerName, deletedTime, description, directConnectAccessPointId, directConnectConnectionId, directConnectConnectionName, expiredTime, lineOperator, parentConnectionAccountId, parentConnectionId, peerLocation, portSpec, portType, requestId, status, tags, updateTime, vlanId);
+    return Objects.hash(accountId, bandwidth, billingType, businessStatus, connectionType, creationTime, customerContactEmail, customerContactPhone, customerName, deletedTime, description, directConnectAccessPointId, directConnectConnectionId, directConnectConnectionName, expectBandwidth, expiredTime, lineOperator, parentConnectionAccountId, parentConnectionId, peerLocation, portSpec, portType, requestId, status, tags, updateTime, vlanId);
   }
 
 
@@ -650,6 +672,7 @@ public class DescribeDirectConnectConnectionAttributesResponse {
     sb.append("    directConnectAccessPointId: ").append(toIndentedString(directConnectAccessPointId)).append("\n");
     sb.append("    directConnectConnectionId: ").append(toIndentedString(directConnectConnectionId)).append("\n");
     sb.append("    directConnectConnectionName: ").append(toIndentedString(directConnectConnectionName)).append("\n");
+    sb.append("    expectBandwidth: ").append(toIndentedString(expectBandwidth)).append("\n");
     sb.append("    expiredTime: ").append(toIndentedString(expiredTime)).append("\n");
     sb.append("    lineOperator: ").append(toIndentedString(lineOperator)).append("\n");
     sb.append("    parentConnectionAccountId: ").append(toIndentedString(parentConnectionAccountId)).append("\n");

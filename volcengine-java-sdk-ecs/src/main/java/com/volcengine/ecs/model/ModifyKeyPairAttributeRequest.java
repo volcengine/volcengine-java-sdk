@@ -29,6 +29,9 @@ import javax.validation.Valid;
 
 
 public class ModifyKeyPairAttributeRequest {
+  @SerializedName("ClientToken")
+  private String clientToken = null;
+
   @SerializedName("Description")
   private String description = null;
 
@@ -37,6 +40,24 @@ public class ModifyKeyPairAttributeRequest {
 
   @SerializedName("KeyPairName")
   private String keyPairName = null;
+
+  public ModifyKeyPairAttributeRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
 
   public ModifyKeyPairAttributeRequest description(String description) {
     this.description = description;
@@ -102,14 +123,15 @@ public class ModifyKeyPairAttributeRequest {
       return false;
     }
     ModifyKeyPairAttributeRequest modifyKeyPairAttributeRequest = (ModifyKeyPairAttributeRequest) o;
-    return Objects.equals(this.description, modifyKeyPairAttributeRequest.description) &&
+    return Objects.equals(this.clientToken, modifyKeyPairAttributeRequest.clientToken) &&
+        Objects.equals(this.description, modifyKeyPairAttributeRequest.description) &&
         Objects.equals(this.keyPairId, modifyKeyPairAttributeRequest.keyPairId) &&
         Objects.equals(this.keyPairName, modifyKeyPairAttributeRequest.keyPairName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, keyPairId, keyPairName);
+    return Objects.hash(clientToken, description, keyPairId, keyPairName);
   }
 
 
@@ -118,6 +140,7 @@ public class ModifyKeyPairAttributeRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ModifyKeyPairAttributeRequest {\n");
     
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    keyPairId: ").append(toIndentedString(keyPairId)).append("\n");
     sb.append("    keyPairName: ").append(toIndentedString(keyPairName)).append("\n");

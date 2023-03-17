@@ -62,6 +62,15 @@ public class ModifyListenerAttributesRequest {
   @SerializedName("ListenerName")
   private String listenerName = null;
 
+  @SerializedName("PersistenceTimeout")
+  private Integer persistenceTimeout = null;
+
+  @SerializedName("PersistenceType")
+  private String persistenceType = null;
+
+  @SerializedName("ProxyProtocolType")
+  private String proxyProtocolType = null;
+
   @SerializedName("Scheduler")
   private String scheduler = null;
 
@@ -258,6 +267,60 @@ public class ModifyListenerAttributesRequest {
     this.listenerName = listenerName;
   }
 
+  public ModifyListenerAttributesRequest persistenceTimeout(Integer persistenceTimeout) {
+    this.persistenceTimeout = persistenceTimeout;
+    return this;
+  }
+
+   /**
+   * Get persistenceTimeout
+   * @return persistenceTimeout
+  **/
+  @Schema(description = "")
+  public Integer getPersistenceTimeout() {
+    return persistenceTimeout;
+  }
+
+  public void setPersistenceTimeout(Integer persistenceTimeout) {
+    this.persistenceTimeout = persistenceTimeout;
+  }
+
+  public ModifyListenerAttributesRequest persistenceType(String persistenceType) {
+    this.persistenceType = persistenceType;
+    return this;
+  }
+
+   /**
+   * Get persistenceType
+   * @return persistenceType
+  **/
+  @Schema(description = "")
+  public String getPersistenceType() {
+    return persistenceType;
+  }
+
+  public void setPersistenceType(String persistenceType) {
+    this.persistenceType = persistenceType;
+  }
+
+  public ModifyListenerAttributesRequest proxyProtocolType(String proxyProtocolType) {
+    this.proxyProtocolType = proxyProtocolType;
+    return this;
+  }
+
+   /**
+   * Get proxyProtocolType
+   * @return proxyProtocolType
+  **/
+  @Schema(description = "")
+  public String getProxyProtocolType() {
+    return proxyProtocolType;
+  }
+
+  public void setProxyProtocolType(String proxyProtocolType) {
+    this.proxyProtocolType = proxyProtocolType;
+  }
+
   public ModifyListenerAttributesRequest scheduler(String scheduler) {
     this.scheduler = scheduler;
     return this;
@@ -314,13 +377,16 @@ public class ModifyListenerAttributesRequest {
         Objects.equals(this.healthCheck, modifyListenerAttributesRequest.healthCheck) &&
         Objects.equals(this.listenerId, modifyListenerAttributesRequest.listenerId) &&
         Objects.equals(this.listenerName, modifyListenerAttributesRequest.listenerName) &&
+        Objects.equals(this.persistenceTimeout, modifyListenerAttributesRequest.persistenceTimeout) &&
+        Objects.equals(this.persistenceType, modifyListenerAttributesRequest.persistenceType) &&
+        Objects.equals(this.proxyProtocolType, modifyListenerAttributesRequest.proxyProtocolType) &&
         Objects.equals(this.scheduler, modifyListenerAttributesRequest.scheduler) &&
         Objects.equals(this.serverGroupId, modifyListenerAttributesRequest.serverGroupId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclIds, aclStatus, aclType, certificateId, description, enabled, establishedTimeout, healthCheck, listenerId, listenerName, scheduler, serverGroupId);
+    return Objects.hash(aclIds, aclStatus, aclType, certificateId, description, enabled, establishedTimeout, healthCheck, listenerId, listenerName, persistenceTimeout, persistenceType, proxyProtocolType, scheduler, serverGroupId);
   }
 
 
@@ -339,6 +405,9 @@ public class ModifyListenerAttributesRequest {
     sb.append("    healthCheck: ").append(toIndentedString(healthCheck)).append("\n");
     sb.append("    listenerId: ").append(toIndentedString(listenerId)).append("\n");
     sb.append("    listenerName: ").append(toIndentedString(listenerName)).append("\n");
+    sb.append("    persistenceTimeout: ").append(toIndentedString(persistenceTimeout)).append("\n");
+    sb.append("    persistenceType: ").append(toIndentedString(persistenceType)).append("\n");
+    sb.append("    proxyProtocolType: ").append(toIndentedString(proxyProtocolType)).append("\n");
     sb.append("    scheduler: ").append(toIndentedString(scheduler)).append("\n");
     sb.append("    serverGroupId: ").append(toIndentedString(serverGroupId)).append("\n");
     sb.append("}");

@@ -62,11 +62,20 @@ public class CreateListenerRequest {
   @SerializedName("LoadBalancerId")
   private String loadBalancerId = null;
 
+  @SerializedName("PersistenceTimeout")
+  private Integer persistenceTimeout = null;
+
+  @SerializedName("PersistenceType")
+  private String persistenceType = null;
+
   @SerializedName("Port")
   private Integer port = null;
 
   @SerializedName("Protocol")
   private String protocol = null;
+
+  @SerializedName("ProxyProtocolType")
+  private String proxyProtocolType = null;
 
   @SerializedName("Scheduler")
   private String scheduler = null;
@@ -264,6 +273,42 @@ public class CreateListenerRequest {
     this.loadBalancerId = loadBalancerId;
   }
 
+  public CreateListenerRequest persistenceTimeout(Integer persistenceTimeout) {
+    this.persistenceTimeout = persistenceTimeout;
+    return this;
+  }
+
+   /**
+   * Get persistenceTimeout
+   * @return persistenceTimeout
+  **/
+  @Schema(description = "")
+  public Integer getPersistenceTimeout() {
+    return persistenceTimeout;
+  }
+
+  public void setPersistenceTimeout(Integer persistenceTimeout) {
+    this.persistenceTimeout = persistenceTimeout;
+  }
+
+  public CreateListenerRequest persistenceType(String persistenceType) {
+    this.persistenceType = persistenceType;
+    return this;
+  }
+
+   /**
+   * Get persistenceType
+   * @return persistenceType
+  **/
+  @Schema(description = "")
+  public String getPersistenceType() {
+    return persistenceType;
+  }
+
+  public void setPersistenceType(String persistenceType) {
+    this.persistenceType = persistenceType;
+  }
+
   public CreateListenerRequest port(Integer port) {
     this.port = port;
     return this;
@@ -300,6 +345,24 @@ public class CreateListenerRequest {
 
   public void setProtocol(String protocol) {
     this.protocol = protocol;
+  }
+
+  public CreateListenerRequest proxyProtocolType(String proxyProtocolType) {
+    this.proxyProtocolType = proxyProtocolType;
+    return this;
+  }
+
+   /**
+   * Get proxyProtocolType
+   * @return proxyProtocolType
+  **/
+  @Schema(description = "")
+  public String getProxyProtocolType() {
+    return proxyProtocolType;
+  }
+
+  public void setProxyProtocolType(String proxyProtocolType) {
+    this.proxyProtocolType = proxyProtocolType;
   }
 
   public CreateListenerRequest scheduler(String scheduler) {
@@ -359,15 +422,18 @@ public class CreateListenerRequest {
         Objects.equals(this.healthCheck, createListenerRequest.healthCheck) &&
         Objects.equals(this.listenerName, createListenerRequest.listenerName) &&
         Objects.equals(this.loadBalancerId, createListenerRequest.loadBalancerId) &&
+        Objects.equals(this.persistenceTimeout, createListenerRequest.persistenceTimeout) &&
+        Objects.equals(this.persistenceType, createListenerRequest.persistenceType) &&
         Objects.equals(this.port, createListenerRequest.port) &&
         Objects.equals(this.protocol, createListenerRequest.protocol) &&
+        Objects.equals(this.proxyProtocolType, createListenerRequest.proxyProtocolType) &&
         Objects.equals(this.scheduler, createListenerRequest.scheduler) &&
         Objects.equals(this.serverGroupId, createListenerRequest.serverGroupId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclIds, aclStatus, aclType, certificateId, description, enabled, establishedTimeout, healthCheck, listenerName, loadBalancerId, port, protocol, scheduler, serverGroupId);
+    return Objects.hash(aclIds, aclStatus, aclType, certificateId, description, enabled, establishedTimeout, healthCheck, listenerName, loadBalancerId, persistenceTimeout, persistenceType, port, protocol, proxyProtocolType, scheduler, serverGroupId);
   }
 
 
@@ -386,8 +452,11 @@ public class CreateListenerRequest {
     sb.append("    healthCheck: ").append(toIndentedString(healthCheck)).append("\n");
     sb.append("    listenerName: ").append(toIndentedString(listenerName)).append("\n");
     sb.append("    loadBalancerId: ").append(toIndentedString(loadBalancerId)).append("\n");
+    sb.append("    persistenceTimeout: ").append(toIndentedString(persistenceTimeout)).append("\n");
+    sb.append("    persistenceType: ").append(toIndentedString(persistenceType)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
+    sb.append("    proxyProtocolType: ").append(toIndentedString(proxyProtocolType)).append("\n");
     sb.append("    scheduler: ").append(toIndentedString(scheduler)).append("\n");
     sb.append("    serverGroupId: ").append(toIndentedString(serverGroupId)).append("\n");
     sb.append("}");

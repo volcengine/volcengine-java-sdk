@@ -32,6 +32,9 @@ import javax.validation.Valid;
 
 
 public class CreateTagsRequest {
+  @SerializedName("ClientToken")
+  private String clientToken = null;
+
   @SerializedName("ResourceIds")
   private List<String> resourceIds = null;
 
@@ -40,6 +43,24 @@ public class CreateTagsRequest {
 
   @SerializedName("Tags")
   private List<TagForCreateTagsInput> tags = null;
+
+  public CreateTagsRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
 
   public CreateTagsRequest resourceIds(List<String> resourceIds) {
     this.resourceIds = resourceIds;
@@ -122,14 +143,15 @@ public class CreateTagsRequest {
       return false;
     }
     CreateTagsRequest createTagsRequest = (CreateTagsRequest) o;
-    return Objects.equals(this.resourceIds, createTagsRequest.resourceIds) &&
+    return Objects.equals(this.clientToken, createTagsRequest.clientToken) &&
+        Objects.equals(this.resourceIds, createTagsRequest.resourceIds) &&
         Objects.equals(this.resourceType, createTagsRequest.resourceType) &&
         Objects.equals(this.tags, createTagsRequest.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(resourceIds, resourceType, tags);
+    return Objects.hash(clientToken, resourceIds, resourceType, tags);
   }
 
 
@@ -138,6 +160,7 @@ public class CreateTagsRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateTagsRequest {\n");
     
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    resourceIds: ").append(toIndentedString(resourceIds)).append("\n");
     sb.append("    resourceType: ").append(toIndentedString(resourceType)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");

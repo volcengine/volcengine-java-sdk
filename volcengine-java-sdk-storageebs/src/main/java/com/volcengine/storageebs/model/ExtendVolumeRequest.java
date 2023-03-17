@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * ExtendVolumeRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-08-01T17:18:31.130773+08:00[Asia/Shanghai]")
+
 public class ExtendVolumeRequest {
   @SerializedName("ClientToken")
   private String clientToken = null;

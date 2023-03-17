@@ -54,6 +54,12 @@ public class DescribeSecurityGroupAttributesResponse {
   @SerializedName("SecurityGroupName")
   private String securityGroupName = null;
 
+  @SerializedName("ServiceManaged")
+  private Boolean serviceManaged = null;
+
+  @SerializedName("Status")
+  private String status = null;
+
   @SerializedName("Tags")
   private List<TagForDescribeSecurityGroupAttributesOutput> tags = null;
 
@@ -201,6 +207,42 @@ public class DescribeSecurityGroupAttributesResponse {
     this.securityGroupName = securityGroupName;
   }
 
+  public DescribeSecurityGroupAttributesResponse serviceManaged(Boolean serviceManaged) {
+    this.serviceManaged = serviceManaged;
+    return this;
+  }
+
+   /**
+   * Get serviceManaged
+   * @return serviceManaged
+  **/
+  @Schema(description = "")
+  public Boolean isServiceManaged() {
+    return serviceManaged;
+  }
+
+  public void setServiceManaged(Boolean serviceManaged) {
+    this.serviceManaged = serviceManaged;
+  }
+
+  public DescribeSecurityGroupAttributesResponse status(String status) {
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * Get status
+   * @return status
+  **/
+  @Schema(description = "")
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
   public DescribeSecurityGroupAttributesResponse tags(List<TagForDescribeSecurityGroupAttributesOutput> tags) {
     this.tags = tags;
     return this;
@@ -299,6 +341,8 @@ public class DescribeSecurityGroupAttributesResponse {
         Objects.equals(this.requestId, describeSecurityGroupAttributesResponse.requestId) &&
         Objects.equals(this.securityGroupId, describeSecurityGroupAttributesResponse.securityGroupId) &&
         Objects.equals(this.securityGroupName, describeSecurityGroupAttributesResponse.securityGroupName) &&
+        Objects.equals(this.serviceManaged, describeSecurityGroupAttributesResponse.serviceManaged) &&
+        Objects.equals(this.status, describeSecurityGroupAttributesResponse.status) &&
         Objects.equals(this.tags, describeSecurityGroupAttributesResponse.tags) &&
         Objects.equals(this.type, describeSecurityGroupAttributesResponse.type) &&
         Objects.equals(this.updateTime, describeSecurityGroupAttributesResponse.updateTime) &&
@@ -307,7 +351,7 @@ public class DescribeSecurityGroupAttributesResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(creationTime, description, permissions, projectName, requestId, securityGroupId, securityGroupName, tags, type, updateTime, vpcId);
+    return Objects.hash(creationTime, description, permissions, projectName, requestId, securityGroupId, securityGroupName, serviceManaged, status, tags, type, updateTime, vpcId);
   }
 
 
@@ -323,6 +367,8 @@ public class DescribeSecurityGroupAttributesResponse {
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    securityGroupId: ").append(toIndentedString(securityGroupId)).append("\n");
     sb.append("    securityGroupName: ").append(toIndentedString(securityGroupName)).append("\n");
+    sb.append("    serviceManaged: ").append(toIndentedString(serviceManaged)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");

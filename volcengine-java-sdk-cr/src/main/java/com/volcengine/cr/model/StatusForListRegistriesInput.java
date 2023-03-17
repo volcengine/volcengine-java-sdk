@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * StatusForListRegistriesInput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-08-31T20:47:55.450016+08:00[Asia/Shanghai]")
+
 public class StatusForListRegistriesInput {
   @SerializedName("Condition")
   private String condition = null;

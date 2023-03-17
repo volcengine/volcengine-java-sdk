@@ -31,11 +31,32 @@ import javax.validation.Valid;
 
 
 public class RebootInstancesRequest {
+  @SerializedName("ClientToken")
+  private String clientToken = null;
+
   @SerializedName("ForceStop")
   private Boolean forceStop = null;
 
   @SerializedName("InstanceIds")
   private List<String> instanceIds = null;
+
+  public RebootInstancesRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
 
   public RebootInstancesRequest forceStop(Boolean forceStop) {
     this.forceStop = forceStop;
@@ -91,13 +112,14 @@ public class RebootInstancesRequest {
       return false;
     }
     RebootInstancesRequest rebootInstancesRequest = (RebootInstancesRequest) o;
-    return Objects.equals(this.forceStop, rebootInstancesRequest.forceStop) &&
+    return Objects.equals(this.clientToken, rebootInstancesRequest.clientToken) &&
+        Objects.equals(this.forceStop, rebootInstancesRequest.forceStop) &&
         Objects.equals(this.instanceIds, rebootInstancesRequest.instanceIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(forceStop, instanceIds);
+    return Objects.hash(clientToken, forceStop, instanceIds);
   }
 
 
@@ -106,6 +128,7 @@ public class RebootInstancesRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class RebootInstancesRequest {\n");
     
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    forceStop: ").append(toIndentedString(forceStop)).append("\n");
     sb.append("    instanceIds: ").append(toIndentedString(instanceIds)).append("\n");
     sb.append("}");

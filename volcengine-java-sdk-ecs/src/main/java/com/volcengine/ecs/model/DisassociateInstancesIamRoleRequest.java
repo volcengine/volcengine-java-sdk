@@ -31,11 +31,32 @@ import javax.validation.Valid;
 
 
 public class DisassociateInstancesIamRoleRequest {
+  @SerializedName("ClientToken")
+  private String clientToken = null;
+
   @SerializedName("IamRoleName")
   private String iamRoleName = null;
 
   @SerializedName("InstanceIds")
   private List<String> instanceIds = null;
+
+  public DisassociateInstancesIamRoleRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
 
   public DisassociateInstancesIamRoleRequest iamRoleName(String iamRoleName) {
     this.iamRoleName = iamRoleName;
@@ -91,13 +112,14 @@ public class DisassociateInstancesIamRoleRequest {
       return false;
     }
     DisassociateInstancesIamRoleRequest disassociateInstancesIamRoleRequest = (DisassociateInstancesIamRoleRequest) o;
-    return Objects.equals(this.iamRoleName, disassociateInstancesIamRoleRequest.iamRoleName) &&
+    return Objects.equals(this.clientToken, disassociateInstancesIamRoleRequest.clientToken) &&
+        Objects.equals(this.iamRoleName, disassociateInstancesIamRoleRequest.iamRoleName) &&
         Objects.equals(this.instanceIds, disassociateInstancesIamRoleRequest.instanceIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(iamRoleName, instanceIds);
+    return Objects.hash(clientToken, iamRoleName, instanceIds);
   }
 
 
@@ -106,6 +128,7 @@ public class DisassociateInstancesIamRoleRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DisassociateInstancesIamRoleRequest {\n");
     
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    iamRoleName: ").append(toIndentedString(iamRoleName)).append("\n");
     sb.append("    instanceIds: ").append(toIndentedString(instanceIds)).append("\n");
     sb.append("}");
