@@ -68,9 +68,6 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
   @SerializedName("LoadBalancerName")
   private String loadBalancerName = null;
 
-  @SerializedName("LoadBalancerSpec")
-  private String loadBalancerSpec = null;
-
   @SerializedName("LocalAddresses")
   private List<String> localAddresses = null;
 
@@ -317,24 +314,6 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
     this.loadBalancerName = loadBalancerName;
   }
 
-  public LoadBalancerForDescribeLoadBalancersOutput loadBalancerSpec(String loadBalancerSpec) {
-    this.loadBalancerSpec = loadBalancerSpec;
-    return this;
-  }
-
-   /**
-   * Get loadBalancerSpec
-   * @return loadBalancerSpec
-  **/
-  @Schema(description = "")
-  public String getLoadBalancerSpec() {
-    return loadBalancerSpec;
-  }
-
-  public void setLoadBalancerSpec(String loadBalancerSpec) {
-    this.loadBalancerSpec = loadBalancerSpec;
-  }
-
   public LoadBalancerForDescribeLoadBalancersOutput localAddresses(List<String> localAddresses) {
     this.localAddresses = localAddresses;
     return this;
@@ -554,7 +533,6 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
         Objects.equals(this.loadBalancerBillingType, loadBalancerForDescribeLoadBalancersOutput.loadBalancerBillingType) &&
         Objects.equals(this.loadBalancerId, loadBalancerForDescribeLoadBalancersOutput.loadBalancerId) &&
         Objects.equals(this.loadBalancerName, loadBalancerForDescribeLoadBalancersOutput.loadBalancerName) &&
-        Objects.equals(this.loadBalancerSpec, loadBalancerForDescribeLoadBalancersOutput.loadBalancerSpec) &&
         Objects.equals(this.localAddresses, loadBalancerForDescribeLoadBalancersOutput.localAddresses) &&
         Objects.equals(this.lockReason, loadBalancerForDescribeLoadBalancersOutput.lockReason) &&
         Objects.equals(this.overdueTime, loadBalancerForDescribeLoadBalancersOutput.overdueTime) &&
@@ -569,7 +547,7 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(businessStatus, createTime, dnSName, deletedTime, description, eipAddress, eipId, eniAddress, eniId, loadBalancerBillingType, loadBalancerId, loadBalancerName, loadBalancerSpec, localAddresses, lockReason, overdueTime, projectName, status, subnetId, type, updateTime, vpcId, zoneMappings);
+    return Objects.hash(businessStatus, createTime, dnSName, deletedTime, description, eipAddress, eipId, eniAddress, eniId, loadBalancerBillingType, loadBalancerId, loadBalancerName, localAddresses, lockReason, overdueTime, projectName, status, subnetId, type, updateTime, vpcId, zoneMappings);
   }
 
 
@@ -590,7 +568,6 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
     sb.append("    loadBalancerBillingType: ").append(toIndentedString(loadBalancerBillingType)).append("\n");
     sb.append("    loadBalancerId: ").append(toIndentedString(loadBalancerId)).append("\n");
     sb.append("    loadBalancerName: ").append(toIndentedString(loadBalancerName)).append("\n");
-    sb.append("    loadBalancerSpec: ").append(toIndentedString(loadBalancerSpec)).append("\n");
     sb.append("    localAddresses: ").append(toIndentedString(localAddresses)).append("\n");
     sb.append("    lockReason: ").append(toIndentedString(lockReason)).append("\n");
     sb.append("    overdueTime: ").append(toIndentedString(overdueTime)).append("\n");
