@@ -20,8 +20,11 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vke.model.FilterForListNodePoolsInput;
+import com.volcengine.vke.model.TagForListNodePoolsInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -38,6 +41,9 @@ public class ListNodePoolsRequest {
 
   @SerializedName("PageSize")
   private Integer pageSize = null;
+
+  @SerializedName("Tags")
+  private List<TagForListNodePoolsInput> tags = null;
 
   public ListNodePoolsRequest filter(FilterForListNodePoolsInput filter) {
     this.filter = filter;
@@ -94,6 +100,33 @@ public class ListNodePoolsRequest {
     this.pageSize = pageSize;
   }
 
+  public ListNodePoolsRequest tags(List<TagForListNodePoolsInput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public ListNodePoolsRequest addTagsItem(TagForListNodePoolsInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForListNodePoolsInput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForListNodePoolsInput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForListNodePoolsInput> tags) {
+    this.tags = tags;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -106,12 +139,13 @@ public class ListNodePoolsRequest {
     ListNodePoolsRequest listNodePoolsRequest = (ListNodePoolsRequest) o;
     return Objects.equals(this.filter, listNodePoolsRequest.filter) &&
         Objects.equals(this.pageNumber, listNodePoolsRequest.pageNumber) &&
-        Objects.equals(this.pageSize, listNodePoolsRequest.pageSize);
+        Objects.equals(this.pageSize, listNodePoolsRequest.pageSize) &&
+        Objects.equals(this.tags, listNodePoolsRequest.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(filter, pageNumber, pageSize);
+    return Objects.hash(filter, pageNumber, pageSize, tags);
   }
 
 
@@ -123,6 +157,7 @@ public class ListNodePoolsRequest {
     sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }
