@@ -19,15 +19,18 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.mongodb.model.TagForCreateDBInstanceInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
  * CreateDBInstanceRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-19T10:07:26.552898+08:00[Asia/Shanghai]")
+
 public class CreateDBInstanceRequest {
   @SerializedName("AutoRenew")
   private Boolean autoRenew = null;
@@ -290,6 +293,9 @@ public class CreateDBInstanceRequest {
 
   @SerializedName("SuperAccountPassword")
   private String superAccountPassword = null;
+
+  @SerializedName("Tags")
+  private List<TagForCreateDBInstanceInput> tags = null;
 
   @SerializedName("VpcId")
   private String vpcId = null;
@@ -639,6 +645,33 @@ public class CreateDBInstanceRequest {
     this.superAccountPassword = superAccountPassword;
   }
 
+  public CreateDBInstanceRequest tags(List<TagForCreateDBInstanceInput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public CreateDBInstanceRequest addTagsItem(TagForCreateDBInstanceInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForCreateDBInstanceInput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForCreateDBInstanceInput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForCreateDBInstanceInput> tags) {
+    this.tags = tags;
+  }
+
   public CreateDBInstanceRequest vpcId(String vpcId) {
     this.vpcId = vpcId;
     return this;
@@ -704,13 +737,14 @@ public class CreateDBInstanceRequest {
         Objects.equals(this.subnetId, createDBInstanceRequest.subnetId) &&
         Objects.equals(this.superAccountName, createDBInstanceRequest.superAccountName) &&
         Objects.equals(this.superAccountPassword, createDBInstanceRequest.superAccountPassword) &&
+        Objects.equals(this.tags, createDBInstanceRequest.tags) &&
         Objects.equals(this.vpcId, createDBInstanceRequest.vpcId) &&
         Objects.equals(this.zoneId, createDBInstanceRequest.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoRenew, chargeType, count, dbEngine, dbEngineVersion, instanceName, instanceType, mongosNodeNumber, mongosNodeSpec, nodeNumber, nodeSpec, period, periodUnit, projectName, shardNumber, storageSpaceGB, subnetId, superAccountName, superAccountPassword, vpcId, zoneId);
+    return Objects.hash(autoRenew, chargeType, count, dbEngine, dbEngineVersion, instanceName, instanceType, mongosNodeNumber, mongosNodeSpec, nodeNumber, nodeSpec, period, periodUnit, projectName, shardNumber, storageSpaceGB, subnetId, superAccountName, superAccountPassword, tags, vpcId, zoneId);
   }
 
 
@@ -738,6 +772,7 @@ public class CreateDBInstanceRequest {
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    superAccountName: ").append(toIndentedString(superAccountName)).append("\n");
     sb.append("    superAccountPassword: ").append(toIndentedString(superAccountPassword)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");

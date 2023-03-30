@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * MongoForDescribeDBInstanceDetailOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-19T10:07:26.552898+08:00[Asia/Shanghai]")
+
 public class MongoForDescribeDBInstanceDetailOutput {
   @SerializedName("MongosNodeId")
   private String mongosNodeId = null;
@@ -35,49 +35,8 @@ public class MongoForDescribeDBInstanceDetailOutput {
   @SerializedName("NodeSpec")
   private String nodeSpec = null;
 
-  /**
-   * Gets or Sets nodeStatus
-   */
-  @JsonAdapter(NodeStatusEnum.Adapter.class)
-  public enum NodeStatusEnum {
-    ERROR("Error"),
-    RUNNING("Running");
-
-    private String value;
-
-    NodeStatusEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static NodeStatusEnum fromValue(String input) {
-      for (NodeStatusEnum b : NodeStatusEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<NodeStatusEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final NodeStatusEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public NodeStatusEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return NodeStatusEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("NodeStatus")
-  private NodeStatusEnum nodeStatus = null;
+  @SerializedName("NodeStatus")
+  private String nodeStatus = null;
 
   @SerializedName("TotalMemoryGB")
   private Double totalMemoryGB = null;
@@ -127,7 +86,7 @@ public class MongoForDescribeDBInstanceDetailOutput {
     this.nodeSpec = nodeSpec;
   }
 
-  public MongoForDescribeDBInstanceDetailOutput nodeStatus(NodeStatusEnum nodeStatus) {
+  public MongoForDescribeDBInstanceDetailOutput nodeStatus(String nodeStatus) {
     this.nodeStatus = nodeStatus;
     return this;
   }
@@ -137,11 +96,11 @@ public class MongoForDescribeDBInstanceDetailOutput {
    * @return nodeStatus
   **/
   @Schema(description = "")
-  public NodeStatusEnum getNodeStatus() {
+  public String getNodeStatus() {
     return nodeStatus;
   }
 
-  public void setNodeStatus(NodeStatusEnum nodeStatus) {
+  public void setNodeStatus(String nodeStatus) {
     this.nodeStatus = nodeStatus;
   }
 

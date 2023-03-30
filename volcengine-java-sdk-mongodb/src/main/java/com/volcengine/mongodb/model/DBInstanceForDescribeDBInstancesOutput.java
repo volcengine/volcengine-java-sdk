@@ -27,104 +27,16 @@ import javax.validation.Valid;
  * DBInstanceForDescribeDBInstancesOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-19T10:07:26.552898+08:00[Asia/Shanghai]")
+
 public class DBInstanceForDescribeDBInstancesOutput {
   @SerializedName("AutoRenew")
   private Boolean autoRenew = null;
 
-  /**
-   * Gets or Sets chargeStatus
-   */
-  @JsonAdapter(ChargeStatusEnum.Adapter.class)
-  public enum ChargeStatusEnum {
-    NORMAL("Normal"),
-    OVERDUE("Overdue"),
-    OWING("Owing"),
-    RENEWING("Renewing"),
-    UNDEPLOY("UnDeploy"),
-    UNSUBSCRIBING("Unsubscribing"),
-    WAITINGPAID("WaitingPaid");
+  @SerializedName("ChargeStatus")
+  private String chargeStatus = null;
 
-    private String value;
-
-    ChargeStatusEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static ChargeStatusEnum fromValue(String input) {
-      for (ChargeStatusEnum b : ChargeStatusEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<ChargeStatusEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final ChargeStatusEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public ChargeStatusEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return ChargeStatusEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("ChargeStatus")
-  private ChargeStatusEnum chargeStatus = null;
-
-  /**
-   * Gets or Sets chargeType
-   */
-  @JsonAdapter(ChargeTypeEnum.Adapter.class)
-  public enum ChargeTypeEnum {
-    NOTENABLED("NotEnabled"),
-    POSTPAID("PostPaid"),
-    PREPAID("Prepaid");
-
-    private String value;
-
-    ChargeTypeEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static ChargeTypeEnum fromValue(String input) {
-      for (ChargeTypeEnum b : ChargeTypeEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<ChargeTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final ChargeTypeEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public ChargeTypeEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return ChargeTypeEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("ChargeType")
-  private ChargeTypeEnum chargeType = null;
+  @SerializedName("ChargeType")
+  private String chargeType = null;
 
   @SerializedName("ClosedTime")
   private String closedTime = null;
@@ -135,92 +47,11 @@ public class DBInstanceForDescribeDBInstancesOutput {
   @SerializedName("CreateTime")
   private String createTime = null;
 
-  /**
-   * Gets or Sets dbEngine
-   */
-  @JsonAdapter(DbEngineEnum.Adapter.class)
-  public enum DbEngineEnum {
-    MONGODB("MongoDB");
+  @SerializedName("DBEngine")
+  private String dbEngine = null;
 
-    private String value;
-
-    DbEngineEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static DbEngineEnum fromValue(String input) {
-      for (DbEngineEnum b : DbEngineEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<DbEngineEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final DbEngineEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public DbEngineEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return DbEngineEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("DBEngine")
-  private DbEngineEnum dbEngine = null;
-
-  /**
-   * Gets or Sets dbEngineVersion
-   */
-  @JsonAdapter(DbEngineVersionEnum.Adapter.class)
-  public enum DbEngineVersionEnum {
-    _4_0("MongoDB_4_0"),
-    _5_0("MongoDB_5_0");
-
-    private String value;
-
-    DbEngineVersionEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static DbEngineVersionEnum fromValue(String input) {
-      for (DbEngineVersionEnum b : DbEngineVersionEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<DbEngineVersionEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final DbEngineVersionEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public DbEngineVersionEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return DbEngineVersionEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("DBEngineVersion")
-  private DbEngineVersionEnum dbEngineVersion = null;
+  @SerializedName("DBEngineVersion")
+  private String dbEngineVersion = null;
 
   @SerializedName("DBEngineVersionStr")
   private String dbEngineVersionStr = null;
@@ -234,122 +65,11 @@ public class DBInstanceForDescribeDBInstancesOutput {
   @SerializedName("InstanceName")
   private String instanceName = null;
 
-  /**
-   * Gets or Sets instanceStatus
-   */
-  @JsonAdapter(InstanceStatusEnum.Adapter.class)
-  public enum InstanceStatusEnum {
-    ALLOWLISTMAINTAINING("AllowListMaintaining"),
-    CLOSED("Closed"),
-    CLOSING("Closing"),
-    CREATEFAILED("CreateFailed"),
-    CREATING("Creating"),
-    DELETED("Deleted"),
-    DELETING("Deleting"),
-    DESTROYED("Destroyed"),
-    DESTROYING("Destroying"),
-    ERROR("Error"),
-    IMPORTING("Importing"),
-    MIGRATING("Migrating"),
-    NETCREATING("NetCreating"),
-    NETRELEASING("NetReleasing"),
-    NETWORKMAINTAINING("NetworkMaintaining"),
-    REBUILDING("Rebuilding"),
-    RECLAIMING("Reclaiming"),
-    RECYCLED("Recycled"),
-    RELEASED("Released"),
-    RESTARTING("Restarting"),
-    RESTORING("Restoring"),
-    RESUMING("Resuming"),
-    RUNNING("Running"),
-    SSLUPDATING("SSLUpdating"),
-    SCALING("Scaling"),
-    TDEMAINTAINING("TDEMaintaining"),
-    TASKFAILED_AVAILABLE("TaskFailed_Available"),
-    UNAVAILABLE("Unavailable"),
-    UPDATING("Updating"),
-    UPGRADING("Upgrading"),
-    WAITINGPAID("WaitingPaid");
+  @SerializedName("InstanceStatus")
+  private String instanceStatus = null;
 
-    private String value;
-
-    InstanceStatusEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static InstanceStatusEnum fromValue(String input) {
-      for (InstanceStatusEnum b : InstanceStatusEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<InstanceStatusEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final InstanceStatusEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public InstanceStatusEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return InstanceStatusEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("InstanceStatus")
-  private InstanceStatusEnum instanceStatus = null;
-
-  /**
-   * Gets or Sets instanceType
-   */
-  @JsonAdapter(InstanceTypeEnum.Adapter.class)
-  public enum InstanceTypeEnum {
-    REPLICASET("ReplicaSet"),
-    SHARDEDCLUSTER("ShardedCluster");
-
-    private String value;
-
-    InstanceTypeEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static InstanceTypeEnum fromValue(String input) {
-      for (InstanceTypeEnum b : InstanceTypeEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<InstanceTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final InstanceTypeEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public InstanceTypeEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return InstanceTypeEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("InstanceType")
-  private InstanceTypeEnum instanceType = null;
+  @SerializedName("InstanceType")
+  private String instanceType = null;
 
   @SerializedName("MongosId")
   private String mongosId = null;
@@ -390,7 +110,7 @@ public class DBInstanceForDescribeDBInstancesOutput {
     this.autoRenew = autoRenew;
   }
 
-  public DBInstanceForDescribeDBInstancesOutput chargeStatus(ChargeStatusEnum chargeStatus) {
+  public DBInstanceForDescribeDBInstancesOutput chargeStatus(String chargeStatus) {
     this.chargeStatus = chargeStatus;
     return this;
   }
@@ -400,15 +120,15 @@ public class DBInstanceForDescribeDBInstancesOutput {
    * @return chargeStatus
   **/
   @Schema(description = "")
-  public ChargeStatusEnum getChargeStatus() {
+  public String getChargeStatus() {
     return chargeStatus;
   }
 
-  public void setChargeStatus(ChargeStatusEnum chargeStatus) {
+  public void setChargeStatus(String chargeStatus) {
     this.chargeStatus = chargeStatus;
   }
 
-  public DBInstanceForDescribeDBInstancesOutput chargeType(ChargeTypeEnum chargeType) {
+  public DBInstanceForDescribeDBInstancesOutput chargeType(String chargeType) {
     this.chargeType = chargeType;
     return this;
   }
@@ -418,11 +138,11 @@ public class DBInstanceForDescribeDBInstancesOutput {
    * @return chargeType
   **/
   @Schema(description = "")
-  public ChargeTypeEnum getChargeType() {
+  public String getChargeType() {
     return chargeType;
   }
 
-  public void setChargeType(ChargeTypeEnum chargeType) {
+  public void setChargeType(String chargeType) {
     this.chargeType = chargeType;
   }
 
@@ -480,7 +200,7 @@ public class DBInstanceForDescribeDBInstancesOutput {
     this.createTime = createTime;
   }
 
-  public DBInstanceForDescribeDBInstancesOutput dbEngine(DbEngineEnum dbEngine) {
+  public DBInstanceForDescribeDBInstancesOutput dbEngine(String dbEngine) {
     this.dbEngine = dbEngine;
     return this;
   }
@@ -490,15 +210,15 @@ public class DBInstanceForDescribeDBInstancesOutput {
    * @return dbEngine
   **/
   @Schema(description = "")
-  public DbEngineEnum getDbEngine() {
+  public String getDbEngine() {
     return dbEngine;
   }
 
-  public void setDbEngine(DbEngineEnum dbEngine) {
+  public void setDbEngine(String dbEngine) {
     this.dbEngine = dbEngine;
   }
 
-  public DBInstanceForDescribeDBInstancesOutput dbEngineVersion(DbEngineVersionEnum dbEngineVersion) {
+  public DBInstanceForDescribeDBInstancesOutput dbEngineVersion(String dbEngineVersion) {
     this.dbEngineVersion = dbEngineVersion;
     return this;
   }
@@ -508,11 +228,11 @@ public class DBInstanceForDescribeDBInstancesOutput {
    * @return dbEngineVersion
   **/
   @Schema(description = "")
-  public DbEngineVersionEnum getDbEngineVersion() {
+  public String getDbEngineVersion() {
     return dbEngineVersion;
   }
 
-  public void setDbEngineVersion(DbEngineVersionEnum dbEngineVersion) {
+  public void setDbEngineVersion(String dbEngineVersion) {
     this.dbEngineVersion = dbEngineVersion;
   }
 
@@ -588,7 +308,7 @@ public class DBInstanceForDescribeDBInstancesOutput {
     this.instanceName = instanceName;
   }
 
-  public DBInstanceForDescribeDBInstancesOutput instanceStatus(InstanceStatusEnum instanceStatus) {
+  public DBInstanceForDescribeDBInstancesOutput instanceStatus(String instanceStatus) {
     this.instanceStatus = instanceStatus;
     return this;
   }
@@ -598,15 +318,15 @@ public class DBInstanceForDescribeDBInstancesOutput {
    * @return instanceStatus
   **/
   @Schema(description = "")
-  public InstanceStatusEnum getInstanceStatus() {
+  public String getInstanceStatus() {
     return instanceStatus;
   }
 
-  public void setInstanceStatus(InstanceStatusEnum instanceStatus) {
+  public void setInstanceStatus(String instanceStatus) {
     this.instanceStatus = instanceStatus;
   }
 
-  public DBInstanceForDescribeDBInstancesOutput instanceType(InstanceTypeEnum instanceType) {
+  public DBInstanceForDescribeDBInstancesOutput instanceType(String instanceType) {
     this.instanceType = instanceType;
     return this;
   }
@@ -616,11 +336,11 @@ public class DBInstanceForDescribeDBInstancesOutput {
    * @return instanceType
   **/
   @Schema(description = "")
-  public InstanceTypeEnum getInstanceType() {
+  public String getInstanceType() {
     return instanceType;
   }
 
-  public void setInstanceType(InstanceTypeEnum instanceType) {
+  public void setInstanceType(String instanceType) {
     this.instanceType = instanceType;
   }
 
