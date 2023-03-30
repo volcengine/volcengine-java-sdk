@@ -24,15 +24,15 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DeleteDBInstanceRequest
+ * DescribeDBInstanceSSLRequest
  */
 
 
-public class DeleteDBInstanceRequest {
+public class DescribeDBInstanceSSLRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;
 
-  public DeleteDBInstanceRequest instanceId(String instanceId) {
+  public DescribeDBInstanceSSLRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
     return this;
   }
@@ -60,8 +60,8 @@ public class DeleteDBInstanceRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeleteDBInstanceRequest deleteDBInstanceRequest = (DeleteDBInstanceRequest) o;
-    return Objects.equals(this.instanceId, deleteDBInstanceRequest.instanceId);
+    DescribeDBInstanceSSLRequest describeDBInstanceSSLRequest = (DescribeDBInstanceSSLRequest) o;
+    return Objects.equals(this.instanceId, describeDBInstanceSSLRequest.instanceId);
   }
 
   @Override
@@ -73,7 +73,7 @@ public class DeleteDBInstanceRequest {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeleteDBInstanceRequest {\n");
+    sb.append("class DescribeDBInstanceSSLRequest {\n");
     
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("}");

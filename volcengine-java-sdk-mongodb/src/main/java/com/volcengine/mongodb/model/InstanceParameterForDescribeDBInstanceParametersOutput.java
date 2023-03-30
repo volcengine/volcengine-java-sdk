@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * InstanceParameterForDescribeDBInstanceParametersOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-19T10:07:26.552898+08:00[Asia/Shanghai]")
+
 public class InstanceParameterForDescribeDBInstanceParametersOutput {
   @SerializedName("CheckingCode")
   private String checkingCode = null;
@@ -44,100 +44,11 @@ public class InstanceParameterForDescribeDBInstanceParametersOutput {
   @SerializedName("ParameterDescription")
   private String parameterDescription = null;
 
-  /**
-   * Gets or Sets parameterRole
-   */
-  @JsonAdapter(ParameterRoleEnum.Adapter.class)
-  public enum ParameterRoleEnum {
-    CONFIGSERVER("ConfigServer"),
-    MONGOS("Mongos"),
-    NODE("Node"),
-    SHARD("Shard"),
-    UNKNOWN("Unknown");
+  @SerializedName("ParameterRole")
+  private String parameterRole = null;
 
-    private String value;
-
-    ParameterRoleEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static ParameterRoleEnum fromValue(String input) {
-      for (ParameterRoleEnum b : ParameterRoleEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<ParameterRoleEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final ParameterRoleEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public ParameterRoleEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return ParameterRoleEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("ParameterRole")
-  private ParameterRoleEnum parameterRole = null;
-
-  /**
-   * Gets or Sets parameterType
-   */
-  @JsonAdapter(ParameterTypeEnum.Adapter.class)
-  public enum ParameterTypeEnum {
-    BOOLEAN("Boolean"),
-    FLOAT("Float"),
-    INTEGER("Integer"),
-    LIST("List"),
-    STRING("String"),
-    UNKNOWN("Unknown");
-
-    private String value;
-
-    ParameterTypeEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static ParameterTypeEnum fromValue(String input) {
-      for (ParameterTypeEnum b : ParameterTypeEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<ParameterTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final ParameterTypeEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public ParameterTypeEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return ParameterTypeEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("ParameterType")
-  private ParameterTypeEnum parameterType = null;
+  @SerializedName("ParameterType")
+  private String parameterType = null;
 
   @SerializedName("ParameterValue")
   private String parameterValue = null;
@@ -232,7 +143,7 @@ public class InstanceParameterForDescribeDBInstanceParametersOutput {
     this.parameterDescription = parameterDescription;
   }
 
-  public InstanceParameterForDescribeDBInstanceParametersOutput parameterRole(ParameterRoleEnum parameterRole) {
+  public InstanceParameterForDescribeDBInstanceParametersOutput parameterRole(String parameterRole) {
     this.parameterRole = parameterRole;
     return this;
   }
@@ -242,15 +153,15 @@ public class InstanceParameterForDescribeDBInstanceParametersOutput {
    * @return parameterRole
   **/
   @Schema(description = "")
-  public ParameterRoleEnum getParameterRole() {
+  public String getParameterRole() {
     return parameterRole;
   }
 
-  public void setParameterRole(ParameterRoleEnum parameterRole) {
+  public void setParameterRole(String parameterRole) {
     this.parameterRole = parameterRole;
   }
 
-  public InstanceParameterForDescribeDBInstanceParametersOutput parameterType(ParameterTypeEnum parameterType) {
+  public InstanceParameterForDescribeDBInstanceParametersOutput parameterType(String parameterType) {
     this.parameterType = parameterType;
     return this;
   }
@@ -260,11 +171,11 @@ public class InstanceParameterForDescribeDBInstanceParametersOutput {
    * @return parameterType
   **/
   @Schema(description = "")
-  public ParameterTypeEnum getParameterType() {
+  public String getParameterType() {
     return parameterType;
   }
 
-  public void setParameterType(ParameterTypeEnum parameterType) {
+  public void setParameterType(String parameterType) {
     this.parameterType = parameterType;
   }
 

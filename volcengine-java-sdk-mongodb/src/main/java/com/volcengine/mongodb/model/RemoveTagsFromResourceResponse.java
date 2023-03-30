@@ -14,43 +14,14 @@ package com.volcengine.mongodb.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.v3.oas.annotations.media.Schema;
-import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DeleteDBInstanceRequest
+ * RemoveTagsFromResourceResponse
  */
 
 
-public class DeleteDBInstanceRequest {
-  @SerializedName("InstanceId")
-  private String instanceId = null;
-
-  public DeleteDBInstanceRequest instanceId(String instanceId) {
-    this.instanceId = instanceId;
-    return this;
-  }
-
-   /**
-   * Get instanceId
-   * @return instanceId
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getInstanceId() {
-    return instanceId;
-  }
-
-  public void setInstanceId(String instanceId) {
-    this.instanceId = instanceId;
-  }
-
+public class RemoveTagsFromResourceResponse {
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -60,22 +31,20 @@ public class DeleteDBInstanceRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeleteDBInstanceRequest deleteDBInstanceRequest = (DeleteDBInstanceRequest) o;
-    return Objects.equals(this.instanceId, deleteDBInstanceRequest.instanceId);
+    return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId);
+    return Objects.hash();
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeleteDBInstanceRequest {\n");
+    sb.append("class RemoveTagsFromResourceResponse {\n");
     
-    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

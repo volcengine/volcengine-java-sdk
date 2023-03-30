@@ -26,49 +26,44 @@ import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * AssociateAllowListRequest
+ * RemoveTagsFromResourceRequest
  */
 
 
-public class AssociateAllowListRequest {
-  @SerializedName("AllowListIds")
-  private List<String> allowListIds = null;
+public class RemoveTagsFromResourceRequest {
+  @SerializedName("All")
+  private Boolean all = null;
 
   @SerializedName("InstanceIds")
   private List<String> instanceIds = null;
 
-  public AssociateAllowListRequest allowListIds(List<String> allowListIds) {
-    this.allowListIds = allowListIds;
-    return this;
-  }
+  @SerializedName("TagKeys")
+  private List<String> tagKeys = null;
 
-  public AssociateAllowListRequest addAllowListIdsItem(String allowListIdsItem) {
-    if (this.allowListIds == null) {
-      this.allowListIds = new ArrayList<String>();
-    }
-    this.allowListIds.add(allowListIdsItem);
+  public RemoveTagsFromResourceRequest all(Boolean all) {
+    this.all = all;
     return this;
   }
 
    /**
-   * Get allowListIds
-   * @return allowListIds
+   * Get all
+   * @return all
   **/
   @Schema(description = "")
-  public List<String> getAllowListIds() {
-    return allowListIds;
+  public Boolean isAll() {
+    return all;
   }
 
-  public void setAllowListIds(List<String> allowListIds) {
-    this.allowListIds = allowListIds;
+  public void setAll(Boolean all) {
+    this.all = all;
   }
 
-  public AssociateAllowListRequest instanceIds(List<String> instanceIds) {
+  public RemoveTagsFromResourceRequest instanceIds(List<String> instanceIds) {
     this.instanceIds = instanceIds;
     return this;
   }
 
-  public AssociateAllowListRequest addInstanceIdsItem(String instanceIdsItem) {
+  public RemoveTagsFromResourceRequest addInstanceIdsItem(String instanceIdsItem) {
     if (this.instanceIds == null) {
       this.instanceIds = new ArrayList<String>();
     }
@@ -89,6 +84,32 @@ public class AssociateAllowListRequest {
     this.instanceIds = instanceIds;
   }
 
+  public RemoveTagsFromResourceRequest tagKeys(List<String> tagKeys) {
+    this.tagKeys = tagKeys;
+    return this;
+  }
+
+  public RemoveTagsFromResourceRequest addTagKeysItem(String tagKeysItem) {
+    if (this.tagKeys == null) {
+      this.tagKeys = new ArrayList<String>();
+    }
+    this.tagKeys.add(tagKeysItem);
+    return this;
+  }
+
+   /**
+   * Get tagKeys
+   * @return tagKeys
+  **/
+  @Schema(description = "")
+  public List<String> getTagKeys() {
+    return tagKeys;
+  }
+
+  public void setTagKeys(List<String> tagKeys) {
+    this.tagKeys = tagKeys;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -98,24 +119,26 @@ public class AssociateAllowListRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AssociateAllowListRequest associateAllowListRequest = (AssociateAllowListRequest) o;
-    return Objects.equals(this.allowListIds, associateAllowListRequest.allowListIds) &&
-        Objects.equals(this.instanceIds, associateAllowListRequest.instanceIds);
+    RemoveTagsFromResourceRequest removeTagsFromResourceRequest = (RemoveTagsFromResourceRequest) o;
+    return Objects.equals(this.all, removeTagsFromResourceRequest.all) &&
+        Objects.equals(this.instanceIds, removeTagsFromResourceRequest.instanceIds) &&
+        Objects.equals(this.tagKeys, removeTagsFromResourceRequest.tagKeys);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowListIds, instanceIds);
+    return Objects.hash(all, instanceIds, tagKeys);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AssociateAllowListRequest {\n");
+    sb.append("class RemoveTagsFromResourceRequest {\n");
     
-    sb.append("    allowListIds: ").append(toIndentedString(allowListIds)).append("\n");
+    sb.append("    all: ").append(toIndentedString(all)).append("\n");
     sb.append("    instanceIds: ").append(toIndentedString(instanceIds)).append("\n");
+    sb.append("    tagKeys: ").append(toIndentedString(tagKeys)).append("\n");
     sb.append("}");
     return sb.toString();
   }

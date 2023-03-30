@@ -30,7 +30,7 @@ import javax.validation.Valid;
  * DBEndpointForDescribeDBEndpointOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-19T10:07:26.552898+08:00[Asia/Shanghai]")
+
 public class DBEndpointForDescribeDBEndpointOutput {
   @SerializedName("DBAddresses")
   private List<DBAddressForDescribeDBEndpointOutput> dbAddresses = null;
@@ -41,97 +41,11 @@ public class DBEndpointForDescribeDBEndpointOutput {
   @SerializedName("EndpointStr")
   private String endpointStr = null;
 
-  /**
-   * Gets or Sets endpointType
-   */
-  @JsonAdapter(EndpointTypeEnum.Adapter.class)
-  public enum EndpointTypeEnum {
-    CONFIGSERVER("ConfigServer"),
-    MONGOS("Mongos"),
-    REPLICASET("ReplicaSet"),
-    SHARD("Shard");
+  @SerializedName("EndpointType")
+  private String endpointType = null;
 
-    private String value;
-
-    EndpointTypeEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static EndpointTypeEnum fromValue(String input) {
-      for (EndpointTypeEnum b : EndpointTypeEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<EndpointTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final EndpointTypeEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public EndpointTypeEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return EndpointTypeEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("EndpointType")
-  private EndpointTypeEnum endpointType = null;
-
-  /**
-   * Gets or Sets networkType
-   */
-  @JsonAdapter(NetworkTypeEnum.Adapter.class)
-  public enum NetworkTypeEnum {
-    INNERPLB("InnerPLB"),
-    PRIVATE("Private"),
-    PUBLIC("Public"),
-    STORAGEINNER("StorageInner");
-
-    private String value;
-
-    NetworkTypeEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static NetworkTypeEnum fromValue(String input) {
-      for (NetworkTypeEnum b : NetworkTypeEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<NetworkTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final NetworkTypeEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public NetworkTypeEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return NetworkTypeEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("NetworkType")
-  private NetworkTypeEnum networkType = null;
+  @SerializedName("NetworkType")
+  private String networkType = null;
 
   @SerializedName("ObjectId")
   private String objectId = null;
@@ -205,7 +119,7 @@ public class DBEndpointForDescribeDBEndpointOutput {
     this.endpointStr = endpointStr;
   }
 
-  public DBEndpointForDescribeDBEndpointOutput endpointType(EndpointTypeEnum endpointType) {
+  public DBEndpointForDescribeDBEndpointOutput endpointType(String endpointType) {
     this.endpointType = endpointType;
     return this;
   }
@@ -215,15 +129,15 @@ public class DBEndpointForDescribeDBEndpointOutput {
    * @return endpointType
   **/
   @Schema(description = "")
-  public EndpointTypeEnum getEndpointType() {
+  public String getEndpointType() {
     return endpointType;
   }
 
-  public void setEndpointType(EndpointTypeEnum endpointType) {
+  public void setEndpointType(String endpointType) {
     this.endpointType = endpointType;
   }
 
-  public DBEndpointForDescribeDBEndpointOutput networkType(NetworkTypeEnum networkType) {
+  public DBEndpointForDescribeDBEndpointOutput networkType(String networkType) {
     this.networkType = networkType;
     return this;
   }
@@ -233,11 +147,11 @@ public class DBEndpointForDescribeDBEndpointOutput {
    * @return networkType
   **/
   @Schema(description = "")
-  public NetworkTypeEnum getNetworkType() {
+  public String getNetworkType() {
     return networkType;
   }
 
-  public void setNetworkType(NetworkTypeEnum networkType) {
+  public void setNetworkType(String networkType) {
     this.networkType = networkType;
   }
 

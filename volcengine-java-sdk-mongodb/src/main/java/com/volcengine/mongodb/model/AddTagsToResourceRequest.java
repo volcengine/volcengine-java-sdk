@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.mongodb.model.TagForAddTagsToResourceInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -26,49 +27,23 @@ import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * AssociateAllowListRequest
+ * AddTagsToResourceRequest
  */
 
 
-public class AssociateAllowListRequest {
-  @SerializedName("AllowListIds")
-  private List<String> allowListIds = null;
-
+public class AddTagsToResourceRequest {
   @SerializedName("InstanceIds")
   private List<String> instanceIds = null;
 
-  public AssociateAllowListRequest allowListIds(List<String> allowListIds) {
-    this.allowListIds = allowListIds;
-    return this;
-  }
+  @SerializedName("Tags")
+  private List<TagForAddTagsToResourceInput> tags = null;
 
-  public AssociateAllowListRequest addAllowListIdsItem(String allowListIdsItem) {
-    if (this.allowListIds == null) {
-      this.allowListIds = new ArrayList<String>();
-    }
-    this.allowListIds.add(allowListIdsItem);
-    return this;
-  }
-
-   /**
-   * Get allowListIds
-   * @return allowListIds
-  **/
-  @Schema(description = "")
-  public List<String> getAllowListIds() {
-    return allowListIds;
-  }
-
-  public void setAllowListIds(List<String> allowListIds) {
-    this.allowListIds = allowListIds;
-  }
-
-  public AssociateAllowListRequest instanceIds(List<String> instanceIds) {
+  public AddTagsToResourceRequest instanceIds(List<String> instanceIds) {
     this.instanceIds = instanceIds;
     return this;
   }
 
-  public AssociateAllowListRequest addInstanceIdsItem(String instanceIdsItem) {
+  public AddTagsToResourceRequest addInstanceIdsItem(String instanceIdsItem) {
     if (this.instanceIds == null) {
       this.instanceIds = new ArrayList<String>();
     }
@@ -89,6 +64,33 @@ public class AssociateAllowListRequest {
     this.instanceIds = instanceIds;
   }
 
+  public AddTagsToResourceRequest tags(List<TagForAddTagsToResourceInput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public AddTagsToResourceRequest addTagsItem(TagForAddTagsToResourceInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForAddTagsToResourceInput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForAddTagsToResourceInput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForAddTagsToResourceInput> tags) {
+    this.tags = tags;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -98,24 +100,24 @@ public class AssociateAllowListRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AssociateAllowListRequest associateAllowListRequest = (AssociateAllowListRequest) o;
-    return Objects.equals(this.allowListIds, associateAllowListRequest.allowListIds) &&
-        Objects.equals(this.instanceIds, associateAllowListRequest.instanceIds);
+    AddTagsToResourceRequest addTagsToResourceRequest = (AddTagsToResourceRequest) o;
+    return Objects.equals(this.instanceIds, addTagsToResourceRequest.instanceIds) &&
+        Objects.equals(this.tags, addTagsToResourceRequest.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowListIds, instanceIds);
+    return Objects.hash(instanceIds, tags);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AssociateAllowListRequest {\n");
+    sb.append("class AddTagsToResourceRequest {\n");
     
-    sb.append("    allowListIds: ").append(toIndentedString(allowListIds)).append("\n");
     sb.append("    instanceIds: ").append(toIndentedString(instanceIds)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }

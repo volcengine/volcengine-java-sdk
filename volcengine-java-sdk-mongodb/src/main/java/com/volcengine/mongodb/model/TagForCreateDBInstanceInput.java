@@ -24,31 +24,51 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DeleteDBInstanceRequest
+ * TagForCreateDBInstanceInput
  */
 
 
-public class DeleteDBInstanceRequest {
-  @SerializedName("InstanceId")
-  private String instanceId = null;
+public class TagForCreateDBInstanceInput {
+  @SerializedName("Key")
+  private String key = null;
 
-  public DeleteDBInstanceRequest instanceId(String instanceId) {
-    this.instanceId = instanceId;
+  @SerializedName("Value")
+  private String value = null;
+
+  public TagForCreateDBInstanceInput key(String key) {
+    this.key = key;
     return this;
   }
 
    /**
-   * Get instanceId
-   * @return instanceId
+   * Get key
+   * @return key
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getInstanceId() {
-    return instanceId;
+  @Schema(description = "")
+  public String getKey() {
+    return key;
   }
 
-  public void setInstanceId(String instanceId) {
-    this.instanceId = instanceId;
+  public void setKey(String key) {
+    this.key = key;
+  }
+
+  public TagForCreateDBInstanceInput value(String value) {
+    this.value = value;
+    return this;
+  }
+
+   /**
+   * Get value
+   * @return value
+  **/
+  @Schema(description = "")
+  public String getValue() {
+    return value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
   }
 
 
@@ -60,22 +80,24 @@ public class DeleteDBInstanceRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeleteDBInstanceRequest deleteDBInstanceRequest = (DeleteDBInstanceRequest) o;
-    return Objects.equals(this.instanceId, deleteDBInstanceRequest.instanceId);
+    TagForCreateDBInstanceInput tagForCreateDBInstanceInput = (TagForCreateDBInstanceInput) o;
+    return Objects.equals(this.key, tagForCreateDBInstanceInput.key) &&
+        Objects.equals(this.value, tagForCreateDBInstanceInput.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId);
+    return Objects.hash(key, value);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeleteDBInstanceRequest {\n");
+    sb.append("class TagForCreateDBInstanceInput {\n");
     
-    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
   }
