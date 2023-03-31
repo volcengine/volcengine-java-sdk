@@ -32,6 +32,12 @@ public class ZoneMappingForModifyLoadBalancerTypeInput {
   @SerializedName("AllocationId")
   private String allocationId = null;
 
+  @SerializedName("EipType")
+  private String eipType = null;
+
+  @SerializedName("PopLocations")
+  private String popLocations = null;
+
   @SerializedName("ZoneId")
   private String zoneId = null;
 
@@ -51,6 +57,42 @@ public class ZoneMappingForModifyLoadBalancerTypeInput {
 
   public void setAllocationId(String allocationId) {
     this.allocationId = allocationId;
+  }
+
+  public ZoneMappingForModifyLoadBalancerTypeInput eipType(String eipType) {
+    this.eipType = eipType;
+    return this;
+  }
+
+   /**
+   * Get eipType
+   * @return eipType
+  **/
+  @Schema(description = "")
+  public String getEipType() {
+    return eipType;
+  }
+
+  public void setEipType(String eipType) {
+    this.eipType = eipType;
+  }
+
+  public ZoneMappingForModifyLoadBalancerTypeInput popLocations(String popLocations) {
+    this.popLocations = popLocations;
+    return this;
+  }
+
+   /**
+   * Get popLocations
+   * @return popLocations
+  **/
+  @Schema(description = "")
+  public String getPopLocations() {
+    return popLocations;
+  }
+
+  public void setPopLocations(String popLocations) {
+    this.popLocations = popLocations;
   }
 
   public ZoneMappingForModifyLoadBalancerTypeInput zoneId(String zoneId) {
@@ -82,12 +124,14 @@ public class ZoneMappingForModifyLoadBalancerTypeInput {
     }
     ZoneMappingForModifyLoadBalancerTypeInput zoneMappingForModifyLoadBalancerTypeInput = (ZoneMappingForModifyLoadBalancerTypeInput) o;
     return Objects.equals(this.allocationId, zoneMappingForModifyLoadBalancerTypeInput.allocationId) &&
+        Objects.equals(this.eipType, zoneMappingForModifyLoadBalancerTypeInput.eipType) &&
+        Objects.equals(this.popLocations, zoneMappingForModifyLoadBalancerTypeInput.popLocations) &&
         Objects.equals(this.zoneId, zoneMappingForModifyLoadBalancerTypeInput.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allocationId, zoneId);
+    return Objects.hash(allocationId, eipType, popLocations, zoneId);
   }
 
 
@@ -97,6 +141,8 @@ public class ZoneMappingForModifyLoadBalancerTypeInput {
     sb.append("class ZoneMappingForModifyLoadBalancerTypeInput {\n");
     
     sb.append("    allocationId: ").append(toIndentedString(allocationId)).append("\n");
+    sb.append("    eipType: ").append(toIndentedString(eipType)).append("\n");
+    sb.append("    popLocations: ").append(toIndentedString(popLocations)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");
     return sb.toString();
