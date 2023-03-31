@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.alb.model.PopLocationForDescribeLoadBalancersOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -31,6 +32,9 @@ import javax.validation.Valid;
 
 
 public class EipForDescribeLoadBalancersOutput {
+  @SerializedName("AssociationMode")
+  private String associationMode = null;
+
   @SerializedName("Bandwidth")
   private Integer bandwidth = null;
 
@@ -40,11 +44,35 @@ public class EipForDescribeLoadBalancersOutput {
   @SerializedName("EipBillingType")
   private Integer eipBillingType = null;
 
+  @SerializedName("EipType")
+  private String eipType = null;
+
   @SerializedName("ISP")
   private String ISP = null;
 
+  @SerializedName("PopLocations")
+  private List<PopLocationForDescribeLoadBalancersOutput> popLocations = null;
+
   @SerializedName("SecurityProtectionTypes")
   private List<String> securityProtectionTypes = null;
+
+  public EipForDescribeLoadBalancersOutput associationMode(String associationMode) {
+    this.associationMode = associationMode;
+    return this;
+  }
+
+   /**
+   * Get associationMode
+   * @return associationMode
+  **/
+  @Schema(description = "")
+  public String getAssociationMode() {
+    return associationMode;
+  }
+
+  public void setAssociationMode(String associationMode) {
+    this.associationMode = associationMode;
+  }
 
   public EipForDescribeLoadBalancersOutput bandwidth(Integer bandwidth) {
     this.bandwidth = bandwidth;
@@ -100,6 +128,24 @@ public class EipForDescribeLoadBalancersOutput {
     this.eipBillingType = eipBillingType;
   }
 
+  public EipForDescribeLoadBalancersOutput eipType(String eipType) {
+    this.eipType = eipType;
+    return this;
+  }
+
+   /**
+   * Get eipType
+   * @return eipType
+  **/
+  @Schema(description = "")
+  public String getEipType() {
+    return eipType;
+  }
+
+  public void setEipType(String eipType) {
+    this.eipType = eipType;
+  }
+
   public EipForDescribeLoadBalancersOutput ISP(String ISP) {
     this.ISP = ISP;
     return this;
@@ -116,6 +162,33 @@ public class EipForDescribeLoadBalancersOutput {
 
   public void setISP(String ISP) {
     this.ISP = ISP;
+  }
+
+  public EipForDescribeLoadBalancersOutput popLocations(List<PopLocationForDescribeLoadBalancersOutput> popLocations) {
+    this.popLocations = popLocations;
+    return this;
+  }
+
+  public EipForDescribeLoadBalancersOutput addPopLocationsItem(PopLocationForDescribeLoadBalancersOutput popLocationsItem) {
+    if (this.popLocations == null) {
+      this.popLocations = new ArrayList<PopLocationForDescribeLoadBalancersOutput>();
+    }
+    this.popLocations.add(popLocationsItem);
+    return this;
+  }
+
+   /**
+   * Get popLocations
+   * @return popLocations
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<PopLocationForDescribeLoadBalancersOutput> getPopLocations() {
+    return popLocations;
+  }
+
+  public void setPopLocations(List<PopLocationForDescribeLoadBalancersOutput> popLocations) {
+    this.popLocations = popLocations;
   }
 
   public EipForDescribeLoadBalancersOutput securityProtectionTypes(List<String> securityProtectionTypes) {
@@ -154,16 +227,19 @@ public class EipForDescribeLoadBalancersOutput {
       return false;
     }
     EipForDescribeLoadBalancersOutput eipForDescribeLoadBalancersOutput = (EipForDescribeLoadBalancersOutput) o;
-    return Objects.equals(this.bandwidth, eipForDescribeLoadBalancersOutput.bandwidth) &&
+    return Objects.equals(this.associationMode, eipForDescribeLoadBalancersOutput.associationMode) &&
+        Objects.equals(this.bandwidth, eipForDescribeLoadBalancersOutput.bandwidth) &&
         Objects.equals(this.eipAddress, eipForDescribeLoadBalancersOutput.eipAddress) &&
         Objects.equals(this.eipBillingType, eipForDescribeLoadBalancersOutput.eipBillingType) &&
+        Objects.equals(this.eipType, eipForDescribeLoadBalancersOutput.eipType) &&
         Objects.equals(this.ISP, eipForDescribeLoadBalancersOutput.ISP) &&
+        Objects.equals(this.popLocations, eipForDescribeLoadBalancersOutput.popLocations) &&
         Objects.equals(this.securityProtectionTypes, eipForDescribeLoadBalancersOutput.securityProtectionTypes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidth, eipAddress, eipBillingType, ISP, securityProtectionTypes);
+    return Objects.hash(associationMode, bandwidth, eipAddress, eipBillingType, eipType, ISP, popLocations, securityProtectionTypes);
   }
 
 
@@ -172,10 +248,13 @@ public class EipForDescribeLoadBalancersOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class EipForDescribeLoadBalancersOutput {\n");
     
+    sb.append("    associationMode: ").append(toIndentedString(associationMode)).append("\n");
     sb.append("    bandwidth: ").append(toIndentedString(bandwidth)).append("\n");
     sb.append("    eipAddress: ").append(toIndentedString(eipAddress)).append("\n");
     sb.append("    eipBillingType: ").append(toIndentedString(eipBillingType)).append("\n");
+    sb.append("    eipType: ").append(toIndentedString(eipType)).append("\n");
     sb.append("    ISP: ").append(toIndentedString(ISP)).append("\n");
+    sb.append("    popLocations: ").append(toIndentedString(popLocations)).append("\n");
     sb.append("    securityProtectionTypes: ").append(toIndentedString(securityProtectionTypes)).append("\n");
     sb.append("}");
     return sb.toString();
