@@ -33,9 +33,6 @@ public class ItemForListAddonsOutput {
   @SerializedName("ClusterId")
   private String clusterId = null;
 
-  @SerializedName("ClusterType")
-  private String clusterType = null;
-
   @SerializedName("Config")
   private String config = null;
 
@@ -82,24 +79,6 @@ public class ItemForListAddonsOutput {
 
   public void setClusterId(String clusterId) {
     this.clusterId = clusterId;
-  }
-
-  public ItemForListAddonsOutput clusterType(String clusterType) {
-    this.clusterType = clusterType;
-    return this;
-  }
-
-   /**
-   * Get clusterType
-   * @return clusterType
-  **/
-  @Schema(description = "")
-  public String getClusterType() {
-    return clusterType;
-  }
-
-  public void setClusterType(String clusterType) {
-    this.clusterType = clusterType;
   }
 
   public ItemForListAddonsOutput config(String config) {
@@ -294,7 +273,6 @@ public class ItemForListAddonsOutput {
     }
     ItemForListAddonsOutput itemForListAddonsOutput = (ItemForListAddonsOutput) o;
     return Objects.equals(this.clusterId, itemForListAddonsOutput.clusterId) &&
-        Objects.equals(this.clusterType, itemForListAddonsOutput.clusterType) &&
         Objects.equals(this.config, itemForListAddonsOutput.config) &&
         Objects.equals(this.createClientToken, itemForListAddonsOutput.createClientToken) &&
         Objects.equals(this.createTime, itemForListAddonsOutput.createTime) &&
@@ -309,7 +287,7 @@ public class ItemForListAddonsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, clusterType, config, createClientToken, createTime, deployMode, deployNodeType, name, status, updateClientToken, updateTime, version);
+    return Objects.hash(clusterId, config, createClientToken, createTime, deployMode, deployNodeType, name, status, updateClientToken, updateTime, version);
   }
 
 
@@ -319,7 +297,6 @@ public class ItemForListAddonsOutput {
     sb.append("class ItemForListAddonsOutput {\n");
     
     sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
-    sb.append("    clusterType: ").append(toIndentedString(clusterType)).append("\n");
     sb.append("    config: ").append(toIndentedString(config)).append("\n");
     sb.append("    createClientToken: ").append(toIndentedString(createClientToken)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
