@@ -21,55 +21,64 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DeleteDeploymentSetRequest
+ * CreateSubscriptionRequest
  */
 
 
-public class DeleteDeploymentSetRequest {
-  @SerializedName("ClientToken")
-  private String clientToken = null;
+public class CreateSubscriptionRequest {
+  @SerializedName("EventTypes")
+  private List<String> eventTypes = null;
 
-  @SerializedName("DeploymentSetId")
-  private String deploymentSetId = null;
+  @SerializedName("Type")
+  private String type = null;
 
-  public DeleteDeploymentSetRequest clientToken(String clientToken) {
-    this.clientToken = clientToken;
+  public CreateSubscriptionRequest eventTypes(List<String> eventTypes) {
+    this.eventTypes = eventTypes;
+    return this;
+  }
+
+  public CreateSubscriptionRequest addEventTypesItem(String eventTypesItem) {
+    if (this.eventTypes == null) {
+      this.eventTypes = new ArrayList<String>();
+    }
+    this.eventTypes.add(eventTypesItem);
     return this;
   }
 
    /**
-   * Get clientToken
-   * @return clientToken
+   * Get eventTypes
+   * @return eventTypes
   **/
   @Schema(description = "")
-  public String getClientToken() {
-    return clientToken;
+  public List<String> getEventTypes() {
+    return eventTypes;
   }
 
-  public void setClientToken(String clientToken) {
-    this.clientToken = clientToken;
+  public void setEventTypes(List<String> eventTypes) {
+    this.eventTypes = eventTypes;
   }
 
-  public DeleteDeploymentSetRequest deploymentSetId(String deploymentSetId) {
-    this.deploymentSetId = deploymentSetId;
+  public CreateSubscriptionRequest type(String type) {
+    this.type = type;
     return this;
   }
 
    /**
-   * Get deploymentSetId
-   * @return deploymentSetId
+   * Get type
+   * @return type
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getDeploymentSetId() {
-    return deploymentSetId;
+  @Schema(description = "")
+  public String getType() {
+    return type;
   }
 
-  public void setDeploymentSetId(String deploymentSetId) {
-    this.deploymentSetId = deploymentSetId;
+  public void setType(String type) {
+    this.type = type;
   }
 
 
@@ -81,24 +90,24 @@ public class DeleteDeploymentSetRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeleteDeploymentSetRequest deleteDeploymentSetRequest = (DeleteDeploymentSetRequest) o;
-    return Objects.equals(this.clientToken, deleteDeploymentSetRequest.clientToken) &&
-        Objects.equals(this.deploymentSetId, deleteDeploymentSetRequest.deploymentSetId);
+    CreateSubscriptionRequest createSubscriptionRequest = (CreateSubscriptionRequest) o;
+    return Objects.equals(this.eventTypes, createSubscriptionRequest.eventTypes) &&
+        Objects.equals(this.type, createSubscriptionRequest.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, deploymentSetId);
+    return Objects.hash(eventTypes, type);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeleteDeploymentSetRequest {\n");
+    sb.append("class CreateSubscriptionRequest {\n");
     
-    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
-    sb.append("    deploymentSetId: ").append(toIndentedString(deploymentSetId)).append("\n");
+    sb.append("    eventTypes: ").append(toIndentedString(eventTypes)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }
