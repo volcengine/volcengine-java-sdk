@@ -53,9 +53,9 @@
   <dependencies>
     <dependency>
       <groupId>com.volcengine</groupId>
-	  <artifactId>volcengine-java-sdk-bom</artifactId>
-       <version>0.1.45</version>
-	  <type>pom</type>
+	    <artifactId>volcengine-java-sdk-bom</artifactId>
+      <version>0.1.45</version>
+	    <type>pom</type>
       <scope>import</scope>
     </dependency>
   </dependencies>
