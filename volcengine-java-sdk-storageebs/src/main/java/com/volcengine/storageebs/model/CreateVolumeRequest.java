@@ -38,6 +38,9 @@ public class CreateVolumeRequest {
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("InstanceId")
+  private String instanceId = null;
+
   @SerializedName("Kind")
   private String kind = null;
 
@@ -96,6 +99,24 @@ public class CreateVolumeRequest {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public CreateVolumeRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
+    return this;
+  }
+
+   /**
+   * Get instanceId
+   * @return instanceId
+  **/
+  @Schema(description = "")
+  public String getInstanceId() {
+    return instanceId;
+  }
+
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
   }
 
   public CreateVolumeRequest kind(String kind) {
@@ -263,6 +284,7 @@ public class CreateVolumeRequest {
     CreateVolumeRequest createVolumeRequest = (CreateVolumeRequest) o;
     return Objects.equals(this.clientToken, createVolumeRequest.clientToken) &&
         Objects.equals(this.description, createVolumeRequest.description) &&
+        Objects.equals(this.instanceId, createVolumeRequest.instanceId) &&
         Objects.equals(this.kind, createVolumeRequest.kind) &&
         Objects.equals(this.projectName, createVolumeRequest.projectName) &&
         Objects.equals(this.size, createVolumeRequest.size) &&
@@ -275,7 +297,7 @@ public class CreateVolumeRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, description, kind, projectName, size, tags, volumeChargeType, volumeName, volumeType, zoneId);
+    return Objects.hash(clientToken, description, instanceId, kind, projectName, size, tags, volumeChargeType, volumeName, volumeType, zoneId);
   }
 
 
@@ -286,6 +308,7 @@ public class CreateVolumeRequest {
     
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    kind: ").append(toIndentedString(kind)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");

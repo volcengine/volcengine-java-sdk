@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * NodeForDescribeDBInstanceDetailOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-19T10:07:26.552898+08:00[Asia/Shanghai]")
+
 public class NodeForDescribeDBInstanceDetailOutput {
   @SerializedName("NodeDelayTime")
   private Integer nodeDelayTime = null;
@@ -35,96 +35,14 @@ public class NodeForDescribeDBInstanceDetailOutput {
   @SerializedName("NodeId")
   private String nodeId = null;
 
-  /**
-   * Gets or Sets nodeRole
-   */
-  @JsonAdapter(NodeRoleEnum.Adapter.class)
-  public enum NodeRoleEnum {
-    PRIMARY("Primary"),
-    SECONDARY("Secondary");
-
-    private String value;
-
-    NodeRoleEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static NodeRoleEnum fromValue(String input) {
-      for (NodeRoleEnum b : NodeRoleEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<NodeRoleEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final NodeRoleEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public NodeRoleEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return NodeRoleEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("NodeRole")
-  private NodeRoleEnum nodeRole = null;
+  @SerializedName("NodeRole")
+  private String nodeRole = null;
 
   @SerializedName("NodeSpec")
   private String nodeSpec = null;
 
-  /**
-   * Gets or Sets nodeStatus
-   */
-  @JsonAdapter(NodeStatusEnum.Adapter.class)
-  public enum NodeStatusEnum {
-    ERROR("Error"),
-    RUNNING("Running");
-
-    private String value;
-
-    NodeStatusEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static NodeStatusEnum fromValue(String input) {
-      for (NodeStatusEnum b : NodeStatusEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<NodeStatusEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final NodeStatusEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public NodeStatusEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return NodeStatusEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("NodeStatus")
-  private NodeStatusEnum nodeStatus = null;
+  @SerializedName("NodeStatus")
+  private String nodeStatus = null;
 
   @SerializedName("TotalMemoryGB")
   private Double totalMemoryGB = null;
@@ -180,7 +98,7 @@ public class NodeForDescribeDBInstanceDetailOutput {
     this.nodeId = nodeId;
   }
 
-  public NodeForDescribeDBInstanceDetailOutput nodeRole(NodeRoleEnum nodeRole) {
+  public NodeForDescribeDBInstanceDetailOutput nodeRole(String nodeRole) {
     this.nodeRole = nodeRole;
     return this;
   }
@@ -190,11 +108,11 @@ public class NodeForDescribeDBInstanceDetailOutput {
    * @return nodeRole
   **/
   @Schema(description = "")
-  public NodeRoleEnum getNodeRole() {
+  public String getNodeRole() {
     return nodeRole;
   }
 
-  public void setNodeRole(NodeRoleEnum nodeRole) {
+  public void setNodeRole(String nodeRole) {
     this.nodeRole = nodeRole;
   }
 
@@ -216,7 +134,7 @@ public class NodeForDescribeDBInstanceDetailOutput {
     this.nodeSpec = nodeSpec;
   }
 
-  public NodeForDescribeDBInstanceDetailOutput nodeStatus(NodeStatusEnum nodeStatus) {
+  public NodeForDescribeDBInstanceDetailOutput nodeStatus(String nodeStatus) {
     this.nodeStatus = nodeStatus;
     return this;
   }
@@ -226,11 +144,11 @@ public class NodeForDescribeDBInstanceDetailOutput {
    * @return nodeStatus
   **/
   @Schema(description = "")
-  public NodeStatusEnum getNodeStatus() {
+  public String getNodeStatus() {
     return nodeStatus;
   }
 
-  public void setNodeStatus(NodeStatusEnum nodeStatus) {
+  public void setNodeStatus(String nodeStatus) {
     this.nodeStatus = nodeStatus;
   }
 

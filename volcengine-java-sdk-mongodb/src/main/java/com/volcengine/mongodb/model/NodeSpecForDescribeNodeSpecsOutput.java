@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * NodeSpecForDescribeNodeSpecsOutput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-19T10:07:26.552898+08:00[Asia/Shanghai]")
+
 public class NodeSpecForDescribeNodeSpecsOutput {
   @SerializedName("CpuNum")
   private Double cpuNum = null;

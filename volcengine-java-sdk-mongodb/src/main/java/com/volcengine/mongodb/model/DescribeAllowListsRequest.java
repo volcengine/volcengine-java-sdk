@@ -27,7 +27,7 @@ import javax.validation.Valid;
  * DescribeAllowListsRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-19T10:07:26.552898+08:00[Asia/Shanghai]")
+
 public class DescribeAllowListsRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;

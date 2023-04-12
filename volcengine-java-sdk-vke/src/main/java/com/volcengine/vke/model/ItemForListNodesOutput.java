@@ -51,6 +51,9 @@ public class ItemForListNodesOutput {
   @SerializedName("Id")
   private String id = null;
 
+  @SerializedName("ImageId")
+  private String imageId = null;
+
   @SerializedName("InitializeScript")
   private String initializeScript = null;
 
@@ -229,6 +232,24 @@ public class ItemForListNodesOutput {
 
   public void setId(String id) {
     this.id = id;
+  }
+
+  public ItemForListNodesOutput imageId(String imageId) {
+    this.imageId = imageId;
+    return this;
+  }
+
+   /**
+   * Get imageId
+   * @return imageId
+  **/
+  @Schema(description = "")
+  public String getImageId() {
+    return imageId;
+  }
+
+  public void setImageId(String imageId) {
+    this.imageId = imageId;
   }
 
   public ItemForListNodesOutput initializeScript(String initializeScript) {
@@ -437,6 +458,7 @@ public class ItemForListNodesOutput {
         Objects.equals(this.createClientToken, itemForListNodesOutput.createClientToken) &&
         Objects.equals(this.createTime, itemForListNodesOutput.createTime) &&
         Objects.equals(this.id, itemForListNodesOutput.id) &&
+        Objects.equals(this.imageId, itemForListNodesOutput.imageId) &&
         Objects.equals(this.initializeScript, itemForListNodesOutput.initializeScript) &&
         Objects.equals(this.instanceId, itemForListNodesOutput.instanceId) &&
         Objects.equals(this.isVirtual, itemForListNodesOutput.isVirtual) &&
@@ -451,7 +473,7 @@ public class ItemForListNodesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalContainerStorageEnabled, clusterId, containerStoragePath, createClientToken, createTime, id, initializeScript, instanceId, isVirtual, kubernetesConfig, name, nodePoolId, roles, status, updateTime, zoneId);
+    return Objects.hash(additionalContainerStorageEnabled, clusterId, containerStoragePath, createClientToken, createTime, id, imageId, initializeScript, instanceId, isVirtual, kubernetesConfig, name, nodePoolId, roles, status, updateTime, zoneId);
   }
 
 
@@ -466,6 +488,7 @@ public class ItemForListNodesOutput {
     sb.append("    createClientToken: ").append(toIndentedString(createClientToken)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    imageId: ").append(toIndentedString(imageId)).append("\n");
     sb.append("    initializeScript: ").append(toIndentedString(initializeScript)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    isVirtual: ").append(toIndentedString(isVirtual)).append("\n");

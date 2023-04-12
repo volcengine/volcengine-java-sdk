@@ -44,6 +44,9 @@ public class CreateNodesRequest {
   @SerializedName("ContainerStoragePath")
   private String containerStoragePath = null;
 
+  @SerializedName("ImageId")
+  private String imageId = null;
+
   @SerializedName("InitializeScript")
   private String initializeScript = null;
 
@@ -126,6 +129,24 @@ public class CreateNodesRequest {
 
   public void setContainerStoragePath(String containerStoragePath) {
     this.containerStoragePath = containerStoragePath;
+  }
+
+  public CreateNodesRequest imageId(String imageId) {
+    this.imageId = imageId;
+    return this;
+  }
+
+   /**
+   * Get imageId
+   * @return imageId
+  **/
+  @Schema(description = "")
+  public String getImageId() {
+    return imageId;
+  }
+
+  public void setImageId(String imageId) {
+    this.imageId = imageId;
   }
 
   public CreateNodesRequest initializeScript(String initializeScript) {
@@ -223,6 +244,7 @@ public class CreateNodesRequest {
         Objects.equals(this.clientToken, createNodesRequest.clientToken) &&
         Objects.equals(this.clusterId, createNodesRequest.clusterId) &&
         Objects.equals(this.containerStoragePath, createNodesRequest.containerStoragePath) &&
+        Objects.equals(this.imageId, createNodesRequest.imageId) &&
         Objects.equals(this.initializeScript, createNodesRequest.initializeScript) &&
         Objects.equals(this.instanceIds, createNodesRequest.instanceIds) &&
         Objects.equals(this.keepInstanceName, createNodesRequest.keepInstanceName) &&
@@ -231,7 +253,7 @@ public class CreateNodesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalContainerStorageEnabled, clientToken, clusterId, containerStoragePath, initializeScript, instanceIds, keepInstanceName, kubernetesConfig);
+    return Objects.hash(additionalContainerStorageEnabled, clientToken, clusterId, containerStoragePath, imageId, initializeScript, instanceIds, keepInstanceName, kubernetesConfig);
   }
 
 
@@ -244,6 +266,7 @@ public class CreateNodesRequest {
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    containerStoragePath: ").append(toIndentedString(containerStoragePath)).append("\n");
+    sb.append("    imageId: ").append(toIndentedString(imageId)).append("\n");
     sb.append("    initializeScript: ").append(toIndentedString(initializeScript)).append("\n");
     sb.append("    instanceIds: ").append(toIndentedString(instanceIds)).append("\n");
     sb.append("    keepInstanceName: ").append(toIndentedString(keepInstanceName)).append("\n");
