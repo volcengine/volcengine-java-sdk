@@ -65,7 +65,8 @@ public class VolumeForRunInstancesInput {
    * Get size
    * @return size
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public Integer getSize() {
     return size;
   }
@@ -83,7 +84,8 @@ public class VolumeForRunInstancesInput {
    * Get volumeType
    * @return volumeType
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getVolumeType() {
     return volumeType;
   }
