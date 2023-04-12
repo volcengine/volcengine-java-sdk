@@ -48,6 +48,12 @@ public class RuleForDescribeRulesOutput {
   @SerializedName("ServerGroupId")
   private String serverGroupId = null;
 
+  @SerializedName("TrafficLimitEnabled")
+  private String trafficLimitEnabled = null;
+
+  @SerializedName("TrafficLimitQPS")
+  private Integer trafficLimitQPS = null;
+
   @SerializedName("Url")
   private String url = null;
 
@@ -160,6 +166,42 @@ public class RuleForDescribeRulesOutput {
     this.serverGroupId = serverGroupId;
   }
 
+  public RuleForDescribeRulesOutput trafficLimitEnabled(String trafficLimitEnabled) {
+    this.trafficLimitEnabled = trafficLimitEnabled;
+    return this;
+  }
+
+   /**
+   * Get trafficLimitEnabled
+   * @return trafficLimitEnabled
+  **/
+  @Schema(description = "")
+  public String getTrafficLimitEnabled() {
+    return trafficLimitEnabled;
+  }
+
+  public void setTrafficLimitEnabled(String trafficLimitEnabled) {
+    this.trafficLimitEnabled = trafficLimitEnabled;
+  }
+
+  public RuleForDescribeRulesOutput trafficLimitQPS(Integer trafficLimitQPS) {
+    this.trafficLimitQPS = trafficLimitQPS;
+    return this;
+  }
+
+   /**
+   * Get trafficLimitQPS
+   * @return trafficLimitQPS
+  **/
+  @Schema(description = "")
+  public Integer getTrafficLimitQPS() {
+    return trafficLimitQPS;
+  }
+
+  public void setTrafficLimitQPS(Integer trafficLimitQPS) {
+    this.trafficLimitQPS = trafficLimitQPS;
+  }
+
   public RuleForDescribeRulesOutput url(String url) {
     this.url = url;
     return this;
@@ -194,12 +236,14 @@ public class RuleForDescribeRulesOutput {
         Objects.equals(this.ruleAction, ruleForDescribeRulesOutput.ruleAction) &&
         Objects.equals(this.ruleId, ruleForDescribeRulesOutput.ruleId) &&
         Objects.equals(this.serverGroupId, ruleForDescribeRulesOutput.serverGroupId) &&
+        Objects.equals(this.trafficLimitEnabled, ruleForDescribeRulesOutput.trafficLimitEnabled) &&
+        Objects.equals(this.trafficLimitQPS, ruleForDescribeRulesOutput.trafficLimitQPS) &&
         Objects.equals(this.url, ruleForDescribeRulesOutput.url);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, domain, redirectConfig, ruleAction, ruleId, serverGroupId, url);
+    return Objects.hash(description, domain, redirectConfig, ruleAction, ruleId, serverGroupId, trafficLimitEnabled, trafficLimitQPS, url);
   }
 
 
@@ -214,6 +258,8 @@ public class RuleForDescribeRulesOutput {
     sb.append("    ruleAction: ").append(toIndentedString(ruleAction)).append("\n");
     sb.append("    ruleId: ").append(toIndentedString(ruleId)).append("\n");
     sb.append("    serverGroupId: ").append(toIndentedString(serverGroupId)).append("\n");
+    sb.append("    trafficLimitEnabled: ").append(toIndentedString(trafficLimitEnabled)).append("\n");
+    sb.append("    trafficLimitQPS: ").append(toIndentedString(trafficLimitQPS)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("}");
     return sb.toString();
