@@ -45,6 +45,12 @@ public class RuleForModifyRulesInput {
   @SerializedName("ServerGroupId")
   private String serverGroupId = null;
 
+  @SerializedName("TrafficLimitEnabled")
+  private String trafficLimitEnabled = null;
+
+  @SerializedName("TrafficLimitQPS")
+  private Integer trafficLimitQPS = null;
+
   public RuleForModifyRulesInput description(String description) {
     this.description = description;
     return this;
@@ -137,6 +143,42 @@ public class RuleForModifyRulesInput {
     this.serverGroupId = serverGroupId;
   }
 
+  public RuleForModifyRulesInput trafficLimitEnabled(String trafficLimitEnabled) {
+    this.trafficLimitEnabled = trafficLimitEnabled;
+    return this;
+  }
+
+   /**
+   * Get trafficLimitEnabled
+   * @return trafficLimitEnabled
+  **/
+  @Schema(description = "")
+  public String getTrafficLimitEnabled() {
+    return trafficLimitEnabled;
+  }
+
+  public void setTrafficLimitEnabled(String trafficLimitEnabled) {
+    this.trafficLimitEnabled = trafficLimitEnabled;
+  }
+
+  public RuleForModifyRulesInput trafficLimitQPS(Integer trafficLimitQPS) {
+    this.trafficLimitQPS = trafficLimitQPS;
+    return this;
+  }
+
+   /**
+   * Get trafficLimitQPS
+   * @return trafficLimitQPS
+  **/
+  @Schema(description = "")
+  public Integer getTrafficLimitQPS() {
+    return trafficLimitQPS;
+  }
+
+  public void setTrafficLimitQPS(Integer trafficLimitQPS) {
+    this.trafficLimitQPS = trafficLimitQPS;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -151,12 +193,14 @@ public class RuleForModifyRulesInput {
         Objects.equals(this.redirectConfig, ruleForModifyRulesInput.redirectConfig) &&
         Objects.equals(this.ruleAction, ruleForModifyRulesInput.ruleAction) &&
         Objects.equals(this.ruleId, ruleForModifyRulesInput.ruleId) &&
-        Objects.equals(this.serverGroupId, ruleForModifyRulesInput.serverGroupId);
+        Objects.equals(this.serverGroupId, ruleForModifyRulesInput.serverGroupId) &&
+        Objects.equals(this.trafficLimitEnabled, ruleForModifyRulesInput.trafficLimitEnabled) &&
+        Objects.equals(this.trafficLimitQPS, ruleForModifyRulesInput.trafficLimitQPS);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, redirectConfig, ruleAction, ruleId, serverGroupId);
+    return Objects.hash(description, redirectConfig, ruleAction, ruleId, serverGroupId, trafficLimitEnabled, trafficLimitQPS);
   }
 
 
@@ -170,6 +214,8 @@ public class RuleForModifyRulesInput {
     sb.append("    ruleAction: ").append(toIndentedString(ruleAction)).append("\n");
     sb.append("    ruleId: ").append(toIndentedString(ruleId)).append("\n");
     sb.append("    serverGroupId: ").append(toIndentedString(serverGroupId)).append("\n");
+    sb.append("    trafficLimitEnabled: ").append(toIndentedString(trafficLimitEnabled)).append("\n");
+    sb.append("    trafficLimitQPS: ").append(toIndentedString(trafficLimitQPS)).append("\n");
     sb.append("}");
     return sb.toString();
   }
