@@ -1045,14 +1045,23 @@ public class ApiClient {
         Type t = new TypeToken<Map<String, ?>>() {
         }.getType();
         Map<String, ?> temp = json.deserialize(source, t);
-        if (temp.containsKey("ResponseMetadata") && temp.containsKey("Result")) {
-            stringBuilder.append(json.serialize(temp.get("Result")));
+        if (temp.containsKey("ResponseMetadata"))  {
+            if (temp.containsKey("Result")){
+                stringBuilder.append(json.serialize(temp.get("Result")));
+            }else{
+                stringBuilder.append(json.serialize(new HashMap<String,Object>()));
+            }
+
             return true;
         }
+
         return false;
     }
 
     private void buildSimpleRequest(Object body, List<Pair> queryParams, Map<String, String> headerParams, StringBuilder builder, String chain, boolean... isCommon) throws Exception {
+        if (body ==null) {
+            return;
+        }
         if (isApplicationJsonBody(headerParams)) {
             builder.append(json.serialize(body));
             return;
