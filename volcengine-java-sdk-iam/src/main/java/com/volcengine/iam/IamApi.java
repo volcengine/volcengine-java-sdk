@@ -1267,11 +1267,11 @@ public class IamApi {
     }
     /**
      * Build call for createSAMLProvider
-     * @param description  (required)
-     * @param encodedSAMLMetadataDocument  (required)
-     * @param saMLProviderName  (required)
-     * @param ssOType  (required)
-     * @param status  (required)
+     * @param description  (optional)
+     * @param encodedSAMLMetadataDocument  (optional)
+     * @param saMLProviderName  (optional)
+     * @param ssOType  (optional)
+     * @param status  (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -1330,26 +1330,6 @@ public class IamApi {
     
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call createSAMLProviderValidateBeforeCall(String description, String encodedSAMLMetadataDocument, String saMLProviderName, Integer ssOType, Integer status, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'description' is set
-        if (description == null) {
-            throw new ApiException("Missing the required parameter 'description' when calling createSAMLProvider(Async)");
-        }
-        // verify the required parameter 'encodedSAMLMetadataDocument' is set
-        if (encodedSAMLMetadataDocument == null) {
-            throw new ApiException("Missing the required parameter 'encodedSAMLMetadataDocument' when calling createSAMLProvider(Async)");
-        }
-        // verify the required parameter 'saMLProviderName' is set
-        if (saMLProviderName == null) {
-            throw new ApiException("Missing the required parameter 'saMLProviderName' when calling createSAMLProvider(Async)");
-        }
-        // verify the required parameter 'ssOType' is set
-        if (ssOType == null) {
-            throw new ApiException("Missing the required parameter 'ssOType' when calling createSAMLProvider(Async)");
-        }
-        // verify the required parameter 'status' is set
-        if (status == null) {
-            throw new ApiException("Missing the required parameter 'status' when calling createSAMLProvider(Async)");
-        }
         
         com.squareup.okhttp.Call call = createSAMLProviderCall(description, encodedSAMLMetadataDocument, saMLProviderName, ssOType, status, progressListener, progressRequestListener);
         return call;
@@ -1363,11 +1343,11 @@ public class IamApi {
     /**
      * 
      * 
-     * @param description  (required)
-     * @param encodedSAMLMetadataDocument  (required)
-     * @param saMLProviderName  (required)
-     * @param ssOType  (required)
-     * @param status  (required)
+     * @param description  (optional)
+     * @param encodedSAMLMetadataDocument  (optional)
+     * @param saMLProviderName  (optional)
+     * @param ssOType  (optional)
+     * @param status  (optional)
      * @return CreateSAMLProviderResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1379,15 +1359,15 @@ public class IamApi {
     /**
      * 
      * 
-     * @param description  (required)
-     * @param encodedSAMLMetadataDocument  (required)
-     * @param saMLProviderName  (required)
-     * @param ssOType  (required)
-     * @param status  (required)
+     * @param description  (optional)
+     * @param encodedSAMLMetadataDocument  (optional)
+     * @param saMLProviderName  (optional)
+     * @param ssOType  (optional)
+     * @param status  (optional)
      * @return ApiResponse&lt;CreateSAMLProviderResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CreateSAMLProviderResponse> createSAMLProviderWithHttpInfo( @NotNull String description,  @NotNull String encodedSAMLMetadataDocument,  @NotNull String saMLProviderName,  @NotNull Integer ssOType,  @NotNull Integer status) throws ApiException {
+    public ApiResponse<CreateSAMLProviderResponse> createSAMLProviderWithHttpInfo( String description,  String encodedSAMLMetadataDocument,  String saMLProviderName,  Integer ssOType,  Integer status) throws ApiException {
         com.squareup.okhttp.Call call = createSAMLProviderValidateBeforeCall(description, encodedSAMLMetadataDocument, saMLProviderName, ssOType, status, null, null);
         Type localVarReturnType = new TypeToken<CreateSAMLProviderResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -1396,11 +1376,11 @@ public class IamApi {
     /**
      *  (asynchronously)
      * 
-     * @param description  (required)
-     * @param encodedSAMLMetadataDocument  (required)
-     * @param saMLProviderName  (required)
-     * @param ssOType  (required)
-     * @param status  (required)
+     * @param description  (optional)
+     * @param encodedSAMLMetadataDocument  (optional)
+     * @param saMLProviderName  (optional)
+     * @param ssOType  (optional)
+     * @param status  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1433,7 +1413,7 @@ public class IamApi {
     }
     /**
      * Build call for createSAMLProvider
-     * @param body  (required)
+     * @param body  (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -1482,10 +1462,6 @@ public class IamApi {
     
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call createSAMLProviderValidateBeforeCall(CreateSAMLProviderRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling createSAMLProvider(Async)");
-        }
         
         com.squareup.okhttp.Call call = createSAMLProviderCall(body, progressListener, progressRequestListener);
         return call;
@@ -1499,7 +1475,7 @@ public class IamApi {
     /**
      * 
      * 
-     * @param body  (required)
+     * @param body  (optional)
      * @return CreateSAMLProviderResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1511,11 +1487,11 @@ public class IamApi {
     /**
      * 
      * 
-     * @param body  (required)
+     * @param body  (optional)
      * @return ApiResponse&lt;CreateSAMLProviderResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CreateSAMLProviderResponse> createSAMLProviderWithHttpInfo( @NotNull CreateSAMLProviderRequest body) throws ApiException {
+    public ApiResponse<CreateSAMLProviderResponse> createSAMLProviderWithHttpInfo( CreateSAMLProviderRequest body) throws ApiException {
         com.squareup.okhttp.Call call = createSAMLProviderValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<CreateSAMLProviderResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -1524,7 +1500,7 @@ public class IamApi {
     /**
      *  (asynchronously)
      * 
-     * @param body  (required)
+     * @param body  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -6021,11 +5997,11 @@ public class IamApi {
     }
     /**
      * Build call for updateSAMLProvider
-     * @param description  (required)
-     * @param newEncodedSAMLMetadataDocument  (required)
-     * @param saMLProviderName  (required)
-     * @param ssOType  (required)
-     * @param status  (required)
+     * @param description  (optional)
+     * @param newEncodedSAMLMetadataDocument  (optional)
+     * @param saMLProviderName  (optional)
+     * @param ssOType  (optional)
+     * @param status  (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -6084,26 +6060,6 @@ public class IamApi {
     
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateSAMLProviderValidateBeforeCall(String description, String newEncodedSAMLMetadataDocument, String saMLProviderName, Integer ssOType, Integer status, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'description' is set
-        if (description == null) {
-            throw new ApiException("Missing the required parameter 'description' when calling updateSAMLProvider(Async)");
-        }
-        // verify the required parameter 'newEncodedSAMLMetadataDocument' is set
-        if (newEncodedSAMLMetadataDocument == null) {
-            throw new ApiException("Missing the required parameter 'newEncodedSAMLMetadataDocument' when calling updateSAMLProvider(Async)");
-        }
-        // verify the required parameter 'saMLProviderName' is set
-        if (saMLProviderName == null) {
-            throw new ApiException("Missing the required parameter 'saMLProviderName' when calling updateSAMLProvider(Async)");
-        }
-        // verify the required parameter 'ssOType' is set
-        if (ssOType == null) {
-            throw new ApiException("Missing the required parameter 'ssOType' when calling updateSAMLProvider(Async)");
-        }
-        // verify the required parameter 'status' is set
-        if (status == null) {
-            throw new ApiException("Missing the required parameter 'status' when calling updateSAMLProvider(Async)");
-        }
         
         com.squareup.okhttp.Call call = updateSAMLProviderCall(description, newEncodedSAMLMetadataDocument, saMLProviderName, ssOType, status, progressListener, progressRequestListener);
         return call;
@@ -6117,11 +6073,11 @@ public class IamApi {
     /**
      * 
      * 
-     * @param description  (required)
-     * @param newEncodedSAMLMetadataDocument  (required)
-     * @param saMLProviderName  (required)
-     * @param ssOType  (required)
-     * @param status  (required)
+     * @param description  (optional)
+     * @param newEncodedSAMLMetadataDocument  (optional)
+     * @param saMLProviderName  (optional)
+     * @param ssOType  (optional)
+     * @param status  (optional)
      * @return UpdateSAMLProviderResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -6133,15 +6089,15 @@ public class IamApi {
     /**
      * 
      * 
-     * @param description  (required)
-     * @param newEncodedSAMLMetadataDocument  (required)
-     * @param saMLProviderName  (required)
-     * @param ssOType  (required)
-     * @param status  (required)
+     * @param description  (optional)
+     * @param newEncodedSAMLMetadataDocument  (optional)
+     * @param saMLProviderName  (optional)
+     * @param ssOType  (optional)
+     * @param status  (optional)
      * @return ApiResponse&lt;UpdateSAMLProviderResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<UpdateSAMLProviderResponse> updateSAMLProviderWithHttpInfo( @NotNull String description,  @NotNull String newEncodedSAMLMetadataDocument,  @NotNull String saMLProviderName,  @NotNull Integer ssOType,  @NotNull Integer status) throws ApiException {
+    public ApiResponse<UpdateSAMLProviderResponse> updateSAMLProviderWithHttpInfo( String description,  String newEncodedSAMLMetadataDocument,  String saMLProviderName,  Integer ssOType,  Integer status) throws ApiException {
         com.squareup.okhttp.Call call = updateSAMLProviderValidateBeforeCall(description, newEncodedSAMLMetadataDocument, saMLProviderName, ssOType, status, null, null);
         Type localVarReturnType = new TypeToken<UpdateSAMLProviderResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -6150,11 +6106,11 @@ public class IamApi {
     /**
      *  (asynchronously)
      * 
-     * @param description  (required)
-     * @param newEncodedSAMLMetadataDocument  (required)
-     * @param saMLProviderName  (required)
-     * @param ssOType  (required)
-     * @param status  (required)
+     * @param description  (optional)
+     * @param newEncodedSAMLMetadataDocument  (optional)
+     * @param saMLProviderName  (optional)
+     * @param ssOType  (optional)
+     * @param status  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -6187,7 +6143,7 @@ public class IamApi {
     }
     /**
      * Build call for updateSAMLProvider
-     * @param body  (required)
+     * @param body  (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -6236,10 +6192,6 @@ public class IamApi {
     
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateSAMLProviderValidateBeforeCall(UpdateSAMLProviderRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling updateSAMLProvider(Async)");
-        }
         
         com.squareup.okhttp.Call call = updateSAMLProviderCall(body, progressListener, progressRequestListener);
         return call;
@@ -6253,7 +6205,7 @@ public class IamApi {
     /**
      * 
      * 
-     * @param body  (required)
+     * @param body  (optional)
      * @return UpdateSAMLProviderResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -6265,11 +6217,11 @@ public class IamApi {
     /**
      * 
      * 
-     * @param body  (required)
+     * @param body  (optional)
      * @return ApiResponse&lt;UpdateSAMLProviderResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<UpdateSAMLProviderResponse> updateSAMLProviderWithHttpInfo( @NotNull UpdateSAMLProviderRequest body) throws ApiException {
+    public ApiResponse<UpdateSAMLProviderResponse> updateSAMLProviderWithHttpInfo( UpdateSAMLProviderRequest body) throws ApiException {
         com.squareup.okhttp.Call call = updateSAMLProviderValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<UpdateSAMLProviderResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -6278,7 +6230,7 @@ public class IamApi {
     /**
      *  (asynchronously)
      * 
-     * @param body  (required)
+     * @param body  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
