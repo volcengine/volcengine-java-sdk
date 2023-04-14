@@ -225,6 +225,7 @@
         <module>volcengine-java-sdk-mongodb</module>
         <module>volcengine-java-sdk-volcobserve</module>
         <module>volcengine-java-sdk-rdsmysqlv2</module>
+        <module>volcengine-java-sdk-iam</module>
         <module>volcengine-java-sdk-redis</module>
     </modules>
 </project>
