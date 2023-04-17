@@ -4,7 +4,7 @@
     <groupId>com.volcengine</groupId>
     <artifactId>volcengine-java-sdk</artifactId>
     <packaging>pom</packaging>
-    <version>0.1.49</version>
+    <version>0.1.50</version>
     <name>volcengine-java-sdk</name>
     <url>https://open.volcengineapi.com</url>
     <description>The Java SDK For Volcengine</description>
@@ -227,5 +227,6 @@
         <module>volcengine-java-sdk-rdsmysqlv2</module>
         <module>volcengine-java-sdk-iam</module>
         <module>volcengine-java-sdk-redis</module>
+        <module>volcengine-java-sdk-spark</module>
     </modules>
 </project>
