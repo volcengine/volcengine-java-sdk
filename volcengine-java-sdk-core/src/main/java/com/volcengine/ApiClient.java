@@ -902,7 +902,7 @@ public class ApiClient {
      * @param call       The callback to be executed when the API call finishes
      * @param returnType Return type
      * @param callback   ApiCallback
-     * @see #execute(Call, Type, boolean...) 
+     * @see #execute(Call, Type, boolean...)
      */
     @SuppressWarnings("unchecked")
     public <T> void executeAsync(Call call, final Type returnType, final ApiCallback<T> callback) {
@@ -1028,7 +1028,13 @@ public class ApiClient {
         if (!isApplicationJsonBody(headerParams) && !isPostBody(headerParams)) {
             updateQueryParams(queryParams, param);
         }
+
+        if (param.length >= 6){
+            headerParams.put("Content-Type",param[5].replaceAll("_","/"));
+        }
+
         return new ServiceInfo(param[3], param[4]);
+
     }
 
     private String getTruePath(String path, Map<String, String> headerParams) {
@@ -1214,6 +1220,8 @@ public class ApiClient {
         getDefaultContentType(headerParams);
 
         ServiceInfo serviceInfo = addPairAndGetServiceInfo(path, queryParams, headerParams);
+        //rebuild method
+        method = serviceInfo.getMethod().toUpperCase();
         String truePath = getTruePath(path, headerParams);
         String contentType = headerParams.get("Content-Type");
         StringBuilder bodyBuilder = new StringBuilder();
