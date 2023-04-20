@@ -41,6 +41,9 @@ public class ModifyListenerAttributesRequest {
   @SerializedName("AclType")
   private String aclType = null;
 
+  @SerializedName("Bandwidth")
+  private Integer bandwidth = null;
+
   @SerializedName("CertificateId")
   private String certificateId = null;
 
@@ -137,6 +140,24 @@ public class ModifyListenerAttributesRequest {
 
   public void setAclType(String aclType) {
     this.aclType = aclType;
+  }
+
+  public ModifyListenerAttributesRequest bandwidth(Integer bandwidth) {
+    this.bandwidth = bandwidth;
+    return this;
+  }
+
+   /**
+   * Get bandwidth
+   * @return bandwidth
+  **/
+  @Schema(description = "")
+  public Integer getBandwidth() {
+    return bandwidth;
+  }
+
+  public void setBandwidth(Integer bandwidth) {
+    this.bandwidth = bandwidth;
   }
 
   public ModifyListenerAttributesRequest certificateId(String certificateId) {
@@ -370,6 +391,7 @@ public class ModifyListenerAttributesRequest {
     return Objects.equals(this.aclIds, modifyListenerAttributesRequest.aclIds) &&
         Objects.equals(this.aclStatus, modifyListenerAttributesRequest.aclStatus) &&
         Objects.equals(this.aclType, modifyListenerAttributesRequest.aclType) &&
+        Objects.equals(this.bandwidth, modifyListenerAttributesRequest.bandwidth) &&
         Objects.equals(this.certificateId, modifyListenerAttributesRequest.certificateId) &&
         Objects.equals(this.description, modifyListenerAttributesRequest.description) &&
         Objects.equals(this.enabled, modifyListenerAttributesRequest.enabled) &&
@@ -386,7 +408,7 @@ public class ModifyListenerAttributesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclIds, aclStatus, aclType, certificateId, description, enabled, establishedTimeout, healthCheck, listenerId, listenerName, persistenceTimeout, persistenceType, proxyProtocolType, scheduler, serverGroupId);
+    return Objects.hash(aclIds, aclStatus, aclType, bandwidth, certificateId, description, enabled, establishedTimeout, healthCheck, listenerId, listenerName, persistenceTimeout, persistenceType, proxyProtocolType, scheduler, serverGroupId);
   }
 
 
@@ -398,6 +420,7 @@ public class ModifyListenerAttributesRequest {
     sb.append("    aclIds: ").append(toIndentedString(aclIds)).append("\n");
     sb.append("    aclStatus: ").append(toIndentedString(aclStatus)).append("\n");
     sb.append("    aclType: ").append(toIndentedString(aclType)).append("\n");
+    sb.append("    bandwidth: ").append(toIndentedString(bandwidth)).append("\n");
     sb.append("    certificateId: ").append(toIndentedString(certificateId)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");

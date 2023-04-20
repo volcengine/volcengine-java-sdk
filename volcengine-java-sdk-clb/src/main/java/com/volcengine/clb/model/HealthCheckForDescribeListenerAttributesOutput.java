@@ -56,6 +56,9 @@ public class HealthCheckForDescribeListenerAttributesOutput {
   @SerializedName("UdpRequest")
   private String udpRequest = null;
 
+  @SerializedName("UnHealthyThreshold")
+  private Integer unHealthyThreshold = null;
+
   @SerializedName("Uri")
   private String uri = null;
 
@@ -221,6 +224,24 @@ public class HealthCheckForDescribeListenerAttributesOutput {
     this.udpRequest = udpRequest;
   }
 
+  public HealthCheckForDescribeListenerAttributesOutput unHealthyThreshold(Integer unHealthyThreshold) {
+    this.unHealthyThreshold = unHealthyThreshold;
+    return this;
+  }
+
+   /**
+   * Get unHealthyThreshold
+   * @return unHealthyThreshold
+  **/
+  @Schema(description = "")
+  public Integer getUnHealthyThreshold() {
+    return unHealthyThreshold;
+  }
+
+  public void setUnHealthyThreshold(Integer unHealthyThreshold) {
+    this.unHealthyThreshold = unHealthyThreshold;
+  }
+
   public HealthCheckForDescribeListenerAttributesOutput uri(String uri) {
     this.uri = uri;
     return this;
@@ -258,12 +279,13 @@ public class HealthCheckForDescribeListenerAttributesOutput {
         Objects.equals(this.timeout, healthCheckForDescribeListenerAttributesOutput.timeout) &&
         Objects.equals(this.udpExpect, healthCheckForDescribeListenerAttributesOutput.udpExpect) &&
         Objects.equals(this.udpRequest, healthCheckForDescribeListenerAttributesOutput.udpRequest) &&
+        Objects.equals(this.unHealthyThreshold, healthCheckForDescribeListenerAttributesOutput.unHealthyThreshold) &&
         Objects.equals(this.uri, healthCheckForDescribeListenerAttributesOutput.uri);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(domain, enabled, healthyThreshold, httpCode, interval, method, timeout, udpExpect, udpRequest, uri);
+    return Objects.hash(domain, enabled, healthyThreshold, httpCode, interval, method, timeout, udpExpect, udpRequest, unHealthyThreshold, uri);
   }
 
 
@@ -281,6 +303,7 @@ public class HealthCheckForDescribeListenerAttributesOutput {
     sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");
     sb.append("    udpExpect: ").append(toIndentedString(udpExpect)).append("\n");
     sb.append("    udpRequest: ").append(toIndentedString(udpRequest)).append("\n");
+    sb.append("    unHealthyThreshold: ").append(toIndentedString(unHealthyThreshold)).append("\n");
     sb.append("    uri: ").append(toIndentedString(uri)).append("\n");
     sb.append("}");
     return sb.toString();
