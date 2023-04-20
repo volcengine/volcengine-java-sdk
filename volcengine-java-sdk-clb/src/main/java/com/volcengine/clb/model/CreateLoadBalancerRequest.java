@@ -33,6 +33,9 @@ import javax.validation.Valid;
 
 
 public class CreateLoadBalancerRequest {
+  @SerializedName("AddressIpVersion")
+  private String addressIpVersion = null;
+
   @SerializedName("ClientToken")
   private String clientToken = null;
 
@@ -44,6 +47,9 @@ public class CreateLoadBalancerRequest {
 
   @SerializedName("EniAddress")
   private String eniAddress = null;
+
+  @SerializedName("EniIpv6Address")
+  private String eniIpv6Address = null;
 
   @SerializedName("LoadBalancerBillingType")
   private Integer loadBalancerBillingType = null;
@@ -89,6 +95,24 @@ public class CreateLoadBalancerRequest {
 
   @SerializedName("VpcId")
   private String vpcId = null;
+
+  public CreateLoadBalancerRequest addressIpVersion(String addressIpVersion) {
+    this.addressIpVersion = addressIpVersion;
+    return this;
+  }
+
+   /**
+   * Get addressIpVersion
+   * @return addressIpVersion
+  **/
+  @Schema(description = "")
+  public String getAddressIpVersion() {
+    return addressIpVersion;
+  }
+
+  public void setAddressIpVersion(String addressIpVersion) {
+    this.addressIpVersion = addressIpVersion;
+  }
 
   public CreateLoadBalancerRequest clientToken(String clientToken) {
     this.clientToken = clientToken;
@@ -161,6 +185,24 @@ public class CreateLoadBalancerRequest {
 
   public void setEniAddress(String eniAddress) {
     this.eniAddress = eniAddress;
+  }
+
+  public CreateLoadBalancerRequest eniIpv6Address(String eniIpv6Address) {
+    this.eniIpv6Address = eniIpv6Address;
+    return this;
+  }
+
+   /**
+   * Get eniIpv6Address
+   * @return eniIpv6Address
+  **/
+  @Schema(description = "")
+  public String getEniIpv6Address() {
+    return eniIpv6Address;
+  }
+
+  public void setEniIpv6Address(String eniIpv6Address) {
+    this.eniIpv6Address = eniIpv6Address;
   }
 
   public CreateLoadBalancerRequest loadBalancerBillingType(Integer loadBalancerBillingType) {
@@ -455,10 +497,12 @@ public class CreateLoadBalancerRequest {
       return false;
     }
     CreateLoadBalancerRequest createLoadBalancerRequest = (CreateLoadBalancerRequest) o;
-    return Objects.equals(this.clientToken, createLoadBalancerRequest.clientToken) &&
+    return Objects.equals(this.addressIpVersion, createLoadBalancerRequest.addressIpVersion) &&
+        Objects.equals(this.clientToken, createLoadBalancerRequest.clientToken) &&
         Objects.equals(this.description, createLoadBalancerRequest.description) &&
         Objects.equals(this.eipBillingConfig, createLoadBalancerRequest.eipBillingConfig) &&
         Objects.equals(this.eniAddress, createLoadBalancerRequest.eniAddress) &&
+        Objects.equals(this.eniIpv6Address, createLoadBalancerRequest.eniIpv6Address) &&
         Objects.equals(this.loadBalancerBillingType, createLoadBalancerRequest.loadBalancerBillingType) &&
         Objects.equals(this.loadBalancerName, createLoadBalancerRequest.loadBalancerName) &&
         Objects.equals(this.loadBalancerSpec, createLoadBalancerRequest.loadBalancerSpec) &&
@@ -478,7 +522,7 @@ public class CreateLoadBalancerRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, description, eipBillingConfig, eniAddress, loadBalancerBillingType, loadBalancerName, loadBalancerSpec, masterZoneId, modificationProtectionReason, modificationProtectionStatus, period, periodUnit, projectName, regionId, slaveZoneId, subnetId, tags, type, vpcId);
+    return Objects.hash(addressIpVersion, clientToken, description, eipBillingConfig, eniAddress, eniIpv6Address, loadBalancerBillingType, loadBalancerName, loadBalancerSpec, masterZoneId, modificationProtectionReason, modificationProtectionStatus, period, periodUnit, projectName, regionId, slaveZoneId, subnetId, tags, type, vpcId);
   }
 
 
@@ -487,10 +531,12 @@ public class CreateLoadBalancerRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateLoadBalancerRequest {\n");
     
+    sb.append("    addressIpVersion: ").append(toIndentedString(addressIpVersion)).append("\n");
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    eipBillingConfig: ").append(toIndentedString(eipBillingConfig)).append("\n");
     sb.append("    eniAddress: ").append(toIndentedString(eniAddress)).append("\n");
+    sb.append("    eniIpv6Address: ").append(toIndentedString(eniIpv6Address)).append("\n");
     sb.append("    loadBalancerBillingType: ").append(toIndentedString(loadBalancerBillingType)).append("\n");
     sb.append("    loadBalancerName: ").append(toIndentedString(loadBalancerName)).append("\n");
     sb.append("    loadBalancerSpec: ").append(toIndentedString(loadBalancerSpec)).append("\n");

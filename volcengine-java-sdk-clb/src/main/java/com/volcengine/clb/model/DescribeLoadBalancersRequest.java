@@ -32,6 +32,9 @@ import javax.validation.Valid;
 
 
 public class DescribeLoadBalancersRequest {
+  @SerializedName("AddressIpVersion")
+  private String addressIpVersion = null;
+
   @SerializedName("EniAddress")
   private String eniAddress = null;
 
@@ -55,6 +58,24 @@ public class DescribeLoadBalancersRequest {
 
   @SerializedName("VpcId")
   private String vpcId = null;
+
+  public DescribeLoadBalancersRequest addressIpVersion(String addressIpVersion) {
+    this.addressIpVersion = addressIpVersion;
+    return this;
+  }
+
+   /**
+   * Get addressIpVersion
+   * @return addressIpVersion
+  **/
+  @Schema(description = "")
+  public String getAddressIpVersion() {
+    return addressIpVersion;
+  }
+
+  public void setAddressIpVersion(String addressIpVersion) {
+    this.addressIpVersion = addressIpVersion;
+  }
 
   public DescribeLoadBalancersRequest eniAddress(String eniAddress) {
     this.eniAddress = eniAddress;
@@ -227,7 +248,8 @@ public class DescribeLoadBalancersRequest {
       return false;
     }
     DescribeLoadBalancersRequest describeLoadBalancersRequest = (DescribeLoadBalancersRequest) o;
-    return Objects.equals(this.eniAddress, describeLoadBalancersRequest.eniAddress) &&
+    return Objects.equals(this.addressIpVersion, describeLoadBalancersRequest.addressIpVersion) &&
+        Objects.equals(this.eniAddress, describeLoadBalancersRequest.eniAddress) &&
         Objects.equals(this.loadBalancerIds, describeLoadBalancersRequest.loadBalancerIds) &&
         Objects.equals(this.loadBalancerName, describeLoadBalancersRequest.loadBalancerName) &&
         Objects.equals(this.pageNumber, describeLoadBalancersRequest.pageNumber) &&
@@ -239,7 +261,7 @@ public class DescribeLoadBalancersRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(eniAddress, loadBalancerIds, loadBalancerName, pageNumber, pageSize, projectName, tagFilters, vpcId);
+    return Objects.hash(addressIpVersion, eniAddress, loadBalancerIds, loadBalancerName, pageNumber, pageSize, projectName, tagFilters, vpcId);
   }
 
 
@@ -248,6 +270,7 @@ public class DescribeLoadBalancersRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeLoadBalancersRequest {\n");
     
+    sb.append("    addressIpVersion: ").append(toIndentedString(addressIpVersion)).append("\n");
     sb.append("    eniAddress: ").append(toIndentedString(eniAddress)).append("\n");
     sb.append("    loadBalancerIds: ").append(toIndentedString(loadBalancerIds)).append("\n");
     sb.append("    loadBalancerName: ").append(toIndentedString(loadBalancerName)).append("\n");

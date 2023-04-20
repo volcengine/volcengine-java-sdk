@@ -161,7 +161,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/AddAclEntries/2020-04-01/clb/get/";
+        String localVarPath = "/AddAclEntries/2020-04-01/clb/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -195,7 +195,7 @@ public class ClbApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -285,7 +285,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/AddServerGroupBackendServers/2020-04-01/clb/get/";
+        String localVarPath = "/AddServerGroupBackendServers/2020-04-01/clb/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -319,7 +319,7 @@ public class ClbApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -409,7 +409,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/AttachHealthCheckLogTopic/2020-04-01/clb/get/";
+        String localVarPath = "/AttachHealthCheckLogTopic/2020-04-01/clb/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -443,7 +443,7 @@ public class ClbApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -533,7 +533,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ConvertLoadBalancerBillingType/2020-04-01/clb/get/";
+        String localVarPath = "/ConvertLoadBalancerBillingType/2020-04-01/clb/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -567,7 +567,7 @@ public class ClbApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -657,7 +657,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/CreateAcl/2020-04-01/clb/get/";
+        String localVarPath = "/CreateAcl/2020-04-01/clb/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -691,7 +691,7 @@ public class ClbApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -781,7 +781,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/CreateHealthCheckLogProject/2020-04-01/clb/get/";
+        String localVarPath = "/CreateHealthCheckLogProject/2020-04-01/clb/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -815,7 +815,7 @@ public class ClbApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -905,7 +905,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/CreateListener/2020-04-01/clb/get/";
+        String localVarPath = "/CreateListener/2020-04-01/clb/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -939,7 +939,7 @@ public class ClbApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -1029,7 +1029,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/CreateLoadBalancer/2020-04-01/clb/get/";
+        String localVarPath = "/CreateLoadBalancer/2020-04-01/clb/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1063,7 +1063,7 @@ public class ClbApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -1153,7 +1153,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/CreateRules/2020-04-01/clb/get/";
+        String localVarPath = "/CreateRules/2020-04-01/clb/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1187,7 +1187,7 @@ public class ClbApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -1277,7 +1277,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/CreateServerGroup/2020-04-01/clb/get/";
+        String localVarPath = "/CreateServerGroup/2020-04-01/clb/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1311,7 +1311,7 @@ public class ClbApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -1401,7 +1401,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteAcl/2020-04-01/clb/get/";
+        String localVarPath = "/DeleteAcl/2020-04-01/clb/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1435,7 +1435,7 @@ public class ClbApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -1525,7 +1525,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteCertificate/2020-04-01/clb/get/";
+        String localVarPath = "/DeleteCertificate/2020-04-01/clb/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1559,7 +1559,7 @@ public class ClbApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -1649,7 +1649,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteHealthCheckLogProject/2020-04-01/clb/get/";
+        String localVarPath = "/DeleteHealthCheckLogProject/2020-04-01/clb/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1683,7 +1683,7 @@ public class ClbApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -1773,7 +1773,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteListener/2020-04-01/clb/get/";
+        String localVarPath = "/DeleteListener/2020-04-01/clb/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1807,7 +1807,7 @@ public class ClbApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -1897,7 +1897,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteLoadBalancer/2020-04-01/clb/get/";
+        String localVarPath = "/DeleteLoadBalancer/2020-04-01/clb/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1931,7 +1931,7 @@ public class ClbApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -2021,7 +2021,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteRules/2020-04-01/clb/get/";
+        String localVarPath = "/DeleteRules/2020-04-01/clb/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2055,7 +2055,7 @@ public class ClbApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -2145,7 +2145,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteServerGroup/2020-04-01/clb/get/";
+        String localVarPath = "/DeleteServerGroup/2020-04-01/clb/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2179,7 +2179,7 @@ public class ClbApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -2269,7 +2269,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeAclAttributes/2020-04-01/clb/get/";
+        String localVarPath = "/DescribeAclAttributes/2020-04-01/clb/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2303,7 +2303,7 @@ public class ClbApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -2393,7 +2393,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeAcls/2020-04-01/clb/get/";
+        String localVarPath = "/DescribeAcls/2020-04-01/clb/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2427,7 +2427,7 @@ public class ClbApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -2517,7 +2517,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeCertificates/2020-04-01/clb/get/";
+        String localVarPath = "/DescribeCertificates/2020-04-01/clb/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2551,7 +2551,7 @@ public class ClbApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -2641,7 +2641,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeHealthCheckLogProjectAttributes/2020-04-01/clb/get/";
+        String localVarPath = "/DescribeHealthCheckLogProjectAttributes/2020-04-01/clb/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2675,7 +2675,7 @@ public class ClbApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -2765,7 +2765,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeHealthCheckLogTopicAttributes/2020-04-01/clb/get/";
+        String localVarPath = "/DescribeHealthCheckLogTopicAttributes/2020-04-01/clb/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2799,7 +2799,7 @@ public class ClbApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -2889,7 +2889,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeListenerAttributes/2020-04-01/clb/get/";
+        String localVarPath = "/DescribeListenerAttributes/2020-04-01/clb/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2923,7 +2923,7 @@ public class ClbApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -3013,7 +3013,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeListenerHealth/2020-04-01/clb/get/";
+        String localVarPath = "/DescribeListenerHealth/2020-04-01/clb/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3047,7 +3047,7 @@ public class ClbApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -3137,7 +3137,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeListeners/2020-04-01/clb/get/";
+        String localVarPath = "/DescribeListeners/2020-04-01/clb/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3171,7 +3171,7 @@ public class ClbApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -3261,7 +3261,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeLoadBalancerAttributes/2020-04-01/clb/get/";
+        String localVarPath = "/DescribeLoadBalancerAttributes/2020-04-01/clb/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3295,7 +3295,7 @@ public class ClbApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -3385,7 +3385,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeLoadBalancers/2020-04-01/clb/get/";
+        String localVarPath = "/DescribeLoadBalancers/2020-04-01/clb/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3419,7 +3419,7 @@ public class ClbApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -3509,7 +3509,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeLoadBalancersBilling/2020-04-01/clb/get/";
+        String localVarPath = "/DescribeLoadBalancersBilling/2020-04-01/clb/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3543,7 +3543,7 @@ public class ClbApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -3633,7 +3633,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeRules/2020-04-01/clb/get/";
+        String localVarPath = "/DescribeRules/2020-04-01/clb/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3667,7 +3667,7 @@ public class ClbApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -3757,7 +3757,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeServerGroupAttributes/2020-04-01/clb/get/";
+        String localVarPath = "/DescribeServerGroupAttributes/2020-04-01/clb/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3791,7 +3791,7 @@ public class ClbApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -3881,7 +3881,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeServerGroups/2020-04-01/clb/get/";
+        String localVarPath = "/DescribeServerGroups/2020-04-01/clb/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3915,7 +3915,7 @@ public class ClbApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -4005,7 +4005,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeZones/2020-04-01/clb/get/";
+        String localVarPath = "/DescribeZones/2020-04-01/clb/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4039,7 +4039,7 @@ public class ClbApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -4129,7 +4129,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DetachHealthCheckLogTopic/2020-04-01/clb/get/";
+        String localVarPath = "/DetachHealthCheckLogTopic/2020-04-01/clb/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4163,7 +4163,7 @@ public class ClbApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -4253,7 +4253,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DisableAccessLog/2020-04-01/clb/get/";
+        String localVarPath = "/DisableAccessLog/2020-04-01/clb/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4287,7 +4287,7 @@ public class ClbApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -4377,7 +4377,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/EnableAccessLog/2020-04-01/clb/get/";
+        String localVarPath = "/EnableAccessLog/2020-04-01/clb/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4411,7 +4411,7 @@ public class ClbApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -4501,7 +4501,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ListTagsForResources/2020-04-01/clb/get/";
+        String localVarPath = "/ListTagsForResources/2020-04-01/clb/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4535,7 +4535,7 @@ public class ClbApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -4625,7 +4625,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ModifyAclAttributes/2020-04-01/clb/get/";
+        String localVarPath = "/ModifyAclAttributes/2020-04-01/clb/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4659,7 +4659,7 @@ public class ClbApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -4749,7 +4749,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ModifyListenerAttributes/2020-04-01/clb/get/";
+        String localVarPath = "/ModifyListenerAttributes/2020-04-01/clb/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4783,7 +4783,7 @@ public class ClbApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -4873,7 +4873,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ModifyLoadBalancerAttributes/2020-04-01/clb/get/";
+        String localVarPath = "/ModifyLoadBalancerAttributes/2020-04-01/clb/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4907,7 +4907,7 @@ public class ClbApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -4997,7 +4997,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ModifyRules/2020-04-01/clb/get/";
+        String localVarPath = "/ModifyRules/2020-04-01/clb/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -5031,7 +5031,7 @@ public class ClbApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -5121,7 +5121,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ModifyServerGroupAttributes/2020-04-01/clb/get/";
+        String localVarPath = "/ModifyServerGroupAttributes/2020-04-01/clb/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -5155,7 +5155,7 @@ public class ClbApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -5245,7 +5245,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/RemoveAclEntries/2020-04-01/clb/get/";
+        String localVarPath = "/RemoveAclEntries/2020-04-01/clb/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -5279,7 +5279,7 @@ public class ClbApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -5369,7 +5369,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/RemoveServerGroupBackendServers/2020-04-01/clb/get/";
+        String localVarPath = "/RemoveServerGroupBackendServers/2020-04-01/clb/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -5403,7 +5403,7 @@ public class ClbApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -5493,7 +5493,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/RenewLoadBalancer/2020-04-01/clb/get/";
+        String localVarPath = "/RenewLoadBalancer/2020-04-01/clb/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -5527,7 +5527,7 @@ public class ClbApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -5617,7 +5617,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/SetLoadBalancerRenewal/2020-04-01/clb/get/";
+        String localVarPath = "/SetLoadBalancerRenewal/2020-04-01/clb/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -5651,7 +5651,7 @@ public class ClbApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -5741,7 +5741,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/TagResources/2020-04-01/clb/get/";
+        String localVarPath = "/TagResources/2020-04-01/clb/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -5775,7 +5775,7 @@ public class ClbApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -5865,7 +5865,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/UntagResources/2020-04-01/clb/get/";
+        String localVarPath = "/UntagResources/2020-04-01/clb/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -5899,7 +5899,7 @@ public class ClbApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -5989,7 +5989,7 @@ public class ClbApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/UploadCertificate/2020-04-01/clb/get/";
+        String localVarPath = "/UploadCertificate/2020-04-01/clb/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -6023,7 +6023,7 @@ public class ClbApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
