@@ -41,6 +41,9 @@ public class CreateListenerRequest {
   @SerializedName("AclType")
   private String aclType = null;
 
+  @SerializedName("Bandwidth")
+  private Integer bandwidth = null;
+
   @SerializedName("CertificateId")
   private String certificateId = null;
 
@@ -143,6 +146,24 @@ public class CreateListenerRequest {
 
   public void setAclType(String aclType) {
     this.aclType = aclType;
+  }
+
+  public CreateListenerRequest bandwidth(Integer bandwidth) {
+    this.bandwidth = bandwidth;
+    return this;
+  }
+
+   /**
+   * Get bandwidth
+   * @return bandwidth
+  **/
+  @Schema(description = "")
+  public Integer getBandwidth() {
+    return bandwidth;
+  }
+
+  public void setBandwidth(Integer bandwidth) {
+    this.bandwidth = bandwidth;
   }
 
   public CreateListenerRequest certificateId(String certificateId) {
@@ -415,6 +436,7 @@ public class CreateListenerRequest {
     return Objects.equals(this.aclIds, createListenerRequest.aclIds) &&
         Objects.equals(this.aclStatus, createListenerRequest.aclStatus) &&
         Objects.equals(this.aclType, createListenerRequest.aclType) &&
+        Objects.equals(this.bandwidth, createListenerRequest.bandwidth) &&
         Objects.equals(this.certificateId, createListenerRequest.certificateId) &&
         Objects.equals(this.description, createListenerRequest.description) &&
         Objects.equals(this.enabled, createListenerRequest.enabled) &&
@@ -433,7 +455,7 @@ public class CreateListenerRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclIds, aclStatus, aclType, certificateId, description, enabled, establishedTimeout, healthCheck, listenerName, loadBalancerId, persistenceTimeout, persistenceType, port, protocol, proxyProtocolType, scheduler, serverGroupId);
+    return Objects.hash(aclIds, aclStatus, aclType, bandwidth, certificateId, description, enabled, establishedTimeout, healthCheck, listenerName, loadBalancerId, persistenceTimeout, persistenceType, port, protocol, proxyProtocolType, scheduler, serverGroupId);
   }
 
 
@@ -445,6 +467,7 @@ public class CreateListenerRequest {
     sb.append("    aclIds: ").append(toIndentedString(aclIds)).append("\n");
     sb.append("    aclStatus: ").append(toIndentedString(aclStatus)).append("\n");
     sb.append("    aclType: ").append(toIndentedString(aclType)).append("\n");
+    sb.append("    bandwidth: ").append(toIndentedString(bandwidth)).append("\n");
     sb.append("    certificateId: ").append(toIndentedString(certificateId)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");

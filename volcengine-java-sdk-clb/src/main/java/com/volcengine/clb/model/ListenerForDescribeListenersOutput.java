@@ -41,6 +41,9 @@ public class ListenerForDescribeListenersOutput {
   @SerializedName("AclType")
   private String aclType = null;
 
+  @SerializedName("Bandwidth")
+  private Integer bandwidth = null;
+
   @SerializedName("CertificateId")
   private String certificateId = null;
 
@@ -143,6 +146,24 @@ public class ListenerForDescribeListenersOutput {
 
   public void setAclType(String aclType) {
     this.aclType = aclType;
+  }
+
+  public ListenerForDescribeListenersOutput bandwidth(Integer bandwidth) {
+    this.bandwidth = bandwidth;
+    return this;
+  }
+
+   /**
+   * Get bandwidth
+   * @return bandwidth
+  **/
+  @Schema(description = "")
+  public Integer getBandwidth() {
+    return bandwidth;
+  }
+
+  public void setBandwidth(Integer bandwidth) {
+    this.bandwidth = bandwidth;
   }
 
   public ListenerForDescribeListenersOutput certificateId(String certificateId) {
@@ -411,6 +432,7 @@ public class ListenerForDescribeListenersOutput {
     return Objects.equals(this.aclIds, listenerForDescribeListenersOutput.aclIds) &&
         Objects.equals(this.aclStatus, listenerForDescribeListenersOutput.aclStatus) &&
         Objects.equals(this.aclType, listenerForDescribeListenersOutput.aclType) &&
+        Objects.equals(this.bandwidth, listenerForDescribeListenersOutput.bandwidth) &&
         Objects.equals(this.certificateId, listenerForDescribeListenersOutput.certificateId) &&
         Objects.equals(this.createTime, listenerForDescribeListenersOutput.createTime) &&
         Objects.equals(this.enabled, listenerForDescribeListenersOutput.enabled) &&
@@ -429,7 +451,7 @@ public class ListenerForDescribeListenersOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclIds, aclStatus, aclType, certificateId, createTime, enabled, healthCheck, listenerId, listenerName, persistenceTimeout, persistenceType, port, protocol, proxyProtocolType, serverGroupId, status, updateTime);
+    return Objects.hash(aclIds, aclStatus, aclType, bandwidth, certificateId, createTime, enabled, healthCheck, listenerId, listenerName, persistenceTimeout, persistenceType, port, protocol, proxyProtocolType, serverGroupId, status, updateTime);
   }
 
 
@@ -441,6 +463,7 @@ public class ListenerForDescribeListenersOutput {
     sb.append("    aclIds: ").append(toIndentedString(aclIds)).append("\n");
     sb.append("    aclStatus: ").append(toIndentedString(aclStatus)).append("\n");
     sb.append("    aclType: ").append(toIndentedString(aclType)).append("\n");
+    sb.append("    bandwidth: ").append(toIndentedString(bandwidth)).append("\n");
     sb.append("    certificateId: ").append(toIndentedString(certificateId)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
