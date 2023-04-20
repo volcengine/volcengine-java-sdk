@@ -41,6 +41,9 @@ public class DescribeListenerAttributesResponse {
   @SerializedName("AclType")
   private String aclType = null;
 
+  @SerializedName("Bandwidth")
+  private Integer bandwidth = null;
+
   @SerializedName("CertificateId")
   private String certificateId = null;
 
@@ -149,6 +152,24 @@ public class DescribeListenerAttributesResponse {
 
   public void setAclType(String aclType) {
     this.aclType = aclType;
+  }
+
+  public DescribeListenerAttributesResponse bandwidth(Integer bandwidth) {
+    this.bandwidth = bandwidth;
+    return this;
+  }
+
+   /**
+   * Get bandwidth
+   * @return bandwidth
+  **/
+  @Schema(description = "")
+  public Integer getBandwidth() {
+    return bandwidth;
+  }
+
+  public void setBandwidth(Integer bandwidth) {
+    this.bandwidth = bandwidth;
   }
 
   public DescribeListenerAttributesResponse certificateId(String certificateId) {
@@ -453,6 +474,7 @@ public class DescribeListenerAttributesResponse {
     return Objects.equals(this.aclIds, describeListenerAttributesResponse.aclIds) &&
         Objects.equals(this.aclStatus, describeListenerAttributesResponse.aclStatus) &&
         Objects.equals(this.aclType, describeListenerAttributesResponse.aclType) &&
+        Objects.equals(this.bandwidth, describeListenerAttributesResponse.bandwidth) &&
         Objects.equals(this.certificateId, describeListenerAttributesResponse.certificateId) &&
         Objects.equals(this.createTime, describeListenerAttributesResponse.createTime) &&
         Objects.equals(this.description, describeListenerAttributesResponse.description) &&
@@ -473,7 +495,7 @@ public class DescribeListenerAttributesResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclIds, aclStatus, aclType, certificateId, createTime, description, enabled, establishedTimeout, healthCheck, listenerId, listenerName, loadBalancerId, port, protocol, requestId, scheduler, serverGroupId, status, updateTime);
+    return Objects.hash(aclIds, aclStatus, aclType, bandwidth, certificateId, createTime, description, enabled, establishedTimeout, healthCheck, listenerId, listenerName, loadBalancerId, port, protocol, requestId, scheduler, serverGroupId, status, updateTime);
   }
 
 
@@ -485,6 +507,7 @@ public class DescribeListenerAttributesResponse {
     sb.append("    aclIds: ").append(toIndentedString(aclIds)).append("\n");
     sb.append("    aclStatus: ").append(toIndentedString(aclStatus)).append("\n");
     sb.append("    aclType: ").append(toIndentedString(aclType)).append("\n");
+    sb.append("    bandwidth: ").append(toIndentedString(bandwidth)).append("\n");
     sb.append("    certificateId: ").append(toIndentedString(certificateId)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
