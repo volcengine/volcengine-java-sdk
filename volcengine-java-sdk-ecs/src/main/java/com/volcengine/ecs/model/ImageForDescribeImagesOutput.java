@@ -32,6 +32,9 @@ public class ImageForDescribeImagesOutput {
   @SerializedName("Architecture")
   private String architecture = null;
 
+  @SerializedName("BootMode")
+  private String bootMode = null;
+
   @SerializedName("CreatedAt")
   private String createdAt = null;
 
@@ -99,6 +102,24 @@ public class ImageForDescribeImagesOutput {
 
   public void setArchitecture(String architecture) {
     this.architecture = architecture;
+  }
+
+  public ImageForDescribeImagesOutput bootMode(String bootMode) {
+    this.bootMode = bootMode;
+    return this;
+  }
+
+   /**
+   * Get bootMode
+   * @return bootMode
+  **/
+  @Schema(description = "")
+  public String getBootMode() {
+    return bootMode;
+  }
+
+  public void setBootMode(String bootMode) {
+    this.bootMode = bootMode;
   }
 
   public ImageForDescribeImagesOutput createdAt(String createdAt) {
@@ -418,6 +439,7 @@ public class ImageForDescribeImagesOutput {
     }
     ImageForDescribeImagesOutput imageForDescribeImagesOutput = (ImageForDescribeImagesOutput) o;
     return Objects.equals(this.architecture, imageForDescribeImagesOutput.architecture) &&
+        Objects.equals(this.bootMode, imageForDescribeImagesOutput.bootMode) &&
         Objects.equals(this.createdAt, imageForDescribeImagesOutput.createdAt) &&
         Objects.equals(this.description, imageForDescribeImagesOutput.description) &&
         Objects.equals(this.imageId, imageForDescribeImagesOutput.imageId) &&
@@ -439,7 +461,7 @@ public class ImageForDescribeImagesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(architecture, createdAt, description, imageId, imageName, imageOwnerId, isSupportCloudInit, osName, osType, platform, platformVersion, projectName, shareStatus, size, status, updatedAt, virtualSize, visibility);
+    return Objects.hash(architecture, bootMode, createdAt, description, imageId, imageName, imageOwnerId, isSupportCloudInit, osName, osType, platform, platformVersion, projectName, shareStatus, size, status, updatedAt, virtualSize, visibility);
   }
 
 
@@ -449,6 +471,7 @@ public class ImageForDescribeImagesOutput {
     sb.append("class ImageForDescribeImagesOutput {\n");
     
     sb.append("    architecture: ").append(toIndentedString(architecture)).append("\n");
+    sb.append("    bootMode: ").append(toIndentedString(bootMode)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    imageId: ").append(toIndentedString(imageId)).append("\n");

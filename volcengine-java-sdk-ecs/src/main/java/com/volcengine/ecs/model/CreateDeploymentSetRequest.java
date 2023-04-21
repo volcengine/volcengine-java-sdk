@@ -71,8 +71,7 @@ public class CreateDeploymentSetRequest {
    * Get deploymentSetName
    * @return deploymentSetName
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getDeploymentSetName() {
     return deploymentSetName;
   }

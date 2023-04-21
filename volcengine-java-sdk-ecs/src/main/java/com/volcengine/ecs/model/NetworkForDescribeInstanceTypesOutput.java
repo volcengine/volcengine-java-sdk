@@ -29,6 +29,9 @@ import javax.validation.Valid;
 
 
 public class NetworkForDescribeInstanceTypesOutput {
+  @SerializedName("BaselineBandwidthMbps")
+  private Integer baselineBandwidthMbps = null;
+
   @SerializedName("MaximumBandwidthMbps")
   private Integer maximumBandwidthMbps = null;
 
@@ -43,6 +46,24 @@ public class NetworkForDescribeInstanceTypesOutput {
 
   @SerializedName("MaximumThroughputKpps")
   private Integer maximumThroughputKpps = null;
+
+  public NetworkForDescribeInstanceTypesOutput baselineBandwidthMbps(Integer baselineBandwidthMbps) {
+    this.baselineBandwidthMbps = baselineBandwidthMbps;
+    return this;
+  }
+
+   /**
+   * Get baselineBandwidthMbps
+   * @return baselineBandwidthMbps
+  **/
+  @Schema(description = "")
+  public Integer getBaselineBandwidthMbps() {
+    return baselineBandwidthMbps;
+  }
+
+  public void setBaselineBandwidthMbps(Integer baselineBandwidthMbps) {
+    this.baselineBandwidthMbps = baselineBandwidthMbps;
+  }
 
   public NetworkForDescribeInstanceTypesOutput maximumBandwidthMbps(Integer maximumBandwidthMbps) {
     this.maximumBandwidthMbps = maximumBandwidthMbps;
@@ -144,7 +165,8 @@ public class NetworkForDescribeInstanceTypesOutput {
       return false;
     }
     NetworkForDescribeInstanceTypesOutput networkForDescribeInstanceTypesOutput = (NetworkForDescribeInstanceTypesOutput) o;
-    return Objects.equals(this.maximumBandwidthMbps, networkForDescribeInstanceTypesOutput.maximumBandwidthMbps) &&
+    return Objects.equals(this.baselineBandwidthMbps, networkForDescribeInstanceTypesOutput.baselineBandwidthMbps) &&
+        Objects.equals(this.maximumBandwidthMbps, networkForDescribeInstanceTypesOutput.maximumBandwidthMbps) &&
         Objects.equals(this.maximumNetworkInterfaces, networkForDescribeInstanceTypesOutput.maximumNetworkInterfaces) &&
         Objects.equals(this.maximumPrivateIpv4AddressesPerNetworkInterface, networkForDescribeInstanceTypesOutput.maximumPrivateIpv4AddressesPerNetworkInterface) &&
         Objects.equals(this.maximumQueuesPerNetworkInterface, networkForDescribeInstanceTypesOutput.maximumQueuesPerNetworkInterface) &&
@@ -153,7 +175,7 @@ public class NetworkForDescribeInstanceTypesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(maximumBandwidthMbps, maximumNetworkInterfaces, maximumPrivateIpv4AddressesPerNetworkInterface, maximumQueuesPerNetworkInterface, maximumThroughputKpps);
+    return Objects.hash(baselineBandwidthMbps, maximumBandwidthMbps, maximumNetworkInterfaces, maximumPrivateIpv4AddressesPerNetworkInterface, maximumQueuesPerNetworkInterface, maximumThroughputKpps);
   }
 
 
@@ -162,6 +184,7 @@ public class NetworkForDescribeInstanceTypesOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class NetworkForDescribeInstanceTypesOutput {\n");
     
+    sb.append("    baselineBandwidthMbps: ").append(toIndentedString(baselineBandwidthMbps)).append("\n");
     sb.append("    maximumBandwidthMbps: ").append(toIndentedString(maximumBandwidthMbps)).append("\n");
     sb.append("    maximumNetworkInterfaces: ").append(toIndentedString(maximumNetworkInterfaces)).append("\n");
     sb.append("    maximumPrivateIpv4AddressesPerNetworkInterface: ").append(toIndentedString(maximumPrivateIpv4AddressesPerNetworkInterface)).append("\n");

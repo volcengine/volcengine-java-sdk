@@ -97,7 +97,7 @@ public class NatgatewayApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/CreateDnatEntry/2020-04-01/natgateway/get/";
+        String localVarPath = "/CreateDnatEntry/2020-04-01/natgateway/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -131,7 +131,7 @@ public class NatgatewayApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -221,7 +221,7 @@ public class NatgatewayApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/CreateNatGateway/2020-04-01/natgateway/get/";
+        String localVarPath = "/CreateNatGateway/2020-04-01/natgateway/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -255,7 +255,7 @@ public class NatgatewayApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -345,7 +345,7 @@ public class NatgatewayApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/CreateSnatEntry/2020-04-01/natgateway/get/";
+        String localVarPath = "/CreateSnatEntry/2020-04-01/natgateway/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -379,7 +379,7 @@ public class NatgatewayApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -469,7 +469,7 @@ public class NatgatewayApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteDnatEntry/2020-04-01/natgateway/get/";
+        String localVarPath = "/DeleteDnatEntry/2020-04-01/natgateway/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -503,7 +503,7 @@ public class NatgatewayApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -593,7 +593,7 @@ public class NatgatewayApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteNatGateway/2020-04-01/natgateway/get/";
+        String localVarPath = "/DeleteNatGateway/2020-04-01/natgateway/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -627,7 +627,7 @@ public class NatgatewayApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -717,7 +717,7 @@ public class NatgatewayApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteSnatEntry/2020-04-01/natgateway/get/";
+        String localVarPath = "/DeleteSnatEntry/2020-04-01/natgateway/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -751,7 +751,7 @@ public class NatgatewayApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -841,7 +841,7 @@ public class NatgatewayApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeDnatEntries/2020-04-01/natgateway/get/";
+        String localVarPath = "/DescribeDnatEntries/2020-04-01/natgateway/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -875,7 +875,7 @@ public class NatgatewayApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -965,7 +965,7 @@ public class NatgatewayApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeDnatEntryAttributes/2020-04-01/natgateway/get/";
+        String localVarPath = "/DescribeDnatEntryAttributes/2020-04-01/natgateway/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -999,7 +999,7 @@ public class NatgatewayApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -1089,7 +1089,7 @@ public class NatgatewayApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeNatGatewayAttributes/2020-04-01/natgateway/get/";
+        String localVarPath = "/DescribeNatGatewayAttributes/2020-04-01/natgateway/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1123,7 +1123,7 @@ public class NatgatewayApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -1213,7 +1213,7 @@ public class NatgatewayApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeNatGateways/2020-04-01/natgateway/get/";
+        String localVarPath = "/DescribeNatGateways/2020-04-01/natgateway/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1247,7 +1247,7 @@ public class NatgatewayApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -1337,7 +1337,7 @@ public class NatgatewayApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeSnatEntries/2020-04-01/natgateway/get/";
+        String localVarPath = "/DescribeSnatEntries/2020-04-01/natgateway/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1371,7 +1371,7 @@ public class NatgatewayApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -1461,7 +1461,7 @@ public class NatgatewayApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeSnatEntryAttributes/2020-04-01/natgateway/get/";
+        String localVarPath = "/DescribeSnatEntryAttributes/2020-04-01/natgateway/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1495,7 +1495,7 @@ public class NatgatewayApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -1585,7 +1585,7 @@ public class NatgatewayApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ListNatGatewayAvailableZones/2020-04-01/natgateway/get/";
+        String localVarPath = "/ListNatGatewayAvailableZones/2020-04-01/natgateway/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1619,7 +1619,7 @@ public class NatgatewayApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -1709,7 +1709,7 @@ public class NatgatewayApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ModifyDnatEntryAttributes/2020-04-01/natgateway/get/";
+        String localVarPath = "/ModifyDnatEntryAttributes/2020-04-01/natgateway/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1743,7 +1743,7 @@ public class NatgatewayApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -1833,7 +1833,7 @@ public class NatgatewayApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ModifyNatGatewayAttributes/2020-04-01/natgateway/get/";
+        String localVarPath = "/ModifyNatGatewayAttributes/2020-04-01/natgateway/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1867,7 +1867,7 @@ public class NatgatewayApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -1957,7 +1957,7 @@ public class NatgatewayApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ModifySnatEntryAttributes/2020-04-01/natgateway/get/";
+        String localVarPath = "/ModifySnatEntryAttributes/2020-04-01/natgateway/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1991,7 +1991,7 @@ public class NatgatewayApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")

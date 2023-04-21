@@ -179,7 +179,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/AssociateInstancesIamRole/2020-04-01/ecs/get/";
+        String localVarPath = "/AssociateInstancesIamRole/2020-04-01/ecs/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -213,7 +213,7 @@ public class EcsApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -303,7 +303,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/AttachKeyPair/2020-04-01/ecs/get/";
+        String localVarPath = "/AttachKeyPair/2020-04-01/ecs/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -337,7 +337,7 @@ public class EcsApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -427,7 +427,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/CreateDeploymentSet/2020-04-01/ecs/get/";
+        String localVarPath = "/CreateDeploymentSet/2020-04-01/ecs/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -461,7 +461,7 @@ public class EcsApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -551,7 +551,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/CreateImage/2020-04-01/ecs/get/";
+        String localVarPath = "/CreateImage/2020-04-01/ecs/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -585,7 +585,7 @@ public class EcsApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -675,7 +675,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/CreateKeyPair/2020-04-01/ecs/get/";
+        String localVarPath = "/CreateKeyPair/2020-04-01/ecs/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -709,7 +709,7 @@ public class EcsApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -799,7 +799,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/CreateSubscription/2020-04-01/ecs/get/";
+        String localVarPath = "/CreateSubscription/2020-04-01/ecs/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -833,7 +833,7 @@ public class EcsApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -923,7 +923,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/CreateTags/2020-04-01/ecs/get/";
+        String localVarPath = "/CreateTags/2020-04-01/ecs/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -957,7 +957,7 @@ public class EcsApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -1047,7 +1047,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteDeploymentSet/2020-04-01/ecs/get/";
+        String localVarPath = "/DeleteDeploymentSet/2020-04-01/ecs/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1081,7 +1081,7 @@ public class EcsApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -1171,7 +1171,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteImages/2020-04-01/ecs/get/";
+        String localVarPath = "/DeleteImages/2020-04-01/ecs/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1205,7 +1205,7 @@ public class EcsApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -1295,7 +1295,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteInstance/2020-04-01/ecs/get/";
+        String localVarPath = "/DeleteInstance/2020-04-01/ecs/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1329,7 +1329,7 @@ public class EcsApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -1419,7 +1419,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteInstances/2020-04-01/ecs/get/";
+        String localVarPath = "/DeleteInstances/2020-04-01/ecs/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1453,7 +1453,7 @@ public class EcsApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -1543,7 +1543,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteKeyPairs/2020-04-01/ecs/get/";
+        String localVarPath = "/DeleteKeyPairs/2020-04-01/ecs/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1577,7 +1577,7 @@ public class EcsApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -1667,7 +1667,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteTags/2020-04-01/ecs/get/";
+        String localVarPath = "/DeleteTags/2020-04-01/ecs/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1701,7 +1701,7 @@ public class EcsApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -1791,7 +1791,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeAvailableResource/2020-04-01/ecs/get/";
+        String localVarPath = "/DescribeAvailableResource/2020-04-01/ecs/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1825,7 +1825,7 @@ public class EcsApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -1915,7 +1915,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeDeploymentSetSupportedInstanceTypeFamily/2020-04-01/ecs/get/";
+        String localVarPath = "/DescribeDeploymentSetSupportedInstanceTypeFamily/2020-04-01/ecs/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1949,7 +1949,7 @@ public class EcsApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -2039,7 +2039,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeDeploymentSets/2020-04-01/ecs/get/";
+        String localVarPath = "/DescribeDeploymentSets/2020-04-01/ecs/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2073,7 +2073,7 @@ public class EcsApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -2163,7 +2163,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeImageSharePermission/2020-04-01/ecs/get/";
+        String localVarPath = "/DescribeImageSharePermission/2020-04-01/ecs/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2197,7 +2197,7 @@ public class EcsApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -2287,7 +2287,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeImages/2020-04-01/ecs/get/";
+        String localVarPath = "/DescribeImages/2020-04-01/ecs/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2321,7 +2321,7 @@ public class EcsApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -2411,7 +2411,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeInstanceECSTerminalUrl/2020-04-01/ecs/get/";
+        String localVarPath = "/DescribeInstanceECSTerminalUrl/2020-04-01/ecs/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2445,7 +2445,7 @@ public class EcsApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -2535,7 +2535,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeInstanceTypeFamilies/2020-04-01/ecs/get/";
+        String localVarPath = "/DescribeInstanceTypeFamilies/2020-04-01/ecs/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2569,7 +2569,7 @@ public class EcsApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -2659,7 +2659,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeInstanceTypes/2020-04-01/ecs/get/";
+        String localVarPath = "/DescribeInstanceTypes/2020-04-01/ecs/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2693,7 +2693,7 @@ public class EcsApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -2783,7 +2783,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeInstanceVncUrl/2020-04-01/ecs/get/";
+        String localVarPath = "/DescribeInstanceVncUrl/2020-04-01/ecs/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2817,7 +2817,7 @@ public class EcsApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -2907,7 +2907,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeInstances/2020-04-01/ecs/get/";
+        String localVarPath = "/DescribeInstances/2020-04-01/ecs/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2941,7 +2941,7 @@ public class EcsApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -3031,7 +3031,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeInstancesIamRoles/2020-04-01/ecs/get/";
+        String localVarPath = "/DescribeInstancesIamRoles/2020-04-01/ecs/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3065,7 +3065,7 @@ public class EcsApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -3155,7 +3155,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeKeyPairs/2020-04-01/ecs/get/";
+        String localVarPath = "/DescribeKeyPairs/2020-04-01/ecs/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3189,7 +3189,7 @@ public class EcsApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -3279,7 +3279,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeSubscriptions/2020-04-01/ecs/get/";
+        String localVarPath = "/DescribeSubscriptions/2020-04-01/ecs/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3313,7 +3313,7 @@ public class EcsApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -3403,7 +3403,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeSystemEvents/2020-04-01/ecs/get/";
+        String localVarPath = "/DescribeSystemEvents/2020-04-01/ecs/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3437,7 +3437,7 @@ public class EcsApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -3527,7 +3527,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeTags/2020-04-01/ecs/get/";
+        String localVarPath = "/DescribeTags/2020-04-01/ecs/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3561,7 +3561,7 @@ public class EcsApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -3651,7 +3651,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeTasks/2020-04-01/ecs/get/";
+        String localVarPath = "/DescribeTasks/2020-04-01/ecs/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3685,7 +3685,7 @@ public class EcsApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -3775,7 +3775,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeUserData/2020-04-01/ecs/get/";
+        String localVarPath = "/DescribeUserData/2020-04-01/ecs/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3809,7 +3809,7 @@ public class EcsApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -3899,7 +3899,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeZones/2020-04-01/ecs/get/";
+        String localVarPath = "/DescribeZones/2020-04-01/ecs/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3933,7 +3933,7 @@ public class EcsApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -4023,7 +4023,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DetachKeyPair/2020-04-01/ecs/get/";
+        String localVarPath = "/DetachKeyPair/2020-04-01/ecs/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4057,7 +4057,7 @@ public class EcsApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -4147,7 +4147,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DisassociateInstancesIamRole/2020-04-01/ecs/get/";
+        String localVarPath = "/DisassociateInstancesIamRole/2020-04-01/ecs/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4181,7 +4181,7 @@ public class EcsApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -4271,7 +4271,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ExportImage/2020-04-01/ecs/get/";
+        String localVarPath = "/ExportImage/2020-04-01/ecs/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4305,7 +4305,7 @@ public class EcsApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -4395,7 +4395,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/GetConsoleOutput/2020-04-01/ecs/get/";
+        String localVarPath = "/GetConsoleOutput/2020-04-01/ecs/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4429,7 +4429,7 @@ public class EcsApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -4519,7 +4519,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/GetConsoleScreenshot/2020-04-01/ecs/get/";
+        String localVarPath = "/GetConsoleScreenshot/2020-04-01/ecs/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4553,7 +4553,7 @@ public class EcsApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -4643,7 +4643,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ImportImage/2020-04-01/ecs/get/";
+        String localVarPath = "/ImportImage/2020-04-01/ecs/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4677,7 +4677,7 @@ public class EcsApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -4767,7 +4767,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ImportKeyPair/2020-04-01/ecs/get/";
+        String localVarPath = "/ImportKeyPair/2020-04-01/ecs/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4801,7 +4801,7 @@ public class EcsApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -4891,7 +4891,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ModifyDeploymentSetAttribute/2020-04-01/ecs/get/";
+        String localVarPath = "/ModifyDeploymentSetAttribute/2020-04-01/ecs/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4925,7 +4925,7 @@ public class EcsApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -5015,7 +5015,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ModifyImageAttribute/2020-04-01/ecs/get/";
+        String localVarPath = "/ModifyImageAttribute/2020-04-01/ecs/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -5049,7 +5049,7 @@ public class EcsApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -5139,7 +5139,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ModifyImageSharePermission/2020-04-01/ecs/get/";
+        String localVarPath = "/ModifyImageSharePermission/2020-04-01/ecs/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -5173,7 +5173,7 @@ public class EcsApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -5263,7 +5263,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ModifyInstanceAttribute/2020-04-01/ecs/get/";
+        String localVarPath = "/ModifyInstanceAttribute/2020-04-01/ecs/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -5297,7 +5297,7 @@ public class EcsApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -5387,7 +5387,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ModifyInstanceChargeType/2020-04-01/ecs/get/";
+        String localVarPath = "/ModifyInstanceChargeType/2020-04-01/ecs/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -5421,7 +5421,7 @@ public class EcsApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -5511,7 +5511,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ModifyInstanceDeployment/2020-04-01/ecs/get/";
+        String localVarPath = "/ModifyInstanceDeployment/2020-04-01/ecs/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -5545,7 +5545,7 @@ public class EcsApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -5635,7 +5635,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ModifyInstanceSpec/2020-04-01/ecs/get/";
+        String localVarPath = "/ModifyInstanceSpec/2020-04-01/ecs/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -5669,7 +5669,7 @@ public class EcsApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -5759,7 +5759,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ModifyKeyPairAttribute/2020-04-01/ecs/get/";
+        String localVarPath = "/ModifyKeyPairAttribute/2020-04-01/ecs/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -5793,7 +5793,7 @@ public class EcsApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -5883,7 +5883,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ModifySubscriptionEventTypes/2020-04-01/ecs/get/";
+        String localVarPath = "/ModifySubscriptionEventTypes/2020-04-01/ecs/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -5917,7 +5917,7 @@ public class EcsApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -6007,7 +6007,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/RebootInstance/2020-04-01/ecs/get/";
+        String localVarPath = "/RebootInstance/2020-04-01/ecs/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -6041,7 +6041,7 @@ public class EcsApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -6131,7 +6131,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/RebootInstances/2020-04-01/ecs/get/";
+        String localVarPath = "/RebootInstances/2020-04-01/ecs/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -6165,7 +6165,7 @@ public class EcsApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -6255,7 +6255,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/RenewInstance/2020-04-01/ecs/get/";
+        String localVarPath = "/RenewInstance/2020-04-01/ecs/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -6289,7 +6289,7 @@ public class EcsApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -6379,7 +6379,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ReplaceSystemVolume/2020-04-01/ecs/get/";
+        String localVarPath = "/ReplaceSystemVolume/2020-04-01/ecs/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -6413,7 +6413,7 @@ public class EcsApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -6503,7 +6503,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/RunInstances/2020-04-01/ecs/get/";
+        String localVarPath = "/RunInstances/2020-04-01/ecs/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -6537,7 +6537,7 @@ public class EcsApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -6627,7 +6627,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/StartInstance/2020-04-01/ecs/get/";
+        String localVarPath = "/StartInstance/2020-04-01/ecs/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -6661,7 +6661,7 @@ public class EcsApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -6751,7 +6751,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/StartInstances/2020-04-01/ecs/get/";
+        String localVarPath = "/StartInstances/2020-04-01/ecs/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -6785,7 +6785,7 @@ public class EcsApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -6875,7 +6875,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/StopInstance/2020-04-01/ecs/get/";
+        String localVarPath = "/StopInstance/2020-04-01/ecs/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -6909,7 +6909,7 @@ public class EcsApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -6999,7 +6999,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/StopInstances/2020-04-01/ecs/get/";
+        String localVarPath = "/StopInstances/2020-04-01/ecs/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -7033,7 +7033,7 @@ public class EcsApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -7123,7 +7123,7 @@ public class EcsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/UpdateSystemEvents/2020-04-01/ecs/get/";
+        String localVarPath = "/UpdateSystemEvents/2020-04-01/ecs/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -7157,7 +7157,7 @@ public class EcsApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
