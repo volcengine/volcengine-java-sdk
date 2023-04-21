@@ -32,6 +32,9 @@ public class InterRegionBandwidthForDescribeCenInterRegionBandwidthsOutput {
   @SerializedName("Bandwidth")
   private Integer bandwidth = null;
 
+  @SerializedName("CenBandwidthPackageId")
+  private String cenBandwidthPackageId = null;
+
   @SerializedName("CenId")
   private String cenId = null;
 
@@ -69,6 +72,24 @@ public class InterRegionBandwidthForDescribeCenInterRegionBandwidthsOutput {
 
   public void setBandwidth(Integer bandwidth) {
     this.bandwidth = bandwidth;
+  }
+
+  public InterRegionBandwidthForDescribeCenInterRegionBandwidthsOutput cenBandwidthPackageId(String cenBandwidthPackageId) {
+    this.cenBandwidthPackageId = cenBandwidthPackageId;
+    return this;
+  }
+
+   /**
+   * Get cenBandwidthPackageId
+   * @return cenBandwidthPackageId
+  **/
+  @Schema(description = "")
+  public String getCenBandwidthPackageId() {
+    return cenBandwidthPackageId;
+  }
+
+  public void setCenBandwidthPackageId(String cenBandwidthPackageId) {
+    this.cenBandwidthPackageId = cenBandwidthPackageId;
   }
 
   public InterRegionBandwidthForDescribeCenInterRegionBandwidthsOutput cenId(String cenId) {
@@ -208,6 +229,7 @@ public class InterRegionBandwidthForDescribeCenInterRegionBandwidthsOutput {
     }
     InterRegionBandwidthForDescribeCenInterRegionBandwidthsOutput interRegionBandwidthForDescribeCenInterRegionBandwidthsOutput = (InterRegionBandwidthForDescribeCenInterRegionBandwidthsOutput) o;
     return Objects.equals(this.bandwidth, interRegionBandwidthForDescribeCenInterRegionBandwidthsOutput.bandwidth) &&
+        Objects.equals(this.cenBandwidthPackageId, interRegionBandwidthForDescribeCenInterRegionBandwidthsOutput.cenBandwidthPackageId) &&
         Objects.equals(this.cenId, interRegionBandwidthForDescribeCenInterRegionBandwidthsOutput.cenId) &&
         Objects.equals(this.creationTime, interRegionBandwidthForDescribeCenInterRegionBandwidthsOutput.creationTime) &&
         Objects.equals(this.interRegionBandwidthId, interRegionBandwidthForDescribeCenInterRegionBandwidthsOutput.interRegionBandwidthId) &&
@@ -219,7 +241,7 @@ public class InterRegionBandwidthForDescribeCenInterRegionBandwidthsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidth, cenId, creationTime, interRegionBandwidthId, localRegionId, peerRegionId, status, updateTime);
+    return Objects.hash(bandwidth, cenBandwidthPackageId, cenId, creationTime, interRegionBandwidthId, localRegionId, peerRegionId, status, updateTime);
   }
 
 
@@ -229,6 +251,7 @@ public class InterRegionBandwidthForDescribeCenInterRegionBandwidthsOutput {
     sb.append("class InterRegionBandwidthForDescribeCenInterRegionBandwidthsOutput {\n");
     
     sb.append("    bandwidth: ").append(toIndentedString(bandwidth)).append("\n");
+    sb.append("    cenBandwidthPackageId: ").append(toIndentedString(cenBandwidthPackageId)).append("\n");
     sb.append("    cenId: ").append(toIndentedString(cenId)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    interRegionBandwidthId: ").append(toIndentedString(interRegionBandwidthId)).append("\n");
