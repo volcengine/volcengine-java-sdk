@@ -24,15 +24,15 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DeleteRequest
+ * CreateResourcePoolResponse
  */
 
 
-public class DeleteRequest {
+public class CreateResourcePoolResponse {
   @SerializedName("ResourcePoolTrn")
   private String resourcePoolTrn = null;
 
-  public DeleteRequest resourcePoolTrn(String resourcePoolTrn) {
+  public CreateResourcePoolResponse resourcePoolTrn(String resourcePoolTrn) {
     this.resourcePoolTrn = resourcePoolTrn;
     return this;
   }
@@ -59,8 +59,8 @@ public class DeleteRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeleteRequest deleteRequest = (DeleteRequest) o;
-    return Objects.equals(this.resourcePoolTrn, deleteRequest.resourcePoolTrn);
+    CreateResourcePoolResponse createResourcePoolResponse = (CreateResourcePoolResponse) o;
+    return Objects.equals(this.resourcePoolTrn, createResourcePoolResponse.resourcePoolTrn);
   }
 
   @Override
@@ -72,7 +72,7 @@ public class DeleteRequest {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeleteRequest {\n");
+    sb.append("class CreateResourcePoolResponse {\n");
     
     sb.append("    resourcePoolTrn: ").append(toIndentedString(resourcePoolTrn)).append("\n");
     sb.append("}");

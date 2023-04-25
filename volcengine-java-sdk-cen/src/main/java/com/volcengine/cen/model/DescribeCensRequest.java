@@ -32,6 +32,9 @@ import javax.validation.Valid;
 
 
 public class DescribeCensRequest {
+  @SerializedName("CenIds")
+  private String cenIds = null;
+
   @SerializedName("CenName")
   private String cenName = null;
 
@@ -46,6 +49,24 @@ public class DescribeCensRequest {
 
   @SerializedName("TagFilters")
   private List<TagFilterForDescribeCensInput> tagFilters = null;
+
+  public DescribeCensRequest cenIds(String cenIds) {
+    this.cenIds = cenIds;
+    return this;
+  }
+
+   /**
+   * Get cenIds
+   * @return cenIds
+  **/
+  @Schema(description = "")
+  public String getCenIds() {
+    return cenIds;
+  }
+
+  public void setCenIds(String cenIds) {
+    this.cenIds = cenIds;
+  }
 
   public DescribeCensRequest cenName(String cenName) {
     this.cenName = cenName;
@@ -156,7 +177,8 @@ public class DescribeCensRequest {
       return false;
     }
     DescribeCensRequest describeCensRequest = (DescribeCensRequest) o;
-    return Objects.equals(this.cenName, describeCensRequest.cenName) &&
+    return Objects.equals(this.cenIds, describeCensRequest.cenIds) &&
+        Objects.equals(this.cenName, describeCensRequest.cenName) &&
         Objects.equals(this.pageNumber, describeCensRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeCensRequest.pageSize) &&
         Objects.equals(this.projectName, describeCensRequest.projectName) &&
@@ -165,7 +187,7 @@ public class DescribeCensRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cenName, pageNumber, pageSize, projectName, tagFilters);
+    return Objects.hash(cenIds, cenName, pageNumber, pageSize, projectName, tagFilters);
   }
 
 
@@ -174,6 +196,7 @@ public class DescribeCensRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeCensRequest {\n");
     
+    sb.append("    cenIds: ").append(toIndentedString(cenIds)).append("\n");
     sb.append("    cenName: ").append(toIndentedString(cenName)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");

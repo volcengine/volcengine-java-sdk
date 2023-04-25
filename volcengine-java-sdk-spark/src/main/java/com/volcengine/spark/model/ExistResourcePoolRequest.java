@@ -24,18 +24,18 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ExitResourcePoolRequest
+ * ExistResourcePoolRequest
  */
 
 
-public class ExitResourcePoolRequest {
+public class ExistResourcePoolRequest {
   @SerializedName("Name")
   private String name = null;
 
   @SerializedName("ProjectId")
   private String projectId = null;
 
-  public ExitResourcePoolRequest name(String name) {
+  public ExistResourcePoolRequest name(String name) {
     this.name = name;
     return this;
   }
@@ -53,7 +53,7 @@ public class ExitResourcePoolRequest {
     this.name = name;
   }
 
-  public ExitResourcePoolRequest projectId(String projectId) {
+  public ExistResourcePoolRequest projectId(String projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -80,9 +80,9 @@ public class ExitResourcePoolRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ExitResourcePoolRequest exitResourcePoolRequest = (ExitResourcePoolRequest) o;
-    return Objects.equals(this.name, exitResourcePoolRequest.name) &&
-        Objects.equals(this.projectId, exitResourcePoolRequest.projectId);
+    ExistResourcePoolRequest existResourcePoolRequest = (ExistResourcePoolRequest) o;
+    return Objects.equals(this.name, existResourcePoolRequest.name) &&
+        Objects.equals(this.projectId, existResourcePoolRequest.projectId);
   }
 
   @Override
@@ -94,7 +94,7 @@ public class ExitResourcePoolRequest {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ExitResourcePoolRequest {\n");
+    sb.append("class ExistResourcePoolRequest {\n");
     
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");

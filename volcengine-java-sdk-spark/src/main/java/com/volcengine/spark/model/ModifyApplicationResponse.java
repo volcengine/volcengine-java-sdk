@@ -24,30 +24,51 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * CreateResourcePoolOneStepResponse
+ * ModifyApplicationResponse
  */
 
 
-public class CreateResourcePoolOneStepResponse {
-  @SerializedName("ResourcePoolTrn")
-  private String resourcePoolTrn = null;
+public class ModifyApplicationResponse {
+  @SerializedName("Message")
+  private String message = null;
 
-  public CreateResourcePoolOneStepResponse resourcePoolTrn(String resourcePoolTrn) {
-    this.resourcePoolTrn = resourcePoolTrn;
+  @SerializedName("Status")
+  private String status = null;
+
+  public ModifyApplicationResponse message(String message) {
+    this.message = message;
     return this;
   }
 
    /**
-   * Get resourcePoolTrn
-   * @return resourcePoolTrn
+   * Get message
+   * @return message
   **/
   @Schema(description = "")
-  public String getResourcePoolTrn() {
-    return resourcePoolTrn;
+  public String getMessage() {
+    return message;
   }
 
-  public void setResourcePoolTrn(String resourcePoolTrn) {
-    this.resourcePoolTrn = resourcePoolTrn;
+  public void setMessage(String message) {
+    this.message = message;
+  }
+
+  public ModifyApplicationResponse status(String status) {
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * Get status
+   * @return status
+  **/
+  @Schema(description = "")
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
   }
 
 
@@ -59,22 +80,24 @@ public class CreateResourcePoolOneStepResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateResourcePoolOneStepResponse createResourcePoolOneStepResponse = (CreateResourcePoolOneStepResponse) o;
-    return Objects.equals(this.resourcePoolTrn, createResourcePoolOneStepResponse.resourcePoolTrn);
+    ModifyApplicationResponse modifyApplicationResponse = (ModifyApplicationResponse) o;
+    return Objects.equals(this.message, modifyApplicationResponse.message) &&
+        Objects.equals(this.status, modifyApplicationResponse.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(resourcePoolTrn);
+    return Objects.hash(message, status);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateResourcePoolOneStepResponse {\n");
+    sb.append("class ModifyApplicationResponse {\n");
     
-    sb.append("    resourcePoolTrn: ").append(toIndentedString(resourcePoolTrn)).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
     return sb.toString();
   }

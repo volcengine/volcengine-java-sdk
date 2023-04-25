@@ -24,11 +24,11 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ListRequest
+ * ListResourcePoolRequest
  */
 
 
-public class ListRequest {
+public class ListResourcePoolRequest {
   @SerializedName("NameKey")
   private String nameKey = null;
 
@@ -47,7 +47,7 @@ public class ListRequest {
   @SerializedName("ZoneId")
   private String zoneId = null;
 
-  public ListRequest nameKey(String nameKey) {
+  public ListResourcePoolRequest nameKey(String nameKey) {
     this.nameKey = nameKey;
     return this;
   }
@@ -65,7 +65,7 @@ public class ListRequest {
     this.nameKey = nameKey;
   }
 
-  public ListRequest pageNum(Integer pageNum) {
+  public ListResourcePoolRequest pageNum(Integer pageNum) {
     this.pageNum = pageNum;
     return this;
   }
@@ -83,7 +83,7 @@ public class ListRequest {
     this.pageNum = pageNum;
   }
 
-  public ListRequest pageSize(Integer pageSize) {
+  public ListResourcePoolRequest pageSize(Integer pageSize) {
     this.pageSize = pageSize;
     return this;
   }
@@ -101,7 +101,7 @@ public class ListRequest {
     this.pageSize = pageSize;
   }
 
-  public ListRequest projectId(String projectId) {
+  public ListResourcePoolRequest projectId(String projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -119,7 +119,7 @@ public class ListRequest {
     this.projectId = projectId;
   }
 
-  public ListRequest statusKey(String statusKey) {
+  public ListResourcePoolRequest statusKey(String statusKey) {
     this.statusKey = statusKey;
     return this;
   }
@@ -137,7 +137,7 @@ public class ListRequest {
     this.statusKey = statusKey;
   }
 
-  public ListRequest zoneId(String zoneId) {
+  public ListResourcePoolRequest zoneId(String zoneId) {
     this.zoneId = zoneId;
     return this;
   }
@@ -164,13 +164,13 @@ public class ListRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ListRequest listRequest = (ListRequest) o;
-    return Objects.equals(this.nameKey, listRequest.nameKey) &&
-        Objects.equals(this.pageNum, listRequest.pageNum) &&
-        Objects.equals(this.pageSize, listRequest.pageSize) &&
-        Objects.equals(this.projectId, listRequest.projectId) &&
-        Objects.equals(this.statusKey, listRequest.statusKey) &&
-        Objects.equals(this.zoneId, listRequest.zoneId);
+    ListResourcePoolRequest listResourcePoolRequest = (ListResourcePoolRequest) o;
+    return Objects.equals(this.nameKey, listResourcePoolRequest.nameKey) &&
+        Objects.equals(this.pageNum, listResourcePoolRequest.pageNum) &&
+        Objects.equals(this.pageSize, listResourcePoolRequest.pageSize) &&
+        Objects.equals(this.projectId, listResourcePoolRequest.projectId) &&
+        Objects.equals(this.statusKey, listResourcePoolRequest.statusKey) &&
+        Objects.equals(this.zoneId, listResourcePoolRequest.zoneId);
   }
 
   @Override
@@ -182,7 +182,7 @@ public class ListRequest {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ListRequest {\n");
+    sb.append("class ListResourcePoolRequest {\n");
     
     sb.append("    nameKey: ").append(toIndentedString(nameKey)).append("\n");
     sb.append("    pageNum: ").append(toIndentedString(pageNum)).append("\n");

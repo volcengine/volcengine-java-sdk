@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -29,53 +31,17 @@ import javax.validation.Valid;
 
 
 public class DescribeSubscriptionsRequest {
-  @SerializedName("CreatedAtEnd")
-  private String createdAtEnd = null;
-
-  @SerializedName("CreatedAtStart")
-  private String createdAtStart = null;
-
   @SerializedName("MaxResults")
   private String maxResults = null;
 
   @SerializedName("NextToken")
   private String nextToken = null;
 
-  public DescribeSubscriptionsRequest createdAtEnd(String createdAtEnd) {
-    this.createdAtEnd = createdAtEnd;
-    return this;
-  }
+  @SerializedName("SubscriptionIds")
+  private List<String> subscriptionIds = null;
 
-   /**
-   * Get createdAtEnd
-   * @return createdAtEnd
-  **/
-  @Schema(description = "")
-  public String getCreatedAtEnd() {
-    return createdAtEnd;
-  }
-
-  public void setCreatedAtEnd(String createdAtEnd) {
-    this.createdAtEnd = createdAtEnd;
-  }
-
-  public DescribeSubscriptionsRequest createdAtStart(String createdAtStart) {
-    this.createdAtStart = createdAtStart;
-    return this;
-  }
-
-   /**
-   * Get createdAtStart
-   * @return createdAtStart
-  **/
-  @Schema(description = "")
-  public String getCreatedAtStart() {
-    return createdAtStart;
-  }
-
-  public void setCreatedAtStart(String createdAtStart) {
-    this.createdAtStart = createdAtStart;
-  }
+  @SerializedName("Type")
+  private String type = null;
 
   public DescribeSubscriptionsRequest maxResults(String maxResults) {
     this.maxResults = maxResults;
@@ -113,6 +79,50 @@ public class DescribeSubscriptionsRequest {
     this.nextToken = nextToken;
   }
 
+  public DescribeSubscriptionsRequest subscriptionIds(List<String> subscriptionIds) {
+    this.subscriptionIds = subscriptionIds;
+    return this;
+  }
+
+  public DescribeSubscriptionsRequest addSubscriptionIdsItem(String subscriptionIdsItem) {
+    if (this.subscriptionIds == null) {
+      this.subscriptionIds = new ArrayList<String>();
+    }
+    this.subscriptionIds.add(subscriptionIdsItem);
+    return this;
+  }
+
+   /**
+   * Get subscriptionIds
+   * @return subscriptionIds
+  **/
+  @Schema(description = "")
+  public List<String> getSubscriptionIds() {
+    return subscriptionIds;
+  }
+
+  public void setSubscriptionIds(List<String> subscriptionIds) {
+    this.subscriptionIds = subscriptionIds;
+  }
+
+  public DescribeSubscriptionsRequest type(String type) {
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @Schema(description = "")
+  public String getType() {
+    return type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -123,15 +133,15 @@ public class DescribeSubscriptionsRequest {
       return false;
     }
     DescribeSubscriptionsRequest describeSubscriptionsRequest = (DescribeSubscriptionsRequest) o;
-    return Objects.equals(this.createdAtEnd, describeSubscriptionsRequest.createdAtEnd) &&
-        Objects.equals(this.createdAtStart, describeSubscriptionsRequest.createdAtStart) &&
-        Objects.equals(this.maxResults, describeSubscriptionsRequest.maxResults) &&
-        Objects.equals(this.nextToken, describeSubscriptionsRequest.nextToken);
+    return Objects.equals(this.maxResults, describeSubscriptionsRequest.maxResults) &&
+        Objects.equals(this.nextToken, describeSubscriptionsRequest.nextToken) &&
+        Objects.equals(this.subscriptionIds, describeSubscriptionsRequest.subscriptionIds) &&
+        Objects.equals(this.type, describeSubscriptionsRequest.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAtEnd, createdAtStart, maxResults, nextToken);
+    return Objects.hash(maxResults, nextToken, subscriptionIds, type);
   }
 
 
@@ -140,10 +150,10 @@ public class DescribeSubscriptionsRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeSubscriptionsRequest {\n");
     
-    sb.append("    createdAtEnd: ").append(toIndentedString(createdAtEnd)).append("\n");
-    sb.append("    createdAtStart: ").append(toIndentedString(createdAtStart)).append("\n");
     sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
     sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
+    sb.append("    subscriptionIds: ").append(toIndentedString(subscriptionIds)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }

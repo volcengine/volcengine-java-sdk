@@ -26,11 +26,11 @@ import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DependencyForupdateApplicationInput
+ * DependencyFormodifyApplicationInput
  */
 
 
-public class DependencyForupdateApplicationInput {
+public class DependencyFormodifyApplicationInput {
   @SerializedName("Archives")
   private List<String> archives = null;
 
@@ -43,12 +43,12 @@ public class DependencyForupdateApplicationInput {
   @SerializedName("PyFiles")
   private List<String> pyFiles = null;
 
-  public DependencyForupdateApplicationInput archives(List<String> archives) {
+  public DependencyFormodifyApplicationInput archives(List<String> archives) {
     this.archives = archives;
     return this;
   }
 
-  public DependencyForupdateApplicationInput addArchivesItem(String archivesItem) {
+  public DependencyFormodifyApplicationInput addArchivesItem(String archivesItem) {
     if (this.archives == null) {
       this.archives = new ArrayList<String>();
     }
@@ -69,12 +69,12 @@ public class DependencyForupdateApplicationInput {
     this.archives = archives;
   }
 
-  public DependencyForupdateApplicationInput files(List<String> files) {
+  public DependencyFormodifyApplicationInput files(List<String> files) {
     this.files = files;
     return this;
   }
 
-  public DependencyForupdateApplicationInput addFilesItem(String filesItem) {
+  public DependencyFormodifyApplicationInput addFilesItem(String filesItem) {
     if (this.files == null) {
       this.files = new ArrayList<String>();
     }
@@ -95,12 +95,12 @@ public class DependencyForupdateApplicationInput {
     this.files = files;
   }
 
-  public DependencyForupdateApplicationInput jars(List<String> jars) {
+  public DependencyFormodifyApplicationInput jars(List<String> jars) {
     this.jars = jars;
     return this;
   }
 
-  public DependencyForupdateApplicationInput addJarsItem(String jarsItem) {
+  public DependencyFormodifyApplicationInput addJarsItem(String jarsItem) {
     if (this.jars == null) {
       this.jars = new ArrayList<String>();
     }
@@ -121,12 +121,12 @@ public class DependencyForupdateApplicationInput {
     this.jars = jars;
   }
 
-  public DependencyForupdateApplicationInput pyFiles(List<String> pyFiles) {
+  public DependencyFormodifyApplicationInput pyFiles(List<String> pyFiles) {
     this.pyFiles = pyFiles;
     return this;
   }
 
-  public DependencyForupdateApplicationInput addPyFilesItem(String pyFilesItem) {
+  public DependencyFormodifyApplicationInput addPyFilesItem(String pyFilesItem) {
     if (this.pyFiles == null) {
       this.pyFiles = new ArrayList<String>();
     }
@@ -156,11 +156,11 @@ public class DependencyForupdateApplicationInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DependencyForupdateApplicationInput dependencyForupdateApplicationInput = (DependencyForupdateApplicationInput) o;
-    return Objects.equals(this.archives, dependencyForupdateApplicationInput.archives) &&
-        Objects.equals(this.files, dependencyForupdateApplicationInput.files) &&
-        Objects.equals(this.jars, dependencyForupdateApplicationInput.jars) &&
-        Objects.equals(this.pyFiles, dependencyForupdateApplicationInput.pyFiles);
+    DependencyFormodifyApplicationInput dependencyFormodifyApplicationInput = (DependencyFormodifyApplicationInput) o;
+    return Objects.equals(this.archives, dependencyFormodifyApplicationInput.archives) &&
+        Objects.equals(this.files, dependencyFormodifyApplicationInput.files) &&
+        Objects.equals(this.jars, dependencyFormodifyApplicationInput.jars) &&
+        Objects.equals(this.pyFiles, dependencyFormodifyApplicationInput.pyFiles);
   }
 
   @Override
@@ -172,7 +172,7 @@ public class DependencyForupdateApplicationInput {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DependencyForupdateApplicationInput {\n");
+    sb.append("class DependencyFormodifyApplicationInput {\n");
     
     sb.append("    archives: ").append(toIndentedString(archives)).append("\n");
     sb.append("    files: ").append(toIndentedString(files)).append("\n");

@@ -24,51 +24,30 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * UpdateApplicationResponse
+ * DescribeResourcePoolRequest
  */
 
 
-public class UpdateApplicationResponse {
-  @SerializedName("Message")
-  private String message = null;
+public class DescribeResourcePoolRequest {
+  @SerializedName("ResourcePoolTrn")
+  private String resourcePoolTrn = null;
 
-  @SerializedName("Status")
-  private String status = null;
-
-  public UpdateApplicationResponse message(String message) {
-    this.message = message;
+  public DescribeResourcePoolRequest resourcePoolTrn(String resourcePoolTrn) {
+    this.resourcePoolTrn = resourcePoolTrn;
     return this;
   }
 
    /**
-   * Get message
-   * @return message
+   * Get resourcePoolTrn
+   * @return resourcePoolTrn
   **/
   @Schema(description = "")
-  public String getMessage() {
-    return message;
+  public String getResourcePoolTrn() {
+    return resourcePoolTrn;
   }
 
-  public void setMessage(String message) {
-    this.message = message;
-  }
-
-  public UpdateApplicationResponse status(String status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Get status
-   * @return status
-  **/
-  @Schema(description = "")
-  public String getStatus() {
-    return status;
-  }
-
-  public void setStatus(String status) {
-    this.status = status;
+  public void setResourcePoolTrn(String resourcePoolTrn) {
+    this.resourcePoolTrn = resourcePoolTrn;
   }
 
 
@@ -80,24 +59,22 @@ public class UpdateApplicationResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UpdateApplicationResponse updateApplicationResponse = (UpdateApplicationResponse) o;
-    return Objects.equals(this.message, updateApplicationResponse.message) &&
-        Objects.equals(this.status, updateApplicationResponse.status);
+    DescribeResourcePoolRequest describeResourcePoolRequest = (DescribeResourcePoolRequest) o;
+    return Objects.equals(this.resourcePoolTrn, describeResourcePoolRequest.resourcePoolTrn);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(message, status);
+    return Objects.hash(resourcePoolTrn);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UpdateApplicationResponse {\n");
+    sb.append("class DescribeResourcePoolRequest {\n");
     
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    resourcePoolTrn: ").append(toIndentedString(resourcePoolTrn)).append("\n");
     sb.append("}");
     return sb.toString();
   }

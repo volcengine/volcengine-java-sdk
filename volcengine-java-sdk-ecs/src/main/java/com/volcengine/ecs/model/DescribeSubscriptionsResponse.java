@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.ecs.model.SubscriptionForDescribeSubscriptionsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -31,6 +34,9 @@ import javax.validation.Valid;
 public class DescribeSubscriptionsResponse {
   @SerializedName("NextToken")
   private String nextToken = null;
+
+  @SerializedName("Subscriptions")
+  private List<SubscriptionForDescribeSubscriptionsOutput> subscriptions = null;
 
   public DescribeSubscriptionsResponse nextToken(String nextToken) {
     this.nextToken = nextToken;
@@ -50,6 +56,33 @@ public class DescribeSubscriptionsResponse {
     this.nextToken = nextToken;
   }
 
+  public DescribeSubscriptionsResponse subscriptions(List<SubscriptionForDescribeSubscriptionsOutput> subscriptions) {
+    this.subscriptions = subscriptions;
+    return this;
+  }
+
+  public DescribeSubscriptionsResponse addSubscriptionsItem(SubscriptionForDescribeSubscriptionsOutput subscriptionsItem) {
+    if (this.subscriptions == null) {
+      this.subscriptions = new ArrayList<SubscriptionForDescribeSubscriptionsOutput>();
+    }
+    this.subscriptions.add(subscriptionsItem);
+    return this;
+  }
+
+   /**
+   * Get subscriptions
+   * @return subscriptions
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<SubscriptionForDescribeSubscriptionsOutput> getSubscriptions() {
+    return subscriptions;
+  }
+
+  public void setSubscriptions(List<SubscriptionForDescribeSubscriptionsOutput> subscriptions) {
+    this.subscriptions = subscriptions;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -60,12 +93,13 @@ public class DescribeSubscriptionsResponse {
       return false;
     }
     DescribeSubscriptionsResponse describeSubscriptionsResponse = (DescribeSubscriptionsResponse) o;
-    return Objects.equals(this.nextToken, describeSubscriptionsResponse.nextToken);
+    return Objects.equals(this.nextToken, describeSubscriptionsResponse.nextToken) &&
+        Objects.equals(this.subscriptions, describeSubscriptionsResponse.subscriptions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(nextToken);
+    return Objects.hash(nextToken, subscriptions);
   }
 
 
@@ -75,6 +109,7 @@ public class DescribeSubscriptionsResponse {
     sb.append("class DescribeSubscriptionsResponse {\n");
     
     sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
+    sb.append("    subscriptions: ").append(toIndentedString(subscriptions)).append("\n");
     sb.append("}");
     return sb.toString();
   }
