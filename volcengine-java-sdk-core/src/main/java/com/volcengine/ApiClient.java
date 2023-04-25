@@ -1025,12 +1025,12 @@ public class ApiClient {
     private ServiceInfo addPairAndGetServiceInfo(String path, List<Pair> queryParams, Map<String, String> headerParams) {
         String[] param = path.split("/");
 
-        if (!isApplicationJsonBody(headerParams) && !isPostBody(headerParams)) {
-            updateQueryParams(queryParams, param);
-        }
-
         if (param.length >= 6){
             headerParams.put("Content-Type",param[5].replaceAll("_","/"));
+        }
+
+        if (!isApplicationJsonBody(headerParams) && !isPostBody(headerParams)) {
+            updateQueryParams(queryParams, param);
         }
 
         return new ServiceInfo(param[3], param[4]);
