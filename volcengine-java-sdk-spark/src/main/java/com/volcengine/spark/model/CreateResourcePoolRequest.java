@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.spark.model.ResourceForcreateResourcePoolOneStepInput;
+import com.volcengine.spark.model.ResourceForcreateResourcePoolInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -27,11 +27,11 @@ import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * CreateResourcePoolOneStepRequest
+ * CreateResourcePoolRequest
  */
 
 
-public class CreateResourcePoolOneStepRequest {
+public class CreateResourcePoolRequest {
   @SerializedName("BillingType")
   private String billingType = null;
 
@@ -42,7 +42,7 @@ public class CreateResourcePoolOneStepRequest {
   private String projectId = null;
 
   @SerializedName("Resources")
-  private List<ResourceForcreateResourcePoolOneStepInput> resources = null;
+  private List<ResourceForcreateResourcePoolInput> resources = null;
 
   @SerializedName("SecurityGroupIdList")
   private List<String> securityGroupIdList = null;
@@ -56,7 +56,7 @@ public class CreateResourcePoolOneStepRequest {
   @SerializedName("ZoneId")
   private String zoneId = null;
 
-  public CreateResourcePoolOneStepRequest billingType(String billingType) {
+  public CreateResourcePoolRequest billingType(String billingType) {
     this.billingType = billingType;
     return this;
   }
@@ -75,7 +75,7 @@ public class CreateResourcePoolOneStepRequest {
     this.billingType = billingType;
   }
 
-  public CreateResourcePoolOneStepRequest name(String name) {
+  public CreateResourcePoolRequest name(String name) {
     this.name = name;
     return this;
   }
@@ -94,7 +94,7 @@ public class CreateResourcePoolOneStepRequest {
     this.name = name;
   }
 
-  public CreateResourcePoolOneStepRequest projectId(String projectId) {
+  public CreateResourcePoolRequest projectId(String projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -113,14 +113,14 @@ public class CreateResourcePoolOneStepRequest {
     this.projectId = projectId;
   }
 
-  public CreateResourcePoolOneStepRequest resources(List<ResourceForcreateResourcePoolOneStepInput> resources) {
+  public CreateResourcePoolRequest resources(List<ResourceForcreateResourcePoolInput> resources) {
     this.resources = resources;
     return this;
   }
 
-  public CreateResourcePoolOneStepRequest addResourcesItem(ResourceForcreateResourcePoolOneStepInput resourcesItem) {
+  public CreateResourcePoolRequest addResourcesItem(ResourceForcreateResourcePoolInput resourcesItem) {
     if (this.resources == null) {
-      this.resources = new ArrayList<ResourceForcreateResourcePoolOneStepInput>();
+      this.resources = new ArrayList<ResourceForcreateResourcePoolInput>();
     }
     this.resources.add(resourcesItem);
     return this;
@@ -132,20 +132,20 @@ public class CreateResourcePoolOneStepRequest {
   **/
   @Valid
   @Schema(description = "")
-  public List<ResourceForcreateResourcePoolOneStepInput> getResources() {
+  public List<ResourceForcreateResourcePoolInput> getResources() {
     return resources;
   }
 
-  public void setResources(List<ResourceForcreateResourcePoolOneStepInput> resources) {
+  public void setResources(List<ResourceForcreateResourcePoolInput> resources) {
     this.resources = resources;
   }
 
-  public CreateResourcePoolOneStepRequest securityGroupIdList(List<String> securityGroupIdList) {
+  public CreateResourcePoolRequest securityGroupIdList(List<String> securityGroupIdList) {
     this.securityGroupIdList = securityGroupIdList;
     return this;
   }
 
-  public CreateResourcePoolOneStepRequest addSecurityGroupIdListItem(String securityGroupIdListItem) {
+  public CreateResourcePoolRequest addSecurityGroupIdListItem(String securityGroupIdListItem) {
     if (this.securityGroupIdList == null) {
       this.securityGroupIdList = new ArrayList<String>();
     }
@@ -166,12 +166,12 @@ public class CreateResourcePoolOneStepRequest {
     this.securityGroupIdList = securityGroupIdList;
   }
 
-  public CreateResourcePoolOneStepRequest subnetIdList(List<String> subnetIdList) {
+  public CreateResourcePoolRequest subnetIdList(List<String> subnetIdList) {
     this.subnetIdList = subnetIdList;
     return this;
   }
 
-  public CreateResourcePoolOneStepRequest addSubnetIdListItem(String subnetIdListItem) {
+  public CreateResourcePoolRequest addSubnetIdListItem(String subnetIdListItem) {
     if (this.subnetIdList == null) {
       this.subnetIdList = new ArrayList<String>();
     }
@@ -192,7 +192,7 @@ public class CreateResourcePoolOneStepRequest {
     this.subnetIdList = subnetIdList;
   }
 
-  public CreateResourcePoolOneStepRequest vpcId(String vpcId) {
+  public CreateResourcePoolRequest vpcId(String vpcId) {
     this.vpcId = vpcId;
     return this;
   }
@@ -211,7 +211,7 @@ public class CreateResourcePoolOneStepRequest {
     this.vpcId = vpcId;
   }
 
-  public CreateResourcePoolOneStepRequest zoneId(String zoneId) {
+  public CreateResourcePoolRequest zoneId(String zoneId) {
     this.zoneId = zoneId;
     return this;
   }
@@ -239,15 +239,15 @@ public class CreateResourcePoolOneStepRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateResourcePoolOneStepRequest createResourcePoolOneStepRequest = (CreateResourcePoolOneStepRequest) o;
-    return Objects.equals(this.billingType, createResourcePoolOneStepRequest.billingType) &&
-        Objects.equals(this.name, createResourcePoolOneStepRequest.name) &&
-        Objects.equals(this.projectId, createResourcePoolOneStepRequest.projectId) &&
-        Objects.equals(this.resources, createResourcePoolOneStepRequest.resources) &&
-        Objects.equals(this.securityGroupIdList, createResourcePoolOneStepRequest.securityGroupIdList) &&
-        Objects.equals(this.subnetIdList, createResourcePoolOneStepRequest.subnetIdList) &&
-        Objects.equals(this.vpcId, createResourcePoolOneStepRequest.vpcId) &&
-        Objects.equals(this.zoneId, createResourcePoolOneStepRequest.zoneId);
+    CreateResourcePoolRequest createResourcePoolRequest = (CreateResourcePoolRequest) o;
+    return Objects.equals(this.billingType, createResourcePoolRequest.billingType) &&
+        Objects.equals(this.name, createResourcePoolRequest.name) &&
+        Objects.equals(this.projectId, createResourcePoolRequest.projectId) &&
+        Objects.equals(this.resources, createResourcePoolRequest.resources) &&
+        Objects.equals(this.securityGroupIdList, createResourcePoolRequest.securityGroupIdList) &&
+        Objects.equals(this.subnetIdList, createResourcePoolRequest.subnetIdList) &&
+        Objects.equals(this.vpcId, createResourcePoolRequest.vpcId) &&
+        Objects.equals(this.zoneId, createResourcePoolRequest.zoneId);
   }
 
   @Override
@@ -259,7 +259,7 @@ public class CreateResourcePoolOneStepRequest {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateResourcePoolOneStepRequest {\n");
+    sb.append("class CreateResourcePoolRequest {\n");
     
     sb.append("    billingType: ").append(toIndentedString(billingType)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

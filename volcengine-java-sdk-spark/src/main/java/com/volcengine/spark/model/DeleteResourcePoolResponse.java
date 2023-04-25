@@ -24,18 +24,18 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DeleteResponse
+ * DeleteResourcePoolResponse
  */
 
 
-public class DeleteResponse {
+public class DeleteResourcePoolResponse {
   @SerializedName("Message")
   private String message = null;
 
   @SerializedName("Status")
   private String status = null;
 
-  public DeleteResponse message(String message) {
+  public DeleteResourcePoolResponse message(String message) {
     this.message = message;
     return this;
   }
@@ -53,7 +53,7 @@ public class DeleteResponse {
     this.message = message;
   }
 
-  public DeleteResponse status(String status) {
+  public DeleteResourcePoolResponse status(String status) {
     this.status = status;
     return this;
   }
@@ -80,9 +80,9 @@ public class DeleteResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeleteResponse deleteResponse = (DeleteResponse) o;
-    return Objects.equals(this.message, deleteResponse.message) &&
-        Objects.equals(this.status, deleteResponse.status);
+    DeleteResourcePoolResponse deleteResourcePoolResponse = (DeleteResourcePoolResponse) o;
+    return Objects.equals(this.message, deleteResourcePoolResponse.message) &&
+        Objects.equals(this.status, deleteResourcePoolResponse.status);
   }
 
   @Override
@@ -94,7 +94,7 @@ public class DeleteResponse {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeleteResponse {\n");
+    sb.append("class DeleteResourcePoolResponse {\n");
     
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");

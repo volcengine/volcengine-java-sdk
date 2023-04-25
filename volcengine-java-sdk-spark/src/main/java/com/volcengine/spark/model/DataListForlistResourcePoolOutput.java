@@ -24,11 +24,11 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DataListForlistOutput
+ * DataListForlistResourcePoolOutput
  */
 
 
-public class DataListForlistOutput {
+public class DataListForlistResourcePoolOutput {
   @SerializedName("BillingType")
   private String billingType = null;
 
@@ -59,7 +59,7 @@ public class DataListForlistOutput {
   @SerializedName("ZoneId")
   private String zoneId = null;
 
-  public DataListForlistOutput billingType(String billingType) {
+  public DataListForlistResourcePoolOutput billingType(String billingType) {
     this.billingType = billingType;
     return this;
   }
@@ -77,7 +77,7 @@ public class DataListForlistOutput {
     this.billingType = billingType;
   }
 
-  public DataListForlistOutput createTime(String createTime) {
+  public DataListForlistResourcePoolOutput createTime(String createTime) {
     this.createTime = createTime;
     return this;
   }
@@ -95,7 +95,7 @@ public class DataListForlistOutput {
     this.createTime = createTime;
   }
 
-  public DataListForlistOutput name(String name) {
+  public DataListForlistResourcePoolOutput name(String name) {
     this.name = name;
     return this;
   }
@@ -113,7 +113,7 @@ public class DataListForlistOutput {
     this.name = name;
   }
 
-  public DataListForlistOutput projectId(String projectId) {
+  public DataListForlistResourcePoolOutput projectId(String projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -131,7 +131,7 @@ public class DataListForlistOutput {
     this.projectId = projectId;
   }
 
-  public DataListForlistOutput regionId(String regionId) {
+  public DataListForlistResourcePoolOutput regionId(String regionId) {
     this.regionId = regionId;
     return this;
   }
@@ -149,7 +149,7 @@ public class DataListForlistOutput {
     this.regionId = regionId;
   }
 
-  public DataListForlistOutput resourcePoolTrn(String resourcePoolTrn) {
+  public DataListForlistResourcePoolOutput resourcePoolTrn(String resourcePoolTrn) {
     this.resourcePoolTrn = resourcePoolTrn;
     return this;
   }
@@ -167,7 +167,7 @@ public class DataListForlistOutput {
     this.resourcePoolTrn = resourcePoolTrn;
   }
 
-  public DataListForlistOutput status(String status) {
+  public DataListForlistResourcePoolOutput status(String status) {
     this.status = status;
     return this;
   }
@@ -185,7 +185,7 @@ public class DataListForlistOutput {
     this.status = status;
   }
 
-  public DataListForlistOutput statusMessage(String statusMessage) {
+  public DataListForlistResourcePoolOutput statusMessage(String statusMessage) {
     this.statusMessage = statusMessage;
     return this;
   }
@@ -203,7 +203,7 @@ public class DataListForlistOutput {
     this.statusMessage = statusMessage;
   }
 
-  public DataListForlistOutput updateTime(String updateTime) {
+  public DataListForlistResourcePoolOutput updateTime(String updateTime) {
     this.updateTime = updateTime;
     return this;
   }
@@ -221,7 +221,7 @@ public class DataListForlistOutput {
     this.updateTime = updateTime;
   }
 
-  public DataListForlistOutput zoneId(String zoneId) {
+  public DataListForlistResourcePoolOutput zoneId(String zoneId) {
     this.zoneId = zoneId;
     return this;
   }
@@ -248,17 +248,17 @@ public class DataListForlistOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DataListForlistOutput dataListForlistOutput = (DataListForlistOutput) o;
-    return Objects.equals(this.billingType, dataListForlistOutput.billingType) &&
-        Objects.equals(this.createTime, dataListForlistOutput.createTime) &&
-        Objects.equals(this.name, dataListForlistOutput.name) &&
-        Objects.equals(this.projectId, dataListForlistOutput.projectId) &&
-        Objects.equals(this.regionId, dataListForlistOutput.regionId) &&
-        Objects.equals(this.resourcePoolTrn, dataListForlistOutput.resourcePoolTrn) &&
-        Objects.equals(this.status, dataListForlistOutput.status) &&
-        Objects.equals(this.statusMessage, dataListForlistOutput.statusMessage) &&
-        Objects.equals(this.updateTime, dataListForlistOutput.updateTime) &&
-        Objects.equals(this.zoneId, dataListForlistOutput.zoneId);
+    DataListForlistResourcePoolOutput dataListForlistResourcePoolOutput = (DataListForlistResourcePoolOutput) o;
+    return Objects.equals(this.billingType, dataListForlistResourcePoolOutput.billingType) &&
+        Objects.equals(this.createTime, dataListForlistResourcePoolOutput.createTime) &&
+        Objects.equals(this.name, dataListForlistResourcePoolOutput.name) &&
+        Objects.equals(this.projectId, dataListForlistResourcePoolOutput.projectId) &&
+        Objects.equals(this.regionId, dataListForlistResourcePoolOutput.regionId) &&
+        Objects.equals(this.resourcePoolTrn, dataListForlistResourcePoolOutput.resourcePoolTrn) &&
+        Objects.equals(this.status, dataListForlistResourcePoolOutput.status) &&
+        Objects.equals(this.statusMessage, dataListForlistResourcePoolOutput.statusMessage) &&
+        Objects.equals(this.updateTime, dataListForlistResourcePoolOutput.updateTime) &&
+        Objects.equals(this.zoneId, dataListForlistResourcePoolOutput.zoneId);
   }
 
   @Override
@@ -270,7 +270,7 @@ public class DataListForlistOutput {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DataListForlistOutput {\n");
+    sb.append("class DataListForlistResourcePoolOutput {\n");
     
     sb.append("    billingType: ").append(toIndentedString(billingType)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");

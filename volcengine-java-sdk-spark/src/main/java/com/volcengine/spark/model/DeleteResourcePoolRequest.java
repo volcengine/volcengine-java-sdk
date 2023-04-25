@@ -24,51 +24,30 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ExitResourcePoolRequest
+ * DeleteResourcePoolRequest
  */
 
 
-public class ExitResourcePoolRequest {
-  @SerializedName("Name")
-  private String name = null;
+public class DeleteResourcePoolRequest {
+  @SerializedName("ResourcePoolTrn")
+  private String resourcePoolTrn = null;
 
-  @SerializedName("ProjectId")
-  private String projectId = null;
-
-  public ExitResourcePoolRequest name(String name) {
-    this.name = name;
+  public DeleteResourcePoolRequest resourcePoolTrn(String resourcePoolTrn) {
+    this.resourcePoolTrn = resourcePoolTrn;
     return this;
   }
 
    /**
-   * Get name
-   * @return name
+   * Get resourcePoolTrn
+   * @return resourcePoolTrn
   **/
   @Schema(description = "")
-  public String getName() {
-    return name;
+  public String getResourcePoolTrn() {
+    return resourcePoolTrn;
   }
 
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public ExitResourcePoolRequest projectId(String projectId) {
-    this.projectId = projectId;
-    return this;
-  }
-
-   /**
-   * Get projectId
-   * @return projectId
-  **/
-  @Schema(description = "")
-  public String getProjectId() {
-    return projectId;
-  }
-
-  public void setProjectId(String projectId) {
-    this.projectId = projectId;
+  public void setResourcePoolTrn(String resourcePoolTrn) {
+    this.resourcePoolTrn = resourcePoolTrn;
   }
 
 
@@ -80,24 +59,22 @@ public class ExitResourcePoolRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ExitResourcePoolRequest exitResourcePoolRequest = (ExitResourcePoolRequest) o;
-    return Objects.equals(this.name, exitResourcePoolRequest.name) &&
-        Objects.equals(this.projectId, exitResourcePoolRequest.projectId);
+    DeleteResourcePoolRequest deleteResourcePoolRequest = (DeleteResourcePoolRequest) o;
+    return Objects.equals(this.resourcePoolTrn, deleteResourcePoolRequest.resourcePoolTrn);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, projectId);
+    return Objects.hash(resourcePoolTrn);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ExitResourcePoolRequest {\n");
+    sb.append("class DeleteResourcePoolRequest {\n");
     
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
+    sb.append("    resourcePoolTrn: ").append(toIndentedString(resourcePoolTrn)).append("\n");
     sb.append("}");
     return sb.toString();
   }

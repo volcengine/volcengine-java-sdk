@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.spark.model.RecordForlistApplicationOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -26,24 +27,24 @@ import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ListApplicationInstanceResponse
+ * ListApplicationResponse
  */
 
 
-public class ListApplicationInstanceResponse {
+public class ListApplicationResponse {
   @SerializedName("Current")
-  private Long current = null;
+  private String current = null;
+
+  @SerializedName("PageSize")
+  private String pageSize = null;
 
   @SerializedName("Records")
-  private List<Object> records = null;
-
-  @SerializedName("Size")
-  private Long size = null;
+  private List<RecordForlistApplicationOutput> records = null;
 
   @SerializedName("Total")
-  private Long total = null;
+  private String total = null;
 
-  public ListApplicationInstanceResponse current(Long current) {
+  public ListApplicationResponse current(String current) {
     this.current = current;
     return this;
   }
@@ -53,22 +54,40 @@ public class ListApplicationInstanceResponse {
    * @return current
   **/
   @Schema(description = "")
-  public Long getCurrent() {
+  public String getCurrent() {
     return current;
   }
 
-  public void setCurrent(Long current) {
+  public void setCurrent(String current) {
     this.current = current;
   }
 
-  public ListApplicationInstanceResponse records(List<Object> records) {
+  public ListApplicationResponse pageSize(String pageSize) {
+    this.pageSize = pageSize;
+    return this;
+  }
+
+   /**
+   * Get pageSize
+   * @return pageSize
+  **/
+  @Schema(description = "")
+  public String getPageSize() {
+    return pageSize;
+  }
+
+  public void setPageSize(String pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public ListApplicationResponse records(List<RecordForlistApplicationOutput> records) {
     this.records = records;
     return this;
   }
 
-  public ListApplicationInstanceResponse addRecordsItem(Object recordsItem) {
+  public ListApplicationResponse addRecordsItem(RecordForlistApplicationOutput recordsItem) {
     if (this.records == null) {
-      this.records = new ArrayList<Object>();
+      this.records = new ArrayList<RecordForlistApplicationOutput>();
     }
     this.records.add(recordsItem);
     return this;
@@ -78,34 +97,17 @@ public class ListApplicationInstanceResponse {
    * Get records
    * @return records
   **/
+  @Valid
   @Schema(description = "")
-  public List<Object> getRecords() {
+  public List<RecordForlistApplicationOutput> getRecords() {
     return records;
   }
 
-  public void setRecords(List<Object> records) {
+  public void setRecords(List<RecordForlistApplicationOutput> records) {
     this.records = records;
   }
 
-  public ListApplicationInstanceResponse size(Long size) {
-    this.size = size;
-    return this;
-  }
-
-   /**
-   * Get size
-   * @return size
-  **/
-  @Schema(description = "")
-  public Long getSize() {
-    return size;
-  }
-
-  public void setSize(Long size) {
-    this.size = size;
-  }
-
-  public ListApplicationInstanceResponse total(Long total) {
+  public ListApplicationResponse total(String total) {
     this.total = total;
     return this;
   }
@@ -115,11 +117,11 @@ public class ListApplicationInstanceResponse {
    * @return total
   **/
   @Schema(description = "")
-  public Long getTotal() {
+  public String getTotal() {
     return total;
   }
 
-  public void setTotal(Long total) {
+  public void setTotal(String total) {
     this.total = total;
   }
 
@@ -132,27 +134,27 @@ public class ListApplicationInstanceResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ListApplicationInstanceResponse listApplicationInstanceResponse = (ListApplicationInstanceResponse) o;
-    return Objects.equals(this.current, listApplicationInstanceResponse.current) &&
-        Objects.equals(this.records, listApplicationInstanceResponse.records) &&
-        Objects.equals(this.size, listApplicationInstanceResponse.size) &&
-        Objects.equals(this.total, listApplicationInstanceResponse.total);
+    ListApplicationResponse listApplicationResponse = (ListApplicationResponse) o;
+    return Objects.equals(this.current, listApplicationResponse.current) &&
+        Objects.equals(this.pageSize, listApplicationResponse.pageSize) &&
+        Objects.equals(this.records, listApplicationResponse.records) &&
+        Objects.equals(this.total, listApplicationResponse.total);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(current, records, size, total);
+    return Objects.hash(current, pageSize, records, total);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ListApplicationInstanceResponse {\n");
+    sb.append("class ListApplicationResponse {\n");
     
     sb.append("    current: ").append(toIndentedString(current)).append("\n");
+    sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    records: ").append(toIndentedString(records)).append("\n");
-    sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    total: ").append(toIndentedString(total)).append("\n");
     sb.append("}");
     return sb.toString();

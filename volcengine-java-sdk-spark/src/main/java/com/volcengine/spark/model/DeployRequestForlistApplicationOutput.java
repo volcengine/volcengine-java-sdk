@@ -24,11 +24,11 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DeployRequestForgetApplicationOutput
+ * DeployRequestForlistApplicationOutput
  */
 
 
-public class DeployRequestForgetApplicationOutput {
+public class DeployRequestForlistApplicationOutput {
   @SerializedName("Priority")
   private String priority = null;
 
@@ -41,7 +41,7 @@ public class DeployRequestForgetApplicationOutput {
   @SerializedName("ScheduleTimeout")
   private String scheduleTimeout = null;
 
-  public DeployRequestForgetApplicationOutput priority(String priority) {
+  public DeployRequestForlistApplicationOutput priority(String priority) {
     this.priority = priority;
     return this;
   }
@@ -59,7 +59,7 @@ public class DeployRequestForgetApplicationOutput {
     this.priority = priority;
   }
 
-  public DeployRequestForgetApplicationOutput resourcePoolTrn(String resourcePoolTrn) {
+  public DeployRequestForlistApplicationOutput resourcePoolTrn(String resourcePoolTrn) {
     this.resourcePoolTrn = resourcePoolTrn;
     return this;
   }
@@ -77,7 +77,7 @@ public class DeployRequestForgetApplicationOutput {
     this.resourcePoolTrn = resourcePoolTrn;
   }
 
-  public DeployRequestForgetApplicationOutput schedulePolicy(String schedulePolicy) {
+  public DeployRequestForlistApplicationOutput schedulePolicy(String schedulePolicy) {
     this.schedulePolicy = schedulePolicy;
     return this;
   }
@@ -95,7 +95,7 @@ public class DeployRequestForgetApplicationOutput {
     this.schedulePolicy = schedulePolicy;
   }
 
-  public DeployRequestForgetApplicationOutput scheduleTimeout(String scheduleTimeout) {
+  public DeployRequestForlistApplicationOutput scheduleTimeout(String scheduleTimeout) {
     this.scheduleTimeout = scheduleTimeout;
     return this;
   }
@@ -122,11 +122,11 @@ public class DeployRequestForgetApplicationOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeployRequestForgetApplicationOutput deployRequestForgetApplicationOutput = (DeployRequestForgetApplicationOutput) o;
-    return Objects.equals(this.priority, deployRequestForgetApplicationOutput.priority) &&
-        Objects.equals(this.resourcePoolTrn, deployRequestForgetApplicationOutput.resourcePoolTrn) &&
-        Objects.equals(this.schedulePolicy, deployRequestForgetApplicationOutput.schedulePolicy) &&
-        Objects.equals(this.scheduleTimeout, deployRequestForgetApplicationOutput.scheduleTimeout);
+    DeployRequestForlistApplicationOutput deployRequestForlistApplicationOutput = (DeployRequestForlistApplicationOutput) o;
+    return Objects.equals(this.priority, deployRequestForlistApplicationOutput.priority) &&
+        Objects.equals(this.resourcePoolTrn, deployRequestForlistApplicationOutput.resourcePoolTrn) &&
+        Objects.equals(this.schedulePolicy, deployRequestForlistApplicationOutput.schedulePolicy) &&
+        Objects.equals(this.scheduleTimeout, deployRequestForlistApplicationOutput.scheduleTimeout);
   }
 
   @Override
@@ -138,7 +138,7 @@ public class DeployRequestForgetApplicationOutput {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeployRequestForgetApplicationOutput {\n");
+    sb.append("class DeployRequestForlistApplicationOutput {\n");
     
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
     sb.append("    resourcePoolTrn: ").append(toIndentedString(resourcePoolTrn)).append("\n");
