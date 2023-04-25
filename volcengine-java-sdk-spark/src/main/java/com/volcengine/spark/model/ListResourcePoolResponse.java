@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.spark.model.DataListForlistOutput;
+import com.volcengine.spark.model.DataListForlistResourcePoolOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -27,13 +27,13 @@ import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ListResponse
+ * ListResourcePoolResponse
  */
 
 
-public class ListResponse {
+public class ListResourcePoolResponse {
   @SerializedName("DataList")
-  private List<DataListForlistOutput> dataList = null;
+  private List<DataListForlistResourcePoolOutput> dataList = null;
 
   @SerializedName("PageNum")
   private Integer pageNum = null;
@@ -44,14 +44,14 @@ public class ListResponse {
   @SerializedName("Total")
   private Integer total = null;
 
-  public ListResponse dataList(List<DataListForlistOutput> dataList) {
+  public ListResourcePoolResponse dataList(List<DataListForlistResourcePoolOutput> dataList) {
     this.dataList = dataList;
     return this;
   }
 
-  public ListResponse addDataListItem(DataListForlistOutput dataListItem) {
+  public ListResourcePoolResponse addDataListItem(DataListForlistResourcePoolOutput dataListItem) {
     if (this.dataList == null) {
-      this.dataList = new ArrayList<DataListForlistOutput>();
+      this.dataList = new ArrayList<DataListForlistResourcePoolOutput>();
     }
     this.dataList.add(dataListItem);
     return this;
@@ -63,15 +63,15 @@ public class ListResponse {
   **/
   @Valid
   @Schema(description = "")
-  public List<DataListForlistOutput> getDataList() {
+  public List<DataListForlistResourcePoolOutput> getDataList() {
     return dataList;
   }
 
-  public void setDataList(List<DataListForlistOutput> dataList) {
+  public void setDataList(List<DataListForlistResourcePoolOutput> dataList) {
     this.dataList = dataList;
   }
 
-  public ListResponse pageNum(Integer pageNum) {
+  public ListResourcePoolResponse pageNum(Integer pageNum) {
     this.pageNum = pageNum;
     return this;
   }
@@ -89,7 +89,7 @@ public class ListResponse {
     this.pageNum = pageNum;
   }
 
-  public ListResponse pageSize(Integer pageSize) {
+  public ListResourcePoolResponse pageSize(Integer pageSize) {
     this.pageSize = pageSize;
     return this;
   }
@@ -107,7 +107,7 @@ public class ListResponse {
     this.pageSize = pageSize;
   }
 
-  public ListResponse total(Integer total) {
+  public ListResourcePoolResponse total(Integer total) {
     this.total = total;
     return this;
   }
@@ -134,11 +134,11 @@ public class ListResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ListResponse listResponse = (ListResponse) o;
-    return Objects.equals(this.dataList, listResponse.dataList) &&
-        Objects.equals(this.pageNum, listResponse.pageNum) &&
-        Objects.equals(this.pageSize, listResponse.pageSize) &&
-        Objects.equals(this.total, listResponse.total);
+    ListResourcePoolResponse listResourcePoolResponse = (ListResourcePoolResponse) o;
+    return Objects.equals(this.dataList, listResourcePoolResponse.dataList) &&
+        Objects.equals(this.pageNum, listResourcePoolResponse.pageNum) &&
+        Objects.equals(this.pageSize, listResourcePoolResponse.pageSize) &&
+        Objects.equals(this.total, listResourcePoolResponse.total);
   }
 
   @Override
@@ -150,7 +150,7 @@ public class ListResponse {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ListResponse {\n");
+    sb.append("class ListResourcePoolResponse {\n");
     
     sb.append("    dataList: ").append(toIndentedString(dataList)).append("\n");
     sb.append("    pageNum: ").append(toIndentedString(pageNum)).append("\n");

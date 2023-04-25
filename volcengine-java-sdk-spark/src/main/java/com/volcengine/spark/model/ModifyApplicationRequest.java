@@ -19,8 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.spark.model.DependencyForupdateApplicationInput;
-import com.volcengine.spark.model.DeployRequestForupdateApplicationInput;
+import com.volcengine.spark.model.DependencyFormodifyApplicationInput;
+import com.volcengine.spark.model.DeployRequestFormodifyApplicationInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.HashMap;
@@ -29,11 +29,11 @@ import java.util.Map;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * UpdateApplicationRequest
+ * ModifyApplicationRequest
  */
 
 
-public class UpdateApplicationRequest {
+public class ModifyApplicationRequest {
   @SerializedName("ApplicationTrn")
   private String applicationTrn = null;
 
@@ -44,10 +44,10 @@ public class UpdateApplicationRequest {
   private Map<String, String> conf = null;
 
   @SerializedName("Dependency")
-  private DependencyForupdateApplicationInput dependency = null;
+  private DependencyFormodifyApplicationInput dependency = null;
 
   @SerializedName("DeployRequest")
-  private DeployRequestForupdateApplicationInput deployRequest = null;
+  private DeployRequestFormodifyApplicationInput deployRequest = null;
 
   @SerializedName("EngineVersion")
   private String engineVersion = null;
@@ -70,7 +70,7 @@ public class UpdateApplicationRequest {
   @SerializedName("UniqueKey")
   private String uniqueKey = null;
 
-  public UpdateApplicationRequest applicationTrn(String applicationTrn) {
+  public ModifyApplicationRequest applicationTrn(String applicationTrn) {
     this.applicationTrn = applicationTrn;
     return this;
   }
@@ -88,7 +88,7 @@ public class UpdateApplicationRequest {
     this.applicationTrn = applicationTrn;
   }
 
-  public UpdateApplicationRequest args(String args) {
+  public ModifyApplicationRequest args(String args) {
     this.args = args;
     return this;
   }
@@ -106,12 +106,12 @@ public class UpdateApplicationRequest {
     this.args = args;
   }
 
-  public UpdateApplicationRequest conf(Map<String, String> conf) {
+  public ModifyApplicationRequest conf(Map<String, String> conf) {
     this.conf = conf;
     return this;
   }
 
-  public UpdateApplicationRequest putConfItem(String key, String confItem) {
+  public ModifyApplicationRequest putConfItem(String key, String confItem) {
     if (this.conf == null) {
       this.conf = new HashMap<String, String>();
     }
@@ -132,7 +132,7 @@ public class UpdateApplicationRequest {
     this.conf = conf;
   }
 
-  public UpdateApplicationRequest dependency(DependencyForupdateApplicationInput dependency) {
+  public ModifyApplicationRequest dependency(DependencyFormodifyApplicationInput dependency) {
     this.dependency = dependency;
     return this;
   }
@@ -143,15 +143,15 @@ public class UpdateApplicationRequest {
   **/
   @Valid
   @Schema(description = "")
-  public DependencyForupdateApplicationInput getDependency() {
+  public DependencyFormodifyApplicationInput getDependency() {
     return dependency;
   }
 
-  public void setDependency(DependencyForupdateApplicationInput dependency) {
+  public void setDependency(DependencyFormodifyApplicationInput dependency) {
     this.dependency = dependency;
   }
 
-  public UpdateApplicationRequest deployRequest(DeployRequestForupdateApplicationInput deployRequest) {
+  public ModifyApplicationRequest deployRequest(DeployRequestFormodifyApplicationInput deployRequest) {
     this.deployRequest = deployRequest;
     return this;
   }
@@ -162,15 +162,15 @@ public class UpdateApplicationRequest {
   **/
   @Valid
   @Schema(description = "")
-  public DeployRequestForupdateApplicationInput getDeployRequest() {
+  public DeployRequestFormodifyApplicationInput getDeployRequest() {
     return deployRequest;
   }
 
-  public void setDeployRequest(DeployRequestForupdateApplicationInput deployRequest) {
+  public void setDeployRequest(DeployRequestFormodifyApplicationInput deployRequest) {
     this.deployRequest = deployRequest;
   }
 
-  public UpdateApplicationRequest engineVersion(String engineVersion) {
+  public ModifyApplicationRequest engineVersion(String engineVersion) {
     this.engineVersion = engineVersion;
     return this;
   }
@@ -188,7 +188,7 @@ public class UpdateApplicationRequest {
     this.engineVersion = engineVersion;
   }
 
-  public UpdateApplicationRequest image(String image) {
+  public ModifyApplicationRequest image(String image) {
     this.image = image;
     return this;
   }
@@ -206,7 +206,7 @@ public class UpdateApplicationRequest {
     this.image = image;
   }
 
-  public UpdateApplicationRequest jar(String jar) {
+  public ModifyApplicationRequest jar(String jar) {
     this.jar = jar;
     return this;
   }
@@ -224,7 +224,7 @@ public class UpdateApplicationRequest {
     this.jar = jar;
   }
 
-  public UpdateApplicationRequest jobName(String jobName) {
+  public ModifyApplicationRequest jobName(String jobName) {
     this.jobName = jobName;
     return this;
   }
@@ -242,7 +242,7 @@ public class UpdateApplicationRequest {
     this.jobName = jobName;
   }
 
-  public UpdateApplicationRequest mainClass(String mainClass) {
+  public ModifyApplicationRequest mainClass(String mainClass) {
     this.mainClass = mainClass;
     return this;
   }
@@ -260,7 +260,7 @@ public class UpdateApplicationRequest {
     this.mainClass = mainClass;
   }
 
-  public UpdateApplicationRequest sqlText(String sqlText) {
+  public ModifyApplicationRequest sqlText(String sqlText) {
     this.sqlText = sqlText;
     return this;
   }
@@ -278,7 +278,7 @@ public class UpdateApplicationRequest {
     this.sqlText = sqlText;
   }
 
-  public UpdateApplicationRequest uniqueKey(String uniqueKey) {
+  public ModifyApplicationRequest uniqueKey(String uniqueKey) {
     this.uniqueKey = uniqueKey;
     return this;
   }
@@ -305,19 +305,19 @@ public class UpdateApplicationRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UpdateApplicationRequest updateApplicationRequest = (UpdateApplicationRequest) o;
-    return Objects.equals(this.applicationTrn, updateApplicationRequest.applicationTrn) &&
-        Objects.equals(this.args, updateApplicationRequest.args) &&
-        Objects.equals(this.conf, updateApplicationRequest.conf) &&
-        Objects.equals(this.dependency, updateApplicationRequest.dependency) &&
-        Objects.equals(this.deployRequest, updateApplicationRequest.deployRequest) &&
-        Objects.equals(this.engineVersion, updateApplicationRequest.engineVersion) &&
-        Objects.equals(this.image, updateApplicationRequest.image) &&
-        Objects.equals(this.jar, updateApplicationRequest.jar) &&
-        Objects.equals(this.jobName, updateApplicationRequest.jobName) &&
-        Objects.equals(this.mainClass, updateApplicationRequest.mainClass) &&
-        Objects.equals(this.sqlText, updateApplicationRequest.sqlText) &&
-        Objects.equals(this.uniqueKey, updateApplicationRequest.uniqueKey);
+    ModifyApplicationRequest modifyApplicationRequest = (ModifyApplicationRequest) o;
+    return Objects.equals(this.applicationTrn, modifyApplicationRequest.applicationTrn) &&
+        Objects.equals(this.args, modifyApplicationRequest.args) &&
+        Objects.equals(this.conf, modifyApplicationRequest.conf) &&
+        Objects.equals(this.dependency, modifyApplicationRequest.dependency) &&
+        Objects.equals(this.deployRequest, modifyApplicationRequest.deployRequest) &&
+        Objects.equals(this.engineVersion, modifyApplicationRequest.engineVersion) &&
+        Objects.equals(this.image, modifyApplicationRequest.image) &&
+        Objects.equals(this.jar, modifyApplicationRequest.jar) &&
+        Objects.equals(this.jobName, modifyApplicationRequest.jobName) &&
+        Objects.equals(this.mainClass, modifyApplicationRequest.mainClass) &&
+        Objects.equals(this.sqlText, modifyApplicationRequest.sqlText) &&
+        Objects.equals(this.uniqueKey, modifyApplicationRequest.uniqueKey);
   }
 
   @Override
@@ -329,7 +329,7 @@ public class UpdateApplicationRequest {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UpdateApplicationRequest {\n");
+    sb.append("class ModifyApplicationRequest {\n");
     
     sb.append("    applicationTrn: ").append(toIndentedString(applicationTrn)).append("\n");
     sb.append("    args: ").append(toIndentedString(args)).append("\n");

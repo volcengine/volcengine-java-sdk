@@ -24,30 +24,51 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DetailRequest
+ * ExistResourcePoolRequest
  */
 
 
-public class DetailRequest {
-  @SerializedName("ResourcePoolTrn")
-  private String resourcePoolTrn = null;
+public class ExistResourcePoolRequest {
+  @SerializedName("Name")
+  private String name = null;
 
-  public DetailRequest resourcePoolTrn(String resourcePoolTrn) {
-    this.resourcePoolTrn = resourcePoolTrn;
+  @SerializedName("ProjectId")
+  private String projectId = null;
+
+  public ExistResourcePoolRequest name(String name) {
+    this.name = name;
     return this;
   }
 
    /**
-   * Get resourcePoolTrn
-   * @return resourcePoolTrn
+   * Get name
+   * @return name
   **/
   @Schema(description = "")
-  public String getResourcePoolTrn() {
-    return resourcePoolTrn;
+  public String getName() {
+    return name;
   }
 
-  public void setResourcePoolTrn(String resourcePoolTrn) {
-    this.resourcePoolTrn = resourcePoolTrn;
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public ExistResourcePoolRequest projectId(String projectId) {
+    this.projectId = projectId;
+    return this;
+  }
+
+   /**
+   * Get projectId
+   * @return projectId
+  **/
+  @Schema(description = "")
+  public String getProjectId() {
+    return projectId;
+  }
+
+  public void setProjectId(String projectId) {
+    this.projectId = projectId;
   }
 
 
@@ -59,22 +80,24 @@ public class DetailRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DetailRequest detailRequest = (DetailRequest) o;
-    return Objects.equals(this.resourcePoolTrn, detailRequest.resourcePoolTrn);
+    ExistResourcePoolRequest existResourcePoolRequest = (ExistResourcePoolRequest) o;
+    return Objects.equals(this.name, existResourcePoolRequest.name) &&
+        Objects.equals(this.projectId, existResourcePoolRequest.projectId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(resourcePoolTrn);
+    return Objects.hash(name, projectId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DetailRequest {\n");
+    sb.append("class ExistResourcePoolRequest {\n");
     
-    sb.append("    resourcePoolTrn: ").append(toIndentedString(resourcePoolTrn)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

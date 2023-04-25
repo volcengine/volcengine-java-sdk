@@ -24,11 +24,11 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DeployRequestForupdateApplicationInput
+ * DeployRequestFormodifyApplicationInput
  */
 
 
-public class DeployRequestForupdateApplicationInput {
+public class DeployRequestFormodifyApplicationInput {
   @SerializedName("Priority")
   private String priority = null;
 
@@ -41,7 +41,7 @@ public class DeployRequestForupdateApplicationInput {
   @SerializedName("ScheduleTimeout")
   private String scheduleTimeout = null;
 
-  public DeployRequestForupdateApplicationInput priority(String priority) {
+  public DeployRequestFormodifyApplicationInput priority(String priority) {
     this.priority = priority;
     return this;
   }
@@ -59,7 +59,7 @@ public class DeployRequestForupdateApplicationInput {
     this.priority = priority;
   }
 
-  public DeployRequestForupdateApplicationInput resourcePoolTrn(String resourcePoolTrn) {
+  public DeployRequestFormodifyApplicationInput resourcePoolTrn(String resourcePoolTrn) {
     this.resourcePoolTrn = resourcePoolTrn;
     return this;
   }
@@ -77,7 +77,7 @@ public class DeployRequestForupdateApplicationInput {
     this.resourcePoolTrn = resourcePoolTrn;
   }
 
-  public DeployRequestForupdateApplicationInput schedulePolicy(String schedulePolicy) {
+  public DeployRequestFormodifyApplicationInput schedulePolicy(String schedulePolicy) {
     this.schedulePolicy = schedulePolicy;
     return this;
   }
@@ -95,7 +95,7 @@ public class DeployRequestForupdateApplicationInput {
     this.schedulePolicy = schedulePolicy;
   }
 
-  public DeployRequestForupdateApplicationInput scheduleTimeout(String scheduleTimeout) {
+  public DeployRequestFormodifyApplicationInput scheduleTimeout(String scheduleTimeout) {
     this.scheduleTimeout = scheduleTimeout;
     return this;
   }
@@ -122,11 +122,11 @@ public class DeployRequestForupdateApplicationInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeployRequestForupdateApplicationInput deployRequestForupdateApplicationInput = (DeployRequestForupdateApplicationInput) o;
-    return Objects.equals(this.priority, deployRequestForupdateApplicationInput.priority) &&
-        Objects.equals(this.resourcePoolTrn, deployRequestForupdateApplicationInput.resourcePoolTrn) &&
-        Objects.equals(this.schedulePolicy, deployRequestForupdateApplicationInput.schedulePolicy) &&
-        Objects.equals(this.scheduleTimeout, deployRequestForupdateApplicationInput.scheduleTimeout);
+    DeployRequestFormodifyApplicationInput deployRequestFormodifyApplicationInput = (DeployRequestFormodifyApplicationInput) o;
+    return Objects.equals(this.priority, deployRequestFormodifyApplicationInput.priority) &&
+        Objects.equals(this.resourcePoolTrn, deployRequestFormodifyApplicationInput.resourcePoolTrn) &&
+        Objects.equals(this.schedulePolicy, deployRequestFormodifyApplicationInput.schedulePolicy) &&
+        Objects.equals(this.scheduleTimeout, deployRequestFormodifyApplicationInput.scheduleTimeout);
   }
 
   @Override
@@ -138,7 +138,7 @@ public class DeployRequestForupdateApplicationInput {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeployRequestForupdateApplicationInput {\n");
+    sb.append("class DeployRequestFormodifyApplicationInput {\n");
     
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
     sb.append("    resourcePoolTrn: ").append(toIndentedString(resourcePoolTrn)).append("\n");

@@ -24,16 +24,22 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * GetApplicationRequest
+ * ListAppInstanceRequest
  */
 
 
-public class GetApplicationRequest {
+public class ListAppInstanceRequest {
   @SerializedName("ApplicationName")
   private String applicationName = null;
 
   @SerializedName("ApplicationTrn")
-  private Long applicationTrn = null;
+  private String applicationTrn = null;
+
+  @SerializedName("EngineVersion")
+  private String engineVersion = null;
+
+  @SerializedName("InstanceId")
+  private Long instanceId = null;
 
   @SerializedName("PageNum")
   private Integer pageNum = null;
@@ -44,8 +50,11 @@ public class GetApplicationRequest {
   @SerializedName("ProjectId")
   private String projectId = null;
 
-  @SerializedName("SortFiled")
-  private String sortFiled = null;
+  @SerializedName("ResourcePoolTrn")
+  private String resourcePoolTrn = null;
+
+  @SerializedName("SortField")
+  private String sortField = null;
 
   @SerializedName("SortOrder")
   private String sortOrder = null;
@@ -53,7 +62,7 @@ public class GetApplicationRequest {
   @SerializedName("State")
   private String state = null;
 
-  public GetApplicationRequest applicationName(String applicationName) {
+  public ListAppInstanceRequest applicationName(String applicationName) {
     this.applicationName = applicationName;
     return this;
   }
@@ -71,7 +80,7 @@ public class GetApplicationRequest {
     this.applicationName = applicationName;
   }
 
-  public GetApplicationRequest applicationTrn(Long applicationTrn) {
+  public ListAppInstanceRequest applicationTrn(String applicationTrn) {
     this.applicationTrn = applicationTrn;
     return this;
   }
@@ -81,15 +90,51 @@ public class GetApplicationRequest {
    * @return applicationTrn
   **/
   @Schema(description = "")
-  public Long getApplicationTrn() {
+  public String getApplicationTrn() {
     return applicationTrn;
   }
 
-  public void setApplicationTrn(Long applicationTrn) {
+  public void setApplicationTrn(String applicationTrn) {
     this.applicationTrn = applicationTrn;
   }
 
-  public GetApplicationRequest pageNum(Integer pageNum) {
+  public ListAppInstanceRequest engineVersion(String engineVersion) {
+    this.engineVersion = engineVersion;
+    return this;
+  }
+
+   /**
+   * Get engineVersion
+   * @return engineVersion
+  **/
+  @Schema(description = "")
+  public String getEngineVersion() {
+    return engineVersion;
+  }
+
+  public void setEngineVersion(String engineVersion) {
+    this.engineVersion = engineVersion;
+  }
+
+  public ListAppInstanceRequest instanceId(Long instanceId) {
+    this.instanceId = instanceId;
+    return this;
+  }
+
+   /**
+   * Get instanceId
+   * @return instanceId
+  **/
+  @Schema(description = "")
+  public Long getInstanceId() {
+    return instanceId;
+  }
+
+  public void setInstanceId(Long instanceId) {
+    this.instanceId = instanceId;
+  }
+
+  public ListAppInstanceRequest pageNum(Integer pageNum) {
     this.pageNum = pageNum;
     return this;
   }
@@ -107,7 +152,7 @@ public class GetApplicationRequest {
     this.pageNum = pageNum;
   }
 
-  public GetApplicationRequest pageSize(Integer pageSize) {
+  public ListAppInstanceRequest pageSize(Integer pageSize) {
     this.pageSize = pageSize;
     return this;
   }
@@ -125,7 +170,7 @@ public class GetApplicationRequest {
     this.pageSize = pageSize;
   }
 
-  public GetApplicationRequest projectId(String projectId) {
+  public ListAppInstanceRequest projectId(String projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -143,25 +188,43 @@ public class GetApplicationRequest {
     this.projectId = projectId;
   }
 
-  public GetApplicationRequest sortFiled(String sortFiled) {
-    this.sortFiled = sortFiled;
+  public ListAppInstanceRequest resourcePoolTrn(String resourcePoolTrn) {
+    this.resourcePoolTrn = resourcePoolTrn;
     return this;
   }
 
    /**
-   * Get sortFiled
-   * @return sortFiled
+   * Get resourcePoolTrn
+   * @return resourcePoolTrn
   **/
   @Schema(description = "")
-  public String getSortFiled() {
-    return sortFiled;
+  public String getResourcePoolTrn() {
+    return resourcePoolTrn;
   }
 
-  public void setSortFiled(String sortFiled) {
-    this.sortFiled = sortFiled;
+  public void setResourcePoolTrn(String resourcePoolTrn) {
+    this.resourcePoolTrn = resourcePoolTrn;
   }
 
-  public GetApplicationRequest sortOrder(String sortOrder) {
+  public ListAppInstanceRequest sortField(String sortField) {
+    this.sortField = sortField;
+    return this;
+  }
+
+   /**
+   * Get sortField
+   * @return sortField
+  **/
+  @Schema(description = "")
+  public String getSortField() {
+    return sortField;
+  }
+
+  public void setSortField(String sortField) {
+    this.sortField = sortField;
+  }
+
+  public ListAppInstanceRequest sortOrder(String sortOrder) {
     this.sortOrder = sortOrder;
     return this;
   }
@@ -179,7 +242,7 @@ public class GetApplicationRequest {
     this.sortOrder = sortOrder;
   }
 
-  public GetApplicationRequest state(String state) {
+  public ListAppInstanceRequest state(String state) {
     this.state = state;
     return this;
   }
@@ -206,34 +269,40 @@ public class GetApplicationRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GetApplicationRequest getApplicationRequest = (GetApplicationRequest) o;
-    return Objects.equals(this.applicationName, getApplicationRequest.applicationName) &&
-        Objects.equals(this.applicationTrn, getApplicationRequest.applicationTrn) &&
-        Objects.equals(this.pageNum, getApplicationRequest.pageNum) &&
-        Objects.equals(this.pageSize, getApplicationRequest.pageSize) &&
-        Objects.equals(this.projectId, getApplicationRequest.projectId) &&
-        Objects.equals(this.sortFiled, getApplicationRequest.sortFiled) &&
-        Objects.equals(this.sortOrder, getApplicationRequest.sortOrder) &&
-        Objects.equals(this.state, getApplicationRequest.state);
+    ListAppInstanceRequest listAppInstanceRequest = (ListAppInstanceRequest) o;
+    return Objects.equals(this.applicationName, listAppInstanceRequest.applicationName) &&
+        Objects.equals(this.applicationTrn, listAppInstanceRequest.applicationTrn) &&
+        Objects.equals(this.engineVersion, listAppInstanceRequest.engineVersion) &&
+        Objects.equals(this.instanceId, listAppInstanceRequest.instanceId) &&
+        Objects.equals(this.pageNum, listAppInstanceRequest.pageNum) &&
+        Objects.equals(this.pageSize, listAppInstanceRequest.pageSize) &&
+        Objects.equals(this.projectId, listAppInstanceRequest.projectId) &&
+        Objects.equals(this.resourcePoolTrn, listAppInstanceRequest.resourcePoolTrn) &&
+        Objects.equals(this.sortField, listAppInstanceRequest.sortField) &&
+        Objects.equals(this.sortOrder, listAppInstanceRequest.sortOrder) &&
+        Objects.equals(this.state, listAppInstanceRequest.state);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(applicationName, applicationTrn, pageNum, pageSize, projectId, sortFiled, sortOrder, state);
+    return Objects.hash(applicationName, applicationTrn, engineVersion, instanceId, pageNum, pageSize, projectId, resourcePoolTrn, sortField, sortOrder, state);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetApplicationRequest {\n");
+    sb.append("class ListAppInstanceRequest {\n");
     
     sb.append("    applicationName: ").append(toIndentedString(applicationName)).append("\n");
     sb.append("    applicationTrn: ").append(toIndentedString(applicationTrn)).append("\n");
+    sb.append("    engineVersion: ").append(toIndentedString(engineVersion)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    pageNum: ").append(toIndentedString(pageNum)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
-    sb.append("    sortFiled: ").append(toIndentedString(sortFiled)).append("\n");
+    sb.append("    resourcePoolTrn: ").append(toIndentedString(resourcePoolTrn)).append("\n");
+    sb.append("    sortField: ").append(toIndentedString(sortField)).append("\n");
     sb.append("    sortOrder: ").append(toIndentedString(sortOrder)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("}");

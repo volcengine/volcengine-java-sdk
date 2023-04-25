@@ -19,8 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.spark.model.DependencyForgetApplicationOutput;
-import com.volcengine.spark.model.DeployRequestForgetApplicationOutput;
+import com.volcengine.spark.model.DependencyForlistApplicationOutput;
+import com.volcengine.spark.model.DeployRequestForlistApplicationOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.HashMap;
@@ -29,11 +29,11 @@ import java.util.Map;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * RecordForgetApplicationOutput
+ * RecordForlistApplicationOutput
  */
 
 
-public class RecordForgetApplicationOutput {
+public class RecordForlistApplicationOutput {
   @SerializedName("Alert")
   private Boolean alert = null;
 
@@ -53,10 +53,10 @@ public class RecordForgetApplicationOutput {
   private Map<String, String> conf = null;
 
   @SerializedName("Dependency")
-  private DependencyForgetApplicationOutput dependency = null;
+  private DependencyForlistApplicationOutput dependency = null;
 
   @SerializedName("DeployRequest")
-  private DeployRequestForgetApplicationOutput deployRequest = null;
+  private DeployRequestForlistApplicationOutput deployRequest = null;
 
   @SerializedName("EngineVersion")
   private String engineVersion = null;
@@ -94,7 +94,7 @@ public class RecordForgetApplicationOutput {
   @SerializedName("VersionName")
   private String versionName = null;
 
-  public RecordForgetApplicationOutput alert(Boolean alert) {
+  public RecordForlistApplicationOutput alert(Boolean alert) {
     this.alert = alert;
     return this;
   }
@@ -112,7 +112,7 @@ public class RecordForgetApplicationOutput {
     this.alert = alert;
   }
 
-  public RecordForgetApplicationOutput applicationName(String applicationName) {
+  public RecordForlistApplicationOutput applicationName(String applicationName) {
     this.applicationName = applicationName;
     return this;
   }
@@ -130,7 +130,7 @@ public class RecordForgetApplicationOutput {
     this.applicationName = applicationName;
   }
 
-  public RecordForgetApplicationOutput applicationTrn(String applicationTrn) {
+  public RecordForlistApplicationOutput applicationTrn(String applicationTrn) {
     this.applicationTrn = applicationTrn;
     return this;
   }
@@ -148,7 +148,7 @@ public class RecordForgetApplicationOutput {
     this.applicationTrn = applicationTrn;
   }
 
-  public RecordForgetApplicationOutput applicationType(String applicationType) {
+  public RecordForlistApplicationOutput applicationType(String applicationType) {
     this.applicationType = applicationType;
     return this;
   }
@@ -166,7 +166,7 @@ public class RecordForgetApplicationOutput {
     this.applicationType = applicationType;
   }
 
-  public RecordForgetApplicationOutput args(String args) {
+  public RecordForlistApplicationOutput args(String args) {
     this.args = args;
     return this;
   }
@@ -184,12 +184,12 @@ public class RecordForgetApplicationOutput {
     this.args = args;
   }
 
-  public RecordForgetApplicationOutput conf(Map<String, String> conf) {
+  public RecordForlistApplicationOutput conf(Map<String, String> conf) {
     this.conf = conf;
     return this;
   }
 
-  public RecordForgetApplicationOutput putConfItem(String key, String confItem) {
+  public RecordForlistApplicationOutput putConfItem(String key, String confItem) {
     if (this.conf == null) {
       this.conf = new HashMap<String, String>();
     }
@@ -210,7 +210,7 @@ public class RecordForgetApplicationOutput {
     this.conf = conf;
   }
 
-  public RecordForgetApplicationOutput dependency(DependencyForgetApplicationOutput dependency) {
+  public RecordForlistApplicationOutput dependency(DependencyForlistApplicationOutput dependency) {
     this.dependency = dependency;
     return this;
   }
@@ -221,15 +221,15 @@ public class RecordForgetApplicationOutput {
   **/
   @Valid
   @Schema(description = "")
-  public DependencyForgetApplicationOutput getDependency() {
+  public DependencyForlistApplicationOutput getDependency() {
     return dependency;
   }
 
-  public void setDependency(DependencyForgetApplicationOutput dependency) {
+  public void setDependency(DependencyForlistApplicationOutput dependency) {
     this.dependency = dependency;
   }
 
-  public RecordForgetApplicationOutput deployRequest(DeployRequestForgetApplicationOutput deployRequest) {
+  public RecordForlistApplicationOutput deployRequest(DeployRequestForlistApplicationOutput deployRequest) {
     this.deployRequest = deployRequest;
     return this;
   }
@@ -240,15 +240,15 @@ public class RecordForgetApplicationOutput {
   **/
   @Valid
   @Schema(description = "")
-  public DeployRequestForgetApplicationOutput getDeployRequest() {
+  public DeployRequestForlistApplicationOutput getDeployRequest() {
     return deployRequest;
   }
 
-  public void setDeployRequest(DeployRequestForgetApplicationOutput deployRequest) {
+  public void setDeployRequest(DeployRequestForlistApplicationOutput deployRequest) {
     this.deployRequest = deployRequest;
   }
 
-  public RecordForgetApplicationOutput engineVersion(String engineVersion) {
+  public RecordForlistApplicationOutput engineVersion(String engineVersion) {
     this.engineVersion = engineVersion;
     return this;
   }
@@ -266,7 +266,7 @@ public class RecordForgetApplicationOutput {
     this.engineVersion = engineVersion;
   }
 
-  public RecordForgetApplicationOutput image(String image) {
+  public RecordForlistApplicationOutput image(String image) {
     this.image = image;
     return this;
   }
@@ -284,7 +284,7 @@ public class RecordForgetApplicationOutput {
     this.image = image;
   }
 
-  public RecordForgetApplicationOutput isLatestVersion(Boolean isLatestVersion) {
+  public RecordForlistApplicationOutput isLatestVersion(Boolean isLatestVersion) {
     this.isLatestVersion = isLatestVersion;
     return this;
   }
@@ -302,7 +302,7 @@ public class RecordForgetApplicationOutput {
     this.isLatestVersion = isLatestVersion;
   }
 
-  public RecordForgetApplicationOutput jar(String jar) {
+  public RecordForlistApplicationOutput jar(String jar) {
     this.jar = jar;
     return this;
   }
@@ -320,7 +320,7 @@ public class RecordForgetApplicationOutput {
     this.jar = jar;
   }
 
-  public RecordForgetApplicationOutput latestVersion(String latestVersion) {
+  public RecordForlistApplicationOutput latestVersion(String latestVersion) {
     this.latestVersion = latestVersion;
     return this;
   }
@@ -338,7 +338,7 @@ public class RecordForgetApplicationOutput {
     this.latestVersion = latestVersion;
   }
 
-  public RecordForgetApplicationOutput mainClass(String mainClass) {
+  public RecordForlistApplicationOutput mainClass(String mainClass) {
     this.mainClass = mainClass;
     return this;
   }
@@ -356,7 +356,7 @@ public class RecordForgetApplicationOutput {
     this.mainClass = mainClass;
   }
 
-  public RecordForgetApplicationOutput projectId(String projectId) {
+  public RecordForlistApplicationOutput projectId(String projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -374,7 +374,7 @@ public class RecordForgetApplicationOutput {
     this.projectId = projectId;
   }
 
-  public RecordForgetApplicationOutput restUrl(String restUrl) {
+  public RecordForlistApplicationOutput restUrl(String restUrl) {
     this.restUrl = restUrl;
     return this;
   }
@@ -392,7 +392,7 @@ public class RecordForgetApplicationOutput {
     this.restUrl = restUrl;
   }
 
-  public RecordForgetApplicationOutput sqlText(String sqlText) {
+  public RecordForlistApplicationOutput sqlText(String sqlText) {
     this.sqlText = sqlText;
     return this;
   }
@@ -410,7 +410,7 @@ public class RecordForgetApplicationOutput {
     this.sqlText = sqlText;
   }
 
-  public RecordForgetApplicationOutput state(String state) {
+  public RecordForlistApplicationOutput state(String state) {
     this.state = state;
     return this;
   }
@@ -428,7 +428,7 @@ public class RecordForgetApplicationOutput {
     this.state = state;
   }
 
-  public RecordForgetApplicationOutput userId(String userId) {
+  public RecordForlistApplicationOutput userId(String userId) {
     this.userId = userId;
     return this;
   }
@@ -446,7 +446,7 @@ public class RecordForgetApplicationOutput {
     this.userId = userId;
   }
 
-  public RecordForgetApplicationOutput versionName(String versionName) {
+  public RecordForlistApplicationOutput versionName(String versionName) {
     this.versionName = versionName;
     return this;
   }
@@ -473,27 +473,27 @@ public class RecordForgetApplicationOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RecordForgetApplicationOutput recordForgetApplicationOutput = (RecordForgetApplicationOutput) o;
-    return Objects.equals(this.alert, recordForgetApplicationOutput.alert) &&
-        Objects.equals(this.applicationName, recordForgetApplicationOutput.applicationName) &&
-        Objects.equals(this.applicationTrn, recordForgetApplicationOutput.applicationTrn) &&
-        Objects.equals(this.applicationType, recordForgetApplicationOutput.applicationType) &&
-        Objects.equals(this.args, recordForgetApplicationOutput.args) &&
-        Objects.equals(this.conf, recordForgetApplicationOutput.conf) &&
-        Objects.equals(this.dependency, recordForgetApplicationOutput.dependency) &&
-        Objects.equals(this.deployRequest, recordForgetApplicationOutput.deployRequest) &&
-        Objects.equals(this.engineVersion, recordForgetApplicationOutput.engineVersion) &&
-        Objects.equals(this.image, recordForgetApplicationOutput.image) &&
-        Objects.equals(this.isLatestVersion, recordForgetApplicationOutput.isLatestVersion) &&
-        Objects.equals(this.jar, recordForgetApplicationOutput.jar) &&
-        Objects.equals(this.latestVersion, recordForgetApplicationOutput.latestVersion) &&
-        Objects.equals(this.mainClass, recordForgetApplicationOutput.mainClass) &&
-        Objects.equals(this.projectId, recordForgetApplicationOutput.projectId) &&
-        Objects.equals(this.restUrl, recordForgetApplicationOutput.restUrl) &&
-        Objects.equals(this.sqlText, recordForgetApplicationOutput.sqlText) &&
-        Objects.equals(this.state, recordForgetApplicationOutput.state) &&
-        Objects.equals(this.userId, recordForgetApplicationOutput.userId) &&
-        Objects.equals(this.versionName, recordForgetApplicationOutput.versionName);
+    RecordForlistApplicationOutput recordForlistApplicationOutput = (RecordForlistApplicationOutput) o;
+    return Objects.equals(this.alert, recordForlistApplicationOutput.alert) &&
+        Objects.equals(this.applicationName, recordForlistApplicationOutput.applicationName) &&
+        Objects.equals(this.applicationTrn, recordForlistApplicationOutput.applicationTrn) &&
+        Objects.equals(this.applicationType, recordForlistApplicationOutput.applicationType) &&
+        Objects.equals(this.args, recordForlistApplicationOutput.args) &&
+        Objects.equals(this.conf, recordForlistApplicationOutput.conf) &&
+        Objects.equals(this.dependency, recordForlistApplicationOutput.dependency) &&
+        Objects.equals(this.deployRequest, recordForlistApplicationOutput.deployRequest) &&
+        Objects.equals(this.engineVersion, recordForlistApplicationOutput.engineVersion) &&
+        Objects.equals(this.image, recordForlistApplicationOutput.image) &&
+        Objects.equals(this.isLatestVersion, recordForlistApplicationOutput.isLatestVersion) &&
+        Objects.equals(this.jar, recordForlistApplicationOutput.jar) &&
+        Objects.equals(this.latestVersion, recordForlistApplicationOutput.latestVersion) &&
+        Objects.equals(this.mainClass, recordForlistApplicationOutput.mainClass) &&
+        Objects.equals(this.projectId, recordForlistApplicationOutput.projectId) &&
+        Objects.equals(this.restUrl, recordForlistApplicationOutput.restUrl) &&
+        Objects.equals(this.sqlText, recordForlistApplicationOutput.sqlText) &&
+        Objects.equals(this.state, recordForlistApplicationOutput.state) &&
+        Objects.equals(this.userId, recordForlistApplicationOutput.userId) &&
+        Objects.equals(this.versionName, recordForlistApplicationOutput.versionName);
   }
 
   @Override
@@ -505,7 +505,7 @@ public class RecordForgetApplicationOutput {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RecordForgetApplicationOutput {\n");
+    sb.append("class RecordForlistApplicationOutput {\n");
     
     sb.append("    alert: ").append(toIndentedString(alert)).append("\n");
     sb.append("    applicationName: ").append(toIndentedString(applicationName)).append("\n");

@@ -24,11 +24,11 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DetailResponse
+ * DescribeResourcePoolResponse
  */
 
 
-public class DetailResponse {
+public class DescribeResourcePoolResponse {
   @SerializedName("BillingType")
   private String billingType = null;
 
@@ -59,7 +59,7 @@ public class DetailResponse {
   @SerializedName("ZoneId")
   private String zoneId = null;
 
-  public DetailResponse billingType(String billingType) {
+  public DescribeResourcePoolResponse billingType(String billingType) {
     this.billingType = billingType;
     return this;
   }
@@ -77,7 +77,7 @@ public class DetailResponse {
     this.billingType = billingType;
   }
 
-  public DetailResponse createTime(String createTime) {
+  public DescribeResourcePoolResponse createTime(String createTime) {
     this.createTime = createTime;
     return this;
   }
@@ -95,7 +95,7 @@ public class DetailResponse {
     this.createTime = createTime;
   }
 
-  public DetailResponse name(String name) {
+  public DescribeResourcePoolResponse name(String name) {
     this.name = name;
     return this;
   }
@@ -113,7 +113,7 @@ public class DetailResponse {
     this.name = name;
   }
 
-  public DetailResponse projectId(String projectId) {
+  public DescribeResourcePoolResponse projectId(String projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -131,7 +131,7 @@ public class DetailResponse {
     this.projectId = projectId;
   }
 
-  public DetailResponse regionId(String regionId) {
+  public DescribeResourcePoolResponse regionId(String regionId) {
     this.regionId = regionId;
     return this;
   }
@@ -149,7 +149,7 @@ public class DetailResponse {
     this.regionId = regionId;
   }
 
-  public DetailResponse resourcePoolTrn(String resourcePoolTrn) {
+  public DescribeResourcePoolResponse resourcePoolTrn(String resourcePoolTrn) {
     this.resourcePoolTrn = resourcePoolTrn;
     return this;
   }
@@ -167,7 +167,7 @@ public class DetailResponse {
     this.resourcePoolTrn = resourcePoolTrn;
   }
 
-  public DetailResponse status(String status) {
+  public DescribeResourcePoolResponse status(String status) {
     this.status = status;
     return this;
   }
@@ -185,7 +185,7 @@ public class DetailResponse {
     this.status = status;
   }
 
-  public DetailResponse statusMessage(String statusMessage) {
+  public DescribeResourcePoolResponse statusMessage(String statusMessage) {
     this.statusMessage = statusMessage;
     return this;
   }
@@ -203,7 +203,7 @@ public class DetailResponse {
     this.statusMessage = statusMessage;
   }
 
-  public DetailResponse updateTime(String updateTime) {
+  public DescribeResourcePoolResponse updateTime(String updateTime) {
     this.updateTime = updateTime;
     return this;
   }
@@ -221,7 +221,7 @@ public class DetailResponse {
     this.updateTime = updateTime;
   }
 
-  public DetailResponse zoneId(String zoneId) {
+  public DescribeResourcePoolResponse zoneId(String zoneId) {
     this.zoneId = zoneId;
     return this;
   }
@@ -248,17 +248,17 @@ public class DetailResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DetailResponse detailResponse = (DetailResponse) o;
-    return Objects.equals(this.billingType, detailResponse.billingType) &&
-        Objects.equals(this.createTime, detailResponse.createTime) &&
-        Objects.equals(this.name, detailResponse.name) &&
-        Objects.equals(this.projectId, detailResponse.projectId) &&
-        Objects.equals(this.regionId, detailResponse.regionId) &&
-        Objects.equals(this.resourcePoolTrn, detailResponse.resourcePoolTrn) &&
-        Objects.equals(this.status, detailResponse.status) &&
-        Objects.equals(this.statusMessage, detailResponse.statusMessage) &&
-        Objects.equals(this.updateTime, detailResponse.updateTime) &&
-        Objects.equals(this.zoneId, detailResponse.zoneId);
+    DescribeResourcePoolResponse describeResourcePoolResponse = (DescribeResourcePoolResponse) o;
+    return Objects.equals(this.billingType, describeResourcePoolResponse.billingType) &&
+        Objects.equals(this.createTime, describeResourcePoolResponse.createTime) &&
+        Objects.equals(this.name, describeResourcePoolResponse.name) &&
+        Objects.equals(this.projectId, describeResourcePoolResponse.projectId) &&
+        Objects.equals(this.regionId, describeResourcePoolResponse.regionId) &&
+        Objects.equals(this.resourcePoolTrn, describeResourcePoolResponse.resourcePoolTrn) &&
+        Objects.equals(this.status, describeResourcePoolResponse.status) &&
+        Objects.equals(this.statusMessage, describeResourcePoolResponse.statusMessage) &&
+        Objects.equals(this.updateTime, describeResourcePoolResponse.updateTime) &&
+        Objects.equals(this.zoneId, describeResourcePoolResponse.zoneId);
   }
 
   @Override
@@ -270,7 +270,7 @@ public class DetailResponse {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DetailResponse {\n");
+    sb.append("class DescribeResourcePoolResponse {\n");
     
     sb.append("    billingType: ").append(toIndentedString(billingType)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");

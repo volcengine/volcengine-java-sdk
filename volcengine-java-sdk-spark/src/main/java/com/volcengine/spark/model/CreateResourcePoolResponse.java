@@ -24,15 +24,15 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * CreateResourcePoolOneStepResponse
+ * CreateResourcePoolResponse
  */
 
 
-public class CreateResourcePoolOneStepResponse {
+public class CreateResourcePoolResponse {
   @SerializedName("ResourcePoolTrn")
   private String resourcePoolTrn = null;
 
-  public CreateResourcePoolOneStepResponse resourcePoolTrn(String resourcePoolTrn) {
+  public CreateResourcePoolResponse resourcePoolTrn(String resourcePoolTrn) {
     this.resourcePoolTrn = resourcePoolTrn;
     return this;
   }
@@ -59,8 +59,8 @@ public class CreateResourcePoolOneStepResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateResourcePoolOneStepResponse createResourcePoolOneStepResponse = (CreateResourcePoolOneStepResponse) o;
-    return Objects.equals(this.resourcePoolTrn, createResourcePoolOneStepResponse.resourcePoolTrn);
+    CreateResourcePoolResponse createResourcePoolResponse = (CreateResourcePoolResponse) o;
+    return Objects.equals(this.resourcePoolTrn, createResourcePoolResponse.resourcePoolTrn);
   }
 
   @Override
@@ -72,7 +72,7 @@ public class CreateResourcePoolOneStepResponse {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateResourcePoolOneStepResponse {\n");
+    sb.append("class CreateResourcePoolResponse {\n");
     
     sb.append("    resourcePoolTrn: ").append(toIndentedString(resourcePoolTrn)).append("\n");
     sb.append("}");

@@ -24,11 +24,11 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ResourceForcreateResourcePoolOneStepInput
+ * ResourceForcreateResourcePoolInput
  */
 
 
-public class ResourceForcreateResourcePoolOneStepInput {
+public class ResourceForcreateResourcePoolInput {
   @SerializedName("Basic")
   private Long basic = null;
 
@@ -41,7 +41,7 @@ public class ResourceForcreateResourcePoolOneStepInput {
   @SerializedName("Uri")
   private String uri = null;
 
-  public ResourceForcreateResourcePoolOneStepInput basic(Long basic) {
+  public ResourceForcreateResourcePoolInput basic(Long basic) {
     this.basic = basic;
     return this;
   }
@@ -59,7 +59,7 @@ public class ResourceForcreateResourcePoolOneStepInput {
     this.basic = basic;
   }
 
-  public ResourceForcreateResourcePoolOneStepInput capability(Long capability) {
+  public ResourceForcreateResourcePoolInput capability(Long capability) {
     this.capability = capability;
     return this;
   }
@@ -77,7 +77,7 @@ public class ResourceForcreateResourcePoolOneStepInput {
     this.capability = capability;
   }
 
-  public ResourceForcreateResourcePoolOneStepInput units(String units) {
+  public ResourceForcreateResourcePoolInput units(String units) {
     this.units = units;
     return this;
   }
@@ -95,7 +95,7 @@ public class ResourceForcreateResourcePoolOneStepInput {
     this.units = units;
   }
 
-  public ResourceForcreateResourcePoolOneStepInput uri(String uri) {
+  public ResourceForcreateResourcePoolInput uri(String uri) {
     this.uri = uri;
     return this;
   }
@@ -122,11 +122,11 @@ public class ResourceForcreateResourcePoolOneStepInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ResourceForcreateResourcePoolOneStepInput resourceForcreateResourcePoolOneStepInput = (ResourceForcreateResourcePoolOneStepInput) o;
-    return Objects.equals(this.basic, resourceForcreateResourcePoolOneStepInput.basic) &&
-        Objects.equals(this.capability, resourceForcreateResourcePoolOneStepInput.capability) &&
-        Objects.equals(this.units, resourceForcreateResourcePoolOneStepInput.units) &&
-        Objects.equals(this.uri, resourceForcreateResourcePoolOneStepInput.uri);
+    ResourceForcreateResourcePoolInput resourceForcreateResourcePoolInput = (ResourceForcreateResourcePoolInput) o;
+    return Objects.equals(this.basic, resourceForcreateResourcePoolInput.basic) &&
+        Objects.equals(this.capability, resourceForcreateResourcePoolInput.capability) &&
+        Objects.equals(this.units, resourceForcreateResourcePoolInput.units) &&
+        Objects.equals(this.uri, resourceForcreateResourcePoolInput.uri);
   }
 
   @Override
@@ -138,7 +138,7 @@ public class ResourceForcreateResourcePoolOneStepInput {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ResourceForcreateResourcePoolOneStepInput {\n");
+    sb.append("class ResourceForcreateResourcePoolInput {\n");
     
     sb.append("    basic: ").append(toIndentedString(basic)).append("\n");
     sb.append("    capability: ").append(toIndentedString(capability)).append("\n");

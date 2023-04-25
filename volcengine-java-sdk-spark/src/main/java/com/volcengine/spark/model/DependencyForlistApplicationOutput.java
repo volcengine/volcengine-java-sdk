@@ -26,11 +26,11 @@ import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DependencyForgetApplicationOutput
+ * DependencyForlistApplicationOutput
  */
 
 
-public class DependencyForgetApplicationOutput {
+public class DependencyForlistApplicationOutput {
   @SerializedName("Archives")
   private List<String> archives = null;
 
@@ -43,12 +43,12 @@ public class DependencyForgetApplicationOutput {
   @SerializedName("PyFiles")
   private List<String> pyFiles = null;
 
-  public DependencyForgetApplicationOutput archives(List<String> archives) {
+  public DependencyForlistApplicationOutput archives(List<String> archives) {
     this.archives = archives;
     return this;
   }
 
-  public DependencyForgetApplicationOutput addArchivesItem(String archivesItem) {
+  public DependencyForlistApplicationOutput addArchivesItem(String archivesItem) {
     if (this.archives == null) {
       this.archives = new ArrayList<String>();
     }
@@ -69,12 +69,12 @@ public class DependencyForgetApplicationOutput {
     this.archives = archives;
   }
 
-  public DependencyForgetApplicationOutput files(List<String> files) {
+  public DependencyForlistApplicationOutput files(List<String> files) {
     this.files = files;
     return this;
   }
 
-  public DependencyForgetApplicationOutput addFilesItem(String filesItem) {
+  public DependencyForlistApplicationOutput addFilesItem(String filesItem) {
     if (this.files == null) {
       this.files = new ArrayList<String>();
     }
@@ -95,12 +95,12 @@ public class DependencyForgetApplicationOutput {
     this.files = files;
   }
 
-  public DependencyForgetApplicationOutput jars(List<String> jars) {
+  public DependencyForlistApplicationOutput jars(List<String> jars) {
     this.jars = jars;
     return this;
   }
 
-  public DependencyForgetApplicationOutput addJarsItem(String jarsItem) {
+  public DependencyForlistApplicationOutput addJarsItem(String jarsItem) {
     if (this.jars == null) {
       this.jars = new ArrayList<String>();
     }
@@ -121,12 +121,12 @@ public class DependencyForgetApplicationOutput {
     this.jars = jars;
   }
 
-  public DependencyForgetApplicationOutput pyFiles(List<String> pyFiles) {
+  public DependencyForlistApplicationOutput pyFiles(List<String> pyFiles) {
     this.pyFiles = pyFiles;
     return this;
   }
 
-  public DependencyForgetApplicationOutput addPyFilesItem(String pyFilesItem) {
+  public DependencyForlistApplicationOutput addPyFilesItem(String pyFilesItem) {
     if (this.pyFiles == null) {
       this.pyFiles = new ArrayList<String>();
     }
@@ -156,11 +156,11 @@ public class DependencyForgetApplicationOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DependencyForgetApplicationOutput dependencyForgetApplicationOutput = (DependencyForgetApplicationOutput) o;
-    return Objects.equals(this.archives, dependencyForgetApplicationOutput.archives) &&
-        Objects.equals(this.files, dependencyForgetApplicationOutput.files) &&
-        Objects.equals(this.jars, dependencyForgetApplicationOutput.jars) &&
-        Objects.equals(this.pyFiles, dependencyForgetApplicationOutput.pyFiles);
+    DependencyForlistApplicationOutput dependencyForlistApplicationOutput = (DependencyForlistApplicationOutput) o;
+    return Objects.equals(this.archives, dependencyForlistApplicationOutput.archives) &&
+        Objects.equals(this.files, dependencyForlistApplicationOutput.files) &&
+        Objects.equals(this.jars, dependencyForlistApplicationOutput.jars) &&
+        Objects.equals(this.pyFiles, dependencyForlistApplicationOutput.pyFiles);
   }
 
   @Override
@@ -172,7 +172,7 @@ public class DependencyForgetApplicationOutput {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DependencyForgetApplicationOutput {\n");
+    sb.append("class DependencyForlistApplicationOutput {\n");
     
     sb.append("    archives: ").append(toIndentedString(archives)).append("\n");
     sb.append("    files: ").append(toIndentedString(files)).append("\n");

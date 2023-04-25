@@ -24,51 +24,30 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * UpdateApplicationResponse
+ * ExistResourcePoolResponse
  */
 
 
-public class UpdateApplicationResponse {
-  @SerializedName("Message")
-  private String message = null;
+public class ExistResourcePoolResponse {
+  @SerializedName("Existed")
+  private Boolean existed = null;
 
-  @SerializedName("Status")
-  private String status = null;
-
-  public UpdateApplicationResponse message(String message) {
-    this.message = message;
+  public ExistResourcePoolResponse existed(Boolean existed) {
+    this.existed = existed;
     return this;
   }
 
    /**
-   * Get message
-   * @return message
+   * Get existed
+   * @return existed
   **/
   @Schema(description = "")
-  public String getMessage() {
-    return message;
+  public Boolean isExisted() {
+    return existed;
   }
 
-  public void setMessage(String message) {
-    this.message = message;
-  }
-
-  public UpdateApplicationResponse status(String status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Get status
-   * @return status
-  **/
-  @Schema(description = "")
-  public String getStatus() {
-    return status;
-  }
-
-  public void setStatus(String status) {
-    this.status = status;
+  public void setExisted(Boolean existed) {
+    this.existed = existed;
   }
 
 
@@ -80,24 +59,22 @@ public class UpdateApplicationResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UpdateApplicationResponse updateApplicationResponse = (UpdateApplicationResponse) o;
-    return Objects.equals(this.message, updateApplicationResponse.message) &&
-        Objects.equals(this.status, updateApplicationResponse.status);
+    ExistResourcePoolResponse existResourcePoolResponse = (ExistResourcePoolResponse) o;
+    return Objects.equals(this.existed, existResourcePoolResponse.existed);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(message, status);
+    return Objects.hash(existed);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UpdateApplicationResponse {\n");
+    sb.append("class ExistResourcePoolResponse {\n");
     
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    existed: ").append(toIndentedString(existed)).append("\n");
     sb.append("}");
     return sb.toString();
   }

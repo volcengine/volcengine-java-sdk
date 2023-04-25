@@ -24,30 +24,51 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ExitResourcePoolResponse
+ * ModifyApplicationResponse
  */
 
 
-public class ExitResourcePoolResponse {
-  @SerializedName("Existed")
-  private Boolean existed = null;
+public class ModifyApplicationResponse {
+  @SerializedName("Message")
+  private String message = null;
 
-  public ExitResourcePoolResponse existed(Boolean existed) {
-    this.existed = existed;
+  @SerializedName("Status")
+  private String status = null;
+
+  public ModifyApplicationResponse message(String message) {
+    this.message = message;
     return this;
   }
 
    /**
-   * Get existed
-   * @return existed
+   * Get message
+   * @return message
   **/
   @Schema(description = "")
-  public Boolean isExisted() {
-    return existed;
+  public String getMessage() {
+    return message;
   }
 
-  public void setExisted(Boolean existed) {
-    this.existed = existed;
+  public void setMessage(String message) {
+    this.message = message;
+  }
+
+  public ModifyApplicationResponse status(String status) {
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * Get status
+   * @return status
+  **/
+  @Schema(description = "")
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
   }
 
 
@@ -59,22 +80,24 @@ public class ExitResourcePoolResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ExitResourcePoolResponse exitResourcePoolResponse = (ExitResourcePoolResponse) o;
-    return Objects.equals(this.existed, exitResourcePoolResponse.existed);
+    ModifyApplicationResponse modifyApplicationResponse = (ModifyApplicationResponse) o;
+    return Objects.equals(this.message, modifyApplicationResponse.message) &&
+        Objects.equals(this.status, modifyApplicationResponse.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(existed);
+    return Objects.hash(message, status);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ExitResourcePoolResponse {\n");
+    sb.append("class ModifyApplicationResponse {\n");
     
-    sb.append("    existed: ").append(toIndentedString(existed)).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
     return sb.toString();
   }
