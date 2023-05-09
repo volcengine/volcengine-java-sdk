@@ -26,7 +26,7 @@ public class TestAllocateEipAddress {
         AllocateEipAddressRequest allocateEipAddressRequest = new AllocateEipAddressRequest();
         allocateEipAddressRequest.setBandwidth(10);
         allocateEipAddressRequest.setBillingType(2);
-        allocateEipAddressRequest.setIsP(AllocateEipAddressRequest.ISPEnum.valueOf(AllocateEipAddressRequest.ISPEnum.class, "BGP"));
+        allocateEipAddressRequest.setISP(AllocateEipAddressRequest.ISPEnum.valueOf(AllocateEipAddressRequest.ISPEnum.class, "BGP"));
         
         try {
             AllocateEipAddressResponse response = api.allocateEipAddress(allocateEipAddressRequest);
