@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.alb.model.EipForDescribeLoadBalancersOutput;
+import com.volcengine.alb.model.Ipv6EipForDescribeLoadBalancersOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -44,6 +45,15 @@ public class LoadBalancerAddressForDescribeLoadBalancersOutput {
 
   @SerializedName("EniId")
   private String eniId = null;
+
+  @SerializedName("EniIpv6Address")
+  private String eniIpv6Address = null;
+
+  @SerializedName("Ipv6Eip")
+  private Ipv6EipForDescribeLoadBalancersOutput ipv6Eip = null;
+
+  @SerializedName("Ipv6EipId")
+  private String ipv6EipId = null;
 
   public LoadBalancerAddressForDescribeLoadBalancersOutput eip(EipForDescribeLoadBalancersOutput eip) {
     this.eip = eip;
@@ -136,6 +146,61 @@ public class LoadBalancerAddressForDescribeLoadBalancersOutput {
     this.eniId = eniId;
   }
 
+  public LoadBalancerAddressForDescribeLoadBalancersOutput eniIpv6Address(String eniIpv6Address) {
+    this.eniIpv6Address = eniIpv6Address;
+    return this;
+  }
+
+   /**
+   * Get eniIpv6Address
+   * @return eniIpv6Address
+  **/
+  @Schema(description = "")
+  public String getEniIpv6Address() {
+    return eniIpv6Address;
+  }
+
+  public void setEniIpv6Address(String eniIpv6Address) {
+    this.eniIpv6Address = eniIpv6Address;
+  }
+
+  public LoadBalancerAddressForDescribeLoadBalancersOutput ipv6Eip(Ipv6EipForDescribeLoadBalancersOutput ipv6Eip) {
+    this.ipv6Eip = ipv6Eip;
+    return this;
+  }
+
+   /**
+   * Get ipv6Eip
+   * @return ipv6Eip
+  **/
+  @Valid
+  @Schema(description = "")
+  public Ipv6EipForDescribeLoadBalancersOutput getIpv6Eip() {
+    return ipv6Eip;
+  }
+
+  public void setIpv6Eip(Ipv6EipForDescribeLoadBalancersOutput ipv6Eip) {
+    this.ipv6Eip = ipv6Eip;
+  }
+
+  public LoadBalancerAddressForDescribeLoadBalancersOutput ipv6EipId(String ipv6EipId) {
+    this.ipv6EipId = ipv6EipId;
+    return this;
+  }
+
+   /**
+   * Get ipv6EipId
+   * @return ipv6EipId
+  **/
+  @Schema(description = "")
+  public String getIpv6EipId() {
+    return ipv6EipId;
+  }
+
+  public void setIpv6EipId(String ipv6EipId) {
+    this.ipv6EipId = ipv6EipId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -150,12 +215,15 @@ public class LoadBalancerAddressForDescribeLoadBalancersOutput {
         Objects.equals(this.eipAddress, loadBalancerAddressForDescribeLoadBalancersOutput.eipAddress) &&
         Objects.equals(this.eipId, loadBalancerAddressForDescribeLoadBalancersOutput.eipId) &&
         Objects.equals(this.eniAddress, loadBalancerAddressForDescribeLoadBalancersOutput.eniAddress) &&
-        Objects.equals(this.eniId, loadBalancerAddressForDescribeLoadBalancersOutput.eniId);
+        Objects.equals(this.eniId, loadBalancerAddressForDescribeLoadBalancersOutput.eniId) &&
+        Objects.equals(this.eniIpv6Address, loadBalancerAddressForDescribeLoadBalancersOutput.eniIpv6Address) &&
+        Objects.equals(this.ipv6Eip, loadBalancerAddressForDescribeLoadBalancersOutput.ipv6Eip) &&
+        Objects.equals(this.ipv6EipId, loadBalancerAddressForDescribeLoadBalancersOutput.ipv6EipId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(eip, eipAddress, eipId, eniAddress, eniId);
+    return Objects.hash(eip, eipAddress, eipId, eniAddress, eniId, eniIpv6Address, ipv6Eip, ipv6EipId);
   }
 
 
@@ -169,6 +237,9 @@ public class LoadBalancerAddressForDescribeLoadBalancersOutput {
     sb.append("    eipId: ").append(toIndentedString(eipId)).append("\n");
     sb.append("    eniAddress: ").append(toIndentedString(eniAddress)).append("\n");
     sb.append("    eniId: ").append(toIndentedString(eniId)).append("\n");
+    sb.append("    eniIpv6Address: ").append(toIndentedString(eniIpv6Address)).append("\n");
+    sb.append("    ipv6Eip: ").append(toIndentedString(ipv6Eip)).append("\n");
+    sb.append("    ipv6EipId: ").append(toIndentedString(ipv6EipId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

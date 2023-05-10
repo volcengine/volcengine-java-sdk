@@ -40,6 +40,9 @@ public class DescribeLoadBalancerAttributesResponse {
   @SerializedName("AccessLog")
   private AccessLogForDescribeLoadBalancerAttributesOutput accessLog = null;
 
+  @SerializedName("AddressIpVersion")
+  private String addressIpVersion = null;
+
   @SerializedName("BusinessStatus")
   private String businessStatus = null;
 
@@ -48,6 +51,9 @@ public class DescribeLoadBalancerAttributesResponse {
 
   @SerializedName("DNSName")
   private String dnSName = null;
+
+  @SerializedName("DeleteProtection")
+  private String deleteProtection = null;
 
   @SerializedName("DeletedTime")
   private String deletedTime = null;
@@ -143,6 +149,24 @@ public class DescribeLoadBalancerAttributesResponse {
     this.accessLog = accessLog;
   }
 
+  public DescribeLoadBalancerAttributesResponse addressIpVersion(String addressIpVersion) {
+    this.addressIpVersion = addressIpVersion;
+    return this;
+  }
+
+   /**
+   * Get addressIpVersion
+   * @return addressIpVersion
+  **/
+  @Schema(description = "")
+  public String getAddressIpVersion() {
+    return addressIpVersion;
+  }
+
+  public void setAddressIpVersion(String addressIpVersion) {
+    this.addressIpVersion = addressIpVersion;
+  }
+
   public DescribeLoadBalancerAttributesResponse businessStatus(String businessStatus) {
     this.businessStatus = businessStatus;
     return this;
@@ -195,6 +219,24 @@ public class DescribeLoadBalancerAttributesResponse {
 
   public void setDnSName(String dnSName) {
     this.dnSName = dnSName;
+  }
+
+  public DescribeLoadBalancerAttributesResponse deleteProtection(String deleteProtection) {
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+   /**
+   * Get deleteProtection
+   * @return deleteProtection
+  **/
+  @Schema(description = "")
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+  public void setDeleteProtection(String deleteProtection) {
+    this.deleteProtection = deleteProtection;
   }
 
   public DescribeLoadBalancerAttributesResponse deletedTime(String deletedTime) {
@@ -687,9 +729,11 @@ public class DescribeLoadBalancerAttributesResponse {
     }
     DescribeLoadBalancerAttributesResponse describeLoadBalancerAttributesResponse = (DescribeLoadBalancerAttributesResponse) o;
     return Objects.equals(this.accessLog, describeLoadBalancerAttributesResponse.accessLog) &&
+        Objects.equals(this.addressIpVersion, describeLoadBalancerAttributesResponse.addressIpVersion) &&
         Objects.equals(this.businessStatus, describeLoadBalancerAttributesResponse.businessStatus) &&
         Objects.equals(this.createTime, describeLoadBalancerAttributesResponse.createTime) &&
         Objects.equals(this.dnSName, describeLoadBalancerAttributesResponse.dnSName) &&
+        Objects.equals(this.deleteProtection, describeLoadBalancerAttributesResponse.deleteProtection) &&
         Objects.equals(this.deletedTime, describeLoadBalancerAttributesResponse.deletedTime) &&
         Objects.equals(this.description, describeLoadBalancerAttributesResponse.description) &&
         Objects.equals(this.eip, describeLoadBalancerAttributesResponse.eip) &&
@@ -719,7 +763,7 @@ public class DescribeLoadBalancerAttributesResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessLog, businessStatus, createTime, dnSName, deletedTime, description, eip, eipAddress, eipId, enabled, eniAddress, eniId, healthLog, listeners, loadBalancerBillingType, loadBalancerId, loadBalancerName, localAddresses, lockReason, overdueTime, projectName, requestId, status, subnetId, tlSAccessLog, type, updateTime, vpcId, zoneMappings);
+    return Objects.hash(accessLog, addressIpVersion, businessStatus, createTime, dnSName, deleteProtection, deletedTime, description, eip, eipAddress, eipId, enabled, eniAddress, eniId, healthLog, listeners, loadBalancerBillingType, loadBalancerId, loadBalancerName, localAddresses, lockReason, overdueTime, projectName, requestId, status, subnetId, tlSAccessLog, type, updateTime, vpcId, zoneMappings);
   }
 
 
@@ -729,9 +773,11 @@ public class DescribeLoadBalancerAttributesResponse {
     sb.append("class DescribeLoadBalancerAttributesResponse {\n");
     
     sb.append("    accessLog: ").append(toIndentedString(accessLog)).append("\n");
+    sb.append("    addressIpVersion: ").append(toIndentedString(addressIpVersion)).append("\n");
     sb.append("    businessStatus: ").append(toIndentedString(businessStatus)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    dnSName: ").append(toIndentedString(dnSName)).append("\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    deletedTime: ").append(toIndentedString(deletedTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    eip: ").append(toIndentedString(eip)).append("\n");

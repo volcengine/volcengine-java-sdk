@@ -29,6 +29,9 @@ import javax.validation.Valid;
 
 
 public class ModifyLoadBalancerAttributesRequest {
+  @SerializedName("DeleteProtection")
+  private String deleteProtection = null;
+
   @SerializedName("Description")
   private String description = null;
 
@@ -37,6 +40,24 @@ public class ModifyLoadBalancerAttributesRequest {
 
   @SerializedName("LoadBalancerName")
   private String loadBalancerName = null;
+
+  public ModifyLoadBalancerAttributesRequest deleteProtection(String deleteProtection) {
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+   /**
+   * Get deleteProtection
+   * @return deleteProtection
+  **/
+  @Schema(description = "")
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+  public void setDeleteProtection(String deleteProtection) {
+    this.deleteProtection = deleteProtection;
+  }
 
   public ModifyLoadBalancerAttributesRequest description(String description) {
     this.description = description;
@@ -103,14 +124,15 @@ public class ModifyLoadBalancerAttributesRequest {
       return false;
     }
     ModifyLoadBalancerAttributesRequest modifyLoadBalancerAttributesRequest = (ModifyLoadBalancerAttributesRequest) o;
-    return Objects.equals(this.description, modifyLoadBalancerAttributesRequest.description) &&
+    return Objects.equals(this.deleteProtection, modifyLoadBalancerAttributesRequest.deleteProtection) &&
+        Objects.equals(this.description, modifyLoadBalancerAttributesRequest.description) &&
         Objects.equals(this.loadBalancerId, modifyLoadBalancerAttributesRequest.loadBalancerId) &&
         Objects.equals(this.loadBalancerName, modifyLoadBalancerAttributesRequest.loadBalancerName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, loadBalancerId, loadBalancerName);
+    return Objects.hash(deleteProtection, description, loadBalancerId, loadBalancerName);
   }
 
 
@@ -119,6 +141,7 @@ public class ModifyLoadBalancerAttributesRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ModifyLoadBalancerAttributesRequest {\n");
     
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    loadBalancerId: ").append(toIndentedString(loadBalancerId)).append("\n");
     sb.append("    loadBalancerName: ").append(toIndentedString(loadBalancerName)).append("\n");
