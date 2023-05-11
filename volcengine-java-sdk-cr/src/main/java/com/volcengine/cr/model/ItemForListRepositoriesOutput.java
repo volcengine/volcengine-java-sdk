@@ -41,6 +41,9 @@ public class ItemForListRepositoriesOutput {
   @SerializedName("Name")
   private String name = null;
 
+  @SerializedName("Namespace")
+  private String namespace = null;
+
   @SerializedName("UpdateTime")
   private String updateTime = null;
 
@@ -116,6 +119,24 @@ public class ItemForListRepositoriesOutput {
     this.name = name;
   }
 
+  public ItemForListRepositoriesOutput namespace(String namespace) {
+    this.namespace = namespace;
+    return this;
+  }
+
+   /**
+   * Get namespace
+   * @return namespace
+  **/
+  @Schema(description = "")
+  public String getNamespace() {
+    return namespace;
+  }
+
+  public void setNamespace(String namespace) {
+    this.namespace = namespace;
+  }
+
   public ItemForListRepositoriesOutput updateTime(String updateTime) {
     this.updateTime = updateTime;
     return this;
@@ -148,12 +169,13 @@ public class ItemForListRepositoriesOutput {
         Objects.equals(this.createTime, itemForListRepositoriesOutput.createTime) &&
         Objects.equals(this.description, itemForListRepositoriesOutput.description) &&
         Objects.equals(this.name, itemForListRepositoriesOutput.name) &&
+        Objects.equals(this.namespace, itemForListRepositoriesOutput.namespace) &&
         Objects.equals(this.updateTime, itemForListRepositoriesOutput.updateTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessLevel, createTime, description, name, updateTime);
+    return Objects.hash(accessLevel, createTime, description, name, namespace, updateTime);
   }
 
 
@@ -166,6 +188,7 @@ public class ItemForListRepositoriesOutput {
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("}");
     return sb.toString();

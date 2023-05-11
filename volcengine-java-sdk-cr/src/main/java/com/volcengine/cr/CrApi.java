@@ -107,7 +107,7 @@ public class CrApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/CreateNamespace/2022-05-12/cr/post/";
+        String localVarPath = "/CreateNamespace/2022-05-12/cr/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -123,7 +123,7 @@ public class CrApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "text/plain"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -231,7 +231,7 @@ public class CrApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/CreateRegistry/2022-05-12/cr/post/";
+        String localVarPath = "/CreateRegistry/2022-05-12/cr/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -247,7 +247,7 @@ public class CrApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "text/plain"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -355,7 +355,7 @@ public class CrApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/CreateRepository/2022-05-12/cr/post/";
+        String localVarPath = "/CreateRepository/2022-05-12/cr/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -371,7 +371,7 @@ public class CrApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "text/plain"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -479,7 +479,7 @@ public class CrApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteNamespace/2022-05-12/cr/post/";
+        String localVarPath = "/DeleteNamespace/2022-05-12/cr/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -495,7 +495,7 @@ public class CrApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "text/plain"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -603,7 +603,7 @@ public class CrApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteRegistry/2022-05-12/cr/post/";
+        String localVarPath = "/DeleteRegistry/2022-05-12/cr/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -619,7 +619,7 @@ public class CrApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "text/plain"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -727,7 +727,7 @@ public class CrApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteRepository/2022-05-12/cr/post/";
+        String localVarPath = "/DeleteRepository/2022-05-12/cr/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -743,7 +743,7 @@ public class CrApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "text/plain"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -851,7 +851,7 @@ public class CrApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteTags/2022-05-12/cr/post/";
+        String localVarPath = "/DeleteTags/2022-05-12/cr/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -867,7 +867,7 @@ public class CrApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "text/plain"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -975,7 +975,7 @@ public class CrApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/GetAuthorizationToken/2022-05-12/cr/post/";
+        String localVarPath = "/GetAuthorizationToken/2022-05-12/cr/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -991,7 +991,7 @@ public class CrApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "text/plain"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1099,7 +1099,7 @@ public class CrApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/GetPublicEndpoint/2022-05-12/cr/post/";
+        String localVarPath = "/GetPublicEndpoint/2022-05-12/cr/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1115,7 +1115,7 @@ public class CrApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "text/plain"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1223,7 +1223,7 @@ public class CrApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/GetUser/2022-05-12/cr/post/";
+        String localVarPath = "/GetUser/2022-05-12/cr/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1239,7 +1239,7 @@ public class CrApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "text/plain"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1347,7 +1347,7 @@ public class CrApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/GetVpcEndpoint/2022-05-12/cr/post/";
+        String localVarPath = "/GetVpcEndpoint/2022-05-12/cr/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1363,7 +1363,7 @@ public class CrApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "text/plain"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1471,7 +1471,7 @@ public class CrApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ListDomains/2022-05-12/cr/post/";
+        String localVarPath = "/ListDomains/2022-05-12/cr/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1487,7 +1487,7 @@ public class CrApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "text/plain"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1595,7 +1595,7 @@ public class CrApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ListNamespaces/2022-05-12/cr/post/";
+        String localVarPath = "/ListNamespaces/2022-05-12/cr/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1611,7 +1611,7 @@ public class CrApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "text/plain"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1719,7 +1719,7 @@ public class CrApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ListRegistries/2022-05-12/cr/post/";
+        String localVarPath = "/ListRegistries/2022-05-12/cr/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1735,7 +1735,7 @@ public class CrApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "text/plain"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1843,7 +1843,7 @@ public class CrApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ListRepositories/2022-05-12/cr/post/";
+        String localVarPath = "/ListRepositories/2022-05-12/cr/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1859,7 +1859,7 @@ public class CrApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "text/plain"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1967,7 +1967,7 @@ public class CrApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ListTags/2022-05-12/cr/post/";
+        String localVarPath = "/ListTags/2022-05-12/cr/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1983,7 +1983,7 @@ public class CrApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "text/plain"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -2091,7 +2091,7 @@ public class CrApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/SetUser/2022-05-12/cr/post/";
+        String localVarPath = "/SetUser/2022-05-12/cr/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2107,7 +2107,7 @@ public class CrApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "text/plain"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -2215,7 +2215,7 @@ public class CrApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/StartRegistry/2022-05-12/cr/post/";
+        String localVarPath = "/StartRegistry/2022-05-12/cr/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2231,7 +2231,7 @@ public class CrApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "text/plain"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -2339,7 +2339,7 @@ public class CrApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/UpdatePublicEndpoint/2022-05-12/cr/post/";
+        String localVarPath = "/UpdatePublicEndpoint/2022-05-12/cr/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2355,7 +2355,7 @@ public class CrApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "text/plain"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -2463,7 +2463,7 @@ public class CrApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/UpdateRepository/2022-05-12/cr/post/";
+        String localVarPath = "/UpdateRepository/2022-05-12/cr/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2479,7 +2479,7 @@ public class CrApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "text/plain"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -2587,7 +2587,7 @@ public class CrApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/UpdateVpcEndpoint/2022-05-12/cr/post/";
+        String localVarPath = "/UpdateVpcEndpoint/2022-05-12/cr/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2603,7 +2603,7 @@ public class CrApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "text/plain"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);

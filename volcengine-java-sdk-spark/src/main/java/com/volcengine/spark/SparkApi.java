@@ -31,40 +31,40 @@ import com.volcengine.spark.model.CreateApplicationRequest;
 import com.volcengine.spark.model.CreateApplicationResponse;
 import com.volcengine.spark.model.CreateProjectRequest;
 import com.volcengine.spark.model.CreateProjectResponse;
-import com.volcengine.spark.model.CreateResourcePoolOneStepRequest;
-import com.volcengine.spark.model.CreateResourcePoolOneStepResponse;
+import com.volcengine.spark.model.CreateResourcePoolRequest;
+import com.volcengine.spark.model.CreateResourcePoolResponse;
 import com.volcengine.spark.model.DeleteApplicationRequest;
 import com.volcengine.spark.model.DeleteApplicationResponse;
 import com.volcengine.spark.model.DeleteProjectRequest;
 import com.volcengine.spark.model.DeleteProjectResponse;
-import com.volcengine.spark.model.DeleteRequest;
-import com.volcengine.spark.model.DeleteResponse;
+import com.volcengine.spark.model.DeleteResourcePoolRequest;
+import com.volcengine.spark.model.DeleteResourcePoolResponse;
 import com.volcengine.spark.model.DescribeApplicationInstanceRequest;
 import com.volcengine.spark.model.DescribeApplicationInstanceResponse;
 import com.volcengine.spark.model.DescribeApplicationRequest;
 import com.volcengine.spark.model.DescribeApplicationResponse;
 import com.volcengine.spark.model.DescribeProjectRequest;
 import com.volcengine.spark.model.DescribeProjectResponse;
-import com.volcengine.spark.model.DetailRequest;
-import com.volcengine.spark.model.DetailResponse;
-import com.volcengine.spark.model.ExitResourcePoolRequest;
-import com.volcengine.spark.model.ExitResourcePoolResponse;
-import com.volcengine.spark.model.GetApplicationRequest;
-import com.volcengine.spark.model.GetApplicationResponse;
+import com.volcengine.spark.model.DescribeResourcePoolRequest;
+import com.volcengine.spark.model.DescribeResourcePoolResponse;
+import com.volcengine.spark.model.ExistResourcePoolRequest;
+import com.volcengine.spark.model.ExistResourcePoolResponse;
+import com.volcengine.spark.model.ListAppInstanceRequest;
+import com.volcengine.spark.model.ListAppInstanceResponse;
 import com.volcengine.spark.model.ListApplicationHistoryRequest;
 import com.volcengine.spark.model.ListApplicationHistoryResponse;
-import com.volcengine.spark.model.ListApplicationInstanceRequest;
-import com.volcengine.spark.model.ListApplicationInstanceResponse;
+import com.volcengine.spark.model.ListApplicationRequest;
+import com.volcengine.spark.model.ListApplicationResponse;
 import com.volcengine.spark.model.ListProjectRequest;
 import com.volcengine.spark.model.ListProjectResponse;
-import com.volcengine.spark.model.ListRequest;
-import com.volcengine.spark.model.ListResponse;
+import com.volcengine.spark.model.ListResourcePoolRequest;
+import com.volcengine.spark.model.ListResourcePoolResponse;
+import com.volcengine.spark.model.ModifyApplicationRequest;
+import com.volcengine.spark.model.ModifyApplicationResponse;
 import com.volcengine.spark.model.StartApplicationRequest;
 import com.volcengine.spark.model.StartApplicationResponse;
 import com.volcengine.spark.model.StopApplicationRequest;
 import com.volcengine.spark.model.StopApplicationResponse;
-import com.volcengine.spark.model.UpdateApplicationRequest;
-import com.volcengine.spark.model.UpdateApplicationResponse;
 import com.volcengine.spark.model.UpdateProjectRequest;
 import com.volcengine.spark.model.UpdateProjectResponse;
 
@@ -105,7 +105,7 @@ public class SparkApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/createApplication/2021-06-01/spark/post/";
+        String localVarPath = "/createApplication/2021-06-01/spark/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -121,7 +121,7 @@ public class SparkApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "text/plain"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -229,7 +229,7 @@ public class SparkApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/createProject/2021-06-01/spark/post/";
+        String localVarPath = "/createProject/2021-06-01/spark/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -245,7 +245,7 @@ public class SparkApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "text/plain"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -342,18 +342,18 @@ public class SparkApi {
         return call;
     }
     /**
-     * Build call for createResourcePoolOneStep
+     * Build call for createResourcePool
      * @param body  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call createResourcePoolOneStepCall(CreateResourcePoolOneStepRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call createResourcePoolCall(CreateResourcePoolRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/createResourcePoolOneStep/2021-06-01/spark/post/";
+        String localVarPath = "/createResourcePool/2021-06-01/spark/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -369,7 +369,7 @@ public class SparkApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "text/plain"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -391,13 +391,13 @@ public class SparkApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call createResourcePoolOneStepValidateBeforeCall(CreateResourcePoolOneStepRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call createResourcePoolValidateBeforeCall(CreateResourcePoolRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'body' is set
         if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling createResourcePoolOneStep(Async)");
+            throw new ApiException("Missing the required parameter 'body' when calling createResourcePool(Async)");
         }
         
-        com.squareup.okhttp.Call call = createResourcePoolOneStepCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = createResourcePoolCall(body, progressListener, progressRequestListener);
         return call;
 
         
@@ -410,11 +410,11 @@ public class SparkApi {
      * 
      * 
      * @param body  (required)
-     * @return CreateResourcePoolOneStepResponse
+     * @return CreateResourcePoolResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CreateResourcePoolOneStepResponse createResourcePoolOneStep(CreateResourcePoolOneStepRequest body) throws ApiException {
-        ApiResponse<CreateResourcePoolOneStepResponse> resp = createResourcePoolOneStepWithHttpInfo(body);
+    public CreateResourcePoolResponse createResourcePool(CreateResourcePoolRequest body) throws ApiException {
+        ApiResponse<CreateResourcePoolResponse> resp = createResourcePoolWithHttpInfo(body);
         return resp.getData();
     }
 
@@ -422,12 +422,12 @@ public class SparkApi {
      * 
      * 
      * @param body  (required)
-     * @return ApiResponse&lt;CreateResourcePoolOneStepResponse&gt;
+     * @return ApiResponse&lt;CreateResourcePoolResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CreateResourcePoolOneStepResponse> createResourcePoolOneStepWithHttpInfo( @NotNull CreateResourcePoolOneStepRequest body) throws ApiException {
-        com.squareup.okhttp.Call call = createResourcePoolOneStepValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<CreateResourcePoolOneStepResponse>(){}.getType();
+    public ApiResponse<CreateResourcePoolResponse> createResourcePoolWithHttpInfo( @NotNull CreateResourcePoolRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = createResourcePoolValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<CreateResourcePoolResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -439,7 +439,7 @@ public class SparkApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call createResourcePoolOneStepAsync(CreateResourcePoolOneStepRequest body, final ApiCallback<CreateResourcePoolOneStepResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call createResourcePoolAsync(CreateResourcePoolRequest body, final ApiCallback<CreateResourcePoolResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -460,132 +460,8 @@ public class SparkApi {
             };
         }
 
-        com.squareup.okhttp.Call call = createResourcePoolOneStepValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<CreateResourcePoolOneStepResponse>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for delete
-     * @param body  (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call deleteCall(DeleteRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
-        
-        // create path and map variables
-        String localVarPath = "/delete/2021-06-01/spark/post/";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteValidateBeforeCall(DeleteRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling delete(Async)");
-        }
-        
-        com.squareup.okhttp.Call call = deleteCall(body, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * 
-     * 
-     * @param body  (required)
-     * @return DeleteResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public DeleteResponse delete(DeleteRequest body) throws ApiException {
-        ApiResponse<DeleteResponse> resp = deleteWithHttpInfo(body);
-        return resp.getData();
-    }
-
-    /**
-     * 
-     * 
-     * @param body  (required)
-     * @return ApiResponse&lt;DeleteResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<DeleteResponse> deleteWithHttpInfo( @NotNull DeleteRequest body) throws ApiException {
-        com.squareup.okhttp.Call call = deleteValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<DeleteResponse>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param body  (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call deleteAsync(DeleteRequest body, final ApiCallback<DeleteResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = deleteValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<DeleteResponse>(){}.getType();
+        com.squareup.okhttp.Call call = createResourcePoolValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CreateResourcePoolResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -601,7 +477,7 @@ public class SparkApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/deleteApplication/2021-06-01/spark/post/";
+        String localVarPath = "/deleteApplication/2021-06-01/spark/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -617,7 +493,7 @@ public class SparkApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "text/plain"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -725,7 +601,7 @@ public class SparkApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/deleteProject/2021-06-01/spark/post/";
+        String localVarPath = "/deleteProject/2021-06-01/spark/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -741,7 +617,7 @@ public class SparkApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "text/plain"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -838,18 +714,18 @@ public class SparkApi {
         return call;
     }
     /**
-     * Build call for describeApplication
+     * Build call for deleteResourcePool
      * @param body  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call describeApplicationCall(DescribeApplicationRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call deleteResourcePoolCall(DeleteResourcePoolRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/describeApplication/2021-06-01/spark/post/";
+        String localVarPath = "/deleteResourcePool/2021-06-01/spark/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -865,7 +741,131 @@ public class SparkApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteResourcePoolValidateBeforeCall(DeleteResourcePoolRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling deleteResourcePool(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = deleteResourcePoolCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return DeleteResourcePoolResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public DeleteResourcePoolResponse deleteResourcePool(DeleteResourcePoolRequest body) throws ApiException {
+        ApiResponse<DeleteResourcePoolResponse> resp = deleteResourcePoolWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;DeleteResourcePoolResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<DeleteResourcePoolResponse> deleteResourcePoolWithHttpInfo( @NotNull DeleteResourcePoolRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = deleteResourcePoolValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<DeleteResourcePoolResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call deleteResourcePoolAsync(DeleteResourcePoolRequest body, final ApiCallback<DeleteResourcePoolResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteResourcePoolValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<DeleteResourcePoolResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for describeApplication
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call describeApplicationCall(DescribeApplicationRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/describeApplication/2021-06-01/spark/post/application_json/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
             "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -973,7 +973,7 @@ public class SparkApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/describeApplicationInstance/2021-06-01/spark/post/";
+        String localVarPath = "/describeApplicationInstance/2021-06-01/spark/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -989,7 +989,7 @@ public class SparkApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "text/plain"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1097,7 +1097,7 @@ public class SparkApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/describeProject/2021-06-01/spark/post/";
+        String localVarPath = "/describeProject/2021-06-01/spark/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1113,7 +1113,7 @@ public class SparkApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "text/plain"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1210,18 +1210,18 @@ public class SparkApi {
         return call;
     }
     /**
-     * Build call for detail
+     * Build call for describeResourcePool
      * @param body  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call detailCall(DetailRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call describeResourcePoolCall(DescribeResourcePoolRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/detail/2021-06-01/spark/post/";
+        String localVarPath = "/describeResourcePool/2021-06-01/spark/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1237,7 +1237,7 @@ public class SparkApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "text/plain"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1259,13 +1259,13 @@ public class SparkApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call detailValidateBeforeCall(DetailRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call describeResourcePoolValidateBeforeCall(DescribeResourcePoolRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'body' is set
         if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling detail(Async)");
+            throw new ApiException("Missing the required parameter 'body' when calling describeResourcePool(Async)");
         }
         
-        com.squareup.okhttp.Call call = detailCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = describeResourcePoolCall(body, progressListener, progressRequestListener);
         return call;
 
         
@@ -1278,11 +1278,11 @@ public class SparkApi {
      * 
      * 
      * @param body  (required)
-     * @return DetailResponse
+     * @return DescribeResourcePoolResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public DetailResponse detail(DetailRequest body) throws ApiException {
-        ApiResponse<DetailResponse> resp = detailWithHttpInfo(body);
+    public DescribeResourcePoolResponse describeResourcePool(DescribeResourcePoolRequest body) throws ApiException {
+        ApiResponse<DescribeResourcePoolResponse> resp = describeResourcePoolWithHttpInfo(body);
         return resp.getData();
     }
 
@@ -1290,12 +1290,12 @@ public class SparkApi {
      * 
      * 
      * @param body  (required)
-     * @return ApiResponse&lt;DetailResponse&gt;
+     * @return ApiResponse&lt;DescribeResourcePoolResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<DetailResponse> detailWithHttpInfo( @NotNull DetailRequest body) throws ApiException {
-        com.squareup.okhttp.Call call = detailValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<DetailResponse>(){}.getType();
+    public ApiResponse<DescribeResourcePoolResponse> describeResourcePoolWithHttpInfo( @NotNull DescribeResourcePoolRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = describeResourcePoolValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<DescribeResourcePoolResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -1307,7 +1307,7 @@ public class SparkApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call detailAsync(DetailRequest body, final ApiCallback<DetailResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call describeResourcePoolAsync(DescribeResourcePoolRequest body, final ApiCallback<DescribeResourcePoolResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1328,24 +1328,24 @@ public class SparkApi {
             };
         }
 
-        com.squareup.okhttp.Call call = detailValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<DetailResponse>(){}.getType();
+        com.squareup.okhttp.Call call = describeResourcePoolValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<DescribeResourcePoolResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
-     * Build call for exitResourcePool
+     * Build call for existResourcePool
      * @param body  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call exitResourcePoolCall(ExitResourcePoolRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call existResourcePoolCall(ExistResourcePoolRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/exitResourcePool/2021-06-01/spark/post/";
+        String localVarPath = "/existResourcePool/2021-06-01/spark/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1361,7 +1361,7 @@ public class SparkApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "text/plain"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1383,13 +1383,13 @@ public class SparkApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call exitResourcePoolValidateBeforeCall(ExitResourcePoolRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call existResourcePoolValidateBeforeCall(ExistResourcePoolRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'body' is set
         if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling exitResourcePool(Async)");
+            throw new ApiException("Missing the required parameter 'body' when calling existResourcePool(Async)");
         }
         
-        com.squareup.okhttp.Call call = exitResourcePoolCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = existResourcePoolCall(body, progressListener, progressRequestListener);
         return call;
 
         
@@ -1402,11 +1402,11 @@ public class SparkApi {
      * 
      * 
      * @param body  (required)
-     * @return ExitResourcePoolResponse
+     * @return ExistResourcePoolResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ExitResourcePoolResponse exitResourcePool(ExitResourcePoolRequest body) throws ApiException {
-        ApiResponse<ExitResourcePoolResponse> resp = exitResourcePoolWithHttpInfo(body);
+    public ExistResourcePoolResponse existResourcePool(ExistResourcePoolRequest body) throws ApiException {
+        ApiResponse<ExistResourcePoolResponse> resp = existResourcePoolWithHttpInfo(body);
         return resp.getData();
     }
 
@@ -1414,12 +1414,12 @@ public class SparkApi {
      * 
      * 
      * @param body  (required)
-     * @return ApiResponse&lt;ExitResourcePoolResponse&gt;
+     * @return ApiResponse&lt;ExistResourcePoolResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ExitResourcePoolResponse> exitResourcePoolWithHttpInfo( @NotNull ExitResourcePoolRequest body) throws ApiException {
-        com.squareup.okhttp.Call call = exitResourcePoolValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<ExitResourcePoolResponse>(){}.getType();
+    public ApiResponse<ExistResourcePoolResponse> existResourcePoolWithHttpInfo( @NotNull ExistResourcePoolRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = existResourcePoolValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<ExistResourcePoolResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -1431,7 +1431,7 @@ public class SparkApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call exitResourcePoolAsync(ExitResourcePoolRequest body, final ApiCallback<ExitResourcePoolResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call existResourcePoolAsync(ExistResourcePoolRequest body, final ApiCallback<ExistResourcePoolResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1452,24 +1452,24 @@ public class SparkApi {
             };
         }
 
-        com.squareup.okhttp.Call call = exitResourcePoolValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ExitResourcePoolResponse>(){}.getType();
+        com.squareup.okhttp.Call call = existResourcePoolValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ExistResourcePoolResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
-     * Build call for getApplication
+     * Build call for listAppInstance
      * @param body  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getApplicationCall(GetApplicationRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call listAppInstanceCall(ListAppInstanceRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/getApplication/2021-06-01/spark/post/";
+        String localVarPath = "/listAppInstance/2021-06-01/spark/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1485,7 +1485,7 @@ public class SparkApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "text/plain"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1507,13 +1507,13 @@ public class SparkApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getApplicationValidateBeforeCall(GetApplicationRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call listAppInstanceValidateBeforeCall(ListAppInstanceRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'body' is set
         if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling getApplication(Async)");
+            throw new ApiException("Missing the required parameter 'body' when calling listAppInstance(Async)");
         }
         
-        com.squareup.okhttp.Call call = getApplicationCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = listAppInstanceCall(body, progressListener, progressRequestListener);
         return call;
 
         
@@ -1526,11 +1526,11 @@ public class SparkApi {
      * 
      * 
      * @param body  (required)
-     * @return GetApplicationResponse
+     * @return ListAppInstanceResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public GetApplicationResponse getApplication(GetApplicationRequest body) throws ApiException {
-        ApiResponse<GetApplicationResponse> resp = getApplicationWithHttpInfo(body);
+    public ListAppInstanceResponse listAppInstance(ListAppInstanceRequest body) throws ApiException {
+        ApiResponse<ListAppInstanceResponse> resp = listAppInstanceWithHttpInfo(body);
         return resp.getData();
     }
 
@@ -1538,12 +1538,12 @@ public class SparkApi {
      * 
      * 
      * @param body  (required)
-     * @return ApiResponse&lt;GetApplicationResponse&gt;
+     * @return ApiResponse&lt;ListAppInstanceResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<GetApplicationResponse> getApplicationWithHttpInfo( @NotNull GetApplicationRequest body) throws ApiException {
-        com.squareup.okhttp.Call call = getApplicationValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<GetApplicationResponse>(){}.getType();
+    public ApiResponse<ListAppInstanceResponse> listAppInstanceWithHttpInfo( @NotNull ListAppInstanceRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = listAppInstanceValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<ListAppInstanceResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -1555,7 +1555,7 @@ public class SparkApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getApplicationAsync(GetApplicationRequest body, final ApiCallback<GetApplicationResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call listAppInstanceAsync(ListAppInstanceRequest body, final ApiCallback<ListAppInstanceResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1576,24 +1576,24 @@ public class SparkApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getApplicationValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<GetApplicationResponse>(){}.getType();
+        com.squareup.okhttp.Call call = listAppInstanceValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ListAppInstanceResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
-     * Build call for list
+     * Build call for listApplication
      * @param body  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call listCall(ListRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call listApplicationCall(ListApplicationRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/list/2021-06-01/spark/post/";
+        String localVarPath = "/listApplication/2021-06-01/spark/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1609,7 +1609,7 @@ public class SparkApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "text/plain"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1631,13 +1631,13 @@ public class SparkApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call listValidateBeforeCall(ListRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call listApplicationValidateBeforeCall(ListApplicationRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'body' is set
         if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling list(Async)");
+            throw new ApiException("Missing the required parameter 'body' when calling listApplication(Async)");
         }
         
-        com.squareup.okhttp.Call call = listCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = listApplicationCall(body, progressListener, progressRequestListener);
         return call;
 
         
@@ -1650,11 +1650,11 @@ public class SparkApi {
      * 
      * 
      * @param body  (required)
-     * @return ListResponse
+     * @return ListApplicationResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ListResponse list(ListRequest body) throws ApiException {
-        ApiResponse<ListResponse> resp = listWithHttpInfo(body);
+    public ListApplicationResponse listApplication(ListApplicationRequest body) throws ApiException {
+        ApiResponse<ListApplicationResponse> resp = listApplicationWithHttpInfo(body);
         return resp.getData();
     }
 
@@ -1662,12 +1662,12 @@ public class SparkApi {
      * 
      * 
      * @param body  (required)
-     * @return ApiResponse&lt;ListResponse&gt;
+     * @return ApiResponse&lt;ListApplicationResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ListResponse> listWithHttpInfo( @NotNull ListRequest body) throws ApiException {
-        com.squareup.okhttp.Call call = listValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<ListResponse>(){}.getType();
+    public ApiResponse<ListApplicationResponse> listApplicationWithHttpInfo( @NotNull ListApplicationRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = listApplicationValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<ListApplicationResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -1679,7 +1679,7 @@ public class SparkApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call listAsync(ListRequest body, final ApiCallback<ListResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call listApplicationAsync(ListApplicationRequest body, final ApiCallback<ListApplicationResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1700,8 +1700,8 @@ public class SparkApi {
             };
         }
 
-        com.squareup.okhttp.Call call = listValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ListResponse>(){}.getType();
+        com.squareup.okhttp.Call call = listApplicationValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ListApplicationResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -1717,7 +1717,7 @@ public class SparkApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/listApplicationHistory/2021-06-01/spark/post/";
+        String localVarPath = "/listApplicationHistory/2021-06-01/spark/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1733,7 +1733,7 @@ public class SparkApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "text/plain"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1830,130 +1830,6 @@ public class SparkApi {
         return call;
     }
     /**
-     * Build call for listApplicationInstance
-     * @param body  (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call listApplicationInstanceCall(ListApplicationInstanceRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
-        
-        // create path and map variables
-        String localVarPath = "/listApplicationInstance/2021-06-01/spark/post/";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call listApplicationInstanceValidateBeforeCall(ListApplicationInstanceRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling listApplicationInstance(Async)");
-        }
-        
-        com.squareup.okhttp.Call call = listApplicationInstanceCall(body, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * 
-     * 
-     * @param body  (required)
-     * @return ListApplicationInstanceResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ListApplicationInstanceResponse listApplicationInstance(ListApplicationInstanceRequest body) throws ApiException {
-        ApiResponse<ListApplicationInstanceResponse> resp = listApplicationInstanceWithHttpInfo(body);
-        return resp.getData();
-    }
-
-    /**
-     * 
-     * 
-     * @param body  (required)
-     * @return ApiResponse&lt;ListApplicationInstanceResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<ListApplicationInstanceResponse> listApplicationInstanceWithHttpInfo( @NotNull ListApplicationInstanceRequest body) throws ApiException {
-        com.squareup.okhttp.Call call = listApplicationInstanceValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<ListApplicationInstanceResponse>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param body  (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call listApplicationInstanceAsync(ListApplicationInstanceRequest body, final ApiCallback<ListApplicationInstanceResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = listApplicationInstanceValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ListApplicationInstanceResponse>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
      * Build call for listProject
      * @param body  (required)
      * @param progressListener Progress listener
@@ -1965,7 +1841,7 @@ public class SparkApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/listProject/2021-06-01/spark/post/";
+        String localVarPath = "/listProject/2021-06-01/spark/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1981,7 +1857,7 @@ public class SparkApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "text/plain"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -2078,17 +1954,18 @@ public class SparkApi {
         return call;
     }
     /**
-     * Build call for listZone
+     * Build call for listResourcePool
+     * @param body  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call listZoneCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
+    public com.squareup.okhttp.Call listResourcePoolCall(ListResourcePoolRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/listZone/2021-06-01/spark/post/";
+        String localVarPath = "/listResourcePool/2021-06-01/spark/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2104,7 +1981,130 @@ public class SparkApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/x-www-form-urlencoded", "text/plain"
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call listResourcePoolValidateBeforeCall(ListResourcePoolRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling listResourcePool(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = listResourcePoolCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ListResourcePoolResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ListResourcePoolResponse listResourcePool(ListResourcePoolRequest body) throws ApiException {
+        ApiResponse<ListResourcePoolResponse> resp = listResourcePoolWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;ListResourcePoolResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ListResourcePoolResponse> listResourcePoolWithHttpInfo( @NotNull ListResourcePoolRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = listResourcePoolValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<ListResourcePoolResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call listResourcePoolAsync(ListResourcePoolRequest body, final ApiCallback<ListResourcePoolResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = listResourcePoolValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ListResourcePoolResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for listZone
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call listZoneCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/listZone/2021-06-01/spark/post/application_x-www-form-urlencoded/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -2190,18 +2190,18 @@ public class SparkApi {
         return call;
     }
     /**
-     * Build call for startApplication
+     * Build call for modifyApplication
      * @param body  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call startApplicationCall(StartApplicationRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call modifyApplicationCall(ModifyApplicationRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/startApplication/2021-06-01/spark/post/";
+        String localVarPath = "/modifyApplication/2021-06-01/spark/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2217,7 +2217,131 @@ public class SparkApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call modifyApplicationValidateBeforeCall(ModifyApplicationRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling modifyApplication(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = modifyApplicationCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ModifyApplicationResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ModifyApplicationResponse modifyApplication(ModifyApplicationRequest body) throws ApiException {
+        ApiResponse<ModifyApplicationResponse> resp = modifyApplicationWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;ModifyApplicationResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ModifyApplicationResponse> modifyApplicationWithHttpInfo( @NotNull ModifyApplicationRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = modifyApplicationValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<ModifyApplicationResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call modifyApplicationAsync(ModifyApplicationRequest body, final ApiCallback<ModifyApplicationResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = modifyApplicationValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ModifyApplicationResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for startApplication
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call startApplicationCall(StartApplicationRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/startApplication/2021-06-01/spark/post/application_json/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
             "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -2325,7 +2449,7 @@ public class SparkApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/stopApplication/2021-06-01/spark/post/";
+        String localVarPath = "/stopApplication/2021-06-01/spark/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2341,7 +2465,7 @@ public class SparkApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "text/plain"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -2438,130 +2562,6 @@ public class SparkApi {
         return call;
     }
     /**
-     * Build call for updateApplication
-     * @param body  (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call updateApplicationCall(UpdateApplicationRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
-        
-        // create path and map variables
-        String localVarPath = "/updateApplication/2021-06-01/spark/post/";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call updateApplicationValidateBeforeCall(UpdateApplicationRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling updateApplication(Async)");
-        }
-        
-        com.squareup.okhttp.Call call = updateApplicationCall(body, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * 
-     * 
-     * @param body  (required)
-     * @return UpdateApplicationResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public UpdateApplicationResponse updateApplication(UpdateApplicationRequest body) throws ApiException {
-        ApiResponse<UpdateApplicationResponse> resp = updateApplicationWithHttpInfo(body);
-        return resp.getData();
-    }
-
-    /**
-     * 
-     * 
-     * @param body  (required)
-     * @return ApiResponse&lt;UpdateApplicationResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<UpdateApplicationResponse> updateApplicationWithHttpInfo( @NotNull UpdateApplicationRequest body) throws ApiException {
-        com.squareup.okhttp.Call call = updateApplicationValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<UpdateApplicationResponse>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param body  (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call updateApplicationAsync(UpdateApplicationRequest body, final ApiCallback<UpdateApplicationResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = updateApplicationValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<UpdateApplicationResponse>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
      * Build call for updateProject
      * @param body  (required)
      * @param progressListener Progress listener
@@ -2573,7 +2573,7 @@ public class SparkApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/updateProject/2021-06-01/spark/post/";
+        String localVarPath = "/updateProject/2021-06-01/spark/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2589,7 +2589,7 @@ public class SparkApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "text/plain"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
