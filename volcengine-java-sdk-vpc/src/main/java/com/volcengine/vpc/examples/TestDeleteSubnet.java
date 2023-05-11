@@ -3,15 +3,12 @@
 */
 package com.volcengine.vpc.examples;
 
-
 import com.volcengine.ApiClient;
 import com.volcengine.ApiException;
 import com.volcengine.sign.Credentials;
 
 import com.volcengine.vpc.VpcApi;
 import com.volcengine.vpc.model.*;
-
-import java.util.*;
 
 
 public class TestDeleteSubnet {

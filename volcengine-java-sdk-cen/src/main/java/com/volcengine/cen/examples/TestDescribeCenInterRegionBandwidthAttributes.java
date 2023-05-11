@@ -3,15 +3,12 @@
 */
 package com.volcengine.cen.examples;
 
-
 import com.volcengine.ApiClient;
 import com.volcengine.ApiException;
 import com.volcengine.sign.Credentials;
 
 import com.volcengine.cen.CenApi;
 import com.volcengine.cen.model.*;
-
-import java.util.*;
 
 
 public class TestDescribeCenInterRegionBandwidthAttributes {

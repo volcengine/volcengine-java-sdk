@@ -3,15 +3,12 @@
 */
 package com.volcengine.clb.examples;
 
-
 import com.volcengine.ApiClient;
 import com.volcengine.ApiException;
 import com.volcengine.sign.Credentials;
 
 import com.volcengine.clb.ClbApi;
 import com.volcengine.clb.model.*;
-
-import java.util.*;
 
 
 public class TestConvertLoadBalancerBillingType {

@@ -3,15 +3,12 @@
 */
 package com.volcengine.ecs.examples;
 
-
 import com.volcengine.ApiClient;
 import com.volcengine.ApiException;
 import com.volcengine.sign.Credentials;
 
 import com.volcengine.ecs.EcsApi;
 import com.volcengine.ecs.model.*;
-
-import java.util.*;
 
 
 public class TestDeleteInstance {

@@ -3,15 +3,12 @@
 */
 package com.volcengine.vpn.examples;
 
-
 import com.volcengine.ApiClient;
 import com.volcengine.ApiException;
 import com.volcengine.sign.Credentials;
 
 import com.volcengine.vpn.VpnApi;
 import com.volcengine.vpn.model.*;
-
-import java.util.*;
 
 
 public class TestDescribeVpnGatewayRouteAttributes {
