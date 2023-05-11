@@ -107,7 +107,7 @@ public class CrApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/CreateNamespace/022-05-12/cr/post/application_json/";
+        String localVarPath = "/CreateNamespace/2022-05-12/cr/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -231,7 +231,7 @@ public class CrApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/CreateRegistry/022-05-12/cr/post/application_json/";
+        String localVarPath = "/CreateRegistry/2022-05-12/cr/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -355,7 +355,7 @@ public class CrApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/CreateRepository/022-05-12/cr/post/application_json/";
+        String localVarPath = "/CreateRepository/2022-05-12/cr/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -479,7 +479,7 @@ public class CrApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteNamespace/022-05-12/cr/post/application_json/";
+        String localVarPath = "/DeleteNamespace/2022-05-12/cr/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -603,7 +603,7 @@ public class CrApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteRegistry/022-05-12/cr/post/application_json/";
+        String localVarPath = "/DeleteRegistry/2022-05-12/cr/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -727,7 +727,7 @@ public class CrApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteRepository/022-05-12/cr/post/application_json/";
+        String localVarPath = "/DeleteRepository/2022-05-12/cr/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -851,7 +851,7 @@ public class CrApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteTags/022-05-12/cr/post/application_json/";
+        String localVarPath = "/DeleteTags/2022-05-12/cr/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -975,7 +975,7 @@ public class CrApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/GetAuthorizationToken/022-05-12/cr/post/application_json/";
+        String localVarPath = "/GetAuthorizationToken/2022-05-12/cr/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1099,7 +1099,7 @@ public class CrApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/GetPublicEndpoint/022-05-12/cr/post/application_json/";
+        String localVarPath = "/GetPublicEndpoint/2022-05-12/cr/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1223,7 +1223,7 @@ public class CrApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/GetUser/022-05-12/cr/post/application_json/";
+        String localVarPath = "/GetUser/2022-05-12/cr/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1347,7 +1347,7 @@ public class CrApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/GetVpcEndpoint/022-05-12/cr/post/application_json/";
+        String localVarPath = "/GetVpcEndpoint/2022-05-12/cr/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1471,7 +1471,7 @@ public class CrApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ListDomains/022-05-12/cr/post/application_json/";
+        String localVarPath = "/ListDomains/2022-05-12/cr/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1595,7 +1595,7 @@ public class CrApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ListNamespaces/022-05-12/cr/post/application_json/";
+        String localVarPath = "/ListNamespaces/2022-05-12/cr/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1719,7 +1719,7 @@ public class CrApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ListRegistries/022-05-12/cr/post/application_json/";
+        String localVarPath = "/ListRegistries/2022-05-12/cr/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1843,7 +1843,7 @@ public class CrApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ListRepositories/022-05-12/cr/post/application_json/";
+        String localVarPath = "/ListRepositories/2022-05-12/cr/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1967,7 +1967,7 @@ public class CrApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ListTags/022-05-12/cr/post/application_json/";
+        String localVarPath = "/ListTags/2022-05-12/cr/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2091,7 +2091,7 @@ public class CrApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/SetUser/022-05-12/cr/post/application_json/";
+        String localVarPath = "/SetUser/2022-05-12/cr/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2215,7 +2215,7 @@ public class CrApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/StartRegistry/022-05-12/cr/post/application_json/";
+        String localVarPath = "/StartRegistry/2022-05-12/cr/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2339,7 +2339,7 @@ public class CrApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/UpdatePublicEndpoint/022-05-12/cr/post/application_json/";
+        String localVarPath = "/UpdatePublicEndpoint/2022-05-12/cr/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2463,7 +2463,7 @@ public class CrApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/UpdateRepository/022-05-12/cr/post/application_json/";
+        String localVarPath = "/UpdateRepository/2022-05-12/cr/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2587,7 +2587,7 @@ public class CrApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/UpdateVpcEndpoint/022-05-12/cr/post/application_json/";
+        String localVarPath = "/UpdateVpcEndpoint/2022-05-12/cr/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
