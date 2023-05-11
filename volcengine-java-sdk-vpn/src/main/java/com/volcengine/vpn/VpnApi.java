@@ -109,7 +109,7 @@ public class VpnApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/CreateCustomerGateway/2020-04-01/vpn/get/";
+        String localVarPath = "/CreateCustomerGateway/2020-04-01/vpn/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -143,7 +143,7 @@ public class VpnApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -233,7 +233,7 @@ public class VpnApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/CreateVpnConnection/2020-04-01/vpn/get/";
+        String localVarPath = "/CreateVpnConnection/2020-04-01/vpn/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -267,7 +267,7 @@ public class VpnApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -357,7 +357,7 @@ public class VpnApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/CreateVpnGateway/2020-04-01/vpn/get/";
+        String localVarPath = "/CreateVpnGateway/2020-04-01/vpn/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -391,7 +391,7 @@ public class VpnApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -481,7 +481,7 @@ public class VpnApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/CreateVpnGatewayRoute/2020-04-01/vpn/get/";
+        String localVarPath = "/CreateVpnGatewayRoute/2020-04-01/vpn/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -515,7 +515,7 @@ public class VpnApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -605,7 +605,7 @@ public class VpnApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteCustomerGateway/2020-04-01/vpn/get/";
+        String localVarPath = "/DeleteCustomerGateway/2020-04-01/vpn/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -639,7 +639,7 @@ public class VpnApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -729,7 +729,7 @@ public class VpnApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteVpnConnection/2020-04-01/vpn/get/";
+        String localVarPath = "/DeleteVpnConnection/2020-04-01/vpn/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -763,7 +763,7 @@ public class VpnApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -853,7 +853,7 @@ public class VpnApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteVpnGateway/2020-04-01/vpn/get/";
+        String localVarPath = "/DeleteVpnGateway/2020-04-01/vpn/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -887,7 +887,7 @@ public class VpnApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -977,7 +977,7 @@ public class VpnApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteVpnGatewayRoute/2020-04-01/vpn/get/";
+        String localVarPath = "/DeleteVpnGatewayRoute/2020-04-01/vpn/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1011,7 +1011,7 @@ public class VpnApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -1101,7 +1101,7 @@ public class VpnApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeCustomerGatewayAttributes/2020-04-01/vpn/get/";
+        String localVarPath = "/DescribeCustomerGatewayAttributes/2020-04-01/vpn/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1135,7 +1135,7 @@ public class VpnApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -1225,7 +1225,7 @@ public class VpnApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeCustomerGateways/2020-04-01/vpn/get/";
+        String localVarPath = "/DescribeCustomerGateways/2020-04-01/vpn/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1259,7 +1259,7 @@ public class VpnApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -1349,7 +1349,7 @@ public class VpnApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeVpnConnectionAttributes/2020-04-01/vpn/get/";
+        String localVarPath = "/DescribeVpnConnectionAttributes/2020-04-01/vpn/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1383,7 +1383,7 @@ public class VpnApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -1473,7 +1473,7 @@ public class VpnApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeVpnConnections/2020-04-01/vpn/get/";
+        String localVarPath = "/DescribeVpnConnections/2020-04-01/vpn/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1507,7 +1507,7 @@ public class VpnApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -1597,7 +1597,7 @@ public class VpnApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeVpnGatewayAttributes/2020-04-01/vpn/get/";
+        String localVarPath = "/DescribeVpnGatewayAttributes/2020-04-01/vpn/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1631,7 +1631,7 @@ public class VpnApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -1721,7 +1721,7 @@ public class VpnApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeVpnGatewayRouteAttributes/2020-04-01/vpn/get/";
+        String localVarPath = "/DescribeVpnGatewayRouteAttributes/2020-04-01/vpn/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1755,7 +1755,7 @@ public class VpnApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -1845,7 +1845,7 @@ public class VpnApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeVpnGatewayRoutes/2020-04-01/vpn/get/";
+        String localVarPath = "/DescribeVpnGatewayRoutes/2020-04-01/vpn/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1879,7 +1879,7 @@ public class VpnApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -1969,7 +1969,7 @@ public class VpnApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeVpnGateways/2020-04-01/vpn/get/";
+        String localVarPath = "/DescribeVpnGateways/2020-04-01/vpn/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2003,7 +2003,7 @@ public class VpnApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -2093,7 +2093,7 @@ public class VpnApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeVpnGatewaysBilling/2020-04-01/vpn/get/";
+        String localVarPath = "/DescribeVpnGatewaysBilling/2020-04-01/vpn/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2127,7 +2127,7 @@ public class VpnApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -2217,7 +2217,7 @@ public class VpnApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ModifyCustomerGatewayAttributes/2020-04-01/vpn/get/";
+        String localVarPath = "/ModifyCustomerGatewayAttributes/2020-04-01/vpn/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2251,7 +2251,7 @@ public class VpnApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -2341,7 +2341,7 @@ public class VpnApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ModifyVpnConnectionAttributes/2020-04-01/vpn/get/";
+        String localVarPath = "/ModifyVpnConnectionAttributes/2020-04-01/vpn/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2375,7 +2375,7 @@ public class VpnApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -2465,7 +2465,7 @@ public class VpnApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ModifyVpnGatewayAttributes/2020-04-01/vpn/get/";
+        String localVarPath = "/ModifyVpnGatewayAttributes/2020-04-01/vpn/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2499,7 +2499,7 @@ public class VpnApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -2589,7 +2589,7 @@ public class VpnApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/RenewVpnGateway/2020-04-01/vpn/get/";
+        String localVarPath = "/RenewVpnGateway/2020-04-01/vpn/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2623,7 +2623,7 @@ public class VpnApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -2713,7 +2713,7 @@ public class VpnApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/SetVpnGatewayRenewal/2020-04-01/vpn/get/";
+        String localVarPath = "/SetVpnGatewayRenewal/2020-04-01/vpn/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2747,7 +2747,7 @@ public class VpnApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
