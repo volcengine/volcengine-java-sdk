@@ -44,6 +44,9 @@ public class AutoScalingForListNodePoolsOutput {
   @SerializedName("Priority")
   private Integer priority = null;
 
+  @SerializedName("SubnetPolicy")
+  private String subnetPolicy = null;
+
   public AutoScalingForListNodePoolsOutput desiredReplicas(Integer desiredReplicas) {
     this.desiredReplicas = desiredReplicas;
     return this;
@@ -134,6 +137,24 @@ public class AutoScalingForListNodePoolsOutput {
     this.priority = priority;
   }
 
+  public AutoScalingForListNodePoolsOutput subnetPolicy(String subnetPolicy) {
+    this.subnetPolicy = subnetPolicy;
+    return this;
+  }
+
+   /**
+   * Get subnetPolicy
+   * @return subnetPolicy
+  **/
+  @Schema(description = "")
+  public String getSubnetPolicy() {
+    return subnetPolicy;
+  }
+
+  public void setSubnetPolicy(String subnetPolicy) {
+    this.subnetPolicy = subnetPolicy;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -148,12 +169,13 @@ public class AutoScalingForListNodePoolsOutput {
         Objects.equals(this.enabled, autoScalingForListNodePoolsOutput.enabled) &&
         Objects.equals(this.maxReplicas, autoScalingForListNodePoolsOutput.maxReplicas) &&
         Objects.equals(this.minReplicas, autoScalingForListNodePoolsOutput.minReplicas) &&
-        Objects.equals(this.priority, autoScalingForListNodePoolsOutput.priority);
+        Objects.equals(this.priority, autoScalingForListNodePoolsOutput.priority) &&
+        Objects.equals(this.subnetPolicy, autoScalingForListNodePoolsOutput.subnetPolicy);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(desiredReplicas, enabled, maxReplicas, minReplicas, priority);
+    return Objects.hash(desiredReplicas, enabled, maxReplicas, minReplicas, priority, subnetPolicy);
   }
 
 
@@ -167,6 +189,7 @@ public class AutoScalingForListNodePoolsOutput {
     sb.append("    maxReplicas: ").append(toIndentedString(maxReplicas)).append("\n");
     sb.append("    minReplicas: ").append(toIndentedString(minReplicas)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
+    sb.append("    subnetPolicy: ").append(toIndentedString(subnetPolicy)).append("\n");
     sb.append("}");
     return sb.toString();
   }
