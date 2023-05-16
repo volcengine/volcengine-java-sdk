@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.clb.model.TagForUploadCertificateInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -44,8 +47,8 @@ public class UploadCertificateRequest {
   @SerializedName("PublicKey")
   private String publicKey = null;
 
-  @SerializedName("TagFilters")
-  private String tagFilters = null;
+  @SerializedName("Tags")
+  private List<TagForUploadCertificateInput> tags = null;
 
   public UploadCertificateRequest certificateName(String certificateName) {
     this.certificateName = certificateName;
@@ -139,22 +142,31 @@ public class UploadCertificateRequest {
     this.publicKey = publicKey;
   }
 
-  public UploadCertificateRequest tagFilters(String tagFilters) {
-    this.tagFilters = tagFilters;
+  public UploadCertificateRequest tags(List<TagForUploadCertificateInput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public UploadCertificateRequest addTagsItem(TagForUploadCertificateInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForUploadCertificateInput>();
+    }
+    this.tags.add(tagsItem);
     return this;
   }
 
    /**
-   * Get tagFilters
-   * @return tagFilters
+   * Get tags
+   * @return tags
   **/
+  @Valid
   @Schema(description = "")
-  public String getTagFilters() {
-    return tagFilters;
+  public List<TagForUploadCertificateInput> getTags() {
+    return tags;
   }
 
-  public void setTagFilters(String tagFilters) {
-    this.tagFilters = tagFilters;
+  public void setTags(List<TagForUploadCertificateInput> tags) {
+    this.tags = tags;
   }
 
 
@@ -172,12 +184,12 @@ public class UploadCertificateRequest {
         Objects.equals(this.privateKey, uploadCertificateRequest.privateKey) &&
         Objects.equals(this.projectName, uploadCertificateRequest.projectName) &&
         Objects.equals(this.publicKey, uploadCertificateRequest.publicKey) &&
-        Objects.equals(this.tagFilters, uploadCertificateRequest.tagFilters);
+        Objects.equals(this.tags, uploadCertificateRequest.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(certificateName, description, privateKey, projectName, publicKey, tagFilters);
+    return Objects.hash(certificateName, description, privateKey, projectName, publicKey, tags);
   }
 
 
@@ -191,7 +203,7 @@ public class UploadCertificateRequest {
     sb.append("    privateKey: ").append(toIndentedString(privateKey)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    publicKey: ").append(toIndentedString(publicKey)).append("\n");
-    sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }
