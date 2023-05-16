@@ -32,6 +32,9 @@ public class ModifyInstanceSpecRequest {
   @SerializedName("ClientToken")
   private String clientToken = null;
 
+  @SerializedName("DryRun")
+  private Boolean dryRun = null;
+
   @SerializedName("InstanceId")
   private String instanceId = null;
 
@@ -54,6 +57,24 @@ public class ModifyInstanceSpecRequest {
 
   public void setClientToken(String clientToken) {
     this.clientToken = clientToken;
+  }
+
+  public ModifyInstanceSpecRequest dryRun(Boolean dryRun) {
+    this.dryRun = dryRun;
+    return this;
+  }
+
+   /**
+   * Get dryRun
+   * @return dryRun
+  **/
+  @Schema(description = "")
+  public Boolean isDryRun() {
+    return dryRun;
+  }
+
+  public void setDryRun(Boolean dryRun) {
+    this.dryRun = dryRun;
   }
 
   public ModifyInstanceSpecRequest instanceId(String instanceId) {
@@ -103,13 +124,14 @@ public class ModifyInstanceSpecRequest {
     }
     ModifyInstanceSpecRequest modifyInstanceSpecRequest = (ModifyInstanceSpecRequest) o;
     return Objects.equals(this.clientToken, modifyInstanceSpecRequest.clientToken) &&
+        Objects.equals(this.dryRun, modifyInstanceSpecRequest.dryRun) &&
         Objects.equals(this.instanceId, modifyInstanceSpecRequest.instanceId) &&
         Objects.equals(this.instanceType, modifyInstanceSpecRequest.instanceType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, instanceId, instanceType);
+    return Objects.hash(clientToken, dryRun, instanceId, instanceType);
   }
 
 
@@ -119,6 +141,7 @@ public class ModifyInstanceSpecRequest {
     sb.append("class ModifyInstanceSpecRequest {\n");
     
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
+    sb.append("    dryRun: ").append(toIndentedString(dryRun)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("}");

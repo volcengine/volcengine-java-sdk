@@ -44,6 +44,9 @@ public class UploadCertificateRequest {
   @SerializedName("PublicKey")
   private String publicKey = null;
 
+  @SerializedName("TagFilters")
+  private String tagFilters = null;
+
   public UploadCertificateRequest certificateName(String certificateName) {
     this.certificateName = certificateName;
     return this;
@@ -136,6 +139,24 @@ public class UploadCertificateRequest {
     this.publicKey = publicKey;
   }
 
+  public UploadCertificateRequest tagFilters(String tagFilters) {
+    this.tagFilters = tagFilters;
+    return this;
+  }
+
+   /**
+   * Get tagFilters
+   * @return tagFilters
+  **/
+  @Schema(description = "")
+  public String getTagFilters() {
+    return tagFilters;
+  }
+
+  public void setTagFilters(String tagFilters) {
+    this.tagFilters = tagFilters;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -150,12 +171,13 @@ public class UploadCertificateRequest {
         Objects.equals(this.description, uploadCertificateRequest.description) &&
         Objects.equals(this.privateKey, uploadCertificateRequest.privateKey) &&
         Objects.equals(this.projectName, uploadCertificateRequest.projectName) &&
-        Objects.equals(this.publicKey, uploadCertificateRequest.publicKey);
+        Objects.equals(this.publicKey, uploadCertificateRequest.publicKey) &&
+        Objects.equals(this.tagFilters, uploadCertificateRequest.tagFilters);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(certificateName, description, privateKey, projectName, publicKey);
+    return Objects.hash(certificateName, description, privateKey, projectName, publicKey, tagFilters);
   }
 
 
@@ -169,6 +191,7 @@ public class UploadCertificateRequest {
     sb.append("    privateKey: ").append(toIndentedString(privateKey)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    publicKey: ").append(toIndentedString(publicKey)).append("\n");
+    sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("}");
     return sb.toString();
   }

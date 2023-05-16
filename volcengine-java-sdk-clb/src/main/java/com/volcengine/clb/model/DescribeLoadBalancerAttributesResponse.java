@@ -127,6 +127,9 @@ public class DescribeLoadBalancerAttributesResponse {
   @SerializedName("ServerGroups")
   private List<ServerGroupForDescribeLoadBalancerAttributesOutput> serverGroups = null;
 
+  @SerializedName("ServiceManaged")
+  private Boolean serviceManaged = null;
+
   @SerializedName("SlaveZoneId")
   private String slaveZoneId = null;
 
@@ -709,6 +712,24 @@ public class DescribeLoadBalancerAttributesResponse {
     this.serverGroups = serverGroups;
   }
 
+  public DescribeLoadBalancerAttributesResponse serviceManaged(Boolean serviceManaged) {
+    this.serviceManaged = serviceManaged;
+    return this;
+  }
+
+   /**
+   * Get serviceManaged
+   * @return serviceManaged
+  **/
+  @Schema(description = "")
+  public Boolean isServiceManaged() {
+    return serviceManaged;
+  }
+
+  public void setServiceManaged(Boolean serviceManaged) {
+    this.serviceManaged = serviceManaged;
+  }
+
   public DescribeLoadBalancerAttributesResponse slaveZoneId(String slaveZoneId) {
     this.slaveZoneId = slaveZoneId;
     return this;
@@ -884,6 +905,7 @@ public class DescribeLoadBalancerAttributesResponse {
         Objects.equals(this.projectName, describeLoadBalancerAttributesResponse.projectName) &&
         Objects.equals(this.requestId, describeLoadBalancerAttributesResponse.requestId) &&
         Objects.equals(this.serverGroups, describeLoadBalancerAttributesResponse.serverGroups) &&
+        Objects.equals(this.serviceManaged, describeLoadBalancerAttributesResponse.serviceManaged) &&
         Objects.equals(this.slaveZoneId, describeLoadBalancerAttributesResponse.slaveZoneId) &&
         Objects.equals(this.status, describeLoadBalancerAttributesResponse.status) &&
         Objects.equals(this.subnetId, describeLoadBalancerAttributesResponse.subnetId) &&
@@ -895,7 +917,7 @@ public class DescribeLoadBalancerAttributesResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessLog, addressIpVersion, businessStatus, createTime, deletedTime, description, eip, eipAddress, eipID, enabled, eniAddress, eniID, eniIpv6Address, expiredTime, ipv6AddressBandwidth, ipv6EipId, listeners, loadBalancerBillingType, loadBalancerId, loadBalancerName, loadBalancerSpec, lockReason, logTopicId, masterZoneId, modificationProtectionReason, modificationProtectionStatus, overdueTime, projectName, requestId, serverGroups, slaveZoneId, status, subnetId, tags, type, updateTime, vpcId);
+    return Objects.hash(accessLog, addressIpVersion, businessStatus, createTime, deletedTime, description, eip, eipAddress, eipID, enabled, eniAddress, eniID, eniIpv6Address, expiredTime, ipv6AddressBandwidth, ipv6EipId, listeners, loadBalancerBillingType, loadBalancerId, loadBalancerName, loadBalancerSpec, lockReason, logTopicId, masterZoneId, modificationProtectionReason, modificationProtectionStatus, overdueTime, projectName, requestId, serverGroups, serviceManaged, slaveZoneId, status, subnetId, tags, type, updateTime, vpcId);
   }
 
 
@@ -934,6 +956,7 @@ public class DescribeLoadBalancerAttributesResponse {
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    serverGroups: ").append(toIndentedString(serverGroups)).append("\n");
+    sb.append("    serviceManaged: ").append(toIndentedString(serviceManaged)).append("\n");
     sb.append("    slaveZoneId: ").append(toIndentedString(slaveZoneId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");

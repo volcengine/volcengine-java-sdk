@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.ecs.model.TagForDescribeImagesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -76,6 +79,9 @@ public class ImageForDescribeImagesOutput {
 
   @SerializedName("Status")
   private String status = null;
+
+  @SerializedName("Tags")
+  private List<TagForDescribeImagesOutput> tags = null;
 
   @SerializedName("UpdatedAt")
   private String updatedAt = null;
@@ -374,6 +380,33 @@ public class ImageForDescribeImagesOutput {
     this.status = status;
   }
 
+  public ImageForDescribeImagesOutput tags(List<TagForDescribeImagesOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public ImageForDescribeImagesOutput addTagsItem(TagForDescribeImagesOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForDescribeImagesOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForDescribeImagesOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForDescribeImagesOutput> tags) {
+    this.tags = tags;
+  }
+
   public ImageForDescribeImagesOutput updatedAt(String updatedAt) {
     this.updatedAt = updatedAt;
     return this;
@@ -454,6 +487,7 @@ public class ImageForDescribeImagesOutput {
         Objects.equals(this.shareStatus, imageForDescribeImagesOutput.shareStatus) &&
         Objects.equals(this.size, imageForDescribeImagesOutput.size) &&
         Objects.equals(this.status, imageForDescribeImagesOutput.status) &&
+        Objects.equals(this.tags, imageForDescribeImagesOutput.tags) &&
         Objects.equals(this.updatedAt, imageForDescribeImagesOutput.updatedAt) &&
         Objects.equals(this.virtualSize, imageForDescribeImagesOutput.virtualSize) &&
         Objects.equals(this.visibility, imageForDescribeImagesOutput.visibility);
@@ -461,7 +495,7 @@ public class ImageForDescribeImagesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(architecture, bootMode, createdAt, description, imageId, imageName, imageOwnerId, isSupportCloudInit, osName, osType, platform, platformVersion, projectName, shareStatus, size, status, updatedAt, virtualSize, visibility);
+    return Objects.hash(architecture, bootMode, createdAt, description, imageId, imageName, imageOwnerId, isSupportCloudInit, osName, osType, platform, platformVersion, projectName, shareStatus, size, status, tags, updatedAt, virtualSize, visibility);
   }
 
 
@@ -486,6 +520,7 @@ public class ImageForDescribeImagesOutput {
     sb.append("    shareStatus: ").append(toIndentedString(shareStatus)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    virtualSize: ").append(toIndentedString(virtualSize)).append("\n");
     sb.append("    visibility: ").append(toIndentedString(visibility)).append("\n");

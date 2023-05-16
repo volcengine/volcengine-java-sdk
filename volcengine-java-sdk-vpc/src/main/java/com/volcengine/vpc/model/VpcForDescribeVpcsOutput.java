@@ -51,6 +51,9 @@ public class VpcForDescribeVpcsOutput {
   @SerializedName("DnsServers")
   private List<String> dnsServers = null;
 
+  @SerializedName("IsDefault")
+  private Boolean isDefault = null;
+
   @SerializedName("NatGatewayIds")
   private List<String> natGatewayIds = null;
 
@@ -210,6 +213,24 @@ public class VpcForDescribeVpcsOutput {
 
   public void setDnsServers(List<String> dnsServers) {
     this.dnsServers = dnsServers;
+  }
+
+  public VpcForDescribeVpcsOutput isDefault(Boolean isDefault) {
+    this.isDefault = isDefault;
+    return this;
+  }
+
+   /**
+   * Get isDefault
+   * @return isDefault
+  **/
+  @Schema(description = "")
+  public Boolean isIsDefault() {
+    return isDefault;
+  }
+
+  public void setIsDefault(Boolean isDefault) {
+    this.isDefault = isDefault;
   }
 
   public VpcForDescribeVpcsOutput natGatewayIds(List<String> natGatewayIds) {
@@ -493,6 +514,7 @@ public class VpcForDescribeVpcsOutput {
         Objects.equals(this.creationTime, vpcForDescribeVpcsOutput.creationTime) &&
         Objects.equals(this.description, vpcForDescribeVpcsOutput.description) &&
         Objects.equals(this.dnsServers, vpcForDescribeVpcsOutput.dnsServers) &&
+        Objects.equals(this.isDefault, vpcForDescribeVpcsOutput.isDefault) &&
         Objects.equals(this.natGatewayIds, vpcForDescribeVpcsOutput.natGatewayIds) &&
         Objects.equals(this.networkAclNum, vpcForDescribeVpcsOutput.networkAclNum) &&
         Objects.equals(this.projectName, vpcForDescribeVpcsOutput.projectName) &&
@@ -509,7 +531,7 @@ public class VpcForDescribeVpcsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, associateCens, cidrBlock, creationTime, description, dnsServers, natGatewayIds, networkAclNum, projectName, routeTableIds, securityGroupIds, status, subnetIds, tags, updateTime, userCidrBlocks, vpcId, vpcName);
+    return Objects.hash(accountId, associateCens, cidrBlock, creationTime, description, dnsServers, isDefault, natGatewayIds, networkAclNum, projectName, routeTableIds, securityGroupIds, status, subnetIds, tags, updateTime, userCidrBlocks, vpcId, vpcName);
   }
 
 
@@ -524,6 +546,7 @@ public class VpcForDescribeVpcsOutput {
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    dnsServers: ").append(toIndentedString(dnsServers)).append("\n");
+    sb.append("    isDefault: ").append(toIndentedString(isDefault)).append("\n");
     sb.append("    natGatewayIds: ").append(toIndentedString(natGatewayIds)).append("\n");
     sb.append("    networkAclNum: ").append(toIndentedString(networkAclNum)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");

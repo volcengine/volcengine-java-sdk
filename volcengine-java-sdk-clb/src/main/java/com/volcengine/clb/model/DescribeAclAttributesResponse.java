@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.clb.model.AclEntryForDescribeAclAttributesOutput;
 import com.volcengine.clb.model.ListenerForDescribeAclAttributesOutput;
+import com.volcengine.clb.model.TagForDescribeAclAttributesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -57,8 +58,14 @@ public class DescribeAclAttributesResponse {
   @SerializedName("RequestId")
   private String requestId = null;
 
+  @SerializedName("ServiceManaged")
+  private Boolean serviceManaged = null;
+
   @SerializedName("Status")
   private String status = null;
+
+  @SerializedName("Tags")
+  private List<TagForDescribeAclAttributesOutput> tags = null;
 
   @SerializedName("UpdateTime")
   private String updateTime = null;
@@ -225,6 +232,24 @@ public class DescribeAclAttributesResponse {
     this.requestId = requestId;
   }
 
+  public DescribeAclAttributesResponse serviceManaged(Boolean serviceManaged) {
+    this.serviceManaged = serviceManaged;
+    return this;
+  }
+
+   /**
+   * Get serviceManaged
+   * @return serviceManaged
+  **/
+  @Schema(description = "")
+  public Boolean isServiceManaged() {
+    return serviceManaged;
+  }
+
+  public void setServiceManaged(Boolean serviceManaged) {
+    this.serviceManaged = serviceManaged;
+  }
+
   public DescribeAclAttributesResponse status(String status) {
     this.status = status;
     return this;
@@ -241,6 +266,33 @@ public class DescribeAclAttributesResponse {
 
   public void setStatus(String status) {
     this.status = status;
+  }
+
+  public DescribeAclAttributesResponse tags(List<TagForDescribeAclAttributesOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public DescribeAclAttributesResponse addTagsItem(TagForDescribeAclAttributesOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForDescribeAclAttributesOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForDescribeAclAttributesOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForDescribeAclAttributesOutput> tags) {
+    this.tags = tags;
   }
 
   public DescribeAclAttributesResponse updateTime(String updateTime) {
@@ -279,13 +331,15 @@ public class DescribeAclAttributesResponse {
         Objects.equals(this.listeners, describeAclAttributesResponse.listeners) &&
         Objects.equals(this.projectName, describeAclAttributesResponse.projectName) &&
         Objects.equals(this.requestId, describeAclAttributesResponse.requestId) &&
+        Objects.equals(this.serviceManaged, describeAclAttributesResponse.serviceManaged) &&
         Objects.equals(this.status, describeAclAttributesResponse.status) &&
+        Objects.equals(this.tags, describeAclAttributesResponse.tags) &&
         Objects.equals(this.updateTime, describeAclAttributesResponse.updateTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclEntries, aclId, aclName, createTime, description, listeners, projectName, requestId, status, updateTime);
+    return Objects.hash(aclEntries, aclId, aclName, createTime, description, listeners, projectName, requestId, serviceManaged, status, tags, updateTime);
   }
 
 
@@ -302,7 +356,9 @@ public class DescribeAclAttributesResponse {
     sb.append("    listeners: ").append(toIndentedString(listeners)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
+    sb.append("    serviceManaged: ").append(toIndentedString(serviceManaged)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("}");
     return sb.toString();

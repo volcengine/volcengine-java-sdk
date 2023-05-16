@@ -32,6 +32,9 @@ import javax.validation.Valid;
 
 
 public class DescribeVpcsRequest {
+  @SerializedName("IsDefault")
+  private Boolean isDefault = null;
+
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
 
@@ -49,6 +52,24 @@ public class DescribeVpcsRequest {
 
   @SerializedName("VpcName")
   private String vpcName = null;
+
+  public DescribeVpcsRequest isDefault(Boolean isDefault) {
+    this.isDefault = isDefault;
+    return this;
+  }
+
+   /**
+   * Get isDefault
+   * @return isDefault
+  **/
+  @Schema(description = "")
+  public Boolean isIsDefault() {
+    return isDefault;
+  }
+
+  public void setIsDefault(Boolean isDefault) {
+    this.isDefault = isDefault;
+  }
 
   public DescribeVpcsRequest pageNumber(Integer pageNumber) {
     this.pageNumber = pageNumber;
@@ -186,7 +207,8 @@ public class DescribeVpcsRequest {
       return false;
     }
     DescribeVpcsRequest describeVpcsRequest = (DescribeVpcsRequest) o;
-    return Objects.equals(this.pageNumber, describeVpcsRequest.pageNumber) &&
+    return Objects.equals(this.isDefault, describeVpcsRequest.isDefault) &&
+        Objects.equals(this.pageNumber, describeVpcsRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeVpcsRequest.pageSize) &&
         Objects.equals(this.projectName, describeVpcsRequest.projectName) &&
         Objects.equals(this.tagFilters, describeVpcsRequest.tagFilters) &&
@@ -196,7 +218,7 @@ public class DescribeVpcsRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(pageNumber, pageSize, projectName, tagFilters, vpcIds, vpcName);
+    return Objects.hash(isDefault, pageNumber, pageSize, projectName, tagFilters, vpcIds, vpcName);
   }
 
 
@@ -205,6 +227,7 @@ public class DescribeVpcsRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeVpcsRequest {\n");
     
+    sb.append("    isDefault: ").append(toIndentedString(isDefault)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
