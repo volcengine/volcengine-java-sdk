@@ -117,7 +117,7 @@ public class VkeApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/CreateAddon/2022-05-12/vke/post/";
+        String localVarPath = "/CreateAddon/2022-05-12/vke/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -133,7 +133,7 @@ public class VkeApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "text/plain"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -241,7 +241,7 @@ public class VkeApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/CreateCluster/2022-05-12/vke/post/";
+        String localVarPath = "/CreateCluster/2022-05-12/vke/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -257,7 +257,7 @@ public class VkeApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "text/plain"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -365,7 +365,7 @@ public class VkeApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/CreateDefaultNodePool/2022-05-12/vke/post/";
+        String localVarPath = "/CreateDefaultNodePool/2022-05-12/vke/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -381,7 +381,7 @@ public class VkeApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "text/plain"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -489,7 +489,7 @@ public class VkeApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/CreateKubeconfig/2022-05-12/vke/post/";
+        String localVarPath = "/CreateKubeconfig/2022-05-12/vke/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -505,7 +505,7 @@ public class VkeApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "text/plain"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -613,7 +613,7 @@ public class VkeApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/CreateNodePool/2022-05-12/vke/post/";
+        String localVarPath = "/CreateNodePool/2022-05-12/vke/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -629,7 +629,7 @@ public class VkeApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "text/plain"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -737,7 +737,7 @@ public class VkeApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/CreateNodes/2022-05-12/vke/post/";
+        String localVarPath = "/CreateNodes/2022-05-12/vke/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -753,7 +753,7 @@ public class VkeApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "text/plain"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -861,7 +861,7 @@ public class VkeApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteAddon/2022-05-12/vke/post/";
+        String localVarPath = "/DeleteAddon/2022-05-12/vke/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -877,7 +877,7 @@ public class VkeApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "text/plain"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -985,7 +985,7 @@ public class VkeApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteCluster/2022-05-12/vke/post/";
+        String localVarPath = "/DeleteCluster/2022-05-12/vke/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1001,7 +1001,7 @@ public class VkeApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "text/plain"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1109,7 +1109,7 @@ public class VkeApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteKubeconfigs/2022-05-12/vke/post/";
+        String localVarPath = "/DeleteKubeconfigs/2022-05-12/vke/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1125,7 +1125,7 @@ public class VkeApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "text/plain"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1233,7 +1233,7 @@ public class VkeApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteNodePool/2022-05-12/vke/post/";
+        String localVarPath = "/DeleteNodePool/2022-05-12/vke/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1249,7 +1249,7 @@ public class VkeApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "text/plain"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1357,7 +1357,7 @@ public class VkeApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteNodes/2022-05-12/vke/post/";
+        String localVarPath = "/DeleteNodes/2022-05-12/vke/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1373,7 +1373,7 @@ public class VkeApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "text/plain"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1481,7 +1481,7 @@ public class VkeApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ForwardKubernetesApi/2022-05-12/vke/post/";
+        String localVarPath = "/ForwardKubernetesApi/2022-05-12/vke/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1497,7 +1497,7 @@ public class VkeApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "text/plain"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1605,7 +1605,7 @@ public class VkeApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ListAddons/2022-05-12/vke/post/";
+        String localVarPath = "/ListAddons/2022-05-12/vke/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1621,7 +1621,7 @@ public class VkeApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "text/plain"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1729,7 +1729,7 @@ public class VkeApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ListClusters/2022-05-12/vke/post/";
+        String localVarPath = "/ListClusters/2022-05-12/vke/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1745,7 +1745,7 @@ public class VkeApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "text/plain"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1853,7 +1853,7 @@ public class VkeApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ListKubeconfigs/2022-05-12/vke/post/";
+        String localVarPath = "/ListKubeconfigs/2022-05-12/vke/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1869,7 +1869,7 @@ public class VkeApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "text/plain"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1977,7 +1977,7 @@ public class VkeApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ListNodePools/2022-05-12/vke/post/";
+        String localVarPath = "/ListNodePools/2022-05-12/vke/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1993,7 +1993,7 @@ public class VkeApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "text/plain"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -2101,7 +2101,7 @@ public class VkeApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ListNodes/2022-05-12/vke/post/";
+        String localVarPath = "/ListNodes/2022-05-12/vke/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2117,7 +2117,7 @@ public class VkeApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "text/plain"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -2225,7 +2225,7 @@ public class VkeApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ListSupportedAddons/2022-05-12/vke/post/";
+        String localVarPath = "/ListSupportedAddons/2022-05-12/vke/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2241,7 +2241,7 @@ public class VkeApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "text/plain"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -2349,7 +2349,7 @@ public class VkeApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ListSupportedResourceTypes/2022-05-12/vke/post/";
+        String localVarPath = "/ListSupportedResourceTypes/2022-05-12/vke/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2365,7 +2365,7 @@ public class VkeApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "text/plain"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -2473,7 +2473,7 @@ public class VkeApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ListTagsForResources/2022-05-12/vke/post/";
+        String localVarPath = "/ListTagsForResources/2022-05-12/vke/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2489,7 +2489,7 @@ public class VkeApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "text/plain"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -2597,7 +2597,7 @@ public class VkeApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/TagResources/2022-05-12/vke/post/";
+        String localVarPath = "/TagResources/2022-05-12/vke/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2613,7 +2613,7 @@ public class VkeApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "text/plain"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -2721,7 +2721,7 @@ public class VkeApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/UntagResources/2022-05-12/vke/post/";
+        String localVarPath = "/UntagResources/2022-05-12/vke/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2737,7 +2737,7 @@ public class VkeApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "text/plain"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -2845,7 +2845,7 @@ public class VkeApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/UpdateAddonConfig/2022-05-12/vke/post/";
+        String localVarPath = "/UpdateAddonConfig/2022-05-12/vke/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2861,7 +2861,7 @@ public class VkeApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "text/plain"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -2969,7 +2969,7 @@ public class VkeApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/UpdateAddonVersion/2022-05-12/vke/post/";
+        String localVarPath = "/UpdateAddonVersion/2022-05-12/vke/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2985,7 +2985,7 @@ public class VkeApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "text/plain"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -3093,7 +3093,7 @@ public class VkeApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/UpdateClusterConfig/2022-05-12/vke/post/";
+        String localVarPath = "/UpdateClusterConfig/2022-05-12/vke/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3109,7 +3109,7 @@ public class VkeApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "text/plain"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -3217,7 +3217,7 @@ public class VkeApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/UpdateNodePoolConfig/2022-05-12/vke/post/";
+        String localVarPath = "/UpdateNodePoolConfig/2022-05-12/vke/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3233,7 +3233,7 @@ public class VkeApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "text/plain"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
