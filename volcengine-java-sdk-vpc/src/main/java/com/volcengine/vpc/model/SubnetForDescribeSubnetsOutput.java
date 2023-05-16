@@ -45,6 +45,9 @@ public class SubnetForDescribeSubnetsOutput {
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("IsDefault")
+  private Boolean isDefault = null;
+
   @SerializedName("NetworkAclId")
   private String networkAclId = null;
 
@@ -163,6 +166,24 @@ public class SubnetForDescribeSubnetsOutput {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public SubnetForDescribeSubnetsOutput isDefault(Boolean isDefault) {
+    this.isDefault = isDefault;
+    return this;
+  }
+
+   /**
+   * Get isDefault
+   * @return isDefault
+  **/
+  @Schema(description = "")
+  public Boolean isIsDefault() {
+    return isDefault;
+  }
+
+  public void setIsDefault(Boolean isDefault) {
+    this.isDefault = isDefault;
   }
 
   public SubnetForDescribeSubnetsOutput networkAclId(String networkAclId) {
@@ -361,6 +382,7 @@ public class SubnetForDescribeSubnetsOutput {
         Objects.equals(this.cidrBlock, subnetForDescribeSubnetsOutput.cidrBlock) &&
         Objects.equals(this.creationTime, subnetForDescribeSubnetsOutput.creationTime) &&
         Objects.equals(this.description, subnetForDescribeSubnetsOutput.description) &&
+        Objects.equals(this.isDefault, subnetForDescribeSubnetsOutput.isDefault) &&
         Objects.equals(this.networkAclId, subnetForDescribeSubnetsOutput.networkAclId) &&
         Objects.equals(this.projectName, subnetForDescribeSubnetsOutput.projectName) &&
         Objects.equals(this.routeTable, subnetForDescribeSubnetsOutput.routeTable) &&
@@ -375,7 +397,7 @@ public class SubnetForDescribeSubnetsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, availableIpAddressCount, cidrBlock, creationTime, description, networkAclId, projectName, routeTable, status, subnetId, subnetName, totalIpv4Count, updateTime, vpcId, zoneId);
+    return Objects.hash(accountId, availableIpAddressCount, cidrBlock, creationTime, description, isDefault, networkAclId, projectName, routeTable, status, subnetId, subnetName, totalIpv4Count, updateTime, vpcId, zoneId);
   }
 
 
@@ -389,6 +411,7 @@ public class SubnetForDescribeSubnetsOutput {
     sb.append("    cidrBlock: ").append(toIndentedString(cidrBlock)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    isDefault: ").append(toIndentedString(isDefault)).append("\n");
     sb.append("    networkAclId: ").append(toIndentedString(networkAclId)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    routeTable: ").append(toIndentedString(routeTable)).append("\n");

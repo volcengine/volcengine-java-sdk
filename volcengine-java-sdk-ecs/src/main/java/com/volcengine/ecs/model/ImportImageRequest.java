@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.ecs.model.TagForImportImageInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -52,6 +55,9 @@ public class ImportImageRequest {
 
   @SerializedName("ProjectName")
   private String projectName = null;
+
+  @SerializedName("Tags")
+  private List<TagForImportImageInput> tags = null;
 
   @SerializedName("Url")
   private String url = null;
@@ -200,6 +206,33 @@ public class ImportImageRequest {
     this.projectName = projectName;
   }
 
+  public ImportImageRequest tags(List<TagForImportImageInput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public ImportImageRequest addTagsItem(TagForImportImageInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForImportImageInput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForImportImageInput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForImportImageInput> tags) {
+    this.tags = tags;
+  }
+
   public ImportImageRequest url(String url) {
     this.url = url;
     return this;
@@ -236,12 +269,13 @@ public class ImportImageRequest {
         Objects.equals(this.platform, importImageRequest.platform) &&
         Objects.equals(this.platformVersion, importImageRequest.platformVersion) &&
         Objects.equals(this.projectName, importImageRequest.projectName) &&
+        Objects.equals(this.tags, importImageRequest.tags) &&
         Objects.equals(this.url, importImageRequest.url);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(architecture, bootMode, description, imageName, osType, platform, platformVersion, projectName, url);
+    return Objects.hash(architecture, bootMode, description, imageName, osType, platform, platformVersion, projectName, tags, url);
   }
 
 
@@ -258,6 +292,7 @@ public class ImportImageRequest {
     sb.append("    platform: ").append(toIndentedString(platform)).append("\n");
     sb.append("    platformVersion: ").append(toIndentedString(platformVersion)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("}");
     return sb.toString();

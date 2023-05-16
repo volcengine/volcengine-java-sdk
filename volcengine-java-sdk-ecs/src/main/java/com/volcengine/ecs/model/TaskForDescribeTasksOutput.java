@@ -99,7 +99,9 @@ public class TaskForDescribeTasksOutput {
     UNKNOWNTYPE("UnknownType"),
     EXPORTIMAGE("ExportImage"),
     COPYIMAGE("CopyImage"),
-    PREHEATIMAGE("PreheatImage");
+    PREHEATIMAGE("PreheatImage"),
+    IMPORTIMAGE("ImportImage"),
+    CREATEIMAGE("CreateImage");
 
     private String value;
 

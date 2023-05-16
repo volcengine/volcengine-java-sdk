@@ -49,6 +49,9 @@ public class DescribeKeyPairsRequest {
   @SerializedName("NextToken")
   private String nextToken = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   public DescribeKeyPairsRequest fingerPrint(String fingerPrint) {
     this.fingerPrint = fingerPrint;
     return this;
@@ -173,6 +176,24 @@ public class DescribeKeyPairsRequest {
     this.nextToken = nextToken;
   }
 
+  public DescribeKeyPairsRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -188,12 +209,13 @@ public class DescribeKeyPairsRequest {
         Objects.equals(this.keyPairName, describeKeyPairsRequest.keyPairName) &&
         Objects.equals(this.keyPairNames, describeKeyPairsRequest.keyPairNames) &&
         Objects.equals(this.maxResults, describeKeyPairsRequest.maxResults) &&
-        Objects.equals(this.nextToken, describeKeyPairsRequest.nextToken);
+        Objects.equals(this.nextToken, describeKeyPairsRequest.nextToken) &&
+        Objects.equals(this.projectName, describeKeyPairsRequest.projectName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fingerPrint, keyPairIds, keyPairName, keyPairNames, maxResults, nextToken);
+    return Objects.hash(fingerPrint, keyPairIds, keyPairName, keyPairNames, maxResults, nextToken, projectName);
   }
 
 
@@ -208,6 +230,7 @@ public class DescribeKeyPairsRequest {
     sb.append("    keyPairNames: ").append(toIndentedString(keyPairNames)).append("\n");
     sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
     sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

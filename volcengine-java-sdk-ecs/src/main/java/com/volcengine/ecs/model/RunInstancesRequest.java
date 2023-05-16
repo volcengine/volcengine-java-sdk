@@ -337,8 +337,7 @@ public class RunInstancesRequest {
    * Get imageId
    * @return imageId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getImageId() {
     return imageId;
   }
@@ -392,8 +391,7 @@ public class RunInstancesRequest {
    * Get instanceType
    * @return instanceType
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getInstanceType() {
     return instanceType;
   }
@@ -726,8 +724,7 @@ public class RunInstancesRequest {
    * Get zoneId
    * @return zoneId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getZoneId() {
     return zoneId;
   }
