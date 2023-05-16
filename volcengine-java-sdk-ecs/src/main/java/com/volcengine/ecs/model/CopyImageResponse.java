@@ -24,51 +24,51 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DeleteDeploymentSetRequest
+ * CopyImageResponse
  */
 
 
-public class DeleteDeploymentSetRequest {
-  @SerializedName("ClientToken")
-  private String clientToken = null;
+public class CopyImageResponse {
+  @SerializedName("ImageId")
+  private String imageId = null;
 
-  @SerializedName("DeploymentSetId")
-  private String deploymentSetId = null;
+  @SerializedName("TaskId")
+  private String taskId = null;
 
-  public DeleteDeploymentSetRequest clientToken(String clientToken) {
-    this.clientToken = clientToken;
+  public CopyImageResponse imageId(String imageId) {
+    this.imageId = imageId;
     return this;
   }
 
    /**
-   * Get clientToken
-   * @return clientToken
+   * Get imageId
+   * @return imageId
   **/
   @Schema(description = "")
-  public String getClientToken() {
-    return clientToken;
+  public String getImageId() {
+    return imageId;
   }
 
-  public void setClientToken(String clientToken) {
-    this.clientToken = clientToken;
+  public void setImageId(String imageId) {
+    this.imageId = imageId;
   }
 
-  public DeleteDeploymentSetRequest deploymentSetId(String deploymentSetId) {
-    this.deploymentSetId = deploymentSetId;
+  public CopyImageResponse taskId(String taskId) {
+    this.taskId = taskId;
     return this;
   }
 
    /**
-   * Get deploymentSetId
-   * @return deploymentSetId
+   * Get taskId
+   * @return taskId
   **/
   @Schema(description = "")
-  public String getDeploymentSetId() {
-    return deploymentSetId;
+  public String getTaskId() {
+    return taskId;
   }
 
-  public void setDeploymentSetId(String deploymentSetId) {
-    this.deploymentSetId = deploymentSetId;
+  public void setTaskId(String taskId) {
+    this.taskId = taskId;
   }
 
 
@@ -80,24 +80,24 @@ public class DeleteDeploymentSetRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeleteDeploymentSetRequest deleteDeploymentSetRequest = (DeleteDeploymentSetRequest) o;
-    return Objects.equals(this.clientToken, deleteDeploymentSetRequest.clientToken) &&
-        Objects.equals(this.deploymentSetId, deleteDeploymentSetRequest.deploymentSetId);
+    CopyImageResponse copyImageResponse = (CopyImageResponse) o;
+    return Objects.equals(this.imageId, copyImageResponse.imageId) &&
+        Objects.equals(this.taskId, copyImageResponse.taskId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, deploymentSetId);
+    return Objects.hash(imageId, taskId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeleteDeploymentSetRequest {\n");
+    sb.append("class CopyImageResponse {\n");
     
-    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
-    sb.append("    deploymentSetId: ").append(toIndentedString(deploymentSetId)).append("\n");
+    sb.append("    imageId: ").append(toIndentedString(imageId)).append("\n");
+    sb.append("    taskId: ").append(toIndentedString(taskId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

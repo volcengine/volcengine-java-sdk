@@ -44,9 +44,6 @@ public class CreateSecurityGroupRequest {
   @SerializedName("SecurityGroupName")
   private String securityGroupName = null;
 
-  @SerializedName("ServiceManaged")
-  private Boolean serviceManaged = null;
-
   @SerializedName("Tags")
   private List<TagForCreateSecurityGroupInput> tags = null;
 
@@ -125,24 +122,6 @@ public class CreateSecurityGroupRequest {
     this.securityGroupName = securityGroupName;
   }
 
-  public CreateSecurityGroupRequest serviceManaged(Boolean serviceManaged) {
-    this.serviceManaged = serviceManaged;
-    return this;
-  }
-
-   /**
-   * Get serviceManaged
-   * @return serviceManaged
-  **/
-  @Schema(description = "")
-  public Boolean isServiceManaged() {
-    return serviceManaged;
-  }
-
-  public void setServiceManaged(Boolean serviceManaged) {
-    this.serviceManaged = serviceManaged;
-  }
-
   public CreateSecurityGroupRequest tags(List<TagForCreateSecurityGroupInput> tags) {
     this.tags = tags;
     return this;
@@ -203,14 +182,13 @@ public class CreateSecurityGroupRequest {
         Objects.equals(this.description, createSecurityGroupRequest.description) &&
         Objects.equals(this.projectName, createSecurityGroupRequest.projectName) &&
         Objects.equals(this.securityGroupName, createSecurityGroupRequest.securityGroupName) &&
-        Objects.equals(this.serviceManaged, createSecurityGroupRequest.serviceManaged) &&
         Objects.equals(this.tags, createSecurityGroupRequest.tags) &&
         Objects.equals(this.vpcId, createSecurityGroupRequest.vpcId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, description, projectName, securityGroupName, serviceManaged, tags, vpcId);
+    return Objects.hash(clientToken, description, projectName, securityGroupName, tags, vpcId);
   }
 
 
@@ -223,7 +201,6 @@ public class CreateSecurityGroupRequest {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    securityGroupName: ").append(toIndentedString(securityGroupName)).append("\n");
-    sb.append("    serviceManaged: ").append(toIndentedString(serviceManaged)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("}");

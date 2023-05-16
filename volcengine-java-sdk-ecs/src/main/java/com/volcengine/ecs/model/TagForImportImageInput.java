@@ -24,51 +24,51 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DeleteDeploymentSetRequest
+ * TagForImportImageInput
  */
 
 
-public class DeleteDeploymentSetRequest {
-  @SerializedName("ClientToken")
-  private String clientToken = null;
+public class TagForImportImageInput {
+  @SerializedName("Key")
+  private String key = null;
 
-  @SerializedName("DeploymentSetId")
-  private String deploymentSetId = null;
+  @SerializedName("Value")
+  private String value = null;
 
-  public DeleteDeploymentSetRequest clientToken(String clientToken) {
-    this.clientToken = clientToken;
+  public TagForImportImageInput key(String key) {
+    this.key = key;
     return this;
   }
 
    /**
-   * Get clientToken
-   * @return clientToken
+   * Get key
+   * @return key
   **/
   @Schema(description = "")
-  public String getClientToken() {
-    return clientToken;
+  public String getKey() {
+    return key;
   }
 
-  public void setClientToken(String clientToken) {
-    this.clientToken = clientToken;
+  public void setKey(String key) {
+    this.key = key;
   }
 
-  public DeleteDeploymentSetRequest deploymentSetId(String deploymentSetId) {
-    this.deploymentSetId = deploymentSetId;
+  public TagForImportImageInput value(String value) {
+    this.value = value;
     return this;
   }
 
    /**
-   * Get deploymentSetId
-   * @return deploymentSetId
+   * Get value
+   * @return value
   **/
   @Schema(description = "")
-  public String getDeploymentSetId() {
-    return deploymentSetId;
+  public String getValue() {
+    return value;
   }
 
-  public void setDeploymentSetId(String deploymentSetId) {
-    this.deploymentSetId = deploymentSetId;
+  public void setValue(String value) {
+    this.value = value;
   }
 
 
@@ -80,24 +80,24 @@ public class DeleteDeploymentSetRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeleteDeploymentSetRequest deleteDeploymentSetRequest = (DeleteDeploymentSetRequest) o;
-    return Objects.equals(this.clientToken, deleteDeploymentSetRequest.clientToken) &&
-        Objects.equals(this.deploymentSetId, deleteDeploymentSetRequest.deploymentSetId);
+    TagForImportImageInput tagForImportImageInput = (TagForImportImageInput) o;
+    return Objects.equals(this.key, tagForImportImageInput.key) &&
+        Objects.equals(this.value, tagForImportImageInput.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, deploymentSetId);
+    return Objects.hash(key, value);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeleteDeploymentSetRequest {\n");
+    sb.append("class TagForImportImageInput {\n");
     
-    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
-    sb.append("    deploymentSetId: ").append(toIndentedString(deploymentSetId)).append("\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
   }

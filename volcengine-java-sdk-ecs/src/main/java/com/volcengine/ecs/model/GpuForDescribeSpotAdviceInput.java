@@ -24,51 +24,51 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DeleteDeploymentSetRequest
+ * GpuForDescribeSpotAdviceInput
  */
 
 
-public class DeleteDeploymentSetRequest {
-  @SerializedName("ClientToken")
-  private String clientToken = null;
+public class GpuForDescribeSpotAdviceInput {
+  @SerializedName("Count")
+  private Integer count = null;
 
-  @SerializedName("DeploymentSetId")
-  private String deploymentSetId = null;
+  @SerializedName("ProductName")
+  private String productName = null;
 
-  public DeleteDeploymentSetRequest clientToken(String clientToken) {
-    this.clientToken = clientToken;
+  public GpuForDescribeSpotAdviceInput count(Integer count) {
+    this.count = count;
     return this;
   }
 
    /**
-   * Get clientToken
-   * @return clientToken
+   * Get count
+   * @return count
   **/
   @Schema(description = "")
-  public String getClientToken() {
-    return clientToken;
+  public Integer getCount() {
+    return count;
   }
 
-  public void setClientToken(String clientToken) {
-    this.clientToken = clientToken;
+  public void setCount(Integer count) {
+    this.count = count;
   }
 
-  public DeleteDeploymentSetRequest deploymentSetId(String deploymentSetId) {
-    this.deploymentSetId = deploymentSetId;
+  public GpuForDescribeSpotAdviceInput productName(String productName) {
+    this.productName = productName;
     return this;
   }
 
    /**
-   * Get deploymentSetId
-   * @return deploymentSetId
+   * Get productName
+   * @return productName
   **/
   @Schema(description = "")
-  public String getDeploymentSetId() {
-    return deploymentSetId;
+  public String getProductName() {
+    return productName;
   }
 
-  public void setDeploymentSetId(String deploymentSetId) {
-    this.deploymentSetId = deploymentSetId;
+  public void setProductName(String productName) {
+    this.productName = productName;
   }
 
 
@@ -80,24 +80,24 @@ public class DeleteDeploymentSetRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeleteDeploymentSetRequest deleteDeploymentSetRequest = (DeleteDeploymentSetRequest) o;
-    return Objects.equals(this.clientToken, deleteDeploymentSetRequest.clientToken) &&
-        Objects.equals(this.deploymentSetId, deleteDeploymentSetRequest.deploymentSetId);
+    GpuForDescribeSpotAdviceInput gpuForDescribeSpotAdviceInput = (GpuForDescribeSpotAdviceInput) o;
+    return Objects.equals(this.count, gpuForDescribeSpotAdviceInput.count) &&
+        Objects.equals(this.productName, gpuForDescribeSpotAdviceInput.productName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, deploymentSetId);
+    return Objects.hash(count, productName);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeleteDeploymentSetRequest {\n");
+    sb.append("class GpuForDescribeSpotAdviceInput {\n");
     
-    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
-    sb.append("    deploymentSetId: ").append(toIndentedString(deploymentSetId)).append("\n");
+    sb.append("    count: ").append(toIndentedString(count)).append("\n");
+    sb.append("    productName: ").append(toIndentedString(productName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

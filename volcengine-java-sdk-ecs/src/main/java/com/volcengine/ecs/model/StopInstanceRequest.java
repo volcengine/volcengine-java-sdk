@@ -32,6 +32,9 @@ public class StopInstanceRequest {
   @SerializedName("ClientToken")
   private String clientToken = null;
 
+  @SerializedName("DryRun")
+  private Boolean dryRun = null;
+
   @SerializedName("ForceStop")
   private Boolean forceStop = null;
 
@@ -57,6 +60,24 @@ public class StopInstanceRequest {
 
   public void setClientToken(String clientToken) {
     this.clientToken = clientToken;
+  }
+
+  public StopInstanceRequest dryRun(Boolean dryRun) {
+    this.dryRun = dryRun;
+    return this;
+  }
+
+   /**
+   * Get dryRun
+   * @return dryRun
+  **/
+  @Schema(description = "")
+  public Boolean isDryRun() {
+    return dryRun;
+  }
+
+  public void setDryRun(Boolean dryRun) {
+    this.dryRun = dryRun;
   }
 
   public StopInstanceRequest forceStop(Boolean forceStop) {
@@ -124,6 +145,7 @@ public class StopInstanceRequest {
     }
     StopInstanceRequest stopInstanceRequest = (StopInstanceRequest) o;
     return Objects.equals(this.clientToken, stopInstanceRequest.clientToken) &&
+        Objects.equals(this.dryRun, stopInstanceRequest.dryRun) &&
         Objects.equals(this.forceStop, stopInstanceRequest.forceStop) &&
         Objects.equals(this.instanceId, stopInstanceRequest.instanceId) &&
         Objects.equals(this.stoppedMode, stopInstanceRequest.stoppedMode);
@@ -131,7 +153,7 @@ public class StopInstanceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, forceStop, instanceId, stoppedMode);
+    return Objects.hash(clientToken, dryRun, forceStop, instanceId, stoppedMode);
   }
 
 
@@ -141,6 +163,7 @@ public class StopInstanceRequest {
     sb.append("class StopInstanceRequest {\n");
     
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
+    sb.append("    dryRun: ").append(toIndentedString(dryRun)).append("\n");
     sb.append("    forceStop: ").append(toIndentedString(forceStop)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    stoppedMode: ").append(toIndentedString(stoppedMode)).append("\n");

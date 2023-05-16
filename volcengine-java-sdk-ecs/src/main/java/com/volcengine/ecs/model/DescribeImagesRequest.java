@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.ecs.model.TagFilterForDescribeImagesInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -57,6 +58,9 @@ public class DescribeImagesRequest {
 
   @SerializedName("Status")
   private List<String> status = null;
+
+  @SerializedName("TagFilters")
+  private List<TagFilterForDescribeImagesInput> tagFilters = null;
 
   @SerializedName("Visibility")
   private String visibility = null;
@@ -239,6 +243,33 @@ public class DescribeImagesRequest {
     this.status = status;
   }
 
+  public DescribeImagesRequest tagFilters(List<TagFilterForDescribeImagesInput> tagFilters) {
+    this.tagFilters = tagFilters;
+    return this;
+  }
+
+  public DescribeImagesRequest addTagFiltersItem(TagFilterForDescribeImagesInput tagFiltersItem) {
+    if (this.tagFilters == null) {
+      this.tagFilters = new ArrayList<TagFilterForDescribeImagesInput>();
+    }
+    this.tagFilters.add(tagFiltersItem);
+    return this;
+  }
+
+   /**
+   * Get tagFilters
+   * @return tagFilters
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagFilterForDescribeImagesInput> getTagFilters() {
+    return tagFilters;
+  }
+
+  public void setTagFilters(List<TagFilterForDescribeImagesInput> tagFilters) {
+    this.tagFilters = tagFilters;
+  }
+
   public DescribeImagesRequest visibility(String visibility) {
     this.visibility = visibility;
     return this;
@@ -276,12 +307,13 @@ public class DescribeImagesRequest {
         Objects.equals(this.osType, describeImagesRequest.osType) &&
         Objects.equals(this.projectName, describeImagesRequest.projectName) &&
         Objects.equals(this.status, describeImagesRequest.status) &&
+        Objects.equals(this.tagFilters, describeImagesRequest.tagFilters) &&
         Objects.equals(this.visibility, describeImagesRequest.visibility);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(imageIds, imageStatus, instanceTypeId, isSupportCloudInit, maxResults, nextToken, osType, projectName, status, visibility);
+    return Objects.hash(imageIds, imageStatus, instanceTypeId, isSupportCloudInit, maxResults, nextToken, osType, projectName, status, tagFilters, visibility);
   }
 
 
@@ -299,6 +331,7 @@ public class DescribeImagesRequest {
     sb.append("    osType: ").append(toIndentedString(osType)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("    visibility: ").append(toIndentedString(visibility)).append("\n");
     sb.append("}");
     return sb.toString();

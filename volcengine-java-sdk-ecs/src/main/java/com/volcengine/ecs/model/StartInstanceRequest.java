@@ -32,6 +32,9 @@ public class StartInstanceRequest {
   @SerializedName("ClientToken")
   private String clientToken = null;
 
+  @SerializedName("DryRun")
+  private Boolean dryRun = null;
+
   @SerializedName("InstanceId")
   private String instanceId = null;
 
@@ -51,6 +54,24 @@ public class StartInstanceRequest {
 
   public void setClientToken(String clientToken) {
     this.clientToken = clientToken;
+  }
+
+  public StartInstanceRequest dryRun(Boolean dryRun) {
+    this.dryRun = dryRun;
+    return this;
+  }
+
+   /**
+   * Get dryRun
+   * @return dryRun
+  **/
+  @Schema(description = "")
+  public Boolean isDryRun() {
+    return dryRun;
+  }
+
+  public void setDryRun(Boolean dryRun) {
+    this.dryRun = dryRun;
   }
 
   public StartInstanceRequest instanceId(String instanceId) {
@@ -82,12 +103,13 @@ public class StartInstanceRequest {
     }
     StartInstanceRequest startInstanceRequest = (StartInstanceRequest) o;
     return Objects.equals(this.clientToken, startInstanceRequest.clientToken) &&
+        Objects.equals(this.dryRun, startInstanceRequest.dryRun) &&
         Objects.equals(this.instanceId, startInstanceRequest.instanceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, instanceId);
+    return Objects.hash(clientToken, dryRun, instanceId);
   }
 
 
@@ -97,6 +119,7 @@ public class StartInstanceRequest {
     sb.append("class StartInstanceRequest {\n");
     
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
+    sb.append("    dryRun: ").append(toIndentedString(dryRun)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("}");
     return sb.toString();
