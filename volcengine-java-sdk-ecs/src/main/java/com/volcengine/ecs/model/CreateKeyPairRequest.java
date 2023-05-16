@@ -38,6 +38,9 @@ public class CreateKeyPairRequest {
   @SerializedName("KeyPairName")
   private String keyPairName = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   public CreateKeyPairRequest clientToken(String clientToken) {
     this.clientToken = clientToken;
     return this;
@@ -83,14 +86,31 @@ public class CreateKeyPairRequest {
    * Get keyPairName
    * @return keyPairName
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getKeyPairName() {
     return keyPairName;
   }
 
   public void setKeyPairName(String keyPairName) {
     this.keyPairName = keyPairName;
+  }
+
+  public CreateKeyPairRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
   }
 
 
@@ -105,12 +125,13 @@ public class CreateKeyPairRequest {
     CreateKeyPairRequest createKeyPairRequest = (CreateKeyPairRequest) o;
     return Objects.equals(this.clientToken, createKeyPairRequest.clientToken) &&
         Objects.equals(this.description, createKeyPairRequest.description) &&
-        Objects.equals(this.keyPairName, createKeyPairRequest.keyPairName);
+        Objects.equals(this.keyPairName, createKeyPairRequest.keyPairName) &&
+        Objects.equals(this.projectName, createKeyPairRequest.projectName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, description, keyPairName);
+    return Objects.hash(clientToken, description, keyPairName, projectName);
   }
 
 
@@ -122,6 +143,7 @@ public class CreateKeyPairRequest {
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    keyPairName: ").append(toIndentedString(keyPairName)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

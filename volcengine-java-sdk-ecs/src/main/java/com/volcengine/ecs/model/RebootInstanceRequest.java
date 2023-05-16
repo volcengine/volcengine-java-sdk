@@ -32,6 +32,9 @@ public class RebootInstanceRequest {
   @SerializedName("ClientToken")
   private String clientToken = null;
 
+  @SerializedName("DryRun")
+  private Boolean dryRun = null;
+
   @SerializedName("ForceStop")
   private Boolean forceStop = null;
 
@@ -54,6 +57,24 @@ public class RebootInstanceRequest {
 
   public void setClientToken(String clientToken) {
     this.clientToken = clientToken;
+  }
+
+  public RebootInstanceRequest dryRun(Boolean dryRun) {
+    this.dryRun = dryRun;
+    return this;
+  }
+
+   /**
+   * Get dryRun
+   * @return dryRun
+  **/
+  @Schema(description = "")
+  public Boolean isDryRun() {
+    return dryRun;
+  }
+
+  public void setDryRun(Boolean dryRun) {
+    this.dryRun = dryRun;
   }
 
   public RebootInstanceRequest forceStop(Boolean forceStop) {
@@ -103,13 +124,14 @@ public class RebootInstanceRequest {
     }
     RebootInstanceRequest rebootInstanceRequest = (RebootInstanceRequest) o;
     return Objects.equals(this.clientToken, rebootInstanceRequest.clientToken) &&
+        Objects.equals(this.dryRun, rebootInstanceRequest.dryRun) &&
         Objects.equals(this.forceStop, rebootInstanceRequest.forceStop) &&
         Objects.equals(this.instanceId, rebootInstanceRequest.instanceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, forceStop, instanceId);
+    return Objects.hash(clientToken, dryRun, forceStop, instanceId);
   }
 
 
@@ -119,6 +141,7 @@ public class RebootInstanceRequest {
     sb.append("class RebootInstanceRequest {\n");
     
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
+    sb.append("    dryRun: ").append(toIndentedString(dryRun)).append("\n");
     sb.append("    forceStop: ").append(toIndentedString(forceStop)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("}");

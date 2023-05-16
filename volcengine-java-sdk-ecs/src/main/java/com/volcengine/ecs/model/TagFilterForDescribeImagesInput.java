@@ -21,54 +21,64 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DeleteDeploymentSetRequest
+ * TagFilterForDescribeImagesInput
  */
 
 
-public class DeleteDeploymentSetRequest {
-  @SerializedName("ClientToken")
-  private String clientToken = null;
+public class TagFilterForDescribeImagesInput {
+  @SerializedName("Key")
+  private String key = null;
 
-  @SerializedName("DeploymentSetId")
-  private String deploymentSetId = null;
+  @SerializedName("Values")
+  private List<String> values = null;
 
-  public DeleteDeploymentSetRequest clientToken(String clientToken) {
-    this.clientToken = clientToken;
+  public TagFilterForDescribeImagesInput key(String key) {
+    this.key = key;
     return this;
   }
 
    /**
-   * Get clientToken
-   * @return clientToken
+   * Get key
+   * @return key
   **/
   @Schema(description = "")
-  public String getClientToken() {
-    return clientToken;
+  public String getKey() {
+    return key;
   }
 
-  public void setClientToken(String clientToken) {
-    this.clientToken = clientToken;
+  public void setKey(String key) {
+    this.key = key;
   }
 
-  public DeleteDeploymentSetRequest deploymentSetId(String deploymentSetId) {
-    this.deploymentSetId = deploymentSetId;
+  public TagFilterForDescribeImagesInput values(List<String> values) {
+    this.values = values;
+    return this;
+  }
+
+  public TagFilterForDescribeImagesInput addValuesItem(String valuesItem) {
+    if (this.values == null) {
+      this.values = new ArrayList<String>();
+    }
+    this.values.add(valuesItem);
     return this;
   }
 
    /**
-   * Get deploymentSetId
-   * @return deploymentSetId
+   * Get values
+   * @return values
   **/
   @Schema(description = "")
-  public String getDeploymentSetId() {
-    return deploymentSetId;
+  public List<String> getValues() {
+    return values;
   }
 
-  public void setDeploymentSetId(String deploymentSetId) {
-    this.deploymentSetId = deploymentSetId;
+  public void setValues(List<String> values) {
+    this.values = values;
   }
 
 
@@ -80,24 +90,24 @@ public class DeleteDeploymentSetRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeleteDeploymentSetRequest deleteDeploymentSetRequest = (DeleteDeploymentSetRequest) o;
-    return Objects.equals(this.clientToken, deleteDeploymentSetRequest.clientToken) &&
-        Objects.equals(this.deploymentSetId, deleteDeploymentSetRequest.deploymentSetId);
+    TagFilterForDescribeImagesInput tagFilterForDescribeImagesInput = (TagFilterForDescribeImagesInput) o;
+    return Objects.equals(this.key, tagFilterForDescribeImagesInput.key) &&
+        Objects.equals(this.values, tagFilterForDescribeImagesInput.values);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, deploymentSetId);
+    return Objects.hash(key, values);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeleteDeploymentSetRequest {\n");
+    sb.append("class TagFilterForDescribeImagesInput {\n");
     
-    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
-    sb.append("    deploymentSetId: ").append(toIndentedString(deploymentSetId)).append("\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    values: ").append(toIndentedString(values)).append("\n");
     sb.append("}");
     return sb.toString();
   }

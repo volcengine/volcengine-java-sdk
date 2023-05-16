@@ -93,8 +93,7 @@ public class NetworkInterfaceForRunInstancesInput {
    * Get subnetId
    * @return subnetId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getSubnetId() {
     return subnetId;
   }

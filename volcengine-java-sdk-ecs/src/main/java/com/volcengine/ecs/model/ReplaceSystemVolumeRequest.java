@@ -32,6 +32,9 @@ public class ReplaceSystemVolumeRequest {
   @SerializedName("ClientToken")
   private String clientToken = null;
 
+  @SerializedName("DryRun")
+  private Boolean dryRun = null;
+
   @SerializedName("ImageId")
   private String imageId = null;
 
@@ -69,6 +72,24 @@ public class ReplaceSystemVolumeRequest {
 
   public void setClientToken(String clientToken) {
     this.clientToken = clientToken;
+  }
+
+  public ReplaceSystemVolumeRequest dryRun(Boolean dryRun) {
+    this.dryRun = dryRun;
+    return this;
+  }
+
+   /**
+   * Get dryRun
+   * @return dryRun
+  **/
+  @Schema(description = "")
+  public Boolean isDryRun() {
+    return dryRun;
+  }
+
+  public void setDryRun(Boolean dryRun) {
+    this.dryRun = dryRun;
   }
 
   public ReplaceSystemVolumeRequest imageId(String imageId) {
@@ -208,6 +229,7 @@ public class ReplaceSystemVolumeRequest {
     }
     ReplaceSystemVolumeRequest replaceSystemVolumeRequest = (ReplaceSystemVolumeRequest) o;
     return Objects.equals(this.clientToken, replaceSystemVolumeRequest.clientToken) &&
+        Objects.equals(this.dryRun, replaceSystemVolumeRequest.dryRun) &&
         Objects.equals(this.imageId, replaceSystemVolumeRequest.imageId) &&
         Objects.equals(this.instanceId, replaceSystemVolumeRequest.instanceId) &&
         Objects.equals(this.keepImageCredential, replaceSystemVolumeRequest.keepImageCredential) &&
@@ -219,7 +241,7 @@ public class ReplaceSystemVolumeRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, imageId, instanceId, keepImageCredential, keyPairName, password, size, userData);
+    return Objects.hash(clientToken, dryRun, imageId, instanceId, keepImageCredential, keyPairName, password, size, userData);
   }
 
 
@@ -229,6 +251,7 @@ public class ReplaceSystemVolumeRequest {
     sb.append("class ReplaceSystemVolumeRequest {\n");
     
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
+    sb.append("    dryRun: ").append(toIndentedString(dryRun)).append("\n");
     sb.append("    imageId: ").append(toIndentedString(imageId)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    keepImageCredential: ").append(toIndentedString(keepImageCredential)).append("\n");
