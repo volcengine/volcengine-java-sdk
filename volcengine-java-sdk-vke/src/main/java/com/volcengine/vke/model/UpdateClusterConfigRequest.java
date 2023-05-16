@@ -20,6 +20,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vke.model.ClusterConfigForUpdateClusterConfigInput;
+import com.volcengine.vke.model.LoggingConfigForUpdateClusterConfigInput;
+import com.volcengine.vke.model.PodsConfigForUpdateClusterConfigInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -45,8 +47,14 @@ public class UpdateClusterConfigRequest {
   @SerializedName("Id")
   private String id = null;
 
+  @SerializedName("LoggingConfig")
+  private LoggingConfigForUpdateClusterConfigInput loggingConfig = null;
+
   @SerializedName("Name")
   private String name = null;
+
+  @SerializedName("PodsConfig")
+  private PodsConfigForUpdateClusterConfigInput podsConfig = null;
 
   public UpdateClusterConfigRequest clientToken(String clientToken) {
     this.clientToken = clientToken;
@@ -139,6 +147,25 @@ public class UpdateClusterConfigRequest {
     this.id = id;
   }
 
+  public UpdateClusterConfigRequest loggingConfig(LoggingConfigForUpdateClusterConfigInput loggingConfig) {
+    this.loggingConfig = loggingConfig;
+    return this;
+  }
+
+   /**
+   * Get loggingConfig
+   * @return loggingConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public LoggingConfigForUpdateClusterConfigInput getLoggingConfig() {
+    return loggingConfig;
+  }
+
+  public void setLoggingConfig(LoggingConfigForUpdateClusterConfigInput loggingConfig) {
+    this.loggingConfig = loggingConfig;
+  }
+
   public UpdateClusterConfigRequest name(String name) {
     this.name = name;
     return this;
@@ -157,6 +184,25 @@ public class UpdateClusterConfigRequest {
     this.name = name;
   }
 
+  public UpdateClusterConfigRequest podsConfig(PodsConfigForUpdateClusterConfigInput podsConfig) {
+    this.podsConfig = podsConfig;
+    return this;
+  }
+
+   /**
+   * Get podsConfig
+   * @return podsConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public PodsConfigForUpdateClusterConfigInput getPodsConfig() {
+    return podsConfig;
+  }
+
+  public void setPodsConfig(PodsConfigForUpdateClusterConfigInput podsConfig) {
+    this.podsConfig = podsConfig;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -172,12 +218,14 @@ public class UpdateClusterConfigRequest {
         Objects.equals(this.deleteProtectionEnabled, updateClusterConfigRequest.deleteProtectionEnabled) &&
         Objects.equals(this.description, updateClusterConfigRequest.description) &&
         Objects.equals(this.id, updateClusterConfigRequest.id) &&
-        Objects.equals(this.name, updateClusterConfigRequest.name);
+        Objects.equals(this.loggingConfig, updateClusterConfigRequest.loggingConfig) &&
+        Objects.equals(this.name, updateClusterConfigRequest.name) &&
+        Objects.equals(this.podsConfig, updateClusterConfigRequest.podsConfig);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, clusterConfig, deleteProtectionEnabled, description, id, name);
+    return Objects.hash(clientToken, clusterConfig, deleteProtectionEnabled, description, id, loggingConfig, name, podsConfig);
   }
 
 
@@ -191,7 +239,9 @@ public class UpdateClusterConfigRequest {
     sb.append("    deleteProtectionEnabled: ").append(toIndentedString(deleteProtectionEnabled)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    loggingConfig: ").append(toIndentedString(loggingConfig)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    podsConfig: ").append(toIndentedString(podsConfig)).append("\n");
     sb.append("}");
     return sb.toString();
   }
