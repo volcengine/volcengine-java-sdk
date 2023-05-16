@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vke.model.ClusterConfigForListClustersOutput;
+import com.volcengine.vke.model.LoggingConfigForListClustersOutput;
 import com.volcengine.vke.model.NodeStatisticsForListClustersOutput;
 import com.volcengine.vke.model.PodsConfigForListClustersOutput;
 import com.volcengine.vke.model.ServicesConfigForListClustersOutput;
@@ -60,6 +61,9 @@ public class ItemForListClustersOutput {
 
   @SerializedName("KubernetesVersion")
   private String kubernetesVersion = null;
+
+  @SerializedName("LoggingConfig")
+  private LoggingConfigForListClustersOutput loggingConfig = null;
 
   @SerializedName("Name")
   private String name = null;
@@ -228,6 +232,25 @@ public class ItemForListClustersOutput {
 
   public void setKubernetesVersion(String kubernetesVersion) {
     this.kubernetesVersion = kubernetesVersion;
+  }
+
+  public ItemForListClustersOutput loggingConfig(LoggingConfigForListClustersOutput loggingConfig) {
+    this.loggingConfig = loggingConfig;
+    return this;
+  }
+
+   /**
+   * Get loggingConfig
+   * @return loggingConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public LoggingConfigForListClustersOutput getLoggingConfig() {
+    return loggingConfig;
+  }
+
+  public void setLoggingConfig(LoggingConfigForListClustersOutput loggingConfig) {
+    this.loggingConfig = loggingConfig;
   }
 
   public ItemForListClustersOutput name(String name) {
@@ -405,6 +428,7 @@ public class ItemForListClustersOutput {
         Objects.equals(this.description, itemForListClustersOutput.description) &&
         Objects.equals(this.id, itemForListClustersOutput.id) &&
         Objects.equals(this.kubernetesVersion, itemForListClustersOutput.kubernetesVersion) &&
+        Objects.equals(this.loggingConfig, itemForListClustersOutput.loggingConfig) &&
         Objects.equals(this.name, itemForListClustersOutput.name) &&
         Objects.equals(this.nodeStatistics, itemForListClustersOutput.nodeStatistics) &&
         Objects.equals(this.podsConfig, itemForListClustersOutput.podsConfig) &&
@@ -417,7 +441,7 @@ public class ItemForListClustersOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(chargeType, clusterConfig, createClientToken, createTime, deleteProtectionEnabled, description, id, kubernetesVersion, name, nodeStatistics, podsConfig, servicesConfig, status, tags, updateClientToken, updateTime);
+    return Objects.hash(chargeType, clusterConfig, createClientToken, createTime, deleteProtectionEnabled, description, id, kubernetesVersion, loggingConfig, name, nodeStatistics, podsConfig, servicesConfig, status, tags, updateClientToken, updateTime);
   }
 
 
@@ -434,6 +458,7 @@ public class ItemForListClustersOutput {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    kubernetesVersion: ").append(toIndentedString(kubernetesVersion)).append("\n");
+    sb.append("    loggingConfig: ").append(toIndentedString(loggingConfig)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    nodeStatistics: ").append(toIndentedString(nodeStatistics)).append("\n");
     sb.append("    podsConfig: ").append(toIndentedString(podsConfig)).append("\n");
