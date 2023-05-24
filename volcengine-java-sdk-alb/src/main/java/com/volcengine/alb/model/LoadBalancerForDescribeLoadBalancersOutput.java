@@ -32,6 +32,9 @@ import javax.validation.Valid;
 
 
 public class LoadBalancerForDescribeLoadBalancersOutput {
+  @SerializedName("AddressIpVersion")
+  private String addressIpVersion = null;
+
   @SerializedName("BusinessStatus")
   private String businessStatus = null;
 
@@ -40,6 +43,9 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
 
   @SerializedName("DNSName")
   private String dnSName = null;
+
+  @SerializedName("DeleteProtection")
+  private String deleteProtection = null;
 
   @SerializedName("DeletedTime")
   private String deletedTime = null;
@@ -98,6 +104,24 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
   @SerializedName("ZoneMappings")
   private List<ZoneMappingForDescribeLoadBalancersOutput> zoneMappings = null;
 
+  public LoadBalancerForDescribeLoadBalancersOutput addressIpVersion(String addressIpVersion) {
+    this.addressIpVersion = addressIpVersion;
+    return this;
+  }
+
+   /**
+   * Get addressIpVersion
+   * @return addressIpVersion
+  **/
+  @Schema(description = "")
+  public String getAddressIpVersion() {
+    return addressIpVersion;
+  }
+
+  public void setAddressIpVersion(String addressIpVersion) {
+    this.addressIpVersion = addressIpVersion;
+  }
+
   public LoadBalancerForDescribeLoadBalancersOutput businessStatus(String businessStatus) {
     this.businessStatus = businessStatus;
     return this;
@@ -150,6 +174,24 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
 
   public void setDnSName(String dnSName) {
     this.dnSName = dnSName;
+  }
+
+  public LoadBalancerForDescribeLoadBalancersOutput deleteProtection(String deleteProtection) {
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+   /**
+   * Get deleteProtection
+   * @return deleteProtection
+  **/
+  @Schema(description = "")
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+  public void setDeleteProtection(String deleteProtection) {
+    this.deleteProtection = deleteProtection;
   }
 
   public LoadBalancerForDescribeLoadBalancersOutput deletedTime(String deletedTime) {
@@ -521,9 +563,11 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
       return false;
     }
     LoadBalancerForDescribeLoadBalancersOutput loadBalancerForDescribeLoadBalancersOutput = (LoadBalancerForDescribeLoadBalancersOutput) o;
-    return Objects.equals(this.businessStatus, loadBalancerForDescribeLoadBalancersOutput.businessStatus) &&
+    return Objects.equals(this.addressIpVersion, loadBalancerForDescribeLoadBalancersOutput.addressIpVersion) &&
+        Objects.equals(this.businessStatus, loadBalancerForDescribeLoadBalancersOutput.businessStatus) &&
         Objects.equals(this.createTime, loadBalancerForDescribeLoadBalancersOutput.createTime) &&
         Objects.equals(this.dnSName, loadBalancerForDescribeLoadBalancersOutput.dnSName) &&
+        Objects.equals(this.deleteProtection, loadBalancerForDescribeLoadBalancersOutput.deleteProtection) &&
         Objects.equals(this.deletedTime, loadBalancerForDescribeLoadBalancersOutput.deletedTime) &&
         Objects.equals(this.description, loadBalancerForDescribeLoadBalancersOutput.description) &&
         Objects.equals(this.eipAddress, loadBalancerForDescribeLoadBalancersOutput.eipAddress) &&
@@ -547,7 +591,7 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(businessStatus, createTime, dnSName, deletedTime, description, eipAddress, eipId, eniAddress, eniId, loadBalancerBillingType, loadBalancerId, loadBalancerName, localAddresses, lockReason, overdueTime, projectName, status, subnetId, type, updateTime, vpcId, zoneMappings);
+    return Objects.hash(addressIpVersion, businessStatus, createTime, dnSName, deleteProtection, deletedTime, description, eipAddress, eipId, eniAddress, eniId, loadBalancerBillingType, loadBalancerId, loadBalancerName, localAddresses, lockReason, overdueTime, projectName, status, subnetId, type, updateTime, vpcId, zoneMappings);
   }
 
 
@@ -556,9 +600,11 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class LoadBalancerForDescribeLoadBalancersOutput {\n");
     
+    sb.append("    addressIpVersion: ").append(toIndentedString(addressIpVersion)).append("\n");
     sb.append("    businessStatus: ").append(toIndentedString(businessStatus)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    dnSName: ").append(toIndentedString(dnSName)).append("\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    deletedTime: ").append(toIndentedString(deletedTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    eipAddress: ").append(toIndentedString(eipAddress)).append("\n");

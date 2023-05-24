@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.alb.model.EipBillingConfigForCreateLoadBalancerInput;
+import com.volcengine.alb.model.Ipv6EipBillingConfigForCreateLoadBalancerInput;
 import com.volcengine.alb.model.ZoneMappingForCreateLoadBalancerInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -33,14 +34,23 @@ import javax.validation.Valid;
 
 
 public class CreateLoadBalancerRequest {
+  @SerializedName("AddressIpVersion")
+  private String addressIpVersion = null;
+
   @SerializedName("BandwidthPackageId")
   private String bandwidthPackageId = null;
+
+  @SerializedName("DeleteProtection")
+  private String deleteProtection = null;
 
   @SerializedName("Description")
   private String description = null;
 
   @SerializedName("EipBillingConfig")
   private EipBillingConfigForCreateLoadBalancerInput eipBillingConfig = null;
+
+  @SerializedName("Ipv6EipBillingConfig")
+  private Ipv6EipBillingConfigForCreateLoadBalancerInput ipv6EipBillingConfig = null;
 
   @SerializedName("LoadBalancerBillingType")
   private Integer loadBalancerBillingType = null;
@@ -66,6 +76,24 @@ public class CreateLoadBalancerRequest {
   @SerializedName("ZoneMappings")
   private List<ZoneMappingForCreateLoadBalancerInput> zoneMappings = null;
 
+  public CreateLoadBalancerRequest addressIpVersion(String addressIpVersion) {
+    this.addressIpVersion = addressIpVersion;
+    return this;
+  }
+
+   /**
+   * Get addressIpVersion
+   * @return addressIpVersion
+  **/
+  @Schema(description = "")
+  public String getAddressIpVersion() {
+    return addressIpVersion;
+  }
+
+  public void setAddressIpVersion(String addressIpVersion) {
+    this.addressIpVersion = addressIpVersion;
+  }
+
   public CreateLoadBalancerRequest bandwidthPackageId(String bandwidthPackageId) {
     this.bandwidthPackageId = bandwidthPackageId;
     return this;
@@ -82,6 +110,24 @@ public class CreateLoadBalancerRequest {
 
   public void setBandwidthPackageId(String bandwidthPackageId) {
     this.bandwidthPackageId = bandwidthPackageId;
+  }
+
+  public CreateLoadBalancerRequest deleteProtection(String deleteProtection) {
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+   /**
+   * Get deleteProtection
+   * @return deleteProtection
+  **/
+  @Schema(description = "")
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+  public void setDeleteProtection(String deleteProtection) {
+    this.deleteProtection = deleteProtection;
   }
 
   public CreateLoadBalancerRequest description(String description) {
@@ -119,6 +165,25 @@ public class CreateLoadBalancerRequest {
 
   public void setEipBillingConfig(EipBillingConfigForCreateLoadBalancerInput eipBillingConfig) {
     this.eipBillingConfig = eipBillingConfig;
+  }
+
+  public CreateLoadBalancerRequest ipv6EipBillingConfig(Ipv6EipBillingConfigForCreateLoadBalancerInput ipv6EipBillingConfig) {
+    this.ipv6EipBillingConfig = ipv6EipBillingConfig;
+    return this;
+  }
+
+   /**
+   * Get ipv6EipBillingConfig
+   * @return ipv6EipBillingConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public Ipv6EipBillingConfigForCreateLoadBalancerInput getIpv6EipBillingConfig() {
+    return ipv6EipBillingConfig;
+  }
+
+  public void setIpv6EipBillingConfig(Ipv6EipBillingConfigForCreateLoadBalancerInput ipv6EipBillingConfig) {
+    this.ipv6EipBillingConfig = ipv6EipBillingConfig;
   }
 
   public CreateLoadBalancerRequest loadBalancerBillingType(Integer loadBalancerBillingType) {
@@ -286,9 +351,12 @@ public class CreateLoadBalancerRequest {
       return false;
     }
     CreateLoadBalancerRequest createLoadBalancerRequest = (CreateLoadBalancerRequest) o;
-    return Objects.equals(this.bandwidthPackageId, createLoadBalancerRequest.bandwidthPackageId) &&
+    return Objects.equals(this.addressIpVersion, createLoadBalancerRequest.addressIpVersion) &&
+        Objects.equals(this.bandwidthPackageId, createLoadBalancerRequest.bandwidthPackageId) &&
+        Objects.equals(this.deleteProtection, createLoadBalancerRequest.deleteProtection) &&
         Objects.equals(this.description, createLoadBalancerRequest.description) &&
         Objects.equals(this.eipBillingConfig, createLoadBalancerRequest.eipBillingConfig) &&
+        Objects.equals(this.ipv6EipBillingConfig, createLoadBalancerRequest.ipv6EipBillingConfig) &&
         Objects.equals(this.loadBalancerBillingType, createLoadBalancerRequest.loadBalancerBillingType) &&
         Objects.equals(this.loadBalancerName, createLoadBalancerRequest.loadBalancerName) &&
         Objects.equals(this.projectName, createLoadBalancerRequest.projectName) &&
@@ -301,7 +369,7 @@ public class CreateLoadBalancerRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidthPackageId, description, eipBillingConfig, loadBalancerBillingType, loadBalancerName, projectName, regionId, subnetId, type, vpcId, zoneMappings);
+    return Objects.hash(addressIpVersion, bandwidthPackageId, deleteProtection, description, eipBillingConfig, ipv6EipBillingConfig, loadBalancerBillingType, loadBalancerName, projectName, regionId, subnetId, type, vpcId, zoneMappings);
   }
 
 
@@ -310,9 +378,12 @@ public class CreateLoadBalancerRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateLoadBalancerRequest {\n");
     
+    sb.append("    addressIpVersion: ").append(toIndentedString(addressIpVersion)).append("\n");
     sb.append("    bandwidthPackageId: ").append(toIndentedString(bandwidthPackageId)).append("\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    eipBillingConfig: ").append(toIndentedString(eipBillingConfig)).append("\n");
+    sb.append("    ipv6EipBillingConfig: ").append(toIndentedString(ipv6EipBillingConfig)).append("\n");
     sb.append("    loadBalancerBillingType: ").append(toIndentedString(loadBalancerBillingType)).append("\n");
     sb.append("    loadBalancerName: ").append(toIndentedString(loadBalancerName)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
