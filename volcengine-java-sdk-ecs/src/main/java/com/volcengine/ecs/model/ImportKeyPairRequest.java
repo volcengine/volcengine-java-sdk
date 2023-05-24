@@ -38,6 +38,9 @@ public class ImportKeyPairRequest {
   @SerializedName("KeyPairName")
   private String keyPairName = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("PublicKey")
   private String publicKey = null;
 
@@ -95,6 +98,24 @@ public class ImportKeyPairRequest {
     this.keyPairName = keyPairName;
   }
 
+  public ImportKeyPairRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public ImportKeyPairRequest publicKey(String publicKey) {
     this.publicKey = publicKey;
     return this;
@@ -126,12 +147,13 @@ public class ImportKeyPairRequest {
     return Objects.equals(this.clientToken, importKeyPairRequest.clientToken) &&
         Objects.equals(this.description, importKeyPairRequest.description) &&
         Objects.equals(this.keyPairName, importKeyPairRequest.keyPairName) &&
+        Objects.equals(this.projectName, importKeyPairRequest.projectName) &&
         Objects.equals(this.publicKey, importKeyPairRequest.publicKey);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, description, keyPairName, publicKey);
+    return Objects.hash(clientToken, description, keyPairName, projectName, publicKey);
   }
 
 
@@ -143,6 +165,7 @@ public class ImportKeyPairRequest {
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    keyPairName: ").append(toIndentedString(keyPairName)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    publicKey: ").append(toIndentedString(publicKey)).append("\n");
     sb.append("}");
     return sb.toString();

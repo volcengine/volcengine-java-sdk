@@ -39,7 +39,9 @@ public class UntagResourcesRequest {
    */
   @JsonAdapter(ResourceTypeEnum.Adapter.class)
   public enum ResourceTypeEnum {
-    CLB("CLB");
+    CLB("CLB"),
+    ACL("ACL"),
+    CERTIFICATE("Certificate");
 
     private String value;
 

@@ -44,6 +44,50 @@ public class AutoScalingForUpdateNodePoolConfigInput {
   @SerializedName("Priority")
   private Integer priority = null;
 
+  /**
+   * Gets or Sets subnetPolicy
+   */
+  @JsonAdapter(SubnetPolicyEnum.Adapter.class)
+  public enum SubnetPolicyEnum {
+    PRIORITY("Priority"),
+    ZONEBALANCE("ZoneBalance");
+
+    private String value;
+
+    SubnetPolicyEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static SubnetPolicyEnum fromValue(String input) {
+      for (SubnetPolicyEnum b : SubnetPolicyEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<SubnetPolicyEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final SubnetPolicyEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public SubnetPolicyEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return SubnetPolicyEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("SubnetPolicy")
+  private SubnetPolicyEnum subnetPolicy = null;
+
   public AutoScalingForUpdateNodePoolConfigInput desiredReplicas(Integer desiredReplicas) {
     this.desiredReplicas = desiredReplicas;
     return this;
@@ -134,6 +178,24 @@ public class AutoScalingForUpdateNodePoolConfigInput {
     this.priority = priority;
   }
 
+  public AutoScalingForUpdateNodePoolConfigInput subnetPolicy(SubnetPolicyEnum subnetPolicy) {
+    this.subnetPolicy = subnetPolicy;
+    return this;
+  }
+
+   /**
+   * Get subnetPolicy
+   * @return subnetPolicy
+  **/
+  @Schema(description = "")
+  public SubnetPolicyEnum getSubnetPolicy() {
+    return subnetPolicy;
+  }
+
+  public void setSubnetPolicy(SubnetPolicyEnum subnetPolicy) {
+    this.subnetPolicy = subnetPolicy;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -148,12 +210,13 @@ public class AutoScalingForUpdateNodePoolConfigInput {
         Objects.equals(this.enabled, autoScalingForUpdateNodePoolConfigInput.enabled) &&
         Objects.equals(this.maxReplicas, autoScalingForUpdateNodePoolConfigInput.maxReplicas) &&
         Objects.equals(this.minReplicas, autoScalingForUpdateNodePoolConfigInput.minReplicas) &&
-        Objects.equals(this.priority, autoScalingForUpdateNodePoolConfigInput.priority);
+        Objects.equals(this.priority, autoScalingForUpdateNodePoolConfigInput.priority) &&
+        Objects.equals(this.subnetPolicy, autoScalingForUpdateNodePoolConfigInput.subnetPolicy);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(desiredReplicas, enabled, maxReplicas, minReplicas, priority);
+    return Objects.hash(desiredReplicas, enabled, maxReplicas, minReplicas, priority, subnetPolicy);
   }
 
 
@@ -167,6 +230,7 @@ public class AutoScalingForUpdateNodePoolConfigInput {
     sb.append("    maxReplicas: ").append(toIndentedString(maxReplicas)).append("\n");
     sb.append("    minReplicas: ").append(toIndentedString(minReplicas)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
+    sb.append("    subnetPolicy: ").append(toIndentedString(subnetPolicy)).append("\n");
     sb.append("}");
     return sb.toString();
   }

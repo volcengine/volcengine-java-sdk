@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vke.model.ClusterConfigForCreateClusterInput;
+import com.volcengine.vke.model.LoggingConfigForCreateClusterInput;
 import com.volcengine.vke.model.PodsConfigForCreateClusterInput;
 import com.volcengine.vke.model.ServicesConfigForCreateClusterInput;
 import com.volcengine.vke.model.TagForCreateClusterInput;
@@ -49,6 +50,9 @@ public class CreateClusterRequest {
 
   @SerializedName("KubernetesVersion")
   private String kubernetesVersion = null;
+
+  @SerializedName("LoggingConfig")
+  private LoggingConfigForCreateClusterInput loggingConfig = null;
 
   @SerializedName("Name")
   private String name = null;
@@ -153,6 +157,25 @@ public class CreateClusterRequest {
     this.kubernetesVersion = kubernetesVersion;
   }
 
+  public CreateClusterRequest loggingConfig(LoggingConfigForCreateClusterInput loggingConfig) {
+    this.loggingConfig = loggingConfig;
+    return this;
+  }
+
+   /**
+   * Get loggingConfig
+   * @return loggingConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public LoggingConfigForCreateClusterInput getLoggingConfig() {
+    return loggingConfig;
+  }
+
+  public void setLoggingConfig(LoggingConfigForCreateClusterInput loggingConfig) {
+    this.loggingConfig = loggingConfig;
+  }
+
   public CreateClusterRequest name(String name) {
     this.name = name;
     return this;
@@ -251,6 +274,7 @@ public class CreateClusterRequest {
         Objects.equals(this.deleteProtectionEnabled, createClusterRequest.deleteProtectionEnabled) &&
         Objects.equals(this.description, createClusterRequest.description) &&
         Objects.equals(this.kubernetesVersion, createClusterRequest.kubernetesVersion) &&
+        Objects.equals(this.loggingConfig, createClusterRequest.loggingConfig) &&
         Objects.equals(this.name, createClusterRequest.name) &&
         Objects.equals(this.podsConfig, createClusterRequest.podsConfig) &&
         Objects.equals(this.servicesConfig, createClusterRequest.servicesConfig) &&
@@ -259,7 +283,7 @@ public class CreateClusterRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, clusterConfig, deleteProtectionEnabled, description, kubernetesVersion, name, podsConfig, servicesConfig, tags);
+    return Objects.hash(clientToken, clusterConfig, deleteProtectionEnabled, description, kubernetesVersion, loggingConfig, name, podsConfig, servicesConfig, tags);
   }
 
 
@@ -273,6 +297,7 @@ public class CreateClusterRequest {
     sb.append("    deleteProtectionEnabled: ").append(toIndentedString(deleteProtectionEnabled)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    kubernetesVersion: ").append(toIndentedString(kubernetesVersion)).append("\n");
+    sb.append("    loggingConfig: ").append(toIndentedString(loggingConfig)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    podsConfig: ").append(toIndentedString(podsConfig)).append("\n");
     sb.append("    servicesConfig: ").append(toIndentedString(servicesConfig)).append("\n");

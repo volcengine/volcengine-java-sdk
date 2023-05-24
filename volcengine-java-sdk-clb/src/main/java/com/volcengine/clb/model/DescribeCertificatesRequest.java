@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.clb.model.TagFilterForDescribeCertificatesInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -45,6 +46,9 @@ public class DescribeCertificatesRequest {
 
   @SerializedName("ProjectName")
   private String projectName = null;
+
+  @SerializedName("TagFilters")
+  private List<TagFilterForDescribeCertificatesInput> tagFilters = null;
 
   public DescribeCertificatesRequest certificateIds(List<String> certificateIds) {
     this.certificateIds = certificateIds;
@@ -144,6 +148,33 @@ public class DescribeCertificatesRequest {
     this.projectName = projectName;
   }
 
+  public DescribeCertificatesRequest tagFilters(List<TagFilterForDescribeCertificatesInput> tagFilters) {
+    this.tagFilters = tagFilters;
+    return this;
+  }
+
+  public DescribeCertificatesRequest addTagFiltersItem(TagFilterForDescribeCertificatesInput tagFiltersItem) {
+    if (this.tagFilters == null) {
+      this.tagFilters = new ArrayList<TagFilterForDescribeCertificatesInput>();
+    }
+    this.tagFilters.add(tagFiltersItem);
+    return this;
+  }
+
+   /**
+   * Get tagFilters
+   * @return tagFilters
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagFilterForDescribeCertificatesInput> getTagFilters() {
+    return tagFilters;
+  }
+
+  public void setTagFilters(List<TagFilterForDescribeCertificatesInput> tagFilters) {
+    this.tagFilters = tagFilters;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -158,12 +189,13 @@ public class DescribeCertificatesRequest {
         Objects.equals(this.certificateName, describeCertificatesRequest.certificateName) &&
         Objects.equals(this.pageNumber, describeCertificatesRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeCertificatesRequest.pageSize) &&
-        Objects.equals(this.projectName, describeCertificatesRequest.projectName);
+        Objects.equals(this.projectName, describeCertificatesRequest.projectName) &&
+        Objects.equals(this.tagFilters, describeCertificatesRequest.tagFilters);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(certificateIds, certificateName, pageNumber, pageSize, projectName);
+    return Objects.hash(certificateIds, certificateName, pageNumber, pageSize, projectName, tagFilters);
   }
 
 
@@ -177,6 +209,7 @@ public class DescribeCertificatesRequest {
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("}");
     return sb.toString();
   }
