@@ -14,6 +14,13 @@ package com.volcengine.clb.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -22,6 +29,90 @@ import javax.validation.Valid;
 
 
 public class Ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput {
+  @SerializedName("Bandwidth")
+  private Integer bandwidth = null;
+
+  @SerializedName("BillingType")
+  private Integer billingType = null;
+
+  @SerializedName("ISP")
+  private String ISP = null;
+
+  @SerializedName("NetworkType")
+  private String networkType = null;
+
+  public Ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput bandwidth(Integer bandwidth) {
+    this.bandwidth = bandwidth;
+    return this;
+  }
+
+   /**
+   * Get bandwidth
+   * @return bandwidth
+  **/
+  @Schema(description = "")
+  public Integer getBandwidth() {
+    return bandwidth;
+  }
+
+  public void setBandwidth(Integer bandwidth) {
+    this.bandwidth = bandwidth;
+  }
+
+  public Ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput billingType(Integer billingType) {
+    this.billingType = billingType;
+    return this;
+  }
+
+   /**
+   * Get billingType
+   * @return billingType
+  **/
+  @Schema(description = "")
+  public Integer getBillingType() {
+    return billingType;
+  }
+
+  public void setBillingType(Integer billingType) {
+    this.billingType = billingType;
+  }
+
+  public Ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput ISP(String ISP) {
+    this.ISP = ISP;
+    return this;
+  }
+
+   /**
+   * Get ISP
+   * @return ISP
+  **/
+  @Schema(description = "")
+  public String getISP() {
+    return ISP;
+  }
+
+  public void setISP(String ISP) {
+    this.ISP = ISP;
+  }
+
+  public Ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput networkType(String networkType) {
+    this.networkType = networkType;
+    return this;
+  }
+
+   /**
+   * Get networkType
+   * @return networkType
+  **/
+  @Schema(description = "")
+  public String getNetworkType() {
+    return networkType;
+  }
+
+  public void setNetworkType(String networkType) {
+    this.networkType = networkType;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -31,12 +122,16 @@ public class Ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return true;
+    Ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput = (Ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput) o;
+    return Objects.equals(this.bandwidth, ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput.bandwidth) &&
+        Objects.equals(this.billingType, ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput.billingType) &&
+        Objects.equals(this.ISP, ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput.ISP) &&
+        Objects.equals(this.networkType, ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput.networkType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash();
+    return Objects.hash(bandwidth, billingType, ISP, networkType);
   }
 
 
@@ -45,6 +140,10 @@ public class Ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class Ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput {\n");
     
+    sb.append("    bandwidth: ").append(toIndentedString(bandwidth)).append("\n");
+    sb.append("    billingType: ").append(toIndentedString(billingType)).append("\n");
+    sb.append("    ISP: ").append(toIndentedString(ISP)).append("\n");
+    sb.append("    networkType: ").append(toIndentedString(networkType)).append("\n");
     sb.append("}");
     return sb.toString();
   }
