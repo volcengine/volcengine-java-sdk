@@ -40,7 +40,12 @@ public class LogSetupForCreateClusterInput {
    */
   @JsonAdapter(LogTypeEnum.Adapter.class)
   public enum LogTypeEnum {
-    AUDIT("Audit");
+    AUDIT("Audit"),
+    CLOUDCONTROLLERMANAGER("CloudControllerManager"),
+    ETCD("Etcd"),
+    KUBEAPISERVER("KubeApiServer"),
+    KUBECONTROLLERMANAGER("KubeControllerManager"),
+    KUBESCHEDULER("KubeScheduler");
 
     private String value;
 
