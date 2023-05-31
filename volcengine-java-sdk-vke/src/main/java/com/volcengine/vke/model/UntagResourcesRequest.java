@@ -39,6 +39,7 @@ public class UntagResourcesRequest {
    */
   @JsonAdapter(ResourceTypeEnum.Adapter.class)
   public enum ResourceTypeEnum {
+    BAREMACHINE("BareMachine"),
     CLUSTER("Cluster"),
     NODEPOOL("NodePool");
 

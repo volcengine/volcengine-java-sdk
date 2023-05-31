@@ -46,6 +46,7 @@ public class ListTagsForResourcesRequest {
    */
   @JsonAdapter(ResourceTypeEnum.Adapter.class)
   public enum ResourceTypeEnum {
+    BAREMACHINE("BareMachine"),
     CLUSTER("Cluster"),
     NODEPOOL("NodePool");
 
