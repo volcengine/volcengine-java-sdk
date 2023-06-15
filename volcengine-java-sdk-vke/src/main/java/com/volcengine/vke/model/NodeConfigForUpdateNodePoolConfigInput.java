@@ -50,6 +50,9 @@ public class NodeConfigForUpdateNodePoolConfigInput {
   @SerializedName("HpcClusterIds")
   private List<String> hpcClusterIds = null;
 
+  @SerializedName("ImageId")
+  private String imageId = null;
+
   @SerializedName("InitializeScript")
   private String initializeScript = null;
 
@@ -179,6 +182,24 @@ public class NodeConfigForUpdateNodePoolConfigInput {
 
   public void setHpcClusterIds(List<String> hpcClusterIds) {
     this.hpcClusterIds = hpcClusterIds;
+  }
+
+  public NodeConfigForUpdateNodePoolConfigInput imageId(String imageId) {
+    this.imageId = imageId;
+    return this;
+  }
+
+   /**
+   * Get imageId
+   * @return imageId
+  **/
+  @Schema(description = "")
+  public String getImageId() {
+    return imageId;
+  }
+
+  public void setImageId(String imageId) {
+    this.imageId = imageId;
   }
 
   public NodeConfigForUpdateNodePoolConfigInput initializeScript(String initializeScript) {
@@ -367,6 +388,7 @@ public class NodeConfigForUpdateNodePoolConfigInput {
         Objects.equals(this.autoRenewPeriod, nodeConfigForUpdateNodePoolConfigInput.autoRenewPeriod) &&
         Objects.equals(this.dataVolumes, nodeConfigForUpdateNodePoolConfigInput.dataVolumes) &&
         Objects.equals(this.hpcClusterIds, nodeConfigForUpdateNodePoolConfigInput.hpcClusterIds) &&
+        Objects.equals(this.imageId, nodeConfigForUpdateNodePoolConfigInput.imageId) &&
         Objects.equals(this.initializeScript, nodeConfigForUpdateNodePoolConfigInput.initializeScript) &&
         Objects.equals(this.instanceTypeIds, nodeConfigForUpdateNodePoolConfigInput.instanceTypeIds) &&
         Objects.equals(this.namePrefix, nodeConfigForUpdateNodePoolConfigInput.namePrefix) &&
@@ -379,7 +401,7 @@ public class NodeConfigForUpdateNodePoolConfigInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalContainerStorageEnabled, autoRenew, autoRenewPeriod, dataVolumes, hpcClusterIds, initializeScript, instanceTypeIds, namePrefix, period, security, subnetIds, systemVolume, tags);
+    return Objects.hash(additionalContainerStorageEnabled, autoRenew, autoRenewPeriod, dataVolumes, hpcClusterIds, imageId, initializeScript, instanceTypeIds, namePrefix, period, security, subnetIds, systemVolume, tags);
   }
 
 
@@ -393,6 +415,7 @@ public class NodeConfigForUpdateNodePoolConfigInput {
     sb.append("    autoRenewPeriod: ").append(toIndentedString(autoRenewPeriod)).append("\n");
     sb.append("    dataVolumes: ").append(toIndentedString(dataVolumes)).append("\n");
     sb.append("    hpcClusterIds: ").append(toIndentedString(hpcClusterIds)).append("\n");
+    sb.append("    imageId: ").append(toIndentedString(imageId)).append("\n");
     sb.append("    initializeScript: ").append(toIndentedString(initializeScript)).append("\n");
     sb.append("    instanceTypeIds: ").append(toIndentedString(instanceTypeIds)).append("\n");
     sb.append("    namePrefix: ").append(toIndentedString(namePrefix)).append("\n");
