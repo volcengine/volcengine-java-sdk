@@ -49,6 +49,9 @@ public class NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
   @SerializedName("DeviceId")
   private String deviceId = null;
 
+  @SerializedName("IPv6Sets")
+  private List<String> ipv6Sets = null;
+
   @SerializedName("MacAddress")
   private String macAddress = null;
 
@@ -189,6 +192,32 @@ public class NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
 
   public void setDeviceId(String deviceId) {
     this.deviceId = deviceId;
+  }
+
+  public NetworkInterfaceSetForDescribeNetworkInterfacesOutput ipv6Sets(List<String> ipv6Sets) {
+    this.ipv6Sets = ipv6Sets;
+    return this;
+  }
+
+  public NetworkInterfaceSetForDescribeNetworkInterfacesOutput addIpv6SetsItem(String ipv6SetsItem) {
+    if (this.ipv6Sets == null) {
+      this.ipv6Sets = new ArrayList<String>();
+    }
+    this.ipv6Sets.add(ipv6SetsItem);
+    return this;
+  }
+
+   /**
+   * Get ipv6Sets
+   * @return ipv6Sets
+  **/
+  @Schema(description = "")
+  public List<String> getIpv6Sets() {
+    return ipv6Sets;
+  }
+
+  public void setIpv6Sets(List<String> ipv6Sets) {
+    this.ipv6Sets = ipv6Sets;
   }
 
   public NetworkInterfaceSetForDescribeNetworkInterfacesOutput macAddress(String macAddress) {
@@ -530,6 +559,7 @@ public class NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
         Objects.equals(this.createdAt, networkInterfaceSetForDescribeNetworkInterfacesOutput.createdAt) &&
         Objects.equals(this.description, networkInterfaceSetForDescribeNetworkInterfacesOutput.description) &&
         Objects.equals(this.deviceId, networkInterfaceSetForDescribeNetworkInterfacesOutput.deviceId) &&
+        Objects.equals(this.ipv6Sets, networkInterfaceSetForDescribeNetworkInterfacesOutput.ipv6Sets) &&
         Objects.equals(this.macAddress, networkInterfaceSetForDescribeNetworkInterfacesOutput.macAddress) &&
         Objects.equals(this.networkInterfaceId, networkInterfaceSetForDescribeNetworkInterfacesOutput.networkInterfaceId) &&
         Objects.equals(this.networkInterfaceName, networkInterfaceSetForDescribeNetworkInterfacesOutput.networkInterfaceName) &&
@@ -551,7 +581,7 @@ public class NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, associatedElasticIp, createdAt, description, deviceId, macAddress, networkInterfaceId, networkInterfaceName, portSecurityEnabled, primaryIpAddress, privateIpSets, projectName, securityGroupIds, serviceManaged, status, subnetId, tags, type, updatedAt, vpcId, vpcName, zoneId);
+    return Objects.hash(accountId, associatedElasticIp, createdAt, description, deviceId, ipv6Sets, macAddress, networkInterfaceId, networkInterfaceName, portSecurityEnabled, primaryIpAddress, privateIpSets, projectName, securityGroupIds, serviceManaged, status, subnetId, tags, type, updatedAt, vpcId, vpcName, zoneId);
   }
 
 
@@ -565,6 +595,7 @@ public class NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    deviceId: ").append(toIndentedString(deviceId)).append("\n");
+    sb.append("    ipv6Sets: ").append(toIndentedString(ipv6Sets)).append("\n");
     sb.append("    macAddress: ").append(toIndentedString(macAddress)).append("\n");
     sb.append("    networkInterfaceId: ").append(toIndentedString(networkInterfaceId)).append("\n");
     sb.append("    networkInterfaceName: ").append(toIndentedString(networkInterfaceName)).append("\n");

@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ConditionForListClustersOutput {
   @SerializedName("Type")
   private String type = null;

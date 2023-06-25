@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class LabelForCreateNodesInput {
   @SerializedName("Key")
   private String key = null;

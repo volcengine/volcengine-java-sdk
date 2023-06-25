@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class StatusForListAddonsOutput {
   @SerializedName("Conditions")
   private List<ConditionForListAddonsOutput> conditions = null;

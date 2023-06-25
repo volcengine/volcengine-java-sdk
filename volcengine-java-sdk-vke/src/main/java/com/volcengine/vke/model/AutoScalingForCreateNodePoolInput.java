@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class AutoScalingForCreateNodePoolInput {
   @SerializedName("DesiredReplicas")
   private Integer desiredReplicas = null;
@@ -49,7 +50,9 @@ public class AutoScalingForCreateNodePoolInput {
    */
   @JsonAdapter(SubnetPolicyEnum.Adapter.class)
   public enum SubnetPolicyEnum {
+    @SerializedName("Priority")
     PRIORITY("Priority"),
+    @SerializedName("ZoneBalance")
     ZONEBALANCE("ZoneBalance");
 
     private String value;

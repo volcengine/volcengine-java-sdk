@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateDirectConnectVirtualInterfaceRequest {
   @SerializedName("Bandwidth")
   private Integer bandwidth = null;
@@ -73,7 +74,9 @@ public class CreateDirectConnectVirtualInterfaceRequest {
    */
   @JsonAdapter(RouteTypeEnum.Adapter.class)
   public enum RouteTypeEnum {
+    @SerializedName("STATIC")
     STATIC("STATIC"),
+    @SerializedName("BGP")
     BGP("BGP");
 
     private String value;

@@ -32,9 +32,6 @@ public class CopyImageResponse {
   @SerializedName("ImageId")
   private String imageId = null;
 
-  @SerializedName("TaskId")
-  private String taskId = null;
-
   public CopyImageResponse imageId(String imageId) {
     this.imageId = imageId;
     return this;
@@ -53,24 +50,6 @@ public class CopyImageResponse {
     this.imageId = imageId;
   }
 
-  public CopyImageResponse taskId(String taskId) {
-    this.taskId = taskId;
-    return this;
-  }
-
-   /**
-   * Get taskId
-   * @return taskId
-  **/
-  @Schema(description = "")
-  public String getTaskId() {
-    return taskId;
-  }
-
-  public void setTaskId(String taskId) {
-    this.taskId = taskId;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -81,13 +60,12 @@ public class CopyImageResponse {
       return false;
     }
     CopyImageResponse copyImageResponse = (CopyImageResponse) o;
-    return Objects.equals(this.imageId, copyImageResponse.imageId) &&
-        Objects.equals(this.taskId, copyImageResponse.taskId);
+    return Objects.equals(this.imageId, copyImageResponse.imageId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(imageId, taskId);
+    return Objects.hash(imageId);
   }
 
 
@@ -97,7 +75,6 @@ public class CopyImageResponse {
     sb.append("class CopyImageResponse {\n");
     
     sb.append("    imageId: ").append(toIndentedString(imageId)).append("\n");
-    sb.append("    taskId: ").append(toIndentedString(taskId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

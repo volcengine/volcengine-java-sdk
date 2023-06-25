@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class PodsConfigForCreateClusterInput {
   @SerializedName("FlannelConfig")
   private FlannelConfigForCreateClusterInput flannelConfig = null;
@@ -39,14 +40,23 @@ public class PodsConfigForCreateClusterInput {
    */
   @JsonAdapter(PodNetworkModeEnum.Adapter.class)
   public enum PodNetworkModeEnum {
+    @SerializedName("CalicoBgp")
     CALICOBGP("CalicoBgp"),
+    @SerializedName("CalicoVxlan")
     CALICOVXLAN("CalicoVxlan"),
+    @SerializedName("Carma")
     CARMA("Carma"),
+    @SerializedName("Cilium")
     CILIUM("Cilium"),
+    @SerializedName("Default")
     DEFAULT("Default"),
+    @SerializedName("Flannel")
     FLANNEL("Flannel"),
+    @SerializedName("KubeOvn")
     KUBEOVN("KubeOvn"),
+    @SerializedName("VpcCniDedicated")
     VPCCNIDEDICATED("VpcCniDedicated"),
+    @SerializedName("VpcCniShared")
     VPCCNISHARED("VpcCniShared");
 
     private String value;

@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeDirectConnectConnectionsRequest {
   @SerializedName("AccessPoint")
   private String accessPoint = null;

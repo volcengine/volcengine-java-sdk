@@ -21,6 +21,9 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -31,6 +34,9 @@ import javax.validation.Valid;
 public class SystemEventForDescribeSystemEventsOutput {
   @SerializedName("CreatedAt")
   private String createdAt = null;
+
+  @SerializedName("ExtraInfo")
+  private Map<String, String> extraInfo = null;
 
   @SerializedName("Id")
   private String id = null;
@@ -179,6 +185,32 @@ public class SystemEventForDescribeSystemEventsOutput {
     this.createdAt = createdAt;
   }
 
+  public SystemEventForDescribeSystemEventsOutput extraInfo(Map<String, String> extraInfo) {
+    this.extraInfo = extraInfo;
+    return this;
+  }
+
+  public SystemEventForDescribeSystemEventsOutput putExtraInfoItem(String key, String extraInfoItem) {
+    if (this.extraInfo == null) {
+      this.extraInfo = new HashMap<String, String>();
+    }
+    this.extraInfo.put(key, extraInfoItem);
+    return this;
+  }
+
+   /**
+   * Get extraInfo
+   * @return extraInfo
+  **/
+  @Schema(description = "")
+  public Map<String, String> getExtraInfo() {
+    return extraInfo;
+  }
+
+  public void setExtraInfo(Map<String, String> extraInfo) {
+    this.extraInfo = extraInfo;
+  }
+
   public SystemEventForDescribeSystemEventsOutput id(String id) {
     this.id = id;
     return this;
@@ -316,6 +348,7 @@ public class SystemEventForDescribeSystemEventsOutput {
     }
     SystemEventForDescribeSystemEventsOutput systemEventForDescribeSystemEventsOutput = (SystemEventForDescribeSystemEventsOutput) o;
     return Objects.equals(this.createdAt, systemEventForDescribeSystemEventsOutput.createdAt) &&
+        Objects.equals(this.extraInfo, systemEventForDescribeSystemEventsOutput.extraInfo) &&
         Objects.equals(this.id, systemEventForDescribeSystemEventsOutput.id) &&
         Objects.equals(this.operatedEndAt, systemEventForDescribeSystemEventsOutput.operatedEndAt) &&
         Objects.equals(this.operatedStartAt, systemEventForDescribeSystemEventsOutput.operatedStartAt) &&
@@ -327,7 +360,7 @@ public class SystemEventForDescribeSystemEventsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, id, operatedEndAt, operatedStartAt, resourceId, status, type, updatedAt);
+    return Objects.hash(createdAt, extraInfo, id, operatedEndAt, operatedStartAt, resourceId, status, type, updatedAt);
   }
 
 
@@ -337,6 +370,7 @@ public class SystemEventForDescribeSystemEventsOutput {
     sb.append("class SystemEventForDescribeSystemEventsOutput {\n");
     
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    extraInfo: ").append(toIndentedString(extraInfo)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    operatedEndAt: ").append(toIndentedString(operatedEndAt)).append("\n");
     sb.append("    operatedStartAt: ").append(toIndentedString(operatedStartAt)).append("\n");

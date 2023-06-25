@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class TagForUpdateNodePoolConfigInput {
   @SerializedName("Key")
   private String key = null;

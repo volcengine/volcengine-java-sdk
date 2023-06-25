@@ -30,19 +30,28 @@ import javax.validation.Valid;
  */
 
 
+
 public class FilterForListSupportedAddonsInput {
   /**
    * Gets or Sets categories
    */
   @JsonAdapter(CategoriesEnum.Adapter.class)
   public enum CategoriesEnum {
+    @SerializedName("Dns")
     DNS("Dns"),
+    @SerializedName("Gpu")
     GPU("Gpu"),
+    @SerializedName("Image")
     IMAGE("Image"),
+    @SerializedName("Monitor")
     MONITOR("Monitor"),
+    @SerializedName("Network")
     NETWORK("Network"),
+    @SerializedName("Scheduler")
     SCHEDULER("Scheduler"),
+    @SerializedName("Security")
     SECURITY("Security"),
+    @SerializedName("Storage")
     STORAGE("Storage");
 
     private String value;
@@ -86,8 +95,11 @@ public class FilterForListSupportedAddonsInput {
    */
   @JsonAdapter(DeployModesEnum.Adapter.class)
   public enum DeployModesEnum {
+    @SerializedName("Either")
     EITHER("Either"),
+    @SerializedName("Managed")
     MANAGED("Managed"),
+    @SerializedName("Unmanaged")
     UNMANAGED("Unmanaged");
 
     private String value;
@@ -131,8 +143,11 @@ public class FilterForListSupportedAddonsInput {
    */
   @JsonAdapter(DeployNodeTypesEnum.Adapter.class)
   public enum DeployNodeTypesEnum {
+    @SerializedName("EdgeNode")
     EDGENODE("EdgeNode"),
+    @SerializedName("Node")
     NODE("Node"),
+    @SerializedName("VirtualNode")
     VIRTUALNODE("VirtualNode");
 
     private String value;
@@ -179,8 +194,11 @@ public class FilterForListSupportedAddonsInput {
    */
   @JsonAdapter(NecessariesEnum.Adapter.class)
   public enum NecessariesEnum {
+    @SerializedName("OnDemand")
     ONDEMAND("OnDemand"),
+    @SerializedName("Recommended")
     RECOMMENDED("Recommended"),
+    @SerializedName("Required")
     REQUIRED("Required");
 
     private String value;
@@ -224,10 +242,15 @@ public class FilterForListSupportedAddonsInput {
    */
   @JsonAdapter(PodNetworkModesEnum.Adapter.class)
   public enum PodNetworkModesEnum {
+    @SerializedName("CalicoBgp")
     CALICOBGP("CalicoBgp"),
+    @SerializedName("CalicoVxlan")
     CALICOVXLAN("CalicoVxlan"),
+    @SerializedName("Flannel")
     FLANNEL("Flannel"),
+    @SerializedName("VpcCniDedicated")
     VPCCNIDEDICATED("VpcCniDedicated"),
+    @SerializedName("VpcCniShared")
     VPCCNISHARED("VpcCniShared");
 
     private String value;

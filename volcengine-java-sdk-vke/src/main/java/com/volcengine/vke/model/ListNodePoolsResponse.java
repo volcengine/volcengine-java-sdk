@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ListNodePoolsResponse {
   @SerializedName("Items")
   private List<ItemForListNodePoolsOutput> items = null;

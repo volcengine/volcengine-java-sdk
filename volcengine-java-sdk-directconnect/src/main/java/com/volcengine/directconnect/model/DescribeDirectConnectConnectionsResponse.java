@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeDirectConnectConnectionsResponse {
   @SerializedName("DirectConnectConnections")
   private List<DirectConnectConnectionForDescribeDirectConnectConnectionsOutput> directConnectConnections = null;

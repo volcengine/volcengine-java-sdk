@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeBgpPeerAttributesResponse {
   @SerializedName("AccountId")
   private String accountId = null;
