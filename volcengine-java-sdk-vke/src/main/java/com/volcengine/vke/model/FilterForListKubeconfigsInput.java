@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class FilterForListKubeconfigsInput {
   @SerializedName("ClusterIds")
   private List<String> clusterIds = null;

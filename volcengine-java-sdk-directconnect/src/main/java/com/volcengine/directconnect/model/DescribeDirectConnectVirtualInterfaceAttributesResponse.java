@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeDirectConnectVirtualInterfaceAttributesResponse {
   @SerializedName("AccountId")
   private String accountId = null;

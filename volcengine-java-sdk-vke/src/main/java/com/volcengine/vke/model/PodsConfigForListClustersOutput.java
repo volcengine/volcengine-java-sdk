@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class PodsConfigForListClustersOutput {
   @SerializedName("FlannelConfig")
   private FlannelConfigForListClustersOutput flannelConfig = null;

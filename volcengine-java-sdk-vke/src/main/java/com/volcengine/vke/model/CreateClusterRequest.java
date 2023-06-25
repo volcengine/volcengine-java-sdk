@@ -35,6 +35,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateClusterRequest {
   @SerializedName("ClientToken")
   private String clientToken = null;

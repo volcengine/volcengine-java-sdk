@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class FilterForListNodesInput {
   @SerializedName("ClusterIds")
   private List<String> clusterIds = null;

@@ -32,6 +32,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ListClustersRequest {
   @SerializedName("Filter")
   private FilterForListClustersInput filter = null;

@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class VpcCniConfigForUpdateClusterConfigInput {
   @SerializedName("SubnetIds")
   private List<String> subnetIds = null;

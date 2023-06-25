@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ListTagsForResourcesRequest {
   @SerializedName("MaxResults")
   private Integer maxResults = null;
@@ -46,8 +47,11 @@ public class ListTagsForResourcesRequest {
    */
   @JsonAdapter(ResourceTypeEnum.Adapter.class)
   public enum ResourceTypeEnum {
+    @SerializedName("BareMachine")
     BAREMACHINE("BareMachine"),
+    @SerializedName("Cluster")
     CLUSTER("Cluster"),
+    @SerializedName("NodePool")
     NODEPOOL("NodePool");
 
     private String value;
@@ -94,7 +98,9 @@ public class ListTagsForResourcesRequest {
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
+    @SerializedName("Custom")
     CUSTOM("Custom"),
+    @SerializedName("System")
     SYSTEM("System");
 
     private String value;

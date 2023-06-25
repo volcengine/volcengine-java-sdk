@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeDirectConnectAccessPointsRequest {
   @SerializedName("DirectConnectAccessPointIds")
   private List<String> directConnectAccessPointIds = null;
