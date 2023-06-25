@@ -280,10 +280,10 @@ public class RunInstancesRequest {
   }
 
    /**
-   * Get hostName
+   * this field is deprecated
    * @return hostName
   **/
-  @Schema(description = "")
+  @Schema(description = "this field is deprecated")
   public String getHostName() {
     return hostName;
   }
