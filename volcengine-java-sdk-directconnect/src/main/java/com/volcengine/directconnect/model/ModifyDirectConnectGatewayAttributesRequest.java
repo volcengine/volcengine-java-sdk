@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ModifyDirectConnectGatewayAttributesRequest {
   @SerializedName("Description")
   private String description = null;

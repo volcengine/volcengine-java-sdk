@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DeleteKubeconfigsRequest {
   @SerializedName("ClusterId")
   private String clusterId = null;

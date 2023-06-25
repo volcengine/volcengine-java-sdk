@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateDirectConnectGatewayResponse {
   @SerializedName("DirectConnectGatewayId")
   private String directConnectGatewayId = null;

@@ -19,10 +19,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vke.model.SubnetIdListForCreateClusterInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -30,20 +29,13 @@ import javax.validation.Valid;
  */
 
 
+
 public class VpcCniConfigForCreateClusterInput {
   @SerializedName("SubnetIds")
-  private List<String> subnetIds = null;
+  private SubnetIdListForCreateClusterInput subnetIds = null;
 
-  public VpcCniConfigForCreateClusterInput subnetIds(List<String> subnetIds) {
+  public VpcCniConfigForCreateClusterInput subnetIds(SubnetIdListForCreateClusterInput subnetIds) {
     this.subnetIds = subnetIds;
-    return this;
-  }
-
-  public VpcCniConfigForCreateClusterInput addSubnetIdsItem(String subnetIdsItem) {
-    if (this.subnetIds == null) {
-      this.subnetIds = new ArrayList<String>();
-    }
-    this.subnetIds.add(subnetIdsItem);
     return this;
   }
 
@@ -51,12 +43,13 @@ public class VpcCniConfigForCreateClusterInput {
    * Get subnetIds
    * @return subnetIds
   **/
+  @Valid
   @Schema(description = "")
-  public List<String> getSubnetIds() {
+  public SubnetIdListForCreateClusterInput getSubnetIds() {
     return subnetIds;
   }
 
-  public void setSubnetIds(List<String> subnetIds) {
+  public void setSubnetIds(SubnetIdListForCreateClusterInput subnetIds) {
     this.subnetIds = subnetIds;
   }
 

@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateClusterResponse {
   @SerializedName("Id")
   private String id = null;

@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class TaintForListNodePoolsOutput {
   @SerializedName("Effect")
   private String effect = null;

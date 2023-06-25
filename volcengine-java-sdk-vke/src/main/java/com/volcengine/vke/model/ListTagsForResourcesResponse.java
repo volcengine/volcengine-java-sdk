@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ListTagsForResourcesResponse {
   @SerializedName("NextToken")
   private String nextToken = null;
