@@ -22,9 +22,11 @@ import com.google.gson.stream.JsonWriter;
 import com.volcengine.vke.model.AutoScalingForCreateNodePoolInput;
 import com.volcengine.vke.model.KubernetesConfigForCreateNodePoolInput;
 import com.volcengine.vke.model.NodeConfigForCreateNodePoolInput;
-import com.volcengine.vke.model.TagListForCreateNodePoolInput;
+import com.volcengine.vke.model.TagForCreateNodePoolInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -53,7 +55,7 @@ public class CreateNodePoolRequest {
   private NodeConfigForCreateNodePoolInput nodeConfig = null;
 
   @SerializedName("Tags")
-  private TagListForCreateNodePoolInput tags = null;
+  private List<TagForCreateNodePoolInput> tags = null;
 
   public CreateNodePoolRequest autoScaling(AutoScalingForCreateNodePoolInput autoScaling) {
     this.autoScaling = autoScaling;
@@ -166,8 +168,16 @@ public class CreateNodePoolRequest {
     this.nodeConfig = nodeConfig;
   }
 
-  public CreateNodePoolRequest tags(TagListForCreateNodePoolInput tags) {
+  public CreateNodePoolRequest tags(List<TagForCreateNodePoolInput> tags) {
     this.tags = tags;
+    return this;
+  }
+
+  public CreateNodePoolRequest addTagsItem(TagForCreateNodePoolInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForCreateNodePoolInput>();
+    }
+    this.tags.add(tagsItem);
     return this;
   }
 
@@ -177,11 +187,11 @@ public class CreateNodePoolRequest {
   **/
   @Valid
   @Schema(description = "")
-  public TagListForCreateNodePoolInput getTags() {
+  public List<TagForCreateNodePoolInput> getTags() {
     return tags;
   }
 
-  public void setTags(TagListForCreateNodePoolInput tags) {
+  public void setTags(List<TagForCreateNodePoolInput> tags) {
     this.tags = tags;
   }
 
