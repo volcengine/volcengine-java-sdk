@@ -44,6 +44,9 @@ public class CreateServerGroupRequest {
   @SerializedName("Servers")
   private List<ServerForCreateServerGroupInput> servers = null;
 
+  @SerializedName("Type")
+  private String type = null;
+
   public CreateServerGroupRequest description(String description) {
     this.description = description;
     return this;
@@ -126,6 +129,24 @@ public class CreateServerGroupRequest {
     this.servers = servers;
   }
 
+  public CreateServerGroupRequest type(String type) {
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @Schema(description = "")
+  public String getType() {
+    return type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -139,12 +160,13 @@ public class CreateServerGroupRequest {
     return Objects.equals(this.description, createServerGroupRequest.description) &&
         Objects.equals(this.loadBalancerId, createServerGroupRequest.loadBalancerId) &&
         Objects.equals(this.serverGroupName, createServerGroupRequest.serverGroupName) &&
-        Objects.equals(this.servers, createServerGroupRequest.servers);
+        Objects.equals(this.servers, createServerGroupRequest.servers) &&
+        Objects.equals(this.type, createServerGroupRequest.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, loadBalancerId, serverGroupName, servers);
+    return Objects.hash(description, loadBalancerId, serverGroupName, servers, type);
   }
 
 
@@ -157,6 +179,7 @@ public class CreateServerGroupRequest {
     sb.append("    loadBalancerId: ").append(toIndentedString(loadBalancerId)).append("\n");
     sb.append("    serverGroupName: ").append(toIndentedString(serverGroupName)).append("\n");
     sb.append("    servers: ").append(toIndentedString(servers)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }
