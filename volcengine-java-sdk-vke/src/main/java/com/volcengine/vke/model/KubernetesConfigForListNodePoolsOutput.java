@@ -32,7 +32,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class KubernetesConfigForListNodePoolsOutput {
   @SerializedName("Cordon")
   private Boolean cordon = null;

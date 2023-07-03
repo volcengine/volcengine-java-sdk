@@ -32,7 +32,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class ItemForListNodesOutput {
   @SerializedName("AdditionalContainerStorageEnabled")
   private Boolean additionalContainerStorageEnabled = null;
@@ -78,11 +77,8 @@ public class ItemForListNodesOutput {
    */
   @JsonAdapter(RolesEnum.Adapter.class)
   public enum RolesEnum {
-    @SerializedName("Etcd")
     ETCD("Etcd"),
-    @SerializedName("Master")
     MASTER("Master"),
-    @SerializedName("Worker")
     WORKER("Worker");
 
     private String value;

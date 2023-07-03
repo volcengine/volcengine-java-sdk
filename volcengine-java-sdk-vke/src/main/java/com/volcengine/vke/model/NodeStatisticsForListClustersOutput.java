@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class NodeStatisticsForListClustersOutput {
   @SerializedName("CreatingCount")
   private Integer creatingCount = null;

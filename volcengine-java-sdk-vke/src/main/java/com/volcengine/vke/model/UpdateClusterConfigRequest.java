@@ -31,7 +31,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class UpdateClusterConfigRequest {
   @SerializedName("ClientToken")
   private String clientToken = null;

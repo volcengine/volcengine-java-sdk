@@ -32,7 +32,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class NodeConfigForCreateDefaultNodePoolInput {
   @SerializedName("InitializeScript")
   private String initializeScript = null;

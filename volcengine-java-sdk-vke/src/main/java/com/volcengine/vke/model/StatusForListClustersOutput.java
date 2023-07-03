@@ -31,7 +31,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class StatusForListClustersOutput {
   @SerializedName("Conditions")
   private List<ConditionForListClustersOutput> conditions = null;

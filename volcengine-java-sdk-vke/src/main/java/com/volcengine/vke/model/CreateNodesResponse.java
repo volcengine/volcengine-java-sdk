@@ -30,7 +30,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class CreateNodesResponse {
   @SerializedName("Ids")
   private List<String> ids = null;

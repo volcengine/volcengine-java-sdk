@@ -31,7 +31,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class ForwardKubernetesApiRequest {
   @SerializedName("Body")
   private String body = null;

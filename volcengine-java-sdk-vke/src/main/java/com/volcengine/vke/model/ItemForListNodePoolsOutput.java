@@ -36,7 +36,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class ItemForListNodePoolsOutput {
   @SerializedName("AutoScaling")
   private AutoScalingForListNodePoolsOutput autoScaling = null;

@@ -30,7 +30,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class TagFilterForListTagsForResourcesInput {
   @SerializedName("Key")
   private String key = null;

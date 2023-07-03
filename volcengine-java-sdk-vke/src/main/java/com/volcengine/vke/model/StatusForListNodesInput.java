@@ -28,30 +28,20 @@ import javax.validation.Valid;
  */
 
 
-
 public class StatusForListNodesInput {
   /**
    * Gets or Sets conditionsType
    */
   @JsonAdapter(ConditionsTypeEnum.Adapter.class)
   public enum ConditionsTypeEnum {
-    @SerializedName("Balance")
     BALANCE("Balance"),
-    @SerializedName("InitializeFailed")
     INITIALIZEFAILED("InitializeFailed"),
-    @SerializedName("NotReady")
     NOTREADY("NotReady"),
-    @SerializedName("Ok")
     OK("Ok"),
-    @SerializedName("Progressing")
     PROGRESSING("Progressing"),
-    @SerializedName("ResourceCleanupFailed")
     RESOURCECLEANUPFAILED("ResourceCleanupFailed"),
-    @SerializedName("Security")
     SECURITY("Security"),
-    @SerializedName("Unknown")
     UNKNOWN("Unknown"),
-    @SerializedName("Unschedulable")
     UNSCHEDULABLE("Unschedulable");
 
     private String value;
@@ -95,21 +85,13 @@ public class StatusForListNodesInput {
    */
   @JsonAdapter(PhaseEnum.Adapter.class)
   public enum PhaseEnum {
-    @SerializedName("Creating")
     CREATING("Creating"),
-    @SerializedName("Deleting")
     DELETING("Deleting"),
-    @SerializedName("Failed")
     FAILED("Failed"),
-    @SerializedName("Running")
     RUNNING("Running"),
-    @SerializedName("Starting")
     STARTING("Starting"),
-    @SerializedName("Stopped")
     STOPPED("Stopped"),
-    @SerializedName("Stopping")
     STOPPING("Stopping"),
-    @SerializedName("Updating")
     UPDATING("Updating");
 
     private String value;

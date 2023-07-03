@@ -31,7 +31,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class ListNodesResponse {
   @SerializedName("Items")
   private List<ItemForListNodesOutput> items = null;

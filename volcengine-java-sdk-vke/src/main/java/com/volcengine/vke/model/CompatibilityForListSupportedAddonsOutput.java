@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class CompatibilityForListSupportedAddonsOutput {
   @SerializedName("KubernetesVersion")
   private String kubernetesVersion = null;
