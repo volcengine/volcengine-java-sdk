@@ -29,6 +29,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ClusterConfigForUpdateClusterConfigInput {
   @SerializedName("ApiServerPublicAccessConfig")
   private ApiServerPublicAccessConfigForUpdateClusterConfigInput apiServerPublicAccessConfig = null;

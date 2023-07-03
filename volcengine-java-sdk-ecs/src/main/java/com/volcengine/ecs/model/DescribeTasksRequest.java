@@ -40,6 +40,9 @@ public class DescribeTasksRequest {
   @SerializedName("ResourceId")
   private String resourceId = null;
 
+  @SerializedName("ResourceIds")
+  private List<String> resourceIds = null;
+
   @SerializedName("TaskIds")
   private List<String> taskIds = null;
 
@@ -97,6 +100,32 @@ public class DescribeTasksRequest {
     this.resourceId = resourceId;
   }
 
+  public DescribeTasksRequest resourceIds(List<String> resourceIds) {
+    this.resourceIds = resourceIds;
+    return this;
+  }
+
+  public DescribeTasksRequest addResourceIdsItem(String resourceIdsItem) {
+    if (this.resourceIds == null) {
+      this.resourceIds = new ArrayList<String>();
+    }
+    this.resourceIds.add(resourceIdsItem);
+    return this;
+  }
+
+   /**
+   * Get resourceIds
+   * @return resourceIds
+  **/
+  @Schema(description = "")
+  public List<String> getResourceIds() {
+    return resourceIds;
+  }
+
+  public void setResourceIds(List<String> resourceIds) {
+    this.resourceIds = resourceIds;
+  }
+
   public DescribeTasksRequest taskIds(List<String> taskIds) {
     this.taskIds = taskIds;
     return this;
@@ -136,12 +165,13 @@ public class DescribeTasksRequest {
     return Objects.equals(this.maxResults, describeTasksRequest.maxResults) &&
         Objects.equals(this.nextToken, describeTasksRequest.nextToken) &&
         Objects.equals(this.resourceId, describeTasksRequest.resourceId) &&
+        Objects.equals(this.resourceIds, describeTasksRequest.resourceIds) &&
         Objects.equals(this.taskIds, describeTasksRequest.taskIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(maxResults, nextToken, resourceId, taskIds);
+    return Objects.hash(maxResults, nextToken, resourceId, resourceIds, taskIds);
   }
 
 
@@ -153,6 +183,7 @@ public class DescribeTasksRequest {
     sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
     sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
     sb.append("    resourceId: ").append(toIndentedString(resourceId)).append("\n");
+    sb.append("    resourceIds: ").append(toIndentedString(resourceIds)).append("\n");
     sb.append("    taskIds: ").append(toIndentedString(taskIds)).append("\n");
     sb.append("}");
     return sb.toString();

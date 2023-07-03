@@ -29,6 +29,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ListSupportedAddonsRequest {
   @SerializedName("Filter")
   private FilterForListSupportedAddonsInput filter = null;

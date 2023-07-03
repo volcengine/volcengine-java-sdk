@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateDirectConnectConnectionOrderResponse {
   @SerializedName("OrderNumber")
   private String orderNumber = null;

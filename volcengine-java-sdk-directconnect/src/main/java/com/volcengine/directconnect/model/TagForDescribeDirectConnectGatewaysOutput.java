@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class TagForDescribeDirectConnectGatewaysOutput {
   @SerializedName("Key")
   private String key = null;

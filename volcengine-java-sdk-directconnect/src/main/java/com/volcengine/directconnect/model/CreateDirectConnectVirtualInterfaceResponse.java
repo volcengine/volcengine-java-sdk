@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateDirectConnectVirtualInterfaceResponse {
   @SerializedName("RequestId")
   private String requestId = null;

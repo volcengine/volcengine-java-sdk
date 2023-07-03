@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeDirectConnectGatewayRoutesResponse {
   @SerializedName("DirectConnectGatewayRoutes")
   private List<DirectConnectGatewayRouteForDescribeDirectConnectGatewayRoutesOutput> directConnectGatewayRoutes = null;

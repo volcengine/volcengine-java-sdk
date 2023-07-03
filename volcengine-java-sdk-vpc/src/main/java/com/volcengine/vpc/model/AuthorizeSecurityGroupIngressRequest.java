@@ -68,8 +68,7 @@ public class AuthorizeSecurityGroupIngressRequest {
    * Get cidrIp
    * @return cidrIp
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getCidrIp() {
     return cidrIp;
   }

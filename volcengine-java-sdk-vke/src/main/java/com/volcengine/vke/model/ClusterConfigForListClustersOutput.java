@@ -32,6 +32,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ClusterConfigForListClustersOutput {
   @SerializedName("ApiServerEndpoints")
   private ApiServerEndpointsForListClustersOutput apiServerEndpoints = null;

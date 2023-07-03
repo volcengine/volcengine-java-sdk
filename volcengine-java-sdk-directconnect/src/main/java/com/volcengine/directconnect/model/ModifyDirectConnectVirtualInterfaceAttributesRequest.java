@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ModifyDirectConnectVirtualInterfaceAttributesRequest {
   @SerializedName("Bandwidth")
   private Integer bandwidth = null;

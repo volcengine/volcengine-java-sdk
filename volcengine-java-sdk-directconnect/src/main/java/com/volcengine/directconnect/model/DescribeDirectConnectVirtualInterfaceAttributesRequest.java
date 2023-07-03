@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeDirectConnectVirtualInterfaceAttributesRequest {
   @SerializedName("VirtualInterfaceId")
   private String virtualInterfaceId = null;

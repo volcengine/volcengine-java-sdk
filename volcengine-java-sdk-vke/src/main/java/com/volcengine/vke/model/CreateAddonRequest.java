@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateAddonRequest {
   @SerializedName("ClientToken")
   private String clientToken = null;
@@ -43,7 +44,9 @@ public class CreateAddonRequest {
    */
   @JsonAdapter(DeployModeEnum.Adapter.class)
   public enum DeployModeEnum {
+    @SerializedName("Managed")
     MANAGED("Managed"),
+    @SerializedName("Unmanaged")
     UNMANAGED("Unmanaged");
 
     private String value;
@@ -87,8 +90,11 @@ public class CreateAddonRequest {
    */
   @JsonAdapter(DeployNodeTypeEnum.Adapter.class)
   public enum DeployNodeTypeEnum {
+    @SerializedName("EdgeNode")
     EDGENODE("EdgeNode"),
+    @SerializedName("Node")
     NODE("Node"),
+    @SerializedName("VirtualNode")
     VIRTUALNODE("VirtualNode");
 
     private String value;

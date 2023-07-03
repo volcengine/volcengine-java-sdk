@@ -30,13 +30,16 @@ import javax.validation.Valid;
  */
 
 
+
 public class FilterForListSupportedResourceTypesInput {
   /**
    * Gets or Sets resourceTypes
    */
   @JsonAdapter(ResourceTypesEnum.Adapter.class)
   public enum ResourceTypesEnum {
+    @SerializedName("Ecs")
     ECS("Ecs"),
+    @SerializedName("Zone")
     ZONE("Zone");
 
     private String value;

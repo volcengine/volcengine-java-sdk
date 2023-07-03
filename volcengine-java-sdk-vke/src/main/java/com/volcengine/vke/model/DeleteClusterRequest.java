@@ -30,16 +30,22 @@ import javax.validation.Valid;
  */
 
 
+
 public class DeleteClusterRequest {
   /**
    * Gets or Sets cascadingDeleteResources
    */
   @JsonAdapter(CascadingDeleteResourcesEnum.Adapter.class)
   public enum CascadingDeleteResourcesEnum {
+    @SerializedName("Clb")
     CLB("Clb"),
+    @SerializedName("DefaultNodePoolResource")
     DEFAULTNODEPOOLRESOURCE("DefaultNodePoolResource"),
+    @SerializedName("Nat")
     NAT("Nat"),
+    @SerializedName("NodePoolResource")
     NODEPOOLRESOURCE("NodePoolResource"),
+    @SerializedName("TryBest")
     TRYBEST("TryBest");
 
     private String value;

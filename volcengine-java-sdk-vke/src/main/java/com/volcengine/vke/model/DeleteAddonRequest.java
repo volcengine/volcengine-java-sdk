@@ -30,12 +30,14 @@ import javax.validation.Valid;
  */
 
 
+
 public class DeleteAddonRequest {
   /**
    * Gets or Sets cascadingDeleteResources
    */
   @JsonAdapter(CascadingDeleteResourcesEnum.Adapter.class)
   public enum CascadingDeleteResourcesEnum {
+    @SerializedName("Crd")
     CRD("Crd");
 
     private String value;
