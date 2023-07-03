@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class LoginForListNodePoolsOutput {
   @SerializedName("SshKeyPairName")
   private String sshKeyPairName = null;

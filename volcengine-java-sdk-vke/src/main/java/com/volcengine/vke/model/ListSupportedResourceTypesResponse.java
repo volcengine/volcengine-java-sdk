@@ -31,7 +31,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class ListSupportedResourceTypesResponse {
   @SerializedName("Items")
   private List<ItemForListSupportedResourceTypesOutput> items = null;

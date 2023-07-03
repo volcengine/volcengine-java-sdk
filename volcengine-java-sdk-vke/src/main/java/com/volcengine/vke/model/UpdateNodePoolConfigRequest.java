@@ -31,7 +31,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class UpdateNodePoolConfigRequest {
   @SerializedName("AutoScaling")
   private AutoScalingForUpdateNodePoolConfigInput autoScaling = null;

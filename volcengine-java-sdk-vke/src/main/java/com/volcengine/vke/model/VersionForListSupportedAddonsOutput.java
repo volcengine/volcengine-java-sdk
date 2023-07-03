@@ -31,7 +31,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class VersionForListSupportedAddonsOutput {
   @SerializedName("Compatibilities")
   private List<CompatibilityForListSupportedAddonsOutput> compatibilities = null;

@@ -34,7 +34,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class NodeConfigForCreateNodePoolInput {
   @SerializedName("AdditionalContainerStorageEnabled")
   private Boolean additionalContainerStorageEnabled = null;
@@ -62,9 +61,7 @@ public class NodeConfigForCreateNodePoolInput {
    */
   @JsonAdapter(InstanceChargeTypeEnum.Adapter.class)
   public enum InstanceChargeTypeEnum {
-    @SerializedName("PostPaid")
     POSTPAID("PostPaid"),
-    @SerializedName("PrePaid")
     PREPAID("PrePaid");
 
     private String value;

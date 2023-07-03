@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class TagForCreateClusterInput {
   @SerializedName("Key")
   private String key = null;

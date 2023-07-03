@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class DataVolumeForListNodePoolsOutput {
   @SerializedName("MountPoint")
   private String mountPoint = null;

@@ -37,7 +37,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class ItemForListClustersOutput {
   @SerializedName("ChargeType")
   private String chargeType = null;

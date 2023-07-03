@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class ConditionForListAddonsOutput {
   @SerializedName("Type")
   private String type = null;

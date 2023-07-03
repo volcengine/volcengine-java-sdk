@@ -31,7 +31,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class ApiServerPublicAccessConfigForListClustersOutput {
   @SerializedName("AccessSourceIpsv4")
   private List<String> accessSourceIpsv4 = null;

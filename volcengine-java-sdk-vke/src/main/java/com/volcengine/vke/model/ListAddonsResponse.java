@@ -31,7 +31,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class ListAddonsResponse {
   @SerializedName("Items")
   private List<ItemForListAddonsOutput> items = null;

@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class ConvertTagForListNodePoolsOutput {
   @SerializedName("Key")
   private String key = null;
