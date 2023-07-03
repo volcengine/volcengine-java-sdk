@@ -19,6 +19,8 @@ import com.squareup.okhttp.internal.http.HttpMethod;
 import com.squareup.okhttp.logging.HttpLoggingInterceptor;
 import com.squareup.okhttp.logging.HttpLoggingInterceptor.Level;
 import com.volcengine.auth.Authentication;
+import com.volcengine.model.AbstractResponse;
+import com.volcengine.model.ResponseMetadata;
 import com.volcengine.sign.Credentials;
 import com.volcengine.sign.ServiceInfo;
 import com.volcengine.sign.VolcstackSign;
@@ -728,13 +730,13 @@ public class ApiClient {
         }
 
         StringBuilder builder = new StringBuilder();
-
+        Map<String,ResponseMetadata> meta = new HashMap<>();
         if (isCommon.length == 0 || !isCommon[0]) {
-            if (!convertResponseBody(respBody, builder)) {
+            if (!convertResponseBody(respBody, builder,meta)) {
                 throw new ApiException(
                         response.code(),
                         response.headers().toMultimap(),
-                        respBody);
+                        respBody,meta.get("ResponseMetadata"));
             } else {
                 respBody = builder.toString();
             }
@@ -746,7 +748,20 @@ public class ApiClient {
             contentType = "application/json";
         }
         if (isJsonMime(contentType)) {
-            return json.deserialize(respBody, returnType);
+            T t = json.deserialize(respBody, returnType);
+            if (t instanceof AbstractResponse){
+                try {
+                    Method m = t.getClass().getMethod("setResponseMetadata",ResponseMetadata.class);
+                    m.invoke(t,meta.get("ResponseMetadata"));
+                } catch (Exception e) {
+                    throw new ApiException(
+                            e.getMessage(),
+                            response.code(),
+                            response.headers().toMultimap(),
+                            respBody,meta.get("ResponseMetadata"));
+                }
+            }
+            return t;
         } else if (returnType.equals(String.class)) {
             // Expecting string, return the raw response body.
             return (T) respBody;
@@ -755,7 +770,7 @@ public class ApiClient {
                     "Content type \"" + contentType + "\" is not supported for type: " + returnType,
                     response.code(),
                     response.headers().toMultimap(),
-                    respBody);
+                    respBody,meta.get("ResponseMetadata"));
         }
     }
 
@@ -1047,11 +1062,18 @@ public class ApiClient {
     }
 
     @SuppressWarnings("all")
-    private boolean convertResponseBody(String source, StringBuilder stringBuilder) {
+    private boolean convertResponseBody(String source, StringBuilder stringBuilder,Map<String, ResponseMetadata> m) {
         Type t = new TypeToken<Map<String, ?>>() {
         }.getType();
         Map<String, ?> temp = json.deserialize(source, t);
         if (temp.containsKey("ResponseMetadata"))  {
+            ResponseMetadata meta = json.deserialize(json.serialize(temp.get("ResponseMetadata")),new TypeToken<ResponseMetadata>(){}.getType());
+            m.put("ResponseMetadata",meta);
+
+            if (meta.getError()!= null){
+                return false;
+            }
+
             if (temp.containsKey("Result")){
                 stringBuilder.append(json.serialize(temp.get("Result")));
             }else{
