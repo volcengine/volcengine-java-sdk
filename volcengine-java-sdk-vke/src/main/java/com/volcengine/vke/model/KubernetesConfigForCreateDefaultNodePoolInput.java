@@ -32,7 +32,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class KubernetesConfigForCreateDefaultNodePoolInput {
   @SerializedName("Cordon")
   private Boolean cordon = null;

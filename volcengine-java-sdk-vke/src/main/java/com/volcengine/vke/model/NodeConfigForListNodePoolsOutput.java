@@ -34,7 +34,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class NodeConfigForListNodePoolsOutput {
   @SerializedName("AdditionalContainerStorageEnabled")
   private Boolean additionalContainerStorageEnabled = null;

@@ -31,7 +31,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class LoggingConfigForListClustersOutput {
   @SerializedName("LogProjectId")
   private String logProjectId = null;

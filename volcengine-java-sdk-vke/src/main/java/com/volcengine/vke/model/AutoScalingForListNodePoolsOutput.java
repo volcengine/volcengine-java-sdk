@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class AutoScalingForListNodePoolsOutput {
   @SerializedName("DesiredReplicas")
   private Integer desiredReplicas = null;

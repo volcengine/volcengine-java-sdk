@@ -21,7 +21,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class UpdateNodePoolConfigResponse {
 
   @Override

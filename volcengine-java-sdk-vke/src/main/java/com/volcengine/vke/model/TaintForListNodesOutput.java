@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class TaintForListNodesOutput {
   @SerializedName("Effect")
   private String effect = null;

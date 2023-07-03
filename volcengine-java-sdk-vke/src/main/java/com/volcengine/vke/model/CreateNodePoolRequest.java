@@ -34,7 +34,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class CreateNodePoolRequest {
   @SerializedName("AutoScaling")
   private AutoScalingForCreateNodePoolInput autoScaling = null;

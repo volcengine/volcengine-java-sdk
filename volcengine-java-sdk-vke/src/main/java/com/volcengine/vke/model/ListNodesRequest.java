@@ -29,7 +29,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class ListNodesRequest {
   @SerializedName("Filter")
   private FilterForListNodesInput filter = null;

@@ -31,7 +31,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class StatusForListNodesOutput {
   @SerializedName("Conditions")
   private List<ConditionForListNodesOutput> conditions = null;

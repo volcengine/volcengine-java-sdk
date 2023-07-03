@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class SystemVolumeForListNodePoolsOutput {
   @SerializedName("Size")
   private Integer size = null;

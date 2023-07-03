@@ -30,7 +30,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class ItemForListSupportedResourceTypesOutput {
   @SerializedName("ResourceScope")
   private String resourceScope = null;

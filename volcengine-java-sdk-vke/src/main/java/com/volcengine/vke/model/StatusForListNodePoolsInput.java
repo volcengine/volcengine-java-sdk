@@ -28,32 +28,21 @@ import javax.validation.Valid;
  */
 
 
-
 public class StatusForListNodePoolsInput {
   /**
    * Gets or Sets conditionsType
    */
   @JsonAdapter(ConditionsTypeEnum.Adapter.class)
   public enum ConditionsTypeEnum {
-    @SerializedName("Balance")
     BALANCE("Balance"),
-    @SerializedName("ClusterNotRunning")
     CLUSTERNOTRUNNING("ClusterNotRunning"),
-    @SerializedName("ClusterVersionUpgrading")
     CLUSTERVERSIONUPGRADING("ClusterVersionUpgrading"),
-    @SerializedName("LimitedByQuota")
     LIMITEDBYQUOTA("LimitedByQuota"),
-    @SerializedName("Ok")
     OK("Ok"),
-    @SerializedName("Progressing")
     PROGRESSING("Progressing"),
-    @SerializedName("ResourceCleanupFailed")
     RESOURCECLEANUPFAILED("ResourceCleanupFailed"),
-    @SerializedName("StockOut")
     STOCKOUT("StockOut"),
-    @SerializedName("Unknown")
     UNKNOWN("Unknown"),
-    @SerializedName("VersionPartlyUpgraded")
     VERSIONPARTLYUPGRADED("VersionPartlyUpgraded");
 
     private String value;
@@ -97,17 +86,11 @@ public class StatusForListNodePoolsInput {
    */
   @JsonAdapter(PhaseEnum.Adapter.class)
   public enum PhaseEnum {
-    @SerializedName("Creating")
     CREATING("Creating"),
-    @SerializedName("Deleting")
     DELETING("Deleting"),
-    @SerializedName("Failed")
     FAILED("Failed"),
-    @SerializedName("Running")
     RUNNING("Running"),
-    @SerializedName("Scaling")
     SCALING("Scaling"),
-    @SerializedName("Updating")
     UPDATING("Updating");
 
     private String value;

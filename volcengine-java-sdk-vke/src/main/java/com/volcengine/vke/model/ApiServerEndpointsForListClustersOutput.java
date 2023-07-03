@@ -30,7 +30,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class ApiServerEndpointsForListClustersOutput {
   @SerializedName("PrivateIp")
   private PrivateIpForListClustersOutput privateIp = null;

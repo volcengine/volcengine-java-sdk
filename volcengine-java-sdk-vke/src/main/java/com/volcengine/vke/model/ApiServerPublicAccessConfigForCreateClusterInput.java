@@ -29,7 +29,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class ApiServerPublicAccessConfigForCreateClusterInput {
   @SerializedName("PublicAccessNetworkConfig")
   private PublicAccessNetworkConfigForCreateClusterInput publicAccessNetworkConfig = null;

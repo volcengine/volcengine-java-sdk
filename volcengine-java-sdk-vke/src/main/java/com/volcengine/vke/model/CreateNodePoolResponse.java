@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class CreateNodePoolResponse {
   @SerializedName("Id")
   private String id = null;

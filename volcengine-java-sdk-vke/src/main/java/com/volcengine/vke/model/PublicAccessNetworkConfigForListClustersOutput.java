@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class PublicAccessNetworkConfigForListClustersOutput {
   @SerializedName("Bandwidth")
   private Integer bandwidth = null;
