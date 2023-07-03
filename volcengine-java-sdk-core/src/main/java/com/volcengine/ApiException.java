@@ -12,6 +12,8 @@
 
 package com.volcengine;
 
+import com.volcengine.model.ResponseMetadata;
+
 import java.util.List;
 import java.util.Map;
 
@@ -19,6 +21,8 @@ import java.util.Map;
     private int code = 0;
     private Map<String, List<String>> responseHeaders = null;
     private String responseBody = null;
+
+    private ResponseMetadata responseMetadata;
 
     public ApiException() {}
 
@@ -36,9 +40,17 @@ import java.util.Map;
         this.responseHeaders = responseHeaders;
         this.responseBody = responseBody;
     }
+    public ApiException(String message, Throwable throwable, int code, Map<String, List<String>> responseHeaders, String responseBody,ResponseMetadata metadata) {
+        this((String) null, (Throwable) null, code, responseHeaders, responseBody);
+        this.responseMetadata = metadata;
+    }
 
     public ApiException(String message, int code, Map<String, List<String>> responseHeaders, String responseBody) {
         this(message, (Throwable) null, code, responseHeaders, responseBody);
+    }
+
+    public ApiException(String message, int code, Map<String, List<String>> responseHeaders, String responseBody,ResponseMetadata responseMetadata) {
+        this(message, (Throwable) null, code, responseHeaders, responseBody,responseMetadata);
     }
 
     public ApiException(String message, Throwable throwable, int code, Map<String, List<String>> responseHeaders) {
@@ -47,6 +59,10 @@ import java.util.Map;
 
     public ApiException(int code, Map<String, List<String>> responseHeaders, String responseBody) {
         this((String) null, (Throwable) null, code, responseHeaders, responseBody);
+    }
+
+    public ApiException(int code, Map<String, List<String>> responseHeaders, String responseBody,ResponseMetadata responseMetadata) {
+        this((String) null, (Throwable) null, code, responseHeaders, responseBody,responseMetadata);
     }
 
     public ApiException(int code, String message) {
