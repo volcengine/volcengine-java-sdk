@@ -160,14 +160,14 @@
             <id>byted</id>
             <distributionManagement>
                 <repository>
-                    <id>maven.byted.org</id>
-                    <name>maven.byted.org</name>
+                    <id>maven-release</id>
+                    <name>maven-release</name>
                     <!--suppress UnresolvedMavenProperty -->
                     <url>https://${MAVEN_SERVER}/repository/releases/</url>
                 </repository>
                 <snapshotRepository>
-                    <id>maven.byted.org</id>
-                    <name>maven.byted.org</name>
+                    <id>maven-release</id>
+                    <name>maven-release</name>
                     <!--suppress UnresolvedMavenProperty -->
                     <url>https://${MAVEN_SERVER}/repository/releases/</url>
                 </snapshotRepository>
