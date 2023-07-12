@@ -28,7 +28,7 @@ import javax.validation.Valid;
  */
 
 
-public class DisassociateEipAddressResponse {
+public class DisassociateEipAddressResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("RequestId")
   private String requestId = null;
 

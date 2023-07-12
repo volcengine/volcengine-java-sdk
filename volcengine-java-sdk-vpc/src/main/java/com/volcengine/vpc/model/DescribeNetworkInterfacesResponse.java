@@ -31,7 +31,7 @@ import javax.validation.Valid;
  */
 
 
-public class DescribeNetworkInterfacesResponse {
+public class DescribeNetworkInterfacesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("NetworkInterfaceSets")
   private List<NetworkInterfaceSetForDescribeNetworkInterfacesOutput> networkInterfaceSets = null;
 

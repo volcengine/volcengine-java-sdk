@@ -31,7 +31,7 @@ import javax.validation.Valid;
  */
 
 
-public class DescribeEipAddressAttributesResponse {
+public class DescribeEipAddressAttributesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("AllocationId")
   private String allocationId = null;
 

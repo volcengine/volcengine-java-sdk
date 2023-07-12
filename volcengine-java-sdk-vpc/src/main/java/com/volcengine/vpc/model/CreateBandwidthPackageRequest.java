@@ -90,8 +90,58 @@ public class CreateBandwidthPackageRequest {
   }  @SerializedName("ISP")
   private ISPEnum ISP = null;
 
+  @SerializedName("Period")
+  private Integer period = null;
+
+  @SerializedName("PeriodUnit")
+  private Integer periodUnit = null;
+
   @SerializedName("ProjectName")
   private String projectName = null;
+
+  /**
+   * Gets or Sets protocol
+   */
+  @JsonAdapter(ProtocolEnum.Adapter.class)
+  public enum ProtocolEnum {
+    IPV4("IPv4"),
+    IPV6("IPv6");
+
+    private String value;
+
+    ProtocolEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ProtocolEnum fromValue(String input) {
+      for (ProtocolEnum b : ProtocolEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ProtocolEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ProtocolEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ProtocolEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ProtocolEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("Protocol")
+  private ProtocolEnum protocol = null;
 
   @SerializedName("SecurityProtectionTypes")
   private List<String> securityProtectionTypes = null;
@@ -145,11 +195,11 @@ public class CreateBandwidthPackageRequest {
 
    /**
    * Get billingType
-   * minimum: 2
+   * minimum: 1
    * maximum: 4
    * @return billingType
   **/
- @Min(2) @Max(4)  @Schema(description = "")
+ @Min(1) @Max(4)  @Schema(description = "")
   public Integer getBillingType() {
     return billingType;
   }
@@ -194,6 +244,44 @@ public class CreateBandwidthPackageRequest {
     this.ISP = ISP;
   }
 
+  public CreateBandwidthPackageRequest period(Integer period) {
+    this.period = period;
+    return this;
+  }
+
+   /**
+   * Get period
+   * @return period
+  **/
+  @Schema(description = "")
+  public Integer getPeriod() {
+    return period;
+  }
+
+  public void setPeriod(Integer period) {
+    this.period = period;
+  }
+
+  public CreateBandwidthPackageRequest periodUnit(Integer periodUnit) {
+    this.periodUnit = periodUnit;
+    return this;
+  }
+
+   /**
+   * Get periodUnit
+   * minimum: 1
+   * maximum: 2
+   * @return periodUnit
+  **/
+ @Min(1) @Max(2)  @Schema(description = "")
+  public Integer getPeriodUnit() {
+    return periodUnit;
+  }
+
+  public void setPeriodUnit(Integer periodUnit) {
+    this.periodUnit = periodUnit;
+  }
+
   public CreateBandwidthPackageRequest projectName(String projectName) {
     this.projectName = projectName;
     return this;
@@ -210,6 +298,24 @@ public class CreateBandwidthPackageRequest {
 
   public void setProjectName(String projectName) {
     this.projectName = projectName;
+  }
+
+  public CreateBandwidthPackageRequest protocol(ProtocolEnum protocol) {
+    this.protocol = protocol;
+    return this;
+  }
+
+   /**
+   * Get protocol
+   * @return protocol
+  **/
+  @Schema(description = "")
+  public ProtocolEnum getProtocol() {
+    return protocol;
+  }
+
+  public void setProtocol(ProtocolEnum protocol) {
+    this.protocol = protocol;
   }
 
   public CreateBandwidthPackageRequest securityProtectionTypes(List<String> securityProtectionTypes) {
@@ -280,14 +386,17 @@ public class CreateBandwidthPackageRequest {
         Objects.equals(this.billingType, createBandwidthPackageRequest.billingType) &&
         Objects.equals(this.description, createBandwidthPackageRequest.description) &&
         Objects.equals(this.ISP, createBandwidthPackageRequest.ISP) &&
+        Objects.equals(this.period, createBandwidthPackageRequest.period) &&
+        Objects.equals(this.periodUnit, createBandwidthPackageRequest.periodUnit) &&
         Objects.equals(this.projectName, createBandwidthPackageRequest.projectName) &&
+        Objects.equals(this.protocol, createBandwidthPackageRequest.protocol) &&
         Objects.equals(this.securityProtectionTypes, createBandwidthPackageRequest.securityProtectionTypes) &&
         Objects.equals(this.tags, createBandwidthPackageRequest.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidth, bandwidthPackageName, billingType, description, ISP, projectName, securityProtectionTypes, tags);
+    return Objects.hash(bandwidth, bandwidthPackageName, billingType, description, ISP, period, periodUnit, projectName, protocol, securityProtectionTypes, tags);
   }
 
 
@@ -301,7 +410,10 @@ public class CreateBandwidthPackageRequest {
     sb.append("    billingType: ").append(toIndentedString(billingType)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    ISP: ").append(toIndentedString(ISP)).append("\n");
+    sb.append("    period: ").append(toIndentedString(period)).append("\n");
+    sb.append("    periodUnit: ").append(toIndentedString(periodUnit)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
     sb.append("    securityProtectionTypes: ").append(toIndentedString(securityProtectionTypes)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
