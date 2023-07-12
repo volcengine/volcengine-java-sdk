@@ -28,7 +28,7 @@ import javax.validation.Valid;
  */
 
 
-public class DisassociateVpcCidrBlockResponse {
+public class DisassociateVpcCidrBlockResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("RequestId")
   private String requestId = null;
 

@@ -60,6 +60,9 @@ public class BandwidthPackageForDescribeBandwidthPackagesOutput {
   @SerializedName("EipAddresses")
   private List<EipAddressForDescribeBandwidthPackagesOutput> eipAddresses = null;
 
+  @SerializedName("ExpiredTime")
+  private String expiredTime = null;
+
   @SerializedName("ISP")
   private String ISP = null;
 
@@ -68,6 +71,9 @@ public class BandwidthPackageForDescribeBandwidthPackagesOutput {
 
   @SerializedName("ProjectName")
   private String projectName = null;
+
+  @SerializedName("Protocol")
+  private String protocol = null;
 
   @SerializedName("SecurityProtectionTypes")
   private List<String> securityProtectionTypes = null;
@@ -252,6 +258,24 @@ public class BandwidthPackageForDescribeBandwidthPackagesOutput {
     this.eipAddresses = eipAddresses;
   }
 
+  public BandwidthPackageForDescribeBandwidthPackagesOutput expiredTime(String expiredTime) {
+    this.expiredTime = expiredTime;
+    return this;
+  }
+
+   /**
+   * Get expiredTime
+   * @return expiredTime
+  **/
+  @Schema(description = "")
+  public String getExpiredTime() {
+    return expiredTime;
+  }
+
+  public void setExpiredTime(String expiredTime) {
+    this.expiredTime = expiredTime;
+  }
+
   public BandwidthPackageForDescribeBandwidthPackagesOutput ISP(String ISP) {
     this.ISP = ISP;
     return this;
@@ -304,6 +328,24 @@ public class BandwidthPackageForDescribeBandwidthPackagesOutput {
 
   public void setProjectName(String projectName) {
     this.projectName = projectName;
+  }
+
+  public BandwidthPackageForDescribeBandwidthPackagesOutput protocol(String protocol) {
+    this.protocol = protocol;
+    return this;
+  }
+
+   /**
+   * Get protocol
+   * @return protocol
+  **/
+  @Schema(description = "")
+  public String getProtocol() {
+    return protocol;
+  }
+
+  public void setProtocol(String protocol) {
+    this.protocol = protocol;
   }
 
   public BandwidthPackageForDescribeBandwidthPackagesOutput securityProtectionTypes(List<String> securityProtectionTypes) {
@@ -414,9 +456,11 @@ public class BandwidthPackageForDescribeBandwidthPackagesOutput {
         Objects.equals(this.deletedTime, bandwidthPackageForDescribeBandwidthPackagesOutput.deletedTime) &&
         Objects.equals(this.description, bandwidthPackageForDescribeBandwidthPackagesOutput.description) &&
         Objects.equals(this.eipAddresses, bandwidthPackageForDescribeBandwidthPackagesOutput.eipAddresses) &&
+        Objects.equals(this.expiredTime, bandwidthPackageForDescribeBandwidthPackagesOutput.expiredTime) &&
         Objects.equals(this.ISP, bandwidthPackageForDescribeBandwidthPackagesOutput.ISP) &&
         Objects.equals(this.overdueTime, bandwidthPackageForDescribeBandwidthPackagesOutput.overdueTime) &&
         Objects.equals(this.projectName, bandwidthPackageForDescribeBandwidthPackagesOutput.projectName) &&
+        Objects.equals(this.protocol, bandwidthPackageForDescribeBandwidthPackagesOutput.protocol) &&
         Objects.equals(this.securityProtectionTypes, bandwidthPackageForDescribeBandwidthPackagesOutput.securityProtectionTypes) &&
         Objects.equals(this.status, bandwidthPackageForDescribeBandwidthPackagesOutput.status) &&
         Objects.equals(this.tags, bandwidthPackageForDescribeBandwidthPackagesOutput.tags) &&
@@ -425,7 +469,7 @@ public class BandwidthPackageForDescribeBandwidthPackagesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidth, bandwidthPackageId, bandwidthPackageName, billingType, businessStatus, creationTime, deletedTime, description, eipAddresses, ISP, overdueTime, projectName, securityProtectionTypes, status, tags, updateTime);
+    return Objects.hash(bandwidth, bandwidthPackageId, bandwidthPackageName, billingType, businessStatus, creationTime, deletedTime, description, eipAddresses, expiredTime, ISP, overdueTime, projectName, protocol, securityProtectionTypes, status, tags, updateTime);
   }
 
 
@@ -443,9 +487,11 @@ public class BandwidthPackageForDescribeBandwidthPackagesOutput {
     sb.append("    deletedTime: ").append(toIndentedString(deletedTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    eipAddresses: ").append(toIndentedString(eipAddresses)).append("\n");
+    sb.append("    expiredTime: ").append(toIndentedString(expiredTime)).append("\n");
     sb.append("    ISP: ").append(toIndentedString(ISP)).append("\n");
     sb.append("    overdueTime: ").append(toIndentedString(overdueTime)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
     sb.append("    securityProtectionTypes: ").append(toIndentedString(securityProtectionTypes)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");

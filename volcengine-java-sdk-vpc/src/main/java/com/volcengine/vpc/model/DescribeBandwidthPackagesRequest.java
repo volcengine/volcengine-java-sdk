@@ -84,8 +84,58 @@ public class DescribeBandwidthPackagesRequest {
   }  @SerializedName("ISP")
   private ISPEnum ISP = null;
 
+  @SerializedName("PageNumber")
+  private Integer pageNumber = null;
+
+  @SerializedName("PageSize")
+  private Integer pageSize = null;
+
   @SerializedName("ProjectName")
   private String projectName = null;
+
+  /**
+   * Gets or Sets protocol
+   */
+  @JsonAdapter(ProtocolEnum.Adapter.class)
+  public enum ProtocolEnum {
+    IPV4("IPv4"),
+    IPV6("IPv6");
+
+    private String value;
+
+    ProtocolEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ProtocolEnum fromValue(String input) {
+      for (ProtocolEnum b : ProtocolEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ProtocolEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ProtocolEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ProtocolEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ProtocolEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("Protocol")
+  private ProtocolEnum protocol = null;
 
   @SerializedName("SecurityProtectionEnabled")
   private Boolean securityProtectionEnabled = null;
@@ -155,6 +205,43 @@ public class DescribeBandwidthPackagesRequest {
     this.ISP = ISP;
   }
 
+  public DescribeBandwidthPackagesRequest pageNumber(Integer pageNumber) {
+    this.pageNumber = pageNumber;
+    return this;
+  }
+
+   /**
+   * Get pageNumber
+   * @return pageNumber
+  **/
+  @Schema(description = "")
+  public Integer getPageNumber() {
+    return pageNumber;
+  }
+
+  public void setPageNumber(Integer pageNumber) {
+    this.pageNumber = pageNumber;
+  }
+
+  public DescribeBandwidthPackagesRequest pageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+    return this;
+  }
+
+   /**
+   * Get pageSize
+   * maximum: 100
+   * @return pageSize
+  **/
+ @Max(100)  @Schema(description = "")
+  public Integer getPageSize() {
+    return pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
   public DescribeBandwidthPackagesRequest projectName(String projectName) {
     this.projectName = projectName;
     return this;
@@ -171,6 +258,24 @@ public class DescribeBandwidthPackagesRequest {
 
   public void setProjectName(String projectName) {
     this.projectName = projectName;
+  }
+
+  public DescribeBandwidthPackagesRequest protocol(ProtocolEnum protocol) {
+    this.protocol = protocol;
+    return this;
+  }
+
+   /**
+   * Get protocol
+   * @return protocol
+  **/
+  @Schema(description = "")
+  public ProtocolEnum getProtocol() {
+    return protocol;
+  }
+
+  public void setProtocol(ProtocolEnum protocol) {
+    this.protocol = protocol;
   }
 
   public DescribeBandwidthPackagesRequest securityProtectionEnabled(Boolean securityProtectionEnabled) {
@@ -231,14 +336,17 @@ public class DescribeBandwidthPackagesRequest {
     return Objects.equals(this.bandwidthPackageIds, describeBandwidthPackagesRequest.bandwidthPackageIds) &&
         Objects.equals(this.bandwidthPackageName, describeBandwidthPackagesRequest.bandwidthPackageName) &&
         Objects.equals(this.ISP, describeBandwidthPackagesRequest.ISP) &&
+        Objects.equals(this.pageNumber, describeBandwidthPackagesRequest.pageNumber) &&
+        Objects.equals(this.pageSize, describeBandwidthPackagesRequest.pageSize) &&
         Objects.equals(this.projectName, describeBandwidthPackagesRequest.projectName) &&
+        Objects.equals(this.protocol, describeBandwidthPackagesRequest.protocol) &&
         Objects.equals(this.securityProtectionEnabled, describeBandwidthPackagesRequest.securityProtectionEnabled) &&
         Objects.equals(this.tagFilters, describeBandwidthPackagesRequest.tagFilters);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidthPackageIds, bandwidthPackageName, ISP, projectName, securityProtectionEnabled, tagFilters);
+    return Objects.hash(bandwidthPackageIds, bandwidthPackageName, ISP, pageNumber, pageSize, projectName, protocol, securityProtectionEnabled, tagFilters);
   }
 
 
@@ -250,7 +358,10 @@ public class DescribeBandwidthPackagesRequest {
     sb.append("    bandwidthPackageIds: ").append(toIndentedString(bandwidthPackageIds)).append("\n");
     sb.append("    bandwidthPackageName: ").append(toIndentedString(bandwidthPackageName)).append("\n");
     sb.append("    ISP: ").append(toIndentedString(ISP)).append("\n");
+    sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
+    sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
     sb.append("    securityProtectionEnabled: ").append(toIndentedString(securityProtectionEnabled)).append("\n");
     sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("}");
