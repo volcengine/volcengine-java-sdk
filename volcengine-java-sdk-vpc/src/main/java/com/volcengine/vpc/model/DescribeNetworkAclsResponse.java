@@ -31,7 +31,7 @@ import javax.validation.Valid;
  */
 
 
-public class DescribeNetworkAclsResponse {
+public class DescribeNetworkAclsResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("NetworkAcls")
   private List<NetworkAclForDescribeNetworkAclsOutput> networkAcls = null;
 

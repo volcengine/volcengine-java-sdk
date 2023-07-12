@@ -28,7 +28,7 @@ import javax.validation.Valid;
  */
 
 
-public class CreateSecurityGroupResponse {
+public class CreateSecurityGroupResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("RequestId")
   private String requestId = null;
 

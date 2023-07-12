@@ -31,7 +31,7 @@ import javax.validation.Valid;
  */
 
 
-public class DescribeRouteEntryListResponse {
+public class DescribeRouteEntryListResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
 

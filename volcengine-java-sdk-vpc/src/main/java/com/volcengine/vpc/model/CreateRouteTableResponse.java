@@ -28,7 +28,7 @@ import javax.validation.Valid;
  */
 
 
-public class CreateRouteTableResponse {
+public class CreateRouteTableResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("RequestId")
   private String requestId = null;
 

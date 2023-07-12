@@ -31,7 +31,7 @@ import javax.validation.Valid;
  */
 
 
-public class DescribeBandwidthPackagesResponse {
+public class DescribeBandwidthPackagesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("BandwidthPackages")
   private List<BandwidthPackageForDescribeBandwidthPackagesOutput> bandwidthPackages = null;
 

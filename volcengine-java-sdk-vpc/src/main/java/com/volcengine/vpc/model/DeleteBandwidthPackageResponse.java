@@ -28,7 +28,7 @@ import javax.validation.Valid;
  */
 
 
-public class DeleteBandwidthPackageResponse {
+public class DeleteBandwidthPackageResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("RequestId")
   private String requestId = null;
 

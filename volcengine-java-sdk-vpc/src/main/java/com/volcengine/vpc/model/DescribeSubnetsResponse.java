@@ -31,7 +31,7 @@ import javax.validation.Valid;
  */
 
 
-public class DescribeSubnetsResponse {
+public class DescribeSubnetsResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
 
