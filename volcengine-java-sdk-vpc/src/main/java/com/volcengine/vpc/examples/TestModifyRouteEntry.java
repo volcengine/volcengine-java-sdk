@@ -15,7 +15,7 @@ public class TestModifyRouteEntry {
     public static void main(String[] args) throws Exception {
         String ak = "Your AK";
         String sk = "Your SK";
-        String region = "Your Region";
+        String region = "cn-beijing";
 
         ApiClient apiClient = new ApiClient()
                 .setCredentials(Credentials.getCredentials(ak, sk))
@@ -25,7 +25,7 @@ public class TestModifyRouteEntry {
         
         ModifyRouteEntryRequest modifyRouteEntryRequest = new ModifyRouteEntryRequest();
         modifyRouteEntryRequest.setRouteEntryId("rte-3tj9gw2pwq3vj******");
-        modifyRouteEntryRequest.setRouteEntryName("test");
+        modifyRouteEntryRequest.setRouteEntryName("route-entry-1");
         
         try {
             ModifyRouteEntryResponse response = api.modifyRouteEntry(modifyRouteEntryRequest);

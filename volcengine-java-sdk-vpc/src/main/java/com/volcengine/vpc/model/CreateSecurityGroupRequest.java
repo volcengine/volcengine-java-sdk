@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateSecurityGroupRequest {
   @SerializedName("ClientToken")
   private String clientToken = null;

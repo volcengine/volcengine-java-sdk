@@ -15,7 +15,7 @@ public class TestModifyRouteTableAttributes {
     public static void main(String[] args) throws Exception {
         String ak = "Your AK";
         String sk = "Your SK";
-        String region = "Your Region";
+        String region = "cn-beijing";
 
         ApiClient apiClient = new ApiClient()
                 .setCredentials(Credentials.getCredentials(ak, sk))
@@ -25,6 +25,7 @@ public class TestModifyRouteTableAttributes {
         
         ModifyRouteTableAttributesRequest modifyRouteTableAttributesRequest = new ModifyRouteTableAttributesRequest();
         modifyRouteTableAttributesRequest.setRouteTableId("vtb-2fdzao4h726f45****");
+        modifyRouteTableAttributesRequest.setRouteTableName("RouteTable_1");
         
         try {
             ModifyRouteTableAttributesResponse response = api.modifyRouteTableAttributes(modifyRouteTableAttributesRequest);

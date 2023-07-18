@@ -16,7 +16,7 @@ public class TestCreateNetworkInterface {
     public static void main(String[] args) throws Exception {
         String ak = "Your AK";
         String sk = "Your SK";
-        String region = "Your Region";
+        String region = "cn-beijing";
 
         ApiClient apiClient = new ApiClient()
                 .setCredentials(Credentials.getCredentials(ak, sk))
@@ -25,10 +25,10 @@ public class TestCreateNetworkInterface {
         VpcApi api = new VpcApi(apiClient);
         
         CreateNetworkInterfaceRequest createNetworkInterfaceRequest = new CreateNetworkInterfaceRequest();
-        createNetworkInterfaceRequest.setNetworkInterfaceName("test");
+        createNetworkInterfaceRequest.setNetworkInterfaceName("eni-1");
         createNetworkInterfaceRequest.setPrimaryIpAddress("192.XX.XX.10");
         createNetworkInterfaceRequest.setSecurityGroupIds(Arrays.asList("sg-123edfgt8hhvj****"));
-        createNetworkInterfaceRequest.setSubnetId("subnet-xxxxxx");
+        createNetworkInterfaceRequest.setSubnetId("subnet-h256yg29j****");
         
         try {
             CreateNetworkInterfaceResponse response = api.createNetworkInterface(createNetworkInterfaceRequest);

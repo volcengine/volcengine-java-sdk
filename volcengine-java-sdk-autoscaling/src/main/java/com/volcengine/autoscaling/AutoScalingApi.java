@@ -131,7 +131,7 @@ public class AutoScalingApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/AttachDBInstances/2020-01-01/auto_scaling/get/";
+        String localVarPath = "/AttachDBInstances/2020-01-01/auto_scaling/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -165,7 +165,7 @@ public class AutoScalingApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -255,7 +255,7 @@ public class AutoScalingApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/AttachInstances/2020-01-01/auto_scaling/get/";
+        String localVarPath = "/AttachInstances/2020-01-01/auto_scaling/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -289,7 +289,7 @@ public class AutoScalingApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -379,7 +379,7 @@ public class AutoScalingApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/AttachServerGroups/2020-01-01/auto_scaling/get/";
+        String localVarPath = "/AttachServerGroups/2020-01-01/auto_scaling/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -413,7 +413,7 @@ public class AutoScalingApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -503,7 +503,7 @@ public class AutoScalingApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/CompleteLifecycleActivity/2020-01-01/auto_scaling/get/";
+        String localVarPath = "/CompleteLifecycleActivity/2020-01-01/auto_scaling/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -537,7 +537,7 @@ public class AutoScalingApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -627,7 +627,7 @@ public class AutoScalingApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/CreateLifecycleHook/2020-01-01/auto_scaling/get/";
+        String localVarPath = "/CreateLifecycleHook/2020-01-01/auto_scaling/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -661,7 +661,7 @@ public class AutoScalingApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -751,7 +751,7 @@ public class AutoScalingApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/CreateScalingConfiguration/2020-01-01/auto_scaling/get/";
+        String localVarPath = "/CreateScalingConfiguration/2020-01-01/auto_scaling/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -785,7 +785,7 @@ public class AutoScalingApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -875,7 +875,7 @@ public class AutoScalingApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/CreateScalingGroup/2020-01-01/auto_scaling/get/";
+        String localVarPath = "/CreateScalingGroup/2020-01-01/auto_scaling/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -909,7 +909,7 @@ public class AutoScalingApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -999,7 +999,7 @@ public class AutoScalingApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/CreateScalingPolicy/2020-01-01/auto_scaling/get/";
+        String localVarPath = "/CreateScalingPolicy/2020-01-01/auto_scaling/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1033,7 +1033,7 @@ public class AutoScalingApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -1123,7 +1123,7 @@ public class AutoScalingApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteLifecycleHook/2020-01-01/auto_scaling/get/";
+        String localVarPath = "/DeleteLifecycleHook/2020-01-01/auto_scaling/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1157,7 +1157,7 @@ public class AutoScalingApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -1247,7 +1247,7 @@ public class AutoScalingApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteScalingConfiguration/2020-01-01/auto_scaling/get/";
+        String localVarPath = "/DeleteScalingConfiguration/2020-01-01/auto_scaling/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1281,7 +1281,7 @@ public class AutoScalingApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -1371,7 +1371,7 @@ public class AutoScalingApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteScalingGroup/2020-01-01/auto_scaling/get/";
+        String localVarPath = "/DeleteScalingGroup/2020-01-01/auto_scaling/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1405,7 +1405,7 @@ public class AutoScalingApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -1495,7 +1495,7 @@ public class AutoScalingApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DeleteScalingPolicy/2020-01-01/auto_scaling/get/";
+        String localVarPath = "/DeleteScalingPolicy/2020-01-01/auto_scaling/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1529,7 +1529,7 @@ public class AutoScalingApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -1619,7 +1619,7 @@ public class AutoScalingApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeLifecycleActivities/2020-01-01/auto_scaling/get/";
+        String localVarPath = "/DescribeLifecycleActivities/2020-01-01/auto_scaling/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1653,7 +1653,7 @@ public class AutoScalingApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -1743,7 +1743,7 @@ public class AutoScalingApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeLifecycleHooks/2020-01-01/auto_scaling/get/";
+        String localVarPath = "/DescribeLifecycleHooks/2020-01-01/auto_scaling/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1777,7 +1777,7 @@ public class AutoScalingApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -1867,7 +1867,7 @@ public class AutoScalingApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeScalingActivities/2020-01-01/auto_scaling/get/";
+        String localVarPath = "/DescribeScalingActivities/2020-01-01/auto_scaling/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1901,7 +1901,7 @@ public class AutoScalingApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -1991,7 +1991,7 @@ public class AutoScalingApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeScalingConfigurations/2020-01-01/auto_scaling/get/";
+        String localVarPath = "/DescribeScalingConfigurations/2020-01-01/auto_scaling/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2025,7 +2025,7 @@ public class AutoScalingApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -2115,7 +2115,7 @@ public class AutoScalingApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeScalingGroups/2020-01-01/auto_scaling/get/";
+        String localVarPath = "/DescribeScalingGroups/2020-01-01/auto_scaling/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2149,7 +2149,7 @@ public class AutoScalingApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -2239,7 +2239,7 @@ public class AutoScalingApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeScalingInstances/2020-01-01/auto_scaling/get/";
+        String localVarPath = "/DescribeScalingInstances/2020-01-01/auto_scaling/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2273,7 +2273,7 @@ public class AutoScalingApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -2363,7 +2363,7 @@ public class AutoScalingApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeScalingPolicies/2020-01-01/auto_scaling/get/";
+        String localVarPath = "/DescribeScalingPolicies/2020-01-01/auto_scaling/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2397,7 +2397,7 @@ public class AutoScalingApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -2487,7 +2487,7 @@ public class AutoScalingApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DetachDBInstances/2020-01-01/auto_scaling/get/";
+        String localVarPath = "/DetachDBInstances/2020-01-01/auto_scaling/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2521,7 +2521,7 @@ public class AutoScalingApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -2611,7 +2611,7 @@ public class AutoScalingApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DetachInstances/2020-01-01/auto_scaling/get/";
+        String localVarPath = "/DetachInstances/2020-01-01/auto_scaling/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2645,7 +2645,7 @@ public class AutoScalingApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -2735,7 +2735,7 @@ public class AutoScalingApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DetachServerGroups/2020-01-01/auto_scaling/get/";
+        String localVarPath = "/DetachServerGroups/2020-01-01/auto_scaling/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2769,7 +2769,7 @@ public class AutoScalingApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -2859,7 +2859,7 @@ public class AutoScalingApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DisableScalingGroup/2020-01-01/auto_scaling/get/";
+        String localVarPath = "/DisableScalingGroup/2020-01-01/auto_scaling/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2893,7 +2893,7 @@ public class AutoScalingApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -2983,7 +2983,7 @@ public class AutoScalingApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DisableScalingPolicy/2020-01-01/auto_scaling/get/";
+        String localVarPath = "/DisableScalingPolicy/2020-01-01/auto_scaling/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3017,7 +3017,7 @@ public class AutoScalingApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -3107,7 +3107,7 @@ public class AutoScalingApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/EnableScalingConfiguration/2020-01-01/auto_scaling/get/";
+        String localVarPath = "/EnableScalingConfiguration/2020-01-01/auto_scaling/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3141,7 +3141,7 @@ public class AutoScalingApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -3231,7 +3231,7 @@ public class AutoScalingApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/EnableScalingGroup/2020-01-01/auto_scaling/get/";
+        String localVarPath = "/EnableScalingGroup/2020-01-01/auto_scaling/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3265,7 +3265,7 @@ public class AutoScalingApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -3355,7 +3355,7 @@ public class AutoScalingApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/EnableScalingPolicy/2020-01-01/auto_scaling/get/";
+        String localVarPath = "/EnableScalingPolicy/2020-01-01/auto_scaling/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3389,7 +3389,7 @@ public class AutoScalingApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -3479,7 +3479,7 @@ public class AutoScalingApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ModifyLifecycleHook/2020-01-01/auto_scaling/get/";
+        String localVarPath = "/ModifyLifecycleHook/2020-01-01/auto_scaling/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3513,7 +3513,7 @@ public class AutoScalingApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -3603,7 +3603,7 @@ public class AutoScalingApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ModifyScalingConfiguration/2020-01-01/auto_scaling/get/";
+        String localVarPath = "/ModifyScalingConfiguration/2020-01-01/auto_scaling/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3637,7 +3637,7 @@ public class AutoScalingApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -3727,7 +3727,7 @@ public class AutoScalingApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ModifyScalingGroup/2020-01-01/auto_scaling/get/";
+        String localVarPath = "/ModifyScalingGroup/2020-01-01/auto_scaling/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3761,7 +3761,7 @@ public class AutoScalingApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -3851,7 +3851,7 @@ public class AutoScalingApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ModifyScalingPolicy/2020-01-01/auto_scaling/get/";
+        String localVarPath = "/ModifyScalingPolicy/2020-01-01/auto_scaling/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3885,7 +3885,7 @@ public class AutoScalingApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -3975,7 +3975,7 @@ public class AutoScalingApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/RemoveInstances/2020-01-01/auto_scaling/get/";
+        String localVarPath = "/RemoveInstances/2020-01-01/auto_scaling/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4009,7 +4009,7 @@ public class AutoScalingApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
@@ -4099,7 +4099,7 @@ public class AutoScalingApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/SetInstancesProtection/2020-01-01/auto_scaling/get/";
+        String localVarPath = "/SetInstancesProtection/2020-01-01/auto_scaling/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4133,7 +4133,7 @@ public class AutoScalingApi {
         }
 
         String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")

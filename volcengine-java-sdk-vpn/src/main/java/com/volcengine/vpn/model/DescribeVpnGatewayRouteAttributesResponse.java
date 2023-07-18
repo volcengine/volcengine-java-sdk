@@ -28,7 +28,8 @@ import javax.validation.Valid;
  */
 
 
-public class DescribeVpnGatewayRouteAttributesResponse {
+
+public class DescribeVpnGatewayRouteAttributesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("CreationTime")
   private String creationTime = null;
 

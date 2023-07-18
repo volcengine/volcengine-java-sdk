@@ -32,7 +32,7 @@ import javax.validation.Valid;
 
 
 
-public class DescribeBgpPeersResponse {
+public class DescribeBgpPeersResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("BgpPeers")
   private List<BgpPeerForDescribeBgpPeersOutput> bgpPeers = null;
 

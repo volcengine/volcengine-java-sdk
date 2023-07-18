@@ -28,7 +28,8 @@ import javax.validation.Valid;
  */
 
 
-public class ModifyKeyPairAttributeResponse {
+
+public class ModifyKeyPairAttributeResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("KeyPairName")
   private String keyPairName = null;
 

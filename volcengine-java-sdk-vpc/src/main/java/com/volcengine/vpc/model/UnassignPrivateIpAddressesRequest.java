@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class UnassignPrivateIpAddressesRequest {
   @SerializedName("NetworkInterfaceId")
   private String networkInterfaceId = null;

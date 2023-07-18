@@ -16,7 +16,7 @@ public class TestUpdateNetworkAclEntries {
     public static void main(String[] args) throws Exception {
         String ak = "Your AK";
         String sk = "Your SK";
-        String region = "Your Region";
+        String region = "cn-beijing";
 
         ApiClient apiClient = new ApiClient()
                 .setCredentials(Credentials.getCredentials(ak, sk))
@@ -24,14 +24,14 @@ public class TestUpdateNetworkAclEntries {
 
         VpcApi api = new VpcApi(apiClient);
         
-        EgressAclEntryForUpdateNetworkAclEntriesInput reqEgressAclEntries0 = new EgressAclEntryForUpdateNetworkAclEntriesInput();
-        reqEgressAclEntries0.setDescription("ThisisEgressAclEntries01.");
-        reqEgressAclEntries0.setDestinationCidrIp("10.XX.XX.0/24");
-        reqEgressAclEntries0.setNetworkAclEntryId("nae-2zecs97e0brcge46****");
-        reqEgressAclEntries0.setNetworkAclEntryName("acl-01");
-        reqEgressAclEntries0.setPolicy("accept");
-        reqEgressAclEntries0.setPort("-1/-1");
-        reqEgressAclEntries0.setProtocol("all");
+        EgressAclEntryForUpdateNetworkAclEntriesInput reqEgressAclEntries = new EgressAclEntryForUpdateNetworkAclEntriesInput();
+        reqEgressAclEntries.setDescription("ThisisEgressAclEntries01.");
+        reqEgressAclEntries.setDestinationCidrIp("10.XX.XX.0/24");
+        reqEgressAclEntries.setNetworkAclEntryId("nae-2zecs97e0brcge46****");
+        reqEgressAclEntries.setNetworkAclEntryName("acl-01");
+        reqEgressAclEntries.setPolicy("accept");
+        reqEgressAclEntries.setPort("-1/-1");
+        reqEgressAclEntries.setProtocol("all");
         
         EgressAclEntryForUpdateNetworkAclEntriesInput reqEgressAclEntries1 = new EgressAclEntryForUpdateNetworkAclEntriesInput();
         reqEgressAclEntries1.setDescription("ThisisEgressAclEntries02.");
@@ -42,14 +42,14 @@ public class TestUpdateNetworkAclEntries {
         reqEgressAclEntries1.setPort("80/80");
         reqEgressAclEntries1.setProtocol("icmp");
         
-        IngressAclEntryForUpdateNetworkAclEntriesInput reqIngressAclEntries0 = new IngressAclEntryForUpdateNetworkAclEntriesInput();
-        reqIngressAclEntries0.setDescription("ThisisIngressAclEntries01.");
-        reqIngressAclEntries0.setNetworkAclEntryId("nae-2zepn32de59j8m4****");
-        reqIngressAclEntries0.setNetworkAclEntryName("acl-3***");
-        reqIngressAclEntries0.setPolicy("accept");
-        reqIngressAclEntries0.setPort("22/22");
-        reqIngressAclEntries0.setProtocol("all");
-        reqIngressAclEntries0.setSourceCidrIp("10.XX.XX.0/24");
+        IngressAclEntryForUpdateNetworkAclEntriesInput reqIngressAclEntries = new IngressAclEntryForUpdateNetworkAclEntriesInput();
+        reqIngressAclEntries.setDescription("ThisisIngressAclEntries01.");
+        reqIngressAclEntries.setNetworkAclEntryId("nae-2zepn32de59j8m4****");
+        reqIngressAclEntries.setNetworkAclEntryName("acl-3***");
+        reqIngressAclEntries.setPolicy("accept");
+        reqIngressAclEntries.setPort("22/22");
+        reqIngressAclEntries.setProtocol("all");
+        reqIngressAclEntries.setSourceCidrIp("10.XX.XX.0/24");
         
         IngressAclEntryForUpdateNetworkAclEntriesInput reqIngressAclEntries1 = new IngressAclEntryForUpdateNetworkAclEntriesInput();
         reqIngressAclEntries1.setDescription("ThisisIngressAclEntries02.");
@@ -61,8 +61,8 @@ public class TestUpdateNetworkAclEntries {
         reqIngressAclEntries1.setSourceCidrIp("10.XX.XX.0/24");
         
         UpdateNetworkAclEntriesRequest updateNetworkAclEntriesRequest = new UpdateNetworkAclEntriesRequest();
-        updateNetworkAclEntriesRequest.setEgressAclEntries(Arrays.asList(reqEgressAclEntries0, reqEgressAclEntries1));
-        updateNetworkAclEntriesRequest.setIngressAclEntries(Arrays.asList(reqIngressAclEntries0, reqIngressAclEntries1));
+        updateNetworkAclEntriesRequest.setEgressAclEntries(Arrays.asList(reqEgressAclEntries, reqEgressAclEntries1));
+        updateNetworkAclEntriesRequest.setIngressAclEntries(Arrays.asList(reqIngressAclEntries, reqIngressAclEntries1));
         updateNetworkAclEntriesRequest.setNetworkAclId("nacl-bp1fg655nh68xyz9****");
         updateNetworkAclEntriesRequest.setUpdateEgressAclEntries(false);
         updateNetworkAclEntriesRequest.setUpdateIngressAclEntries(false);

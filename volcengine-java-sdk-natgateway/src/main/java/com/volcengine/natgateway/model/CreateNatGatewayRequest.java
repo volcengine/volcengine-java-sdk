@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateNatGatewayRequest {
   @SerializedName("BillingType")
   private Integer billingType = null;
@@ -52,7 +53,9 @@ public class CreateNatGatewayRequest {
    */
   @JsonAdapter(PeriodUnitEnum.Adapter.class)
   public enum PeriodUnitEnum {
+    @SerializedName("Month")
     MONTH("Month"),
+    @SerializedName("Year")
     YEAR("Year");
 
     private String value;
@@ -99,8 +102,11 @@ public class CreateNatGatewayRequest {
    */
   @JsonAdapter(SpecEnum.Adapter.class)
   public enum SpecEnum {
+    @SerializedName("Small")
     SMALL("Small"),
+    @SerializedName("Medium")
     MEDIUM("Medium"),
+    @SerializedName("Large")
     LARGE("Large");
 
     private String value;

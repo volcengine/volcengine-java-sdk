@@ -28,7 +28,8 @@ import javax.validation.Valid;
  */
 
 
-public class CreateListenerResponse {
+
+public class CreateListenerResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("ListenerId")
   private String listenerId = null;
 

@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DeleteImagesRequest {
   @SerializedName("ImageIds")
   private List<String> imageIds = null;

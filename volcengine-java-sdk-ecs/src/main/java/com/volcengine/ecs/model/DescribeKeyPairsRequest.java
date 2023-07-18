@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeKeyPairsRequest {
   @SerializedName("FingerPrint")
   private String fingerPrint = null;

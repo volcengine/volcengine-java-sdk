@@ -31,7 +31,8 @@ import javax.validation.Valid;
  */
 
 
-public class DescribeCenBandwidthPackageAttributesResponse {
+
+public class DescribeCenBandwidthPackageAttributesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("AccountId")
   private String accountId = null;
 

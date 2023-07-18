@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class SetLoadBalancerRenewalRequest {
   @SerializedName("LoadBalancerId")
   private String loadBalancerId = null;

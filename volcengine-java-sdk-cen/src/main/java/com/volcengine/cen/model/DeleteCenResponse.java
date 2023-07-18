@@ -21,7 +21,8 @@ import javax.validation.Valid;
  */
 
 
-public class DeleteCenResponse {
+
+public class DeleteCenResponse extends com.volcengine.model.AbstractResponse {
 
   @Override
   public boolean equals(java.lang.Object o) {

@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class GrantInstanceToCenRequest {
   @SerializedName("CenId")
   private String cenId = null;
@@ -46,7 +47,9 @@ public class GrantInstanceToCenRequest {
    */
   @JsonAdapter(InstanceTypeEnum.Adapter.class)
   public enum InstanceTypeEnum {
+    @SerializedName("VPC")
     VPC("VPC"),
+    @SerializedName("DCGW")
     DCGW("DCGW");
 
     private String value;

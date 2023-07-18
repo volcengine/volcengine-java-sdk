@@ -29,6 +29,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class OperationDetailForDeleteInstancesOutput {
   @SerializedName("Error")
   private ErrorForDeleteInstancesOutput error = null;

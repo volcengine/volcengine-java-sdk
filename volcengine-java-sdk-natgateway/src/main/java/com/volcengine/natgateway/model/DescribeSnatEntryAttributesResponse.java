@@ -28,7 +28,8 @@ import javax.validation.Valid;
  */
 
 
-public class DescribeSnatEntryAttributesResponse {
+
+public class DescribeSnatEntryAttributesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("EipAddress")
   private String eipAddress = null;
 

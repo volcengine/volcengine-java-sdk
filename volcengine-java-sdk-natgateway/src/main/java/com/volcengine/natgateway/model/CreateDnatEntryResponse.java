@@ -28,7 +28,8 @@ import javax.validation.Valid;
  */
 
 
-public class CreateDnatEntryResponse {
+
+public class CreateDnatEntryResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("DnatEntryId")
   private String dnatEntryId = null;
 

@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CapacityForDescribeDeploymentSetsOutput {
   @SerializedName("AvailableCount")
   private Integer availableCount = null;

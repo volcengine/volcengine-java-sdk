@@ -15,7 +15,7 @@ public class TestCreateDnatEntry {
     public static void main(String[] args) throws Exception {
         String ak = "Your AK";
         String sk = "Your SK";
-        String region = "Your Region";
+        String region = "cn-beijing";
 
         ApiClient apiClient = new ApiClient()
                 .setCredentials(Credentials.getCredentials(ak, sk))
@@ -24,6 +24,7 @@ public class TestCreateDnatEntry {
         NatgatewayApi api = new NatgatewayApi(apiClient);
         
         CreateDnatEntryRequest createDnatEntryRequest = new CreateDnatEntryRequest();
+        createDnatEntryRequest.setDnatEntryName("dnat-01");
         createDnatEntryRequest.setExternalIp("12.XX.XX.34");
         createDnatEntryRequest.setExternalPort("34");
         createDnatEntryRequest.setInternalIp("192.XX.XX.88");

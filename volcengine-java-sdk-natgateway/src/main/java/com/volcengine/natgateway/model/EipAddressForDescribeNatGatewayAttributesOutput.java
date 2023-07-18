@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class EipAddressForDescribeNatGatewayAttributesOutput {
   @SerializedName("AllocationId")
   private String allocationId = null;

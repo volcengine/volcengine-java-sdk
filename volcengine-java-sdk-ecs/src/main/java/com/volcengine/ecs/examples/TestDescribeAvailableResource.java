@@ -15,7 +15,7 @@ public class TestDescribeAvailableResource {
     public static void main(String[] args) throws Exception {
         String ak = "Your AK";
         String sk = "Your SK";
-        String region = "Your Region";
+        String region = "cn-beijing";
 
         ApiClient apiClient = new ApiClient()
                 .setCredentials(Credentials.getCredentials(ak, sk))
@@ -25,7 +25,7 @@ public class TestDescribeAvailableResource {
         
         DescribeAvailableResourceRequest describeAvailableResourceRequest = new DescribeAvailableResourceRequest();
         describeAvailableResourceRequest.setDestinationResource("InstanceType");
-        describeAvailableResourceRequest.setInstanceTypeId("ecs.g1.large");
+        describeAvailableResourceRequest.setInstanceTypeId("ecs.g2i.large");
         describeAvailableResourceRequest.setZoneId("cn-*****");
         
         try {

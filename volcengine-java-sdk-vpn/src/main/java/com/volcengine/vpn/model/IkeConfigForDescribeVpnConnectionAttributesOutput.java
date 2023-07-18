@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class IkeConfigForDescribeVpnConnectionAttributesOutput {
   @SerializedName("AuthAlg")
   private String authAlg = null;

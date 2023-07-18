@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class SetVpnGatewayRenewalRequest {
   @SerializedName("RemainRenewTimes")
   private Integer remainRenewTimes = null;

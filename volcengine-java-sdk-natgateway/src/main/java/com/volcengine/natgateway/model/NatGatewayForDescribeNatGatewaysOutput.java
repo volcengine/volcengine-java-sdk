@@ -32,6 +32,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class NatGatewayForDescribeNatGatewaysOutput {
   @SerializedName("BillingType")
   private Integer billingType = null;

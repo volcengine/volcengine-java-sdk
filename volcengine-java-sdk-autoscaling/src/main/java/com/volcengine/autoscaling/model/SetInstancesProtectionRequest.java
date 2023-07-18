@@ -29,7 +29,8 @@ import javax.validation.Valid;
  * SetInstancesProtectionRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:18.429222+08:00[Asia/Shanghai]")
+
+
 public class SetInstancesProtectionRequest {
   @SerializedName("InstanceIds")
   private List<String> instanceIds = null;
@@ -75,7 +76,8 @@ public class SetInstancesProtectionRequest {
    * Get protectedFromScaleIn
    * @return protectedFromScaleIn
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public Boolean isProtectedFromScaleIn() {
     return protectedFromScaleIn;
   }
@@ -93,7 +95,8 @@ public class SetInstancesProtectionRequest {
    * Get scalingGroupId
    * @return scalingGroupId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getScalingGroupId() {
     return scalingGroupId;
   }

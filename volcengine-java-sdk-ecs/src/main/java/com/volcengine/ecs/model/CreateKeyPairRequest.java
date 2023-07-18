@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateKeyPairRequest {
   @SerializedName("ClientToken")
   private String clientToken = null;
@@ -86,7 +87,8 @@ public class CreateKeyPairRequest {
    * Get keyPairName
    * @return keyPairName
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getKeyPairName() {
     return keyPairName;
   }

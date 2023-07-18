@@ -28,7 +28,8 @@ import javax.validation.Valid;
  */
 
 
-public class CreateCenBandwidthPackageResponse {
+
+public class CreateCenBandwidthPackageResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("CenBandwidthPackageId")
   private String cenBandwidthPackageId = null;
 

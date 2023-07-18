@@ -16,7 +16,7 @@ public class TestAddServerGroupBackendServers {
     public static void main(String[] args) throws Exception {
         String ak = "Your AK";
         String sk = "Your SK";
-        String region = "Your Region";
+        String region = "cn-beijing";
 
         ApiClient apiClient = new ApiClient()
                 .setCredentials(Credentials.getCredentials(ak, sk))
@@ -24,17 +24,17 @@ public class TestAddServerGroupBackendServers {
 
         ClbApi api = new ClbApi(apiClient);
         
-        ServerForAddServerGroupBackendServersInput reqServers0 = new ServerForAddServerGroupBackendServersInput();
-        reqServers0.setDescription("ecs1");
-        reqServers0.setInstanceId("i-3tkuehz8oa3vj0wz****");
-        reqServers0.setIp("192.XX.XX.2");
-        reqServers0.setPort(1);
-        reqServers0.setType("ecs");
-        reqServers0.setWeight(100);
+        ServerForAddServerGroupBackendServersInput reqServers = new ServerForAddServerGroupBackendServersInput();
+        reqServers.setDescription("ecs1");
+        reqServers.setInstanceId("i-3tkuehz8oa3vj0wz****");
+        reqServers.setIp("192.XX.XX.2");
+        reqServers.setPort(1);
+        reqServers.setType("ecs");
+        reqServers.setWeight(100);
         
         AddServerGroupBackendServersRequest addServerGroupBackendServersRequest = new AddServerGroupBackendServersRequest();
         addServerGroupBackendServersRequest.setServerGroupId("rsp-bp1o94dp5i6ea****");
-        addServerGroupBackendServersRequest.setServers(Arrays.asList(reqServers0));
+        addServerGroupBackendServersRequest.setServers(Arrays.asList(reqServers));
         
         try {
             AddServerGroupBackendServersResponse response = api.addServerGroupBackendServers(addServerGroupBackendServersRequest);

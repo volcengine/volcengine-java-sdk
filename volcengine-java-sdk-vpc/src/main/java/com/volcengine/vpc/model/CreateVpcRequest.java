@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateVpcRequest {
   @SerializedName("CidrBlock")
   private String cidrBlock = null;

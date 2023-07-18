@@ -29,7 +29,8 @@ import javax.validation.Valid;
  * DescribeScalingActivitiesRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:18.429222+08:00[Asia/Shanghai]")
+
+
 public class DescribeScalingActivitiesRequest {
   @SerializedName("EndTime")
   private String endTime = null;
@@ -141,7 +142,8 @@ public class DescribeScalingActivitiesRequest {
    * Get scalingGroupId
    * @return scalingGroupId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getScalingGroupId() {
     return scalingGroupId;
   }

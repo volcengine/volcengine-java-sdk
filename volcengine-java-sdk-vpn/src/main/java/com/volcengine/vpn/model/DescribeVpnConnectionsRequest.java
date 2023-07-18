@@ -30,15 +30,20 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeVpnConnectionsRequest {
   /**
    * Gets or Sets attachStatus
    */
   @JsonAdapter(AttachStatusEnum.Adapter.class)
   public enum AttachStatusEnum {
+    @SerializedName("Attached")
     ATTACHED("Attached"),
+    @SerializedName("Attaching")
     ATTACHING("Attaching"),
+    @SerializedName("Detached")
     DETACHED("Detached"),
+    @SerializedName("Detaching")
     DETACHING("Detaching");
 
     private String value;
@@ -82,7 +87,9 @@ public class DescribeVpnConnectionsRequest {
    */
   @JsonAdapter(AttachTypeEnum.Adapter.class)
   public enum AttachTypeEnum {
+    @SerializedName("VpnGateway")
     VPNGATEWAY("VpnGateway"),
+    @SerializedName("TransitRouter")
     TRANSITROUTER("TransitRouter");
 
     private String value;

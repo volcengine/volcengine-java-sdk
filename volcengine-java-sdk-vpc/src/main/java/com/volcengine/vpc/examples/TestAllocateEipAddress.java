@@ -15,7 +15,7 @@ public class TestAllocateEipAddress {
     public static void main(String[] args) throws Exception {
         String ak = "Your AK";
         String sk = "Your SK";
-        String region = "Your Region";
+        String region = "cn-beijing";
 
         ApiClient apiClient = new ApiClient()
                 .setCredentials(Credentials.getCredentials(ak, sk))
@@ -27,6 +27,7 @@ public class TestAllocateEipAddress {
         allocateEipAddressRequest.setBandwidth(10);
         allocateEipAddressRequest.setBillingType(2);
         allocateEipAddressRequest.setISP(AllocateEipAddressRequest.ISPEnum.valueOf(AllocateEipAddressRequest.ISPEnum.class, "BGP"));
+        allocateEipAddressRequest.setName("eip-1");
         
         try {
             AllocateEipAddressResponse response = api.allocateEipAddress(allocateEipAddressRequest);

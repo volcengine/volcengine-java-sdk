@@ -31,7 +31,8 @@ import javax.validation.Valid;
  */
 
 
-public class DescribeVpnGatewayRoutesResponse {
+
+public class DescribeVpnGatewayRoutesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
 

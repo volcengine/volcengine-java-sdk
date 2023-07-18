@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class Ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput {
   @SerializedName("Bandwidth")
   private Integer bandwidth = null;

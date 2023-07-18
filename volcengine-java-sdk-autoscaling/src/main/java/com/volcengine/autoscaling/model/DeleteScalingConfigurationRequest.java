@@ -27,7 +27,8 @@ import javax.validation.Valid;
  * DeleteScalingConfigurationRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:18.429222+08:00[Asia/Shanghai]")
+
+
 public class DeleteScalingConfigurationRequest {
   @SerializedName("ScalingConfigurationId")
   private String scalingConfigurationId = null;
@@ -41,7 +42,8 @@ public class DeleteScalingConfigurationRequest {
    * Get scalingConfigurationId
    * @return scalingConfigurationId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getScalingConfigurationId() {
     return scalingConfigurationId;
   }

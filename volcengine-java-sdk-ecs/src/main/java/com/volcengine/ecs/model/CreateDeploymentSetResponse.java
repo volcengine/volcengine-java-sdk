@@ -28,7 +28,8 @@ import javax.validation.Valid;
  */
 
 
-public class CreateDeploymentSetResponse {
+
+public class CreateDeploymentSetResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("DeploymentSetId")
   private String deploymentSetId = null;
 

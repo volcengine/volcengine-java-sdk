@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DeleteVpnGatewayRouteRequest {
   @SerializedName("VpnGatewayRouteId")
   private String vpnGatewayRouteId = null;

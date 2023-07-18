@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ServerGroupForDescribeServerGroupsOutput {
   @SerializedName("CreateTime")
   private String createTime = null;

@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CopyImageRequest {
   @SerializedName("CopyImageTags")
   private Boolean copyImageTags = null;

@@ -29,6 +29,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeSubnetAttributesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("AccountId")
   private String accountId = null;

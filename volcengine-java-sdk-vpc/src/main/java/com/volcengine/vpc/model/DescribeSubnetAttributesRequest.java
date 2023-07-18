@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeSubnetAttributesRequest {
   @SerializedName("SubnetId")
   private String subnetId = null;

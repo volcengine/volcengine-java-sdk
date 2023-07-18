@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ZoneForListNatGatewayAvailableZonesOutput {
   @SerializedName("ZoneId")
   private String zoneId = null;

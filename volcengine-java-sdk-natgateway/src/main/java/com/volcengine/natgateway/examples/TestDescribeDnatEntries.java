@@ -9,14 +9,13 @@ import com.volcengine.sign.Credentials;
 
 import com.volcengine.natgateway.NatgatewayApi;
 import com.volcengine.natgateway.model.*;
-import java.util.*;
 
 
 public class TestDescribeDnatEntries {
     public static void main(String[] args) throws Exception {
         String ak = "Your AK";
         String sk = "Your SK";
-        String region = "Your Region";
+        String region = "cn-beijing";
 
         ApiClient apiClient = new ApiClient()
                 .setCredentials(Credentials.getCredentials(ak, sk))
@@ -25,7 +24,7 @@ public class TestDescribeDnatEntries {
         NatgatewayApi api = new NatgatewayApi(apiClient);
         
         DescribeDnatEntriesRequest describeDnatEntriesRequest = new DescribeDnatEntriesRequest();
-        describeDnatEntriesRequest.setDnatEntryIds(Arrays.asList("dnat-342abc3bc3****"));
+        describeDnatEntriesRequest.setExternalIp("12.XX.XX.34");
         describeDnatEntriesRequest.setNatGatewayId("ngw-2feq5xhimd88w59gp686****");
         
         try {

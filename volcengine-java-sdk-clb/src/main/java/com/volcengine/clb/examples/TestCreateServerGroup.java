@@ -16,7 +16,7 @@ public class TestCreateServerGroup {
     public static void main(String[] args) throws Exception {
         String ak = "Your AK";
         String sk = "Your SK";
-        String region = "Your Region";
+        String region = "cn-beijing";
 
         ApiClient apiClient = new ApiClient()
                 .setCredentials(Credentials.getCredentials(ak, sk))
@@ -24,17 +24,17 @@ public class TestCreateServerGroup {
 
         ClbApi api = new ClbApi(apiClient);
         
-        ServerForCreateServerGroupInput reqServers0 = new ServerForCreateServerGroupInput();
-        reqServers0.setInstanceId("i-3tkuehz8oa3vj0wz****");
-        reqServers0.setIp("192.XX.XX.2");
-        reqServers0.setPort(88);
-        reqServers0.setType("ecs");
-        reqServers0.setWeight(100);
+        ServerForCreateServerGroupInput reqServers = new ServerForCreateServerGroupInput();
+        reqServers.setInstanceId("i-3tkuehz8oa3vj0wz****");
+        reqServers.setIp("192.XX.XX.2");
+        reqServers.setPort(88);
+        reqServers.setType("ecs");
+        reqServers.setWeight(100);
         
         CreateServerGroupRequest createServerGroupRequest = new CreateServerGroupRequest();
         createServerGroupRequest.setLoadBalancerId("clb-bp1b6c719dfa08ex****");
         createServerGroupRequest.setServerGroupName("myservergroup");
-        createServerGroupRequest.setServers(Arrays.asList(reqServers0));
+        createServerGroupRequest.setServers(Arrays.asList(reqServers));
         
         try {
             CreateServerGroupResponse response = api.createServerGroup(createServerGroupRequest);

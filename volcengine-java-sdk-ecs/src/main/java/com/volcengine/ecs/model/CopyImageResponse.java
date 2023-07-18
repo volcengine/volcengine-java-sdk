@@ -28,7 +28,8 @@ import javax.validation.Valid;
  */
 
 
-public class CopyImageResponse {
+
+public class CopyImageResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("ImageId")
   private String imageId = null;
 

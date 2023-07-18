@@ -31,7 +31,8 @@ import javax.validation.Valid;
  */
 
 
-public class DescribeListenerAttributesResponse {
+
+public class DescribeListenerAttributesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("AclIds")
   private List<String> aclIds = null;
 

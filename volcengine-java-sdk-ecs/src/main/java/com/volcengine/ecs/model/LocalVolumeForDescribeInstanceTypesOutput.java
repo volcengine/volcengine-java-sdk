@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class LocalVolumeForDescribeInstanceTypesOutput {
   @SerializedName("Count")
   private Integer count = null;

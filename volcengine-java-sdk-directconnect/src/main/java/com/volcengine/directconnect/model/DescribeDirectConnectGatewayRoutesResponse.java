@@ -32,7 +32,7 @@ import javax.validation.Valid;
 
 
 
-public class DescribeDirectConnectGatewayRoutesResponse {
+public class DescribeDirectConnectGatewayRoutesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("DirectConnectGatewayRoutes")
   private List<DirectConnectGatewayRouteForDescribeDirectConnectGatewayRoutesOutput> directConnectGatewayRoutes = null;
 

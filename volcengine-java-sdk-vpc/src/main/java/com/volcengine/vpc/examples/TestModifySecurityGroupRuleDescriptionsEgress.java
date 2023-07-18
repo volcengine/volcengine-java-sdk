@@ -15,7 +15,7 @@ public class TestModifySecurityGroupRuleDescriptionsEgress {
     public static void main(String[] args) throws Exception {
         String ak = "Your AK";
         String sk = "Your SK";
-        String region = "Your Region";
+        String region = "cn-beijing";
 
         ApiClient apiClient = new ApiClient()
                 .setCredentials(Credentials.getCredentials(ak, sk))
@@ -25,10 +25,13 @@ public class TestModifySecurityGroupRuleDescriptionsEgress {
         
         ModifySecurityGroupRuleDescriptionsEgressRequest modifySecurityGroupRuleDescriptionsEgressRequest = new ModifySecurityGroupRuleDescriptionsEgressRequest();
         modifySecurityGroupRuleDescriptionsEgressRequest.setCidrIp("10.XX.XX.0/8");
+        modifySecurityGroupRuleDescriptionsEgressRequest.setDescription("S_G_R_E_Description");
+        modifySecurityGroupRuleDescriptionsEgressRequest.setPolicy("accept");
         modifySecurityGroupRuleDescriptionsEgressRequest.setPortEnd(22);
         modifySecurityGroupRuleDescriptionsEgressRequest.setPortStart(22);
         modifySecurityGroupRuleDescriptionsEgressRequest.setPriority(1);
         modifySecurityGroupRuleDescriptionsEgressRequest.setProtocol("tcp");
+        modifySecurityGroupRuleDescriptionsEgressRequest.setSecurityGroupId("sg-bp67acfmxazb4p****");
         
         try {
             ModifySecurityGroupRuleDescriptionsEgressResponse response = api.modifySecurityGroupRuleDescriptionsEgress(modifySecurityGroupRuleDescriptionsEgressRequest);

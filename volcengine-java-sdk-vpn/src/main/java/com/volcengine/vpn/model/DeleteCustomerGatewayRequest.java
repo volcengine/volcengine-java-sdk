@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DeleteCustomerGatewayRequest {
   @SerializedName("CustomerGatewayId")
   private String customerGatewayId = null;

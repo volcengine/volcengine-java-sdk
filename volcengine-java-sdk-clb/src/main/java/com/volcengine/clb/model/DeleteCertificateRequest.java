@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DeleteCertificateRequest {
   @SerializedName("CertificateId")
   private String certificateId = null;

@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeCustomerGatewaysRequest {
   @SerializedName("CustomerGatewayIds")
   private List<String> customerGatewayIds = null;

@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ModifyBandwidthPackageSpecRequest {
   @SerializedName("Bandwidth")
   private Integer bandwidth = null;
