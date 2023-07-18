@@ -15,7 +15,7 @@ public class TestDescribeVpcAttributes {
     public static void main(String[] args) throws Exception {
         String ak = "Your AK";
         String sk = "Your SK";
-        String region = "Your Region";
+        String region = "cn-beijing";
 
         ApiClient apiClient = new ApiClient()
                 .setCredentials(Credentials.getCredentials(ak, sk))
@@ -24,6 +24,7 @@ public class TestDescribeVpcAttributes {
         VpcApi api = new VpcApi(apiClient);
         
         DescribeVpcAttributesRequest describeVpcAttributesRequest = new DescribeVpcAttributesRequest();
+        describeVpcAttributesRequest.setVpcId("vpc-bp1b1llp3ve5yze****");
         
         try {
             DescribeVpcAttributesResponse response = api.describeVpcAttributes(describeVpcAttributesRequest);

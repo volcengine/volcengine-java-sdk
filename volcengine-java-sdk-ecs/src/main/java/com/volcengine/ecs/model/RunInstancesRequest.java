@@ -33,6 +33,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class RunInstancesRequest {
   @SerializedName("AutoRenew")
   private Boolean autoRenew = null;
@@ -337,7 +338,8 @@ public class RunInstancesRequest {
    * Get imageId
    * @return imageId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getImageId() {
     return imageId;
   }
@@ -391,7 +393,8 @@ public class RunInstancesRequest {
    * Get instanceType
    * @return instanceType
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getInstanceType() {
     return instanceType;
   }
@@ -724,7 +727,8 @@ public class RunInstancesRequest {
    * Get zoneId
    * @return zoneId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getZoneId() {
     return zoneId;
   }

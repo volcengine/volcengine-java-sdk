@@ -32,7 +32,8 @@ import javax.validation.Valid;
  */
 
 
-public class DescribeNatGatewayAttributesResponse {
+
+public class DescribeNatGatewayAttributesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("BillingType")
   private Integer billingType = null;
 

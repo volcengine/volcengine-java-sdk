@@ -16,7 +16,7 @@ public class TestModifyServerGroupAttributes {
     public static void main(String[] args) throws Exception {
         String ak = "Your AK";
         String sk = "Your SK";
-        String region = "Your Region";
+        String region = "cn-beijing";
 
         ApiClient apiClient = new ApiClient()
                 .setCredentials(Credentials.getCredentials(ak, sk))
@@ -24,15 +24,15 @@ public class TestModifyServerGroupAttributes {
 
         ClbApi api = new ClbApi(apiClient);
         
-        ServerForModifyServerGroupAttributesInput reqServers0 = new ServerForModifyServerGroupAttributesInput();
-        reqServers0.setPort(88);
-        reqServers0.setServerId("rs-mjc9b2p0v6rk5smt1b27****");
-        reqServers0.setWeight(100);
+        ServerForModifyServerGroupAttributesInput reqServers = new ServerForModifyServerGroupAttributesInput();
+        reqServers.setPort(88);
+        reqServers.setServerId("rs-mjc9b2p0v6rk5smt1b27****");
+        reqServers.setWeight(100);
         
         ModifyServerGroupAttributesRequest modifyServerGroupAttributesRequest = new ModifyServerGroupAttributesRequest();
         modifyServerGroupAttributesRequest.setServerGroupId("rsp-bp1o94dp5i6ea****");
         modifyServerGroupAttributesRequest.setServerGroupName("myservergroup");
-        modifyServerGroupAttributesRequest.setServers(Arrays.asList(reqServers0));
+        modifyServerGroupAttributesRequest.setServers(Arrays.asList(reqServers));
         
         try {
             ModifyServerGroupAttributesResponse response = api.modifyServerGroupAttributes(modifyServerGroupAttributesRequest);

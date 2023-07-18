@@ -28,7 +28,8 @@ import javax.validation.Valid;
  */
 
 
-public class DeleteVpnConnectionResponse {
+
+public class DeleteVpnConnectionResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("OrderId")
   private String orderId = null;
 

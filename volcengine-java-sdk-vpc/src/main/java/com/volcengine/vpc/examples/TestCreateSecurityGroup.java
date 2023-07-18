@@ -15,7 +15,7 @@ public class TestCreateSecurityGroup {
     public static void main(String[] args) throws Exception {
         String ak = "Your AK";
         String sk = "Your SK";
-        String region = "Your Region";
+        String region = "cn-beijing";
 
         ApiClient apiClient = new ApiClient()
                 .setCredentials(Credentials.getCredentials(ak, sk))
@@ -24,6 +24,7 @@ public class TestCreateSecurityGroup {
         VpcApi api = new VpcApi(apiClient);
         
         CreateSecurityGroupRequest createSecurityGroupRequest = new CreateSecurityGroupRequest();
+        createSecurityGroupRequest.setSecurityGroupName("SG_1");
         createSecurityGroupRequest.setVpcId("vpc-bp1ou1zkhn00gzv****");
         
         try {

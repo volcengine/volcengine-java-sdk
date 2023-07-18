@@ -31,7 +31,8 @@ import javax.validation.Valid;
  */
 
 
-public class DescribeTagsResponse {
+
+public class DescribeTagsResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("NextToken")
   private String nextToken = null;
 

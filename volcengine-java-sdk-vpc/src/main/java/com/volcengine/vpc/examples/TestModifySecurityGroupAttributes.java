@@ -15,7 +15,7 @@ public class TestModifySecurityGroupAttributes {
     public static void main(String[] args) throws Exception {
         String ak = "Your AK";
         String sk = "Your SK";
-        String region = "Your Region";
+        String region = "cn-beijing";
 
         ApiClient apiClient = new ApiClient()
                 .setCredentials(Credentials.getCredentials(ak, sk))
@@ -25,7 +25,7 @@ public class TestModifySecurityGroupAttributes {
         
         ModifySecurityGroupAttributesRequest modifySecurityGroupAttributesRequest = new ModifySecurityGroupAttributesRequest();
         modifySecurityGroupAttributesRequest.setSecurityGroupId("sg-bp67acfmxazb4p****");
-        modifySecurityGroupAttributesRequest.setSecurityGroupName("test");
+        modifySecurityGroupAttributesRequest.setSecurityGroupName("sg-1");
         
         try {
             ModifySecurityGroupAttributesResponse response = api.modifySecurityGroupAttributes(modifySecurityGroupAttributesRequest);

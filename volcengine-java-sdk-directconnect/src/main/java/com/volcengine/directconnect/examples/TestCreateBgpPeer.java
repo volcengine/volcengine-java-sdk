@@ -15,7 +15,7 @@ public class TestCreateBgpPeer {
     public static void main(String[] args) throws Exception {
         String ak = "Your AK";
         String sk = "Your SK";
-        String region = "Your Region";
+        String region = "cn-beijing";
 
         ApiClient apiClient = new ApiClient()
                 .setCredentials(Credentials.getCredentials(ak, sk))
@@ -25,7 +25,6 @@ public class TestCreateBgpPeer {
         
         CreateBgpPeerRequest createBgpPeerRequest = new CreateBgpPeerRequest();
         createBgpPeerRequest.setAuthKey("testA****");
-        createBgpPeerRequest.setBgpPeerName("test");
         createBgpPeerRequest.setDescription("test");
         createBgpPeerRequest.setRemoteAsn(32500);
         createBgpPeerRequest.setVirtualInterfaceId("dcv-3tehy13n2l4c6c0v****");

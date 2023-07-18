@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class VpnGatewayForDescribeVpnGatewaysBillingOutput {
   @SerializedName("BillingStatus")
   private Integer billingStatus = null;

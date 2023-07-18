@@ -37,6 +37,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class InstanceTypeForDescribeInstanceTypesOutput {
   @SerializedName("BaselineCredit")
   private Long baselineCredit = null;

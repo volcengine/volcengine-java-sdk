@@ -28,7 +28,8 @@ import javax.validation.Valid;
  */
 
 
-public class TerminateVolumesResponse {
+
+public class TerminateVolumesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Number")
   private String number = null;
 

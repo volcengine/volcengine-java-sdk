@@ -31,7 +31,8 @@ import javax.validation.Valid;
  */
 
 
-public class DescribeNatGatewaysResponse {
+
+public class DescribeNatGatewaysResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("NatGateways")
   private List<NatGatewayForDescribeNatGatewaysOutput> natGateways = null;
 

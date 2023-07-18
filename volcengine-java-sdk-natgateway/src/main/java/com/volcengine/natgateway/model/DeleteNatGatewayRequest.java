@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DeleteNatGatewayRequest {
   @SerializedName("NatGatewayId")
   private String natGatewayId = null;

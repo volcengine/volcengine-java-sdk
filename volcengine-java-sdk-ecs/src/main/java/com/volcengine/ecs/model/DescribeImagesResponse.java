@@ -31,7 +31,8 @@ import javax.validation.Valid;
  */
 
 
-public class DescribeImagesResponse {
+
+public class DescribeImagesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Images")
   private List<ImageForDescribeImagesOutput> images = null;
 

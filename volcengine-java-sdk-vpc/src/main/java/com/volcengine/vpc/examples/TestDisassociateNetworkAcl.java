@@ -16,7 +16,7 @@ public class TestDisassociateNetworkAcl {
     public static void main(String[] args) throws Exception {
         String ak = "Your AK";
         String sk = "Your SK";
-        String region = "Your Region";
+        String region = "cn-beijing";
 
         ApiClient apiClient = new ApiClient()
                 .setCredentials(Credentials.getCredentials(ak, sk))
@@ -24,15 +24,15 @@ public class TestDisassociateNetworkAcl {
 
         VpcApi api = new VpcApi(apiClient);
         
-        ResourceForDisassociateNetworkAclInput reqResource0 = new ResourceForDisassociateNetworkAclInput();
-        reqResource0.setResourceId("subnet-67acfmxazb4p****");
+        ResourceForDisassociateNetworkAclInput reqResource = new ResourceForDisassociateNetworkAclInput();
+        reqResource.setResourceId("subnet-67acfmxazb4p****");
         
         ResourceForDisassociateNetworkAclInput reqResource1 = new ResourceForDisassociateNetworkAclInput();
         reqResource1.setResourceId("subnet-g655nh68xyz9****");
         
         DisassociateNetworkAclRequest disassociateNetworkAclRequest = new DisassociateNetworkAclRequest();
         disassociateNetworkAclRequest.setNetworkAclId("nacl-bp1fg655nh68xyz9****");
-        disassociateNetworkAclRequest.setResource(Arrays.asList(reqResource0, reqResource1));
+        disassociateNetworkAclRequest.setResource(Arrays.asList(reqResource, reqResource1));
         
         try {
             DisassociateNetworkAclResponse response = api.disassociateNetworkAcl(disassociateNetworkAclRequest);

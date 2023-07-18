@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeCenBandwidthPackagesRequest {
   @SerializedName("CenBandwidthPackageIds")
   private List<String> cenBandwidthPackageIds = null;

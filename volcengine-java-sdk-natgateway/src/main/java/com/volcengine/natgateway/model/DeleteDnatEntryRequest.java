@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DeleteDnatEntryRequest {
   @SerializedName("DnatEntryId")
   private String dnatEntryId = null;

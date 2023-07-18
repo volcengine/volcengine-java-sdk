@@ -29,7 +29,7 @@ import javax.validation.Valid;
 
 
 
-public class ModifyDirectConnectGatewayAttributesResponse {
+public class ModifyDirectConnectGatewayAttributesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("RequestId")
   private String requestId = null;
 

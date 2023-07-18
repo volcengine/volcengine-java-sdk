@@ -29,7 +29,8 @@ import javax.validation.Valid;
  * CreateScalingPolicyRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:18.429222+08:00[Asia/Shanghai]")
+
+
 public class CreateScalingPolicyRequest {
   @SerializedName("AdjustmentType")
   private String adjustmentType = null;
@@ -64,7 +65,8 @@ public class CreateScalingPolicyRequest {
    * Get adjustmentType
    * @return adjustmentType
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getAdjustmentType() {
     return adjustmentType;
   }
@@ -82,7 +84,8 @@ public class CreateScalingPolicyRequest {
    * Get adjustmentValue
    * @return adjustmentValue
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public Integer getAdjustmentValue() {
     return adjustmentValue;
   }
@@ -137,7 +140,8 @@ public class CreateScalingPolicyRequest {
    * Get scalingGroupId
    * @return scalingGroupId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getScalingGroupId() {
     return scalingGroupId;
   }
@@ -155,7 +159,8 @@ public class CreateScalingPolicyRequest {
    * Get scalingPolicyName
    * @return scalingPolicyName
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getScalingPolicyName() {
     return scalingPolicyName;
   }
@@ -173,7 +178,8 @@ public class CreateScalingPolicyRequest {
    * Get scalingPolicyType
    * @return scalingPolicyType
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getScalingPolicyType() {
     return scalingPolicyType;
   }

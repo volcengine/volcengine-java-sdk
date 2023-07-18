@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeCustomerGatewayAttributesRequest {
   @SerializedName("CustomerGatewayId")
   private String customerGatewayId = null;

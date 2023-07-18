@@ -29,7 +29,8 @@ import javax.validation.Valid;
  * ModifyScalingPolicyRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:18.429222+08:00[Asia/Shanghai]")
+
+
 public class ModifyScalingPolicyRequest {
   @SerializedName("AdjustmentType")
   private String adjustmentType = null;
@@ -134,7 +135,8 @@ public class ModifyScalingPolicyRequest {
    * Get scalingPolicyId
    * @return scalingPolicyId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getScalingPolicyId() {
     return scalingPolicyId;
   }

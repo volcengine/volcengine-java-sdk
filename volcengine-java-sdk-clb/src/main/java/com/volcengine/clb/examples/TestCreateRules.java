@@ -16,7 +16,7 @@ public class TestCreateRules {
     public static void main(String[] args) throws Exception {
         String ak = "Your AK";
         String sk = "Your SK";
-        String region = "Your Region";
+        String region = "cn-beijing";
 
         ApiClient apiClient = new ApiClient()
                 .setCredentials(Credentials.getCredentials(ak, sk))
@@ -24,14 +24,14 @@ public class TestCreateRules {
 
         ClbApi api = new ClbApi(apiClient);
         
-        RuleForCreateRulesInput reqRules0 = new RuleForCreateRulesInput();
-        reqRules0.setDomain("test.com");
-        reqRules0.setServerGroupId("rsp-bp1o94dp5i6ea****");
-        reqRules0.setUrl("/test");
+        RuleForCreateRulesInput reqRules = new RuleForCreateRulesInput();
+        reqRules.setDomain("test.com");
+        reqRules.setServerGroupId("rsp-bp1o94dp5i6ea****");
+        reqRules.setUrl("/test");
         
         CreateRulesRequest createRulesRequest = new CreateRulesRequest();
         createRulesRequest.setListenerId("lsn-2fea4ayvu2g3k5oxruuz****");
-        createRulesRequest.setRules(Arrays.asList(reqRules0));
+        createRulesRequest.setRules(Arrays.asList(reqRules));
         
         try {
             CreateRulesResponse response = api.createRules(createRulesRequest);

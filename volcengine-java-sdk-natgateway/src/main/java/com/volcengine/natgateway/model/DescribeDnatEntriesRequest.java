@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeDnatEntriesRequest {
   @SerializedName("DnatEntryIds")
   private List<String> dnatEntryIds = null;

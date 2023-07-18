@@ -15,7 +15,7 @@ public class TestCreateRouteEntry {
     public static void main(String[] args) throws Exception {
         String ak = "Your AK";
         String sk = "Your SK";
-        String region = "Your Region";
+        String region = "cn-beijing";
 
         ApiClient apiClient = new ApiClient()
                 .setCredentials(Credentials.getCredentials(ak, sk))
@@ -24,9 +24,10 @@ public class TestCreateRouteEntry {
         VpcApi api = new VpcApi(apiClient);
         
         CreateRouteEntryRequest createRouteEntryRequest = new CreateRouteEntryRequest();
-        createRouteEntryRequest.setDestinationCidrBlock("8.XX.XX.8/16");
-        createRouteEntryRequest.setNextHopId("NetworkInterface");
-        createRouteEntryRequest.setNextHopType("eni-2fdzbqxfwrt345oxru******");
+        createRouteEntryRequest.setDestinationCidrBlock("8.XX.XX.8/32");
+        createRouteEntryRequest.setNextHopId("eni-2fdzbqxfwrt345oxru******");
+        createRouteEntryRequest.setNextHopType("NetworkInterface");
+        createRouteEntryRequest.setRouteEntryName("RouteEntry_1");
         createRouteEntryRequest.setRouteTableId("vtb-2fdzao4h726f45oxruw******");
         
         try {

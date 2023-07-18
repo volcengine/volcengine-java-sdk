@@ -15,7 +15,7 @@ public class TestDescribeDirectConnectConnectionAttributes {
     public static void main(String[] args) throws Exception {
         String ak = "Your AK";
         String sk = "Your SK";
-        String region = "Your Region";
+        String region = "cn-beijing";
 
         ApiClient apiClient = new ApiClient()
                 .setCredentials(Credentials.getCredentials(ak, sk))
@@ -24,7 +24,6 @@ public class TestDescribeDirectConnectConnectionAttributes {
         DirectconnectApi api = new DirectconnectApi(apiClient);
         
         DescribeDirectConnectConnectionAttributesRequest describeDirectConnectConnectionAttributesRequest = new DescribeDirectConnectConnectionAttributesRequest();
-        describeDirectConnectConnectionAttributesRequest.setDirectConnectConnectionId("dcc-7qthudw0ll6jmc****");
         
         try {
             DescribeDirectConnectConnectionAttributesResponse response = api.describeDirectConnectConnectionAttributes(describeDirectConnectConnectionAttributesRequest);

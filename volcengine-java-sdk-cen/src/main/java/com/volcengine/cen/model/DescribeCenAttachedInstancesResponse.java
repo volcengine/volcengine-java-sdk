@@ -31,7 +31,8 @@ import javax.validation.Valid;
  */
 
 
-public class DescribeCenAttachedInstancesResponse {
+
+public class DescribeCenAttachedInstancesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("AttachedInstances")
   private List<AttachedInstanceForDescribeCenAttachedInstancesOutput> attachedInstances = null;
 

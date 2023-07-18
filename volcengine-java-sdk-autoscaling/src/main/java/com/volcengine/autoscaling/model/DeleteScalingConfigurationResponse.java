@@ -27,8 +27,9 @@ import javax.validation.Valid;
  * DeleteScalingConfigurationResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:18.429222+08:00[Asia/Shanghai]")
-public class DeleteScalingConfigurationResponse {
+
+
+public class DeleteScalingConfigurationResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("ScalingConfigurationId")
   private String scalingConfigurationId = null;
 

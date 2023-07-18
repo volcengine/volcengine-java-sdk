@@ -31,7 +31,8 @@ import javax.validation.Valid;
  * CreateScalingConfigurationRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:18.429222+08:00[Asia/Shanghai]")
+
+
 public class CreateScalingConfigurationRequest {
   @SerializedName("Eip")
   private EipForCreateScalingConfigurationInput eip = null;
@@ -124,7 +125,8 @@ public class CreateScalingConfigurationRequest {
    * Get imageId
    * @return imageId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getImageId() {
     return imageId;
   }
@@ -160,7 +162,8 @@ public class CreateScalingConfigurationRequest {
    * Get instanceName
    * @return instanceName
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getInstanceName() {
     return instanceName;
   }
@@ -240,7 +243,8 @@ public class CreateScalingConfigurationRequest {
    * Get scalingConfigurationName
    * @return scalingConfigurationName
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getScalingConfigurationName() {
     return scalingConfigurationName;
   }
@@ -258,7 +262,8 @@ public class CreateScalingConfigurationRequest {
    * Get scalingGroupId
    * @return scalingGroupId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getScalingGroupId() {
     return scalingGroupId;
   }
@@ -365,7 +370,8 @@ public class CreateScalingConfigurationRequest {
    * Get zoneId
    * @return zoneId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getZoneId() {
     return zoneId;
   }

@@ -31,7 +31,8 @@ import javax.validation.Valid;
  */
 
 
-public class DescribeCensResponse {
+
+public class DescribeCensResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Cens")
   private List<CenForDescribeCensOutput> cens = null;
 

@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeVpnConnectionAttributesRequest {
   @SerializedName("VpnConnectionId")
   private String vpnConnectionId = null;

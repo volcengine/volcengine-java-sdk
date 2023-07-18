@@ -28,7 +28,8 @@ import javax.validation.Valid;
  */
 
 
-public class CreateNatGatewayResponse {
+
+public class CreateNatGatewayResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("NatGatewayId")
   private String natGatewayId = null;
 

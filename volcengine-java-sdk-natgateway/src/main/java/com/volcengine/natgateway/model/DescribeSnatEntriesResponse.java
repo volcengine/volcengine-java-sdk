@@ -31,7 +31,8 @@ import javax.validation.Valid;
  */
 
 
-public class DescribeSnatEntriesResponse {
+
+public class DescribeSnatEntriesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
 

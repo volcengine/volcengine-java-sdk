@@ -31,7 +31,8 @@ import javax.validation.Valid;
  */
 
 
-public class DescribeServerGroupAttributesResponse {
+
+public class DescribeServerGroupAttributesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Description")
   private String description = null;
 

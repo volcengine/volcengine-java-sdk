@@ -27,7 +27,8 @@ import javax.validation.Valid;
  * AlarmPolicyConditionForCreateScalingPolicyInput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:18.429222+08:00[Asia/Shanghai]")
+
+
 public class AlarmPolicyConditionForCreateScalingPolicyInput {
   @SerializedName("ComparisonOperator")
   private String comparisonOperator = null;

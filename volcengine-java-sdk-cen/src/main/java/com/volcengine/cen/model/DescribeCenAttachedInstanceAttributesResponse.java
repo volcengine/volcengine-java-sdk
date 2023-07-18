@@ -28,7 +28,8 @@ import javax.validation.Valid;
  */
 
 
-public class DescribeCenAttachedInstanceAttributesResponse {
+
+public class DescribeCenAttachedInstanceAttributesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("CenId")
   private String cenId = null;
 

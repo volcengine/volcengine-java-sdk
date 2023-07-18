@@ -27,7 +27,8 @@ import javax.validation.Valid;
  * CreateLifecycleHookRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:18.429222+08:00[Asia/Shanghai]")
+
+
 public class CreateLifecycleHookRequest {
   @SerializedName("LifecycleHookName")
   private String lifecycleHookName = null;
@@ -53,7 +54,8 @@ public class CreateLifecycleHookRequest {
    * Get lifecycleHookName
    * @return lifecycleHookName
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getLifecycleHookName() {
     return lifecycleHookName;
   }
@@ -71,7 +73,8 @@ public class CreateLifecycleHookRequest {
    * Get lifecycleHookPolicy
    * @return lifecycleHookPolicy
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getLifecycleHookPolicy() {
     return lifecycleHookPolicy;
   }
@@ -89,7 +92,8 @@ public class CreateLifecycleHookRequest {
    * Get lifecycleHookTimeout
    * @return lifecycleHookTimeout
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public Integer getLifecycleHookTimeout() {
     return lifecycleHookTimeout;
   }
@@ -107,7 +111,8 @@ public class CreateLifecycleHookRequest {
    * Get lifecycleHookType
    * @return lifecycleHookType
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getLifecycleHookType() {
     return lifecycleHookType;
   }
@@ -125,7 +130,8 @@ public class CreateLifecycleHookRequest {
    * Get scalingGroupId
    * @return scalingGroupId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getScalingGroupId() {
     return scalingGroupId;
   }

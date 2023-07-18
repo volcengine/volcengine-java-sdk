@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ModifyNatGatewayAttributesRequest {
   @SerializedName("Description")
   private String description = null;
@@ -43,8 +44,11 @@ public class ModifyNatGatewayAttributesRequest {
    */
   @JsonAdapter(SpecEnum.Adapter.class)
   public enum SpecEnum {
+    @SerializedName("Small")
     SMALL("Small"),
+    @SerializedName("Medium")
     MEDIUM("Medium"),
+    @SerializedName("Large")
     LARGE("Large");
 
     private String value;

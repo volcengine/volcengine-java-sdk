@@ -15,7 +15,7 @@ public class TestModifyHaVipAttributes {
     public static void main(String[] args) throws Exception {
         String ak = "Your AK";
         String sk = "Your SK";
-        String region = "Your Region";
+        String region = "cn-beijing";
 
         ApiClient apiClient = new ApiClient()
                 .setCredentials(Credentials.getCredentials(ak, sk))
@@ -26,7 +26,7 @@ public class TestModifyHaVipAttributes {
         ModifyHaVipAttributesRequest modifyHaVipAttributesRequest = new ModifyHaVipAttributesRequest();
         modifyHaVipAttributesRequest.setDescription("This is my HaVip.");
         modifyHaVipAttributesRequest.setHaVipId("havip-2zeo05qre24nhrqp****");
-        modifyHaVipAttributesRequest.setHaVipName("test");
+        modifyHaVipAttributesRequest.setHaVipName("havip-1");
         
         try {
             ModifyHaVipAttributesResponse response = api.modifyHaVipAttributes(modifyHaVipAttributesRequest);

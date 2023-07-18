@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DeleteDeploymentSetRequest {
   @SerializedName("ClientToken")
   private String clientToken = null;
@@ -62,7 +63,8 @@ public class DeleteDeploymentSetRequest {
    * Get deploymentSetId
    * @return deploymentSetId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getDeploymentSetId() {
     return deploymentSetId;
   }

@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ModifyHaVipAttributesRequest {
   @SerializedName("Description")
   private String description = null;

@@ -31,7 +31,8 @@ import javax.validation.Valid;
  */
 
 
-public class DescribeSpotAdviceResponse {
+
+public class DescribeSpotAdviceResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("AvailableSpotResources")
   private List<AvailableSpotResourceForDescribeSpotAdviceOutput> availableSpotResources = null;
 

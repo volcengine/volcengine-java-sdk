@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateCenInterRegionBandwidthRequest {
   @SerializedName("Bandwidth")
   private Integer bandwidth = null;

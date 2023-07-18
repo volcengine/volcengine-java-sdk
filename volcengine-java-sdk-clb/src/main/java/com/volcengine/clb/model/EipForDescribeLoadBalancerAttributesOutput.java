@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class EipForDescribeLoadBalancerAttributesOutput {
   @SerializedName("Bandwidth")
   private Integer bandwidth = null;

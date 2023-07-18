@@ -21,7 +21,8 @@ import javax.validation.Valid;
  */
 
 
-public class ModifyInstanceAttributeResponse {
+
+public class ModifyInstanceAttributeResponse extends com.volcengine.model.AbstractResponse {
 
   @Override
   public boolean equals(java.lang.Object o) {

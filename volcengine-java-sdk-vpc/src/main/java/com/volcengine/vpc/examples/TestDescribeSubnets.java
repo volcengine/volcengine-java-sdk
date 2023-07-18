@@ -15,7 +15,7 @@ public class TestDescribeSubnets {
     public static void main(String[] args) throws Exception {
         String ak = "Your AK";
         String sk = "Your SK";
-        String region = "Your Region";
+        String region = "cn-beijing";
 
         ApiClient apiClient = new ApiClient()
                 .setCredentials(Credentials.getCredentials(ak, sk))
@@ -24,6 +24,7 @@ public class TestDescribeSubnets {
         VpcApi api = new VpcApi(apiClient);
         
         DescribeSubnetsRequest describeSubnetsRequest = new DescribeSubnetsRequest();
+        describeSubnetsRequest.setVpcId("vpc-bp1b1xjllp3ve5yze****");
         describeSubnetsRequest.setZoneId("cn-beijing-a");
         
         try {

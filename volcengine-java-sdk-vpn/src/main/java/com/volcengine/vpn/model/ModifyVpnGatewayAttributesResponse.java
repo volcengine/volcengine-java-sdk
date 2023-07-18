@@ -28,7 +28,8 @@ import javax.validation.Valid;
  */
 
 
-public class ModifyVpnGatewayAttributesResponse {
+
+public class ModifyVpnGatewayAttributesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("RequestId")
   private String requestId = null;
 

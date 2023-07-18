@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateSnatEntryRequest {
   @SerializedName("EipId")
   private String eipId = null;
