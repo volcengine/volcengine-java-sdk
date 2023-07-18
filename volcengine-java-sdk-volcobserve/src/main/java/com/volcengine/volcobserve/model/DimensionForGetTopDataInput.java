@@ -24,19 +24,19 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DimensionForGetMetricDataInput
+ * DimensionForGetTopDataInput
  */
 
 
 
-public class DimensionForGetMetricDataInput {
+public class DimensionForGetTopDataInput {
   @SerializedName("Name")
   private String name = null;
 
   @SerializedName("Value")
   private String value = null;
 
-  public DimensionForGetMetricDataInput name(String name) {
+  public DimensionForGetTopDataInput name(String name) {
     this.name = name;
     return this;
   }
@@ -54,7 +54,7 @@ public class DimensionForGetMetricDataInput {
     this.name = name;
   }
 
-  public DimensionForGetMetricDataInput value(String value) {
+  public DimensionForGetTopDataInput value(String value) {
     this.value = value;
     return this;
   }
@@ -81,9 +81,9 @@ public class DimensionForGetMetricDataInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DimensionForGetMetricDataInput dimensionForGetMetricDataInput = (DimensionForGetMetricDataInput) o;
-    return Objects.equals(this.name, dimensionForGetMetricDataInput.name) &&
-        Objects.equals(this.value, dimensionForGetMetricDataInput.value);
+    DimensionForGetTopDataInput dimensionForGetTopDataInput = (DimensionForGetTopDataInput) o;
+    return Objects.equals(this.name, dimensionForGetTopDataInput.name) &&
+        Objects.equals(this.value, dimensionForGetTopDataInput.value);
   }
 
   @Override
@@ -95,7 +95,7 @@ public class DimensionForGetMetricDataInput {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DimensionForGetMetricDataInput {\n");
+    sb.append("class DimensionForGetTopDataInput {\n");
     
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");

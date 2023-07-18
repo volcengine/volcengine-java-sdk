@@ -19,57 +19,38 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.volcobserve.model.DataForGetTopDataOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DimensionForGetMetricDataInput
+ * GetTopDataResponse
  */
 
 
 
-public class DimensionForGetMetricDataInput {
-  @SerializedName("Name")
-  private String name = null;
+public class GetTopDataResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("Data")
+  private DataForGetTopDataOutput data = null;
 
-  @SerializedName("Value")
-  private String value = null;
-
-  public DimensionForGetMetricDataInput name(String name) {
-    this.name = name;
+  public GetTopDataResponse data(DataForGetTopDataOutput data) {
+    this.data = data;
     return this;
   }
 
    /**
-   * Get name
-   * @return name
+   * Get data
+   * @return data
   **/
+  @Valid
   @Schema(description = "")
-  public String getName() {
-    return name;
+  public DataForGetTopDataOutput getData() {
+    return data;
   }
 
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public DimensionForGetMetricDataInput value(String value) {
-    this.value = value;
-    return this;
-  }
-
-   /**
-   * Get value
-   * @return value
-  **/
-  @Schema(description = "")
-  public String getValue() {
-    return value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
+  public void setData(DataForGetTopDataOutput data) {
+    this.data = data;
   }
 
 
@@ -81,24 +62,22 @@ public class DimensionForGetMetricDataInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DimensionForGetMetricDataInput dimensionForGetMetricDataInput = (DimensionForGetMetricDataInput) o;
-    return Objects.equals(this.name, dimensionForGetMetricDataInput.name) &&
-        Objects.equals(this.value, dimensionForGetMetricDataInput.value);
+    GetTopDataResponse getTopDataResponse = (GetTopDataResponse) o;
+    return Objects.equals(this.data, getTopDataResponse.data);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, value);
+    return Objects.hash(data);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DimensionForGetMetricDataInput {\n");
+    sb.append("class GetTopDataResponse {\n");
     
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();
   }
