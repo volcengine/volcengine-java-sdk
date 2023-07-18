@@ -28,7 +28,8 @@ import javax.validation.Valid;
  */
 
 
-public class DescribeInstanceVncUrlResponse {
+
+public class DescribeInstanceVncUrlResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("VncUrl")
   private String vncUrl = null;
 

@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class VpnGatewayForDescribeVpnGatewaysOutput {
   @SerializedName("AccountId")
   private String accountId = null;

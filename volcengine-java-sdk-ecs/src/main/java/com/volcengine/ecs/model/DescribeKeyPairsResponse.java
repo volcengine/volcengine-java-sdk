@@ -31,7 +31,8 @@ import javax.validation.Valid;
  */
 
 
-public class DescribeKeyPairsResponse {
+
+public class DescribeKeyPairsResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("KeyPairs")
   private List<KeyPairForDescribeKeyPairsOutput> keyPairs = null;
 

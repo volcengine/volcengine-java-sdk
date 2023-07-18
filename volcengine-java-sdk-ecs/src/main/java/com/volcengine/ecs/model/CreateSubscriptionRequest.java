@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateSubscriptionRequest {
   @SerializedName("EventTypes")
   private List<String> eventTypes = null;

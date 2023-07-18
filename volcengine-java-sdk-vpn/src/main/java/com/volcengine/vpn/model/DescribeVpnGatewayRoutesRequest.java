@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeVpnGatewayRoutesRequest {
   @SerializedName("DestinationCidrBlock")
   private String destinationCidrBlock = null;

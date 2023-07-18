@@ -29,6 +29,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class SubnetForDescribeSubnetsOutput {
   @SerializedName("AccountId")
   private String accountId = null;

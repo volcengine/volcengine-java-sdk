@@ -31,7 +31,8 @@ import javax.validation.Valid;
  */
 
 
-public class UpdateSystemEventsResponse {
+
+public class UpdateSystemEventsResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("OperationDetails")
   private List<OperationDetailForUpdateSystemEventsOutput> operationDetails = null;
 

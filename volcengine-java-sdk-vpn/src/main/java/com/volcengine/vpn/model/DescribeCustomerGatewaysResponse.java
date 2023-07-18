@@ -31,7 +31,8 @@ import javax.validation.Valid;
  */
 
 
-public class DescribeCustomerGatewaysResponse {
+
+public class DescribeCustomerGatewaysResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("CustomerGateways")
   private List<CustomerGatewayForDescribeCustomerGatewaysOutput> customerGateways = null;
 

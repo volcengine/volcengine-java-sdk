@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class TagFilterForDescribeNatGatewaysInput {
   @SerializedName("Key")
   private String key = null;

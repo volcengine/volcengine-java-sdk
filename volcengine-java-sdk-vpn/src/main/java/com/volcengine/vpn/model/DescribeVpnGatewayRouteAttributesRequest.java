@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeVpnGatewayRouteAttributesRequest {
   @SerializedName("VpnGatewayRouteId")
   private String vpnGatewayRouteId = null;

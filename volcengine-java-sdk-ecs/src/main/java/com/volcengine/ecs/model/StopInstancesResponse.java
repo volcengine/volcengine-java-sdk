@@ -31,7 +31,8 @@ import javax.validation.Valid;
  */
 
 
-public class StopInstancesResponse {
+
+public class StopInstancesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("OperationDetails")
   private List<OperationDetailForStopInstancesOutput> operationDetails = null;
 

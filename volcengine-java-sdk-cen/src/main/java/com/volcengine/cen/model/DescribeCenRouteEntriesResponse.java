@@ -31,7 +31,8 @@ import javax.validation.Valid;
  */
 
 
-public class DescribeCenRouteEntriesResponse {
+
+public class DescribeCenRouteEntriesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("CenRouteEntries")
   private List<CenRouteEntryForDescribeCenRouteEntriesOutput> cenRouteEntries = null;
 

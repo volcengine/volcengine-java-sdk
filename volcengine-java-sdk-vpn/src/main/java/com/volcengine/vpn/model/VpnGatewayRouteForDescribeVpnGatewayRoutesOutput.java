@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class VpnGatewayRouteForDescribeVpnGatewayRoutesOutput {
   @SerializedName("CreationTime")
   private String creationTime = null;

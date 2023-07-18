@@ -31,7 +31,8 @@ import javax.validation.Valid;
  */
 
 
-public class DeleteInstancesResponse {
+
+public class DeleteInstancesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("OperationDetails")
   private List<OperationDetailForDeleteInstancesOutput> operationDetails = null;
 

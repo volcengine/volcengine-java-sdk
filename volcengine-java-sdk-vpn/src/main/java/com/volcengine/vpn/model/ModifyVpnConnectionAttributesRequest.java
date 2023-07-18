@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ModifyVpnConnectionAttributesRequest {
   @SerializedName("Description")
   private String description = null;
@@ -39,9 +40,13 @@ public class ModifyVpnConnectionAttributesRequest {
    */
   @JsonAdapter(DpdActionEnum.Adapter.class)
   public enum DpdActionEnum {
+    @SerializedName("none")
     NONE("none"),
+    @SerializedName("clear")
     CLEAR("clear"),
+    @SerializedName("hold")
     HOLD("hold"),
+    @SerializedName("restart")
     RESTART("restart");
 
     private String value;

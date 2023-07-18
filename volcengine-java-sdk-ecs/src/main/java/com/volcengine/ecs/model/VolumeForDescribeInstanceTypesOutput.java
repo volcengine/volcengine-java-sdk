@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class VolumeForDescribeInstanceTypesOutput {
   @SerializedName("MaximumCount")
   private Integer maximumCount = null;

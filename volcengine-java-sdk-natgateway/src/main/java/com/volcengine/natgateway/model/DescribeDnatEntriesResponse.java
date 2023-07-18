@@ -31,7 +31,8 @@ import javax.validation.Valid;
  */
 
 
-public class DescribeDnatEntriesResponse {
+
+public class DescribeDnatEntriesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("DnatEntries")
   private List<DnatEntryForDescribeDnatEntriesOutput> dnatEntries = null;
 

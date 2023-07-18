@@ -32,7 +32,7 @@ import javax.validation.Valid;
 
 
 
-public class DescribeDirectConnectVirtualInterfaceAttributesResponse {
+public class DescribeDirectConnectVirtualInterfaceAttributesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("AccountId")
   private String accountId = null;
 

@@ -15,7 +15,7 @@ public class TestModifyNatGatewayAttributes {
     public static void main(String[] args) throws Exception {
         String ak = "Your AK";
         String sk = "Your SK";
-        String region = "Your Region";
+        String region = "cn-beijing";
 
         ApiClient apiClient = new ApiClient()
                 .setCredentials(Credentials.getCredentials(ak, sk))
@@ -25,6 +25,7 @@ public class TestModifyNatGatewayAttributes {
         
         ModifyNatGatewayAttributesRequest modifyNatGatewayAttributesRequest = new ModifyNatGatewayAttributesRequest();
         modifyNatGatewayAttributesRequest.setNatGatewayId("ngw-2fedgzyvtzaio59gp675l****");
+        modifyNatGatewayAttributesRequest.setNatGatewayName("nat-1");
         modifyNatGatewayAttributesRequest.setSpec(ModifyNatGatewayAttributesRequest.SpecEnum.valueOf(ModifyNatGatewayAttributesRequest.SpecEnum.class, "Small"));
         
         try {

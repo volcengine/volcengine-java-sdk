@@ -9,14 +9,13 @@ import com.volcengine.sign.Credentials;
 
 import com.volcengine.natgateway.NatgatewayApi;
 import com.volcengine.natgateway.model.*;
-import java.util.*;
 
 
 public class TestDescribeNatGateways {
     public static void main(String[] args) throws Exception {
         String ak = "Your AK";
         String sk = "Your SK";
-        String region = "Your Region";
+        String region = "cn-beijing";
 
         ApiClient apiClient = new ApiClient()
                 .setCredentials(Credentials.getCredentials(ak, sk))
@@ -25,9 +24,9 @@ public class TestDescribeNatGateways {
         NatgatewayApi api = new NatgatewayApi(apiClient);
         
         DescribeNatGatewaysRequest describeNatGatewaysRequest = new DescribeNatGatewaysRequest();
-        describeNatGatewaysRequest.setNatGatewayIds(Arrays.asList("ngw-2fesmko5zhdz459gp67sc****"));
         describeNatGatewaysRequest.setPageNumber(1);
         describeNatGatewaysRequest.setPageSize(5);
+        describeNatGatewaysRequest.setSpec(DescribeNatGatewaysRequest.SpecEnum.valueOf(DescribeNatGatewaysRequest.SpecEnum.class, "Medium"));
         
         try {
             DescribeNatGatewaysResponse response = api.describeNatGateways(describeNatGatewaysRequest);

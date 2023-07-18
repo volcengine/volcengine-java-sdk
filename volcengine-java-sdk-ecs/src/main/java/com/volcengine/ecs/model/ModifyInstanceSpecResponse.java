@@ -28,7 +28,8 @@ import javax.validation.Valid;
  */
 
 
-public class ModifyInstanceSpecResponse {
+
+public class ModifyInstanceSpecResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("InstanceId")
   private String instanceId = null;
 

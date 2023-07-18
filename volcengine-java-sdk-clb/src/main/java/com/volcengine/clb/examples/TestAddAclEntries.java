@@ -16,7 +16,7 @@ public class TestAddAclEntries {
     public static void main(String[] args) throws Exception {
         String ak = "Your AK";
         String sk = "Your SK";
-        String region = "Your Region";
+        String region = "cn-beijing";
 
         ApiClient apiClient = new ApiClient()
                 .setCredentials(Credentials.getCredentials(ak, sk))
@@ -24,14 +24,14 @@ public class TestAddAclEntries {
 
         ClbApi api = new ClbApi(apiClient);
         
-        AclEntryForAddAclEntriesInput reqAclEntries0 = new AclEntryForAddAclEntriesInput();
-        reqAclEntries0.setEntry("192.XX.XX.7/16");
+        AclEntryForAddAclEntriesInput reqAclEntries = new AclEntryForAddAclEntriesInput();
+        reqAclEntries.setEntry("192.XX.XX.7/16");
         
         AclEntryForAddAclEntriesInput reqAclEntries1 = new AclEntryForAddAclEntriesInput();
         reqAclEntries1.setEntry("192.XX.XX.0/16");
         
         AddAclEntriesRequest addAclEntriesRequest = new AddAclEntriesRequest();
-        addAclEntriesRequest.setAclEntries(Arrays.asList(reqAclEntries0, reqAclEntries1));
+        addAclEntriesRequest.setAclEntries(Arrays.asList(reqAclEntries, reqAclEntries1));
         addAclEntriesRequest.setAclId("acl-3cj44nv0jhhxc6c6rrtet****");
         
         try {

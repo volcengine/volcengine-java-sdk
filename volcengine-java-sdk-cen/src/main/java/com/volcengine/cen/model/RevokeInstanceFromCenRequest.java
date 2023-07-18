@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class RevokeInstanceFromCenRequest {
   @SerializedName("CenId")
   private String cenId = null;
@@ -46,7 +47,9 @@ public class RevokeInstanceFromCenRequest {
    */
   @JsonAdapter(InstanceTypeEnum.Adapter.class)
   public enum InstanceTypeEnum {
+    @SerializedName("VPC")
     VPC("VPC"),
+    @SerializedName("DCGW")
     DCGW("DCGW");
 
     private String value;

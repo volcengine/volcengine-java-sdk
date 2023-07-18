@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeNatGatewayAttributesRequest {
   @SerializedName("NatGatewayId")
   private String natGatewayId = null;

@@ -31,7 +31,8 @@ import javax.validation.Valid;
  */
 
 
-public class DescribeImageSharePermissionResponse {
+
+public class DescribeImageSharePermissionResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Accounts")
   private List<AccountForDescribeImageSharePermissionOutput> accounts = null;
 

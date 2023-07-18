@@ -30,13 +30,16 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateVpnConnectionRequest {
   /**
    * Gets or Sets attachType
    */
   @JsonAdapter(AttachTypeEnum.Adapter.class)
   public enum AttachTypeEnum {
+    @SerializedName("VpnGateway")
     VPNGATEWAY("VpnGateway"),
+    @SerializedName("TransitRouter")
     TRANSITROUTER("TransitRouter");
 
     private String value;
@@ -89,9 +92,13 @@ public class CreateVpnConnectionRequest {
    */
   @JsonAdapter(DpdActionEnum.Adapter.class)
   public enum DpdActionEnum {
+    @SerializedName("none")
     NONE("none"),
+    @SerializedName("clear")
     CLEAR("clear"),
+    @SerializedName("hold")
     HOLD("hold"),
+    @SerializedName("restart")
     RESTART("restart");
 
     private String value;

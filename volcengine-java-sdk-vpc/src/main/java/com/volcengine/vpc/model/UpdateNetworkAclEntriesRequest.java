@@ -32,6 +32,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class UpdateNetworkAclEntriesRequest {
   @SerializedName("ClientToken")
   private String clientToken = null;

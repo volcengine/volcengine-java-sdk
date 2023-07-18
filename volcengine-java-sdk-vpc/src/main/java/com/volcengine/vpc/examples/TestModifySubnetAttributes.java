@@ -15,7 +15,7 @@ public class TestModifySubnetAttributes {
     public static void main(String[] args) throws Exception {
         String ak = "Your AK";
         String sk = "Your SK";
-        String region = "Your Region";
+        String region = "cn-beijing";
 
         ApiClient apiClient = new ApiClient()
                 .setCredentials(Credentials.getCredentials(ak, sk))
@@ -24,7 +24,9 @@ public class TestModifySubnetAttributes {
         VpcApi api = new VpcApi(apiClient);
         
         ModifySubnetAttributesRequest modifySubnetAttributesRequest = new ModifySubnetAttributesRequest();
+        modifySubnetAttributesRequest.setDescription("This is my subnet");
         modifySubnetAttributesRequest.setSubnetId("subnet-bp15qtc7ywecf****");
+        modifySubnetAttributesRequest.setSubnetName("subnet-1");
         
         try {
             ModifySubnetAttributesResponse response = api.modifySubnetAttributes(modifySubnetAttributesRequest);

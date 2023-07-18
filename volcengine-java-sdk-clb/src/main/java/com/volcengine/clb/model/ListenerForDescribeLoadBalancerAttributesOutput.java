@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ListenerForDescribeLoadBalancerAttributesOutput {
   @SerializedName("ListenerId")
   private String listenerId = null;

@@ -15,7 +15,7 @@ public class TestDisassociateVpcCidrBlock {
     public static void main(String[] args) throws Exception {
         String ak = "Your AK";
         String sk = "Your SK";
-        String region = "Your Region";
+        String region = "cn-beijing";
 
         ApiClient apiClient = new ApiClient()
                 .setCredentials(Credentials.getCredentials(ak, sk))
@@ -24,6 +24,7 @@ public class TestDisassociateVpcCidrBlock {
         VpcApi api = new VpcApi(apiClient);
         
         DisassociateVpcCidrBlockRequest disassociateVpcCidrBlockRequest = new DisassociateVpcCidrBlockRequest();
+        disassociateVpcCidrBlockRequest.setSecondaryCidrBlock("172.16.XX.0/24");
         disassociateVpcCidrBlockRequest.setVpcId("vpc-257gqcdfvx6n****");
         
         try {

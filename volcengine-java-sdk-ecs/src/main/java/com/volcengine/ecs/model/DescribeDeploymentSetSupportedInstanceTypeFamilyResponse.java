@@ -30,7 +30,8 @@ import javax.validation.Valid;
  */
 
 
-public class DescribeDeploymentSetSupportedInstanceTypeFamilyResponse {
+
+public class DescribeDeploymentSetSupportedInstanceTypeFamilyResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("DeploymentSetCreateInstanceTypeFamilies")
   private List<String> deploymentSetCreateInstanceTypeFamilies = null;
 

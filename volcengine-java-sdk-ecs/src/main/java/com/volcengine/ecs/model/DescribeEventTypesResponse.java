@@ -31,7 +31,8 @@ import javax.validation.Valid;
  */
 
 
-public class DescribeEventTypesResponse {
+
+public class DescribeEventTypesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("EventTypes")
   private List<EventTypeForDescribeEventTypesOutput> eventTypes = null;
 

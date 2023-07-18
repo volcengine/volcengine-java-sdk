@@ -16,7 +16,7 @@ public class TestDescribeVpcs {
     public static void main(String[] args) throws Exception {
         String ak = "Your AK";
         String sk = "Your SK";
-        String region = "Your Region";
+        String region = "cn-beijing";
 
         ApiClient apiClient = new ApiClient()
                 .setCredentials(Credentials.getCredentials(ak, sk))
@@ -27,8 +27,7 @@ public class TestDescribeVpcs {
         DescribeVpcsRequest describeVpcsRequest = new DescribeVpcsRequest();
         describeVpcsRequest.setPageNumber(1);
         describeVpcsRequest.setPageSize(20);
-        describeVpcsRequest.setVpcIds(Arrays.asList("vpc-2ff3****zwc1s5oxru"));
-        describeVpcsRequest.setVpcName("test");
+        describeVpcsRequest.setVpcIds(Arrays.asList("vpc-bp1b1p3ve5yze****", "vpc-bp1b1xjllp3ve5yze****"));
         
         try {
             DescribeVpcsResponse response = api.describeVpcs(describeVpcsRequest);

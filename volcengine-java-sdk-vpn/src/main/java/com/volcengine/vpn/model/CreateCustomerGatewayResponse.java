@@ -28,7 +28,8 @@ import javax.validation.Valid;
  */
 
 
-public class CreateCustomerGatewayResponse {
+
+public class CreateCustomerGatewayResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("CustomerGatewayId")
   private String customerGatewayId = null;
 

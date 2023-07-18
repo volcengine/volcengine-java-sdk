@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DeleteBandwidthPackageRequest {
   @SerializedName("BandwidthPackageId")
   private String bandwidthPackageId = null;

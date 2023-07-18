@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeDnatEntryAttributesRequest {
   @SerializedName("DnatEntryId")
   private String dnatEntryId = null;

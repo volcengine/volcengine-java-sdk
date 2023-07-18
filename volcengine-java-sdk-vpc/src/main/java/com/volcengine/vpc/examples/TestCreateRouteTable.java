@@ -15,7 +15,7 @@ public class TestCreateRouteTable {
     public static void main(String[] args) throws Exception {
         String ak = "Your AK";
         String sk = "Your SK";
-        String region = "Your Region";
+        String region = "cn-beijing";
 
         ApiClient apiClient = new ApiClient()
                 .setCredentials(Credentials.getCredentials(ak, sk))
@@ -24,6 +24,7 @@ public class TestCreateRouteTable {
         VpcApi api = new VpcApi(apiClient);
         
         CreateRouteTableRequest createRouteTableRequest = new CreateRouteTableRequest();
+        createRouteTableRequest.setRouteTableName("RouteTable_1");
         createRouteTableRequest.setVpcId("vpc-bp15zckdt37pq72****");
         
         try {

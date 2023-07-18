@@ -28,7 +28,8 @@ import javax.validation.Valid;
  */
 
 
-public class ConvertLoadBalancerBillingTypeResponse {
+
+public class ConvertLoadBalancerBillingTypeResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("OrderId")
   private String orderId = null;
 

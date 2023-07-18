@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeNatGatewaysRequest {
   @SerializedName("Description")
   private String description = null;
@@ -55,8 +56,11 @@ public class DescribeNatGatewaysRequest {
    */
   @JsonAdapter(SpecEnum.Adapter.class)
   public enum SpecEnum {
+    @SerializedName("Small")
     SMALL("Small"),
+    @SerializedName("Medium")
     MEDIUM("Medium"),
+    @SerializedName("Large")
     LARGE("Large");
 
     private String value;

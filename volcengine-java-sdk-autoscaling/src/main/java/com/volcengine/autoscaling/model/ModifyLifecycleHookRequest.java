@@ -27,7 +27,8 @@ import javax.validation.Valid;
  * ModifyLifecycleHookRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:18.429222+08:00[Asia/Shanghai]")
+
+
 public class ModifyLifecycleHookRequest {
   @SerializedName("LifecycleHookId")
   private String lifecycleHookId = null;
@@ -50,7 +51,8 @@ public class ModifyLifecycleHookRequest {
    * Get lifecycleHookId
    * @return lifecycleHookId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getLifecycleHookId() {
     return lifecycleHookId;
   }

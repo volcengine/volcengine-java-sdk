@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class AllocateEipAddressRequest {
   @SerializedName("Bandwidth")
   private Integer bandwidth = null;
@@ -52,9 +53,13 @@ public class AllocateEipAddressRequest {
    */
   @JsonAdapter(ISPEnum.Adapter.class)
   public enum ISPEnum {
+    @SerializedName("BGP")
     BGP("BGP"),
+    @SerializedName("ChinaMobile")
     CHINAMOBILE("ChinaMobile"),
+    @SerializedName("ChinaUnicom")
     CHINAUNICOM("ChinaUnicom"),
+    @SerializedName("ChinaTelecom")
     CHINATELECOM("ChinaTelecom");
 
     private String value;

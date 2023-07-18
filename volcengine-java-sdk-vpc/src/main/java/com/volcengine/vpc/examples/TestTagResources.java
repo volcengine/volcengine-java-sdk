@@ -16,7 +16,7 @@ public class TestTagResources {
     public static void main(String[] args) throws Exception {
         String ak = "Your AK";
         String sk = "Your SK";
-        String region = "Your Region";
+        String region = "cn-beijing";
 
         ApiClient apiClient = new ApiClient()
                 .setCredentials(Credentials.getCredentials(ak, sk))
@@ -24,9 +24,9 @@ public class TestTagResources {
 
         VpcApi api = new VpcApi(apiClient);
         
-        TagForTagResourcesInput reqTags0 = new TagForTagResourcesInput();
-        reqTags0.setKey("k1");
-        reqTags0.setValue("v1");
+        TagForTagResourcesInput reqTags = new TagForTagResourcesInput();
+        reqTags.setKey("k1");
+        reqTags.setValue("v1");
         
         TagForTagResourcesInput reqTags1 = new TagForTagResourcesInput();
         reqTags1.setKey("k2");
@@ -35,7 +35,7 @@ public class TestTagResources {
         TagResourcesRequest tagResourcesRequest = new TagResourcesRequest();
         tagResourcesRequest.setResourceIds(Arrays.asList("vpc-273w3e33y2y9s7fap8u2j****", "vpc-bp15zckdt37pq72zv****"));
         tagResourcesRequest.setResourceType(TagResourcesRequest.ResourceTypeEnum.valueOf(TagResourcesRequest.ResourceTypeEnum.class, "vpc"));
-        tagResourcesRequest.setTags(Arrays.asList(reqTags0, reqTags1));
+        tagResourcesRequest.setTags(Arrays.asList(reqTags, reqTags1));
         
         try {
             TagResourcesResponse response = api.tagResources(tagResourcesRequest);

@@ -28,7 +28,8 @@ import javax.validation.Valid;
  */
 
 
-public class CreateCenInterRegionBandwidthResponse {
+
+public class CreateCenInterRegionBandwidthResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("InterRegionBandwidthId")
   private String interRegionBandwidthId = null;
 

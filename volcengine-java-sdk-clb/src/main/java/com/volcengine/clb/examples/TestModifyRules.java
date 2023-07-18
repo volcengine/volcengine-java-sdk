@@ -16,7 +16,7 @@ public class TestModifyRules {
     public static void main(String[] args) throws Exception {
         String ak = "Your AK";
         String sk = "Your SK";
-        String region = "Your Region";
+        String region = "cn-beijing";
 
         ApiClient apiClient = new ApiClient()
                 .setCredentials(Credentials.getCredentials(ak, sk))
@@ -24,14 +24,14 @@ public class TestModifyRules {
 
         ClbApi api = new ClbApi(apiClient);
         
-        RuleForModifyRulesInput reqRules0 = new RuleForModifyRulesInput();
-        reqRules0.setDescription("test");
-        reqRules0.setRuleId("rule-2fegss1cplxxc5oxruvvq****");
-        reqRules0.setServerGroupId("rsp-bp1o94dp5i6ea****");
+        RuleForModifyRulesInput reqRules = new RuleForModifyRulesInput();
+        reqRules.setDescription("test");
+        reqRules.setRuleId("rule-2fegss1cplxxc5oxruvvq****");
+        reqRules.setServerGroupId("rsp-bp1o94dp5i6ea****");
         
         ModifyRulesRequest modifyRulesRequest = new ModifyRulesRequest();
         modifyRulesRequest.setListenerId("lsn-2fek3rgsxhrsw5oxruwec****");
-        modifyRulesRequest.setRules(Arrays.asList(reqRules0));
+        modifyRulesRequest.setRules(Arrays.asList(reqRules));
         
         try {
             ModifyRulesResponse response = api.modifyRules(modifyRulesRequest);

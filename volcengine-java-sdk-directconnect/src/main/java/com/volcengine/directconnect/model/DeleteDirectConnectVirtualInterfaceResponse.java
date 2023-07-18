@@ -29,7 +29,7 @@ import javax.validation.Valid;
 
 
 
-public class DeleteDirectConnectVirtualInterfaceResponse {
+public class DeleteDirectConnectVirtualInterfaceResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("RequestId")
   private String requestId = null;
 

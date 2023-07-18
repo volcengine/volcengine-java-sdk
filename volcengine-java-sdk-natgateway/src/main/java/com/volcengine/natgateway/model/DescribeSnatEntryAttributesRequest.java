@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeSnatEntryAttributesRequest {
   @SerializedName("SnatEntryId")
   private String snatEntryId = null;

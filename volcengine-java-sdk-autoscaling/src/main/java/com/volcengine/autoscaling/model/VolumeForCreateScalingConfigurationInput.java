@@ -27,7 +27,8 @@ import javax.validation.Valid;
  * VolumeForCreateScalingConfigurationInput
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:18.429222+08:00[Asia/Shanghai]")
+
+
 public class VolumeForCreateScalingConfigurationInput {
   @SerializedName("DeleteWithInstance")
   private Boolean deleteWithInstance = null;
@@ -65,7 +66,8 @@ public class VolumeForCreateScalingConfigurationInput {
    * Get size
    * @return size
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public Integer getSize() {
     return size;
   }
@@ -83,7 +85,8 @@ public class VolumeForCreateScalingConfigurationInput {
    * Get volumeType
    * @return volumeType
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getVolumeType() {
     return volumeType;
   }

@@ -29,7 +29,8 @@ import javax.validation.Valid;
  * RemoveInstancesRequest
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-07-15T17:10:18.429222+08:00[Asia/Shanghai]")
+
+
 public class RemoveInstancesRequest {
   @SerializedName("DecreaseDesiredCapacity")
   private Boolean decreaseDesiredCapacity = null;
@@ -93,7 +94,8 @@ public class RemoveInstancesRequest {
    * Get scalingGroupId
    * @return scalingGroupId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getScalingGroupId() {
     return scalingGroupId;
   }

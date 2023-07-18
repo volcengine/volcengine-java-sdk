@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeSecurityGroupAttributesRequest {
   @SerializedName("CidrIp")
   private String cidrIp = null;

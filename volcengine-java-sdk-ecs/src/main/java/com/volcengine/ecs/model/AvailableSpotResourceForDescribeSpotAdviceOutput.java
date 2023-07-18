@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class AvailableSpotResourceForDescribeSpotAdviceOutput {
   @SerializedName("AverageSpotDiscount")
   private Integer averageSpotDiscount = null;

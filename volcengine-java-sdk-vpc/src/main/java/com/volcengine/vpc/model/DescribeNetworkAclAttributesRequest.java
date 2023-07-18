@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeNetworkAclAttributesRequest {
   @SerializedName("NetworkAclId")
   private String networkAclId = null;

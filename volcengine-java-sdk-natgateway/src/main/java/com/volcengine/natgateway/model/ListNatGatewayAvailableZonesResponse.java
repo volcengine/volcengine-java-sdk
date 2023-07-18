@@ -31,7 +31,8 @@ import javax.validation.Valid;
  */
 
 
-public class ListNatGatewayAvailableZonesResponse {
+
+public class ListNatGatewayAvailableZonesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("RequestId")
   private String requestId = null;
 

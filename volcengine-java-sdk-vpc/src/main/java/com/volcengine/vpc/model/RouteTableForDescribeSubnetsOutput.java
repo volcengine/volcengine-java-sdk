@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class RouteTableForDescribeSubnetsOutput {
   @SerializedName("RouteTableId")
   private String routeTableId = null;

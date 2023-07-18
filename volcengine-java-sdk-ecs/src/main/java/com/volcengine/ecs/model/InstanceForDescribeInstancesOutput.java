@@ -35,6 +35,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class InstanceForDescribeInstancesOutput {
   @SerializedName("CpuOptions")
   private CpuOptionsForDescribeInstancesOutput cpuOptions = null;
