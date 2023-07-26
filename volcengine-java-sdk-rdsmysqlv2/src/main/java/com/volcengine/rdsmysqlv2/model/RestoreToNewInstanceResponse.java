@@ -28,7 +28,7 @@ import javax.validation.Valid;
  */
 
 
-public class RestoreToNewInstanceResponse {
+public class RestoreToNewInstanceResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("InstanceId")
   private String instanceId = null;
 

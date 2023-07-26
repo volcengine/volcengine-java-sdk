@@ -20,7 +20,9 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.rdsmysqlv2.model.ChargeInfoForRestoreToNewInstanceInput;
+import com.volcengine.rdsmysqlv2.model.InstanceTagForRestoreToNewInstanceInput;
 import com.volcengine.rdsmysqlv2.model.NodeInfoForRestoreToNewInstanceInput;
+import com.volcengine.rdsmysqlv2.model.TableMetaForRestoreToNewInstanceInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -33,23 +35,41 @@ import javax.validation.Valid;
 
 
 public class RestoreToNewInstanceRequest {
+  @SerializedName("AllowListIds")
+  private List<String> allowListIds = null;
+
   @SerializedName("BackupId")
   private String backupId = null;
 
   @SerializedName("ChargeInfo")
   private ChargeInfoForRestoreToNewInstanceInput chargeInfo = null;
 
+  @SerializedName("DBParamGroupId")
+  private String dbParamGroupId = null;
+
   @SerializedName("InstanceName")
   private String instanceName = null;
 
+  @SerializedName("InstanceTags")
+  private List<InstanceTagForRestoreToNewInstanceInput> instanceTags = null;
+
   @SerializedName("NodeInfo")
   private List<NodeInfoForRestoreToNewInstanceInput> nodeInfo = null;
+
+  @SerializedName("NodeNumber")
+  private Integer nodeNumber = null;
+
+  @SerializedName("NodeSpec")
+  private String nodeSpec = null;
 
   @SerializedName("ProjectName")
   private String projectName = null;
 
   @SerializedName("RestoreTime")
   private String restoreTime = null;
+
+  @SerializedName("ShardNumber")
+  private Integer shardNumber = null;
 
   @SerializedName("SrcInstanceId")
   private String srcInstanceId = null;
@@ -63,11 +83,43 @@ public class RestoreToNewInstanceRequest {
   @SerializedName("SubnetId")
   private String subnetId = null;
 
+  @SerializedName("SuperAccountPassword")
+  private String superAccountPassword = null;
+
+  @SerializedName("TableMeta")
+  private List<TableMetaForRestoreToNewInstanceInput> tableMeta = null;
+
   @SerializedName("VpcId")
   private String vpcId = null;
 
   @SerializedName("ZoneId")
   private String zoneId = null;
+
+  public RestoreToNewInstanceRequest allowListIds(List<String> allowListIds) {
+    this.allowListIds = allowListIds;
+    return this;
+  }
+
+  public RestoreToNewInstanceRequest addAllowListIdsItem(String allowListIdsItem) {
+    if (this.allowListIds == null) {
+      this.allowListIds = new ArrayList<String>();
+    }
+    this.allowListIds.add(allowListIdsItem);
+    return this;
+  }
+
+   /**
+   * Get allowListIds
+   * @return allowListIds
+  **/
+  @Schema(description = "")
+  public List<String> getAllowListIds() {
+    return allowListIds;
+  }
+
+  public void setAllowListIds(List<String> allowListIds) {
+    this.allowListIds = allowListIds;
+  }
 
   public RestoreToNewInstanceRequest backupId(String backupId) {
     this.backupId = backupId;
@@ -106,6 +158,24 @@ public class RestoreToNewInstanceRequest {
     this.chargeInfo = chargeInfo;
   }
 
+  public RestoreToNewInstanceRequest dbParamGroupId(String dbParamGroupId) {
+    this.dbParamGroupId = dbParamGroupId;
+    return this;
+  }
+
+   /**
+   * Get dbParamGroupId
+   * @return dbParamGroupId
+  **/
+  @Schema(description = "")
+  public String getDbParamGroupId() {
+    return dbParamGroupId;
+  }
+
+  public void setDbParamGroupId(String dbParamGroupId) {
+    this.dbParamGroupId = dbParamGroupId;
+  }
+
   public RestoreToNewInstanceRequest instanceName(String instanceName) {
     this.instanceName = instanceName;
     return this;
@@ -122,6 +192,33 @@ public class RestoreToNewInstanceRequest {
 
   public void setInstanceName(String instanceName) {
     this.instanceName = instanceName;
+  }
+
+  public RestoreToNewInstanceRequest instanceTags(List<InstanceTagForRestoreToNewInstanceInput> instanceTags) {
+    this.instanceTags = instanceTags;
+    return this;
+  }
+
+  public RestoreToNewInstanceRequest addInstanceTagsItem(InstanceTagForRestoreToNewInstanceInput instanceTagsItem) {
+    if (this.instanceTags == null) {
+      this.instanceTags = new ArrayList<InstanceTagForRestoreToNewInstanceInput>();
+    }
+    this.instanceTags.add(instanceTagsItem);
+    return this;
+  }
+
+   /**
+   * Get instanceTags
+   * @return instanceTags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<InstanceTagForRestoreToNewInstanceInput> getInstanceTags() {
+    return instanceTags;
+  }
+
+  public void setInstanceTags(List<InstanceTagForRestoreToNewInstanceInput> instanceTags) {
+    this.instanceTags = instanceTags;
   }
 
   public RestoreToNewInstanceRequest nodeInfo(List<NodeInfoForRestoreToNewInstanceInput> nodeInfo) {
@@ -149,6 +246,42 @@ public class RestoreToNewInstanceRequest {
 
   public void setNodeInfo(List<NodeInfoForRestoreToNewInstanceInput> nodeInfo) {
     this.nodeInfo = nodeInfo;
+  }
+
+  public RestoreToNewInstanceRequest nodeNumber(Integer nodeNumber) {
+    this.nodeNumber = nodeNumber;
+    return this;
+  }
+
+   /**
+   * Get nodeNumber
+   * @return nodeNumber
+  **/
+  @Schema(description = "")
+  public Integer getNodeNumber() {
+    return nodeNumber;
+  }
+
+  public void setNodeNumber(Integer nodeNumber) {
+    this.nodeNumber = nodeNumber;
+  }
+
+  public RestoreToNewInstanceRequest nodeSpec(String nodeSpec) {
+    this.nodeSpec = nodeSpec;
+    return this;
+  }
+
+   /**
+   * Get nodeSpec
+   * @return nodeSpec
+  **/
+  @Schema(description = "")
+  public String getNodeSpec() {
+    return nodeSpec;
+  }
+
+  public void setNodeSpec(String nodeSpec) {
+    this.nodeSpec = nodeSpec;
   }
 
   public RestoreToNewInstanceRequest projectName(String projectName) {
@@ -185,6 +318,24 @@ public class RestoreToNewInstanceRequest {
 
   public void setRestoreTime(String restoreTime) {
     this.restoreTime = restoreTime;
+  }
+
+  public RestoreToNewInstanceRequest shardNumber(Integer shardNumber) {
+    this.shardNumber = shardNumber;
+    return this;
+  }
+
+   /**
+   * Get shardNumber
+   * @return shardNumber
+  **/
+  @Schema(description = "")
+  public Integer getShardNumber() {
+    return shardNumber;
+  }
+
+  public void setShardNumber(Integer shardNumber) {
+    this.shardNumber = shardNumber;
   }
 
   public RestoreToNewInstanceRequest srcInstanceId(String srcInstanceId) {
@@ -259,6 +410,51 @@ public class RestoreToNewInstanceRequest {
     this.subnetId = subnetId;
   }
 
+  public RestoreToNewInstanceRequest superAccountPassword(String superAccountPassword) {
+    this.superAccountPassword = superAccountPassword;
+    return this;
+  }
+
+   /**
+   * Get superAccountPassword
+   * @return superAccountPassword
+  **/
+  @Schema(description = "")
+  public String getSuperAccountPassword() {
+    return superAccountPassword;
+  }
+
+  public void setSuperAccountPassword(String superAccountPassword) {
+    this.superAccountPassword = superAccountPassword;
+  }
+
+  public RestoreToNewInstanceRequest tableMeta(List<TableMetaForRestoreToNewInstanceInput> tableMeta) {
+    this.tableMeta = tableMeta;
+    return this;
+  }
+
+  public RestoreToNewInstanceRequest addTableMetaItem(TableMetaForRestoreToNewInstanceInput tableMetaItem) {
+    if (this.tableMeta == null) {
+      this.tableMeta = new ArrayList<TableMetaForRestoreToNewInstanceInput>();
+    }
+    this.tableMeta.add(tableMetaItem);
+    return this;
+  }
+
+   /**
+   * Get tableMeta
+   * @return tableMeta
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TableMetaForRestoreToNewInstanceInput> getTableMeta() {
+    return tableMeta;
+  }
+
+  public void setTableMeta(List<TableMetaForRestoreToNewInstanceInput> tableMeta) {
+    this.tableMeta = tableMeta;
+  }
+
   public RestoreToNewInstanceRequest vpcId(String vpcId) {
     this.vpcId = vpcId;
     return this;
@@ -305,23 +501,31 @@ public class RestoreToNewInstanceRequest {
       return false;
     }
     RestoreToNewInstanceRequest restoreToNewInstanceRequest = (RestoreToNewInstanceRequest) o;
-    return Objects.equals(this.backupId, restoreToNewInstanceRequest.backupId) &&
+    return Objects.equals(this.allowListIds, restoreToNewInstanceRequest.allowListIds) &&
+        Objects.equals(this.backupId, restoreToNewInstanceRequest.backupId) &&
         Objects.equals(this.chargeInfo, restoreToNewInstanceRequest.chargeInfo) &&
+        Objects.equals(this.dbParamGroupId, restoreToNewInstanceRequest.dbParamGroupId) &&
         Objects.equals(this.instanceName, restoreToNewInstanceRequest.instanceName) &&
+        Objects.equals(this.instanceTags, restoreToNewInstanceRequest.instanceTags) &&
         Objects.equals(this.nodeInfo, restoreToNewInstanceRequest.nodeInfo) &&
+        Objects.equals(this.nodeNumber, restoreToNewInstanceRequest.nodeNumber) &&
+        Objects.equals(this.nodeSpec, restoreToNewInstanceRequest.nodeSpec) &&
         Objects.equals(this.projectName, restoreToNewInstanceRequest.projectName) &&
         Objects.equals(this.restoreTime, restoreToNewInstanceRequest.restoreTime) &&
+        Objects.equals(this.shardNumber, restoreToNewInstanceRequest.shardNumber) &&
         Objects.equals(this.srcInstanceId, restoreToNewInstanceRequest.srcInstanceId) &&
         Objects.equals(this.storageSpace, restoreToNewInstanceRequest.storageSpace) &&
         Objects.equals(this.storageType, restoreToNewInstanceRequest.storageType) &&
         Objects.equals(this.subnetId, restoreToNewInstanceRequest.subnetId) &&
+        Objects.equals(this.superAccountPassword, restoreToNewInstanceRequest.superAccountPassword) &&
+        Objects.equals(this.tableMeta, restoreToNewInstanceRequest.tableMeta) &&
         Objects.equals(this.vpcId, restoreToNewInstanceRequest.vpcId) &&
         Objects.equals(this.zoneId, restoreToNewInstanceRequest.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(backupId, chargeInfo, instanceName, nodeInfo, projectName, restoreTime, srcInstanceId, storageSpace, storageType, subnetId, vpcId, zoneId);
+    return Objects.hash(allowListIds, backupId, chargeInfo, dbParamGroupId, instanceName, instanceTags, nodeInfo, nodeNumber, nodeSpec, projectName, restoreTime, shardNumber, srcInstanceId, storageSpace, storageType, subnetId, superAccountPassword, tableMeta, vpcId, zoneId);
   }
 
 
@@ -330,16 +534,24 @@ public class RestoreToNewInstanceRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class RestoreToNewInstanceRequest {\n");
     
+    sb.append("    allowListIds: ").append(toIndentedString(allowListIds)).append("\n");
     sb.append("    backupId: ").append(toIndentedString(backupId)).append("\n");
     sb.append("    chargeInfo: ").append(toIndentedString(chargeInfo)).append("\n");
+    sb.append("    dbParamGroupId: ").append(toIndentedString(dbParamGroupId)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
+    sb.append("    instanceTags: ").append(toIndentedString(instanceTags)).append("\n");
     sb.append("    nodeInfo: ").append(toIndentedString(nodeInfo)).append("\n");
+    sb.append("    nodeNumber: ").append(toIndentedString(nodeNumber)).append("\n");
+    sb.append("    nodeSpec: ").append(toIndentedString(nodeSpec)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    restoreTime: ").append(toIndentedString(restoreTime)).append("\n");
+    sb.append("    shardNumber: ").append(toIndentedString(shardNumber)).append("\n");
     sb.append("    srcInstanceId: ").append(toIndentedString(srcInstanceId)).append("\n");
     sb.append("    storageSpace: ").append(toIndentedString(storageSpace)).append("\n");
     sb.append("    storageType: ").append(toIndentedString(storageType)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
+    sb.append("    superAccountPassword: ").append(toIndentedString(superAccountPassword)).append("\n");
+    sb.append("    tableMeta: ").append(toIndentedString(tableMeta)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");

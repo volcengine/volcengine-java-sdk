@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.rdsmysqlv2.model.BackupForDescribeBackupsOutput;
+import com.volcengine.rdsmysqlv2.model.BackupsInfoForDescribeBackupsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -31,9 +32,12 @@ import javax.validation.Valid;
  */
 
 
-public class DescribeBackupsResponse {
+public class DescribeBackupsResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Backups")
   private List<BackupForDescribeBackupsOutput> backups = null;
+
+  @SerializedName("BackupsInfo")
+  private List<BackupsInfoForDescribeBackupsOutput> backupsInfo = null;
 
   @SerializedName("Total")
   private Integer total = null;
@@ -65,6 +69,33 @@ public class DescribeBackupsResponse {
     this.backups = backups;
   }
 
+  public DescribeBackupsResponse backupsInfo(List<BackupsInfoForDescribeBackupsOutput> backupsInfo) {
+    this.backupsInfo = backupsInfo;
+    return this;
+  }
+
+  public DescribeBackupsResponse addBackupsInfoItem(BackupsInfoForDescribeBackupsOutput backupsInfoItem) {
+    if (this.backupsInfo == null) {
+      this.backupsInfo = new ArrayList<BackupsInfoForDescribeBackupsOutput>();
+    }
+    this.backupsInfo.add(backupsInfoItem);
+    return this;
+  }
+
+   /**
+   * Get backupsInfo
+   * @return backupsInfo
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<BackupsInfoForDescribeBackupsOutput> getBackupsInfo() {
+    return backupsInfo;
+  }
+
+  public void setBackupsInfo(List<BackupsInfoForDescribeBackupsOutput> backupsInfo) {
+    this.backupsInfo = backupsInfo;
+  }
+
   public DescribeBackupsResponse total(Integer total) {
     this.total = total;
     return this;
@@ -94,12 +125,13 @@ public class DescribeBackupsResponse {
     }
     DescribeBackupsResponse describeBackupsResponse = (DescribeBackupsResponse) o;
     return Objects.equals(this.backups, describeBackupsResponse.backups) &&
+        Objects.equals(this.backupsInfo, describeBackupsResponse.backupsInfo) &&
         Objects.equals(this.total, describeBackupsResponse.total);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(backups, total);
+    return Objects.hash(backups, backupsInfo, total);
   }
 
 
@@ -109,6 +141,7 @@ public class DescribeBackupsResponse {
     sb.append("class DescribeBackupsResponse {\n");
     
     sb.append("    backups: ").append(toIndentedString(backups)).append("\n");
+    sb.append("    backupsInfo: ").append(toIndentedString(backupsInfo)).append("\n");
     sb.append("    total: ").append(toIndentedString(total)).append("\n");
     sb.append("}");
     return sb.toString();

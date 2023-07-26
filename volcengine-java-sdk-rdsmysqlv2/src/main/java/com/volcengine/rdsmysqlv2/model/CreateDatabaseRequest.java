@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.rdsmysqlv2.model.DatabasePrivilegeForCreateDatabaseInput;
+import com.volcengine.rdsmysqlv2.model.DatabasePrivilegesInfoForCreateDatabaseInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -35,11 +36,20 @@ public class CreateDatabaseRequest {
   @SerializedName("CharacterSetName")
   private String characterSetName = null;
 
+  @SerializedName("DBDesc")
+  private String dbDesc = null;
+
   @SerializedName("DBName")
   private String dbName = null;
 
+  @SerializedName("DBPartition")
+  private Integer dbPartition = null;
+
   @SerializedName("DatabasePrivileges")
   private List<DatabasePrivilegeForCreateDatabaseInput> databasePrivileges = null;
+
+  @SerializedName("DatabasePrivilegesInfo")
+  private List<DatabasePrivilegesInfoForCreateDatabaseInput> databasePrivilegesInfo = null;
 
   @SerializedName("InstanceId")
   private String instanceId = null;
@@ -62,6 +72,24 @@ public class CreateDatabaseRequest {
     this.characterSetName = characterSetName;
   }
 
+  public CreateDatabaseRequest dbDesc(String dbDesc) {
+    this.dbDesc = dbDesc;
+    return this;
+  }
+
+   /**
+   * Get dbDesc
+   * @return dbDesc
+  **/
+  @Schema(description = "")
+  public String getDbDesc() {
+    return dbDesc;
+  }
+
+  public void setDbDesc(String dbDesc) {
+    this.dbDesc = dbDesc;
+  }
+
   public CreateDatabaseRequest dbName(String dbName) {
     this.dbName = dbName;
     return this;
@@ -78,6 +106,24 @@ public class CreateDatabaseRequest {
 
   public void setDbName(String dbName) {
     this.dbName = dbName;
+  }
+
+  public CreateDatabaseRequest dbPartition(Integer dbPartition) {
+    this.dbPartition = dbPartition;
+    return this;
+  }
+
+   /**
+   * Get dbPartition
+   * @return dbPartition
+  **/
+  @Schema(description = "")
+  public Integer getDbPartition() {
+    return dbPartition;
+  }
+
+  public void setDbPartition(Integer dbPartition) {
+    this.dbPartition = dbPartition;
   }
 
   public CreateDatabaseRequest databasePrivileges(List<DatabasePrivilegeForCreateDatabaseInput> databasePrivileges) {
@@ -105,6 +151,33 @@ public class CreateDatabaseRequest {
 
   public void setDatabasePrivileges(List<DatabasePrivilegeForCreateDatabaseInput> databasePrivileges) {
     this.databasePrivileges = databasePrivileges;
+  }
+
+  public CreateDatabaseRequest databasePrivilegesInfo(List<DatabasePrivilegesInfoForCreateDatabaseInput> databasePrivilegesInfo) {
+    this.databasePrivilegesInfo = databasePrivilegesInfo;
+    return this;
+  }
+
+  public CreateDatabaseRequest addDatabasePrivilegesInfoItem(DatabasePrivilegesInfoForCreateDatabaseInput databasePrivilegesInfoItem) {
+    if (this.databasePrivilegesInfo == null) {
+      this.databasePrivilegesInfo = new ArrayList<DatabasePrivilegesInfoForCreateDatabaseInput>();
+    }
+    this.databasePrivilegesInfo.add(databasePrivilegesInfoItem);
+    return this;
+  }
+
+   /**
+   * Get databasePrivilegesInfo
+   * @return databasePrivilegesInfo
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<DatabasePrivilegesInfoForCreateDatabaseInput> getDatabasePrivilegesInfo() {
+    return databasePrivilegesInfo;
+  }
+
+  public void setDatabasePrivilegesInfo(List<DatabasePrivilegesInfoForCreateDatabaseInput> databasePrivilegesInfo) {
+    this.databasePrivilegesInfo = databasePrivilegesInfo;
   }
 
   public CreateDatabaseRequest instanceId(String instanceId) {
@@ -137,14 +210,17 @@ public class CreateDatabaseRequest {
     }
     CreateDatabaseRequest createDatabaseRequest = (CreateDatabaseRequest) o;
     return Objects.equals(this.characterSetName, createDatabaseRequest.characterSetName) &&
+        Objects.equals(this.dbDesc, createDatabaseRequest.dbDesc) &&
         Objects.equals(this.dbName, createDatabaseRequest.dbName) &&
+        Objects.equals(this.dbPartition, createDatabaseRequest.dbPartition) &&
         Objects.equals(this.databasePrivileges, createDatabaseRequest.databasePrivileges) &&
+        Objects.equals(this.databasePrivilegesInfo, createDatabaseRequest.databasePrivilegesInfo) &&
         Objects.equals(this.instanceId, createDatabaseRequest.instanceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(characterSetName, dbName, databasePrivileges, instanceId);
+    return Objects.hash(characterSetName, dbDesc, dbName, dbPartition, databasePrivileges, databasePrivilegesInfo, instanceId);
   }
 
 
@@ -154,8 +230,11 @@ public class CreateDatabaseRequest {
     sb.append("class CreateDatabaseRequest {\n");
     
     sb.append("    characterSetName: ").append(toIndentedString(characterSetName)).append("\n");
+    sb.append("    dbDesc: ").append(toIndentedString(dbDesc)).append("\n");
     sb.append("    dbName: ").append(toIndentedString(dbName)).append("\n");
+    sb.append("    dbPartition: ").append(toIndentedString(dbPartition)).append("\n");
     sb.append("    databasePrivileges: ").append(toIndentedString(databasePrivileges)).append("\n");
+    sb.append("    databasePrivilegesInfo: ").append(toIndentedString(databasePrivilegesInfo)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("}");
     return sb.toString();

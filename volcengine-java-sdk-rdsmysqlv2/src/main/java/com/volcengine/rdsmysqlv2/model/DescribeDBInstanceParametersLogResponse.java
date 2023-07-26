@@ -31,7 +31,7 @@ import javax.validation.Valid;
  */
 
 
-public class DescribeDBInstanceParametersLogResponse {
+public class DescribeDBInstanceParametersLogResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("ParameterChangeLogs")
   private List<ParameterChangeLogForDescribeDBInstanceParametersLogOutput> parameterChangeLogs = null;
 

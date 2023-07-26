@@ -19,8 +19,12 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.rdsmysqlv2.model.FilterForDescribeDBInstancesInput;
+import com.volcengine.rdsmysqlv2.model.TagFilterForDescribeDBInstancesInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -29,6 +33,9 @@ import javax.validation.Valid;
 
 
 public class DescribeDBInstancesRequest {
+  @SerializedName("AccountId")
+  private String accountId = null;
+
   @SerializedName("ChargeType")
   private String chargeType = null;
 
@@ -41,6 +48,9 @@ public class DescribeDBInstancesRequest {
   @SerializedName("DBEngineVersion")
   private String dbEngineVersion = null;
 
+  @SerializedName("Filters")
+  private List<FilterForDescribeDBInstancesInput> filters = null;
+
   @SerializedName("InstanceId")
   private String instanceId = null;
 
@@ -49,6 +59,12 @@ public class DescribeDBInstancesRequest {
 
   @SerializedName("InstanceStatus")
   private String instanceStatus = null;
+
+  @SerializedName("InstanceType")
+  private String instanceType = null;
+
+  @SerializedName("NodeSpec")
+  private String nodeSpec = null;
 
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
@@ -59,8 +75,29 @@ public class DescribeDBInstancesRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
 
+  @SerializedName("TagFilters")
+  private List<TagFilterForDescribeDBInstancesInput> tagFilters = null;
+
   @SerializedName("ZoneId")
   private String zoneId = null;
+
+  public DescribeDBInstancesRequest accountId(String accountId) {
+    this.accountId = accountId;
+    return this;
+  }
+
+   /**
+   * Get accountId
+   * @return accountId
+  **/
+  @Schema(description = "")
+  public String getAccountId() {
+    return accountId;
+  }
+
+  public void setAccountId(String accountId) {
+    this.accountId = accountId;
+  }
 
   public DescribeDBInstancesRequest chargeType(String chargeType) {
     this.chargeType = chargeType;
@@ -134,6 +171,33 @@ public class DescribeDBInstancesRequest {
     this.dbEngineVersion = dbEngineVersion;
   }
 
+  public DescribeDBInstancesRequest filters(List<FilterForDescribeDBInstancesInput> filters) {
+    this.filters = filters;
+    return this;
+  }
+
+  public DescribeDBInstancesRequest addFiltersItem(FilterForDescribeDBInstancesInput filtersItem) {
+    if (this.filters == null) {
+      this.filters = new ArrayList<FilterForDescribeDBInstancesInput>();
+    }
+    this.filters.add(filtersItem);
+    return this;
+  }
+
+   /**
+   * Get filters
+   * @return filters
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<FilterForDescribeDBInstancesInput> getFilters() {
+    return filters;
+  }
+
+  public void setFilters(List<FilterForDescribeDBInstancesInput> filters) {
+    this.filters = filters;
+  }
+
   public DescribeDBInstancesRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
     return this;
@@ -186,6 +250,42 @@ public class DescribeDBInstancesRequest {
 
   public void setInstanceStatus(String instanceStatus) {
     this.instanceStatus = instanceStatus;
+  }
+
+  public DescribeDBInstancesRequest instanceType(String instanceType) {
+    this.instanceType = instanceType;
+    return this;
+  }
+
+   /**
+   * Get instanceType
+   * @return instanceType
+  **/
+  @Schema(description = "")
+  public String getInstanceType() {
+    return instanceType;
+  }
+
+  public void setInstanceType(String instanceType) {
+    this.instanceType = instanceType;
+  }
+
+  public DescribeDBInstancesRequest nodeSpec(String nodeSpec) {
+    this.nodeSpec = nodeSpec;
+    return this;
+  }
+
+   /**
+   * Get nodeSpec
+   * @return nodeSpec
+  **/
+  @Schema(description = "")
+  public String getNodeSpec() {
+    return nodeSpec;
+  }
+
+  public void setNodeSpec(String nodeSpec) {
+    this.nodeSpec = nodeSpec;
   }
 
   public DescribeDBInstancesRequest pageNumber(Integer pageNumber) {
@@ -242,6 +342,33 @@ public class DescribeDBInstancesRequest {
     this.projectName = projectName;
   }
 
+  public DescribeDBInstancesRequest tagFilters(List<TagFilterForDescribeDBInstancesInput> tagFilters) {
+    this.tagFilters = tagFilters;
+    return this;
+  }
+
+  public DescribeDBInstancesRequest addTagFiltersItem(TagFilterForDescribeDBInstancesInput tagFiltersItem) {
+    if (this.tagFilters == null) {
+      this.tagFilters = new ArrayList<TagFilterForDescribeDBInstancesInput>();
+    }
+    this.tagFilters.add(tagFiltersItem);
+    return this;
+  }
+
+   /**
+   * Get tagFilters
+   * @return tagFilters
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagFilterForDescribeDBInstancesInput> getTagFilters() {
+    return tagFilters;
+  }
+
+  public void setTagFilters(List<TagFilterForDescribeDBInstancesInput> tagFilters) {
+    this.tagFilters = tagFilters;
+  }
+
   public DescribeDBInstancesRequest zoneId(String zoneId) {
     this.zoneId = zoneId;
     return this;
@@ -270,22 +397,27 @@ public class DescribeDBInstancesRequest {
       return false;
     }
     DescribeDBInstancesRequest describeDBInstancesRequest = (DescribeDBInstancesRequest) o;
-    return Objects.equals(this.chargeType, describeDBInstancesRequest.chargeType) &&
+    return Objects.equals(this.accountId, describeDBInstancesRequest.accountId) &&
+        Objects.equals(this.chargeType, describeDBInstancesRequest.chargeType) &&
         Objects.equals(this.createTimeEnd, describeDBInstancesRequest.createTimeEnd) &&
         Objects.equals(this.createTimeStart, describeDBInstancesRequest.createTimeStart) &&
         Objects.equals(this.dbEngineVersion, describeDBInstancesRequest.dbEngineVersion) &&
+        Objects.equals(this.filters, describeDBInstancesRequest.filters) &&
         Objects.equals(this.instanceId, describeDBInstancesRequest.instanceId) &&
         Objects.equals(this.instanceName, describeDBInstancesRequest.instanceName) &&
         Objects.equals(this.instanceStatus, describeDBInstancesRequest.instanceStatus) &&
+        Objects.equals(this.instanceType, describeDBInstancesRequest.instanceType) &&
+        Objects.equals(this.nodeSpec, describeDBInstancesRequest.nodeSpec) &&
         Objects.equals(this.pageNumber, describeDBInstancesRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeDBInstancesRequest.pageSize) &&
         Objects.equals(this.projectName, describeDBInstancesRequest.projectName) &&
+        Objects.equals(this.tagFilters, describeDBInstancesRequest.tagFilters) &&
         Objects.equals(this.zoneId, describeDBInstancesRequest.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(chargeType, createTimeEnd, createTimeStart, dbEngineVersion, instanceId, instanceName, instanceStatus, pageNumber, pageSize, projectName, zoneId);
+    return Objects.hash(accountId, chargeType, createTimeEnd, createTimeStart, dbEngineVersion, filters, instanceId, instanceName, instanceStatus, instanceType, nodeSpec, pageNumber, pageSize, projectName, tagFilters, zoneId);
   }
 
 
@@ -294,16 +426,21 @@ public class DescribeDBInstancesRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeDBInstancesRequest {\n");
     
+    sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    chargeType: ").append(toIndentedString(chargeType)).append("\n");
     sb.append("    createTimeEnd: ").append(toIndentedString(createTimeEnd)).append("\n");
     sb.append("    createTimeStart: ").append(toIndentedString(createTimeStart)).append("\n");
     sb.append("    dbEngineVersion: ").append(toIndentedString(dbEngineVersion)).append("\n");
+    sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    instanceStatus: ").append(toIndentedString(instanceStatus)).append("\n");
+    sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
+    sb.append("    nodeSpec: ").append(toIndentedString(nodeSpec)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");
     return sb.toString();

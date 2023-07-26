@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.rdsmysqlv2.model.DatabasePrivilegeForDescribeDatabasesOutput;
+import com.volcengine.rdsmysqlv2.model.DatabasePrivilegesInfoForDescribeDatabasesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -35,11 +36,23 @@ public class DatabasForDescribeDatabasesOutput {
   @SerializedName("CharacterSetName")
   private String characterSetName = null;
 
+  @SerializedName("DBDesc")
+  private String dbDesc = null;
+
   @SerializedName("DBName")
   private String dbName = null;
 
+  @SerializedName("DBPartition")
+  private Integer dbPartition = null;
+
+  @SerializedName("DBStatus")
+  private String dbStatus = null;
+
   @SerializedName("DatabasePrivileges")
   private List<DatabasePrivilegeForDescribeDatabasesOutput> databasePrivileges = null;
+
+  @SerializedName("DatabasePrivilegesInfo")
+  private List<DatabasePrivilegesInfoForDescribeDatabasesOutput> databasePrivilegesInfo = null;
 
   public DatabasForDescribeDatabasesOutput characterSetName(String characterSetName) {
     this.characterSetName = characterSetName;
@@ -59,6 +72,24 @@ public class DatabasForDescribeDatabasesOutput {
     this.characterSetName = characterSetName;
   }
 
+  public DatabasForDescribeDatabasesOutput dbDesc(String dbDesc) {
+    this.dbDesc = dbDesc;
+    return this;
+  }
+
+   /**
+   * Get dbDesc
+   * @return dbDesc
+  **/
+  @Schema(description = "")
+  public String getDbDesc() {
+    return dbDesc;
+  }
+
+  public void setDbDesc(String dbDesc) {
+    this.dbDesc = dbDesc;
+  }
+
   public DatabasForDescribeDatabasesOutput dbName(String dbName) {
     this.dbName = dbName;
     return this;
@@ -75,6 +106,42 @@ public class DatabasForDescribeDatabasesOutput {
 
   public void setDbName(String dbName) {
     this.dbName = dbName;
+  }
+
+  public DatabasForDescribeDatabasesOutput dbPartition(Integer dbPartition) {
+    this.dbPartition = dbPartition;
+    return this;
+  }
+
+   /**
+   * Get dbPartition
+   * @return dbPartition
+  **/
+  @Schema(description = "")
+  public Integer getDbPartition() {
+    return dbPartition;
+  }
+
+  public void setDbPartition(Integer dbPartition) {
+    this.dbPartition = dbPartition;
+  }
+
+  public DatabasForDescribeDatabasesOutput dbStatus(String dbStatus) {
+    this.dbStatus = dbStatus;
+    return this;
+  }
+
+   /**
+   * Get dbStatus
+   * @return dbStatus
+  **/
+  @Schema(description = "")
+  public String getDbStatus() {
+    return dbStatus;
+  }
+
+  public void setDbStatus(String dbStatus) {
+    this.dbStatus = dbStatus;
   }
 
   public DatabasForDescribeDatabasesOutput databasePrivileges(List<DatabasePrivilegeForDescribeDatabasesOutput> databasePrivileges) {
@@ -104,6 +171,33 @@ public class DatabasForDescribeDatabasesOutput {
     this.databasePrivileges = databasePrivileges;
   }
 
+  public DatabasForDescribeDatabasesOutput databasePrivilegesInfo(List<DatabasePrivilegesInfoForDescribeDatabasesOutput> databasePrivilegesInfo) {
+    this.databasePrivilegesInfo = databasePrivilegesInfo;
+    return this;
+  }
+
+  public DatabasForDescribeDatabasesOutput addDatabasePrivilegesInfoItem(DatabasePrivilegesInfoForDescribeDatabasesOutput databasePrivilegesInfoItem) {
+    if (this.databasePrivilegesInfo == null) {
+      this.databasePrivilegesInfo = new ArrayList<DatabasePrivilegesInfoForDescribeDatabasesOutput>();
+    }
+    this.databasePrivilegesInfo.add(databasePrivilegesInfoItem);
+    return this;
+  }
+
+   /**
+   * Get databasePrivilegesInfo
+   * @return databasePrivilegesInfo
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<DatabasePrivilegesInfoForDescribeDatabasesOutput> getDatabasePrivilegesInfo() {
+    return databasePrivilegesInfo;
+  }
+
+  public void setDatabasePrivilegesInfo(List<DatabasePrivilegesInfoForDescribeDatabasesOutput> databasePrivilegesInfo) {
+    this.databasePrivilegesInfo = databasePrivilegesInfo;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -115,13 +209,17 @@ public class DatabasForDescribeDatabasesOutput {
     }
     DatabasForDescribeDatabasesOutput databasForDescribeDatabasesOutput = (DatabasForDescribeDatabasesOutput) o;
     return Objects.equals(this.characterSetName, databasForDescribeDatabasesOutput.characterSetName) &&
+        Objects.equals(this.dbDesc, databasForDescribeDatabasesOutput.dbDesc) &&
         Objects.equals(this.dbName, databasForDescribeDatabasesOutput.dbName) &&
-        Objects.equals(this.databasePrivileges, databasForDescribeDatabasesOutput.databasePrivileges);
+        Objects.equals(this.dbPartition, databasForDescribeDatabasesOutput.dbPartition) &&
+        Objects.equals(this.dbStatus, databasForDescribeDatabasesOutput.dbStatus) &&
+        Objects.equals(this.databasePrivileges, databasForDescribeDatabasesOutput.databasePrivileges) &&
+        Objects.equals(this.databasePrivilegesInfo, databasForDescribeDatabasesOutput.databasePrivilegesInfo);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(characterSetName, dbName, databasePrivileges);
+    return Objects.hash(characterSetName, dbDesc, dbName, dbPartition, dbStatus, databasePrivileges, databasePrivilegesInfo);
   }
 
 
@@ -131,8 +229,12 @@ public class DatabasForDescribeDatabasesOutput {
     sb.append("class DatabasForDescribeDatabasesOutput {\n");
     
     sb.append("    characterSetName: ").append(toIndentedString(characterSetName)).append("\n");
+    sb.append("    dbDesc: ").append(toIndentedString(dbDesc)).append("\n");
     sb.append("    dbName: ").append(toIndentedString(dbName)).append("\n");
+    sb.append("    dbPartition: ").append(toIndentedString(dbPartition)).append("\n");
+    sb.append("    dbStatus: ").append(toIndentedString(dbStatus)).append("\n");
     sb.append("    databasePrivileges: ").append(toIndentedString(databasePrivileges)).append("\n");
+    sb.append("    databasePrivilegesInfo: ").append(toIndentedString(databasePrivilegesInfo)).append("\n");
     sb.append("}");
     return sb.toString();
   }

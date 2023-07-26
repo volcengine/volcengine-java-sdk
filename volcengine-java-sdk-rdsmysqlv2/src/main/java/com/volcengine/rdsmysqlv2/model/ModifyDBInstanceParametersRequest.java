@@ -32,11 +32,32 @@ import javax.validation.Valid;
 
 
 public class ModifyDBInstanceParametersRequest {
+  @SerializedName("Forcerestart")
+  private Boolean forcerestart = null;
+
   @SerializedName("InstanceId")
   private String instanceId = null;
 
   @SerializedName("Parameters")
   private List<ParameterForModifyDBInstanceParametersInput> parameters = null;
+
+  public ModifyDBInstanceParametersRequest forcerestart(Boolean forcerestart) {
+    this.forcerestart = forcerestart;
+    return this;
+  }
+
+   /**
+   * Get forcerestart
+   * @return forcerestart
+  **/
+  @Schema(description = "")
+  public Boolean isForcerestart() {
+    return forcerestart;
+  }
+
+  public void setForcerestart(Boolean forcerestart) {
+    this.forcerestart = forcerestart;
+  }
 
   public ModifyDBInstanceParametersRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
@@ -94,13 +115,14 @@ public class ModifyDBInstanceParametersRequest {
       return false;
     }
     ModifyDBInstanceParametersRequest modifyDBInstanceParametersRequest = (ModifyDBInstanceParametersRequest) o;
-    return Objects.equals(this.instanceId, modifyDBInstanceParametersRequest.instanceId) &&
+    return Objects.equals(this.forcerestart, modifyDBInstanceParametersRequest.forcerestart) &&
+        Objects.equals(this.instanceId, modifyDBInstanceParametersRequest.instanceId) &&
         Objects.equals(this.parameters, modifyDBInstanceParametersRequest.parameters);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, parameters);
+    return Objects.hash(forcerestart, instanceId, parameters);
   }
 
 
@@ -109,6 +131,7 @@ public class ModifyDBInstanceParametersRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ModifyDBInstanceParametersRequest {\n");
     
+    sb.append("    forcerestart: ").append(toIndentedString(forcerestart)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    parameters: ").append(toIndentedString(parameters)).append("\n");
     sb.append("}");

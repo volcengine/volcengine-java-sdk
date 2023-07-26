@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.rdsmysqlv2.model.AccountForDescribeDBAccountsOutput;
+import com.volcengine.rdsmysqlv2.model.AccountsInfoForDescribeDBAccountsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -31,9 +32,12 @@ import javax.validation.Valid;
  */
 
 
-public class DescribeDBAccountsResponse {
+public class DescribeDBAccountsResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Accounts")
   private List<AccountForDescribeDBAccountsOutput> accounts = null;
+
+  @SerializedName("AccountsInfo")
+  private List<AccountsInfoForDescribeDBAccountsOutput> accountsInfo = null;
 
   @SerializedName("Total")
   private Integer total = null;
@@ -65,6 +69,33 @@ public class DescribeDBAccountsResponse {
     this.accounts = accounts;
   }
 
+  public DescribeDBAccountsResponse accountsInfo(List<AccountsInfoForDescribeDBAccountsOutput> accountsInfo) {
+    this.accountsInfo = accountsInfo;
+    return this;
+  }
+
+  public DescribeDBAccountsResponse addAccountsInfoItem(AccountsInfoForDescribeDBAccountsOutput accountsInfoItem) {
+    if (this.accountsInfo == null) {
+      this.accountsInfo = new ArrayList<AccountsInfoForDescribeDBAccountsOutput>();
+    }
+    this.accountsInfo.add(accountsInfoItem);
+    return this;
+  }
+
+   /**
+   * Get accountsInfo
+   * @return accountsInfo
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<AccountsInfoForDescribeDBAccountsOutput> getAccountsInfo() {
+    return accountsInfo;
+  }
+
+  public void setAccountsInfo(List<AccountsInfoForDescribeDBAccountsOutput> accountsInfo) {
+    this.accountsInfo = accountsInfo;
+  }
+
   public DescribeDBAccountsResponse total(Integer total) {
     this.total = total;
     return this;
@@ -94,12 +125,13 @@ public class DescribeDBAccountsResponse {
     }
     DescribeDBAccountsResponse describeDBAccountsResponse = (DescribeDBAccountsResponse) o;
     return Objects.equals(this.accounts, describeDBAccountsResponse.accounts) &&
+        Objects.equals(this.accountsInfo, describeDBAccountsResponse.accountsInfo) &&
         Objects.equals(this.total, describeDBAccountsResponse.total);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accounts, total);
+    return Objects.hash(accounts, accountsInfo, total);
   }
 
 
@@ -109,6 +141,7 @@ public class DescribeDBAccountsResponse {
     sb.append("class DescribeDBAccountsResponse {\n");
     
     sb.append("    accounts: ").append(toIndentedString(accounts)).append("\n");
+    sb.append("    accountsInfo: ").append(toIndentedString(accountsInfo)).append("\n");
     sb.append("    total: ").append(toIndentedString(total)).append("\n");
     sb.append("}");
     return sb.toString();

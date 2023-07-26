@@ -53,6 +53,12 @@ public class NodeForDescribeDBInstanceDetailOutput {
   @SerializedName("RegionId")
   private String regionId = null;
 
+  @SerializedName("ShardId")
+  private String shardId = null;
+
+  @SerializedName("SyncDelay")
+  private Long syncDelay = null;
+
   @SerializedName("UpdateTime")
   private String updateTime = null;
 
@@ -206,6 +212,42 @@ public class NodeForDescribeDBInstanceDetailOutput {
     this.regionId = regionId;
   }
 
+  public NodeForDescribeDBInstanceDetailOutput shardId(String shardId) {
+    this.shardId = shardId;
+    return this;
+  }
+
+   /**
+   * Get shardId
+   * @return shardId
+  **/
+  @Schema(description = "")
+  public String getShardId() {
+    return shardId;
+  }
+
+  public void setShardId(String shardId) {
+    this.shardId = shardId;
+  }
+
+  public NodeForDescribeDBInstanceDetailOutput syncDelay(Long syncDelay) {
+    this.syncDelay = syncDelay;
+    return this;
+  }
+
+   /**
+   * Get syncDelay
+   * @return syncDelay
+  **/
+  @Schema(description = "")
+  public Long getSyncDelay() {
+    return syncDelay;
+  }
+
+  public void setSyncDelay(Long syncDelay) {
+    this.syncDelay = syncDelay;
+  }
+
   public NodeForDescribeDBInstanceDetailOutput updateTime(String updateTime) {
     this.updateTime = updateTime;
     return this;
@@ -278,6 +320,8 @@ public class NodeForDescribeDBInstanceDetailOutput {
         Objects.equals(this.nodeStatus, nodeForDescribeDBInstanceDetailOutput.nodeStatus) &&
         Objects.equals(this.nodeType, nodeForDescribeDBInstanceDetailOutput.nodeType) &&
         Objects.equals(this.regionId, nodeForDescribeDBInstanceDetailOutput.regionId) &&
+        Objects.equals(this.shardId, nodeForDescribeDBInstanceDetailOutput.shardId) &&
+        Objects.equals(this.syncDelay, nodeForDescribeDBInstanceDetailOutput.syncDelay) &&
         Objects.equals(this.updateTime, nodeForDescribeDBInstanceDetailOutput.updateTime) &&
         Objects.equals(this.VCPU, nodeForDescribeDBInstanceDetailOutput.VCPU) &&
         Objects.equals(this.zoneId, nodeForDescribeDBInstanceDetailOutput.zoneId);
@@ -285,7 +329,7 @@ public class NodeForDescribeDBInstanceDetailOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createTime, instanceId, memory, nodeId, nodeSpec, nodeStatus, nodeType, regionId, updateTime, VCPU, zoneId);
+    return Objects.hash(createTime, instanceId, memory, nodeId, nodeSpec, nodeStatus, nodeType, regionId, shardId, syncDelay, updateTime, VCPU, zoneId);
   }
 
 
@@ -302,6 +346,8 @@ public class NodeForDescribeDBInstanceDetailOutput {
     sb.append("    nodeStatus: ").append(toIndentedString(nodeStatus)).append("\n");
     sb.append("    nodeType: ").append(toIndentedString(nodeType)).append("\n");
     sb.append("    regionId: ").append(toIndentedString(regionId)).append("\n");
+    sb.append("    shardId: ").append(toIndentedString(shardId)).append("\n");
+    sb.append("    syncDelay: ").append(toIndentedString(syncDelay)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    VCPU: ").append(toIndentedString(VCPU)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");

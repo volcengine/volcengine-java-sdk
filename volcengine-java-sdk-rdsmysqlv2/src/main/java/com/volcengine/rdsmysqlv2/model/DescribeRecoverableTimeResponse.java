@@ -31,7 +31,7 @@ import javax.validation.Valid;
  */
 
 
-public class DescribeRecoverableTimeResponse {
+public class DescribeRecoverableTimeResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("RecoverableTimeInfo")
   private List<RecoverableTimeInfoForDescribeRecoverableTimeOutput> recoverableTimeInfo = null;
 

@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.rdsmysqlv2.model.BackupDatabaseDetailForDescribeBackupsOutput;
 import com.volcengine.rdsmysqlv2.model.DBTableInfoForDescribeBackupsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -32,6 +33,9 @@ import javax.validation.Valid;
 
 
 public class BackupForDescribeBackupsOutput {
+  @SerializedName("BackupDatabaseDetail")
+  private List<BackupDatabaseDetailForDescribeBackupsOutput> backupDatabaseDetail = null;
+
   @SerializedName("BackupEndTime")
   private String backupEndTime = null;
 
@@ -46,6 +50,9 @@ public class BackupForDescribeBackupsOutput {
 
   @SerializedName("BackupMethod")
   private String backupMethod = null;
+
+  @SerializedName("BackupRegion")
+  private String backupRegion = null;
 
   @SerializedName("BackupStartTime")
   private String backupStartTime = null;
@@ -64,6 +71,45 @@ public class BackupForDescribeBackupsOutput {
 
   @SerializedName("DBTableInfos")
   private List<DBTableInfoForDescribeBackupsOutput> dbTableInfos = null;
+
+  @SerializedName("DownloadStatus")
+  private String downloadStatus = null;
+
+  @SerializedName("ExpectEndTime")
+  private String expectEndTime = null;
+
+  @SerializedName("Progress")
+  private Integer progress = null;
+
+  @SerializedName("Rate")
+  private Double rate = null;
+
+  public BackupForDescribeBackupsOutput backupDatabaseDetail(List<BackupDatabaseDetailForDescribeBackupsOutput> backupDatabaseDetail) {
+    this.backupDatabaseDetail = backupDatabaseDetail;
+    return this;
+  }
+
+  public BackupForDescribeBackupsOutput addBackupDatabaseDetailItem(BackupDatabaseDetailForDescribeBackupsOutput backupDatabaseDetailItem) {
+    if (this.backupDatabaseDetail == null) {
+      this.backupDatabaseDetail = new ArrayList<BackupDatabaseDetailForDescribeBackupsOutput>();
+    }
+    this.backupDatabaseDetail.add(backupDatabaseDetailItem);
+    return this;
+  }
+
+   /**
+   * Get backupDatabaseDetail
+   * @return backupDatabaseDetail
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<BackupDatabaseDetailForDescribeBackupsOutput> getBackupDatabaseDetail() {
+    return backupDatabaseDetail;
+  }
+
+  public void setBackupDatabaseDetail(List<BackupDatabaseDetailForDescribeBackupsOutput> backupDatabaseDetail) {
+    this.backupDatabaseDetail = backupDatabaseDetail;
+  }
 
   public BackupForDescribeBackupsOutput backupEndTime(String backupEndTime) {
     this.backupEndTime = backupEndTime;
@@ -153,6 +199,24 @@ public class BackupForDescribeBackupsOutput {
 
   public void setBackupMethod(String backupMethod) {
     this.backupMethod = backupMethod;
+  }
+
+  public BackupForDescribeBackupsOutput backupRegion(String backupRegion) {
+    this.backupRegion = backupRegion;
+    return this;
+  }
+
+   /**
+   * Get backupRegion
+   * @return backupRegion
+  **/
+  @Schema(description = "")
+  public String getBackupRegion() {
+    return backupRegion;
+  }
+
+  public void setBackupRegion(String backupRegion) {
+    this.backupRegion = backupRegion;
   }
 
   public BackupForDescribeBackupsOutput backupStartTime(String backupStartTime) {
@@ -272,6 +336,78 @@ public class BackupForDescribeBackupsOutput {
     this.dbTableInfos = dbTableInfos;
   }
 
+  public BackupForDescribeBackupsOutput downloadStatus(String downloadStatus) {
+    this.downloadStatus = downloadStatus;
+    return this;
+  }
+
+   /**
+   * Get downloadStatus
+   * @return downloadStatus
+  **/
+  @Schema(description = "")
+  public String getDownloadStatus() {
+    return downloadStatus;
+  }
+
+  public void setDownloadStatus(String downloadStatus) {
+    this.downloadStatus = downloadStatus;
+  }
+
+  public BackupForDescribeBackupsOutput expectEndTime(String expectEndTime) {
+    this.expectEndTime = expectEndTime;
+    return this;
+  }
+
+   /**
+   * Get expectEndTime
+   * @return expectEndTime
+  **/
+  @Schema(description = "")
+  public String getExpectEndTime() {
+    return expectEndTime;
+  }
+
+  public void setExpectEndTime(String expectEndTime) {
+    this.expectEndTime = expectEndTime;
+  }
+
+  public BackupForDescribeBackupsOutput progress(Integer progress) {
+    this.progress = progress;
+    return this;
+  }
+
+   /**
+   * Get progress
+   * @return progress
+  **/
+  @Schema(description = "")
+  public Integer getProgress() {
+    return progress;
+  }
+
+  public void setProgress(Integer progress) {
+    this.progress = progress;
+  }
+
+  public BackupForDescribeBackupsOutput rate(Double rate) {
+    this.rate = rate;
+    return this;
+  }
+
+   /**
+   * Get rate
+   * @return rate
+  **/
+  @Schema(description = "")
+  public Double getRate() {
+    return rate;
+  }
+
+  public void setRate(Double rate) {
+    this.rate = rate;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -282,22 +418,28 @@ public class BackupForDescribeBackupsOutput {
       return false;
     }
     BackupForDescribeBackupsOutput backupForDescribeBackupsOutput = (BackupForDescribeBackupsOutput) o;
-    return Objects.equals(this.backupEndTime, backupForDescribeBackupsOutput.backupEndTime) &&
+    return Objects.equals(this.backupDatabaseDetail, backupForDescribeBackupsOutput.backupDatabaseDetail) &&
+        Objects.equals(this.backupEndTime, backupForDescribeBackupsOutput.backupEndTime) &&
         Objects.equals(this.backupFileName, backupForDescribeBackupsOutput.backupFileName) &&
         Objects.equals(this.backupFileSize, backupForDescribeBackupsOutput.backupFileSize) &&
         Objects.equals(this.backupId, backupForDescribeBackupsOutput.backupId) &&
         Objects.equals(this.backupMethod, backupForDescribeBackupsOutput.backupMethod) &&
+        Objects.equals(this.backupRegion, backupForDescribeBackupsOutput.backupRegion) &&
         Objects.equals(this.backupStartTime, backupForDescribeBackupsOutput.backupStartTime) &&
         Objects.equals(this.backupStatus, backupForDescribeBackupsOutput.backupStatus) &&
         Objects.equals(this.backupType, backupForDescribeBackupsOutput.backupType) &&
         Objects.equals(this.consistentTime, backupForDescribeBackupsOutput.consistentTime) &&
         Objects.equals(this.createType, backupForDescribeBackupsOutput.createType) &&
-        Objects.equals(this.dbTableInfos, backupForDescribeBackupsOutput.dbTableInfos);
+        Objects.equals(this.dbTableInfos, backupForDescribeBackupsOutput.dbTableInfos) &&
+        Objects.equals(this.downloadStatus, backupForDescribeBackupsOutput.downloadStatus) &&
+        Objects.equals(this.expectEndTime, backupForDescribeBackupsOutput.expectEndTime) &&
+        Objects.equals(this.progress, backupForDescribeBackupsOutput.progress) &&
+        Objects.equals(this.rate, backupForDescribeBackupsOutput.rate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(backupEndTime, backupFileName, backupFileSize, backupId, backupMethod, backupStartTime, backupStatus, backupType, consistentTime, createType, dbTableInfos);
+    return Objects.hash(backupDatabaseDetail, backupEndTime, backupFileName, backupFileSize, backupId, backupMethod, backupRegion, backupStartTime, backupStatus, backupType, consistentTime, createType, dbTableInfos, downloadStatus, expectEndTime, progress, rate);
   }
 
 
@@ -306,17 +448,23 @@ public class BackupForDescribeBackupsOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class BackupForDescribeBackupsOutput {\n");
     
+    sb.append("    backupDatabaseDetail: ").append(toIndentedString(backupDatabaseDetail)).append("\n");
     sb.append("    backupEndTime: ").append(toIndentedString(backupEndTime)).append("\n");
     sb.append("    backupFileName: ").append(toIndentedString(backupFileName)).append("\n");
     sb.append("    backupFileSize: ").append(toIndentedString(backupFileSize)).append("\n");
     sb.append("    backupId: ").append(toIndentedString(backupId)).append("\n");
     sb.append("    backupMethod: ").append(toIndentedString(backupMethod)).append("\n");
+    sb.append("    backupRegion: ").append(toIndentedString(backupRegion)).append("\n");
     sb.append("    backupStartTime: ").append(toIndentedString(backupStartTime)).append("\n");
     sb.append("    backupStatus: ").append(toIndentedString(backupStatus)).append("\n");
     sb.append("    backupType: ").append(toIndentedString(backupType)).append("\n");
     sb.append("    consistentTime: ").append(toIndentedString(consistentTime)).append("\n");
     sb.append("    createType: ").append(toIndentedString(createType)).append("\n");
     sb.append("    dbTableInfos: ").append(toIndentedString(dbTableInfos)).append("\n");
+    sb.append("    downloadStatus: ").append(toIndentedString(downloadStatus)).append("\n");
+    sb.append("    expectEndTime: ").append(toIndentedString(expectEndTime)).append("\n");
+    sb.append("    progress: ").append(toIndentedString(progress)).append("\n");
+    sb.append("    rate: ").append(toIndentedString(rate)).append("\n");
     sb.append("}");
     return sb.toString();
   }

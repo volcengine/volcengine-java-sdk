@@ -35,6 +35,9 @@ public class NodeInfoForRestoreToNewInstanceInput {
   @SerializedName("NodeOperateType")
   private String nodeOperateType = null;
 
+  @SerializedName("NodePool")
+  private String nodePool = null;
+
   @SerializedName("NodeSpec")
   private String nodeSpec = null;
 
@@ -78,6 +81,24 @@ public class NodeInfoForRestoreToNewInstanceInput {
 
   public void setNodeOperateType(String nodeOperateType) {
     this.nodeOperateType = nodeOperateType;
+  }
+
+  public NodeInfoForRestoreToNewInstanceInput nodePool(String nodePool) {
+    this.nodePool = nodePool;
+    return this;
+  }
+
+   /**
+   * Get nodePool
+   * @return nodePool
+  **/
+  @Schema(description = "")
+  public String getNodePool() {
+    return nodePool;
+  }
+
+  public void setNodePool(String nodePool) {
+    this.nodePool = nodePool;
   }
 
   public NodeInfoForRestoreToNewInstanceInput nodeSpec(String nodeSpec) {
@@ -146,6 +167,7 @@ public class NodeInfoForRestoreToNewInstanceInput {
     NodeInfoForRestoreToNewInstanceInput nodeInfoForRestoreToNewInstanceInput = (NodeInfoForRestoreToNewInstanceInput) o;
     return Objects.equals(this.nodeId, nodeInfoForRestoreToNewInstanceInput.nodeId) &&
         Objects.equals(this.nodeOperateType, nodeInfoForRestoreToNewInstanceInput.nodeOperateType) &&
+        Objects.equals(this.nodePool, nodeInfoForRestoreToNewInstanceInput.nodePool) &&
         Objects.equals(this.nodeSpec, nodeInfoForRestoreToNewInstanceInput.nodeSpec) &&
         Objects.equals(this.nodeType, nodeInfoForRestoreToNewInstanceInput.nodeType) &&
         Objects.equals(this.zoneId, nodeInfoForRestoreToNewInstanceInput.zoneId);
@@ -153,7 +175,7 @@ public class NodeInfoForRestoreToNewInstanceInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(nodeId, nodeOperateType, nodeSpec, nodeType, zoneId);
+    return Objects.hash(nodeId, nodeOperateType, nodePool, nodeSpec, nodeType, zoneId);
   }
 
 
@@ -164,6 +186,7 @@ public class NodeInfoForRestoreToNewInstanceInput {
     
     sb.append("    nodeId: ").append(toIndentedString(nodeId)).append("\n");
     sb.append("    nodeOperateType: ").append(toIndentedString(nodeOperateType)).append("\n");
+    sb.append("    nodePool: ").append(toIndentedString(nodePool)).append("\n");
     sb.append("    nodeSpec: ").append(toIndentedString(nodeSpec)).append("\n");
     sb.append("    nodeType: ").append(toIndentedString(nodeType)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
