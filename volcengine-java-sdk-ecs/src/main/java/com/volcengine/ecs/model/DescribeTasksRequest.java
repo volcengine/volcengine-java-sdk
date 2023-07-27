@@ -30,7 +30,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class DescribeTasksRequest {
   @SerializedName("MaxResults")
   private String maxResults = null;

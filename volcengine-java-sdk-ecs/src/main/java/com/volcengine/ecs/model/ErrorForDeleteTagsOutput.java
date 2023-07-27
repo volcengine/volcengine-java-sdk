@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class ErrorForDeleteTagsOutput {
   @SerializedName("Code")
   private String code = null;

@@ -30,7 +30,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class AssociateInstancesIamRoleRequest {
   @SerializedName("ClientToken")
   private String clientToken = null;

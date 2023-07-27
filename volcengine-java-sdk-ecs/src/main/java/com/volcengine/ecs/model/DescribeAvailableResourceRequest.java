@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class DescribeAvailableResourceRequest {
   @SerializedName("DestinationResource")
   private String destinationResource = null;

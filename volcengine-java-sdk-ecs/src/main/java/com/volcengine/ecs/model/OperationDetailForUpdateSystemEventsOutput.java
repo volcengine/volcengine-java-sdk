@@ -29,7 +29,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class OperationDetailForUpdateSystemEventsOutput {
   @SerializedName("Error")
   private ErrorForUpdateSystemEventsOutput error = null;

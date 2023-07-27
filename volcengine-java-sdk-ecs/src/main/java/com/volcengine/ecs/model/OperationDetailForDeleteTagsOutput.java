@@ -29,7 +29,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class OperationDetailForDeleteTagsOutput {
   @SerializedName("Error")
   private ErrorForDeleteTagsOutput error = null;

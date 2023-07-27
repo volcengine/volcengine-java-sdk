@@ -31,7 +31,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class GpuForDescribeInstanceTypesOutput {
   @SerializedName("GpuDevices")
   private List<GpuDeviceForDescribeInstanceTypesOutput> gpuDevices = null;

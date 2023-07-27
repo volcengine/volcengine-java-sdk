@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class TagResourceForDescribeTagsOutput {
   @SerializedName("ResourceId")
   private String resourceId = null;

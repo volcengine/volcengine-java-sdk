@@ -31,7 +31,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class DeploymentSetForDescribeDeploymentSetsOutput {
   @SerializedName("Capacities")
   private List<CapacityForDescribeDeploymentSetsOutput> capacities = null;

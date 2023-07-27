@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class MemoryForDescribeInstanceTypesOutput {
   @SerializedName("EncryptedSize")
   private Integer encryptedSize = null;
