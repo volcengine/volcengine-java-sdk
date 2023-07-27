@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class CreateNetworkInterfaceResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("NetworkInterfaceId")
   private String networkInterfaceId = null;

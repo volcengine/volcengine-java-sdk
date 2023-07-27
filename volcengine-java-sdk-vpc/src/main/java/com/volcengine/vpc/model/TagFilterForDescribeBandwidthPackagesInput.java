@@ -30,7 +30,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class TagFilterForDescribeBandwidthPackagesInput {
   @SerializedName("Key")
   private String key = null;

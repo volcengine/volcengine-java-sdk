@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class TagForDescribeVpcAttributesOutput {
   @SerializedName("Key")
   private String key = null;

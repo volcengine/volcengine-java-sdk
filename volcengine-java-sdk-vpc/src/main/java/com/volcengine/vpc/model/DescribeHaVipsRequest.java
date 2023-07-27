@@ -30,7 +30,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class DescribeHaVipsRequest {
   @SerializedName("HaVipIds")
   private List<String> haVipIds = null;

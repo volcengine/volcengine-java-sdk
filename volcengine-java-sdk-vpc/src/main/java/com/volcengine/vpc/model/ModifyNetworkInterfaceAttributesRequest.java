@@ -30,7 +30,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class ModifyNetworkInterfaceAttributesRequest {
   @SerializedName("Description")
   private String description = null;

@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class AssociateRouteTableRequest {
   @SerializedName("RouteTableId")
   private String routeTableId = null;

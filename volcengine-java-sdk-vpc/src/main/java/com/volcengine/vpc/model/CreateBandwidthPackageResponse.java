@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class CreateBandwidthPackageResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("BandwidthPackageId")
   private String bandwidthPackageId = null;

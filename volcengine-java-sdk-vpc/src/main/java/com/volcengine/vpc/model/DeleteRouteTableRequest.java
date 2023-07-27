@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class DeleteRouteTableRequest {
   @SerializedName("RouteTableId")
   private String routeTableId = null;

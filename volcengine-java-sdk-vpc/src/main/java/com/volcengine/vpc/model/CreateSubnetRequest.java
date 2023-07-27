@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class CreateSubnetRequest {
   @SerializedName("CidrBlock")
   private String cidrBlock = null;

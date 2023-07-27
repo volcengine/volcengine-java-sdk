@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class DeleteHaVipRequest {
   @SerializedName("HaVipId")
   private String haVipId = null;

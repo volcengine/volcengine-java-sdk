@@ -30,7 +30,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class HaVipForDescribeHaVipsOutput {
   @SerializedName("AccountId")
   private String accountId = null;

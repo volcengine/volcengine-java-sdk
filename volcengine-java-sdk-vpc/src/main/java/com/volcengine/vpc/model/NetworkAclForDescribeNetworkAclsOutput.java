@@ -33,7 +33,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class NetworkAclForDescribeNetworkAclsOutput {
   @SerializedName("CreationTime")
   private String creationTime = null;
