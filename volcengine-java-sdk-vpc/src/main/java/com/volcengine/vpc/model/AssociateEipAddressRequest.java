@@ -85,12 +85,6 @@ public class AssociateEipAddressRequest {
   @SerializedName("PrivateIpAddress")
   private String privateIpAddress = null;
 
-  @SerializedName("RenewPeriodTimes")
-  private String renewPeriodTimes = null;
-
-  @SerializedName("RenewType")
-  private String renewType = null;
-
   public AssociateEipAddressRequest allocationId(String allocationId) {
     this.allocationId = allocationId;
     return this;
@@ -166,42 +160,6 @@ public class AssociateEipAddressRequest {
     this.privateIpAddress = privateIpAddress;
   }
 
-  public AssociateEipAddressRequest renewPeriodTimes(String renewPeriodTimes) {
-    this.renewPeriodTimes = renewPeriodTimes;
-    return this;
-  }
-
-   /**
-   * Get renewPeriodTimes
-   * @return renewPeriodTimes
-  **/
-  @Schema(description = "")
-  public String getRenewPeriodTimes() {
-    return renewPeriodTimes;
-  }
-
-  public void setRenewPeriodTimes(String renewPeriodTimes) {
-    this.renewPeriodTimes = renewPeriodTimes;
-  }
-
-  public AssociateEipAddressRequest renewType(String renewType) {
-    this.renewType = renewType;
-    return this;
-  }
-
-   /**
-   * Get renewType
-   * @return renewType
-  **/
-  @Schema(description = "")
-  public String getRenewType() {
-    return renewType;
-  }
-
-  public void setRenewType(String renewType) {
-    this.renewType = renewType;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -215,14 +173,12 @@ public class AssociateEipAddressRequest {
     return Objects.equals(this.allocationId, associateEipAddressRequest.allocationId) &&
         Objects.equals(this.instanceId, associateEipAddressRequest.instanceId) &&
         Objects.equals(this.instanceType, associateEipAddressRequest.instanceType) &&
-        Objects.equals(this.privateIpAddress, associateEipAddressRequest.privateIpAddress) &&
-        Objects.equals(this.renewPeriodTimes, associateEipAddressRequest.renewPeriodTimes) &&
-        Objects.equals(this.renewType, associateEipAddressRequest.renewType);
+        Objects.equals(this.privateIpAddress, associateEipAddressRequest.privateIpAddress);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allocationId, instanceId, instanceType, privateIpAddress, renewPeriodTimes, renewType);
+    return Objects.hash(allocationId, instanceId, instanceType, privateIpAddress);
   }
 
 
@@ -235,8 +191,6 @@ public class AssociateEipAddressRequest {
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("    privateIpAddress: ").append(toIndentedString(privateIpAddress)).append("\n");
-    sb.append("    renewPeriodTimes: ").append(toIndentedString(renewPeriodTimes)).append("\n");
-    sb.append("    renewType: ").append(toIndentedString(renewType)).append("\n");
     sb.append("}");
     return sb.toString();
   }
