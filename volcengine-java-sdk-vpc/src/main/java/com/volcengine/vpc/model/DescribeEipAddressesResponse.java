@@ -31,7 +31,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class DescribeEipAddressesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("EipAddresses")
   private List<EipAddressForDescribeEipAddressesOutput> eipAddresses = null;

@@ -29,7 +29,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class PrivateIpSetForDescribeNetworkInterfaceAttributesOutput {
   @SerializedName("AssociatedElasticIp")
   private AssociatedElasticIpForDescribeNetworkInterfaceAttributesOutput associatedElasticIp = null;

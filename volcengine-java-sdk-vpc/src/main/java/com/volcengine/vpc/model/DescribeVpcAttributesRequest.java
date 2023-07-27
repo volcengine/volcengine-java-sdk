@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class DescribeVpcAttributesRequest {
   @SerializedName("VpcId")
   private String vpcId = null;

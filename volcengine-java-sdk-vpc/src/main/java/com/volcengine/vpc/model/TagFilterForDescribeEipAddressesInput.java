@@ -30,7 +30,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class TagFilterForDescribeEipAddressesInput {
   @SerializedName("Key")
   private String key = null;

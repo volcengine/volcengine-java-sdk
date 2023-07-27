@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class AllocateEipAddressResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("AllocationId")
   private String allocationId = null;

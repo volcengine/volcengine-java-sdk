@@ -32,7 +32,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class BandwidthPackageForDescribeBandwidthPackagesOutput {
   @SerializedName("Bandwidth")
   private Integer bandwidth = null;

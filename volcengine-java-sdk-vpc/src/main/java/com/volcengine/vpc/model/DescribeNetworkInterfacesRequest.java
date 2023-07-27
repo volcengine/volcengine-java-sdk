@@ -31,7 +31,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class DescribeNetworkInterfacesRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;

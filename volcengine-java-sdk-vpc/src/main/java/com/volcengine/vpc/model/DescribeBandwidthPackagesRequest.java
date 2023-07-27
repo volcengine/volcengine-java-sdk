@@ -31,7 +31,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class DescribeBandwidthPackagesRequest {
   @SerializedName("BandwidthPackageIds")
   private List<String> bandwidthPackageIds = null;
@@ -44,13 +43,9 @@ public class DescribeBandwidthPackagesRequest {
    */
   @JsonAdapter(ISPEnum.Adapter.class)
   public enum ISPEnum {
-    @SerializedName("BGP")
     BGP("BGP"),
-    @SerializedName("ChinaMobile")
     CHINAMOBILE("ChinaMobile"),
-    @SerializedName("ChinaUnicom")
     CHINAUNICOM("ChinaUnicom"),
-    @SerializedName("ChinaTelecom")
     CHINATELECOM("ChinaTelecom");
 
     private String value;
@@ -103,9 +98,7 @@ public class DescribeBandwidthPackagesRequest {
    */
   @JsonAdapter(ProtocolEnum.Adapter.class)
   public enum ProtocolEnum {
-    @SerializedName("IPv4")
     IPV4("IPv4"),
-    @SerializedName("IPv6")
     IPV6("IPv6");
 
     private String value;
