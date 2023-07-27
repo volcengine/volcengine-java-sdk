@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class ResourceForDescribeNetworkAclsOutput {
   @SerializedName("ResourceId")
   private String resourceId = null;

@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class ModifyRouteEntryRequest {
   @SerializedName("Description")
   private String description = null;

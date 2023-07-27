@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class ModifyBandwidthPackageAttributesRequest {
   @SerializedName("BandwidthPackageId")
   private String bandwidthPackageId = null;

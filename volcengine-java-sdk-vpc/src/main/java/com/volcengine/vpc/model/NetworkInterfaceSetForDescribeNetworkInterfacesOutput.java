@@ -33,7 +33,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class NetworkInterfaceSetForDescribeNetworkInterfacesOutput {
   @SerializedName("AccountId")
   private String accountId = null;

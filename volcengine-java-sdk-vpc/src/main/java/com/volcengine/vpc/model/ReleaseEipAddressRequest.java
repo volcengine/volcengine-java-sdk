@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class ReleaseEipAddressRequest {
   @SerializedName("AllocationId")
   private String allocationId = null;

@@ -30,7 +30,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class RouterTableListForDescribeRouteTableListOutput {
   @SerializedName("AccountId")
   private String accountId = null;

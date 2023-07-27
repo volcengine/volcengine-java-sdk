@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class DeleteSubnetRequest {
   @SerializedName("SubnetId")
   private String subnetId = null;

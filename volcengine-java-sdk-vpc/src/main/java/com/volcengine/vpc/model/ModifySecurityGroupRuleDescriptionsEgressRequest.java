@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class ModifySecurityGroupRuleDescriptionsEgressRequest {
   @SerializedName("CidrIp")
   private String cidrIp = null;

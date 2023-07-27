@@ -31,7 +31,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class DescribeHaVipsResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("HaVips")
   private List<HaVipForDescribeHaVipsOutput> haVips = null;

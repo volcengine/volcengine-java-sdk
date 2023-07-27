@@ -30,7 +30,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class TagFilterForDescribeSecurityGroupsInput {
   @SerializedName("Key")
   private String key = null;

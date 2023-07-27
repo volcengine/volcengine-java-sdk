@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class DeleteNetworkInterfaceRequest {
   @SerializedName("NetworkInterfaceId")
   private String networkInterfaceId = null;

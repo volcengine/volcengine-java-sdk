@@ -33,7 +33,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class DescribeNetworkInterfaceAttributesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("AccountId")
   private String accountId = null;

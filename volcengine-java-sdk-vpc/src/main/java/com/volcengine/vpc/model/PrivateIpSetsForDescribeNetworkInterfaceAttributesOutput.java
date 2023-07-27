@@ -31,7 +31,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class PrivateIpSetsForDescribeNetworkInterfaceAttributesOutput {
   @SerializedName("PrivateIpSet")
   private List<PrivateIpSetForDescribeNetworkInterfaceAttributesOutput> privateIpSet = null;
