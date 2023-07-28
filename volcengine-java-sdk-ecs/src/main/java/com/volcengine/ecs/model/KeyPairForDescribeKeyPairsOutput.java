@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class KeyPairForDescribeKeyPairsOutput {
   @SerializedName("CreatedAt")
   private String createdAt = null;

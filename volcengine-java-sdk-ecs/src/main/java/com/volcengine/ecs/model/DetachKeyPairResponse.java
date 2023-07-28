@@ -31,7 +31,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class DetachKeyPairResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("OperationDetails")
   private List<OperationDetailForDetachKeyPairOutput> operationDetails = null;

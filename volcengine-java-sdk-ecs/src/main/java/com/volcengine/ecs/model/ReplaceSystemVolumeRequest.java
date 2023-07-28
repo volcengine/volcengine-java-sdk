@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class ReplaceSystemVolumeRequest {
   @SerializedName("ClientToken")
   private String clientToken = null;

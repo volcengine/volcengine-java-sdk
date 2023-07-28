@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class NetworkInterfaceForDescribeInstancesOutput {
   @SerializedName("MacAddress")
   private String macAddress = null;

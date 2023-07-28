@@ -29,7 +29,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class OperationDetailForStopInstancesOutput {
   @SerializedName("Error")
   private ErrorForStopInstancesOutput error = null;

@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class ErrorForAttachKeyPairOutput {
   @SerializedName("Code")
   private String code = null;

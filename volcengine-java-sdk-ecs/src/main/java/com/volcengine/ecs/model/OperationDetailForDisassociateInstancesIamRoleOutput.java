@@ -29,7 +29,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class OperationDetailForDisassociateInstancesIamRoleOutput {
   @SerializedName("Error")
   private ErrorForDisassociateInstancesIamRoleOutput error = null;

@@ -31,7 +31,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class StartInstancesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("OperationDetails")
   private List<OperationDetailForStartInstancesOutput> operationDetails = null;

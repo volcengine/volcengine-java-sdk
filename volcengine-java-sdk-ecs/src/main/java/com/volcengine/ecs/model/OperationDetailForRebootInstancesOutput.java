@@ -29,7 +29,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class OperationDetailForRebootInstancesOutput {
   @SerializedName("Error")
   private ErrorForRebootInstancesOutput error = null;
