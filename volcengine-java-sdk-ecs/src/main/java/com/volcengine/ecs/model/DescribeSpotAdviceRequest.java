@@ -31,7 +31,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class DescribeSpotAdviceRequest {
   @SerializedName("Cpus")
   private Integer cpus = null;

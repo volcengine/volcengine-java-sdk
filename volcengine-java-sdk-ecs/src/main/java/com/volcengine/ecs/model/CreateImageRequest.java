@@ -31,7 +31,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class CreateImageRequest {
   @SerializedName("Description")
   private String description = null;

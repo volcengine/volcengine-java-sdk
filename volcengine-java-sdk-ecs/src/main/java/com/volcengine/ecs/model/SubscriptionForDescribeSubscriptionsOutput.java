@@ -30,7 +30,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class SubscriptionForDescribeSubscriptionsOutput {
   @SerializedName("CreatedAt")
   private String createdAt = null;

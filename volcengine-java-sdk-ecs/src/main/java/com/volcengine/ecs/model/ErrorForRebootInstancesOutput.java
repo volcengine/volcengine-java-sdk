@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class ErrorForRebootInstancesOutput {
   @SerializedName("Code")
   private String code = null;

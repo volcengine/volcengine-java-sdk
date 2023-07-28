@@ -30,7 +30,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class AttachKeyPairRequest {
   @SerializedName("ClientToken")
   private String clientToken = null;

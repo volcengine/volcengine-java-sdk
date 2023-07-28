@@ -30,7 +30,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class ModifyImageSharePermissionRequest {
   @SerializedName("AddAccounts")
   private List<String> addAccounts = null;

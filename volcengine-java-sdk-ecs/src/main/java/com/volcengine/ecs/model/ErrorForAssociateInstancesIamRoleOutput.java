@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class ErrorForAssociateInstancesIamRoleOutput {
   @SerializedName("Code")
   private String code = null;

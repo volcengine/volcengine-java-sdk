@@ -31,10 +31,12 @@ import javax.validation.Valid;
  */
 
 
-
 public class DescribeImagesRequest {
   @SerializedName("ImageIds")
   private List<String> imageIds = null;
+
+  @SerializedName("ImageName")
+  private String imageName = null;
 
   @SerializedName("ImageStatus")
   private String imageStatus = null;
@@ -90,6 +92,24 @@ public class DescribeImagesRequest {
 
   public void setImageIds(List<String> imageIds) {
     this.imageIds = imageIds;
+  }
+
+  public DescribeImagesRequest imageName(String imageName) {
+    this.imageName = imageName;
+    return this;
+  }
+
+   /**
+   * Get imageName
+   * @return imageName
+  **/
+  @Schema(description = "")
+  public String getImageName() {
+    return imageName;
+  }
+
+  public void setImageName(String imageName) {
+    this.imageName = imageName;
   }
 
   public DescribeImagesRequest imageStatus(String imageStatus) {
@@ -300,6 +320,7 @@ public class DescribeImagesRequest {
     }
     DescribeImagesRequest describeImagesRequest = (DescribeImagesRequest) o;
     return Objects.equals(this.imageIds, describeImagesRequest.imageIds) &&
+        Objects.equals(this.imageName, describeImagesRequest.imageName) &&
         Objects.equals(this.imageStatus, describeImagesRequest.imageStatus) &&
         Objects.equals(this.instanceTypeId, describeImagesRequest.instanceTypeId) &&
         Objects.equals(this.isSupportCloudInit, describeImagesRequest.isSupportCloudInit) &&
@@ -314,7 +335,7 @@ public class DescribeImagesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(imageIds, imageStatus, instanceTypeId, isSupportCloudInit, maxResults, nextToken, osType, projectName, status, tagFilters, visibility);
+    return Objects.hash(imageIds, imageName, imageStatus, instanceTypeId, isSupportCloudInit, maxResults, nextToken, osType, projectName, status, tagFilters, visibility);
   }
 
 
@@ -324,6 +345,7 @@ public class DescribeImagesRequest {
     sb.append("class DescribeImagesRequest {\n");
     
     sb.append("    imageIds: ").append(toIndentedString(imageIds)).append("\n");
+    sb.append("    imageName: ").append(toIndentedString(imageName)).append("\n");
     sb.append("    imageStatus: ").append(toIndentedString(imageStatus)).append("\n");
     sb.append("    instanceTypeId: ").append(toIndentedString(instanceTypeId)).append("\n");
     sb.append("    isSupportCloudInit: ").append(toIndentedString(isSupportCloudInit)).append("\n");

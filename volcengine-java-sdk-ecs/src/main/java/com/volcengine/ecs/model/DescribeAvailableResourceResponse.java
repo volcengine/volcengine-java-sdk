@@ -31,7 +31,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class DescribeAvailableResourceResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("AvailableZones")
   private List<AvailableZoneForDescribeAvailableResourceOutput> availableZones = null;
