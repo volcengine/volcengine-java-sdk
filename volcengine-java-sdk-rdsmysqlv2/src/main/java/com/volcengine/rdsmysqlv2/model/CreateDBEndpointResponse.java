@@ -14,6 +14,13 @@ package com.volcengine.rdsmysqlv2.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -21,7 +28,49 @@ import javax.validation.Valid;
  */
 
 
-public class CreateDBEndpointResponse {
+public class CreateDBEndpointResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("EndpointId")
+  private String endpointId = null;
+
+  @SerializedName("InstanceId")
+  private String instanceId = null;
+
+  public CreateDBEndpointResponse endpointId(String endpointId) {
+    this.endpointId = endpointId;
+    return this;
+  }
+
+   /**
+   * Get endpointId
+   * @return endpointId
+  **/
+  @Schema(description = "")
+  public String getEndpointId() {
+    return endpointId;
+  }
+
+  public void setEndpointId(String endpointId) {
+    this.endpointId = endpointId;
+  }
+
+  public CreateDBEndpointResponse instanceId(String instanceId) {
+    this.instanceId = instanceId;
+    return this;
+  }
+
+   /**
+   * Get instanceId
+   * @return instanceId
+  **/
+  @Schema(description = "")
+  public String getInstanceId() {
+    return instanceId;
+  }
+
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -31,12 +80,14 @@ public class CreateDBEndpointResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return true;
+    CreateDBEndpointResponse createDBEndpointResponse = (CreateDBEndpointResponse) o;
+    return Objects.equals(this.endpointId, createDBEndpointResponse.endpointId) &&
+        Objects.equals(this.instanceId, createDBEndpointResponse.instanceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash();
+    return Objects.hash(endpointId, instanceId);
   }
 
 
@@ -45,6 +96,8 @@ public class CreateDBEndpointResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateDBEndpointResponse {\n");
     
+    sb.append("    endpointId: ").append(toIndentedString(endpointId)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

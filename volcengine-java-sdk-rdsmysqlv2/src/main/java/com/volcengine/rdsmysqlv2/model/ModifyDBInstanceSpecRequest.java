@@ -32,17 +32,56 @@ import javax.validation.Valid;
 
 
 public class ModifyDBInstanceSpecRequest {
+  @SerializedName("DryRun")
+  private Boolean dryRun = null;
+
   @SerializedName("InstanceId")
   private String instanceId = null;
 
+  @SerializedName("ModifyType")
+  private String modifyType = null;
+
   @SerializedName("NodeInfo")
   private List<NodeInfoForModifyDBInstanceSpecInput> nodeInfo = null;
+
+  @SerializedName("NodeSpec")
+  private String nodeSpec = null;
+
+  @SerializedName("RequestSource")
+  private String requestSource = null;
+
+  @SerializedName("RollbackTime")
+  private String rollbackTime = null;
+
+  @SerializedName("ShardNumber")
+  private Integer shardNumber = null;
 
   @SerializedName("StorageSpace")
   private Integer storageSpace = null;
 
   @SerializedName("StorageType")
   private String storageType = null;
+
+  @SerializedName("SwitchType")
+  private String switchType = null;
+
+  public ModifyDBInstanceSpecRequest dryRun(Boolean dryRun) {
+    this.dryRun = dryRun;
+    return this;
+  }
+
+   /**
+   * Get dryRun
+   * @return dryRun
+  **/
+  @Schema(description = "")
+  public Boolean isDryRun() {
+    return dryRun;
+  }
+
+  public void setDryRun(Boolean dryRun) {
+    this.dryRun = dryRun;
+  }
 
   public ModifyDBInstanceSpecRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
@@ -61,6 +100,24 @@ public class ModifyDBInstanceSpecRequest {
 
   public void setInstanceId(String instanceId) {
     this.instanceId = instanceId;
+  }
+
+  public ModifyDBInstanceSpecRequest modifyType(String modifyType) {
+    this.modifyType = modifyType;
+    return this;
+  }
+
+   /**
+   * Get modifyType
+   * @return modifyType
+  **/
+  @Schema(description = "")
+  public String getModifyType() {
+    return modifyType;
+  }
+
+  public void setModifyType(String modifyType) {
+    this.modifyType = modifyType;
   }
 
   public ModifyDBInstanceSpecRequest nodeInfo(List<NodeInfoForModifyDBInstanceSpecInput> nodeInfo) {
@@ -88,6 +145,78 @@ public class ModifyDBInstanceSpecRequest {
 
   public void setNodeInfo(List<NodeInfoForModifyDBInstanceSpecInput> nodeInfo) {
     this.nodeInfo = nodeInfo;
+  }
+
+  public ModifyDBInstanceSpecRequest nodeSpec(String nodeSpec) {
+    this.nodeSpec = nodeSpec;
+    return this;
+  }
+
+   /**
+   * Get nodeSpec
+   * @return nodeSpec
+  **/
+  @Schema(description = "")
+  public String getNodeSpec() {
+    return nodeSpec;
+  }
+
+  public void setNodeSpec(String nodeSpec) {
+    this.nodeSpec = nodeSpec;
+  }
+
+  public ModifyDBInstanceSpecRequest requestSource(String requestSource) {
+    this.requestSource = requestSource;
+    return this;
+  }
+
+   /**
+   * Get requestSource
+   * @return requestSource
+  **/
+  @Schema(description = "")
+  public String getRequestSource() {
+    return requestSource;
+  }
+
+  public void setRequestSource(String requestSource) {
+    this.requestSource = requestSource;
+  }
+
+  public ModifyDBInstanceSpecRequest rollbackTime(String rollbackTime) {
+    this.rollbackTime = rollbackTime;
+    return this;
+  }
+
+   /**
+   * Get rollbackTime
+   * @return rollbackTime
+  **/
+  @Schema(description = "")
+  public String getRollbackTime() {
+    return rollbackTime;
+  }
+
+  public void setRollbackTime(String rollbackTime) {
+    this.rollbackTime = rollbackTime;
+  }
+
+  public ModifyDBInstanceSpecRequest shardNumber(Integer shardNumber) {
+    this.shardNumber = shardNumber;
+    return this;
+  }
+
+   /**
+   * Get shardNumber
+   * @return shardNumber
+  **/
+  @Schema(description = "")
+  public Integer getShardNumber() {
+    return shardNumber;
+  }
+
+  public void setShardNumber(Integer shardNumber) {
+    this.shardNumber = shardNumber;
   }
 
   public ModifyDBInstanceSpecRequest storageSpace(Integer storageSpace) {
@@ -126,6 +255,24 @@ public class ModifyDBInstanceSpecRequest {
     this.storageType = storageType;
   }
 
+  public ModifyDBInstanceSpecRequest switchType(String switchType) {
+    this.switchType = switchType;
+    return this;
+  }
+
+   /**
+   * Get switchType
+   * @return switchType
+  **/
+  @Schema(description = "")
+  public String getSwitchType() {
+    return switchType;
+  }
+
+  public void setSwitchType(String switchType) {
+    this.switchType = switchType;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -136,15 +283,22 @@ public class ModifyDBInstanceSpecRequest {
       return false;
     }
     ModifyDBInstanceSpecRequest modifyDBInstanceSpecRequest = (ModifyDBInstanceSpecRequest) o;
-    return Objects.equals(this.instanceId, modifyDBInstanceSpecRequest.instanceId) &&
+    return Objects.equals(this.dryRun, modifyDBInstanceSpecRequest.dryRun) &&
+        Objects.equals(this.instanceId, modifyDBInstanceSpecRequest.instanceId) &&
+        Objects.equals(this.modifyType, modifyDBInstanceSpecRequest.modifyType) &&
         Objects.equals(this.nodeInfo, modifyDBInstanceSpecRequest.nodeInfo) &&
+        Objects.equals(this.nodeSpec, modifyDBInstanceSpecRequest.nodeSpec) &&
+        Objects.equals(this.requestSource, modifyDBInstanceSpecRequest.requestSource) &&
+        Objects.equals(this.rollbackTime, modifyDBInstanceSpecRequest.rollbackTime) &&
+        Objects.equals(this.shardNumber, modifyDBInstanceSpecRequest.shardNumber) &&
         Objects.equals(this.storageSpace, modifyDBInstanceSpecRequest.storageSpace) &&
-        Objects.equals(this.storageType, modifyDBInstanceSpecRequest.storageType);
+        Objects.equals(this.storageType, modifyDBInstanceSpecRequest.storageType) &&
+        Objects.equals(this.switchType, modifyDBInstanceSpecRequest.switchType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, nodeInfo, storageSpace, storageType);
+    return Objects.hash(dryRun, instanceId, modifyType, nodeInfo, nodeSpec, requestSource, rollbackTime, shardNumber, storageSpace, storageType, switchType);
   }
 
 
@@ -153,10 +307,17 @@ public class ModifyDBInstanceSpecRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ModifyDBInstanceSpecRequest {\n");
     
+    sb.append("    dryRun: ").append(toIndentedString(dryRun)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    modifyType: ").append(toIndentedString(modifyType)).append("\n");
     sb.append("    nodeInfo: ").append(toIndentedString(nodeInfo)).append("\n");
+    sb.append("    nodeSpec: ").append(toIndentedString(nodeSpec)).append("\n");
+    sb.append("    requestSource: ").append(toIndentedString(requestSource)).append("\n");
+    sb.append("    rollbackTime: ").append(toIndentedString(rollbackTime)).append("\n");
+    sb.append("    shardNumber: ").append(toIndentedString(shardNumber)).append("\n");
     sb.append("    storageSpace: ").append(toIndentedString(storageSpace)).append("\n");
     sb.append("    storageType: ").append(toIndentedString(storageType)).append("\n");
+    sb.append("    switchType: ").append(toIndentedString(switchType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

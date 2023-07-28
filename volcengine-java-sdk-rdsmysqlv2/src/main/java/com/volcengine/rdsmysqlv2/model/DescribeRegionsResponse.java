@@ -31,7 +31,7 @@ import javax.validation.Valid;
  */
 
 
-public class DescribeRegionsResponse {
+public class DescribeRegionsResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Regions")
   private List<RegionForDescribeRegionsOutput> regions = null;
 

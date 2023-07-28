@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.rdsmysqlv2.model.InstanceParameterForDescribeDBInstanceParametersOutput;
 import com.volcengine.rdsmysqlv2.model.ParameterForDescribeDBInstanceParametersOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -31,7 +32,7 @@ import javax.validation.Valid;
  */
 
 
-public class DescribeDBInstanceParametersResponse {
+public class DescribeDBInstanceParametersResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("DBEngine")
   private String dbEngine = null;
 
@@ -40,6 +41,9 @@ public class DescribeDBInstanceParametersResponse {
 
   @SerializedName("InstanceId")
   private String instanceId = null;
+
+  @SerializedName("InstanceParameters")
+  private List<InstanceParameterForDescribeDBInstanceParametersOutput> instanceParameters = null;
 
   @SerializedName("ParameterCount")
   private Integer parameterCount = null;
@@ -101,6 +105,33 @@ public class DescribeDBInstanceParametersResponse {
     this.instanceId = instanceId;
   }
 
+  public DescribeDBInstanceParametersResponse instanceParameters(List<InstanceParameterForDescribeDBInstanceParametersOutput> instanceParameters) {
+    this.instanceParameters = instanceParameters;
+    return this;
+  }
+
+  public DescribeDBInstanceParametersResponse addInstanceParametersItem(InstanceParameterForDescribeDBInstanceParametersOutput instanceParametersItem) {
+    if (this.instanceParameters == null) {
+      this.instanceParameters = new ArrayList<InstanceParameterForDescribeDBInstanceParametersOutput>();
+    }
+    this.instanceParameters.add(instanceParametersItem);
+    return this;
+  }
+
+   /**
+   * Get instanceParameters
+   * @return instanceParameters
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<InstanceParameterForDescribeDBInstanceParametersOutput> getInstanceParameters() {
+    return instanceParameters;
+  }
+
+  public void setInstanceParameters(List<InstanceParameterForDescribeDBInstanceParametersOutput> instanceParameters) {
+    this.instanceParameters = instanceParameters;
+  }
+
   public DescribeDBInstanceParametersResponse parameterCount(Integer parameterCount) {
     this.parameterCount = parameterCount;
     return this;
@@ -159,13 +190,14 @@ public class DescribeDBInstanceParametersResponse {
     return Objects.equals(this.dbEngine, describeDBInstanceParametersResponse.dbEngine) &&
         Objects.equals(this.dbEngineVersion, describeDBInstanceParametersResponse.dbEngineVersion) &&
         Objects.equals(this.instanceId, describeDBInstanceParametersResponse.instanceId) &&
+        Objects.equals(this.instanceParameters, describeDBInstanceParametersResponse.instanceParameters) &&
         Objects.equals(this.parameterCount, describeDBInstanceParametersResponse.parameterCount) &&
         Objects.equals(this.parameters, describeDBInstanceParametersResponse.parameters);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dbEngine, dbEngineVersion, instanceId, parameterCount, parameters);
+    return Objects.hash(dbEngine, dbEngineVersion, instanceId, instanceParameters, parameterCount, parameters);
   }
 
 
@@ -177,6 +209,7 @@ public class DescribeDBInstanceParametersResponse {
     sb.append("    dbEngine: ").append(toIndentedString(dbEngine)).append("\n");
     sb.append("    dbEngineVersion: ").append(toIndentedString(dbEngineVersion)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    instanceParameters: ").append(toIndentedString(instanceParameters)).append("\n");
     sb.append("    parameterCount: ").append(toIndentedString(parameterCount)).append("\n");
     sb.append("    parameters: ").append(toIndentedString(parameters)).append("\n");
     sb.append("}");

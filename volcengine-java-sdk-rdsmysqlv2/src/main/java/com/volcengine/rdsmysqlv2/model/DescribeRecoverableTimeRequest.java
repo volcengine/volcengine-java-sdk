@@ -29,11 +29,32 @@ import javax.validation.Valid;
 
 
 public class DescribeRecoverableTimeRequest {
+  @SerializedName("BackupRegion")
+  private String backupRegion = null;
+
   @SerializedName("InstanceId")
   private String instanceId = null;
 
   @SerializedName("RestoreType")
   private String restoreType = null;
+
+  public DescribeRecoverableTimeRequest backupRegion(String backupRegion) {
+    this.backupRegion = backupRegion;
+    return this;
+  }
+
+   /**
+   * Get backupRegion
+   * @return backupRegion
+  **/
+  @Schema(description = "")
+  public String getBackupRegion() {
+    return backupRegion;
+  }
+
+  public void setBackupRegion(String backupRegion) {
+    this.backupRegion = backupRegion;
+  }
 
   public DescribeRecoverableTimeRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
@@ -82,13 +103,14 @@ public class DescribeRecoverableTimeRequest {
       return false;
     }
     DescribeRecoverableTimeRequest describeRecoverableTimeRequest = (DescribeRecoverableTimeRequest) o;
-    return Objects.equals(this.instanceId, describeRecoverableTimeRequest.instanceId) &&
+    return Objects.equals(this.backupRegion, describeRecoverableTimeRequest.backupRegion) &&
+        Objects.equals(this.instanceId, describeRecoverableTimeRequest.instanceId) &&
         Objects.equals(this.restoreType, describeRecoverableTimeRequest.restoreType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, restoreType);
+    return Objects.hash(backupRegion, instanceId, restoreType);
   }
 
 
@@ -97,6 +119,7 @@ public class DescribeRecoverableTimeRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeRecoverableTimeRequest {\n");
     
+    sb.append("    backupRegion: ").append(toIndentedString(backupRegion)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    restoreType: ").append(toIndentedString(restoreType)).append("\n");
     sb.append("}");
