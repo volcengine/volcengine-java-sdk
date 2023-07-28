@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class IngressAclEntryForDescribeNetworkAclAttributesOutput {
   @SerializedName("Description")
   private String description = null;

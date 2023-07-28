@@ -31,7 +31,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class DescribeEipAddressesRequest {
   @SerializedName("AllocationIds")
   private List<String> allocationIds = null;
@@ -44,15 +43,10 @@ public class DescribeEipAddressesRequest {
    */
   @JsonAdapter(AssociatedInstanceTypeEnum.Adapter.class)
   public enum AssociatedInstanceTypeEnum {
-    @SerializedName("Nat")
     NAT("Nat"),
-    @SerializedName("EcsInstance")
     ECSINSTANCE("EcsInstance"),
-    @SerializedName("NetworkInterface")
     NETWORKINTERFACE("NetworkInterface"),
-    @SerializedName("ClbInstance")
     CLBINSTANCE("ClbInstance"),
-    @SerializedName("AlbInstance")
     ALBINSTANCE("AlbInstance");
 
     private String value;
@@ -102,13 +96,9 @@ public class DescribeEipAddressesRequest {
    */
   @JsonAdapter(ISPEnum.Adapter.class)
   public enum ISPEnum {
-    @SerializedName("BGP")
     BGP("BGP"),
-    @SerializedName("ChinaMobile")
     CHINAMOBILE("ChinaMobile"),
-    @SerializedName("ChinaUnicom")
     CHINAUNICOM("ChinaUnicom"),
-    @SerializedName("ChinaTelecom")
     CHINATELECOM("ChinaTelecom");
 
     private String value;
@@ -167,13 +157,9 @@ public class DescribeEipAddressesRequest {
    */
   @JsonAdapter(StatusEnum.Adapter.class)
   public enum StatusEnum {
-    @SerializedName("Attaching")
     ATTACHING("Attaching"),
-    @SerializedName("Detaching")
     DETACHING("Detaching"),
-    @SerializedName("Attached")
     ATTACHED("Attached"),
-    @SerializedName("Available")
     AVAILABLE("Available");
 
     private String value;

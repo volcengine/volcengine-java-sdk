@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class DeleteVpcRequest {
   @SerializedName("VpcId")
   private String vpcId = null;

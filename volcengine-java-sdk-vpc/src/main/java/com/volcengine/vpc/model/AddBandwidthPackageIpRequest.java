@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class AddBandwidthPackageIpRequest {
   @SerializedName("AllocationId")
   private String allocationId = null;

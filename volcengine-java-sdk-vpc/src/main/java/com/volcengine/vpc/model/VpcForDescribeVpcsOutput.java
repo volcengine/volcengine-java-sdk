@@ -32,7 +32,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class VpcForDescribeVpcsOutput {
   @SerializedName("AccountId")
   private String accountId = null;

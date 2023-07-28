@@ -31,7 +31,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class AssociateNetworkAclRequest {
   @SerializedName("NetworkAclId")
   private String networkAclId = null;

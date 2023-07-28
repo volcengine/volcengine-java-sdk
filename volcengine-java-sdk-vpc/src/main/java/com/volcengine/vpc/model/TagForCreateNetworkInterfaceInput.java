@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class TagForCreateNetworkInterfaceInput {
   @SerializedName("Key")
   private String key = null;

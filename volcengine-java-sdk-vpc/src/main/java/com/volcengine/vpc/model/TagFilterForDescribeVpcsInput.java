@@ -30,7 +30,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class TagFilterForDescribeVpcsInput {
   @SerializedName("Key")
   private String key = null;

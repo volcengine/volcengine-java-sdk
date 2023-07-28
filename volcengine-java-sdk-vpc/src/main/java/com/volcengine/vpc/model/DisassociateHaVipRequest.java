@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class DisassociateHaVipRequest {
   @SerializedName("HaVipId")
   private String haVipId = null;
@@ -41,9 +40,7 @@ public class DisassociateHaVipRequest {
    */
   @JsonAdapter(InstanceTypeEnum.Adapter.class)
   public enum InstanceTypeEnum {
-    @SerializedName("NetworkInterface")
     NETWORKINTERFACE("NetworkInterface"),
-    @SerializedName("EcsInstance")
     ECSINSTANCE("EcsInstance");
 
     private String value;

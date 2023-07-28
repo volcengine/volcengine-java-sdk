@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class DisassociateVpcCidrBlockRequest {
   @SerializedName("SecondaryCidrBlock")
   private String secondaryCidrBlock = null;

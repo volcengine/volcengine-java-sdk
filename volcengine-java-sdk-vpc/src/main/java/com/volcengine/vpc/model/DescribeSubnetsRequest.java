@@ -30,7 +30,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class DescribeSubnetsRequest {
   @SerializedName("IsDefault")
   private Boolean isDefault = null;

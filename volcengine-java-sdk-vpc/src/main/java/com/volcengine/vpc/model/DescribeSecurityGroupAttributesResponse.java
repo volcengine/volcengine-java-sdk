@@ -32,7 +32,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class DescribeSecurityGroupAttributesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("CreationTime")
   private String creationTime = null;
