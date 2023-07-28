@@ -29,7 +29,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class OperationDetailForAttachKeyPairOutput {
   @SerializedName("Error")
   private ErrorForAttachKeyPairOutput error = null;

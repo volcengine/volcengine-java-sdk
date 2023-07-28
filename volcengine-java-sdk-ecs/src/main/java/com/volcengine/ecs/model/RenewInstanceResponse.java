@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class RenewInstanceResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("OrderId")
   private String orderId = null;

@@ -30,7 +30,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class DeleteInstancesRequest {
   @SerializedName("InstanceIds")
   private List<String> instanceIds = null;

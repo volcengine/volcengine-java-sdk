@@ -31,7 +31,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class DescribeDeploymentSetsResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("DeploymentSets")
   private List<DeploymentSetForDescribeDeploymentSetsOutput> deploymentSets = null;

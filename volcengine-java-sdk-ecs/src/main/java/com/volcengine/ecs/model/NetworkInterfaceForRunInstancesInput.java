@@ -30,7 +30,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class NetworkInterfaceForRunInstancesInput {
   @SerializedName("PrimaryIpAddress")
   private String primaryIpAddress = null;
@@ -94,8 +93,7 @@ public class NetworkInterfaceForRunInstancesInput {
    * Get subnetId
    * @return subnetId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getSubnetId() {
     return subnetId;
   }

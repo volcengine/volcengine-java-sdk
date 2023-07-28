@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class DescribeImageSharePermissionRequest {
   @SerializedName("ImageId")
   private String imageId = null;

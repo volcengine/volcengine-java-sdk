@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class GetConsoleScreenshotRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;

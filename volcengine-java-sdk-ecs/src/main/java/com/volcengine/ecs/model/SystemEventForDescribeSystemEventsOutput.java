@@ -31,7 +31,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class SystemEventForDescribeSystemEventsOutput {
   @SerializedName("CreatedAt")
   private String createdAt = null;
@@ -56,21 +55,13 @@ public class SystemEventForDescribeSystemEventsOutput {
    */
   @JsonAdapter(StatusEnum.Adapter.class)
   public enum StatusEnum {
-    @SerializedName("UnknownStatus")
     UNKNOWNSTATUS("UnknownStatus"),
-    @SerializedName("Executing")
     EXECUTING("Executing"),
-    @SerializedName("Succeeded")
     SUCCEEDED("Succeeded"),
-    @SerializedName("Failed")
     FAILED("Failed"),
-    @SerializedName("Inquiring")
     INQUIRING("Inquiring"),
-    @SerializedName("Scheduled")
     SCHEDULED("Scheduled"),
-    @SerializedName("Rejected")
     REJECTED("Rejected"),
-    @SerializedName("Canceled")
     CANCELED("Canceled");
 
     private String value;
@@ -114,51 +105,28 @@ public class SystemEventForDescribeSystemEventsOutput {
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
-    @SerializedName("UnknownType")
     UNKNOWNTYPE("UnknownType"),
-    @SerializedName("SystemFailure_Stop")
     SYSTEMFAILURE_STOP("SystemFailure_Stop"),
-    @SerializedName("SystemFailure_Reboot")
     SYSTEMFAILURE_REBOOT("SystemFailure_Reboot"),
-    @SerializedName("SystemFailure_PleaseCheck")
     SYSTEMFAILURE_PLEASECHECK("SystemFailure_PleaseCheck"),
-    @SerializedName("DiskError_Redeploy")
     DISKERROR_REDEPLOY("DiskError_Redeploy"),
-    @SerializedName("HDDBadSector_Redeploy")
     HDDBADSECTOR_REDEPLOY("HDDBadSector_Redeploy"),
-    @SerializedName("GpuError_Redeploy")
     GPUERROR_REDEPLOY("GpuError_Redeploy"),
-    @SerializedName("SystemMaintenance_Redeploy")
     SYSTEMMAINTENANCE_REDEPLOY("SystemMaintenance_Redeploy"),
-    @SerializedName("SystemFailure_Redeploy")
     SYSTEMFAILURE_REDEPLOY("SystemFailure_Redeploy"),
-    @SerializedName("CreateInstance")
     CREATEINSTANCE("CreateInstance"),
-    @SerializedName("RunInstance")
     RUNINSTANCE("RunInstance"),
-    @SerializedName("StopInstance")
     STOPINSTANCE("StopInstance"),
-    @SerializedName("DeleteInstance")
     DELETEINSTANCE("DeleteInstance"),
-    @SerializedName("SpotInstanceInterruption_Delete")
     SPOTINSTANCEINTERRUPTION_DELETE("SpotInstanceInterruption_Delete"),
-    @SerializedName("AccountUnbalanced_Stop")
     ACCOUNTUNBALANCED_STOP("AccountUnbalanced_Stop"),
-    @SerializedName("AccountUnbalanced_Delete")
     ACCOUNTUNBALANCED_DELETE("AccountUnbalanced_Delete"),
-    @SerializedName("InstanceChargeType_Change")
     INSTANCECHARGETYPE_CHANGE("InstanceChargeType_Change"),
-    @SerializedName("InstanceConfiguration_Change")
     INSTANCECONFIGURATION_CHANGE("InstanceConfiguration_Change"),
-    @SerializedName("FileSystemReadOnly_Change")
     FILESYSTEMREADONLY_CHANGE("FileSystemReadOnly_Change"),
-    @SerializedName("RebootInstance")
     REBOOTINSTANCE("RebootInstance"),
-    @SerializedName("InstanceFailure")
     INSTANCEFAILURE("InstanceFailure"),
-    @SerializedName("ApplicationFailure")
     APPLICATIONFAILURE("ApplicationFailure"),
-    @SerializedName("GpuRiskDetected")
     GPURISKDETECTED("GpuRiskDetected");
 
     private String value;

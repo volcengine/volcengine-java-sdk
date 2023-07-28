@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class RebootInstanceRequest {
   @SerializedName("ClientToken")
   private String clientToken = null;

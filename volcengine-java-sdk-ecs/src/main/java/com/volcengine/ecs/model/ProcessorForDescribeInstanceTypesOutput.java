@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class ProcessorForDescribeInstanceTypesOutput {
   @SerializedName("BaseFrequency")
   private Float baseFrequency = null;

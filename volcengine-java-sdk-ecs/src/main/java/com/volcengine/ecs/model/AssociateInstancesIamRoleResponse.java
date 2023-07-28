@@ -31,7 +31,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class AssociateInstancesIamRoleResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("OperationDetails")
   private List<OperationDetailForAssociateInstancesIamRoleOutput> operationDetails = null;
