@@ -31,7 +31,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class DescribeInstanceTypesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("InstanceTypes")
   private List<InstanceTypeForDescribeInstanceTypesOutput> instanceTypes = null;

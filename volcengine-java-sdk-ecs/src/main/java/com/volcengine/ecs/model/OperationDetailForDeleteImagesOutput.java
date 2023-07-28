@@ -29,7 +29,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class OperationDetailForDeleteImagesOutput {
   @SerializedName("Error")
   private ErrorForDeleteImagesOutput error = null;

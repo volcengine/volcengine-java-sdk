@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class DeleteInstanceRequest {
   @SerializedName("DryRun")
   private Boolean dryRun = null;

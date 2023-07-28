@@ -29,7 +29,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class GpuDeviceForDescribeInstanceTypesOutput {
   @SerializedName("Count")
   private Integer count = null;

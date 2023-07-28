@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class NetworkForDescribeInstanceTypesOutput {
   @SerializedName("BaselineBandwidthMbps")
   private Integer baselineBandwidthMbps = null;

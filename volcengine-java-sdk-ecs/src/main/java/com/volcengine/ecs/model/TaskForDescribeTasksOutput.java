@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class TaskForDescribeTasksOutput {
   @SerializedName("CreatedAt")
   private String createdAt = null;
@@ -50,15 +49,10 @@ public class TaskForDescribeTasksOutput {
    */
   @JsonAdapter(StatusEnum.Adapter.class)
   public enum StatusEnum {
-    @SerializedName("UnknownStatus")
     UNKNOWNSTATUS("UnknownStatus"),
-    @SerializedName("Pending")
     PENDING("Pending"),
-    @SerializedName("Running")
     RUNNING("Running"),
-    @SerializedName("Succeeded")
     SUCCEEDED("Succeeded"),
-    @SerializedName("Failed")
     FAILED("Failed");
 
     private String value;
@@ -102,17 +96,11 @@ public class TaskForDescribeTasksOutput {
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
-    @SerializedName("UnknownType")
     UNKNOWNTYPE("UnknownType"),
-    @SerializedName("ExportImage")
     EXPORTIMAGE("ExportImage"),
-    @SerializedName("CopyImage")
     COPYIMAGE("CopyImage"),
-    @SerializedName("PreheatImage")
     PREHEATIMAGE("PreheatImage"),
-    @SerializedName("ImportImage")
     IMPORTIMAGE("ImportImage"),
-    @SerializedName("CreateImage")
     CREATEIMAGE("CreateImage");
 
     private String value;

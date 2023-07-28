@@ -31,7 +31,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class ImageForDescribeImagesOutput {
   @SerializedName("Architecture")
   private String architecture = null;

@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class ImportKeyPairResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("FingerPrint")
   private String fingerPrint = null;
