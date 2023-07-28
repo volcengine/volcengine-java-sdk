@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.rdsmysqlv2.model.PreSchedulePlanForModifyDBInstanceSpecOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -28,12 +29,15 @@ import javax.validation.Valid;
  */
 
 
-public class ModifyDBInstanceSpecResponse {
+public class ModifyDBInstanceSpecResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("InstanceId")
   private String instanceId = null;
 
   @SerializedName("OrderId")
   private String orderId = null;
+
+  @SerializedName("PreSchedulePlan")
+  private PreSchedulePlanForModifyDBInstanceSpecOutput preSchedulePlan = null;
 
   public ModifyDBInstanceSpecResponse instanceId(String instanceId) {
     this.instanceId = instanceId;
@@ -71,6 +75,25 @@ public class ModifyDBInstanceSpecResponse {
     this.orderId = orderId;
   }
 
+  public ModifyDBInstanceSpecResponse preSchedulePlan(PreSchedulePlanForModifyDBInstanceSpecOutput preSchedulePlan) {
+    this.preSchedulePlan = preSchedulePlan;
+    return this;
+  }
+
+   /**
+   * Get preSchedulePlan
+   * @return preSchedulePlan
+  **/
+  @Valid
+  @Schema(description = "")
+  public PreSchedulePlanForModifyDBInstanceSpecOutput getPreSchedulePlan() {
+    return preSchedulePlan;
+  }
+
+  public void setPreSchedulePlan(PreSchedulePlanForModifyDBInstanceSpecOutput preSchedulePlan) {
+    this.preSchedulePlan = preSchedulePlan;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -82,12 +105,13 @@ public class ModifyDBInstanceSpecResponse {
     }
     ModifyDBInstanceSpecResponse modifyDBInstanceSpecResponse = (ModifyDBInstanceSpecResponse) o;
     return Objects.equals(this.instanceId, modifyDBInstanceSpecResponse.instanceId) &&
-        Objects.equals(this.orderId, modifyDBInstanceSpecResponse.orderId);
+        Objects.equals(this.orderId, modifyDBInstanceSpecResponse.orderId) &&
+        Objects.equals(this.preSchedulePlan, modifyDBInstanceSpecResponse.preSchedulePlan);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, orderId);
+    return Objects.hash(instanceId, orderId, preSchedulePlan);
   }
 
 
@@ -98,6 +122,7 @@ public class ModifyDBInstanceSpecResponse {
     
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    orderId: ").append(toIndentedString(orderId)).append("\n");
+    sb.append("    preSchedulePlan: ").append(toIndentedString(preSchedulePlan)).append("\n");
     sb.append("}");
     return sb.toString();
   }

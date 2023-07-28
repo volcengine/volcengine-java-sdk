@@ -21,7 +21,7 @@ import javax.validation.Valid;
  */
 
 
-public class CreateDBAccountResponse {
+public class CreateDBAccountResponse extends com.volcengine.model.AbstractResponse {
 
   @Override
   public boolean equals(java.lang.Object o) {

@@ -28,7 +28,7 @@ import javax.validation.Valid;
  */
 
 
-public class GetBackupDownloadLinkResponse {
+public class GetBackupDownloadLinkResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("BackupDownloadLink")
   private String backupDownloadLink = null;
 
@@ -52,6 +52,9 @@ public class GetBackupDownloadLinkResponse {
 
   @SerializedName("LinkExpiredTime")
   private String linkExpiredTime = null;
+
+  @SerializedName("NodeId")
+  private String nodeId = null;
 
   public GetBackupDownloadLinkResponse backupDownloadLink(String backupDownloadLink) {
     this.backupDownloadLink = backupDownloadLink;
@@ -197,6 +200,24 @@ public class GetBackupDownloadLinkResponse {
     this.linkExpiredTime = linkExpiredTime;
   }
 
+  public GetBackupDownloadLinkResponse nodeId(String nodeId) {
+    this.nodeId = nodeId;
+    return this;
+  }
+
+   /**
+   * Get nodeId
+   * @return nodeId
+  **/
+  @Schema(description = "")
+  public String getNodeId() {
+    return nodeId;
+  }
+
+  public void setNodeId(String nodeId) {
+    this.nodeId = nodeId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -214,12 +235,13 @@ public class GetBackupDownloadLinkResponse {
         Objects.equals(this.backupType, getBackupDownloadLinkResponse.backupType) &&
         Objects.equals(this.downloadProgress, getBackupDownloadLinkResponse.downloadProgress) &&
         Objects.equals(this.instanceId, getBackupDownloadLinkResponse.instanceId) &&
-        Objects.equals(this.linkExpiredTime, getBackupDownloadLinkResponse.linkExpiredTime);
+        Objects.equals(this.linkExpiredTime, getBackupDownloadLinkResponse.linkExpiredTime) &&
+        Objects.equals(this.nodeId, getBackupDownloadLinkResponse.nodeId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(backupDownloadLink, backupFileName, backupFileSize, backupId, backupType, downloadProgress, instanceId, linkExpiredTime);
+    return Objects.hash(backupDownloadLink, backupFileName, backupFileSize, backupId, backupType, downloadProgress, instanceId, linkExpiredTime, nodeId);
   }
 
 
@@ -236,6 +258,7 @@ public class GetBackupDownloadLinkResponse {
     sb.append("    downloadProgress: ").append(toIndentedString(downloadProgress)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    linkExpiredTime: ").append(toIndentedString(linkExpiredTime)).append("\n");
+    sb.append("    nodeId: ").append(toIndentedString(nodeId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

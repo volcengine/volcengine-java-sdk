@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.rdsmysqlv2.model.AccountPrivilegeForDescribeDBAccountsOutput;
+import com.volcengine.rdsmysqlv2.model.AccountPrivilegesInfoForDescribeDBAccountsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -32,14 +33,41 @@ import javax.validation.Valid;
 
 
 public class AccountForDescribeDBAccountsOutput {
+  @SerializedName("AccountDesc")
+  private String accountDesc = null;
+
   @SerializedName("AccountName")
   private String accountName = null;
 
   @SerializedName("AccountPrivileges")
   private List<AccountPrivilegeForDescribeDBAccountsOutput> accountPrivileges = null;
 
+  @SerializedName("AccountPrivilegesInfo")
+  private List<AccountPrivilegesInfoForDescribeDBAccountsOutput> accountPrivilegesInfo = null;
+
+  @SerializedName("AccountStatus")
+  private String accountStatus = null;
+
   @SerializedName("AccountType")
   private String accountType = null;
+
+  public AccountForDescribeDBAccountsOutput accountDesc(String accountDesc) {
+    this.accountDesc = accountDesc;
+    return this;
+  }
+
+   /**
+   * Get accountDesc
+   * @return accountDesc
+  **/
+  @Schema(description = "")
+  public String getAccountDesc() {
+    return accountDesc;
+  }
+
+  public void setAccountDesc(String accountDesc) {
+    this.accountDesc = accountDesc;
+  }
 
   public AccountForDescribeDBAccountsOutput accountName(String accountName) {
     this.accountName = accountName;
@@ -86,6 +114,51 @@ public class AccountForDescribeDBAccountsOutput {
     this.accountPrivileges = accountPrivileges;
   }
 
+  public AccountForDescribeDBAccountsOutput accountPrivilegesInfo(List<AccountPrivilegesInfoForDescribeDBAccountsOutput> accountPrivilegesInfo) {
+    this.accountPrivilegesInfo = accountPrivilegesInfo;
+    return this;
+  }
+
+  public AccountForDescribeDBAccountsOutput addAccountPrivilegesInfoItem(AccountPrivilegesInfoForDescribeDBAccountsOutput accountPrivilegesInfoItem) {
+    if (this.accountPrivilegesInfo == null) {
+      this.accountPrivilegesInfo = new ArrayList<AccountPrivilegesInfoForDescribeDBAccountsOutput>();
+    }
+    this.accountPrivilegesInfo.add(accountPrivilegesInfoItem);
+    return this;
+  }
+
+   /**
+   * Get accountPrivilegesInfo
+   * @return accountPrivilegesInfo
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<AccountPrivilegesInfoForDescribeDBAccountsOutput> getAccountPrivilegesInfo() {
+    return accountPrivilegesInfo;
+  }
+
+  public void setAccountPrivilegesInfo(List<AccountPrivilegesInfoForDescribeDBAccountsOutput> accountPrivilegesInfo) {
+    this.accountPrivilegesInfo = accountPrivilegesInfo;
+  }
+
+  public AccountForDescribeDBAccountsOutput accountStatus(String accountStatus) {
+    this.accountStatus = accountStatus;
+    return this;
+  }
+
+   /**
+   * Get accountStatus
+   * @return accountStatus
+  **/
+  @Schema(description = "")
+  public String getAccountStatus() {
+    return accountStatus;
+  }
+
+  public void setAccountStatus(String accountStatus) {
+    this.accountStatus = accountStatus;
+  }
+
   public AccountForDescribeDBAccountsOutput accountType(String accountType) {
     this.accountType = accountType;
     return this;
@@ -114,14 +187,17 @@ public class AccountForDescribeDBAccountsOutput {
       return false;
     }
     AccountForDescribeDBAccountsOutput accountForDescribeDBAccountsOutput = (AccountForDescribeDBAccountsOutput) o;
-    return Objects.equals(this.accountName, accountForDescribeDBAccountsOutput.accountName) &&
+    return Objects.equals(this.accountDesc, accountForDescribeDBAccountsOutput.accountDesc) &&
+        Objects.equals(this.accountName, accountForDescribeDBAccountsOutput.accountName) &&
         Objects.equals(this.accountPrivileges, accountForDescribeDBAccountsOutput.accountPrivileges) &&
+        Objects.equals(this.accountPrivilegesInfo, accountForDescribeDBAccountsOutput.accountPrivilegesInfo) &&
+        Objects.equals(this.accountStatus, accountForDescribeDBAccountsOutput.accountStatus) &&
         Objects.equals(this.accountType, accountForDescribeDBAccountsOutput.accountType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountName, accountPrivileges, accountType);
+    return Objects.hash(accountDesc, accountName, accountPrivileges, accountPrivilegesInfo, accountStatus, accountType);
   }
 
 
@@ -130,8 +206,11 @@ public class AccountForDescribeDBAccountsOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class AccountForDescribeDBAccountsOutput {\n");
     
+    sb.append("    accountDesc: ").append(toIndentedString(accountDesc)).append("\n");
     sb.append("    accountName: ").append(toIndentedString(accountName)).append("\n");
     sb.append("    accountPrivileges: ").append(toIndentedString(accountPrivileges)).append("\n");
+    sb.append("    accountPrivilegesInfo: ").append(toIndentedString(accountPrivilegesInfo)).append("\n");
+    sb.append("    accountStatus: ").append(toIndentedString(accountStatus)).append("\n");
     sb.append("    accountType: ").append(toIndentedString(accountType)).append("\n");
     sb.append("}");
     return sb.toString();

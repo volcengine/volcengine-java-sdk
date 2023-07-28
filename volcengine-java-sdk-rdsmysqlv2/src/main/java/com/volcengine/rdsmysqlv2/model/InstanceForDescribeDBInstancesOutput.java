@@ -22,6 +22,9 @@ import com.google.gson.stream.JsonWriter;
 import com.volcengine.rdsmysqlv2.model.AddressObjectForDescribeDBInstancesOutput;
 import com.volcengine.rdsmysqlv2.model.ChargeDetailForDescribeDBInstancesOutput;
 import com.volcengine.rdsmysqlv2.model.MaintenanceWindowForDescribeDBInstancesOutput;
+import com.volcengine.rdsmysqlv2.model.NodeDetailInfoForDescribeDBInstancesOutput;
+import com.volcengine.rdsmysqlv2.model.TagForDescribeDBInstancesOutput;
+import com.volcengine.rdsmysqlv2.model.ZoneNodePoolForDescribeDBInstancesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -34,6 +37,9 @@ import javax.validation.Valid;
 
 
 public class InstanceForDescribeDBInstancesOutput {
+  @SerializedName("AccountId")
+  private String accountId = null;
+
   @SerializedName("AddressObject")
   private List<AddressObjectForDescribeDBInstancesOutput> addressObject = null;
 
@@ -58,11 +64,17 @@ public class InstanceForDescribeDBInstancesOutput {
   @SerializedName("InstanceStatus")
   private String instanceStatus = null;
 
+  @SerializedName("InstanceType")
+  private String instanceType = null;
+
   @SerializedName("LowerCaseTableNames")
   private String lowerCaseTableNames = null;
 
   @SerializedName("MaintenanceWindow")
   private MaintenanceWindowForDescribeDBInstancesOutput maintenanceWindow = null;
+
+  @SerializedName("NodeDetailInfo")
+  private List<NodeDetailInfoForDescribeDBInstancesOutput> nodeDetailInfo = null;
 
   @SerializedName("NodeNumber")
   private Integer nodeNumber = null;
@@ -70,11 +82,20 @@ public class InstanceForDescribeDBInstancesOutput {
   @SerializedName("NodeSpec")
   private String nodeSpec = null;
 
+  @SerializedName("Port")
+  private String port = null;
+
   @SerializedName("ProjectName")
   private String projectName = null;
 
   @SerializedName("RegionId")
   private String regionId = null;
+
+  @SerializedName("ServerCollation")
+  private String serverCollation = null;
+
+  @SerializedName("ShardNumber")
+  private Integer shardNumber = null;
 
   @SerializedName("StorageSpace")
   private Integer storageSpace = null;
@@ -82,11 +103,11 @@ public class InstanceForDescribeDBInstancesOutput {
   @SerializedName("StorageType")
   private String storageType = null;
 
-  @SerializedName("StorageUse")
-  private Integer storageUse = null;
-
   @SerializedName("SubnetId")
   private String subnetId = null;
+
+  @SerializedName("Tags")
+  private List<TagForDescribeDBInstancesOutput> tags = null;
 
   @SerializedName("TimeZone")
   private String timeZone = null;
@@ -96,6 +117,30 @@ public class InstanceForDescribeDBInstancesOutput {
 
   @SerializedName("ZoneId")
   private String zoneId = null;
+
+  @SerializedName("ZoneIds")
+  private List<String> zoneIds = null;
+
+  @SerializedName("ZoneNodePools")
+  private List<ZoneNodePoolForDescribeDBInstancesOutput> zoneNodePools = null;
+
+  public InstanceForDescribeDBInstancesOutput accountId(String accountId) {
+    this.accountId = accountId;
+    return this;
+  }
+
+   /**
+   * Get accountId
+   * @return accountId
+  **/
+  @Schema(description = "")
+  public String getAccountId() {
+    return accountId;
+  }
+
+  public void setAccountId(String accountId) {
+    this.accountId = accountId;
+  }
 
   public InstanceForDescribeDBInstancesOutput addressObject(List<AddressObjectForDescribeDBInstancesOutput> addressObject) {
     this.addressObject = addressObject;
@@ -251,6 +296,24 @@ public class InstanceForDescribeDBInstancesOutput {
     this.instanceStatus = instanceStatus;
   }
 
+  public InstanceForDescribeDBInstancesOutput instanceType(String instanceType) {
+    this.instanceType = instanceType;
+    return this;
+  }
+
+   /**
+   * Get instanceType
+   * @return instanceType
+  **/
+  @Schema(description = "")
+  public String getInstanceType() {
+    return instanceType;
+  }
+
+  public void setInstanceType(String instanceType) {
+    this.instanceType = instanceType;
+  }
+
   public InstanceForDescribeDBInstancesOutput lowerCaseTableNames(String lowerCaseTableNames) {
     this.lowerCaseTableNames = lowerCaseTableNames;
     return this;
@@ -286,6 +349,33 @@ public class InstanceForDescribeDBInstancesOutput {
 
   public void setMaintenanceWindow(MaintenanceWindowForDescribeDBInstancesOutput maintenanceWindow) {
     this.maintenanceWindow = maintenanceWindow;
+  }
+
+  public InstanceForDescribeDBInstancesOutput nodeDetailInfo(List<NodeDetailInfoForDescribeDBInstancesOutput> nodeDetailInfo) {
+    this.nodeDetailInfo = nodeDetailInfo;
+    return this;
+  }
+
+  public InstanceForDescribeDBInstancesOutput addNodeDetailInfoItem(NodeDetailInfoForDescribeDBInstancesOutput nodeDetailInfoItem) {
+    if (this.nodeDetailInfo == null) {
+      this.nodeDetailInfo = new ArrayList<NodeDetailInfoForDescribeDBInstancesOutput>();
+    }
+    this.nodeDetailInfo.add(nodeDetailInfoItem);
+    return this;
+  }
+
+   /**
+   * Get nodeDetailInfo
+   * @return nodeDetailInfo
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<NodeDetailInfoForDescribeDBInstancesOutput> getNodeDetailInfo() {
+    return nodeDetailInfo;
+  }
+
+  public void setNodeDetailInfo(List<NodeDetailInfoForDescribeDBInstancesOutput> nodeDetailInfo) {
+    this.nodeDetailInfo = nodeDetailInfo;
   }
 
   public InstanceForDescribeDBInstancesOutput nodeNumber(Integer nodeNumber) {
@@ -324,6 +414,24 @@ public class InstanceForDescribeDBInstancesOutput {
     this.nodeSpec = nodeSpec;
   }
 
+  public InstanceForDescribeDBInstancesOutput port(String port) {
+    this.port = port;
+    return this;
+  }
+
+   /**
+   * Get port
+   * @return port
+  **/
+  @Schema(description = "")
+  public String getPort() {
+    return port;
+  }
+
+  public void setPort(String port) {
+    this.port = port;
+  }
+
   public InstanceForDescribeDBInstancesOutput projectName(String projectName) {
     this.projectName = projectName;
     return this;
@@ -358,6 +466,42 @@ public class InstanceForDescribeDBInstancesOutput {
 
   public void setRegionId(String regionId) {
     this.regionId = regionId;
+  }
+
+  public InstanceForDescribeDBInstancesOutput serverCollation(String serverCollation) {
+    this.serverCollation = serverCollation;
+    return this;
+  }
+
+   /**
+   * Get serverCollation
+   * @return serverCollation
+  **/
+  @Schema(description = "")
+  public String getServerCollation() {
+    return serverCollation;
+  }
+
+  public void setServerCollation(String serverCollation) {
+    this.serverCollation = serverCollation;
+  }
+
+  public InstanceForDescribeDBInstancesOutput shardNumber(Integer shardNumber) {
+    this.shardNumber = shardNumber;
+    return this;
+  }
+
+   /**
+   * Get shardNumber
+   * @return shardNumber
+  **/
+  @Schema(description = "")
+  public Integer getShardNumber() {
+    return shardNumber;
+  }
+
+  public void setShardNumber(Integer shardNumber) {
+    this.shardNumber = shardNumber;
   }
 
   public InstanceForDescribeDBInstancesOutput storageSpace(Integer storageSpace) {
@@ -396,24 +540,6 @@ public class InstanceForDescribeDBInstancesOutput {
     this.storageType = storageType;
   }
 
-  public InstanceForDescribeDBInstancesOutput storageUse(Integer storageUse) {
-    this.storageUse = storageUse;
-    return this;
-  }
-
-   /**
-   * Get storageUse
-   * @return storageUse
-  **/
-  @Schema(description = "")
-  public Integer getStorageUse() {
-    return storageUse;
-  }
-
-  public void setStorageUse(Integer storageUse) {
-    this.storageUse = storageUse;
-  }
-
   public InstanceForDescribeDBInstancesOutput subnetId(String subnetId) {
     this.subnetId = subnetId;
     return this;
@@ -430,6 +556,33 @@ public class InstanceForDescribeDBInstancesOutput {
 
   public void setSubnetId(String subnetId) {
     this.subnetId = subnetId;
+  }
+
+  public InstanceForDescribeDBInstancesOutput tags(List<TagForDescribeDBInstancesOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public InstanceForDescribeDBInstancesOutput addTagsItem(TagForDescribeDBInstancesOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForDescribeDBInstancesOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForDescribeDBInstancesOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForDescribeDBInstancesOutput> tags) {
+    this.tags = tags;
   }
 
   public InstanceForDescribeDBInstancesOutput timeZone(String timeZone) {
@@ -486,6 +639,59 @@ public class InstanceForDescribeDBInstancesOutput {
     this.zoneId = zoneId;
   }
 
+  public InstanceForDescribeDBInstancesOutput zoneIds(List<String> zoneIds) {
+    this.zoneIds = zoneIds;
+    return this;
+  }
+
+  public InstanceForDescribeDBInstancesOutput addZoneIdsItem(String zoneIdsItem) {
+    if (this.zoneIds == null) {
+      this.zoneIds = new ArrayList<String>();
+    }
+    this.zoneIds.add(zoneIdsItem);
+    return this;
+  }
+
+   /**
+   * Get zoneIds
+   * @return zoneIds
+  **/
+  @Schema(description = "")
+  public List<String> getZoneIds() {
+    return zoneIds;
+  }
+
+  public void setZoneIds(List<String> zoneIds) {
+    this.zoneIds = zoneIds;
+  }
+
+  public InstanceForDescribeDBInstancesOutput zoneNodePools(List<ZoneNodePoolForDescribeDBInstancesOutput> zoneNodePools) {
+    this.zoneNodePools = zoneNodePools;
+    return this;
+  }
+
+  public InstanceForDescribeDBInstancesOutput addZoneNodePoolsItem(ZoneNodePoolForDescribeDBInstancesOutput zoneNodePoolsItem) {
+    if (this.zoneNodePools == null) {
+      this.zoneNodePools = new ArrayList<ZoneNodePoolForDescribeDBInstancesOutput>();
+    }
+    this.zoneNodePools.add(zoneNodePoolsItem);
+    return this;
+  }
+
+   /**
+   * Get zoneNodePools
+   * @return zoneNodePools
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<ZoneNodePoolForDescribeDBInstancesOutput> getZoneNodePools() {
+    return zoneNodePools;
+  }
+
+  public void setZoneNodePools(List<ZoneNodePoolForDescribeDBInstancesOutput> zoneNodePools) {
+    this.zoneNodePools = zoneNodePools;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -496,7 +702,8 @@ public class InstanceForDescribeDBInstancesOutput {
       return false;
     }
     InstanceForDescribeDBInstancesOutput instanceForDescribeDBInstancesOutput = (InstanceForDescribeDBInstancesOutput) o;
-    return Objects.equals(this.addressObject, instanceForDescribeDBInstancesOutput.addressObject) &&
+    return Objects.equals(this.accountId, instanceForDescribeDBInstancesOutput.accountId) &&
+        Objects.equals(this.addressObject, instanceForDescribeDBInstancesOutput.addressObject) &&
         Objects.equals(this.allowListVersion, instanceForDescribeDBInstancesOutput.allowListVersion) &&
         Objects.equals(this.chargeDetail, instanceForDescribeDBInstancesOutput.chargeDetail) &&
         Objects.equals(this.createTime, instanceForDescribeDBInstancesOutput.createTime) &&
@@ -504,24 +711,31 @@ public class InstanceForDescribeDBInstancesOutput {
         Objects.equals(this.instanceId, instanceForDescribeDBInstancesOutput.instanceId) &&
         Objects.equals(this.instanceName, instanceForDescribeDBInstancesOutput.instanceName) &&
         Objects.equals(this.instanceStatus, instanceForDescribeDBInstancesOutput.instanceStatus) &&
+        Objects.equals(this.instanceType, instanceForDescribeDBInstancesOutput.instanceType) &&
         Objects.equals(this.lowerCaseTableNames, instanceForDescribeDBInstancesOutput.lowerCaseTableNames) &&
         Objects.equals(this.maintenanceWindow, instanceForDescribeDBInstancesOutput.maintenanceWindow) &&
+        Objects.equals(this.nodeDetailInfo, instanceForDescribeDBInstancesOutput.nodeDetailInfo) &&
         Objects.equals(this.nodeNumber, instanceForDescribeDBInstancesOutput.nodeNumber) &&
         Objects.equals(this.nodeSpec, instanceForDescribeDBInstancesOutput.nodeSpec) &&
+        Objects.equals(this.port, instanceForDescribeDBInstancesOutput.port) &&
         Objects.equals(this.projectName, instanceForDescribeDBInstancesOutput.projectName) &&
         Objects.equals(this.regionId, instanceForDescribeDBInstancesOutput.regionId) &&
+        Objects.equals(this.serverCollation, instanceForDescribeDBInstancesOutput.serverCollation) &&
+        Objects.equals(this.shardNumber, instanceForDescribeDBInstancesOutput.shardNumber) &&
         Objects.equals(this.storageSpace, instanceForDescribeDBInstancesOutput.storageSpace) &&
         Objects.equals(this.storageType, instanceForDescribeDBInstancesOutput.storageType) &&
-        Objects.equals(this.storageUse, instanceForDescribeDBInstancesOutput.storageUse) &&
         Objects.equals(this.subnetId, instanceForDescribeDBInstancesOutput.subnetId) &&
+        Objects.equals(this.tags, instanceForDescribeDBInstancesOutput.tags) &&
         Objects.equals(this.timeZone, instanceForDescribeDBInstancesOutput.timeZone) &&
         Objects.equals(this.vpcId, instanceForDescribeDBInstancesOutput.vpcId) &&
-        Objects.equals(this.zoneId, instanceForDescribeDBInstancesOutput.zoneId);
+        Objects.equals(this.zoneId, instanceForDescribeDBInstancesOutput.zoneId) &&
+        Objects.equals(this.zoneIds, instanceForDescribeDBInstancesOutput.zoneIds) &&
+        Objects.equals(this.zoneNodePools, instanceForDescribeDBInstancesOutput.zoneNodePools);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(addressObject, allowListVersion, chargeDetail, createTime, dbEngineVersion, instanceId, instanceName, instanceStatus, lowerCaseTableNames, maintenanceWindow, nodeNumber, nodeSpec, projectName, regionId, storageSpace, storageType, storageUse, subnetId, timeZone, vpcId, zoneId);
+    return Objects.hash(accountId, addressObject, allowListVersion, chargeDetail, createTime, dbEngineVersion, instanceId, instanceName, instanceStatus, instanceType, lowerCaseTableNames, maintenanceWindow, nodeDetailInfo, nodeNumber, nodeSpec, port, projectName, regionId, serverCollation, shardNumber, storageSpace, storageType, subnetId, tags, timeZone, vpcId, zoneId, zoneIds, zoneNodePools);
   }
 
 
@@ -530,6 +744,7 @@ public class InstanceForDescribeDBInstancesOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class InstanceForDescribeDBInstancesOutput {\n");
     
+    sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    addressObject: ").append(toIndentedString(addressObject)).append("\n");
     sb.append("    allowListVersion: ").append(toIndentedString(allowListVersion)).append("\n");
     sb.append("    chargeDetail: ").append(toIndentedString(chargeDetail)).append("\n");
@@ -538,19 +753,26 @@ public class InstanceForDescribeDBInstancesOutput {
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    instanceStatus: ").append(toIndentedString(instanceStatus)).append("\n");
+    sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("    lowerCaseTableNames: ").append(toIndentedString(lowerCaseTableNames)).append("\n");
     sb.append("    maintenanceWindow: ").append(toIndentedString(maintenanceWindow)).append("\n");
+    sb.append("    nodeDetailInfo: ").append(toIndentedString(nodeDetailInfo)).append("\n");
     sb.append("    nodeNumber: ").append(toIndentedString(nodeNumber)).append("\n");
     sb.append("    nodeSpec: ").append(toIndentedString(nodeSpec)).append("\n");
+    sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    regionId: ").append(toIndentedString(regionId)).append("\n");
+    sb.append("    serverCollation: ").append(toIndentedString(serverCollation)).append("\n");
+    sb.append("    shardNumber: ").append(toIndentedString(shardNumber)).append("\n");
     sb.append("    storageSpace: ").append(toIndentedString(storageSpace)).append("\n");
     sb.append("    storageType: ").append(toIndentedString(storageType)).append("\n");
-    sb.append("    storageUse: ").append(toIndentedString(storageUse)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    timeZone: ").append(toIndentedString(timeZone)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
+    sb.append("    zoneIds: ").append(toIndentedString(zoneIds)).append("\n");
+    sb.append("    zoneNodePools: ").append(toIndentedString(zoneNodePools)).append("\n");
     sb.append("}");
     return sb.toString();
   }

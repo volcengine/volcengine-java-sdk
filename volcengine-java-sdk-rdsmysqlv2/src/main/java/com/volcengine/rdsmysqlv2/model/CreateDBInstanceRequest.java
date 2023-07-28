@@ -34,6 +34,12 @@ import javax.validation.Valid;
 
 
 public class CreateDBInstanceRequest {
+  @SerializedName("AllowListIds")
+  private List<String> allowListIds = null;
+
+  @SerializedName("BillingRuleCode")
+  private String billingRuleCode = null;
+
   @SerializedName("ChargeInfo")
   private ChargeInfoForCreateDBInstanceInput chargeInfo = null;
 
@@ -52,17 +58,32 @@ public class CreateDBInstanceRequest {
   @SerializedName("InstanceTags")
   private List<InstanceTagForCreateDBInstanceInput> instanceTags = null;
 
+  @SerializedName("InstanceType")
+  private String instanceType = null;
+
   @SerializedName("LowerCaseTableNames")
   private String lowerCaseTableNames = null;
 
   @SerializedName("NodeInfo")
   private List<NodeInfoForCreateDBInstanceInput> nodeInfo = null;
 
+  @SerializedName("NodeNumber")
+  private Integer nodeNumber = null;
+
+  @SerializedName("NodeSpec")
+  private String nodeSpec = null;
+
   @SerializedName("Number")
   private Integer number = null;
 
   @SerializedName("ProjectName")
   private String projectName = null;
+
+  @SerializedName("ServerCollation")
+  private String serverCollation = null;
+
+  @SerializedName("ShardNumber")
+  private Integer shardNumber = null;
 
   @SerializedName("StorageSpace")
   private Integer storageSpace = null;
@@ -81,6 +102,53 @@ public class CreateDBInstanceRequest {
 
   @SerializedName("VpcId")
   private String vpcId = null;
+
+  @SerializedName("ZoneId")
+  private String zoneId = null;
+
+  public CreateDBInstanceRequest allowListIds(List<String> allowListIds) {
+    this.allowListIds = allowListIds;
+    return this;
+  }
+
+  public CreateDBInstanceRequest addAllowListIdsItem(String allowListIdsItem) {
+    if (this.allowListIds == null) {
+      this.allowListIds = new ArrayList<String>();
+    }
+    this.allowListIds.add(allowListIdsItem);
+    return this;
+  }
+
+   /**
+   * Get allowListIds
+   * @return allowListIds
+  **/
+  @Schema(description = "")
+  public List<String> getAllowListIds() {
+    return allowListIds;
+  }
+
+  public void setAllowListIds(List<String> allowListIds) {
+    this.allowListIds = allowListIds;
+  }
+
+  public CreateDBInstanceRequest billingRuleCode(String billingRuleCode) {
+    this.billingRuleCode = billingRuleCode;
+    return this;
+  }
+
+   /**
+   * Get billingRuleCode
+   * @return billingRuleCode
+  **/
+  @Schema(description = "")
+  public String getBillingRuleCode() {
+    return billingRuleCode;
+  }
+
+  public void setBillingRuleCode(String billingRuleCode) {
+    this.billingRuleCode = billingRuleCode;
+  }
 
   public CreateDBInstanceRequest chargeInfo(ChargeInfoForCreateDBInstanceInput chargeInfo) {
     this.chargeInfo = chargeInfo;
@@ -200,6 +268,24 @@ public class CreateDBInstanceRequest {
     this.instanceTags = instanceTags;
   }
 
+  public CreateDBInstanceRequest instanceType(String instanceType) {
+    this.instanceType = instanceType;
+    return this;
+  }
+
+   /**
+   * Get instanceType
+   * @return instanceType
+  **/
+  @Schema(description = "")
+  public String getInstanceType() {
+    return instanceType;
+  }
+
+  public void setInstanceType(String instanceType) {
+    this.instanceType = instanceType;
+  }
+
   public CreateDBInstanceRequest lowerCaseTableNames(String lowerCaseTableNames) {
     this.lowerCaseTableNames = lowerCaseTableNames;
     return this;
@@ -245,6 +331,42 @@ public class CreateDBInstanceRequest {
     this.nodeInfo = nodeInfo;
   }
 
+  public CreateDBInstanceRequest nodeNumber(Integer nodeNumber) {
+    this.nodeNumber = nodeNumber;
+    return this;
+  }
+
+   /**
+   * Get nodeNumber
+   * @return nodeNumber
+  **/
+  @Schema(description = "")
+  public Integer getNodeNumber() {
+    return nodeNumber;
+  }
+
+  public void setNodeNumber(Integer nodeNumber) {
+    this.nodeNumber = nodeNumber;
+  }
+
+  public CreateDBInstanceRequest nodeSpec(String nodeSpec) {
+    this.nodeSpec = nodeSpec;
+    return this;
+  }
+
+   /**
+   * Get nodeSpec
+   * @return nodeSpec
+  **/
+  @Schema(description = "")
+  public String getNodeSpec() {
+    return nodeSpec;
+  }
+
+  public void setNodeSpec(String nodeSpec) {
+    this.nodeSpec = nodeSpec;
+  }
+
   public CreateDBInstanceRequest number(Integer number) {
     this.number = number;
     return this;
@@ -279,6 +401,42 @@ public class CreateDBInstanceRequest {
 
   public void setProjectName(String projectName) {
     this.projectName = projectName;
+  }
+
+  public CreateDBInstanceRequest serverCollation(String serverCollation) {
+    this.serverCollation = serverCollation;
+    return this;
+  }
+
+   /**
+   * Get serverCollation
+   * @return serverCollation
+  **/
+  @Schema(description = "")
+  public String getServerCollation() {
+    return serverCollation;
+  }
+
+  public void setServerCollation(String serverCollation) {
+    this.serverCollation = serverCollation;
+  }
+
+  public CreateDBInstanceRequest shardNumber(Integer shardNumber) {
+    this.shardNumber = shardNumber;
+    return this;
+  }
+
+   /**
+   * Get shardNumber
+   * @return shardNumber
+  **/
+  @Schema(description = "")
+  public Integer getShardNumber() {
+    return shardNumber;
+  }
+
+  public void setShardNumber(Integer shardNumber) {
+    this.shardNumber = shardNumber;
   }
 
   public CreateDBInstanceRequest storageSpace(Integer storageSpace) {
@@ -389,6 +547,24 @@ public class CreateDBInstanceRequest {
     this.vpcId = vpcId;
   }
 
+  public CreateDBInstanceRequest zoneId(String zoneId) {
+    this.zoneId = zoneId;
+    return this;
+  }
+
+   /**
+   * Get zoneId
+   * @return zoneId
+  **/
+  @Schema(description = "")
+  public String getZoneId() {
+    return zoneId;
+  }
+
+  public void setZoneId(String zoneId) {
+    this.zoneId = zoneId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -399,27 +575,35 @@ public class CreateDBInstanceRequest {
       return false;
     }
     CreateDBInstanceRequest createDBInstanceRequest = (CreateDBInstanceRequest) o;
-    return Objects.equals(this.chargeInfo, createDBInstanceRequest.chargeInfo) &&
+    return Objects.equals(this.allowListIds, createDBInstanceRequest.allowListIds) &&
+        Objects.equals(this.billingRuleCode, createDBInstanceRequest.billingRuleCode) &&
+        Objects.equals(this.chargeInfo, createDBInstanceRequest.chargeInfo) &&
         Objects.equals(this.dbEngineVersion, createDBInstanceRequest.dbEngineVersion) &&
         Objects.equals(this.dbParamGroupId, createDBInstanceRequest.dbParamGroupId) &&
         Objects.equals(this.dbTimeZone, createDBInstanceRequest.dbTimeZone) &&
         Objects.equals(this.instanceName, createDBInstanceRequest.instanceName) &&
         Objects.equals(this.instanceTags, createDBInstanceRequest.instanceTags) &&
+        Objects.equals(this.instanceType, createDBInstanceRequest.instanceType) &&
         Objects.equals(this.lowerCaseTableNames, createDBInstanceRequest.lowerCaseTableNames) &&
         Objects.equals(this.nodeInfo, createDBInstanceRequest.nodeInfo) &&
+        Objects.equals(this.nodeNumber, createDBInstanceRequest.nodeNumber) &&
+        Objects.equals(this.nodeSpec, createDBInstanceRequest.nodeSpec) &&
         Objects.equals(this.number, createDBInstanceRequest.number) &&
         Objects.equals(this.projectName, createDBInstanceRequest.projectName) &&
+        Objects.equals(this.serverCollation, createDBInstanceRequest.serverCollation) &&
+        Objects.equals(this.shardNumber, createDBInstanceRequest.shardNumber) &&
         Objects.equals(this.storageSpace, createDBInstanceRequest.storageSpace) &&
         Objects.equals(this.storageType, createDBInstanceRequest.storageType) &&
         Objects.equals(this.subnetId, createDBInstanceRequest.subnetId) &&
         Objects.equals(this.superAccountName, createDBInstanceRequest.superAccountName) &&
         Objects.equals(this.superAccountPassword, createDBInstanceRequest.superAccountPassword) &&
-        Objects.equals(this.vpcId, createDBInstanceRequest.vpcId);
+        Objects.equals(this.vpcId, createDBInstanceRequest.vpcId) &&
+        Objects.equals(this.zoneId, createDBInstanceRequest.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(chargeInfo, dbEngineVersion, dbParamGroupId, dbTimeZone, instanceName, instanceTags, lowerCaseTableNames, nodeInfo, number, projectName, storageSpace, storageType, subnetId, superAccountName, superAccountPassword, vpcId);
+    return Objects.hash(allowListIds, billingRuleCode, chargeInfo, dbEngineVersion, dbParamGroupId, dbTimeZone, instanceName, instanceTags, instanceType, lowerCaseTableNames, nodeInfo, nodeNumber, nodeSpec, number, projectName, serverCollation, shardNumber, storageSpace, storageType, subnetId, superAccountName, superAccountPassword, vpcId, zoneId);
   }
 
 
@@ -428,22 +612,30 @@ public class CreateDBInstanceRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateDBInstanceRequest {\n");
     
+    sb.append("    allowListIds: ").append(toIndentedString(allowListIds)).append("\n");
+    sb.append("    billingRuleCode: ").append(toIndentedString(billingRuleCode)).append("\n");
     sb.append("    chargeInfo: ").append(toIndentedString(chargeInfo)).append("\n");
     sb.append("    dbEngineVersion: ").append(toIndentedString(dbEngineVersion)).append("\n");
     sb.append("    dbParamGroupId: ").append(toIndentedString(dbParamGroupId)).append("\n");
     sb.append("    dbTimeZone: ").append(toIndentedString(dbTimeZone)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    instanceTags: ").append(toIndentedString(instanceTags)).append("\n");
+    sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("    lowerCaseTableNames: ").append(toIndentedString(lowerCaseTableNames)).append("\n");
     sb.append("    nodeInfo: ").append(toIndentedString(nodeInfo)).append("\n");
+    sb.append("    nodeNumber: ").append(toIndentedString(nodeNumber)).append("\n");
+    sb.append("    nodeSpec: ").append(toIndentedString(nodeSpec)).append("\n");
     sb.append("    number: ").append(toIndentedString(number)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    serverCollation: ").append(toIndentedString(serverCollation)).append("\n");
+    sb.append("    shardNumber: ").append(toIndentedString(shardNumber)).append("\n");
     sb.append("    storageSpace: ").append(toIndentedString(storageSpace)).append("\n");
     sb.append("    storageType: ").append(toIndentedString(storageType)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    superAccountName: ").append(toIndentedString(superAccountName)).append("\n");
     sb.append("    superAccountPassword: ").append(toIndentedString(superAccountPassword)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
+    sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

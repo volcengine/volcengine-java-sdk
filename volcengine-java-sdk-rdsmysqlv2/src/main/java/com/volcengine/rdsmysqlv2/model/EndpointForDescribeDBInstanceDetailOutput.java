@@ -33,6 +33,9 @@ import javax.validation.Valid;
 
 
 public class EndpointForDescribeDBInstanceDetailOutput {
+  @SerializedName("Address")
+  private List<AddressForDescribeDBInstanceDetailOutput> address = null;
+
   @SerializedName("Addresses")
   private List<AddressForDescribeDBInstanceDetailOutput> addresses = null;
 
@@ -41,6 +44,9 @@ public class EndpointForDescribeDBInstanceDetailOutput {
 
   @SerializedName("Description")
   private String description = null;
+
+  @SerializedName("EipId")
+  private String eipId = null;
 
   @SerializedName("EnableReadOnly")
   private String enableReadOnly = null;
@@ -57,11 +63,47 @@ public class EndpointForDescribeDBInstanceDetailOutput {
   @SerializedName("EndpointType")
   private String endpointType = null;
 
+  @SerializedName("PublicIPAddress")
+  private String publicIPAddress = null;
+
+  @SerializedName("ReadOnlyNodeDistributionType")
+  private String readOnlyNodeDistributionType = null;
+
+  @SerializedName("ReadOnlyNodeMaxDelayTime")
+  private Integer readOnlyNodeMaxDelayTime = null;
+
   @SerializedName("ReadOnlyNodeWeight")
   private List<ReadOnlyNodeWeightForDescribeDBInstanceDetailOutput> readOnlyNodeWeight = null;
 
   @SerializedName("ReadWriteMode")
   private String readWriteMode = null;
+
+  public EndpointForDescribeDBInstanceDetailOutput address(List<AddressForDescribeDBInstanceDetailOutput> address) {
+    this.address = address;
+    return this;
+  }
+
+  public EndpointForDescribeDBInstanceDetailOutput addAddressItem(AddressForDescribeDBInstanceDetailOutput addressItem) {
+    if (this.address == null) {
+      this.address = new ArrayList<AddressForDescribeDBInstanceDetailOutput>();
+    }
+    this.address.add(addressItem);
+    return this;
+  }
+
+   /**
+   * Get address
+   * @return address
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<AddressForDescribeDBInstanceDetailOutput> getAddress() {
+    return address;
+  }
+
+  public void setAddress(List<AddressForDescribeDBInstanceDetailOutput> address) {
+    this.address = address;
+  }
 
   public EndpointForDescribeDBInstanceDetailOutput addresses(List<AddressForDescribeDBInstanceDetailOutput> addresses) {
     this.addresses = addresses;
@@ -124,6 +166,24 @@ public class EndpointForDescribeDBInstanceDetailOutput {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public EndpointForDescribeDBInstanceDetailOutput eipId(String eipId) {
+    this.eipId = eipId;
+    return this;
+  }
+
+   /**
+   * Get eipId
+   * @return eipId
+  **/
+  @Schema(description = "")
+  public String getEipId() {
+    return eipId;
+  }
+
+  public void setEipId(String eipId) {
+    this.eipId = eipId;
   }
 
   public EndpointForDescribeDBInstanceDetailOutput enableReadOnly(String enableReadOnly) {
@@ -216,6 +276,60 @@ public class EndpointForDescribeDBInstanceDetailOutput {
     this.endpointType = endpointType;
   }
 
+  public EndpointForDescribeDBInstanceDetailOutput publicIPAddress(String publicIPAddress) {
+    this.publicIPAddress = publicIPAddress;
+    return this;
+  }
+
+   /**
+   * Get publicIPAddress
+   * @return publicIPAddress
+  **/
+  @Schema(description = "")
+  public String getPublicIPAddress() {
+    return publicIPAddress;
+  }
+
+  public void setPublicIPAddress(String publicIPAddress) {
+    this.publicIPAddress = publicIPAddress;
+  }
+
+  public EndpointForDescribeDBInstanceDetailOutput readOnlyNodeDistributionType(String readOnlyNodeDistributionType) {
+    this.readOnlyNodeDistributionType = readOnlyNodeDistributionType;
+    return this;
+  }
+
+   /**
+   * Get readOnlyNodeDistributionType
+   * @return readOnlyNodeDistributionType
+  **/
+  @Schema(description = "")
+  public String getReadOnlyNodeDistributionType() {
+    return readOnlyNodeDistributionType;
+  }
+
+  public void setReadOnlyNodeDistributionType(String readOnlyNodeDistributionType) {
+    this.readOnlyNodeDistributionType = readOnlyNodeDistributionType;
+  }
+
+  public EndpointForDescribeDBInstanceDetailOutput readOnlyNodeMaxDelayTime(Integer readOnlyNodeMaxDelayTime) {
+    this.readOnlyNodeMaxDelayTime = readOnlyNodeMaxDelayTime;
+    return this;
+  }
+
+   /**
+   * Get readOnlyNodeMaxDelayTime
+   * @return readOnlyNodeMaxDelayTime
+  **/
+  @Schema(description = "")
+  public Integer getReadOnlyNodeMaxDelayTime() {
+    return readOnlyNodeMaxDelayTime;
+  }
+
+  public void setReadOnlyNodeMaxDelayTime(Integer readOnlyNodeMaxDelayTime) {
+    this.readOnlyNodeMaxDelayTime = readOnlyNodeMaxDelayTime;
+  }
+
   public EndpointForDescribeDBInstanceDetailOutput readOnlyNodeWeight(List<ReadOnlyNodeWeightForDescribeDBInstanceDetailOutput> readOnlyNodeWeight) {
     this.readOnlyNodeWeight = readOnlyNodeWeight;
     return this;
@@ -271,21 +385,26 @@ public class EndpointForDescribeDBInstanceDetailOutput {
       return false;
     }
     EndpointForDescribeDBInstanceDetailOutput endpointForDescribeDBInstanceDetailOutput = (EndpointForDescribeDBInstanceDetailOutput) o;
-    return Objects.equals(this.addresses, endpointForDescribeDBInstanceDetailOutput.addresses) &&
+    return Objects.equals(this.address, endpointForDescribeDBInstanceDetailOutput.address) &&
+        Objects.equals(this.addresses, endpointForDescribeDBInstanceDetailOutput.addresses) &&
         Objects.equals(this.autoAddNewNodes, endpointForDescribeDBInstanceDetailOutput.autoAddNewNodes) &&
         Objects.equals(this.description, endpointForDescribeDBInstanceDetailOutput.description) &&
+        Objects.equals(this.eipId, endpointForDescribeDBInstanceDetailOutput.eipId) &&
         Objects.equals(this.enableReadOnly, endpointForDescribeDBInstanceDetailOutput.enableReadOnly) &&
         Objects.equals(this.enableReadWriteSplitting, endpointForDescribeDBInstanceDetailOutput.enableReadWriteSplitting) &&
         Objects.equals(this.endpointId, endpointForDescribeDBInstanceDetailOutput.endpointId) &&
         Objects.equals(this.endpointName, endpointForDescribeDBInstanceDetailOutput.endpointName) &&
         Objects.equals(this.endpointType, endpointForDescribeDBInstanceDetailOutput.endpointType) &&
+        Objects.equals(this.publicIPAddress, endpointForDescribeDBInstanceDetailOutput.publicIPAddress) &&
+        Objects.equals(this.readOnlyNodeDistributionType, endpointForDescribeDBInstanceDetailOutput.readOnlyNodeDistributionType) &&
+        Objects.equals(this.readOnlyNodeMaxDelayTime, endpointForDescribeDBInstanceDetailOutput.readOnlyNodeMaxDelayTime) &&
         Objects.equals(this.readOnlyNodeWeight, endpointForDescribeDBInstanceDetailOutput.readOnlyNodeWeight) &&
         Objects.equals(this.readWriteMode, endpointForDescribeDBInstanceDetailOutput.readWriteMode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(addresses, autoAddNewNodes, description, enableReadOnly, enableReadWriteSplitting, endpointId, endpointName, endpointType, readOnlyNodeWeight, readWriteMode);
+    return Objects.hash(address, addresses, autoAddNewNodes, description, eipId, enableReadOnly, enableReadWriteSplitting, endpointId, endpointName, endpointType, publicIPAddress, readOnlyNodeDistributionType, readOnlyNodeMaxDelayTime, readOnlyNodeWeight, readWriteMode);
   }
 
 
@@ -294,14 +413,19 @@ public class EndpointForDescribeDBInstanceDetailOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class EndpointForDescribeDBInstanceDetailOutput {\n");
     
+    sb.append("    address: ").append(toIndentedString(address)).append("\n");
     sb.append("    addresses: ").append(toIndentedString(addresses)).append("\n");
     sb.append("    autoAddNewNodes: ").append(toIndentedString(autoAddNewNodes)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    eipId: ").append(toIndentedString(eipId)).append("\n");
     sb.append("    enableReadOnly: ").append(toIndentedString(enableReadOnly)).append("\n");
     sb.append("    enableReadWriteSplitting: ").append(toIndentedString(enableReadWriteSplitting)).append("\n");
     sb.append("    endpointId: ").append(toIndentedString(endpointId)).append("\n");
     sb.append("    endpointName: ").append(toIndentedString(endpointName)).append("\n");
     sb.append("    endpointType: ").append(toIndentedString(endpointType)).append("\n");
+    sb.append("    publicIPAddress: ").append(toIndentedString(publicIPAddress)).append("\n");
+    sb.append("    readOnlyNodeDistributionType: ").append(toIndentedString(readOnlyNodeDistributionType)).append("\n");
+    sb.append("    readOnlyNodeMaxDelayTime: ").append(toIndentedString(readOnlyNodeMaxDelayTime)).append("\n");
     sb.append("    readOnlyNodeWeight: ").append(toIndentedString(readOnlyNodeWeight)).append("\n");
     sb.append("    readWriteMode: ").append(toIndentedString(readWriteMode)).append("\n");
     sb.append("}");

@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.rdsmysqlv2.model.AccountPrivilegeForCreateDBAccountInput;
+import com.volcengine.rdsmysqlv2.model.AccountPrivilegesInfoForCreateDBAccountInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -32,6 +33,9 @@ import javax.validation.Valid;
 
 
 public class CreateDBAccountRequest {
+  @SerializedName("AccountDesc")
+  private String accountDesc = null;
+
   @SerializedName("AccountName")
   private String accountName = null;
 
@@ -41,11 +45,32 @@ public class CreateDBAccountRequest {
   @SerializedName("AccountPrivileges")
   private List<AccountPrivilegeForCreateDBAccountInput> accountPrivileges = null;
 
+  @SerializedName("AccountPrivilegesInfo")
+  private List<AccountPrivilegesInfoForCreateDBAccountInput> accountPrivilegesInfo = null;
+
   @SerializedName("AccountType")
   private String accountType = null;
 
   @SerializedName("InstanceId")
   private String instanceId = null;
+
+  public CreateDBAccountRequest accountDesc(String accountDesc) {
+    this.accountDesc = accountDesc;
+    return this;
+  }
+
+   /**
+   * Get accountDesc
+   * @return accountDesc
+  **/
+  @Schema(description = "")
+  public String getAccountDesc() {
+    return accountDesc;
+  }
+
+  public void setAccountDesc(String accountDesc) {
+    this.accountDesc = accountDesc;
+  }
 
   public CreateDBAccountRequest accountName(String accountName) {
     this.accountName = accountName;
@@ -110,6 +135,33 @@ public class CreateDBAccountRequest {
     this.accountPrivileges = accountPrivileges;
   }
 
+  public CreateDBAccountRequest accountPrivilegesInfo(List<AccountPrivilegesInfoForCreateDBAccountInput> accountPrivilegesInfo) {
+    this.accountPrivilegesInfo = accountPrivilegesInfo;
+    return this;
+  }
+
+  public CreateDBAccountRequest addAccountPrivilegesInfoItem(AccountPrivilegesInfoForCreateDBAccountInput accountPrivilegesInfoItem) {
+    if (this.accountPrivilegesInfo == null) {
+      this.accountPrivilegesInfo = new ArrayList<AccountPrivilegesInfoForCreateDBAccountInput>();
+    }
+    this.accountPrivilegesInfo.add(accountPrivilegesInfoItem);
+    return this;
+  }
+
+   /**
+   * Get accountPrivilegesInfo
+   * @return accountPrivilegesInfo
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<AccountPrivilegesInfoForCreateDBAccountInput> getAccountPrivilegesInfo() {
+    return accountPrivilegesInfo;
+  }
+
+  public void setAccountPrivilegesInfo(List<AccountPrivilegesInfoForCreateDBAccountInput> accountPrivilegesInfo) {
+    this.accountPrivilegesInfo = accountPrivilegesInfo;
+  }
+
   public CreateDBAccountRequest accountType(String accountType) {
     this.accountType = accountType;
     return this;
@@ -157,16 +209,18 @@ public class CreateDBAccountRequest {
       return false;
     }
     CreateDBAccountRequest createDBAccountRequest = (CreateDBAccountRequest) o;
-    return Objects.equals(this.accountName, createDBAccountRequest.accountName) &&
+    return Objects.equals(this.accountDesc, createDBAccountRequest.accountDesc) &&
+        Objects.equals(this.accountName, createDBAccountRequest.accountName) &&
         Objects.equals(this.accountPassword, createDBAccountRequest.accountPassword) &&
         Objects.equals(this.accountPrivileges, createDBAccountRequest.accountPrivileges) &&
+        Objects.equals(this.accountPrivilegesInfo, createDBAccountRequest.accountPrivilegesInfo) &&
         Objects.equals(this.accountType, createDBAccountRequest.accountType) &&
         Objects.equals(this.instanceId, createDBAccountRequest.instanceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountName, accountPassword, accountPrivileges, accountType, instanceId);
+    return Objects.hash(accountDesc, accountName, accountPassword, accountPrivileges, accountPrivilegesInfo, accountType, instanceId);
   }
 
 
@@ -175,9 +229,11 @@ public class CreateDBAccountRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateDBAccountRequest {\n");
     
+    sb.append("    accountDesc: ").append(toIndentedString(accountDesc)).append("\n");
     sb.append("    accountName: ").append(toIndentedString(accountName)).append("\n");
     sb.append("    accountPassword: ").append(toIndentedString(accountPassword)).append("\n");
     sb.append("    accountPrivileges: ").append(toIndentedString(accountPrivileges)).append("\n");
+    sb.append("    accountPrivilegesInfo: ").append(toIndentedString(accountPrivilegesInfo)).append("\n");
     sb.append("    accountType: ").append(toIndentedString(accountType)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("}");
