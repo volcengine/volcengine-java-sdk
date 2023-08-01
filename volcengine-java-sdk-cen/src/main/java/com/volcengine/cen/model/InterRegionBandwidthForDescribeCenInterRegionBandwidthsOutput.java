@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class InterRegionBandwidthForDescribeCenInterRegionBandwidthsOutput {
   @SerializedName("Bandwidth")
   private Integer bandwidth = null;

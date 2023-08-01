@@ -31,7 +31,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class CenForDescribeCensOutput {
   @SerializedName("AccountId")
   private String accountId = null;
