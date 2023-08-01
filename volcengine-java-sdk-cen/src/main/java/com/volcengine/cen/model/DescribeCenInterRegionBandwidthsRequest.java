@@ -30,7 +30,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class DescribeCenInterRegionBandwidthsRequest {
   @SerializedName("InterRegionBandwidthIds")
   private List<String> interRegionBandwidthIds = null;

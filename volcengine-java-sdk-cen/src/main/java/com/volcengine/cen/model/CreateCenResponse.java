@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class CreateCenResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("CenId")
   private String cenId = null;

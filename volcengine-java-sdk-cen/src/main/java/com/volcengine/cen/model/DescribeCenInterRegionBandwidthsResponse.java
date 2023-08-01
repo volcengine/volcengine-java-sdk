@@ -31,7 +31,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class DescribeCenInterRegionBandwidthsResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("InterRegionBandwidths")
   private List<InterRegionBandwidthForDescribeCenInterRegionBandwidthsOutput> interRegionBandwidths = null;

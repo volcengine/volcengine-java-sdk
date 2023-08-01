@@ -31,7 +31,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class DescribeInstanceGrantedRulesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("CenGrantRules")
   private List<CenGrantRuleForDescribeInstanceGrantedRulesOutput> cenGrantRules = null;

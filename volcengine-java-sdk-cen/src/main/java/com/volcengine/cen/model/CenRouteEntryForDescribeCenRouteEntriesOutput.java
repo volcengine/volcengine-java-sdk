@@ -30,7 +30,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class CenRouteEntryForDescribeCenRouteEntriesOutput {
   @SerializedName("AsPath")
   private List<String> asPath = null;
