@@ -31,7 +31,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class CreateCenBandwidthPackageRequest {
   @SerializedName("Bandwidth")
   private Integer bandwidth = null;
@@ -65,9 +64,7 @@ public class CreateCenBandwidthPackageRequest {
    */
   @JsonAdapter(PeriodUnitEnum.Adapter.class)
   public enum PeriodUnitEnum {
-    @SerializedName("Moth")
     MOTH("Moth"),
-    @SerializedName("Year")
     YEAR("Year");
 
     private String value;

@@ -21,7 +21,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class UntagResourcesResponse extends com.volcengine.model.AbstractResponse {
 
   @Override

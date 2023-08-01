@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class DisassociateCenBandwidthPackageRequest {
   @SerializedName("CenBandwidthPackageId")
   private String cenBandwidthPackageId = null;
