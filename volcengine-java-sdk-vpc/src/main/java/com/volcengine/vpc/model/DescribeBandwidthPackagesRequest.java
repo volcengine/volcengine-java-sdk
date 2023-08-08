@@ -46,7 +46,10 @@ public class DescribeBandwidthPackagesRequest {
     BGP("BGP"),
     CHINAMOBILE("ChinaMobile"),
     CHINAUNICOM("ChinaUnicom"),
-    CHINATELECOM("ChinaTelecom");
+    CHINATELECOM("ChinaTelecom"),
+    CHINAMOBILE_VALUE("ChinaMobile_Value"),
+    CHINAUNICOM_VALUE("ChinaUnicom_Value"),
+    CHINATELECOM_VALUE("ChinaTelecom_Value");
 
     private String value;
 
