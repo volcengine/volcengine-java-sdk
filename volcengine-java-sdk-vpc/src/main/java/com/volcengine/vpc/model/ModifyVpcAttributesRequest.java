@@ -38,7 +38,7 @@ public class ModifyVpcAttributesRequest {
   private List<String> dnsServers = null;
 
   @SerializedName("EnableIpv6")
-  private String enableIpv6 = null;
+  private Boolean enableIpv6 = null;
 
   @SerializedName("Ipv6CidrBlock")
   private String ipv6CidrBlock = null;
@@ -93,7 +93,7 @@ public class ModifyVpcAttributesRequest {
     this.dnsServers = dnsServers;
   }
 
-  public ModifyVpcAttributesRequest enableIpv6(String enableIpv6) {
+  public ModifyVpcAttributesRequest enableIpv6(Boolean enableIpv6) {
     this.enableIpv6 = enableIpv6;
     return this;
   }
@@ -103,11 +103,11 @@ public class ModifyVpcAttributesRequest {
    * @return enableIpv6
   **/
   @Schema(description = "")
-  public String getEnableIpv6() {
+  public Boolean isEnableIpv6() {
     return enableIpv6;
   }
 
-  public void setEnableIpv6(String enableIpv6) {
+  public void setEnableIpv6(Boolean enableIpv6) {
     this.enableIpv6 = enableIpv6;
   }
 
