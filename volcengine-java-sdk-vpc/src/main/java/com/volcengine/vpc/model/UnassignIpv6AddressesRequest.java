@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -29,14 +31,22 @@ import javax.validation.Valid;
 
 
 public class UnassignIpv6AddressesRequest {
-  @SerializedName("IPv6Address")
-  private String ipv6Address = null;
+  @SerializedName("Ipv6Address")
+  private List<String> ipv6Address = null;
 
   @SerializedName("NetworkInterfaceId")
   private String networkInterfaceId = null;
 
-  public UnassignIpv6AddressesRequest ipv6Address(String ipv6Address) {
+  public UnassignIpv6AddressesRequest ipv6Address(List<String> ipv6Address) {
     this.ipv6Address = ipv6Address;
+    return this;
+  }
+
+  public UnassignIpv6AddressesRequest addIpv6AddressItem(String ipv6AddressItem) {
+    if (this.ipv6Address == null) {
+      this.ipv6Address = new ArrayList<String>();
+    }
+    this.ipv6Address.add(ipv6AddressItem);
     return this;
   }
 
@@ -45,11 +55,11 @@ public class UnassignIpv6AddressesRequest {
    * @return ipv6Address
   **/
   @Schema(description = "")
-  public String getIpv6Address() {
+  public List<String> getIpv6Address() {
     return ipv6Address;
   }
 
-  public void setIpv6Address(String ipv6Address) {
+  public void setIpv6Address(List<String> ipv6Address) {
     this.ipv6Address = ipv6Address;
   }
 

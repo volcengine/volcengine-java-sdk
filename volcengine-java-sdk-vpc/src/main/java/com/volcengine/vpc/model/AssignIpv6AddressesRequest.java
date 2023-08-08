@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -29,17 +31,25 @@ import javax.validation.Valid;
 
 
 public class AssignIpv6AddressesRequest {
-  @SerializedName("IPv6Address")
-  private String ipv6Address = null;
+  @SerializedName("Ipv6Address")
+  private List<String> ipv6Address = null;
 
-  @SerializedName("IPv6AddressCount")
-  private String ipv6AddressCount = null;
+  @SerializedName("Ipv6AddressCount")
+  private Integer ipv6AddressCount = null;
 
   @SerializedName("NetworkInterfaceId")
   private String networkInterfaceId = null;
 
-  public AssignIpv6AddressesRequest ipv6Address(String ipv6Address) {
+  public AssignIpv6AddressesRequest ipv6Address(List<String> ipv6Address) {
     this.ipv6Address = ipv6Address;
+    return this;
+  }
+
+  public AssignIpv6AddressesRequest addIpv6AddressItem(String ipv6AddressItem) {
+    if (this.ipv6Address == null) {
+      this.ipv6Address = new ArrayList<String>();
+    }
+    this.ipv6Address.add(ipv6AddressItem);
     return this;
   }
 
@@ -48,15 +58,15 @@ public class AssignIpv6AddressesRequest {
    * @return ipv6Address
   **/
   @Schema(description = "")
-  public String getIpv6Address() {
+  public List<String> getIpv6Address() {
     return ipv6Address;
   }
 
-  public void setIpv6Address(String ipv6Address) {
+  public void setIpv6Address(List<String> ipv6Address) {
     this.ipv6Address = ipv6Address;
   }
 
-  public AssignIpv6AddressesRequest ipv6AddressCount(String ipv6AddressCount) {
+  public AssignIpv6AddressesRequest ipv6AddressCount(Integer ipv6AddressCount) {
     this.ipv6AddressCount = ipv6AddressCount;
     return this;
   }
@@ -66,11 +76,11 @@ public class AssignIpv6AddressesRequest {
    * @return ipv6AddressCount
   **/
   @Schema(description = "")
-  public String getIpv6AddressCount() {
+  public Integer getIpv6AddressCount() {
     return ipv6AddressCount;
   }
 
-  public void setIpv6AddressCount(String ipv6AddressCount) {
+  public void setIpv6AddressCount(Integer ipv6AddressCount) {
     this.ipv6AddressCount = ipv6AddressCount;
   }
 

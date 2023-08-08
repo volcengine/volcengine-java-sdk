@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -29,11 +31,40 @@ import javax.validation.Valid;
 
 
 public class AssignIpv6AddressesResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("Ipv6Set")
+  private List<String> ipv6Set = null;
+
   @SerializedName("NetworkInterfaceId")
   private String networkInterfaceId = null;
 
   @SerializedName("RequestId")
   private String requestId = null;
+
+  public AssignIpv6AddressesResponse ipv6Set(List<String> ipv6Set) {
+    this.ipv6Set = ipv6Set;
+    return this;
+  }
+
+  public AssignIpv6AddressesResponse addIpv6SetItem(String ipv6SetItem) {
+    if (this.ipv6Set == null) {
+      this.ipv6Set = new ArrayList<String>();
+    }
+    this.ipv6Set.add(ipv6SetItem);
+    return this;
+  }
+
+   /**
+   * Get ipv6Set
+   * @return ipv6Set
+  **/
+  @Schema(description = "")
+  public List<String> getIpv6Set() {
+    return ipv6Set;
+  }
+
+  public void setIpv6Set(List<String> ipv6Set) {
+    this.ipv6Set = ipv6Set;
+  }
 
   public AssignIpv6AddressesResponse networkInterfaceId(String networkInterfaceId) {
     this.networkInterfaceId = networkInterfaceId;
@@ -81,13 +112,14 @@ public class AssignIpv6AddressesResponse extends com.volcengine.model.AbstractRe
       return false;
     }
     AssignIpv6AddressesResponse assignIpv6AddressesResponse = (AssignIpv6AddressesResponse) o;
-    return Objects.equals(this.networkInterfaceId, assignIpv6AddressesResponse.networkInterfaceId) &&
+    return Objects.equals(this.ipv6Set, assignIpv6AddressesResponse.ipv6Set) &&
+        Objects.equals(this.networkInterfaceId, assignIpv6AddressesResponse.networkInterfaceId) &&
         Objects.equals(this.requestId, assignIpv6AddressesResponse.requestId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(networkInterfaceId, requestId);
+    return Objects.hash(ipv6Set, networkInterfaceId, requestId);
   }
 
 
@@ -96,6 +128,7 @@ public class AssignIpv6AddressesResponse extends com.volcengine.model.AbstractRe
     StringBuilder sb = new StringBuilder();
     sb.append("class AssignIpv6AddressesResponse {\n");
     
+    sb.append("    ipv6Set: ").append(toIndentedString(ipv6Set)).append("\n");
     sb.append("    networkInterfaceId: ").append(toIndentedString(networkInterfaceId)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("}");
