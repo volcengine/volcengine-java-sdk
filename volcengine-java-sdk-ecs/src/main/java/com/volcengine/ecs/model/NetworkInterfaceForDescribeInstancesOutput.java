@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -29,6 +31,9 @@ import javax.validation.Valid;
 
 
 public class NetworkInterfaceForDescribeInstancesOutput {
+  @SerializedName("Ipv6Addresses")
+  private List<String> ipv6Addresses = null;
+
   @SerializedName("MacAddress")
   private String macAddress = null;
 
@@ -46,6 +51,32 @@ public class NetworkInterfaceForDescribeInstancesOutput {
 
   @SerializedName("VpcId")
   private String vpcId = null;
+
+  public NetworkInterfaceForDescribeInstancesOutput ipv6Addresses(List<String> ipv6Addresses) {
+    this.ipv6Addresses = ipv6Addresses;
+    return this;
+  }
+
+  public NetworkInterfaceForDescribeInstancesOutput addIpv6AddressesItem(String ipv6AddressesItem) {
+    if (this.ipv6Addresses == null) {
+      this.ipv6Addresses = new ArrayList<String>();
+    }
+    this.ipv6Addresses.add(ipv6AddressesItem);
+    return this;
+  }
+
+   /**
+   * Get ipv6Addresses
+   * @return ipv6Addresses
+  **/
+  @Schema(description = "")
+  public List<String> getIpv6Addresses() {
+    return ipv6Addresses;
+  }
+
+  public void setIpv6Addresses(List<String> ipv6Addresses) {
+    this.ipv6Addresses = ipv6Addresses;
+  }
 
   public NetworkInterfaceForDescribeInstancesOutput macAddress(String macAddress) {
     this.macAddress = macAddress;
@@ -165,7 +196,8 @@ public class NetworkInterfaceForDescribeInstancesOutput {
       return false;
     }
     NetworkInterfaceForDescribeInstancesOutput networkInterfaceForDescribeInstancesOutput = (NetworkInterfaceForDescribeInstancesOutput) o;
-    return Objects.equals(this.macAddress, networkInterfaceForDescribeInstancesOutput.macAddress) &&
+    return Objects.equals(this.ipv6Addresses, networkInterfaceForDescribeInstancesOutput.ipv6Addresses) &&
+        Objects.equals(this.macAddress, networkInterfaceForDescribeInstancesOutput.macAddress) &&
         Objects.equals(this.networkInterfaceId, networkInterfaceForDescribeInstancesOutput.networkInterfaceId) &&
         Objects.equals(this.primaryIpAddress, networkInterfaceForDescribeInstancesOutput.primaryIpAddress) &&
         Objects.equals(this.subnetId, networkInterfaceForDescribeInstancesOutput.subnetId) &&
@@ -175,7 +207,7 @@ public class NetworkInterfaceForDescribeInstancesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(macAddress, networkInterfaceId, primaryIpAddress, subnetId, type, vpcId);
+    return Objects.hash(ipv6Addresses, macAddress, networkInterfaceId, primaryIpAddress, subnetId, type, vpcId);
   }
 
 
@@ -184,6 +216,7 @@ public class NetworkInterfaceForDescribeInstancesOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class NetworkInterfaceForDescribeInstancesOutput {\n");
     
+    sb.append("    ipv6Addresses: ").append(toIndentedString(ipv6Addresses)).append("\n");
     sb.append("    macAddress: ").append(toIndentedString(macAddress)).append("\n");
     sb.append("    networkInterfaceId: ").append(toIndentedString(networkInterfaceId)).append("\n");
     sb.append("    primaryIpAddress: ").append(toIndentedString(primaryIpAddress)).append("\n");
