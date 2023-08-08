@@ -45,6 +45,9 @@ public class SubnetForDescribeSubnetsOutput {
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("Ipv6CidrBlock")
+  private String ipv6CidrBlock = null;
+
   @SerializedName("IsDefault")
   private Boolean isDefault = null;
 
@@ -166,6 +169,24 @@ public class SubnetForDescribeSubnetsOutput {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public SubnetForDescribeSubnetsOutput ipv6CidrBlock(String ipv6CidrBlock) {
+    this.ipv6CidrBlock = ipv6CidrBlock;
+    return this;
+  }
+
+   /**
+   * Get ipv6CidrBlock
+   * @return ipv6CidrBlock
+  **/
+  @Schema(description = "")
+  public String getIpv6CidrBlock() {
+    return ipv6CidrBlock;
+  }
+
+  public void setIpv6CidrBlock(String ipv6CidrBlock) {
+    this.ipv6CidrBlock = ipv6CidrBlock;
   }
 
   public SubnetForDescribeSubnetsOutput isDefault(Boolean isDefault) {
@@ -382,6 +403,7 @@ public class SubnetForDescribeSubnetsOutput {
         Objects.equals(this.cidrBlock, subnetForDescribeSubnetsOutput.cidrBlock) &&
         Objects.equals(this.creationTime, subnetForDescribeSubnetsOutput.creationTime) &&
         Objects.equals(this.description, subnetForDescribeSubnetsOutput.description) &&
+        Objects.equals(this.ipv6CidrBlock, subnetForDescribeSubnetsOutput.ipv6CidrBlock) &&
         Objects.equals(this.isDefault, subnetForDescribeSubnetsOutput.isDefault) &&
         Objects.equals(this.networkAclId, subnetForDescribeSubnetsOutput.networkAclId) &&
         Objects.equals(this.projectName, subnetForDescribeSubnetsOutput.projectName) &&
@@ -397,7 +419,7 @@ public class SubnetForDescribeSubnetsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, availableIpAddressCount, cidrBlock, creationTime, description, isDefault, networkAclId, projectName, routeTable, status, subnetId, subnetName, totalIpv4Count, updateTime, vpcId, zoneId);
+    return Objects.hash(accountId, availableIpAddressCount, cidrBlock, creationTime, description, ipv6CidrBlock, isDefault, networkAclId, projectName, routeTable, status, subnetId, subnetName, totalIpv4Count, updateTime, vpcId, zoneId);
   }
 
 
@@ -411,6 +433,7 @@ public class SubnetForDescribeSubnetsOutput {
     sb.append("    cidrBlock: ").append(toIndentedString(cidrBlock)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    ipv6CidrBlock: ").append(toIndentedString(ipv6CidrBlock)).append("\n");
     sb.append("    isDefault: ").append(toIndentedString(isDefault)).append("\n");
     sb.append("    networkAclId: ").append(toIndentedString(networkAclId)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");

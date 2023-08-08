@@ -38,6 +38,12 @@ public class CreateNetworkInterfaceRequest {
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("Ipv6Address")
+  private List<String> ipv6Address = null;
+
+  @SerializedName("Ipv6AddressCount")
+  private Integer ipv6AddressCount = null;
+
   @SerializedName("NetworkInterfaceName")
   private String networkInterfaceName = null;
 
@@ -99,6 +105,50 @@ public class CreateNetworkInterfaceRequest {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public CreateNetworkInterfaceRequest ipv6Address(List<String> ipv6Address) {
+    this.ipv6Address = ipv6Address;
+    return this;
+  }
+
+  public CreateNetworkInterfaceRequest addIpv6AddressItem(String ipv6AddressItem) {
+    if (this.ipv6Address == null) {
+      this.ipv6Address = new ArrayList<String>();
+    }
+    this.ipv6Address.add(ipv6AddressItem);
+    return this;
+  }
+
+   /**
+   * Get ipv6Address
+   * @return ipv6Address
+  **/
+  @Schema(description = "")
+  public List<String> getIpv6Address() {
+    return ipv6Address;
+  }
+
+  public void setIpv6Address(List<String> ipv6Address) {
+    this.ipv6Address = ipv6Address;
+  }
+
+  public CreateNetworkInterfaceRequest ipv6AddressCount(Integer ipv6AddressCount) {
+    this.ipv6AddressCount = ipv6AddressCount;
+    return this;
+  }
+
+   /**
+   * Get ipv6AddressCount
+   * @return ipv6AddressCount
+  **/
+  @Schema(description = "")
+  public Integer getIpv6AddressCount() {
+    return ipv6AddressCount;
+  }
+
+  public void setIpv6AddressCount(Integer ipv6AddressCount) {
+    this.ipv6AddressCount = ipv6AddressCount;
   }
 
   public CreateNetworkInterfaceRequest networkInterfaceName(String networkInterfaceName) {
@@ -301,6 +351,8 @@ public class CreateNetworkInterfaceRequest {
     CreateNetworkInterfaceRequest createNetworkInterfaceRequest = (CreateNetworkInterfaceRequest) o;
     return Objects.equals(this.clientToken, createNetworkInterfaceRequest.clientToken) &&
         Objects.equals(this.description, createNetworkInterfaceRequest.description) &&
+        Objects.equals(this.ipv6Address, createNetworkInterfaceRequest.ipv6Address) &&
+        Objects.equals(this.ipv6AddressCount, createNetworkInterfaceRequest.ipv6AddressCount) &&
         Objects.equals(this.networkInterfaceName, createNetworkInterfaceRequest.networkInterfaceName) &&
         Objects.equals(this.portSecurityEnabled, createNetworkInterfaceRequest.portSecurityEnabled) &&
         Objects.equals(this.primaryIpAddress, createNetworkInterfaceRequest.primaryIpAddress) &&
@@ -314,7 +366,7 @@ public class CreateNetworkInterfaceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, description, networkInterfaceName, portSecurityEnabled, primaryIpAddress, privateIpAddress, projectName, secondaryPrivateIpAddressCount, securityGroupIds, subnetId, tags);
+    return Objects.hash(clientToken, description, ipv6Address, ipv6AddressCount, networkInterfaceName, portSecurityEnabled, primaryIpAddress, privateIpAddress, projectName, secondaryPrivateIpAddressCount, securityGroupIds, subnetId, tags);
   }
 
 
@@ -325,6 +377,8 @@ public class CreateNetworkInterfaceRequest {
     
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    ipv6Address: ").append(toIndentedString(ipv6Address)).append("\n");
+    sb.append("    ipv6AddressCount: ").append(toIndentedString(ipv6AddressCount)).append("\n");
     sb.append("    networkInterfaceName: ").append(toIndentedString(networkInterfaceName)).append("\n");
     sb.append("    portSecurityEnabled: ").append(toIndentedString(portSecurityEnabled)).append("\n");
     sb.append("    primaryIpAddress: ").append(toIndentedString(primaryIpAddress)).append("\n");
