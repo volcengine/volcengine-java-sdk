@@ -45,6 +45,9 @@ public class DescribeSubnetAttributesResponse extends com.volcengine.model.Abstr
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("Ipv6CidrBlock")
+  private String ipv6CidrBlock = null;
+
   @SerializedName("IsDefault")
   private Boolean isDefault = null;
 
@@ -169,6 +172,24 @@ public class DescribeSubnetAttributesResponse extends com.volcengine.model.Abstr
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public DescribeSubnetAttributesResponse ipv6CidrBlock(String ipv6CidrBlock) {
+    this.ipv6CidrBlock = ipv6CidrBlock;
+    return this;
+  }
+
+   /**
+   * Get ipv6CidrBlock
+   * @return ipv6CidrBlock
+  **/
+  @Schema(description = "")
+  public String getIpv6CidrBlock() {
+    return ipv6CidrBlock;
+  }
+
+  public void setIpv6CidrBlock(String ipv6CidrBlock) {
+    this.ipv6CidrBlock = ipv6CidrBlock;
   }
 
   public DescribeSubnetAttributesResponse isDefault(Boolean isDefault) {
@@ -403,6 +424,7 @@ public class DescribeSubnetAttributesResponse extends com.volcengine.model.Abstr
         Objects.equals(this.cidrBlock, describeSubnetAttributesResponse.cidrBlock) &&
         Objects.equals(this.creationTime, describeSubnetAttributesResponse.creationTime) &&
         Objects.equals(this.description, describeSubnetAttributesResponse.description) &&
+        Objects.equals(this.ipv6CidrBlock, describeSubnetAttributesResponse.ipv6CidrBlock) &&
         Objects.equals(this.isDefault, describeSubnetAttributesResponse.isDefault) &&
         Objects.equals(this.networkAclId, describeSubnetAttributesResponse.networkAclId) &&
         Objects.equals(this.projectName, describeSubnetAttributesResponse.projectName) &&
@@ -419,7 +441,7 @@ public class DescribeSubnetAttributesResponse extends com.volcengine.model.Abstr
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, availableIpAddressCount, cidrBlock, creationTime, description, isDefault, networkAclId, projectName, requestId, routeTable, status, subnetId, subnetName, totalIpv4Count, updateTime, vpcId, zoneId);
+    return Objects.hash(accountId, availableIpAddressCount, cidrBlock, creationTime, description, ipv6CidrBlock, isDefault, networkAclId, projectName, requestId, routeTable, status, subnetId, subnetName, totalIpv4Count, updateTime, vpcId, zoneId);
   }
 
 
@@ -433,6 +455,7 @@ public class DescribeSubnetAttributesResponse extends com.volcengine.model.Abstr
     sb.append("    cidrBlock: ").append(toIndentedString(cidrBlock)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    ipv6CidrBlock: ").append(toIndentedString(ipv6CidrBlock)).append("\n");
     sb.append("    isDefault: ").append(toIndentedString(isDefault)).append("\n");
     sb.append("    networkAclId: ").append(toIndentedString(networkAclId)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");

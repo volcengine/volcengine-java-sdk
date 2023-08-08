@@ -51,6 +51,9 @@ public class DescribeVpcAttributesResponse extends com.volcengine.model.Abstract
   @SerializedName("DnsServers")
   private List<String> dnsServers = null;
 
+  @SerializedName("Ipv6CidrBlock")
+  private String ipv6CidrBlock = null;
+
   @SerializedName("IsDefault")
   private Boolean isDefault = null;
 
@@ -216,6 +219,24 @@ public class DescribeVpcAttributesResponse extends com.volcengine.model.Abstract
 
   public void setDnsServers(List<String> dnsServers) {
     this.dnsServers = dnsServers;
+  }
+
+  public DescribeVpcAttributesResponse ipv6CidrBlock(String ipv6CidrBlock) {
+    this.ipv6CidrBlock = ipv6CidrBlock;
+    return this;
+  }
+
+   /**
+   * Get ipv6CidrBlock
+   * @return ipv6CidrBlock
+  **/
+  @Schema(description = "")
+  public String getIpv6CidrBlock() {
+    return ipv6CidrBlock;
+  }
+
+  public void setIpv6CidrBlock(String ipv6CidrBlock) {
+    this.ipv6CidrBlock = ipv6CidrBlock;
   }
 
   public DescribeVpcAttributesResponse isDefault(Boolean isDefault) {
@@ -535,6 +556,7 @@ public class DescribeVpcAttributesResponse extends com.volcengine.model.Abstract
         Objects.equals(this.creationTime, describeVpcAttributesResponse.creationTime) &&
         Objects.equals(this.description, describeVpcAttributesResponse.description) &&
         Objects.equals(this.dnsServers, describeVpcAttributesResponse.dnsServers) &&
+        Objects.equals(this.ipv6CidrBlock, describeVpcAttributesResponse.ipv6CidrBlock) &&
         Objects.equals(this.isDefault, describeVpcAttributesResponse.isDefault) &&
         Objects.equals(this.natGatewayIds, describeVpcAttributesResponse.natGatewayIds) &&
         Objects.equals(this.networkAclNum, describeVpcAttributesResponse.networkAclNum) &&
@@ -553,7 +575,7 @@ public class DescribeVpcAttributesResponse extends com.volcengine.model.Abstract
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, associateCens, cidrBlock, creationTime, description, dnsServers, isDefault, natGatewayIds, networkAclNum, projectName, requestId, routeTableIds, securityGroupIds, status, subnetIds, tags, updateTime, userCidrBlocks, vpcId, vpcName);
+    return Objects.hash(accountId, associateCens, cidrBlock, creationTime, description, dnsServers, ipv6CidrBlock, isDefault, natGatewayIds, networkAclNum, projectName, requestId, routeTableIds, securityGroupIds, status, subnetIds, tags, updateTime, userCidrBlocks, vpcId, vpcName);
   }
 
 
@@ -568,6 +590,7 @@ public class DescribeVpcAttributesResponse extends com.volcengine.model.Abstract
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    dnsServers: ").append(toIndentedString(dnsServers)).append("\n");
+    sb.append("    ipv6CidrBlock: ").append(toIndentedString(ipv6CidrBlock)).append("\n");
     sb.append("    isDefault: ").append(toIndentedString(isDefault)).append("\n");
     sb.append("    natGatewayIds: ").append(toIndentedString(natGatewayIds)).append("\n");
     sb.append("    networkAclNum: ").append(toIndentedString(networkAclNum)).append("\n");

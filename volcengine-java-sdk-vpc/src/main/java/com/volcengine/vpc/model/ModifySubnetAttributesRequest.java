@@ -32,6 +32,12 @@ public class ModifySubnetAttributesRequest {
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("EnableIpv6")
+  private Boolean enableIpv6 = null;
+
+  @SerializedName("Ipv6CidrBlock")
+  private Integer ipv6CidrBlock = null;
+
   @SerializedName("SubnetId")
   private String subnetId = null;
 
@@ -54,6 +60,44 @@ public class ModifySubnetAttributesRequest {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public ModifySubnetAttributesRequest enableIpv6(Boolean enableIpv6) {
+    this.enableIpv6 = enableIpv6;
+    return this;
+  }
+
+   /**
+   * Get enableIpv6
+   * @return enableIpv6
+  **/
+  @Schema(description = "")
+  public Boolean isEnableIpv6() {
+    return enableIpv6;
+  }
+
+  public void setEnableIpv6(Boolean enableIpv6) {
+    this.enableIpv6 = enableIpv6;
+  }
+
+  public ModifySubnetAttributesRequest ipv6CidrBlock(Integer ipv6CidrBlock) {
+    this.ipv6CidrBlock = ipv6CidrBlock;
+    return this;
+  }
+
+   /**
+   * Get ipv6CidrBlock
+   * minimum: 0
+   * maximum: 255
+   * @return ipv6CidrBlock
+  **/
+ @Min(0) @Max(255)  @Schema(description = "")
+  public Integer getIpv6CidrBlock() {
+    return ipv6CidrBlock;
+  }
+
+  public void setIpv6CidrBlock(Integer ipv6CidrBlock) {
+    this.ipv6CidrBlock = ipv6CidrBlock;
   }
 
   public ModifySubnetAttributesRequest subnetId(String subnetId) {
@@ -104,13 +148,15 @@ public class ModifySubnetAttributesRequest {
     }
     ModifySubnetAttributesRequest modifySubnetAttributesRequest = (ModifySubnetAttributesRequest) o;
     return Objects.equals(this.description, modifySubnetAttributesRequest.description) &&
+        Objects.equals(this.enableIpv6, modifySubnetAttributesRequest.enableIpv6) &&
+        Objects.equals(this.ipv6CidrBlock, modifySubnetAttributesRequest.ipv6CidrBlock) &&
         Objects.equals(this.subnetId, modifySubnetAttributesRequest.subnetId) &&
         Objects.equals(this.subnetName, modifySubnetAttributesRequest.subnetName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, subnetId, subnetName);
+    return Objects.hash(description, enableIpv6, ipv6CidrBlock, subnetId, subnetName);
   }
 
 
@@ -120,6 +166,8 @@ public class ModifySubnetAttributesRequest {
     sb.append("class ModifySubnetAttributesRequest {\n");
     
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    enableIpv6: ").append(toIndentedString(enableIpv6)).append("\n");
+    sb.append("    ipv6CidrBlock: ").append(toIndentedString(ipv6CidrBlock)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    subnetName: ").append(toIndentedString(subnetName)).append("\n");
     sb.append("}");
