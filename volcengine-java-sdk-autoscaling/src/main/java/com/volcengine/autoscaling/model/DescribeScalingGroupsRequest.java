@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.autoscaling.model.TagFilterForDescribeScalingGroupsInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -30,7 +31,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class DescribeScalingGroupsRequest {
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
@@ -38,11 +38,17 @@ public class DescribeScalingGroupsRequest {
   @SerializedName("PageSize")
   private Integer pageSize = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("ScalingGroupIds")
   private List<String> scalingGroupIds = null;
 
   @SerializedName("ScalingGroupNames")
   private List<String> scalingGroupNames = null;
+
+  @SerializedName("TagFilters")
+  private List<TagFilterForDescribeScalingGroupsInput> tagFilters = null;
 
   public DescribeScalingGroupsRequest pageNumber(Integer pageNumber) {
     this.pageNumber = pageNumber;
@@ -78,6 +84,24 @@ public class DescribeScalingGroupsRequest {
 
   public void setPageSize(Integer pageSize) {
     this.pageSize = pageSize;
+  }
+
+  public DescribeScalingGroupsRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
   }
 
   public DescribeScalingGroupsRequest scalingGroupIds(List<String> scalingGroupIds) {
@@ -132,6 +156,33 @@ public class DescribeScalingGroupsRequest {
     this.scalingGroupNames = scalingGroupNames;
   }
 
+  public DescribeScalingGroupsRequest tagFilters(List<TagFilterForDescribeScalingGroupsInput> tagFilters) {
+    this.tagFilters = tagFilters;
+    return this;
+  }
+
+  public DescribeScalingGroupsRequest addTagFiltersItem(TagFilterForDescribeScalingGroupsInput tagFiltersItem) {
+    if (this.tagFilters == null) {
+      this.tagFilters = new ArrayList<TagFilterForDescribeScalingGroupsInput>();
+    }
+    this.tagFilters.add(tagFiltersItem);
+    return this;
+  }
+
+   /**
+   * Get tagFilters
+   * @return tagFilters
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagFilterForDescribeScalingGroupsInput> getTagFilters() {
+    return tagFilters;
+  }
+
+  public void setTagFilters(List<TagFilterForDescribeScalingGroupsInput> tagFilters) {
+    this.tagFilters = tagFilters;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -144,13 +195,15 @@ public class DescribeScalingGroupsRequest {
     DescribeScalingGroupsRequest describeScalingGroupsRequest = (DescribeScalingGroupsRequest) o;
     return Objects.equals(this.pageNumber, describeScalingGroupsRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeScalingGroupsRequest.pageSize) &&
+        Objects.equals(this.projectName, describeScalingGroupsRequest.projectName) &&
         Objects.equals(this.scalingGroupIds, describeScalingGroupsRequest.scalingGroupIds) &&
-        Objects.equals(this.scalingGroupNames, describeScalingGroupsRequest.scalingGroupNames);
+        Objects.equals(this.scalingGroupNames, describeScalingGroupsRequest.scalingGroupNames) &&
+        Objects.equals(this.tagFilters, describeScalingGroupsRequest.tagFilters);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pageNumber, pageSize, scalingGroupIds, scalingGroupNames);
+    return Objects.hash(pageNumber, pageSize, projectName, scalingGroupIds, scalingGroupNames, tagFilters);
   }
 
 
@@ -161,8 +214,10 @@ public class DescribeScalingGroupsRequest {
     
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    scalingGroupIds: ").append(toIndentedString(scalingGroupIds)).append("\n");
     sb.append("    scalingGroupNames: ").append(toIndentedString(scalingGroupNames)).append("\n");
+    sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -31,7 +31,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class SetInstancesProtectionResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("InstanceProtectionResults")
   private List<InstanceProtectionResultForSetInstancesProtectionOutput> instanceProtectionResults = null;

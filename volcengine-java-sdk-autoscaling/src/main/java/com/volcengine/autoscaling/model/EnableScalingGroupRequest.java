@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class EnableScalingGroupRequest {
   @SerializedName("ScalingGroupId")
   private String scalingGroupId = null;
@@ -42,8 +41,7 @@ public class EnableScalingGroupRequest {
    * Get scalingGroupId
    * @return scalingGroupId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getScalingGroupId() {
     return scalingGroupId;
   }

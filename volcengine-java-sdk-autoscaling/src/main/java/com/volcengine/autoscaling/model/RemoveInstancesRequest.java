@@ -30,13 +30,18 @@ import javax.validation.Valid;
  */
 
 
-
 public class RemoveInstancesRequest {
   @SerializedName("DecreaseDesiredCapacity")
   private Boolean decreaseDesiredCapacity = null;
 
   @SerializedName("InstanceIds")
   private List<String> instanceIds = null;
+
+  @SerializedName("LifecycleHook")
+  private Boolean lifecycleHook = null;
+
+  @SerializedName("RemoveMode")
+  private String removeMode = null;
 
   @SerializedName("ScalingGroupId")
   private String scalingGroupId = null;
@@ -85,6 +90,42 @@ public class RemoveInstancesRequest {
     this.instanceIds = instanceIds;
   }
 
+  public RemoveInstancesRequest lifecycleHook(Boolean lifecycleHook) {
+    this.lifecycleHook = lifecycleHook;
+    return this;
+  }
+
+   /**
+   * Get lifecycleHook
+   * @return lifecycleHook
+  **/
+  @Schema(description = "")
+  public Boolean isLifecycleHook() {
+    return lifecycleHook;
+  }
+
+  public void setLifecycleHook(Boolean lifecycleHook) {
+    this.lifecycleHook = lifecycleHook;
+  }
+
+  public RemoveInstancesRequest removeMode(String removeMode) {
+    this.removeMode = removeMode;
+    return this;
+  }
+
+   /**
+   * Get removeMode
+   * @return removeMode
+  **/
+  @Schema(description = "")
+  public String getRemoveMode() {
+    return removeMode;
+  }
+
+  public void setRemoveMode(String removeMode) {
+    this.removeMode = removeMode;
+  }
+
   public RemoveInstancesRequest scalingGroupId(String scalingGroupId) {
     this.scalingGroupId = scalingGroupId;
     return this;
@@ -94,8 +135,7 @@ public class RemoveInstancesRequest {
    * Get scalingGroupId
    * @return scalingGroupId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getScalingGroupId() {
     return scalingGroupId;
   }
@@ -116,12 +156,14 @@ public class RemoveInstancesRequest {
     RemoveInstancesRequest removeInstancesRequest = (RemoveInstancesRequest) o;
     return Objects.equals(this.decreaseDesiredCapacity, removeInstancesRequest.decreaseDesiredCapacity) &&
         Objects.equals(this.instanceIds, removeInstancesRequest.instanceIds) &&
+        Objects.equals(this.lifecycleHook, removeInstancesRequest.lifecycleHook) &&
+        Objects.equals(this.removeMode, removeInstancesRequest.removeMode) &&
         Objects.equals(this.scalingGroupId, removeInstancesRequest.scalingGroupId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(decreaseDesiredCapacity, instanceIds, scalingGroupId);
+    return Objects.hash(decreaseDesiredCapacity, instanceIds, lifecycleHook, removeMode, scalingGroupId);
   }
 
 
@@ -132,6 +174,8 @@ public class RemoveInstancesRequest {
     
     sb.append("    decreaseDesiredCapacity: ").append(toIndentedString(decreaseDesiredCapacity)).append("\n");
     sb.append("    instanceIds: ").append(toIndentedString(instanceIds)).append("\n");
+    sb.append("    lifecycleHook: ").append(toIndentedString(lifecycleHook)).append("\n");
+    sb.append("    removeMode: ").append(toIndentedString(removeMode)).append("\n");
     sb.append("    scalingGroupId: ").append(toIndentedString(scalingGroupId)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class ScalingInstanceForDescribeScalingInstancesOutput {
   @SerializedName("CreatedTime")
   private String createdTime = null;
@@ -41,6 +40,12 @@ public class ScalingInstanceForDescribeScalingInstancesOutput {
 
   @SerializedName("InstanceId")
   private String instanceId = null;
+
+  @SerializedName("LaunchTemplateId")
+  private String launchTemplateId = null;
+
+  @SerializedName("LaunchTemplateVersion")
+  private String launchTemplateVersion = null;
 
   @SerializedName("ScalingConfigurationId")
   private String scalingConfigurationId = null;
@@ -127,6 +132,42 @@ public class ScalingInstanceForDescribeScalingInstancesOutput {
 
   public void setInstanceId(String instanceId) {
     this.instanceId = instanceId;
+  }
+
+  public ScalingInstanceForDescribeScalingInstancesOutput launchTemplateId(String launchTemplateId) {
+    this.launchTemplateId = launchTemplateId;
+    return this;
+  }
+
+   /**
+   * Get launchTemplateId
+   * @return launchTemplateId
+  **/
+  @Schema(description = "")
+  public String getLaunchTemplateId() {
+    return launchTemplateId;
+  }
+
+  public void setLaunchTemplateId(String launchTemplateId) {
+    this.launchTemplateId = launchTemplateId;
+  }
+
+  public ScalingInstanceForDescribeScalingInstancesOutput launchTemplateVersion(String launchTemplateVersion) {
+    this.launchTemplateVersion = launchTemplateVersion;
+    return this;
+  }
+
+   /**
+   * Get launchTemplateVersion
+   * @return launchTemplateVersion
+  **/
+  @Schema(description = "")
+  public String getLaunchTemplateVersion() {
+    return launchTemplateVersion;
+  }
+
+  public void setLaunchTemplateVersion(String launchTemplateVersion) {
+    this.launchTemplateVersion = launchTemplateVersion;
   }
 
   public ScalingInstanceForDescribeScalingInstancesOutput scalingConfigurationId(String scalingConfigurationId) {
@@ -233,6 +274,8 @@ public class ScalingInstanceForDescribeScalingInstancesOutput {
         Objects.equals(this.creationType, scalingInstanceForDescribeScalingInstancesOutput.creationType) &&
         Objects.equals(this.entrusted, scalingInstanceForDescribeScalingInstancesOutput.entrusted) &&
         Objects.equals(this.instanceId, scalingInstanceForDescribeScalingInstancesOutput.instanceId) &&
+        Objects.equals(this.launchTemplateId, scalingInstanceForDescribeScalingInstancesOutput.launchTemplateId) &&
+        Objects.equals(this.launchTemplateVersion, scalingInstanceForDescribeScalingInstancesOutput.launchTemplateVersion) &&
         Objects.equals(this.scalingConfigurationId, scalingInstanceForDescribeScalingInstancesOutput.scalingConfigurationId) &&
         Objects.equals(this.scalingGroupId, scalingInstanceForDescribeScalingInstancesOutput.scalingGroupId) &&
         Objects.equals(this.scalingPolicyId, scalingInstanceForDescribeScalingInstancesOutput.scalingPolicyId) &&
@@ -242,7 +285,7 @@ public class ScalingInstanceForDescribeScalingInstancesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdTime, creationType, entrusted, instanceId, scalingConfigurationId, scalingGroupId, scalingPolicyId, status, zoneId);
+    return Objects.hash(createdTime, creationType, entrusted, instanceId, launchTemplateId, launchTemplateVersion, scalingConfigurationId, scalingGroupId, scalingPolicyId, status, zoneId);
   }
 
 
@@ -255,6 +298,8 @@ public class ScalingInstanceForDescribeScalingInstancesOutput {
     sb.append("    creationType: ").append(toIndentedString(creationType)).append("\n");
     sb.append("    entrusted: ").append(toIndentedString(entrusted)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    launchTemplateId: ").append(toIndentedString(launchTemplateId)).append("\n");
+    sb.append("    launchTemplateVersion: ").append(toIndentedString(launchTemplateVersion)).append("\n");
     sb.append("    scalingConfigurationId: ").append(toIndentedString(scalingConfigurationId)).append("\n");
     sb.append("    scalingGroupId: ").append(toIndentedString(scalingGroupId)).append("\n");
     sb.append("    scalingPolicyId: ").append(toIndentedString(scalingPolicyId)).append("\n");

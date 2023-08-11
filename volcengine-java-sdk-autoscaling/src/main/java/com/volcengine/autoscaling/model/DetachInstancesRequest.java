@@ -30,7 +30,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class DetachInstancesRequest {
   @SerializedName("DecreaseDesiredCapacity")
   private Boolean decreaseDesiredCapacity = null;
@@ -40,6 +39,9 @@ public class DetachInstancesRequest {
 
   @SerializedName("InstanceIds")
   private List<String> instanceIds = null;
+
+  @SerializedName("LifecycleHook")
+  private Boolean lifecycleHook = null;
 
   @SerializedName("ScalingGroupId")
   private String scalingGroupId = null;
@@ -106,6 +108,24 @@ public class DetachInstancesRequest {
     this.instanceIds = instanceIds;
   }
 
+  public DetachInstancesRequest lifecycleHook(Boolean lifecycleHook) {
+    this.lifecycleHook = lifecycleHook;
+    return this;
+  }
+
+   /**
+   * Get lifecycleHook
+   * @return lifecycleHook
+  **/
+  @Schema(description = "")
+  public Boolean isLifecycleHook() {
+    return lifecycleHook;
+  }
+
+  public void setLifecycleHook(Boolean lifecycleHook) {
+    this.lifecycleHook = lifecycleHook;
+  }
+
   public DetachInstancesRequest scalingGroupId(String scalingGroupId) {
     this.scalingGroupId = scalingGroupId;
     return this;
@@ -115,8 +135,7 @@ public class DetachInstancesRequest {
    * Get scalingGroupId
    * @return scalingGroupId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getScalingGroupId() {
     return scalingGroupId;
   }
@@ -138,12 +157,13 @@ public class DetachInstancesRequest {
     return Objects.equals(this.decreaseDesiredCapacity, detachInstancesRequest.decreaseDesiredCapacity) &&
         Objects.equals(this.detachOption, detachInstancesRequest.detachOption) &&
         Objects.equals(this.instanceIds, detachInstancesRequest.instanceIds) &&
+        Objects.equals(this.lifecycleHook, detachInstancesRequest.lifecycleHook) &&
         Objects.equals(this.scalingGroupId, detachInstancesRequest.scalingGroupId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(decreaseDesiredCapacity, detachOption, instanceIds, scalingGroupId);
+    return Objects.hash(decreaseDesiredCapacity, detachOption, instanceIds, lifecycleHook, scalingGroupId);
   }
 
 
@@ -155,6 +175,7 @@ public class DetachInstancesRequest {
     sb.append("    decreaseDesiredCapacity: ").append(toIndentedString(decreaseDesiredCapacity)).append("\n");
     sb.append("    detachOption: ").append(toIndentedString(detachOption)).append("\n");
     sb.append("    instanceIds: ").append(toIndentedString(instanceIds)).append("\n");
+    sb.append("    lifecycleHook: ").append(toIndentedString(lifecycleHook)).append("\n");
     sb.append("    scalingGroupId: ").append(toIndentedString(scalingGroupId)).append("\n");
     sb.append("}");
     return sb.toString();

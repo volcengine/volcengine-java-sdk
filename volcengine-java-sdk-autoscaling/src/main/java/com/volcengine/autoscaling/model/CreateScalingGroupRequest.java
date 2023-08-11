@@ -19,7 +19,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.autoscaling.model.LaunchTemplateOverrideForCreateScalingGroupInput;
 import com.volcengine.autoscaling.model.ServerGroupAttributeForCreateScalingGroupInput;
+import com.volcengine.autoscaling.model.TagForCreateScalingGroupInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -31,8 +33,10 @@ import javax.validation.Valid;
  */
 
 
-
 public class CreateScalingGroupRequest {
+  @SerializedName("ClientToken")
+  private String clientToken = null;
+
   @SerializedName("DBInstanceIds")
   private List<String> dbInstanceIds = null;
 
@@ -42,8 +46,20 @@ public class CreateScalingGroupRequest {
   @SerializedName("DesireInstanceNumber")
   private Integer desireInstanceNumber = null;
 
+  @SerializedName("HealthCheckType")
+  private String healthCheckType = null;
+
   @SerializedName("InstanceTerminatePolicy")
   private String instanceTerminatePolicy = null;
+
+  @SerializedName("LaunchTemplateId")
+  private String launchTemplateId = null;
+
+  @SerializedName("LaunchTemplateOverrides")
+  private List<LaunchTemplateOverrideForCreateScalingGroupInput> launchTemplateOverrides = null;
+
+  @SerializedName("LaunchTemplateVersion")
+  private String launchTemplateVersion = null;
 
   @SerializedName("MaxInstanceNumber")
   private Integer maxInstanceNumber = null;
@@ -54,14 +70,41 @@ public class CreateScalingGroupRequest {
   @SerializedName("MultiAZPolicy")
   private String multiAZPolicy = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("ScalingGroupName")
   private String scalingGroupName = null;
+
+  @SerializedName("ScalingMode")
+  private String scalingMode = null;
 
   @SerializedName("ServerGroupAttributes")
   private List<ServerGroupAttributeForCreateScalingGroupInput> serverGroupAttributes = null;
 
   @SerializedName("SubnetIds")
   private List<String> subnetIds = null;
+
+  @SerializedName("Tags")
+  private List<TagForCreateScalingGroupInput> tags = null;
+
+  public CreateScalingGroupRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
 
   public CreateScalingGroupRequest dbInstanceIds(List<String> dbInstanceIds) {
     this.dbInstanceIds = dbInstanceIds;
@@ -125,6 +168,24 @@ public class CreateScalingGroupRequest {
     this.desireInstanceNumber = desireInstanceNumber;
   }
 
+  public CreateScalingGroupRequest healthCheckType(String healthCheckType) {
+    this.healthCheckType = healthCheckType;
+    return this;
+  }
+
+   /**
+   * Get healthCheckType
+   * @return healthCheckType
+  **/
+  @Schema(description = "")
+  public String getHealthCheckType() {
+    return healthCheckType;
+  }
+
+  public void setHealthCheckType(String healthCheckType) {
+    this.healthCheckType = healthCheckType;
+  }
+
   public CreateScalingGroupRequest instanceTerminatePolicy(String instanceTerminatePolicy) {
     this.instanceTerminatePolicy = instanceTerminatePolicy;
     return this;
@@ -141,6 +202,69 @@ public class CreateScalingGroupRequest {
 
   public void setInstanceTerminatePolicy(String instanceTerminatePolicy) {
     this.instanceTerminatePolicy = instanceTerminatePolicy;
+  }
+
+  public CreateScalingGroupRequest launchTemplateId(String launchTemplateId) {
+    this.launchTemplateId = launchTemplateId;
+    return this;
+  }
+
+   /**
+   * Get launchTemplateId
+   * @return launchTemplateId
+  **/
+  @Schema(description = "")
+  public String getLaunchTemplateId() {
+    return launchTemplateId;
+  }
+
+  public void setLaunchTemplateId(String launchTemplateId) {
+    this.launchTemplateId = launchTemplateId;
+  }
+
+  public CreateScalingGroupRequest launchTemplateOverrides(List<LaunchTemplateOverrideForCreateScalingGroupInput> launchTemplateOverrides) {
+    this.launchTemplateOverrides = launchTemplateOverrides;
+    return this;
+  }
+
+  public CreateScalingGroupRequest addLaunchTemplateOverridesItem(LaunchTemplateOverrideForCreateScalingGroupInput launchTemplateOverridesItem) {
+    if (this.launchTemplateOverrides == null) {
+      this.launchTemplateOverrides = new ArrayList<LaunchTemplateOverrideForCreateScalingGroupInput>();
+    }
+    this.launchTemplateOverrides.add(launchTemplateOverridesItem);
+    return this;
+  }
+
+   /**
+   * Get launchTemplateOverrides
+   * @return launchTemplateOverrides
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<LaunchTemplateOverrideForCreateScalingGroupInput> getLaunchTemplateOverrides() {
+    return launchTemplateOverrides;
+  }
+
+  public void setLaunchTemplateOverrides(List<LaunchTemplateOverrideForCreateScalingGroupInput> launchTemplateOverrides) {
+    this.launchTemplateOverrides = launchTemplateOverrides;
+  }
+
+  public CreateScalingGroupRequest launchTemplateVersion(String launchTemplateVersion) {
+    this.launchTemplateVersion = launchTemplateVersion;
+    return this;
+  }
+
+   /**
+   * Get launchTemplateVersion
+   * @return launchTemplateVersion
+  **/
+  @Schema(description = "")
+  public String getLaunchTemplateVersion() {
+    return launchTemplateVersion;
+  }
+
+  public void setLaunchTemplateVersion(String launchTemplateVersion) {
+    this.launchTemplateVersion = launchTemplateVersion;
   }
 
   public CreateScalingGroupRequest maxInstanceNumber(Integer maxInstanceNumber) {
@@ -197,6 +321,24 @@ public class CreateScalingGroupRequest {
     this.multiAZPolicy = multiAZPolicy;
   }
 
+  public CreateScalingGroupRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public CreateScalingGroupRequest scalingGroupName(String scalingGroupName) {
     this.scalingGroupName = scalingGroupName;
     return this;
@@ -206,14 +348,31 @@ public class CreateScalingGroupRequest {
    * Get scalingGroupName
    * @return scalingGroupName
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getScalingGroupName() {
     return scalingGroupName;
   }
 
   public void setScalingGroupName(String scalingGroupName) {
     this.scalingGroupName = scalingGroupName;
+  }
+
+  public CreateScalingGroupRequest scalingMode(String scalingMode) {
+    this.scalingMode = scalingMode;
+    return this;
+  }
+
+   /**
+   * Get scalingMode
+   * @return scalingMode
+  **/
+  @Schema(description = "")
+  public String getScalingMode() {
+    return scalingMode;
+  }
+
+  public void setScalingMode(String scalingMode) {
+    this.scalingMode = scalingMode;
   }
 
   public CreateScalingGroupRequest serverGroupAttributes(List<ServerGroupAttributeForCreateScalingGroupInput> serverGroupAttributes) {
@@ -269,6 +428,33 @@ public class CreateScalingGroupRequest {
     this.subnetIds = subnetIds;
   }
 
+  public CreateScalingGroupRequest tags(List<TagForCreateScalingGroupInput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public CreateScalingGroupRequest addTagsItem(TagForCreateScalingGroupInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForCreateScalingGroupInput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForCreateScalingGroupInput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForCreateScalingGroupInput> tags) {
+    this.tags = tags;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -279,21 +465,29 @@ public class CreateScalingGroupRequest {
       return false;
     }
     CreateScalingGroupRequest createScalingGroupRequest = (CreateScalingGroupRequest) o;
-    return Objects.equals(this.dbInstanceIds, createScalingGroupRequest.dbInstanceIds) &&
+    return Objects.equals(this.clientToken, createScalingGroupRequest.clientToken) &&
+        Objects.equals(this.dbInstanceIds, createScalingGroupRequest.dbInstanceIds) &&
         Objects.equals(this.defaultCooldown, createScalingGroupRequest.defaultCooldown) &&
         Objects.equals(this.desireInstanceNumber, createScalingGroupRequest.desireInstanceNumber) &&
+        Objects.equals(this.healthCheckType, createScalingGroupRequest.healthCheckType) &&
         Objects.equals(this.instanceTerminatePolicy, createScalingGroupRequest.instanceTerminatePolicy) &&
+        Objects.equals(this.launchTemplateId, createScalingGroupRequest.launchTemplateId) &&
+        Objects.equals(this.launchTemplateOverrides, createScalingGroupRequest.launchTemplateOverrides) &&
+        Objects.equals(this.launchTemplateVersion, createScalingGroupRequest.launchTemplateVersion) &&
         Objects.equals(this.maxInstanceNumber, createScalingGroupRequest.maxInstanceNumber) &&
         Objects.equals(this.minInstanceNumber, createScalingGroupRequest.minInstanceNumber) &&
         Objects.equals(this.multiAZPolicy, createScalingGroupRequest.multiAZPolicy) &&
+        Objects.equals(this.projectName, createScalingGroupRequest.projectName) &&
         Objects.equals(this.scalingGroupName, createScalingGroupRequest.scalingGroupName) &&
+        Objects.equals(this.scalingMode, createScalingGroupRequest.scalingMode) &&
         Objects.equals(this.serverGroupAttributes, createScalingGroupRequest.serverGroupAttributes) &&
-        Objects.equals(this.subnetIds, createScalingGroupRequest.subnetIds);
+        Objects.equals(this.subnetIds, createScalingGroupRequest.subnetIds) &&
+        Objects.equals(this.tags, createScalingGroupRequest.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dbInstanceIds, defaultCooldown, desireInstanceNumber, instanceTerminatePolicy, maxInstanceNumber, minInstanceNumber, multiAZPolicy, scalingGroupName, serverGroupAttributes, subnetIds);
+    return Objects.hash(clientToken, dbInstanceIds, defaultCooldown, desireInstanceNumber, healthCheckType, instanceTerminatePolicy, launchTemplateId, launchTemplateOverrides, launchTemplateVersion, maxInstanceNumber, minInstanceNumber, multiAZPolicy, projectName, scalingGroupName, scalingMode, serverGroupAttributes, subnetIds, tags);
   }
 
 
@@ -302,16 +496,24 @@ public class CreateScalingGroupRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateScalingGroupRequest {\n");
     
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    dbInstanceIds: ").append(toIndentedString(dbInstanceIds)).append("\n");
     sb.append("    defaultCooldown: ").append(toIndentedString(defaultCooldown)).append("\n");
     sb.append("    desireInstanceNumber: ").append(toIndentedString(desireInstanceNumber)).append("\n");
+    sb.append("    healthCheckType: ").append(toIndentedString(healthCheckType)).append("\n");
     sb.append("    instanceTerminatePolicy: ").append(toIndentedString(instanceTerminatePolicy)).append("\n");
+    sb.append("    launchTemplateId: ").append(toIndentedString(launchTemplateId)).append("\n");
+    sb.append("    launchTemplateOverrides: ").append(toIndentedString(launchTemplateOverrides)).append("\n");
+    sb.append("    launchTemplateVersion: ").append(toIndentedString(launchTemplateVersion)).append("\n");
     sb.append("    maxInstanceNumber: ").append(toIndentedString(maxInstanceNumber)).append("\n");
     sb.append("    minInstanceNumber: ").append(toIndentedString(minInstanceNumber)).append("\n");
     sb.append("    multiAZPolicy: ").append(toIndentedString(multiAZPolicy)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    scalingGroupName: ").append(toIndentedString(scalingGroupName)).append("\n");
+    sb.append("    scalingMode: ").append(toIndentedString(scalingMode)).append("\n");
     sb.append("    serverGroupAttributes: ").append(toIndentedString(serverGroupAttributes)).append("\n");
     sb.append("    subnetIds: ").append(toIndentedString(subnetIds)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -30,7 +30,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class DescribeLifecycleHooksRequest {
   @SerializedName("LifecycleHookIds")
   private List<String> lifecycleHookIds = null;
@@ -136,8 +135,7 @@ public class DescribeLifecycleHooksRequest {
    * Get scalingGroupId
    * @return scalingGroupId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getScalingGroupId() {
     return scalingGroupId;
   }

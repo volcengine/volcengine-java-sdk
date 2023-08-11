@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class DeleteScalingPolicyResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("ScalingPolicyId")
   private String scalingPolicyId = null;

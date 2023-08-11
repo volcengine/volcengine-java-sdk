@@ -30,13 +30,15 @@ import javax.validation.Valid;
  */
 
 
-
 public class AttachInstancesRequest {
   @SerializedName("Entrusted")
   private Boolean entrusted = null;
 
   @SerializedName("InstanceIds")
   private List<String> instanceIds = null;
+
+  @SerializedName("LifecycleHook")
+  private Boolean lifecycleHook = null;
 
   @SerializedName("ScalingGroupId")
   private String scalingGroupId = null;
@@ -85,6 +87,24 @@ public class AttachInstancesRequest {
     this.instanceIds = instanceIds;
   }
 
+  public AttachInstancesRequest lifecycleHook(Boolean lifecycleHook) {
+    this.lifecycleHook = lifecycleHook;
+    return this;
+  }
+
+   /**
+   * Get lifecycleHook
+   * @return lifecycleHook
+  **/
+  @Schema(description = "")
+  public Boolean isLifecycleHook() {
+    return lifecycleHook;
+  }
+
+  public void setLifecycleHook(Boolean lifecycleHook) {
+    this.lifecycleHook = lifecycleHook;
+  }
+
   public AttachInstancesRequest scalingGroupId(String scalingGroupId) {
     this.scalingGroupId = scalingGroupId;
     return this;
@@ -94,8 +114,7 @@ public class AttachInstancesRequest {
    * Get scalingGroupId
    * @return scalingGroupId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getScalingGroupId() {
     return scalingGroupId;
   }
@@ -116,12 +135,13 @@ public class AttachInstancesRequest {
     AttachInstancesRequest attachInstancesRequest = (AttachInstancesRequest) o;
     return Objects.equals(this.entrusted, attachInstancesRequest.entrusted) &&
         Objects.equals(this.instanceIds, attachInstancesRequest.instanceIds) &&
+        Objects.equals(this.lifecycleHook, attachInstancesRequest.lifecycleHook) &&
         Objects.equals(this.scalingGroupId, attachInstancesRequest.scalingGroupId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(entrusted, instanceIds, scalingGroupId);
+    return Objects.hash(entrusted, instanceIds, lifecycleHook, scalingGroupId);
   }
 
 
@@ -132,6 +152,7 @@ public class AttachInstancesRequest {
     
     sb.append("    entrusted: ").append(toIndentedString(entrusted)).append("\n");
     sb.append("    instanceIds: ").append(toIndentedString(instanceIds)).append("\n");
+    sb.append("    lifecycleHook: ").append(toIndentedString(lifecycleHook)).append("\n");
     sb.append("    scalingGroupId: ").append(toIndentedString(scalingGroupId)).append("\n");
     sb.append("}");
     return sb.toString();
