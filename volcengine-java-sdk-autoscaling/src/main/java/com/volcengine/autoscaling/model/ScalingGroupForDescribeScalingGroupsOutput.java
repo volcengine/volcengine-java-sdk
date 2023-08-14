@@ -55,8 +55,14 @@ public class ScalingGroupForDescribeScalingGroupsOutput {
   @SerializedName("InstanceTerminatePolicy")
   private String instanceTerminatePolicy = null;
 
+  @SerializedName("LaunchTemplateId")
+  private String launchTemplateId = null;
+
   @SerializedName("LaunchTemplateOverrides")
   private List<LaunchTemplateOverrideForDescribeScalingGroupsOutput> launchTemplateOverrides = null;
+
+  @SerializedName("LaunchTemplateVersion")
+  private String launchTemplateVersion = null;
 
   @SerializedName("LifecycleState")
   private String lifecycleState = null;
@@ -237,6 +243,24 @@ public class ScalingGroupForDescribeScalingGroupsOutput {
     this.instanceTerminatePolicy = instanceTerminatePolicy;
   }
 
+  public ScalingGroupForDescribeScalingGroupsOutput launchTemplateId(String launchTemplateId) {
+    this.launchTemplateId = launchTemplateId;
+    return this;
+  }
+
+   /**
+   * Get launchTemplateId
+   * @return launchTemplateId
+  **/
+  @Schema(description = "")
+  public String getLaunchTemplateId() {
+    return launchTemplateId;
+  }
+
+  public void setLaunchTemplateId(String launchTemplateId) {
+    this.launchTemplateId = launchTemplateId;
+  }
+
   public ScalingGroupForDescribeScalingGroupsOutput launchTemplateOverrides(List<LaunchTemplateOverrideForDescribeScalingGroupsOutput> launchTemplateOverrides) {
     this.launchTemplateOverrides = launchTemplateOverrides;
     return this;
@@ -262,6 +286,24 @@ public class ScalingGroupForDescribeScalingGroupsOutput {
 
   public void setLaunchTemplateOverrides(List<LaunchTemplateOverrideForDescribeScalingGroupsOutput> launchTemplateOverrides) {
     this.launchTemplateOverrides = launchTemplateOverrides;
+  }
+
+  public ScalingGroupForDescribeScalingGroupsOutput launchTemplateVersion(String launchTemplateVersion) {
+    this.launchTemplateVersion = launchTemplateVersion;
+    return this;
+  }
+
+   /**
+   * Get launchTemplateVersion
+   * @return launchTemplateVersion
+  **/
+  @Schema(description = "")
+  public String getLaunchTemplateVersion() {
+    return launchTemplateVersion;
+  }
+
+  public void setLaunchTemplateVersion(String launchTemplateVersion) {
+    this.launchTemplateVersion = launchTemplateVersion;
   }
 
   public ScalingGroupForDescribeScalingGroupsOutput lifecycleState(String lifecycleState) {
@@ -577,7 +619,9 @@ public class ScalingGroupForDescribeScalingGroupsOutput {
         Objects.equals(this.desireInstanceNumber, scalingGroupForDescribeScalingGroupsOutput.desireInstanceNumber) &&
         Objects.equals(this.healthCheckType, scalingGroupForDescribeScalingGroupsOutput.healthCheckType) &&
         Objects.equals(this.instanceTerminatePolicy, scalingGroupForDescribeScalingGroupsOutput.instanceTerminatePolicy) &&
+        Objects.equals(this.launchTemplateId, scalingGroupForDescribeScalingGroupsOutput.launchTemplateId) &&
         Objects.equals(this.launchTemplateOverrides, scalingGroupForDescribeScalingGroupsOutput.launchTemplateOverrides) &&
+        Objects.equals(this.launchTemplateVersion, scalingGroupForDescribeScalingGroupsOutput.launchTemplateVersion) &&
         Objects.equals(this.lifecycleState, scalingGroupForDescribeScalingGroupsOutput.lifecycleState) &&
         Objects.equals(this.maxInstanceNumber, scalingGroupForDescribeScalingGroupsOutput.maxInstanceNumber) &&
         Objects.equals(this.minInstanceNumber, scalingGroupForDescribeScalingGroupsOutput.minInstanceNumber) &&
@@ -597,7 +641,7 @@ public class ScalingGroupForDescribeScalingGroupsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(activeScalingConfigurationId, createdAt, dbInstanceIds, defaultCooldown, desireInstanceNumber, healthCheckType, instanceTerminatePolicy, launchTemplateOverrides, lifecycleState, maxInstanceNumber, minInstanceNumber, multiAZPolicy, projectName, scalingGroupId, scalingGroupName, scalingMode, serverGroupAttributes, stoppedInstanceCount, subnetIds, tags, totalInstanceCount, updatedAt, vpcId);
+    return Objects.hash(activeScalingConfigurationId, createdAt, dbInstanceIds, defaultCooldown, desireInstanceNumber, healthCheckType, instanceTerminatePolicy, launchTemplateId, launchTemplateOverrides, launchTemplateVersion, lifecycleState, maxInstanceNumber, minInstanceNumber, multiAZPolicy, projectName, scalingGroupId, scalingGroupName, scalingMode, serverGroupAttributes, stoppedInstanceCount, subnetIds, tags, totalInstanceCount, updatedAt, vpcId);
   }
 
 
@@ -613,7 +657,9 @@ public class ScalingGroupForDescribeScalingGroupsOutput {
     sb.append("    desireInstanceNumber: ").append(toIndentedString(desireInstanceNumber)).append("\n");
     sb.append("    healthCheckType: ").append(toIndentedString(healthCheckType)).append("\n");
     sb.append("    instanceTerminatePolicy: ").append(toIndentedString(instanceTerminatePolicy)).append("\n");
+    sb.append("    launchTemplateId: ").append(toIndentedString(launchTemplateId)).append("\n");
     sb.append("    launchTemplateOverrides: ").append(toIndentedString(launchTemplateOverrides)).append("\n");
+    sb.append("    launchTemplateVersion: ").append(toIndentedString(launchTemplateVersion)).append("\n");
     sb.append("    lifecycleState: ").append(toIndentedString(lifecycleState)).append("\n");
     sb.append("    maxInstanceNumber: ").append(toIndentedString(maxInstanceNumber)).append("\n");
     sb.append("    minInstanceNumber: ").append(toIndentedString(minInstanceNumber)).append("\n");
