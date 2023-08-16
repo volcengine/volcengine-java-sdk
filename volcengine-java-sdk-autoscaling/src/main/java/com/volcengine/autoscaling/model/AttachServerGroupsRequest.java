@@ -31,13 +31,33 @@ import javax.validation.Valid;
  */
 
 
-
 public class AttachServerGroupsRequest {
+  @SerializedName("ClientToken")
+  private String clientToken = null;
+
   @SerializedName("ScalingGroupId")
   private String scalingGroupId = null;
 
   @SerializedName("ServerGroupAttributes")
   private List<ServerGroupAttributeForAttachServerGroupsInput> serverGroupAttributes = null;
+
+  public AttachServerGroupsRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
 
   public AttachServerGroupsRequest scalingGroupId(String scalingGroupId) {
     this.scalingGroupId = scalingGroupId;
@@ -48,8 +68,7 @@ public class AttachServerGroupsRequest {
    * Get scalingGroupId
    * @return scalingGroupId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getScalingGroupId() {
     return scalingGroupId;
   }
@@ -95,13 +114,14 @@ public class AttachServerGroupsRequest {
       return false;
     }
     AttachServerGroupsRequest attachServerGroupsRequest = (AttachServerGroupsRequest) o;
-    return Objects.equals(this.scalingGroupId, attachServerGroupsRequest.scalingGroupId) &&
+    return Objects.equals(this.clientToken, attachServerGroupsRequest.clientToken) &&
+        Objects.equals(this.scalingGroupId, attachServerGroupsRequest.scalingGroupId) &&
         Objects.equals(this.serverGroupAttributes, attachServerGroupsRequest.serverGroupAttributes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(scalingGroupId, serverGroupAttributes);
+    return Objects.hash(clientToken, scalingGroupId, serverGroupAttributes);
   }
 
 
@@ -110,6 +130,7 @@ public class AttachServerGroupsRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class AttachServerGroupsRequest {\n");
     
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    scalingGroupId: ").append(toIndentedString(scalingGroupId)).append("\n");
     sb.append("    serverGroupAttributes: ").append(toIndentedString(serverGroupAttributes)).append("\n");
     sb.append("}");

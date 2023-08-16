@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class ModifyLifecycleHookRequest {
   @SerializedName("LifecycleHookId")
   private String lifecycleHookId = null;
@@ -51,8 +50,7 @@ public class ModifyLifecycleHookRequest {
    * Get lifecycleHookId
    * @return lifecycleHookId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getLifecycleHookId() {
     return lifecycleHookId;
   }

@@ -19,7 +19,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.autoscaling.model.LaunchTemplateOverrideForDescribeScalingGroupsOutput;
 import com.volcengine.autoscaling.model.ServerGroupAttributeForDescribeScalingGroupsOutput;
+import com.volcengine.autoscaling.model.TagForDescribeScalingGroupsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -29,7 +31,6 @@ import javax.validation.Valid;
 /**
  * ScalingGroupForDescribeScalingGroupsOutput
  */
-
 
 
 public class ScalingGroupForDescribeScalingGroupsOutput {
@@ -48,8 +49,20 @@ public class ScalingGroupForDescribeScalingGroupsOutput {
   @SerializedName("DesireInstanceNumber")
   private Integer desireInstanceNumber = null;
 
+  @SerializedName("HealthCheckType")
+  private String healthCheckType = null;
+
   @SerializedName("InstanceTerminatePolicy")
   private String instanceTerminatePolicy = null;
+
+  @SerializedName("LaunchTemplateId")
+  private String launchTemplateId = null;
+
+  @SerializedName("LaunchTemplateOverrides")
+  private List<LaunchTemplateOverrideForDescribeScalingGroupsOutput> launchTemplateOverrides = null;
+
+  @SerializedName("LaunchTemplateVersion")
+  private String launchTemplateVersion = null;
 
   @SerializedName("LifecycleState")
   private String lifecycleState = null;
@@ -63,17 +76,29 @@ public class ScalingGroupForDescribeScalingGroupsOutput {
   @SerializedName("MultiAZPolicy")
   private String multiAZPolicy = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("ScalingGroupId")
   private String scalingGroupId = null;
 
   @SerializedName("ScalingGroupName")
   private String scalingGroupName = null;
 
+  @SerializedName("ScalingMode")
+  private String scalingMode = null;
+
   @SerializedName("ServerGroupAttributes")
   private List<ServerGroupAttributeForDescribeScalingGroupsOutput> serverGroupAttributes = null;
 
+  @SerializedName("StoppedInstanceCount")
+  private Integer stoppedInstanceCount = null;
+
   @SerializedName("SubnetIds")
   private List<String> subnetIds = null;
+
+  @SerializedName("Tags")
+  private List<TagForDescribeScalingGroupsOutput> tags = null;
 
   @SerializedName("TotalInstanceCount")
   private Integer totalInstanceCount = null;
@@ -182,6 +207,24 @@ public class ScalingGroupForDescribeScalingGroupsOutput {
     this.desireInstanceNumber = desireInstanceNumber;
   }
 
+  public ScalingGroupForDescribeScalingGroupsOutput healthCheckType(String healthCheckType) {
+    this.healthCheckType = healthCheckType;
+    return this;
+  }
+
+   /**
+   * Get healthCheckType
+   * @return healthCheckType
+  **/
+  @Schema(description = "")
+  public String getHealthCheckType() {
+    return healthCheckType;
+  }
+
+  public void setHealthCheckType(String healthCheckType) {
+    this.healthCheckType = healthCheckType;
+  }
+
   public ScalingGroupForDescribeScalingGroupsOutput instanceTerminatePolicy(String instanceTerminatePolicy) {
     this.instanceTerminatePolicy = instanceTerminatePolicy;
     return this;
@@ -198,6 +241,69 @@ public class ScalingGroupForDescribeScalingGroupsOutput {
 
   public void setInstanceTerminatePolicy(String instanceTerminatePolicy) {
     this.instanceTerminatePolicy = instanceTerminatePolicy;
+  }
+
+  public ScalingGroupForDescribeScalingGroupsOutput launchTemplateId(String launchTemplateId) {
+    this.launchTemplateId = launchTemplateId;
+    return this;
+  }
+
+   /**
+   * Get launchTemplateId
+   * @return launchTemplateId
+  **/
+  @Schema(description = "")
+  public String getLaunchTemplateId() {
+    return launchTemplateId;
+  }
+
+  public void setLaunchTemplateId(String launchTemplateId) {
+    this.launchTemplateId = launchTemplateId;
+  }
+
+  public ScalingGroupForDescribeScalingGroupsOutput launchTemplateOverrides(List<LaunchTemplateOverrideForDescribeScalingGroupsOutput> launchTemplateOverrides) {
+    this.launchTemplateOverrides = launchTemplateOverrides;
+    return this;
+  }
+
+  public ScalingGroupForDescribeScalingGroupsOutput addLaunchTemplateOverridesItem(LaunchTemplateOverrideForDescribeScalingGroupsOutput launchTemplateOverridesItem) {
+    if (this.launchTemplateOverrides == null) {
+      this.launchTemplateOverrides = new ArrayList<LaunchTemplateOverrideForDescribeScalingGroupsOutput>();
+    }
+    this.launchTemplateOverrides.add(launchTemplateOverridesItem);
+    return this;
+  }
+
+   /**
+   * Get launchTemplateOverrides
+   * @return launchTemplateOverrides
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<LaunchTemplateOverrideForDescribeScalingGroupsOutput> getLaunchTemplateOverrides() {
+    return launchTemplateOverrides;
+  }
+
+  public void setLaunchTemplateOverrides(List<LaunchTemplateOverrideForDescribeScalingGroupsOutput> launchTemplateOverrides) {
+    this.launchTemplateOverrides = launchTemplateOverrides;
+  }
+
+  public ScalingGroupForDescribeScalingGroupsOutput launchTemplateVersion(String launchTemplateVersion) {
+    this.launchTemplateVersion = launchTemplateVersion;
+    return this;
+  }
+
+   /**
+   * Get launchTemplateVersion
+   * @return launchTemplateVersion
+  **/
+  @Schema(description = "")
+  public String getLaunchTemplateVersion() {
+    return launchTemplateVersion;
+  }
+
+  public void setLaunchTemplateVersion(String launchTemplateVersion) {
+    this.launchTemplateVersion = launchTemplateVersion;
   }
 
   public ScalingGroupForDescribeScalingGroupsOutput lifecycleState(String lifecycleState) {
@@ -272,6 +378,24 @@ public class ScalingGroupForDescribeScalingGroupsOutput {
     this.multiAZPolicy = multiAZPolicy;
   }
 
+  public ScalingGroupForDescribeScalingGroupsOutput projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public ScalingGroupForDescribeScalingGroupsOutput scalingGroupId(String scalingGroupId) {
     this.scalingGroupId = scalingGroupId;
     return this;
@@ -308,6 +432,24 @@ public class ScalingGroupForDescribeScalingGroupsOutput {
     this.scalingGroupName = scalingGroupName;
   }
 
+  public ScalingGroupForDescribeScalingGroupsOutput scalingMode(String scalingMode) {
+    this.scalingMode = scalingMode;
+    return this;
+  }
+
+   /**
+   * Get scalingMode
+   * @return scalingMode
+  **/
+  @Schema(description = "")
+  public String getScalingMode() {
+    return scalingMode;
+  }
+
+  public void setScalingMode(String scalingMode) {
+    this.scalingMode = scalingMode;
+  }
+
   public ScalingGroupForDescribeScalingGroupsOutput serverGroupAttributes(List<ServerGroupAttributeForDescribeScalingGroupsOutput> serverGroupAttributes) {
     this.serverGroupAttributes = serverGroupAttributes;
     return this;
@@ -335,6 +477,24 @@ public class ScalingGroupForDescribeScalingGroupsOutput {
     this.serverGroupAttributes = serverGroupAttributes;
   }
 
+  public ScalingGroupForDescribeScalingGroupsOutput stoppedInstanceCount(Integer stoppedInstanceCount) {
+    this.stoppedInstanceCount = stoppedInstanceCount;
+    return this;
+  }
+
+   /**
+   * Get stoppedInstanceCount
+   * @return stoppedInstanceCount
+  **/
+  @Schema(description = "")
+  public Integer getStoppedInstanceCount() {
+    return stoppedInstanceCount;
+  }
+
+  public void setStoppedInstanceCount(Integer stoppedInstanceCount) {
+    this.stoppedInstanceCount = stoppedInstanceCount;
+  }
+
   public ScalingGroupForDescribeScalingGroupsOutput subnetIds(List<String> subnetIds) {
     this.subnetIds = subnetIds;
     return this;
@@ -359,6 +519,33 @@ public class ScalingGroupForDescribeScalingGroupsOutput {
 
   public void setSubnetIds(List<String> subnetIds) {
     this.subnetIds = subnetIds;
+  }
+
+  public ScalingGroupForDescribeScalingGroupsOutput tags(List<TagForDescribeScalingGroupsOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public ScalingGroupForDescribeScalingGroupsOutput addTagsItem(TagForDescribeScalingGroupsOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForDescribeScalingGroupsOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForDescribeScalingGroupsOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForDescribeScalingGroupsOutput> tags) {
+    this.tags = tags;
   }
 
   public ScalingGroupForDescribeScalingGroupsOutput totalInstanceCount(Integer totalInstanceCount) {
@@ -430,15 +617,23 @@ public class ScalingGroupForDescribeScalingGroupsOutput {
         Objects.equals(this.dbInstanceIds, scalingGroupForDescribeScalingGroupsOutput.dbInstanceIds) &&
         Objects.equals(this.defaultCooldown, scalingGroupForDescribeScalingGroupsOutput.defaultCooldown) &&
         Objects.equals(this.desireInstanceNumber, scalingGroupForDescribeScalingGroupsOutput.desireInstanceNumber) &&
+        Objects.equals(this.healthCheckType, scalingGroupForDescribeScalingGroupsOutput.healthCheckType) &&
         Objects.equals(this.instanceTerminatePolicy, scalingGroupForDescribeScalingGroupsOutput.instanceTerminatePolicy) &&
+        Objects.equals(this.launchTemplateId, scalingGroupForDescribeScalingGroupsOutput.launchTemplateId) &&
+        Objects.equals(this.launchTemplateOverrides, scalingGroupForDescribeScalingGroupsOutput.launchTemplateOverrides) &&
+        Objects.equals(this.launchTemplateVersion, scalingGroupForDescribeScalingGroupsOutput.launchTemplateVersion) &&
         Objects.equals(this.lifecycleState, scalingGroupForDescribeScalingGroupsOutput.lifecycleState) &&
         Objects.equals(this.maxInstanceNumber, scalingGroupForDescribeScalingGroupsOutput.maxInstanceNumber) &&
         Objects.equals(this.minInstanceNumber, scalingGroupForDescribeScalingGroupsOutput.minInstanceNumber) &&
         Objects.equals(this.multiAZPolicy, scalingGroupForDescribeScalingGroupsOutput.multiAZPolicy) &&
+        Objects.equals(this.projectName, scalingGroupForDescribeScalingGroupsOutput.projectName) &&
         Objects.equals(this.scalingGroupId, scalingGroupForDescribeScalingGroupsOutput.scalingGroupId) &&
         Objects.equals(this.scalingGroupName, scalingGroupForDescribeScalingGroupsOutput.scalingGroupName) &&
+        Objects.equals(this.scalingMode, scalingGroupForDescribeScalingGroupsOutput.scalingMode) &&
         Objects.equals(this.serverGroupAttributes, scalingGroupForDescribeScalingGroupsOutput.serverGroupAttributes) &&
+        Objects.equals(this.stoppedInstanceCount, scalingGroupForDescribeScalingGroupsOutput.stoppedInstanceCount) &&
         Objects.equals(this.subnetIds, scalingGroupForDescribeScalingGroupsOutput.subnetIds) &&
+        Objects.equals(this.tags, scalingGroupForDescribeScalingGroupsOutput.tags) &&
         Objects.equals(this.totalInstanceCount, scalingGroupForDescribeScalingGroupsOutput.totalInstanceCount) &&
         Objects.equals(this.updatedAt, scalingGroupForDescribeScalingGroupsOutput.updatedAt) &&
         Objects.equals(this.vpcId, scalingGroupForDescribeScalingGroupsOutput.vpcId);
@@ -446,7 +641,7 @@ public class ScalingGroupForDescribeScalingGroupsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(activeScalingConfigurationId, createdAt, dbInstanceIds, defaultCooldown, desireInstanceNumber, instanceTerminatePolicy, lifecycleState, maxInstanceNumber, minInstanceNumber, multiAZPolicy, scalingGroupId, scalingGroupName, serverGroupAttributes, subnetIds, totalInstanceCount, updatedAt, vpcId);
+    return Objects.hash(activeScalingConfigurationId, createdAt, dbInstanceIds, defaultCooldown, desireInstanceNumber, healthCheckType, instanceTerminatePolicy, launchTemplateId, launchTemplateOverrides, launchTemplateVersion, lifecycleState, maxInstanceNumber, minInstanceNumber, multiAZPolicy, projectName, scalingGroupId, scalingGroupName, scalingMode, serverGroupAttributes, stoppedInstanceCount, subnetIds, tags, totalInstanceCount, updatedAt, vpcId);
   }
 
 
@@ -460,15 +655,23 @@ public class ScalingGroupForDescribeScalingGroupsOutput {
     sb.append("    dbInstanceIds: ").append(toIndentedString(dbInstanceIds)).append("\n");
     sb.append("    defaultCooldown: ").append(toIndentedString(defaultCooldown)).append("\n");
     sb.append("    desireInstanceNumber: ").append(toIndentedString(desireInstanceNumber)).append("\n");
+    sb.append("    healthCheckType: ").append(toIndentedString(healthCheckType)).append("\n");
     sb.append("    instanceTerminatePolicy: ").append(toIndentedString(instanceTerminatePolicy)).append("\n");
+    sb.append("    launchTemplateId: ").append(toIndentedString(launchTemplateId)).append("\n");
+    sb.append("    launchTemplateOverrides: ").append(toIndentedString(launchTemplateOverrides)).append("\n");
+    sb.append("    launchTemplateVersion: ").append(toIndentedString(launchTemplateVersion)).append("\n");
     sb.append("    lifecycleState: ").append(toIndentedString(lifecycleState)).append("\n");
     sb.append("    maxInstanceNumber: ").append(toIndentedString(maxInstanceNumber)).append("\n");
     sb.append("    minInstanceNumber: ").append(toIndentedString(minInstanceNumber)).append("\n");
     sb.append("    multiAZPolicy: ").append(toIndentedString(multiAZPolicy)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    scalingGroupId: ").append(toIndentedString(scalingGroupId)).append("\n");
     sb.append("    scalingGroupName: ").append(toIndentedString(scalingGroupName)).append("\n");
+    sb.append("    scalingMode: ").append(toIndentedString(scalingMode)).append("\n");
     sb.append("    serverGroupAttributes: ").append(toIndentedString(serverGroupAttributes)).append("\n");
+    sb.append("    stoppedInstanceCount: ").append(toIndentedString(stoppedInstanceCount)).append("\n");
     sb.append("    subnetIds: ").append(toIndentedString(subnetIds)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    totalInstanceCount: ").append(toIndentedString(totalInstanceCount)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");

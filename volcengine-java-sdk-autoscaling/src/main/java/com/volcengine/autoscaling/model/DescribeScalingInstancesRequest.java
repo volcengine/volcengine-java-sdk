@@ -30,7 +30,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class DescribeScalingInstancesRequest {
   @SerializedName("CreationType")
   private String creationType = null;
@@ -160,8 +159,7 @@ public class DescribeScalingInstancesRequest {
    * Get scalingGroupId
    * @return scalingGroupId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getScalingGroupId() {
     return scalingGroupId;
   }

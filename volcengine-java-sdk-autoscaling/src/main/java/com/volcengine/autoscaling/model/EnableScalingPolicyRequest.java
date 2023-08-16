@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class EnableScalingPolicyRequest {
   @SerializedName("ScalingPolicyId")
   private String scalingPolicyId = null;
@@ -42,8 +41,7 @@ public class EnableScalingPolicyRequest {
    * Get scalingPolicyId
    * @return scalingPolicyId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getScalingPolicyId() {
     return scalingPolicyId;
   }

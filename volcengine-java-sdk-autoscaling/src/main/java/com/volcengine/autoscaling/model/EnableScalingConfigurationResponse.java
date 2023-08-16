@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class EnableScalingConfigurationResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("ScalingConfigurationId")
   private String scalingConfigurationId = null;

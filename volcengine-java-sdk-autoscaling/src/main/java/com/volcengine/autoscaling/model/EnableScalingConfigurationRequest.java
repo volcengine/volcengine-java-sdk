@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class EnableScalingConfigurationRequest {
   @SerializedName("ScalingConfigurationId")
   private String scalingConfigurationId = null;
@@ -45,8 +44,7 @@ public class EnableScalingConfigurationRequest {
    * Get scalingConfigurationId
    * @return scalingConfigurationId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getScalingConfigurationId() {
     return scalingConfigurationId;
   }
@@ -64,8 +62,7 @@ public class EnableScalingConfigurationRequest {
    * Get scalingGroupId
    * @return scalingGroupId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getScalingGroupId() {
     return scalingGroupId;
   }

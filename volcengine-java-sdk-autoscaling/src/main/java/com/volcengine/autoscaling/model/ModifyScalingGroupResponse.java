@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class ModifyScalingGroupResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("ScalingGroupId")
   private String scalingGroupId = null;

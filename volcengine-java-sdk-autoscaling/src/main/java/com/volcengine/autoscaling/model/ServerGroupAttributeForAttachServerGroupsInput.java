@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class ServerGroupAttributeForAttachServerGroupsInput {
   @SerializedName("Port")
   private Integer port = null;

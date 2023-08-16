@@ -30,7 +30,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class SetInstancesProtectionRequest {
   @SerializedName("InstanceIds")
   private List<String> instanceIds = null;
@@ -76,8 +75,7 @@ public class SetInstancesProtectionRequest {
    * Get protectedFromScaleIn
    * @return protectedFromScaleIn
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public Boolean isProtectedFromScaleIn() {
     return protectedFromScaleIn;
   }
@@ -95,8 +93,7 @@ public class SetInstancesProtectionRequest {
    * Get scalingGroupId
    * @return scalingGroupId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getScalingGroupId() {
     return scalingGroupId;
   }

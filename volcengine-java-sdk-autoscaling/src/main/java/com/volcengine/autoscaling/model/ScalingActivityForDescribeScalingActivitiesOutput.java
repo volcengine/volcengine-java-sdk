@@ -31,7 +31,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class ScalingActivityForDescribeScalingActivitiesOutput {
   @SerializedName("ActivityType")
   private String activityType = null;

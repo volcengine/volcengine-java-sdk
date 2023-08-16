@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class ServerGroupAttributeForDetachServerGroupsInput {
   @SerializedName("ServerGroupId")
   private String serverGroupId = null;

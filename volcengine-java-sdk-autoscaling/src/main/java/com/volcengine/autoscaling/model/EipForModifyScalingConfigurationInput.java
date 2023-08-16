@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class EipForModifyScalingConfigurationInput {
   @SerializedName("Bandwidth")
   private Integer bandwidth = null;

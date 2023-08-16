@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class CreateLifecycleHookRequest {
   @SerializedName("LifecycleHookName")
   private String lifecycleHookName = null;
@@ -54,8 +53,7 @@ public class CreateLifecycleHookRequest {
    * Get lifecycleHookName
    * @return lifecycleHookName
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getLifecycleHookName() {
     return lifecycleHookName;
   }
@@ -73,8 +71,7 @@ public class CreateLifecycleHookRequest {
    * Get lifecycleHookPolicy
    * @return lifecycleHookPolicy
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getLifecycleHookPolicy() {
     return lifecycleHookPolicy;
   }
@@ -92,8 +89,7 @@ public class CreateLifecycleHookRequest {
    * Get lifecycleHookTimeout
    * @return lifecycleHookTimeout
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public Integer getLifecycleHookTimeout() {
     return lifecycleHookTimeout;
   }
@@ -111,8 +107,7 @@ public class CreateLifecycleHookRequest {
    * Get lifecycleHookType
    * @return lifecycleHookType
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getLifecycleHookType() {
     return lifecycleHookType;
   }
@@ -130,8 +125,7 @@ public class CreateLifecycleHookRequest {
    * Get scalingGroupId
    * @return scalingGroupId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getScalingGroupId() {
     return scalingGroupId;
   }
