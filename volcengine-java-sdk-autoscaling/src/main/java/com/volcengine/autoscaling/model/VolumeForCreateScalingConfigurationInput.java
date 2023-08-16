@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class VolumeForCreateScalingConfigurationInput {
   @SerializedName("DeleteWithInstance")
   private Boolean deleteWithInstance = null;
@@ -66,8 +65,7 @@ public class VolumeForCreateScalingConfigurationInput {
    * Get size
    * @return size
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public Integer getSize() {
     return size;
   }
@@ -85,8 +83,7 @@ public class VolumeForCreateScalingConfigurationInput {
    * Get volumeType
    * @return volumeType
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getVolumeType() {
     return volumeType;
   }

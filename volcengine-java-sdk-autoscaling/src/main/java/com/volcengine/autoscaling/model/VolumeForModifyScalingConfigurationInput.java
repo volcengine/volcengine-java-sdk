@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class VolumeForModifyScalingConfigurationInput {
   @SerializedName("DeleteWithInstance")
   private Boolean deleteWithInstance = null;

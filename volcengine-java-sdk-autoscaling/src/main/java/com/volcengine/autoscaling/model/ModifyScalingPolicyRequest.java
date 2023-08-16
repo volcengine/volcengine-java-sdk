@@ -30,7 +30,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class ModifyScalingPolicyRequest {
   @SerializedName("AdjustmentType")
   private String adjustmentType = null;
@@ -135,8 +134,7 @@ public class ModifyScalingPolicyRequest {
    * Get scalingPolicyId
    * @return scalingPolicyId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getScalingPolicyId() {
     return scalingPolicyId;
   }

@@ -29,7 +29,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class AlarmPolicyForModifyScalingPolicyInput {
   @SerializedName("Condition")
   private AlarmPolicyConditionForModifyScalingPolicyInput condition = null;

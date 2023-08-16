@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.autoscaling.model.LaunchTemplateOverrideForModifyScalingGroupInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -28,7 +29,6 @@ import javax.validation.Valid;
 /**
  * ModifyScalingGroupRequest
  */
-
 
 
 public class ModifyScalingGroupRequest {
@@ -41,14 +41,29 @@ public class ModifyScalingGroupRequest {
   @SerializedName("DesireInstanceNumber")
   private Integer desireInstanceNumber = null;
 
+  @SerializedName("HealthCheckType")
+  private String healthCheckType = null;
+
   @SerializedName("InstanceTerminatePolicy")
   private String instanceTerminatePolicy = null;
+
+  @SerializedName("LaunchTemplateId")
+  private String launchTemplateId = null;
+
+  @SerializedName("LaunchTemplateOverrides")
+  private List<LaunchTemplateOverrideForModifyScalingGroupInput> launchTemplateOverrides = null;
+
+  @SerializedName("LaunchTemplateVersion")
+  private String launchTemplateVersion = null;
 
   @SerializedName("MaxInstanceNumber")
   private Integer maxInstanceNumber = null;
 
   @SerializedName("MinInstanceNumber")
   private Integer minInstanceNumber = null;
+
+  @SerializedName("MultiAZPolicy")
+  private String multiAZPolicy = null;
 
   @SerializedName("ScalingGroupId")
   private String scalingGroupId = null;
@@ -113,6 +128,24 @@ public class ModifyScalingGroupRequest {
     this.desireInstanceNumber = desireInstanceNumber;
   }
 
+  public ModifyScalingGroupRequest healthCheckType(String healthCheckType) {
+    this.healthCheckType = healthCheckType;
+    return this;
+  }
+
+   /**
+   * Get healthCheckType
+   * @return healthCheckType
+  **/
+  @Schema(description = "")
+  public String getHealthCheckType() {
+    return healthCheckType;
+  }
+
+  public void setHealthCheckType(String healthCheckType) {
+    this.healthCheckType = healthCheckType;
+  }
+
   public ModifyScalingGroupRequest instanceTerminatePolicy(String instanceTerminatePolicy) {
     this.instanceTerminatePolicy = instanceTerminatePolicy;
     return this;
@@ -129,6 +162,69 @@ public class ModifyScalingGroupRequest {
 
   public void setInstanceTerminatePolicy(String instanceTerminatePolicy) {
     this.instanceTerminatePolicy = instanceTerminatePolicy;
+  }
+
+  public ModifyScalingGroupRequest launchTemplateId(String launchTemplateId) {
+    this.launchTemplateId = launchTemplateId;
+    return this;
+  }
+
+   /**
+   * Get launchTemplateId
+   * @return launchTemplateId
+  **/
+  @Schema(description = "")
+  public String getLaunchTemplateId() {
+    return launchTemplateId;
+  }
+
+  public void setLaunchTemplateId(String launchTemplateId) {
+    this.launchTemplateId = launchTemplateId;
+  }
+
+  public ModifyScalingGroupRequest launchTemplateOverrides(List<LaunchTemplateOverrideForModifyScalingGroupInput> launchTemplateOverrides) {
+    this.launchTemplateOverrides = launchTemplateOverrides;
+    return this;
+  }
+
+  public ModifyScalingGroupRequest addLaunchTemplateOverridesItem(LaunchTemplateOverrideForModifyScalingGroupInput launchTemplateOverridesItem) {
+    if (this.launchTemplateOverrides == null) {
+      this.launchTemplateOverrides = new ArrayList<LaunchTemplateOverrideForModifyScalingGroupInput>();
+    }
+    this.launchTemplateOverrides.add(launchTemplateOverridesItem);
+    return this;
+  }
+
+   /**
+   * Get launchTemplateOverrides
+   * @return launchTemplateOverrides
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<LaunchTemplateOverrideForModifyScalingGroupInput> getLaunchTemplateOverrides() {
+    return launchTemplateOverrides;
+  }
+
+  public void setLaunchTemplateOverrides(List<LaunchTemplateOverrideForModifyScalingGroupInput> launchTemplateOverrides) {
+    this.launchTemplateOverrides = launchTemplateOverrides;
+  }
+
+  public ModifyScalingGroupRequest launchTemplateVersion(String launchTemplateVersion) {
+    this.launchTemplateVersion = launchTemplateVersion;
+    return this;
+  }
+
+   /**
+   * Get launchTemplateVersion
+   * @return launchTemplateVersion
+  **/
+  @Schema(description = "")
+  public String getLaunchTemplateVersion() {
+    return launchTemplateVersion;
+  }
+
+  public void setLaunchTemplateVersion(String launchTemplateVersion) {
+    this.launchTemplateVersion = launchTemplateVersion;
   }
 
   public ModifyScalingGroupRequest maxInstanceNumber(Integer maxInstanceNumber) {
@@ -167,6 +263,24 @@ public class ModifyScalingGroupRequest {
     this.minInstanceNumber = minInstanceNumber;
   }
 
+  public ModifyScalingGroupRequest multiAZPolicy(String multiAZPolicy) {
+    this.multiAZPolicy = multiAZPolicy;
+    return this;
+  }
+
+   /**
+   * Get multiAZPolicy
+   * @return multiAZPolicy
+  **/
+  @Schema(description = "")
+  public String getMultiAZPolicy() {
+    return multiAZPolicy;
+  }
+
+  public void setMultiAZPolicy(String multiAZPolicy) {
+    this.multiAZPolicy = multiAZPolicy;
+  }
+
   public ModifyScalingGroupRequest scalingGroupId(String scalingGroupId) {
     this.scalingGroupId = scalingGroupId;
     return this;
@@ -176,8 +290,7 @@ public class ModifyScalingGroupRequest {
    * Get scalingGroupId
    * @return scalingGroupId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getScalingGroupId() {
     return scalingGroupId;
   }
@@ -243,9 +356,14 @@ public class ModifyScalingGroupRequest {
     return Objects.equals(this.activeScalingConfigurationId, modifyScalingGroupRequest.activeScalingConfigurationId) &&
         Objects.equals(this.defaultCooldown, modifyScalingGroupRequest.defaultCooldown) &&
         Objects.equals(this.desireInstanceNumber, modifyScalingGroupRequest.desireInstanceNumber) &&
+        Objects.equals(this.healthCheckType, modifyScalingGroupRequest.healthCheckType) &&
         Objects.equals(this.instanceTerminatePolicy, modifyScalingGroupRequest.instanceTerminatePolicy) &&
+        Objects.equals(this.launchTemplateId, modifyScalingGroupRequest.launchTemplateId) &&
+        Objects.equals(this.launchTemplateOverrides, modifyScalingGroupRequest.launchTemplateOverrides) &&
+        Objects.equals(this.launchTemplateVersion, modifyScalingGroupRequest.launchTemplateVersion) &&
         Objects.equals(this.maxInstanceNumber, modifyScalingGroupRequest.maxInstanceNumber) &&
         Objects.equals(this.minInstanceNumber, modifyScalingGroupRequest.minInstanceNumber) &&
+        Objects.equals(this.multiAZPolicy, modifyScalingGroupRequest.multiAZPolicy) &&
         Objects.equals(this.scalingGroupId, modifyScalingGroupRequest.scalingGroupId) &&
         Objects.equals(this.scalingGroupName, modifyScalingGroupRequest.scalingGroupName) &&
         Objects.equals(this.subnetIds, modifyScalingGroupRequest.subnetIds);
@@ -253,7 +371,7 @@ public class ModifyScalingGroupRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(activeScalingConfigurationId, defaultCooldown, desireInstanceNumber, instanceTerminatePolicy, maxInstanceNumber, minInstanceNumber, scalingGroupId, scalingGroupName, subnetIds);
+    return Objects.hash(activeScalingConfigurationId, defaultCooldown, desireInstanceNumber, healthCheckType, instanceTerminatePolicy, launchTemplateId, launchTemplateOverrides, launchTemplateVersion, maxInstanceNumber, minInstanceNumber, multiAZPolicy, scalingGroupId, scalingGroupName, subnetIds);
   }
 
 
@@ -265,9 +383,14 @@ public class ModifyScalingGroupRequest {
     sb.append("    activeScalingConfigurationId: ").append(toIndentedString(activeScalingConfigurationId)).append("\n");
     sb.append("    defaultCooldown: ").append(toIndentedString(defaultCooldown)).append("\n");
     sb.append("    desireInstanceNumber: ").append(toIndentedString(desireInstanceNumber)).append("\n");
+    sb.append("    healthCheckType: ").append(toIndentedString(healthCheckType)).append("\n");
     sb.append("    instanceTerminatePolicy: ").append(toIndentedString(instanceTerminatePolicy)).append("\n");
+    sb.append("    launchTemplateId: ").append(toIndentedString(launchTemplateId)).append("\n");
+    sb.append("    launchTemplateOverrides: ").append(toIndentedString(launchTemplateOverrides)).append("\n");
+    sb.append("    launchTemplateVersion: ").append(toIndentedString(launchTemplateVersion)).append("\n");
     sb.append("    maxInstanceNumber: ").append(toIndentedString(maxInstanceNumber)).append("\n");
     sb.append("    minInstanceNumber: ").append(toIndentedString(minInstanceNumber)).append("\n");
+    sb.append("    multiAZPolicy: ").append(toIndentedString(multiAZPolicy)).append("\n");
     sb.append("    scalingGroupId: ").append(toIndentedString(scalingGroupId)).append("\n");
     sb.append("    scalingGroupName: ").append(toIndentedString(scalingGroupName)).append("\n");
     sb.append("    subnetIds: ").append(toIndentedString(subnetIds)).append("\n");

@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class DescribeLifecycleActivitiesRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;

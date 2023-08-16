@@ -32,13 +32,18 @@ import javax.validation.Valid;
  */
 
 
-
 public class CreateScalingConfigurationRequest {
+  @SerializedName("ClientToken")
+  private String clientToken = null;
+
   @SerializedName("Eip")
   private EipForCreateScalingConfigurationInput eip = null;
 
   @SerializedName("HostName")
   private String hostName = null;
+
+  @SerializedName("HpcClusterId")
+  private String hpcClusterId = null;
 
   @SerializedName("ImageId")
   private String imageId = null;
@@ -52,11 +57,17 @@ public class CreateScalingConfigurationRequest {
   @SerializedName("InstanceTypes")
   private List<String> instanceTypes = null;
 
+  @SerializedName("Ipv6AddressCount")
+  private Integer ipv6AddressCount = null;
+
   @SerializedName("KeyPairName")
   private String keyPairName = null;
 
   @SerializedName("Password")
   private String password = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
 
   @SerializedName("ScalingConfigurationName")
   private String scalingConfigurationName = null;
@@ -70,6 +81,12 @@ public class CreateScalingConfigurationRequest {
   @SerializedName("SecurityGroupIds")
   private List<String> securityGroupIds = null;
 
+  @SerializedName("SpotStrategy")
+  private String spotStrategy = null;
+
+  @SerializedName("Tags")
+  private String tags = null;
+
   @SerializedName("UserData")
   private String userData = null;
 
@@ -78,6 +95,24 @@ public class CreateScalingConfigurationRequest {
 
   @SerializedName("ZoneId")
   private String zoneId = null;
+
+  public CreateScalingConfigurationRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
 
   public CreateScalingConfigurationRequest eip(EipForCreateScalingConfigurationInput eip) {
     this.eip = eip;
@@ -116,6 +151,24 @@ public class CreateScalingConfigurationRequest {
     this.hostName = hostName;
   }
 
+  public CreateScalingConfigurationRequest hpcClusterId(String hpcClusterId) {
+    this.hpcClusterId = hpcClusterId;
+    return this;
+  }
+
+   /**
+   * Get hpcClusterId
+   * @return hpcClusterId
+  **/
+  @Schema(description = "")
+  public String getHpcClusterId() {
+    return hpcClusterId;
+  }
+
+  public void setHpcClusterId(String hpcClusterId) {
+    this.hpcClusterId = hpcClusterId;
+  }
+
   public CreateScalingConfigurationRequest imageId(String imageId) {
     this.imageId = imageId;
     return this;
@@ -125,8 +178,7 @@ public class CreateScalingConfigurationRequest {
    * Get imageId
    * @return imageId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getImageId() {
     return imageId;
   }
@@ -162,8 +214,7 @@ public class CreateScalingConfigurationRequest {
    * Get instanceName
    * @return instanceName
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getInstanceName() {
     return instanceName;
   }
@@ -196,6 +247,24 @@ public class CreateScalingConfigurationRequest {
 
   public void setInstanceTypes(List<String> instanceTypes) {
     this.instanceTypes = instanceTypes;
+  }
+
+  public CreateScalingConfigurationRequest ipv6AddressCount(Integer ipv6AddressCount) {
+    this.ipv6AddressCount = ipv6AddressCount;
+    return this;
+  }
+
+   /**
+   * Get ipv6AddressCount
+   * @return ipv6AddressCount
+  **/
+  @Schema(description = "")
+  public Integer getIpv6AddressCount() {
+    return ipv6AddressCount;
+  }
+
+  public void setIpv6AddressCount(Integer ipv6AddressCount) {
+    this.ipv6AddressCount = ipv6AddressCount;
   }
 
   public CreateScalingConfigurationRequest keyPairName(String keyPairName) {
@@ -234,6 +303,24 @@ public class CreateScalingConfigurationRequest {
     this.password = password;
   }
 
+  public CreateScalingConfigurationRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public CreateScalingConfigurationRequest scalingConfigurationName(String scalingConfigurationName) {
     this.scalingConfigurationName = scalingConfigurationName;
     return this;
@@ -243,8 +330,7 @@ public class CreateScalingConfigurationRequest {
    * Get scalingConfigurationName
    * @return scalingConfigurationName
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getScalingConfigurationName() {
     return scalingConfigurationName;
   }
@@ -262,8 +348,7 @@ public class CreateScalingConfigurationRequest {
    * Get scalingGroupId
    * @return scalingGroupId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getScalingGroupId() {
     return scalingGroupId;
   }
@@ -314,6 +399,42 @@ public class CreateScalingConfigurationRequest {
 
   public void setSecurityGroupIds(List<String> securityGroupIds) {
     this.securityGroupIds = securityGroupIds;
+  }
+
+  public CreateScalingConfigurationRequest spotStrategy(String spotStrategy) {
+    this.spotStrategy = spotStrategy;
+    return this;
+  }
+
+   /**
+   * Get spotStrategy
+   * @return spotStrategy
+  **/
+  @Schema(description = "")
+  public String getSpotStrategy() {
+    return spotStrategy;
+  }
+
+  public void setSpotStrategy(String spotStrategy) {
+    this.spotStrategy = spotStrategy;
+  }
+
+  public CreateScalingConfigurationRequest tags(String tags) {
+    this.tags = tags;
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Schema(description = "")
+  public String getTags() {
+    return tags;
+  }
+
+  public void setTags(String tags) {
+    this.tags = tags;
   }
 
   public CreateScalingConfigurationRequest userData(String userData) {
@@ -370,8 +491,7 @@ public class CreateScalingConfigurationRequest {
    * Get zoneId
    * @return zoneId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getZoneId() {
     return zoneId;
   }
@@ -390,18 +510,24 @@ public class CreateScalingConfigurationRequest {
       return false;
     }
     CreateScalingConfigurationRequest createScalingConfigurationRequest = (CreateScalingConfigurationRequest) o;
-    return Objects.equals(this.eip, createScalingConfigurationRequest.eip) &&
+    return Objects.equals(this.clientToken, createScalingConfigurationRequest.clientToken) &&
+        Objects.equals(this.eip, createScalingConfigurationRequest.eip) &&
         Objects.equals(this.hostName, createScalingConfigurationRequest.hostName) &&
+        Objects.equals(this.hpcClusterId, createScalingConfigurationRequest.hpcClusterId) &&
         Objects.equals(this.imageId, createScalingConfigurationRequest.imageId) &&
         Objects.equals(this.instanceDescription, createScalingConfigurationRequest.instanceDescription) &&
         Objects.equals(this.instanceName, createScalingConfigurationRequest.instanceName) &&
         Objects.equals(this.instanceTypes, createScalingConfigurationRequest.instanceTypes) &&
+        Objects.equals(this.ipv6AddressCount, createScalingConfigurationRequest.ipv6AddressCount) &&
         Objects.equals(this.keyPairName, createScalingConfigurationRequest.keyPairName) &&
         Objects.equals(this.password, createScalingConfigurationRequest.password) &&
+        Objects.equals(this.projectName, createScalingConfigurationRequest.projectName) &&
         Objects.equals(this.scalingConfigurationName, createScalingConfigurationRequest.scalingConfigurationName) &&
         Objects.equals(this.scalingGroupId, createScalingConfigurationRequest.scalingGroupId) &&
         Objects.equals(this.securityEnhancementStrategy, createScalingConfigurationRequest.securityEnhancementStrategy) &&
         Objects.equals(this.securityGroupIds, createScalingConfigurationRequest.securityGroupIds) &&
+        Objects.equals(this.spotStrategy, createScalingConfigurationRequest.spotStrategy) &&
+        Objects.equals(this.tags, createScalingConfigurationRequest.tags) &&
         Objects.equals(this.userData, createScalingConfigurationRequest.userData) &&
         Objects.equals(this.volumes, createScalingConfigurationRequest.volumes) &&
         Objects.equals(this.zoneId, createScalingConfigurationRequest.zoneId);
@@ -409,7 +535,7 @@ public class CreateScalingConfigurationRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(eip, hostName, imageId, instanceDescription, instanceName, instanceTypes, keyPairName, password, scalingConfigurationName, scalingGroupId, securityEnhancementStrategy, securityGroupIds, userData, volumes, zoneId);
+    return Objects.hash(clientToken, eip, hostName, hpcClusterId, imageId, instanceDescription, instanceName, instanceTypes, ipv6AddressCount, keyPairName, password, projectName, scalingConfigurationName, scalingGroupId, securityEnhancementStrategy, securityGroupIds, spotStrategy, tags, userData, volumes, zoneId);
   }
 
 
@@ -418,18 +544,24 @@ public class CreateScalingConfigurationRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateScalingConfigurationRequest {\n");
     
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    eip: ").append(toIndentedString(eip)).append("\n");
     sb.append("    hostName: ").append(toIndentedString(hostName)).append("\n");
+    sb.append("    hpcClusterId: ").append(toIndentedString(hpcClusterId)).append("\n");
     sb.append("    imageId: ").append(toIndentedString(imageId)).append("\n");
     sb.append("    instanceDescription: ").append(toIndentedString(instanceDescription)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    instanceTypes: ").append(toIndentedString(instanceTypes)).append("\n");
+    sb.append("    ipv6AddressCount: ").append(toIndentedString(ipv6AddressCount)).append("\n");
     sb.append("    keyPairName: ").append(toIndentedString(keyPairName)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    scalingConfigurationName: ").append(toIndentedString(scalingConfigurationName)).append("\n");
     sb.append("    scalingGroupId: ").append(toIndentedString(scalingGroupId)).append("\n");
     sb.append("    securityEnhancementStrategy: ").append(toIndentedString(securityEnhancementStrategy)).append("\n");
     sb.append("    securityGroupIds: ").append(toIndentedString(securityGroupIds)).append("\n");
+    sb.append("    spotStrategy: ").append(toIndentedString(spotStrategy)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    userData: ").append(toIndentedString(userData)).append("\n");
     sb.append("    volumes: ").append(toIndentedString(volumes)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");

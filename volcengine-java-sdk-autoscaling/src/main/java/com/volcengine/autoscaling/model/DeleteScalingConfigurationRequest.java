@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class DeleteScalingConfigurationRequest {
   @SerializedName("ScalingConfigurationId")
   private String scalingConfigurationId = null;
@@ -42,8 +41,7 @@ public class DeleteScalingConfigurationRequest {
    * Get scalingConfigurationId
    * @return scalingConfigurationId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getScalingConfigurationId() {
     return scalingConfigurationId;
   }

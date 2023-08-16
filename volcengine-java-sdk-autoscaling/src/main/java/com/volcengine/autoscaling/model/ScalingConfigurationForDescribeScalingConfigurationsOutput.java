@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.autoscaling.model.EipForDescribeScalingConfigurationsOutput;
+import com.volcengine.autoscaling.model.TagForDescribeScalingConfigurationsOutput;
 import com.volcengine.autoscaling.model.VolumeForDescribeScalingConfigurationsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -32,7 +33,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class ScalingConfigurationForDescribeScalingConfigurationsOutput {
   @SerializedName("CreatedAt")
   private String createdAt = null;
@@ -43,8 +43,14 @@ public class ScalingConfigurationForDescribeScalingConfigurationsOutput {
   @SerializedName("HostName")
   private String hostName = null;
 
+  @SerializedName("HpcClusterId")
+  private String hpcClusterId = null;
+
   @SerializedName("ImageId")
   private String imageId = null;
+
+  @SerializedName("InstanceChargeType")
+  private String instanceChargeType = null;
 
   @SerializedName("InstanceDescription")
   private String instanceDescription = null;
@@ -55,11 +61,17 @@ public class ScalingConfigurationForDescribeScalingConfigurationsOutput {
   @SerializedName("InstanceTypes")
   private List<String> instanceTypes = null;
 
+  @SerializedName("Ipv6AddressCount")
+  private Integer ipv6AddressCount = null;
+
   @SerializedName("KeyPairName")
   private String keyPairName = null;
 
   @SerializedName("LifecycleState")
   private String lifecycleState = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
 
   @SerializedName("ScalingConfigurationId")
   private String scalingConfigurationId = null;
@@ -75,6 +87,12 @@ public class ScalingConfigurationForDescribeScalingConfigurationsOutput {
 
   @SerializedName("SecurityGroupIds")
   private List<String> securityGroupIds = null;
+
+  @SerializedName("SpotStrategy")
+  private String spotStrategy = null;
+
+  @SerializedName("Tags")
+  private List<TagForDescribeScalingConfigurationsOutput> tags = null;
 
   @SerializedName("UpdatedAt")
   private String updatedAt = null;
@@ -143,6 +161,24 @@ public class ScalingConfigurationForDescribeScalingConfigurationsOutput {
     this.hostName = hostName;
   }
 
+  public ScalingConfigurationForDescribeScalingConfigurationsOutput hpcClusterId(String hpcClusterId) {
+    this.hpcClusterId = hpcClusterId;
+    return this;
+  }
+
+   /**
+   * Get hpcClusterId
+   * @return hpcClusterId
+  **/
+  @Schema(description = "")
+  public String getHpcClusterId() {
+    return hpcClusterId;
+  }
+
+  public void setHpcClusterId(String hpcClusterId) {
+    this.hpcClusterId = hpcClusterId;
+  }
+
   public ScalingConfigurationForDescribeScalingConfigurationsOutput imageId(String imageId) {
     this.imageId = imageId;
     return this;
@@ -159,6 +195,24 @@ public class ScalingConfigurationForDescribeScalingConfigurationsOutput {
 
   public void setImageId(String imageId) {
     this.imageId = imageId;
+  }
+
+  public ScalingConfigurationForDescribeScalingConfigurationsOutput instanceChargeType(String instanceChargeType) {
+    this.instanceChargeType = instanceChargeType;
+    return this;
+  }
+
+   /**
+   * Get instanceChargeType
+   * @return instanceChargeType
+  **/
+  @Schema(description = "")
+  public String getInstanceChargeType() {
+    return instanceChargeType;
+  }
+
+  public void setInstanceChargeType(String instanceChargeType) {
+    this.instanceChargeType = instanceChargeType;
   }
 
   public ScalingConfigurationForDescribeScalingConfigurationsOutput instanceDescription(String instanceDescription) {
@@ -223,6 +277,24 @@ public class ScalingConfigurationForDescribeScalingConfigurationsOutput {
     this.instanceTypes = instanceTypes;
   }
 
+  public ScalingConfigurationForDescribeScalingConfigurationsOutput ipv6AddressCount(Integer ipv6AddressCount) {
+    this.ipv6AddressCount = ipv6AddressCount;
+    return this;
+  }
+
+   /**
+   * Get ipv6AddressCount
+   * @return ipv6AddressCount
+  **/
+  @Schema(description = "")
+  public Integer getIpv6AddressCount() {
+    return ipv6AddressCount;
+  }
+
+  public void setIpv6AddressCount(Integer ipv6AddressCount) {
+    this.ipv6AddressCount = ipv6AddressCount;
+  }
+
   public ScalingConfigurationForDescribeScalingConfigurationsOutput keyPairName(String keyPairName) {
     this.keyPairName = keyPairName;
     return this;
@@ -257,6 +329,24 @@ public class ScalingConfigurationForDescribeScalingConfigurationsOutput {
 
   public void setLifecycleState(String lifecycleState) {
     this.lifecycleState = lifecycleState;
+  }
+
+  public ScalingConfigurationForDescribeScalingConfigurationsOutput projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
   }
 
   public ScalingConfigurationForDescribeScalingConfigurationsOutput scalingConfigurationId(String scalingConfigurationId) {
@@ -357,6 +447,51 @@ public class ScalingConfigurationForDescribeScalingConfigurationsOutput {
     this.securityGroupIds = securityGroupIds;
   }
 
+  public ScalingConfigurationForDescribeScalingConfigurationsOutput spotStrategy(String spotStrategy) {
+    this.spotStrategy = spotStrategy;
+    return this;
+  }
+
+   /**
+   * Get spotStrategy
+   * @return spotStrategy
+  **/
+  @Schema(description = "")
+  public String getSpotStrategy() {
+    return spotStrategy;
+  }
+
+  public void setSpotStrategy(String spotStrategy) {
+    this.spotStrategy = spotStrategy;
+  }
+
+  public ScalingConfigurationForDescribeScalingConfigurationsOutput tags(List<TagForDescribeScalingConfigurationsOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public ScalingConfigurationForDescribeScalingConfigurationsOutput addTagsItem(TagForDescribeScalingConfigurationsOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForDescribeScalingConfigurationsOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForDescribeScalingConfigurationsOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForDescribeScalingConfigurationsOutput> tags) {
+    this.tags = tags;
+  }
+
   public ScalingConfigurationForDescribeScalingConfigurationsOutput updatedAt(String updatedAt) {
     this.updatedAt = updatedAt;
     return this;
@@ -451,17 +586,23 @@ public class ScalingConfigurationForDescribeScalingConfigurationsOutput {
     return Objects.equals(this.createdAt, scalingConfigurationForDescribeScalingConfigurationsOutput.createdAt) &&
         Objects.equals(this.eip, scalingConfigurationForDescribeScalingConfigurationsOutput.eip) &&
         Objects.equals(this.hostName, scalingConfigurationForDescribeScalingConfigurationsOutput.hostName) &&
+        Objects.equals(this.hpcClusterId, scalingConfigurationForDescribeScalingConfigurationsOutput.hpcClusterId) &&
         Objects.equals(this.imageId, scalingConfigurationForDescribeScalingConfigurationsOutput.imageId) &&
+        Objects.equals(this.instanceChargeType, scalingConfigurationForDescribeScalingConfigurationsOutput.instanceChargeType) &&
         Objects.equals(this.instanceDescription, scalingConfigurationForDescribeScalingConfigurationsOutput.instanceDescription) &&
         Objects.equals(this.instanceName, scalingConfigurationForDescribeScalingConfigurationsOutput.instanceName) &&
         Objects.equals(this.instanceTypes, scalingConfigurationForDescribeScalingConfigurationsOutput.instanceTypes) &&
+        Objects.equals(this.ipv6AddressCount, scalingConfigurationForDescribeScalingConfigurationsOutput.ipv6AddressCount) &&
         Objects.equals(this.keyPairName, scalingConfigurationForDescribeScalingConfigurationsOutput.keyPairName) &&
         Objects.equals(this.lifecycleState, scalingConfigurationForDescribeScalingConfigurationsOutput.lifecycleState) &&
+        Objects.equals(this.projectName, scalingConfigurationForDescribeScalingConfigurationsOutput.projectName) &&
         Objects.equals(this.scalingConfigurationId, scalingConfigurationForDescribeScalingConfigurationsOutput.scalingConfigurationId) &&
         Objects.equals(this.scalingConfigurationName, scalingConfigurationForDescribeScalingConfigurationsOutput.scalingConfigurationName) &&
         Objects.equals(this.scalingGroupId, scalingConfigurationForDescribeScalingConfigurationsOutput.scalingGroupId) &&
         Objects.equals(this.securityEnhancementStrategy, scalingConfigurationForDescribeScalingConfigurationsOutput.securityEnhancementStrategy) &&
         Objects.equals(this.securityGroupIds, scalingConfigurationForDescribeScalingConfigurationsOutput.securityGroupIds) &&
+        Objects.equals(this.spotStrategy, scalingConfigurationForDescribeScalingConfigurationsOutput.spotStrategy) &&
+        Objects.equals(this.tags, scalingConfigurationForDescribeScalingConfigurationsOutput.tags) &&
         Objects.equals(this.updatedAt, scalingConfigurationForDescribeScalingConfigurationsOutput.updatedAt) &&
         Objects.equals(this.userData, scalingConfigurationForDescribeScalingConfigurationsOutput.userData) &&
         Objects.equals(this.volumes, scalingConfigurationForDescribeScalingConfigurationsOutput.volumes) &&
@@ -470,7 +611,7 @@ public class ScalingConfigurationForDescribeScalingConfigurationsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, eip, hostName, imageId, instanceDescription, instanceName, instanceTypes, keyPairName, lifecycleState, scalingConfigurationId, scalingConfigurationName, scalingGroupId, securityEnhancementStrategy, securityGroupIds, updatedAt, userData, volumes, zoneId);
+    return Objects.hash(createdAt, eip, hostName, hpcClusterId, imageId, instanceChargeType, instanceDescription, instanceName, instanceTypes, ipv6AddressCount, keyPairName, lifecycleState, projectName, scalingConfigurationId, scalingConfigurationName, scalingGroupId, securityEnhancementStrategy, securityGroupIds, spotStrategy, tags, updatedAt, userData, volumes, zoneId);
   }
 
 
@@ -482,17 +623,23 @@ public class ScalingConfigurationForDescribeScalingConfigurationsOutput {
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    eip: ").append(toIndentedString(eip)).append("\n");
     sb.append("    hostName: ").append(toIndentedString(hostName)).append("\n");
+    sb.append("    hpcClusterId: ").append(toIndentedString(hpcClusterId)).append("\n");
     sb.append("    imageId: ").append(toIndentedString(imageId)).append("\n");
+    sb.append("    instanceChargeType: ").append(toIndentedString(instanceChargeType)).append("\n");
     sb.append("    instanceDescription: ").append(toIndentedString(instanceDescription)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    instanceTypes: ").append(toIndentedString(instanceTypes)).append("\n");
+    sb.append("    ipv6AddressCount: ").append(toIndentedString(ipv6AddressCount)).append("\n");
     sb.append("    keyPairName: ").append(toIndentedString(keyPairName)).append("\n");
     sb.append("    lifecycleState: ").append(toIndentedString(lifecycleState)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    scalingConfigurationId: ").append(toIndentedString(scalingConfigurationId)).append("\n");
     sb.append("    scalingConfigurationName: ").append(toIndentedString(scalingConfigurationName)).append("\n");
     sb.append("    scalingGroupId: ").append(toIndentedString(scalingGroupId)).append("\n");
     sb.append("    securityEnhancementStrategy: ").append(toIndentedString(securityEnhancementStrategy)).append("\n");
     sb.append("    securityGroupIds: ").append(toIndentedString(securityGroupIds)).append("\n");
+    sb.append("    spotStrategy: ").append(toIndentedString(spotStrategy)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    userData: ").append(toIndentedString(userData)).append("\n");
     sb.append("    volumes: ").append(toIndentedString(volumes)).append("\n");

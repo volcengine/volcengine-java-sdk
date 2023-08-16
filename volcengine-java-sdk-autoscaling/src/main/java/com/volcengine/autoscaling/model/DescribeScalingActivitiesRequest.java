@@ -30,7 +30,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class DescribeScalingActivitiesRequest {
   @SerializedName("EndTime")
   private String endTime = null;
@@ -142,8 +141,7 @@ public class DescribeScalingActivitiesRequest {
    * Get scalingGroupId
    * @return scalingGroupId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getScalingGroupId() {
     return scalingGroupId;
   }

@@ -30,7 +30,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class CreateScalingPolicyRequest {
   @SerializedName("AdjustmentType")
   private String adjustmentType = null;
@@ -65,8 +64,7 @@ public class CreateScalingPolicyRequest {
    * Get adjustmentType
    * @return adjustmentType
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getAdjustmentType() {
     return adjustmentType;
   }
@@ -84,8 +82,7 @@ public class CreateScalingPolicyRequest {
    * Get adjustmentValue
    * @return adjustmentValue
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public Integer getAdjustmentValue() {
     return adjustmentValue;
   }
@@ -140,8 +137,7 @@ public class CreateScalingPolicyRequest {
    * Get scalingGroupId
    * @return scalingGroupId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getScalingGroupId() {
     return scalingGroupId;
   }
@@ -159,8 +155,7 @@ public class CreateScalingPolicyRequest {
    * Get scalingPolicyName
    * @return scalingPolicyName
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getScalingPolicyName() {
     return scalingPolicyName;
   }
@@ -178,8 +173,7 @@ public class CreateScalingPolicyRequest {
    * Get scalingPolicyType
    * @return scalingPolicyType
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getScalingPolicyType() {
     return scalingPolicyType;
   }

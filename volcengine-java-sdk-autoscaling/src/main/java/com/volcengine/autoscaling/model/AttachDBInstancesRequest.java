@@ -30,7 +30,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class AttachDBInstancesRequest {
   @SerializedName("DBInstanceIds")
   private List<String> dbInstanceIds = null;

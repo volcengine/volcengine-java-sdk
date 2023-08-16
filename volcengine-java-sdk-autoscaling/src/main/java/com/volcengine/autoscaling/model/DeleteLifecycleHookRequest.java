@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class DeleteLifecycleHookRequest {
   @SerializedName("LifecycleHookId")
   private String lifecycleHookId = null;
