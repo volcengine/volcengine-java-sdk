@@ -36,6 +36,9 @@ public class GetMetricDataRequest {
   @SerializedName("EndTime")
   private Integer endTime = null;
 
+  @SerializedName("GroupBy")
+  private List<String> groupBy = null;
+
   @SerializedName("Instances")
   private List<InstanceForGetMetricDataInput> instances = null;
 
@@ -70,6 +73,32 @@ public class GetMetricDataRequest {
 
   public void setEndTime(Integer endTime) {
     this.endTime = endTime;
+  }
+
+  public GetMetricDataRequest groupBy(List<String> groupBy) {
+    this.groupBy = groupBy;
+    return this;
+  }
+
+  public GetMetricDataRequest addGroupByItem(String groupByItem) {
+    if (this.groupBy == null) {
+      this.groupBy = new ArrayList<String>();
+    }
+    this.groupBy.add(groupByItem);
+    return this;
+  }
+
+   /**
+   * Get groupBy
+   * @return groupBy
+  **/
+  @Schema(description = "")
+  public List<String> getGroupBy() {
+    return groupBy;
+  }
+
+  public void setGroupBy(List<String> groupBy) {
+    this.groupBy = groupBy;
   }
 
   public GetMetricDataRequest instances(List<InstanceForGetMetricDataInput> instances) {
@@ -200,6 +229,7 @@ public class GetMetricDataRequest {
     }
     GetMetricDataRequest getMetricDataRequest = (GetMetricDataRequest) o;
     return Objects.equals(this.endTime, getMetricDataRequest.endTime) &&
+        Objects.equals(this.groupBy, getMetricDataRequest.groupBy) &&
         Objects.equals(this.instances, getMetricDataRequest.instances) &&
         Objects.equals(this.metricName, getMetricDataRequest.metricName) &&
         Objects.equals(this.namespace, getMetricDataRequest.namespace) &&
@@ -210,7 +240,7 @@ public class GetMetricDataRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(endTime, instances, metricName, namespace, period, startTime, subNamespace);
+    return Objects.hash(endTime, groupBy, instances, metricName, namespace, period, startTime, subNamespace);
   }
 
 
@@ -220,6 +250,7 @@ public class GetMetricDataRequest {
     sb.append("class GetMetricDataRequest {\n");
     
     sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
+    sb.append("    groupBy: ").append(toIndentedString(groupBy)).append("\n");
     sb.append("    instances: ").append(toIndentedString(instances)).append("\n");
     sb.append("    metricName: ").append(toIndentedString(metricName)).append("\n");
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
