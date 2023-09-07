@@ -21,54 +21,64 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * UploadCertificateResponse
+ * TagFilterForDescribeLoadBalancersInput
  */
 
 
-public class UploadCertificateResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("CertificateId")
-  private String certificateId = null;
+public class TagFilterForDescribeLoadBalancersInput {
+  @SerializedName("Key")
+  private String key = null;
 
-  @SerializedName("RequestId")
-  private String requestId = null;
+  @SerializedName("Values")
+  private List<String> values = null;
 
-  public UploadCertificateResponse certificateId(String certificateId) {
-    this.certificateId = certificateId;
+  public TagFilterForDescribeLoadBalancersInput key(String key) {
+    this.key = key;
     return this;
   }
 
    /**
-   * Get certificateId
-   * @return certificateId
+   * Get key
+   * @return key
   **/
   @Schema(description = "")
-  public String getCertificateId() {
-    return certificateId;
+  public String getKey() {
+    return key;
   }
 
-  public void setCertificateId(String certificateId) {
-    this.certificateId = certificateId;
+  public void setKey(String key) {
+    this.key = key;
   }
 
-  public UploadCertificateResponse requestId(String requestId) {
-    this.requestId = requestId;
+  public TagFilterForDescribeLoadBalancersInput values(List<String> values) {
+    this.values = values;
+    return this;
+  }
+
+  public TagFilterForDescribeLoadBalancersInput addValuesItem(String valuesItem) {
+    if (this.values == null) {
+      this.values = new ArrayList<String>();
+    }
+    this.values.add(valuesItem);
     return this;
   }
 
    /**
-   * Get requestId
-   * @return requestId
+   * Get values
+   * @return values
   **/
   @Schema(description = "")
-  public String getRequestId() {
-    return requestId;
+  public List<String> getValues() {
+    return values;
   }
 
-  public void setRequestId(String requestId) {
-    this.requestId = requestId;
+  public void setValues(List<String> values) {
+    this.values = values;
   }
 
 
@@ -80,24 +90,24 @@ public class UploadCertificateResponse extends com.volcengine.model.AbstractResp
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UploadCertificateResponse uploadCertificateResponse = (UploadCertificateResponse) o;
-    return Objects.equals(this.certificateId, uploadCertificateResponse.certificateId) &&
-        Objects.equals(this.requestId, uploadCertificateResponse.requestId);
+    TagFilterForDescribeLoadBalancersInput tagFilterForDescribeLoadBalancersInput = (TagFilterForDescribeLoadBalancersInput) o;
+    return Objects.equals(this.key, tagFilterForDescribeLoadBalancersInput.key) &&
+        Objects.equals(this.values, tagFilterForDescribeLoadBalancersInput.values);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(certificateId, requestId);
+    return Objects.hash(key, values);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UploadCertificateResponse {\n");
+    sb.append("class TagFilterForDescribeLoadBalancersInput {\n");
     
-    sb.append("    certificateId: ").append(toIndentedString(certificateId)).append("\n");
-    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    values: ").append(toIndentedString(values)).append("\n");
     sb.append("}");
     return sb.toString();
   }

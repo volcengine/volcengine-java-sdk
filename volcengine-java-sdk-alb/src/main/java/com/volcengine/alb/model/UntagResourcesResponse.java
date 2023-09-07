@@ -24,36 +24,15 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * UploadCertificateResponse
+ * UntagResourcesResponse
  */
 
 
-public class UploadCertificateResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("CertificateId")
-  private String certificateId = null;
-
+public class UntagResourcesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("RequestId")
   private String requestId = null;
 
-  public UploadCertificateResponse certificateId(String certificateId) {
-    this.certificateId = certificateId;
-    return this;
-  }
-
-   /**
-   * Get certificateId
-   * @return certificateId
-  **/
-  @Schema(description = "")
-  public String getCertificateId() {
-    return certificateId;
-  }
-
-  public void setCertificateId(String certificateId) {
-    this.certificateId = certificateId;
-  }
-
-  public UploadCertificateResponse requestId(String requestId) {
+  public UntagResourcesResponse requestId(String requestId) {
     this.requestId = requestId;
     return this;
   }
@@ -80,23 +59,21 @@ public class UploadCertificateResponse extends com.volcengine.model.AbstractResp
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UploadCertificateResponse uploadCertificateResponse = (UploadCertificateResponse) o;
-    return Objects.equals(this.certificateId, uploadCertificateResponse.certificateId) &&
-        Objects.equals(this.requestId, uploadCertificateResponse.requestId);
+    UntagResourcesResponse untagResourcesResponse = (UntagResourcesResponse) o;
+    return Objects.equals(this.requestId, untagResourcesResponse.requestId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(certificateId, requestId);
+    return Objects.hash(requestId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UploadCertificateResponse {\n");
+    sb.append("class UntagResourcesResponse {\n");
     
-    sb.append("    certificateId: ").append(toIndentedString(certificateId)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("}");
     return sb.toString();

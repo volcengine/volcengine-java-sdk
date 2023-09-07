@@ -24,6 +24,7 @@ import com.volcengine.alb.model.EipForDescribeLoadBalancerAttributesOutput;
 import com.volcengine.alb.model.HealthLogForDescribeLoadBalancerAttributesOutput;
 import com.volcengine.alb.model.ListenerForDescribeLoadBalancerAttributesOutput;
 import com.volcengine.alb.model.TLSAccessLogForDescribeLoadBalancerAttributesOutput;
+import com.volcengine.alb.model.TagForDescribeLoadBalancerAttributesOutput;
 import com.volcengine.alb.model.ZoneMappingForDescribeLoadBalancerAttributesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -36,7 +37,7 @@ import javax.validation.Valid;
  */
 
 
-public class DescribeLoadBalancerAttributesResponse {
+public class DescribeLoadBalancerAttributesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("AccessLog")
   private AccessLogForDescribeLoadBalancerAttributesOutput accessLog = null;
 
@@ -117,6 +118,9 @@ public class DescribeLoadBalancerAttributesResponse {
 
   @SerializedName("TLSAccessLog")
   private TLSAccessLogForDescribeLoadBalancerAttributesOutput tlSAccessLog = null;
+
+  @SerializedName("Tags")
+  private List<TagForDescribeLoadBalancerAttributesOutput> tags = null;
 
   @SerializedName("Type")
   private String type = null;
@@ -637,6 +641,33 @@ public class DescribeLoadBalancerAttributesResponse {
     this.tlSAccessLog = tlSAccessLog;
   }
 
+  public DescribeLoadBalancerAttributesResponse tags(List<TagForDescribeLoadBalancerAttributesOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public DescribeLoadBalancerAttributesResponse addTagsItem(TagForDescribeLoadBalancerAttributesOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForDescribeLoadBalancerAttributesOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForDescribeLoadBalancerAttributesOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForDescribeLoadBalancerAttributesOutput> tags) {
+    this.tags = tags;
+  }
+
   public DescribeLoadBalancerAttributesResponse type(String type) {
     this.type = type;
     return this;
@@ -755,6 +786,7 @@ public class DescribeLoadBalancerAttributesResponse {
         Objects.equals(this.status, describeLoadBalancerAttributesResponse.status) &&
         Objects.equals(this.subnetId, describeLoadBalancerAttributesResponse.subnetId) &&
         Objects.equals(this.tlSAccessLog, describeLoadBalancerAttributesResponse.tlSAccessLog) &&
+        Objects.equals(this.tags, describeLoadBalancerAttributesResponse.tags) &&
         Objects.equals(this.type, describeLoadBalancerAttributesResponse.type) &&
         Objects.equals(this.updateTime, describeLoadBalancerAttributesResponse.updateTime) &&
         Objects.equals(this.vpcId, describeLoadBalancerAttributesResponse.vpcId) &&
@@ -763,7 +795,7 @@ public class DescribeLoadBalancerAttributesResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessLog, addressIpVersion, businessStatus, createTime, dnSName, deleteProtection, deletedTime, description, eip, eipAddress, eipId, enabled, eniAddress, eniId, healthLog, listeners, loadBalancerBillingType, loadBalancerId, loadBalancerName, localAddresses, lockReason, overdueTime, projectName, requestId, status, subnetId, tlSAccessLog, type, updateTime, vpcId, zoneMappings);
+    return Objects.hash(accessLog, addressIpVersion, businessStatus, createTime, dnSName, deleteProtection, deletedTime, description, eip, eipAddress, eipId, enabled, eniAddress, eniId, healthLog, listeners, loadBalancerBillingType, loadBalancerId, loadBalancerName, localAddresses, lockReason, overdueTime, projectName, requestId, status, subnetId, tlSAccessLog, tags, type, updateTime, vpcId, zoneMappings);
   }
 
 
@@ -799,6 +831,7 @@ public class DescribeLoadBalancerAttributesResponse {
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    tlSAccessLog: ").append(toIndentedString(tlSAccessLog)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
