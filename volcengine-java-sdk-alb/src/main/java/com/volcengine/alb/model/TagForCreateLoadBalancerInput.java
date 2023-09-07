@@ -24,51 +24,51 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * UploadCertificateResponse
+ * TagForCreateLoadBalancerInput
  */
 
 
-public class UploadCertificateResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("CertificateId")
-  private String certificateId = null;
+public class TagForCreateLoadBalancerInput {
+  @SerializedName("Key")
+  private String key = null;
 
-  @SerializedName("RequestId")
-  private String requestId = null;
+  @SerializedName("Value")
+  private String value = null;
 
-  public UploadCertificateResponse certificateId(String certificateId) {
-    this.certificateId = certificateId;
+  public TagForCreateLoadBalancerInput key(String key) {
+    this.key = key;
     return this;
   }
 
    /**
-   * Get certificateId
-   * @return certificateId
+   * Get key
+   * @return key
   **/
   @Schema(description = "")
-  public String getCertificateId() {
-    return certificateId;
+  public String getKey() {
+    return key;
   }
 
-  public void setCertificateId(String certificateId) {
-    this.certificateId = certificateId;
+  public void setKey(String key) {
+    this.key = key;
   }
 
-  public UploadCertificateResponse requestId(String requestId) {
-    this.requestId = requestId;
+  public TagForCreateLoadBalancerInput value(String value) {
+    this.value = value;
     return this;
   }
 
    /**
-   * Get requestId
-   * @return requestId
+   * Get value
+   * @return value
   **/
   @Schema(description = "")
-  public String getRequestId() {
-    return requestId;
+  public String getValue() {
+    return value;
   }
 
-  public void setRequestId(String requestId) {
-    this.requestId = requestId;
+  public void setValue(String value) {
+    this.value = value;
   }
 
 
@@ -80,24 +80,24 @@ public class UploadCertificateResponse extends com.volcengine.model.AbstractResp
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UploadCertificateResponse uploadCertificateResponse = (UploadCertificateResponse) o;
-    return Objects.equals(this.certificateId, uploadCertificateResponse.certificateId) &&
-        Objects.equals(this.requestId, uploadCertificateResponse.requestId);
+    TagForCreateLoadBalancerInput tagForCreateLoadBalancerInput = (TagForCreateLoadBalancerInput) o;
+    return Objects.equals(this.key, tagForCreateLoadBalancerInput.key) &&
+        Objects.equals(this.value, tagForCreateLoadBalancerInput.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(certificateId, requestId);
+    return Objects.hash(key, value);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UploadCertificateResponse {\n");
+    sb.append("class TagForCreateLoadBalancerInput {\n");
     
-    sb.append("    certificateId: ").append(toIndentedString(certificateId)).append("\n");
-    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
   }
