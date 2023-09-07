@@ -31,7 +31,7 @@ import javax.validation.Valid;
  */
 
 
-public class DescribeHealthCheckTemplatesResponse {
+public class DescribeHealthCheckTemplatesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("HealthCheckTemplates")
   private List<HealthCheckTemplateForDescribeHealthCheckTemplatesOutput> healthCheckTemplates = null;
 

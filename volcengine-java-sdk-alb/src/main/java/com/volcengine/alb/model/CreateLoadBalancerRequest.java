@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.alb.model.EipBillingConfigForCreateLoadBalancerInput;
 import com.volcengine.alb.model.Ipv6EipBillingConfigForCreateLoadBalancerInput;
+import com.volcengine.alb.model.TagForCreateLoadBalancerInput;
 import com.volcengine.alb.model.ZoneMappingForCreateLoadBalancerInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -66,6 +67,9 @@ public class CreateLoadBalancerRequest {
 
   @SerializedName("SubnetId")
   private String subnetId = null;
+
+  @SerializedName("Tags")
+  private List<TagForCreateLoadBalancerInput> tags = null;
 
   @SerializedName("Type")
   private String type = null;
@@ -277,6 +281,33 @@ public class CreateLoadBalancerRequest {
     this.subnetId = subnetId;
   }
 
+  public CreateLoadBalancerRequest tags(List<TagForCreateLoadBalancerInput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public CreateLoadBalancerRequest addTagsItem(TagForCreateLoadBalancerInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForCreateLoadBalancerInput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForCreateLoadBalancerInput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForCreateLoadBalancerInput> tags) {
+    this.tags = tags;
+  }
+
   public CreateLoadBalancerRequest type(String type) {
     this.type = type;
     return this;
@@ -362,6 +393,7 @@ public class CreateLoadBalancerRequest {
         Objects.equals(this.projectName, createLoadBalancerRequest.projectName) &&
         Objects.equals(this.regionId, createLoadBalancerRequest.regionId) &&
         Objects.equals(this.subnetId, createLoadBalancerRequest.subnetId) &&
+        Objects.equals(this.tags, createLoadBalancerRequest.tags) &&
         Objects.equals(this.type, createLoadBalancerRequest.type) &&
         Objects.equals(this.vpcId, createLoadBalancerRequest.vpcId) &&
         Objects.equals(this.zoneMappings, createLoadBalancerRequest.zoneMappings);
@@ -369,7 +401,7 @@ public class CreateLoadBalancerRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addressIpVersion, bandwidthPackageId, deleteProtection, description, eipBillingConfig, ipv6EipBillingConfig, loadBalancerBillingType, loadBalancerName, projectName, regionId, subnetId, type, vpcId, zoneMappings);
+    return Objects.hash(addressIpVersion, bandwidthPackageId, deleteProtection, description, eipBillingConfig, ipv6EipBillingConfig, loadBalancerBillingType, loadBalancerName, projectName, regionId, subnetId, tags, type, vpcId, zoneMappings);
   }
 
 
@@ -389,6 +421,7 @@ public class CreateLoadBalancerRequest {
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    regionId: ").append(toIndentedString(regionId)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("    zoneMappings: ").append(toIndentedString(zoneMappings)).append("\n");

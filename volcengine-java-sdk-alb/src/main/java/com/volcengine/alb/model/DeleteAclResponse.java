@@ -28,7 +28,7 @@ import javax.validation.Valid;
  */
 
 
-public class DeleteAclResponse {
+public class DeleteAclResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("RequestId")
   private String requestId = null;
 

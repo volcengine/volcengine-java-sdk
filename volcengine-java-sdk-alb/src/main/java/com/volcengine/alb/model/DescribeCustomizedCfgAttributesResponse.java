@@ -31,7 +31,7 @@ import javax.validation.Valid;
  */
 
 
-public class DescribeCustomizedCfgAttributesResponse {
+public class DescribeCustomizedCfgAttributesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("CreateTime")
   private String createTime = null;
 
