@@ -44,6 +44,9 @@ public class RevokeSecurityGroupEgressRequest {
   @SerializedName("PortStart")
   private Integer portStart = null;
 
+  @SerializedName("PrefixListId")
+  private String prefixListId = null;
+
   @SerializedName("Priority")
   private Integer priority = null;
 
@@ -148,6 +151,24 @@ public class RevokeSecurityGroupEgressRequest {
     this.portStart = portStart;
   }
 
+  public RevokeSecurityGroupEgressRequest prefixListId(String prefixListId) {
+    this.prefixListId = prefixListId;
+    return this;
+  }
+
+   /**
+   * Get prefixListId
+   * @return prefixListId
+  **/
+  @Schema(description = "")
+  public String getPrefixListId() {
+    return prefixListId;
+  }
+
+  public void setPrefixListId(String prefixListId) {
+    this.prefixListId = prefixListId;
+  }
+
   public RevokeSecurityGroupEgressRequest priority(Integer priority) {
     this.priority = priority;
     return this;
@@ -237,6 +258,7 @@ public class RevokeSecurityGroupEgressRequest {
         Objects.equals(this.policy, revokeSecurityGroupEgressRequest.policy) &&
         Objects.equals(this.portEnd, revokeSecurityGroupEgressRequest.portEnd) &&
         Objects.equals(this.portStart, revokeSecurityGroupEgressRequest.portStart) &&
+        Objects.equals(this.prefixListId, revokeSecurityGroupEgressRequest.prefixListId) &&
         Objects.equals(this.priority, revokeSecurityGroupEgressRequest.priority) &&
         Objects.equals(this.protocol, revokeSecurityGroupEgressRequest.protocol) &&
         Objects.equals(this.securityGroupId, revokeSecurityGroupEgressRequest.securityGroupId) &&
@@ -245,7 +267,7 @@ public class RevokeSecurityGroupEgressRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cidrIp, description, policy, portEnd, portStart, priority, protocol, securityGroupId, sourceGroupId);
+    return Objects.hash(cidrIp, description, policy, portEnd, portStart, prefixListId, priority, protocol, securityGroupId, sourceGroupId);
   }
 
 
@@ -259,6 +281,7 @@ public class RevokeSecurityGroupEgressRequest {
     sb.append("    policy: ").append(toIndentedString(policy)).append("\n");
     sb.append("    portEnd: ").append(toIndentedString(portEnd)).append("\n");
     sb.append("    portStart: ").append(toIndentedString(portStart)).append("\n");
+    sb.append("    prefixListId: ").append(toIndentedString(prefixListId)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
     sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
     sb.append("    securityGroupId: ").append(toIndentedString(securityGroupId)).append("\n");

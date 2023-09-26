@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class CreateLoadBalancerResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("LoadBalancerId")
   private String loadBalancerId = null;

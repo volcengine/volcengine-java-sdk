@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class HealthCheckForModifyListenerAttributesInput {
   @SerializedName("Domain")
   private String domain = null;

@@ -35,6 +35,9 @@ public class DescribeSecurityGroupAttributesRequest {
   @SerializedName("Direction")
   private String direction = null;
 
+  @SerializedName("PrefixListId")
+  private String prefixListId = null;
+
   @SerializedName("Protocol")
   private String protocol = null;
 
@@ -78,6 +81,24 @@ public class DescribeSecurityGroupAttributesRequest {
 
   public void setDirection(String direction) {
     this.direction = direction;
+  }
+
+  public DescribeSecurityGroupAttributesRequest prefixListId(String prefixListId) {
+    this.prefixListId = prefixListId;
+    return this;
+  }
+
+   /**
+   * Get prefixListId
+   * @return prefixListId
+  **/
+  @Schema(description = "")
+  public String getPrefixListId() {
+    return prefixListId;
+  }
+
+  public void setPrefixListId(String prefixListId) {
+    this.prefixListId = prefixListId;
   }
 
   public DescribeSecurityGroupAttributesRequest protocol(String protocol) {
@@ -147,6 +168,7 @@ public class DescribeSecurityGroupAttributesRequest {
     DescribeSecurityGroupAttributesRequest describeSecurityGroupAttributesRequest = (DescribeSecurityGroupAttributesRequest) o;
     return Objects.equals(this.cidrIp, describeSecurityGroupAttributesRequest.cidrIp) &&
         Objects.equals(this.direction, describeSecurityGroupAttributesRequest.direction) &&
+        Objects.equals(this.prefixListId, describeSecurityGroupAttributesRequest.prefixListId) &&
         Objects.equals(this.protocol, describeSecurityGroupAttributesRequest.protocol) &&
         Objects.equals(this.securityGroupId, describeSecurityGroupAttributesRequest.securityGroupId) &&
         Objects.equals(this.sourceGroupId, describeSecurityGroupAttributesRequest.sourceGroupId);
@@ -154,7 +176,7 @@ public class DescribeSecurityGroupAttributesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cidrIp, direction, protocol, securityGroupId, sourceGroupId);
+    return Objects.hash(cidrIp, direction, prefixListId, protocol, securityGroupId, sourceGroupId);
   }
 
 
@@ -165,6 +187,7 @@ public class DescribeSecurityGroupAttributesRequest {
     
     sb.append("    cidrIp: ").append(toIndentedString(cidrIp)).append("\n");
     sb.append("    direction: ").append(toIndentedString(direction)).append("\n");
+    sb.append("    prefixListId: ").append(toIndentedString(prefixListId)).append("\n");
     sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
     sb.append("    securityGroupId: ").append(toIndentedString(securityGroupId)).append("\n");
     sb.append("    sourceGroupId: ").append(toIndentedString(sourceGroupId)).append("\n");

@@ -46,6 +46,9 @@ public class DescribeHaVipsRequest {
   @SerializedName("PageSize")
   private Integer pageSize = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("Status")
   private String status = null;
 
@@ -154,6 +157,24 @@ public class DescribeHaVipsRequest {
     this.pageSize = pageSize;
   }
 
+  public DescribeHaVipsRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public DescribeHaVipsRequest status(String status) {
     this.status = status;
     return this;
@@ -223,6 +244,7 @@ public class DescribeHaVipsRequest {
         Objects.equals(this.ipAddress, describeHaVipsRequest.ipAddress) &&
         Objects.equals(this.pageNumber, describeHaVipsRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeHaVipsRequest.pageSize) &&
+        Objects.equals(this.projectName, describeHaVipsRequest.projectName) &&
         Objects.equals(this.status, describeHaVipsRequest.status) &&
         Objects.equals(this.subnetId, describeHaVipsRequest.subnetId) &&
         Objects.equals(this.vpcId, describeHaVipsRequest.vpcId);
@@ -230,7 +252,7 @@ public class DescribeHaVipsRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(haVipIds, haVipName, ipAddress, pageNumber, pageSize, status, subnetId, vpcId);
+    return Objects.hash(haVipIds, haVipName, ipAddress, pageNumber, pageSize, projectName, status, subnetId, vpcId);
   }
 
 
@@ -244,6 +266,7 @@ public class DescribeHaVipsRequest {
     sb.append("    ipAddress: ").append(toIndentedString(ipAddress)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");

@@ -36,7 +36,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class DescribeLoadBalancerAttributesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("AccessLog")
   private AccessLogForDescribeLoadBalancerAttributesOutput accessLog = null;

@@ -31,7 +31,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class UploadCertificateRequest {
   @SerializedName("CertificateName")
   private String certificateName = null;

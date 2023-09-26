@@ -97,6 +97,8 @@ public class DescribeEipAddressesRequest {
   @JsonAdapter(ISPEnum.Adapter.class)
   public enum ISPEnum {
     BGP("BGP"),
+    SINGLELINE_BGP("SingleLine_BGP"),
+    FUSION_BGP("Fusion_BGP"),
     CHINAMOBILE("ChinaMobile"),
     CHINAUNICOM("ChinaUnicom"),
     CHINATELECOM("ChinaTelecom"),

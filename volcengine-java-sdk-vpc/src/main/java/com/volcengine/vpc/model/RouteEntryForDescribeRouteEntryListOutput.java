@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -43,6 +45,9 @@ public class RouteEntryForDescribeRouteEntryListOutput {
 
   @SerializedName("NextHopType")
   private String nextHopType = null;
+
+  @SerializedName("PrefixListCidrBlocks")
+  private List<String> prefixListCidrBlocks = null;
 
   @SerializedName("RouteEntryId")
   private String routeEntryId = null;
@@ -150,6 +155,32 @@ public class RouteEntryForDescribeRouteEntryListOutput {
 
   public void setNextHopType(String nextHopType) {
     this.nextHopType = nextHopType;
+  }
+
+  public RouteEntryForDescribeRouteEntryListOutput prefixListCidrBlocks(List<String> prefixListCidrBlocks) {
+    this.prefixListCidrBlocks = prefixListCidrBlocks;
+    return this;
+  }
+
+  public RouteEntryForDescribeRouteEntryListOutput addPrefixListCidrBlocksItem(String prefixListCidrBlocksItem) {
+    if (this.prefixListCidrBlocks == null) {
+      this.prefixListCidrBlocks = new ArrayList<String>();
+    }
+    this.prefixListCidrBlocks.add(prefixListCidrBlocksItem);
+    return this;
+  }
+
+   /**
+   * Get prefixListCidrBlocks
+   * @return prefixListCidrBlocks
+  **/
+  @Schema(description = "")
+  public List<String> getPrefixListCidrBlocks() {
+    return prefixListCidrBlocks;
+  }
+
+  public void setPrefixListCidrBlocks(List<String> prefixListCidrBlocks) {
+    this.prefixListCidrBlocks = prefixListCidrBlocks;
   }
 
   public RouteEntryForDescribeRouteEntryListOutput routeEntryId(String routeEntryId) {
@@ -275,6 +306,7 @@ public class RouteEntryForDescribeRouteEntryListOutput {
         Objects.equals(this.nextHopId, routeEntryForDescribeRouteEntryListOutput.nextHopId) &&
         Objects.equals(this.nextHopName, routeEntryForDescribeRouteEntryListOutput.nextHopName) &&
         Objects.equals(this.nextHopType, routeEntryForDescribeRouteEntryListOutput.nextHopType) &&
+        Objects.equals(this.prefixListCidrBlocks, routeEntryForDescribeRouteEntryListOutput.prefixListCidrBlocks) &&
         Objects.equals(this.routeEntryId, routeEntryForDescribeRouteEntryListOutput.routeEntryId) &&
         Objects.equals(this.routeEntryName, routeEntryForDescribeRouteEntryListOutput.routeEntryName) &&
         Objects.equals(this.routeTableId, routeEntryForDescribeRouteEntryListOutput.routeTableId) &&
@@ -285,7 +317,7 @@ public class RouteEntryForDescribeRouteEntryListOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, destinationCidrBlock, nextHopId, nextHopName, nextHopType, routeEntryId, routeEntryName, routeTableId, status, type, vpcId);
+    return Objects.hash(description, destinationCidrBlock, nextHopId, nextHopName, nextHopType, prefixListCidrBlocks, routeEntryId, routeEntryName, routeTableId, status, type, vpcId);
   }
 
 
@@ -299,6 +331,7 @@ public class RouteEntryForDescribeRouteEntryListOutput {
     sb.append("    nextHopId: ").append(toIndentedString(nextHopId)).append("\n");
     sb.append("    nextHopName: ").append(toIndentedString(nextHopName)).append("\n");
     sb.append("    nextHopType: ").append(toIndentedString(nextHopType)).append("\n");
+    sb.append("    prefixListCidrBlocks: ").append(toIndentedString(prefixListCidrBlocks)).append("\n");
     sb.append("    routeEntryId: ").append(toIndentedString(routeEntryId)).append("\n");
     sb.append("    routeEntryName: ").append(toIndentedString(routeEntryName)).append("\n");
     sb.append("    routeTableId: ").append(toIndentedString(routeTableId)).append("\n");

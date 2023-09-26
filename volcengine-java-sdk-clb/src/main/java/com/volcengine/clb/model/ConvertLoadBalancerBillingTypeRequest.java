@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class ConvertLoadBalancerBillingTypeRequest {
   @SerializedName("LoadBalancerBillingType")
   private Integer loadBalancerBillingType = null;

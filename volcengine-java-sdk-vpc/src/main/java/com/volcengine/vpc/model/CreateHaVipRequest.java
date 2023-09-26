@@ -29,6 +29,9 @@ import javax.validation.Valid;
 
 
 public class CreateHaVipRequest {
+  @SerializedName("ClientToken")
+  private String clientToken = null;
+
   @SerializedName("Description")
   private String description = null;
 
@@ -40,6 +43,24 @@ public class CreateHaVipRequest {
 
   @SerializedName("SubnetId")
   private String subnetId = null;
+
+  public CreateHaVipRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
 
   public CreateHaVipRequest description(String description) {
     this.description = description;
@@ -124,7 +145,8 @@ public class CreateHaVipRequest {
       return false;
     }
     CreateHaVipRequest createHaVipRequest = (CreateHaVipRequest) o;
-    return Objects.equals(this.description, createHaVipRequest.description) &&
+    return Objects.equals(this.clientToken, createHaVipRequest.clientToken) &&
+        Objects.equals(this.description, createHaVipRequest.description) &&
         Objects.equals(this.haVipName, createHaVipRequest.haVipName) &&
         Objects.equals(this.ipAddress, createHaVipRequest.ipAddress) &&
         Objects.equals(this.subnetId, createHaVipRequest.subnetId);
@@ -132,7 +154,7 @@ public class CreateHaVipRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, haVipName, ipAddress, subnetId);
+    return Objects.hash(clientToken, description, haVipName, ipAddress, subnetId);
   }
 
 
@@ -141,6 +163,7 @@ public class CreateHaVipRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateHaVipRequest {\n");
     
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    haVipName: ").append(toIndentedString(haVipName)).append("\n");
     sb.append("    ipAddress: ").append(toIndentedString(ipAddress)).append("\n");

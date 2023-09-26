@@ -31,10 +31,12 @@ import javax.validation.Valid;
  */
 
 
-
 public class DescribeLoadBalancersRequest {
   @SerializedName("AddressIpVersion")
   private String addressIpVersion = null;
+
+  @SerializedName("EipAddress")
+  private String eipAddress = null;
 
   @SerializedName("EniAddress")
   private String eniAddress = null;
@@ -76,6 +78,24 @@ public class DescribeLoadBalancersRequest {
 
   public void setAddressIpVersion(String addressIpVersion) {
     this.addressIpVersion = addressIpVersion;
+  }
+
+  public DescribeLoadBalancersRequest eipAddress(String eipAddress) {
+    this.eipAddress = eipAddress;
+    return this;
+  }
+
+   /**
+   * Get eipAddress
+   * @return eipAddress
+  **/
+  @Schema(description = "")
+  public String getEipAddress() {
+    return eipAddress;
+  }
+
+  public void setEipAddress(String eipAddress) {
+    this.eipAddress = eipAddress;
   }
 
   public DescribeLoadBalancersRequest eniAddress(String eniAddress) {
@@ -250,6 +270,7 @@ public class DescribeLoadBalancersRequest {
     }
     DescribeLoadBalancersRequest describeLoadBalancersRequest = (DescribeLoadBalancersRequest) o;
     return Objects.equals(this.addressIpVersion, describeLoadBalancersRequest.addressIpVersion) &&
+        Objects.equals(this.eipAddress, describeLoadBalancersRequest.eipAddress) &&
         Objects.equals(this.eniAddress, describeLoadBalancersRequest.eniAddress) &&
         Objects.equals(this.loadBalancerIds, describeLoadBalancersRequest.loadBalancerIds) &&
         Objects.equals(this.loadBalancerName, describeLoadBalancersRequest.loadBalancerName) &&
@@ -262,7 +283,7 @@ public class DescribeLoadBalancersRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addressIpVersion, eniAddress, loadBalancerIds, loadBalancerName, pageNumber, pageSize, projectName, tagFilters, vpcId);
+    return Objects.hash(addressIpVersion, eipAddress, eniAddress, loadBalancerIds, loadBalancerName, pageNumber, pageSize, projectName, tagFilters, vpcId);
   }
 
 
@@ -272,6 +293,7 @@ public class DescribeLoadBalancersRequest {
     sb.append("class DescribeLoadBalancersRequest {\n");
     
     sb.append("    addressIpVersion: ").append(toIndentedString(addressIpVersion)).append("\n");
+    sb.append("    eipAddress: ").append(toIndentedString(eipAddress)).append("\n");
     sb.append("    eniAddress: ").append(toIndentedString(eniAddress)).append("\n");
     sb.append("    loadBalancerIds: ").append(toIndentedString(loadBalancerIds)).append("\n");
     sb.append("    loadBalancerName: ").append(toIndentedString(loadBalancerName)).append("\n");

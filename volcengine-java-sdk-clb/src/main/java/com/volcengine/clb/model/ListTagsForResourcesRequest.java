@@ -31,7 +31,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class ListTagsForResourcesRequest {
   @SerializedName("MaxResults")
   private Integer maxResults = null;
@@ -47,7 +46,6 @@ public class ListTagsForResourcesRequest {
    */
   @JsonAdapter(ResourceTypeEnum.Adapter.class)
   public enum ResourceTypeEnum {
-    @SerializedName("CLB")
     CLB("CLB");
 
     private String value;
