@@ -31,7 +31,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class ListenerForDescribeListenersOutput {
   @SerializedName("AclIds")
   private List<String> aclIds = null;
@@ -47,6 +46,12 @@ public class ListenerForDescribeListenersOutput {
 
   @SerializedName("CertificateId")
   private String certificateId = null;
+
+  @SerializedName("ConnectionDrainEnabled")
+  private String connectionDrainEnabled = null;
+
+  @SerializedName("ConnectionDrainTimeout")
+  private Integer connectionDrainTimeout = null;
 
   @SerializedName("CreateTime")
   private String createTime = null;
@@ -183,6 +188,42 @@ public class ListenerForDescribeListenersOutput {
 
   public void setCertificateId(String certificateId) {
     this.certificateId = certificateId;
+  }
+
+  public ListenerForDescribeListenersOutput connectionDrainEnabled(String connectionDrainEnabled) {
+    this.connectionDrainEnabled = connectionDrainEnabled;
+    return this;
+  }
+
+   /**
+   * Get connectionDrainEnabled
+   * @return connectionDrainEnabled
+  **/
+  @Schema(description = "")
+  public String getConnectionDrainEnabled() {
+    return connectionDrainEnabled;
+  }
+
+  public void setConnectionDrainEnabled(String connectionDrainEnabled) {
+    this.connectionDrainEnabled = connectionDrainEnabled;
+  }
+
+  public ListenerForDescribeListenersOutput connectionDrainTimeout(Integer connectionDrainTimeout) {
+    this.connectionDrainTimeout = connectionDrainTimeout;
+    return this;
+  }
+
+   /**
+   * Get connectionDrainTimeout
+   * @return connectionDrainTimeout
+  **/
+  @Schema(description = "")
+  public Integer getConnectionDrainTimeout() {
+    return connectionDrainTimeout;
+  }
+
+  public void setConnectionDrainTimeout(Integer connectionDrainTimeout) {
+    this.connectionDrainTimeout = connectionDrainTimeout;
   }
 
   public ListenerForDescribeListenersOutput createTime(String createTime) {
@@ -435,6 +476,8 @@ public class ListenerForDescribeListenersOutput {
         Objects.equals(this.aclType, listenerForDescribeListenersOutput.aclType) &&
         Objects.equals(this.bandwidth, listenerForDescribeListenersOutput.bandwidth) &&
         Objects.equals(this.certificateId, listenerForDescribeListenersOutput.certificateId) &&
+        Objects.equals(this.connectionDrainEnabled, listenerForDescribeListenersOutput.connectionDrainEnabled) &&
+        Objects.equals(this.connectionDrainTimeout, listenerForDescribeListenersOutput.connectionDrainTimeout) &&
         Objects.equals(this.createTime, listenerForDescribeListenersOutput.createTime) &&
         Objects.equals(this.enabled, listenerForDescribeListenersOutput.enabled) &&
         Objects.equals(this.healthCheck, listenerForDescribeListenersOutput.healthCheck) &&
@@ -452,7 +495,7 @@ public class ListenerForDescribeListenersOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclIds, aclStatus, aclType, bandwidth, certificateId, createTime, enabled, healthCheck, listenerId, listenerName, persistenceTimeout, persistenceType, port, protocol, proxyProtocolType, serverGroupId, status, updateTime);
+    return Objects.hash(aclIds, aclStatus, aclType, bandwidth, certificateId, connectionDrainEnabled, connectionDrainTimeout, createTime, enabled, healthCheck, listenerId, listenerName, persistenceTimeout, persistenceType, port, protocol, proxyProtocolType, serverGroupId, status, updateTime);
   }
 
 
@@ -466,6 +509,8 @@ public class ListenerForDescribeListenersOutput {
     sb.append("    aclType: ").append(toIndentedString(aclType)).append("\n");
     sb.append("    bandwidth: ").append(toIndentedString(bandwidth)).append("\n");
     sb.append("    certificateId: ").append(toIndentedString(certificateId)).append("\n");
+    sb.append("    connectionDrainEnabled: ").append(toIndentedString(connectionDrainEnabled)).append("\n");
+    sb.append("    connectionDrainTimeout: ").append(toIndentedString(connectionDrainTimeout)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    healthCheck: ").append(toIndentedString(healthCheck)).append("\n");

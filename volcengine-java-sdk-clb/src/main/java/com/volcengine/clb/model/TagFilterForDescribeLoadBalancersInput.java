@@ -30,7 +30,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class TagFilterForDescribeLoadBalancersInput {
   @SerializedName("Key")
   private String key = null;

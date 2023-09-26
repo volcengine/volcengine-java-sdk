@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class EnableAccessLogRequest {
   @SerializedName("BucketName")
   private String bucketName = null;

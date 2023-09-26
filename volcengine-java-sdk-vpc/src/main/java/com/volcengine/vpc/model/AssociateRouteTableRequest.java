@@ -29,11 +29,32 @@ import javax.validation.Valid;
 
 
 public class AssociateRouteTableRequest {
+  @SerializedName("ClientToken")
+  private String clientToken = null;
+
   @SerializedName("RouteTableId")
   private String routeTableId = null;
 
   @SerializedName("SubnetId")
   private String subnetId = null;
+
+  public AssociateRouteTableRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
 
   public AssociateRouteTableRequest routeTableId(String routeTableId) {
     this.routeTableId = routeTableId;
@@ -83,13 +104,14 @@ public class AssociateRouteTableRequest {
       return false;
     }
     AssociateRouteTableRequest associateRouteTableRequest = (AssociateRouteTableRequest) o;
-    return Objects.equals(this.routeTableId, associateRouteTableRequest.routeTableId) &&
+    return Objects.equals(this.clientToken, associateRouteTableRequest.clientToken) &&
+        Objects.equals(this.routeTableId, associateRouteTableRequest.routeTableId) &&
         Objects.equals(this.subnetId, associateRouteTableRequest.subnetId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(routeTableId, subnetId);
+    return Objects.hash(clientToken, routeTableId, subnetId);
   }
 
 
@@ -98,6 +120,7 @@ public class AssociateRouteTableRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class AssociateRouteTableRequest {\n");
     
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    routeTableId: ").append(toIndentedString(routeTableId)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("}");

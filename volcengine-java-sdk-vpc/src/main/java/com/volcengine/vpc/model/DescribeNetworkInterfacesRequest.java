@@ -35,6 +35,9 @@ public class DescribeNetworkInterfacesRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;
 
+  @SerializedName("Ipv6Addresses")
+  private List<String> ipv6Addresses = null;
+
   @SerializedName("NetworkInterfaceIds")
   private List<String> networkInterfaceIds = null;
 
@@ -93,6 +96,32 @@ public class DescribeNetworkInterfacesRequest {
 
   public void setInstanceId(String instanceId) {
     this.instanceId = instanceId;
+  }
+
+  public DescribeNetworkInterfacesRequest ipv6Addresses(List<String> ipv6Addresses) {
+    this.ipv6Addresses = ipv6Addresses;
+    return this;
+  }
+
+  public DescribeNetworkInterfacesRequest addIpv6AddressesItem(String ipv6AddressesItem) {
+    if (this.ipv6Addresses == null) {
+      this.ipv6Addresses = new ArrayList<String>();
+    }
+    this.ipv6Addresses.add(ipv6AddressesItem);
+    return this;
+  }
+
+   /**
+   * Get ipv6Addresses
+   * @return ipv6Addresses
+  **/
+  @Schema(description = "")
+  public List<String> getIpv6Addresses() {
+    return ipv6Addresses;
+  }
+
+  public void setIpv6Addresses(List<String> ipv6Addresses) {
+    this.ipv6Addresses = ipv6Addresses;
   }
 
   public DescribeNetworkInterfacesRequest networkInterfaceIds(List<String> networkInterfaceIds) {
@@ -392,6 +421,7 @@ public class DescribeNetworkInterfacesRequest {
     }
     DescribeNetworkInterfacesRequest describeNetworkInterfacesRequest = (DescribeNetworkInterfacesRequest) o;
     return Objects.equals(this.instanceId, describeNetworkInterfacesRequest.instanceId) &&
+        Objects.equals(this.ipv6Addresses, describeNetworkInterfacesRequest.ipv6Addresses) &&
         Objects.equals(this.networkInterfaceIds, describeNetworkInterfacesRequest.networkInterfaceIds) &&
         Objects.equals(this.networkInterfaceName, describeNetworkInterfacesRequest.networkInterfaceName) &&
         Objects.equals(this.pageNumber, describeNetworkInterfacesRequest.pageNumber) &&
@@ -410,7 +440,7 @@ public class DescribeNetworkInterfacesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, networkInterfaceIds, networkInterfaceName, pageNumber, pageSize, primaryIpAddresses, privateIpAddresses, projectName, securityGroupId, status, subnetId, tagFilters, type, vpcId, zoneId);
+    return Objects.hash(instanceId, ipv6Addresses, networkInterfaceIds, networkInterfaceName, pageNumber, pageSize, primaryIpAddresses, privateIpAddresses, projectName, securityGroupId, status, subnetId, tagFilters, type, vpcId, zoneId);
   }
 
 
@@ -420,6 +450,7 @@ public class DescribeNetworkInterfacesRequest {
     sb.append("class DescribeNetworkInterfacesRequest {\n");
     
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    ipv6Addresses: ").append(toIndentedString(ipv6Addresses)).append("\n");
     sb.append("    networkInterfaceIds: ").append(toIndentedString(networkInterfaceIds)).append("\n");
     sb.append("    networkInterfaceName: ").append(toIndentedString(networkInterfaceName)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");

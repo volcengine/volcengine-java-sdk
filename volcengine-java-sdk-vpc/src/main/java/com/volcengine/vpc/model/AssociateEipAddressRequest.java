@@ -32,6 +32,9 @@ public class AssociateEipAddressRequest {
   @SerializedName("AllocationId")
   private String allocationId = null;
 
+  @SerializedName("ClientToken")
+  private String clientToken = null;
+
   @SerializedName("InstanceId")
   private String instanceId = null;
 
@@ -104,6 +107,24 @@ public class AssociateEipAddressRequest {
     this.allocationId = allocationId;
   }
 
+  public AssociateEipAddressRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
+
   public AssociateEipAddressRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
     return this;
@@ -171,6 +192,7 @@ public class AssociateEipAddressRequest {
     }
     AssociateEipAddressRequest associateEipAddressRequest = (AssociateEipAddressRequest) o;
     return Objects.equals(this.allocationId, associateEipAddressRequest.allocationId) &&
+        Objects.equals(this.clientToken, associateEipAddressRequest.clientToken) &&
         Objects.equals(this.instanceId, associateEipAddressRequest.instanceId) &&
         Objects.equals(this.instanceType, associateEipAddressRequest.instanceType) &&
         Objects.equals(this.privateIpAddress, associateEipAddressRequest.privateIpAddress);
@@ -178,7 +200,7 @@ public class AssociateEipAddressRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allocationId, instanceId, instanceType, privateIpAddress);
+    return Objects.hash(allocationId, clientToken, instanceId, instanceType, privateIpAddress);
   }
 
 
@@ -188,6 +210,7 @@ public class AssociateEipAddressRequest {
     sb.append("class AssociateEipAddressRequest {\n");
     
     sb.append("    allocationId: ").append(toIndentedString(allocationId)).append("\n");
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("    privateIpAddress: ").append(toIndentedString(privateIpAddress)).append("\n");

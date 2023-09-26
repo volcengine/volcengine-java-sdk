@@ -30,7 +30,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class RemoveAclEntriesRequest {
   @SerializedName("AclId")
   private String aclId = null;

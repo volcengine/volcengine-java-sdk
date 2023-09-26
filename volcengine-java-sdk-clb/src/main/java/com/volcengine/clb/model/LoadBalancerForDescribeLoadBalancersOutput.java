@@ -31,7 +31,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class LoadBalancerForDescribeLoadBalancersOutput {
   @SerializedName("BusinessStatus")
   private String businessStatus = null;

@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class ServerForModifyServerGroupAttributesInput {
   @SerializedName("Description")
   private String description = null;

@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class ModifyLoadBalancerAttributesRequest {
   @SerializedName("Description")
   private String description = null;
@@ -47,6 +46,9 @@ public class ModifyLoadBalancerAttributesRequest {
 
   @SerializedName("ModificationProtectionStatus")
   private String modificationProtectionStatus = null;
+
+  @SerializedName("Type")
+  private String type = null;
 
   public ModifyLoadBalancerAttributesRequest description(String description) {
     this.description = description;
@@ -157,6 +159,24 @@ public class ModifyLoadBalancerAttributesRequest {
     this.modificationProtectionStatus = modificationProtectionStatus;
   }
 
+  public ModifyLoadBalancerAttributesRequest type(String type) {
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @Schema(description = "")
+  public String getType() {
+    return type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -172,12 +192,13 @@ public class ModifyLoadBalancerAttributesRequest {
         Objects.equals(this.loadBalancerName, modifyLoadBalancerAttributesRequest.loadBalancerName) &&
         Objects.equals(this.loadBalancerSpec, modifyLoadBalancerAttributesRequest.loadBalancerSpec) &&
         Objects.equals(this.modificationProtectionReason, modifyLoadBalancerAttributesRequest.modificationProtectionReason) &&
-        Objects.equals(this.modificationProtectionStatus, modifyLoadBalancerAttributesRequest.modificationProtectionStatus);
+        Objects.equals(this.modificationProtectionStatus, modifyLoadBalancerAttributesRequest.modificationProtectionStatus) &&
+        Objects.equals(this.type, modifyLoadBalancerAttributesRequest.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, loadBalancerId, loadBalancerName, loadBalancerSpec, modificationProtectionReason, modificationProtectionStatus);
+    return Objects.hash(description, loadBalancerId, loadBalancerName, loadBalancerSpec, modificationProtectionReason, modificationProtectionStatus, type);
   }
 
 
@@ -192,6 +213,7 @@ public class ModifyLoadBalancerAttributesRequest {
     sb.append("    loadBalancerSpec: ").append(toIndentedString(loadBalancerSpec)).append("\n");
     sb.append("    modificationProtectionReason: ").append(toIndentedString(modificationProtectionReason)).append("\n");
     sb.append("    modificationProtectionStatus: ").append(toIndentedString(modificationProtectionStatus)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }

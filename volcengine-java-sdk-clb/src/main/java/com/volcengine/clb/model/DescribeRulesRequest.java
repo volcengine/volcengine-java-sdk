@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class DescribeRulesRequest {
   @SerializedName("ListenerId")
   private String listenerId = null;

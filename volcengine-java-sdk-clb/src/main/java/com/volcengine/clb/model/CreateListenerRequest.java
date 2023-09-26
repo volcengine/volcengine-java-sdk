@@ -31,7 +31,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class CreateListenerRequest {
   @SerializedName("AclIds")
   private List<String> aclIds = null;
@@ -47,6 +46,12 @@ public class CreateListenerRequest {
 
   @SerializedName("CertificateId")
   private String certificateId = null;
+
+  @SerializedName("ConnectionDrainEnabled")
+  private String connectionDrainEnabled = null;
+
+  @SerializedName("ConnectionDrainTimeout")
+  private Integer connectionDrainTimeout = null;
 
   @SerializedName("Description")
   private String description = null;
@@ -183,6 +188,42 @@ public class CreateListenerRequest {
 
   public void setCertificateId(String certificateId) {
     this.certificateId = certificateId;
+  }
+
+  public CreateListenerRequest connectionDrainEnabled(String connectionDrainEnabled) {
+    this.connectionDrainEnabled = connectionDrainEnabled;
+    return this;
+  }
+
+   /**
+   * Get connectionDrainEnabled
+   * @return connectionDrainEnabled
+  **/
+  @Schema(description = "")
+  public String getConnectionDrainEnabled() {
+    return connectionDrainEnabled;
+  }
+
+  public void setConnectionDrainEnabled(String connectionDrainEnabled) {
+    this.connectionDrainEnabled = connectionDrainEnabled;
+  }
+
+  public CreateListenerRequest connectionDrainTimeout(Integer connectionDrainTimeout) {
+    this.connectionDrainTimeout = connectionDrainTimeout;
+    return this;
+  }
+
+   /**
+   * Get connectionDrainTimeout
+   * @return connectionDrainTimeout
+  **/
+  @Schema(description = "")
+  public Integer getConnectionDrainTimeout() {
+    return connectionDrainTimeout;
+  }
+
+  public void setConnectionDrainTimeout(Integer connectionDrainTimeout) {
+    this.connectionDrainTimeout = connectionDrainTimeout;
   }
 
   public CreateListenerRequest description(String description) {
@@ -439,6 +480,8 @@ public class CreateListenerRequest {
         Objects.equals(this.aclType, createListenerRequest.aclType) &&
         Objects.equals(this.bandwidth, createListenerRequest.bandwidth) &&
         Objects.equals(this.certificateId, createListenerRequest.certificateId) &&
+        Objects.equals(this.connectionDrainEnabled, createListenerRequest.connectionDrainEnabled) &&
+        Objects.equals(this.connectionDrainTimeout, createListenerRequest.connectionDrainTimeout) &&
         Objects.equals(this.description, createListenerRequest.description) &&
         Objects.equals(this.enabled, createListenerRequest.enabled) &&
         Objects.equals(this.establishedTimeout, createListenerRequest.establishedTimeout) &&
@@ -456,7 +499,7 @@ public class CreateListenerRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclIds, aclStatus, aclType, bandwidth, certificateId, description, enabled, establishedTimeout, healthCheck, listenerName, loadBalancerId, persistenceTimeout, persistenceType, port, protocol, proxyProtocolType, scheduler, serverGroupId);
+    return Objects.hash(aclIds, aclStatus, aclType, bandwidth, certificateId, connectionDrainEnabled, connectionDrainTimeout, description, enabled, establishedTimeout, healthCheck, listenerName, loadBalancerId, persistenceTimeout, persistenceType, port, protocol, proxyProtocolType, scheduler, serverGroupId);
   }
 
 
@@ -470,6 +513,8 @@ public class CreateListenerRequest {
     sb.append("    aclType: ").append(toIndentedString(aclType)).append("\n");
     sb.append("    bandwidth: ").append(toIndentedString(bandwidth)).append("\n");
     sb.append("    certificateId: ").append(toIndentedString(certificateId)).append("\n");
+    sb.append("    connectionDrainEnabled: ").append(toIndentedString(connectionDrainEnabled)).append("\n");
+    sb.append("    connectionDrainTimeout: ").append(toIndentedString(connectionDrainTimeout)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    establishedTimeout: ").append(toIndentedString(establishedTimeout)).append("\n");

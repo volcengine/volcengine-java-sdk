@@ -31,7 +31,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class CreateRulesRequest {
   @SerializedName("ListenerId")
   private String listenerId = null;

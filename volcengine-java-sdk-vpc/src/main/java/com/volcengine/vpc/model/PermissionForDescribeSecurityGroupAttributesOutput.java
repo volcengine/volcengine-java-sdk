@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -49,6 +51,12 @@ public class PermissionForDescribeSecurityGroupAttributesOutput {
 
   @SerializedName("PortStart")
   private Integer portStart = null;
+
+  @SerializedName("PrefixListCidrs")
+  private List<String> prefixListCidrs = null;
+
+  @SerializedName("PrefixListId")
+  private String prefixListId = null;
 
   @SerializedName("Priority")
   private Integer priority = null;
@@ -188,6 +196,50 @@ public class PermissionForDescribeSecurityGroupAttributesOutput {
     this.portStart = portStart;
   }
 
+  public PermissionForDescribeSecurityGroupAttributesOutput prefixListCidrs(List<String> prefixListCidrs) {
+    this.prefixListCidrs = prefixListCidrs;
+    return this;
+  }
+
+  public PermissionForDescribeSecurityGroupAttributesOutput addPrefixListCidrsItem(String prefixListCidrsItem) {
+    if (this.prefixListCidrs == null) {
+      this.prefixListCidrs = new ArrayList<String>();
+    }
+    this.prefixListCidrs.add(prefixListCidrsItem);
+    return this;
+  }
+
+   /**
+   * Get prefixListCidrs
+   * @return prefixListCidrs
+  **/
+  @Schema(description = "")
+  public List<String> getPrefixListCidrs() {
+    return prefixListCidrs;
+  }
+
+  public void setPrefixListCidrs(List<String> prefixListCidrs) {
+    this.prefixListCidrs = prefixListCidrs;
+  }
+
+  public PermissionForDescribeSecurityGroupAttributesOutput prefixListId(String prefixListId) {
+    this.prefixListId = prefixListId;
+    return this;
+  }
+
+   /**
+   * Get prefixListId
+   * @return prefixListId
+  **/
+  @Schema(description = "")
+  public String getPrefixListId() {
+    return prefixListId;
+  }
+
+  public void setPrefixListId(String prefixListId) {
+    this.prefixListId = prefixListId;
+  }
+
   public PermissionForDescribeSecurityGroupAttributesOutput priority(Integer priority) {
     this.priority = priority;
     return this;
@@ -277,6 +329,8 @@ public class PermissionForDescribeSecurityGroupAttributesOutput {
         Objects.equals(this.policy, permissionForDescribeSecurityGroupAttributesOutput.policy) &&
         Objects.equals(this.portEnd, permissionForDescribeSecurityGroupAttributesOutput.portEnd) &&
         Objects.equals(this.portStart, permissionForDescribeSecurityGroupAttributesOutput.portStart) &&
+        Objects.equals(this.prefixListCidrs, permissionForDescribeSecurityGroupAttributesOutput.prefixListCidrs) &&
+        Objects.equals(this.prefixListId, permissionForDescribeSecurityGroupAttributesOutput.prefixListId) &&
         Objects.equals(this.priority, permissionForDescribeSecurityGroupAttributesOutput.priority) &&
         Objects.equals(this.protocol, permissionForDescribeSecurityGroupAttributesOutput.protocol) &&
         Objects.equals(this.sourceGroupId, permissionForDescribeSecurityGroupAttributesOutput.sourceGroupId) &&
@@ -285,7 +339,7 @@ public class PermissionForDescribeSecurityGroupAttributesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cidrIp, creationTime, description, direction, policy, portEnd, portStart, priority, protocol, sourceGroupId, updateTime);
+    return Objects.hash(cidrIp, creationTime, description, direction, policy, portEnd, portStart, prefixListCidrs, prefixListId, priority, protocol, sourceGroupId, updateTime);
   }
 
 
@@ -301,6 +355,8 @@ public class PermissionForDescribeSecurityGroupAttributesOutput {
     sb.append("    policy: ").append(toIndentedString(policy)).append("\n");
     sb.append("    portEnd: ").append(toIndentedString(portEnd)).append("\n");
     sb.append("    portStart: ").append(toIndentedString(portStart)).append("\n");
+    sb.append("    prefixListCidrs: ").append(toIndentedString(prefixListCidrs)).append("\n");
+    sb.append("    prefixListId: ").append(toIndentedString(prefixListId)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
     sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
     sb.append("    sourceGroupId: ").append(toIndentedString(sourceGroupId)).append("\n");

@@ -29,6 +29,9 @@ import javax.validation.Valid;
 
 
 public class AssociateHaVipRequest {
+  @SerializedName("ClientToken")
+  private String clientToken = null;
+
   @SerializedName("HaVipId")
   private String haVipId = null;
 
@@ -78,6 +81,24 @@ public class AssociateHaVipRequest {
     }
   }  @SerializedName("InstanceType")
   private InstanceTypeEnum instanceType = null;
+
+  public AssociateHaVipRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
 
   public AssociateHaVipRequest haVipId(String haVipId) {
     this.haVipId = haVipId;
@@ -145,14 +166,15 @@ public class AssociateHaVipRequest {
       return false;
     }
     AssociateHaVipRequest associateHaVipRequest = (AssociateHaVipRequest) o;
-    return Objects.equals(this.haVipId, associateHaVipRequest.haVipId) &&
+    return Objects.equals(this.clientToken, associateHaVipRequest.clientToken) &&
+        Objects.equals(this.haVipId, associateHaVipRequest.haVipId) &&
         Objects.equals(this.instanceId, associateHaVipRequest.instanceId) &&
         Objects.equals(this.instanceType, associateHaVipRequest.instanceType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(haVipId, instanceId, instanceType);
+    return Objects.hash(clientToken, haVipId, instanceId, instanceType);
   }
 
 
@@ -161,6 +183,7 @@ public class AssociateHaVipRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class AssociateHaVipRequest {\n");
     
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    haVipId: ").append(toIndentedString(haVipId)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
