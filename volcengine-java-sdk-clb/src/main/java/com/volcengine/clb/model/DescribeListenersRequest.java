@@ -30,7 +30,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class DescribeListenersRequest {
   @SerializedName("ListenerIds")
   private List<String> listenerIds = null;

@@ -31,7 +31,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class DescribeListenerAttributesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("AclIds")
   private List<String> aclIds = null;
@@ -47,6 +46,12 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
 
   @SerializedName("CertificateId")
   private String certificateId = null;
+
+  @SerializedName("ConnectionDrainEnabled")
+  private String connectionDrainEnabled = null;
+
+  @SerializedName("ConnectionDrainTimeout")
+  private Integer connectionDrainTimeout = null;
 
   @SerializedName("CreateTime")
   private String createTime = null;
@@ -189,6 +194,42 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
 
   public void setCertificateId(String certificateId) {
     this.certificateId = certificateId;
+  }
+
+  public DescribeListenerAttributesResponse connectionDrainEnabled(String connectionDrainEnabled) {
+    this.connectionDrainEnabled = connectionDrainEnabled;
+    return this;
+  }
+
+   /**
+   * Get connectionDrainEnabled
+   * @return connectionDrainEnabled
+  **/
+  @Schema(description = "")
+  public String getConnectionDrainEnabled() {
+    return connectionDrainEnabled;
+  }
+
+  public void setConnectionDrainEnabled(String connectionDrainEnabled) {
+    this.connectionDrainEnabled = connectionDrainEnabled;
+  }
+
+  public DescribeListenerAttributesResponse connectionDrainTimeout(Integer connectionDrainTimeout) {
+    this.connectionDrainTimeout = connectionDrainTimeout;
+    return this;
+  }
+
+   /**
+   * Get connectionDrainTimeout
+   * @return connectionDrainTimeout
+  **/
+  @Schema(description = "")
+  public Integer getConnectionDrainTimeout() {
+    return connectionDrainTimeout;
+  }
+
+  public void setConnectionDrainTimeout(Integer connectionDrainTimeout) {
+    this.connectionDrainTimeout = connectionDrainTimeout;
   }
 
   public DescribeListenerAttributesResponse createTime(String createTime) {
@@ -477,6 +518,8 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
         Objects.equals(this.aclType, describeListenerAttributesResponse.aclType) &&
         Objects.equals(this.bandwidth, describeListenerAttributesResponse.bandwidth) &&
         Objects.equals(this.certificateId, describeListenerAttributesResponse.certificateId) &&
+        Objects.equals(this.connectionDrainEnabled, describeListenerAttributesResponse.connectionDrainEnabled) &&
+        Objects.equals(this.connectionDrainTimeout, describeListenerAttributesResponse.connectionDrainTimeout) &&
         Objects.equals(this.createTime, describeListenerAttributesResponse.createTime) &&
         Objects.equals(this.description, describeListenerAttributesResponse.description) &&
         Objects.equals(this.enabled, describeListenerAttributesResponse.enabled) &&
@@ -496,7 +539,7 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclIds, aclStatus, aclType, bandwidth, certificateId, createTime, description, enabled, establishedTimeout, healthCheck, listenerId, listenerName, loadBalancerId, port, protocol, requestId, scheduler, serverGroupId, status, updateTime);
+    return Objects.hash(aclIds, aclStatus, aclType, bandwidth, certificateId, connectionDrainEnabled, connectionDrainTimeout, createTime, description, enabled, establishedTimeout, healthCheck, listenerId, listenerName, loadBalancerId, port, protocol, requestId, scheduler, serverGroupId, status, updateTime);
   }
 
 
@@ -510,6 +553,8 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
     sb.append("    aclType: ").append(toIndentedString(aclType)).append("\n");
     sb.append("    bandwidth: ").append(toIndentedString(bandwidth)).append("\n");
     sb.append("    certificateId: ").append(toIndentedString(certificateId)).append("\n");
+    sb.append("    connectionDrainEnabled: ").append(toIndentedString(connectionDrainEnabled)).append("\n");
+    sb.append("    connectionDrainTimeout: ").append(toIndentedString(connectionDrainTimeout)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");

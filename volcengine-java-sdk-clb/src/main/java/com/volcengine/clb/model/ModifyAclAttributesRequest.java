@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class ModifyAclAttributesRequest {
   @SerializedName("AclId")
   private String aclId = null;

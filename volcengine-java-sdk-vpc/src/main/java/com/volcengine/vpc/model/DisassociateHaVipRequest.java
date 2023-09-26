@@ -29,6 +29,9 @@ import javax.validation.Valid;
 
 
 public class DisassociateHaVipRequest {
+  @SerializedName("ClientToken")
+  private String clientToken = null;
+
   @SerializedName("HaVipId")
   private String haVipId = null;
 
@@ -78,6 +81,24 @@ public class DisassociateHaVipRequest {
     }
   }  @SerializedName("InstanceType")
   private InstanceTypeEnum instanceType = null;
+
+  public DisassociateHaVipRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
 
   public DisassociateHaVipRequest haVipId(String haVipId) {
     this.haVipId = haVipId;
@@ -145,14 +166,15 @@ public class DisassociateHaVipRequest {
       return false;
     }
     DisassociateHaVipRequest disassociateHaVipRequest = (DisassociateHaVipRequest) o;
-    return Objects.equals(this.haVipId, disassociateHaVipRequest.haVipId) &&
+    return Objects.equals(this.clientToken, disassociateHaVipRequest.clientToken) &&
+        Objects.equals(this.haVipId, disassociateHaVipRequest.haVipId) &&
         Objects.equals(this.instanceId, disassociateHaVipRequest.instanceId) &&
         Objects.equals(this.instanceType, disassociateHaVipRequest.instanceType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(haVipId, instanceId, instanceType);
+    return Objects.hash(clientToken, haVipId, instanceId, instanceType);
   }
 
 
@@ -161,6 +183,7 @@ public class DisassociateHaVipRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DisassociateHaVipRequest {\n");
     
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    haVipId: ").append(toIndentedString(haVipId)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");

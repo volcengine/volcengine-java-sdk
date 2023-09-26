@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class DisableAccessLogRequest {
   @SerializedName("LoadBalancerId")
   private String loadBalancerId = null;

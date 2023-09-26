@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class RemoveServerGroupBackendServersResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("RequestId")
   private String requestId = null;

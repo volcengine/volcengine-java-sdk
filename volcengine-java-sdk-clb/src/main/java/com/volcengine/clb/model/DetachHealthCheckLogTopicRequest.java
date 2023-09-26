@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class DetachHealthCheckLogTopicRequest {
   @SerializedName("LoadBalancerId")
   private String loadBalancerId = null;

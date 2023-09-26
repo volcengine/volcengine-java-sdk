@@ -32,6 +32,9 @@ public class DisassociateEipAddressRequest {
   @SerializedName("AllocationId")
   private String allocationId = null;
 
+  @SerializedName("ClientToken")
+  private String clientToken = null;
+
   @SerializedName("InstanceId")
   private String instanceId = null;
 
@@ -100,6 +103,24 @@ public class DisassociateEipAddressRequest {
     this.allocationId = allocationId;
   }
 
+  public DisassociateEipAddressRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
+
   public DisassociateEipAddressRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
     return this;
@@ -147,13 +168,14 @@ public class DisassociateEipAddressRequest {
     }
     DisassociateEipAddressRequest disassociateEipAddressRequest = (DisassociateEipAddressRequest) o;
     return Objects.equals(this.allocationId, disassociateEipAddressRequest.allocationId) &&
+        Objects.equals(this.clientToken, disassociateEipAddressRequest.clientToken) &&
         Objects.equals(this.instanceId, disassociateEipAddressRequest.instanceId) &&
         Objects.equals(this.instanceType, disassociateEipAddressRequest.instanceType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allocationId, instanceId, instanceType);
+    return Objects.hash(allocationId, clientToken, instanceId, instanceType);
   }
 
 
@@ -163,6 +185,7 @@ public class DisassociateEipAddressRequest {
     sb.append("class DisassociateEipAddressRequest {\n");
     
     sb.append("    allocationId: ").append(toIndentedString(allocationId)).append("\n");
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("}");

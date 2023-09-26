@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class AttachHealthCheckLogTopicRequest {
   @SerializedName("LoadBalancerId")
   private String loadBalancerId = null;

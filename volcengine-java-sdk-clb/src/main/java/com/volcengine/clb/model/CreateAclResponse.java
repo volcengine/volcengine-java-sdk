@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class CreateAclResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("AclId")
   private String aclId = null;

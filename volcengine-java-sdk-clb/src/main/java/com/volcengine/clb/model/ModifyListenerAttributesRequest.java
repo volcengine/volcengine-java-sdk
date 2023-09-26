@@ -31,7 +31,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class ModifyListenerAttributesRequest {
   @SerializedName("AclIds")
   private List<String> aclIds = null;
@@ -47,6 +46,12 @@ public class ModifyListenerAttributesRequest {
 
   @SerializedName("CertificateId")
   private String certificateId = null;
+
+  @SerializedName("ConnectionDrainEnabled")
+  private String connectionDrainEnabled = null;
+
+  @SerializedName("ConnectionDrainTimeout")
+  private Integer connectionDrainTimeout = null;
 
   @SerializedName("Description")
   private String description = null;
@@ -177,6 +182,42 @@ public class ModifyListenerAttributesRequest {
 
   public void setCertificateId(String certificateId) {
     this.certificateId = certificateId;
+  }
+
+  public ModifyListenerAttributesRequest connectionDrainEnabled(String connectionDrainEnabled) {
+    this.connectionDrainEnabled = connectionDrainEnabled;
+    return this;
+  }
+
+   /**
+   * Get connectionDrainEnabled
+   * @return connectionDrainEnabled
+  **/
+  @Schema(description = "")
+  public String getConnectionDrainEnabled() {
+    return connectionDrainEnabled;
+  }
+
+  public void setConnectionDrainEnabled(String connectionDrainEnabled) {
+    this.connectionDrainEnabled = connectionDrainEnabled;
+  }
+
+  public ModifyListenerAttributesRequest connectionDrainTimeout(Integer connectionDrainTimeout) {
+    this.connectionDrainTimeout = connectionDrainTimeout;
+    return this;
+  }
+
+   /**
+   * Get connectionDrainTimeout
+   * @return connectionDrainTimeout
+  **/
+  @Schema(description = "")
+  public Integer getConnectionDrainTimeout() {
+    return connectionDrainTimeout;
+  }
+
+  public void setConnectionDrainTimeout(Integer connectionDrainTimeout) {
+    this.connectionDrainTimeout = connectionDrainTimeout;
   }
 
   public ModifyListenerAttributesRequest description(String description) {
@@ -394,6 +435,8 @@ public class ModifyListenerAttributesRequest {
         Objects.equals(this.aclType, modifyListenerAttributesRequest.aclType) &&
         Objects.equals(this.bandwidth, modifyListenerAttributesRequest.bandwidth) &&
         Objects.equals(this.certificateId, modifyListenerAttributesRequest.certificateId) &&
+        Objects.equals(this.connectionDrainEnabled, modifyListenerAttributesRequest.connectionDrainEnabled) &&
+        Objects.equals(this.connectionDrainTimeout, modifyListenerAttributesRequest.connectionDrainTimeout) &&
         Objects.equals(this.description, modifyListenerAttributesRequest.description) &&
         Objects.equals(this.enabled, modifyListenerAttributesRequest.enabled) &&
         Objects.equals(this.establishedTimeout, modifyListenerAttributesRequest.establishedTimeout) &&
@@ -409,7 +452,7 @@ public class ModifyListenerAttributesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclIds, aclStatus, aclType, bandwidth, certificateId, description, enabled, establishedTimeout, healthCheck, listenerId, listenerName, persistenceTimeout, persistenceType, proxyProtocolType, scheduler, serverGroupId);
+    return Objects.hash(aclIds, aclStatus, aclType, bandwidth, certificateId, connectionDrainEnabled, connectionDrainTimeout, description, enabled, establishedTimeout, healthCheck, listenerId, listenerName, persistenceTimeout, persistenceType, proxyProtocolType, scheduler, serverGroupId);
   }
 
 
@@ -423,6 +466,8 @@ public class ModifyListenerAttributesRequest {
     sb.append("    aclType: ").append(toIndentedString(aclType)).append("\n");
     sb.append("    bandwidth: ").append(toIndentedString(bandwidth)).append("\n");
     sb.append("    certificateId: ").append(toIndentedString(certificateId)).append("\n");
+    sb.append("    connectionDrainEnabled: ").append(toIndentedString(connectionDrainEnabled)).append("\n");
+    sb.append("    connectionDrainTimeout: ").append(toIndentedString(connectionDrainTimeout)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    establishedTimeout: ").append(toIndentedString(establishedTimeout)).append("\n");

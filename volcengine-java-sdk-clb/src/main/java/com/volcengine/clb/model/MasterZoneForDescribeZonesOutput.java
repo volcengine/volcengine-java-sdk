@@ -30,7 +30,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class MasterZoneForDescribeZonesOutput {
   @SerializedName("SlaveZones")
   private List<String> slaveZones = null;

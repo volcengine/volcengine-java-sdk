@@ -47,6 +47,9 @@ public class AuthorizeSecurityGroupIngressRequest {
   @SerializedName("PortStart")
   private Integer portStart = null;
 
+  @SerializedName("PrefixListId")
+  private String prefixListId = null;
+
   @SerializedName("Priority")
   private Integer priority = null;
 
@@ -169,6 +172,24 @@ public class AuthorizeSecurityGroupIngressRequest {
     this.portStart = portStart;
   }
 
+  public AuthorizeSecurityGroupIngressRequest prefixListId(String prefixListId) {
+    this.prefixListId = prefixListId;
+    return this;
+  }
+
+   /**
+   * Get prefixListId
+   * @return prefixListId
+  **/
+  @Schema(description = "")
+  public String getPrefixListId() {
+    return prefixListId;
+  }
+
+  public void setPrefixListId(String prefixListId) {
+    this.prefixListId = prefixListId;
+  }
+
   public AuthorizeSecurityGroupIngressRequest priority(Integer priority) {
     this.priority = priority;
     return this;
@@ -259,6 +280,7 @@ public class AuthorizeSecurityGroupIngressRequest {
         Objects.equals(this.policy, authorizeSecurityGroupIngressRequest.policy) &&
         Objects.equals(this.portEnd, authorizeSecurityGroupIngressRequest.portEnd) &&
         Objects.equals(this.portStart, authorizeSecurityGroupIngressRequest.portStart) &&
+        Objects.equals(this.prefixListId, authorizeSecurityGroupIngressRequest.prefixListId) &&
         Objects.equals(this.priority, authorizeSecurityGroupIngressRequest.priority) &&
         Objects.equals(this.protocol, authorizeSecurityGroupIngressRequest.protocol) &&
         Objects.equals(this.securityGroupId, authorizeSecurityGroupIngressRequest.securityGroupId) &&
@@ -267,7 +289,7 @@ public class AuthorizeSecurityGroupIngressRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cidrIp, clientToken, description, policy, portEnd, portStart, priority, protocol, securityGroupId, sourceGroupId);
+    return Objects.hash(cidrIp, clientToken, description, policy, portEnd, portStart, prefixListId, priority, protocol, securityGroupId, sourceGroupId);
   }
 
 
@@ -282,6 +304,7 @@ public class AuthorizeSecurityGroupIngressRequest {
     sb.append("    policy: ").append(toIndentedString(policy)).append("\n");
     sb.append("    portEnd: ").append(toIndentedString(portEnd)).append("\n");
     sb.append("    portStart: ").append(toIndentedString(portStart)).append("\n");
+    sb.append("    prefixListId: ").append(toIndentedString(prefixListId)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
     sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
     sb.append("    securityGroupId: ").append(toIndentedString(securityGroupId)).append("\n");

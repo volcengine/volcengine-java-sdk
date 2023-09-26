@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class ResultForDescribeListenerHealthOutput {
   @SerializedName("InstanceId")
   private String instanceId = null;
@@ -53,6 +52,9 @@ public class ResultForDescribeListenerHealthOutput {
 
   @SerializedName("Type")
   private String type = null;
+
+  @SerializedName("UpdatedAt")
+  private String updatedAt = null;
 
   public ResultForDescribeListenerHealthOutput instanceId(String instanceId) {
     this.instanceId = instanceId;
@@ -198,6 +200,24 @@ public class ResultForDescribeListenerHealthOutput {
     this.type = type;
   }
 
+  public ResultForDescribeListenerHealthOutput updatedAt(String updatedAt) {
+    this.updatedAt = updatedAt;
+    return this;
+  }
+
+   /**
+   * Get updatedAt
+   * @return updatedAt
+  **/
+  @Schema(description = "")
+  public String getUpdatedAt() {
+    return updatedAt;
+  }
+
+  public void setUpdatedAt(String updatedAt) {
+    this.updatedAt = updatedAt;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -215,12 +235,13 @@ public class ResultForDescribeListenerHealthOutput {
         Objects.equals(this.serverGroupId, resultForDescribeListenerHealthOutput.serverGroupId) &&
         Objects.equals(this.serverId, resultForDescribeListenerHealthOutput.serverId) &&
         Objects.equals(this.status, resultForDescribeListenerHealthOutput.status) &&
-        Objects.equals(this.type, resultForDescribeListenerHealthOutput.type);
+        Objects.equals(this.type, resultForDescribeListenerHealthOutput.type) &&
+        Objects.equals(this.updatedAt, resultForDescribeListenerHealthOutput.updatedAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, ip, port, ruleNumber, serverGroupId, serverId, status, type);
+    return Objects.hash(instanceId, ip, port, ruleNumber, serverGroupId, serverId, status, type, updatedAt);
   }
 
 
@@ -237,6 +258,7 @@ public class ResultForDescribeListenerHealthOutput {
     sb.append("    serverId: ").append(toIndentedString(serverId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("}");
     return sb.toString();
   }

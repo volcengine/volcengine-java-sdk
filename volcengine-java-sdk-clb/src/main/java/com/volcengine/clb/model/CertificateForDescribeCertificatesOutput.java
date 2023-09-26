@@ -30,7 +30,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class CertificateForDescribeCertificatesOutput {
   @SerializedName("CertificateId")
   private String certificateId = null;

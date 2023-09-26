@@ -30,7 +30,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class RemoveServerGroupBackendServersRequest {
   @SerializedName("ServerGroupId")
   private String serverGroupId = null;

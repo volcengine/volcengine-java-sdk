@@ -32,6 +32,9 @@ public class DescribeRouteEntryListRequest {
   @SerializedName("DestinationCidrBlock")
   private String destinationCidrBlock = null;
 
+  @SerializedName("DestinationPrefixListId")
+  private String destinationPrefixListId = null;
+
   @SerializedName("NextHopId")
   private String nextHopId = null;
 
@@ -72,6 +75,24 @@ public class DescribeRouteEntryListRequest {
 
   public void setDestinationCidrBlock(String destinationCidrBlock) {
     this.destinationCidrBlock = destinationCidrBlock;
+  }
+
+  public DescribeRouteEntryListRequest destinationPrefixListId(String destinationPrefixListId) {
+    this.destinationPrefixListId = destinationPrefixListId;
+    return this;
+  }
+
+   /**
+   * Get destinationPrefixListId
+   * @return destinationPrefixListId
+  **/
+  @Schema(description = "")
+  public String getDestinationPrefixListId() {
+    return destinationPrefixListId;
+  }
+
+  public void setDestinationPrefixListId(String destinationPrefixListId) {
+    this.destinationPrefixListId = destinationPrefixListId;
   }
 
   public DescribeRouteEntryListRequest nextHopId(String nextHopId) {
@@ -231,6 +252,7 @@ public class DescribeRouteEntryListRequest {
     }
     DescribeRouteEntryListRequest describeRouteEntryListRequest = (DescribeRouteEntryListRequest) o;
     return Objects.equals(this.destinationCidrBlock, describeRouteEntryListRequest.destinationCidrBlock) &&
+        Objects.equals(this.destinationPrefixListId, describeRouteEntryListRequest.destinationPrefixListId) &&
         Objects.equals(this.nextHopId, describeRouteEntryListRequest.nextHopId) &&
         Objects.equals(this.nextHopType, describeRouteEntryListRequest.nextHopType) &&
         Objects.equals(this.pageNumber, describeRouteEntryListRequest.pageNumber) &&
@@ -243,7 +265,7 @@ public class DescribeRouteEntryListRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(destinationCidrBlock, nextHopId, nextHopType, pageNumber, pageSize, routeEntryId, routeEntryName, routeEntryType, routeTableId);
+    return Objects.hash(destinationCidrBlock, destinationPrefixListId, nextHopId, nextHopType, pageNumber, pageSize, routeEntryId, routeEntryName, routeEntryType, routeTableId);
   }
 
 
@@ -253,6 +275,7 @@ public class DescribeRouteEntryListRequest {
     sb.append("class DescribeRouteEntryListRequest {\n");
     
     sb.append("    destinationCidrBlock: ").append(toIndentedString(destinationCidrBlock)).append("\n");
+    sb.append("    destinationPrefixListId: ").append(toIndentedString(destinationPrefixListId)).append("\n");
     sb.append("    nextHopId: ").append(toIndentedString(nextHopId)).append("\n");
     sb.append("    nextHopType: ").append(toIndentedString(nextHopType)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
