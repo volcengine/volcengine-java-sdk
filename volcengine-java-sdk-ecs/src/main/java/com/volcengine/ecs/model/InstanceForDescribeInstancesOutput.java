@@ -23,6 +23,7 @@ import com.volcengine.ecs.model.CpuOptionsForDescribeInstancesOutput;
 import com.volcengine.ecs.model.EipAddressForDescribeInstancesOutput;
 import com.volcengine.ecs.model.LocalVolumeForDescribeInstancesOutput;
 import com.volcengine.ecs.model.NetworkInterfaceForDescribeInstancesOutput;
+import com.volcengine.ecs.model.PlacementForDescribeInstancesOutput;
 import com.volcengine.ecs.model.TagForDescribeInstancesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -99,11 +100,17 @@ public class InstanceForDescribeInstancesOutput {
   @SerializedName("OsType")
   private String osType = null;
 
+  @SerializedName("Placement")
+  private PlacementForDescribeInstancesOutput placement = null;
+
   @SerializedName("ProjectName")
   private String projectName = null;
 
   @SerializedName("RdmaIpAddresses")
   private List<String> rdmaIpAddresses = null;
+
+  @SerializedName("SpotPriceLimit")
+  private Float spotPriceLimit = null;
 
   @SerializedName("SpotStrategy")
   private String spotStrategy = null;
@@ -527,6 +534,25 @@ public class InstanceForDescribeInstancesOutput {
     this.osType = osType;
   }
 
+  public InstanceForDescribeInstancesOutput placement(PlacementForDescribeInstancesOutput placement) {
+    this.placement = placement;
+    return this;
+  }
+
+   /**
+   * Get placement
+   * @return placement
+  **/
+  @Valid
+  @Schema(description = "")
+  public PlacementForDescribeInstancesOutput getPlacement() {
+    return placement;
+  }
+
+  public void setPlacement(PlacementForDescribeInstancesOutput placement) {
+    this.placement = placement;
+  }
+
   public InstanceForDescribeInstancesOutput projectName(String projectName) {
     this.projectName = projectName;
     return this;
@@ -569,6 +595,24 @@ public class InstanceForDescribeInstancesOutput {
 
   public void setRdmaIpAddresses(List<String> rdmaIpAddresses) {
     this.rdmaIpAddresses = rdmaIpAddresses;
+  }
+
+  public InstanceForDescribeInstancesOutput spotPriceLimit(Float spotPriceLimit) {
+    this.spotPriceLimit = spotPriceLimit;
+    return this;
+  }
+
+   /**
+   * Get spotPriceLimit
+   * @return spotPriceLimit
+  **/
+  @Schema(description = "")
+  public Float getSpotPriceLimit() {
+    return spotPriceLimit;
+  }
+
+  public void setSpotPriceLimit(Float spotPriceLimit) {
+    this.spotPriceLimit = spotPriceLimit;
   }
 
   public InstanceForDescribeInstancesOutput spotStrategy(String spotStrategy) {
@@ -755,8 +799,10 @@ public class InstanceForDescribeInstancesOutput {
         Objects.equals(this.networkInterfaces, instanceForDescribeInstancesOutput.networkInterfaces) &&
         Objects.equals(this.osName, instanceForDescribeInstancesOutput.osName) &&
         Objects.equals(this.osType, instanceForDescribeInstancesOutput.osType) &&
+        Objects.equals(this.placement, instanceForDescribeInstancesOutput.placement) &&
         Objects.equals(this.projectName, instanceForDescribeInstancesOutput.projectName) &&
         Objects.equals(this.rdmaIpAddresses, instanceForDescribeInstancesOutput.rdmaIpAddresses) &&
+        Objects.equals(this.spotPriceLimit, instanceForDescribeInstancesOutput.spotPriceLimit) &&
         Objects.equals(this.spotStrategy, instanceForDescribeInstancesOutput.spotStrategy) &&
         Objects.equals(this.status, instanceForDescribeInstancesOutput.status) &&
         Objects.equals(this.stoppedMode, instanceForDescribeInstancesOutput.stoppedMode) &&
@@ -769,7 +815,7 @@ public class InstanceForDescribeInstancesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cpuOptions, cpus, createdAt, deploymentSetId, description, eipAddress, expiredAt, hostName, hostname, imageId, instanceChargeType, instanceId, instanceName, instanceTypeId, keyPairId, keyPairName, localVolumes, memorySize, networkInterfaces, osName, osType, projectName, rdmaIpAddresses, spotStrategy, status, stoppedMode, tags, updatedAt, uuid, vpcId, zoneId);
+    return Objects.hash(cpuOptions, cpus, createdAt, deploymentSetId, description, eipAddress, expiredAt, hostName, hostname, imageId, instanceChargeType, instanceId, instanceName, instanceTypeId, keyPairId, keyPairName, localVolumes, memorySize, networkInterfaces, osName, osType, placement, projectName, rdmaIpAddresses, spotPriceLimit, spotStrategy, status, stoppedMode, tags, updatedAt, uuid, vpcId, zoneId);
   }
 
 
@@ -799,8 +845,10 @@ public class InstanceForDescribeInstancesOutput {
     sb.append("    networkInterfaces: ").append(toIndentedString(networkInterfaces)).append("\n");
     sb.append("    osName: ").append(toIndentedString(osName)).append("\n");
     sb.append("    osType: ").append(toIndentedString(osType)).append("\n");
+    sb.append("    placement: ").append(toIndentedString(placement)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    rdmaIpAddresses: ").append(toIndentedString(rdmaIpAddresses)).append("\n");
+    sb.append("    spotPriceLimit: ").append(toIndentedString(spotPriceLimit)).append("\n");
     sb.append("    spotStrategy: ").append(toIndentedString(spotStrategy)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    stoppedMode: ").append(toIndentedString(stoppedMode)).append("\n");
