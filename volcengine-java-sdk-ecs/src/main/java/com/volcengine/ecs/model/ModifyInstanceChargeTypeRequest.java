@@ -34,6 +34,12 @@ public class ModifyInstanceChargeTypeRequest {
   @SerializedName("AutoPay")
   private Boolean autoPay = null;
 
+  @SerializedName("AutoRenew")
+  private Boolean autoRenew = null;
+
+  @SerializedName("AutoRenewPeriod")
+  private Integer autoRenewPeriod = null;
+
   @SerializedName("ClientToken")
   private String clientToken = null;
 
@@ -68,6 +74,42 @@ public class ModifyInstanceChargeTypeRequest {
 
   public void setAutoPay(Boolean autoPay) {
     this.autoPay = autoPay;
+  }
+
+  public ModifyInstanceChargeTypeRequest autoRenew(Boolean autoRenew) {
+    this.autoRenew = autoRenew;
+    return this;
+  }
+
+   /**
+   * Get autoRenew
+   * @return autoRenew
+  **/
+  @Schema(description = "")
+  public Boolean isAutoRenew() {
+    return autoRenew;
+  }
+
+  public void setAutoRenew(Boolean autoRenew) {
+    this.autoRenew = autoRenew;
+  }
+
+  public ModifyInstanceChargeTypeRequest autoRenewPeriod(Integer autoRenewPeriod) {
+    this.autoRenewPeriod = autoRenewPeriod;
+    return this;
+  }
+
+   /**
+   * Get autoRenewPeriod
+   * @return autoRenewPeriod
+  **/
+  @Schema(description = "")
+  public Integer getAutoRenewPeriod() {
+    return autoRenewPeriod;
+  }
+
+  public void setAutoRenewPeriod(Integer autoRenewPeriod) {
+    this.autoRenewPeriod = autoRenewPeriod;
   }
 
   public ModifyInstanceChargeTypeRequest clientToken(String clientToken) {
@@ -197,6 +239,8 @@ public class ModifyInstanceChargeTypeRequest {
     }
     ModifyInstanceChargeTypeRequest modifyInstanceChargeTypeRequest = (ModifyInstanceChargeTypeRequest) o;
     return Objects.equals(this.autoPay, modifyInstanceChargeTypeRequest.autoPay) &&
+        Objects.equals(this.autoRenew, modifyInstanceChargeTypeRequest.autoRenew) &&
+        Objects.equals(this.autoRenewPeriod, modifyInstanceChargeTypeRequest.autoRenewPeriod) &&
         Objects.equals(this.clientToken, modifyInstanceChargeTypeRequest.clientToken) &&
         Objects.equals(this.includeDataVolumes, modifyInstanceChargeTypeRequest.includeDataVolumes) &&
         Objects.equals(this.instanceChargeType, modifyInstanceChargeTypeRequest.instanceChargeType) &&
@@ -207,7 +251,7 @@ public class ModifyInstanceChargeTypeRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoPay, clientToken, includeDataVolumes, instanceChargeType, instanceIds, period, periodUnit);
+    return Objects.hash(autoPay, autoRenew, autoRenewPeriod, clientToken, includeDataVolumes, instanceChargeType, instanceIds, period, periodUnit);
   }
 
 
@@ -217,6 +261,8 @@ public class ModifyInstanceChargeTypeRequest {
     sb.append("class ModifyInstanceChargeTypeRequest {\n");
     
     sb.append("    autoPay: ").append(toIndentedString(autoPay)).append("\n");
+    sb.append("    autoRenew: ").append(toIndentedString(autoRenew)).append("\n");
+    sb.append("    autoRenewPeriod: ").append(toIndentedString(autoRenewPeriod)).append("\n");
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    includeDataVolumes: ").append(toIndentedString(includeDataVolumes)).append("\n");
     sb.append("    instanceChargeType: ").append(toIndentedString(instanceChargeType)).append("\n");

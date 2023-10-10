@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.ecs.model.NetworkInterfaceForRunInstancesInput;
+import com.volcengine.ecs.model.PlacementForRunInstancesInput;
 import com.volcengine.ecs.model.TagForRunInstancesInput;
 import com.volcengine.ecs.model.VolumeForRunInstancesInput;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -70,6 +71,9 @@ public class RunInstancesRequest {
   @SerializedName("ImageId")
   private String imageId = null;
 
+  @SerializedName("InstallRunCommandAgent")
+  private Boolean installRunCommandAgent = null;
+
   @SerializedName("InstanceChargeType")
   private String instanceChargeType = null;
 
@@ -103,11 +107,17 @@ public class RunInstancesRequest {
   @SerializedName("PeriodUnit")
   private String periodUnit = null;
 
+  @SerializedName("Placement")
+  private PlacementForRunInstancesInput placement = null;
+
   @SerializedName("ProjectName")
   private String projectName = null;
 
   @SerializedName("SecurityEnhancementStrategy")
   private String securityEnhancementStrategy = null;
+
+  @SerializedName("SpotPriceLimit")
+  private Double spotPriceLimit = null;
 
   @SerializedName("SpotStrategy")
   private String spotStrategy = null;
@@ -346,6 +356,24 @@ public class RunInstancesRequest {
     this.imageId = imageId;
   }
 
+  public RunInstancesRequest installRunCommandAgent(Boolean installRunCommandAgent) {
+    this.installRunCommandAgent = installRunCommandAgent;
+    return this;
+  }
+
+   /**
+   * Get installRunCommandAgent
+   * @return installRunCommandAgent
+  **/
+  @Schema(description = "")
+  public Boolean isInstallRunCommandAgent() {
+    return installRunCommandAgent;
+  }
+
+  public void setInstallRunCommandAgent(Boolean installRunCommandAgent) {
+    this.installRunCommandAgent = installRunCommandAgent;
+  }
+
   public RunInstancesRequest instanceChargeType(String instanceChargeType) {
     this.instanceChargeType = instanceChargeType;
     return this;
@@ -553,6 +581,25 @@ public class RunInstancesRequest {
     this.periodUnit = periodUnit;
   }
 
+  public RunInstancesRequest placement(PlacementForRunInstancesInput placement) {
+    this.placement = placement;
+    return this;
+  }
+
+   /**
+   * Get placement
+   * @return placement
+  **/
+  @Valid
+  @Schema(description = "")
+  public PlacementForRunInstancesInput getPlacement() {
+    return placement;
+  }
+
+  public void setPlacement(PlacementForRunInstancesInput placement) {
+    this.placement = placement;
+  }
+
   public RunInstancesRequest projectName(String projectName) {
     this.projectName = projectName;
     return this;
@@ -587,6 +634,24 @@ public class RunInstancesRequest {
 
   public void setSecurityEnhancementStrategy(String securityEnhancementStrategy) {
     this.securityEnhancementStrategy = securityEnhancementStrategy;
+  }
+
+  public RunInstancesRequest spotPriceLimit(Double spotPriceLimit) {
+    this.spotPriceLimit = spotPriceLimit;
+    return this;
+  }
+
+   /**
+   * Get spotPriceLimit
+   * @return spotPriceLimit
+  **/
+  @Schema(description = "")
+  public Double getSpotPriceLimit() {
+    return spotPriceLimit;
+  }
+
+  public void setSpotPriceLimit(Double spotPriceLimit) {
+    this.spotPriceLimit = spotPriceLimit;
   }
 
   public RunInstancesRequest spotStrategy(String spotStrategy) {
@@ -755,6 +820,7 @@ public class RunInstancesRequest {
         Objects.equals(this.hostname, runInstancesRequest.hostname) &&
         Objects.equals(this.hpcClusterId, runInstancesRequest.hpcClusterId) &&
         Objects.equals(this.imageId, runInstancesRequest.imageId) &&
+        Objects.equals(this.installRunCommandAgent, runInstancesRequest.installRunCommandAgent) &&
         Objects.equals(this.instanceChargeType, runInstancesRequest.instanceChargeType) &&
         Objects.equals(this.instanceName, runInstancesRequest.instanceName) &&
         Objects.equals(this.instanceType, runInstancesRequest.instanceType) &&
@@ -766,8 +832,10 @@ public class RunInstancesRequest {
         Objects.equals(this.password, runInstancesRequest.password) &&
         Objects.equals(this.period, runInstancesRequest.period) &&
         Objects.equals(this.periodUnit, runInstancesRequest.periodUnit) &&
+        Objects.equals(this.placement, runInstancesRequest.placement) &&
         Objects.equals(this.projectName, runInstancesRequest.projectName) &&
         Objects.equals(this.securityEnhancementStrategy, runInstancesRequest.securityEnhancementStrategy) &&
+        Objects.equals(this.spotPriceLimit, runInstancesRequest.spotPriceLimit) &&
         Objects.equals(this.spotStrategy, runInstancesRequest.spotStrategy) &&
         Objects.equals(this.suffixIndex, runInstancesRequest.suffixIndex) &&
         Objects.equals(this.tags, runInstancesRequest.tags) &&
@@ -779,7 +847,7 @@ public class RunInstancesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoRenew, autoRenewPeriod, clientToken, count, creditSpecification, deploymentSetId, description, dryRun, hostName, hostname, hpcClusterId, imageId, instanceChargeType, instanceName, instanceType, instanceTypeId, keepImageCredential, keyPairName, minCount, networkInterfaces, password, period, periodUnit, projectName, securityEnhancementStrategy, spotStrategy, suffixIndex, tags, uniqueSuffix, userData, volumes, zoneId);
+    return Objects.hash(autoRenew, autoRenewPeriod, clientToken, count, creditSpecification, deploymentSetId, description, dryRun, hostName, hostname, hpcClusterId, imageId, installRunCommandAgent, instanceChargeType, instanceName, instanceType, instanceTypeId, keepImageCredential, keyPairName, minCount, networkInterfaces, password, period, periodUnit, placement, projectName, securityEnhancementStrategy, spotPriceLimit, spotStrategy, suffixIndex, tags, uniqueSuffix, userData, volumes, zoneId);
   }
 
 
@@ -800,6 +868,7 @@ public class RunInstancesRequest {
     sb.append("    hostname: ").append(toIndentedString(hostname)).append("\n");
     sb.append("    hpcClusterId: ").append(toIndentedString(hpcClusterId)).append("\n");
     sb.append("    imageId: ").append(toIndentedString(imageId)).append("\n");
+    sb.append("    installRunCommandAgent: ").append(toIndentedString(installRunCommandAgent)).append("\n");
     sb.append("    instanceChargeType: ").append(toIndentedString(instanceChargeType)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
@@ -811,8 +880,10 @@ public class RunInstancesRequest {
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    period: ").append(toIndentedString(period)).append("\n");
     sb.append("    periodUnit: ").append(toIndentedString(periodUnit)).append("\n");
+    sb.append("    placement: ").append(toIndentedString(placement)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    securityEnhancementStrategy: ").append(toIndentedString(securityEnhancementStrategy)).append("\n");
+    sb.append("    spotPriceLimit: ").append(toIndentedString(spotPriceLimit)).append("\n");
     sb.append("    spotStrategy: ").append(toIndentedString(spotStrategy)).append("\n");
     sb.append("    suffixIndex: ").append(toIndentedString(suffixIndex)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
