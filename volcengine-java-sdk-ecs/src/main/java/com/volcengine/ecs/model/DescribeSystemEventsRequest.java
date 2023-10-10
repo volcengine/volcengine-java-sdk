@@ -31,6 +31,9 @@ import javax.validation.Valid;
 
 
 public class DescribeSystemEventsRequest {
+  @SerializedName("Category")
+  private String category = null;
+
   @SerializedName("CreatedAtEnd")
   private String createdAtEnd = null;
 
@@ -54,6 +57,24 @@ public class DescribeSystemEventsRequest {
 
   @SerializedName("Types")
   private List<String> types = null;
+
+  public DescribeSystemEventsRequest category(String category) {
+    this.category = category;
+    return this;
+  }
+
+   /**
+   * Get category
+   * @return category
+  **/
+  @Schema(description = "")
+  public String getCategory() {
+    return category;
+  }
+
+  public void setCategory(String category) {
+    this.category = category;
+  }
 
   public DescribeSystemEventsRequest createdAtEnd(String createdAtEnd) {
     this.createdAtEnd = createdAtEnd;
@@ -241,7 +262,8 @@ public class DescribeSystemEventsRequest {
       return false;
     }
     DescribeSystemEventsRequest describeSystemEventsRequest = (DescribeSystemEventsRequest) o;
-    return Objects.equals(this.createdAtEnd, describeSystemEventsRequest.createdAtEnd) &&
+    return Objects.equals(this.category, describeSystemEventsRequest.category) &&
+        Objects.equals(this.createdAtEnd, describeSystemEventsRequest.createdAtEnd) &&
         Objects.equals(this.createdAtStart, describeSystemEventsRequest.createdAtStart) &&
         Objects.equals(this.eventIds, describeSystemEventsRequest.eventIds) &&
         Objects.equals(this.maxResults, describeSystemEventsRequest.maxResults) &&
@@ -253,7 +275,7 @@ public class DescribeSystemEventsRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAtEnd, createdAtStart, eventIds, maxResults, nextToken, resourceIds, status, types);
+    return Objects.hash(category, createdAtEnd, createdAtStart, eventIds, maxResults, nextToken, resourceIds, status, types);
   }
 
 
@@ -262,6 +284,7 @@ public class DescribeSystemEventsRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeSystemEventsRequest {\n");
     
+    sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    createdAtEnd: ").append(toIndentedString(createdAtEnd)).append("\n");
     sb.append("    createdAtStart: ").append(toIndentedString(createdAtStart)).append("\n");
     sb.append("    eventIds: ").append(toIndentedString(eventIds)).append("\n");

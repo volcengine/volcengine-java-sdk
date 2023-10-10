@@ -32,6 +32,12 @@ import javax.validation.Valid;
 
 
 public class DescribeInstancesRequest {
+  @SerializedName("DedicatedHostClusterId")
+  private String dedicatedHostClusterId = null;
+
+  @SerializedName("DedicatedHostId")
+  private String dedicatedHostId = null;
+
   @SerializedName("DeploymentSetIds")
   private List<String> deploymentSetIds = null;
 
@@ -82,6 +88,42 @@ public class DescribeInstancesRequest {
 
   @SerializedName("ZoneId")
   private String zoneId = null;
+
+  public DescribeInstancesRequest dedicatedHostClusterId(String dedicatedHostClusterId) {
+    this.dedicatedHostClusterId = dedicatedHostClusterId;
+    return this;
+  }
+
+   /**
+   * Get dedicatedHostClusterId
+   * @return dedicatedHostClusterId
+  **/
+  @Schema(description = "")
+  public String getDedicatedHostClusterId() {
+    return dedicatedHostClusterId;
+  }
+
+  public void setDedicatedHostClusterId(String dedicatedHostClusterId) {
+    this.dedicatedHostClusterId = dedicatedHostClusterId;
+  }
+
+  public DescribeInstancesRequest dedicatedHostId(String dedicatedHostId) {
+    this.dedicatedHostId = dedicatedHostId;
+    return this;
+  }
+
+   /**
+   * Get dedicatedHostId
+   * @return dedicatedHostId
+  **/
+  @Schema(description = "")
+  public String getDedicatedHostId() {
+    return dedicatedHostId;
+  }
+
+  public void setDedicatedHostId(String dedicatedHostId) {
+    this.dedicatedHostId = dedicatedHostId;
+  }
 
   public DescribeInstancesRequest deploymentSetIds(List<String> deploymentSetIds) {
     this.deploymentSetIds = deploymentSetIds;
@@ -448,7 +490,9 @@ public class DescribeInstancesRequest {
       return false;
     }
     DescribeInstancesRequest describeInstancesRequest = (DescribeInstancesRequest) o;
-    return Objects.equals(this.deploymentSetIds, describeInstancesRequest.deploymentSetIds) &&
+    return Objects.equals(this.dedicatedHostClusterId, describeInstancesRequest.dedicatedHostClusterId) &&
+        Objects.equals(this.dedicatedHostId, describeInstancesRequest.dedicatedHostId) &&
+        Objects.equals(this.deploymentSetIds, describeInstancesRequest.deploymentSetIds) &&
         Objects.equals(this.hpcClusterId, describeInstancesRequest.hpcClusterId) &&
         Objects.equals(this.instanceChargeType, describeInstancesRequest.instanceChargeType) &&
         Objects.equals(this.instanceIds, describeInstancesRequest.instanceIds) &&
@@ -469,7 +513,7 @@ public class DescribeInstancesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deploymentSetIds, hpcClusterId, instanceChargeType, instanceIds, instanceName, instanceTypeFamilies, instanceTypeIds, instanceTypes, keyPairName, maxResults, nextToken, primaryIpAddress, projectName, status, tagFilters, vpcId, zoneId);
+    return Objects.hash(dedicatedHostClusterId, dedicatedHostId, deploymentSetIds, hpcClusterId, instanceChargeType, instanceIds, instanceName, instanceTypeFamilies, instanceTypeIds, instanceTypes, keyPairName, maxResults, nextToken, primaryIpAddress, projectName, status, tagFilters, vpcId, zoneId);
   }
 
 
@@ -478,6 +522,8 @@ public class DescribeInstancesRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeInstancesRequest {\n");
     
+    sb.append("    dedicatedHostClusterId: ").append(toIndentedString(dedicatedHostClusterId)).append("\n");
+    sb.append("    dedicatedHostId: ").append(toIndentedString(dedicatedHostId)).append("\n");
     sb.append("    deploymentSetIds: ").append(toIndentedString(deploymentSetIds)).append("\n");
     sb.append("    hpcClusterId: ").append(toIndentedString(hpcClusterId)).append("\n");
     sb.append("    instanceChargeType: ").append(toIndentedString(instanceChargeType)).append("\n");

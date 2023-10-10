@@ -62,7 +62,9 @@ public class SystemEventForDescribeSystemEventsOutput {
     INQUIRING("Inquiring"),
     SCHEDULED("Scheduled"),
     REJECTED("Rejected"),
-    CANCELED("Canceled");
+    CANCELED("Canceled"),
+    PENDING("Pending"),
+    RECOVERED("Recovered");
 
     private String value;
 
@@ -127,7 +129,18 @@ public class SystemEventForDescribeSystemEventsOutput {
     REBOOTINSTANCE("RebootInstance"),
     INSTANCEFAILURE("InstanceFailure"),
     APPLICATIONFAILURE("ApplicationFailure"),
-    GPURISKDETECTED("GpuRiskDetected");
+    DEPLOYMENTSET_MODIFY("DeploymentSet_Modify"),
+    SERVERMIGRATIONTASK("ServerMigrationTask"),
+    SERVERMIGRATION_FIRSTSYNC("ServerMigration_FirstSync"),
+    SERVERMIGRATION_ADDITIONALSYNC("ServerMigration_AdditionalSync"),
+    GPURISKDETECTED("GpuRiskDetected"),
+    ELASTICSCHEDULEDINSTANCE_CREATE("ElasticScheduledInstance_Create"),
+    ELASTICSCHEDULEDINSTANCE_CANCEL("ElasticScheduledInstance_Cancel"),
+    ELASTICSCHEDULEDINSTANCE_DELIVER("ElasticScheduledInstance_Deliver"),
+    INFRASTRUCTUREUPGRADE_REDEPLOY("InfrastructureUpgrade_Redeploy"),
+    DISKERRORDETECTED("DiskErrorDetected"),
+    DISKERROR_REPLACEDISK("DiskError_ReplaceDisk"),
+    MEMORYRISKDETECTED("MemoryRiskDetected");
 
     private String value;
 
