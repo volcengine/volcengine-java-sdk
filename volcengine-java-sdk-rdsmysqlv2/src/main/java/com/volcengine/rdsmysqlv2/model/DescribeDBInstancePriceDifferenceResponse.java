@@ -33,17 +33,11 @@ import javax.validation.Valid;
 
 
 public class DescribeDBInstancePriceDifferenceResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("BillingMethod")
-  private String billingMethod = null;
-
   @SerializedName("ChargeItemPrices")
   private List<ChargeItemPriceForDescribeDBInstancePriceDifferenceOutput> chargeItemPrices = null;
 
   @SerializedName("ConfigItemPrices")
   private List<ConfigItemPriceForDescribeDBInstancePriceDifferenceOutput> configItemPrices = null;
-
-  @SerializedName("CouponAmount")
-  private Double couponAmount = null;
 
   @SerializedName("Currency")
   private String currency = null;
@@ -56,27 +50,6 @@ public class DescribeDBInstancePriceDifferenceResponse extends com.volcengine.mo
 
   @SerializedName("PayablePrice")
   private Double payablePrice = null;
-
-  @SerializedName("RefundAmount")
-  private Double refundAmount = null;
-
-  public DescribeDBInstancePriceDifferenceResponse billingMethod(String billingMethod) {
-    this.billingMethod = billingMethod;
-    return this;
-  }
-
-   /**
-   * Get billingMethod
-   * @return billingMethod
-  **/
-  @Schema(description = "")
-  public String getBillingMethod() {
-    return billingMethod;
-  }
-
-  public void setBillingMethod(String billingMethod) {
-    this.billingMethod = billingMethod;
-  }
 
   public DescribeDBInstancePriceDifferenceResponse chargeItemPrices(List<ChargeItemPriceForDescribeDBInstancePriceDifferenceOutput> chargeItemPrices) {
     this.chargeItemPrices = chargeItemPrices;
@@ -130,24 +103,6 @@ public class DescribeDBInstancePriceDifferenceResponse extends com.volcengine.mo
 
   public void setConfigItemPrices(List<ConfigItemPriceForDescribeDBInstancePriceDifferenceOutput> configItemPrices) {
     this.configItemPrices = configItemPrices;
-  }
-
-  public DescribeDBInstancePriceDifferenceResponse couponAmount(Double couponAmount) {
-    this.couponAmount = couponAmount;
-    return this;
-  }
-
-   /**
-   * Get couponAmount
-   * @return couponAmount
-  **/
-  @Schema(description = "")
-  public Double getCouponAmount() {
-    return couponAmount;
-  }
-
-  public void setCouponAmount(Double couponAmount) {
-    this.couponAmount = couponAmount;
   }
 
   public DescribeDBInstancePriceDifferenceResponse currency(String currency) {
@@ -222,24 +177,6 @@ public class DescribeDBInstancePriceDifferenceResponse extends com.volcengine.mo
     this.payablePrice = payablePrice;
   }
 
-  public DescribeDBInstancePriceDifferenceResponse refundAmount(Double refundAmount) {
-    this.refundAmount = refundAmount;
-    return this;
-  }
-
-   /**
-   * Get refundAmount
-   * @return refundAmount
-  **/
-  @Schema(description = "")
-  public Double getRefundAmount() {
-    return refundAmount;
-  }
-
-  public void setRefundAmount(Double refundAmount) {
-    this.refundAmount = refundAmount;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -250,20 +187,17 @@ public class DescribeDBInstancePriceDifferenceResponse extends com.volcengine.mo
       return false;
     }
     DescribeDBInstancePriceDifferenceResponse describeDBInstancePriceDifferenceResponse = (DescribeDBInstancePriceDifferenceResponse) o;
-    return Objects.equals(this.billingMethod, describeDBInstancePriceDifferenceResponse.billingMethod) &&
-        Objects.equals(this.chargeItemPrices, describeDBInstancePriceDifferenceResponse.chargeItemPrices) &&
+    return Objects.equals(this.chargeItemPrices, describeDBInstancePriceDifferenceResponse.chargeItemPrices) &&
         Objects.equals(this.configItemPrices, describeDBInstancePriceDifferenceResponse.configItemPrices) &&
-        Objects.equals(this.couponAmount, describeDBInstancePriceDifferenceResponse.couponAmount) &&
         Objects.equals(this.currency, describeDBInstancePriceDifferenceResponse.currency) &&
         Objects.equals(this.discountPrice, describeDBInstancePriceDifferenceResponse.discountPrice) &&
         Objects.equals(this.originalPrice, describeDBInstancePriceDifferenceResponse.originalPrice) &&
-        Objects.equals(this.payablePrice, describeDBInstancePriceDifferenceResponse.payablePrice) &&
-        Objects.equals(this.refundAmount, describeDBInstancePriceDifferenceResponse.refundAmount);
+        Objects.equals(this.payablePrice, describeDBInstancePriceDifferenceResponse.payablePrice);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(billingMethod, chargeItemPrices, configItemPrices, couponAmount, currency, discountPrice, originalPrice, payablePrice, refundAmount);
+    return Objects.hash(chargeItemPrices, configItemPrices, currency, discountPrice, originalPrice, payablePrice);
   }
 
 
@@ -272,15 +206,12 @@ public class DescribeDBInstancePriceDifferenceResponse extends com.volcengine.mo
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeDBInstancePriceDifferenceResponse {\n");
     
-    sb.append("    billingMethod: ").append(toIndentedString(billingMethod)).append("\n");
     sb.append("    chargeItemPrices: ").append(toIndentedString(chargeItemPrices)).append("\n");
     sb.append("    configItemPrices: ").append(toIndentedString(configItemPrices)).append("\n");
-    sb.append("    couponAmount: ").append(toIndentedString(couponAmount)).append("\n");
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
     sb.append("    discountPrice: ").append(toIndentedString(discountPrice)).append("\n");
     sb.append("    originalPrice: ").append(toIndentedString(originalPrice)).append("\n");
     sb.append("    payablePrice: ").append(toIndentedString(payablePrice)).append("\n");
-    sb.append("    refundAmount: ").append(toIndentedString(refundAmount)).append("\n");
     sb.append("}");
     return sb.toString();
   }

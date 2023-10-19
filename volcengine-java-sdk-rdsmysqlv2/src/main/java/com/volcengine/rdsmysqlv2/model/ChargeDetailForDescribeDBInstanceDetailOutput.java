@@ -59,12 +59,6 @@ public class ChargeDetailForDescribeDBInstanceDetailOutput {
   @SerializedName("PeriodUnit")
   private String periodUnit = null;
 
-  @SerializedName("TempModifyEndTime")
-  private String tempModifyEndTime = null;
-
-  @SerializedName("TempModifyStartTime")
-  private String tempModifyStartTime = null;
-
   public ChargeDetailForDescribeDBInstanceDetailOutput autoRenew(Boolean autoRenew) {
     this.autoRenew = autoRenew;
     return this;
@@ -245,42 +239,6 @@ public class ChargeDetailForDescribeDBInstanceDetailOutput {
     this.periodUnit = periodUnit;
   }
 
-  public ChargeDetailForDescribeDBInstanceDetailOutput tempModifyEndTime(String tempModifyEndTime) {
-    this.tempModifyEndTime = tempModifyEndTime;
-    return this;
-  }
-
-   /**
-   * Get tempModifyEndTime
-   * @return tempModifyEndTime
-  **/
-  @Schema(description = "")
-  public String getTempModifyEndTime() {
-    return tempModifyEndTime;
-  }
-
-  public void setTempModifyEndTime(String tempModifyEndTime) {
-    this.tempModifyEndTime = tempModifyEndTime;
-  }
-
-  public ChargeDetailForDescribeDBInstanceDetailOutput tempModifyStartTime(String tempModifyStartTime) {
-    this.tempModifyStartTime = tempModifyStartTime;
-    return this;
-  }
-
-   /**
-   * Get tempModifyStartTime
-   * @return tempModifyStartTime
-  **/
-  @Schema(description = "")
-  public String getTempModifyStartTime() {
-    return tempModifyStartTime;
-  }
-
-  public void setTempModifyStartTime(String tempModifyStartTime) {
-    this.tempModifyStartTime = tempModifyStartTime;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -300,14 +258,12 @@ public class ChargeDetailForDescribeDBInstanceDetailOutput {
         Objects.equals(this.overdueReclaimTime, chargeDetailForDescribeDBInstanceDetailOutput.overdueReclaimTime) &&
         Objects.equals(this.overdueTime, chargeDetailForDescribeDBInstanceDetailOutput.overdueTime) &&
         Objects.equals(this.period, chargeDetailForDescribeDBInstanceDetailOutput.period) &&
-        Objects.equals(this.periodUnit, chargeDetailForDescribeDBInstanceDetailOutput.periodUnit) &&
-        Objects.equals(this.tempModifyEndTime, chargeDetailForDescribeDBInstanceDetailOutput.tempModifyEndTime) &&
-        Objects.equals(this.tempModifyStartTime, chargeDetailForDescribeDBInstanceDetailOutput.tempModifyStartTime);
+        Objects.equals(this.periodUnit, chargeDetailForDescribeDBInstanceDetailOutput.periodUnit);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoRenew, chargeEndTime, chargeStartTime, chargeStatus, chargeType, number, overdueReclaimTime, overdueTime, period, periodUnit, tempModifyEndTime, tempModifyStartTime);
+    return Objects.hash(autoRenew, chargeEndTime, chargeStartTime, chargeStatus, chargeType, number, overdueReclaimTime, overdueTime, period, periodUnit);
   }
 
 
@@ -326,8 +282,6 @@ public class ChargeDetailForDescribeDBInstanceDetailOutput {
     sb.append("    overdueTime: ").append(toIndentedString(overdueTime)).append("\n");
     sb.append("    period: ").append(toIndentedString(period)).append("\n");
     sb.append("    periodUnit: ").append(toIndentedString(periodUnit)).append("\n");
-    sb.append("    tempModifyEndTime: ").append(toIndentedString(tempModifyEndTime)).append("\n");
-    sb.append("    tempModifyStartTime: ").append(toIndentedString(tempModifyStartTime)).append("\n");
     sb.append("}");
     return sb.toString();
   }

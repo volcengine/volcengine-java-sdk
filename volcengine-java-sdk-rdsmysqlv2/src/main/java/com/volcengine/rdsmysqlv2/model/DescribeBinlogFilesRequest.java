@@ -41,9 +41,6 @@ public class DescribeBinlogFilesRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;
 
-  @SerializedName("NodeId")
-  private String nodeId = null;
-
   @SerializedName("StartTime")
   private String startTime = null;
 
@@ -119,24 +116,6 @@ public class DescribeBinlogFilesRequest {
     this.instanceId = instanceId;
   }
 
-  public DescribeBinlogFilesRequest nodeId(String nodeId) {
-    this.nodeId = nodeId;
-    return this;
-  }
-
-   /**
-   * Get nodeId
-   * @return nodeId
-  **/
-  @Schema(description = "")
-  public String getNodeId() {
-    return nodeId;
-  }
-
-  public void setNodeId(String nodeId) {
-    this.nodeId = nodeId;
-  }
-
   public DescribeBinlogFilesRequest startTime(String startTime) {
     this.startTime = startTime;
     return this;
@@ -169,13 +148,12 @@ public class DescribeBinlogFilesRequest {
         Objects.equals(this.context, describeBinlogFilesRequest.context) &&
         Objects.equals(this.endTime, describeBinlogFilesRequest.endTime) &&
         Objects.equals(this.instanceId, describeBinlogFilesRequest.instanceId) &&
-        Objects.equals(this.nodeId, describeBinlogFilesRequest.nodeId) &&
         Objects.equals(this.startTime, describeBinlogFilesRequest.startTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(backupFileNumber, context, endTime, instanceId, nodeId, startTime);
+    return Objects.hash(backupFileNumber, context, endTime, instanceId, startTime);
   }
 
 
@@ -188,7 +166,6 @@ public class DescribeBinlogFilesRequest {
     sb.append("    context: ").append(toIndentedString(context)).append("\n");
     sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
-    sb.append("    nodeId: ").append(toIndentedString(nodeId)).append("\n");
     sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
     sb.append("}");
     return sb.toString();

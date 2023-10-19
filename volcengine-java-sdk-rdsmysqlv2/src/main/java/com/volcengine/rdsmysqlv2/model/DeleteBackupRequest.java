@@ -24,51 +24,53 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * TagForDescribeDBInstancesOutput
+ * DeleteBackupRequest
  */
 
 
-public class TagForDescribeDBInstancesOutput {
-  @SerializedName("Key")
-  private String key = null;
+public class DeleteBackupRequest {
+  @SerializedName("BackupId")
+  private String backupId = null;
 
-  @SerializedName("Value")
-  private String value = null;
+  @SerializedName("InstanceId")
+  private String instanceId = null;
 
-  public TagForDescribeDBInstancesOutput key(String key) {
-    this.key = key;
+  public DeleteBackupRequest backupId(String backupId) {
+    this.backupId = backupId;
     return this;
   }
 
    /**
-   * Get key
-   * @return key
+   * Get backupId
+   * @return backupId
   **/
-  @Schema(description = "")
-  public String getKey() {
-    return key;
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getBackupId() {
+    return backupId;
   }
 
-  public void setKey(String key) {
-    this.key = key;
+  public void setBackupId(String backupId) {
+    this.backupId = backupId;
   }
 
-  public TagForDescribeDBInstancesOutput value(String value) {
-    this.value = value;
+  public DeleteBackupRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
     return this;
   }
 
    /**
-   * Get value
-   * @return value
+   * Get instanceId
+   * @return instanceId
   **/
-  @Schema(description = "")
-  public String getValue() {
-    return value;
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getInstanceId() {
+    return instanceId;
   }
 
-  public void setValue(String value) {
-    this.value = value;
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
   }
 
 
@@ -80,24 +82,24 @@ public class TagForDescribeDBInstancesOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TagForDescribeDBInstancesOutput tagForDescribeDBInstancesOutput = (TagForDescribeDBInstancesOutput) o;
-    return Objects.equals(this.key, tagForDescribeDBInstancesOutput.key) &&
-        Objects.equals(this.value, tagForDescribeDBInstancesOutput.value);
+    DeleteBackupRequest deleteBackupRequest = (DeleteBackupRequest) o;
+    return Objects.equals(this.backupId, deleteBackupRequest.backupId) &&
+        Objects.equals(this.instanceId, deleteBackupRequest.instanceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(key, value);
+    return Objects.hash(backupId, instanceId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TagForDescribeDBInstancesOutput {\n");
+    sb.append("class DeleteBackupRequest {\n");
     
-    sb.append("    key: ").append(toIndentedString(key)).append("\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    backupId: ").append(toIndentedString(backupId)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

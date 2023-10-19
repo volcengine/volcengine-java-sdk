@@ -24,11 +24,14 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DescribeDBInstanceShardsRequest
+ * DescribeSlowLogsRequest
  */
 
 
-public class DescribeDBInstanceShardsRequest {
+public class DescribeSlowLogsRequest {
+  @SerializedName("DBName")
+  private String dbName = null;
+
   @SerializedName("InstanceId")
   private String instanceId = null;
 
@@ -38,10 +41,31 @@ public class DescribeDBInstanceShardsRequest {
   @SerializedName("PageSize")
   private Integer pageSize = null;
 
-  @SerializedName("ShardId")
-  private String shardId = null;
+  @SerializedName("QueryEndTime")
+  private String queryEndTime = null;
 
-  public DescribeDBInstanceShardsRequest instanceId(String instanceId) {
+  @SerializedName("QueryStartTime")
+  private String queryStartTime = null;
+
+  public DescribeSlowLogsRequest dbName(String dbName) {
+    this.dbName = dbName;
+    return this;
+  }
+
+   /**
+   * Get dbName
+   * @return dbName
+  **/
+  @Schema(description = "")
+  public String getDbName() {
+    return dbName;
+  }
+
+  public void setDbName(String dbName) {
+    this.dbName = dbName;
+  }
+
+  public DescribeSlowLogsRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
     return this;
   }
@@ -60,7 +84,7 @@ public class DescribeDBInstanceShardsRequest {
     this.instanceId = instanceId;
   }
 
-  public DescribeDBInstanceShardsRequest pageNumber(Integer pageNumber) {
+  public DescribeSlowLogsRequest pageNumber(Integer pageNumber) {
     this.pageNumber = pageNumber;
     return this;
   }
@@ -78,7 +102,7 @@ public class DescribeDBInstanceShardsRequest {
     this.pageNumber = pageNumber;
   }
 
-  public DescribeDBInstanceShardsRequest pageSize(Integer pageSize) {
+  public DescribeSlowLogsRequest pageSize(Integer pageSize) {
     this.pageSize = pageSize;
     return this;
   }
@@ -96,22 +120,40 @@ public class DescribeDBInstanceShardsRequest {
     this.pageSize = pageSize;
   }
 
-  public DescribeDBInstanceShardsRequest shardId(String shardId) {
-    this.shardId = shardId;
+  public DescribeSlowLogsRequest queryEndTime(String queryEndTime) {
+    this.queryEndTime = queryEndTime;
     return this;
   }
 
    /**
-   * Get shardId
-   * @return shardId
+   * Get queryEndTime
+   * @return queryEndTime
   **/
   @Schema(description = "")
-  public String getShardId() {
-    return shardId;
+  public String getQueryEndTime() {
+    return queryEndTime;
   }
 
-  public void setShardId(String shardId) {
-    this.shardId = shardId;
+  public void setQueryEndTime(String queryEndTime) {
+    this.queryEndTime = queryEndTime;
+  }
+
+  public DescribeSlowLogsRequest queryStartTime(String queryStartTime) {
+    this.queryStartTime = queryStartTime;
+    return this;
+  }
+
+   /**
+   * Get queryStartTime
+   * @return queryStartTime
+  **/
+  @Schema(description = "")
+  public String getQueryStartTime() {
+    return queryStartTime;
+  }
+
+  public void setQueryStartTime(String queryStartTime) {
+    this.queryStartTime = queryStartTime;
   }
 
 
@@ -123,28 +165,32 @@ public class DescribeDBInstanceShardsRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DescribeDBInstanceShardsRequest describeDBInstanceShardsRequest = (DescribeDBInstanceShardsRequest) o;
-    return Objects.equals(this.instanceId, describeDBInstanceShardsRequest.instanceId) &&
-        Objects.equals(this.pageNumber, describeDBInstanceShardsRequest.pageNumber) &&
-        Objects.equals(this.pageSize, describeDBInstanceShardsRequest.pageSize) &&
-        Objects.equals(this.shardId, describeDBInstanceShardsRequest.shardId);
+    DescribeSlowLogsRequest describeSlowLogsRequest = (DescribeSlowLogsRequest) o;
+    return Objects.equals(this.dbName, describeSlowLogsRequest.dbName) &&
+        Objects.equals(this.instanceId, describeSlowLogsRequest.instanceId) &&
+        Objects.equals(this.pageNumber, describeSlowLogsRequest.pageNumber) &&
+        Objects.equals(this.pageSize, describeSlowLogsRequest.pageSize) &&
+        Objects.equals(this.queryEndTime, describeSlowLogsRequest.queryEndTime) &&
+        Objects.equals(this.queryStartTime, describeSlowLogsRequest.queryStartTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, pageNumber, pageSize, shardId);
+    return Objects.hash(dbName, instanceId, pageNumber, pageSize, queryEndTime, queryStartTime);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DescribeDBInstanceShardsRequest {\n");
+    sb.append("class DescribeSlowLogsRequest {\n");
     
+    sb.append("    dbName: ").append(toIndentedString(dbName)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
-    sb.append("    shardId: ").append(toIndentedString(shardId)).append("\n");
+    sb.append("    queryEndTime: ").append(toIndentedString(queryEndTime)).append("\n");
+    sb.append("    queryStartTime: ").append(toIndentedString(queryStartTime)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -21,11 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.rdsmysqlv2.model.BasicInfoForDescribeDBInstanceDetailOutput;
 import com.volcengine.rdsmysqlv2.model.ChargeDetailForDescribeDBInstanceDetailOutput;
-import com.volcengine.rdsmysqlv2.model.ConnectionInfoForDescribeDBInstanceDetailOutput;
 import com.volcengine.rdsmysqlv2.model.EndpointForDescribeDBInstanceDetailOutput;
-import com.volcengine.rdsmysqlv2.model.NodeDetailInfoForDescribeDBInstanceDetailOutput;
 import com.volcengine.rdsmysqlv2.model.NodeForDescribeDBInstanceDetailOutput;
-import com.volcengine.rdsmysqlv2.model.ShardInfoForDescribeDBInstanceDetailOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -44,20 +41,11 @@ public class DescribeDBInstanceDetailResponse extends com.volcengine.model.Abstr
   @SerializedName("ChargeDetail")
   private ChargeDetailForDescribeDBInstanceDetailOutput chargeDetail = null;
 
-  @SerializedName("ConnectionInfo")
-  private List<ConnectionInfoForDescribeDBInstanceDetailOutput> connectionInfo = null;
-
   @SerializedName("Endpoints")
   private List<EndpointForDescribeDBInstanceDetailOutput> endpoints = null;
 
-  @SerializedName("NodeDetailInfo")
-  private List<NodeDetailInfoForDescribeDBInstanceDetailOutput> nodeDetailInfo = null;
-
   @SerializedName("Nodes")
   private List<NodeForDescribeDBInstanceDetailOutput> nodes = null;
-
-  @SerializedName("ShardInfo")
-  private List<ShardInfoForDescribeDBInstanceDetailOutput> shardInfo = null;
 
   public DescribeDBInstanceDetailResponse basicInfo(BasicInfoForDescribeDBInstanceDetailOutput basicInfo) {
     this.basicInfo = basicInfo;
@@ -97,33 +85,6 @@ public class DescribeDBInstanceDetailResponse extends com.volcengine.model.Abstr
     this.chargeDetail = chargeDetail;
   }
 
-  public DescribeDBInstanceDetailResponse connectionInfo(List<ConnectionInfoForDescribeDBInstanceDetailOutput> connectionInfo) {
-    this.connectionInfo = connectionInfo;
-    return this;
-  }
-
-  public DescribeDBInstanceDetailResponse addConnectionInfoItem(ConnectionInfoForDescribeDBInstanceDetailOutput connectionInfoItem) {
-    if (this.connectionInfo == null) {
-      this.connectionInfo = new ArrayList<ConnectionInfoForDescribeDBInstanceDetailOutput>();
-    }
-    this.connectionInfo.add(connectionInfoItem);
-    return this;
-  }
-
-   /**
-   * Get connectionInfo
-   * @return connectionInfo
-  **/
-  @Valid
-  @Schema(description = "")
-  public List<ConnectionInfoForDescribeDBInstanceDetailOutput> getConnectionInfo() {
-    return connectionInfo;
-  }
-
-  public void setConnectionInfo(List<ConnectionInfoForDescribeDBInstanceDetailOutput> connectionInfo) {
-    this.connectionInfo = connectionInfo;
-  }
-
   public DescribeDBInstanceDetailResponse endpoints(List<EndpointForDescribeDBInstanceDetailOutput> endpoints) {
     this.endpoints = endpoints;
     return this;
@@ -149,33 +110,6 @@ public class DescribeDBInstanceDetailResponse extends com.volcengine.model.Abstr
 
   public void setEndpoints(List<EndpointForDescribeDBInstanceDetailOutput> endpoints) {
     this.endpoints = endpoints;
-  }
-
-  public DescribeDBInstanceDetailResponse nodeDetailInfo(List<NodeDetailInfoForDescribeDBInstanceDetailOutput> nodeDetailInfo) {
-    this.nodeDetailInfo = nodeDetailInfo;
-    return this;
-  }
-
-  public DescribeDBInstanceDetailResponse addNodeDetailInfoItem(NodeDetailInfoForDescribeDBInstanceDetailOutput nodeDetailInfoItem) {
-    if (this.nodeDetailInfo == null) {
-      this.nodeDetailInfo = new ArrayList<NodeDetailInfoForDescribeDBInstanceDetailOutput>();
-    }
-    this.nodeDetailInfo.add(nodeDetailInfoItem);
-    return this;
-  }
-
-   /**
-   * Get nodeDetailInfo
-   * @return nodeDetailInfo
-  **/
-  @Valid
-  @Schema(description = "")
-  public List<NodeDetailInfoForDescribeDBInstanceDetailOutput> getNodeDetailInfo() {
-    return nodeDetailInfo;
-  }
-
-  public void setNodeDetailInfo(List<NodeDetailInfoForDescribeDBInstanceDetailOutput> nodeDetailInfo) {
-    this.nodeDetailInfo = nodeDetailInfo;
   }
 
   public DescribeDBInstanceDetailResponse nodes(List<NodeForDescribeDBInstanceDetailOutput> nodes) {
@@ -205,33 +139,6 @@ public class DescribeDBInstanceDetailResponse extends com.volcengine.model.Abstr
     this.nodes = nodes;
   }
 
-  public DescribeDBInstanceDetailResponse shardInfo(List<ShardInfoForDescribeDBInstanceDetailOutput> shardInfo) {
-    this.shardInfo = shardInfo;
-    return this;
-  }
-
-  public DescribeDBInstanceDetailResponse addShardInfoItem(ShardInfoForDescribeDBInstanceDetailOutput shardInfoItem) {
-    if (this.shardInfo == null) {
-      this.shardInfo = new ArrayList<ShardInfoForDescribeDBInstanceDetailOutput>();
-    }
-    this.shardInfo.add(shardInfoItem);
-    return this;
-  }
-
-   /**
-   * Get shardInfo
-   * @return shardInfo
-  **/
-  @Valid
-  @Schema(description = "")
-  public List<ShardInfoForDescribeDBInstanceDetailOutput> getShardInfo() {
-    return shardInfo;
-  }
-
-  public void setShardInfo(List<ShardInfoForDescribeDBInstanceDetailOutput> shardInfo) {
-    this.shardInfo = shardInfo;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -244,16 +151,13 @@ public class DescribeDBInstanceDetailResponse extends com.volcengine.model.Abstr
     DescribeDBInstanceDetailResponse describeDBInstanceDetailResponse = (DescribeDBInstanceDetailResponse) o;
     return Objects.equals(this.basicInfo, describeDBInstanceDetailResponse.basicInfo) &&
         Objects.equals(this.chargeDetail, describeDBInstanceDetailResponse.chargeDetail) &&
-        Objects.equals(this.connectionInfo, describeDBInstanceDetailResponse.connectionInfo) &&
         Objects.equals(this.endpoints, describeDBInstanceDetailResponse.endpoints) &&
-        Objects.equals(this.nodeDetailInfo, describeDBInstanceDetailResponse.nodeDetailInfo) &&
-        Objects.equals(this.nodes, describeDBInstanceDetailResponse.nodes) &&
-        Objects.equals(this.shardInfo, describeDBInstanceDetailResponse.shardInfo);
+        Objects.equals(this.nodes, describeDBInstanceDetailResponse.nodes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(basicInfo, chargeDetail, connectionInfo, endpoints, nodeDetailInfo, nodes, shardInfo);
+    return Objects.hash(basicInfo, chargeDetail, endpoints, nodes);
   }
 
 
@@ -264,11 +168,8 @@ public class DescribeDBInstanceDetailResponse extends com.volcengine.model.Abstr
     
     sb.append("    basicInfo: ").append(toIndentedString(basicInfo)).append("\n");
     sb.append("    chargeDetail: ").append(toIndentedString(chargeDetail)).append("\n");
-    sb.append("    connectionInfo: ").append(toIndentedString(connectionInfo)).append("\n");
     sb.append("    endpoints: ").append(toIndentedString(endpoints)).append("\n");
-    sb.append("    nodeDetailInfo: ").append(toIndentedString(nodeDetailInfo)).append("\n");
     sb.append("    nodes: ").append(toIndentedString(nodes)).append("\n");
-    sb.append("    shardInfo: ").append(toIndentedString(shardInfo)).append("\n");
     sb.append("}");
     return sb.toString();
   }

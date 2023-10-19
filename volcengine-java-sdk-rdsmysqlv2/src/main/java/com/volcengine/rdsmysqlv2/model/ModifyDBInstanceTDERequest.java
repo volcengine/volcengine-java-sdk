@@ -29,35 +29,11 @@ import javax.validation.Valid;
 
 
 public class ModifyDBInstanceTDERequest {
-  @SerializedName("EncryptionKey")
-  private String encryptionKey = null;
-
   @SerializedName("InstanceId")
   private String instanceId = null;
 
-  @SerializedName("RoleArn")
-  private String roleArn = null;
-
   @SerializedName("TDEStatus")
   private String tdEStatus = null;
-
-  public ModifyDBInstanceTDERequest encryptionKey(String encryptionKey) {
-    this.encryptionKey = encryptionKey;
-    return this;
-  }
-
-   /**
-   * Get encryptionKey
-   * @return encryptionKey
-  **/
-  @Schema(description = "")
-  public String getEncryptionKey() {
-    return encryptionKey;
-  }
-
-  public void setEncryptionKey(String encryptionKey) {
-    this.encryptionKey = encryptionKey;
-  }
 
   public ModifyDBInstanceTDERequest instanceId(String instanceId) {
     this.instanceId = instanceId;
@@ -76,24 +52,6 @@ public class ModifyDBInstanceTDERequest {
 
   public void setInstanceId(String instanceId) {
     this.instanceId = instanceId;
-  }
-
-  public ModifyDBInstanceTDERequest roleArn(String roleArn) {
-    this.roleArn = roleArn;
-    return this;
-  }
-
-   /**
-   * Get roleArn
-   * @return roleArn
-  **/
-  @Schema(description = "")
-  public String getRoleArn() {
-    return roleArn;
-  }
-
-  public void setRoleArn(String roleArn) {
-    this.roleArn = roleArn;
   }
 
   public ModifyDBInstanceTDERequest tdEStatus(String tdEStatus) {
@@ -124,15 +82,13 @@ public class ModifyDBInstanceTDERequest {
       return false;
     }
     ModifyDBInstanceTDERequest modifyDBInstanceTDERequest = (ModifyDBInstanceTDERequest) o;
-    return Objects.equals(this.encryptionKey, modifyDBInstanceTDERequest.encryptionKey) &&
-        Objects.equals(this.instanceId, modifyDBInstanceTDERequest.instanceId) &&
-        Objects.equals(this.roleArn, modifyDBInstanceTDERequest.roleArn) &&
+    return Objects.equals(this.instanceId, modifyDBInstanceTDERequest.instanceId) &&
         Objects.equals(this.tdEStatus, modifyDBInstanceTDERequest.tdEStatus);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(encryptionKey, instanceId, roleArn, tdEStatus);
+    return Objects.hash(instanceId, tdEStatus);
   }
 
 
@@ -141,9 +97,7 @@ public class ModifyDBInstanceTDERequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ModifyDBInstanceTDERequest {\n");
     
-    sb.append("    encryptionKey: ").append(toIndentedString(encryptionKey)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
-    sb.append("    roleArn: ").append(toIndentedString(roleArn)).append("\n");
     sb.append("    tdEStatus: ").append(toIndentedString(tdEStatus)).append("\n");
     sb.append("}");
     return sb.toString();

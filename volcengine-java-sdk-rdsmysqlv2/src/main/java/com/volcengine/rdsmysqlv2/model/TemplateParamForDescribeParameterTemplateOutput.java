@@ -29,44 +29,14 @@ import javax.validation.Valid;
 
 
 public class TemplateParamForDescribeParameterTemplateOutput {
-  @SerializedName("DefaultValue")
-  private String defaultValue = null;
-
   @SerializedName("Description")
   private String description = null;
-
-  @SerializedName("ExpectValue")
-  private String expectValue = null;
 
   @SerializedName("Name")
   private String name = null;
 
-  @SerializedName("Restart")
-  private Boolean restart = null;
-
   @SerializedName("RunningValue")
   private String runningValue = null;
-
-  @SerializedName("ValueRange")
-  private String valueRange = null;
-
-  public TemplateParamForDescribeParameterTemplateOutput defaultValue(String defaultValue) {
-    this.defaultValue = defaultValue;
-    return this;
-  }
-
-   /**
-   * Get defaultValue
-   * @return defaultValue
-  **/
-  @Schema(description = "")
-  public String getDefaultValue() {
-    return defaultValue;
-  }
-
-  public void setDefaultValue(String defaultValue) {
-    this.defaultValue = defaultValue;
-  }
 
   public TemplateParamForDescribeParameterTemplateOutput description(String description) {
     this.description = description;
@@ -84,24 +54,6 @@ public class TemplateParamForDescribeParameterTemplateOutput {
 
   public void setDescription(String description) {
     this.description = description;
-  }
-
-  public TemplateParamForDescribeParameterTemplateOutput expectValue(String expectValue) {
-    this.expectValue = expectValue;
-    return this;
-  }
-
-   /**
-   * Get expectValue
-   * @return expectValue
-  **/
-  @Schema(description = "")
-  public String getExpectValue() {
-    return expectValue;
-  }
-
-  public void setExpectValue(String expectValue) {
-    this.expectValue = expectValue;
   }
 
   public TemplateParamForDescribeParameterTemplateOutput name(String name) {
@@ -122,24 +74,6 @@ public class TemplateParamForDescribeParameterTemplateOutput {
     this.name = name;
   }
 
-  public TemplateParamForDescribeParameterTemplateOutput restart(Boolean restart) {
-    this.restart = restart;
-    return this;
-  }
-
-   /**
-   * Get restart
-   * @return restart
-  **/
-  @Schema(description = "")
-  public Boolean isRestart() {
-    return restart;
-  }
-
-  public void setRestart(Boolean restart) {
-    this.restart = restart;
-  }
-
   public TemplateParamForDescribeParameterTemplateOutput runningValue(String runningValue) {
     this.runningValue = runningValue;
     return this;
@@ -158,24 +92,6 @@ public class TemplateParamForDescribeParameterTemplateOutput {
     this.runningValue = runningValue;
   }
 
-  public TemplateParamForDescribeParameterTemplateOutput valueRange(String valueRange) {
-    this.valueRange = valueRange;
-    return this;
-  }
-
-   /**
-   * Get valueRange
-   * @return valueRange
-  **/
-  @Schema(description = "")
-  public String getValueRange() {
-    return valueRange;
-  }
-
-  public void setValueRange(String valueRange) {
-    this.valueRange = valueRange;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -186,18 +102,14 @@ public class TemplateParamForDescribeParameterTemplateOutput {
       return false;
     }
     TemplateParamForDescribeParameterTemplateOutput templateParamForDescribeParameterTemplateOutput = (TemplateParamForDescribeParameterTemplateOutput) o;
-    return Objects.equals(this.defaultValue, templateParamForDescribeParameterTemplateOutput.defaultValue) &&
-        Objects.equals(this.description, templateParamForDescribeParameterTemplateOutput.description) &&
-        Objects.equals(this.expectValue, templateParamForDescribeParameterTemplateOutput.expectValue) &&
+    return Objects.equals(this.description, templateParamForDescribeParameterTemplateOutput.description) &&
         Objects.equals(this.name, templateParamForDescribeParameterTemplateOutput.name) &&
-        Objects.equals(this.restart, templateParamForDescribeParameterTemplateOutput.restart) &&
-        Objects.equals(this.runningValue, templateParamForDescribeParameterTemplateOutput.runningValue) &&
-        Objects.equals(this.valueRange, templateParamForDescribeParameterTemplateOutput.valueRange);
+        Objects.equals(this.runningValue, templateParamForDescribeParameterTemplateOutput.runningValue);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(defaultValue, description, expectValue, name, restart, runningValue, valueRange);
+    return Objects.hash(description, name, runningValue);
   }
 
 
@@ -206,13 +118,9 @@ public class TemplateParamForDescribeParameterTemplateOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class TemplateParamForDescribeParameterTemplateOutput {\n");
     
-    sb.append("    defaultValue: ").append(toIndentedString(defaultValue)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    expectValue: ").append(toIndentedString(expectValue)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    restart: ").append(toIndentedString(restart)).append("\n");
     sb.append("    runningValue: ").append(toIndentedString(runningValue)).append("\n");
-    sb.append("    valueRange: ").append(toIndentedString(valueRange)).append("\n");
     sb.append("}");
     return sb.toString();
   }

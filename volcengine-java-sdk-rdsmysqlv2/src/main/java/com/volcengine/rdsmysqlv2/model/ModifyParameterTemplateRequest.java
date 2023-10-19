@@ -19,7 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.rdsmysqlv2.model.CustomParamForModifyParameterTemplateInput;
 import com.volcengine.rdsmysqlv2.model.TemplateParamForModifyParameterTemplateInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -33,9 +32,6 @@ import javax.validation.Valid;
 
 
 public class ModifyParameterTemplateRequest {
-  @SerializedName("CustomParams")
-  private List<CustomParamForModifyParameterTemplateInput> customParams = null;
-
   @SerializedName("TemplateDesc")
   private String templateDesc = null;
 
@@ -47,33 +43,6 @@ public class ModifyParameterTemplateRequest {
 
   @SerializedName("TemplateParams")
   private List<TemplateParamForModifyParameterTemplateInput> templateParams = null;
-
-  public ModifyParameterTemplateRequest customParams(List<CustomParamForModifyParameterTemplateInput> customParams) {
-    this.customParams = customParams;
-    return this;
-  }
-
-  public ModifyParameterTemplateRequest addCustomParamsItem(CustomParamForModifyParameterTemplateInput customParamsItem) {
-    if (this.customParams == null) {
-      this.customParams = new ArrayList<CustomParamForModifyParameterTemplateInput>();
-    }
-    this.customParams.add(customParamsItem);
-    return this;
-  }
-
-   /**
-   * Get customParams
-   * @return customParams
-  **/
-  @Valid
-  @Schema(description = "")
-  public List<CustomParamForModifyParameterTemplateInput> getCustomParams() {
-    return customParams;
-  }
-
-  public void setCustomParams(List<CustomParamForModifyParameterTemplateInput> customParams) {
-    this.customParams = customParams;
-  }
 
   public ModifyParameterTemplateRequest templateDesc(String templateDesc) {
     this.templateDesc = templateDesc;
@@ -167,8 +136,7 @@ public class ModifyParameterTemplateRequest {
       return false;
     }
     ModifyParameterTemplateRequest modifyParameterTemplateRequest = (ModifyParameterTemplateRequest) o;
-    return Objects.equals(this.customParams, modifyParameterTemplateRequest.customParams) &&
-        Objects.equals(this.templateDesc, modifyParameterTemplateRequest.templateDesc) &&
+    return Objects.equals(this.templateDesc, modifyParameterTemplateRequest.templateDesc) &&
         Objects.equals(this.templateId, modifyParameterTemplateRequest.templateId) &&
         Objects.equals(this.templateName, modifyParameterTemplateRequest.templateName) &&
         Objects.equals(this.templateParams, modifyParameterTemplateRequest.templateParams);
@@ -176,7 +144,7 @@ public class ModifyParameterTemplateRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(customParams, templateDesc, templateId, templateName, templateParams);
+    return Objects.hash(templateDesc, templateId, templateName, templateParams);
   }
 
 
@@ -185,7 +153,6 @@ public class ModifyParameterTemplateRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ModifyParameterTemplateRequest {\n");
     
-    sb.append("    customParams: ").append(toIndentedString(customParams)).append("\n");
     sb.append("    templateDesc: ").append(toIndentedString(templateDesc)).append("\n");
     sb.append("    templateId: ").append(toIndentedString(templateId)).append("\n");
     sb.append("    templateName: ").append(toIndentedString(templateName)).append("\n");

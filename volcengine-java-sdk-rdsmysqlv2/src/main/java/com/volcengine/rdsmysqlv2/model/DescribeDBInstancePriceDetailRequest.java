@@ -47,9 +47,6 @@ public class DescribeDBInstancePriceDetailRequest {
   @SerializedName("PeriodUnit")
   private String periodUnit = null;
 
-  @SerializedName("ShardNumber")
-  private Integer shardNumber = null;
-
   @SerializedName("StorageSpace")
   private Integer storageSpace = null;
 
@@ -155,24 +152,6 @@ public class DescribeDBInstancePriceDetailRequest {
     this.periodUnit = periodUnit;
   }
 
-  public DescribeDBInstancePriceDetailRequest shardNumber(Integer shardNumber) {
-    this.shardNumber = shardNumber;
-    return this;
-  }
-
-   /**
-   * Get shardNumber
-   * @return shardNumber
-  **/
-  @Schema(description = "")
-  public Integer getShardNumber() {
-    return shardNumber;
-  }
-
-  public void setShardNumber(Integer shardNumber) {
-    this.shardNumber = shardNumber;
-  }
-
   public DescribeDBInstancePriceDetailRequest storageSpace(Integer storageSpace) {
     this.storageSpace = storageSpace;
     return this;
@@ -224,14 +203,13 @@ public class DescribeDBInstancePriceDetailRequest {
         Objects.equals(this.number, describeDBInstancePriceDetailRequest.number) &&
         Objects.equals(this.period, describeDBInstancePriceDetailRequest.period) &&
         Objects.equals(this.periodUnit, describeDBInstancePriceDetailRequest.periodUnit) &&
-        Objects.equals(this.shardNumber, describeDBInstancePriceDetailRequest.shardNumber) &&
         Objects.equals(this.storageSpace, describeDBInstancePriceDetailRequest.storageSpace) &&
         Objects.equals(this.storageType, describeDBInstancePriceDetailRequest.storageType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(chargeType, nodeInfo, number, period, periodUnit, shardNumber, storageSpace, storageType);
+    return Objects.hash(chargeType, nodeInfo, number, period, periodUnit, storageSpace, storageType);
   }
 
 
@@ -245,7 +223,6 @@ public class DescribeDBInstancePriceDetailRequest {
     sb.append("    number: ").append(toIndentedString(number)).append("\n");
     sb.append("    period: ").append(toIndentedString(period)).append("\n");
     sb.append("    periodUnit: ").append(toIndentedString(periodUnit)).append("\n");
-    sb.append("    shardNumber: ").append(toIndentedString(shardNumber)).append("\n");
     sb.append("    storageSpace: ").append(toIndentedString(storageSpace)).append("\n");
     sb.append("    storageType: ").append(toIndentedString(storageType)).append("\n");
     sb.append("}");

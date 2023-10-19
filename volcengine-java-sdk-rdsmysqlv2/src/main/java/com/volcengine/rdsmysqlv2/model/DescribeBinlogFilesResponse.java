@@ -38,9 +38,6 @@ public class DescribeBinlogFilesResponse extends com.volcengine.model.AbstractRe
   @SerializedName("Context")
   private String context = null;
 
-  @SerializedName("NodeId")
-  private String nodeId = null;
-
   @SerializedName("Total")
   private Integer total = null;
 
@@ -89,24 +86,6 @@ public class DescribeBinlogFilesResponse extends com.volcengine.model.AbstractRe
     this.context = context;
   }
 
-  public DescribeBinlogFilesResponse nodeId(String nodeId) {
-    this.nodeId = nodeId;
-    return this;
-  }
-
-   /**
-   * Get nodeId
-   * @return nodeId
-  **/
-  @Schema(description = "")
-  public String getNodeId() {
-    return nodeId;
-  }
-
-  public void setNodeId(String nodeId) {
-    this.nodeId = nodeId;
-  }
-
   public DescribeBinlogFilesResponse total(Integer total) {
     this.total = total;
     return this;
@@ -137,13 +116,12 @@ public class DescribeBinlogFilesResponse extends com.volcengine.model.AbstractRe
     DescribeBinlogFilesResponse describeBinlogFilesResponse = (DescribeBinlogFilesResponse) o;
     return Objects.equals(this.binlogFiles, describeBinlogFilesResponse.binlogFiles) &&
         Objects.equals(this.context, describeBinlogFilesResponse.context) &&
-        Objects.equals(this.nodeId, describeBinlogFilesResponse.nodeId) &&
         Objects.equals(this.total, describeBinlogFilesResponse.total);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(binlogFiles, context, nodeId, total);
+    return Objects.hash(binlogFiles, context, total);
   }
 
 
@@ -154,7 +132,6 @@ public class DescribeBinlogFilesResponse extends com.volcengine.model.AbstractRe
     
     sb.append("    binlogFiles: ").append(toIndentedString(binlogFiles)).append("\n");
     sb.append("    context: ").append(toIndentedString(context)).append("\n");
-    sb.append("    nodeId: ").append(toIndentedString(nodeId)).append("\n");
     sb.append("    total: ").append(toIndentedString(total)).append("\n");
     sb.append("}");
     return sb.toString();

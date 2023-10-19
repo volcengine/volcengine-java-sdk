@@ -19,7 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.rdsmysqlv2.model.CustomParamForCreateParameterTemplateInput;
 import com.volcengine.rdsmysqlv2.model.TemplateParamForCreateParameterTemplateInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -33,15 +32,6 @@ import javax.validation.Valid;
 
 
 public class CreateParameterTemplateRequest {
-  @SerializedName("CustomParams")
-  private List<CustomParamForCreateParameterTemplateInput> customParams = null;
-
-  @SerializedName("ProjectName")
-  private String projectName = null;
-
-  @SerializedName("TemplateCategory")
-  private String templateCategory = null;
-
   @SerializedName("TemplateDesc")
   private String templateDesc = null;
 
@@ -56,69 +46,6 @@ public class CreateParameterTemplateRequest {
 
   @SerializedName("TemplateTypeVersion")
   private String templateTypeVersion = null;
-
-  public CreateParameterTemplateRequest customParams(List<CustomParamForCreateParameterTemplateInput> customParams) {
-    this.customParams = customParams;
-    return this;
-  }
-
-  public CreateParameterTemplateRequest addCustomParamsItem(CustomParamForCreateParameterTemplateInput customParamsItem) {
-    if (this.customParams == null) {
-      this.customParams = new ArrayList<CustomParamForCreateParameterTemplateInput>();
-    }
-    this.customParams.add(customParamsItem);
-    return this;
-  }
-
-   /**
-   * Get customParams
-   * @return customParams
-  **/
-  @Valid
-  @Schema(description = "")
-  public List<CustomParamForCreateParameterTemplateInput> getCustomParams() {
-    return customParams;
-  }
-
-  public void setCustomParams(List<CustomParamForCreateParameterTemplateInput> customParams) {
-    this.customParams = customParams;
-  }
-
-  public CreateParameterTemplateRequest projectName(String projectName) {
-    this.projectName = projectName;
-    return this;
-  }
-
-   /**
-   * Get projectName
-   * @return projectName
-  **/
-  @Schema(description = "")
-  public String getProjectName() {
-    return projectName;
-  }
-
-  public void setProjectName(String projectName) {
-    this.projectName = projectName;
-  }
-
-  public CreateParameterTemplateRequest templateCategory(String templateCategory) {
-    this.templateCategory = templateCategory;
-    return this;
-  }
-
-   /**
-   * Get templateCategory
-   * @return templateCategory
-  **/
-  @Schema(description = "")
-  public String getTemplateCategory() {
-    return templateCategory;
-  }
-
-  public void setTemplateCategory(String templateCategory) {
-    this.templateCategory = templateCategory;
-  }
 
   public CreateParameterTemplateRequest templateDesc(String templateDesc) {
     this.templateDesc = templateDesc;
@@ -229,10 +156,7 @@ public class CreateParameterTemplateRequest {
       return false;
     }
     CreateParameterTemplateRequest createParameterTemplateRequest = (CreateParameterTemplateRequest) o;
-    return Objects.equals(this.customParams, createParameterTemplateRequest.customParams) &&
-        Objects.equals(this.projectName, createParameterTemplateRequest.projectName) &&
-        Objects.equals(this.templateCategory, createParameterTemplateRequest.templateCategory) &&
-        Objects.equals(this.templateDesc, createParameterTemplateRequest.templateDesc) &&
+    return Objects.equals(this.templateDesc, createParameterTemplateRequest.templateDesc) &&
         Objects.equals(this.templateName, createParameterTemplateRequest.templateName) &&
         Objects.equals(this.templateParams, createParameterTemplateRequest.templateParams) &&
         Objects.equals(this.templateType, createParameterTemplateRequest.templateType) &&
@@ -241,7 +165,7 @@ public class CreateParameterTemplateRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(customParams, projectName, templateCategory, templateDesc, templateName, templateParams, templateType, templateTypeVersion);
+    return Objects.hash(templateDesc, templateName, templateParams, templateType, templateTypeVersion);
   }
 
 
@@ -250,9 +174,6 @@ public class CreateParameterTemplateRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateParameterTemplateRequest {\n");
     
-    sb.append("    customParams: ").append(toIndentedString(customParams)).append("\n");
-    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
-    sb.append("    templateCategory: ").append(toIndentedString(templateCategory)).append("\n");
     sb.append("    templateDesc: ").append(toIndentedString(templateDesc)).append("\n");
     sb.append("    templateName: ").append(toIndentedString(templateName)).append("\n");
     sb.append("    templateParams: ").append(toIndentedString(templateParams)).append("\n");

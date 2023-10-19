@@ -34,9 +34,6 @@ public class ModifyDBInstanceMaintenanceWindowRequest {
   @SerializedName("DayKind")
   private String dayKind = null;
 
-  @SerializedName("DayOfMonth")
-  private List<Integer> dayOfMonth = null;
-
   @SerializedName("DayOfWeek")
   private List<String> dayOfWeek = null;
 
@@ -62,32 +59,6 @@ public class ModifyDBInstanceMaintenanceWindowRequest {
 
   public void setDayKind(String dayKind) {
     this.dayKind = dayKind;
-  }
-
-  public ModifyDBInstanceMaintenanceWindowRequest dayOfMonth(List<Integer> dayOfMonth) {
-    this.dayOfMonth = dayOfMonth;
-    return this;
-  }
-
-  public ModifyDBInstanceMaintenanceWindowRequest addDayOfMonthItem(Integer dayOfMonthItem) {
-    if (this.dayOfMonth == null) {
-      this.dayOfMonth = new ArrayList<Integer>();
-    }
-    this.dayOfMonth.add(dayOfMonthItem);
-    return this;
-  }
-
-   /**
-   * Get dayOfMonth
-   * @return dayOfMonth
-  **/
-  @Schema(description = "")
-  public List<Integer> getDayOfMonth() {
-    return dayOfMonth;
-  }
-
-  public void setDayOfMonth(List<Integer> dayOfMonth) {
-    this.dayOfMonth = dayOfMonth;
   }
 
   public ModifyDBInstanceMaintenanceWindowRequest dayOfWeek(List<String> dayOfWeek) {
@@ -164,7 +135,6 @@ public class ModifyDBInstanceMaintenanceWindowRequest {
     }
     ModifyDBInstanceMaintenanceWindowRequest modifyDBInstanceMaintenanceWindowRequest = (ModifyDBInstanceMaintenanceWindowRequest) o;
     return Objects.equals(this.dayKind, modifyDBInstanceMaintenanceWindowRequest.dayKind) &&
-        Objects.equals(this.dayOfMonth, modifyDBInstanceMaintenanceWindowRequest.dayOfMonth) &&
         Objects.equals(this.dayOfWeek, modifyDBInstanceMaintenanceWindowRequest.dayOfWeek) &&
         Objects.equals(this.instanceId, modifyDBInstanceMaintenanceWindowRequest.instanceId) &&
         Objects.equals(this.maintenanceTime, modifyDBInstanceMaintenanceWindowRequest.maintenanceTime);
@@ -172,7 +142,7 @@ public class ModifyDBInstanceMaintenanceWindowRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dayKind, dayOfMonth, dayOfWeek, instanceId, maintenanceTime);
+    return Objects.hash(dayKind, dayOfWeek, instanceId, maintenanceTime);
   }
 
 
@@ -182,7 +152,6 @@ public class ModifyDBInstanceMaintenanceWindowRequest {
     sb.append("class ModifyDBInstanceMaintenanceWindowRequest {\n");
     
     sb.append("    dayKind: ").append(toIndentedString(dayKind)).append("\n");
-    sb.append("    dayOfMonth: ").append(toIndentedString(dayOfMonth)).append("\n");
     sb.append("    dayOfWeek: ").append(toIndentedString(dayOfWeek)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    maintenanceTime: ").append(toIndentedString(maintenanceTime)).append("\n");

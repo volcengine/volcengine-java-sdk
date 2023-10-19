@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.rdsmysqlv2.model.NodeInfoForModifyDBInstanceTypeInput;
+import com.volcengine.rdsmysqlv2.model.SlowQueryForDescribeSlowLogsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -27,21 +27,21 @@ import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ModifyDBInstanceTypeRequest
+ * DescribeSlowLogsResponse
  */
 
 
-public class ModifyDBInstanceTypeRequest {
+public class DescribeSlowLogsResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("InstanceId")
   private String instanceId = null;
 
-  @SerializedName("NodeInfo")
-  private List<NodeInfoForModifyDBInstanceTypeInput> nodeInfo = null;
+  @SerializedName("SlowQuery")
+  private List<SlowQueryForDescribeSlowLogsOutput> slowQuery = null;
 
-  @SerializedName("TypeConvertPath")
-  private String typeConvertPath = null;
+  @SerializedName("Total")
+  private Integer total = null;
 
-  public ModifyDBInstanceTypeRequest instanceId(String instanceId) {
+  public DescribeSlowLogsResponse instanceId(String instanceId) {
     this.instanceId = instanceId;
     return this;
   }
@@ -50,8 +50,7 @@ public class ModifyDBInstanceTypeRequest {
    * Get instanceId
    * @return instanceId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getInstanceId() {
     return instanceId;
   }
@@ -60,49 +59,49 @@ public class ModifyDBInstanceTypeRequest {
     this.instanceId = instanceId;
   }
 
-  public ModifyDBInstanceTypeRequest nodeInfo(List<NodeInfoForModifyDBInstanceTypeInput> nodeInfo) {
-    this.nodeInfo = nodeInfo;
+  public DescribeSlowLogsResponse slowQuery(List<SlowQueryForDescribeSlowLogsOutput> slowQuery) {
+    this.slowQuery = slowQuery;
     return this;
   }
 
-  public ModifyDBInstanceTypeRequest addNodeInfoItem(NodeInfoForModifyDBInstanceTypeInput nodeInfoItem) {
-    if (this.nodeInfo == null) {
-      this.nodeInfo = new ArrayList<NodeInfoForModifyDBInstanceTypeInput>();
+  public DescribeSlowLogsResponse addSlowQueryItem(SlowQueryForDescribeSlowLogsOutput slowQueryItem) {
+    if (this.slowQuery == null) {
+      this.slowQuery = new ArrayList<SlowQueryForDescribeSlowLogsOutput>();
     }
-    this.nodeInfo.add(nodeInfoItem);
+    this.slowQuery.add(slowQueryItem);
     return this;
   }
 
    /**
-   * Get nodeInfo
-   * @return nodeInfo
+   * Get slowQuery
+   * @return slowQuery
   **/
   @Valid
   @Schema(description = "")
-  public List<NodeInfoForModifyDBInstanceTypeInput> getNodeInfo() {
-    return nodeInfo;
+  public List<SlowQueryForDescribeSlowLogsOutput> getSlowQuery() {
+    return slowQuery;
   }
 
-  public void setNodeInfo(List<NodeInfoForModifyDBInstanceTypeInput> nodeInfo) {
-    this.nodeInfo = nodeInfo;
+  public void setSlowQuery(List<SlowQueryForDescribeSlowLogsOutput> slowQuery) {
+    this.slowQuery = slowQuery;
   }
 
-  public ModifyDBInstanceTypeRequest typeConvertPath(String typeConvertPath) {
-    this.typeConvertPath = typeConvertPath;
+  public DescribeSlowLogsResponse total(Integer total) {
+    this.total = total;
     return this;
   }
 
    /**
-   * Get typeConvertPath
-   * @return typeConvertPath
+   * Get total
+   * @return total
   **/
   @Schema(description = "")
-  public String getTypeConvertPath() {
-    return typeConvertPath;
+  public Integer getTotal() {
+    return total;
   }
 
-  public void setTypeConvertPath(String typeConvertPath) {
-    this.typeConvertPath = typeConvertPath;
+  public void setTotal(Integer total) {
+    this.total = total;
   }
 
 
@@ -114,26 +113,26 @@ public class ModifyDBInstanceTypeRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ModifyDBInstanceTypeRequest modifyDBInstanceTypeRequest = (ModifyDBInstanceTypeRequest) o;
-    return Objects.equals(this.instanceId, modifyDBInstanceTypeRequest.instanceId) &&
-        Objects.equals(this.nodeInfo, modifyDBInstanceTypeRequest.nodeInfo) &&
-        Objects.equals(this.typeConvertPath, modifyDBInstanceTypeRequest.typeConvertPath);
+    DescribeSlowLogsResponse describeSlowLogsResponse = (DescribeSlowLogsResponse) o;
+    return Objects.equals(this.instanceId, describeSlowLogsResponse.instanceId) &&
+        Objects.equals(this.slowQuery, describeSlowLogsResponse.slowQuery) &&
+        Objects.equals(this.total, describeSlowLogsResponse.total);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, nodeInfo, typeConvertPath);
+    return Objects.hash(instanceId, slowQuery, total);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ModifyDBInstanceTypeRequest {\n");
+    sb.append("class DescribeSlowLogsResponse {\n");
     
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
-    sb.append("    nodeInfo: ").append(toIndentedString(nodeInfo)).append("\n");
-    sb.append("    typeConvertPath: ").append(toIndentedString(typeConvertPath)).append("\n");
+    sb.append("    slowQuery: ").append(toIndentedString(slowQuery)).append("\n");
+    sb.append("    total: ").append(toIndentedString(total)).append("\n");
     sb.append("}");
     return sb.toString();
   }

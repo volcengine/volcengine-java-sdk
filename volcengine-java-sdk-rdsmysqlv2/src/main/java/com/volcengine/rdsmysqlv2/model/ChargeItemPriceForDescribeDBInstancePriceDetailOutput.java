@@ -47,9 +47,6 @@ public class ChargeItemPriceForDescribeDBInstancePriceDetailOutput {
   @SerializedName("PayablePrice")
   private Double payablePrice = null;
 
-  @SerializedName("UnitPrice")
-  private Double unitPrice = null;
-
   public ChargeItemPriceForDescribeDBInstancePriceDetailOutput chargeItemKey(String chargeItemKey) {
     this.chargeItemKey = chargeItemKey;
     return this;
@@ -158,24 +155,6 @@ public class ChargeItemPriceForDescribeDBInstancePriceDetailOutput {
     this.payablePrice = payablePrice;
   }
 
-  public ChargeItemPriceForDescribeDBInstancePriceDetailOutput unitPrice(Double unitPrice) {
-    this.unitPrice = unitPrice;
-    return this;
-  }
-
-   /**
-   * Get unitPrice
-   * @return unitPrice
-  **/
-  @Schema(description = "")
-  public Double getUnitPrice() {
-    return unitPrice;
-  }
-
-  public void setUnitPrice(Double unitPrice) {
-    this.unitPrice = unitPrice;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -191,13 +170,12 @@ public class ChargeItemPriceForDescribeDBInstancePriceDetailOutput {
         Objects.equals(this.chargeItemValue, chargeItemPriceForDescribeDBInstancePriceDetailOutput.chargeItemValue) &&
         Objects.equals(this.discountPrice, chargeItemPriceForDescribeDBInstancePriceDetailOutput.discountPrice) &&
         Objects.equals(this.originalPrice, chargeItemPriceForDescribeDBInstancePriceDetailOutput.originalPrice) &&
-        Objects.equals(this.payablePrice, chargeItemPriceForDescribeDBInstancePriceDetailOutput.payablePrice) &&
-        Objects.equals(this.unitPrice, chargeItemPriceForDescribeDBInstancePriceDetailOutput.unitPrice);
+        Objects.equals(this.payablePrice, chargeItemPriceForDescribeDBInstancePriceDetailOutput.payablePrice);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(chargeItemKey, chargeItemType, chargeItemValue, discountPrice, originalPrice, payablePrice, unitPrice);
+    return Objects.hash(chargeItemKey, chargeItemType, chargeItemValue, discountPrice, originalPrice, payablePrice);
   }
 
 
@@ -212,7 +190,6 @@ public class ChargeItemPriceForDescribeDBInstancePriceDetailOutput {
     sb.append("    discountPrice: ").append(toIndentedString(discountPrice)).append("\n");
     sb.append("    originalPrice: ").append(toIndentedString(originalPrice)).append("\n");
     sb.append("    payablePrice: ").append(toIndentedString(payablePrice)).append("\n");
-    sb.append("    unitPrice: ").append(toIndentedString(unitPrice)).append("\n");
     sb.append("}");
     return sb.toString();
   }
