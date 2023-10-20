@@ -29,9 +29,6 @@ import javax.validation.Valid;
 
 
 public class SwitchDBInstanceHARequest {
-  @SerializedName("Force")
-  private Boolean force = null;
-
   @SerializedName("InstanceId")
   private String instanceId = null;
 
@@ -40,24 +37,6 @@ public class SwitchDBInstanceHARequest {
 
   @SerializedName("ZoneId")
   private String zoneId = null;
-
-  public SwitchDBInstanceHARequest force(Boolean force) {
-    this.force = force;
-    return this;
-  }
-
-   /**
-   * Get force
-   * @return force
-  **/
-  @Schema(description = "")
-  public Boolean isForce() {
-    return force;
-  }
-
-  public void setForce(Boolean force) {
-    this.force = force;
-  }
 
   public SwitchDBInstanceHARequest instanceId(String instanceId) {
     this.instanceId = instanceId;
@@ -124,15 +103,14 @@ public class SwitchDBInstanceHARequest {
       return false;
     }
     SwitchDBInstanceHARequest switchDBInstanceHARequest = (SwitchDBInstanceHARequest) o;
-    return Objects.equals(this.force, switchDBInstanceHARequest.force) &&
-        Objects.equals(this.instanceId, switchDBInstanceHARequest.instanceId) &&
+    return Objects.equals(this.instanceId, switchDBInstanceHARequest.instanceId) &&
         Objects.equals(this.nodeId, switchDBInstanceHARequest.nodeId) &&
         Objects.equals(this.zoneId, switchDBInstanceHARequest.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(force, instanceId, nodeId, zoneId);
+    return Objects.hash(instanceId, nodeId, zoneId);
   }
 
 
@@ -141,7 +119,6 @@ public class SwitchDBInstanceHARequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class SwitchDBInstanceHARequest {\n");
     
-    sb.append("    force: ").append(toIndentedString(force)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    nodeId: ").append(toIndentedString(nodeId)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");

@@ -44,9 +44,6 @@ public class ModifyDBEndpointRequest {
   @SerializedName("EndpointName")
   private String endpointName = null;
 
-  @SerializedName("GlobalReadOnly")
-  private Boolean globalReadOnly = null;
-
   @SerializedName("InstanceId")
   private String instanceId = null;
 
@@ -139,24 +136,6 @@ public class ModifyDBEndpointRequest {
 
   public void setEndpointName(String endpointName) {
     this.endpointName = endpointName;
-  }
-
-  public ModifyDBEndpointRequest globalReadOnly(Boolean globalReadOnly) {
-    this.globalReadOnly = globalReadOnly;
-    return this;
-  }
-
-   /**
-   * Get globalReadOnly
-   * @return globalReadOnly
-  **/
-  @Schema(description = "")
-  public Boolean isGlobalReadOnly() {
-    return globalReadOnly;
-  }
-
-  public void setGlobalReadOnly(Boolean globalReadOnly) {
-    this.globalReadOnly = globalReadOnly;
   }
 
   public ModifyDBEndpointRequest instanceId(String instanceId) {
@@ -309,7 +288,6 @@ public class ModifyDBEndpointRequest {
         Objects.equals(this.description, modifyDBEndpointRequest.description) &&
         Objects.equals(this.endpointId, modifyDBEndpointRequest.endpointId) &&
         Objects.equals(this.endpointName, modifyDBEndpointRequest.endpointName) &&
-        Objects.equals(this.globalReadOnly, modifyDBEndpointRequest.globalReadOnly) &&
         Objects.equals(this.instanceId, modifyDBEndpointRequest.instanceId) &&
         Objects.equals(this.nodes, modifyDBEndpointRequest.nodes) &&
         Objects.equals(this.readOnlyNodeDistributionType, modifyDBEndpointRequest.readOnlyNodeDistributionType) &&
@@ -321,7 +299,7 @@ public class ModifyDBEndpointRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoAddNewNodes, description, endpointId, endpointName, globalReadOnly, instanceId, nodes, readOnlyNodeDistributionType, readOnlyNodeMaxDelayTime, readOnlyNodeWeight, readWriteMode, readWriteSpliting);
+    return Objects.hash(autoAddNewNodes, description, endpointId, endpointName, instanceId, nodes, readOnlyNodeDistributionType, readOnlyNodeMaxDelayTime, readOnlyNodeWeight, readWriteMode, readWriteSpliting);
   }
 
 
@@ -334,7 +312,6 @@ public class ModifyDBEndpointRequest {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    endpointId: ").append(toIndentedString(endpointId)).append("\n");
     sb.append("    endpointName: ").append(toIndentedString(endpointName)).append("\n");
-    sb.append("    globalReadOnly: ").append(toIndentedString(globalReadOnly)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    nodes: ").append(toIndentedString(nodes)).append("\n");
     sb.append("    readOnlyNodeDistributionType: ").append(toIndentedString(readOnlyNodeDistributionType)).append("\n");

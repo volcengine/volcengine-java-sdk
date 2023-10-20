@@ -35,9 +35,6 @@ public class RebuildDBInstanceRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
 
-  @SerializedName("RequestSource")
-  private String requestSource = null;
-
   public RebuildDBInstanceRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
     return this;
@@ -75,24 +72,6 @@ public class RebuildDBInstanceRequest {
     this.projectName = projectName;
   }
 
-  public RebuildDBInstanceRequest requestSource(String requestSource) {
-    this.requestSource = requestSource;
-    return this;
-  }
-
-   /**
-   * Get requestSource
-   * @return requestSource
-  **/
-  @Schema(description = "")
-  public String getRequestSource() {
-    return requestSource;
-  }
-
-  public void setRequestSource(String requestSource) {
-    this.requestSource = requestSource;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -104,13 +83,12 @@ public class RebuildDBInstanceRequest {
     }
     RebuildDBInstanceRequest rebuildDBInstanceRequest = (RebuildDBInstanceRequest) o;
     return Objects.equals(this.instanceId, rebuildDBInstanceRequest.instanceId) &&
-        Objects.equals(this.projectName, rebuildDBInstanceRequest.projectName) &&
-        Objects.equals(this.requestSource, rebuildDBInstanceRequest.requestSource);
+        Objects.equals(this.projectName, rebuildDBInstanceRequest.projectName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, projectName, requestSource);
+    return Objects.hash(instanceId, projectName);
   }
 
 
@@ -121,7 +99,6 @@ public class RebuildDBInstanceRequest {
     
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
-    sb.append("    requestSource: ").append(toIndentedString(requestSource)).append("\n");
     sb.append("}");
     return sb.toString();
   }

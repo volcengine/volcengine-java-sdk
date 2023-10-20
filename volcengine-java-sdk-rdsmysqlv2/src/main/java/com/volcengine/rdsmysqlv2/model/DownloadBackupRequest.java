@@ -35,9 +35,6 @@ public class DownloadBackupRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;
 
-  @SerializedName("NodeId")
-  private String nodeId = null;
-
   public DownloadBackupRequest backupId(String backupId) {
     this.backupId = backupId;
     return this;
@@ -75,24 +72,6 @@ public class DownloadBackupRequest {
     this.instanceId = instanceId;
   }
 
-  public DownloadBackupRequest nodeId(String nodeId) {
-    this.nodeId = nodeId;
-    return this;
-  }
-
-   /**
-   * Get nodeId
-   * @return nodeId
-  **/
-  @Schema(description = "")
-  public String getNodeId() {
-    return nodeId;
-  }
-
-  public void setNodeId(String nodeId) {
-    this.nodeId = nodeId;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -104,13 +83,12 @@ public class DownloadBackupRequest {
     }
     DownloadBackupRequest downloadBackupRequest = (DownloadBackupRequest) o;
     return Objects.equals(this.backupId, downloadBackupRequest.backupId) &&
-        Objects.equals(this.instanceId, downloadBackupRequest.instanceId) &&
-        Objects.equals(this.nodeId, downloadBackupRequest.nodeId);
+        Objects.equals(this.instanceId, downloadBackupRequest.instanceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(backupId, instanceId, nodeId);
+    return Objects.hash(backupId, instanceId);
   }
 
 
@@ -121,7 +99,6 @@ public class DownloadBackupRequest {
     
     sb.append("    backupId: ").append(toIndentedString(backupId)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
-    sb.append("    nodeId: ").append(toIndentedString(nodeId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

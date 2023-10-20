@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.rdsmysqlv2.model.DataForDescribeEventsOutput;
+import com.volcengine.rdsmysqlv2.model.ErrorLogForDescribeErrorLogsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -27,45 +27,66 @@ import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DescribeEventsResponse
+ * DescribeErrorLogsResponse
  */
 
 
-public class DescribeEventsResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("Datas")
-  private List<DataForDescribeEventsOutput> datas = null;
+public class DescribeErrorLogsResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("ErrorLog")
+  private List<ErrorLogForDescribeErrorLogsOutput> errorLog = null;
+
+  @SerializedName("InstanceId")
+  private String instanceId = null;
 
   @SerializedName("Total")
   private Integer total = null;
 
-  public DescribeEventsResponse datas(List<DataForDescribeEventsOutput> datas) {
-    this.datas = datas;
+  public DescribeErrorLogsResponse errorLog(List<ErrorLogForDescribeErrorLogsOutput> errorLog) {
+    this.errorLog = errorLog;
     return this;
   }
 
-  public DescribeEventsResponse addDatasItem(DataForDescribeEventsOutput datasItem) {
-    if (this.datas == null) {
-      this.datas = new ArrayList<DataForDescribeEventsOutput>();
+  public DescribeErrorLogsResponse addErrorLogItem(ErrorLogForDescribeErrorLogsOutput errorLogItem) {
+    if (this.errorLog == null) {
+      this.errorLog = new ArrayList<ErrorLogForDescribeErrorLogsOutput>();
     }
-    this.datas.add(datasItem);
+    this.errorLog.add(errorLogItem);
     return this;
   }
 
    /**
-   * Get datas
-   * @return datas
+   * Get errorLog
+   * @return errorLog
   **/
   @Valid
   @Schema(description = "")
-  public List<DataForDescribeEventsOutput> getDatas() {
-    return datas;
+  public List<ErrorLogForDescribeErrorLogsOutput> getErrorLog() {
+    return errorLog;
   }
 
-  public void setDatas(List<DataForDescribeEventsOutput> datas) {
-    this.datas = datas;
+  public void setErrorLog(List<ErrorLogForDescribeErrorLogsOutput> errorLog) {
+    this.errorLog = errorLog;
   }
 
-  public DescribeEventsResponse total(Integer total) {
+  public DescribeErrorLogsResponse instanceId(String instanceId) {
+    this.instanceId = instanceId;
+    return this;
+  }
+
+   /**
+   * Get instanceId
+   * @return instanceId
+  **/
+  @Schema(description = "")
+  public String getInstanceId() {
+    return instanceId;
+  }
+
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
+  }
+
+  public DescribeErrorLogsResponse total(Integer total) {
     this.total = total;
     return this;
   }
@@ -92,23 +113,25 @@ public class DescribeEventsResponse extends com.volcengine.model.AbstractRespons
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DescribeEventsResponse describeEventsResponse = (DescribeEventsResponse) o;
-    return Objects.equals(this.datas, describeEventsResponse.datas) &&
-        Objects.equals(this.total, describeEventsResponse.total);
+    DescribeErrorLogsResponse describeErrorLogsResponse = (DescribeErrorLogsResponse) o;
+    return Objects.equals(this.errorLog, describeErrorLogsResponse.errorLog) &&
+        Objects.equals(this.instanceId, describeErrorLogsResponse.instanceId) &&
+        Objects.equals(this.total, describeErrorLogsResponse.total);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(datas, total);
+    return Objects.hash(errorLog, instanceId, total);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DescribeEventsResponse {\n");
+    sb.append("class DescribeErrorLogsResponse {\n");
     
-    sb.append("    datas: ").append(toIndentedString(datas)).append("\n");
+    sb.append("    errorLog: ").append(toIndentedString(errorLog)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    total: ").append(toIndentedString(total)).append("\n");
     sb.append("}");
     return sb.toString();

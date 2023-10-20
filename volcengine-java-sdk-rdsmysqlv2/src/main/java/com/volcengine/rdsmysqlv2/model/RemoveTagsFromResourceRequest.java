@@ -31,32 +31,11 @@ import javax.validation.Valid;
 
 
 public class RemoveTagsFromResourceRequest {
-  @SerializedName("All")
-  private Boolean all = null;
-
   @SerializedName("InstanceIds")
   private List<String> instanceIds = null;
 
   @SerializedName("TagKeys")
   private List<String> tagKeys = null;
-
-  public RemoveTagsFromResourceRequest all(Boolean all) {
-    this.all = all;
-    return this;
-  }
-
-   /**
-   * Get all
-   * @return all
-  **/
-  @Schema(description = "")
-  public Boolean isAll() {
-    return all;
-  }
-
-  public void setAll(Boolean all) {
-    this.all = all;
-  }
 
   public RemoveTagsFromResourceRequest instanceIds(List<String> instanceIds) {
     this.instanceIds = instanceIds;
@@ -120,14 +99,13 @@ public class RemoveTagsFromResourceRequest {
       return false;
     }
     RemoveTagsFromResourceRequest removeTagsFromResourceRequest = (RemoveTagsFromResourceRequest) o;
-    return Objects.equals(this.all, removeTagsFromResourceRequest.all) &&
-        Objects.equals(this.instanceIds, removeTagsFromResourceRequest.instanceIds) &&
+    return Objects.equals(this.instanceIds, removeTagsFromResourceRequest.instanceIds) &&
         Objects.equals(this.tagKeys, removeTagsFromResourceRequest.tagKeys);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(all, instanceIds, tagKeys);
+    return Objects.hash(instanceIds, tagKeys);
   }
 
 
@@ -136,7 +114,6 @@ public class RemoveTagsFromResourceRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class RemoveTagsFromResourceRequest {\n");
     
-    sb.append("    all: ").append(toIndentedString(all)).append("\n");
     sb.append("    instanceIds: ").append(toIndentedString(instanceIds)).append("\n");
     sb.append("    tagKeys: ").append(toIndentedString(tagKeys)).append("\n");
     sb.append("}");

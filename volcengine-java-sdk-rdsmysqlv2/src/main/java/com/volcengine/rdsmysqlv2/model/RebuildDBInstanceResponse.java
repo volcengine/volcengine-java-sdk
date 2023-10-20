@@ -14,6 +14,13 @@ package com.volcengine.rdsmysqlv2.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -22,6 +29,48 @@ import javax.validation.Valid;
 
 
 public class RebuildDBInstanceResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("InstanceId")
+  private String instanceId = null;
+
+  @SerializedName("OrderId")
+  private String orderId = null;
+
+  public RebuildDBInstanceResponse instanceId(String instanceId) {
+    this.instanceId = instanceId;
+    return this;
+  }
+
+   /**
+   * Get instanceId
+   * @return instanceId
+  **/
+  @Schema(description = "")
+  public String getInstanceId() {
+    return instanceId;
+  }
+
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
+  }
+
+  public RebuildDBInstanceResponse orderId(String orderId) {
+    this.orderId = orderId;
+    return this;
+  }
+
+   /**
+   * Get orderId
+   * @return orderId
+  **/
+  @Schema(description = "")
+  public String getOrderId() {
+    return orderId;
+  }
+
+  public void setOrderId(String orderId) {
+    this.orderId = orderId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -31,12 +80,14 @@ public class RebuildDBInstanceResponse extends com.volcengine.model.AbstractResp
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return true;
+    RebuildDBInstanceResponse rebuildDBInstanceResponse = (RebuildDBInstanceResponse) o;
+    return Objects.equals(this.instanceId, rebuildDBInstanceResponse.instanceId) &&
+        Objects.equals(this.orderId, rebuildDBInstanceResponse.orderId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash();
+    return Objects.hash(instanceId, orderId);
   }
 
 
@@ -45,6 +96,8 @@ public class RebuildDBInstanceResponse extends com.volcengine.model.AbstractResp
     StringBuilder sb = new StringBuilder();
     sb.append("class RebuildDBInstanceResponse {\n");
     
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    orderId: ").append(toIndentedString(orderId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

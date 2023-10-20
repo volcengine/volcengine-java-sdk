@@ -35,9 +35,6 @@ public class NodeInfoForDescribeDBInstancePriceDetailInput {
   @SerializedName("NodeOperateType")
   private String nodeOperateType = null;
 
-  @SerializedName("NodePool")
-  private String nodePool = null;
-
   @SerializedName("NodeSpec")
   private String nodeSpec = null;
 
@@ -81,24 +78,6 @@ public class NodeInfoForDescribeDBInstancePriceDetailInput {
 
   public void setNodeOperateType(String nodeOperateType) {
     this.nodeOperateType = nodeOperateType;
-  }
-
-  public NodeInfoForDescribeDBInstancePriceDetailInput nodePool(String nodePool) {
-    this.nodePool = nodePool;
-    return this;
-  }
-
-   /**
-   * Get nodePool
-   * @return nodePool
-  **/
-  @Schema(description = "")
-  public String getNodePool() {
-    return nodePool;
-  }
-
-  public void setNodePool(String nodePool) {
-    this.nodePool = nodePool;
   }
 
   public NodeInfoForDescribeDBInstancePriceDetailInput nodeSpec(String nodeSpec) {
@@ -167,7 +146,6 @@ public class NodeInfoForDescribeDBInstancePriceDetailInput {
     NodeInfoForDescribeDBInstancePriceDetailInput nodeInfoForDescribeDBInstancePriceDetailInput = (NodeInfoForDescribeDBInstancePriceDetailInput) o;
     return Objects.equals(this.nodeId, nodeInfoForDescribeDBInstancePriceDetailInput.nodeId) &&
         Objects.equals(this.nodeOperateType, nodeInfoForDescribeDBInstancePriceDetailInput.nodeOperateType) &&
-        Objects.equals(this.nodePool, nodeInfoForDescribeDBInstancePriceDetailInput.nodePool) &&
         Objects.equals(this.nodeSpec, nodeInfoForDescribeDBInstancePriceDetailInput.nodeSpec) &&
         Objects.equals(this.nodeType, nodeInfoForDescribeDBInstancePriceDetailInput.nodeType) &&
         Objects.equals(this.zoneId, nodeInfoForDescribeDBInstancePriceDetailInput.zoneId);
@@ -175,7 +153,7 @@ public class NodeInfoForDescribeDBInstancePriceDetailInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(nodeId, nodeOperateType, nodePool, nodeSpec, nodeType, zoneId);
+    return Objects.hash(nodeId, nodeOperateType, nodeSpec, nodeType, zoneId);
   }
 
 
@@ -186,7 +164,6 @@ public class NodeInfoForDescribeDBInstancePriceDetailInput {
     
     sb.append("    nodeId: ").append(toIndentedString(nodeId)).append("\n");
     sb.append("    nodeOperateType: ").append(toIndentedString(nodeOperateType)).append("\n");
-    sb.append("    nodePool: ").append(toIndentedString(nodePool)).append("\n");
     sb.append("    nodeSpec: ").append(toIndentedString(nodeSpec)).append("\n");
     sb.append("    nodeType: ").append(toIndentedString(nodeType)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");

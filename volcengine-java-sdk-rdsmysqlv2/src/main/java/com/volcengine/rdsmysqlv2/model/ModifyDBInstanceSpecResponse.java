@@ -19,7 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.rdsmysqlv2.model.PreSchedulePlanForModifyDBInstanceSpecOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -35,9 +34,6 @@ public class ModifyDBInstanceSpecResponse extends com.volcengine.model.AbstractR
 
   @SerializedName("OrderId")
   private String orderId = null;
-
-  @SerializedName("PreSchedulePlan")
-  private PreSchedulePlanForModifyDBInstanceSpecOutput preSchedulePlan = null;
 
   public ModifyDBInstanceSpecResponse instanceId(String instanceId) {
     this.instanceId = instanceId;
@@ -75,25 +71,6 @@ public class ModifyDBInstanceSpecResponse extends com.volcengine.model.AbstractR
     this.orderId = orderId;
   }
 
-  public ModifyDBInstanceSpecResponse preSchedulePlan(PreSchedulePlanForModifyDBInstanceSpecOutput preSchedulePlan) {
-    this.preSchedulePlan = preSchedulePlan;
-    return this;
-  }
-
-   /**
-   * Get preSchedulePlan
-   * @return preSchedulePlan
-  **/
-  @Valid
-  @Schema(description = "")
-  public PreSchedulePlanForModifyDBInstanceSpecOutput getPreSchedulePlan() {
-    return preSchedulePlan;
-  }
-
-  public void setPreSchedulePlan(PreSchedulePlanForModifyDBInstanceSpecOutput preSchedulePlan) {
-    this.preSchedulePlan = preSchedulePlan;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -105,13 +82,12 @@ public class ModifyDBInstanceSpecResponse extends com.volcengine.model.AbstractR
     }
     ModifyDBInstanceSpecResponse modifyDBInstanceSpecResponse = (ModifyDBInstanceSpecResponse) o;
     return Objects.equals(this.instanceId, modifyDBInstanceSpecResponse.instanceId) &&
-        Objects.equals(this.orderId, modifyDBInstanceSpecResponse.orderId) &&
-        Objects.equals(this.preSchedulePlan, modifyDBInstanceSpecResponse.preSchedulePlan);
+        Objects.equals(this.orderId, modifyDBInstanceSpecResponse.orderId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, orderId, preSchedulePlan);
+    return Objects.hash(instanceId, orderId);
   }
 
 
@@ -122,7 +98,6 @@ public class ModifyDBInstanceSpecResponse extends com.volcengine.model.AbstractR
     
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    orderId: ").append(toIndentedString(orderId)).append("\n");
-    sb.append("    preSchedulePlan: ").append(toIndentedString(preSchedulePlan)).append("\n");
     sb.append("}");
     return sb.toString();
   }
