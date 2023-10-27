@@ -72,6 +72,9 @@ public class DescribeVpcAttributesResponse extends com.volcengine.model.Abstract
   @SerializedName("RouteTableIds")
   private List<String> routeTableIds = null;
 
+  @SerializedName("SecondaryCidrBlocks")
+  private List<String> secondaryCidrBlocks = null;
+
   @SerializedName("SecurityGroupIds")
   private List<String> securityGroupIds = null;
 
@@ -363,6 +366,32 @@ public class DescribeVpcAttributesResponse extends com.volcengine.model.Abstract
     this.routeTableIds = routeTableIds;
   }
 
+  public DescribeVpcAttributesResponse secondaryCidrBlocks(List<String> secondaryCidrBlocks) {
+    this.secondaryCidrBlocks = secondaryCidrBlocks;
+    return this;
+  }
+
+  public DescribeVpcAttributesResponse addSecondaryCidrBlocksItem(String secondaryCidrBlocksItem) {
+    if (this.secondaryCidrBlocks == null) {
+      this.secondaryCidrBlocks = new ArrayList<String>();
+    }
+    this.secondaryCidrBlocks.add(secondaryCidrBlocksItem);
+    return this;
+  }
+
+   /**
+   * Get secondaryCidrBlocks
+   * @return secondaryCidrBlocks
+  **/
+  @Schema(description = "")
+  public List<String> getSecondaryCidrBlocks() {
+    return secondaryCidrBlocks;
+  }
+
+  public void setSecondaryCidrBlocks(List<String> secondaryCidrBlocks) {
+    this.secondaryCidrBlocks = secondaryCidrBlocks;
+  }
+
   public DescribeVpcAttributesResponse securityGroupIds(List<String> securityGroupIds) {
     this.securityGroupIds = securityGroupIds;
     return this;
@@ -563,6 +592,7 @@ public class DescribeVpcAttributesResponse extends com.volcengine.model.Abstract
         Objects.equals(this.projectName, describeVpcAttributesResponse.projectName) &&
         Objects.equals(this.requestId, describeVpcAttributesResponse.requestId) &&
         Objects.equals(this.routeTableIds, describeVpcAttributesResponse.routeTableIds) &&
+        Objects.equals(this.secondaryCidrBlocks, describeVpcAttributesResponse.secondaryCidrBlocks) &&
         Objects.equals(this.securityGroupIds, describeVpcAttributesResponse.securityGroupIds) &&
         Objects.equals(this.status, describeVpcAttributesResponse.status) &&
         Objects.equals(this.subnetIds, describeVpcAttributesResponse.subnetIds) &&
@@ -575,7 +605,7 @@ public class DescribeVpcAttributesResponse extends com.volcengine.model.Abstract
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, associateCens, cidrBlock, creationTime, description, dnsServers, ipv6CidrBlock, isDefault, natGatewayIds, networkAclNum, projectName, requestId, routeTableIds, securityGroupIds, status, subnetIds, tags, updateTime, userCidrBlocks, vpcId, vpcName);
+    return Objects.hash(accountId, associateCens, cidrBlock, creationTime, description, dnsServers, ipv6CidrBlock, isDefault, natGatewayIds, networkAclNum, projectName, requestId, routeTableIds, secondaryCidrBlocks, securityGroupIds, status, subnetIds, tags, updateTime, userCidrBlocks, vpcId, vpcName);
   }
 
 
@@ -597,6 +627,7 @@ public class DescribeVpcAttributesResponse extends com.volcengine.model.Abstract
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    routeTableIds: ").append(toIndentedString(routeTableIds)).append("\n");
+    sb.append("    secondaryCidrBlocks: ").append(toIndentedString(secondaryCidrBlocks)).append("\n");
     sb.append("    securityGroupIds: ").append(toIndentedString(securityGroupIds)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    subnetIds: ").append(toIndentedString(subnetIds)).append("\n");

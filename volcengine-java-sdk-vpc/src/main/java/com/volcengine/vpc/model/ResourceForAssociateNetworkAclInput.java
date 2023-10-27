@@ -41,7 +41,8 @@ public class ResourceForAssociateNetworkAclInput {
    * Get resourceId
    * @return resourceId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getResourceId() {
     return resourceId;
   }
