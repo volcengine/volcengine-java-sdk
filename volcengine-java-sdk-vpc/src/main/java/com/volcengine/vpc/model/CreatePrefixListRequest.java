@@ -40,7 +40,7 @@ public class CreatePrefixListRequest {
   private String description = null;
 
   @SerializedName("DryRun")
-  private String dryRun = null;
+  private Boolean dryRun = null;
 
   /**
    * Gets or Sets ipVersion
@@ -134,7 +134,7 @@ public class CreatePrefixListRequest {
     this.description = description;
   }
 
-  public CreatePrefixListRequest dryRun(String dryRun) {
+  public CreatePrefixListRequest dryRun(Boolean dryRun) {
     this.dryRun = dryRun;
     return this;
   }
@@ -144,11 +144,11 @@ public class CreatePrefixListRequest {
    * @return dryRun
   **/
   @Schema(description = "")
-  public String getDryRun() {
+  public Boolean isDryRun() {
     return dryRun;
   }
 
-  public void setDryRun(String dryRun) {
+  public void setDryRun(Boolean dryRun) {
     this.dryRun = dryRun;
   }
 

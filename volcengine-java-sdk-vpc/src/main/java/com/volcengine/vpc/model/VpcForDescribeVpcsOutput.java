@@ -66,6 +66,9 @@ public class VpcForDescribeVpcsOutput {
   @SerializedName("RouteTableIds")
   private List<String> routeTableIds = null;
 
+  @SerializedName("SecondaryCidrBlocks")
+  private List<String> secondaryCidrBlocks = null;
+
   @SerializedName("SecurityGroupIds")
   private List<String> securityGroupIds = null;
 
@@ -321,6 +324,32 @@ public class VpcForDescribeVpcsOutput {
     this.routeTableIds = routeTableIds;
   }
 
+  public VpcForDescribeVpcsOutput secondaryCidrBlocks(List<String> secondaryCidrBlocks) {
+    this.secondaryCidrBlocks = secondaryCidrBlocks;
+    return this;
+  }
+
+  public VpcForDescribeVpcsOutput addSecondaryCidrBlocksItem(String secondaryCidrBlocksItem) {
+    if (this.secondaryCidrBlocks == null) {
+      this.secondaryCidrBlocks = new ArrayList<String>();
+    }
+    this.secondaryCidrBlocks.add(secondaryCidrBlocksItem);
+    return this;
+  }
+
+   /**
+   * Get secondaryCidrBlocks
+   * @return secondaryCidrBlocks
+  **/
+  @Schema(description = "")
+  public List<String> getSecondaryCidrBlocks() {
+    return secondaryCidrBlocks;
+  }
+
+  public void setSecondaryCidrBlocks(List<String> secondaryCidrBlocks) {
+    this.secondaryCidrBlocks = secondaryCidrBlocks;
+  }
+
   public VpcForDescribeVpcsOutput securityGroupIds(List<String> securityGroupIds) {
     this.securityGroupIds = securityGroupIds;
     return this;
@@ -519,6 +548,7 @@ public class VpcForDescribeVpcsOutput {
         Objects.equals(this.networkAclNum, vpcForDescribeVpcsOutput.networkAclNum) &&
         Objects.equals(this.projectName, vpcForDescribeVpcsOutput.projectName) &&
         Objects.equals(this.routeTableIds, vpcForDescribeVpcsOutput.routeTableIds) &&
+        Objects.equals(this.secondaryCidrBlocks, vpcForDescribeVpcsOutput.secondaryCidrBlocks) &&
         Objects.equals(this.securityGroupIds, vpcForDescribeVpcsOutput.securityGroupIds) &&
         Objects.equals(this.status, vpcForDescribeVpcsOutput.status) &&
         Objects.equals(this.subnetIds, vpcForDescribeVpcsOutput.subnetIds) &&
@@ -531,7 +561,7 @@ public class VpcForDescribeVpcsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, associateCens, cidrBlock, creationTime, description, dnsServers, isDefault, natGatewayIds, networkAclNum, projectName, routeTableIds, securityGroupIds, status, subnetIds, tags, updateTime, userCidrBlocks, vpcId, vpcName);
+    return Objects.hash(accountId, associateCens, cidrBlock, creationTime, description, dnsServers, isDefault, natGatewayIds, networkAclNum, projectName, routeTableIds, secondaryCidrBlocks, securityGroupIds, status, subnetIds, tags, updateTime, userCidrBlocks, vpcId, vpcName);
   }
 
 
@@ -551,6 +581,7 @@ public class VpcForDescribeVpcsOutput {
     sb.append("    networkAclNum: ").append(toIndentedString(networkAclNum)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    routeTableIds: ").append(toIndentedString(routeTableIds)).append("\n");
+    sb.append("    secondaryCidrBlocks: ").append(toIndentedString(secondaryCidrBlocks)).append("\n");
     sb.append("    securityGroupIds: ").append(toIndentedString(securityGroupIds)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    subnetIds: ").append(toIndentedString(subnetIds)).append("\n");

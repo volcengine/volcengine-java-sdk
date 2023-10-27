@@ -33,7 +33,7 @@ public class DeletePrefixListRequest {
   private String clientToken = null;
 
   @SerializedName("DryRun")
-  private String dryRun = null;
+  private Boolean dryRun = null;
 
   @SerializedName("PrefixListId")
   private String prefixListId = null;
@@ -56,7 +56,7 @@ public class DeletePrefixListRequest {
     this.clientToken = clientToken;
   }
 
-  public DeletePrefixListRequest dryRun(String dryRun) {
+  public DeletePrefixListRequest dryRun(Boolean dryRun) {
     this.dryRun = dryRun;
     return this;
   }
@@ -66,11 +66,11 @@ public class DeletePrefixListRequest {
    * @return dryRun
   **/
   @Schema(description = "")
-  public String getDryRun() {
+  public Boolean isDryRun() {
     return dryRun;
   }
 
-  public void setDryRun(String dryRun) {
+  public void setDryRun(Boolean dryRun) {
     this.dryRun = dryRun;
   }
 

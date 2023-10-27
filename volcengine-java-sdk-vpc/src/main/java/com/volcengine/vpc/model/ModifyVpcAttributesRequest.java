@@ -157,7 +157,7 @@ public class ModifyVpcAttributesRequest {
    * Get vpcName
    * @return vpcName
   **/
- @Size(min=2,max=128)  @Schema(description = "")
+ @Size(min=1,max=128)  @Schema(description = "")
   public String getVpcName() {
     return vpcName;
   }

@@ -202,8 +202,7 @@ public class DescribeSubnetsRequest {
    * Get vpcId
    * @return vpcId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getVpcId() {
     return vpcId;
   }
