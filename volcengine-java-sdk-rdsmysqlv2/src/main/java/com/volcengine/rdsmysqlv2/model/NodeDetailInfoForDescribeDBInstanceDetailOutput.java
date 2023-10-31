@@ -24,11 +24,11 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * NodeDetailInfoForDescribeDBInstancesOutput
+ * NodeDetailInfoForDescribeDBInstanceDetailOutput
  */
 
 
-public class NodeDetailInfoForDescribeDBInstancesOutput {
+public class NodeDetailInfoForDescribeDBInstanceDetailOutput {
   @SerializedName("CreateTime")
   private String createTime = null;
 
@@ -53,6 +53,12 @@ public class NodeDetailInfoForDescribeDBInstancesOutput {
   @SerializedName("RegionId")
   private String regionId = null;
 
+  @SerializedName("ShardId")
+  private String shardId = null;
+
+  @SerializedName("SyncDelay")
+  private Long syncDelay = null;
+
   @SerializedName("UpdateTime")
   private String updateTime = null;
 
@@ -62,7 +68,7 @@ public class NodeDetailInfoForDescribeDBInstancesOutput {
   @SerializedName("ZoneId")
   private String zoneId = null;
 
-  public NodeDetailInfoForDescribeDBInstancesOutput createTime(String createTime) {
+  public NodeDetailInfoForDescribeDBInstanceDetailOutput createTime(String createTime) {
     this.createTime = createTime;
     return this;
   }
@@ -80,7 +86,7 @@ public class NodeDetailInfoForDescribeDBInstancesOutput {
     this.createTime = createTime;
   }
 
-  public NodeDetailInfoForDescribeDBInstancesOutput instanceId(String instanceId) {
+  public NodeDetailInfoForDescribeDBInstanceDetailOutput instanceId(String instanceId) {
     this.instanceId = instanceId;
     return this;
   }
@@ -98,7 +104,7 @@ public class NodeDetailInfoForDescribeDBInstancesOutput {
     this.instanceId = instanceId;
   }
 
-  public NodeDetailInfoForDescribeDBInstancesOutput memory(Integer memory) {
+  public NodeDetailInfoForDescribeDBInstanceDetailOutput memory(Integer memory) {
     this.memory = memory;
     return this;
   }
@@ -116,7 +122,7 @@ public class NodeDetailInfoForDescribeDBInstancesOutput {
     this.memory = memory;
   }
 
-  public NodeDetailInfoForDescribeDBInstancesOutput nodeId(String nodeId) {
+  public NodeDetailInfoForDescribeDBInstanceDetailOutput nodeId(String nodeId) {
     this.nodeId = nodeId;
     return this;
   }
@@ -134,7 +140,7 @@ public class NodeDetailInfoForDescribeDBInstancesOutput {
     this.nodeId = nodeId;
   }
 
-  public NodeDetailInfoForDescribeDBInstancesOutput nodeSpec(String nodeSpec) {
+  public NodeDetailInfoForDescribeDBInstanceDetailOutput nodeSpec(String nodeSpec) {
     this.nodeSpec = nodeSpec;
     return this;
   }
@@ -152,7 +158,7 @@ public class NodeDetailInfoForDescribeDBInstancesOutput {
     this.nodeSpec = nodeSpec;
   }
 
-  public NodeDetailInfoForDescribeDBInstancesOutput nodeStatus(String nodeStatus) {
+  public NodeDetailInfoForDescribeDBInstanceDetailOutput nodeStatus(String nodeStatus) {
     this.nodeStatus = nodeStatus;
     return this;
   }
@@ -170,7 +176,7 @@ public class NodeDetailInfoForDescribeDBInstancesOutput {
     this.nodeStatus = nodeStatus;
   }
 
-  public NodeDetailInfoForDescribeDBInstancesOutput nodeType(String nodeType) {
+  public NodeDetailInfoForDescribeDBInstanceDetailOutput nodeType(String nodeType) {
     this.nodeType = nodeType;
     return this;
   }
@@ -188,7 +194,7 @@ public class NodeDetailInfoForDescribeDBInstancesOutput {
     this.nodeType = nodeType;
   }
 
-  public NodeDetailInfoForDescribeDBInstancesOutput regionId(String regionId) {
+  public NodeDetailInfoForDescribeDBInstanceDetailOutput regionId(String regionId) {
     this.regionId = regionId;
     return this;
   }
@@ -206,7 +212,43 @@ public class NodeDetailInfoForDescribeDBInstancesOutput {
     this.regionId = regionId;
   }
 
-  public NodeDetailInfoForDescribeDBInstancesOutput updateTime(String updateTime) {
+  public NodeDetailInfoForDescribeDBInstanceDetailOutput shardId(String shardId) {
+    this.shardId = shardId;
+    return this;
+  }
+
+   /**
+   * Get shardId
+   * @return shardId
+  **/
+  @Schema(description = "")
+  public String getShardId() {
+    return shardId;
+  }
+
+  public void setShardId(String shardId) {
+    this.shardId = shardId;
+  }
+
+  public NodeDetailInfoForDescribeDBInstanceDetailOutput syncDelay(Long syncDelay) {
+    this.syncDelay = syncDelay;
+    return this;
+  }
+
+   /**
+   * Get syncDelay
+   * @return syncDelay
+  **/
+  @Schema(description = "")
+  public Long getSyncDelay() {
+    return syncDelay;
+  }
+
+  public void setSyncDelay(Long syncDelay) {
+    this.syncDelay = syncDelay;
+  }
+
+  public NodeDetailInfoForDescribeDBInstanceDetailOutput updateTime(String updateTime) {
     this.updateTime = updateTime;
     return this;
   }
@@ -224,7 +266,7 @@ public class NodeDetailInfoForDescribeDBInstancesOutput {
     this.updateTime = updateTime;
   }
 
-  public NodeDetailInfoForDescribeDBInstancesOutput VCPU(Integer VCPU) {
+  public NodeDetailInfoForDescribeDBInstanceDetailOutput VCPU(Integer VCPU) {
     this.VCPU = VCPU;
     return this;
   }
@@ -242,7 +284,7 @@ public class NodeDetailInfoForDescribeDBInstancesOutput {
     this.VCPU = VCPU;
   }
 
-  public NodeDetailInfoForDescribeDBInstancesOutput zoneId(String zoneId) {
+  public NodeDetailInfoForDescribeDBInstanceDetailOutput zoneId(String zoneId) {
     this.zoneId = zoneId;
     return this;
   }
@@ -269,30 +311,32 @@ public class NodeDetailInfoForDescribeDBInstancesOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    NodeDetailInfoForDescribeDBInstancesOutput nodeDetailInfoForDescribeDBInstancesOutput = (NodeDetailInfoForDescribeDBInstancesOutput) o;
-    return Objects.equals(this.createTime, nodeDetailInfoForDescribeDBInstancesOutput.createTime) &&
-        Objects.equals(this.instanceId, nodeDetailInfoForDescribeDBInstancesOutput.instanceId) &&
-        Objects.equals(this.memory, nodeDetailInfoForDescribeDBInstancesOutput.memory) &&
-        Objects.equals(this.nodeId, nodeDetailInfoForDescribeDBInstancesOutput.nodeId) &&
-        Objects.equals(this.nodeSpec, nodeDetailInfoForDescribeDBInstancesOutput.nodeSpec) &&
-        Objects.equals(this.nodeStatus, nodeDetailInfoForDescribeDBInstancesOutput.nodeStatus) &&
-        Objects.equals(this.nodeType, nodeDetailInfoForDescribeDBInstancesOutput.nodeType) &&
-        Objects.equals(this.regionId, nodeDetailInfoForDescribeDBInstancesOutput.regionId) &&
-        Objects.equals(this.updateTime, nodeDetailInfoForDescribeDBInstancesOutput.updateTime) &&
-        Objects.equals(this.VCPU, nodeDetailInfoForDescribeDBInstancesOutput.VCPU) &&
-        Objects.equals(this.zoneId, nodeDetailInfoForDescribeDBInstancesOutput.zoneId);
+    NodeDetailInfoForDescribeDBInstanceDetailOutput nodeDetailInfoForDescribeDBInstanceDetailOutput = (NodeDetailInfoForDescribeDBInstanceDetailOutput) o;
+    return Objects.equals(this.createTime, nodeDetailInfoForDescribeDBInstanceDetailOutput.createTime) &&
+        Objects.equals(this.instanceId, nodeDetailInfoForDescribeDBInstanceDetailOutput.instanceId) &&
+        Objects.equals(this.memory, nodeDetailInfoForDescribeDBInstanceDetailOutput.memory) &&
+        Objects.equals(this.nodeId, nodeDetailInfoForDescribeDBInstanceDetailOutput.nodeId) &&
+        Objects.equals(this.nodeSpec, nodeDetailInfoForDescribeDBInstanceDetailOutput.nodeSpec) &&
+        Objects.equals(this.nodeStatus, nodeDetailInfoForDescribeDBInstanceDetailOutput.nodeStatus) &&
+        Objects.equals(this.nodeType, nodeDetailInfoForDescribeDBInstanceDetailOutput.nodeType) &&
+        Objects.equals(this.regionId, nodeDetailInfoForDescribeDBInstanceDetailOutput.regionId) &&
+        Objects.equals(this.shardId, nodeDetailInfoForDescribeDBInstanceDetailOutput.shardId) &&
+        Objects.equals(this.syncDelay, nodeDetailInfoForDescribeDBInstanceDetailOutput.syncDelay) &&
+        Objects.equals(this.updateTime, nodeDetailInfoForDescribeDBInstanceDetailOutput.updateTime) &&
+        Objects.equals(this.VCPU, nodeDetailInfoForDescribeDBInstanceDetailOutput.VCPU) &&
+        Objects.equals(this.zoneId, nodeDetailInfoForDescribeDBInstanceDetailOutput.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createTime, instanceId, memory, nodeId, nodeSpec, nodeStatus, nodeType, regionId, updateTime, VCPU, zoneId);
+    return Objects.hash(createTime, instanceId, memory, nodeId, nodeSpec, nodeStatus, nodeType, regionId, shardId, syncDelay, updateTime, VCPU, zoneId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class NodeDetailInfoForDescribeDBInstancesOutput {\n");
+    sb.append("class NodeDetailInfoForDescribeDBInstanceDetailOutput {\n");
     
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
@@ -302,6 +346,8 @@ public class NodeDetailInfoForDescribeDBInstancesOutput {
     sb.append("    nodeStatus: ").append(toIndentedString(nodeStatus)).append("\n");
     sb.append("    nodeType: ").append(toIndentedString(nodeType)).append("\n");
     sb.append("    regionId: ").append(toIndentedString(regionId)).append("\n");
+    sb.append("    shardId: ").append(toIndentedString(shardId)).append("\n");
+    sb.append("    syncDelay: ").append(toIndentedString(syncDelay)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    VCPU: ").append(toIndentedString(VCPU)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
