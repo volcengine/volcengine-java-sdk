@@ -19,8 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.rdsmysqlv2.model.DatabasePrivilegeForCreateDatabaseInput;
-import com.volcengine.rdsmysqlv2.model.DatabasePrivilegesInfoForCreateDatabaseInput;
+import com.volcengine.rdsmysqlv2.model.DatabasePrivilegeForDescribeDatabasesOutput;
+import com.volcengine.rdsmysqlv2.model.DatabasePrivilegesInfoForDescribeDatabasesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -28,11 +28,11 @@ import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * CreateDatabaseRequest
+ * DatabasesInfoForDescribeDatabasesOutput
  */
 
 
-public class CreateDatabaseRequest {
+public class DatabasesInfoForDescribeDatabasesOutput {
   @SerializedName("CharacterSetName")
   private String characterSetName = null;
 
@@ -42,16 +42,16 @@ public class CreateDatabaseRequest {
   @SerializedName("DBName")
   private String dbName = null;
 
+  @SerializedName("DBStatus")
+  private String dbStatus = null;
+
   @SerializedName("DatabasePrivileges")
-  private List<DatabasePrivilegeForCreateDatabaseInput> databasePrivileges = null;
+  private List<DatabasePrivilegeForDescribeDatabasesOutput> databasePrivileges = null;
 
   @SerializedName("DatabasePrivilegesInfo")
-  private List<DatabasePrivilegesInfoForCreateDatabaseInput> databasePrivilegesInfo = null;
+  private List<DatabasePrivilegesInfoForDescribeDatabasesOutput> databasePrivilegesInfo = null;
 
-  @SerializedName("InstanceId")
-  private String instanceId = null;
-
-  public CreateDatabaseRequest characterSetName(String characterSetName) {
+  public DatabasesInfoForDescribeDatabasesOutput characterSetName(String characterSetName) {
     this.characterSetName = characterSetName;
     return this;
   }
@@ -69,7 +69,7 @@ public class CreateDatabaseRequest {
     this.characterSetName = characterSetName;
   }
 
-  public CreateDatabaseRequest dbDesc(String dbDesc) {
+  public DatabasesInfoForDescribeDatabasesOutput dbDesc(String dbDesc) {
     this.dbDesc = dbDesc;
     return this;
   }
@@ -87,7 +87,7 @@ public class CreateDatabaseRequest {
     this.dbDesc = dbDesc;
   }
 
-  public CreateDatabaseRequest dbName(String dbName) {
+  public DatabasesInfoForDescribeDatabasesOutput dbName(String dbName) {
     this.dbName = dbName;
     return this;
   }
@@ -96,7 +96,7 @@ public class CreateDatabaseRequest {
    * Get dbName
    * @return dbName
   **/
- @Size(min=2,max=64)  @Schema(description = "")
+  @Schema(description = "")
   public String getDbName() {
     return dbName;
   }
@@ -105,14 +105,32 @@ public class CreateDatabaseRequest {
     this.dbName = dbName;
   }
 
-  public CreateDatabaseRequest databasePrivileges(List<DatabasePrivilegeForCreateDatabaseInput> databasePrivileges) {
+  public DatabasesInfoForDescribeDatabasesOutput dbStatus(String dbStatus) {
+    this.dbStatus = dbStatus;
+    return this;
+  }
+
+   /**
+   * Get dbStatus
+   * @return dbStatus
+  **/
+  @Schema(description = "")
+  public String getDbStatus() {
+    return dbStatus;
+  }
+
+  public void setDbStatus(String dbStatus) {
+    this.dbStatus = dbStatus;
+  }
+
+  public DatabasesInfoForDescribeDatabasesOutput databasePrivileges(List<DatabasePrivilegeForDescribeDatabasesOutput> databasePrivileges) {
     this.databasePrivileges = databasePrivileges;
     return this;
   }
 
-  public CreateDatabaseRequest addDatabasePrivilegesItem(DatabasePrivilegeForCreateDatabaseInput databasePrivilegesItem) {
+  public DatabasesInfoForDescribeDatabasesOutput addDatabasePrivilegesItem(DatabasePrivilegeForDescribeDatabasesOutput databasePrivilegesItem) {
     if (this.databasePrivileges == null) {
-      this.databasePrivileges = new ArrayList<DatabasePrivilegeForCreateDatabaseInput>();
+      this.databasePrivileges = new ArrayList<DatabasePrivilegeForDescribeDatabasesOutput>();
     }
     this.databasePrivileges.add(databasePrivilegesItem);
     return this;
@@ -124,22 +142,22 @@ public class CreateDatabaseRequest {
   **/
   @Valid
   @Schema(description = "")
-  public List<DatabasePrivilegeForCreateDatabaseInput> getDatabasePrivileges() {
+  public List<DatabasePrivilegeForDescribeDatabasesOutput> getDatabasePrivileges() {
     return databasePrivileges;
   }
 
-  public void setDatabasePrivileges(List<DatabasePrivilegeForCreateDatabaseInput> databasePrivileges) {
+  public void setDatabasePrivileges(List<DatabasePrivilegeForDescribeDatabasesOutput> databasePrivileges) {
     this.databasePrivileges = databasePrivileges;
   }
 
-  public CreateDatabaseRequest databasePrivilegesInfo(List<DatabasePrivilegesInfoForCreateDatabaseInput> databasePrivilegesInfo) {
+  public DatabasesInfoForDescribeDatabasesOutput databasePrivilegesInfo(List<DatabasePrivilegesInfoForDescribeDatabasesOutput> databasePrivilegesInfo) {
     this.databasePrivilegesInfo = databasePrivilegesInfo;
     return this;
   }
 
-  public CreateDatabaseRequest addDatabasePrivilegesInfoItem(DatabasePrivilegesInfoForCreateDatabaseInput databasePrivilegesInfoItem) {
+  public DatabasesInfoForDescribeDatabasesOutput addDatabasePrivilegesInfoItem(DatabasePrivilegesInfoForDescribeDatabasesOutput databasePrivilegesInfoItem) {
     if (this.databasePrivilegesInfo == null) {
-      this.databasePrivilegesInfo = new ArrayList<DatabasePrivilegesInfoForCreateDatabaseInput>();
+      this.databasePrivilegesInfo = new ArrayList<DatabasePrivilegesInfoForDescribeDatabasesOutput>();
     }
     this.databasePrivilegesInfo.add(databasePrivilegesInfoItem);
     return this;
@@ -151,31 +169,12 @@ public class CreateDatabaseRequest {
   **/
   @Valid
   @Schema(description = "")
-  public List<DatabasePrivilegesInfoForCreateDatabaseInput> getDatabasePrivilegesInfo() {
+  public List<DatabasePrivilegesInfoForDescribeDatabasesOutput> getDatabasePrivilegesInfo() {
     return databasePrivilegesInfo;
   }
 
-  public void setDatabasePrivilegesInfo(List<DatabasePrivilegesInfoForCreateDatabaseInput> databasePrivilegesInfo) {
+  public void setDatabasePrivilegesInfo(List<DatabasePrivilegesInfoForDescribeDatabasesOutput> databasePrivilegesInfo) {
     this.databasePrivilegesInfo = databasePrivilegesInfo;
-  }
-
-  public CreateDatabaseRequest instanceId(String instanceId) {
-    this.instanceId = instanceId;
-    return this;
-  }
-
-   /**
-   * Get instanceId
-   * @return instanceId
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getInstanceId() {
-    return instanceId;
-  }
-
-  public void setInstanceId(String instanceId) {
-    this.instanceId = instanceId;
   }
 
 
@@ -187,32 +186,32 @@ public class CreateDatabaseRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateDatabaseRequest createDatabaseRequest = (CreateDatabaseRequest) o;
-    return Objects.equals(this.characterSetName, createDatabaseRequest.characterSetName) &&
-        Objects.equals(this.dbDesc, createDatabaseRequest.dbDesc) &&
-        Objects.equals(this.dbName, createDatabaseRequest.dbName) &&
-        Objects.equals(this.databasePrivileges, createDatabaseRequest.databasePrivileges) &&
-        Objects.equals(this.databasePrivilegesInfo, createDatabaseRequest.databasePrivilegesInfo) &&
-        Objects.equals(this.instanceId, createDatabaseRequest.instanceId);
+    DatabasesInfoForDescribeDatabasesOutput databasesInfoForDescribeDatabasesOutput = (DatabasesInfoForDescribeDatabasesOutput) o;
+    return Objects.equals(this.characterSetName, databasesInfoForDescribeDatabasesOutput.characterSetName) &&
+        Objects.equals(this.dbDesc, databasesInfoForDescribeDatabasesOutput.dbDesc) &&
+        Objects.equals(this.dbName, databasesInfoForDescribeDatabasesOutput.dbName) &&
+        Objects.equals(this.dbStatus, databasesInfoForDescribeDatabasesOutput.dbStatus) &&
+        Objects.equals(this.databasePrivileges, databasesInfoForDescribeDatabasesOutput.databasePrivileges) &&
+        Objects.equals(this.databasePrivilegesInfo, databasesInfoForDescribeDatabasesOutput.databasePrivilegesInfo);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(characterSetName, dbDesc, dbName, databasePrivileges, databasePrivilegesInfo, instanceId);
+    return Objects.hash(characterSetName, dbDesc, dbName, dbStatus, databasePrivileges, databasePrivilegesInfo);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateDatabaseRequest {\n");
+    sb.append("class DatabasesInfoForDescribeDatabasesOutput {\n");
     
     sb.append("    characterSetName: ").append(toIndentedString(characterSetName)).append("\n");
     sb.append("    dbDesc: ").append(toIndentedString(dbDesc)).append("\n");
     sb.append("    dbName: ").append(toIndentedString(dbName)).append("\n");
+    sb.append("    dbStatus: ").append(toIndentedString(dbStatus)).append("\n");
     sb.append("    databasePrivileges: ").append(toIndentedString(databasePrivileges)).append("\n");
     sb.append("    databasePrivilegesInfo: ").append(toIndentedString(databasePrivilegesInfo)).append("\n");
-    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

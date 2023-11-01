@@ -42,9 +42,6 @@ public class DatabasForDescribeDatabasesOutput {
   @SerializedName("DBName")
   private String dbName = null;
 
-  @SerializedName("DBPartition")
-  private Integer dbPartition = null;
-
   @SerializedName("DBStatus")
   private String dbStatus = null;
 
@@ -106,24 +103,6 @@ public class DatabasForDescribeDatabasesOutput {
 
   public void setDbName(String dbName) {
     this.dbName = dbName;
-  }
-
-  public DatabasForDescribeDatabasesOutput dbPartition(Integer dbPartition) {
-    this.dbPartition = dbPartition;
-    return this;
-  }
-
-   /**
-   * Get dbPartition
-   * @return dbPartition
-  **/
-  @Schema(description = "")
-  public Integer getDbPartition() {
-    return dbPartition;
-  }
-
-  public void setDbPartition(Integer dbPartition) {
-    this.dbPartition = dbPartition;
   }
 
   public DatabasForDescribeDatabasesOutput dbStatus(String dbStatus) {
@@ -211,7 +190,6 @@ public class DatabasForDescribeDatabasesOutput {
     return Objects.equals(this.characterSetName, databasForDescribeDatabasesOutput.characterSetName) &&
         Objects.equals(this.dbDesc, databasForDescribeDatabasesOutput.dbDesc) &&
         Objects.equals(this.dbName, databasForDescribeDatabasesOutput.dbName) &&
-        Objects.equals(this.dbPartition, databasForDescribeDatabasesOutput.dbPartition) &&
         Objects.equals(this.dbStatus, databasForDescribeDatabasesOutput.dbStatus) &&
         Objects.equals(this.databasePrivileges, databasForDescribeDatabasesOutput.databasePrivileges) &&
         Objects.equals(this.databasePrivilegesInfo, databasForDescribeDatabasesOutput.databasePrivilegesInfo);
@@ -219,7 +197,7 @@ public class DatabasForDescribeDatabasesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(characterSetName, dbDesc, dbName, dbPartition, dbStatus, databasePrivileges, databasePrivilegesInfo);
+    return Objects.hash(characterSetName, dbDesc, dbName, dbStatus, databasePrivileges, databasePrivilegesInfo);
   }
 
 
@@ -231,7 +209,6 @@ public class DatabasForDescribeDatabasesOutput {
     sb.append("    characterSetName: ").append(toIndentedString(characterSetName)).append("\n");
     sb.append("    dbDesc: ").append(toIndentedString(dbDesc)).append("\n");
     sb.append("    dbName: ").append(toIndentedString(dbName)).append("\n");
-    sb.append("    dbPartition: ").append(toIndentedString(dbPartition)).append("\n");
     sb.append("    dbStatus: ").append(toIndentedString(dbStatus)).append("\n");
     sb.append("    databasePrivileges: ").append(toIndentedString(databasePrivileges)).append("\n");
     sb.append("    databasePrivilegesInfo: ").append(toIndentedString(databasePrivilegesInfo)).append("\n");

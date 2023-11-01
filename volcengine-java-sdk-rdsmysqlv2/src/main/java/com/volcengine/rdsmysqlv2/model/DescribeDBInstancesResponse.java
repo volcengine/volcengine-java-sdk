@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.rdsmysqlv2.model.InstanceForDescribeDBInstancesOutput;
+import com.volcengine.rdsmysqlv2.model.InstancesInfoForDescribeDBInstancesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -34,6 +35,9 @@ import javax.validation.Valid;
 public class DescribeDBInstancesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Instances")
   private List<InstanceForDescribeDBInstancesOutput> instances = null;
+
+  @SerializedName("InstancesInfo")
+  private List<InstancesInfoForDescribeDBInstancesOutput> instancesInfo = null;
 
   @SerializedName("Total")
   private Integer total = null;
@@ -65,6 +69,33 @@ public class DescribeDBInstancesResponse extends com.volcengine.model.AbstractRe
     this.instances = instances;
   }
 
+  public DescribeDBInstancesResponse instancesInfo(List<InstancesInfoForDescribeDBInstancesOutput> instancesInfo) {
+    this.instancesInfo = instancesInfo;
+    return this;
+  }
+
+  public DescribeDBInstancesResponse addInstancesInfoItem(InstancesInfoForDescribeDBInstancesOutput instancesInfoItem) {
+    if (this.instancesInfo == null) {
+      this.instancesInfo = new ArrayList<InstancesInfoForDescribeDBInstancesOutput>();
+    }
+    this.instancesInfo.add(instancesInfoItem);
+    return this;
+  }
+
+   /**
+   * Get instancesInfo
+   * @return instancesInfo
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<InstancesInfoForDescribeDBInstancesOutput> getInstancesInfo() {
+    return instancesInfo;
+  }
+
+  public void setInstancesInfo(List<InstancesInfoForDescribeDBInstancesOutput> instancesInfo) {
+    this.instancesInfo = instancesInfo;
+  }
+
   public DescribeDBInstancesResponse total(Integer total) {
     this.total = total;
     return this;
@@ -94,12 +125,13 @@ public class DescribeDBInstancesResponse extends com.volcengine.model.AbstractRe
     }
     DescribeDBInstancesResponse describeDBInstancesResponse = (DescribeDBInstancesResponse) o;
     return Objects.equals(this.instances, describeDBInstancesResponse.instances) &&
+        Objects.equals(this.instancesInfo, describeDBInstancesResponse.instancesInfo) &&
         Objects.equals(this.total, describeDBInstancesResponse.total);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instances, total);
+    return Objects.hash(instances, instancesInfo, total);
   }
 
 
@@ -109,6 +141,7 @@ public class DescribeDBInstancesResponse extends com.volcengine.model.AbstractRe
     sb.append("class DescribeDBInstancesResponse {\n");
     
     sb.append("    instances: ").append(toIndentedString(instances)).append("\n");
+    sb.append("    instancesInfo: ").append(toIndentedString(instancesInfo)).append("\n");
     sb.append("    total: ").append(toIndentedString(total)).append("\n");
     sb.append("}");
     return sb.toString();
