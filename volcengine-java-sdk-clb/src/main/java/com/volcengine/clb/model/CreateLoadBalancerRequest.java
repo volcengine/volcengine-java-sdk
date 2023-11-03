@@ -96,6 +96,9 @@ public class CreateLoadBalancerRequest {
   @SerializedName("VpcId")
   private String vpcId = null;
 
+  @SerializedName("ZoneType")
+  private String zoneType = null;
+
   public CreateLoadBalancerRequest addressIpVersion(String addressIpVersion) {
     this.addressIpVersion = addressIpVersion;
     return this;
@@ -250,7 +253,8 @@ public class CreateLoadBalancerRequest {
    * Get loadBalancerSpec
    * @return loadBalancerSpec
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getLoadBalancerSpec() {
     return loadBalancerSpec;
   }
@@ -487,6 +491,24 @@ public class CreateLoadBalancerRequest {
     this.vpcId = vpcId;
   }
 
+  public CreateLoadBalancerRequest zoneType(String zoneType) {
+    this.zoneType = zoneType;
+    return this;
+  }
+
+   /**
+   * Get zoneType
+   * @return zoneType
+  **/
+  @Schema(description = "")
+  public String getZoneType() {
+    return zoneType;
+  }
+
+  public void setZoneType(String zoneType) {
+    this.zoneType = zoneType;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -517,12 +539,13 @@ public class CreateLoadBalancerRequest {
         Objects.equals(this.subnetId, createLoadBalancerRequest.subnetId) &&
         Objects.equals(this.tags, createLoadBalancerRequest.tags) &&
         Objects.equals(this.type, createLoadBalancerRequest.type) &&
-        Objects.equals(this.vpcId, createLoadBalancerRequest.vpcId);
+        Objects.equals(this.vpcId, createLoadBalancerRequest.vpcId) &&
+        Objects.equals(this.zoneType, createLoadBalancerRequest.zoneType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(addressIpVersion, clientToken, description, eipBillingConfig, eniAddress, eniIpv6Address, loadBalancerBillingType, loadBalancerName, loadBalancerSpec, masterZoneId, modificationProtectionReason, modificationProtectionStatus, period, periodUnit, projectName, regionId, slaveZoneId, subnetId, tags, type, vpcId);
+    return Objects.hash(addressIpVersion, clientToken, description, eipBillingConfig, eniAddress, eniIpv6Address, loadBalancerBillingType, loadBalancerName, loadBalancerSpec, masterZoneId, modificationProtectionReason, modificationProtectionStatus, period, periodUnit, projectName, regionId, slaveZoneId, subnetId, tags, type, vpcId, zoneType);
   }
 
 
@@ -552,6 +575,7 @@ public class CreateLoadBalancerRequest {
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
+    sb.append("    zoneType: ").append(toIndentedString(zoneType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

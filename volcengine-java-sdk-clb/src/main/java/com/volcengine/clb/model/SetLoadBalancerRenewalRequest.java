@@ -50,7 +50,8 @@ public class SetLoadBalancerRenewalRequest {
    * Get loadBalancerId
    * @return loadBalancerId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getLoadBalancerId() {
     return loadBalancerId;
   }

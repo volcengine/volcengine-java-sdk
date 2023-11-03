@@ -32,6 +32,9 @@ import javax.validation.Valid;
 
 
 public class DescribeServerGroupAttributesResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("AddressIpVersion")
+  private String addressIpVersion = null;
+
   @SerializedName("Description")
   private String description = null;
 
@@ -52,6 +55,27 @@ public class DescribeServerGroupAttributesResponse extends com.volcengine.model.
 
   @SerializedName("Servers")
   private List<ServerForDescribeServerGroupAttributesOutput> servers = null;
+
+  @SerializedName("Type")
+  private String type = null;
+
+  public DescribeServerGroupAttributesResponse addressIpVersion(String addressIpVersion) {
+    this.addressIpVersion = addressIpVersion;
+    return this;
+  }
+
+   /**
+   * Get addressIpVersion
+   * @return addressIpVersion
+  **/
+  @Schema(description = "")
+  public String getAddressIpVersion() {
+    return addressIpVersion;
+  }
+
+  public void setAddressIpVersion(String addressIpVersion) {
+    this.addressIpVersion = addressIpVersion;
+  }
 
   public DescribeServerGroupAttributesResponse description(String description) {
     this.description = description;
@@ -196,6 +220,24 @@ public class DescribeServerGroupAttributesResponse extends com.volcengine.model.
     this.servers = servers;
   }
 
+  public DescribeServerGroupAttributesResponse type(String type) {
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @Schema(description = "")
+  public String getType() {
+    return type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -206,18 +248,20 @@ public class DescribeServerGroupAttributesResponse extends com.volcengine.model.
       return false;
     }
     DescribeServerGroupAttributesResponse describeServerGroupAttributesResponse = (DescribeServerGroupAttributesResponse) o;
-    return Objects.equals(this.description, describeServerGroupAttributesResponse.description) &&
+    return Objects.equals(this.addressIpVersion, describeServerGroupAttributesResponse.addressIpVersion) &&
+        Objects.equals(this.description, describeServerGroupAttributesResponse.description) &&
         Objects.equals(this.listeners, describeServerGroupAttributesResponse.listeners) &&
         Objects.equals(this.loadBalancerId, describeServerGroupAttributesResponse.loadBalancerId) &&
         Objects.equals(this.requestId, describeServerGroupAttributesResponse.requestId) &&
         Objects.equals(this.serverGroupId, describeServerGroupAttributesResponse.serverGroupId) &&
         Objects.equals(this.serverGroupName, describeServerGroupAttributesResponse.serverGroupName) &&
-        Objects.equals(this.servers, describeServerGroupAttributesResponse.servers);
+        Objects.equals(this.servers, describeServerGroupAttributesResponse.servers) &&
+        Objects.equals(this.type, describeServerGroupAttributesResponse.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, listeners, loadBalancerId, requestId, serverGroupId, serverGroupName, servers);
+    return Objects.hash(addressIpVersion, description, listeners, loadBalancerId, requestId, serverGroupId, serverGroupName, servers, type);
   }
 
 
@@ -226,6 +270,7 @@ public class DescribeServerGroupAttributesResponse extends com.volcengine.model.
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeServerGroupAttributesResponse {\n");
     
+    sb.append("    addressIpVersion: ").append(toIndentedString(addressIpVersion)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    listeners: ").append(toIndentedString(listeners)).append("\n");
     sb.append("    loadBalancerId: ").append(toIndentedString(loadBalancerId)).append("\n");
@@ -233,6 +278,7 @@ public class DescribeServerGroupAttributesResponse extends com.volcengine.model.
     sb.append("    serverGroupId: ").append(toIndentedString(serverGroupId)).append("\n");
     sb.append("    serverGroupName: ").append(toIndentedString(serverGroupName)).append("\n");
     sb.append("    servers: ").append(toIndentedString(servers)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }

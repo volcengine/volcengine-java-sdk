@@ -77,11 +77,20 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
   @SerializedName("LoadBalancerId")
   private String loadBalancerId = null;
 
+  @SerializedName("PersistenceTimeout")
+  private Integer persistenceTimeout = null;
+
+  @SerializedName("PersistenceType")
+  private String persistenceType = null;
+
   @SerializedName("Port")
   private Integer port = null;
 
   @SerializedName("Protocol")
   private String protocol = null;
+
+  @SerializedName("ProxyProtocolType")
+  private String proxyProtocolType = null;
 
   @SerializedName("RequestId")
   private String requestId = null;
@@ -377,6 +386,42 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
     this.loadBalancerId = loadBalancerId;
   }
 
+  public DescribeListenerAttributesResponse persistenceTimeout(Integer persistenceTimeout) {
+    this.persistenceTimeout = persistenceTimeout;
+    return this;
+  }
+
+   /**
+   * Get persistenceTimeout
+   * @return persistenceTimeout
+  **/
+  @Schema(description = "")
+  public Integer getPersistenceTimeout() {
+    return persistenceTimeout;
+  }
+
+  public void setPersistenceTimeout(Integer persistenceTimeout) {
+    this.persistenceTimeout = persistenceTimeout;
+  }
+
+  public DescribeListenerAttributesResponse persistenceType(String persistenceType) {
+    this.persistenceType = persistenceType;
+    return this;
+  }
+
+   /**
+   * Get persistenceType
+   * @return persistenceType
+  **/
+  @Schema(description = "")
+  public String getPersistenceType() {
+    return persistenceType;
+  }
+
+  public void setPersistenceType(String persistenceType) {
+    this.persistenceType = persistenceType;
+  }
+
   public DescribeListenerAttributesResponse port(Integer port) {
     this.port = port;
     return this;
@@ -411,6 +456,24 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
 
   public void setProtocol(String protocol) {
     this.protocol = protocol;
+  }
+
+  public DescribeListenerAttributesResponse proxyProtocolType(String proxyProtocolType) {
+    this.proxyProtocolType = proxyProtocolType;
+    return this;
+  }
+
+   /**
+   * Get proxyProtocolType
+   * @return proxyProtocolType
+  **/
+  @Schema(description = "")
+  public String getProxyProtocolType() {
+    return proxyProtocolType;
+  }
+
+  public void setProxyProtocolType(String proxyProtocolType) {
+    this.proxyProtocolType = proxyProtocolType;
   }
 
   public DescribeListenerAttributesResponse requestId(String requestId) {
@@ -528,8 +591,11 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
         Objects.equals(this.listenerId, describeListenerAttributesResponse.listenerId) &&
         Objects.equals(this.listenerName, describeListenerAttributesResponse.listenerName) &&
         Objects.equals(this.loadBalancerId, describeListenerAttributesResponse.loadBalancerId) &&
+        Objects.equals(this.persistenceTimeout, describeListenerAttributesResponse.persistenceTimeout) &&
+        Objects.equals(this.persistenceType, describeListenerAttributesResponse.persistenceType) &&
         Objects.equals(this.port, describeListenerAttributesResponse.port) &&
         Objects.equals(this.protocol, describeListenerAttributesResponse.protocol) &&
+        Objects.equals(this.proxyProtocolType, describeListenerAttributesResponse.proxyProtocolType) &&
         Objects.equals(this.requestId, describeListenerAttributesResponse.requestId) &&
         Objects.equals(this.scheduler, describeListenerAttributesResponse.scheduler) &&
         Objects.equals(this.serverGroupId, describeListenerAttributesResponse.serverGroupId) &&
@@ -539,7 +605,7 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclIds, aclStatus, aclType, bandwidth, certificateId, connectionDrainEnabled, connectionDrainTimeout, createTime, description, enabled, establishedTimeout, healthCheck, listenerId, listenerName, loadBalancerId, port, protocol, requestId, scheduler, serverGroupId, status, updateTime);
+    return Objects.hash(aclIds, aclStatus, aclType, bandwidth, certificateId, connectionDrainEnabled, connectionDrainTimeout, createTime, description, enabled, establishedTimeout, healthCheck, listenerId, listenerName, loadBalancerId, persistenceTimeout, persistenceType, port, protocol, proxyProtocolType, requestId, scheduler, serverGroupId, status, updateTime);
   }
 
 
@@ -563,8 +629,11 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
     sb.append("    listenerId: ").append(toIndentedString(listenerId)).append("\n");
     sb.append("    listenerName: ").append(toIndentedString(listenerName)).append("\n");
     sb.append("    loadBalancerId: ").append(toIndentedString(loadBalancerId)).append("\n");
+    sb.append("    persistenceTimeout: ").append(toIndentedString(persistenceTimeout)).append("\n");
+    sb.append("    persistenceType: ").append(toIndentedString(persistenceType)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
+    sb.append("    proxyProtocolType: ").append(toIndentedString(proxyProtocolType)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    scheduler: ").append(toIndentedString(scheduler)).append("\n");
     sb.append("    serverGroupId: ").append(toIndentedString(serverGroupId)).append("\n");

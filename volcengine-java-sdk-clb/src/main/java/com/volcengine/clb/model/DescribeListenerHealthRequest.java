@@ -33,7 +33,7 @@ public class DescribeListenerHealthRequest {
   private String listenerId = null;
 
   @SerializedName("OnlyUnHealthy")
-  private String onlyUnHealthy = null;
+  private Boolean onlyUnHealthy = null;
 
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
@@ -60,7 +60,7 @@ public class DescribeListenerHealthRequest {
     this.listenerId = listenerId;
   }
 
-  public DescribeListenerHealthRequest onlyUnHealthy(String onlyUnHealthy) {
+  public DescribeListenerHealthRequest onlyUnHealthy(Boolean onlyUnHealthy) {
     this.onlyUnHealthy = onlyUnHealthy;
     return this;
   }
@@ -70,11 +70,11 @@ public class DescribeListenerHealthRequest {
    * @return onlyUnHealthy
   **/
   @Schema(description = "")
-  public String getOnlyUnHealthy() {
+  public Boolean isOnlyUnHealthy() {
     return onlyUnHealthy;
   }
 
-  public void setOnlyUnHealthy(String onlyUnHealthy) {
+  public void setOnlyUnHealthy(Boolean onlyUnHealthy) {
     this.onlyUnHealthy = onlyUnHealthy;
   }
 

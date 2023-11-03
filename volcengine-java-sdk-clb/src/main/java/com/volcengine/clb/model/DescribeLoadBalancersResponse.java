@@ -32,6 +32,9 @@ import javax.validation.Valid;
 
 
 public class DescribeLoadBalancersResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("AccountId")
+  private String accountId = null;
+
   @SerializedName("LoadBalancers")
   private List<LoadBalancerForDescribeLoadBalancersOutput> loadBalancers = null;
 
@@ -46,6 +49,24 @@ public class DescribeLoadBalancersResponse extends com.volcengine.model.Abstract
 
   @SerializedName("TotalCount")
   private Integer totalCount = null;
+
+  public DescribeLoadBalancersResponse accountId(String accountId) {
+    this.accountId = accountId;
+    return this;
+  }
+
+   /**
+   * Get accountId
+   * @return accountId
+  **/
+  @Schema(description = "")
+  public String getAccountId() {
+    return accountId;
+  }
+
+  public void setAccountId(String accountId) {
+    this.accountId = accountId;
+  }
 
   public DescribeLoadBalancersResponse loadBalancers(List<LoadBalancerForDescribeLoadBalancersOutput> loadBalancers) {
     this.loadBalancers = loadBalancers;
@@ -156,7 +177,8 @@ public class DescribeLoadBalancersResponse extends com.volcengine.model.Abstract
       return false;
     }
     DescribeLoadBalancersResponse describeLoadBalancersResponse = (DescribeLoadBalancersResponse) o;
-    return Objects.equals(this.loadBalancers, describeLoadBalancersResponse.loadBalancers) &&
+    return Objects.equals(this.accountId, describeLoadBalancersResponse.accountId) &&
+        Objects.equals(this.loadBalancers, describeLoadBalancersResponse.loadBalancers) &&
         Objects.equals(this.pageNumber, describeLoadBalancersResponse.pageNumber) &&
         Objects.equals(this.pageSize, describeLoadBalancersResponse.pageSize) &&
         Objects.equals(this.requestId, describeLoadBalancersResponse.requestId) &&
@@ -165,7 +187,7 @@ public class DescribeLoadBalancersResponse extends com.volcengine.model.Abstract
 
   @Override
   public int hashCode() {
-    return Objects.hash(loadBalancers, pageNumber, pageSize, requestId, totalCount);
+    return Objects.hash(accountId, loadBalancers, pageNumber, pageSize, requestId, totalCount);
   }
 
 
@@ -174,6 +196,7 @@ public class DescribeLoadBalancersResponse extends com.volcengine.model.Abstract
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeLoadBalancersResponse {\n");
     
+    sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    loadBalancers: ").append(toIndentedString(loadBalancers)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");

@@ -47,6 +47,9 @@ public class DescribeLoadBalancersRequest {
   @SerializedName("LoadBalancerName")
   private String loadBalancerName = null;
 
+  @SerializedName("MasterZoneId")
+  private String masterZoneId = null;
+
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
 
@@ -56,8 +59,14 @@ public class DescribeLoadBalancersRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
 
+  @SerializedName("Status")
+  private String status = null;
+
   @SerializedName("TagFilters")
   private List<TagFilterForDescribeLoadBalancersInput> tagFilters = null;
+
+  @SerializedName("Type")
+  private String type = null;
 
   @SerializedName("VpcId")
   private String vpcId = null;
@@ -160,6 +169,24 @@ public class DescribeLoadBalancersRequest {
     this.loadBalancerName = loadBalancerName;
   }
 
+  public DescribeLoadBalancersRequest masterZoneId(String masterZoneId) {
+    this.masterZoneId = masterZoneId;
+    return this;
+  }
+
+   /**
+   * Get masterZoneId
+   * @return masterZoneId
+  **/
+  @Schema(description = "")
+  public String getMasterZoneId() {
+    return masterZoneId;
+  }
+
+  public void setMasterZoneId(String masterZoneId) {
+    this.masterZoneId = masterZoneId;
+  }
+
   public DescribeLoadBalancersRequest pageNumber(Integer pageNumber) {
     this.pageNumber = pageNumber;
     return this;
@@ -214,6 +241,24 @@ public class DescribeLoadBalancersRequest {
     this.projectName = projectName;
   }
 
+  public DescribeLoadBalancersRequest status(String status) {
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * Get status
+   * @return status
+  **/
+  @Schema(description = "")
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
   public DescribeLoadBalancersRequest tagFilters(List<TagFilterForDescribeLoadBalancersInput> tagFilters) {
     this.tagFilters = tagFilters;
     return this;
@@ -239,6 +284,24 @@ public class DescribeLoadBalancersRequest {
 
   public void setTagFilters(List<TagFilterForDescribeLoadBalancersInput> tagFilters) {
     this.tagFilters = tagFilters;
+  }
+
+  public DescribeLoadBalancersRequest type(String type) {
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @Schema(description = "")
+  public String getType() {
+    return type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
   }
 
   public DescribeLoadBalancersRequest vpcId(String vpcId) {
@@ -274,16 +337,19 @@ public class DescribeLoadBalancersRequest {
         Objects.equals(this.eniAddress, describeLoadBalancersRequest.eniAddress) &&
         Objects.equals(this.loadBalancerIds, describeLoadBalancersRequest.loadBalancerIds) &&
         Objects.equals(this.loadBalancerName, describeLoadBalancersRequest.loadBalancerName) &&
+        Objects.equals(this.masterZoneId, describeLoadBalancersRequest.masterZoneId) &&
         Objects.equals(this.pageNumber, describeLoadBalancersRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeLoadBalancersRequest.pageSize) &&
         Objects.equals(this.projectName, describeLoadBalancersRequest.projectName) &&
+        Objects.equals(this.status, describeLoadBalancersRequest.status) &&
         Objects.equals(this.tagFilters, describeLoadBalancersRequest.tagFilters) &&
+        Objects.equals(this.type, describeLoadBalancersRequest.type) &&
         Objects.equals(this.vpcId, describeLoadBalancersRequest.vpcId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(addressIpVersion, eipAddress, eniAddress, loadBalancerIds, loadBalancerName, pageNumber, pageSize, projectName, tagFilters, vpcId);
+    return Objects.hash(addressIpVersion, eipAddress, eniAddress, loadBalancerIds, loadBalancerName, masterZoneId, pageNumber, pageSize, projectName, status, tagFilters, type, vpcId);
   }
 
 
@@ -297,10 +363,13 @@ public class DescribeLoadBalancersRequest {
     sb.append("    eniAddress: ").append(toIndentedString(eniAddress)).append("\n");
     sb.append("    loadBalancerIds: ").append(toIndentedString(loadBalancerIds)).append("\n");
     sb.append("    loadBalancerName: ").append(toIndentedString(loadBalancerName)).append("\n");
+    sb.append("    masterZoneId: ").append(toIndentedString(masterZoneId)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("}");
     return sb.toString();

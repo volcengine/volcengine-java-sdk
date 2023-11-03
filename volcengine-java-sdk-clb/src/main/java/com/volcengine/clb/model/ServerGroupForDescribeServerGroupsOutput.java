@@ -29,6 +29,9 @@ import javax.validation.Valid;
 
 
 public class ServerGroupForDescribeServerGroupsOutput {
+  @SerializedName("AddressIpVersion")
+  private String addressIpVersion = null;
+
   @SerializedName("CreateTime")
   private String createTime = null;
 
@@ -41,8 +44,29 @@ public class ServerGroupForDescribeServerGroupsOutput {
   @SerializedName("ServerGroupName")
   private String serverGroupName = null;
 
+  @SerializedName("Type")
+  private String type = null;
+
   @SerializedName("UpdateTime")
   private String updateTime = null;
+
+  public ServerGroupForDescribeServerGroupsOutput addressIpVersion(String addressIpVersion) {
+    this.addressIpVersion = addressIpVersion;
+    return this;
+  }
+
+   /**
+   * Get addressIpVersion
+   * @return addressIpVersion
+  **/
+  @Schema(description = "")
+  public String getAddressIpVersion() {
+    return addressIpVersion;
+  }
+
+  public void setAddressIpVersion(String addressIpVersion) {
+    this.addressIpVersion = addressIpVersion;
+  }
 
   public ServerGroupForDescribeServerGroupsOutput createTime(String createTime) {
     this.createTime = createTime;
@@ -116,6 +140,24 @@ public class ServerGroupForDescribeServerGroupsOutput {
     this.serverGroupName = serverGroupName;
   }
 
+  public ServerGroupForDescribeServerGroupsOutput type(String type) {
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @Schema(description = "")
+  public String getType() {
+    return type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
   public ServerGroupForDescribeServerGroupsOutput updateTime(String updateTime) {
     this.updateTime = updateTime;
     return this;
@@ -144,16 +186,18 @@ public class ServerGroupForDescribeServerGroupsOutput {
       return false;
     }
     ServerGroupForDescribeServerGroupsOutput serverGroupForDescribeServerGroupsOutput = (ServerGroupForDescribeServerGroupsOutput) o;
-    return Objects.equals(this.createTime, serverGroupForDescribeServerGroupsOutput.createTime) &&
+    return Objects.equals(this.addressIpVersion, serverGroupForDescribeServerGroupsOutput.addressIpVersion) &&
+        Objects.equals(this.createTime, serverGroupForDescribeServerGroupsOutput.createTime) &&
         Objects.equals(this.description, serverGroupForDescribeServerGroupsOutput.description) &&
         Objects.equals(this.serverGroupId, serverGroupForDescribeServerGroupsOutput.serverGroupId) &&
         Objects.equals(this.serverGroupName, serverGroupForDescribeServerGroupsOutput.serverGroupName) &&
+        Objects.equals(this.type, serverGroupForDescribeServerGroupsOutput.type) &&
         Objects.equals(this.updateTime, serverGroupForDescribeServerGroupsOutput.updateTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createTime, description, serverGroupId, serverGroupName, updateTime);
+    return Objects.hash(addressIpVersion, createTime, description, serverGroupId, serverGroupName, type, updateTime);
   }
 
 
@@ -162,10 +206,12 @@ public class ServerGroupForDescribeServerGroupsOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ServerGroupForDescribeServerGroupsOutput {\n");
     
+    sb.append("    addressIpVersion: ").append(toIndentedString(addressIpVersion)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    serverGroupId: ").append(toIndentedString(serverGroupId)).append("\n");
     sb.append("    serverGroupName: ").append(toIndentedString(serverGroupName)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("}");
     return sb.toString();
