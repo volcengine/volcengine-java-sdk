@@ -40,8 +40,14 @@ public class DescribeLoadBalancerAttributesResponse extends com.volcengine.model
   @SerializedName("AccessLog")
   private AccessLogForDescribeLoadBalancerAttributesOutput accessLog = null;
 
+  @SerializedName("AccountId")
+  private String accountId = null;
+
   @SerializedName("AddressIpVersion")
   private String addressIpVersion = null;
+
+  @SerializedName("AllowedPorts")
+  private List<String> allowedPorts = null;
 
   @SerializedName("BusinessStatus")
   private String businessStatus = null;
@@ -170,6 +176,24 @@ public class DescribeLoadBalancerAttributesResponse extends com.volcengine.model
     this.accessLog = accessLog;
   }
 
+  public DescribeLoadBalancerAttributesResponse accountId(String accountId) {
+    this.accountId = accountId;
+    return this;
+  }
+
+   /**
+   * Get accountId
+   * @return accountId
+  **/
+  @Schema(description = "")
+  public String getAccountId() {
+    return accountId;
+  }
+
+  public void setAccountId(String accountId) {
+    this.accountId = accountId;
+  }
+
   public DescribeLoadBalancerAttributesResponse addressIpVersion(String addressIpVersion) {
     this.addressIpVersion = addressIpVersion;
     return this;
@@ -186,6 +210,32 @@ public class DescribeLoadBalancerAttributesResponse extends com.volcengine.model
 
   public void setAddressIpVersion(String addressIpVersion) {
     this.addressIpVersion = addressIpVersion;
+  }
+
+  public DescribeLoadBalancerAttributesResponse allowedPorts(List<String> allowedPorts) {
+    this.allowedPorts = allowedPorts;
+    return this;
+  }
+
+  public DescribeLoadBalancerAttributesResponse addAllowedPortsItem(String allowedPortsItem) {
+    if (this.allowedPorts == null) {
+      this.allowedPorts = new ArrayList<String>();
+    }
+    this.allowedPorts.add(allowedPortsItem);
+    return this;
+  }
+
+   /**
+   * Get allowedPorts
+   * @return allowedPorts
+  **/
+  @Schema(description = "")
+  public List<String> getAllowedPorts() {
+    return allowedPorts;
+  }
+
+  public void setAllowedPorts(List<String> allowedPorts) {
+    this.allowedPorts = allowedPorts;
   }
 
   public DescribeLoadBalancerAttributesResponse businessStatus(String businessStatus) {
@@ -876,7 +926,9 @@ public class DescribeLoadBalancerAttributesResponse extends com.volcengine.model
     }
     DescribeLoadBalancerAttributesResponse describeLoadBalancerAttributesResponse = (DescribeLoadBalancerAttributesResponse) o;
     return Objects.equals(this.accessLog, describeLoadBalancerAttributesResponse.accessLog) &&
+        Objects.equals(this.accountId, describeLoadBalancerAttributesResponse.accountId) &&
         Objects.equals(this.addressIpVersion, describeLoadBalancerAttributesResponse.addressIpVersion) &&
+        Objects.equals(this.allowedPorts, describeLoadBalancerAttributesResponse.allowedPorts) &&
         Objects.equals(this.businessStatus, describeLoadBalancerAttributesResponse.businessStatus) &&
         Objects.equals(this.createTime, describeLoadBalancerAttributesResponse.createTime) &&
         Objects.equals(this.deletedTime, describeLoadBalancerAttributesResponse.deletedTime) &&
@@ -917,7 +969,7 @@ public class DescribeLoadBalancerAttributesResponse extends com.volcengine.model
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessLog, addressIpVersion, businessStatus, createTime, deletedTime, description, eip, eipAddress, eipID, enabled, eniAddress, eniID, eniIpv6Address, expiredTime, ipv6AddressBandwidth, ipv6EipId, listeners, loadBalancerBillingType, loadBalancerId, loadBalancerName, loadBalancerSpec, lockReason, logTopicId, masterZoneId, modificationProtectionReason, modificationProtectionStatus, overdueTime, projectName, requestId, serverGroups, serviceManaged, slaveZoneId, status, subnetId, tags, type, updateTime, vpcId);
+    return Objects.hash(accessLog, accountId, addressIpVersion, allowedPorts, businessStatus, createTime, deletedTime, description, eip, eipAddress, eipID, enabled, eniAddress, eniID, eniIpv6Address, expiredTime, ipv6AddressBandwidth, ipv6EipId, listeners, loadBalancerBillingType, loadBalancerId, loadBalancerName, loadBalancerSpec, lockReason, logTopicId, masterZoneId, modificationProtectionReason, modificationProtectionStatus, overdueTime, projectName, requestId, serverGroups, serviceManaged, slaveZoneId, status, subnetId, tags, type, updateTime, vpcId);
   }
 
 
@@ -927,7 +979,9 @@ public class DescribeLoadBalancerAttributesResponse extends com.volcengine.model
     sb.append("class DescribeLoadBalancerAttributesResponse {\n");
     
     sb.append("    accessLog: ").append(toIndentedString(accessLog)).append("\n");
+    sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    addressIpVersion: ").append(toIndentedString(addressIpVersion)).append("\n");
+    sb.append("    allowedPorts: ").append(toIndentedString(allowedPorts)).append("\n");
     sb.append("    businessStatus: ").append(toIndentedString(businessStatus)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    deletedTime: ").append(toIndentedString(deletedTime)).append("\n");

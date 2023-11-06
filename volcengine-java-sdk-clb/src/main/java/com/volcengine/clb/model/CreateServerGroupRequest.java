@@ -32,6 +32,9 @@ import javax.validation.Valid;
 
 
 public class CreateServerGroupRequest {
+  @SerializedName("AddressIpVersion")
+  private String addressIpVersion = null;
+
   @SerializedName("Description")
   private String description = null;
 
@@ -46,6 +49,24 @@ public class CreateServerGroupRequest {
 
   @SerializedName("Type")
   private String type = null;
+
+  public CreateServerGroupRequest addressIpVersion(String addressIpVersion) {
+    this.addressIpVersion = addressIpVersion;
+    return this;
+  }
+
+   /**
+   * Get addressIpVersion
+   * @return addressIpVersion
+  **/
+  @Schema(description = "")
+  public String getAddressIpVersion() {
+    return addressIpVersion;
+  }
+
+  public void setAddressIpVersion(String addressIpVersion) {
+    this.addressIpVersion = addressIpVersion;
+  }
 
   public CreateServerGroupRequest description(String description) {
     this.description = description;
@@ -157,7 +178,8 @@ public class CreateServerGroupRequest {
       return false;
     }
     CreateServerGroupRequest createServerGroupRequest = (CreateServerGroupRequest) o;
-    return Objects.equals(this.description, createServerGroupRequest.description) &&
+    return Objects.equals(this.addressIpVersion, createServerGroupRequest.addressIpVersion) &&
+        Objects.equals(this.description, createServerGroupRequest.description) &&
         Objects.equals(this.loadBalancerId, createServerGroupRequest.loadBalancerId) &&
         Objects.equals(this.serverGroupName, createServerGroupRequest.serverGroupName) &&
         Objects.equals(this.servers, createServerGroupRequest.servers) &&
@@ -166,7 +188,7 @@ public class CreateServerGroupRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, loadBalancerId, serverGroupName, servers, type);
+    return Objects.hash(addressIpVersion, description, loadBalancerId, serverGroupName, servers, type);
   }
 
 
@@ -175,6 +197,7 @@ public class CreateServerGroupRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateServerGroupRequest {\n");
     
+    sb.append("    addressIpVersion: ").append(toIndentedString(addressIpVersion)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    loadBalancerId: ").append(toIndentedString(loadBalancerId)).append("\n");
     sb.append("    serverGroupName: ").append(toIndentedString(serverGroupName)).append("\n");

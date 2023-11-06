@@ -46,6 +46,9 @@ public class DescribeServerGroupsRequest {
   @SerializedName("ServerGroupName")
   private String serverGroupName = null;
 
+  @SerializedName("Type")
+  private String type = null;
+
   public DescribeServerGroupsRequest loadBalancerId(String loadBalancerId) {
     this.loadBalancerId = loadBalancerId;
     return this;
@@ -144,6 +147,24 @@ public class DescribeServerGroupsRequest {
     this.serverGroupName = serverGroupName;
   }
 
+  public DescribeServerGroupsRequest type(String type) {
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @Schema(description = "")
+  public String getType() {
+    return type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -158,12 +179,13 @@ public class DescribeServerGroupsRequest {
         Objects.equals(this.pageNumber, describeServerGroupsRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeServerGroupsRequest.pageSize) &&
         Objects.equals(this.serverGroupIds, describeServerGroupsRequest.serverGroupIds) &&
-        Objects.equals(this.serverGroupName, describeServerGroupsRequest.serverGroupName);
+        Objects.equals(this.serverGroupName, describeServerGroupsRequest.serverGroupName) &&
+        Objects.equals(this.type, describeServerGroupsRequest.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(loadBalancerId, pageNumber, pageSize, serverGroupIds, serverGroupName);
+    return Objects.hash(loadBalancerId, pageNumber, pageSize, serverGroupIds, serverGroupName, type);
   }
 
 
@@ -177,6 +199,7 @@ public class DescribeServerGroupsRequest {
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    serverGroupIds: ").append(toIndentedString(serverGroupIds)).append("\n");
     sb.append("    serverGroupName: ").append(toIndentedString(serverGroupName)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }

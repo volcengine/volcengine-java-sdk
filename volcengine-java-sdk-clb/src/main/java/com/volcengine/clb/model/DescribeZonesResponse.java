@@ -35,6 +35,9 @@ public class DescribeZonesResponse extends com.volcengine.model.AbstractResponse
   @SerializedName("MasterZones")
   private List<MasterZoneForDescribeZonesOutput> masterZones = null;
 
+  @SerializedName("RequestId")
+  private String requestId = null;
+
   public DescribeZonesResponse masterZones(List<MasterZoneForDescribeZonesOutput> masterZones) {
     this.masterZones = masterZones;
     return this;
@@ -62,6 +65,24 @@ public class DescribeZonesResponse extends com.volcengine.model.AbstractResponse
     this.masterZones = masterZones;
   }
 
+  public DescribeZonesResponse requestId(String requestId) {
+    this.requestId = requestId;
+    return this;
+  }
+
+   /**
+   * Get requestId
+   * @return requestId
+  **/
+  @Schema(description = "")
+  public String getRequestId() {
+    return requestId;
+  }
+
+  public void setRequestId(String requestId) {
+    this.requestId = requestId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -72,12 +93,13 @@ public class DescribeZonesResponse extends com.volcengine.model.AbstractResponse
       return false;
     }
     DescribeZonesResponse describeZonesResponse = (DescribeZonesResponse) o;
-    return Objects.equals(this.masterZones, describeZonesResponse.masterZones);
+    return Objects.equals(this.masterZones, describeZonesResponse.masterZones) &&
+        Objects.equals(this.requestId, describeZonesResponse.requestId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(masterZones);
+    return Objects.hash(masterZones, requestId);
   }
 
 
@@ -87,6 +109,7 @@ public class DescribeZonesResponse extends com.volcengine.model.AbstractResponse
     sb.append("class DescribeZonesResponse {\n");
     
     sb.append("    masterZones: ").append(toIndentedString(masterZones)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

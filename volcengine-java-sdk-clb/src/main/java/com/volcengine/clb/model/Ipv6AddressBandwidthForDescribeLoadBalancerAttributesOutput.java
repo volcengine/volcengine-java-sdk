@@ -32,6 +32,9 @@ public class Ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput {
   @SerializedName("Bandwidth")
   private Integer bandwidth = null;
 
+  @SerializedName("BandwidthPackageId")
+  private String bandwidthPackageId = null;
+
   @SerializedName("BillingType")
   private Integer billingType = null;
 
@@ -57,6 +60,24 @@ public class Ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput {
 
   public void setBandwidth(Integer bandwidth) {
     this.bandwidth = bandwidth;
+  }
+
+  public Ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput bandwidthPackageId(String bandwidthPackageId) {
+    this.bandwidthPackageId = bandwidthPackageId;
+    return this;
+  }
+
+   /**
+   * Get bandwidthPackageId
+   * @return bandwidthPackageId
+  **/
+  @Schema(description = "")
+  public String getBandwidthPackageId() {
+    return bandwidthPackageId;
+  }
+
+  public void setBandwidthPackageId(String bandwidthPackageId) {
+    this.bandwidthPackageId = bandwidthPackageId;
   }
 
   public Ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput billingType(Integer billingType) {
@@ -124,6 +145,7 @@ public class Ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput {
     }
     Ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput = (Ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput) o;
     return Objects.equals(this.bandwidth, ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput.bandwidth) &&
+        Objects.equals(this.bandwidthPackageId, ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput.bandwidthPackageId) &&
         Objects.equals(this.billingType, ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput.billingType) &&
         Objects.equals(this.ISP, ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput.ISP) &&
         Objects.equals(this.networkType, ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput.networkType);
@@ -131,7 +153,7 @@ public class Ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidth, billingType, ISP, networkType);
+    return Objects.hash(bandwidth, bandwidthPackageId, billingType, ISP, networkType);
   }
 
 
@@ -141,6 +163,7 @@ public class Ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput {
     sb.append("class Ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput {\n");
     
     sb.append("    bandwidth: ").append(toIndentedString(bandwidth)).append("\n");
+    sb.append("    bandwidthPackageId: ").append(toIndentedString(bandwidthPackageId)).append("\n");
     sb.append("    billingType: ").append(toIndentedString(billingType)).append("\n");
     sb.append("    ISP: ").append(toIndentedString(ISP)).append("\n");
     sb.append("    networkType: ").append(toIndentedString(networkType)).append("\n");

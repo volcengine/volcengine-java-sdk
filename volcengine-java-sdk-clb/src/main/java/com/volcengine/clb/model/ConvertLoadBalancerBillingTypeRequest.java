@@ -35,6 +35,9 @@ public class ConvertLoadBalancerBillingTypeRequest {
   @SerializedName("LoadBalancerId")
   private String loadBalancerId = null;
 
+  @SerializedName("LoadBalancerSpec")
+  private String loadBalancerSpec = null;
+
   @SerializedName("Period")
   private Integer period = null;
 
@@ -77,6 +80,24 @@ public class ConvertLoadBalancerBillingTypeRequest {
 
   public void setLoadBalancerId(String loadBalancerId) {
     this.loadBalancerId = loadBalancerId;
+  }
+
+  public ConvertLoadBalancerBillingTypeRequest loadBalancerSpec(String loadBalancerSpec) {
+    this.loadBalancerSpec = loadBalancerSpec;
+    return this;
+  }
+
+   /**
+   * Get loadBalancerSpec
+   * @return loadBalancerSpec
+  **/
+  @Schema(description = "")
+  public String getLoadBalancerSpec() {
+    return loadBalancerSpec;
+  }
+
+  public void setLoadBalancerSpec(String loadBalancerSpec) {
+    this.loadBalancerSpec = loadBalancerSpec;
   }
 
   public ConvertLoadBalancerBillingTypeRequest period(Integer period) {
@@ -127,13 +148,14 @@ public class ConvertLoadBalancerBillingTypeRequest {
     ConvertLoadBalancerBillingTypeRequest convertLoadBalancerBillingTypeRequest = (ConvertLoadBalancerBillingTypeRequest) o;
     return Objects.equals(this.loadBalancerBillingType, convertLoadBalancerBillingTypeRequest.loadBalancerBillingType) &&
         Objects.equals(this.loadBalancerId, convertLoadBalancerBillingTypeRequest.loadBalancerId) &&
+        Objects.equals(this.loadBalancerSpec, convertLoadBalancerBillingTypeRequest.loadBalancerSpec) &&
         Objects.equals(this.period, convertLoadBalancerBillingTypeRequest.period) &&
         Objects.equals(this.periodUnit, convertLoadBalancerBillingTypeRequest.periodUnit);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(loadBalancerBillingType, loadBalancerId, period, periodUnit);
+    return Objects.hash(loadBalancerBillingType, loadBalancerId, loadBalancerSpec, period, periodUnit);
   }
 
 
@@ -144,6 +166,7 @@ public class ConvertLoadBalancerBillingTypeRequest {
     
     sb.append("    loadBalancerBillingType: ").append(toIndentedString(loadBalancerBillingType)).append("\n");
     sb.append("    loadBalancerId: ").append(toIndentedString(loadBalancerId)).append("\n");
+    sb.append("    loadBalancerSpec: ").append(toIndentedString(loadBalancerSpec)).append("\n");
     sb.append("    period: ").append(toIndentedString(period)).append("\n");
     sb.append("    periodUnit: ").append(toIndentedString(periodUnit)).append("\n");
     sb.append("}");
