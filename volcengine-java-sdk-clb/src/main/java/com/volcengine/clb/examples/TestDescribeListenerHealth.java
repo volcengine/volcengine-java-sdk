@@ -25,7 +25,7 @@ public class TestDescribeListenerHealth {
         
         DescribeListenerHealthRequest describeListenerHealthRequest = new DescribeListenerHealthRequest();
         describeListenerHealthRequest.setListenerId("lsn-2fek3rgsxhrsw5oxruwec****");
-        describeListenerHealthRequest.setOnlyUnHealthy("true");
+        describeListenerHealthRequest.setOnlyUnHealthy(true);
         describeListenerHealthRequest.setPageNumber(1);
         describeListenerHealthRequest.setPageSize(20);
         
