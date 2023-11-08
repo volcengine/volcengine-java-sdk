@@ -51,6 +51,7 @@ public class CreateBandwidthPackageRequest {
   public enum ISPEnum {
     BGP("BGP"),
     SINGLELINE_BGP("SingleLine_BGP"),
+    STATIC_BGP("Static_BGP"),
     FUSION_BGP("Fusion_BGP"),
     CHINAMOBILE("ChinaMobile"),
     CHINAUNICOM("ChinaUnicom"),
