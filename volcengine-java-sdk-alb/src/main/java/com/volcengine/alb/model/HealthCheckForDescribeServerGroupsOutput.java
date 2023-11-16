@@ -41,6 +41,9 @@ public class HealthCheckForDescribeServerGroupsOutput {
   @SerializedName("HttpCode")
   private String httpCode = null;
 
+  @SerializedName("HttpVersion")
+  private String httpVersion = null;
+
   @SerializedName("Interval")
   private Integer interval = null;
 
@@ -129,6 +132,24 @@ public class HealthCheckForDescribeServerGroupsOutput {
 
   public void setHttpCode(String httpCode) {
     this.httpCode = httpCode;
+  }
+
+  public HealthCheckForDescribeServerGroupsOutput httpVersion(String httpVersion) {
+    this.httpVersion = httpVersion;
+    return this;
+  }
+
+   /**
+   * Get httpVersion
+   * @return httpVersion
+  **/
+  @Schema(description = "")
+  public String getHttpVersion() {
+    return httpVersion;
+  }
+
+  public void setHttpVersion(String httpVersion) {
+    this.httpVersion = httpVersion;
   }
 
   public HealthCheckForDescribeServerGroupsOutput interval(Integer interval) {
@@ -253,6 +274,7 @@ public class HealthCheckForDescribeServerGroupsOutput {
         Objects.equals(this.enabled, healthCheckForDescribeServerGroupsOutput.enabled) &&
         Objects.equals(this.healthyThreshold, healthCheckForDescribeServerGroupsOutput.healthyThreshold) &&
         Objects.equals(this.httpCode, healthCheckForDescribeServerGroupsOutput.httpCode) &&
+        Objects.equals(this.httpVersion, healthCheckForDescribeServerGroupsOutput.httpVersion) &&
         Objects.equals(this.interval, healthCheckForDescribeServerGroupsOutput.interval) &&
         Objects.equals(this.method, healthCheckForDescribeServerGroupsOutput.method) &&
         Objects.equals(this.protocol, healthCheckForDescribeServerGroupsOutput.protocol) &&
@@ -263,7 +285,7 @@ public class HealthCheckForDescribeServerGroupsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(domain, enabled, healthyThreshold, httpCode, interval, method, protocol, timeout, URI, unhealthyThreshold);
+    return Objects.hash(domain, enabled, healthyThreshold, httpCode, httpVersion, interval, method, protocol, timeout, URI, unhealthyThreshold);
   }
 
 
@@ -276,6 +298,7 @@ public class HealthCheckForDescribeServerGroupsOutput {
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    healthyThreshold: ").append(toIndentedString(healthyThreshold)).append("\n");
     sb.append("    httpCode: ").append(toIndentedString(httpCode)).append("\n");
+    sb.append("    httpVersion: ").append(toIndentedString(httpVersion)).append("\n");
     sb.append("    interval: ").append(toIndentedString(interval)).append("\n");
     sb.append("    method: ").append(toIndentedString(method)).append("\n");
     sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");

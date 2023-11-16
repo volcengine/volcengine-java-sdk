@@ -38,6 +38,9 @@ public class HealthCheckTemplateForCreateHealthCheckTemplatesInput {
   @SerializedName("HealthCheckHttpCode")
   private String healthCheckHttpCode = null;
 
+  @SerializedName("HealthCheckHttpVersion")
+  private String healthCheckHttpVersion = null;
+
   @SerializedName("HealthCheckInterval")
   private Integer healthCheckInterval = null;
 
@@ -114,6 +117,24 @@ public class HealthCheckTemplateForCreateHealthCheckTemplatesInput {
 
   public void setHealthCheckHttpCode(String healthCheckHttpCode) {
     this.healthCheckHttpCode = healthCheckHttpCode;
+  }
+
+  public HealthCheckTemplateForCreateHealthCheckTemplatesInput healthCheckHttpVersion(String healthCheckHttpVersion) {
+    this.healthCheckHttpVersion = healthCheckHttpVersion;
+    return this;
+  }
+
+   /**
+   * Get healthCheckHttpVersion
+   * @return healthCheckHttpVersion
+  **/
+  @Schema(description = "")
+  public String getHealthCheckHttpVersion() {
+    return healthCheckHttpVersion;
+  }
+
+  public void setHealthCheckHttpVersion(String healthCheckHttpVersion) {
+    this.healthCheckHttpVersion = healthCheckHttpVersion;
   }
 
   public HealthCheckTemplateForCreateHealthCheckTemplatesInput healthCheckInterval(Integer healthCheckInterval) {
@@ -274,6 +295,7 @@ public class HealthCheckTemplateForCreateHealthCheckTemplatesInput {
     return Objects.equals(this.description, healthCheckTemplateForCreateHealthCheckTemplatesInput.description) &&
         Objects.equals(this.healthCheckDomain, healthCheckTemplateForCreateHealthCheckTemplatesInput.healthCheckDomain) &&
         Objects.equals(this.healthCheckHttpCode, healthCheckTemplateForCreateHealthCheckTemplatesInput.healthCheckHttpCode) &&
+        Objects.equals(this.healthCheckHttpVersion, healthCheckTemplateForCreateHealthCheckTemplatesInput.healthCheckHttpVersion) &&
         Objects.equals(this.healthCheckInterval, healthCheckTemplateForCreateHealthCheckTemplatesInput.healthCheckInterval) &&
         Objects.equals(this.healthCheckMethod, healthCheckTemplateForCreateHealthCheckTemplatesInput.healthCheckMethod) &&
         Objects.equals(this.healthCheckProtocol, healthCheckTemplateForCreateHealthCheckTemplatesInput.healthCheckProtocol) &&
@@ -286,7 +308,7 @@ public class HealthCheckTemplateForCreateHealthCheckTemplatesInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, healthCheckDomain, healthCheckHttpCode, healthCheckInterval, healthCheckMethod, healthCheckProtocol, healthCheckTemplateName, healthCheckTimeout, healthCheckURI, healthyThreshold, unhealthyThreshold);
+    return Objects.hash(description, healthCheckDomain, healthCheckHttpCode, healthCheckHttpVersion, healthCheckInterval, healthCheckMethod, healthCheckProtocol, healthCheckTemplateName, healthCheckTimeout, healthCheckURI, healthyThreshold, unhealthyThreshold);
   }
 
 
@@ -298,6 +320,7 @@ public class HealthCheckTemplateForCreateHealthCheckTemplatesInput {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    healthCheckDomain: ").append(toIndentedString(healthCheckDomain)).append("\n");
     sb.append("    healthCheckHttpCode: ").append(toIndentedString(healthCheckHttpCode)).append("\n");
+    sb.append("    healthCheckHttpVersion: ").append(toIndentedString(healthCheckHttpVersion)).append("\n");
     sb.append("    healthCheckInterval: ").append(toIndentedString(healthCheckInterval)).append("\n");
     sb.append("    healthCheckMethod: ").append(toIndentedString(healthCheckMethod)).append("\n");
     sb.append("    healthCheckProtocol: ").append(toIndentedString(healthCheckProtocol)).append("\n");

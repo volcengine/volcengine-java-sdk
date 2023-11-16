@@ -38,6 +38,9 @@ public class HealthCheckTemplateForModifyHealthCheckTemplatesAttributesInput {
   @SerializedName("HealthCheckHttpCode")
   private String healthCheckHttpCode = null;
 
+  @SerializedName("HealthCheckHttpVersion")
+  private String healthCheckHttpVersion = null;
+
   @SerializedName("HealthCheckInterval")
   private Integer healthCheckInterval = null;
 
@@ -119,6 +122,24 @@ public class HealthCheckTemplateForModifyHealthCheckTemplatesAttributesInput {
     this.healthCheckHttpCode = healthCheckHttpCode;
   }
 
+  public HealthCheckTemplateForModifyHealthCheckTemplatesAttributesInput healthCheckHttpVersion(String healthCheckHttpVersion) {
+    this.healthCheckHttpVersion = healthCheckHttpVersion;
+    return this;
+  }
+
+   /**
+   * Get healthCheckHttpVersion
+   * @return healthCheckHttpVersion
+  **/
+  @Schema(description = "")
+  public String getHealthCheckHttpVersion() {
+    return healthCheckHttpVersion;
+  }
+
+  public void setHealthCheckHttpVersion(String healthCheckHttpVersion) {
+    this.healthCheckHttpVersion = healthCheckHttpVersion;
+  }
+
   public HealthCheckTemplateForModifyHealthCheckTemplatesAttributesInput healthCheckInterval(Integer healthCheckInterval) {
     this.healthCheckInterval = healthCheckInterval;
     return this;
@@ -183,7 +204,7 @@ public class HealthCheckTemplateForModifyHealthCheckTemplatesAttributesInput {
    * @return healthCheckTemplateId
   **/
   @NotNull
-  @Schema(required = true, description = "")
+ @Size(min=1,max=128)  @Schema(required = true, description = "")
   public String getHealthCheckTemplateId() {
     return healthCheckTemplateId;
   }
@@ -296,6 +317,7 @@ public class HealthCheckTemplateForModifyHealthCheckTemplatesAttributesInput {
     return Objects.equals(this.description, healthCheckTemplateForModifyHealthCheckTemplatesAttributesInput.description) &&
         Objects.equals(this.healthCheckDomain, healthCheckTemplateForModifyHealthCheckTemplatesAttributesInput.healthCheckDomain) &&
         Objects.equals(this.healthCheckHttpCode, healthCheckTemplateForModifyHealthCheckTemplatesAttributesInput.healthCheckHttpCode) &&
+        Objects.equals(this.healthCheckHttpVersion, healthCheckTemplateForModifyHealthCheckTemplatesAttributesInput.healthCheckHttpVersion) &&
         Objects.equals(this.healthCheckInterval, healthCheckTemplateForModifyHealthCheckTemplatesAttributesInput.healthCheckInterval) &&
         Objects.equals(this.healthCheckMethod, healthCheckTemplateForModifyHealthCheckTemplatesAttributesInput.healthCheckMethod) &&
         Objects.equals(this.healthCheckProtocol, healthCheckTemplateForModifyHealthCheckTemplatesAttributesInput.healthCheckProtocol) &&
@@ -309,7 +331,7 @@ public class HealthCheckTemplateForModifyHealthCheckTemplatesAttributesInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, healthCheckDomain, healthCheckHttpCode, healthCheckInterval, healthCheckMethod, healthCheckProtocol, healthCheckTemplateId, healthCheckTemplateName, healthCheckTimeout, healthCheckURI, healthyThreshold, unhealthyThreshold);
+    return Objects.hash(description, healthCheckDomain, healthCheckHttpCode, healthCheckHttpVersion, healthCheckInterval, healthCheckMethod, healthCheckProtocol, healthCheckTemplateId, healthCheckTemplateName, healthCheckTimeout, healthCheckURI, healthyThreshold, unhealthyThreshold);
   }
 
 
@@ -321,6 +343,7 @@ public class HealthCheckTemplateForModifyHealthCheckTemplatesAttributesInput {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    healthCheckDomain: ").append(toIndentedString(healthCheckDomain)).append("\n");
     sb.append("    healthCheckHttpCode: ").append(toIndentedString(healthCheckHttpCode)).append("\n");
+    sb.append("    healthCheckHttpVersion: ").append(toIndentedString(healthCheckHttpVersion)).append("\n");
     sb.append("    healthCheckInterval: ").append(toIndentedString(healthCheckInterval)).append("\n");
     sb.append("    healthCheckMethod: ").append(toIndentedString(healthCheckMethod)).append("\n");
     sb.append("    healthCheckProtocol: ").append(toIndentedString(healthCheckProtocol)).append("\n");

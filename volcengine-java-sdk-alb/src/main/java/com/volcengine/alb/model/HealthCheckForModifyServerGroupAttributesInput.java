@@ -41,6 +41,9 @@ public class HealthCheckForModifyServerGroupAttributesInput {
   @SerializedName("HttpCode")
   private String httpCode = null;
 
+  @SerializedName("HttpVersion")
+  private String httpVersion = null;
+
   @SerializedName("Interval")
   private String interval = null;
 
@@ -129,6 +132,24 @@ public class HealthCheckForModifyServerGroupAttributesInput {
 
   public void setHttpCode(String httpCode) {
     this.httpCode = httpCode;
+  }
+
+  public HealthCheckForModifyServerGroupAttributesInput httpVersion(String httpVersion) {
+    this.httpVersion = httpVersion;
+    return this;
+  }
+
+   /**
+   * Get httpVersion
+   * @return httpVersion
+  **/
+  @Schema(description = "")
+  public String getHttpVersion() {
+    return httpVersion;
+  }
+
+  public void setHttpVersion(String httpVersion) {
+    this.httpVersion = httpVersion;
   }
 
   public HealthCheckForModifyServerGroupAttributesInput interval(String interval) {
@@ -253,6 +274,7 @@ public class HealthCheckForModifyServerGroupAttributesInput {
         Objects.equals(this.enabled, healthCheckForModifyServerGroupAttributesInput.enabled) &&
         Objects.equals(this.healthyThreshold, healthCheckForModifyServerGroupAttributesInput.healthyThreshold) &&
         Objects.equals(this.httpCode, healthCheckForModifyServerGroupAttributesInput.httpCode) &&
+        Objects.equals(this.httpVersion, healthCheckForModifyServerGroupAttributesInput.httpVersion) &&
         Objects.equals(this.interval, healthCheckForModifyServerGroupAttributesInput.interval) &&
         Objects.equals(this.method, healthCheckForModifyServerGroupAttributesInput.method) &&
         Objects.equals(this.protocol, healthCheckForModifyServerGroupAttributesInput.protocol) &&
@@ -263,7 +285,7 @@ public class HealthCheckForModifyServerGroupAttributesInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(domain, enabled, healthyThreshold, httpCode, interval, method, protocol, timeout, URI, unhealthyThreshold);
+    return Objects.hash(domain, enabled, healthyThreshold, httpCode, httpVersion, interval, method, protocol, timeout, URI, unhealthyThreshold);
   }
 
 
@@ -276,6 +298,7 @@ public class HealthCheckForModifyServerGroupAttributesInput {
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    healthyThreshold: ").append(toIndentedString(healthyThreshold)).append("\n");
     sb.append("    httpCode: ").append(toIndentedString(httpCode)).append("\n");
+    sb.append("    httpVersion: ").append(toIndentedString(httpVersion)).append("\n");
     sb.append("    interval: ").append(toIndentedString(interval)).append("\n");
     sb.append("    method: ").append(toIndentedString(method)).append("\n");
     sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");

@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.alb.model.RedirectConfigForCreateRulesInput;
+import com.volcengine.alb.model.RewriteConfigForCreateRulesInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -38,6 +39,12 @@ public class RuleForCreateRulesInput {
 
   @SerializedName("RedirectConfig")
   private RedirectConfigForCreateRulesInput redirectConfig = null;
+
+  @SerializedName("RewriteConfig")
+  private RewriteConfigForCreateRulesInput rewriteConfig = null;
+
+  @SerializedName("RewriteEnabled")
+  private String rewriteEnabled = null;
 
   @SerializedName("RuleAction")
   private String ruleAction = null;
@@ -107,6 +114,43 @@ public class RuleForCreateRulesInput {
 
   public void setRedirectConfig(RedirectConfigForCreateRulesInput redirectConfig) {
     this.redirectConfig = redirectConfig;
+  }
+
+  public RuleForCreateRulesInput rewriteConfig(RewriteConfigForCreateRulesInput rewriteConfig) {
+    this.rewriteConfig = rewriteConfig;
+    return this;
+  }
+
+   /**
+   * Get rewriteConfig
+   * @return rewriteConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public RewriteConfigForCreateRulesInput getRewriteConfig() {
+    return rewriteConfig;
+  }
+
+  public void setRewriteConfig(RewriteConfigForCreateRulesInput rewriteConfig) {
+    this.rewriteConfig = rewriteConfig;
+  }
+
+  public RuleForCreateRulesInput rewriteEnabled(String rewriteEnabled) {
+    this.rewriteEnabled = rewriteEnabled;
+    return this;
+  }
+
+   /**
+   * Get rewriteEnabled
+   * @return rewriteEnabled
+  **/
+  @Schema(description = "")
+  public String getRewriteEnabled() {
+    return rewriteEnabled;
+  }
+
+  public void setRewriteEnabled(String rewriteEnabled) {
+    this.rewriteEnabled = rewriteEnabled;
   }
 
   public RuleForCreateRulesInput ruleAction(String ruleAction) {
@@ -212,6 +256,8 @@ public class RuleForCreateRulesInput {
     return Objects.equals(this.description, ruleForCreateRulesInput.description) &&
         Objects.equals(this.domain, ruleForCreateRulesInput.domain) &&
         Objects.equals(this.redirectConfig, ruleForCreateRulesInput.redirectConfig) &&
+        Objects.equals(this.rewriteConfig, ruleForCreateRulesInput.rewriteConfig) &&
+        Objects.equals(this.rewriteEnabled, ruleForCreateRulesInput.rewriteEnabled) &&
         Objects.equals(this.ruleAction, ruleForCreateRulesInput.ruleAction) &&
         Objects.equals(this.serverGroupId, ruleForCreateRulesInput.serverGroupId) &&
         Objects.equals(this.trafficLimitEnabled, ruleForCreateRulesInput.trafficLimitEnabled) &&
@@ -221,7 +267,7 @@ public class RuleForCreateRulesInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, domain, redirectConfig, ruleAction, serverGroupId, trafficLimitEnabled, trafficLimitQPS, URL);
+    return Objects.hash(description, domain, redirectConfig, rewriteConfig, rewriteEnabled, ruleAction, serverGroupId, trafficLimitEnabled, trafficLimitQPS, URL);
   }
 
 
@@ -233,6 +279,8 @@ public class RuleForCreateRulesInput {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    domain: ").append(toIndentedString(domain)).append("\n");
     sb.append("    redirectConfig: ").append(toIndentedString(redirectConfig)).append("\n");
+    sb.append("    rewriteConfig: ").append(toIndentedString(rewriteConfig)).append("\n");
+    sb.append("    rewriteEnabled: ").append(toIndentedString(rewriteEnabled)).append("\n");
     sb.append("    ruleAction: ").append(toIndentedString(ruleAction)).append("\n");
     sb.append("    serverGroupId: ").append(toIndentedString(serverGroupId)).append("\n");
     sb.append("    trafficLimitEnabled: ").append(toIndentedString(trafficLimitEnabled)).append("\n");
