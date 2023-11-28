@@ -253,8 +253,7 @@ public class CreateLoadBalancerRequest {
    * Get loadBalancerSpec
    * @return loadBalancerSpec
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getLoadBalancerSpec() {
     return loadBalancerSpec;
   }
