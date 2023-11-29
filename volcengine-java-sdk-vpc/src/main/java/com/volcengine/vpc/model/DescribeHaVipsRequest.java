@@ -40,6 +40,12 @@ public class DescribeHaVipsRequest {
   @SerializedName("IpAddress")
   private String ipAddress = null;
 
+  @SerializedName("MaxResults")
+  private Integer maxResults = null;
+
+  @SerializedName("NextToken")
+  private String nextToken = null;
+
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
 
@@ -118,6 +124,44 @@ public class DescribeHaVipsRequest {
 
   public void setIpAddress(String ipAddress) {
     this.ipAddress = ipAddress;
+  }
+
+  public DescribeHaVipsRequest maxResults(Integer maxResults) {
+    this.maxResults = maxResults;
+    return this;
+  }
+
+   /**
+   * Get maxResults
+   * minimum: 1
+   * maximum: 100
+   * @return maxResults
+  **/
+ @Min(1) @Max(100)  @Schema(description = "")
+  public Integer getMaxResults() {
+    return maxResults;
+  }
+
+  public void setMaxResults(Integer maxResults) {
+    this.maxResults = maxResults;
+  }
+
+  public DescribeHaVipsRequest nextToken(String nextToken) {
+    this.nextToken = nextToken;
+    return this;
+  }
+
+   /**
+   * Get nextToken
+   * @return nextToken
+  **/
+  @Schema(description = "")
+  public String getNextToken() {
+    return nextToken;
+  }
+
+  public void setNextToken(String nextToken) {
+    this.nextToken = nextToken;
   }
 
   public DescribeHaVipsRequest pageNumber(Integer pageNumber) {
@@ -242,6 +286,8 @@ public class DescribeHaVipsRequest {
     return Objects.equals(this.haVipIds, describeHaVipsRequest.haVipIds) &&
         Objects.equals(this.haVipName, describeHaVipsRequest.haVipName) &&
         Objects.equals(this.ipAddress, describeHaVipsRequest.ipAddress) &&
+        Objects.equals(this.maxResults, describeHaVipsRequest.maxResults) &&
+        Objects.equals(this.nextToken, describeHaVipsRequest.nextToken) &&
         Objects.equals(this.pageNumber, describeHaVipsRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeHaVipsRequest.pageSize) &&
         Objects.equals(this.projectName, describeHaVipsRequest.projectName) &&
@@ -252,7 +298,7 @@ public class DescribeHaVipsRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(haVipIds, haVipName, ipAddress, pageNumber, pageSize, projectName, status, subnetId, vpcId);
+    return Objects.hash(haVipIds, haVipName, ipAddress, maxResults, nextToken, pageNumber, pageSize, projectName, status, subnetId, vpcId);
   }
 
 
@@ -264,6 +310,8 @@ public class DescribeHaVipsRequest {
     sb.append("    haVipIds: ").append(toIndentedString(haVipIds)).append("\n");
     sb.append("    haVipName: ").append(toIndentedString(haVipName)).append("\n");
     sb.append("    ipAddress: ").append(toIndentedString(ipAddress)).append("\n");
+    sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
+    sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");

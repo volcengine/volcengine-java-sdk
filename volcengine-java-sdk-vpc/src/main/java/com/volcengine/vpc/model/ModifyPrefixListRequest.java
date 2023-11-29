@@ -43,7 +43,7 @@ public class ModifyPrefixListRequest {
   private String description = null;
 
   @SerializedName("DryRun")
-  private String dryRun = null;
+  private Boolean dryRun = null;
 
   @SerializedName("MaxEntries")
   private Integer maxEntries = null;
@@ -120,7 +120,7 @@ public class ModifyPrefixListRequest {
     this.description = description;
   }
 
-  public ModifyPrefixListRequest dryRun(String dryRun) {
+  public ModifyPrefixListRequest dryRun(Boolean dryRun) {
     this.dryRun = dryRun;
     return this;
   }
@@ -130,11 +130,11 @@ public class ModifyPrefixListRequest {
    * @return dryRun
   **/
   @Schema(description = "")
-  public String getDryRun() {
+  public Boolean isDryRun() {
     return dryRun;
   }
 
-  public void setDryRun(String dryRun) {
+  public void setDryRun(Boolean dryRun) {
     this.dryRun = dryRun;
   }
 

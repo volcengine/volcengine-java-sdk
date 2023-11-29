@@ -32,6 +32,9 @@ import javax.validation.Valid;
 
 
 public class DescribeSecurityGroupsResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("NextToken")
+  private String nextToken = null;
+
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
 
@@ -46,6 +49,24 @@ public class DescribeSecurityGroupsResponse extends com.volcengine.model.Abstrac
 
   @SerializedName("TotalCount")
   private Integer totalCount = null;
+
+  public DescribeSecurityGroupsResponse nextToken(String nextToken) {
+    this.nextToken = nextToken;
+    return this;
+  }
+
+   /**
+   * Get nextToken
+   * @return nextToken
+  **/
+  @Schema(description = "")
+  public String getNextToken() {
+    return nextToken;
+  }
+
+  public void setNextToken(String nextToken) {
+    this.nextToken = nextToken;
+  }
 
   public DescribeSecurityGroupsResponse pageNumber(Integer pageNumber) {
     this.pageNumber = pageNumber;
@@ -156,7 +177,8 @@ public class DescribeSecurityGroupsResponse extends com.volcengine.model.Abstrac
       return false;
     }
     DescribeSecurityGroupsResponse describeSecurityGroupsResponse = (DescribeSecurityGroupsResponse) o;
-    return Objects.equals(this.pageNumber, describeSecurityGroupsResponse.pageNumber) &&
+    return Objects.equals(this.nextToken, describeSecurityGroupsResponse.nextToken) &&
+        Objects.equals(this.pageNumber, describeSecurityGroupsResponse.pageNumber) &&
         Objects.equals(this.pageSize, describeSecurityGroupsResponse.pageSize) &&
         Objects.equals(this.requestId, describeSecurityGroupsResponse.requestId) &&
         Objects.equals(this.securityGroups, describeSecurityGroupsResponse.securityGroups) &&
@@ -165,7 +187,7 @@ public class DescribeSecurityGroupsResponse extends com.volcengine.model.Abstrac
 
   @Override
   public int hashCode() {
-    return Objects.hash(pageNumber, pageSize, requestId, securityGroups, totalCount);
+    return Objects.hash(nextToken, pageNumber, pageSize, requestId, securityGroups, totalCount);
   }
 
 
@@ -174,6 +196,7 @@ public class DescribeSecurityGroupsResponse extends com.volcengine.model.Abstrac
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeSecurityGroupsResponse {\n");
     
+    sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");

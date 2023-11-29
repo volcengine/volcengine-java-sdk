@@ -90,6 +90,12 @@ public class DescribeBandwidthPackagesRequest {
   }  @SerializedName("ISP")
   private ISPEnum ISP = null;
 
+  @SerializedName("MaxResults")
+  private Integer maxResults = null;
+
+  @SerializedName("NextToken")
+  private String nextToken = null;
+
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
 
@@ -209,6 +215,44 @@ public class DescribeBandwidthPackagesRequest {
 
   public void setISP(ISPEnum ISP) {
     this.ISP = ISP;
+  }
+
+  public DescribeBandwidthPackagesRequest maxResults(Integer maxResults) {
+    this.maxResults = maxResults;
+    return this;
+  }
+
+   /**
+   * Get maxResults
+   * minimum: 1
+   * maximum: 100
+   * @return maxResults
+  **/
+ @Min(1) @Max(100)  @Schema(description = "")
+  public Integer getMaxResults() {
+    return maxResults;
+  }
+
+  public void setMaxResults(Integer maxResults) {
+    this.maxResults = maxResults;
+  }
+
+  public DescribeBandwidthPackagesRequest nextToken(String nextToken) {
+    this.nextToken = nextToken;
+    return this;
+  }
+
+   /**
+   * Get nextToken
+   * @return nextToken
+  **/
+  @Schema(description = "")
+  public String getNextToken() {
+    return nextToken;
+  }
+
+  public void setNextToken(String nextToken) {
+    this.nextToken = nextToken;
   }
 
   public DescribeBandwidthPackagesRequest pageNumber(Integer pageNumber) {
@@ -342,6 +386,8 @@ public class DescribeBandwidthPackagesRequest {
     return Objects.equals(this.bandwidthPackageIds, describeBandwidthPackagesRequest.bandwidthPackageIds) &&
         Objects.equals(this.bandwidthPackageName, describeBandwidthPackagesRequest.bandwidthPackageName) &&
         Objects.equals(this.ISP, describeBandwidthPackagesRequest.ISP) &&
+        Objects.equals(this.maxResults, describeBandwidthPackagesRequest.maxResults) &&
+        Objects.equals(this.nextToken, describeBandwidthPackagesRequest.nextToken) &&
         Objects.equals(this.pageNumber, describeBandwidthPackagesRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeBandwidthPackagesRequest.pageSize) &&
         Objects.equals(this.projectName, describeBandwidthPackagesRequest.projectName) &&
@@ -352,7 +398,7 @@ public class DescribeBandwidthPackagesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidthPackageIds, bandwidthPackageName, ISP, pageNumber, pageSize, projectName, protocol, securityProtectionEnabled, tagFilters);
+    return Objects.hash(bandwidthPackageIds, bandwidthPackageName, ISP, maxResults, nextToken, pageNumber, pageSize, projectName, protocol, securityProtectionEnabled, tagFilters);
   }
 
 
@@ -364,6 +410,8 @@ public class DescribeBandwidthPackagesRequest {
     sb.append("    bandwidthPackageIds: ").append(toIndentedString(bandwidthPackageIds)).append("\n");
     sb.append("    bandwidthPackageName: ").append(toIndentedString(bandwidthPackageName)).append("\n");
     sb.append("    ISP: ").append(toIndentedString(ISP)).append("\n");
+    sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
+    sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");

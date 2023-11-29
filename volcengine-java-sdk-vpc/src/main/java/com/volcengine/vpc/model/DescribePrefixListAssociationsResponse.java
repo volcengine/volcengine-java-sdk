@@ -32,6 +32,9 @@ import javax.validation.Valid;
 
 
 public class DescribePrefixListAssociationsResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("NextToken")
+  private String nextToken = null;
+
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
 
@@ -46,6 +49,24 @@ public class DescribePrefixListAssociationsResponse extends com.volcengine.model
 
   @SerializedName("TotalCount")
   private Integer totalCount = null;
+
+  public DescribePrefixListAssociationsResponse nextToken(String nextToken) {
+    this.nextToken = nextToken;
+    return this;
+  }
+
+   /**
+   * Get nextToken
+   * @return nextToken
+  **/
+  @Schema(description = "")
+  public String getNextToken() {
+    return nextToken;
+  }
+
+  public void setNextToken(String nextToken) {
+    this.nextToken = nextToken;
+  }
 
   public DescribePrefixListAssociationsResponse pageNumber(Integer pageNumber) {
     this.pageNumber = pageNumber;
@@ -156,7 +177,8 @@ public class DescribePrefixListAssociationsResponse extends com.volcengine.model
       return false;
     }
     DescribePrefixListAssociationsResponse describePrefixListAssociationsResponse = (DescribePrefixListAssociationsResponse) o;
-    return Objects.equals(this.pageNumber, describePrefixListAssociationsResponse.pageNumber) &&
+    return Objects.equals(this.nextToken, describePrefixListAssociationsResponse.nextToken) &&
+        Objects.equals(this.pageNumber, describePrefixListAssociationsResponse.pageNumber) &&
         Objects.equals(this.pageSize, describePrefixListAssociationsResponse.pageSize) &&
         Objects.equals(this.prefixListAssociations, describePrefixListAssociationsResponse.prefixListAssociations) &&
         Objects.equals(this.requestId, describePrefixListAssociationsResponse.requestId) &&
@@ -165,7 +187,7 @@ public class DescribePrefixListAssociationsResponse extends com.volcengine.model
 
   @Override
   public int hashCode() {
-    return Objects.hash(pageNumber, pageSize, prefixListAssociations, requestId, totalCount);
+    return Objects.hash(nextToken, pageNumber, pageSize, prefixListAssociations, requestId, totalCount);
   }
 
 
@@ -174,6 +196,7 @@ public class DescribePrefixListAssociationsResponse extends com.volcengine.model
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribePrefixListAssociationsResponse {\n");
     
+    sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    prefixListAssociations: ").append(toIndentedString(prefixListAssociations)).append("\n");

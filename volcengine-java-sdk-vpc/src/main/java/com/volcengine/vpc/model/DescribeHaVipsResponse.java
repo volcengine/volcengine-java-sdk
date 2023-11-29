@@ -35,6 +35,9 @@ public class DescribeHaVipsResponse extends com.volcengine.model.AbstractRespons
   @SerializedName("HaVips")
   private List<HaVipForDescribeHaVipsOutput> haVips = null;
 
+  @SerializedName("NextToken")
+  private String nextToken = null;
+
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
 
@@ -72,6 +75,24 @@ public class DescribeHaVipsResponse extends com.volcengine.model.AbstractRespons
 
   public void setHaVips(List<HaVipForDescribeHaVipsOutput> haVips) {
     this.haVips = haVips;
+  }
+
+  public DescribeHaVipsResponse nextToken(String nextToken) {
+    this.nextToken = nextToken;
+    return this;
+  }
+
+   /**
+   * Get nextToken
+   * @return nextToken
+  **/
+  @Schema(description = "")
+  public String getNextToken() {
+    return nextToken;
+  }
+
+  public void setNextToken(String nextToken) {
+    this.nextToken = nextToken;
   }
 
   public DescribeHaVipsResponse pageNumber(Integer pageNumber) {
@@ -157,6 +178,7 @@ public class DescribeHaVipsResponse extends com.volcengine.model.AbstractRespons
     }
     DescribeHaVipsResponse describeHaVipsResponse = (DescribeHaVipsResponse) o;
     return Objects.equals(this.haVips, describeHaVipsResponse.haVips) &&
+        Objects.equals(this.nextToken, describeHaVipsResponse.nextToken) &&
         Objects.equals(this.pageNumber, describeHaVipsResponse.pageNumber) &&
         Objects.equals(this.pageSize, describeHaVipsResponse.pageSize) &&
         Objects.equals(this.requestId, describeHaVipsResponse.requestId) &&
@@ -165,7 +187,7 @@ public class DescribeHaVipsResponse extends com.volcengine.model.AbstractRespons
 
   @Override
   public int hashCode() {
-    return Objects.hash(haVips, pageNumber, pageSize, requestId, totalCount);
+    return Objects.hash(haVips, nextToken, pageNumber, pageSize, requestId, totalCount);
   }
 
 
@@ -175,6 +197,7 @@ public class DescribeHaVipsResponse extends com.volcengine.model.AbstractRespons
     sb.append("class DescribeHaVipsResponse {\n");
     
     sb.append("    haVips: ").append(toIndentedString(haVips)).append("\n");
+    sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");

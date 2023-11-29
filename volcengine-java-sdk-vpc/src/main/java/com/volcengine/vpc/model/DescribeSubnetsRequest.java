@@ -34,6 +34,12 @@ public class DescribeSubnetsRequest {
   @SerializedName("IsDefault")
   private Boolean isDefault = null;
 
+  @SerializedName("MaxResults")
+  private Integer maxResults = null;
+
+  @SerializedName("NextToken")
+  private String nextToken = null;
+
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
 
@@ -74,6 +80,42 @@ public class DescribeSubnetsRequest {
 
   public void setIsDefault(Boolean isDefault) {
     this.isDefault = isDefault;
+  }
+
+  public DescribeSubnetsRequest maxResults(Integer maxResults) {
+    this.maxResults = maxResults;
+    return this;
+  }
+
+   /**
+   * Get maxResults
+   * @return maxResults
+  **/
+  @Schema(description = "")
+  public Integer getMaxResults() {
+    return maxResults;
+  }
+
+  public void setMaxResults(Integer maxResults) {
+    this.maxResults = maxResults;
+  }
+
+  public DescribeSubnetsRequest nextToken(String nextToken) {
+    this.nextToken = nextToken;
+    return this;
+  }
+
+   /**
+   * Get nextToken
+   * @return nextToken
+  **/
+  @Schema(description = "")
+  public String getNextToken() {
+    return nextToken;
+  }
+
+  public void setNextToken(String nextToken) {
+    this.nextToken = nextToken;
   }
 
   public DescribeSubnetsRequest pageNumber(Integer pageNumber) {
@@ -240,6 +282,8 @@ public class DescribeSubnetsRequest {
     }
     DescribeSubnetsRequest describeSubnetsRequest = (DescribeSubnetsRequest) o;
     return Objects.equals(this.isDefault, describeSubnetsRequest.isDefault) &&
+        Objects.equals(this.maxResults, describeSubnetsRequest.maxResults) &&
+        Objects.equals(this.nextToken, describeSubnetsRequest.nextToken) &&
         Objects.equals(this.pageNumber, describeSubnetsRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeSubnetsRequest.pageSize) &&
         Objects.equals(this.projectName, describeSubnetsRequest.projectName) &&
@@ -252,7 +296,7 @@ public class DescribeSubnetsRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(isDefault, pageNumber, pageSize, projectName, routeTableId, subnetIds, subnetName, vpcId, zoneId);
+    return Objects.hash(isDefault, maxResults, nextToken, pageNumber, pageSize, projectName, routeTableId, subnetIds, subnetName, vpcId, zoneId);
   }
 
 
@@ -262,6 +306,8 @@ public class DescribeSubnetsRequest {
     sb.append("class DescribeSubnetsRequest {\n");
     
     sb.append("    isDefault: ").append(toIndentedString(isDefault)).append("\n");
+    sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
+    sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");

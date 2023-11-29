@@ -35,6 +35,9 @@ public class DescribeEipAddressesResponse extends com.volcengine.model.AbstractR
   @SerializedName("EipAddresses")
   private List<EipAddressForDescribeEipAddressesOutput> eipAddresses = null;
 
+  @SerializedName("NextToken")
+  private String nextToken = null;
+
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
 
@@ -72,6 +75,24 @@ public class DescribeEipAddressesResponse extends com.volcengine.model.AbstractR
 
   public void setEipAddresses(List<EipAddressForDescribeEipAddressesOutput> eipAddresses) {
     this.eipAddresses = eipAddresses;
+  }
+
+  public DescribeEipAddressesResponse nextToken(String nextToken) {
+    this.nextToken = nextToken;
+    return this;
+  }
+
+   /**
+   * Get nextToken
+   * @return nextToken
+  **/
+  @Schema(description = "")
+  public String getNextToken() {
+    return nextToken;
+  }
+
+  public void setNextToken(String nextToken) {
+    this.nextToken = nextToken;
   }
 
   public DescribeEipAddressesResponse pageNumber(Integer pageNumber) {
@@ -157,6 +178,7 @@ public class DescribeEipAddressesResponse extends com.volcengine.model.AbstractR
     }
     DescribeEipAddressesResponse describeEipAddressesResponse = (DescribeEipAddressesResponse) o;
     return Objects.equals(this.eipAddresses, describeEipAddressesResponse.eipAddresses) &&
+        Objects.equals(this.nextToken, describeEipAddressesResponse.nextToken) &&
         Objects.equals(this.pageNumber, describeEipAddressesResponse.pageNumber) &&
         Objects.equals(this.pageSize, describeEipAddressesResponse.pageSize) &&
         Objects.equals(this.requestId, describeEipAddressesResponse.requestId) &&
@@ -165,7 +187,7 @@ public class DescribeEipAddressesResponse extends com.volcengine.model.AbstractR
 
   @Override
   public int hashCode() {
-    return Objects.hash(eipAddresses, pageNumber, pageSize, requestId, totalCount);
+    return Objects.hash(eipAddresses, nextToken, pageNumber, pageSize, requestId, totalCount);
   }
 
 
@@ -175,6 +197,7 @@ public class DescribeEipAddressesResponse extends com.volcengine.model.AbstractR
     sb.append("class DescribeEipAddressesResponse {\n");
     
     sb.append("    eipAddresses: ").append(toIndentedString(eipAddresses)).append("\n");
+    sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
