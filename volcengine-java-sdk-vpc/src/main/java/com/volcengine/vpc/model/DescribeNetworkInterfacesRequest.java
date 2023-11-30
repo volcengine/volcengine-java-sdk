@@ -38,11 +38,17 @@ public class DescribeNetworkInterfacesRequest {
   @SerializedName("Ipv6Addresses")
   private List<String> ipv6Addresses = null;
 
+  @SerializedName("MaxResults")
+  private Integer maxResults = null;
+
   @SerializedName("NetworkInterfaceIds")
   private List<String> networkInterfaceIds = null;
 
   @SerializedName("NetworkInterfaceName")
   private String networkInterfaceName = null;
+
+  @SerializedName("NextToken")
+  private String nextToken = null;
 
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
@@ -124,6 +130,26 @@ public class DescribeNetworkInterfacesRequest {
     this.ipv6Addresses = ipv6Addresses;
   }
 
+  public DescribeNetworkInterfacesRequest maxResults(Integer maxResults) {
+    this.maxResults = maxResults;
+    return this;
+  }
+
+   /**
+   * Get maxResults
+   * minimum: 1
+   * maximum: 100
+   * @return maxResults
+  **/
+ @Min(1) @Max(100)  @Schema(description = "")
+  public Integer getMaxResults() {
+    return maxResults;
+  }
+
+  public void setMaxResults(Integer maxResults) {
+    this.maxResults = maxResults;
+  }
+
   public DescribeNetworkInterfacesRequest networkInterfaceIds(List<String> networkInterfaceIds) {
     this.networkInterfaceIds = networkInterfaceIds;
     return this;
@@ -166,6 +192,24 @@ public class DescribeNetworkInterfacesRequest {
 
   public void setNetworkInterfaceName(String networkInterfaceName) {
     this.networkInterfaceName = networkInterfaceName;
+  }
+
+  public DescribeNetworkInterfacesRequest nextToken(String nextToken) {
+    this.nextToken = nextToken;
+    return this;
+  }
+
+   /**
+   * Get nextToken
+   * @return nextToken
+  **/
+  @Schema(description = "")
+  public String getNextToken() {
+    return nextToken;
+  }
+
+  public void setNextToken(String nextToken) {
+    this.nextToken = nextToken;
   }
 
   public DescribeNetworkInterfacesRequest pageNumber(Integer pageNumber) {
@@ -422,8 +466,10 @@ public class DescribeNetworkInterfacesRequest {
     DescribeNetworkInterfacesRequest describeNetworkInterfacesRequest = (DescribeNetworkInterfacesRequest) o;
     return Objects.equals(this.instanceId, describeNetworkInterfacesRequest.instanceId) &&
         Objects.equals(this.ipv6Addresses, describeNetworkInterfacesRequest.ipv6Addresses) &&
+        Objects.equals(this.maxResults, describeNetworkInterfacesRequest.maxResults) &&
         Objects.equals(this.networkInterfaceIds, describeNetworkInterfacesRequest.networkInterfaceIds) &&
         Objects.equals(this.networkInterfaceName, describeNetworkInterfacesRequest.networkInterfaceName) &&
+        Objects.equals(this.nextToken, describeNetworkInterfacesRequest.nextToken) &&
         Objects.equals(this.pageNumber, describeNetworkInterfacesRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeNetworkInterfacesRequest.pageSize) &&
         Objects.equals(this.primaryIpAddresses, describeNetworkInterfacesRequest.primaryIpAddresses) &&
@@ -440,7 +486,7 @@ public class DescribeNetworkInterfacesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, ipv6Addresses, networkInterfaceIds, networkInterfaceName, pageNumber, pageSize, primaryIpAddresses, privateIpAddresses, projectName, securityGroupId, status, subnetId, tagFilters, type, vpcId, zoneId);
+    return Objects.hash(instanceId, ipv6Addresses, maxResults, networkInterfaceIds, networkInterfaceName, nextToken, pageNumber, pageSize, primaryIpAddresses, privateIpAddresses, projectName, securityGroupId, status, subnetId, tagFilters, type, vpcId, zoneId);
   }
 
 
@@ -451,8 +497,10 @@ public class DescribeNetworkInterfacesRequest {
     
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    ipv6Addresses: ").append(toIndentedString(ipv6Addresses)).append("\n");
+    sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
     sb.append("    networkInterfaceIds: ").append(toIndentedString(networkInterfaceIds)).append("\n");
     sb.append("    networkInterfaceName: ").append(toIndentedString(networkInterfaceName)).append("\n");
+    sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    primaryIpAddresses: ").append(toIndentedString(primaryIpAddresses)).append("\n");

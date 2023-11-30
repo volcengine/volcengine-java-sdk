@@ -32,6 +32,9 @@ import javax.validation.Valid;
 
 
 public class DescribeVpcsResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("NextToken")
+  private String nextToken = null;
+
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
 
@@ -46,6 +49,24 @@ public class DescribeVpcsResponse extends com.volcengine.model.AbstractResponse 
 
   @SerializedName("Vpcs")
   private List<VpcForDescribeVpcsOutput> vpcs = null;
+
+  public DescribeVpcsResponse nextToken(String nextToken) {
+    this.nextToken = nextToken;
+    return this;
+  }
+
+   /**
+   * Get nextToken
+   * @return nextToken
+  **/
+  @Schema(description = "")
+  public String getNextToken() {
+    return nextToken;
+  }
+
+  public void setNextToken(String nextToken) {
+    this.nextToken = nextToken;
+  }
 
   public DescribeVpcsResponse pageNumber(Integer pageNumber) {
     this.pageNumber = pageNumber;
@@ -156,7 +177,8 @@ public class DescribeVpcsResponse extends com.volcengine.model.AbstractResponse 
       return false;
     }
     DescribeVpcsResponse describeVpcsResponse = (DescribeVpcsResponse) o;
-    return Objects.equals(this.pageNumber, describeVpcsResponse.pageNumber) &&
+    return Objects.equals(this.nextToken, describeVpcsResponse.nextToken) &&
+        Objects.equals(this.pageNumber, describeVpcsResponse.pageNumber) &&
         Objects.equals(this.pageSize, describeVpcsResponse.pageSize) &&
         Objects.equals(this.requestId, describeVpcsResponse.requestId) &&
         Objects.equals(this.totalCount, describeVpcsResponse.totalCount) &&
@@ -165,7 +187,7 @@ public class DescribeVpcsResponse extends com.volcengine.model.AbstractResponse 
 
   @Override
   public int hashCode() {
-    return Objects.hash(pageNumber, pageSize, requestId, totalCount, vpcs);
+    return Objects.hash(nextToken, pageNumber, pageSize, requestId, totalCount, vpcs);
   }
 
 
@@ -174,6 +196,7 @@ public class DescribeVpcsResponse extends com.volcengine.model.AbstractResponse 
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeVpcsResponse {\n");
     
+    sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");

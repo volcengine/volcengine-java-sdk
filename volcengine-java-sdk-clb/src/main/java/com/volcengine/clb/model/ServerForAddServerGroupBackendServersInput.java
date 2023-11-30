@@ -74,8 +74,7 @@ public class ServerForAddServerGroupBackendServersInput {
    * Get instanceId
    * @return instanceId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getInstanceId() {
     return instanceId;
   }
@@ -93,8 +92,7 @@ public class ServerForAddServerGroupBackendServersInput {
    * Get ip
    * @return ip
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getIp() {
     return ip;
   }
@@ -112,8 +110,7 @@ public class ServerForAddServerGroupBackendServersInput {
    * Get port
    * @return port
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public Integer getPort() {
     return port;
   }
@@ -131,8 +128,7 @@ public class ServerForAddServerGroupBackendServersInput {
    * Get type
    * @return type
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getType() {
     return type;
   }

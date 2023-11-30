@@ -32,6 +32,9 @@ import javax.validation.Valid;
 
 
 public class DescribePrefixListsResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("NextToken")
+  private String nextToken = null;
+
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
 
@@ -46,6 +49,24 @@ public class DescribePrefixListsResponse extends com.volcengine.model.AbstractRe
 
   @SerializedName("TotalCount")
   private Integer totalCount = null;
+
+  public DescribePrefixListsResponse nextToken(String nextToken) {
+    this.nextToken = nextToken;
+    return this;
+  }
+
+   /**
+   * Get nextToken
+   * @return nextToken
+  **/
+  @Schema(description = "")
+  public String getNextToken() {
+    return nextToken;
+  }
+
+  public void setNextToken(String nextToken) {
+    this.nextToken = nextToken;
+  }
 
   public DescribePrefixListsResponse pageNumber(Integer pageNumber) {
     this.pageNumber = pageNumber;
@@ -156,7 +177,8 @@ public class DescribePrefixListsResponse extends com.volcengine.model.AbstractRe
       return false;
     }
     DescribePrefixListsResponse describePrefixListsResponse = (DescribePrefixListsResponse) o;
-    return Objects.equals(this.pageNumber, describePrefixListsResponse.pageNumber) &&
+    return Objects.equals(this.nextToken, describePrefixListsResponse.nextToken) &&
+        Objects.equals(this.pageNumber, describePrefixListsResponse.pageNumber) &&
         Objects.equals(this.pageSize, describePrefixListsResponse.pageSize) &&
         Objects.equals(this.prefixLists, describePrefixListsResponse.prefixLists) &&
         Objects.equals(this.requestId, describePrefixListsResponse.requestId) &&
@@ -165,7 +187,7 @@ public class DescribePrefixListsResponse extends com.volcengine.model.AbstractRe
 
   @Override
   public int hashCode() {
-    return Objects.hash(pageNumber, pageSize, prefixLists, requestId, totalCount);
+    return Objects.hash(nextToken, pageNumber, pageSize, prefixLists, requestId, totalCount);
   }
 
 
@@ -174,6 +196,7 @@ public class DescribePrefixListsResponse extends com.volcengine.model.AbstractRe
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribePrefixListsResponse {\n");
     
+    sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    prefixLists: ").append(toIndentedString(prefixLists)).append("\n");

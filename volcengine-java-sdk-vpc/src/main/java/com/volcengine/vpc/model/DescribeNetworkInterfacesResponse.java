@@ -35,6 +35,9 @@ public class DescribeNetworkInterfacesResponse extends com.volcengine.model.Abst
   @SerializedName("NetworkInterfaceSets")
   private List<NetworkInterfaceSetForDescribeNetworkInterfacesOutput> networkInterfaceSets = null;
 
+  @SerializedName("NextToken")
+  private String nextToken = null;
+
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
 
@@ -72,6 +75,24 @@ public class DescribeNetworkInterfacesResponse extends com.volcengine.model.Abst
 
   public void setNetworkInterfaceSets(List<NetworkInterfaceSetForDescribeNetworkInterfacesOutput> networkInterfaceSets) {
     this.networkInterfaceSets = networkInterfaceSets;
+  }
+
+  public DescribeNetworkInterfacesResponse nextToken(String nextToken) {
+    this.nextToken = nextToken;
+    return this;
+  }
+
+   /**
+   * Get nextToken
+   * @return nextToken
+  **/
+  @Schema(description = "")
+  public String getNextToken() {
+    return nextToken;
+  }
+
+  public void setNextToken(String nextToken) {
+    this.nextToken = nextToken;
   }
 
   public DescribeNetworkInterfacesResponse pageNumber(Integer pageNumber) {
@@ -157,6 +178,7 @@ public class DescribeNetworkInterfacesResponse extends com.volcengine.model.Abst
     }
     DescribeNetworkInterfacesResponse describeNetworkInterfacesResponse = (DescribeNetworkInterfacesResponse) o;
     return Objects.equals(this.networkInterfaceSets, describeNetworkInterfacesResponse.networkInterfaceSets) &&
+        Objects.equals(this.nextToken, describeNetworkInterfacesResponse.nextToken) &&
         Objects.equals(this.pageNumber, describeNetworkInterfacesResponse.pageNumber) &&
         Objects.equals(this.pageSize, describeNetworkInterfacesResponse.pageSize) &&
         Objects.equals(this.requestId, describeNetworkInterfacesResponse.requestId) &&
@@ -165,7 +187,7 @@ public class DescribeNetworkInterfacesResponse extends com.volcengine.model.Abst
 
   @Override
   public int hashCode() {
-    return Objects.hash(networkInterfaceSets, pageNumber, pageSize, requestId, totalCount);
+    return Objects.hash(networkInterfaceSets, nextToken, pageNumber, pageSize, requestId, totalCount);
   }
 
 
@@ -175,6 +197,7 @@ public class DescribeNetworkInterfacesResponse extends com.volcengine.model.Abst
     sb.append("class DescribeNetworkInterfacesResponse {\n");
     
     sb.append("    networkInterfaceSets: ").append(toIndentedString(networkInterfaceSets)).append("\n");
+    sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");

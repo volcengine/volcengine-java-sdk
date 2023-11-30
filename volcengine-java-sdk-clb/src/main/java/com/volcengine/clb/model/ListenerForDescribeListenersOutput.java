@@ -83,6 +83,9 @@ public class ListenerForDescribeListenersOutput {
   @SerializedName("ProxyProtocolType")
   private String proxyProtocolType = null;
 
+  @SerializedName("Scheduler")
+  private String scheduler = null;
+
   @SerializedName("ServerGroupId")
   private String serverGroupId = null;
 
@@ -407,6 +410,24 @@ public class ListenerForDescribeListenersOutput {
     this.proxyProtocolType = proxyProtocolType;
   }
 
+  public ListenerForDescribeListenersOutput scheduler(String scheduler) {
+    this.scheduler = scheduler;
+    return this;
+  }
+
+   /**
+   * Get scheduler
+   * @return scheduler
+  **/
+  @Schema(description = "")
+  public String getScheduler() {
+    return scheduler;
+  }
+
+  public void setScheduler(String scheduler) {
+    this.scheduler = scheduler;
+  }
+
   public ListenerForDescribeListenersOutput serverGroupId(String serverGroupId) {
     this.serverGroupId = serverGroupId;
     return this;
@@ -488,6 +509,7 @@ public class ListenerForDescribeListenersOutput {
         Objects.equals(this.port, listenerForDescribeListenersOutput.port) &&
         Objects.equals(this.protocol, listenerForDescribeListenersOutput.protocol) &&
         Objects.equals(this.proxyProtocolType, listenerForDescribeListenersOutput.proxyProtocolType) &&
+        Objects.equals(this.scheduler, listenerForDescribeListenersOutput.scheduler) &&
         Objects.equals(this.serverGroupId, listenerForDescribeListenersOutput.serverGroupId) &&
         Objects.equals(this.status, listenerForDescribeListenersOutput.status) &&
         Objects.equals(this.updateTime, listenerForDescribeListenersOutput.updateTime);
@@ -495,7 +517,7 @@ public class ListenerForDescribeListenersOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclIds, aclStatus, aclType, bandwidth, certificateId, connectionDrainEnabled, connectionDrainTimeout, createTime, enabled, healthCheck, listenerId, listenerName, persistenceTimeout, persistenceType, port, protocol, proxyProtocolType, serverGroupId, status, updateTime);
+    return Objects.hash(aclIds, aclStatus, aclType, bandwidth, certificateId, connectionDrainEnabled, connectionDrainTimeout, createTime, enabled, healthCheck, listenerId, listenerName, persistenceTimeout, persistenceType, port, protocol, proxyProtocolType, scheduler, serverGroupId, status, updateTime);
   }
 
 
@@ -521,6 +543,7 @@ public class ListenerForDescribeListenersOutput {
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
     sb.append("    proxyProtocolType: ").append(toIndentedString(proxyProtocolType)).append("\n");
+    sb.append("    scheduler: ").append(toIndentedString(scheduler)).append("\n");
     sb.append("    serverGroupId: ").append(toIndentedString(serverGroupId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");

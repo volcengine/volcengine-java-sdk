@@ -68,8 +68,7 @@ public class ServerForModifyServerGroupAttributesInput {
    * Get port
    * @return port
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public Integer getPort() {
     return port;
   }
@@ -87,8 +86,7 @@ public class ServerForModifyServerGroupAttributesInput {
    * Get serverId
    * @return serverId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getServerId() {
     return serverId;
   }
@@ -106,8 +104,7 @@ public class ServerForModifyServerGroupAttributesInput {
    * Get weight
    * @return weight
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public Integer getWeight() {
     return weight;
   }

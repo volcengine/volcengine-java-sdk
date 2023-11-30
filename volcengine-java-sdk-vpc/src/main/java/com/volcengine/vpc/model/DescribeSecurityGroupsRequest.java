@@ -32,6 +32,12 @@ import javax.validation.Valid;
 
 
 public class DescribeSecurityGroupsRequest {
+  @SerializedName("MaxResults")
+  private Integer maxResults = null;
+
+  @SerializedName("NextToken")
+  private String nextToken = null;
+
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
 
@@ -52,6 +58,44 @@ public class DescribeSecurityGroupsRequest {
 
   @SerializedName("VpcId")
   private String vpcId = null;
+
+  public DescribeSecurityGroupsRequest maxResults(Integer maxResults) {
+    this.maxResults = maxResults;
+    return this;
+  }
+
+   /**
+   * Get maxResults
+   * minimum: 1
+   * maximum: 100
+   * @return maxResults
+  **/
+ @Min(1) @Max(100)  @Schema(description = "")
+  public Integer getMaxResults() {
+    return maxResults;
+  }
+
+  public void setMaxResults(Integer maxResults) {
+    this.maxResults = maxResults;
+  }
+
+  public DescribeSecurityGroupsRequest nextToken(String nextToken) {
+    this.nextToken = nextToken;
+    return this;
+  }
+
+   /**
+   * Get nextToken
+   * @return nextToken
+  **/
+  @Schema(description = "")
+  public String getNextToken() {
+    return nextToken;
+  }
+
+  public void setNextToken(String nextToken) {
+    this.nextToken = nextToken;
+  }
 
   public DescribeSecurityGroupsRequest pageNumber(Integer pageNumber) {
     this.pageNumber = pageNumber;
@@ -215,7 +259,9 @@ public class DescribeSecurityGroupsRequest {
       return false;
     }
     DescribeSecurityGroupsRequest describeSecurityGroupsRequest = (DescribeSecurityGroupsRequest) o;
-    return Objects.equals(this.pageNumber, describeSecurityGroupsRequest.pageNumber) &&
+    return Objects.equals(this.maxResults, describeSecurityGroupsRequest.maxResults) &&
+        Objects.equals(this.nextToken, describeSecurityGroupsRequest.nextToken) &&
+        Objects.equals(this.pageNumber, describeSecurityGroupsRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeSecurityGroupsRequest.pageSize) &&
         Objects.equals(this.projectName, describeSecurityGroupsRequest.projectName) &&
         Objects.equals(this.securityGroupIds, describeSecurityGroupsRequest.securityGroupIds) &&
@@ -226,7 +272,7 @@ public class DescribeSecurityGroupsRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(pageNumber, pageSize, projectName, securityGroupIds, securityGroupNames, tagFilters, vpcId);
+    return Objects.hash(maxResults, nextToken, pageNumber, pageSize, projectName, securityGroupIds, securityGroupNames, tagFilters, vpcId);
   }
 
 
@@ -235,6 +281,8 @@ public class DescribeSecurityGroupsRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeSecurityGroupsRequest {\n");
     
+    sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
+    sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");

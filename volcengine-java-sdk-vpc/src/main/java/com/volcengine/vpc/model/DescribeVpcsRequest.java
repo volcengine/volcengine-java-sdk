@@ -35,6 +35,12 @@ public class DescribeVpcsRequest {
   @SerializedName("IsDefault")
   private Boolean isDefault = null;
 
+  @SerializedName("MaxResults")
+  private Integer maxResults = null;
+
+  @SerializedName("NextToken")
+  private String nextToken = null;
+
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
 
@@ -69,6 +75,44 @@ public class DescribeVpcsRequest {
 
   public void setIsDefault(Boolean isDefault) {
     this.isDefault = isDefault;
+  }
+
+  public DescribeVpcsRequest maxResults(Integer maxResults) {
+    this.maxResults = maxResults;
+    return this;
+  }
+
+   /**
+   * Get maxResults
+   * minimum: 1
+   * maximum: 100
+   * @return maxResults
+  **/
+ @Min(1) @Max(100)  @Schema(description = "")
+  public Integer getMaxResults() {
+    return maxResults;
+  }
+
+  public void setMaxResults(Integer maxResults) {
+    this.maxResults = maxResults;
+  }
+
+  public DescribeVpcsRequest nextToken(String nextToken) {
+    this.nextToken = nextToken;
+    return this;
+  }
+
+   /**
+   * Get nextToken
+   * @return nextToken
+  **/
+  @Schema(description = "")
+  public String getNextToken() {
+    return nextToken;
+  }
+
+  public void setNextToken(String nextToken) {
+    this.nextToken = nextToken;
   }
 
   public DescribeVpcsRequest pageNumber(Integer pageNumber) {
@@ -208,6 +252,8 @@ public class DescribeVpcsRequest {
     }
     DescribeVpcsRequest describeVpcsRequest = (DescribeVpcsRequest) o;
     return Objects.equals(this.isDefault, describeVpcsRequest.isDefault) &&
+        Objects.equals(this.maxResults, describeVpcsRequest.maxResults) &&
+        Objects.equals(this.nextToken, describeVpcsRequest.nextToken) &&
         Objects.equals(this.pageNumber, describeVpcsRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeVpcsRequest.pageSize) &&
         Objects.equals(this.projectName, describeVpcsRequest.projectName) &&
@@ -218,7 +264,7 @@ public class DescribeVpcsRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(isDefault, pageNumber, pageSize, projectName, tagFilters, vpcIds, vpcName);
+    return Objects.hash(isDefault, maxResults, nextToken, pageNumber, pageSize, projectName, tagFilters, vpcIds, vpcName);
   }
 
 
@@ -228,6 +274,8 @@ public class DescribeVpcsRequest {
     sb.append("class DescribeVpcsRequest {\n");
     
     sb.append("    isDefault: ").append(toIndentedString(isDefault)).append("\n");
+    sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
+    sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
