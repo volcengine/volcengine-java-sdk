@@ -143,8 +143,14 @@ public class DescribeEipAddressesRequest {
   }  @SerializedName("ISP")
   private ISPEnum ISP = null;
 
+  @SerializedName("MaxResults")
+  private Integer maxResults = null;
+
   @SerializedName("Name")
   private String name = null;
+
+  @SerializedName("NextToken")
+  private String nextToken = null;
 
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
@@ -333,6 +339,26 @@ public class DescribeEipAddressesRequest {
     this.ISP = ISP;
   }
 
+  public DescribeEipAddressesRequest maxResults(Integer maxResults) {
+    this.maxResults = maxResults;
+    return this;
+  }
+
+   /**
+   * Get maxResults
+   * minimum: 1
+   * maximum: 100
+   * @return maxResults
+  **/
+ @Min(1) @Max(100)  @Schema(description = "")
+  public Integer getMaxResults() {
+    return maxResults;
+  }
+
+  public void setMaxResults(Integer maxResults) {
+    this.maxResults = maxResults;
+  }
+
   public DescribeEipAddressesRequest name(String name) {
     this.name = name;
     return this;
@@ -349,6 +375,24 @@ public class DescribeEipAddressesRequest {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public DescribeEipAddressesRequest nextToken(String nextToken) {
+    this.nextToken = nextToken;
+    return this;
+  }
+
+   /**
+   * Get nextToken
+   * @return nextToken
+  **/
+  @Schema(description = "")
+  public String getNextToken() {
+    return nextToken;
+  }
+
+  public void setNextToken(String nextToken) {
+    this.nextToken = nextToken;
   }
 
   public DescribeEipAddressesRequest pageNumber(Integer pageNumber) {
@@ -485,7 +529,9 @@ public class DescribeEipAddressesRequest {
         Objects.equals(this.billingType, describeEipAddressesRequest.billingType) &&
         Objects.equals(this.eipAddresses, describeEipAddressesRequest.eipAddresses) &&
         Objects.equals(this.ISP, describeEipAddressesRequest.ISP) &&
+        Objects.equals(this.maxResults, describeEipAddressesRequest.maxResults) &&
         Objects.equals(this.name, describeEipAddressesRequest.name) &&
+        Objects.equals(this.nextToken, describeEipAddressesRequest.nextToken) &&
         Objects.equals(this.pageNumber, describeEipAddressesRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeEipAddressesRequest.pageSize) &&
         Objects.equals(this.projectName, describeEipAddressesRequest.projectName) &&
@@ -496,7 +542,7 @@ public class DescribeEipAddressesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allocationIds, associatedInstanceId, associatedInstanceType, billingType, eipAddresses, ISP, name, pageNumber, pageSize, projectName, securityProtectionEnabled, status, tagFilters);
+    return Objects.hash(allocationIds, associatedInstanceId, associatedInstanceType, billingType, eipAddresses, ISP, maxResults, name, nextToken, pageNumber, pageSize, projectName, securityProtectionEnabled, status, tagFilters);
   }
 
 
@@ -511,7 +557,9 @@ public class DescribeEipAddressesRequest {
     sb.append("    billingType: ").append(toIndentedString(billingType)).append("\n");
     sb.append("    eipAddresses: ").append(toIndentedString(eipAddresses)).append("\n");
     sb.append("    ISP: ").append(toIndentedString(ISP)).append("\n");
+    sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");

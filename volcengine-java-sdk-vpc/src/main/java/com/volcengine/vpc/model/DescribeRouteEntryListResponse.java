@@ -32,6 +32,9 @@ import javax.validation.Valid;
 
 
 public class DescribeRouteEntryListResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("NextToken")
+  private String nextToken = null;
+
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
 
@@ -46,6 +49,24 @@ public class DescribeRouteEntryListResponse extends com.volcengine.model.Abstrac
 
   @SerializedName("TotalCount")
   private Integer totalCount = null;
+
+  public DescribeRouteEntryListResponse nextToken(String nextToken) {
+    this.nextToken = nextToken;
+    return this;
+  }
+
+   /**
+   * Get nextToken
+   * @return nextToken
+  **/
+  @Schema(description = "")
+  public String getNextToken() {
+    return nextToken;
+  }
+
+  public void setNextToken(String nextToken) {
+    this.nextToken = nextToken;
+  }
 
   public DescribeRouteEntryListResponse pageNumber(Integer pageNumber) {
     this.pageNumber = pageNumber;
@@ -156,7 +177,8 @@ public class DescribeRouteEntryListResponse extends com.volcengine.model.Abstrac
       return false;
     }
     DescribeRouteEntryListResponse describeRouteEntryListResponse = (DescribeRouteEntryListResponse) o;
-    return Objects.equals(this.pageNumber, describeRouteEntryListResponse.pageNumber) &&
+    return Objects.equals(this.nextToken, describeRouteEntryListResponse.nextToken) &&
+        Objects.equals(this.pageNumber, describeRouteEntryListResponse.pageNumber) &&
         Objects.equals(this.pageSize, describeRouteEntryListResponse.pageSize) &&
         Objects.equals(this.requestId, describeRouteEntryListResponse.requestId) &&
         Objects.equals(this.routeEntries, describeRouteEntryListResponse.routeEntries) &&
@@ -165,7 +187,7 @@ public class DescribeRouteEntryListResponse extends com.volcengine.model.Abstrac
 
   @Override
   public int hashCode() {
-    return Objects.hash(pageNumber, pageSize, requestId, routeEntries, totalCount);
+    return Objects.hash(nextToken, pageNumber, pageSize, requestId, routeEntries, totalCount);
   }
 
 
@@ -174,6 +196,7 @@ public class DescribeRouteEntryListResponse extends com.volcengine.model.Abstrac
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeRouteEntryListResponse {\n");
     
+    sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");

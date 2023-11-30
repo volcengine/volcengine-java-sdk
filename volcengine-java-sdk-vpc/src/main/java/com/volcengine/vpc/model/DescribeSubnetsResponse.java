@@ -32,6 +32,9 @@ import javax.validation.Valid;
 
 
 public class DescribeSubnetsResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("NextToken")
+  private String nextToken = null;
+
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
 
@@ -46,6 +49,24 @@ public class DescribeSubnetsResponse extends com.volcengine.model.AbstractRespon
 
   @SerializedName("TotalCount")
   private Integer totalCount = null;
+
+  public DescribeSubnetsResponse nextToken(String nextToken) {
+    this.nextToken = nextToken;
+    return this;
+  }
+
+   /**
+   * Get nextToken
+   * @return nextToken
+  **/
+  @Schema(description = "")
+  public String getNextToken() {
+    return nextToken;
+  }
+
+  public void setNextToken(String nextToken) {
+    this.nextToken = nextToken;
+  }
 
   public DescribeSubnetsResponse pageNumber(Integer pageNumber) {
     this.pageNumber = pageNumber;
@@ -156,7 +177,8 @@ public class DescribeSubnetsResponse extends com.volcengine.model.AbstractRespon
       return false;
     }
     DescribeSubnetsResponse describeSubnetsResponse = (DescribeSubnetsResponse) o;
-    return Objects.equals(this.pageNumber, describeSubnetsResponse.pageNumber) &&
+    return Objects.equals(this.nextToken, describeSubnetsResponse.nextToken) &&
+        Objects.equals(this.pageNumber, describeSubnetsResponse.pageNumber) &&
         Objects.equals(this.pageSize, describeSubnetsResponse.pageSize) &&
         Objects.equals(this.requestId, describeSubnetsResponse.requestId) &&
         Objects.equals(this.subnets, describeSubnetsResponse.subnets) &&
@@ -165,7 +187,7 @@ public class DescribeSubnetsResponse extends com.volcengine.model.AbstractRespon
 
   @Override
   public int hashCode() {
-    return Objects.hash(pageNumber, pageSize, requestId, subnets, totalCount);
+    return Objects.hash(nextToken, pageNumber, pageSize, requestId, subnets, totalCount);
   }
 
 
@@ -174,6 +196,7 @@ public class DescribeSubnetsResponse extends com.volcengine.model.AbstractRespon
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeSubnetsResponse {\n");
     
+    sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");

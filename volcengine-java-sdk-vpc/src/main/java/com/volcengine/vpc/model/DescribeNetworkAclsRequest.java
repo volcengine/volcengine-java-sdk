@@ -31,11 +31,17 @@ import javax.validation.Valid;
 
 
 public class DescribeNetworkAclsRequest {
+  @SerializedName("MaxResults")
+  private Integer maxResults = null;
+
   @SerializedName("NetworkAclIds")
   private List<String> networkAclIds = null;
 
   @SerializedName("NetworkAclName")
   private String networkAclName = null;
+
+  @SerializedName("NextToken")
+  private String nextToken = null;
 
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
@@ -51,6 +57,26 @@ public class DescribeNetworkAclsRequest {
 
   @SerializedName("VpcId")
   private String vpcId = null;
+
+  public DescribeNetworkAclsRequest maxResults(Integer maxResults) {
+    this.maxResults = maxResults;
+    return this;
+  }
+
+   /**
+   * Get maxResults
+   * minimum: 1
+   * maximum: 100
+   * @return maxResults
+  **/
+ @Min(1) @Max(100)  @Schema(description = "")
+  public Integer getMaxResults() {
+    return maxResults;
+  }
+
+  public void setMaxResults(Integer maxResults) {
+    this.maxResults = maxResults;
+  }
 
   public DescribeNetworkAclsRequest networkAclIds(List<String> networkAclIds) {
     this.networkAclIds = networkAclIds;
@@ -94,6 +120,24 @@ public class DescribeNetworkAclsRequest {
 
   public void setNetworkAclName(String networkAclName) {
     this.networkAclName = networkAclName;
+  }
+
+  public DescribeNetworkAclsRequest nextToken(String nextToken) {
+    this.nextToken = nextToken;
+    return this;
+  }
+
+   /**
+   * Get nextToken
+   * @return nextToken
+  **/
+  @Schema(description = "")
+  public String getNextToken() {
+    return nextToken;
+  }
+
+  public void setNextToken(String nextToken) {
+    this.nextToken = nextToken;
   }
 
   public DescribeNetworkAclsRequest pageNumber(Integer pageNumber) {
@@ -197,8 +241,10 @@ public class DescribeNetworkAclsRequest {
       return false;
     }
     DescribeNetworkAclsRequest describeNetworkAclsRequest = (DescribeNetworkAclsRequest) o;
-    return Objects.equals(this.networkAclIds, describeNetworkAclsRequest.networkAclIds) &&
+    return Objects.equals(this.maxResults, describeNetworkAclsRequest.maxResults) &&
+        Objects.equals(this.networkAclIds, describeNetworkAclsRequest.networkAclIds) &&
         Objects.equals(this.networkAclName, describeNetworkAclsRequest.networkAclName) &&
+        Objects.equals(this.nextToken, describeNetworkAclsRequest.nextToken) &&
         Objects.equals(this.pageNumber, describeNetworkAclsRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeNetworkAclsRequest.pageSize) &&
         Objects.equals(this.projectName, describeNetworkAclsRequest.projectName) &&
@@ -208,7 +254,7 @@ public class DescribeNetworkAclsRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(networkAclIds, networkAclName, pageNumber, pageSize, projectName, subnetId, vpcId);
+    return Objects.hash(maxResults, networkAclIds, networkAclName, nextToken, pageNumber, pageSize, projectName, subnetId, vpcId);
   }
 
 
@@ -217,8 +263,10 @@ public class DescribeNetworkAclsRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeNetworkAclsRequest {\n");
     
+    sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
     sb.append("    networkAclIds: ").append(toIndentedString(networkAclIds)).append("\n");
     sb.append("    networkAclName: ").append(toIndentedString(networkAclName)).append("\n");
+    sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");

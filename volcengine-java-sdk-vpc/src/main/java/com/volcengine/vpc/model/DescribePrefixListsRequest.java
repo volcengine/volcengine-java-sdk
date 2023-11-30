@@ -32,6 +32,12 @@ import javax.validation.Valid;
 
 
 public class DescribePrefixListsRequest {
+  @SerializedName("MaxResults")
+  private Integer maxResults = null;
+
+  @SerializedName("NextToken")
+  private String nextToken = null;
+
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
 
@@ -46,6 +52,44 @@ public class DescribePrefixListsRequest {
 
   @SerializedName("TagFilters")
   private List<TagFilterForDescribePrefixListsInput> tagFilters = null;
+
+  public DescribePrefixListsRequest maxResults(Integer maxResults) {
+    this.maxResults = maxResults;
+    return this;
+  }
+
+   /**
+   * Get maxResults
+   * minimum: 1
+   * maximum: 100
+   * @return maxResults
+  **/
+ @Min(1) @Max(100)  @Schema(description = "")
+  public Integer getMaxResults() {
+    return maxResults;
+  }
+
+  public void setMaxResults(Integer maxResults) {
+    this.maxResults = maxResults;
+  }
+
+  public DescribePrefixListsRequest nextToken(String nextToken) {
+    this.nextToken = nextToken;
+    return this;
+  }
+
+   /**
+   * Get nextToken
+   * @return nextToken
+  **/
+  @Schema(description = "")
+  public String getNextToken() {
+    return nextToken;
+  }
+
+  public void setNextToken(String nextToken) {
+    this.nextToken = nextToken;
+  }
 
   public DescribePrefixListsRequest pageNumber(Integer pageNumber) {
     this.pageNumber = pageNumber;
@@ -164,7 +208,9 @@ public class DescribePrefixListsRequest {
       return false;
     }
     DescribePrefixListsRequest describePrefixListsRequest = (DescribePrefixListsRequest) o;
-    return Objects.equals(this.pageNumber, describePrefixListsRequest.pageNumber) &&
+    return Objects.equals(this.maxResults, describePrefixListsRequest.maxResults) &&
+        Objects.equals(this.nextToken, describePrefixListsRequest.nextToken) &&
+        Objects.equals(this.pageNumber, describePrefixListsRequest.pageNumber) &&
         Objects.equals(this.pageSize, describePrefixListsRequest.pageSize) &&
         Objects.equals(this.prefixListIds, describePrefixListsRequest.prefixListIds) &&
         Objects.equals(this.prefixListName, describePrefixListsRequest.prefixListName) &&
@@ -173,7 +219,7 @@ public class DescribePrefixListsRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(pageNumber, pageSize, prefixListIds, prefixListName, tagFilters);
+    return Objects.hash(maxResults, nextToken, pageNumber, pageSize, prefixListIds, prefixListName, tagFilters);
   }
 
 
@@ -182,6 +228,8 @@ public class DescribePrefixListsRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribePrefixListsRequest {\n");
     
+    sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
+    sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    prefixListIds: ").append(toIndentedString(prefixListIds)).append("\n");

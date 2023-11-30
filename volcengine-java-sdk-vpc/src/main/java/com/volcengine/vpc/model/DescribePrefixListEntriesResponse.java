@@ -32,6 +32,9 @@ import javax.validation.Valid;
 
 
 public class DescribePrefixListEntriesResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("NextToken")
+  private String nextToken = null;
+
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
 
@@ -46,6 +49,24 @@ public class DescribePrefixListEntriesResponse extends com.volcengine.model.Abst
 
   @SerializedName("TotalCount")
   private Integer totalCount = null;
+
+  public DescribePrefixListEntriesResponse nextToken(String nextToken) {
+    this.nextToken = nextToken;
+    return this;
+  }
+
+   /**
+   * Get nextToken
+   * @return nextToken
+  **/
+  @Schema(description = "")
+  public String getNextToken() {
+    return nextToken;
+  }
+
+  public void setNextToken(String nextToken) {
+    this.nextToken = nextToken;
+  }
 
   public DescribePrefixListEntriesResponse pageNumber(Integer pageNumber) {
     this.pageNumber = pageNumber;
@@ -156,7 +177,8 @@ public class DescribePrefixListEntriesResponse extends com.volcengine.model.Abst
       return false;
     }
     DescribePrefixListEntriesResponse describePrefixListEntriesResponse = (DescribePrefixListEntriesResponse) o;
-    return Objects.equals(this.pageNumber, describePrefixListEntriesResponse.pageNumber) &&
+    return Objects.equals(this.nextToken, describePrefixListEntriesResponse.nextToken) &&
+        Objects.equals(this.pageNumber, describePrefixListEntriesResponse.pageNumber) &&
         Objects.equals(this.pageSize, describePrefixListEntriesResponse.pageSize) &&
         Objects.equals(this.prefixListEntries, describePrefixListEntriesResponse.prefixListEntries) &&
         Objects.equals(this.requestId, describePrefixListEntriesResponse.requestId) &&
@@ -165,7 +187,7 @@ public class DescribePrefixListEntriesResponse extends com.volcengine.model.Abst
 
   @Override
   public int hashCode() {
-    return Objects.hash(pageNumber, pageSize, prefixListEntries, requestId, totalCount);
+    return Objects.hash(nextToken, pageNumber, pageSize, prefixListEntries, requestId, totalCount);
   }
 
 
@@ -174,6 +196,7 @@ public class DescribePrefixListEntriesResponse extends com.volcengine.model.Abst
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribePrefixListEntriesResponse {\n");
     
+    sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    prefixListEntries: ").append(toIndentedString(prefixListEntries)).append("\n");

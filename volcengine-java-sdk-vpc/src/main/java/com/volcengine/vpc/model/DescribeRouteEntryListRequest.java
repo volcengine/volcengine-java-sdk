@@ -35,11 +35,17 @@ public class DescribeRouteEntryListRequest {
   @SerializedName("DestinationPrefixListId")
   private String destinationPrefixListId = null;
 
+  @SerializedName("MaxResults")
+  private Integer maxResults = null;
+
   @SerializedName("NextHopId")
   private String nextHopId = null;
 
   @SerializedName("NextHopType")
   private String nextHopType = null;
+
+  @SerializedName("NextToken")
+  private String nextToken = null;
 
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
@@ -95,6 +101,26 @@ public class DescribeRouteEntryListRequest {
     this.destinationPrefixListId = destinationPrefixListId;
   }
 
+  public DescribeRouteEntryListRequest maxResults(Integer maxResults) {
+    this.maxResults = maxResults;
+    return this;
+  }
+
+   /**
+   * Get maxResults
+   * minimum: 1
+   * maximum: 100
+   * @return maxResults
+  **/
+ @Min(1) @Max(100)  @Schema(description = "")
+  public Integer getMaxResults() {
+    return maxResults;
+  }
+
+  public void setMaxResults(Integer maxResults) {
+    this.maxResults = maxResults;
+  }
+
   public DescribeRouteEntryListRequest nextHopId(String nextHopId) {
     this.nextHopId = nextHopId;
     return this;
@@ -129,6 +155,24 @@ public class DescribeRouteEntryListRequest {
 
   public void setNextHopType(String nextHopType) {
     this.nextHopType = nextHopType;
+  }
+
+  public DescribeRouteEntryListRequest nextToken(String nextToken) {
+    this.nextToken = nextToken;
+    return this;
+  }
+
+   /**
+   * Get nextToken
+   * @return nextToken
+  **/
+  @Schema(description = "")
+  public String getNextToken() {
+    return nextToken;
+  }
+
+  public void setNextToken(String nextToken) {
+    this.nextToken = nextToken;
   }
 
   public DescribeRouteEntryListRequest pageNumber(Integer pageNumber) {
@@ -253,8 +297,10 @@ public class DescribeRouteEntryListRequest {
     DescribeRouteEntryListRequest describeRouteEntryListRequest = (DescribeRouteEntryListRequest) o;
     return Objects.equals(this.destinationCidrBlock, describeRouteEntryListRequest.destinationCidrBlock) &&
         Objects.equals(this.destinationPrefixListId, describeRouteEntryListRequest.destinationPrefixListId) &&
+        Objects.equals(this.maxResults, describeRouteEntryListRequest.maxResults) &&
         Objects.equals(this.nextHopId, describeRouteEntryListRequest.nextHopId) &&
         Objects.equals(this.nextHopType, describeRouteEntryListRequest.nextHopType) &&
+        Objects.equals(this.nextToken, describeRouteEntryListRequest.nextToken) &&
         Objects.equals(this.pageNumber, describeRouteEntryListRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeRouteEntryListRequest.pageSize) &&
         Objects.equals(this.routeEntryId, describeRouteEntryListRequest.routeEntryId) &&
@@ -265,7 +311,7 @@ public class DescribeRouteEntryListRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(destinationCidrBlock, destinationPrefixListId, nextHopId, nextHopType, pageNumber, pageSize, routeEntryId, routeEntryName, routeEntryType, routeTableId);
+    return Objects.hash(destinationCidrBlock, destinationPrefixListId, maxResults, nextHopId, nextHopType, nextToken, pageNumber, pageSize, routeEntryId, routeEntryName, routeEntryType, routeTableId);
   }
 
 
@@ -276,8 +322,10 @@ public class DescribeRouteEntryListRequest {
     
     sb.append("    destinationCidrBlock: ").append(toIndentedString(destinationCidrBlock)).append("\n");
     sb.append("    destinationPrefixListId: ").append(toIndentedString(destinationPrefixListId)).append("\n");
+    sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
     sb.append("    nextHopId: ").append(toIndentedString(nextHopId)).append("\n");
     sb.append("    nextHopType: ").append(toIndentedString(nextHopType)).append("\n");
+    sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    routeEntryId: ").append(toIndentedString(routeEntryId)).append("\n");

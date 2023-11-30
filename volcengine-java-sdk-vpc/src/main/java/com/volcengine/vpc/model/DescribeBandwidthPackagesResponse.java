@@ -35,6 +35,9 @@ public class DescribeBandwidthPackagesResponse extends com.volcengine.model.Abst
   @SerializedName("BandwidthPackages")
   private List<BandwidthPackageForDescribeBandwidthPackagesOutput> bandwidthPackages = null;
 
+  @SerializedName("NextToken")
+  private String nextToken = null;
+
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
 
@@ -72,6 +75,24 @@ public class DescribeBandwidthPackagesResponse extends com.volcengine.model.Abst
 
   public void setBandwidthPackages(List<BandwidthPackageForDescribeBandwidthPackagesOutput> bandwidthPackages) {
     this.bandwidthPackages = bandwidthPackages;
+  }
+
+  public DescribeBandwidthPackagesResponse nextToken(String nextToken) {
+    this.nextToken = nextToken;
+    return this;
+  }
+
+   /**
+   * Get nextToken
+   * @return nextToken
+  **/
+  @Schema(description = "")
+  public String getNextToken() {
+    return nextToken;
+  }
+
+  public void setNextToken(String nextToken) {
+    this.nextToken = nextToken;
   }
 
   public DescribeBandwidthPackagesResponse pageNumber(Integer pageNumber) {
@@ -157,6 +178,7 @@ public class DescribeBandwidthPackagesResponse extends com.volcengine.model.Abst
     }
     DescribeBandwidthPackagesResponse describeBandwidthPackagesResponse = (DescribeBandwidthPackagesResponse) o;
     return Objects.equals(this.bandwidthPackages, describeBandwidthPackagesResponse.bandwidthPackages) &&
+        Objects.equals(this.nextToken, describeBandwidthPackagesResponse.nextToken) &&
         Objects.equals(this.pageNumber, describeBandwidthPackagesResponse.pageNumber) &&
         Objects.equals(this.pageSize, describeBandwidthPackagesResponse.pageSize) &&
         Objects.equals(this.requestId, describeBandwidthPackagesResponse.requestId) &&
@@ -165,7 +187,7 @@ public class DescribeBandwidthPackagesResponse extends com.volcengine.model.Abst
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidthPackages, pageNumber, pageSize, requestId, totalCount);
+    return Objects.hash(bandwidthPackages, nextToken, pageNumber, pageSize, requestId, totalCount);
   }
 
 
@@ -175,6 +197,7 @@ public class DescribeBandwidthPackagesResponse extends com.volcengine.model.Abst
     sb.append("class DescribeBandwidthPackagesResponse {\n");
     
     sb.append("    bandwidthPackages: ").append(toIndentedString(bandwidthPackages)).append("\n");
+    sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");

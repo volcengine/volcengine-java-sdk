@@ -35,6 +35,9 @@ public class DescribeNetworkAclsResponse extends com.volcengine.model.AbstractRe
   @SerializedName("NetworkAcls")
   private List<NetworkAclForDescribeNetworkAclsOutput> networkAcls = null;
 
+  @SerializedName("NextToken")
+  private String nextToken = null;
+
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
 
@@ -72,6 +75,24 @@ public class DescribeNetworkAclsResponse extends com.volcengine.model.AbstractRe
 
   public void setNetworkAcls(List<NetworkAclForDescribeNetworkAclsOutput> networkAcls) {
     this.networkAcls = networkAcls;
+  }
+
+  public DescribeNetworkAclsResponse nextToken(String nextToken) {
+    this.nextToken = nextToken;
+    return this;
+  }
+
+   /**
+   * Get nextToken
+   * @return nextToken
+  **/
+  @Schema(description = "")
+  public String getNextToken() {
+    return nextToken;
+  }
+
+  public void setNextToken(String nextToken) {
+    this.nextToken = nextToken;
   }
 
   public DescribeNetworkAclsResponse pageNumber(Integer pageNumber) {
@@ -157,6 +178,7 @@ public class DescribeNetworkAclsResponse extends com.volcengine.model.AbstractRe
     }
     DescribeNetworkAclsResponse describeNetworkAclsResponse = (DescribeNetworkAclsResponse) o;
     return Objects.equals(this.networkAcls, describeNetworkAclsResponse.networkAcls) &&
+        Objects.equals(this.nextToken, describeNetworkAclsResponse.nextToken) &&
         Objects.equals(this.pageNumber, describeNetworkAclsResponse.pageNumber) &&
         Objects.equals(this.pageSize, describeNetworkAclsResponse.pageSize) &&
         Objects.equals(this.requestId, describeNetworkAclsResponse.requestId) &&
@@ -165,7 +187,7 @@ public class DescribeNetworkAclsResponse extends com.volcengine.model.AbstractRe
 
   @Override
   public int hashCode() {
-    return Objects.hash(networkAcls, pageNumber, pageSize, requestId, totalCount);
+    return Objects.hash(networkAcls, nextToken, pageNumber, pageSize, requestId, totalCount);
   }
 
 
@@ -175,6 +197,7 @@ public class DescribeNetworkAclsResponse extends com.volcengine.model.AbstractRe
     sb.append("class DescribeNetworkAclsResponse {\n");
     
     sb.append("    networkAcls: ").append(toIndentedString(networkAcls)).append("\n");
+    sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
