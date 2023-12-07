@@ -34,8 +34,8 @@ public class TaintForUpdateNodePoolConfigInput {
    */
   @JsonAdapter(EffectEnum.Adapter.class)
   public enum EffectEnum {
-    NOEXECUTE("NoExecute"),
     NOSCHEDULE("NoSchedule"),
+    NOEXECUTE("NoExecute"),
     PREFERNOSCHEDULE("PreferNoSchedule");
 
     private String value;

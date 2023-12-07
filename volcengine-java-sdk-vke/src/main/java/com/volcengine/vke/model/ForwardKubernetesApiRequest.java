@@ -74,7 +74,8 @@ public class ForwardKubernetesApiRequest {
    * Get clusterId
    * @return clusterId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getClusterId() {
     return clusterId;
   }
@@ -119,7 +120,8 @@ public class ForwardKubernetesApiRequest {
    * Get method
    * @return method
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getMethod() {
     return method;
   }
@@ -137,7 +139,8 @@ public class ForwardKubernetesApiRequest {
    * Get path
    * @return path
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getPath() {
     return path;
   }

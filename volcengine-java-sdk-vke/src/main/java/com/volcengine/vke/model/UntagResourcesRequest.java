@@ -39,9 +39,9 @@ public class UntagResourcesRequest {
    */
   @JsonAdapter(ResourceTypeEnum.Adapter.class)
   public enum ResourceTypeEnum {
-    BAREMACHINE("BareMachine"),
     CLUSTER("Cluster"),
-    NODEPOOL("NodePool");
+    NODEPOOL("NodePool"),
+    BAREMACHINE("BareMachine");
 
     private String value;
 
@@ -117,7 +117,8 @@ public class UntagResourcesRequest {
    * Get resourceType
    * @return resourceType
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public ResourceTypeEnum getResourceType() {
     return resourceType;
   }

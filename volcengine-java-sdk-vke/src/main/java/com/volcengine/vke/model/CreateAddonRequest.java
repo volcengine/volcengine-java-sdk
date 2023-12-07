@@ -43,8 +43,8 @@ public class CreateAddonRequest {
    */
   @JsonAdapter(DeployModeEnum.Adapter.class)
   public enum DeployModeEnum {
-    MANAGED("Managed"),
-    UNMANAGED("Unmanaged");
+    UNMANAGED("Unmanaged"),
+    MANAGED("Managed");
 
     private String value;
 
@@ -87,9 +87,9 @@ public class CreateAddonRequest {
    */
   @JsonAdapter(DeployNodeTypeEnum.Adapter.class)
   public enum DeployNodeTypeEnum {
-    EDGENODE("EdgeNode"),
     NODE("Node"),
-    VIRTUALNODE("VirtualNode");
+    VIRTUALNODE("VirtualNode"),
+    EDGENODE("EdgeNode");
 
     private String value;
 
@@ -160,7 +160,8 @@ public class CreateAddonRequest {
    * Get clusterId
    * @return clusterId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getClusterId() {
     return clusterId;
   }
@@ -232,7 +233,8 @@ public class CreateAddonRequest {
    * Get name
    * @return name
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getName() {
     return name;
   }

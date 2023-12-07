@@ -17,11 +17,11 @@ import java.util.Arrays;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * CreateAddonResponse
+ * GetGlobalDefaultDeleteOptionRequest
  */
 
 
-public class CreateAddonResponse extends com.volcengine.model.AbstractResponse {
+public class GetGlobalDefaultDeleteOptionRequest {
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -43,7 +43,7 @@ public class CreateAddonResponse extends com.volcengine.model.AbstractResponse {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateAddonResponse {\n");
+    sb.append("class GetGlobalDefaultDeleteOptionRequest {\n");
     
     sb.append("}");
     return sb.toString();

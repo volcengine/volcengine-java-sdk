@@ -31,7 +31,7 @@ import javax.validation.Valid;
  */
 
 
-public class ListNodesResponse {
+public class ListNodesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Items")
   private List<ItemForListNodesOutput> items = null;
 

@@ -49,15 +49,11 @@ public class FilterForListClustersInput {
    */
   @JsonAdapter(PodsConfigPodNetworkModeEnum.Adapter.class)
   public enum PodsConfigPodNetworkModeEnum {
+    FLANNEL("Flannel"),
+    VPCCNISHARED("VpcCniShared"),
     CALICOBGP("CalicoBgp"),
     CALICOVXLAN("CalicoVxlan"),
-    CARMA("Carma"),
-    CILIUM("Cilium"),
-    DEFAULT("Default"),
-    FLANNEL("Flannel"),
-    KUBEOVN("KubeOvn"),
-    VPCCNIDEDICATED("VpcCniDedicated"),
-    VPCCNISHARED("VpcCniShared");
+    VPCCNIDEDICATED("VpcCniDedicated");
 
     private String value;
 

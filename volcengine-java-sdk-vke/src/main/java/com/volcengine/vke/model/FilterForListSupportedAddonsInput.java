@@ -36,14 +36,14 @@ public class FilterForListSupportedAddonsInput {
    */
   @JsonAdapter(CategoriesEnum.Adapter.class)
   public enum CategoriesEnum {
-    DNS("Dns"),
-    GPU("Gpu"),
-    IMAGE("Image"),
-    MONITOR("Monitor"),
+    STORAGE("Storage"),
     NETWORK("Network"),
+    MONITOR("Monitor"),
     SCHEDULER("Scheduler"),
+    DNS("Dns"),
     SECURITY("Security"),
-    STORAGE("Storage");
+    GPU("Gpu"),
+    IMAGE("Image");
 
     private String value;
 
@@ -86,7 +86,6 @@ public class FilterForListSupportedAddonsInput {
    */
   @JsonAdapter(DeployModesEnum.Adapter.class)
   public enum DeployModesEnum {
-    EITHER("Either"),
     MANAGED("Managed"),
     UNMANAGED("Unmanaged");
 
@@ -131,9 +130,9 @@ public class FilterForListSupportedAddonsInput {
    */
   @JsonAdapter(DeployNodeTypesEnum.Adapter.class)
   public enum DeployNodeTypesEnum {
-    EDGENODE("EdgeNode"),
     NODE("Node"),
-    VIRTUALNODE("VirtualNode");
+    VIRTUALNODE("VirtualNode"),
+    EDGENODE("EdgeNode");
 
     private String value;
 
@@ -179,9 +178,9 @@ public class FilterForListSupportedAddonsInput {
    */
   @JsonAdapter(NecessariesEnum.Adapter.class)
   public enum NecessariesEnum {
-    ONDEMAND("OnDemand"),
+    REQUIRED("Required"),
     RECOMMENDED("Recommended"),
-    REQUIRED("Required");
+    ONDEMAND("OnDemand");
 
     private String value;
 
@@ -224,11 +223,11 @@ public class FilterForListSupportedAddonsInput {
    */
   @JsonAdapter(PodNetworkModesEnum.Adapter.class)
   public enum PodNetworkModesEnum {
+    FLANNEL("Flannel"),
+    VPCCNISHARED("VpcCniShared"),
     CALICOBGP("CalicoBgp"),
     CALICOVXLAN("CalicoVxlan"),
-    FLANNEL("Flannel"),
-    VPCCNIDEDICATED("VpcCniDedicated"),
-    VPCCNISHARED("VpcCniShared");
+    VPCCNIDEDICATED("VpcCniDedicated");
 
     private String value;
 

@@ -28,7 +28,7 @@ import javax.validation.Valid;
  */
 
 
-public class CreateClusterResponse {
+public class CreateClusterResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Id")
   private String id = null;
 

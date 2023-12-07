@@ -138,7 +138,8 @@ public class UpdateClusterConfigRequest {
    * Get id
    * @return id
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getId() {
     return id;
   }

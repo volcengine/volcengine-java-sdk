@@ -59,6 +59,9 @@ public class CreateNodesRequest {
   @SerializedName("KubernetesConfig")
   private KubernetesConfigForCreateNodesInput kubernetesConfig = null;
 
+  @SerializedName("NodePoolId")
+  private String nodePoolId = null;
+
   public CreateNodesRequest additionalContainerStorageEnabled(Boolean additionalContainerStorageEnabled) {
     this.additionalContainerStorageEnabled = additionalContainerStorageEnabled;
     return this;
@@ -104,7 +107,8 @@ public class CreateNodesRequest {
    * Get clusterId
    * @return clusterId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getClusterId() {
     return clusterId;
   }
@@ -230,6 +234,24 @@ public class CreateNodesRequest {
     this.kubernetesConfig = kubernetesConfig;
   }
 
+  public CreateNodesRequest nodePoolId(String nodePoolId) {
+    this.nodePoolId = nodePoolId;
+    return this;
+  }
+
+   /**
+   * Get nodePoolId
+   * @return nodePoolId
+  **/
+  @Schema(description = "")
+  public String getNodePoolId() {
+    return nodePoolId;
+  }
+
+  public void setNodePoolId(String nodePoolId) {
+    this.nodePoolId = nodePoolId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -248,12 +270,13 @@ public class CreateNodesRequest {
         Objects.equals(this.initializeScript, createNodesRequest.initializeScript) &&
         Objects.equals(this.instanceIds, createNodesRequest.instanceIds) &&
         Objects.equals(this.keepInstanceName, createNodesRequest.keepInstanceName) &&
-        Objects.equals(this.kubernetesConfig, createNodesRequest.kubernetesConfig);
+        Objects.equals(this.kubernetesConfig, createNodesRequest.kubernetesConfig) &&
+        Objects.equals(this.nodePoolId, createNodesRequest.nodePoolId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalContainerStorageEnabled, clientToken, clusterId, containerStoragePath, imageId, initializeScript, instanceIds, keepInstanceName, kubernetesConfig);
+    return Objects.hash(additionalContainerStorageEnabled, clientToken, clusterId, containerStoragePath, imageId, initializeScript, instanceIds, keepInstanceName, kubernetesConfig, nodePoolId);
   }
 
 
@@ -271,6 +294,7 @@ public class CreateNodesRequest {
     sb.append("    instanceIds: ").append(toIndentedString(instanceIds)).append("\n");
     sb.append("    keepInstanceName: ").append(toIndentedString(keepInstanceName)).append("\n");
     sb.append("    kubernetesConfig: ").append(toIndentedString(kubernetesConfig)).append("\n");
+    sb.append("    nodePoolId: ").append(toIndentedString(nodePoolId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

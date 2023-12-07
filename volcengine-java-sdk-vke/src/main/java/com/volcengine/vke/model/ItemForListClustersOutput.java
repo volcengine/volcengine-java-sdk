@@ -38,9 +38,6 @@ import javax.validation.Valid;
 
 
 public class ItemForListClustersOutput {
-  @SerializedName("ChargeType")
-  private String chargeType = null;
-
   @SerializedName("ClusterConfig")
   private ClusterConfigForListClustersOutput clusterConfig = null;
 
@@ -88,24 +85,6 @@ public class ItemForListClustersOutput {
 
   @SerializedName("UpdateTime")
   private String updateTime = null;
-
-  public ItemForListClustersOutput chargeType(String chargeType) {
-    this.chargeType = chargeType;
-    return this;
-  }
-
-   /**
-   * Get chargeType
-   * @return chargeType
-  **/
-  @Schema(description = "")
-  public String getChargeType() {
-    return chargeType;
-  }
-
-  public void setChargeType(String chargeType) {
-    this.chargeType = chargeType;
-  }
 
   public ItemForListClustersOutput clusterConfig(ClusterConfigForListClustersOutput clusterConfig) {
     this.clusterConfig = clusterConfig;
@@ -420,8 +399,7 @@ public class ItemForListClustersOutput {
       return false;
     }
     ItemForListClustersOutput itemForListClustersOutput = (ItemForListClustersOutput) o;
-    return Objects.equals(this.chargeType, itemForListClustersOutput.chargeType) &&
-        Objects.equals(this.clusterConfig, itemForListClustersOutput.clusterConfig) &&
+    return Objects.equals(this.clusterConfig, itemForListClustersOutput.clusterConfig) &&
         Objects.equals(this.createClientToken, itemForListClustersOutput.createClientToken) &&
         Objects.equals(this.createTime, itemForListClustersOutput.createTime) &&
         Objects.equals(this.deleteProtectionEnabled, itemForListClustersOutput.deleteProtectionEnabled) &&
@@ -441,7 +419,7 @@ public class ItemForListClustersOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(chargeType, clusterConfig, createClientToken, createTime, deleteProtectionEnabled, description, id, kubernetesVersion, loggingConfig, name, nodeStatistics, podsConfig, servicesConfig, status, tags, updateClientToken, updateTime);
+    return Objects.hash(clusterConfig, createClientToken, createTime, deleteProtectionEnabled, description, id, kubernetesVersion, loggingConfig, name, nodeStatistics, podsConfig, servicesConfig, status, tags, updateClientToken, updateTime);
   }
 
 
@@ -450,7 +428,6 @@ public class ItemForListClustersOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ItemForListClustersOutput {\n");
     
-    sb.append("    chargeType: ").append(toIndentedString(chargeType)).append("\n");
     sb.append("    clusterConfig: ").append(toIndentedString(clusterConfig)).append("\n");
     sb.append("    createClientToken: ").append(toIndentedString(createClientToken)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");

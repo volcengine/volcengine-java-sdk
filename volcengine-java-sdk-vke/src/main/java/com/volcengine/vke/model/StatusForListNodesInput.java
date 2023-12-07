@@ -34,15 +34,15 @@ public class StatusForListNodesInput {
    */
   @JsonAdapter(ConditionsTypeEnum.Adapter.class)
   public enum ConditionsTypeEnum {
-    BALANCE("Balance"),
-    INITIALIZEFAILED("InitializeFailed"),
-    NOTREADY("NotReady"),
-    OK("Ok"),
     PROGRESSING("Progressing"),
+    OK("Ok"),
+    UNSCHEDULABLE("Unschedulable"),
+    NOTREADY("NotReady"),
+    INITIALIZEFAILED("InitializeFailed"),
     RESOURCECLEANUPFAILED("ResourceCleanupFailed"),
     SECURITY("Security"),
-    UNKNOWN("Unknown"),
-    UNSCHEDULABLE("Unschedulable");
+    BALANCE("Balance"),
+    UNKNOW("Unknow");
 
     private String value;
 
@@ -86,13 +86,13 @@ public class StatusForListNodesInput {
   @JsonAdapter(PhaseEnum.Adapter.class)
   public enum PhaseEnum {
     CREATING("Creating"),
-    DELETING("Deleting"),
-    FAILED("Failed"),
     RUNNING("Running"),
+    DELETING("Deleting"),
+    UPDATING("Updating"),
+    FAILED("Failed"),
     STARTING("Starting"),
-    STOPPED("Stopped"),
     STOPPING("Stopping"),
-    UPDATING("Updating");
+    STOPPED("Stopped");
 
     private String value;
 

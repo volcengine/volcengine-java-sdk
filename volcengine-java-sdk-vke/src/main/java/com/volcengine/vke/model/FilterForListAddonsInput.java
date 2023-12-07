@@ -87,9 +87,9 @@ public class FilterForListAddonsInput {
    */
   @JsonAdapter(DeployNodeTypesEnum.Adapter.class)
   public enum DeployNodeTypesEnum {
-    EDGENODE("EdgeNode"),
     NODE("Node"),
-    VIRTUALNODE("VirtualNode");
+    VIRTUALNODE("VirtualNode"),
+    EDGENODE("EdgeNode");
 
     private String value;
 

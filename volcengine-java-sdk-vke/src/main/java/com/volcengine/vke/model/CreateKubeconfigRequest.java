@@ -38,8 +38,7 @@ public class CreateKubeconfigRequest {
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
     PRIVATE("Private"),
-    PUBLIC("Public"),
-    TARGETCLUSTER("TargetCluster");
+    PUBLIC("Public");
 
     private String value;
 
@@ -89,7 +88,8 @@ public class CreateKubeconfigRequest {
    * Get clusterId
    * @return clusterId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getClusterId() {
     return clusterId;
   }
@@ -107,7 +107,8 @@ public class CreateKubeconfigRequest {
    * Get type
    * @return type
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public TypeEnum getType() {
     return type;
   }

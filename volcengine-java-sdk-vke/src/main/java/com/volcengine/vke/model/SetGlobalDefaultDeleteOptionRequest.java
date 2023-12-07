@@ -24,51 +24,31 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ForwardKubernetesApiResponse
+ * SetGlobalDefaultDeleteOptionRequest
  */
 
 
-public class ForwardKubernetesApiResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("Body")
-  private String body = null;
+public class SetGlobalDefaultDeleteOptionRequest {
+  @SerializedName("DefaultDeleteAllResources")
+  private Boolean defaultDeleteAllResources = null;
 
-  @SerializedName("Code")
-  private Integer code = null;
-
-  public ForwardKubernetesApiResponse body(String body) {
-    this.body = body;
+  public SetGlobalDefaultDeleteOptionRequest defaultDeleteAllResources(Boolean defaultDeleteAllResources) {
+    this.defaultDeleteAllResources = defaultDeleteAllResources;
     return this;
   }
 
    /**
-   * Get body
-   * @return body
+   * Get defaultDeleteAllResources
+   * @return defaultDeleteAllResources
   **/
-  @Schema(description = "")
-  public String getBody() {
-    return body;
+  @NotNull
+  @Schema(required = true, description = "")
+  public Boolean isDefaultDeleteAllResources() {
+    return defaultDeleteAllResources;
   }
 
-  public void setBody(String body) {
-    this.body = body;
-  }
-
-  public ForwardKubernetesApiResponse code(Integer code) {
-    this.code = code;
-    return this;
-  }
-
-   /**
-   * Get code
-   * @return code
-  **/
-  @Schema(description = "")
-  public Integer getCode() {
-    return code;
-  }
-
-  public void setCode(Integer code) {
-    this.code = code;
+  public void setDefaultDeleteAllResources(Boolean defaultDeleteAllResources) {
+    this.defaultDeleteAllResources = defaultDeleteAllResources;
   }
 
 
@@ -80,24 +60,22 @@ public class ForwardKubernetesApiResponse extends com.volcengine.model.AbstractR
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ForwardKubernetesApiResponse forwardKubernetesApiResponse = (ForwardKubernetesApiResponse) o;
-    return Objects.equals(this.body, forwardKubernetesApiResponse.body) &&
-        Objects.equals(this.code, forwardKubernetesApiResponse.code);
+    SetGlobalDefaultDeleteOptionRequest setGlobalDefaultDeleteOptionRequest = (SetGlobalDefaultDeleteOptionRequest) o;
+    return Objects.equals(this.defaultDeleteAllResources, setGlobalDefaultDeleteOptionRequest.defaultDeleteAllResources);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(body, code);
+    return Objects.hash(defaultDeleteAllResources);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ForwardKubernetesApiResponse {\n");
+    sb.append("class SetGlobalDefaultDeleteOptionRequest {\n");
     
-    sb.append("    body: ").append(toIndentedString(body)).append("\n");
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    defaultDeleteAllResources: ").append(toIndentedString(defaultDeleteAllResources)).append("\n");
     sb.append("}");
     return sb.toString();
   }

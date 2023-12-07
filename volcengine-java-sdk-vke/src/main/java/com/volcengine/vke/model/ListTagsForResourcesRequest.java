@@ -46,9 +46,9 @@ public class ListTagsForResourcesRequest {
    */
   @JsonAdapter(ResourceTypeEnum.Adapter.class)
   public enum ResourceTypeEnum {
-    BAREMACHINE("BareMachine"),
     CLUSTER("Cluster"),
-    NODEPOOL("NodePool");
+    NODEPOOL("NodePool"),
+    BAREMACHINE("BareMachine");
 
     private String value;
 
@@ -94,8 +94,8 @@ public class ListTagsForResourcesRequest {
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
-    CUSTOM("Custom"),
-    SYSTEM("System");
+    SYSTEM("System"),
+    CUSTOM("Custom");
 
     private String value;
 
@@ -204,7 +204,8 @@ public class ListTagsForResourcesRequest {
    * Get resourceType
    * @return resourceType
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public ResourceTypeEnum getResourceType() {
     return resourceType;
   }

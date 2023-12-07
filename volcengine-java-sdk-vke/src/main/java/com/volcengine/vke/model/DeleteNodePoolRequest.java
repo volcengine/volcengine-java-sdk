@@ -80,6 +80,49 @@ public class DeleteNodePoolRequest {
   @SerializedName("Id")
   private String id = null;
 
+  /**
+   * Gets or Sets retainResources
+   */
+  @JsonAdapter(RetainResourcesEnum.Adapter.class)
+  public enum RetainResourcesEnum {
+    ECS("Ecs");
+
+    private String value;
+
+    RetainResourcesEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static RetainResourcesEnum fromValue(String input) {
+      for (RetainResourcesEnum b : RetainResourcesEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<RetainResourcesEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final RetainResourcesEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public RetainResourcesEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return RetainResourcesEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("RetainResources")
+  private List<RetainResourcesEnum> retainResources = null;
+
   public DeleteNodePoolRequest cascadingDeleteResources(List<CascadingDeleteResourcesEnum> cascadingDeleteResources) {
     this.cascadingDeleteResources = cascadingDeleteResources;
     return this;
@@ -115,7 +158,8 @@ public class DeleteNodePoolRequest {
    * Get clusterId
    * @return clusterId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getClusterId() {
     return clusterId;
   }
@@ -133,13 +177,40 @@ public class DeleteNodePoolRequest {
    * Get id
    * @return id
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getId() {
     return id;
   }
 
   public void setId(String id) {
     this.id = id;
+  }
+
+  public DeleteNodePoolRequest retainResources(List<RetainResourcesEnum> retainResources) {
+    this.retainResources = retainResources;
+    return this;
+  }
+
+  public DeleteNodePoolRequest addRetainResourcesItem(RetainResourcesEnum retainResourcesItem) {
+    if (this.retainResources == null) {
+      this.retainResources = new ArrayList<RetainResourcesEnum>();
+    }
+    this.retainResources.add(retainResourcesItem);
+    return this;
+  }
+
+   /**
+   * Get retainResources
+   * @return retainResources
+  **/
+  @Schema(description = "")
+  public List<RetainResourcesEnum> getRetainResources() {
+    return retainResources;
+  }
+
+  public void setRetainResources(List<RetainResourcesEnum> retainResources) {
+    this.retainResources = retainResources;
   }
 
 
@@ -154,12 +225,13 @@ public class DeleteNodePoolRequest {
     DeleteNodePoolRequest deleteNodePoolRequest = (DeleteNodePoolRequest) o;
     return Objects.equals(this.cascadingDeleteResources, deleteNodePoolRequest.cascadingDeleteResources) &&
         Objects.equals(this.clusterId, deleteNodePoolRequest.clusterId) &&
-        Objects.equals(this.id, deleteNodePoolRequest.id);
+        Objects.equals(this.id, deleteNodePoolRequest.id) &&
+        Objects.equals(this.retainResources, deleteNodePoolRequest.retainResources);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cascadingDeleteResources, clusterId, id);
+    return Objects.hash(cascadingDeleteResources, clusterId, id, retainResources);
   }
 
 
@@ -171,6 +243,7 @@ public class DeleteNodePoolRequest {
     sb.append("    cascadingDeleteResources: ").append(toIndentedString(cascadingDeleteResources)).append("\n");
     sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    retainResources: ").append(toIndentedString(retainResources)).append("\n");
     sb.append("}");
     return sb.toString();
   }

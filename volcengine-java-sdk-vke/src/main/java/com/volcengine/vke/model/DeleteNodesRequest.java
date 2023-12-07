@@ -83,6 +83,49 @@ public class DeleteNodesRequest {
   @SerializedName("NodePoolId")
   private String nodePoolId = null;
 
+  /**
+   * Gets or Sets retainResources
+   */
+  @JsonAdapter(RetainResourcesEnum.Adapter.class)
+  public enum RetainResourcesEnum {
+    ECS("Ecs");
+
+    private String value;
+
+    RetainResourcesEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static RetainResourcesEnum fromValue(String input) {
+      for (RetainResourcesEnum b : RetainResourcesEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<RetainResourcesEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final RetainResourcesEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public RetainResourcesEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return RetainResourcesEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("RetainResources")
+  private List<RetainResourcesEnum> retainResources = null;
+
   public DeleteNodesRequest cascadingDeleteResources(List<CascadingDeleteResourcesEnum> cascadingDeleteResources) {
     this.cascadingDeleteResources = cascadingDeleteResources;
     return this;
@@ -118,7 +161,8 @@ public class DeleteNodesRequest {
    * Get clusterId
    * @return clusterId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getClusterId() {
     return clusterId;
   }
@@ -171,6 +215,32 @@ public class DeleteNodesRequest {
     this.nodePoolId = nodePoolId;
   }
 
+  public DeleteNodesRequest retainResources(List<RetainResourcesEnum> retainResources) {
+    this.retainResources = retainResources;
+    return this;
+  }
+
+  public DeleteNodesRequest addRetainResourcesItem(RetainResourcesEnum retainResourcesItem) {
+    if (this.retainResources == null) {
+      this.retainResources = new ArrayList<RetainResourcesEnum>();
+    }
+    this.retainResources.add(retainResourcesItem);
+    return this;
+  }
+
+   /**
+   * Get retainResources
+   * @return retainResources
+  **/
+  @Schema(description = "")
+  public List<RetainResourcesEnum> getRetainResources() {
+    return retainResources;
+  }
+
+  public void setRetainResources(List<RetainResourcesEnum> retainResources) {
+    this.retainResources = retainResources;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -184,12 +254,13 @@ public class DeleteNodesRequest {
     return Objects.equals(this.cascadingDeleteResources, deleteNodesRequest.cascadingDeleteResources) &&
         Objects.equals(this.clusterId, deleteNodesRequest.clusterId) &&
         Objects.equals(this.ids, deleteNodesRequest.ids) &&
-        Objects.equals(this.nodePoolId, deleteNodesRequest.nodePoolId);
+        Objects.equals(this.nodePoolId, deleteNodesRequest.nodePoolId) &&
+        Objects.equals(this.retainResources, deleteNodesRequest.retainResources);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cascadingDeleteResources, clusterId, ids, nodePoolId);
+    return Objects.hash(cascadingDeleteResources, clusterId, ids, nodePoolId, retainResources);
   }
 
 
@@ -202,6 +273,7 @@ public class DeleteNodesRequest {
     sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    ids: ").append(toIndentedString(ids)).append("\n");
     sb.append("    nodePoolId: ").append(toIndentedString(nodePoolId)).append("\n");
+    sb.append("    retainResources: ").append(toIndentedString(retainResources)).append("\n");
     sb.append("}");
     return sb.toString();
   }

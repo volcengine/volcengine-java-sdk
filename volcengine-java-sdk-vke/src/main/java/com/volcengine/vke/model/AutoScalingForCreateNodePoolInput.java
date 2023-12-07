@@ -49,8 +49,8 @@ public class AutoScalingForCreateNodePoolInput {
    */
   @JsonAdapter(SubnetPolicyEnum.Adapter.class)
   public enum SubnetPolicyEnum {
-    PRIORITY("Priority"),
-    ZONEBALANCE("ZoneBalance");
+    ZONEBALANCE("ZoneBalance"),
+    PRIORITY("Priority");
 
     private String value;
 
