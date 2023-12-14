@@ -34,13 +34,13 @@ public class StatusForListAddonsInput {
    */
   @JsonAdapter(ConditionsTypeEnum.Adapter.class)
   public enum ConditionsTypeEnum {
+    OK("Ok"),
     CLUSTERNOTRUNNING("ClusterNotRunning"),
     CLUSTERVERSIONUPGRADING("ClusterVersionUpgrading"),
     CRASHLOOPBACKOFF("CrashLoopBackOff"),
     DEGRADED("Degraded"),
     IMAGEPULLBACKOFF("ImagePullBackOff"),
     NAMECONFLICT("NameConflict"),
-    OK("Ok"),
     PROGRESSING("Progressing"),
     RESOURCECLEANUPFAILED("ResourceCleanupFailed"),
     SCHEDULINGFAILED("SchedulingFailed"),
@@ -90,7 +90,6 @@ public class StatusForListAddonsInput {
     CREATING("Creating"),
     DELETING("Deleting"),
     FAILED("Failed"),
-    NONE("None"),
     RUNNING("Running"),
     UPDATING("Updating");
 

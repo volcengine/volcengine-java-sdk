@@ -37,10 +37,10 @@ public class SystemVolumeForCreateNodePoolInput {
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
-    ESSD("ESSD"),
-    ESSD_FLEXPL("ESSD_FlexPL"),
     ESSD_PL0("ESSD_PL0"),
+    ESSD_FLEXPL("ESSD_FlexPL"),
     ESSD_PL1("ESSD_PL1"),
+    ESSD("ESSD"),
     PTSSD("PTSSD");
 
     private String value;

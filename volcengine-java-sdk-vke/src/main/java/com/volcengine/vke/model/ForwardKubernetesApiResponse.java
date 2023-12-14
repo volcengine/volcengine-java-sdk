@@ -28,7 +28,7 @@ import javax.validation.Valid;
  */
 
 
-public class ForwardKubernetesApiResponse {
+public class ForwardKubernetesApiResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Body")
   private String body = null;
 

@@ -68,7 +68,8 @@ public class UpdateAddonVersionRequest {
    * Get clusterId
    * @return clusterId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getClusterId() {
     return clusterId;
   }
@@ -86,7 +87,8 @@ public class UpdateAddonVersionRequest {
    * Get name
    * @return name
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getName() {
     return name;
   }
@@ -104,7 +106,8 @@ public class UpdateAddonVersionRequest {
    * Get version
    * @return version
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getVersion() {
     return version;
   }

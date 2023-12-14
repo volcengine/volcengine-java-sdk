@@ -28,7 +28,7 @@ import javax.validation.Valid;
  */
 
 
-public class CreateKubeconfigResponse {
+public class CreateKubeconfigResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Id")
   private String id = null;
 

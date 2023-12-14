@@ -51,6 +51,8 @@ import com.volcengine.vke.model.DeleteNodesRequest;
 import com.volcengine.vke.model.DeleteNodesResponse;
 import com.volcengine.vke.model.ForwardKubernetesApiRequest;
 import com.volcengine.vke.model.ForwardKubernetesApiResponse;
+import com.volcengine.vke.model.GetGlobalDefaultDeleteOptionRequest;
+import com.volcengine.vke.model.GetGlobalDefaultDeleteOptionResponse;
 import com.volcengine.vke.model.ListAddonsRequest;
 import com.volcengine.vke.model.ListAddonsResponse;
 import com.volcengine.vke.model.ListClustersRequest;
@@ -67,6 +69,8 @@ import com.volcengine.vke.model.ListSupportedResourceTypesRequest;
 import com.volcengine.vke.model.ListSupportedResourceTypesResponse;
 import com.volcengine.vke.model.ListTagsForResourcesRequest;
 import com.volcengine.vke.model.ListTagsForResourcesResponse;
+import com.volcengine.vke.model.SetGlobalDefaultDeleteOptionRequest;
+import com.volcengine.vke.model.SetGlobalDefaultDeleteOptionResponse;
 import com.volcengine.vke.model.TagResourcesRequest;
 import com.volcengine.vke.model.TagResourcesResponse;
 import com.volcengine.vke.model.UntagResourcesRequest;
@@ -1594,6 +1598,130 @@ public class VkeApi {
         return call;
     }
     /**
+     * Build call for getGlobalDefaultDeleteOption
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getGlobalDefaultDeleteOptionCall(GetGlobalDefaultDeleteOptionRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/GetGlobalDefaultDeleteOption/2022-05-12/vke/post/application_json/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getGlobalDefaultDeleteOptionValidateBeforeCall(GetGlobalDefaultDeleteOptionRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling getGlobalDefaultDeleteOption(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = getGlobalDefaultDeleteOptionCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return GetGlobalDefaultDeleteOptionResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public GetGlobalDefaultDeleteOptionResponse getGlobalDefaultDeleteOption(GetGlobalDefaultDeleteOptionRequest body) throws ApiException {
+        ApiResponse<GetGlobalDefaultDeleteOptionResponse> resp = getGlobalDefaultDeleteOptionWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;GetGlobalDefaultDeleteOptionResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<GetGlobalDefaultDeleteOptionResponse> getGlobalDefaultDeleteOptionWithHttpInfo( @NotNull GetGlobalDefaultDeleteOptionRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = getGlobalDefaultDeleteOptionValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<GetGlobalDefaultDeleteOptionResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getGlobalDefaultDeleteOptionAsync(GetGlobalDefaultDeleteOptionRequest body, final ApiCallback<GetGlobalDefaultDeleteOptionResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getGlobalDefaultDeleteOptionValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<GetGlobalDefaultDeleteOptionResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for listAddons
      * @param body  (required)
      * @param progressListener Progress listener
@@ -2582,6 +2710,130 @@ public class VkeApi {
 
         com.squareup.okhttp.Call call = listTagsForResourcesValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ListTagsForResourcesResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for setGlobalDefaultDeleteOption
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call setGlobalDefaultDeleteOptionCall(SetGlobalDefaultDeleteOptionRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/SetGlobalDefaultDeleteOption/2022-05-12/vke/post/application_json/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call setGlobalDefaultDeleteOptionValidateBeforeCall(SetGlobalDefaultDeleteOptionRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling setGlobalDefaultDeleteOption(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = setGlobalDefaultDeleteOptionCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return SetGlobalDefaultDeleteOptionResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public SetGlobalDefaultDeleteOptionResponse setGlobalDefaultDeleteOption(SetGlobalDefaultDeleteOptionRequest body) throws ApiException {
+        ApiResponse<SetGlobalDefaultDeleteOptionResponse> resp = setGlobalDefaultDeleteOptionWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;SetGlobalDefaultDeleteOptionResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<SetGlobalDefaultDeleteOptionResponse> setGlobalDefaultDeleteOptionWithHttpInfo( @NotNull SetGlobalDefaultDeleteOptionRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = setGlobalDefaultDeleteOptionValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<SetGlobalDefaultDeleteOptionResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call setGlobalDefaultDeleteOptionAsync(SetGlobalDefaultDeleteOptionRequest body, final ApiCallback<SetGlobalDefaultDeleteOptionResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = setGlobalDefaultDeleteOptionValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<SetGlobalDefaultDeleteOptionResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

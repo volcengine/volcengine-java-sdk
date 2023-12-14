@@ -31,7 +31,7 @@ import javax.validation.Valid;
  */
 
 
-public class ListKubeconfigsResponse {
+public class ListKubeconfigsResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Items")
   private List<ItemForListKubeconfigsOutput> items = null;
 

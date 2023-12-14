@@ -39,15 +39,9 @@ public class PodsConfigForCreateClusterInput {
    */
   @JsonAdapter(PodNetworkModeEnum.Adapter.class)
   public enum PodNetworkModeEnum {
-    CALICOBGP("CalicoBgp"),
-    CALICOVXLAN("CalicoVxlan"),
-    CARMA("Carma"),
-    CILIUM("Cilium"),
-    DEFAULT("Default"),
     FLANNEL("Flannel"),
-    KUBEOVN("KubeOvn"),
-    VPCCNIDEDICATED("VpcCniDedicated"),
-    VPCCNISHARED("VpcCniShared");
+    VPCCNISHARED("VpcCniShared"),
+    VPCCNIDEDICATED("VpcCniDedicated");
 
     private String value;
 

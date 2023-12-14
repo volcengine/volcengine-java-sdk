@@ -32,103 +32,14 @@ import javax.validation.Valid;
 
 
 public class ItemForListSupportedAddonsOutput {
-  /**
-   * Gets or Sets categories
-   */
-  @JsonAdapter(CategoriesEnum.Adapter.class)
-  public enum CategoriesEnum {
-    DNS("Dns"),
-    GPU("Gpu"),
-    IMAGE("Image"),
-    MONITOR("Monitor"),
-    NETWORK("Network"),
-    SCHEDULER("Scheduler"),
-    SECURITY("Security"),
-    STORAGE("Storage");
-
-    private String value;
-
-    CategoriesEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static CategoriesEnum fromValue(String input) {
-      for (CategoriesEnum b : CategoriesEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<CategoriesEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final CategoriesEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public CategoriesEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return CategoriesEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("Categories")
-  private List<CategoriesEnum> categories = null;
+  @SerializedName("Categories")
+  private List<String> categories = null;
 
   @SerializedName("DeployMode")
   private String deployMode = null;
 
-  /**
-   * Gets or Sets deployNodeTypes
-   */
-  @JsonAdapter(DeployNodeTypesEnum.Adapter.class)
-  public enum DeployNodeTypesEnum {
-    EDGENODE("EdgeNode"),
-    NODE("Node"),
-    VIRTUALNODE("VirtualNode");
-
-    private String value;
-
-    DeployNodeTypesEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static DeployNodeTypesEnum fromValue(String input) {
-      for (DeployNodeTypesEnum b : DeployNodeTypesEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<DeployNodeTypesEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final DeployNodeTypesEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public DeployNodeTypesEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return DeployNodeTypesEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("DeployNodeTypes")
-  private List<DeployNodeTypesEnum> deployNodeTypes = null;
+  @SerializedName("DeployNodeTypes")
+  private List<String> deployNodeTypes = null;
 
   @SerializedName("Name")
   private String name = null;
@@ -136,64 +47,20 @@ public class ItemForListSupportedAddonsOutput {
   @SerializedName("Necessary")
   private String necessary = null;
 
-  /**
-   * Gets or Sets podNetworkModes
-   */
-  @JsonAdapter(PodNetworkModesEnum.Adapter.class)
-  public enum PodNetworkModesEnum {
-    CALICOBGP("CalicoBgp"),
-    CALICOVXLAN("CalicoVxlan"),
-    FLANNEL("Flannel"),
-    VPCCNIDEDICATED("VpcCniDedicated"),
-    VPCCNISHARED("VpcCniShared");
-
-    private String value;
-
-    PodNetworkModesEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static PodNetworkModesEnum fromValue(String input) {
-      for (PodNetworkModesEnum b : PodNetworkModesEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<PodNetworkModesEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final PodNetworkModesEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public PodNetworkModesEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return PodNetworkModesEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("PodNetworkModes")
-  private List<PodNetworkModesEnum> podNetworkModes = null;
+  @SerializedName("PodNetworkModes")
+  private List<String> podNetworkModes = null;
 
   @SerializedName("Versions")
   private List<VersionForListSupportedAddonsOutput> versions = null;
 
-  public ItemForListSupportedAddonsOutput categories(List<CategoriesEnum> categories) {
+  public ItemForListSupportedAddonsOutput categories(List<String> categories) {
     this.categories = categories;
     return this;
   }
 
-  public ItemForListSupportedAddonsOutput addCategoriesItem(CategoriesEnum categoriesItem) {
+  public ItemForListSupportedAddonsOutput addCategoriesItem(String categoriesItem) {
     if (this.categories == null) {
-      this.categories = new ArrayList<CategoriesEnum>();
+      this.categories = new ArrayList<String>();
     }
     this.categories.add(categoriesItem);
     return this;
@@ -204,11 +71,11 @@ public class ItemForListSupportedAddonsOutput {
    * @return categories
   **/
   @Schema(description = "")
-  public List<CategoriesEnum> getCategories() {
+  public List<String> getCategories() {
     return categories;
   }
 
-  public void setCategories(List<CategoriesEnum> categories) {
+  public void setCategories(List<String> categories) {
     this.categories = categories;
   }
 
@@ -230,14 +97,14 @@ public class ItemForListSupportedAddonsOutput {
     this.deployMode = deployMode;
   }
 
-  public ItemForListSupportedAddonsOutput deployNodeTypes(List<DeployNodeTypesEnum> deployNodeTypes) {
+  public ItemForListSupportedAddonsOutput deployNodeTypes(List<String> deployNodeTypes) {
     this.deployNodeTypes = deployNodeTypes;
     return this;
   }
 
-  public ItemForListSupportedAddonsOutput addDeployNodeTypesItem(DeployNodeTypesEnum deployNodeTypesItem) {
+  public ItemForListSupportedAddonsOutput addDeployNodeTypesItem(String deployNodeTypesItem) {
     if (this.deployNodeTypes == null) {
-      this.deployNodeTypes = new ArrayList<DeployNodeTypesEnum>();
+      this.deployNodeTypes = new ArrayList<String>();
     }
     this.deployNodeTypes.add(deployNodeTypesItem);
     return this;
@@ -248,11 +115,11 @@ public class ItemForListSupportedAddonsOutput {
    * @return deployNodeTypes
   **/
   @Schema(description = "")
-  public List<DeployNodeTypesEnum> getDeployNodeTypes() {
+  public List<String> getDeployNodeTypes() {
     return deployNodeTypes;
   }
 
-  public void setDeployNodeTypes(List<DeployNodeTypesEnum> deployNodeTypes) {
+  public void setDeployNodeTypes(List<String> deployNodeTypes) {
     this.deployNodeTypes = deployNodeTypes;
   }
 
@@ -292,14 +159,14 @@ public class ItemForListSupportedAddonsOutput {
     this.necessary = necessary;
   }
 
-  public ItemForListSupportedAddonsOutput podNetworkModes(List<PodNetworkModesEnum> podNetworkModes) {
+  public ItemForListSupportedAddonsOutput podNetworkModes(List<String> podNetworkModes) {
     this.podNetworkModes = podNetworkModes;
     return this;
   }
 
-  public ItemForListSupportedAddonsOutput addPodNetworkModesItem(PodNetworkModesEnum podNetworkModesItem) {
+  public ItemForListSupportedAddonsOutput addPodNetworkModesItem(String podNetworkModesItem) {
     if (this.podNetworkModes == null) {
-      this.podNetworkModes = new ArrayList<PodNetworkModesEnum>();
+      this.podNetworkModes = new ArrayList<String>();
     }
     this.podNetworkModes.add(podNetworkModesItem);
     return this;
@@ -310,11 +177,11 @@ public class ItemForListSupportedAddonsOutput {
    * @return podNetworkModes
   **/
   @Schema(description = "")
-  public List<PodNetworkModesEnum> getPodNetworkModes() {
+  public List<String> getPodNetworkModes() {
     return podNetworkModes;
   }
 
-  public void setPodNetworkModes(List<PodNetworkModesEnum> podNetworkModes) {
+  public void setPodNetworkModes(List<String> podNetworkModes) {
     this.podNetworkModes = podNetworkModes;
   }
 

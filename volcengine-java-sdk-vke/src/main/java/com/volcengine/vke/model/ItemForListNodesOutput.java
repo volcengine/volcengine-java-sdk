@@ -72,50 +72,8 @@ public class ItemForListNodesOutput {
   @SerializedName("NodePoolId")
   private String nodePoolId = null;
 
-  /**
-   * Gets or Sets roles
-   */
-  @JsonAdapter(RolesEnum.Adapter.class)
-  public enum RolesEnum {
-    ETCD("Etcd"),
-    MASTER("Master"),
-    WORKER("Worker");
-
-    private String value;
-
-    RolesEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static RolesEnum fromValue(String input) {
-      for (RolesEnum b : RolesEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<RolesEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final RolesEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public RolesEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return RolesEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("Roles")
-  private List<RolesEnum> roles = null;
+  @SerializedName("Roles")
+  private List<String> roles = null;
 
   @SerializedName("Status")
   private StatusForListNodesOutput status = null;
@@ -361,14 +319,14 @@ public class ItemForListNodesOutput {
     this.nodePoolId = nodePoolId;
   }
 
-  public ItemForListNodesOutput roles(List<RolesEnum> roles) {
+  public ItemForListNodesOutput roles(List<String> roles) {
     this.roles = roles;
     return this;
   }
 
-  public ItemForListNodesOutput addRolesItem(RolesEnum rolesItem) {
+  public ItemForListNodesOutput addRolesItem(String rolesItem) {
     if (this.roles == null) {
-      this.roles = new ArrayList<RolesEnum>();
+      this.roles = new ArrayList<String>();
     }
     this.roles.add(rolesItem);
     return this;
@@ -379,11 +337,11 @@ public class ItemForListNodesOutput {
    * @return roles
   **/
   @Schema(description = "")
-  public List<RolesEnum> getRoles() {
+  public List<String> getRoles() {
     return roles;
   }
 
-  public void setRoles(List<RolesEnum> roles) {
+  public void setRoles(List<String> roles) {
     this.roles = roles;
   }
 

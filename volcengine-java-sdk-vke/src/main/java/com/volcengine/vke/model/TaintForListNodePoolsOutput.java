@@ -29,8 +29,50 @@ import javax.validation.Valid;
 
 
 public class TaintForListNodePoolsOutput {
-  @SerializedName("Effect")
-  private String effect = null;
+  /**
+   * Gets or Sets effect
+   */
+  @JsonAdapter(EffectEnum.Adapter.class)
+  public enum EffectEnum {
+    NOSCHEDULE("NoSchedule"),
+    NOEXECUTE("NoExecute"),
+    PREFERNOSCHEDULE("PreferNoSchedule");
+
+    private String value;
+
+    EffectEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static EffectEnum fromValue(String input) {
+      for (EffectEnum b : EffectEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<EffectEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final EffectEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public EffectEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return EffectEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("Effect")
+  private EffectEnum effect = null;
 
   @SerializedName("Key")
   private String key = null;
@@ -38,7 +80,7 @@ public class TaintForListNodePoolsOutput {
   @SerializedName("Value")
   private String value = null;
 
-  public TaintForListNodePoolsOutput effect(String effect) {
+  public TaintForListNodePoolsOutput effect(EffectEnum effect) {
     this.effect = effect;
     return this;
   }
@@ -48,11 +90,11 @@ public class TaintForListNodePoolsOutput {
    * @return effect
   **/
   @Schema(description = "")
-  public String getEffect() {
+  public EffectEnum getEffect() {
     return effect;
   }
 
-  public void setEffect(String effect) {
+  public void setEffect(EffectEnum effect) {
     this.effect = effect;
   }
 

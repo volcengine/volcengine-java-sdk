@@ -80,6 +80,49 @@ public class DeleteAddonRequest {
   @SerializedName("Name")
   private String name = null;
 
+  /**
+   * Gets or Sets retainResources
+   */
+  @JsonAdapter(RetainResourcesEnum.Adapter.class)
+  public enum RetainResourcesEnum {
+    CRD("Crd");
+
+    private String value;
+
+    RetainResourcesEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static RetainResourcesEnum fromValue(String input) {
+      for (RetainResourcesEnum b : RetainResourcesEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<RetainResourcesEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final RetainResourcesEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public RetainResourcesEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return RetainResourcesEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("RetainResources")
+  private List<RetainResourcesEnum> retainResources = null;
+
   public DeleteAddonRequest cascadingDeleteResources(List<CascadingDeleteResourcesEnum> cascadingDeleteResources) {
     this.cascadingDeleteResources = cascadingDeleteResources;
     return this;
@@ -115,7 +158,8 @@ public class DeleteAddonRequest {
    * Get clusterId
    * @return clusterId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getClusterId() {
     return clusterId;
   }
@@ -133,13 +177,40 @@ public class DeleteAddonRequest {
    * Get name
    * @return name
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getName() {
     return name;
   }
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public DeleteAddonRequest retainResources(List<RetainResourcesEnum> retainResources) {
+    this.retainResources = retainResources;
+    return this;
+  }
+
+  public DeleteAddonRequest addRetainResourcesItem(RetainResourcesEnum retainResourcesItem) {
+    if (this.retainResources == null) {
+      this.retainResources = new ArrayList<RetainResourcesEnum>();
+    }
+    this.retainResources.add(retainResourcesItem);
+    return this;
+  }
+
+   /**
+   * Get retainResources
+   * @return retainResources
+  **/
+  @Schema(description = "")
+  public List<RetainResourcesEnum> getRetainResources() {
+    return retainResources;
+  }
+
+  public void setRetainResources(List<RetainResourcesEnum> retainResources) {
+    this.retainResources = retainResources;
   }
 
 
@@ -154,12 +225,13 @@ public class DeleteAddonRequest {
     DeleteAddonRequest deleteAddonRequest = (DeleteAddonRequest) o;
     return Objects.equals(this.cascadingDeleteResources, deleteAddonRequest.cascadingDeleteResources) &&
         Objects.equals(this.clusterId, deleteAddonRequest.clusterId) &&
-        Objects.equals(this.name, deleteAddonRequest.name);
+        Objects.equals(this.name, deleteAddonRequest.name) &&
+        Objects.equals(this.retainResources, deleteAddonRequest.retainResources);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cascadingDeleteResources, clusterId, name);
+    return Objects.hash(cascadingDeleteResources, clusterId, name, retainResources);
   }
 
 
@@ -171,6 +243,7 @@ public class DeleteAddonRequest {
     sb.append("    cascadingDeleteResources: ").append(toIndentedString(cascadingDeleteResources)).append("\n");
     sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    retainResources: ").append(toIndentedString(retainResources)).append("\n");
     sb.append("}");
     return sb.toString();
   }

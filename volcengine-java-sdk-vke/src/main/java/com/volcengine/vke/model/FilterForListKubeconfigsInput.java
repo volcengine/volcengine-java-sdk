@@ -41,7 +41,7 @@ public class FilterForListKubeconfigsInput {
   private List<String> types = null;
 
   @SerializedName("UserIds")
-  private List<Integer> userIds = null;
+  private List<Long> userIds = null;
 
   public FilterForListKubeconfigsInput clusterIds(List<String> clusterIds) {
     this.clusterIds = clusterIds;
@@ -121,14 +121,14 @@ public class FilterForListKubeconfigsInput {
     this.types = types;
   }
 
-  public FilterForListKubeconfigsInput userIds(List<Integer> userIds) {
+  public FilterForListKubeconfigsInput userIds(List<Long> userIds) {
     this.userIds = userIds;
     return this;
   }
 
-  public FilterForListKubeconfigsInput addUserIdsItem(Integer userIdsItem) {
+  public FilterForListKubeconfigsInput addUserIdsItem(Long userIdsItem) {
     if (this.userIds == null) {
-      this.userIds = new ArrayList<Integer>();
+      this.userIds = new ArrayList<Long>();
     }
     this.userIds.add(userIdsItem);
     return this;
@@ -139,11 +139,11 @@ public class FilterForListKubeconfigsInput {
    * @return userIds
   **/
   @Schema(description = "")
-  public List<Integer> getUserIds() {
+  public List<Long> getUserIds() {
     return userIds;
   }
 
-  public void setUserIds(List<Integer> userIds) {
+  public void setUserIds(List<Long> userIds) {
     this.userIds = userIds;
   }
 

@@ -31,7 +31,7 @@ import javax.validation.Valid;
  */
 
 
-public class ListAddonsResponse {
+public class ListAddonsResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Items")
   private List<ItemForListAddonsOutput> items = null;
 

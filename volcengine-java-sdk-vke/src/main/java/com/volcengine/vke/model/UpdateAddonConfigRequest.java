@@ -68,7 +68,8 @@ public class UpdateAddonConfigRequest {
    * Get clusterId
    * @return clusterId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getClusterId() {
     return clusterId;
   }
@@ -104,7 +105,8 @@ public class UpdateAddonConfigRequest {
    * Get name
    * @return name
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getName() {
     return name;
   }

@@ -99,7 +99,8 @@ public class UpdateNodePoolConfigRequest {
    * Get clusterId
    * @return clusterId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getClusterId() {
     return clusterId;
   }
@@ -117,7 +118,8 @@ public class UpdateNodePoolConfigRequest {
    * Get id
    * @return id
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getId() {
     return id;
   }

@@ -96,9 +96,9 @@ public class StatusForListClustersInput {
     DELETING("Deleting"),
     FAILED("Failed"),
     RUNNING("Running"),
+    UPDATING("Updating"),
     STARTING("Starting"),
-    STOPPED("Stopped"),
-    UPDATING("Updating");
+    STOPPED("Stopped");
 
     private String value;
 

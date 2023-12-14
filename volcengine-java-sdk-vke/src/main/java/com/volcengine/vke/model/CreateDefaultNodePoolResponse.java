@@ -28,7 +28,7 @@ import javax.validation.Valid;
  */
 
 
-public class CreateDefaultNodePoolResponse {
+public class CreateDefaultNodePoolResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Id")
   private String id = null;
 
