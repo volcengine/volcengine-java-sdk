@@ -31,7 +31,7 @@ import javax.validation.Valid;
  */
 
 
-public class UnsubscribeInstanceResponse {
+public class UnsubscribeInstanceResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("OrderID")
   private String orderID = null;
 
