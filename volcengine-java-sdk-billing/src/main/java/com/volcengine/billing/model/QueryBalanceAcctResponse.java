@@ -28,7 +28,7 @@ import javax.validation.Valid;
  */
 
 
-public class QueryBalanceAcctResponse {
+public class QueryBalanceAcctResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("AccountID")
   private Integer accountID = null;
 

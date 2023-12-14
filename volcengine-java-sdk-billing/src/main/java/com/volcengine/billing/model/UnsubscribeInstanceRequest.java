@@ -50,7 +50,7 @@ public class UnsubscribeInstanceRequest {
    * Get clientToken
    * @return clientToken
   **/
-  @Schema(description = "")
+ @Size(max=36)  @Schema(description = "")
   public String getClientToken() {
     return clientToken;
   }
@@ -68,7 +68,8 @@ public class UnsubscribeInstanceRequest {
    * Get instanceID
    * @return instanceID
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getInstanceID() {
     return instanceID;
   }
@@ -86,7 +87,8 @@ public class UnsubscribeInstanceRequest {
    * Get product
    * @return product
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getProduct() {
     return product;
   }
