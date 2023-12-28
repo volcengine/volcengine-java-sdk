@@ -24,31 +24,30 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DescribeDirectConnectVirtualInterfaceAttributesRequest
+ * ApplyDirectConnectConnectionLoaResponse
  */
 
 
-public class DescribeDirectConnectVirtualInterfaceAttributesRequest {
-  @SerializedName("VirtualInterfaceId")
-  private String virtualInterfaceId = null;
+public class ApplyDirectConnectConnectionLoaResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("RequestId")
+  private String requestId = null;
 
-  public DescribeDirectConnectVirtualInterfaceAttributesRequest virtualInterfaceId(String virtualInterfaceId) {
-    this.virtualInterfaceId = virtualInterfaceId;
+  public ApplyDirectConnectConnectionLoaResponse requestId(String requestId) {
+    this.requestId = requestId;
     return this;
   }
 
    /**
-   * Get virtualInterfaceId
-   * @return virtualInterfaceId
+   * Get requestId
+   * @return requestId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getVirtualInterfaceId() {
-    return virtualInterfaceId;
+  @Schema(description = "")
+  public String getRequestId() {
+    return requestId;
   }
 
-  public void setVirtualInterfaceId(String virtualInterfaceId) {
-    this.virtualInterfaceId = virtualInterfaceId;
+  public void setRequestId(String requestId) {
+    this.requestId = requestId;
   }
 
 
@@ -60,22 +59,22 @@ public class DescribeDirectConnectVirtualInterfaceAttributesRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DescribeDirectConnectVirtualInterfaceAttributesRequest describeDirectConnectVirtualInterfaceAttributesRequest = (DescribeDirectConnectVirtualInterfaceAttributesRequest) o;
-    return Objects.equals(this.virtualInterfaceId, describeDirectConnectVirtualInterfaceAttributesRequest.virtualInterfaceId);
+    ApplyDirectConnectConnectionLoaResponse applyDirectConnectConnectionLoaResponse = (ApplyDirectConnectConnectionLoaResponse) o;
+    return Objects.equals(this.requestId, applyDirectConnectConnectionLoaResponse.requestId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(virtualInterfaceId);
+    return Objects.hash(requestId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DescribeDirectConnectVirtualInterfaceAttributesRequest {\n");
+    sb.append("class ApplyDirectConnectConnectionLoaResponse {\n");
     
-    sb.append("    virtualInterfaceId: ").append(toIndentedString(virtualInterfaceId)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

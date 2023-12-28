@@ -27,6 +27,8 @@ import java.io.IOException;
 
 import javax.validation.constraints.*;
 
+import com.volcengine.directconnect.model.ApplyDirectConnectConnectionLoaRequest;
+import com.volcengine.directconnect.model.ApplyDirectConnectConnectionLoaResponse;
 import com.volcengine.directconnect.model.CreateBgpPeerRequest;
 import com.volcengine.directconnect.model.CreateBgpPeerResponse;
 import com.volcengine.directconnect.model.CreateDirectConnectConnectionOrderRequest;
@@ -57,6 +59,8 @@ import com.volcengine.directconnect.model.DescribeDirectConnectAccessPointsReque
 import com.volcengine.directconnect.model.DescribeDirectConnectAccessPointsResponse;
 import com.volcengine.directconnect.model.DescribeDirectConnectConnectionAttributesRequest;
 import com.volcengine.directconnect.model.DescribeDirectConnectConnectionAttributesResponse;
+import com.volcengine.directconnect.model.DescribeDirectConnectConnectionLoaAttributesRequest;
+import com.volcengine.directconnect.model.DescribeDirectConnectConnectionLoaAttributesResponse;
 import com.volcengine.directconnect.model.DescribeDirectConnectConnectionsRequest;
 import com.volcengine.directconnect.model.DescribeDirectConnectConnectionsResponse;
 import com.volcengine.directconnect.model.DescribeDirectConnectGatewayAttributesRequest;
@@ -75,6 +79,8 @@ import com.volcengine.directconnect.model.ModifyBgpPeerAttributesRequest;
 import com.volcengine.directconnect.model.ModifyBgpPeerAttributesResponse;
 import com.volcengine.directconnect.model.ModifyDirectConnectConnectionAttributesRequest;
 import com.volcengine.directconnect.model.ModifyDirectConnectConnectionAttributesResponse;
+import com.volcengine.directconnect.model.ModifyDirectConnectConnectionLoaAttributesRequest;
+import com.volcengine.directconnect.model.ModifyDirectConnectConnectionLoaAttributesResponse;
 import com.volcengine.directconnect.model.ModifyDirectConnectGatewayAttributesRequest;
 import com.volcengine.directconnect.model.ModifyDirectConnectGatewayAttributesResponse;
 import com.volcengine.directconnect.model.ModifyDirectConnectVirtualInterfaceAttributesRequest;
@@ -105,6 +111,130 @@ public class DirectconnectApi {
         this.apiClient = apiClient;
     }
 
+    /**
+     * Build call for applyDirectConnectConnectionLoa
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call applyDirectConnectConnectionLoaCall(ApplyDirectConnectConnectionLoaRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/ApplyDirectConnectConnectionLoa/2020-04-01/directconnect/get/text_plain/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call applyDirectConnectConnectionLoaValidateBeforeCall(ApplyDirectConnectConnectionLoaRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling applyDirectConnectConnectionLoa(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = applyDirectConnectConnectionLoaCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApplyDirectConnectConnectionLoaResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApplyDirectConnectConnectionLoaResponse applyDirectConnectConnectionLoa(ApplyDirectConnectConnectionLoaRequest body) throws ApiException {
+        ApiResponse<ApplyDirectConnectConnectionLoaResponse> resp = applyDirectConnectConnectionLoaWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;ApplyDirectConnectConnectionLoaResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ApplyDirectConnectConnectionLoaResponse> applyDirectConnectConnectionLoaWithHttpInfo( @NotNull ApplyDirectConnectConnectionLoaRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = applyDirectConnectConnectionLoaValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<ApplyDirectConnectConnectionLoaResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call applyDirectConnectConnectionLoaAsync(ApplyDirectConnectConnectionLoaRequest body, final ApiCallback<ApplyDirectConnectConnectionLoaResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = applyDirectConnectConnectionLoaValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ApplyDirectConnectConnectionLoaResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
     /**
      * Build call for createBgpPeer
      * @param body  (required)
@@ -1966,6 +2096,130 @@ public class DirectconnectApi {
         return call;
     }
     /**
+     * Build call for describeDirectConnectConnectionLoaAttributes
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call describeDirectConnectConnectionLoaAttributesCall(DescribeDirectConnectConnectionLoaAttributesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/DescribeDirectConnectConnectionLoaAttributes/2020-04-01/directconnect/get/text_plain/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call describeDirectConnectConnectionLoaAttributesValidateBeforeCall(DescribeDirectConnectConnectionLoaAttributesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling describeDirectConnectConnectionLoaAttributes(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = describeDirectConnectConnectionLoaAttributesCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return DescribeDirectConnectConnectionLoaAttributesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public DescribeDirectConnectConnectionLoaAttributesResponse describeDirectConnectConnectionLoaAttributes(DescribeDirectConnectConnectionLoaAttributesRequest body) throws ApiException {
+        ApiResponse<DescribeDirectConnectConnectionLoaAttributesResponse> resp = describeDirectConnectConnectionLoaAttributesWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;DescribeDirectConnectConnectionLoaAttributesResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<DescribeDirectConnectConnectionLoaAttributesResponse> describeDirectConnectConnectionLoaAttributesWithHttpInfo( @NotNull DescribeDirectConnectConnectionLoaAttributesRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = describeDirectConnectConnectionLoaAttributesValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<DescribeDirectConnectConnectionLoaAttributesResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call describeDirectConnectConnectionLoaAttributesAsync(DescribeDirectConnectConnectionLoaAttributesRequest body, final ApiCallback<DescribeDirectConnectConnectionLoaAttributesResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = describeDirectConnectConnectionLoaAttributesValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<DescribeDirectConnectConnectionLoaAttributesResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for describeDirectConnectConnections
      * @param body  (required)
      * @param progressListener Progress listener
@@ -3078,6 +3332,130 @@ public class DirectconnectApi {
 
         com.squareup.okhttp.Call call = modifyDirectConnectConnectionAttributesValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ModifyDirectConnectConnectionAttributesResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for modifyDirectConnectConnectionLoaAttributes
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call modifyDirectConnectConnectionLoaAttributesCall(ModifyDirectConnectConnectionLoaAttributesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/ModifyDirectConnectConnectionLoaAttributes/2020-04-01/directconnect/get/text_plain/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call modifyDirectConnectConnectionLoaAttributesValidateBeforeCall(ModifyDirectConnectConnectionLoaAttributesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling modifyDirectConnectConnectionLoaAttributes(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = modifyDirectConnectConnectionLoaAttributesCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ModifyDirectConnectConnectionLoaAttributesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ModifyDirectConnectConnectionLoaAttributesResponse modifyDirectConnectConnectionLoaAttributes(ModifyDirectConnectConnectionLoaAttributesRequest body) throws ApiException {
+        ApiResponse<ModifyDirectConnectConnectionLoaAttributesResponse> resp = modifyDirectConnectConnectionLoaAttributesWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;ModifyDirectConnectConnectionLoaAttributesResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ModifyDirectConnectConnectionLoaAttributesResponse> modifyDirectConnectConnectionLoaAttributesWithHttpInfo( @NotNull ModifyDirectConnectConnectionLoaAttributesRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = modifyDirectConnectConnectionLoaAttributesValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<ModifyDirectConnectConnectionLoaAttributesResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call modifyDirectConnectConnectionLoaAttributesAsync(ModifyDirectConnectConnectionLoaAttributesRequest body, final ApiCallback<ModifyDirectConnectConnectionLoaAttributesResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = modifyDirectConnectConnectionLoaAttributesValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ModifyDirectConnectConnectionLoaAttributesResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

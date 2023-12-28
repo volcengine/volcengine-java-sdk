@@ -31,7 +31,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class CreateDirectConnectVirtualInterfaceRequest {
   @SerializedName("Bandwidth")
   private Integer bandwidth = null;
@@ -60,6 +59,9 @@ public class CreateDirectConnectVirtualInterfaceRequest {
   @SerializedName("LocalIp")
   private String localIp = null;
 
+  @SerializedName("LocalIpv6Ip")
+  private String localIpv6Ip = null;
+
   @SerializedName("NqaDetectInterval")
   private Integer nqaDetectInterval = null;
 
@@ -69,14 +71,15 @@ public class CreateDirectConnectVirtualInterfaceRequest {
   @SerializedName("PeerIp")
   private String peerIp = null;
 
+  @SerializedName("PeerIpv6Ip")
+  private String peerIpv6Ip = null;
+
   /**
    * Gets or Sets routeType
    */
   @JsonAdapter(RouteTypeEnum.Adapter.class)
   public enum RouteTypeEnum {
-    @SerializedName("STATIC")
-    STATIC("STATIC"),
-    @SerializedName("BGP")
+    STATIC("Static"),
     BGP("BGP");
 
     private String value;
@@ -149,11 +152,9 @@ public class CreateDirectConnectVirtualInterfaceRequest {
 
    /**
    * Get bfdDetectInterval
-   * minimum: 200
-   * maximum: 1000
    * @return bfdDetectInterval
   **/
- @Min(200) @Max(1000)  @Schema(description = "")
+  @Schema(description = "")
   public Integer getBfdDetectInterval() {
     return bfdDetectInterval;
   }
@@ -169,11 +170,9 @@ public class CreateDirectConnectVirtualInterfaceRequest {
 
    /**
    * Get bfdDetectMultiplier
-   * minimum: 3
-   * maximum: 10
    * @return bfdDetectMultiplier
   **/
- @Min(3) @Max(10)  @Schema(description = "")
+  @Schema(description = "")
   public Integer getBfdDetectMultiplier() {
     return bfdDetectMultiplier;
   }
@@ -191,7 +190,7 @@ public class CreateDirectConnectVirtualInterfaceRequest {
    * Get description
    * @return description
   **/
- @Size(min=1,max=255)  @Schema(description = "")
+  @Schema(description = "")
   public String getDescription() {
     return description;
   }
@@ -293,6 +292,24 @@ public class CreateDirectConnectVirtualInterfaceRequest {
     this.localIp = localIp;
   }
 
+  public CreateDirectConnectVirtualInterfaceRequest localIpv6Ip(String localIpv6Ip) {
+    this.localIpv6Ip = localIpv6Ip;
+    return this;
+  }
+
+   /**
+   * Get localIpv6Ip
+   * @return localIpv6Ip
+  **/
+  @Schema(description = "")
+  public String getLocalIpv6Ip() {
+    return localIpv6Ip;
+  }
+
+  public void setLocalIpv6Ip(String localIpv6Ip) {
+    this.localIpv6Ip = localIpv6Ip;
+  }
+
   public CreateDirectConnectVirtualInterfaceRequest nqaDetectInterval(Integer nqaDetectInterval) {
     this.nqaDetectInterval = nqaDetectInterval;
     return this;
@@ -300,11 +317,9 @@ public class CreateDirectConnectVirtualInterfaceRequest {
 
    /**
    * Get nqaDetectInterval
-   * minimum: 1000
-   * maximum: 5000
    * @return nqaDetectInterval
   **/
- @Min(1000) @Max(5000)  @Schema(description = "")
+  @Schema(description = "")
   public Integer getNqaDetectInterval() {
     return nqaDetectInterval;
   }
@@ -320,11 +335,9 @@ public class CreateDirectConnectVirtualInterfaceRequest {
 
    /**
    * Get nqaDetectMultiplier
-   * minimum: 3
-   * maximum: 8
    * @return nqaDetectMultiplier
   **/
- @Min(3) @Max(8)  @Schema(description = "")
+  @Schema(description = "")
   public Integer getNqaDetectMultiplier() {
     return nqaDetectMultiplier;
   }
@@ -350,6 +363,24 @@ public class CreateDirectConnectVirtualInterfaceRequest {
 
   public void setPeerIp(String peerIp) {
     this.peerIp = peerIp;
+  }
+
+  public CreateDirectConnectVirtualInterfaceRequest peerIpv6Ip(String peerIpv6Ip) {
+    this.peerIpv6Ip = peerIpv6Ip;
+    return this;
+  }
+
+   /**
+   * Get peerIpv6Ip
+   * @return peerIpv6Ip
+  **/
+  @Schema(description = "")
+  public String getPeerIpv6Ip() {
+    return peerIpv6Ip;
+  }
+
+  public void setPeerIpv6Ip(String peerIpv6Ip) {
+    this.peerIpv6Ip = peerIpv6Ip;
   }
 
   public CreateDirectConnectVirtualInterfaceRequest routeType(RouteTypeEnum routeType) {
@@ -406,7 +437,7 @@ public class CreateDirectConnectVirtualInterfaceRequest {
    * Get virtualInterfaceName
    * @return virtualInterfaceName
   **/
- @Size(min=1,max=128)  @Schema(description = "")
+  @Schema(description = "")
   public String getVirtualInterfaceName() {
     return virtualInterfaceName;
   }
@@ -453,9 +484,11 @@ public class CreateDirectConnectVirtualInterfaceRequest {
         Objects.equals(this.enableBfd, createDirectConnectVirtualInterfaceRequest.enableBfd) &&
         Objects.equals(this.enableNqa, createDirectConnectVirtualInterfaceRequest.enableNqa) &&
         Objects.equals(this.localIp, createDirectConnectVirtualInterfaceRequest.localIp) &&
+        Objects.equals(this.localIpv6Ip, createDirectConnectVirtualInterfaceRequest.localIpv6Ip) &&
         Objects.equals(this.nqaDetectInterval, createDirectConnectVirtualInterfaceRequest.nqaDetectInterval) &&
         Objects.equals(this.nqaDetectMultiplier, createDirectConnectVirtualInterfaceRequest.nqaDetectMultiplier) &&
         Objects.equals(this.peerIp, createDirectConnectVirtualInterfaceRequest.peerIp) &&
+        Objects.equals(this.peerIpv6Ip, createDirectConnectVirtualInterfaceRequest.peerIpv6Ip) &&
         Objects.equals(this.routeType, createDirectConnectVirtualInterfaceRequest.routeType) &&
         Objects.equals(this.tags, createDirectConnectVirtualInterfaceRequest.tags) &&
         Objects.equals(this.virtualInterfaceName, createDirectConnectVirtualInterfaceRequest.virtualInterfaceName) &&
@@ -464,7 +497,7 @@ public class CreateDirectConnectVirtualInterfaceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidth, bfdDetectInterval, bfdDetectMultiplier, description, directConnectConnectionId, directConnectGatewayId, enableBfd, enableNqa, localIp, nqaDetectInterval, nqaDetectMultiplier, peerIp, routeType, tags, virtualInterfaceName, vlanId);
+    return Objects.hash(bandwidth, bfdDetectInterval, bfdDetectMultiplier, description, directConnectConnectionId, directConnectGatewayId, enableBfd, enableNqa, localIp, localIpv6Ip, nqaDetectInterval, nqaDetectMultiplier, peerIp, peerIpv6Ip, routeType, tags, virtualInterfaceName, vlanId);
   }
 
 
@@ -482,9 +515,11 @@ public class CreateDirectConnectVirtualInterfaceRequest {
     sb.append("    enableBfd: ").append(toIndentedString(enableBfd)).append("\n");
     sb.append("    enableNqa: ").append(toIndentedString(enableNqa)).append("\n");
     sb.append("    localIp: ").append(toIndentedString(localIp)).append("\n");
+    sb.append("    localIpv6Ip: ").append(toIndentedString(localIpv6Ip)).append("\n");
     sb.append("    nqaDetectInterval: ").append(toIndentedString(nqaDetectInterval)).append("\n");
     sb.append("    nqaDetectMultiplier: ").append(toIndentedString(nqaDetectMultiplier)).append("\n");
     sb.append("    peerIp: ").append(toIndentedString(peerIp)).append("\n");
+    sb.append("    peerIpv6Ip: ").append(toIndentedString(peerIpv6Ip)).append("\n");
     sb.append("    routeType: ").append(toIndentedString(routeType)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    virtualInterfaceName: ").append(toIndentedString(virtualInterfaceName)).append("\n");

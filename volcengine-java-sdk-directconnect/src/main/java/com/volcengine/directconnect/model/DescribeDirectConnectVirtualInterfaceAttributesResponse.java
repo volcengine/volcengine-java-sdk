@@ -31,7 +31,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class DescribeDirectConnectVirtualInterfaceAttributesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("AccountId")
   private String accountId = null;
@@ -66,6 +65,9 @@ public class DescribeDirectConnectVirtualInterfaceAttributesResponse extends com
   @SerializedName("LocalIp")
   private String localIp = null;
 
+  @SerializedName("LocalIpv6Ip")
+  private String localIpv6Ip = null;
+
   @SerializedName("NqaDetectInterval")
   private Integer nqaDetectInterval = null;
 
@@ -74,6 +76,9 @@ public class DescribeDirectConnectVirtualInterfaceAttributesResponse extends com
 
   @SerializedName("PeerIp")
   private String peerIp = null;
+
+  @SerializedName("PeerIpv6Ip")
+  private String peerIpv6Ip = null;
 
   @SerializedName("RequestId")
   private String requestId = null;
@@ -297,6 +302,24 @@ public class DescribeDirectConnectVirtualInterfaceAttributesResponse extends com
     this.localIp = localIp;
   }
 
+  public DescribeDirectConnectVirtualInterfaceAttributesResponse localIpv6Ip(String localIpv6Ip) {
+    this.localIpv6Ip = localIpv6Ip;
+    return this;
+  }
+
+   /**
+   * Get localIpv6Ip
+   * @return localIpv6Ip
+  **/
+  @Schema(description = "")
+  public String getLocalIpv6Ip() {
+    return localIpv6Ip;
+  }
+
+  public void setLocalIpv6Ip(String localIpv6Ip) {
+    this.localIpv6Ip = localIpv6Ip;
+  }
+
   public DescribeDirectConnectVirtualInterfaceAttributesResponse nqaDetectInterval(Integer nqaDetectInterval) {
     this.nqaDetectInterval = nqaDetectInterval;
     return this;
@@ -349,6 +372,24 @@ public class DescribeDirectConnectVirtualInterfaceAttributesResponse extends com
 
   public void setPeerIp(String peerIp) {
     this.peerIp = peerIp;
+  }
+
+  public DescribeDirectConnectVirtualInterfaceAttributesResponse peerIpv6Ip(String peerIpv6Ip) {
+    this.peerIpv6Ip = peerIpv6Ip;
+    return this;
+  }
+
+   /**
+   * Get peerIpv6Ip
+   * @return peerIpv6Ip
+  **/
+  @Schema(description = "")
+  public String getPeerIpv6Ip() {
+    return peerIpv6Ip;
+  }
+
+  public void setPeerIpv6Ip(String peerIpv6Ip) {
+    this.peerIpv6Ip = peerIpv6Ip;
   }
 
   public DescribeDirectConnectVirtualInterfaceAttributesResponse requestId(String requestId) {
@@ -525,9 +566,11 @@ public class DescribeDirectConnectVirtualInterfaceAttributesResponse extends com
         Objects.equals(this.enableBfd, describeDirectConnectVirtualInterfaceAttributesResponse.enableBfd) &&
         Objects.equals(this.enableNqa, describeDirectConnectVirtualInterfaceAttributesResponse.enableNqa) &&
         Objects.equals(this.localIp, describeDirectConnectVirtualInterfaceAttributesResponse.localIp) &&
+        Objects.equals(this.localIpv6Ip, describeDirectConnectVirtualInterfaceAttributesResponse.localIpv6Ip) &&
         Objects.equals(this.nqaDetectInterval, describeDirectConnectVirtualInterfaceAttributesResponse.nqaDetectInterval) &&
         Objects.equals(this.nqaDetectMultiplier, describeDirectConnectVirtualInterfaceAttributesResponse.nqaDetectMultiplier) &&
         Objects.equals(this.peerIp, describeDirectConnectVirtualInterfaceAttributesResponse.peerIp) &&
+        Objects.equals(this.peerIpv6Ip, describeDirectConnectVirtualInterfaceAttributesResponse.peerIpv6Ip) &&
         Objects.equals(this.requestId, describeDirectConnectVirtualInterfaceAttributesResponse.requestId) &&
         Objects.equals(this.routeType, describeDirectConnectVirtualInterfaceAttributesResponse.routeType) &&
         Objects.equals(this.status, describeDirectConnectVirtualInterfaceAttributesResponse.status) &&
@@ -540,7 +583,7 @@ public class DescribeDirectConnectVirtualInterfaceAttributesResponse extends com
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, bandwidth, bfdDetectInterval, bfdDetectMultiplier, creationTime, description, directConnectConnectionId, directConnectGatewayId, enableBfd, enableNqa, localIp, nqaDetectInterval, nqaDetectMultiplier, peerIp, requestId, routeType, status, tags, updateTime, virtualInterfaceId, virtualInterfaceName, vlanId);
+    return Objects.hash(accountId, bandwidth, bfdDetectInterval, bfdDetectMultiplier, creationTime, description, directConnectConnectionId, directConnectGatewayId, enableBfd, enableNqa, localIp, localIpv6Ip, nqaDetectInterval, nqaDetectMultiplier, peerIp, peerIpv6Ip, requestId, routeType, status, tags, updateTime, virtualInterfaceId, virtualInterfaceName, vlanId);
   }
 
 
@@ -560,9 +603,11 @@ public class DescribeDirectConnectVirtualInterfaceAttributesResponse extends com
     sb.append("    enableBfd: ").append(toIndentedString(enableBfd)).append("\n");
     sb.append("    enableNqa: ").append(toIndentedString(enableNqa)).append("\n");
     sb.append("    localIp: ").append(toIndentedString(localIp)).append("\n");
+    sb.append("    localIpv6Ip: ").append(toIndentedString(localIpv6Ip)).append("\n");
     sb.append("    nqaDetectInterval: ").append(toIndentedString(nqaDetectInterval)).append("\n");
     sb.append("    nqaDetectMultiplier: ").append(toIndentedString(nqaDetectMultiplier)).append("\n");
     sb.append("    peerIp: ").append(toIndentedString(peerIp)).append("\n");
+    sb.append("    peerIpv6Ip: ").append(toIndentedString(peerIpv6Ip)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    routeType: ").append(toIndentedString(routeType)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");

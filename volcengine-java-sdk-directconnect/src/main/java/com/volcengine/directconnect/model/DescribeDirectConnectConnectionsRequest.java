@@ -31,11 +31,7 @@ import javax.validation.Valid;
  */
 
 
-
 public class DescribeDirectConnectConnectionsRequest {
-  @SerializedName("AccessPoint")
-  private String accessPoint = null;
-
   @SerializedName("ConnectionType")
   private String connectionType = null;
 
@@ -51,9 +47,6 @@ public class DescribeDirectConnectConnectionsRequest {
   @SerializedName("LineOperator")
   private String lineOperator = null;
 
-  @SerializedName("Operator")
-  private String operator = null;
-
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
 
@@ -63,26 +56,11 @@ public class DescribeDirectConnectConnectionsRequest {
   @SerializedName("PeerLocation")
   private String peerLocation = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("TagFilters")
   private List<TagFilterForDescribeDirectConnectConnectionsInput> tagFilters = null;
-
-  public DescribeDirectConnectConnectionsRequest accessPoint(String accessPoint) {
-    this.accessPoint = accessPoint;
-    return this;
-  }
-
-   /**
-   * Get accessPoint
-   * @return accessPoint
-  **/
-  @Schema(description = "")
-  public String getAccessPoint() {
-    return accessPoint;
-  }
-
-  public void setAccessPoint(String accessPoint) {
-    this.accessPoint = accessPoint;
-  }
 
   public DescribeDirectConnectConnectionsRequest connectionType(String connectionType) {
     this.connectionType = connectionType;
@@ -182,24 +160,6 @@ public class DescribeDirectConnectConnectionsRequest {
     this.lineOperator = lineOperator;
   }
 
-  public DescribeDirectConnectConnectionsRequest operator(String operator) {
-    this.operator = operator;
-    return this;
-  }
-
-   /**
-   * Get operator
-   * @return operator
-  **/
-  @Schema(description = "")
-  public String getOperator() {
-    return operator;
-  }
-
-  public void setOperator(String operator) {
-    this.operator = operator;
-  }
-
   public DescribeDirectConnectConnectionsRequest pageNumber(Integer pageNumber) {
     this.pageNumber = pageNumber;
     return this;
@@ -254,6 +214,24 @@ public class DescribeDirectConnectConnectionsRequest {
     this.peerLocation = peerLocation;
   }
 
+  public DescribeDirectConnectConnectionsRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public DescribeDirectConnectConnectionsRequest tagFilters(List<TagFilterForDescribeDirectConnectConnectionsInput> tagFilters) {
     this.tagFilters = tagFilters;
     return this;
@@ -291,22 +269,21 @@ public class DescribeDirectConnectConnectionsRequest {
       return false;
     }
     DescribeDirectConnectConnectionsRequest describeDirectConnectConnectionsRequest = (DescribeDirectConnectConnectionsRequest) o;
-    return Objects.equals(this.accessPoint, describeDirectConnectConnectionsRequest.accessPoint) &&
-        Objects.equals(this.connectionType, describeDirectConnectConnectionsRequest.connectionType) &&
+    return Objects.equals(this.connectionType, describeDirectConnectConnectionsRequest.connectionType) &&
         Objects.equals(this.directConnectAccessPointId, describeDirectConnectConnectionsRequest.directConnectAccessPointId) &&
         Objects.equals(this.directConnectConnectionIds, describeDirectConnectConnectionsRequest.directConnectConnectionIds) &&
         Objects.equals(this.directConnectConnectionName, describeDirectConnectConnectionsRequest.directConnectConnectionName) &&
         Objects.equals(this.lineOperator, describeDirectConnectConnectionsRequest.lineOperator) &&
-        Objects.equals(this.operator, describeDirectConnectConnectionsRequest.operator) &&
         Objects.equals(this.pageNumber, describeDirectConnectConnectionsRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeDirectConnectConnectionsRequest.pageSize) &&
         Objects.equals(this.peerLocation, describeDirectConnectConnectionsRequest.peerLocation) &&
+        Objects.equals(this.projectName, describeDirectConnectConnectionsRequest.projectName) &&
         Objects.equals(this.tagFilters, describeDirectConnectConnectionsRequest.tagFilters);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessPoint, connectionType, directConnectAccessPointId, directConnectConnectionIds, directConnectConnectionName, lineOperator, operator, pageNumber, pageSize, peerLocation, tagFilters);
+    return Objects.hash(connectionType, directConnectAccessPointId, directConnectConnectionIds, directConnectConnectionName, lineOperator, pageNumber, pageSize, peerLocation, projectName, tagFilters);
   }
 
 
@@ -315,16 +292,15 @@ public class DescribeDirectConnectConnectionsRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeDirectConnectConnectionsRequest {\n");
     
-    sb.append("    accessPoint: ").append(toIndentedString(accessPoint)).append("\n");
     sb.append("    connectionType: ").append(toIndentedString(connectionType)).append("\n");
     sb.append("    directConnectAccessPointId: ").append(toIndentedString(directConnectAccessPointId)).append("\n");
     sb.append("    directConnectConnectionIds: ").append(toIndentedString(directConnectConnectionIds)).append("\n");
     sb.append("    directConnectConnectionName: ").append(toIndentedString(directConnectConnectionName)).append("\n");
     sb.append("    lineOperator: ").append(toIndentedString(lineOperator)).append("\n");
-    sb.append("    operator: ").append(toIndentedString(operator)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    peerLocation: ").append(toIndentedString(peerLocation)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("}");
     return sb.toString();

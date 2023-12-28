@@ -24,18 +24,37 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * CreateDirectConnectConnectionResponse
+ * DescribeDirectConnectConnectionLoaAttributesRequest
  */
 
 
-public class CreateDirectConnectConnectionResponse extends com.volcengine.model.AbstractResponse {
+public class DescribeDirectConnectConnectionLoaAttributesRequest {
+  @SerializedName("Action")
+  private String action = null;
+
   @SerializedName("DirectConnectConnectionId")
   private String directConnectConnectionId = null;
 
-  @SerializedName("RequestId")
-  private String requestId = null;
+  public DescribeDirectConnectConnectionLoaAttributesRequest action(String action) {
+    this.action = action;
+    return this;
+  }
 
-  public CreateDirectConnectConnectionResponse directConnectConnectionId(String directConnectConnectionId) {
+   /**
+   * Get action
+   * @return action
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getAction() {
+    return action;
+  }
+
+  public void setAction(String action) {
+    this.action = action;
+  }
+
+  public DescribeDirectConnectConnectionLoaAttributesRequest directConnectConnectionId(String directConnectConnectionId) {
     this.directConnectConnectionId = directConnectConnectionId;
     return this;
   }
@@ -44,31 +63,14 @@ public class CreateDirectConnectConnectionResponse extends com.volcengine.model.
    * Get directConnectConnectionId
    * @return directConnectConnectionId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getDirectConnectConnectionId() {
     return directConnectConnectionId;
   }
 
   public void setDirectConnectConnectionId(String directConnectConnectionId) {
     this.directConnectConnectionId = directConnectConnectionId;
-  }
-
-  public CreateDirectConnectConnectionResponse requestId(String requestId) {
-    this.requestId = requestId;
-    return this;
-  }
-
-   /**
-   * Get requestId
-   * @return requestId
-  **/
-  @Schema(description = "")
-  public String getRequestId() {
-    return requestId;
-  }
-
-  public void setRequestId(String requestId) {
-    this.requestId = requestId;
   }
 
 
@@ -80,24 +82,24 @@ public class CreateDirectConnectConnectionResponse extends com.volcengine.model.
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateDirectConnectConnectionResponse createDirectConnectConnectionResponse = (CreateDirectConnectConnectionResponse) o;
-    return Objects.equals(this.directConnectConnectionId, createDirectConnectConnectionResponse.directConnectConnectionId) &&
-        Objects.equals(this.requestId, createDirectConnectConnectionResponse.requestId);
+    DescribeDirectConnectConnectionLoaAttributesRequest describeDirectConnectConnectionLoaAttributesRequest = (DescribeDirectConnectConnectionLoaAttributesRequest) o;
+    return Objects.equals(this.action, describeDirectConnectConnectionLoaAttributesRequest.action) &&
+        Objects.equals(this.directConnectConnectionId, describeDirectConnectConnectionLoaAttributesRequest.directConnectConnectionId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(directConnectConnectionId, requestId);
+    return Objects.hash(action, directConnectConnectionId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateDirectConnectConnectionResponse {\n");
+    sb.append("class DescribeDirectConnectConnectionLoaAttributesRequest {\n");
     
+    sb.append("    action: ").append(toIndentedString(action)).append("\n");
     sb.append("    directConnectConnectionId: ").append(toIndentedString(directConnectConnectionId)).append("\n");
-    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

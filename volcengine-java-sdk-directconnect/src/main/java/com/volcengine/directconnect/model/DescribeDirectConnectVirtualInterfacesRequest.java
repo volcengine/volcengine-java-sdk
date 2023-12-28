@@ -31,7 +31,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class DescribeDirectConnectVirtualInterfacesRequest {
   @SerializedName("DirectConnectConnectionId")
   private String directConnectConnectionId = null;
