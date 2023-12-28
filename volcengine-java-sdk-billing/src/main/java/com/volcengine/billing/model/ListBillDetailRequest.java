@@ -40,6 +40,9 @@ public class ListBillDetailRequest {
   @SerializedName("BillingMode")
   private List<String> billingMode = null;
 
+  @SerializedName("ExpenseDate")
+  private String expenseDate = null;
+
   @SerializedName("GroupPeriod")
   private Integer groupPeriod = null;
 
@@ -133,6 +136,24 @@ public class ListBillDetailRequest {
 
   public void setBillingMode(List<String> billingMode) {
     this.billingMode = billingMode;
+  }
+
+  public ListBillDetailRequest expenseDate(String expenseDate) {
+    this.expenseDate = expenseDate;
+    return this;
+  }
+
+   /**
+   * Get expenseDate
+   * @return expenseDate
+  **/
+  @Schema(description = "")
+  public String getExpenseDate() {
+    return expenseDate;
+  }
+
+  public void setExpenseDate(String expenseDate) {
+    this.expenseDate = expenseDate;
   }
 
   public ListBillDetailRequest groupPeriod(Integer groupPeriod) {
@@ -301,6 +322,7 @@ public class ListBillDetailRequest {
     return Objects.equals(this.billCategory, listBillDetailRequest.billCategory) &&
         Objects.equals(this.billPeriod, listBillDetailRequest.billPeriod) &&
         Objects.equals(this.billingMode, listBillDetailRequest.billingMode) &&
+        Objects.equals(this.expenseDate, listBillDetailRequest.expenseDate) &&
         Objects.equals(this.groupPeriod, listBillDetailRequest.groupPeriod) &&
         Objects.equals(this.groupTerm, listBillDetailRequest.groupTerm) &&
         Objects.equals(this.ignoreZero, listBillDetailRequest.ignoreZero) &&
@@ -313,7 +335,7 @@ public class ListBillDetailRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(billCategory, billPeriod, billingMode, groupPeriod, groupTerm, ignoreZero, instanceNo, limit, needRecordNum, offset, product);
+    return Objects.hash(billCategory, billPeriod, billingMode, expenseDate, groupPeriod, groupTerm, ignoreZero, instanceNo, limit, needRecordNum, offset, product);
   }
 
 
@@ -325,6 +347,7 @@ public class ListBillDetailRequest {
     sb.append("    billCategory: ").append(toIndentedString(billCategory)).append("\n");
     sb.append("    billPeriod: ").append(toIndentedString(billPeriod)).append("\n");
     sb.append("    billingMode: ").append(toIndentedString(billingMode)).append("\n");
+    sb.append("    expenseDate: ").append(toIndentedString(expenseDate)).append("\n");
     sb.append("    groupPeriod: ").append(toIndentedString(groupPeriod)).append("\n");
     sb.append("    groupTerm: ").append(toIndentedString(groupTerm)).append("\n");
     sb.append("    ignoreZero: ").append(toIndentedString(ignoreZero)).append("\n");
