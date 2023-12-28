@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class DeleteDirectConnectGatewayRouteRequest {
   @SerializedName("DirectConnectGatewayRouteId")
   private String directConnectGatewayRouteId = null;

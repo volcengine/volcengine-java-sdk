@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -28,10 +30,12 @@ import javax.validation.Valid;
  */
 
 
-
 public class TagFilterForDescribeDirectConnectGatewaysInput {
   @SerializedName("Key")
   private String key = null;
+
+  @SerializedName("Value")
+  private List<String> value = null;
 
   public TagFilterForDescribeDirectConnectGatewaysInput key(String key) {
     this.key = key;
@@ -51,6 +55,32 @@ public class TagFilterForDescribeDirectConnectGatewaysInput {
     this.key = key;
   }
 
+  public TagFilterForDescribeDirectConnectGatewaysInput value(List<String> value) {
+    this.value = value;
+    return this;
+  }
+
+  public TagFilterForDescribeDirectConnectGatewaysInput addValueItem(String valueItem) {
+    if (this.value == null) {
+      this.value = new ArrayList<String>();
+    }
+    this.value.add(valueItem);
+    return this;
+  }
+
+   /**
+   * Get value
+   * @return value
+  **/
+  @Schema(description = "")
+  public List<String> getValue() {
+    return value;
+  }
+
+  public void setValue(List<String> value) {
+    this.value = value;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -61,12 +91,13 @@ public class TagFilterForDescribeDirectConnectGatewaysInput {
       return false;
     }
     TagFilterForDescribeDirectConnectGatewaysInput tagFilterForDescribeDirectConnectGatewaysInput = (TagFilterForDescribeDirectConnectGatewaysInput) o;
-    return Objects.equals(this.key, tagFilterForDescribeDirectConnectGatewaysInput.key);
+    return Objects.equals(this.key, tagFilterForDescribeDirectConnectGatewaysInput.key) &&
+        Objects.equals(this.value, tagFilterForDescribeDirectConnectGatewaysInput.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(key);
+    return Objects.hash(key, value);
   }
 
 
@@ -76,6 +107,7 @@ public class TagFilterForDescribeDirectConnectGatewaysInput {
     sb.append("class TagFilterForDescribeDirectConnectGatewaysInput {\n");
     
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
   }

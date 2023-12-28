@@ -31,7 +31,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class DescribeDirectConnectConnectionsResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("DirectConnectConnections")
   private List<DirectConnectConnectionForDescribeDirectConnectConnectionsOutput> directConnectConnections = null;

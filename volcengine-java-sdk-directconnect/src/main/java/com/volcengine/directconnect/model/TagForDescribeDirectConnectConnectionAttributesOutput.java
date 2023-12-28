@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class TagForDescribeDirectConnectConnectionAttributesOutput {
   @SerializedName("Key")
   private String key = null;

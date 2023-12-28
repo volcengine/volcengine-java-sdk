@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class DescribeBgpPeerAttributesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("AccountId")
   private String accountId = null;
@@ -47,6 +46,9 @@ public class DescribeBgpPeerAttributesResponse extends com.volcengine.model.Abst
 
   @SerializedName("Description")
   private String description = null;
+
+  @SerializedName("IpVersion")
+  private String ipVersion = null;
 
   @SerializedName("LocalAsn")
   private Integer localAsn = null;
@@ -175,6 +177,24 @@ public class DescribeBgpPeerAttributesResponse extends com.volcengine.model.Abst
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public DescribeBgpPeerAttributesResponse ipVersion(String ipVersion) {
+    this.ipVersion = ipVersion;
+    return this;
+  }
+
+   /**
+   * Get ipVersion
+   * @return ipVersion
+  **/
+  @Schema(description = "")
+  public String getIpVersion() {
+    return ipVersion;
+  }
+
+  public void setIpVersion(String ipVersion) {
+    this.ipVersion = ipVersion;
   }
 
   public DescribeBgpPeerAttributesResponse localAsn(Integer localAsn) {
@@ -319,6 +339,7 @@ public class DescribeBgpPeerAttributesResponse extends com.volcengine.model.Abst
         Objects.equals(this.bgpPeerName, describeBgpPeerAttributesResponse.bgpPeerName) &&
         Objects.equals(this.creationTime, describeBgpPeerAttributesResponse.creationTime) &&
         Objects.equals(this.description, describeBgpPeerAttributesResponse.description) &&
+        Objects.equals(this.ipVersion, describeBgpPeerAttributesResponse.ipVersion) &&
         Objects.equals(this.localAsn, describeBgpPeerAttributesResponse.localAsn) &&
         Objects.equals(this.remoteAsn, describeBgpPeerAttributesResponse.remoteAsn) &&
         Objects.equals(this.requestId, describeBgpPeerAttributesResponse.requestId) &&
@@ -330,7 +351,7 @@ public class DescribeBgpPeerAttributesResponse extends com.volcengine.model.Abst
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, authKey, bgpPeerId, bgpPeerName, creationTime, description, localAsn, remoteAsn, requestId, sessionStatus, status, updateTime, virtualInterfaceId);
+    return Objects.hash(accountId, authKey, bgpPeerId, bgpPeerName, creationTime, description, ipVersion, localAsn, remoteAsn, requestId, sessionStatus, status, updateTime, virtualInterfaceId);
   }
 
 
@@ -345,6 +366,7 @@ public class DescribeBgpPeerAttributesResponse extends com.volcengine.model.Abst
     sb.append("    bgpPeerName: ").append(toIndentedString(bgpPeerName)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    ipVersion: ").append(toIndentedString(ipVersion)).append("\n");
     sb.append("    localAsn: ").append(toIndentedString(localAsn)).append("\n");
     sb.append("    remoteAsn: ").append(toIndentedString(remoteAsn)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");

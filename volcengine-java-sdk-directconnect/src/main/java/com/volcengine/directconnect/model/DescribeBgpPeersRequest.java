@@ -30,7 +30,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class DescribeBgpPeersRequest {
   @SerializedName("BgpPeerIds")
   private List<String> bgpPeerIds = null;
@@ -40,6 +39,9 @@ public class DescribeBgpPeersRequest {
 
   @SerializedName("DirectConnectGatewayId")
   private String directConnectGatewayId = null;
+
+  @SerializedName("IpVersion")
+  private String ipVersion = null;
 
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
@@ -113,6 +115,24 @@ public class DescribeBgpPeersRequest {
 
   public void setDirectConnectGatewayId(String directConnectGatewayId) {
     this.directConnectGatewayId = directConnectGatewayId;
+  }
+
+  public DescribeBgpPeersRequest ipVersion(String ipVersion) {
+    this.ipVersion = ipVersion;
+    return this;
+  }
+
+   /**
+   * Get ipVersion
+   * @return ipVersion
+  **/
+  @Schema(description = "")
+  public String getIpVersion() {
+    return ipVersion;
+  }
+
+  public void setIpVersion(String ipVersion) {
+    this.ipVersion = ipVersion;
   }
 
   public DescribeBgpPeersRequest pageNumber(Integer pageNumber) {
@@ -200,6 +220,7 @@ public class DescribeBgpPeersRequest {
     return Objects.equals(this.bgpPeerIds, describeBgpPeersRequest.bgpPeerIds) &&
         Objects.equals(this.bgpPeerName, describeBgpPeersRequest.bgpPeerName) &&
         Objects.equals(this.directConnectGatewayId, describeBgpPeersRequest.directConnectGatewayId) &&
+        Objects.equals(this.ipVersion, describeBgpPeersRequest.ipVersion) &&
         Objects.equals(this.pageNumber, describeBgpPeersRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeBgpPeersRequest.pageSize) &&
         Objects.equals(this.remoteAsn, describeBgpPeersRequest.remoteAsn) &&
@@ -208,7 +229,7 @@ public class DescribeBgpPeersRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bgpPeerIds, bgpPeerName, directConnectGatewayId, pageNumber, pageSize, remoteAsn, virtualInterfaceId);
+    return Objects.hash(bgpPeerIds, bgpPeerName, directConnectGatewayId, ipVersion, pageNumber, pageSize, remoteAsn, virtualInterfaceId);
   }
 
 
@@ -220,6 +241,7 @@ public class DescribeBgpPeersRequest {
     sb.append("    bgpPeerIds: ").append(toIndentedString(bgpPeerIds)).append("\n");
     sb.append("    bgpPeerName: ").append(toIndentedString(bgpPeerName)).append("\n");
     sb.append("    directConnectGatewayId: ").append(toIndentedString(directConnectGatewayId)).append("\n");
+    sb.append("    ipVersion: ").append(toIndentedString(ipVersion)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    remoteAsn: ").append(toIndentedString(remoteAsn)).append("\n");

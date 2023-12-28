@@ -31,7 +31,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class CreateDirectConnectConnectionRequest {
   @SerializedName("Bandwidth")
   private Integer bandwidth = null;
@@ -57,6 +56,9 @@ public class CreateDirectConnectConnectionRequest {
   @SerializedName("DirectConnectConnectionName")
   private String directConnectConnectionName = null;
 
+  @SerializedName("DriectConnectAccessPointId")
+  private String driectConnectAccessPointId = null;
+
   @SerializedName("LineOperator")
   private String lineOperator = null;
 
@@ -68,6 +70,9 @@ public class CreateDirectConnectConnectionRequest {
 
   @SerializedName("PortType")
   private String portType = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
 
   @SerializedName("Tags")
   private List<TagForCreateDirectConnectConnectionInput> tags = null;
@@ -221,6 +226,24 @@ public class CreateDirectConnectConnectionRequest {
     this.directConnectConnectionName = directConnectConnectionName;
   }
 
+  public CreateDirectConnectConnectionRequest driectConnectAccessPointId(String driectConnectAccessPointId) {
+    this.driectConnectAccessPointId = driectConnectAccessPointId;
+    return this;
+  }
+
+   /**
+   * Get driectConnectAccessPointId
+   * @return driectConnectAccessPointId
+  **/
+  @Schema(description = "")
+  public String getDriectConnectAccessPointId() {
+    return driectConnectAccessPointId;
+  }
+
+  public void setDriectConnectAccessPointId(String driectConnectAccessPointId) {
+    this.driectConnectAccessPointId = driectConnectAccessPointId;
+  }
+
   public CreateDirectConnectConnectionRequest lineOperator(String lineOperator) {
     this.lineOperator = lineOperator;
     return this;
@@ -297,6 +320,24 @@ public class CreateDirectConnectConnectionRequest {
     this.portType = portType;
   }
 
+  public CreateDirectConnectConnectionRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public CreateDirectConnectConnectionRequest tags(List<TagForCreateDirectConnectConnectionInput> tags) {
     this.tags = tags;
     return this;
@@ -342,16 +383,18 @@ public class CreateDirectConnectConnectionRequest {
         Objects.equals(this.description, createDirectConnectConnectionRequest.description) &&
         Objects.equals(this.directConnectAccessPointId, createDirectConnectConnectionRequest.directConnectAccessPointId) &&
         Objects.equals(this.directConnectConnectionName, createDirectConnectConnectionRequest.directConnectConnectionName) &&
+        Objects.equals(this.driectConnectAccessPointId, createDirectConnectConnectionRequest.driectConnectAccessPointId) &&
         Objects.equals(this.lineOperator, createDirectConnectConnectionRequest.lineOperator) &&
         Objects.equals(this.peerLocation, createDirectConnectConnectionRequest.peerLocation) &&
         Objects.equals(this.portSpec, createDirectConnectConnectionRequest.portSpec) &&
         Objects.equals(this.portType, createDirectConnectConnectionRequest.portType) &&
+        Objects.equals(this.projectName, createDirectConnectConnectionRequest.projectName) &&
         Objects.equals(this.tags, createDirectConnectConnectionRequest.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidth, clientToken, customerContactEmail, customerContactPhone, customerName, description, directConnectAccessPointId, directConnectConnectionName, lineOperator, peerLocation, portSpec, portType, tags);
+    return Objects.hash(bandwidth, clientToken, customerContactEmail, customerContactPhone, customerName, description, directConnectAccessPointId, directConnectConnectionName, driectConnectAccessPointId, lineOperator, peerLocation, portSpec, portType, projectName, tags);
   }
 
 
@@ -368,10 +411,12 @@ public class CreateDirectConnectConnectionRequest {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    directConnectAccessPointId: ").append(toIndentedString(directConnectAccessPointId)).append("\n");
     sb.append("    directConnectConnectionName: ").append(toIndentedString(directConnectConnectionName)).append("\n");
+    sb.append("    driectConnectAccessPointId: ").append(toIndentedString(driectConnectAccessPointId)).append("\n");
     sb.append("    lineOperator: ").append(toIndentedString(lineOperator)).append("\n");
     sb.append("    peerLocation: ").append(toIndentedString(peerLocation)).append("\n");
     sb.append("    portSpec: ").append(toIndentedString(portSpec)).append("\n");
     sb.append("    portType: ").append(toIndentedString(portType)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();

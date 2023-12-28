@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class CreateDirectConnectConnectionOrderRequest {
   @SerializedName("ClientToken")
   private String clientToken = null;
@@ -44,9 +43,7 @@ public class CreateDirectConnectConnectionOrderRequest {
    */
   @JsonAdapter(PeriodUnitEnum.Adapter.class)
   public enum PeriodUnitEnum {
-    @SerializedName("Month")
     MONTH("Month"),
-    @SerializedName("Year")
     YEAR("Year");
 
     private String value;

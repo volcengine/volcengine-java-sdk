@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class ModifyDirectConnectConnectionAttributesRequest {
   @SerializedName("CustomerContactEmail")
   private String customerContactEmail = null;
@@ -47,6 +46,9 @@ public class ModifyDirectConnectConnectionAttributesRequest {
 
   @SerializedName("DirectConnectConnectionName")
   private String directConnectConnectionName = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
 
   public ModifyDirectConnectConnectionAttributesRequest customerContactEmail(String customerContactEmail) {
     this.customerContactEmail = customerContactEmail;
@@ -157,6 +159,24 @@ public class ModifyDirectConnectConnectionAttributesRequest {
     this.directConnectConnectionName = directConnectConnectionName;
   }
 
+  public ModifyDirectConnectConnectionAttributesRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -172,12 +192,13 @@ public class ModifyDirectConnectConnectionAttributesRequest {
         Objects.equals(this.customerName, modifyDirectConnectConnectionAttributesRequest.customerName) &&
         Objects.equals(this.description, modifyDirectConnectConnectionAttributesRequest.description) &&
         Objects.equals(this.directConnectConnectionId, modifyDirectConnectConnectionAttributesRequest.directConnectConnectionId) &&
-        Objects.equals(this.directConnectConnectionName, modifyDirectConnectConnectionAttributesRequest.directConnectConnectionName);
+        Objects.equals(this.directConnectConnectionName, modifyDirectConnectConnectionAttributesRequest.directConnectConnectionName) &&
+        Objects.equals(this.projectName, modifyDirectConnectConnectionAttributesRequest.projectName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(customerContactEmail, customerContactPhone, customerName, description, directConnectConnectionId, directConnectConnectionName);
+    return Objects.hash(customerContactEmail, customerContactPhone, customerName, description, directConnectConnectionId, directConnectConnectionName, projectName);
   }
 
 
@@ -192,6 +213,7 @@ public class ModifyDirectConnectConnectionAttributesRequest {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    directConnectConnectionId: ").append(toIndentedString(directConnectConnectionId)).append("\n");
     sb.append("    directConnectConnectionName: ").append(toIndentedString(directConnectConnectionName)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

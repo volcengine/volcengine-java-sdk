@@ -30,7 +30,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class DescribeDirectConnectGatewayRoutesRequest {
   @SerializedName("DestinationCidrBlock")
   private String destinationCidrBlock = null;

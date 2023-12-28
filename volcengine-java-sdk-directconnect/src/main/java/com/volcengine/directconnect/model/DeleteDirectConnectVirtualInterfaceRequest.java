@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class DeleteDirectConnectVirtualInterfaceRequest {
   @SerializedName("VirtualInterfaceId")
   private String virtualInterfaceId = null;
