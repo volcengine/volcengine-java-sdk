@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -28,10 +30,12 @@ import javax.validation.Valid;
  */
 
 
-
 public class TagFilterForDescribeDirectConnectConnectionsInput {
   @SerializedName("Key")
   private String key = null;
+
+  @SerializedName("Values")
+  private List<String> values = null;
 
   public TagFilterForDescribeDirectConnectConnectionsInput key(String key) {
     this.key = key;
@@ -51,6 +55,32 @@ public class TagFilterForDescribeDirectConnectConnectionsInput {
     this.key = key;
   }
 
+  public TagFilterForDescribeDirectConnectConnectionsInput values(List<String> values) {
+    this.values = values;
+    return this;
+  }
+
+  public TagFilterForDescribeDirectConnectConnectionsInput addValuesItem(String valuesItem) {
+    if (this.values == null) {
+      this.values = new ArrayList<String>();
+    }
+    this.values.add(valuesItem);
+    return this;
+  }
+
+   /**
+   * Get values
+   * @return values
+  **/
+  @Schema(description = "")
+  public List<String> getValues() {
+    return values;
+  }
+
+  public void setValues(List<String> values) {
+    this.values = values;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -61,12 +91,13 @@ public class TagFilterForDescribeDirectConnectConnectionsInput {
       return false;
     }
     TagFilterForDescribeDirectConnectConnectionsInput tagFilterForDescribeDirectConnectConnectionsInput = (TagFilterForDescribeDirectConnectConnectionsInput) o;
-    return Objects.equals(this.key, tagFilterForDescribeDirectConnectConnectionsInput.key);
+    return Objects.equals(this.key, tagFilterForDescribeDirectConnectConnectionsInput.key) &&
+        Objects.equals(this.values, tagFilterForDescribeDirectConnectConnectionsInput.values);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(key);
+    return Objects.hash(key, values);
   }
 
 
@@ -76,6 +107,7 @@ public class TagFilterForDescribeDirectConnectConnectionsInput {
     sb.append("class TagFilterForDescribeDirectConnectConnectionsInput {\n");
     
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    values: ").append(toIndentedString(values)).append("\n");
     sb.append("}");
     return sb.toString();
   }

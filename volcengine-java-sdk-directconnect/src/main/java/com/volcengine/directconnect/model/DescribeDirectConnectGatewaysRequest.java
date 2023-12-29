@@ -31,7 +31,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class DescribeDirectConnectGatewaysRequest {
   @SerializedName("CenId")
   private String cenId = null;

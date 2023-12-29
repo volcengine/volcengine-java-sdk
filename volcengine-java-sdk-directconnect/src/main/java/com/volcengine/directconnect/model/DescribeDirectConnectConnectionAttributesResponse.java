@@ -31,7 +31,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class DescribeDirectConnectConnectionAttributesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("AccountId")
   private String accountId = null;
@@ -98,6 +97,9 @@ public class DescribeDirectConnectConnectionAttributesResponse extends com.volce
 
   @SerializedName("PortType")
   private String portType = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
 
   @SerializedName("RequestId")
   private String requestId = null;
@@ -510,6 +512,24 @@ public class DescribeDirectConnectConnectionAttributesResponse extends com.volce
     this.portType = portType;
   }
 
+  public DescribeDirectConnectConnectionAttributesResponse projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public DescribeDirectConnectConnectionAttributesResponse requestId(String requestId) {
     this.requestId = requestId;
     return this;
@@ -641,6 +661,7 @@ public class DescribeDirectConnectConnectionAttributesResponse extends com.volce
         Objects.equals(this.peerLocation, describeDirectConnectConnectionAttributesResponse.peerLocation) &&
         Objects.equals(this.portSpec, describeDirectConnectConnectionAttributesResponse.portSpec) &&
         Objects.equals(this.portType, describeDirectConnectConnectionAttributesResponse.portType) &&
+        Objects.equals(this.projectName, describeDirectConnectConnectionAttributesResponse.projectName) &&
         Objects.equals(this.requestId, describeDirectConnectConnectionAttributesResponse.requestId) &&
         Objects.equals(this.status, describeDirectConnectConnectionAttributesResponse.status) &&
         Objects.equals(this.tags, describeDirectConnectConnectionAttributesResponse.tags) &&
@@ -650,7 +671,7 @@ public class DescribeDirectConnectConnectionAttributesResponse extends com.volce
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, bandwidth, billingType, businessStatus, connectionType, creationTime, customerContactEmail, customerContactPhone, customerName, deletedTime, description, directConnectAccessPointId, directConnectConnectionId, directConnectConnectionName, expectBandwidth, expiredTime, lineOperator, parentConnectionAccountId, parentConnectionId, peerLocation, portSpec, portType, requestId, status, tags, updateTime, vlanId);
+    return Objects.hash(accountId, bandwidth, billingType, businessStatus, connectionType, creationTime, customerContactEmail, customerContactPhone, customerName, deletedTime, description, directConnectAccessPointId, directConnectConnectionId, directConnectConnectionName, expectBandwidth, expiredTime, lineOperator, parentConnectionAccountId, parentConnectionId, peerLocation, portSpec, portType, projectName, requestId, status, tags, updateTime, vlanId);
   }
 
 
@@ -681,6 +702,7 @@ public class DescribeDirectConnectConnectionAttributesResponse extends com.volce
     sb.append("    peerLocation: ").append(toIndentedString(peerLocation)).append("\n");
     sb.append("    portSpec: ").append(toIndentedString(portSpec)).append("\n");
     sb.append("    portType: ").append(toIndentedString(portType)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");

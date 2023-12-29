@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class CreateBgpPeerResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("BgpPeerId")
   private String bgpPeerId = null;

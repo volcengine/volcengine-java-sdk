@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class CreateBgpPeerRequest {
   @SerializedName("AuthKey")
   private String authKey = null;
@@ -38,6 +37,9 @@ public class CreateBgpPeerRequest {
 
   @SerializedName("Description")
   private String description = null;
+
+  @SerializedName("IpVersion")
+  private String ipVersion = null;
 
   @SerializedName("RemoteAsn")
   private Integer remoteAsn = null;
@@ -72,7 +74,7 @@ public class CreateBgpPeerRequest {
    * Get bgpPeerName
    * @return bgpPeerName
   **/
- @Size(min=1,max=128)  @Schema(description = "")
+  @Schema(description = "")
   public String getBgpPeerName() {
     return bgpPeerName;
   }
@@ -90,13 +92,31 @@ public class CreateBgpPeerRequest {
    * Get description
    * @return description
   **/
- @Size(min=1,max=255)  @Schema(description = "")
+  @Schema(description = "")
   public String getDescription() {
     return description;
   }
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public CreateBgpPeerRequest ipVersion(String ipVersion) {
+    this.ipVersion = ipVersion;
+    return this;
+  }
+
+   /**
+   * Get ipVersion
+   * @return ipVersion
+  **/
+  @Schema(description = "")
+  public String getIpVersion() {
+    return ipVersion;
+  }
+
+  public void setIpVersion(String ipVersion) {
+    this.ipVersion = ipVersion;
   }
 
   public CreateBgpPeerRequest remoteAsn(Integer remoteAsn) {
@@ -150,13 +170,14 @@ public class CreateBgpPeerRequest {
     return Objects.equals(this.authKey, createBgpPeerRequest.authKey) &&
         Objects.equals(this.bgpPeerName, createBgpPeerRequest.bgpPeerName) &&
         Objects.equals(this.description, createBgpPeerRequest.description) &&
+        Objects.equals(this.ipVersion, createBgpPeerRequest.ipVersion) &&
         Objects.equals(this.remoteAsn, createBgpPeerRequest.remoteAsn) &&
         Objects.equals(this.virtualInterfaceId, createBgpPeerRequest.virtualInterfaceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(authKey, bgpPeerName, description, remoteAsn, virtualInterfaceId);
+    return Objects.hash(authKey, bgpPeerName, description, ipVersion, remoteAsn, virtualInterfaceId);
   }
 
 
@@ -168,6 +189,7 @@ public class CreateBgpPeerRequest {
     sb.append("    authKey: ").append(toIndentedString(authKey)).append("\n");
     sb.append("    bgpPeerName: ").append(toIndentedString(bgpPeerName)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    ipVersion: ").append(toIndentedString(ipVersion)).append("\n");
     sb.append("    remoteAsn: ").append(toIndentedString(remoteAsn)).append("\n");
     sb.append("    virtualInterfaceId: ").append(toIndentedString(virtualInterfaceId)).append("\n");
     sb.append("}");

@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class ModifyBgpPeerAttributesRequest {
   @SerializedName("BgpPeerId")
   private String bgpPeerId = null;
@@ -67,7 +66,7 @@ public class ModifyBgpPeerAttributesRequest {
    * Get bgpPeerName
    * @return bgpPeerName
   **/
- @Size(min=1,max=128)  @Schema(description = "")
+  @Schema(description = "")
   public String getBgpPeerName() {
     return bgpPeerName;
   }
@@ -85,7 +84,7 @@ public class ModifyBgpPeerAttributesRequest {
    * Get description
    * @return description
   **/
- @Size(min=1,max=255)  @Schema(description = "")
+  @Schema(description = "")
   public String getDescription() {
     return description;
   }

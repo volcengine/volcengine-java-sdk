@@ -31,7 +31,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class DirectConnectConnectionForDescribeDirectConnectConnectionsOutput {
   @SerializedName("AccountId")
   private String accountId = null;
@@ -98,6 +97,9 @@ public class DirectConnectConnectionForDescribeDirectConnectConnectionsOutput {
 
   @SerializedName("PortType")
   private String portType = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
 
   @SerializedName("Status")
   private String status = null;
@@ -507,6 +509,24 @@ public class DirectConnectConnectionForDescribeDirectConnectConnectionsOutput {
     this.portType = portType;
   }
 
+  public DirectConnectConnectionForDescribeDirectConnectConnectionsOutput projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public DirectConnectConnectionForDescribeDirectConnectConnectionsOutput status(String status) {
     this.status = status;
     return this;
@@ -620,6 +640,7 @@ public class DirectConnectConnectionForDescribeDirectConnectConnectionsOutput {
         Objects.equals(this.peerLocation, directConnectConnectionForDescribeDirectConnectConnectionsOutput.peerLocation) &&
         Objects.equals(this.portSpec, directConnectConnectionForDescribeDirectConnectConnectionsOutput.portSpec) &&
         Objects.equals(this.portType, directConnectConnectionForDescribeDirectConnectConnectionsOutput.portType) &&
+        Objects.equals(this.projectName, directConnectConnectionForDescribeDirectConnectConnectionsOutput.projectName) &&
         Objects.equals(this.status, directConnectConnectionForDescribeDirectConnectConnectionsOutput.status) &&
         Objects.equals(this.tags, directConnectConnectionForDescribeDirectConnectConnectionsOutput.tags) &&
         Objects.equals(this.updateTime, directConnectConnectionForDescribeDirectConnectConnectionsOutput.updateTime) &&
@@ -628,7 +649,7 @@ public class DirectConnectConnectionForDescribeDirectConnectConnectionsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, bandwidth, billingType, businessStatus, connectionType, creationTime, customerContactEmail, customerContactPhone, customerName, deletedTime, description, directConnectAccessPointId, directConnectConnectionId, directConnectConnectionName, expectBandwidth, expiredTime, lineOperator, parentConnectionAccountId, parentConnectionId, peerLocation, portSpec, portType, status, tags, updateTime, vlanId);
+    return Objects.hash(accountId, bandwidth, billingType, businessStatus, connectionType, creationTime, customerContactEmail, customerContactPhone, customerName, deletedTime, description, directConnectAccessPointId, directConnectConnectionId, directConnectConnectionName, expectBandwidth, expiredTime, lineOperator, parentConnectionAccountId, parentConnectionId, peerLocation, portSpec, portType, projectName, status, tags, updateTime, vlanId);
   }
 
 
@@ -659,6 +680,7 @@ public class DirectConnectConnectionForDescribeDirectConnectConnectionsOutput {
     sb.append("    peerLocation: ").append(toIndentedString(peerLocation)).append("\n");
     sb.append("    portSpec: ").append(toIndentedString(portSpec)).append("\n");
     sb.append("    portType: ").append(toIndentedString(portType)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
