@@ -66,7 +66,7 @@ public class ModifyBgpPeerAttributesRequest {
    * Get bgpPeerName
    * @return bgpPeerName
   **/
-  @Schema(description = "")
+ @Size(min=1,max=128)  @Schema(description = "")
   public String getBgpPeerName() {
     return bgpPeerName;
   }
@@ -84,7 +84,7 @@ public class ModifyBgpPeerAttributesRequest {
    * Get description
    * @return description
   **/
-  @Schema(description = "")
+ @Size(min=1,max=255)  @Schema(description = "")
   public String getDescription() {
     return description;
   }
