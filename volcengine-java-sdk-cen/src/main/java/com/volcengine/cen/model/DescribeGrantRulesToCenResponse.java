@@ -41,6 +41,9 @@ public class DescribeGrantRulesToCenResponse extends com.volcengine.model.Abstra
   @SerializedName("PageSize")
   private Integer pageSize = null;
 
+  @SerializedName("RequestId")
+  private String requestId = null;
+
   @SerializedName("TotalCount")
   private Integer totalCount = null;
 
@@ -107,6 +110,24 @@ public class DescribeGrantRulesToCenResponse extends com.volcengine.model.Abstra
     this.pageSize = pageSize;
   }
 
+  public DescribeGrantRulesToCenResponse requestId(String requestId) {
+    this.requestId = requestId;
+    return this;
+  }
+
+   /**
+   * Get requestId
+   * @return requestId
+  **/
+  @Schema(description = "")
+  public String getRequestId() {
+    return requestId;
+  }
+
+  public void setRequestId(String requestId) {
+    this.requestId = requestId;
+  }
+
   public DescribeGrantRulesToCenResponse totalCount(Integer totalCount) {
     this.totalCount = totalCount;
     return this;
@@ -138,12 +159,13 @@ public class DescribeGrantRulesToCenResponse extends com.volcengine.model.Abstra
     return Objects.equals(this.cenGrantRules, describeGrantRulesToCenResponse.cenGrantRules) &&
         Objects.equals(this.pageNumber, describeGrantRulesToCenResponse.pageNumber) &&
         Objects.equals(this.pageSize, describeGrantRulesToCenResponse.pageSize) &&
+        Objects.equals(this.requestId, describeGrantRulesToCenResponse.requestId) &&
         Objects.equals(this.totalCount, describeGrantRulesToCenResponse.totalCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cenGrantRules, pageNumber, pageSize, totalCount);
+    return Objects.hash(cenGrantRules, pageNumber, pageSize, requestId, totalCount);
   }
 
 
@@ -155,6 +177,7 @@ public class DescribeGrantRulesToCenResponse extends com.volcengine.model.Abstra
     sb.append("    cenGrantRules: ").append(toIndentedString(cenGrantRules)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("}");
     return sb.toString();

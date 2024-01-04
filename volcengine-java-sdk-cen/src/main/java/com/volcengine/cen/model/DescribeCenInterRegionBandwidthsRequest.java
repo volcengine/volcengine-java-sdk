@@ -31,6 +31,9 @@ import javax.validation.Valid;
 
 
 public class DescribeCenInterRegionBandwidthsRequest {
+  @SerializedName("CenId")
+  private String cenId = null;
+
   @SerializedName("InterRegionBandwidthIds")
   private List<String> interRegionBandwidthIds = null;
 
@@ -38,7 +41,25 @@ public class DescribeCenInterRegionBandwidthsRequest {
   private Integer pageNumber = null;
 
   @SerializedName("PageSize")
-  private String pageSize = null;
+  private Integer pageSize = null;
+
+  public DescribeCenInterRegionBandwidthsRequest cenId(String cenId) {
+    this.cenId = cenId;
+    return this;
+  }
+
+   /**
+   * Get cenId
+   * @return cenId
+  **/
+  @Schema(description = "")
+  public String getCenId() {
+    return cenId;
+  }
+
+  public void setCenId(String cenId) {
+    this.cenId = cenId;
+  }
 
   public DescribeCenInterRegionBandwidthsRequest interRegionBandwidthIds(List<String> interRegionBandwidthIds) {
     this.interRegionBandwidthIds = interRegionBandwidthIds;
@@ -84,7 +105,7 @@ public class DescribeCenInterRegionBandwidthsRequest {
     this.pageNumber = pageNumber;
   }
 
-  public DescribeCenInterRegionBandwidthsRequest pageSize(String pageSize) {
+  public DescribeCenInterRegionBandwidthsRequest pageSize(Integer pageSize) {
     this.pageSize = pageSize;
     return this;
   }
@@ -94,11 +115,11 @@ public class DescribeCenInterRegionBandwidthsRequest {
    * @return pageSize
   **/
   @Schema(description = "")
-  public String getPageSize() {
+  public Integer getPageSize() {
     return pageSize;
   }
 
-  public void setPageSize(String pageSize) {
+  public void setPageSize(Integer pageSize) {
     this.pageSize = pageSize;
   }
 
@@ -112,14 +133,15 @@ public class DescribeCenInterRegionBandwidthsRequest {
       return false;
     }
     DescribeCenInterRegionBandwidthsRequest describeCenInterRegionBandwidthsRequest = (DescribeCenInterRegionBandwidthsRequest) o;
-    return Objects.equals(this.interRegionBandwidthIds, describeCenInterRegionBandwidthsRequest.interRegionBandwidthIds) &&
+    return Objects.equals(this.cenId, describeCenInterRegionBandwidthsRequest.cenId) &&
+        Objects.equals(this.interRegionBandwidthIds, describeCenInterRegionBandwidthsRequest.interRegionBandwidthIds) &&
         Objects.equals(this.pageNumber, describeCenInterRegionBandwidthsRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeCenInterRegionBandwidthsRequest.pageSize);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(interRegionBandwidthIds, pageNumber, pageSize);
+    return Objects.hash(cenId, interRegionBandwidthIds, pageNumber, pageSize);
   }
 
 
@@ -128,6 +150,7 @@ public class DescribeCenInterRegionBandwidthsRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeCenInterRegionBandwidthsRequest {\n");
     
+    sb.append("    cenId: ").append(toIndentedString(cenId)).append("\n");
     sb.append("    interRegionBandwidthIds: ").append(toIndentedString(interRegionBandwidthIds)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");

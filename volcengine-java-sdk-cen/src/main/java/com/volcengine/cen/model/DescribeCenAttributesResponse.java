@@ -53,6 +53,9 @@ public class DescribeCenAttributesResponse extends com.volcengine.model.Abstract
   @SerializedName("ProjectName")
   private String projectName = null;
 
+  @SerializedName("RequestId")
+  private String requestId = null;
+
   @SerializedName("Status")
   private String status = null;
 
@@ -196,6 +199,24 @@ public class DescribeCenAttributesResponse extends com.volcengine.model.Abstract
     this.projectName = projectName;
   }
 
+  public DescribeCenAttributesResponse requestId(String requestId) {
+    this.requestId = requestId;
+    return this;
+  }
+
+   /**
+   * Get requestId
+   * @return requestId
+  **/
+  @Schema(description = "")
+  public String getRequestId() {
+    return requestId;
+  }
+
+  public void setRequestId(String requestId) {
+    this.requestId = requestId;
+  }
+
   public DescribeCenAttributesResponse status(String status) {
     this.status = status;
     return this;
@@ -276,6 +297,7 @@ public class DescribeCenAttributesResponse extends com.volcengine.model.Abstract
         Objects.equals(this.creationTime, describeCenAttributesResponse.creationTime) &&
         Objects.equals(this.description, describeCenAttributesResponse.description) &&
         Objects.equals(this.projectName, describeCenAttributesResponse.projectName) &&
+        Objects.equals(this.requestId, describeCenAttributesResponse.requestId) &&
         Objects.equals(this.status, describeCenAttributesResponse.status) &&
         Objects.equals(this.tags, describeCenAttributesResponse.tags) &&
         Objects.equals(this.updateTime, describeCenAttributesResponse.updateTime);
@@ -283,7 +305,7 @@ public class DescribeCenAttributesResponse extends com.volcengine.model.Abstract
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, cenBandwidthPackageIds, cenId, cenName, creationTime, description, projectName, status, tags, updateTime);
+    return Objects.hash(accountId, cenBandwidthPackageIds, cenId, cenName, creationTime, description, projectName, requestId, status, tags, updateTime);
   }
 
 
@@ -299,6 +321,7 @@ public class DescribeCenAttributesResponse extends com.volcengine.model.Abstract
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");

@@ -170,7 +170,8 @@ public class GrantInstanceToCenRequest {
    * Get instanceType
    * @return instanceType
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public InstanceTypeEnum getInstanceType() {
     return instanceType;
   }
