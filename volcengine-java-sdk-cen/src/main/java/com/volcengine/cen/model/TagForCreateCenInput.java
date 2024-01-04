@@ -32,6 +32,9 @@ public class TagForCreateCenInput {
   @SerializedName("Key")
   private String key = null;
 
+  @SerializedName("Value")
+  private String value = null;
+
   public TagForCreateCenInput key(String key) {
     this.key = key;
     return this;
@@ -50,6 +53,24 @@ public class TagForCreateCenInput {
     this.key = key;
   }
 
+  public TagForCreateCenInput value(String value) {
+    this.value = value;
+    return this;
+  }
+
+   /**
+   * Get value
+   * @return value
+  **/
+  @Schema(description = "")
+  public String getValue() {
+    return value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -60,12 +81,13 @@ public class TagForCreateCenInput {
       return false;
     }
     TagForCreateCenInput tagForCreateCenInput = (TagForCreateCenInput) o;
-    return Objects.equals(this.key, tagForCreateCenInput.key);
+    return Objects.equals(this.key, tagForCreateCenInput.key) &&
+        Objects.equals(this.value, tagForCreateCenInput.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(key);
+    return Objects.hash(key, value);
   }
 
 
@@ -75,6 +97,7 @@ public class TagForCreateCenInput {
     sb.append("class TagForCreateCenInput {\n");
     
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
   }

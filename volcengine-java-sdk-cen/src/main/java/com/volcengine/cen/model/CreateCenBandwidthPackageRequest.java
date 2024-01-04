@@ -64,7 +64,7 @@ public class CreateCenBandwidthPackageRequest {
    */
   @JsonAdapter(PeriodUnitEnum.Adapter.class)
   public enum PeriodUnitEnum {
-    MOTH("Moth"),
+    MONTH("Month"),
     YEAR("Year");
 
     private String value;

@@ -32,6 +32,9 @@ public class CreateCenInterRegionBandwidthResponse extends com.volcengine.model.
   @SerializedName("InterRegionBandwidthId")
   private String interRegionBandwidthId = null;
 
+  @SerializedName("RequestId")
+  private String requestId = null;
+
   public CreateCenInterRegionBandwidthResponse interRegionBandwidthId(String interRegionBandwidthId) {
     this.interRegionBandwidthId = interRegionBandwidthId;
     return this;
@@ -50,6 +53,24 @@ public class CreateCenInterRegionBandwidthResponse extends com.volcengine.model.
     this.interRegionBandwidthId = interRegionBandwidthId;
   }
 
+  public CreateCenInterRegionBandwidthResponse requestId(String requestId) {
+    this.requestId = requestId;
+    return this;
+  }
+
+   /**
+   * Get requestId
+   * @return requestId
+  **/
+  @Schema(description = "")
+  public String getRequestId() {
+    return requestId;
+  }
+
+  public void setRequestId(String requestId) {
+    this.requestId = requestId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -60,12 +81,13 @@ public class CreateCenInterRegionBandwidthResponse extends com.volcengine.model.
       return false;
     }
     CreateCenInterRegionBandwidthResponse createCenInterRegionBandwidthResponse = (CreateCenInterRegionBandwidthResponse) o;
-    return Objects.equals(this.interRegionBandwidthId, createCenInterRegionBandwidthResponse.interRegionBandwidthId);
+    return Objects.equals(this.interRegionBandwidthId, createCenInterRegionBandwidthResponse.interRegionBandwidthId) &&
+        Objects.equals(this.requestId, createCenInterRegionBandwidthResponse.requestId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(interRegionBandwidthId);
+    return Objects.hash(interRegionBandwidthId, requestId);
   }
 
 
@@ -75,6 +97,7 @@ public class CreateCenInterRegionBandwidthResponse extends com.volcengine.model.
     sb.append("class CreateCenInterRegionBandwidthResponse {\n");
     
     sb.append("    interRegionBandwidthId: ").append(toIndentedString(interRegionBandwidthId)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

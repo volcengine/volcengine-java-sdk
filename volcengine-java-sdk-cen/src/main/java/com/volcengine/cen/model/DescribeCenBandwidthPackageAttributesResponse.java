@@ -77,11 +77,17 @@ public class DescribeCenBandwidthPackageAttributesResponse extends com.volcengin
   @SerializedName("RemainingBandwidth")
   private Integer remainingBandwidth = null;
 
+  @SerializedName("RequestId")
+  private String requestId = null;
+
   @SerializedName("Status")
   private String status = null;
 
   @SerializedName("Tags")
   private List<TagForDescribeCenBandwidthPackageAttributesOutput> tags = null;
+
+  @SerializedName("UpdatedAt")
+  private String updatedAt = null;
 
   public DescribeCenBandwidthPackageAttributesResponse accountId(String accountId) {
     this.accountId = accountId;
@@ -361,6 +367,24 @@ public class DescribeCenBandwidthPackageAttributesResponse extends com.volcengin
     this.remainingBandwidth = remainingBandwidth;
   }
 
+  public DescribeCenBandwidthPackageAttributesResponse requestId(String requestId) {
+    this.requestId = requestId;
+    return this;
+  }
+
+   /**
+   * Get requestId
+   * @return requestId
+  **/
+  @Schema(description = "")
+  public String getRequestId() {
+    return requestId;
+  }
+
+  public void setRequestId(String requestId) {
+    this.requestId = requestId;
+  }
+
   public DescribeCenBandwidthPackageAttributesResponse status(String status) {
     this.status = status;
     return this;
@@ -406,6 +430,24 @@ public class DescribeCenBandwidthPackageAttributesResponse extends com.volcengin
     this.tags = tags;
   }
 
+  public DescribeCenBandwidthPackageAttributesResponse updatedAt(String updatedAt) {
+    this.updatedAt = updatedAt;
+    return this;
+  }
+
+   /**
+   * Get updatedAt
+   * @return updatedAt
+  **/
+  @Schema(description = "")
+  public String getUpdatedAt() {
+    return updatedAt;
+  }
+
+  public void setUpdatedAt(String updatedAt) {
+    this.updatedAt = updatedAt;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -431,13 +473,15 @@ public class DescribeCenBandwidthPackageAttributesResponse extends com.volcengin
         Objects.equals(this.peerGeographicRegionSetId, describeCenBandwidthPackageAttributesResponse.peerGeographicRegionSetId) &&
         Objects.equals(this.projectName, describeCenBandwidthPackageAttributesResponse.projectName) &&
         Objects.equals(this.remainingBandwidth, describeCenBandwidthPackageAttributesResponse.remainingBandwidth) &&
+        Objects.equals(this.requestId, describeCenBandwidthPackageAttributesResponse.requestId) &&
         Objects.equals(this.status, describeCenBandwidthPackageAttributesResponse.status) &&
-        Objects.equals(this.tags, describeCenBandwidthPackageAttributesResponse.tags);
+        Objects.equals(this.tags, describeCenBandwidthPackageAttributesResponse.tags) &&
+        Objects.equals(this.updatedAt, describeCenBandwidthPackageAttributesResponse.updatedAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, bandwidth, billingType, businessStatus, cenBandwidthPackageId, cenBandwidthPackageName, cenIds, creationTime, deletedTime, description, expiredTime, localGeographicRegionSetId, peerGeographicRegionSetId, projectName, remainingBandwidth, status, tags);
+    return Objects.hash(accountId, bandwidth, billingType, businessStatus, cenBandwidthPackageId, cenBandwidthPackageName, cenIds, creationTime, deletedTime, description, expiredTime, localGeographicRegionSetId, peerGeographicRegionSetId, projectName, remainingBandwidth, requestId, status, tags, updatedAt);
   }
 
 
@@ -461,8 +505,10 @@ public class DescribeCenBandwidthPackageAttributesResponse extends com.volcengin
     sb.append("    peerGeographicRegionSetId: ").append(toIndentedString(peerGeographicRegionSetId)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    remainingBandwidth: ").append(toIndentedString(remainingBandwidth)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("}");
     return sb.toString();
   }
