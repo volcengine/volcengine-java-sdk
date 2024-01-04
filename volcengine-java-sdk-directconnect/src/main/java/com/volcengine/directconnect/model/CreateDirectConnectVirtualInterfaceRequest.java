@@ -152,9 +152,11 @@ public class CreateDirectConnectVirtualInterfaceRequest {
 
    /**
    * Get bfdDetectInterval
+   * minimum: 200
+   * maximum: 1000
    * @return bfdDetectInterval
   **/
-  @Schema(description = "")
+ @Min(200) @Max(1000)  @Schema(description = "")
   public Integer getBfdDetectInterval() {
     return bfdDetectInterval;
   }
@@ -170,9 +172,11 @@ public class CreateDirectConnectVirtualInterfaceRequest {
 
    /**
    * Get bfdDetectMultiplier
+   * minimum: 3
+   * maximum: 10
    * @return bfdDetectMultiplier
   **/
-  @Schema(description = "")
+ @Min(3) @Max(10)  @Schema(description = "")
   public Integer getBfdDetectMultiplier() {
     return bfdDetectMultiplier;
   }
@@ -190,7 +194,7 @@ public class CreateDirectConnectVirtualInterfaceRequest {
    * Get description
    * @return description
   **/
-  @Schema(description = "")
+ @Size(min=1,max=255)  @Schema(description = "")
   public String getDescription() {
     return description;
   }
@@ -317,9 +321,11 @@ public class CreateDirectConnectVirtualInterfaceRequest {
 
    /**
    * Get nqaDetectInterval
+   * minimum: 1000
+   * maximum: 5000
    * @return nqaDetectInterval
   **/
-  @Schema(description = "")
+ @Min(1000) @Max(5000)  @Schema(description = "")
   public Integer getNqaDetectInterval() {
     return nqaDetectInterval;
   }
@@ -335,9 +341,11 @@ public class CreateDirectConnectVirtualInterfaceRequest {
 
    /**
    * Get nqaDetectMultiplier
+   * minimum: 3
+   * maximum: 8
    * @return nqaDetectMultiplier
   **/
-  @Schema(description = "")
+ @Min(3) @Max(8)  @Schema(description = "")
   public Integer getNqaDetectMultiplier() {
     return nqaDetectMultiplier;
   }
@@ -437,7 +445,7 @@ public class CreateDirectConnectVirtualInterfaceRequest {
    * Get virtualInterfaceName
    * @return virtualInterfaceName
   **/
-  @Schema(description = "")
+ @Size(min=1,max=128)  @Schema(description = "")
   public String getVirtualInterfaceName() {
     return virtualInterfaceName;
   }
