@@ -25,7 +25,7 @@ public class TestDescribeCenInterRegionBandwidths {
         
         DescribeCenInterRegionBandwidthsRequest describeCenInterRegionBandwidthsRequest = new DescribeCenInterRegionBandwidthsRequest();
         describeCenInterRegionBandwidthsRequest.setPageNumber(1);
-        describeCenInterRegionBandwidthsRequest.setPageSize("20");
+        describeCenInterRegionBandwidthsRequest.setPageSize(20);
         
         try {
             DescribeCenInterRegionBandwidthsResponse response = api.describeCenInterRegionBandwidths(describeCenInterRegionBandwidthsRequest);
