@@ -41,6 +41,9 @@ public class CenBandwidthPackageForDescribeCenBandwidthPackagesOutput {
   @SerializedName("BillingType")
   private Integer billingType = null;
 
+  @SerializedName("Business")
+  private String business = null;
+
   @SerializedName("CenBandwidthPackageId")
   private String cenBandwidthPackageId = null;
 
@@ -65,6 +68,9 @@ public class CenBandwidthPackageForDescribeCenBandwidthPackagesOutput {
   @SerializedName("LocalGeographicRegionSetId")
   private String localGeographicRegionSetId = null;
 
+  @SerializedName("LocalGeographiclRegionSetId")
+  private String localGeographiclRegionSetId = null;
+
   @SerializedName("PeerGeographicRegionSetId")
   private String peerGeographicRegionSetId = null;
 
@@ -79,6 +85,9 @@ public class CenBandwidthPackageForDescribeCenBandwidthPackagesOutput {
 
   @SerializedName("Tags")
   private List<TagForDescribeCenBandwidthPackagesOutput> tags = null;
+
+  @SerializedName("UpdatedAt")
+  private String updatedAt = null;
 
   public CenBandwidthPackageForDescribeCenBandwidthPackagesOutput accountId(String accountId) {
     this.accountId = accountId;
@@ -132,6 +141,24 @@ public class CenBandwidthPackageForDescribeCenBandwidthPackagesOutput {
 
   public void setBillingType(Integer billingType) {
     this.billingType = billingType;
+  }
+
+  public CenBandwidthPackageForDescribeCenBandwidthPackagesOutput business(String business) {
+    this.business = business;
+    return this;
+  }
+
+   /**
+   * Get business
+   * @return business
+  **/
+  @Schema(description = "")
+  public String getBusiness() {
+    return business;
+  }
+
+  public void setBusiness(String business) {
+    this.business = business;
   }
 
   public CenBandwidthPackageForDescribeCenBandwidthPackagesOutput cenBandwidthPackageId(String cenBandwidthPackageId) {
@@ -286,6 +313,24 @@ public class CenBandwidthPackageForDescribeCenBandwidthPackagesOutput {
     this.localGeographicRegionSetId = localGeographicRegionSetId;
   }
 
+  public CenBandwidthPackageForDescribeCenBandwidthPackagesOutput localGeographiclRegionSetId(String localGeographiclRegionSetId) {
+    this.localGeographiclRegionSetId = localGeographiclRegionSetId;
+    return this;
+  }
+
+   /**
+   * Get localGeographiclRegionSetId
+   * @return localGeographiclRegionSetId
+  **/
+  @Schema(description = "")
+  public String getLocalGeographiclRegionSetId() {
+    return localGeographiclRegionSetId;
+  }
+
+  public void setLocalGeographiclRegionSetId(String localGeographiclRegionSetId) {
+    this.localGeographiclRegionSetId = localGeographiclRegionSetId;
+  }
+
   public CenBandwidthPackageForDescribeCenBandwidthPackagesOutput peerGeographicRegionSetId(String peerGeographicRegionSetId) {
     this.peerGeographicRegionSetId = peerGeographicRegionSetId;
     return this;
@@ -385,6 +430,24 @@ public class CenBandwidthPackageForDescribeCenBandwidthPackagesOutput {
     this.tags = tags;
   }
 
+  public CenBandwidthPackageForDescribeCenBandwidthPackagesOutput updatedAt(String updatedAt) {
+    this.updatedAt = updatedAt;
+    return this;
+  }
+
+   /**
+   * Get updatedAt
+   * @return updatedAt
+  **/
+  @Schema(description = "")
+  public String getUpdatedAt() {
+    return updatedAt;
+  }
+
+  public void setUpdatedAt(String updatedAt) {
+    this.updatedAt = updatedAt;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -398,6 +461,7 @@ public class CenBandwidthPackageForDescribeCenBandwidthPackagesOutput {
     return Objects.equals(this.accountId, cenBandwidthPackageForDescribeCenBandwidthPackagesOutput.accountId) &&
         Objects.equals(this.bandwidth, cenBandwidthPackageForDescribeCenBandwidthPackagesOutput.bandwidth) &&
         Objects.equals(this.billingType, cenBandwidthPackageForDescribeCenBandwidthPackagesOutput.billingType) &&
+        Objects.equals(this.business, cenBandwidthPackageForDescribeCenBandwidthPackagesOutput.business) &&
         Objects.equals(this.cenBandwidthPackageId, cenBandwidthPackageForDescribeCenBandwidthPackagesOutput.cenBandwidthPackageId) &&
         Objects.equals(this.cenBandwidthPackageName, cenBandwidthPackageForDescribeCenBandwidthPackagesOutput.cenBandwidthPackageName) &&
         Objects.equals(this.cenIds, cenBandwidthPackageForDescribeCenBandwidthPackagesOutput.cenIds) &&
@@ -406,16 +470,18 @@ public class CenBandwidthPackageForDescribeCenBandwidthPackagesOutput {
         Objects.equals(this.description, cenBandwidthPackageForDescribeCenBandwidthPackagesOutput.description) &&
         Objects.equals(this.expiredTime, cenBandwidthPackageForDescribeCenBandwidthPackagesOutput.expiredTime) &&
         Objects.equals(this.localGeographicRegionSetId, cenBandwidthPackageForDescribeCenBandwidthPackagesOutput.localGeographicRegionSetId) &&
+        Objects.equals(this.localGeographiclRegionSetId, cenBandwidthPackageForDescribeCenBandwidthPackagesOutput.localGeographiclRegionSetId) &&
         Objects.equals(this.peerGeographicRegionSetId, cenBandwidthPackageForDescribeCenBandwidthPackagesOutput.peerGeographicRegionSetId) &&
         Objects.equals(this.projectName, cenBandwidthPackageForDescribeCenBandwidthPackagesOutput.projectName) &&
         Objects.equals(this.remainingBandwidth, cenBandwidthPackageForDescribeCenBandwidthPackagesOutput.remainingBandwidth) &&
         Objects.equals(this.status, cenBandwidthPackageForDescribeCenBandwidthPackagesOutput.status) &&
-        Objects.equals(this.tags, cenBandwidthPackageForDescribeCenBandwidthPackagesOutput.tags);
+        Objects.equals(this.tags, cenBandwidthPackageForDescribeCenBandwidthPackagesOutput.tags) &&
+        Objects.equals(this.updatedAt, cenBandwidthPackageForDescribeCenBandwidthPackagesOutput.updatedAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, bandwidth, billingType, cenBandwidthPackageId, cenBandwidthPackageName, cenIds, creationTime, deletedTime, description, expiredTime, localGeographicRegionSetId, peerGeographicRegionSetId, projectName, remainingBandwidth, status, tags);
+    return Objects.hash(accountId, bandwidth, billingType, business, cenBandwidthPackageId, cenBandwidthPackageName, cenIds, creationTime, deletedTime, description, expiredTime, localGeographicRegionSetId, localGeographiclRegionSetId, peerGeographicRegionSetId, projectName, remainingBandwidth, status, tags, updatedAt);
   }
 
 
@@ -427,6 +493,7 @@ public class CenBandwidthPackageForDescribeCenBandwidthPackagesOutput {
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    bandwidth: ").append(toIndentedString(bandwidth)).append("\n");
     sb.append("    billingType: ").append(toIndentedString(billingType)).append("\n");
+    sb.append("    business: ").append(toIndentedString(business)).append("\n");
     sb.append("    cenBandwidthPackageId: ").append(toIndentedString(cenBandwidthPackageId)).append("\n");
     sb.append("    cenBandwidthPackageName: ").append(toIndentedString(cenBandwidthPackageName)).append("\n");
     sb.append("    cenIds: ").append(toIndentedString(cenIds)).append("\n");
@@ -435,11 +502,13 @@ public class CenBandwidthPackageForDescribeCenBandwidthPackagesOutput {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    expiredTime: ").append(toIndentedString(expiredTime)).append("\n");
     sb.append("    localGeographicRegionSetId: ").append(toIndentedString(localGeographicRegionSetId)).append("\n");
+    sb.append("    localGeographiclRegionSetId: ").append(toIndentedString(localGeographiclRegionSetId)).append("\n");
     sb.append("    peerGeographicRegionSetId: ").append(toIndentedString(peerGeographicRegionSetId)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    remainingBandwidth: ").append(toIndentedString(remainingBandwidth)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("}");
     return sb.toString();
   }

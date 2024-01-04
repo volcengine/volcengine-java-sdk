@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.cen.model.PublishToInstanceForCreateCenServiceRouteEntryInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -37,6 +40,12 @@ public class CreateCenServiceRouteEntryRequest {
 
   @SerializedName("DestinationCidrBlock")
   private String destinationCidrBlock = null;
+
+  @SerializedName("PublishMode")
+  private String publishMode = null;
+
+  @SerializedName("PublishToInstances")
+  private List<PublishToInstanceForCreateCenServiceRouteEntryInput> publishToInstances = null;
 
   @SerializedName("ServiceRegionId")
   private String serviceRegionId = null;
@@ -100,6 +109,51 @@ public class CreateCenServiceRouteEntryRequest {
     this.destinationCidrBlock = destinationCidrBlock;
   }
 
+  public CreateCenServiceRouteEntryRequest publishMode(String publishMode) {
+    this.publishMode = publishMode;
+    return this;
+  }
+
+   /**
+   * Get publishMode
+   * @return publishMode
+  **/
+  @Schema(description = "")
+  public String getPublishMode() {
+    return publishMode;
+  }
+
+  public void setPublishMode(String publishMode) {
+    this.publishMode = publishMode;
+  }
+
+  public CreateCenServiceRouteEntryRequest publishToInstances(List<PublishToInstanceForCreateCenServiceRouteEntryInput> publishToInstances) {
+    this.publishToInstances = publishToInstances;
+    return this;
+  }
+
+  public CreateCenServiceRouteEntryRequest addPublishToInstancesItem(PublishToInstanceForCreateCenServiceRouteEntryInput publishToInstancesItem) {
+    if (this.publishToInstances == null) {
+      this.publishToInstances = new ArrayList<PublishToInstanceForCreateCenServiceRouteEntryInput>();
+    }
+    this.publishToInstances.add(publishToInstancesItem);
+    return this;
+  }
+
+   /**
+   * Get publishToInstances
+   * @return publishToInstances
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<PublishToInstanceForCreateCenServiceRouteEntryInput> getPublishToInstances() {
+    return publishToInstances;
+  }
+
+  public void setPublishToInstances(List<PublishToInstanceForCreateCenServiceRouteEntryInput> publishToInstances) {
+    this.publishToInstances = publishToInstances;
+  }
+
   public CreateCenServiceRouteEntryRequest serviceRegionId(String serviceRegionId) {
     this.serviceRegionId = serviceRegionId;
     return this;
@@ -151,13 +205,15 @@ public class CreateCenServiceRouteEntryRequest {
     return Objects.equals(this.cenId, createCenServiceRouteEntryRequest.cenId) &&
         Objects.equals(this.description, createCenServiceRouteEntryRequest.description) &&
         Objects.equals(this.destinationCidrBlock, createCenServiceRouteEntryRequest.destinationCidrBlock) &&
+        Objects.equals(this.publishMode, createCenServiceRouteEntryRequest.publishMode) &&
+        Objects.equals(this.publishToInstances, createCenServiceRouteEntryRequest.publishToInstances) &&
         Objects.equals(this.serviceRegionId, createCenServiceRouteEntryRequest.serviceRegionId) &&
         Objects.equals(this.serviceVpcId, createCenServiceRouteEntryRequest.serviceVpcId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cenId, description, destinationCidrBlock, serviceRegionId, serviceVpcId);
+    return Objects.hash(cenId, description, destinationCidrBlock, publishMode, publishToInstances, serviceRegionId, serviceVpcId);
   }
 
 
@@ -169,6 +225,8 @@ public class CreateCenServiceRouteEntryRequest {
     sb.append("    cenId: ").append(toIndentedString(cenId)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    destinationCidrBlock: ").append(toIndentedString(destinationCidrBlock)).append("\n");
+    sb.append("    publishMode: ").append(toIndentedString(publishMode)).append("\n");
+    sb.append("    publishToInstances: ").append(toIndentedString(publishToInstances)).append("\n");
     sb.append("    serviceRegionId: ").append(toIndentedString(serviceRegionId)).append("\n");
     sb.append("    serviceVpcId: ").append(toIndentedString(serviceVpcId)).append("\n");
     sb.append("}");

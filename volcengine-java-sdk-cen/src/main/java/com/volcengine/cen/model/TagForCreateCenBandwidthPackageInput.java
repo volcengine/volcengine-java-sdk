@@ -32,6 +32,9 @@ public class TagForCreateCenBandwidthPackageInput {
   @SerializedName("Key")
   private String key = null;
 
+  @SerializedName("Value")
+  private String value = null;
+
   public TagForCreateCenBandwidthPackageInput key(String key) {
     this.key = key;
     return this;
@@ -50,6 +53,24 @@ public class TagForCreateCenBandwidthPackageInput {
     this.key = key;
   }
 
+  public TagForCreateCenBandwidthPackageInput value(String value) {
+    this.value = value;
+    return this;
+  }
+
+   /**
+   * Get value
+   * @return value
+  **/
+  @Schema(description = "")
+  public String getValue() {
+    return value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -60,12 +81,13 @@ public class TagForCreateCenBandwidthPackageInput {
       return false;
     }
     TagForCreateCenBandwidthPackageInput tagForCreateCenBandwidthPackageInput = (TagForCreateCenBandwidthPackageInput) o;
-    return Objects.equals(this.key, tagForCreateCenBandwidthPackageInput.key);
+    return Objects.equals(this.key, tagForCreateCenBandwidthPackageInput.key) &&
+        Objects.equals(this.value, tagForCreateCenBandwidthPackageInput.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(key);
+    return Objects.hash(key, value);
   }
 
 
@@ -75,6 +97,7 @@ public class TagForCreateCenBandwidthPackageInput {
     sb.append("class TagForCreateCenBandwidthPackageInput {\n");
     
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
   }

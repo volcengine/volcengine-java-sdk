@@ -35,8 +35,14 @@ public class DescribeCenSummaryRouteEntriesResponse extends com.volcengine.model
   @SerializedName("CenSummaryRouteEntries")
   private List<CenSummaryRouteEntryForDescribeCenSummaryRouteEntriesOutput> cenSummaryRouteEntries = null;
 
+  @SerializedName("PageNumber")
+  private Integer pageNumber = null;
+
   @SerializedName("PageSize")
   private Integer pageSize = null;
+
+  @SerializedName("RequestId")
+  private String requestId = null;
 
   @SerializedName("TotalCount")
   private Integer totalCount = null;
@@ -68,6 +74,24 @@ public class DescribeCenSummaryRouteEntriesResponse extends com.volcengine.model
     this.cenSummaryRouteEntries = cenSummaryRouteEntries;
   }
 
+  public DescribeCenSummaryRouteEntriesResponse pageNumber(Integer pageNumber) {
+    this.pageNumber = pageNumber;
+    return this;
+  }
+
+   /**
+   * Get pageNumber
+   * @return pageNumber
+  **/
+  @Schema(description = "")
+  public Integer getPageNumber() {
+    return pageNumber;
+  }
+
+  public void setPageNumber(Integer pageNumber) {
+    this.pageNumber = pageNumber;
+  }
+
   public DescribeCenSummaryRouteEntriesResponse pageSize(Integer pageSize) {
     this.pageSize = pageSize;
     return this;
@@ -84,6 +108,24 @@ public class DescribeCenSummaryRouteEntriesResponse extends com.volcengine.model
 
   public void setPageSize(Integer pageSize) {
     this.pageSize = pageSize;
+  }
+
+  public DescribeCenSummaryRouteEntriesResponse requestId(String requestId) {
+    this.requestId = requestId;
+    return this;
+  }
+
+   /**
+   * Get requestId
+   * @return requestId
+  **/
+  @Schema(description = "")
+  public String getRequestId() {
+    return requestId;
+  }
+
+  public void setRequestId(String requestId) {
+    this.requestId = requestId;
   }
 
   public DescribeCenSummaryRouteEntriesResponse totalCount(Integer totalCount) {
@@ -115,13 +157,15 @@ public class DescribeCenSummaryRouteEntriesResponse extends com.volcengine.model
     }
     DescribeCenSummaryRouteEntriesResponse describeCenSummaryRouteEntriesResponse = (DescribeCenSummaryRouteEntriesResponse) o;
     return Objects.equals(this.cenSummaryRouteEntries, describeCenSummaryRouteEntriesResponse.cenSummaryRouteEntries) &&
+        Objects.equals(this.pageNumber, describeCenSummaryRouteEntriesResponse.pageNumber) &&
         Objects.equals(this.pageSize, describeCenSummaryRouteEntriesResponse.pageSize) &&
+        Objects.equals(this.requestId, describeCenSummaryRouteEntriesResponse.requestId) &&
         Objects.equals(this.totalCount, describeCenSummaryRouteEntriesResponse.totalCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cenSummaryRouteEntries, pageSize, totalCount);
+    return Objects.hash(cenSummaryRouteEntries, pageNumber, pageSize, requestId, totalCount);
   }
 
 
@@ -131,7 +175,9 @@ public class DescribeCenSummaryRouteEntriesResponse extends com.volcengine.model
     sb.append("class DescribeCenSummaryRouteEntriesResponse {\n");
     
     sb.append("    cenSummaryRouteEntries: ").append(toIndentedString(cenSummaryRouteEntries)).append("\n");
+    sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("}");
     return sb.toString();

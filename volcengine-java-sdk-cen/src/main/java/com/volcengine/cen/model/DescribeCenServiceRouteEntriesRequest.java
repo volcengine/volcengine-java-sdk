@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -31,6 +33,9 @@ import javax.validation.Valid;
 public class DescribeCenServiceRouteEntriesRequest {
   @SerializedName("CenId")
   private String cenId = null;
+
+  @SerializedName("CenRouteEntryIds")
+  private List<String> cenRouteEntryIds = null;
 
   @SerializedName("DestinationCidrBlock")
   private String destinationCidrBlock = null;
@@ -63,6 +68,32 @@ public class DescribeCenServiceRouteEntriesRequest {
 
   public void setCenId(String cenId) {
     this.cenId = cenId;
+  }
+
+  public DescribeCenServiceRouteEntriesRequest cenRouteEntryIds(List<String> cenRouteEntryIds) {
+    this.cenRouteEntryIds = cenRouteEntryIds;
+    return this;
+  }
+
+  public DescribeCenServiceRouteEntriesRequest addCenRouteEntryIdsItem(String cenRouteEntryIdsItem) {
+    if (this.cenRouteEntryIds == null) {
+      this.cenRouteEntryIds = new ArrayList<String>();
+    }
+    this.cenRouteEntryIds.add(cenRouteEntryIdsItem);
+    return this;
+  }
+
+   /**
+   * Get cenRouteEntryIds
+   * @return cenRouteEntryIds
+  **/
+  @Schema(description = "")
+  public List<String> getCenRouteEntryIds() {
+    return cenRouteEntryIds;
+  }
+
+  public void setCenRouteEntryIds(List<String> cenRouteEntryIds) {
+    this.cenRouteEntryIds = cenRouteEntryIds;
   }
 
   public DescribeCenServiceRouteEntriesRequest destinationCidrBlock(String destinationCidrBlock) {
@@ -166,6 +197,7 @@ public class DescribeCenServiceRouteEntriesRequest {
     }
     DescribeCenServiceRouteEntriesRequest describeCenServiceRouteEntriesRequest = (DescribeCenServiceRouteEntriesRequest) o;
     return Objects.equals(this.cenId, describeCenServiceRouteEntriesRequest.cenId) &&
+        Objects.equals(this.cenRouteEntryIds, describeCenServiceRouteEntriesRequest.cenRouteEntryIds) &&
         Objects.equals(this.destinationCidrBlock, describeCenServiceRouteEntriesRequest.destinationCidrBlock) &&
         Objects.equals(this.pageNumber, describeCenServiceRouteEntriesRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeCenServiceRouteEntriesRequest.pageSize) &&
@@ -175,7 +207,7 @@ public class DescribeCenServiceRouteEntriesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cenId, destinationCidrBlock, pageNumber, pageSize, serviceRegionId, serviceVpcId);
+    return Objects.hash(cenId, cenRouteEntryIds, destinationCidrBlock, pageNumber, pageSize, serviceRegionId, serviceVpcId);
   }
 
 
@@ -185,6 +217,7 @@ public class DescribeCenServiceRouteEntriesRequest {
     sb.append("class DescribeCenServiceRouteEntriesRequest {\n");
     
     sb.append("    cenId: ").append(toIndentedString(cenId)).append("\n");
+    sb.append("    cenRouteEntryIds: ").append(toIndentedString(cenRouteEntryIds)).append("\n");
     sb.append("    destinationCidrBlock: ").append(toIndentedString(destinationCidrBlock)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");

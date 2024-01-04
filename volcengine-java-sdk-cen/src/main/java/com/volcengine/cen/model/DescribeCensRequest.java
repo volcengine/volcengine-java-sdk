@@ -33,7 +33,7 @@ import javax.validation.Valid;
 
 public class DescribeCensRequest {
   @SerializedName("CenIds")
-  private String cenIds = null;
+  private List<String> cenIds = null;
 
   @SerializedName("CenName")
   private String cenName = null;
@@ -50,8 +50,16 @@ public class DescribeCensRequest {
   @SerializedName("TagFilters")
   private List<TagFilterForDescribeCensInput> tagFilters = null;
 
-  public DescribeCensRequest cenIds(String cenIds) {
+  public DescribeCensRequest cenIds(List<String> cenIds) {
     this.cenIds = cenIds;
+    return this;
+  }
+
+  public DescribeCensRequest addCenIdsItem(String cenIdsItem) {
+    if (this.cenIds == null) {
+      this.cenIds = new ArrayList<String>();
+    }
+    this.cenIds.add(cenIdsItem);
     return this;
   }
 
@@ -60,11 +68,11 @@ public class DescribeCensRequest {
    * @return cenIds
   **/
   @Schema(description = "")
-  public String getCenIds() {
+  public List<String> getCenIds() {
     return cenIds;
   }
 
-  public void setCenIds(String cenIds) {
+  public void setCenIds(List<String> cenIds) {
     this.cenIds = cenIds;
   }
 
