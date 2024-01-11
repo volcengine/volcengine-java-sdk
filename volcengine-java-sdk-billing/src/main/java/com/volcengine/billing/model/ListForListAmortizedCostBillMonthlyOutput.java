@@ -74,6 +74,12 @@ public class ListForListAmortizedCostBillMonthlyOutput {
   @SerializedName("BillPeriod")
   private String billPeriod = null;
 
+  @SerializedName("BillingFunction")
+  private String billingFunction = null;
+
+  @SerializedName("BillingMethodCode")
+  private String billingMethodCode = null;
+
   @SerializedName("BillingMode")
   private String billingMode = null;
 
@@ -119,6 +125,21 @@ public class ListForListAmortizedCostBillMonthlyOutput {
   @SerializedName("DiscountBillAmount")
   private String discountBillAmount = null;
 
+  @SerializedName("DiscountBizBillingFunction")
+  private String discountBizBillingFunction = null;
+
+  @SerializedName("DiscountBizMeasureInterval")
+  private String discountBizMeasureInterval = null;
+
+  @SerializedName("DiscountBizUnitPrice")
+  private String discountBizUnitPrice = null;
+
+  @SerializedName("DiscountBizUnitPriceInterval")
+  private String discountBizUnitPriceInterval = null;
+
+  @SerializedName("EffectiveFactor")
+  private String effectiveFactor = null;
+
   @SerializedName("Element")
   private String element = null;
 
@@ -136,6 +157,12 @@ public class ListForListAmortizedCostBillMonthlyOutput {
 
   @SerializedName("InstanceNo")
   private String instanceNo = null;
+
+  @SerializedName("MarketPrice")
+  private String marketPrice = null;
+
+  @SerializedName("MeasureInterval")
+  private String measureInterval = null;
 
   @SerializedName("NowAmortizedCouponAmount")
   private String nowAmortizedCouponAmount = null;
@@ -190,6 +217,9 @@ public class ListForListAmortizedCostBillMonthlyOutput {
 
   @SerializedName("Price")
   private String price = null;
+
+  @SerializedName("PriceInterval")
+  private String priceInterval = null;
 
   @SerializedName("PriceUnit")
   private String priceUnit = null;
@@ -527,6 +557,42 @@ public class ListForListAmortizedCostBillMonthlyOutput {
     this.billPeriod = billPeriod;
   }
 
+  public ListForListAmortizedCostBillMonthlyOutput billingFunction(String billingFunction) {
+    this.billingFunction = billingFunction;
+    return this;
+  }
+
+   /**
+   * Get billingFunction
+   * @return billingFunction
+  **/
+  @Schema(description = "")
+  public String getBillingFunction() {
+    return billingFunction;
+  }
+
+  public void setBillingFunction(String billingFunction) {
+    this.billingFunction = billingFunction;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput billingMethodCode(String billingMethodCode) {
+    this.billingMethodCode = billingMethodCode;
+    return this;
+  }
+
+   /**
+   * Get billingMethodCode
+   * @return billingMethodCode
+  **/
+  @Schema(description = "")
+  public String getBillingMethodCode() {
+    return billingMethodCode;
+  }
+
+  public void setBillingMethodCode(String billingMethodCode) {
+    this.billingMethodCode = billingMethodCode;
+  }
+
   public ListForListAmortizedCostBillMonthlyOutput billingMode(String billingMode) {
     this.billingMode = billingMode;
     return this;
@@ -797,6 +863,96 @@ public class ListForListAmortizedCostBillMonthlyOutput {
     this.discountBillAmount = discountBillAmount;
   }
 
+  public ListForListAmortizedCostBillMonthlyOutput discountBizBillingFunction(String discountBizBillingFunction) {
+    this.discountBizBillingFunction = discountBizBillingFunction;
+    return this;
+  }
+
+   /**
+   * Get discountBizBillingFunction
+   * @return discountBizBillingFunction
+  **/
+  @Schema(description = "")
+  public String getDiscountBizBillingFunction() {
+    return discountBizBillingFunction;
+  }
+
+  public void setDiscountBizBillingFunction(String discountBizBillingFunction) {
+    this.discountBizBillingFunction = discountBizBillingFunction;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput discountBizMeasureInterval(String discountBizMeasureInterval) {
+    this.discountBizMeasureInterval = discountBizMeasureInterval;
+    return this;
+  }
+
+   /**
+   * Get discountBizMeasureInterval
+   * @return discountBizMeasureInterval
+  **/
+  @Schema(description = "")
+  public String getDiscountBizMeasureInterval() {
+    return discountBizMeasureInterval;
+  }
+
+  public void setDiscountBizMeasureInterval(String discountBizMeasureInterval) {
+    this.discountBizMeasureInterval = discountBizMeasureInterval;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput discountBizUnitPrice(String discountBizUnitPrice) {
+    this.discountBizUnitPrice = discountBizUnitPrice;
+    return this;
+  }
+
+   /**
+   * Get discountBizUnitPrice
+   * @return discountBizUnitPrice
+  **/
+  @Schema(description = "")
+  public String getDiscountBizUnitPrice() {
+    return discountBizUnitPrice;
+  }
+
+  public void setDiscountBizUnitPrice(String discountBizUnitPrice) {
+    this.discountBizUnitPrice = discountBizUnitPrice;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput discountBizUnitPriceInterval(String discountBizUnitPriceInterval) {
+    this.discountBizUnitPriceInterval = discountBizUnitPriceInterval;
+    return this;
+  }
+
+   /**
+   * Get discountBizUnitPriceInterval
+   * @return discountBizUnitPriceInterval
+  **/
+  @Schema(description = "")
+  public String getDiscountBizUnitPriceInterval() {
+    return discountBizUnitPriceInterval;
+  }
+
+  public void setDiscountBizUnitPriceInterval(String discountBizUnitPriceInterval) {
+    this.discountBizUnitPriceInterval = discountBizUnitPriceInterval;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput effectiveFactor(String effectiveFactor) {
+    this.effectiveFactor = effectiveFactor;
+    return this;
+  }
+
+   /**
+   * Get effectiveFactor
+   * @return effectiveFactor
+  **/
+  @Schema(description = "")
+  public String getEffectiveFactor() {
+    return effectiveFactor;
+  }
+
+  public void setEffectiveFactor(String effectiveFactor) {
+    this.effectiveFactor = effectiveFactor;
+  }
+
   public ListForListAmortizedCostBillMonthlyOutput element(String element) {
     this.element = element;
     return this;
@@ -903,6 +1059,42 @@ public class ListForListAmortizedCostBillMonthlyOutput {
 
   public void setInstanceNo(String instanceNo) {
     this.instanceNo = instanceNo;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput marketPrice(String marketPrice) {
+    this.marketPrice = marketPrice;
+    return this;
+  }
+
+   /**
+   * Get marketPrice
+   * @return marketPrice
+  **/
+  @Schema(description = "")
+  public String getMarketPrice() {
+    return marketPrice;
+  }
+
+  public void setMarketPrice(String marketPrice) {
+    this.marketPrice = marketPrice;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput measureInterval(String measureInterval) {
+    this.measureInterval = measureInterval;
+    return this;
+  }
+
+   /**
+   * Get measureInterval
+   * @return measureInterval
+  **/
+  @Schema(description = "")
+  public String getMeasureInterval() {
+    return measureInterval;
+  }
+
+  public void setMeasureInterval(String measureInterval) {
+    this.measureInterval = measureInterval;
   }
 
   public ListForListAmortizedCostBillMonthlyOutput nowAmortizedCouponAmount(String nowAmortizedCouponAmount) {
@@ -1227,6 +1419,24 @@ public class ListForListAmortizedCostBillMonthlyOutput {
 
   public void setPrice(String price) {
     this.price = price;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput priceInterval(String priceInterval) {
+    this.priceInterval = priceInterval;
+    return this;
+  }
+
+   /**
+   * Get priceInterval
+   * @return priceInterval
+  **/
+  @Schema(description = "")
+  public String getPriceInterval() {
+    return priceInterval;
+  }
+
+  public void setPriceInterval(String priceInterval) {
+    this.priceInterval = priceInterval;
   }
 
   public ListForListAmortizedCostBillMonthlyOutput priceUnit(String priceUnit) {
@@ -1650,6 +1860,8 @@ public class ListForListAmortizedCostBillMonthlyOutput {
         Objects.equals(this.billCategory, listForListAmortizedCostBillMonthlyOutput.billCategory) &&
         Objects.equals(this.billID, listForListAmortizedCostBillMonthlyOutput.billID) &&
         Objects.equals(this.billPeriod, listForListAmortizedCostBillMonthlyOutput.billPeriod) &&
+        Objects.equals(this.billingFunction, listForListAmortizedCostBillMonthlyOutput.billingFunction) &&
+        Objects.equals(this.billingMethodCode, listForListAmortizedCostBillMonthlyOutput.billingMethodCode) &&
         Objects.equals(this.billingMode, listForListAmortizedCostBillMonthlyOutput.billingMode) &&
         Objects.equals(this.busiPeriod, listForListAmortizedCostBillMonthlyOutput.busiPeriod) &&
         Objects.equals(this.businessMode, listForListAmortizedCostBillMonthlyOutput.businessMode) &&
@@ -1665,12 +1877,19 @@ public class ListForListAmortizedCostBillMonthlyOutput {
         Objects.equals(this.dailyAmortizedPreferentialBillAmount, listForListAmortizedCostBillMonthlyOutput.dailyAmortizedPreferentialBillAmount) &&
         Objects.equals(this.dailyAmortizedRoundAmount, listForListAmortizedCostBillMonthlyOutput.dailyAmortizedRoundAmount) &&
         Objects.equals(this.discountBillAmount, listForListAmortizedCostBillMonthlyOutput.discountBillAmount) &&
+        Objects.equals(this.discountBizBillingFunction, listForListAmortizedCostBillMonthlyOutput.discountBizBillingFunction) &&
+        Objects.equals(this.discountBizMeasureInterval, listForListAmortizedCostBillMonthlyOutput.discountBizMeasureInterval) &&
+        Objects.equals(this.discountBizUnitPrice, listForListAmortizedCostBillMonthlyOutput.discountBizUnitPrice) &&
+        Objects.equals(this.discountBizUnitPriceInterval, listForListAmortizedCostBillMonthlyOutput.discountBizUnitPriceInterval) &&
+        Objects.equals(this.effectiveFactor, listForListAmortizedCostBillMonthlyOutput.effectiveFactor) &&
         Objects.equals(this.element, listForListAmortizedCostBillMonthlyOutput.element) &&
         Objects.equals(this.expandField, listForListAmortizedCostBillMonthlyOutput.expandField) &&
         Objects.equals(this.expenseTime, listForListAmortizedCostBillMonthlyOutput.expenseTime) &&
         Objects.equals(this.factor, listForListAmortizedCostBillMonthlyOutput.factor) &&
         Objects.equals(this.instanceName, listForListAmortizedCostBillMonthlyOutput.instanceName) &&
         Objects.equals(this.instanceNo, listForListAmortizedCostBillMonthlyOutput.instanceNo) &&
+        Objects.equals(this.marketPrice, listForListAmortizedCostBillMonthlyOutput.marketPrice) &&
+        Objects.equals(this.measureInterval, listForListAmortizedCostBillMonthlyOutput.measureInterval) &&
         Objects.equals(this.nowAmortizedCouponAmount, listForListAmortizedCostBillMonthlyOutput.nowAmortizedCouponAmount) &&
         Objects.equals(this.nowAmortizedDiscountBillAmount, listForListAmortizedCostBillMonthlyOutput.nowAmortizedDiscountBillAmount) &&
         Objects.equals(this.nowAmortizedOriginalBillAmount, listForListAmortizedCostBillMonthlyOutput.nowAmortizedOriginalBillAmount) &&
@@ -1689,6 +1908,7 @@ public class ListForListAmortizedCostBillMonthlyOutput {
         Objects.equals(this.payerUserName, listForListAmortizedCostBillMonthlyOutput.payerUserName) &&
         Objects.equals(this.preferentialBillAmount, listForListAmortizedCostBillMonthlyOutput.preferentialBillAmount) &&
         Objects.equals(this.price, listForListAmortizedCostBillMonthlyOutput.price) &&
+        Objects.equals(this.priceInterval, listForListAmortizedCostBillMonthlyOutput.priceInterval) &&
         Objects.equals(this.priceUnit, listForListAmortizedCostBillMonthlyOutput.priceUnit) &&
         Objects.equals(this.product, listForListAmortizedCostBillMonthlyOutput.product) &&
         Objects.equals(this.productZh, listForListAmortizedCostBillMonthlyOutput.productZh) &&
@@ -1715,7 +1935,7 @@ public class ListForListAmortizedCostBillMonthlyOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(amortizedBeginTime, amortizedDayNum, amortizedEndTime, amortizedMonth, amortizedType, beforeAmortizedCouponAmount, beforeAmortizedDiscountBillAmount, beforeAmortizedOriginalBillAmount, beforeAmortizedPaidAmount, beforeAmortizedPayableAmount, beforeAmortizedPreferentialBillAmount, beforeAmortizedRoundAmount, billCategory, billID, billPeriod, billingMode, busiPeriod, businessMode, configName, count, couponAmount, currency, dailyAmortizedCouponAmount, dailyAmortizedDiscountBillAmount, dailyAmortizedOriginalBillAmount, dailyAmortizedPaidAmount, dailyAmortizedPayableAmount, dailyAmortizedPreferentialBillAmount, dailyAmortizedRoundAmount, discountBillAmount, element, expandField, expenseTime, factor, instanceName, instanceNo, nowAmortizedCouponAmount, nowAmortizedDiscountBillAmount, nowAmortizedOriginalBillAmount, nowAmortizedPaidAmount, nowAmortizedPayableAmount, nowAmortizedPreferentialBillAmount, nowAmortizedRoundAmount, originalBillAmount, ownerCustomerName, ownerID, ownerUserName, paidAmount, payableAmount, payerCustomerName, payerID, payerUserName, preferentialBillAmount, price, priceUnit, product, productZh, project, region, roundAmount, sellerCustomerName, sellerID, sellerUserName, subjectName, tag, unamortizedCouponAmount, unamortizedDiscountBillAmount, unamortizedOriginalBillAmount, unamortizedPaidAmount, unamortizedPayableAmount, unamortizedPreferentialBillAmount, unamortizedRoundAmount, unit, useDuration, useDurationUnit, zone);
+    return Objects.hash(amortizedBeginTime, amortizedDayNum, amortizedEndTime, amortizedMonth, amortizedType, beforeAmortizedCouponAmount, beforeAmortizedDiscountBillAmount, beforeAmortizedOriginalBillAmount, beforeAmortizedPaidAmount, beforeAmortizedPayableAmount, beforeAmortizedPreferentialBillAmount, beforeAmortizedRoundAmount, billCategory, billID, billPeriod, billingFunction, billingMethodCode, billingMode, busiPeriod, businessMode, configName, count, couponAmount, currency, dailyAmortizedCouponAmount, dailyAmortizedDiscountBillAmount, dailyAmortizedOriginalBillAmount, dailyAmortizedPaidAmount, dailyAmortizedPayableAmount, dailyAmortizedPreferentialBillAmount, dailyAmortizedRoundAmount, discountBillAmount, discountBizBillingFunction, discountBizMeasureInterval, discountBizUnitPrice, discountBizUnitPriceInterval, effectiveFactor, element, expandField, expenseTime, factor, instanceName, instanceNo, marketPrice, measureInterval, nowAmortizedCouponAmount, nowAmortizedDiscountBillAmount, nowAmortizedOriginalBillAmount, nowAmortizedPaidAmount, nowAmortizedPayableAmount, nowAmortizedPreferentialBillAmount, nowAmortizedRoundAmount, originalBillAmount, ownerCustomerName, ownerID, ownerUserName, paidAmount, payableAmount, payerCustomerName, payerID, payerUserName, preferentialBillAmount, price, priceInterval, priceUnit, product, productZh, project, region, roundAmount, sellerCustomerName, sellerID, sellerUserName, subjectName, tag, unamortizedCouponAmount, unamortizedDiscountBillAmount, unamortizedOriginalBillAmount, unamortizedPaidAmount, unamortizedPayableAmount, unamortizedPreferentialBillAmount, unamortizedRoundAmount, unit, useDuration, useDurationUnit, zone);
   }
 
 
@@ -1739,6 +1959,8 @@ public class ListForListAmortizedCostBillMonthlyOutput {
     sb.append("    billCategory: ").append(toIndentedString(billCategory)).append("\n");
     sb.append("    billID: ").append(toIndentedString(billID)).append("\n");
     sb.append("    billPeriod: ").append(toIndentedString(billPeriod)).append("\n");
+    sb.append("    billingFunction: ").append(toIndentedString(billingFunction)).append("\n");
+    sb.append("    billingMethodCode: ").append(toIndentedString(billingMethodCode)).append("\n");
     sb.append("    billingMode: ").append(toIndentedString(billingMode)).append("\n");
     sb.append("    busiPeriod: ").append(toIndentedString(busiPeriod)).append("\n");
     sb.append("    businessMode: ").append(toIndentedString(businessMode)).append("\n");
@@ -1754,12 +1976,19 @@ public class ListForListAmortizedCostBillMonthlyOutput {
     sb.append("    dailyAmortizedPreferentialBillAmount: ").append(toIndentedString(dailyAmortizedPreferentialBillAmount)).append("\n");
     sb.append("    dailyAmortizedRoundAmount: ").append(toIndentedString(dailyAmortizedRoundAmount)).append("\n");
     sb.append("    discountBillAmount: ").append(toIndentedString(discountBillAmount)).append("\n");
+    sb.append("    discountBizBillingFunction: ").append(toIndentedString(discountBizBillingFunction)).append("\n");
+    sb.append("    discountBizMeasureInterval: ").append(toIndentedString(discountBizMeasureInterval)).append("\n");
+    sb.append("    discountBizUnitPrice: ").append(toIndentedString(discountBizUnitPrice)).append("\n");
+    sb.append("    discountBizUnitPriceInterval: ").append(toIndentedString(discountBizUnitPriceInterval)).append("\n");
+    sb.append("    effectiveFactor: ").append(toIndentedString(effectiveFactor)).append("\n");
     sb.append("    element: ").append(toIndentedString(element)).append("\n");
     sb.append("    expandField: ").append(toIndentedString(expandField)).append("\n");
     sb.append("    expenseTime: ").append(toIndentedString(expenseTime)).append("\n");
     sb.append("    factor: ").append(toIndentedString(factor)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    instanceNo: ").append(toIndentedString(instanceNo)).append("\n");
+    sb.append("    marketPrice: ").append(toIndentedString(marketPrice)).append("\n");
+    sb.append("    measureInterval: ").append(toIndentedString(measureInterval)).append("\n");
     sb.append("    nowAmortizedCouponAmount: ").append(toIndentedString(nowAmortizedCouponAmount)).append("\n");
     sb.append("    nowAmortizedDiscountBillAmount: ").append(toIndentedString(nowAmortizedDiscountBillAmount)).append("\n");
     sb.append("    nowAmortizedOriginalBillAmount: ").append(toIndentedString(nowAmortizedOriginalBillAmount)).append("\n");
@@ -1778,6 +2007,7 @@ public class ListForListAmortizedCostBillMonthlyOutput {
     sb.append("    payerUserName: ").append(toIndentedString(payerUserName)).append("\n");
     sb.append("    preferentialBillAmount: ").append(toIndentedString(preferentialBillAmount)).append("\n");
     sb.append("    price: ").append(toIndentedString(price)).append("\n");
+    sb.append("    priceInterval: ").append(toIndentedString(priceInterval)).append("\n");
     sb.append("    priceUnit: ").append(toIndentedString(priceUnit)).append("\n");
     sb.append("    product: ").append(toIndentedString(product)).append("\n");
     sb.append("    productZh: ").append(toIndentedString(productZh)).append("\n");
