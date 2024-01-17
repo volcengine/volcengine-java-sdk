@@ -39,6 +39,9 @@ public class KubernetesConfigForUpdateNodePoolConfigInput {
   @SerializedName("Labels")
   private List<LabelForUpdateNodePoolConfigInput> labels = null;
 
+  @SerializedName("NamePrefix")
+  private String namePrefix = null;
+
   @SerializedName("Taints")
   private List<TaintForUpdateNodePoolConfigInput> taints = null;
 
@@ -87,6 +90,24 @@ public class KubernetesConfigForUpdateNodePoolConfigInput {
     this.labels = labels;
   }
 
+  public KubernetesConfigForUpdateNodePoolConfigInput namePrefix(String namePrefix) {
+    this.namePrefix = namePrefix;
+    return this;
+  }
+
+   /**
+   * Get namePrefix
+   * @return namePrefix
+  **/
+  @Schema(description = "")
+  public String getNamePrefix() {
+    return namePrefix;
+  }
+
+  public void setNamePrefix(String namePrefix) {
+    this.namePrefix = namePrefix;
+  }
+
   public KubernetesConfigForUpdateNodePoolConfigInput taints(List<TaintForUpdateNodePoolConfigInput> taints) {
     this.taints = taints;
     return this;
@@ -126,12 +147,13 @@ public class KubernetesConfigForUpdateNodePoolConfigInput {
     KubernetesConfigForUpdateNodePoolConfigInput kubernetesConfigForUpdateNodePoolConfigInput = (KubernetesConfigForUpdateNodePoolConfigInput) o;
     return Objects.equals(this.cordon, kubernetesConfigForUpdateNodePoolConfigInput.cordon) &&
         Objects.equals(this.labels, kubernetesConfigForUpdateNodePoolConfigInput.labels) &&
+        Objects.equals(this.namePrefix, kubernetesConfigForUpdateNodePoolConfigInput.namePrefix) &&
         Objects.equals(this.taints, kubernetesConfigForUpdateNodePoolConfigInput.taints);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cordon, labels, taints);
+    return Objects.hash(cordon, labels, namePrefix, taints);
   }
 
 
@@ -142,6 +164,7 @@ public class KubernetesConfigForUpdateNodePoolConfigInput {
     
     sb.append("    cordon: ").append(toIndentedString(cordon)).append("\n");
     sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
+    sb.append("    namePrefix: ").append(toIndentedString(namePrefix)).append("\n");
     sb.append("    taints: ").append(toIndentedString(taints)).append("\n");
     sb.append("}");
     return sb.toString();

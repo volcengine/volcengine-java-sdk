@@ -44,6 +44,9 @@ public class ItemForListKubeconfigsOutput {
   @SerializedName("Kubeconfig")
   private String kubeconfig = null;
 
+  @SerializedName("RoleId")
+  private Long roleId = null;
+
   @SerializedName("Type")
   private String type = null;
 
@@ -140,6 +143,24 @@ public class ItemForListKubeconfigsOutput {
     this.kubeconfig = kubeconfig;
   }
 
+  public ItemForListKubeconfigsOutput roleId(Long roleId) {
+    this.roleId = roleId;
+    return this;
+  }
+
+   /**
+   * Get roleId
+   * @return roleId
+  **/
+  @Schema(description = "")
+  public Long getRoleId() {
+    return roleId;
+  }
+
+  public void setRoleId(Long roleId) {
+    this.roleId = roleId;
+  }
+
   public ItemForListKubeconfigsOutput type(String type) {
     this.type = type;
     return this;
@@ -191,13 +212,14 @@ public class ItemForListKubeconfigsOutput {
         Objects.equals(this.expireTime, itemForListKubeconfigsOutput.expireTime) &&
         Objects.equals(this.id, itemForListKubeconfigsOutput.id) &&
         Objects.equals(this.kubeconfig, itemForListKubeconfigsOutput.kubeconfig) &&
+        Objects.equals(this.roleId, itemForListKubeconfigsOutput.roleId) &&
         Objects.equals(this.type, itemForListKubeconfigsOutput.type) &&
         Objects.equals(this.userId, itemForListKubeconfigsOutput.userId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, createTime, expireTime, id, kubeconfig, type, userId);
+    return Objects.hash(clusterId, createTime, expireTime, id, kubeconfig, roleId, type, userId);
   }
 
 
@@ -211,6 +233,7 @@ public class ItemForListKubeconfigsOutput {
     sb.append("    expireTime: ").append(toIndentedString(expireTime)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    kubeconfig: ").append(toIndentedString(kubeconfig)).append("\n");
+    sb.append("    roleId: ").append(toIndentedString(roleId)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("}");
