@@ -37,6 +37,9 @@ public class FilterForListKubeconfigsInput {
   @SerializedName("Ids")
   private List<String> ids = null;
 
+  @SerializedName("RoleIds")
+  private List<Long> roleIds = null;
+
   @SerializedName("Types")
   private List<String> types = null;
 
@@ -93,6 +96,32 @@ public class FilterForListKubeconfigsInput {
 
   public void setIds(List<String> ids) {
     this.ids = ids;
+  }
+
+  public FilterForListKubeconfigsInput roleIds(List<Long> roleIds) {
+    this.roleIds = roleIds;
+    return this;
+  }
+
+  public FilterForListKubeconfigsInput addRoleIdsItem(Long roleIdsItem) {
+    if (this.roleIds == null) {
+      this.roleIds = new ArrayList<Long>();
+    }
+    this.roleIds.add(roleIdsItem);
+    return this;
+  }
+
+   /**
+   * Get roleIds
+   * @return roleIds
+  **/
+  @Schema(description = "")
+  public List<Long> getRoleIds() {
+    return roleIds;
+  }
+
+  public void setRoleIds(List<Long> roleIds) {
+    this.roleIds = roleIds;
   }
 
   public FilterForListKubeconfigsInput types(List<String> types) {
@@ -159,13 +188,14 @@ public class FilterForListKubeconfigsInput {
     FilterForListKubeconfigsInput filterForListKubeconfigsInput = (FilterForListKubeconfigsInput) o;
     return Objects.equals(this.clusterIds, filterForListKubeconfigsInput.clusterIds) &&
         Objects.equals(this.ids, filterForListKubeconfigsInput.ids) &&
+        Objects.equals(this.roleIds, filterForListKubeconfigsInput.roleIds) &&
         Objects.equals(this.types, filterForListKubeconfigsInput.types) &&
         Objects.equals(this.userIds, filterForListKubeconfigsInput.userIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterIds, ids, types, userIds);
+    return Objects.hash(clusterIds, ids, roleIds, types, userIds);
   }
 
 
@@ -176,6 +206,7 @@ public class FilterForListKubeconfigsInput {
     
     sb.append("    clusterIds: ").append(toIndentedString(clusterIds)).append("\n");
     sb.append("    ids: ").append(toIndentedString(ids)).append("\n");
+    sb.append("    roleIds: ").append(toIndentedString(roleIds)).append("\n");
     sb.append("    types: ").append(toIndentedString(types)).append("\n");
     sb.append("    userIds: ").append(toIndentedString(userIds)).append("\n");
     sb.append("}");

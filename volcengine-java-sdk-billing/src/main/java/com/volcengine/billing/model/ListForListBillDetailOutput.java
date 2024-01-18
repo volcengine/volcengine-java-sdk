@@ -41,6 +41,12 @@ public class ListForListBillDetailOutput {
   @SerializedName("BillPeriod")
   private String billPeriod = null;
 
+  @SerializedName("BillingFunction")
+  private String billingFunction = null;
+
+  @SerializedName("BillingMethodCode")
+  private String billingMethodCode = null;
+
   @SerializedName("BillingMode")
   private String billingMode = null;
 
@@ -77,6 +83,21 @@ public class ListForListBillDetailOutput {
   @SerializedName("DiscountBillAmount")
   private String discountBillAmount = null;
 
+  @SerializedName("DiscountBizBillingFunction")
+  private String discountBizBillingFunction = null;
+
+  @SerializedName("DiscountBizMeasureInterval")
+  private String discountBizMeasureInterval = null;
+
+  @SerializedName("DiscountBizUnitPrice")
+  private String discountBizUnitPrice = null;
+
+  @SerializedName("DiscountBizUnitPriceInterval")
+  private String discountBizUnitPriceInterval = null;
+
+  @SerializedName("EffectiveFactor")
+  private String effectiveFactor = null;
+
   @SerializedName("Element")
   private String element = null;
 
@@ -106,6 +127,12 @@ public class ListForListBillDetailOutput {
 
   @SerializedName("InstanceNo")
   private String instanceNo = null;
+
+  @SerializedName("MarketPrice")
+  private String marketPrice = null;
+
+  @SerializedName("MeasureInterval")
+  private String measureInterval = null;
 
   @SerializedName("OriginalBillAmount")
   private String originalBillAmount = null;
@@ -139,6 +166,9 @@ public class ListForListBillDetailOutput {
 
   @SerializedName("Price")
   private String price = null;
+
+  @SerializedName("PriceInterval")
+  private String priceInterval = null;
 
   @SerializedName("PriceUnit")
   private String priceUnit = null;
@@ -279,6 +309,42 @@ public class ListForListBillDetailOutput {
 
   public void setBillPeriod(String billPeriod) {
     this.billPeriod = billPeriod;
+  }
+
+  public ListForListBillDetailOutput billingFunction(String billingFunction) {
+    this.billingFunction = billingFunction;
+    return this;
+  }
+
+   /**
+   * Get billingFunction
+   * @return billingFunction
+  **/
+  @Schema(description = "")
+  public String getBillingFunction() {
+    return billingFunction;
+  }
+
+  public void setBillingFunction(String billingFunction) {
+    this.billingFunction = billingFunction;
+  }
+
+  public ListForListBillDetailOutput billingMethodCode(String billingMethodCode) {
+    this.billingMethodCode = billingMethodCode;
+    return this;
+  }
+
+   /**
+   * Get billingMethodCode
+   * @return billingMethodCode
+  **/
+  @Schema(description = "")
+  public String getBillingMethodCode() {
+    return billingMethodCode;
+  }
+
+  public void setBillingMethodCode(String billingMethodCode) {
+    this.billingMethodCode = billingMethodCode;
   }
 
   public ListForListBillDetailOutput billingMode(String billingMode) {
@@ -497,6 +563,96 @@ public class ListForListBillDetailOutput {
     this.discountBillAmount = discountBillAmount;
   }
 
+  public ListForListBillDetailOutput discountBizBillingFunction(String discountBizBillingFunction) {
+    this.discountBizBillingFunction = discountBizBillingFunction;
+    return this;
+  }
+
+   /**
+   * Get discountBizBillingFunction
+   * @return discountBizBillingFunction
+  **/
+  @Schema(description = "")
+  public String getDiscountBizBillingFunction() {
+    return discountBizBillingFunction;
+  }
+
+  public void setDiscountBizBillingFunction(String discountBizBillingFunction) {
+    this.discountBizBillingFunction = discountBizBillingFunction;
+  }
+
+  public ListForListBillDetailOutput discountBizMeasureInterval(String discountBizMeasureInterval) {
+    this.discountBizMeasureInterval = discountBizMeasureInterval;
+    return this;
+  }
+
+   /**
+   * Get discountBizMeasureInterval
+   * @return discountBizMeasureInterval
+  **/
+  @Schema(description = "")
+  public String getDiscountBizMeasureInterval() {
+    return discountBizMeasureInterval;
+  }
+
+  public void setDiscountBizMeasureInterval(String discountBizMeasureInterval) {
+    this.discountBizMeasureInterval = discountBizMeasureInterval;
+  }
+
+  public ListForListBillDetailOutput discountBizUnitPrice(String discountBizUnitPrice) {
+    this.discountBizUnitPrice = discountBizUnitPrice;
+    return this;
+  }
+
+   /**
+   * Get discountBizUnitPrice
+   * @return discountBizUnitPrice
+  **/
+  @Schema(description = "")
+  public String getDiscountBizUnitPrice() {
+    return discountBizUnitPrice;
+  }
+
+  public void setDiscountBizUnitPrice(String discountBizUnitPrice) {
+    this.discountBizUnitPrice = discountBizUnitPrice;
+  }
+
+  public ListForListBillDetailOutput discountBizUnitPriceInterval(String discountBizUnitPriceInterval) {
+    this.discountBizUnitPriceInterval = discountBizUnitPriceInterval;
+    return this;
+  }
+
+   /**
+   * Get discountBizUnitPriceInterval
+   * @return discountBizUnitPriceInterval
+  **/
+  @Schema(description = "")
+  public String getDiscountBizUnitPriceInterval() {
+    return discountBizUnitPriceInterval;
+  }
+
+  public void setDiscountBizUnitPriceInterval(String discountBizUnitPriceInterval) {
+    this.discountBizUnitPriceInterval = discountBizUnitPriceInterval;
+  }
+
+  public ListForListBillDetailOutput effectiveFactor(String effectiveFactor) {
+    this.effectiveFactor = effectiveFactor;
+    return this;
+  }
+
+   /**
+   * Get effectiveFactor
+   * @return effectiveFactor
+  **/
+  @Schema(description = "")
+  public String getEffectiveFactor() {
+    return effectiveFactor;
+  }
+
+  public void setEffectiveFactor(String effectiveFactor) {
+    this.effectiveFactor = effectiveFactor;
+  }
+
   public ListForListBillDetailOutput element(String element) {
     this.element = element;
     return this;
@@ -675,6 +831,42 @@ public class ListForListBillDetailOutput {
 
   public void setInstanceNo(String instanceNo) {
     this.instanceNo = instanceNo;
+  }
+
+  public ListForListBillDetailOutput marketPrice(String marketPrice) {
+    this.marketPrice = marketPrice;
+    return this;
+  }
+
+   /**
+   * Get marketPrice
+   * @return marketPrice
+  **/
+  @Schema(description = "")
+  public String getMarketPrice() {
+    return marketPrice;
+  }
+
+  public void setMarketPrice(String marketPrice) {
+    this.marketPrice = marketPrice;
+  }
+
+  public ListForListBillDetailOutput measureInterval(String measureInterval) {
+    this.measureInterval = measureInterval;
+    return this;
+  }
+
+   /**
+   * Get measureInterval
+   * @return measureInterval
+  **/
+  @Schema(description = "")
+  public String getMeasureInterval() {
+    return measureInterval;
+  }
+
+  public void setMeasureInterval(String measureInterval) {
+    this.measureInterval = measureInterval;
   }
 
   public ListForListBillDetailOutput originalBillAmount(String originalBillAmount) {
@@ -873,6 +1065,24 @@ public class ListForListBillDetailOutput {
 
   public void setPrice(String price) {
     this.price = price;
+  }
+
+  public ListForListBillDetailOutput priceInterval(String priceInterval) {
+    this.priceInterval = priceInterval;
+    return this;
+  }
+
+   /**
+   * Get priceInterval
+   * @return priceInterval
+  **/
+  @Schema(description = "")
+  public String getPriceInterval() {
+    return priceInterval;
+  }
+
+  public void setPriceInterval(String priceInterval) {
+    this.priceInterval = priceInterval;
   }
 
   public ListForListBillDetailOutput priceUnit(String priceUnit) {
@@ -1303,6 +1513,8 @@ public class ListForListBillDetailOutput {
         Objects.equals(this.billDetailId, listForListBillDetailOutput.billDetailId) &&
         Objects.equals(this.billID, listForListBillDetailOutput.billID) &&
         Objects.equals(this.billPeriod, listForListBillDetailOutput.billPeriod) &&
+        Objects.equals(this.billingFunction, listForListBillDetailOutput.billingFunction) &&
+        Objects.equals(this.billingMethodCode, listForListBillDetailOutput.billingMethodCode) &&
         Objects.equals(this.billingMode, listForListBillDetailOutput.billingMode) &&
         Objects.equals(this.busiPeriod, listForListBillDetailOutput.busiPeriod) &&
         Objects.equals(this.businessMode, listForListBillDetailOutput.businessMode) &&
@@ -1315,6 +1527,11 @@ public class ListForListBillDetailOutput {
         Objects.equals(this.deductionCount, listForListBillDetailOutput.deductionCount) &&
         Objects.equals(this.deductionUseDuration, listForListBillDetailOutput.deductionUseDuration) &&
         Objects.equals(this.discountBillAmount, listForListBillDetailOutput.discountBillAmount) &&
+        Objects.equals(this.discountBizBillingFunction, listForListBillDetailOutput.discountBizBillingFunction) &&
+        Objects.equals(this.discountBizMeasureInterval, listForListBillDetailOutput.discountBizMeasureInterval) &&
+        Objects.equals(this.discountBizUnitPrice, listForListBillDetailOutput.discountBizUnitPrice) &&
+        Objects.equals(this.discountBizUnitPriceInterval, listForListBillDetailOutput.discountBizUnitPriceInterval) &&
+        Objects.equals(this.effectiveFactor, listForListBillDetailOutput.effectiveFactor) &&
         Objects.equals(this.element, listForListBillDetailOutput.element) &&
         Objects.equals(this.elementCode, listForListBillDetailOutput.elementCode) &&
         Objects.equals(this.expandField, listForListBillDetailOutput.expandField) &&
@@ -1325,6 +1542,8 @@ public class ListForListBillDetailOutput {
         Objects.equals(this.factorCode, listForListBillDetailOutput.factorCode) &&
         Objects.equals(this.instanceName, listForListBillDetailOutput.instanceName) &&
         Objects.equals(this.instanceNo, listForListBillDetailOutput.instanceNo) &&
+        Objects.equals(this.marketPrice, listForListBillDetailOutput.marketPrice) &&
+        Objects.equals(this.measureInterval, listForListBillDetailOutput.measureInterval) &&
         Objects.equals(this.originalBillAmount, listForListBillDetailOutput.originalBillAmount) &&
         Objects.equals(this.ownerCustomerName, listForListBillDetailOutput.ownerCustomerName) &&
         Objects.equals(this.ownerID, listForListBillDetailOutput.ownerID) &&
@@ -1336,6 +1555,7 @@ public class ListForListBillDetailOutput {
         Objects.equals(this.payerUserName, listForListBillDetailOutput.payerUserName) &&
         Objects.equals(this.preferentialBillAmount, listForListBillDetailOutput.preferentialBillAmount) &&
         Objects.equals(this.price, listForListBillDetailOutput.price) &&
+        Objects.equals(this.priceInterval, listForListBillDetailOutput.priceInterval) &&
         Objects.equals(this.priceUnit, listForListBillDetailOutput.priceUnit) &&
         Objects.equals(this.product, listForListBillDetailOutput.product) &&
         Objects.equals(this.productZh, listForListBillDetailOutput.productZh) &&
@@ -1363,7 +1583,7 @@ public class ListForListBillDetailOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(billCategory, billDetailId, billID, billPeriod, billingMode, busiPeriod, businessMode, configName, configurationCode, count, couponAmount, creditCarriedAmount, currency, deductionCount, deductionUseDuration, discountBillAmount, element, elementCode, expandField, expenseBeginTime, expenseDate, expenseEndTime, factor, factorCode, instanceName, instanceNo, originalBillAmount, ownerCustomerName, ownerID, ownerUserName, paidAmount, payableAmount, payerCustomerName, payerID, payerUserName, preferentialBillAmount, price, priceUnit, product, productZh, project, region, regionCode, reservationInstance, roundAmount, sellerCustomerName, sellerID, sellerUserName, sellingMode, settlementType, solutionZh, subjectName, tag, tradeTime, unit, unpaidAmount, useDuration, useDurationUnit, zone, zoneCode);
+    return Objects.hash(billCategory, billDetailId, billID, billPeriod, billingFunction, billingMethodCode, billingMode, busiPeriod, businessMode, configName, configurationCode, count, couponAmount, creditCarriedAmount, currency, deductionCount, deductionUseDuration, discountBillAmount, discountBizBillingFunction, discountBizMeasureInterval, discountBizUnitPrice, discountBizUnitPriceInterval, effectiveFactor, element, elementCode, expandField, expenseBeginTime, expenseDate, expenseEndTime, factor, factorCode, instanceName, instanceNo, marketPrice, measureInterval, originalBillAmount, ownerCustomerName, ownerID, ownerUserName, paidAmount, payableAmount, payerCustomerName, payerID, payerUserName, preferentialBillAmount, price, priceInterval, priceUnit, product, productZh, project, region, regionCode, reservationInstance, roundAmount, sellerCustomerName, sellerID, sellerUserName, sellingMode, settlementType, solutionZh, subjectName, tag, tradeTime, unit, unpaidAmount, useDuration, useDurationUnit, zone, zoneCode);
   }
 
 
@@ -1376,6 +1596,8 @@ public class ListForListBillDetailOutput {
     sb.append("    billDetailId: ").append(toIndentedString(billDetailId)).append("\n");
     sb.append("    billID: ").append(toIndentedString(billID)).append("\n");
     sb.append("    billPeriod: ").append(toIndentedString(billPeriod)).append("\n");
+    sb.append("    billingFunction: ").append(toIndentedString(billingFunction)).append("\n");
+    sb.append("    billingMethodCode: ").append(toIndentedString(billingMethodCode)).append("\n");
     sb.append("    billingMode: ").append(toIndentedString(billingMode)).append("\n");
     sb.append("    busiPeriod: ").append(toIndentedString(busiPeriod)).append("\n");
     sb.append("    businessMode: ").append(toIndentedString(businessMode)).append("\n");
@@ -1388,6 +1610,11 @@ public class ListForListBillDetailOutput {
     sb.append("    deductionCount: ").append(toIndentedString(deductionCount)).append("\n");
     sb.append("    deductionUseDuration: ").append(toIndentedString(deductionUseDuration)).append("\n");
     sb.append("    discountBillAmount: ").append(toIndentedString(discountBillAmount)).append("\n");
+    sb.append("    discountBizBillingFunction: ").append(toIndentedString(discountBizBillingFunction)).append("\n");
+    sb.append("    discountBizMeasureInterval: ").append(toIndentedString(discountBizMeasureInterval)).append("\n");
+    sb.append("    discountBizUnitPrice: ").append(toIndentedString(discountBizUnitPrice)).append("\n");
+    sb.append("    discountBizUnitPriceInterval: ").append(toIndentedString(discountBizUnitPriceInterval)).append("\n");
+    sb.append("    effectiveFactor: ").append(toIndentedString(effectiveFactor)).append("\n");
     sb.append("    element: ").append(toIndentedString(element)).append("\n");
     sb.append("    elementCode: ").append(toIndentedString(elementCode)).append("\n");
     sb.append("    expandField: ").append(toIndentedString(expandField)).append("\n");
@@ -1398,6 +1625,8 @@ public class ListForListBillDetailOutput {
     sb.append("    factorCode: ").append(toIndentedString(factorCode)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    instanceNo: ").append(toIndentedString(instanceNo)).append("\n");
+    sb.append("    marketPrice: ").append(toIndentedString(marketPrice)).append("\n");
+    sb.append("    measureInterval: ").append(toIndentedString(measureInterval)).append("\n");
     sb.append("    originalBillAmount: ").append(toIndentedString(originalBillAmount)).append("\n");
     sb.append("    ownerCustomerName: ").append(toIndentedString(ownerCustomerName)).append("\n");
     sb.append("    ownerID: ").append(toIndentedString(ownerID)).append("\n");
@@ -1409,6 +1638,7 @@ public class ListForListBillDetailOutput {
     sb.append("    payerUserName: ").append(toIndentedString(payerUserName)).append("\n");
     sb.append("    preferentialBillAmount: ").append(toIndentedString(preferentialBillAmount)).append("\n");
     sb.append("    price: ").append(toIndentedString(price)).append("\n");
+    sb.append("    priceInterval: ").append(toIndentedString(priceInterval)).append("\n");
     sb.append("    priceUnit: ").append(toIndentedString(priceUnit)).append("\n");
     sb.append("    product: ").append(toIndentedString(product)).append("\n");
     sb.append("    productZh: ").append(toIndentedString(productZh)).append("\n");
