@@ -32,6 +32,9 @@ public class ListForListBillOutput {
   @SerializedName("BillCategoryParent")
   private String billCategoryParent = null;
 
+  @SerializedName("BillDetailNum")
+  private String billDetailNum = null;
+
   @SerializedName("BillID")
   private String billID = null;
 
@@ -144,6 +147,24 @@ public class ListForListBillOutput {
 
   public void setBillCategoryParent(String billCategoryParent) {
     this.billCategoryParent = billCategoryParent;
+  }
+
+  public ListForListBillOutput billDetailNum(String billDetailNum) {
+    this.billDetailNum = billDetailNum;
+    return this;
+  }
+
+   /**
+   * Get billDetailNum
+   * @return billDetailNum
+  **/
+  @Schema(description = "")
+  public String getBillDetailNum() {
+    return billDetailNum;
+  }
+
+  public void setBillDetailNum(String billDetailNum) {
+    this.billDetailNum = billDetailNum;
   }
 
   public ListForListBillOutput billID(String billID) {
@@ -733,6 +754,7 @@ public class ListForListBillOutput {
     }
     ListForListBillOutput listForListBillOutput = (ListForListBillOutput) o;
     return Objects.equals(this.billCategoryParent, listForListBillOutput.billCategoryParent) &&
+        Objects.equals(this.billDetailNum, listForListBillOutput.billDetailNum) &&
         Objects.equals(this.billID, listForListBillOutput.billID) &&
         Objects.equals(this.billPeriod, listForListBillOutput.billPeriod) &&
         Objects.equals(this.billingMode, listForListBillOutput.billingMode) &&
@@ -769,7 +791,7 @@ public class ListForListBillOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(billCategoryParent, billID, billPeriod, billingMode, busiPeriod, businessMode, couponAmount, creditCarriedAmount, currency, discountBillAmount, expenseBeginTime, expenseEndTime, originalBillAmount, ownerCustomerName, ownerID, ownerUserName, paidAmount, payStatus, payableAmount, payerCustomerName, payerID, payerUserName, preferentialBillAmount, product, productZh, roundBillAmount, sellerCustomerName, sellerID, sellerUserName, settlementType, subjectName, tradeTime, unpaidAmount);
+    return Objects.hash(billCategoryParent, billDetailNum, billID, billPeriod, billingMode, busiPeriod, businessMode, couponAmount, creditCarriedAmount, currency, discountBillAmount, expenseBeginTime, expenseEndTime, originalBillAmount, ownerCustomerName, ownerID, ownerUserName, paidAmount, payStatus, payableAmount, payerCustomerName, payerID, payerUserName, preferentialBillAmount, product, productZh, roundBillAmount, sellerCustomerName, sellerID, sellerUserName, settlementType, subjectName, tradeTime, unpaidAmount);
   }
 
 
@@ -779,6 +801,7 @@ public class ListForListBillOutput {
     sb.append("class ListForListBillOutput {\n");
     
     sb.append("    billCategoryParent: ").append(toIndentedString(billCategoryParent)).append("\n");
+    sb.append("    billDetailNum: ").append(toIndentedString(billDetailNum)).append("\n");
     sb.append("    billID: ").append(toIndentedString(billID)).append("\n");
     sb.append("    billPeriod: ").append(toIndentedString(billPeriod)).append("\n");
     sb.append("    billingMode: ").append(toIndentedString(billingMode)).append("\n");
