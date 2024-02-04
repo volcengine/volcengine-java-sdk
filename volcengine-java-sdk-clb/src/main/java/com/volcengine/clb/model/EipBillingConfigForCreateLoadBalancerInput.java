@@ -43,6 +43,9 @@ public class EipBillingConfigForCreateLoadBalancerInput {
   @SerializedName("ISP")
   private String ISP = null;
 
+  @SerializedName("SecurityProtectionInstanceId")
+  private Integer securityProtectionInstanceId = null;
+
   @SerializedName("SecurityProtectionTypes")
   private List<String> securityProtectionTypes = null;
 
@@ -118,6 +121,24 @@ public class EipBillingConfigForCreateLoadBalancerInput {
     this.ISP = ISP;
   }
 
+  public EipBillingConfigForCreateLoadBalancerInput securityProtectionInstanceId(Integer securityProtectionInstanceId) {
+    this.securityProtectionInstanceId = securityProtectionInstanceId;
+    return this;
+  }
+
+   /**
+   * Get securityProtectionInstanceId
+   * @return securityProtectionInstanceId
+  **/
+  @Schema(description = "")
+  public Integer getSecurityProtectionInstanceId() {
+    return securityProtectionInstanceId;
+  }
+
+  public void setSecurityProtectionInstanceId(Integer securityProtectionInstanceId) {
+    this.securityProtectionInstanceId = securityProtectionInstanceId;
+  }
+
   public EipBillingConfigForCreateLoadBalancerInput securityProtectionTypes(List<String> securityProtectionTypes) {
     this.securityProtectionTypes = securityProtectionTypes;
     return this;
@@ -158,12 +179,13 @@ public class EipBillingConfigForCreateLoadBalancerInput {
         Objects.equals(this.bandwidthPackageId, eipBillingConfigForCreateLoadBalancerInput.bandwidthPackageId) &&
         Objects.equals(this.eipBillingType, eipBillingConfigForCreateLoadBalancerInput.eipBillingType) &&
         Objects.equals(this.ISP, eipBillingConfigForCreateLoadBalancerInput.ISP) &&
+        Objects.equals(this.securityProtectionInstanceId, eipBillingConfigForCreateLoadBalancerInput.securityProtectionInstanceId) &&
         Objects.equals(this.securityProtectionTypes, eipBillingConfigForCreateLoadBalancerInput.securityProtectionTypes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidth, bandwidthPackageId, eipBillingType, ISP, securityProtectionTypes);
+    return Objects.hash(bandwidth, bandwidthPackageId, eipBillingType, ISP, securityProtectionInstanceId, securityProtectionTypes);
   }
 
 
@@ -176,6 +198,7 @@ public class EipBillingConfigForCreateLoadBalancerInput {
     sb.append("    bandwidthPackageId: ").append(toIndentedString(bandwidthPackageId)).append("\n");
     sb.append("    eipBillingType: ").append(toIndentedString(eipBillingType)).append("\n");
     sb.append("    ISP: ").append(toIndentedString(ISP)).append("\n");
+    sb.append("    securityProtectionInstanceId: ").append(toIndentedString(securityProtectionInstanceId)).append("\n");
     sb.append("    securityProtectionTypes: ").append(toIndentedString(securityProtectionTypes)).append("\n");
     sb.append("}");
     return sb.toString();
