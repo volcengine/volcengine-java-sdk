@@ -83,7 +83,8 @@ public class ModifyTopicAccessPoliciesRequest {
    * Get allAuthority
    * @return allAuthority
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public Boolean isAllAuthority() {
     return allAuthority;
   }
@@ -127,7 +128,8 @@ public class ModifyTopicAccessPoliciesRequest {
    * Get instanceId
    * @return instanceId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getInstanceId() {
     return instanceId;
   }
@@ -145,7 +147,8 @@ public class ModifyTopicAccessPoliciesRequest {
    * Get topicName
    * @return topicName
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getTopicName() {
     return topicName;
   }

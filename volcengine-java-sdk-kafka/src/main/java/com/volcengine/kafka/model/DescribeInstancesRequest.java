@@ -47,6 +47,9 @@ public class DescribeInstancesRequest {
   @SerializedName("PageSize")
   private Integer pageSize = null;
 
+  @SerializedName("Project")
+  private String project = null;
+
   @SerializedName("Tags")
   private Map<String, List<String>> tags = null;
 
@@ -116,7 +119,8 @@ public class DescribeInstancesRequest {
    * Get pageNumber
    * @return pageNumber
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public Integer getPageNumber() {
     return pageNumber;
   }
@@ -134,13 +138,32 @@ public class DescribeInstancesRequest {
    * Get pageSize
    * @return pageSize
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public Integer getPageSize() {
     return pageSize;
   }
 
   public void setPageSize(Integer pageSize) {
     this.pageSize = pageSize;
+  }
+
+  public DescribeInstancesRequest project(String project) {
+    this.project = project;
+    return this;
+  }
+
+   /**
+   * Get project
+   * @return project
+  **/
+  @Schema(description = "")
+  public String getProject() {
+    return project;
+  }
+
+  public void setProject(String project) {
+    this.project = project;
   }
 
   public DescribeInstancesRequest tags(Map<String, List<String>> tags) {
@@ -203,13 +226,14 @@ public class DescribeInstancesRequest {
         Objects.equals(this.instanceStatus, describeInstancesRequest.instanceStatus) &&
         Objects.equals(this.pageNumber, describeInstancesRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeInstancesRequest.pageSize) &&
+        Objects.equals(this.project, describeInstancesRequest.project) &&
         Objects.equals(this.tags, describeInstancesRequest.tags) &&
         Objects.equals(this.zoneId, describeInstancesRequest.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, instanceName, instanceStatus, pageNumber, pageSize, tags, zoneId);
+    return Objects.hash(instanceId, instanceName, instanceStatus, pageNumber, pageSize, project, tags, zoneId);
   }
 
 
@@ -223,6 +247,7 @@ public class DescribeInstancesRequest {
     sb.append("    instanceStatus: ").append(toIndentedString(instanceStatus)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    project: ").append(toIndentedString(project)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");

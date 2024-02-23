@@ -44,7 +44,8 @@ public class DeleteGroupRequest {
    * Get groupId
    * @return groupId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getGroupId() {
     return groupId;
   }
@@ -62,7 +63,8 @@ public class DeleteGroupRequest {
    * Get instanceId
    * @return instanceId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getInstanceId() {
     return instanceId;
   }

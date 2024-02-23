@@ -41,7 +41,8 @@ public class DescribeAvailabilityZonesRequest {
    * Get regionId
    * @return regionId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getRegionId() {
     return regionId;
   }
