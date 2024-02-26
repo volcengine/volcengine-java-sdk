@@ -44,7 +44,7 @@ public class AclEntryForAddAclEntriesInput {
    * Get description
    * @return description
   **/
-  @Schema(description = "")
+ @Size(min=1,max=255)  @Schema(description = "")
   public String getDescription() {
     return description;
   }
