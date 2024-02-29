@@ -128,7 +128,8 @@ public class CreateTopicRequest {
    * Get instanceId
    * @return instanceId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getInstanceId() {
     return instanceId;
   }
@@ -164,7 +165,8 @@ public class CreateTopicRequest {
    * Get partitionNumber
    * @return partitionNumber
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public Integer getPartitionNumber() {
     return partitionNumber;
   }
@@ -200,7 +202,8 @@ public class CreateTopicRequest {
    * Get topicName
    * @return topicName
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getTopicName() {
     return topicName;
   }

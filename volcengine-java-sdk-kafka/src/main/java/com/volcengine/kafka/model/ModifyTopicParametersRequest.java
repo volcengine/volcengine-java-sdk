@@ -19,7 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.kafka.model.InnerParametersForModifyTopicParametersInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -30,9 +29,6 @@ import javax.validation.Valid;
 
 
 public class ModifyTopicParametersRequest {
-  @SerializedName("InnerParameters")
-  private InnerParametersForModifyTopicParametersInput innerParameters = null;
-
   @SerializedName("InstanceId")
   private String instanceId = null;
 
@@ -48,25 +44,6 @@ public class ModifyTopicParametersRequest {
   @SerializedName("TopicName")
   private String topicName = null;
 
-  public ModifyTopicParametersRequest innerParameters(InnerParametersForModifyTopicParametersInput innerParameters) {
-    this.innerParameters = innerParameters;
-    return this;
-  }
-
-   /**
-   * Get innerParameters
-   * @return innerParameters
-  **/
-  @Valid
-  @Schema(description = "")
-  public InnerParametersForModifyTopicParametersInput getInnerParameters() {
-    return innerParameters;
-  }
-
-  public void setInnerParameters(InnerParametersForModifyTopicParametersInput innerParameters) {
-    this.innerParameters = innerParameters;
-  }
-
   public ModifyTopicParametersRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
     return this;
@@ -76,7 +53,8 @@ public class ModifyTopicParametersRequest {
    * Get instanceId
    * @return instanceId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getInstanceId() {
     return instanceId;
   }
@@ -94,7 +72,8 @@ public class ModifyTopicParametersRequest {
    * Get parameters
    * @return parameters
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getParameters() {
     return parameters;
   }
@@ -148,7 +127,8 @@ public class ModifyTopicParametersRequest {
    * Get topicName
    * @return topicName
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getTopicName() {
     return topicName;
   }
@@ -167,8 +147,7 @@ public class ModifyTopicParametersRequest {
       return false;
     }
     ModifyTopicParametersRequest modifyTopicParametersRequest = (ModifyTopicParametersRequest) o;
-    return Objects.equals(this.innerParameters, modifyTopicParametersRequest.innerParameters) &&
-        Objects.equals(this.instanceId, modifyTopicParametersRequest.instanceId) &&
+    return Objects.equals(this.instanceId, modifyTopicParametersRequest.instanceId) &&
         Objects.equals(this.parameters, modifyTopicParametersRequest.parameters) &&
         Objects.equals(this.partitionNumber, modifyTopicParametersRequest.partitionNumber) &&
         Objects.equals(this.replicaNumber, modifyTopicParametersRequest.replicaNumber) &&
@@ -177,7 +156,7 @@ public class ModifyTopicParametersRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(innerParameters, instanceId, parameters, partitionNumber, replicaNumber, topicName);
+    return Objects.hash(instanceId, parameters, partitionNumber, replicaNumber, topicName);
   }
 
 
@@ -186,7 +165,6 @@ public class ModifyTopicParametersRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ModifyTopicParametersRequest {\n");
     
-    sb.append("    innerParameters: ").append(toIndentedString(innerParameters)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    parameters: ").append(toIndentedString(parameters)).append("\n");
     sb.append("    partitionNumber: ").append(toIndentedString(partitionNumber)).append("\n");

@@ -32,6 +32,9 @@ public class ZoneForDescribeAvailabilityZonesOutput {
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("Status")
+  private String status = null;
+
   @SerializedName("ZoneId")
   private String zoneId = null;
 
@@ -54,6 +57,24 @@ public class ZoneForDescribeAvailabilityZonesOutput {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public ZoneForDescribeAvailabilityZonesOutput status(String status) {
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * Get status
+   * @return status
+  **/
+  @Schema(description = "")
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
   }
 
   public ZoneForDescribeAvailabilityZonesOutput zoneId(String zoneId) {
@@ -103,13 +124,14 @@ public class ZoneForDescribeAvailabilityZonesOutput {
     }
     ZoneForDescribeAvailabilityZonesOutput zoneForDescribeAvailabilityZonesOutput = (ZoneForDescribeAvailabilityZonesOutput) o;
     return Objects.equals(this.description, zoneForDescribeAvailabilityZonesOutput.description) &&
+        Objects.equals(this.status, zoneForDescribeAvailabilityZonesOutput.status) &&
         Objects.equals(this.zoneId, zoneForDescribeAvailabilityZonesOutput.zoneId) &&
         Objects.equals(this.zoneName, zoneForDescribeAvailabilityZonesOutput.zoneName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, zoneId, zoneName);
+    return Objects.hash(description, status, zoneId, zoneName);
   }
 
 
@@ -119,6 +141,7 @@ public class ZoneForDescribeAvailabilityZonesOutput {
     sb.append("class ZoneForDescribeAvailabilityZonesOutput {\n");
     
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("    zoneName: ").append(toIndentedString(zoneName)).append("\n");
     sb.append("}");

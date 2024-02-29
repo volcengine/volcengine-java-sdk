@@ -116,7 +116,8 @@ public class CreateInstanceRequest {
    * Get computeSpec
    * @return computeSpec
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getComputeSpec() {
     return computeSpec;
   }
@@ -304,7 +305,8 @@ public class CreateInstanceRequest {
    * Get subnetId
    * @return subnetId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getSubnetId() {
     return subnetId;
   }
@@ -384,7 +386,8 @@ public class CreateInstanceRequest {
    * Get version
    * @return version
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getVersion() {
     return version;
   }
@@ -402,7 +405,8 @@ public class CreateInstanceRequest {
    * Get vpcId
    * @return vpcId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getVpcId() {
     return vpcId;
   }
@@ -420,7 +424,8 @@ public class CreateInstanceRequest {
    * Get zoneId
    * @return zoneId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getZoneId() {
     return zoneId;
   }

@@ -44,7 +44,8 @@ public class DeleteUserRequest {
    * Get instanceId
    * @return instanceId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getInstanceId() {
     return instanceId;
   }
@@ -62,7 +63,8 @@ public class DeleteUserRequest {
    * Get userName
    * @return userName
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getUserName() {
     return userName;
   }

@@ -38,6 +38,9 @@ public class CreateUserRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;
 
+  @SerializedName("PasswordType")
+  private String passwordType = null;
+
   @SerializedName("UserName")
   private String userName = null;
 
@@ -53,7 +56,8 @@ public class CreateUserRequest {
    * Get allAuthority
    * @return allAuthority
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public Boolean isAllAuthority() {
     return allAuthority;
   }
@@ -89,13 +93,32 @@ public class CreateUserRequest {
    * Get instanceId
    * @return instanceId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getInstanceId() {
     return instanceId;
   }
 
   public void setInstanceId(String instanceId) {
     this.instanceId = instanceId;
+  }
+
+  public CreateUserRequest passwordType(String passwordType) {
+    this.passwordType = passwordType;
+    return this;
+  }
+
+   /**
+   * Get passwordType
+   * @return passwordType
+  **/
+  @Schema(description = "")
+  public String getPasswordType() {
+    return passwordType;
+  }
+
+  public void setPasswordType(String passwordType) {
+    this.passwordType = passwordType;
   }
 
   public CreateUserRequest userName(String userName) {
@@ -107,7 +130,8 @@ public class CreateUserRequest {
    * Get userName
    * @return userName
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getUserName() {
     return userName;
   }
@@ -125,7 +149,8 @@ public class CreateUserRequest {
    * Get userPassword
    * @return userPassword
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getUserPassword() {
     return userPassword;
   }
@@ -147,13 +172,14 @@ public class CreateUserRequest {
     return Objects.equals(this.allAuthority, createUserRequest.allAuthority) &&
         Objects.equals(this.description, createUserRequest.description) &&
         Objects.equals(this.instanceId, createUserRequest.instanceId) &&
+        Objects.equals(this.passwordType, createUserRequest.passwordType) &&
         Objects.equals(this.userName, createUserRequest.userName) &&
         Objects.equals(this.userPassword, createUserRequest.userPassword);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allAuthority, description, instanceId, userName, userPassword);
+    return Objects.hash(allAuthority, description, instanceId, passwordType, userName, userPassword);
   }
 
 
@@ -165,6 +191,7 @@ public class CreateUserRequest {
     sb.append("    allAuthority: ").append(toIndentedString(allAuthority)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    passwordType: ").append(toIndentedString(passwordType)).append("\n");
     sb.append("    userName: ").append(toIndentedString(userName)).append("\n");
     sb.append("    userPassword: ").append(toIndentedString(userPassword)).append("\n");
     sb.append("}");

@@ -50,7 +50,8 @@ public class DescribeUsersRequest {
    * Get instanceId
    * @return instanceId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getInstanceId() {
     return instanceId;
   }
@@ -68,7 +69,8 @@ public class DescribeUsersRequest {
    * Get pageNumber
    * @return pageNumber
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public Integer getPageNumber() {
     return pageNumber;
   }
@@ -86,7 +88,8 @@ public class DescribeUsersRequest {
    * Get pageSize
    * @return pageSize
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public Integer getPageSize() {
     return pageSize;
   }
