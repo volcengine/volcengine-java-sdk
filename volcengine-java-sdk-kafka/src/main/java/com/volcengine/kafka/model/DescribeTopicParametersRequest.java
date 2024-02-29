@@ -44,7 +44,8 @@ public class DescribeTopicParametersRequest {
    * Get instanceId
    * @return instanceId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getInstanceId() {
     return instanceId;
   }
@@ -62,7 +63,8 @@ public class DescribeTopicParametersRequest {
    * Get topicName
    * @return topicName
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getTopicName() {
     return topicName;
   }

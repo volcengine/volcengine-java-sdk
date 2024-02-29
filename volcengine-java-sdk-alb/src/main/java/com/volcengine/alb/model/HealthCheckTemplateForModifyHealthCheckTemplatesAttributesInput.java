@@ -222,8 +222,7 @@ public class HealthCheckTemplateForModifyHealthCheckTemplatesAttributesInput {
    * Get healthCheckTemplateName
    * @return healthCheckTemplateName
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+ @Size(min=1,max=128)  @Schema(description = "")
   public String getHealthCheckTemplateName() {
     return healthCheckTemplateName;
   }

@@ -47,7 +47,8 @@ public class ModifyUserAuthorityRequest {
    * Get allAuthority
    * @return allAuthority
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public Boolean isAllAuthority() {
     return allAuthority;
   }
@@ -65,7 +66,8 @@ public class ModifyUserAuthorityRequest {
    * Get instanceId
    * @return instanceId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getInstanceId() {
     return instanceId;
   }
@@ -83,7 +85,8 @@ public class ModifyUserAuthorityRequest {
    * Get userName
    * @return userName
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getUserName() {
     return userName;
   }

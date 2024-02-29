@@ -58,7 +58,8 @@ public class DescribeTopicPartitionsRequest {
    * Get instanceId
    * @return instanceId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getInstanceId() {
     return instanceId;
   }
@@ -76,7 +77,8 @@ public class DescribeTopicPartitionsRequest {
    * Get pageNumber
    * @return pageNumber
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public Integer getPageNumber() {
     return pageNumber;
   }
@@ -94,7 +96,8 @@ public class DescribeTopicPartitionsRequest {
    * Get pageSize
    * @return pageSize
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public Integer getPageSize() {
     return pageSize;
   }
@@ -138,7 +141,8 @@ public class DescribeTopicPartitionsRequest {
    * Get topicName
    * @return topicName
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getTopicName() {
     return topicName;
   }

@@ -44,7 +44,8 @@ public class ModifyInstanceParametersRequest {
    * Get instanceId
    * @return instanceId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getInstanceId() {
     return instanceId;
   }
@@ -62,7 +63,8 @@ public class ModifyInstanceParametersRequest {
    * Get parameters
    * @return parameters
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getParameters() {
     return parameters;
   }

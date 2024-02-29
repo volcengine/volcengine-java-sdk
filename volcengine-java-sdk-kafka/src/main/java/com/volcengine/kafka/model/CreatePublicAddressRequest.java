@@ -44,7 +44,8 @@ public class CreatePublicAddressRequest {
    * Get eipId
    * @return eipId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getEipId() {
     return eipId;
   }
@@ -62,7 +63,8 @@ public class CreatePublicAddressRequest {
    * Get instanceId
    * @return instanceId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getInstanceId() {
     return instanceId;
   }

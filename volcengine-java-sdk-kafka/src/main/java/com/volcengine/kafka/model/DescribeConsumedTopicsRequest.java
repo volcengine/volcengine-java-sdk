@@ -53,7 +53,8 @@ public class DescribeConsumedTopicsRequest {
    * Get groupId
    * @return groupId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getGroupId() {
     return groupId;
   }
@@ -71,7 +72,8 @@ public class DescribeConsumedTopicsRequest {
    * Get instanceId
    * @return instanceId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getInstanceId() {
     return instanceId;
   }
@@ -89,7 +91,8 @@ public class DescribeConsumedTopicsRequest {
    * Get pageNumber
    * @return pageNumber
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public Integer getPageNumber() {
     return pageNumber;
   }
@@ -107,7 +110,8 @@ public class DescribeConsumedTopicsRequest {
    * Get pageSize
    * @return pageSize
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public Integer getPageSize() {
     return pageSize;
   }

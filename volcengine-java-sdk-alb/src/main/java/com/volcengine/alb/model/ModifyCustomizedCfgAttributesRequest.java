@@ -50,8 +50,7 @@ public class ModifyCustomizedCfgAttributesRequest {
    * Get customizedCfgContent
    * @return customizedCfgContent
   **/
-  @NotNull
- @Size(min=1,max=4096)  @Schema(required = true, description = "")
+ @Size(min=1,max=4096)  @Schema(description = "")
   public String getCustomizedCfgContent() {
     return customizedCfgContent;
   }
