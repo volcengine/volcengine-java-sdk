@@ -4,7 +4,7 @@
     <groupId>com.volcengine</groupId>
     <artifactId>volcengine-java-sdk</artifactId>
     <packaging>pom</packaging>
-    <version>0.1.99</version>
+    <version>0.1.100</version>
     <name>volcengine-java-sdk</name>
     <url>https://open.volcengineapi.com</url>
     <description>The Java SDK For Volcengine</description>
@@ -233,5 +233,6 @@
         <module>volcengine-java-sdk-filenas</module>
         <module>volcengine-java-sdk-vedbm</module>
         <module>volcengine-java-sdk-vepfs</module>
+        <module>volcengine-java-sdk-rdsmssql</module>
     </modules>
 </project>
