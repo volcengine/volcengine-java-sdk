@@ -36,7 +36,7 @@ public class ChargeItemPriceForDescribeDBInstancePriceDetailOutput {
   private String chargeItemType = null;
 
   @SerializedName("ChargeItemValue")
-  private Long chargeItemValue = null;
+  private Integer chargeItemValue = null;
 
   @SerializedName("DiscountPrice")
   private Double discountPrice = null;
@@ -83,7 +83,7 @@ public class ChargeItemPriceForDescribeDBInstancePriceDetailOutput {
     this.chargeItemType = chargeItemType;
   }
 
-  public ChargeItemPriceForDescribeDBInstancePriceDetailOutput chargeItemValue(Long chargeItemValue) {
+  public ChargeItemPriceForDescribeDBInstancePriceDetailOutput chargeItemValue(Integer chargeItemValue) {
     this.chargeItemValue = chargeItemValue;
     return this;
   }
@@ -93,11 +93,11 @@ public class ChargeItemPriceForDescribeDBInstancePriceDetailOutput {
    * @return chargeItemValue
   **/
   @Schema(description = "")
-  public Long getChargeItemValue() {
+  public Integer getChargeItemValue() {
     return chargeItemValue;
   }
 
-  public void setChargeItemValue(Long chargeItemValue) {
+  public void setChargeItemValue(Integer chargeItemValue) {
     this.chargeItemValue = chargeItemValue;
   }
 

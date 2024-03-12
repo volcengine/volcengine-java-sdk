@@ -32,9 +32,6 @@ public class ModifyDBEndpointAddressRequest {
   @SerializedName("DomainPrefix")
   private String domainPrefix = null;
 
-  @SerializedName("EipId")
-  private String eipId = null;
-
   @SerializedName("EndpointId")
   private String endpointId = null;
 
@@ -46,12 +43,6 @@ public class ModifyDBEndpointAddressRequest {
 
   @SerializedName("Port")
   private Integer port = null;
-
-  @SerializedName("SubnetId")
-  private String subnetId = null;
-
-  @SerializedName("VpcId")
-  private String vpcId = null;
 
   public ModifyDBEndpointAddressRequest domainPrefix(String domainPrefix) {
     this.domainPrefix = domainPrefix;
@@ -71,24 +62,6 @@ public class ModifyDBEndpointAddressRequest {
     this.domainPrefix = domainPrefix;
   }
 
-  public ModifyDBEndpointAddressRequest eipId(String eipId) {
-    this.eipId = eipId;
-    return this;
-  }
-
-   /**
-   * Get eipId
-   * @return eipId
-  **/
-  @Schema(description = "")
-  public String getEipId() {
-    return eipId;
-  }
-
-  public void setEipId(String eipId) {
-    this.eipId = eipId;
-  }
-
   public ModifyDBEndpointAddressRequest endpointId(String endpointId) {
     this.endpointId = endpointId;
     return this;
@@ -98,7 +71,8 @@ public class ModifyDBEndpointAddressRequest {
    * Get endpointId
    * @return endpointId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getEndpointId() {
     return endpointId;
   }
@@ -135,7 +109,8 @@ public class ModifyDBEndpointAddressRequest {
    * Get networkType
    * @return networkType
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getNetworkType() {
     return networkType;
   }
@@ -162,42 +137,6 @@ public class ModifyDBEndpointAddressRequest {
     this.port = port;
   }
 
-  public ModifyDBEndpointAddressRequest subnetId(String subnetId) {
-    this.subnetId = subnetId;
-    return this;
-  }
-
-   /**
-   * Get subnetId
-   * @return subnetId
-  **/
-  @Schema(description = "")
-  public String getSubnetId() {
-    return subnetId;
-  }
-
-  public void setSubnetId(String subnetId) {
-    this.subnetId = subnetId;
-  }
-
-  public ModifyDBEndpointAddressRequest vpcId(String vpcId) {
-    this.vpcId = vpcId;
-    return this;
-  }
-
-   /**
-   * Get vpcId
-   * @return vpcId
-  **/
-  @Schema(description = "")
-  public String getVpcId() {
-    return vpcId;
-  }
-
-  public void setVpcId(String vpcId) {
-    this.vpcId = vpcId;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -209,18 +148,15 @@ public class ModifyDBEndpointAddressRequest {
     }
     ModifyDBEndpointAddressRequest modifyDBEndpointAddressRequest = (ModifyDBEndpointAddressRequest) o;
     return Objects.equals(this.domainPrefix, modifyDBEndpointAddressRequest.domainPrefix) &&
-        Objects.equals(this.eipId, modifyDBEndpointAddressRequest.eipId) &&
         Objects.equals(this.endpointId, modifyDBEndpointAddressRequest.endpointId) &&
         Objects.equals(this.instanceId, modifyDBEndpointAddressRequest.instanceId) &&
         Objects.equals(this.networkType, modifyDBEndpointAddressRequest.networkType) &&
-        Objects.equals(this.port, modifyDBEndpointAddressRequest.port) &&
-        Objects.equals(this.subnetId, modifyDBEndpointAddressRequest.subnetId) &&
-        Objects.equals(this.vpcId, modifyDBEndpointAddressRequest.vpcId);
+        Objects.equals(this.port, modifyDBEndpointAddressRequest.port);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(domainPrefix, eipId, endpointId, instanceId, networkType, port, subnetId, vpcId);
+    return Objects.hash(domainPrefix, endpointId, instanceId, networkType, port);
   }
 
 
@@ -230,13 +166,10 @@ public class ModifyDBEndpointAddressRequest {
     sb.append("class ModifyDBEndpointAddressRequest {\n");
     
     sb.append("    domainPrefix: ").append(toIndentedString(domainPrefix)).append("\n");
-    sb.append("    eipId: ").append(toIndentedString(eipId)).append("\n");
     sb.append("    endpointId: ").append(toIndentedString(endpointId)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    networkType: ").append(toIndentedString(networkType)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
-    sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
-    sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

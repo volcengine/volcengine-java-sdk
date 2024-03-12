@@ -63,7 +63,8 @@ public class ModifyDBInstanceSyncModeRequest {
    * Get syncMode
    * @return syncMode
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getSyncMode() {
     return syncMode;
   }

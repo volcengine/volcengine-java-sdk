@@ -89,7 +89,8 @@ public class DescribeBinlogFilesRequest {
    * Get endTime
    * @return endTime
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getEndTime() {
     return endTime;
   }
@@ -107,7 +108,8 @@ public class DescribeBinlogFilesRequest {
    * Get instanceId
    * @return instanceId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getInstanceId() {
     return instanceId;
   }
@@ -125,7 +127,8 @@ public class DescribeBinlogFilesRequest {
    * Get startTime
    * @return startTime
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getStartTime() {
     return startTime;
   }

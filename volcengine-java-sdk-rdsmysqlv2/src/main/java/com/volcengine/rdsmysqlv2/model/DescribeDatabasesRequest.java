@@ -50,7 +50,7 @@ public class DescribeDatabasesRequest {
    * Get dbName
    * @return dbName
   **/
- @Size(min=2,max=64)  @Schema(description = "")
+  @Schema(description = "")
   public String getDbName() {
     return dbName;
   }
@@ -68,7 +68,8 @@ public class DescribeDatabasesRequest {
    * Get instanceId
    * @return instanceId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getInstanceId() {
     return instanceId;
   }

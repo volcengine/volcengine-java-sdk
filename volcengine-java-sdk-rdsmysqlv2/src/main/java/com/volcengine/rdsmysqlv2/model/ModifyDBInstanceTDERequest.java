@@ -32,6 +32,12 @@ public class ModifyDBInstanceTDERequest {
   @SerializedName("InstanceId")
   private String instanceId = null;
 
+  @SerializedName("KeyName")
+  private String keyName = null;
+
+  @SerializedName("KeyringName")
+  private String keyringName = null;
+
   @SerializedName("TDEStatus")
   private String tdEStatus = null;
 
@@ -54,6 +60,42 @@ public class ModifyDBInstanceTDERequest {
     this.instanceId = instanceId;
   }
 
+  public ModifyDBInstanceTDERequest keyName(String keyName) {
+    this.keyName = keyName;
+    return this;
+  }
+
+   /**
+   * Get keyName
+   * @return keyName
+  **/
+  @Schema(description = "")
+  public String getKeyName() {
+    return keyName;
+  }
+
+  public void setKeyName(String keyName) {
+    this.keyName = keyName;
+  }
+
+  public ModifyDBInstanceTDERequest keyringName(String keyringName) {
+    this.keyringName = keyringName;
+    return this;
+  }
+
+   /**
+   * Get keyringName
+   * @return keyringName
+  **/
+  @Schema(description = "")
+  public String getKeyringName() {
+    return keyringName;
+  }
+
+  public void setKeyringName(String keyringName) {
+    this.keyringName = keyringName;
+  }
+
   public ModifyDBInstanceTDERequest tdEStatus(String tdEStatus) {
     this.tdEStatus = tdEStatus;
     return this;
@@ -63,7 +105,8 @@ public class ModifyDBInstanceTDERequest {
    * Get tdEStatus
    * @return tdEStatus
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getTdEStatus() {
     return tdEStatus;
   }
@@ -83,12 +126,14 @@ public class ModifyDBInstanceTDERequest {
     }
     ModifyDBInstanceTDERequest modifyDBInstanceTDERequest = (ModifyDBInstanceTDERequest) o;
     return Objects.equals(this.instanceId, modifyDBInstanceTDERequest.instanceId) &&
+        Objects.equals(this.keyName, modifyDBInstanceTDERequest.keyName) &&
+        Objects.equals(this.keyringName, modifyDBInstanceTDERequest.keyringName) &&
         Objects.equals(this.tdEStatus, modifyDBInstanceTDERequest.tdEStatus);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, tdEStatus);
+    return Objects.hash(instanceId, keyName, keyringName, tdEStatus);
   }
 
 
@@ -98,6 +143,8 @@ public class ModifyDBInstanceTDERequest {
     sb.append("class ModifyDBInstanceTDERequest {\n");
     
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    keyName: ").append(toIndentedString(keyName)).append("\n");
+    sb.append("    keyringName: ").append(toIndentedString(keyringName)).append("\n");
     sb.append("    tdEStatus: ").append(toIndentedString(tdEStatus)).append("\n");
     sb.append("}");
     return sb.toString();

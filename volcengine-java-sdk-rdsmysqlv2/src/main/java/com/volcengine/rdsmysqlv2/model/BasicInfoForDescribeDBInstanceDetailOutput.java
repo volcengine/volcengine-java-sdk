@@ -19,7 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.rdsmysqlv2.model.MaintenanceWindowForDescribeDBInstanceDetailOutput;
 import com.volcengine.rdsmysqlv2.model.TagForDescribeDBInstanceDetailOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -36,41 +35,17 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
   @SerializedName("AllowListVersion")
   private String allowListVersion = null;
 
-  @SerializedName("BackupAuditLogSize")
-  private Long backupAuditLogSize = null;
-
-  @SerializedName("BackupBinLogSize")
-  private Long backupBinLogSize = null;
-
-  @SerializedName("BackupDataSize")
-  private Long backupDataSize = null;
-
-  @SerializedName("BackupErrorLogSize")
-  private Long backupErrorLogSize = null;
-
-  @SerializedName("BackupLogSize")
-  private Long backupLogSize = null;
-
-  @SerializedName("BackupSlowLogSize")
-  private Long backupSlowLogSize = null;
-
   @SerializedName("BackupUse")
   private Double backupUse = null;
 
   @SerializedName("CreateTime")
   private String createTime = null;
 
-  @SerializedName("DBEngine")
-  private String dbEngine = null;
-
   @SerializedName("DBEngineVersion")
   private String dbEngineVersion = null;
 
   @SerializedName("DataSyncMode")
   private String dataSyncMode = null;
-
-  @SerializedName("InnerVersion")
-  private String innerVersion = null;
 
   @SerializedName("InstanceId")
   private String instanceId = null;
@@ -84,14 +59,8 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
   @SerializedName("InstanceType")
   private String instanceType = null;
 
-  @SerializedName("IsLatestVersion")
-  private Boolean isLatestVersion = null;
-
   @SerializedName("LowerCaseTableNames")
   private String lowerCaseTableNames = null;
-
-  @SerializedName("MaintenanceWindow")
-  private MaintenanceWindowForDescribeDBInstanceDetailOutput maintenanceWindow = null;
 
   @SerializedName("Memory")
   private Integer memory = null;
@@ -102,41 +71,14 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
   @SerializedName("NodeSpec")
   private String nodeSpec = null;
 
-  @SerializedName("PrimaryDBAccount")
-  private String primaryDBAccount = null;
-
   @SerializedName("ProjectName")
   private String projectName = null;
 
   @SerializedName("RegionId")
   private String regionId = null;
 
-  @SerializedName("ServerCollation")
-  private String serverCollation = null;
-
-  @SerializedName("ShardNumber")
-  private Integer shardNumber = null;
-
-  @SerializedName("StorageAuditLogSize")
-  private Long storageAuditLogSize = null;
-
-  @SerializedName("StorageBinLogSize")
-  private Long storageBinLogSize = null;
-
-  @SerializedName("StorageDataSize")
-  private Long storageDataSize = null;
-
-  @SerializedName("StorageErrorLogSize")
-  private Long storageErrorLogSize = null;
-
-  @SerializedName("StorageLogSize")
-  private Long storageLogSize = null;
-
-  @SerializedName("StorageSlowLogSize")
-  private Long storageSlowLogSize = null;
-
   @SerializedName("StorageSpace")
-  private Long storageSpace = null;
+  private Integer storageSpace = null;
 
   @SerializedName("StorageType")
   private String storageType = null;
@@ -183,114 +125,6 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
     this.allowListVersion = allowListVersion;
   }
 
-  public BasicInfoForDescribeDBInstanceDetailOutput backupAuditLogSize(Long backupAuditLogSize) {
-    this.backupAuditLogSize = backupAuditLogSize;
-    return this;
-  }
-
-   /**
-   * Get backupAuditLogSize
-   * @return backupAuditLogSize
-  **/
-  @Schema(description = "")
-  public Long getBackupAuditLogSize() {
-    return backupAuditLogSize;
-  }
-
-  public void setBackupAuditLogSize(Long backupAuditLogSize) {
-    this.backupAuditLogSize = backupAuditLogSize;
-  }
-
-  public BasicInfoForDescribeDBInstanceDetailOutput backupBinLogSize(Long backupBinLogSize) {
-    this.backupBinLogSize = backupBinLogSize;
-    return this;
-  }
-
-   /**
-   * Get backupBinLogSize
-   * @return backupBinLogSize
-  **/
-  @Schema(description = "")
-  public Long getBackupBinLogSize() {
-    return backupBinLogSize;
-  }
-
-  public void setBackupBinLogSize(Long backupBinLogSize) {
-    this.backupBinLogSize = backupBinLogSize;
-  }
-
-  public BasicInfoForDescribeDBInstanceDetailOutput backupDataSize(Long backupDataSize) {
-    this.backupDataSize = backupDataSize;
-    return this;
-  }
-
-   /**
-   * Get backupDataSize
-   * @return backupDataSize
-  **/
-  @Schema(description = "")
-  public Long getBackupDataSize() {
-    return backupDataSize;
-  }
-
-  public void setBackupDataSize(Long backupDataSize) {
-    this.backupDataSize = backupDataSize;
-  }
-
-  public BasicInfoForDescribeDBInstanceDetailOutput backupErrorLogSize(Long backupErrorLogSize) {
-    this.backupErrorLogSize = backupErrorLogSize;
-    return this;
-  }
-
-   /**
-   * Get backupErrorLogSize
-   * @return backupErrorLogSize
-  **/
-  @Schema(description = "")
-  public Long getBackupErrorLogSize() {
-    return backupErrorLogSize;
-  }
-
-  public void setBackupErrorLogSize(Long backupErrorLogSize) {
-    this.backupErrorLogSize = backupErrorLogSize;
-  }
-
-  public BasicInfoForDescribeDBInstanceDetailOutput backupLogSize(Long backupLogSize) {
-    this.backupLogSize = backupLogSize;
-    return this;
-  }
-
-   /**
-   * Get backupLogSize
-   * @return backupLogSize
-  **/
-  @Schema(description = "")
-  public Long getBackupLogSize() {
-    return backupLogSize;
-  }
-
-  public void setBackupLogSize(Long backupLogSize) {
-    this.backupLogSize = backupLogSize;
-  }
-
-  public BasicInfoForDescribeDBInstanceDetailOutput backupSlowLogSize(Long backupSlowLogSize) {
-    this.backupSlowLogSize = backupSlowLogSize;
-    return this;
-  }
-
-   /**
-   * Get backupSlowLogSize
-   * @return backupSlowLogSize
-  **/
-  @Schema(description = "")
-  public Long getBackupSlowLogSize() {
-    return backupSlowLogSize;
-  }
-
-  public void setBackupSlowLogSize(Long backupSlowLogSize) {
-    this.backupSlowLogSize = backupSlowLogSize;
-  }
-
   public BasicInfoForDescribeDBInstanceDetailOutput backupUse(Double backupUse) {
     this.backupUse = backupUse;
     return this;
@@ -327,24 +161,6 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
     this.createTime = createTime;
   }
 
-  public BasicInfoForDescribeDBInstanceDetailOutput dbEngine(String dbEngine) {
-    this.dbEngine = dbEngine;
-    return this;
-  }
-
-   /**
-   * Get dbEngine
-   * @return dbEngine
-  **/
-  @Schema(description = "")
-  public String getDbEngine() {
-    return dbEngine;
-  }
-
-  public void setDbEngine(String dbEngine) {
-    this.dbEngine = dbEngine;
-  }
-
   public BasicInfoForDescribeDBInstanceDetailOutput dbEngineVersion(String dbEngineVersion) {
     this.dbEngineVersion = dbEngineVersion;
     return this;
@@ -379,24 +195,6 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
 
   public void setDataSyncMode(String dataSyncMode) {
     this.dataSyncMode = dataSyncMode;
-  }
-
-  public BasicInfoForDescribeDBInstanceDetailOutput innerVersion(String innerVersion) {
-    this.innerVersion = innerVersion;
-    return this;
-  }
-
-   /**
-   * Get innerVersion
-   * @return innerVersion
-  **/
-  @Schema(description = "")
-  public String getInnerVersion() {
-    return innerVersion;
-  }
-
-  public void setInnerVersion(String innerVersion) {
-    this.innerVersion = innerVersion;
   }
 
   public BasicInfoForDescribeDBInstanceDetailOutput instanceId(String instanceId) {
@@ -471,24 +269,6 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
     this.instanceType = instanceType;
   }
 
-  public BasicInfoForDescribeDBInstanceDetailOutput isLatestVersion(Boolean isLatestVersion) {
-    this.isLatestVersion = isLatestVersion;
-    return this;
-  }
-
-   /**
-   * Get isLatestVersion
-   * @return isLatestVersion
-  **/
-  @Schema(description = "")
-  public Boolean isIsLatestVersion() {
-    return isLatestVersion;
-  }
-
-  public void setIsLatestVersion(Boolean isLatestVersion) {
-    this.isLatestVersion = isLatestVersion;
-  }
-
   public BasicInfoForDescribeDBInstanceDetailOutput lowerCaseTableNames(String lowerCaseTableNames) {
     this.lowerCaseTableNames = lowerCaseTableNames;
     return this;
@@ -505,25 +285,6 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
 
   public void setLowerCaseTableNames(String lowerCaseTableNames) {
     this.lowerCaseTableNames = lowerCaseTableNames;
-  }
-
-  public BasicInfoForDescribeDBInstanceDetailOutput maintenanceWindow(MaintenanceWindowForDescribeDBInstanceDetailOutput maintenanceWindow) {
-    this.maintenanceWindow = maintenanceWindow;
-    return this;
-  }
-
-   /**
-   * Get maintenanceWindow
-   * @return maintenanceWindow
-  **/
-  @Valid
-  @Schema(description = "")
-  public MaintenanceWindowForDescribeDBInstanceDetailOutput getMaintenanceWindow() {
-    return maintenanceWindow;
-  }
-
-  public void setMaintenanceWindow(MaintenanceWindowForDescribeDBInstanceDetailOutput maintenanceWindow) {
-    this.maintenanceWindow = maintenanceWindow;
   }
 
   public BasicInfoForDescribeDBInstanceDetailOutput memory(Integer memory) {
@@ -580,24 +341,6 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
     this.nodeSpec = nodeSpec;
   }
 
-  public BasicInfoForDescribeDBInstanceDetailOutput primaryDBAccount(String primaryDBAccount) {
-    this.primaryDBAccount = primaryDBAccount;
-    return this;
-  }
-
-   /**
-   * Get primaryDBAccount
-   * @return primaryDBAccount
-  **/
-  @Schema(description = "")
-  public String getPrimaryDBAccount() {
-    return primaryDBAccount;
-  }
-
-  public void setPrimaryDBAccount(String primaryDBAccount) {
-    this.primaryDBAccount = primaryDBAccount;
-  }
-
   public BasicInfoForDescribeDBInstanceDetailOutput projectName(String projectName) {
     this.projectName = projectName;
     return this;
@@ -634,151 +377,7 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
     this.regionId = regionId;
   }
 
-  public BasicInfoForDescribeDBInstanceDetailOutput serverCollation(String serverCollation) {
-    this.serverCollation = serverCollation;
-    return this;
-  }
-
-   /**
-   * Get serverCollation
-   * @return serverCollation
-  **/
-  @Schema(description = "")
-  public String getServerCollation() {
-    return serverCollation;
-  }
-
-  public void setServerCollation(String serverCollation) {
-    this.serverCollation = serverCollation;
-  }
-
-  public BasicInfoForDescribeDBInstanceDetailOutput shardNumber(Integer shardNumber) {
-    this.shardNumber = shardNumber;
-    return this;
-  }
-
-   /**
-   * Get shardNumber
-   * @return shardNumber
-  **/
-  @Schema(description = "")
-  public Integer getShardNumber() {
-    return shardNumber;
-  }
-
-  public void setShardNumber(Integer shardNumber) {
-    this.shardNumber = shardNumber;
-  }
-
-  public BasicInfoForDescribeDBInstanceDetailOutput storageAuditLogSize(Long storageAuditLogSize) {
-    this.storageAuditLogSize = storageAuditLogSize;
-    return this;
-  }
-
-   /**
-   * Get storageAuditLogSize
-   * @return storageAuditLogSize
-  **/
-  @Schema(description = "")
-  public Long getStorageAuditLogSize() {
-    return storageAuditLogSize;
-  }
-
-  public void setStorageAuditLogSize(Long storageAuditLogSize) {
-    this.storageAuditLogSize = storageAuditLogSize;
-  }
-
-  public BasicInfoForDescribeDBInstanceDetailOutput storageBinLogSize(Long storageBinLogSize) {
-    this.storageBinLogSize = storageBinLogSize;
-    return this;
-  }
-
-   /**
-   * Get storageBinLogSize
-   * @return storageBinLogSize
-  **/
-  @Schema(description = "")
-  public Long getStorageBinLogSize() {
-    return storageBinLogSize;
-  }
-
-  public void setStorageBinLogSize(Long storageBinLogSize) {
-    this.storageBinLogSize = storageBinLogSize;
-  }
-
-  public BasicInfoForDescribeDBInstanceDetailOutput storageDataSize(Long storageDataSize) {
-    this.storageDataSize = storageDataSize;
-    return this;
-  }
-
-   /**
-   * Get storageDataSize
-   * @return storageDataSize
-  **/
-  @Schema(description = "")
-  public Long getStorageDataSize() {
-    return storageDataSize;
-  }
-
-  public void setStorageDataSize(Long storageDataSize) {
-    this.storageDataSize = storageDataSize;
-  }
-
-  public BasicInfoForDescribeDBInstanceDetailOutput storageErrorLogSize(Long storageErrorLogSize) {
-    this.storageErrorLogSize = storageErrorLogSize;
-    return this;
-  }
-
-   /**
-   * Get storageErrorLogSize
-   * @return storageErrorLogSize
-  **/
-  @Schema(description = "")
-  public Long getStorageErrorLogSize() {
-    return storageErrorLogSize;
-  }
-
-  public void setStorageErrorLogSize(Long storageErrorLogSize) {
-    this.storageErrorLogSize = storageErrorLogSize;
-  }
-
-  public BasicInfoForDescribeDBInstanceDetailOutput storageLogSize(Long storageLogSize) {
-    this.storageLogSize = storageLogSize;
-    return this;
-  }
-
-   /**
-   * Get storageLogSize
-   * @return storageLogSize
-  **/
-  @Schema(description = "")
-  public Long getStorageLogSize() {
-    return storageLogSize;
-  }
-
-  public void setStorageLogSize(Long storageLogSize) {
-    this.storageLogSize = storageLogSize;
-  }
-
-  public BasicInfoForDescribeDBInstanceDetailOutput storageSlowLogSize(Long storageSlowLogSize) {
-    this.storageSlowLogSize = storageSlowLogSize;
-    return this;
-  }
-
-   /**
-   * Get storageSlowLogSize
-   * @return storageSlowLogSize
-  **/
-  @Schema(description = "")
-  public Long getStorageSlowLogSize() {
-    return storageSlowLogSize;
-  }
-
-  public void setStorageSlowLogSize(Long storageSlowLogSize) {
-    this.storageSlowLogSize = storageSlowLogSize;
-  }
-
-  public BasicInfoForDescribeDBInstanceDetailOutput storageSpace(Long storageSpace) {
+  public BasicInfoForDescribeDBInstanceDetailOutput storageSpace(Integer storageSpace) {
     this.storageSpace = storageSpace;
     return this;
   }
@@ -788,11 +387,11 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
    * @return storageSpace
   **/
   @Schema(description = "")
-  public Long getStorageSpace() {
+  public Integer getStorageSpace() {
     return storageSpace;
   }
 
-  public void setStorageSpace(Long storageSpace) {
+  public void setStorageSpace(Integer storageSpace) {
     this.storageSpace = storageSpace;
   }
 
@@ -978,39 +577,20 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
     }
     BasicInfoForDescribeDBInstanceDetailOutput basicInfoForDescribeDBInstanceDetailOutput = (BasicInfoForDescribeDBInstanceDetailOutput) o;
     return Objects.equals(this.allowListVersion, basicInfoForDescribeDBInstanceDetailOutput.allowListVersion) &&
-        Objects.equals(this.backupAuditLogSize, basicInfoForDescribeDBInstanceDetailOutput.backupAuditLogSize) &&
-        Objects.equals(this.backupBinLogSize, basicInfoForDescribeDBInstanceDetailOutput.backupBinLogSize) &&
-        Objects.equals(this.backupDataSize, basicInfoForDescribeDBInstanceDetailOutput.backupDataSize) &&
-        Objects.equals(this.backupErrorLogSize, basicInfoForDescribeDBInstanceDetailOutput.backupErrorLogSize) &&
-        Objects.equals(this.backupLogSize, basicInfoForDescribeDBInstanceDetailOutput.backupLogSize) &&
-        Objects.equals(this.backupSlowLogSize, basicInfoForDescribeDBInstanceDetailOutput.backupSlowLogSize) &&
         Objects.equals(this.backupUse, basicInfoForDescribeDBInstanceDetailOutput.backupUse) &&
         Objects.equals(this.createTime, basicInfoForDescribeDBInstanceDetailOutput.createTime) &&
-        Objects.equals(this.dbEngine, basicInfoForDescribeDBInstanceDetailOutput.dbEngine) &&
         Objects.equals(this.dbEngineVersion, basicInfoForDescribeDBInstanceDetailOutput.dbEngineVersion) &&
         Objects.equals(this.dataSyncMode, basicInfoForDescribeDBInstanceDetailOutput.dataSyncMode) &&
-        Objects.equals(this.innerVersion, basicInfoForDescribeDBInstanceDetailOutput.innerVersion) &&
         Objects.equals(this.instanceId, basicInfoForDescribeDBInstanceDetailOutput.instanceId) &&
         Objects.equals(this.instanceName, basicInfoForDescribeDBInstanceDetailOutput.instanceName) &&
         Objects.equals(this.instanceStatus, basicInfoForDescribeDBInstanceDetailOutput.instanceStatus) &&
         Objects.equals(this.instanceType, basicInfoForDescribeDBInstanceDetailOutput.instanceType) &&
-        Objects.equals(this.isLatestVersion, basicInfoForDescribeDBInstanceDetailOutput.isLatestVersion) &&
         Objects.equals(this.lowerCaseTableNames, basicInfoForDescribeDBInstanceDetailOutput.lowerCaseTableNames) &&
-        Objects.equals(this.maintenanceWindow, basicInfoForDescribeDBInstanceDetailOutput.maintenanceWindow) &&
         Objects.equals(this.memory, basicInfoForDescribeDBInstanceDetailOutput.memory) &&
         Objects.equals(this.nodeNumber, basicInfoForDescribeDBInstanceDetailOutput.nodeNumber) &&
         Objects.equals(this.nodeSpec, basicInfoForDescribeDBInstanceDetailOutput.nodeSpec) &&
-        Objects.equals(this.primaryDBAccount, basicInfoForDescribeDBInstanceDetailOutput.primaryDBAccount) &&
         Objects.equals(this.projectName, basicInfoForDescribeDBInstanceDetailOutput.projectName) &&
         Objects.equals(this.regionId, basicInfoForDescribeDBInstanceDetailOutput.regionId) &&
-        Objects.equals(this.serverCollation, basicInfoForDescribeDBInstanceDetailOutput.serverCollation) &&
-        Objects.equals(this.shardNumber, basicInfoForDescribeDBInstanceDetailOutput.shardNumber) &&
-        Objects.equals(this.storageAuditLogSize, basicInfoForDescribeDBInstanceDetailOutput.storageAuditLogSize) &&
-        Objects.equals(this.storageBinLogSize, basicInfoForDescribeDBInstanceDetailOutput.storageBinLogSize) &&
-        Objects.equals(this.storageDataSize, basicInfoForDescribeDBInstanceDetailOutput.storageDataSize) &&
-        Objects.equals(this.storageErrorLogSize, basicInfoForDescribeDBInstanceDetailOutput.storageErrorLogSize) &&
-        Objects.equals(this.storageLogSize, basicInfoForDescribeDBInstanceDetailOutput.storageLogSize) &&
-        Objects.equals(this.storageSlowLogSize, basicInfoForDescribeDBInstanceDetailOutput.storageSlowLogSize) &&
         Objects.equals(this.storageSpace, basicInfoForDescribeDBInstanceDetailOutput.storageSpace) &&
         Objects.equals(this.storageType, basicInfoForDescribeDBInstanceDetailOutput.storageType) &&
         Objects.equals(this.storageUse, basicInfoForDescribeDBInstanceDetailOutput.storageUse) &&
@@ -1025,7 +605,7 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowListVersion, backupAuditLogSize, backupBinLogSize, backupDataSize, backupErrorLogSize, backupLogSize, backupSlowLogSize, backupUse, createTime, dbEngine, dbEngineVersion, dataSyncMode, innerVersion, instanceId, instanceName, instanceStatus, instanceType, isLatestVersion, lowerCaseTableNames, maintenanceWindow, memory, nodeNumber, nodeSpec, primaryDBAccount, projectName, regionId, serverCollation, shardNumber, storageAuditLogSize, storageBinLogSize, storageDataSize, storageErrorLogSize, storageLogSize, storageSlowLogSize, storageSpace, storageType, storageUse, subnetId, tags, timeZone, updateTime, VCPU, vpcId, zoneId);
+    return Objects.hash(allowListVersion, backupUse, createTime, dbEngineVersion, dataSyncMode, instanceId, instanceName, instanceStatus, instanceType, lowerCaseTableNames, memory, nodeNumber, nodeSpec, projectName, regionId, storageSpace, storageType, storageUse, subnetId, tags, timeZone, updateTime, VCPU, vpcId, zoneId);
   }
 
 
@@ -1035,39 +615,20 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
     sb.append("class BasicInfoForDescribeDBInstanceDetailOutput {\n");
     
     sb.append("    allowListVersion: ").append(toIndentedString(allowListVersion)).append("\n");
-    sb.append("    backupAuditLogSize: ").append(toIndentedString(backupAuditLogSize)).append("\n");
-    sb.append("    backupBinLogSize: ").append(toIndentedString(backupBinLogSize)).append("\n");
-    sb.append("    backupDataSize: ").append(toIndentedString(backupDataSize)).append("\n");
-    sb.append("    backupErrorLogSize: ").append(toIndentedString(backupErrorLogSize)).append("\n");
-    sb.append("    backupLogSize: ").append(toIndentedString(backupLogSize)).append("\n");
-    sb.append("    backupSlowLogSize: ").append(toIndentedString(backupSlowLogSize)).append("\n");
     sb.append("    backupUse: ").append(toIndentedString(backupUse)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
-    sb.append("    dbEngine: ").append(toIndentedString(dbEngine)).append("\n");
     sb.append("    dbEngineVersion: ").append(toIndentedString(dbEngineVersion)).append("\n");
     sb.append("    dataSyncMode: ").append(toIndentedString(dataSyncMode)).append("\n");
-    sb.append("    innerVersion: ").append(toIndentedString(innerVersion)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    instanceStatus: ").append(toIndentedString(instanceStatus)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
-    sb.append("    isLatestVersion: ").append(toIndentedString(isLatestVersion)).append("\n");
     sb.append("    lowerCaseTableNames: ").append(toIndentedString(lowerCaseTableNames)).append("\n");
-    sb.append("    maintenanceWindow: ").append(toIndentedString(maintenanceWindow)).append("\n");
     sb.append("    memory: ").append(toIndentedString(memory)).append("\n");
     sb.append("    nodeNumber: ").append(toIndentedString(nodeNumber)).append("\n");
     sb.append("    nodeSpec: ").append(toIndentedString(nodeSpec)).append("\n");
-    sb.append("    primaryDBAccount: ").append(toIndentedString(primaryDBAccount)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    regionId: ").append(toIndentedString(regionId)).append("\n");
-    sb.append("    serverCollation: ").append(toIndentedString(serverCollation)).append("\n");
-    sb.append("    shardNumber: ").append(toIndentedString(shardNumber)).append("\n");
-    sb.append("    storageAuditLogSize: ").append(toIndentedString(storageAuditLogSize)).append("\n");
-    sb.append("    storageBinLogSize: ").append(toIndentedString(storageBinLogSize)).append("\n");
-    sb.append("    storageDataSize: ").append(toIndentedString(storageDataSize)).append("\n");
-    sb.append("    storageErrorLogSize: ").append(toIndentedString(storageErrorLogSize)).append("\n");
-    sb.append("    storageLogSize: ").append(toIndentedString(storageLogSize)).append("\n");
-    sb.append("    storageSlowLogSize: ").append(toIndentedString(storageSlowLogSize)).append("\n");
     sb.append("    storageSpace: ").append(toIndentedString(storageSpace)).append("\n");
     sb.append("    storageType: ").append(toIndentedString(storageType)).append("\n");
     sb.append("    storageUse: ").append(toIndentedString(storageUse)).append("\n");

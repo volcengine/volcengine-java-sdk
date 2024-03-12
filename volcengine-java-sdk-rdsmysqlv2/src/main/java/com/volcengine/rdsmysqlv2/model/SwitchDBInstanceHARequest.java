@@ -35,9 +35,6 @@ public class SwitchDBInstanceHARequest {
   @SerializedName("NodeId")
   private String nodeId = null;
 
-  @SerializedName("ZoneId")
-  private String zoneId = null;
-
   public SwitchDBInstanceHARequest instanceId(String instanceId) {
     this.instanceId = instanceId;
     return this;
@@ -66,31 +63,14 @@ public class SwitchDBInstanceHARequest {
    * Get nodeId
    * @return nodeId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getNodeId() {
     return nodeId;
   }
 
   public void setNodeId(String nodeId) {
     this.nodeId = nodeId;
-  }
-
-  public SwitchDBInstanceHARequest zoneId(String zoneId) {
-    this.zoneId = zoneId;
-    return this;
-  }
-
-   /**
-   * Get zoneId
-   * @return zoneId
-  **/
-  @Schema(description = "")
-  public String getZoneId() {
-    return zoneId;
-  }
-
-  public void setZoneId(String zoneId) {
-    this.zoneId = zoneId;
   }
 
 
@@ -104,13 +84,12 @@ public class SwitchDBInstanceHARequest {
     }
     SwitchDBInstanceHARequest switchDBInstanceHARequest = (SwitchDBInstanceHARequest) o;
     return Objects.equals(this.instanceId, switchDBInstanceHARequest.instanceId) &&
-        Objects.equals(this.nodeId, switchDBInstanceHARequest.nodeId) &&
-        Objects.equals(this.zoneId, switchDBInstanceHARequest.zoneId);
+        Objects.equals(this.nodeId, switchDBInstanceHARequest.nodeId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, nodeId, zoneId);
+    return Objects.hash(instanceId, nodeId);
   }
 
 
@@ -121,7 +100,6 @@ public class SwitchDBInstanceHARequest {
     
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    nodeId: ").append(toIndentedString(nodeId)).append("\n");
-    sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

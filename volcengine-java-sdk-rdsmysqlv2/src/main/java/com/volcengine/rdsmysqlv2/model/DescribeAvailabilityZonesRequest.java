@@ -14,13 +14,6 @@ package com.volcengine.rdsmysqlv2.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.v3.oas.annotations.media.Schema;
-import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -29,27 +22,6 @@ import javax.validation.Valid;
 
 
 public class DescribeAvailabilityZonesRequest {
-  @SerializedName("RegionId")
-  private String regionId = null;
-
-  public DescribeAvailabilityZonesRequest regionId(String regionId) {
-    this.regionId = regionId;
-    return this;
-  }
-
-   /**
-   * Get regionId
-   * @return regionId
-  **/
-  @Schema(description = "")
-  public String getRegionId() {
-    return regionId;
-  }
-
-  public void setRegionId(String regionId) {
-    this.regionId = regionId;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -59,13 +31,12 @@ public class DescribeAvailabilityZonesRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DescribeAvailabilityZonesRequest describeAvailabilityZonesRequest = (DescribeAvailabilityZonesRequest) o;
-    return Objects.equals(this.regionId, describeAvailabilityZonesRequest.regionId);
+    return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(regionId);
+    return Objects.hash();
   }
 
 
@@ -74,7 +45,6 @@ public class DescribeAvailabilityZonesRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeAvailabilityZonesRequest {\n");
     
-    sb.append("    regionId: ").append(toIndentedString(regionId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -42,7 +42,10 @@ public class TemplateInfoForDescribeParameterTemplateOutput {
   private Boolean needRestart = null;
 
   @SerializedName("ParameterNum")
-  private Long parameterNum = null;
+  private Integer parameterNum = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
 
   @SerializedName("TemplateCategory")
   private String templateCategory = null;
@@ -125,7 +128,7 @@ public class TemplateInfoForDescribeParameterTemplateOutput {
     this.needRestart = needRestart;
   }
 
-  public TemplateInfoForDescribeParameterTemplateOutput parameterNum(Long parameterNum) {
+  public TemplateInfoForDescribeParameterTemplateOutput parameterNum(Integer parameterNum) {
     this.parameterNum = parameterNum;
     return this;
   }
@@ -135,12 +138,30 @@ public class TemplateInfoForDescribeParameterTemplateOutput {
    * @return parameterNum
   **/
   @Schema(description = "")
-  public Long getParameterNum() {
+  public Integer getParameterNum() {
     return parameterNum;
   }
 
-  public void setParameterNum(Long parameterNum) {
+  public void setParameterNum(Integer parameterNum) {
     this.parameterNum = parameterNum;
+  }
+
+  public TemplateInfoForDescribeParameterTemplateOutput projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
   }
 
   public TemplateInfoForDescribeParameterTemplateOutput templateCategory(String templateCategory) {
@@ -328,6 +349,7 @@ public class TemplateInfoForDescribeParameterTemplateOutput {
         Objects.equals(this.createTime, templateInfoForDescribeParameterTemplateOutput.createTime) &&
         Objects.equals(this.needRestart, templateInfoForDescribeParameterTemplateOutput.needRestart) &&
         Objects.equals(this.parameterNum, templateInfoForDescribeParameterTemplateOutput.parameterNum) &&
+        Objects.equals(this.projectName, templateInfoForDescribeParameterTemplateOutput.projectName) &&
         Objects.equals(this.templateCategory, templateInfoForDescribeParameterTemplateOutput.templateCategory) &&
         Objects.equals(this.templateDesc, templateInfoForDescribeParameterTemplateOutput.templateDesc) &&
         Objects.equals(this.templateId, templateInfoForDescribeParameterTemplateOutput.templateId) &&
@@ -341,7 +363,7 @@ public class TemplateInfoForDescribeParameterTemplateOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, createTime, needRestart, parameterNum, templateCategory, templateDesc, templateId, templateName, templateParams, templateSource, templateType, templateTypeVersion, updateTime);
+    return Objects.hash(accountId, createTime, needRestart, parameterNum, projectName, templateCategory, templateDesc, templateId, templateName, templateParams, templateSource, templateType, templateTypeVersion, updateTime);
   }
 
 
@@ -354,6 +376,7 @@ public class TemplateInfoForDescribeParameterTemplateOutput {
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    needRestart: ").append(toIndentedString(needRestart)).append("\n");
     sb.append("    parameterNum: ").append(toIndentedString(parameterNum)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    templateCategory: ").append(toIndentedString(templateCategory)).append("\n");
     sb.append("    templateDesc: ").append(toIndentedString(templateDesc)).append("\n");
     sb.append("    templateId: ").append(toIndentedString(templateId)).append("\n");

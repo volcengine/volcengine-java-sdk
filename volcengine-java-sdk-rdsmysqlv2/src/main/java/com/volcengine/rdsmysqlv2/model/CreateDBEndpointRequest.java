@@ -113,7 +113,8 @@ public class CreateDBEndpointRequest {
    * Get endpointType
    * @return endpointType
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getEndpointType() {
     return endpointType;
   }

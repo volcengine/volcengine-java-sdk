@@ -38,6 +38,9 @@ public class DatabasePrivilegeForCreateDatabaseInput {
   @SerializedName("AccountPrivilegeDetail")
   private String accountPrivilegeDetail = null;
 
+  @SerializedName("Host")
+  private String host = null;
+
   public DatabasePrivilegeForCreateDatabaseInput accountName(String accountName) {
     this.accountName = accountName;
     return this;
@@ -92,6 +95,24 @@ public class DatabasePrivilegeForCreateDatabaseInput {
     this.accountPrivilegeDetail = accountPrivilegeDetail;
   }
 
+  public DatabasePrivilegeForCreateDatabaseInput host(String host) {
+    this.host = host;
+    return this;
+  }
+
+   /**
+   * Get host
+   * @return host
+  **/
+  @Schema(description = "")
+  public String getHost() {
+    return host;
+  }
+
+  public void setHost(String host) {
+    this.host = host;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -104,12 +125,13 @@ public class DatabasePrivilegeForCreateDatabaseInput {
     DatabasePrivilegeForCreateDatabaseInput databasePrivilegeForCreateDatabaseInput = (DatabasePrivilegeForCreateDatabaseInput) o;
     return Objects.equals(this.accountName, databasePrivilegeForCreateDatabaseInput.accountName) &&
         Objects.equals(this.accountPrivilege, databasePrivilegeForCreateDatabaseInput.accountPrivilege) &&
-        Objects.equals(this.accountPrivilegeDetail, databasePrivilegeForCreateDatabaseInput.accountPrivilegeDetail);
+        Objects.equals(this.accountPrivilegeDetail, databasePrivilegeForCreateDatabaseInput.accountPrivilegeDetail) &&
+        Objects.equals(this.host, databasePrivilegeForCreateDatabaseInput.host);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountName, accountPrivilege, accountPrivilegeDetail);
+    return Objects.hash(accountName, accountPrivilege, accountPrivilegeDetail, host);
   }
 
 
@@ -121,6 +143,7 @@ public class DatabasePrivilegeForCreateDatabaseInput {
     sb.append("    accountName: ").append(toIndentedString(accountName)).append("\n");
     sb.append("    accountPrivilege: ").append(toIndentedString(accountPrivilege)).append("\n");
     sb.append("    accountPrivilegeDetail: ").append(toIndentedString(accountPrivilegeDetail)).append("\n");
+    sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("}");
     return sb.toString();
   }

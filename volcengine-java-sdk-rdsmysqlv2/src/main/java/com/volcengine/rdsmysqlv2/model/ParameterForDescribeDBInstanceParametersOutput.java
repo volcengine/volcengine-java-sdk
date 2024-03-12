@@ -32,6 +32,9 @@ public class ParameterForDescribeDBInstanceParametersOutput {
   @SerializedName("CheckingCode")
   private String checkingCode = null;
 
+  @SerializedName("Expression")
+  private String expression = null;
+
   @SerializedName("ForceRestart")
   private Boolean forceRestart = null;
 
@@ -63,6 +66,24 @@ public class ParameterForDescribeDBInstanceParametersOutput {
 
   public void setCheckingCode(String checkingCode) {
     this.checkingCode = checkingCode;
+  }
+
+  public ParameterForDescribeDBInstanceParametersOutput expression(String expression) {
+    this.expression = expression;
+    return this;
+  }
+
+   /**
+   * Get expression
+   * @return expression
+  **/
+  @Schema(description = "")
+  public String getExpression() {
+    return expression;
+  }
+
+  public void setExpression(String expression) {
+    this.expression = expression;
   }
 
   public ParameterForDescribeDBInstanceParametersOutput forceRestart(Boolean forceRestart) {
@@ -166,6 +187,7 @@ public class ParameterForDescribeDBInstanceParametersOutput {
     }
     ParameterForDescribeDBInstanceParametersOutput parameterForDescribeDBInstanceParametersOutput = (ParameterForDescribeDBInstanceParametersOutput) o;
     return Objects.equals(this.checkingCode, parameterForDescribeDBInstanceParametersOutput.checkingCode) &&
+        Objects.equals(this.expression, parameterForDescribeDBInstanceParametersOutput.expression) &&
         Objects.equals(this.forceRestart, parameterForDescribeDBInstanceParametersOutput.forceRestart) &&
         Objects.equals(this.parameterDefaultValue, parameterForDescribeDBInstanceParametersOutput.parameterDefaultValue) &&
         Objects.equals(this.parameterDescription, parameterForDescribeDBInstanceParametersOutput.parameterDescription) &&
@@ -175,7 +197,7 @@ public class ParameterForDescribeDBInstanceParametersOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(checkingCode, forceRestart, parameterDefaultValue, parameterDescription, parameterName, parameterValue);
+    return Objects.hash(checkingCode, expression, forceRestart, parameterDefaultValue, parameterDescription, parameterName, parameterValue);
   }
 
 
@@ -185,6 +207,7 @@ public class ParameterForDescribeDBInstanceParametersOutput {
     sb.append("class ParameterForDescribeDBInstanceParametersOutput {\n");
     
     sb.append("    checkingCode: ").append(toIndentedString(checkingCode)).append("\n");
+    sb.append("    expression: ").append(toIndentedString(expression)).append("\n");
     sb.append("    forceRestart: ").append(toIndentedString(forceRestart)).append("\n");
     sb.append("    parameterDefaultValue: ").append(toIndentedString(parameterDefaultValue)).append("\n");
     sb.append("    parameterDescription: ").append(toIndentedString(parameterDescription)).append("\n");

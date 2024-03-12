@@ -50,7 +50,7 @@ public class DescribeDBAccountsRequest {
    * Get accountName
    * @return accountName
   **/
- @Size(min=2,max=32)  @Schema(description = "")
+  @Schema(description = "")
   public String getAccountName() {
     return accountName;
   }

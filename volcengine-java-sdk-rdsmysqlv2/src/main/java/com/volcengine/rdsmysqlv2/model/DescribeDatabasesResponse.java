@@ -19,8 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.rdsmysqlv2.model.DatabasForDescribeDatabasesOutput;
-import com.volcengine.rdsmysqlv2.model.DatabasesInfoForDescribeDatabasesOutput;
+import com.volcengine.rdsmysqlv2.model.DatabaseForDescribeDatabasesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -34,22 +33,19 @@ import javax.validation.Valid;
 
 public class DescribeDatabasesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Databases")
-  private List<DatabasForDescribeDatabasesOutput> databases = null;
-
-  @SerializedName("DatabasesInfo")
-  private List<DatabasesInfoForDescribeDatabasesOutput> databasesInfo = null;
+  private List<DatabaseForDescribeDatabasesOutput> databases = null;
 
   @SerializedName("Total")
   private Integer total = null;
 
-  public DescribeDatabasesResponse databases(List<DatabasForDescribeDatabasesOutput> databases) {
+  public DescribeDatabasesResponse databases(List<DatabaseForDescribeDatabasesOutput> databases) {
     this.databases = databases;
     return this;
   }
 
-  public DescribeDatabasesResponse addDatabasesItem(DatabasForDescribeDatabasesOutput databasesItem) {
+  public DescribeDatabasesResponse addDatabasesItem(DatabaseForDescribeDatabasesOutput databasesItem) {
     if (this.databases == null) {
-      this.databases = new ArrayList<DatabasForDescribeDatabasesOutput>();
+      this.databases = new ArrayList<DatabaseForDescribeDatabasesOutput>();
     }
     this.databases.add(databasesItem);
     return this;
@@ -61,39 +57,12 @@ public class DescribeDatabasesResponse extends com.volcengine.model.AbstractResp
   **/
   @Valid
   @Schema(description = "")
-  public List<DatabasForDescribeDatabasesOutput> getDatabases() {
+  public List<DatabaseForDescribeDatabasesOutput> getDatabases() {
     return databases;
   }
 
-  public void setDatabases(List<DatabasForDescribeDatabasesOutput> databases) {
+  public void setDatabases(List<DatabaseForDescribeDatabasesOutput> databases) {
     this.databases = databases;
-  }
-
-  public DescribeDatabasesResponse databasesInfo(List<DatabasesInfoForDescribeDatabasesOutput> databasesInfo) {
-    this.databasesInfo = databasesInfo;
-    return this;
-  }
-
-  public DescribeDatabasesResponse addDatabasesInfoItem(DatabasesInfoForDescribeDatabasesOutput databasesInfoItem) {
-    if (this.databasesInfo == null) {
-      this.databasesInfo = new ArrayList<DatabasesInfoForDescribeDatabasesOutput>();
-    }
-    this.databasesInfo.add(databasesInfoItem);
-    return this;
-  }
-
-   /**
-   * Get databasesInfo
-   * @return databasesInfo
-  **/
-  @Valid
-  @Schema(description = "")
-  public List<DatabasesInfoForDescribeDatabasesOutput> getDatabasesInfo() {
-    return databasesInfo;
-  }
-
-  public void setDatabasesInfo(List<DatabasesInfoForDescribeDatabasesOutput> databasesInfo) {
-    this.databasesInfo = databasesInfo;
   }
 
   public DescribeDatabasesResponse total(Integer total) {
@@ -125,13 +94,12 @@ public class DescribeDatabasesResponse extends com.volcengine.model.AbstractResp
     }
     DescribeDatabasesResponse describeDatabasesResponse = (DescribeDatabasesResponse) o;
     return Objects.equals(this.databases, describeDatabasesResponse.databases) &&
-        Objects.equals(this.databasesInfo, describeDatabasesResponse.databasesInfo) &&
         Objects.equals(this.total, describeDatabasesResponse.total);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(databases, databasesInfo, total);
+    return Objects.hash(databases, total);
   }
 
 
@@ -141,7 +109,6 @@ public class DescribeDatabasesResponse extends com.volcengine.model.AbstractResp
     sb.append("class DescribeDatabasesResponse {\n");
     
     sb.append("    databases: ").append(toIndentedString(databases)).append("\n");
-    sb.append("    databasesInfo: ").append(toIndentedString(databasesInfo)).append("\n");
     sb.append("    total: ").append(toIndentedString(total)).append("\n");
     sb.append("}");
     return sb.toString();

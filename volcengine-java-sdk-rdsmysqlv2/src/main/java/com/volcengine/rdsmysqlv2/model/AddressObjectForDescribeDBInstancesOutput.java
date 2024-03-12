@@ -41,6 +41,9 @@ public class AddressObjectForDescribeDBInstancesOutput {
   @SerializedName("IPAddress")
   private String ipAddress = null;
 
+  @SerializedName("InternetProtocol")
+  private String internetProtocol = null;
+
   @SerializedName("NetworkType")
   private String networkType = null;
 
@@ -122,6 +125,24 @@ public class AddressObjectForDescribeDBInstancesOutput {
     this.ipAddress = ipAddress;
   }
 
+  public AddressObjectForDescribeDBInstancesOutput internetProtocol(String internetProtocol) {
+    this.internetProtocol = internetProtocol;
+    return this;
+  }
+
+   /**
+   * Get internetProtocol
+   * @return internetProtocol
+  **/
+  @Schema(description = "")
+  public String getInternetProtocol() {
+    return internetProtocol;
+  }
+
+  public void setInternetProtocol(String internetProtocol) {
+    this.internetProtocol = internetProtocol;
+  }
+
   public AddressObjectForDescribeDBInstancesOutput networkType(String networkType) {
     this.networkType = networkType;
     return this;
@@ -190,6 +211,7 @@ public class AddressObjectForDescribeDBInstancesOutput {
         Objects.equals(this.domain, addressObjectForDescribeDBInstancesOutput.domain) &&
         Objects.equals(this.eipId, addressObjectForDescribeDBInstancesOutput.eipId) &&
         Objects.equals(this.ipAddress, addressObjectForDescribeDBInstancesOutput.ipAddress) &&
+        Objects.equals(this.internetProtocol, addressObjectForDescribeDBInstancesOutput.internetProtocol) &&
         Objects.equals(this.networkType, addressObjectForDescribeDBInstancesOutput.networkType) &&
         Objects.equals(this.port, addressObjectForDescribeDBInstancesOutput.port) &&
         Objects.equals(this.subnetId, addressObjectForDescribeDBInstancesOutput.subnetId);
@@ -197,7 +219,7 @@ public class AddressObjectForDescribeDBInstancesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dnSVisibility, domain, eipId, ipAddress, networkType, port, subnetId);
+    return Objects.hash(dnSVisibility, domain, eipId, ipAddress, internetProtocol, networkType, port, subnetId);
   }
 
 
@@ -210,6 +232,7 @@ public class AddressObjectForDescribeDBInstancesOutput {
     sb.append("    domain: ").append(toIndentedString(domain)).append("\n");
     sb.append("    eipId: ").append(toIndentedString(eipId)).append("\n");
     sb.append("    ipAddress: ").append(toIndentedString(ipAddress)).append("\n");
+    sb.append("    internetProtocol: ").append(toIndentedString(internetProtocol)).append("\n");
     sb.append("    networkType: ").append(toIndentedString(networkType)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");

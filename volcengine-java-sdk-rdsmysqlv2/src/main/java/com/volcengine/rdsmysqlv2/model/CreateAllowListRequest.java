@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -41,6 +43,9 @@ public class CreateAllowListRequest {
   @SerializedName("AllowListType")
   private String allowListType = null;
 
+  @SerializedName("SecurityGroupIds")
+  private List<String> securityGroupIds = null;
+
   public CreateAllowListRequest allowList(String allowList) {
     this.allowList = allowList;
     return this;
@@ -50,8 +55,7 @@ public class CreateAllowListRequest {
    * Get allowList
    * @return allowList
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getAllowList() {
     return allowList;
   }
@@ -115,6 +119,32 @@ public class CreateAllowListRequest {
     this.allowListType = allowListType;
   }
 
+  public CreateAllowListRequest securityGroupIds(List<String> securityGroupIds) {
+    this.securityGroupIds = securityGroupIds;
+    return this;
+  }
+
+  public CreateAllowListRequest addSecurityGroupIdsItem(String securityGroupIdsItem) {
+    if (this.securityGroupIds == null) {
+      this.securityGroupIds = new ArrayList<String>();
+    }
+    this.securityGroupIds.add(securityGroupIdsItem);
+    return this;
+  }
+
+   /**
+   * Get securityGroupIds
+   * @return securityGroupIds
+  **/
+  @Schema(description = "")
+  public List<String> getSecurityGroupIds() {
+    return securityGroupIds;
+  }
+
+  public void setSecurityGroupIds(List<String> securityGroupIds) {
+    this.securityGroupIds = securityGroupIds;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -128,12 +158,13 @@ public class CreateAllowListRequest {
     return Objects.equals(this.allowList, createAllowListRequest.allowList) &&
         Objects.equals(this.allowListDesc, createAllowListRequest.allowListDesc) &&
         Objects.equals(this.allowListName, createAllowListRequest.allowListName) &&
-        Objects.equals(this.allowListType, createAllowListRequest.allowListType);
+        Objects.equals(this.allowListType, createAllowListRequest.allowListType) &&
+        Objects.equals(this.securityGroupIds, createAllowListRequest.securityGroupIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowList, allowListDesc, allowListName, allowListType);
+    return Objects.hash(allowList, allowListDesc, allowListName, allowListType, securityGroupIds);
   }
 
 
@@ -146,6 +177,7 @@ public class CreateAllowListRequest {
     sb.append("    allowListDesc: ").append(toIndentedString(allowListDesc)).append("\n");
     sb.append("    allowListName: ").append(toIndentedString(allowListName)).append("\n");
     sb.append("    allowListType: ").append(toIndentedString(allowListType)).append("\n");
+    sb.append("    securityGroupIds: ").append(toIndentedString(securityGroupIds)).append("\n");
     sb.append("}");
     return sb.toString();
   }

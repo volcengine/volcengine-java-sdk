@@ -35,6 +35,9 @@ public class ModifyDBAccountDescriptionRequest {
   @SerializedName("AccountName")
   private String accountName = null;
 
+  @SerializedName("Host")
+  private String host = null;
+
   @SerializedName("InstanceId")
   private String instanceId = null;
 
@@ -66,13 +69,31 @@ public class ModifyDBAccountDescriptionRequest {
    * @return accountName
   **/
   @NotNull
- @Size(min=2,max=32)  @Schema(required = true, description = "")
+  @Schema(required = true, description = "")
   public String getAccountName() {
     return accountName;
   }
 
   public void setAccountName(String accountName) {
     this.accountName = accountName;
+  }
+
+  public ModifyDBAccountDescriptionRequest host(String host) {
+    this.host = host;
+    return this;
+  }
+
+   /**
+   * Get host
+   * @return host
+  **/
+  @Schema(description = "")
+  public String getHost() {
+    return host;
+  }
+
+  public void setHost(String host) {
+    this.host = host;
   }
 
   public ModifyDBAccountDescriptionRequest instanceId(String instanceId) {
@@ -106,12 +127,13 @@ public class ModifyDBAccountDescriptionRequest {
     ModifyDBAccountDescriptionRequest modifyDBAccountDescriptionRequest = (ModifyDBAccountDescriptionRequest) o;
     return Objects.equals(this.accountDesc, modifyDBAccountDescriptionRequest.accountDesc) &&
         Objects.equals(this.accountName, modifyDBAccountDescriptionRequest.accountName) &&
+        Objects.equals(this.host, modifyDBAccountDescriptionRequest.host) &&
         Objects.equals(this.instanceId, modifyDBAccountDescriptionRequest.instanceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountDesc, accountName, instanceId);
+    return Objects.hash(accountDesc, accountName, host, instanceId);
   }
 
 
@@ -122,6 +144,7 @@ public class ModifyDBAccountDescriptionRequest {
     
     sb.append("    accountDesc: ").append(toIndentedString(accountDesc)).append("\n");
     sb.append("    accountName: ").append(toIndentedString(accountName)).append("\n");
+    sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("}");
     return sb.toString();

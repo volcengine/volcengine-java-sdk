@@ -55,8 +55,14 @@ public class DescribeBackupPolicyResponse extends com.volcengine.model.AbstractR
   @SerializedName("DataFullBackupTime")
   private String dataFullBackupTime = null;
 
+  @SerializedName("DataIncrBackupPeriods")
+  private List<String> dataIncrBackupPeriods = null;
+
   @SerializedName("InstanceId")
   private String instanceId = null;
+
+  @SerializedName("LockDdlTime")
+  private Integer lockDdlTime = null;
 
   @SerializedName("LogBackupRetentionDay")
   private Integer logBackupRetentionDay = null;
@@ -213,6 +219,32 @@ public class DescribeBackupPolicyResponse extends com.volcengine.model.AbstractR
     this.dataFullBackupTime = dataFullBackupTime;
   }
 
+  public DescribeBackupPolicyResponse dataIncrBackupPeriods(List<String> dataIncrBackupPeriods) {
+    this.dataIncrBackupPeriods = dataIncrBackupPeriods;
+    return this;
+  }
+
+  public DescribeBackupPolicyResponse addDataIncrBackupPeriodsItem(String dataIncrBackupPeriodsItem) {
+    if (this.dataIncrBackupPeriods == null) {
+      this.dataIncrBackupPeriods = new ArrayList<String>();
+    }
+    this.dataIncrBackupPeriods.add(dataIncrBackupPeriodsItem);
+    return this;
+  }
+
+   /**
+   * Get dataIncrBackupPeriods
+   * @return dataIncrBackupPeriods
+  **/
+  @Schema(description = "")
+  public List<String> getDataIncrBackupPeriods() {
+    return dataIncrBackupPeriods;
+  }
+
+  public void setDataIncrBackupPeriods(List<String> dataIncrBackupPeriods) {
+    this.dataIncrBackupPeriods = dataIncrBackupPeriods;
+  }
+
   public DescribeBackupPolicyResponse instanceId(String instanceId) {
     this.instanceId = instanceId;
     return this;
@@ -229,6 +261,24 @@ public class DescribeBackupPolicyResponse extends com.volcengine.model.AbstractR
 
   public void setInstanceId(String instanceId) {
     this.instanceId = instanceId;
+  }
+
+  public DescribeBackupPolicyResponse lockDdlTime(Integer lockDdlTime) {
+    this.lockDdlTime = lockDdlTime;
+    return this;
+  }
+
+   /**
+   * Get lockDdlTime
+   * @return lockDdlTime
+  **/
+  @Schema(description = "")
+  public Integer getLockDdlTime() {
+    return lockDdlTime;
+  }
+
+  public void setLockDdlTime(Integer lockDdlTime) {
+    this.lockDdlTime = lockDdlTime;
   }
 
   public DescribeBackupPolicyResponse logBackupRetentionDay(Integer logBackupRetentionDay) {
@@ -267,13 +317,15 @@ public class DescribeBackupPolicyResponse extends com.volcengine.model.AbstractR
         Objects.equals(this.dataBackupRetentionDay, describeBackupPolicyResponse.dataBackupRetentionDay) &&
         Objects.equals(this.dataFullBackupPeriods, describeBackupPolicyResponse.dataFullBackupPeriods) &&
         Objects.equals(this.dataFullBackupTime, describeBackupPolicyResponse.dataFullBackupTime) &&
+        Objects.equals(this.dataIncrBackupPeriods, describeBackupPolicyResponse.dataIncrBackupPeriods) &&
         Objects.equals(this.instanceId, describeBackupPolicyResponse.instanceId) &&
+        Objects.equals(this.lockDdlTime, describeBackupPolicyResponse.lockDdlTime) &&
         Objects.equals(this.logBackupRetentionDay, describeBackupPolicyResponse.logBackupRetentionDay);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(binlogFileCountsEnable, binlogLimitCount, binlogLocalRetentionHour, binlogSpaceLimitEnable, binlogStoragePercentage, dataBackupRetentionDay, dataFullBackupPeriods, dataFullBackupTime, instanceId, logBackupRetentionDay);
+    return Objects.hash(binlogFileCountsEnable, binlogLimitCount, binlogLocalRetentionHour, binlogSpaceLimitEnable, binlogStoragePercentage, dataBackupRetentionDay, dataFullBackupPeriods, dataFullBackupTime, dataIncrBackupPeriods, instanceId, lockDdlTime, logBackupRetentionDay);
   }
 
 
@@ -290,7 +342,9 @@ public class DescribeBackupPolicyResponse extends com.volcengine.model.AbstractR
     sb.append("    dataBackupRetentionDay: ").append(toIndentedString(dataBackupRetentionDay)).append("\n");
     sb.append("    dataFullBackupPeriods: ").append(toIndentedString(dataFullBackupPeriods)).append("\n");
     sb.append("    dataFullBackupTime: ").append(toIndentedString(dataFullBackupTime)).append("\n");
+    sb.append("    dataIncrBackupPeriods: ").append(toIndentedString(dataIncrBackupPeriods)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    lockDdlTime: ").append(toIndentedString(lockDdlTime)).append("\n");
     sb.append("    logBackupRetentionDay: ").append(toIndentedString(logBackupRetentionDay)).append("\n");
     sb.append("}");
     return sb.toString();

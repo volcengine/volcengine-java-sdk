@@ -39,13 +39,16 @@ public class BackupForDescribeBackupsOutput {
   private String backupFileName = null;
 
   @SerializedName("BackupFileSize")
-  private Long backupFileSize = null;
+  private Integer backupFileSize = null;
 
   @SerializedName("BackupId")
   private String backupId = null;
 
   @SerializedName("BackupMethod")
   private String backupMethod = null;
+
+  @SerializedName("BackupRegion")
+  private String backupRegion = null;
 
   @SerializedName("BackupStartTime")
   private String backupStartTime = null;
@@ -64,6 +67,18 @@ public class BackupForDescribeBackupsOutput {
 
   @SerializedName("DBTableInfos")
   private List<DBTableInfoForDescribeBackupsOutput> dbTableInfos = null;
+
+  @SerializedName("DownloadStatus")
+  private String downloadStatus = null;
+
+  @SerializedName("ErrorMessage")
+  private String errorMessage = null;
+
+  @SerializedName("ExpiredTime")
+  private String expiredTime = null;
+
+  @SerializedName("IsExpired")
+  private Boolean isExpired = null;
 
   public BackupForDescribeBackupsOutput backupEndTime(String backupEndTime) {
     this.backupEndTime = backupEndTime;
@@ -101,7 +116,7 @@ public class BackupForDescribeBackupsOutput {
     this.backupFileName = backupFileName;
   }
 
-  public BackupForDescribeBackupsOutput backupFileSize(Long backupFileSize) {
+  public BackupForDescribeBackupsOutput backupFileSize(Integer backupFileSize) {
     this.backupFileSize = backupFileSize;
     return this;
   }
@@ -111,11 +126,11 @@ public class BackupForDescribeBackupsOutput {
    * @return backupFileSize
   **/
   @Schema(description = "")
-  public Long getBackupFileSize() {
+  public Integer getBackupFileSize() {
     return backupFileSize;
   }
 
-  public void setBackupFileSize(Long backupFileSize) {
+  public void setBackupFileSize(Integer backupFileSize) {
     this.backupFileSize = backupFileSize;
   }
 
@@ -153,6 +168,24 @@ public class BackupForDescribeBackupsOutput {
 
   public void setBackupMethod(String backupMethod) {
     this.backupMethod = backupMethod;
+  }
+
+  public BackupForDescribeBackupsOutput backupRegion(String backupRegion) {
+    this.backupRegion = backupRegion;
+    return this;
+  }
+
+   /**
+   * Get backupRegion
+   * @return backupRegion
+  **/
+  @Schema(description = "")
+  public String getBackupRegion() {
+    return backupRegion;
+  }
+
+  public void setBackupRegion(String backupRegion) {
+    this.backupRegion = backupRegion;
   }
 
   public BackupForDescribeBackupsOutput backupStartTime(String backupStartTime) {
@@ -272,6 +305,78 @@ public class BackupForDescribeBackupsOutput {
     this.dbTableInfos = dbTableInfos;
   }
 
+  public BackupForDescribeBackupsOutput downloadStatus(String downloadStatus) {
+    this.downloadStatus = downloadStatus;
+    return this;
+  }
+
+   /**
+   * Get downloadStatus
+   * @return downloadStatus
+  **/
+  @Schema(description = "")
+  public String getDownloadStatus() {
+    return downloadStatus;
+  }
+
+  public void setDownloadStatus(String downloadStatus) {
+    this.downloadStatus = downloadStatus;
+  }
+
+  public BackupForDescribeBackupsOutput errorMessage(String errorMessage) {
+    this.errorMessage = errorMessage;
+    return this;
+  }
+
+   /**
+   * Get errorMessage
+   * @return errorMessage
+  **/
+  @Schema(description = "")
+  public String getErrorMessage() {
+    return errorMessage;
+  }
+
+  public void setErrorMessage(String errorMessage) {
+    this.errorMessage = errorMessage;
+  }
+
+  public BackupForDescribeBackupsOutput expiredTime(String expiredTime) {
+    this.expiredTime = expiredTime;
+    return this;
+  }
+
+   /**
+   * Get expiredTime
+   * @return expiredTime
+  **/
+  @Schema(description = "")
+  public String getExpiredTime() {
+    return expiredTime;
+  }
+
+  public void setExpiredTime(String expiredTime) {
+    this.expiredTime = expiredTime;
+  }
+
+  public BackupForDescribeBackupsOutput isExpired(Boolean isExpired) {
+    this.isExpired = isExpired;
+    return this;
+  }
+
+   /**
+   * Get isExpired
+   * @return isExpired
+  **/
+  @Schema(description = "")
+  public Boolean isIsExpired() {
+    return isExpired;
+  }
+
+  public void setIsExpired(Boolean isExpired) {
+    this.isExpired = isExpired;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -287,17 +392,22 @@ public class BackupForDescribeBackupsOutput {
         Objects.equals(this.backupFileSize, backupForDescribeBackupsOutput.backupFileSize) &&
         Objects.equals(this.backupId, backupForDescribeBackupsOutput.backupId) &&
         Objects.equals(this.backupMethod, backupForDescribeBackupsOutput.backupMethod) &&
+        Objects.equals(this.backupRegion, backupForDescribeBackupsOutput.backupRegion) &&
         Objects.equals(this.backupStartTime, backupForDescribeBackupsOutput.backupStartTime) &&
         Objects.equals(this.backupStatus, backupForDescribeBackupsOutput.backupStatus) &&
         Objects.equals(this.backupType, backupForDescribeBackupsOutput.backupType) &&
         Objects.equals(this.consistentTime, backupForDescribeBackupsOutput.consistentTime) &&
         Objects.equals(this.createType, backupForDescribeBackupsOutput.createType) &&
-        Objects.equals(this.dbTableInfos, backupForDescribeBackupsOutput.dbTableInfos);
+        Objects.equals(this.dbTableInfos, backupForDescribeBackupsOutput.dbTableInfos) &&
+        Objects.equals(this.downloadStatus, backupForDescribeBackupsOutput.downloadStatus) &&
+        Objects.equals(this.errorMessage, backupForDescribeBackupsOutput.errorMessage) &&
+        Objects.equals(this.expiredTime, backupForDescribeBackupsOutput.expiredTime) &&
+        Objects.equals(this.isExpired, backupForDescribeBackupsOutput.isExpired);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(backupEndTime, backupFileName, backupFileSize, backupId, backupMethod, backupStartTime, backupStatus, backupType, consistentTime, createType, dbTableInfos);
+    return Objects.hash(backupEndTime, backupFileName, backupFileSize, backupId, backupMethod, backupRegion, backupStartTime, backupStatus, backupType, consistentTime, createType, dbTableInfos, downloadStatus, errorMessage, expiredTime, isExpired);
   }
 
 
@@ -311,12 +421,17 @@ public class BackupForDescribeBackupsOutput {
     sb.append("    backupFileSize: ").append(toIndentedString(backupFileSize)).append("\n");
     sb.append("    backupId: ").append(toIndentedString(backupId)).append("\n");
     sb.append("    backupMethod: ").append(toIndentedString(backupMethod)).append("\n");
+    sb.append("    backupRegion: ").append(toIndentedString(backupRegion)).append("\n");
     sb.append("    backupStartTime: ").append(toIndentedString(backupStartTime)).append("\n");
     sb.append("    backupStatus: ").append(toIndentedString(backupStatus)).append("\n");
     sb.append("    backupType: ").append(toIndentedString(backupType)).append("\n");
     sb.append("    consistentTime: ").append(toIndentedString(consistentTime)).append("\n");
     sb.append("    createType: ").append(toIndentedString(createType)).append("\n");
     sb.append("    dbTableInfos: ").append(toIndentedString(dbTableInfos)).append("\n");
+    sb.append("    downloadStatus: ").append(toIndentedString(downloadStatus)).append("\n");
+    sb.append("    errorMessage: ").append(toIndentedString(errorMessage)).append("\n");
+    sb.append("    expiredTime: ").append(toIndentedString(expiredTime)).append("\n");
+    sb.append("    isExpired: ").append(toIndentedString(isExpired)).append("\n");
     sb.append("}");
     return sb.toString();
   }
