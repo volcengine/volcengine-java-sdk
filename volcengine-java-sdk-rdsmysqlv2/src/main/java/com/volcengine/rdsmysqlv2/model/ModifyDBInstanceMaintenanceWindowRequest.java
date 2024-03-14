@@ -115,7 +115,8 @@ public class ModifyDBInstanceMaintenanceWindowRequest {
    * Get maintenanceTime
    * @return maintenanceTime
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getMaintenanceTime() {
     return maintenanceTime;
   }

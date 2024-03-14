@@ -67,7 +67,7 @@ public class RevokeDatabasePrivilegeRequest {
    * @return dbName
   **/
   @NotNull
- @Size(min=2,max=64)  @Schema(required = true, description = "")
+  @Schema(required = true, description = "")
   public String getDbName() {
     return dbName;
   }

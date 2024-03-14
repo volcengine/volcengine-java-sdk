@@ -50,14 +50,14 @@ public class DescribeDBInstancesRequest {
   @SerializedName("InstanceStatus")
   private String instanceStatus = null;
 
-  @SerializedName("InstanceType")
-  private String instanceType = null;
-
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
 
   @SerializedName("PageSize")
   private Integer pageSize = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
 
   @SerializedName("ZoneId")
   private String zoneId = null;
@@ -188,24 +188,6 @@ public class DescribeDBInstancesRequest {
     this.instanceStatus = instanceStatus;
   }
 
-  public DescribeDBInstancesRequest instanceType(String instanceType) {
-    this.instanceType = instanceType;
-    return this;
-  }
-
-   /**
-   * Get instanceType
-   * @return instanceType
-  **/
-  @Schema(description = "")
-  public String getInstanceType() {
-    return instanceType;
-  }
-
-  public void setInstanceType(String instanceType) {
-    this.instanceType = instanceType;
-  }
-
   public DescribeDBInstancesRequest pageNumber(Integer pageNumber) {
     this.pageNumber = pageNumber;
     return this;
@@ -240,6 +222,24 @@ public class DescribeDBInstancesRequest {
 
   public void setPageSize(Integer pageSize) {
     this.pageSize = pageSize;
+  }
+
+  public DescribeDBInstancesRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
   }
 
   public DescribeDBInstancesRequest zoneId(String zoneId) {
@@ -277,15 +277,15 @@ public class DescribeDBInstancesRequest {
         Objects.equals(this.instanceId, describeDBInstancesRequest.instanceId) &&
         Objects.equals(this.instanceName, describeDBInstancesRequest.instanceName) &&
         Objects.equals(this.instanceStatus, describeDBInstancesRequest.instanceStatus) &&
-        Objects.equals(this.instanceType, describeDBInstancesRequest.instanceType) &&
         Objects.equals(this.pageNumber, describeDBInstancesRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeDBInstancesRequest.pageSize) &&
+        Objects.equals(this.projectName, describeDBInstancesRequest.projectName) &&
         Objects.equals(this.zoneId, describeDBInstancesRequest.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(chargeType, createTimeEnd, createTimeStart, dbEngineVersion, instanceId, instanceName, instanceStatus, instanceType, pageNumber, pageSize, zoneId);
+    return Objects.hash(chargeType, createTimeEnd, createTimeStart, dbEngineVersion, instanceId, instanceName, instanceStatus, pageNumber, pageSize, projectName, zoneId);
   }
 
 
@@ -301,9 +301,9 @@ public class DescribeDBInstancesRequest {
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    instanceStatus: ").append(toIndentedString(instanceStatus)).append("\n");
-    sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");
     return sb.toString();

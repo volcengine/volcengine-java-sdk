@@ -42,7 +42,7 @@ public class BinlogFileForDescribeBinlogFilesOutput {
   private String fileName = null;
 
   @SerializedName("FileSize")
-  private Long fileSize = null;
+  private Integer fileSize = null;
 
   @SerializedName("UpdateTime")
   private String updateTime = null;
@@ -119,7 +119,7 @@ public class BinlogFileForDescribeBinlogFilesOutput {
     this.fileName = fileName;
   }
 
-  public BinlogFileForDescribeBinlogFilesOutput fileSize(Long fileSize) {
+  public BinlogFileForDescribeBinlogFilesOutput fileSize(Integer fileSize) {
     this.fileSize = fileSize;
     return this;
   }
@@ -129,11 +129,11 @@ public class BinlogFileForDescribeBinlogFilesOutput {
    * @return fileSize
   **/
   @Schema(description = "")
-  public Long getFileSize() {
+  public Integer getFileSize() {
     return fileSize;
   }
 
-  public void setFileSize(Long fileSize) {
+  public void setFileSize(Integer fileSize) {
     this.fileSize = fileSize;
   }
 

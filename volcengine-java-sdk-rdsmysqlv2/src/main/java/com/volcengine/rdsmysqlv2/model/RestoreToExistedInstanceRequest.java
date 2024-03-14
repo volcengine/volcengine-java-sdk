@@ -44,9 +44,6 @@ public class RestoreToExistedInstanceRequest {
   @SerializedName("SourceDBInstanceId")
   private String sourceDBInstanceId = null;
 
-  @SerializedName("TableLevelMode")
-  private String tableLevelMode = null;
-
   @SerializedName("TableMeta")
   private List<TableMetaForRestoreToExistedInstanceInput> tableMeta = null;
 
@@ -113,31 +110,14 @@ public class RestoreToExistedInstanceRequest {
    * Get sourceDBInstanceId
    * @return sourceDBInstanceId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getSourceDBInstanceId() {
     return sourceDBInstanceId;
   }
 
   public void setSourceDBInstanceId(String sourceDBInstanceId) {
     this.sourceDBInstanceId = sourceDBInstanceId;
-  }
-
-  public RestoreToExistedInstanceRequest tableLevelMode(String tableLevelMode) {
-    this.tableLevelMode = tableLevelMode;
-    return this;
-  }
-
-   /**
-   * Get tableLevelMode
-   * @return tableLevelMode
-  **/
-  @Schema(description = "")
-  public String getTableLevelMode() {
-    return tableLevelMode;
-  }
-
-  public void setTableLevelMode(String tableLevelMode) {
-    this.tableLevelMode = tableLevelMode;
   }
 
   public RestoreToExistedInstanceRequest tableMeta(List<TableMetaForRestoreToExistedInstanceInput> tableMeta) {
@@ -181,13 +161,12 @@ public class RestoreToExistedInstanceRequest {
         Objects.equals(this.restoreTime, restoreToExistedInstanceRequest.restoreTime) &&
         Objects.equals(this.restoreType, restoreToExistedInstanceRequest.restoreType) &&
         Objects.equals(this.sourceDBInstanceId, restoreToExistedInstanceRequest.sourceDBInstanceId) &&
-        Objects.equals(this.tableLevelMode, restoreToExistedInstanceRequest.tableLevelMode) &&
         Objects.equals(this.tableMeta, restoreToExistedInstanceRequest.tableMeta);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(backupId, restoreTime, restoreType, sourceDBInstanceId, tableLevelMode, tableMeta);
+    return Objects.hash(backupId, restoreTime, restoreType, sourceDBInstanceId, tableMeta);
   }
 
 
@@ -200,7 +179,6 @@ public class RestoreToExistedInstanceRequest {
     sb.append("    restoreTime: ").append(toIndentedString(restoreTime)).append("\n");
     sb.append("    restoreType: ").append(toIndentedString(restoreType)).append("\n");
     sb.append("    sourceDBInstanceId: ").append(toIndentedString(sourceDBInstanceId)).append("\n");
-    sb.append("    tableLevelMode: ").append(toIndentedString(tableLevelMode)).append("\n");
     sb.append("    tableMeta: ").append(toIndentedString(tableMeta)).append("\n");
     sb.append("}");
     return sb.toString();

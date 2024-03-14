@@ -66,7 +66,7 @@ public class SaveAsParameterTemplateRequest {
    * Get templateDesc
    * @return templateDesc
   **/
- @Size(max=200)  @Schema(description = "")
+  @Schema(description = "")
   public String getTemplateDesc() {
     return templateDesc;
   }
@@ -84,7 +84,8 @@ public class SaveAsParameterTemplateRequest {
    * Get templateName
    * @return templateName
   **/
- @Size(min=2,max=64)  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getTemplateName() {
     return templateName;
   }

@@ -47,9 +47,6 @@ public class DescribeBackupsRequest {
   @SerializedName("BackupType")
   private String backupType = null;
 
-  @SerializedName("CreateType")
-  private String createType = null;
-
   @SerializedName("InstanceId")
   private String instanceId = null;
 
@@ -167,24 +164,6 @@ public class DescribeBackupsRequest {
     this.backupType = backupType;
   }
 
-  public DescribeBackupsRequest createType(String createType) {
-    this.createType = createType;
-    return this;
-  }
-
-   /**
-   * Get createType
-   * @return createType
-  **/
-  @Schema(description = "")
-  public String getCreateType() {
-    return createType;
-  }
-
-  public void setCreateType(String createType) {
-    this.createType = createType;
-  }
-
   public DescribeBackupsRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
     return this;
@@ -256,7 +235,6 @@ public class DescribeBackupsRequest {
         Objects.equals(this.backupStartTime, describeBackupsRequest.backupStartTime) &&
         Objects.equals(this.backupStatus, describeBackupsRequest.backupStatus) &&
         Objects.equals(this.backupType, describeBackupsRequest.backupType) &&
-        Objects.equals(this.createType, describeBackupsRequest.createType) &&
         Objects.equals(this.instanceId, describeBackupsRequest.instanceId) &&
         Objects.equals(this.pageNumber, describeBackupsRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeBackupsRequest.pageSize);
@@ -264,7 +242,7 @@ public class DescribeBackupsRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(backupEndTime, backupId, backupMethod, backupStartTime, backupStatus, backupType, createType, instanceId, pageNumber, pageSize);
+    return Objects.hash(backupEndTime, backupId, backupMethod, backupStartTime, backupStatus, backupType, instanceId, pageNumber, pageSize);
   }
 
 
@@ -279,7 +257,6 @@ public class DescribeBackupsRequest {
     sb.append("    backupStartTime: ").append(toIndentedString(backupStartTime)).append("\n");
     sb.append("    backupStatus: ").append(toIndentedString(backupStatus)).append("\n");
     sb.append("    backupType: ").append(toIndentedString(backupType)).append("\n");
-    sb.append("    createType: ").append(toIndentedString(createType)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");

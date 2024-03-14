@@ -29,9 +29,6 @@ import javax.validation.Valid;
 
 
 public class CreateDBEndpointPublicAddressRequest {
-  @SerializedName("DomainPrefix")
-  private String domainPrefix = null;
-
   @SerializedName("EipId")
   private String eipId = null;
 
@@ -40,24 +37,6 @@ public class CreateDBEndpointPublicAddressRequest {
 
   @SerializedName("InstanceId")
   private String instanceId = null;
-
-  public CreateDBEndpointPublicAddressRequest domainPrefix(String domainPrefix) {
-    this.domainPrefix = domainPrefix;
-    return this;
-  }
-
-   /**
-   * Get domainPrefix
-   * @return domainPrefix
-  **/
-  @Schema(description = "")
-  public String getDomainPrefix() {
-    return domainPrefix;
-  }
-
-  public void setDomainPrefix(String domainPrefix) {
-    this.domainPrefix = domainPrefix;
-  }
 
   public CreateDBEndpointPublicAddressRequest eipId(String eipId) {
     this.eipId = eipId;
@@ -126,15 +105,14 @@ public class CreateDBEndpointPublicAddressRequest {
       return false;
     }
     CreateDBEndpointPublicAddressRequest createDBEndpointPublicAddressRequest = (CreateDBEndpointPublicAddressRequest) o;
-    return Objects.equals(this.domainPrefix, createDBEndpointPublicAddressRequest.domainPrefix) &&
-        Objects.equals(this.eipId, createDBEndpointPublicAddressRequest.eipId) &&
+    return Objects.equals(this.eipId, createDBEndpointPublicAddressRequest.eipId) &&
         Objects.equals(this.endpointId, createDBEndpointPublicAddressRequest.endpointId) &&
         Objects.equals(this.instanceId, createDBEndpointPublicAddressRequest.instanceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(domainPrefix, eipId, endpointId, instanceId);
+    return Objects.hash(eipId, endpointId, instanceId);
   }
 
 
@@ -143,7 +121,6 @@ public class CreateDBEndpointPublicAddressRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateDBEndpointPublicAddressRequest {\n");
     
-    sb.append("    domainPrefix: ").append(toIndentedString(domainPrefix)).append("\n");
     sb.append("    eipId: ").append(toIndentedString(eipId)).append("\n");
     sb.append("    endpointId: ").append(toIndentedString(endpointId)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");

@@ -22,7 +22,6 @@ import com.google.gson.stream.JsonWriter;
 import com.volcengine.rdsmysqlv2.model.ChargeInfoForRestoreToNewInstanceInput;
 import com.volcengine.rdsmysqlv2.model.InstanceTagForRestoreToNewInstanceInput;
 import com.volcengine.rdsmysqlv2.model.NodeInfoForRestoreToNewInstanceInput;
-import com.volcengine.rdsmysqlv2.model.TableMetaForRestoreToNewInstanceInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -56,20 +55,11 @@ public class RestoreToNewInstanceRequest {
   @SerializedName("NodeInfo")
   private List<NodeInfoForRestoreToNewInstanceInput> nodeInfo = null;
 
-  @SerializedName("NodeNumber")
-  private Integer nodeNumber = null;
-
-  @SerializedName("NodeSpec")
-  private String nodeSpec = null;
-
   @SerializedName("ProjectName")
   private String projectName = null;
 
   @SerializedName("RestoreTime")
   private String restoreTime = null;
-
-  @SerializedName("ShardNumber")
-  private Integer shardNumber = null;
 
   @SerializedName("SrcInstanceId")
   private String srcInstanceId = null;
@@ -83,17 +73,8 @@ public class RestoreToNewInstanceRequest {
   @SerializedName("SubnetId")
   private String subnetId = null;
 
-  @SerializedName("SuperAccountPassword")
-  private String superAccountPassword = null;
-
-  @SerializedName("TableMeta")
-  private List<TableMetaForRestoreToNewInstanceInput> tableMeta = null;
-
   @SerializedName("VpcId")
   private String vpcId = null;
-
-  @SerializedName("ZoneId")
-  private String zoneId = null;
 
   public RestoreToNewInstanceRequest allowListIds(List<String> allowListIds) {
     this.allowListIds = allowListIds;
@@ -248,42 +229,6 @@ public class RestoreToNewInstanceRequest {
     this.nodeInfo = nodeInfo;
   }
 
-  public RestoreToNewInstanceRequest nodeNumber(Integer nodeNumber) {
-    this.nodeNumber = nodeNumber;
-    return this;
-  }
-
-   /**
-   * Get nodeNumber
-   * @return nodeNumber
-  **/
-  @Schema(description = "")
-  public Integer getNodeNumber() {
-    return nodeNumber;
-  }
-
-  public void setNodeNumber(Integer nodeNumber) {
-    this.nodeNumber = nodeNumber;
-  }
-
-  public RestoreToNewInstanceRequest nodeSpec(String nodeSpec) {
-    this.nodeSpec = nodeSpec;
-    return this;
-  }
-
-   /**
-   * Get nodeSpec
-   * @return nodeSpec
-  **/
-  @Schema(description = "")
-  public String getNodeSpec() {
-    return nodeSpec;
-  }
-
-  public void setNodeSpec(String nodeSpec) {
-    this.nodeSpec = nodeSpec;
-  }
-
   public RestoreToNewInstanceRequest projectName(String projectName) {
     this.projectName = projectName;
     return this;
@@ -320,24 +265,6 @@ public class RestoreToNewInstanceRequest {
     this.restoreTime = restoreTime;
   }
 
-  public RestoreToNewInstanceRequest shardNumber(Integer shardNumber) {
-    this.shardNumber = shardNumber;
-    return this;
-  }
-
-   /**
-   * Get shardNumber
-   * @return shardNumber
-  **/
-  @Schema(description = "")
-  public Integer getShardNumber() {
-    return shardNumber;
-  }
-
-  public void setShardNumber(Integer shardNumber) {
-    this.shardNumber = shardNumber;
-  }
-
   public RestoreToNewInstanceRequest srcInstanceId(String srcInstanceId) {
     this.srcInstanceId = srcInstanceId;
     return this;
@@ -347,7 +274,8 @@ public class RestoreToNewInstanceRequest {
    * Get srcInstanceId
    * @return srcInstanceId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getSrcInstanceId() {
     return srcInstanceId;
   }
@@ -383,7 +311,8 @@ public class RestoreToNewInstanceRequest {
    * Get storageType
    * @return storageType
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getStorageType() {
     return storageType;
   }
@@ -401,58 +330,14 @@ public class RestoreToNewInstanceRequest {
    * Get subnetId
    * @return subnetId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getSubnetId() {
     return subnetId;
   }
 
   public void setSubnetId(String subnetId) {
     this.subnetId = subnetId;
-  }
-
-  public RestoreToNewInstanceRequest superAccountPassword(String superAccountPassword) {
-    this.superAccountPassword = superAccountPassword;
-    return this;
-  }
-
-   /**
-   * Get superAccountPassword
-   * @return superAccountPassword
-  **/
-  @Schema(description = "")
-  public String getSuperAccountPassword() {
-    return superAccountPassword;
-  }
-
-  public void setSuperAccountPassword(String superAccountPassword) {
-    this.superAccountPassword = superAccountPassword;
-  }
-
-  public RestoreToNewInstanceRequest tableMeta(List<TableMetaForRestoreToNewInstanceInput> tableMeta) {
-    this.tableMeta = tableMeta;
-    return this;
-  }
-
-  public RestoreToNewInstanceRequest addTableMetaItem(TableMetaForRestoreToNewInstanceInput tableMetaItem) {
-    if (this.tableMeta == null) {
-      this.tableMeta = new ArrayList<TableMetaForRestoreToNewInstanceInput>();
-    }
-    this.tableMeta.add(tableMetaItem);
-    return this;
-  }
-
-   /**
-   * Get tableMeta
-   * @return tableMeta
-  **/
-  @Valid
-  @Schema(description = "")
-  public List<TableMetaForRestoreToNewInstanceInput> getTableMeta() {
-    return tableMeta;
-  }
-
-  public void setTableMeta(List<TableMetaForRestoreToNewInstanceInput> tableMeta) {
-    this.tableMeta = tableMeta;
   }
 
   public RestoreToNewInstanceRequest vpcId(String vpcId) {
@@ -464,31 +349,14 @@ public class RestoreToNewInstanceRequest {
    * Get vpcId
    * @return vpcId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getVpcId() {
     return vpcId;
   }
 
   public void setVpcId(String vpcId) {
     this.vpcId = vpcId;
-  }
-
-  public RestoreToNewInstanceRequest zoneId(String zoneId) {
-    this.zoneId = zoneId;
-    return this;
-  }
-
-   /**
-   * Get zoneId
-   * @return zoneId
-  **/
-  @Schema(description = "")
-  public String getZoneId() {
-    return zoneId;
-  }
-
-  public void setZoneId(String zoneId) {
-    this.zoneId = zoneId;
   }
 
 
@@ -508,24 +376,18 @@ public class RestoreToNewInstanceRequest {
         Objects.equals(this.instanceName, restoreToNewInstanceRequest.instanceName) &&
         Objects.equals(this.instanceTags, restoreToNewInstanceRequest.instanceTags) &&
         Objects.equals(this.nodeInfo, restoreToNewInstanceRequest.nodeInfo) &&
-        Objects.equals(this.nodeNumber, restoreToNewInstanceRequest.nodeNumber) &&
-        Objects.equals(this.nodeSpec, restoreToNewInstanceRequest.nodeSpec) &&
         Objects.equals(this.projectName, restoreToNewInstanceRequest.projectName) &&
         Objects.equals(this.restoreTime, restoreToNewInstanceRequest.restoreTime) &&
-        Objects.equals(this.shardNumber, restoreToNewInstanceRequest.shardNumber) &&
         Objects.equals(this.srcInstanceId, restoreToNewInstanceRequest.srcInstanceId) &&
         Objects.equals(this.storageSpace, restoreToNewInstanceRequest.storageSpace) &&
         Objects.equals(this.storageType, restoreToNewInstanceRequest.storageType) &&
         Objects.equals(this.subnetId, restoreToNewInstanceRequest.subnetId) &&
-        Objects.equals(this.superAccountPassword, restoreToNewInstanceRequest.superAccountPassword) &&
-        Objects.equals(this.tableMeta, restoreToNewInstanceRequest.tableMeta) &&
-        Objects.equals(this.vpcId, restoreToNewInstanceRequest.vpcId) &&
-        Objects.equals(this.zoneId, restoreToNewInstanceRequest.zoneId);
+        Objects.equals(this.vpcId, restoreToNewInstanceRequest.vpcId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowListIds, backupId, chargeInfo, dbParamGroupId, instanceName, instanceTags, nodeInfo, nodeNumber, nodeSpec, projectName, restoreTime, shardNumber, srcInstanceId, storageSpace, storageType, subnetId, superAccountPassword, tableMeta, vpcId, zoneId);
+    return Objects.hash(allowListIds, backupId, chargeInfo, dbParamGroupId, instanceName, instanceTags, nodeInfo, projectName, restoreTime, srcInstanceId, storageSpace, storageType, subnetId, vpcId);
   }
 
 
@@ -541,19 +403,13 @@ public class RestoreToNewInstanceRequest {
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    instanceTags: ").append(toIndentedString(instanceTags)).append("\n");
     sb.append("    nodeInfo: ").append(toIndentedString(nodeInfo)).append("\n");
-    sb.append("    nodeNumber: ").append(toIndentedString(nodeNumber)).append("\n");
-    sb.append("    nodeSpec: ").append(toIndentedString(nodeSpec)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    restoreTime: ").append(toIndentedString(restoreTime)).append("\n");
-    sb.append("    shardNumber: ").append(toIndentedString(shardNumber)).append("\n");
     sb.append("    srcInstanceId: ").append(toIndentedString(srcInstanceId)).append("\n");
     sb.append("    storageSpace: ").append(toIndentedString(storageSpace)).append("\n");
     sb.append("    storageType: ").append(toIndentedString(storageType)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
-    sb.append("    superAccountPassword: ").append(toIndentedString(superAccountPassword)).append("\n");
-    sb.append("    tableMeta: ").append(toIndentedString(tableMeta)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
-    sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

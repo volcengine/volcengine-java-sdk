@@ -45,7 +45,7 @@ public class GetBackupDownloadLinkResponse extends com.volcengine.model.Abstract
   private String backupType = null;
 
   @SerializedName("DownloadProgress")
-  private Long downloadProgress = null;
+  private Integer downloadProgress = null;
 
   @SerializedName("InstanceId")
   private String instanceId = null;
@@ -143,7 +143,7 @@ public class GetBackupDownloadLinkResponse extends com.volcengine.model.Abstract
     this.backupType = backupType;
   }
 
-  public GetBackupDownloadLinkResponse downloadProgress(Long downloadProgress) {
+  public GetBackupDownloadLinkResponse downloadProgress(Integer downloadProgress) {
     this.downloadProgress = downloadProgress;
     return this;
   }
@@ -153,11 +153,11 @@ public class GetBackupDownloadLinkResponse extends com.volcengine.model.Abstract
    * @return downloadProgress
   **/
   @Schema(description = "")
-  public Long getDownloadProgress() {
+  public Integer getDownloadProgress() {
     return downloadProgress;
   }
 
-  public void setDownloadProgress(Long downloadProgress) {
+  public void setDownloadProgress(Integer downloadProgress) {
     this.downloadProgress = downloadProgress;
   }
 

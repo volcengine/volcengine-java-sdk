@@ -41,9 +41,6 @@ public class ModifyDBInstanceSpecRequest {
   @SerializedName("NodeInfo")
   private List<NodeInfoForModifyDBInstanceSpecInput> nodeInfo = null;
 
-  @SerializedName("RollbackTime")
-  private String rollbackTime = null;
-
   @SerializedName("StorageSpace")
   private Integer storageSpace = null;
 
@@ -117,24 +114,6 @@ public class ModifyDBInstanceSpecRequest {
     this.nodeInfo = nodeInfo;
   }
 
-  public ModifyDBInstanceSpecRequest rollbackTime(String rollbackTime) {
-    this.rollbackTime = rollbackTime;
-    return this;
-  }
-
-   /**
-   * Get rollbackTime
-   * @return rollbackTime
-  **/
-  @Schema(description = "")
-  public String getRollbackTime() {
-    return rollbackTime;
-  }
-
-  public void setRollbackTime(String rollbackTime) {
-    this.rollbackTime = rollbackTime;
-  }
-
   public ModifyDBInstanceSpecRequest storageSpace(Integer storageSpace) {
     this.storageSpace = storageSpace;
     return this;
@@ -202,7 +181,6 @@ public class ModifyDBInstanceSpecRequest {
     return Objects.equals(this.instanceId, modifyDBInstanceSpecRequest.instanceId) &&
         Objects.equals(this.modifyType, modifyDBInstanceSpecRequest.modifyType) &&
         Objects.equals(this.nodeInfo, modifyDBInstanceSpecRequest.nodeInfo) &&
-        Objects.equals(this.rollbackTime, modifyDBInstanceSpecRequest.rollbackTime) &&
         Objects.equals(this.storageSpace, modifyDBInstanceSpecRequest.storageSpace) &&
         Objects.equals(this.storageType, modifyDBInstanceSpecRequest.storageType) &&
         Objects.equals(this.switchType, modifyDBInstanceSpecRequest.switchType);
@@ -210,7 +188,7 @@ public class ModifyDBInstanceSpecRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, modifyType, nodeInfo, rollbackTime, storageSpace, storageType, switchType);
+    return Objects.hash(instanceId, modifyType, nodeInfo, storageSpace, storageType, switchType);
   }
 
 
@@ -222,7 +200,6 @@ public class ModifyDBInstanceSpecRequest {
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    modifyType: ").append(toIndentedString(modifyType)).append("\n");
     sb.append("    nodeInfo: ").append(toIndentedString(nodeInfo)).append("\n");
-    sb.append("    rollbackTime: ").append(toIndentedString(rollbackTime)).append("\n");
     sb.append("    storageSpace: ").append(toIndentedString(storageSpace)).append("\n");
     sb.append("    storageType: ").append(toIndentedString(storageType)).append("\n");
     sb.append("    switchType: ").append(toIndentedString(switchType)).append("\n");

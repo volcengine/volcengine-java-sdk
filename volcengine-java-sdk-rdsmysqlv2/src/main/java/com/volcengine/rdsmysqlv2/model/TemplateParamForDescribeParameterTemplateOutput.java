@@ -29,32 +29,11 @@ import javax.validation.Valid;
 
 
 public class TemplateParamForDescribeParameterTemplateOutput {
-  @SerializedName("Description")
-  private String description = null;
-
   @SerializedName("Name")
   private String name = null;
 
   @SerializedName("RunningValue")
   private String runningValue = null;
-
-  public TemplateParamForDescribeParameterTemplateOutput description(String description) {
-    this.description = description;
-    return this;
-  }
-
-   /**
-   * Get description
-   * @return description
-  **/
-  @Schema(description = "")
-  public String getDescription() {
-    return description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
 
   public TemplateParamForDescribeParameterTemplateOutput name(String name) {
     this.name = name;
@@ -102,14 +81,13 @@ public class TemplateParamForDescribeParameterTemplateOutput {
       return false;
     }
     TemplateParamForDescribeParameterTemplateOutput templateParamForDescribeParameterTemplateOutput = (TemplateParamForDescribeParameterTemplateOutput) o;
-    return Objects.equals(this.description, templateParamForDescribeParameterTemplateOutput.description) &&
-        Objects.equals(this.name, templateParamForDescribeParameterTemplateOutput.name) &&
+    return Objects.equals(this.name, templateParamForDescribeParameterTemplateOutput.name) &&
         Objects.equals(this.runningValue, templateParamForDescribeParameterTemplateOutput.runningValue);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, name, runningValue);
+    return Objects.hash(name, runningValue);
   }
 
 
@@ -118,7 +96,6 @@ public class TemplateParamForDescribeParameterTemplateOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class TemplateParamForDescribeParameterTemplateOutput {\n");
     
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    runningValue: ").append(toIndentedString(runningValue)).append("\n");
     sb.append("}");

@@ -29,11 +29,116 @@ import javax.validation.Valid;
 
 
 public class ParameterForModifyDBInstanceParametersInput {
+  @SerializedName("CheckingCode")
+  private String checkingCode = null;
+
+  @SerializedName("Expression")
+  private String expression = null;
+
+  @SerializedName("ForceRestart")
+  private Boolean forceRestart = null;
+
+  @SerializedName("ParameterDefaultValue")
+  private String parameterDefaultValue = null;
+
+  @SerializedName("ParameterDescription")
+  private String parameterDescription = null;
+
   @SerializedName("ParameterName")
   private String parameterName = null;
 
   @SerializedName("ParameterValue")
   private String parameterValue = null;
+
+  public ParameterForModifyDBInstanceParametersInput checkingCode(String checkingCode) {
+    this.checkingCode = checkingCode;
+    return this;
+  }
+
+   /**
+   * Get checkingCode
+   * @return checkingCode
+  **/
+  @Schema(description = "")
+  public String getCheckingCode() {
+    return checkingCode;
+  }
+
+  public void setCheckingCode(String checkingCode) {
+    this.checkingCode = checkingCode;
+  }
+
+  public ParameterForModifyDBInstanceParametersInput expression(String expression) {
+    this.expression = expression;
+    return this;
+  }
+
+   /**
+   * Get expression
+   * @return expression
+  **/
+  @Schema(description = "")
+  public String getExpression() {
+    return expression;
+  }
+
+  public void setExpression(String expression) {
+    this.expression = expression;
+  }
+
+  public ParameterForModifyDBInstanceParametersInput forceRestart(Boolean forceRestart) {
+    this.forceRestart = forceRestart;
+    return this;
+  }
+
+   /**
+   * Get forceRestart
+   * @return forceRestart
+  **/
+  @Schema(description = "")
+  public Boolean isForceRestart() {
+    return forceRestart;
+  }
+
+  public void setForceRestart(Boolean forceRestart) {
+    this.forceRestart = forceRestart;
+  }
+
+  public ParameterForModifyDBInstanceParametersInput parameterDefaultValue(String parameterDefaultValue) {
+    this.parameterDefaultValue = parameterDefaultValue;
+    return this;
+  }
+
+   /**
+   * Get parameterDefaultValue
+   * @return parameterDefaultValue
+  **/
+  @Schema(description = "")
+  public String getParameterDefaultValue() {
+    return parameterDefaultValue;
+  }
+
+  public void setParameterDefaultValue(String parameterDefaultValue) {
+    this.parameterDefaultValue = parameterDefaultValue;
+  }
+
+  public ParameterForModifyDBInstanceParametersInput parameterDescription(String parameterDescription) {
+    this.parameterDescription = parameterDescription;
+    return this;
+  }
+
+   /**
+   * Get parameterDescription
+   * @return parameterDescription
+  **/
+  @Schema(description = "")
+  public String getParameterDescription() {
+    return parameterDescription;
+  }
+
+  public void setParameterDescription(String parameterDescription) {
+    this.parameterDescription = parameterDescription;
+  }
 
   public ParameterForModifyDBInstanceParametersInput parameterName(String parameterName) {
     this.parameterName = parameterName;
@@ -81,13 +186,18 @@ public class ParameterForModifyDBInstanceParametersInput {
       return false;
     }
     ParameterForModifyDBInstanceParametersInput parameterForModifyDBInstanceParametersInput = (ParameterForModifyDBInstanceParametersInput) o;
-    return Objects.equals(this.parameterName, parameterForModifyDBInstanceParametersInput.parameterName) &&
+    return Objects.equals(this.checkingCode, parameterForModifyDBInstanceParametersInput.checkingCode) &&
+        Objects.equals(this.expression, parameterForModifyDBInstanceParametersInput.expression) &&
+        Objects.equals(this.forceRestart, parameterForModifyDBInstanceParametersInput.forceRestart) &&
+        Objects.equals(this.parameterDefaultValue, parameterForModifyDBInstanceParametersInput.parameterDefaultValue) &&
+        Objects.equals(this.parameterDescription, parameterForModifyDBInstanceParametersInput.parameterDescription) &&
+        Objects.equals(this.parameterName, parameterForModifyDBInstanceParametersInput.parameterName) &&
         Objects.equals(this.parameterValue, parameterForModifyDBInstanceParametersInput.parameterValue);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(parameterName, parameterValue);
+    return Objects.hash(checkingCode, expression, forceRestart, parameterDefaultValue, parameterDescription, parameterName, parameterValue);
   }
 
 
@@ -96,6 +206,11 @@ public class ParameterForModifyDBInstanceParametersInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ParameterForModifyDBInstanceParametersInput {\n");
     
+    sb.append("    checkingCode: ").append(toIndentedString(checkingCode)).append("\n");
+    sb.append("    expression: ").append(toIndentedString(expression)).append("\n");
+    sb.append("    forceRestart: ").append(toIndentedString(forceRestart)).append("\n");
+    sb.append("    parameterDefaultValue: ").append(toIndentedString(parameterDefaultValue)).append("\n");
+    sb.append("    parameterDescription: ").append(toIndentedString(parameterDescription)).append("\n");
     sb.append("    parameterName: ").append(toIndentedString(parameterName)).append("\n");
     sb.append("    parameterValue: ").append(toIndentedString(parameterValue)).append("\n");
     sb.append("}");

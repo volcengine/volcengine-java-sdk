@@ -32,6 +32,9 @@ public class DeleteDBAccountRequest {
   @SerializedName("AccountName")
   private String accountName = null;
 
+  @SerializedName("Host")
+  private String host = null;
+
   @SerializedName("InstanceId")
   private String instanceId = null;
 
@@ -45,13 +48,31 @@ public class DeleteDBAccountRequest {
    * @return accountName
   **/
   @NotNull
- @Size(min=2,max=32)  @Schema(required = true, description = "")
+  @Schema(required = true, description = "")
   public String getAccountName() {
     return accountName;
   }
 
   public void setAccountName(String accountName) {
     this.accountName = accountName;
+  }
+
+  public DeleteDBAccountRequest host(String host) {
+    this.host = host;
+    return this;
+  }
+
+   /**
+   * Get host
+   * @return host
+  **/
+  @Schema(description = "")
+  public String getHost() {
+    return host;
+  }
+
+  public void setHost(String host) {
+    this.host = host;
   }
 
   public DeleteDBAccountRequest instanceId(String instanceId) {
@@ -84,12 +105,13 @@ public class DeleteDBAccountRequest {
     }
     DeleteDBAccountRequest deleteDBAccountRequest = (DeleteDBAccountRequest) o;
     return Objects.equals(this.accountName, deleteDBAccountRequest.accountName) &&
+        Objects.equals(this.host, deleteDBAccountRequest.host) &&
         Objects.equals(this.instanceId, deleteDBAccountRequest.instanceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountName, instanceId);
+    return Objects.hash(accountName, host, instanceId);
   }
 
 
@@ -99,6 +121,7 @@ public class DeleteDBAccountRequest {
     sb.append("class DeleteDBAccountRequest {\n");
     
     sb.append("    accountName: ").append(toIndentedString(accountName)).append("\n");
+    sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("}");
     return sb.toString();

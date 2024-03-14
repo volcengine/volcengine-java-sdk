@@ -61,6 +61,9 @@ public class ModifyBackupPolicyResponse extends com.volcengine.model.AbstractRes
   @SerializedName("InstanceId")
   private String instanceId = null;
 
+  @SerializedName("LockDdlTime")
+  private Integer lockDdlTime = null;
+
   @SerializedName("LogBackupRetentionDay")
   private Integer logBackupRetentionDay = null;
 
@@ -260,6 +263,24 @@ public class ModifyBackupPolicyResponse extends com.volcengine.model.AbstractRes
     this.instanceId = instanceId;
   }
 
+  public ModifyBackupPolicyResponse lockDdlTime(Integer lockDdlTime) {
+    this.lockDdlTime = lockDdlTime;
+    return this;
+  }
+
+   /**
+   * Get lockDdlTime
+   * @return lockDdlTime
+  **/
+  @Schema(description = "")
+  public Integer getLockDdlTime() {
+    return lockDdlTime;
+  }
+
+  public void setLockDdlTime(Integer lockDdlTime) {
+    this.lockDdlTime = lockDdlTime;
+  }
+
   public ModifyBackupPolicyResponse logBackupRetentionDay(Integer logBackupRetentionDay) {
     this.logBackupRetentionDay = logBackupRetentionDay;
     return this;
@@ -298,12 +319,13 @@ public class ModifyBackupPolicyResponse extends com.volcengine.model.AbstractRes
         Objects.equals(this.dataFullBackupTime, modifyBackupPolicyResponse.dataFullBackupTime) &&
         Objects.equals(this.dataIncrBackupPeriods, modifyBackupPolicyResponse.dataIncrBackupPeriods) &&
         Objects.equals(this.instanceId, modifyBackupPolicyResponse.instanceId) &&
+        Objects.equals(this.lockDdlTime, modifyBackupPolicyResponse.lockDdlTime) &&
         Objects.equals(this.logBackupRetentionDay, modifyBackupPolicyResponse.logBackupRetentionDay);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(binlogFileCountsEnable, binlogLimitCount, binlogLocalRetentionHour, binlogSpaceLimitEnable, binlogStoragePercentage, dataBackupRetentionDay, dataFullBackupPeriods, dataFullBackupTime, dataIncrBackupPeriods, instanceId, logBackupRetentionDay);
+    return Objects.hash(binlogFileCountsEnable, binlogLimitCount, binlogLocalRetentionHour, binlogSpaceLimitEnable, binlogStoragePercentage, dataBackupRetentionDay, dataFullBackupPeriods, dataFullBackupTime, dataIncrBackupPeriods, instanceId, lockDdlTime, logBackupRetentionDay);
   }
 
 
@@ -322,6 +344,7 @@ public class ModifyBackupPolicyResponse extends com.volcengine.model.AbstractRes
     sb.append("    dataFullBackupTime: ").append(toIndentedString(dataFullBackupTime)).append("\n");
     sb.append("    dataIncrBackupPeriods: ").append(toIndentedString(dataIncrBackupPeriods)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    lockDdlTime: ").append(toIndentedString(lockDdlTime)).append("\n");
     sb.append("    logBackupRetentionDay: ").append(toIndentedString(logBackupRetentionDay)).append("\n");
     sb.append("}");
     return sb.toString();
