@@ -24,52 +24,30 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * GetConsoleScreenshotRequest
+ * DeleteInvocationResponse
  */
 
 
-public class GetConsoleScreenshotRequest {
-  @SerializedName("InstanceId")
-  private String instanceId = null;
+public class DeleteInvocationResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("InvocationId")
+  private String invocationId = null;
 
-  @SerializedName("WakeUp")
-  private Boolean wakeUp = null;
-
-  public GetConsoleScreenshotRequest instanceId(String instanceId) {
-    this.instanceId = instanceId;
+  public DeleteInvocationResponse invocationId(String invocationId) {
+    this.invocationId = invocationId;
     return this;
   }
 
    /**
-   * Get instanceId
-   * @return instanceId
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getInstanceId() {
-    return instanceId;
-  }
-
-  public void setInstanceId(String instanceId) {
-    this.instanceId = instanceId;
-  }
-
-  public GetConsoleScreenshotRequest wakeUp(Boolean wakeUp) {
-    this.wakeUp = wakeUp;
-    return this;
-  }
-
-   /**
-   * Get wakeUp
-   * @return wakeUp
+   * Get invocationId
+   * @return invocationId
   **/
   @Schema(description = "")
-  public Boolean isWakeUp() {
-    return wakeUp;
+  public String getInvocationId() {
+    return invocationId;
   }
 
-  public void setWakeUp(Boolean wakeUp) {
-    this.wakeUp = wakeUp;
+  public void setInvocationId(String invocationId) {
+    this.invocationId = invocationId;
   }
 
 
@@ -81,24 +59,22 @@ public class GetConsoleScreenshotRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GetConsoleScreenshotRequest getConsoleScreenshotRequest = (GetConsoleScreenshotRequest) o;
-    return Objects.equals(this.instanceId, getConsoleScreenshotRequest.instanceId) &&
-        Objects.equals(this.wakeUp, getConsoleScreenshotRequest.wakeUp);
+    DeleteInvocationResponse deleteInvocationResponse = (DeleteInvocationResponse) o;
+    return Objects.equals(this.invocationId, deleteInvocationResponse.invocationId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, wakeUp);
+    return Objects.hash(invocationId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetConsoleScreenshotRequest {\n");
+    sb.append("class DeleteInvocationResponse {\n");
     
-    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
-    sb.append("    wakeUp: ").append(toIndentedString(wakeUp)).append("\n");
+    sb.append("    invocationId: ").append(toIndentedString(invocationId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

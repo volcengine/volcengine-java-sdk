@@ -56,7 +56,8 @@ public class DescribeSpotPriceHistoryRequest {
    * Get instanceTypeId
    * @return instanceTypeId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getInstanceTypeId() {
     return instanceTypeId;
   }

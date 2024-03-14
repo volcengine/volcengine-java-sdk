@@ -21,55 +21,43 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * GetConsoleScreenshotRequest
+ * UninstallCloudAssistantsRequest
  */
 
 
-public class GetConsoleScreenshotRequest {
-  @SerializedName("InstanceId")
-  private String instanceId = null;
+public class UninstallCloudAssistantsRequest {
+  @SerializedName("InstanceIds")
+  private List<String> instanceIds = null;
 
-  @SerializedName("WakeUp")
-  private Boolean wakeUp = null;
+  public UninstallCloudAssistantsRequest instanceIds(List<String> instanceIds) {
+    this.instanceIds = instanceIds;
+    return this;
+  }
 
-  public GetConsoleScreenshotRequest instanceId(String instanceId) {
-    this.instanceId = instanceId;
+  public UninstallCloudAssistantsRequest addInstanceIdsItem(String instanceIdsItem) {
+    if (this.instanceIds == null) {
+      this.instanceIds = new ArrayList<String>();
+    }
+    this.instanceIds.add(instanceIdsItem);
     return this;
   }
 
    /**
-   * Get instanceId
-   * @return instanceId
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getInstanceId() {
-    return instanceId;
-  }
-
-  public void setInstanceId(String instanceId) {
-    this.instanceId = instanceId;
-  }
-
-  public GetConsoleScreenshotRequest wakeUp(Boolean wakeUp) {
-    this.wakeUp = wakeUp;
-    return this;
-  }
-
-   /**
-   * Get wakeUp
-   * @return wakeUp
+   * Get instanceIds
+   * @return instanceIds
   **/
   @Schema(description = "")
-  public Boolean isWakeUp() {
-    return wakeUp;
+  public List<String> getInstanceIds() {
+    return instanceIds;
   }
 
-  public void setWakeUp(Boolean wakeUp) {
-    this.wakeUp = wakeUp;
+  public void setInstanceIds(List<String> instanceIds) {
+    this.instanceIds = instanceIds;
   }
 
 
@@ -81,24 +69,22 @@ public class GetConsoleScreenshotRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GetConsoleScreenshotRequest getConsoleScreenshotRequest = (GetConsoleScreenshotRequest) o;
-    return Objects.equals(this.instanceId, getConsoleScreenshotRequest.instanceId) &&
-        Objects.equals(this.wakeUp, getConsoleScreenshotRequest.wakeUp);
+    UninstallCloudAssistantsRequest uninstallCloudAssistantsRequest = (UninstallCloudAssistantsRequest) o;
+    return Objects.equals(this.instanceIds, uninstallCloudAssistantsRequest.instanceIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, wakeUp);
+    return Objects.hash(instanceIds);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetConsoleScreenshotRequest {\n");
+    sb.append("class UninstallCloudAssistantsRequest {\n");
     
-    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
-    sb.append("    wakeUp: ").append(toIndentedString(wakeUp)).append("\n");
+    sb.append("    instanceIds: ").append(toIndentedString(instanceIds)).append("\n");
     sb.append("}");
     return sb.toString();
   }

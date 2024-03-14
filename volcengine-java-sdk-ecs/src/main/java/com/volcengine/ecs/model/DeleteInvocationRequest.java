@@ -24,52 +24,31 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DeleteDeploymentSetRequest
+ * DeleteInvocationRequest
  */
 
 
-public class DeleteDeploymentSetRequest {
-  @SerializedName("ClientToken")
-  private String clientToken = null;
+public class DeleteInvocationRequest {
+  @SerializedName("InvocationId")
+  private String invocationId = null;
 
-  @SerializedName("DeploymentSetId")
-  private String deploymentSetId = null;
-
-  public DeleteDeploymentSetRequest clientToken(String clientToken) {
-    this.clientToken = clientToken;
+  public DeleteInvocationRequest invocationId(String invocationId) {
+    this.invocationId = invocationId;
     return this;
   }
 
    /**
-   * Get clientToken
-   * @return clientToken
-  **/
-  @Schema(description = "")
-  public String getClientToken() {
-    return clientToken;
-  }
-
-  public void setClientToken(String clientToken) {
-    this.clientToken = clientToken;
-  }
-
-  public DeleteDeploymentSetRequest deploymentSetId(String deploymentSetId) {
-    this.deploymentSetId = deploymentSetId;
-    return this;
-  }
-
-   /**
-   * Get deploymentSetId
-   * @return deploymentSetId
+   * Get invocationId
+   * @return invocationId
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getDeploymentSetId() {
-    return deploymentSetId;
+  public String getInvocationId() {
+    return invocationId;
   }
 
-  public void setDeploymentSetId(String deploymentSetId) {
-    this.deploymentSetId = deploymentSetId;
+  public void setInvocationId(String invocationId) {
+    this.invocationId = invocationId;
   }
 
 
@@ -81,24 +60,22 @@ public class DeleteDeploymentSetRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeleteDeploymentSetRequest deleteDeploymentSetRequest = (DeleteDeploymentSetRequest) o;
-    return Objects.equals(this.clientToken, deleteDeploymentSetRequest.clientToken) &&
-        Objects.equals(this.deploymentSetId, deleteDeploymentSetRequest.deploymentSetId);
+    DeleteInvocationRequest deleteInvocationRequest = (DeleteInvocationRequest) o;
+    return Objects.equals(this.invocationId, deleteInvocationRequest.invocationId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, deploymentSetId);
+    return Objects.hash(invocationId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeleteDeploymentSetRequest {\n");
+    sb.append("class DeleteInvocationRequest {\n");
     
-    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
-    sb.append("    deploymentSetId: ").append(toIndentedString(deploymentSetId)).append("\n");
+    sb.append("    invocationId: ").append(toIndentedString(invocationId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

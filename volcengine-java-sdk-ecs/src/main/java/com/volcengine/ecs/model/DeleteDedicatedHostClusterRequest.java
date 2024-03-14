@@ -62,7 +62,8 @@ public class DeleteDedicatedHostClusterRequest {
    * Get dedicatedHostClusterId
    * @return dedicatedHostClusterId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getDedicatedHostClusterId() {
     return dedicatedHostClusterId;
   }

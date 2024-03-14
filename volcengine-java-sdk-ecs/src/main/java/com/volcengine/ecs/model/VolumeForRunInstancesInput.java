@@ -35,6 +35,9 @@ public class VolumeForRunInstancesInput {
   @SerializedName("Size")
   private Integer size = null;
 
+  @SerializedName("SnapshotId")
+  private String snapshotId = null;
+
   @SerializedName("VolumeType")
   private String volumeType = null;
 
@@ -65,13 +68,32 @@ public class VolumeForRunInstancesInput {
    * Get size
    * @return size
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public Integer getSize() {
     return size;
   }
 
   public void setSize(Integer size) {
     this.size = size;
+  }
+
+  public VolumeForRunInstancesInput snapshotId(String snapshotId) {
+    this.snapshotId = snapshotId;
+    return this;
+  }
+
+   /**
+   * Get snapshotId
+   * @return snapshotId
+  **/
+  @Schema(description = "")
+  public String getSnapshotId() {
+    return snapshotId;
+  }
+
+  public void setSnapshotId(String snapshotId) {
+    this.snapshotId = snapshotId;
   }
 
   public VolumeForRunInstancesInput volumeType(String volumeType) {
@@ -104,12 +126,13 @@ public class VolumeForRunInstancesInput {
     VolumeForRunInstancesInput volumeForRunInstancesInput = (VolumeForRunInstancesInput) o;
     return Objects.equals(this.deleteWithInstance, volumeForRunInstancesInput.deleteWithInstance) &&
         Objects.equals(this.size, volumeForRunInstancesInput.size) &&
+        Objects.equals(this.snapshotId, volumeForRunInstancesInput.snapshotId) &&
         Objects.equals(this.volumeType, volumeForRunInstancesInput.volumeType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleteWithInstance, size, volumeType);
+    return Objects.hash(deleteWithInstance, size, snapshotId, volumeType);
   }
 
 
@@ -120,6 +143,7 @@ public class VolumeForRunInstancesInput {
     
     sb.append("    deleteWithInstance: ").append(toIndentedString(deleteWithInstance)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
+    sb.append("    snapshotId: ").append(toIndentedString(snapshotId)).append("\n");
     sb.append("    volumeType: ").append(toIndentedString(volumeType)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -92,7 +92,8 @@ public class CopyImageRequest {
    * Get destinationRegion
    * @return destinationRegion
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getDestinationRegion() {
     return destinationRegion;
   }
@@ -110,7 +111,8 @@ public class CopyImageRequest {
    * Get imageId
    * @return imageId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getImageId() {
     return imageId;
   }
@@ -128,7 +130,8 @@ public class CopyImageRequest {
    * Get imageName
    * @return imageName
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getImageName() {
     return imageName;
   }

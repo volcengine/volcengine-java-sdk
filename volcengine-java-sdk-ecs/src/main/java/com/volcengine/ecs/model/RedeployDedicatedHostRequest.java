@@ -62,7 +62,8 @@ public class RedeployDedicatedHostRequest {
    * Get dedicatedHostId
    * @return dedicatedHostId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getDedicatedHostId() {
     return dedicatedHostId;
   }

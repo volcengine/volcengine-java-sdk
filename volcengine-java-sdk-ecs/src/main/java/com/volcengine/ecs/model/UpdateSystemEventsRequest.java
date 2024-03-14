@@ -117,7 +117,8 @@ public class UpdateSystemEventsRequest {
    * Get status
    * @return status
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getStatus() {
     return status;
   }

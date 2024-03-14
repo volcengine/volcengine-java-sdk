@@ -24,52 +24,51 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DeleteDeploymentSetRequest
+ * FailedInstanceForUpgradeCloudAssistantsOutput
  */
 
 
-public class DeleteDeploymentSetRequest {
-  @SerializedName("ClientToken")
-  private String clientToken = null;
+public class FailedInstanceForUpgradeCloudAssistantsOutput {
+  @SerializedName("ErrorMessage")
+  private String errorMessage = null;
 
-  @SerializedName("DeploymentSetId")
-  private String deploymentSetId = null;
+  @SerializedName("Id")
+  private String id = null;
 
-  public DeleteDeploymentSetRequest clientToken(String clientToken) {
-    this.clientToken = clientToken;
+  public FailedInstanceForUpgradeCloudAssistantsOutput errorMessage(String errorMessage) {
+    this.errorMessage = errorMessage;
     return this;
   }
 
    /**
-   * Get clientToken
-   * @return clientToken
+   * Get errorMessage
+   * @return errorMessage
   **/
   @Schema(description = "")
-  public String getClientToken() {
-    return clientToken;
+  public String getErrorMessage() {
+    return errorMessage;
   }
 
-  public void setClientToken(String clientToken) {
-    this.clientToken = clientToken;
+  public void setErrorMessage(String errorMessage) {
+    this.errorMessage = errorMessage;
   }
 
-  public DeleteDeploymentSetRequest deploymentSetId(String deploymentSetId) {
-    this.deploymentSetId = deploymentSetId;
+  public FailedInstanceForUpgradeCloudAssistantsOutput id(String id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * Get deploymentSetId
-   * @return deploymentSetId
+   * Get id
+   * @return id
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getDeploymentSetId() {
-    return deploymentSetId;
+  @Schema(description = "")
+  public String getId() {
+    return id;
   }
 
-  public void setDeploymentSetId(String deploymentSetId) {
-    this.deploymentSetId = deploymentSetId;
+  public void setId(String id) {
+    this.id = id;
   }
 
 
@@ -81,24 +80,24 @@ public class DeleteDeploymentSetRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeleteDeploymentSetRequest deleteDeploymentSetRequest = (DeleteDeploymentSetRequest) o;
-    return Objects.equals(this.clientToken, deleteDeploymentSetRequest.clientToken) &&
-        Objects.equals(this.deploymentSetId, deleteDeploymentSetRequest.deploymentSetId);
+    FailedInstanceForUpgradeCloudAssistantsOutput failedInstanceForUpgradeCloudAssistantsOutput = (FailedInstanceForUpgradeCloudAssistantsOutput) o;
+    return Objects.equals(this.errorMessage, failedInstanceForUpgradeCloudAssistantsOutput.errorMessage) &&
+        Objects.equals(this.id, failedInstanceForUpgradeCloudAssistantsOutput.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, deploymentSetId);
+    return Objects.hash(errorMessage, id);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeleteDeploymentSetRequest {\n");
+    sb.append("class FailedInstanceForUpgradeCloudAssistantsOutput {\n");
     
-    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
-    sb.append("    deploymentSetId: ").append(toIndentedString(deploymentSetId)).append("\n");
+    sb.append("    errorMessage: ").append(toIndentedString(errorMessage)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();
   }

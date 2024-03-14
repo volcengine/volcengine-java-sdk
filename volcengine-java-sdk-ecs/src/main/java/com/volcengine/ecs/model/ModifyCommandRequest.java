@@ -89,7 +89,8 @@ public class ModifyCommandRequest {
    * Get commandId
    * @return commandId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getCommandId() {
     return commandId;
   }

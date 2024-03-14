@@ -76,7 +76,8 @@ public class RunCommandRequest {
    * Get commandContent
    * @return commandContent
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getCommandContent() {
     return commandContent;
   }
@@ -156,7 +157,8 @@ public class RunCommandRequest {
    * Get invocationName
    * @return invocationName
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getInvocationName() {
     return invocationName;
   }
@@ -246,7 +248,8 @@ public class RunCommandRequest {
    * Get type
    * @return type
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getType() {
     return type;
   }

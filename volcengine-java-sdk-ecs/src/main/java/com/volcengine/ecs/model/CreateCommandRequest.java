@@ -68,7 +68,8 @@ public class CreateCommandRequest {
    * Get commandContent
    * @return commandContent
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getCommandContent() {
     return commandContent;
   }
@@ -122,7 +123,8 @@ public class CreateCommandRequest {
    * Get name
    * @return name
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getName() {
     return name;
   }
@@ -185,7 +187,8 @@ public class CreateCommandRequest {
    * Get type
    * @return type
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getType() {
     return type;
   }

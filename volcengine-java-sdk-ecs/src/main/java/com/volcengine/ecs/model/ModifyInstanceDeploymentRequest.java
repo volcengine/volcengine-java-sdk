@@ -32,6 +32,9 @@ public class ModifyInstanceDeploymentRequest {
   @SerializedName("ClientToken")
   private String clientToken = null;
 
+  @SerializedName("DeploymentSetGroupNumber")
+  private Integer deploymentSetGroupNumber = null;
+
   @SerializedName("DeploymentSetId")
   private String deploymentSetId = null;
 
@@ -56,6 +59,24 @@ public class ModifyInstanceDeploymentRequest {
     this.clientToken = clientToken;
   }
 
+  public ModifyInstanceDeploymentRequest deploymentSetGroupNumber(Integer deploymentSetGroupNumber) {
+    this.deploymentSetGroupNumber = deploymentSetGroupNumber;
+    return this;
+  }
+
+   /**
+   * Get deploymentSetGroupNumber
+   * @return deploymentSetGroupNumber
+  **/
+  @Schema(description = "")
+  public Integer getDeploymentSetGroupNumber() {
+    return deploymentSetGroupNumber;
+  }
+
+  public void setDeploymentSetGroupNumber(Integer deploymentSetGroupNumber) {
+    this.deploymentSetGroupNumber = deploymentSetGroupNumber;
+  }
+
   public ModifyInstanceDeploymentRequest deploymentSetId(String deploymentSetId) {
     this.deploymentSetId = deploymentSetId;
     return this;
@@ -65,7 +86,8 @@ public class ModifyInstanceDeploymentRequest {
    * Get deploymentSetId
    * @return deploymentSetId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getDeploymentSetId() {
     return deploymentSetId;
   }
@@ -83,7 +105,8 @@ public class ModifyInstanceDeploymentRequest {
    * Get instanceId
    * @return instanceId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getInstanceId() {
     return instanceId;
   }
@@ -103,13 +126,14 @@ public class ModifyInstanceDeploymentRequest {
     }
     ModifyInstanceDeploymentRequest modifyInstanceDeploymentRequest = (ModifyInstanceDeploymentRequest) o;
     return Objects.equals(this.clientToken, modifyInstanceDeploymentRequest.clientToken) &&
+        Objects.equals(this.deploymentSetGroupNumber, modifyInstanceDeploymentRequest.deploymentSetGroupNumber) &&
         Objects.equals(this.deploymentSetId, modifyInstanceDeploymentRequest.deploymentSetId) &&
         Objects.equals(this.instanceId, modifyInstanceDeploymentRequest.instanceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, deploymentSetId, instanceId);
+    return Objects.hash(clientToken, deploymentSetGroupNumber, deploymentSetId, instanceId);
   }
 
 
@@ -119,6 +143,7 @@ public class ModifyInstanceDeploymentRequest {
     sb.append("class ModifyInstanceDeploymentRequest {\n");
     
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
+    sb.append("    deploymentSetGroupNumber: ").append(toIndentedString(deploymentSetGroupNumber)).append("\n");
     sb.append("    deploymentSetId: ").append(toIndentedString(deploymentSetId)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("}");

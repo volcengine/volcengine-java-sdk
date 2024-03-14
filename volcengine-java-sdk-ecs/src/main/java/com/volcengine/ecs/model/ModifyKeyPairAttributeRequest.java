@@ -68,7 +68,8 @@ public class ModifyKeyPairAttributeRequest {
    * Get description
    * @return description
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getDescription() {
     return description;
   }

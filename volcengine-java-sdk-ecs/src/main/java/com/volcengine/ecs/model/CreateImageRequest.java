@@ -74,7 +74,8 @@ public class CreateImageRequest {
    * Get imageName
    * @return imageName
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getImageName() {
     return imageName;
   }
@@ -92,7 +93,8 @@ public class CreateImageRequest {
    * Get instanceId
    * @return instanceId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getInstanceId() {
     return instanceId;
   }

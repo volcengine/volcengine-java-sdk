@@ -206,7 +206,8 @@ public class AllocateDedicatedHostsRequest {
    * Get dedicatedHostName
    * @return dedicatedHostName
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getDedicatedHostName() {
     return dedicatedHostName;
   }
@@ -242,7 +243,8 @@ public class AllocateDedicatedHostsRequest {
    * Get dedicatedHostTypeId
    * @return dedicatedHostTypeId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getDedicatedHostTypeId() {
     return dedicatedHostTypeId;
   }
@@ -314,7 +316,8 @@ public class AllocateDedicatedHostsRequest {
    * Get zoneId
    * @return zoneId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getZoneId() {
     return zoneId;
   }

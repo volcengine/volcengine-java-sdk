@@ -44,10 +44,10 @@ public class InstanceForDescribeCloudAssistantStatusOutput {
   @SerializedName("LastHeartbeatTime")
   private String lastHeartbeatTime = null;
 
-  @SerializedName("OsType")
+  @SerializedName("OSType")
   private String osType = null;
 
-  @SerializedName("OsVersion")
+  @SerializedName("OSVersion")
   private String osVersion = null;
 
   @SerializedName("Status")
