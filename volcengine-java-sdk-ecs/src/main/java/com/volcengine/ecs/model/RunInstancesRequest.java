@@ -483,8 +483,7 @@ public class RunInstancesRequest {
    * Get instanceTypeId
    * @return instanceTypeId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getInstanceTypeId() {
     return instanceTypeId;
   }
