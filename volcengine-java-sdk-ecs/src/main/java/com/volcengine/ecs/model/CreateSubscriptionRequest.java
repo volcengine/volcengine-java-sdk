@@ -72,7 +72,8 @@ public class CreateSubscriptionRequest {
    * Get type
    * @return type
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getType() {
     return type;
   }

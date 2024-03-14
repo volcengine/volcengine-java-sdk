@@ -67,7 +67,8 @@ public class AssociateInstancesIamRoleRequest {
    * Get iamRoleName
    * @return iamRoleName
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getIamRoleName() {
     return iamRoleName;
   }

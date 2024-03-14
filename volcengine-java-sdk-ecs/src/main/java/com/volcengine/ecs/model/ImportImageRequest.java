@@ -125,7 +125,8 @@ public class ImportImageRequest {
    * Get imageName
    * @return imageName
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getImageName() {
     return imageName;
   }
@@ -161,7 +162,8 @@ public class ImportImageRequest {
    * Get platform
    * @return platform
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getPlatform() {
     return platform;
   }
@@ -242,7 +244,8 @@ public class ImportImageRequest {
    * Get url
    * @return url
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getUrl() {
     return url;
   }

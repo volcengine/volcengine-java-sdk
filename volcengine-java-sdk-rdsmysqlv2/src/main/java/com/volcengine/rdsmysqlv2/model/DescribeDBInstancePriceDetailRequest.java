@@ -62,7 +62,8 @@ public class DescribeDBInstancePriceDetailRequest {
    * Get chargeType
    * @return chargeType
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getChargeType() {
     return chargeType;
   }
@@ -161,7 +162,8 @@ public class DescribeDBInstancePriceDetailRequest {
    * Get storageSpace
    * @return storageSpace
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public Integer getStorageSpace() {
     return storageSpace;
   }
@@ -179,7 +181,8 @@ public class DescribeDBInstancePriceDetailRequest {
    * Get storageType
    * @return storageType
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getStorageType() {
     return storageType;
   }

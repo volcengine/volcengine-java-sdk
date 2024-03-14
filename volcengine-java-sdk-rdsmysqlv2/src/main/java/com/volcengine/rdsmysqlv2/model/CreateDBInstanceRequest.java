@@ -139,7 +139,8 @@ public class CreateDBInstanceRequest {
    * Get dbEngineVersion
    * @return dbEngineVersion
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getDbEngineVersion() {
     return dbEngineVersion;
   }
@@ -319,7 +320,8 @@ public class CreateDBInstanceRequest {
    * Get storageSpace
    * @return storageSpace
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public Integer getStorageSpace() {
     return storageSpace;
   }
@@ -337,7 +339,8 @@ public class CreateDBInstanceRequest {
    * Get storageType
    * @return storageType
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getStorageType() {
     return storageType;
   }
@@ -355,7 +358,8 @@ public class CreateDBInstanceRequest {
    * Get subnetId
    * @return subnetId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getSubnetId() {
     return subnetId;
   }
@@ -373,7 +377,7 @@ public class CreateDBInstanceRequest {
    * Get superAccountName
    * @return superAccountName
   **/
- @Size(min=2,max=16)  @Schema(description = "")
+  @Schema(description = "")
   public String getSuperAccountName() {
     return superAccountName;
   }
@@ -391,7 +395,7 @@ public class CreateDBInstanceRequest {
    * Get superAccountPassword
    * @return superAccountPassword
   **/
- @Size(min=8,max=32)  @Schema(description = "")
+  @Schema(description = "")
   public String getSuperAccountPassword() {
     return superAccountPassword;
   }
@@ -409,7 +413,8 @@ public class CreateDBInstanceRequest {
    * Get vpcId
    * @return vpcId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getVpcId() {
     return vpcId;
   }

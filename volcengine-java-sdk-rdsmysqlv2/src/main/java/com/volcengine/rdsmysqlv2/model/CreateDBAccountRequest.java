@@ -20,7 +20,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.rdsmysqlv2.model.AccountPrivilegeForCreateDBAccountInput;
-import com.volcengine.rdsmysqlv2.model.AccountPrivilegesInfoForCreateDBAccountInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -45,11 +44,11 @@ public class CreateDBAccountRequest {
   @SerializedName("AccountPrivileges")
   private List<AccountPrivilegeForCreateDBAccountInput> accountPrivileges = null;
 
-  @SerializedName("AccountPrivilegesInfo")
-  private List<AccountPrivilegesInfoForCreateDBAccountInput> accountPrivilegesInfo = null;
-
   @SerializedName("AccountType")
   private String accountType = null;
+
+  @SerializedName("Host")
+  private String host = null;
 
   @SerializedName("InstanceId")
   private String instanceId = null;
@@ -81,7 +80,8 @@ public class CreateDBAccountRequest {
    * Get accountName
    * @return accountName
   **/
- @Size(min=2,max=32)  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getAccountName() {
     return accountName;
   }
@@ -99,7 +99,8 @@ public class CreateDBAccountRequest {
    * Get accountPassword
    * @return accountPassword
   **/
- @Size(min=8,max=32)  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getAccountPassword() {
     return accountPassword;
   }
@@ -135,33 +136,6 @@ public class CreateDBAccountRequest {
     this.accountPrivileges = accountPrivileges;
   }
 
-  public CreateDBAccountRequest accountPrivilegesInfo(List<AccountPrivilegesInfoForCreateDBAccountInput> accountPrivilegesInfo) {
-    this.accountPrivilegesInfo = accountPrivilegesInfo;
-    return this;
-  }
-
-  public CreateDBAccountRequest addAccountPrivilegesInfoItem(AccountPrivilegesInfoForCreateDBAccountInput accountPrivilegesInfoItem) {
-    if (this.accountPrivilegesInfo == null) {
-      this.accountPrivilegesInfo = new ArrayList<AccountPrivilegesInfoForCreateDBAccountInput>();
-    }
-    this.accountPrivilegesInfo.add(accountPrivilegesInfoItem);
-    return this;
-  }
-
-   /**
-   * Get accountPrivilegesInfo
-   * @return accountPrivilegesInfo
-  **/
-  @Valid
-  @Schema(description = "")
-  public List<AccountPrivilegesInfoForCreateDBAccountInput> getAccountPrivilegesInfo() {
-    return accountPrivilegesInfo;
-  }
-
-  public void setAccountPrivilegesInfo(List<AccountPrivilegesInfoForCreateDBAccountInput> accountPrivilegesInfo) {
-    this.accountPrivilegesInfo = accountPrivilegesInfo;
-  }
-
   public CreateDBAccountRequest accountType(String accountType) {
     this.accountType = accountType;
     return this;
@@ -171,13 +145,32 @@ public class CreateDBAccountRequest {
    * Get accountType
    * @return accountType
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getAccountType() {
     return accountType;
   }
 
   public void setAccountType(String accountType) {
     this.accountType = accountType;
+  }
+
+  public CreateDBAccountRequest host(String host) {
+    this.host = host;
+    return this;
+  }
+
+   /**
+   * Get host
+   * @return host
+  **/
+  @Schema(description = "")
+  public String getHost() {
+    return host;
+  }
+
+  public void setHost(String host) {
+    this.host = host;
   }
 
   public CreateDBAccountRequest instanceId(String instanceId) {
@@ -213,14 +206,14 @@ public class CreateDBAccountRequest {
         Objects.equals(this.accountName, createDBAccountRequest.accountName) &&
         Objects.equals(this.accountPassword, createDBAccountRequest.accountPassword) &&
         Objects.equals(this.accountPrivileges, createDBAccountRequest.accountPrivileges) &&
-        Objects.equals(this.accountPrivilegesInfo, createDBAccountRequest.accountPrivilegesInfo) &&
         Objects.equals(this.accountType, createDBAccountRequest.accountType) &&
+        Objects.equals(this.host, createDBAccountRequest.host) &&
         Objects.equals(this.instanceId, createDBAccountRequest.instanceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountDesc, accountName, accountPassword, accountPrivileges, accountPrivilegesInfo, accountType, instanceId);
+    return Objects.hash(accountDesc, accountName, accountPassword, accountPrivileges, accountType, host, instanceId);
   }
 
 
@@ -233,8 +226,8 @@ public class CreateDBAccountRequest {
     sb.append("    accountName: ").append(toIndentedString(accountName)).append("\n");
     sb.append("    accountPassword: ").append(toIndentedString(accountPassword)).append("\n");
     sb.append("    accountPrivileges: ").append(toIndentedString(accountPrivileges)).append("\n");
-    sb.append("    accountPrivilegesInfo: ").append(toIndentedString(accountPrivilegesInfo)).append("\n");
     sb.append("    accountType: ").append(toIndentedString(accountType)).append("\n");
+    sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("}");
     return sb.toString();

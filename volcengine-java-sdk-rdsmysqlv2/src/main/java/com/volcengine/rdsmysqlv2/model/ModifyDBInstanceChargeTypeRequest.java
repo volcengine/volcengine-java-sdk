@@ -71,7 +71,8 @@ public class ModifyDBInstanceChargeTypeRequest {
    * Get chargeType
    * @return chargeType
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getChargeType() {
     return chargeType;
   }
@@ -108,7 +109,8 @@ public class ModifyDBInstanceChargeTypeRequest {
    * Get period
    * @return period
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public Integer getPeriod() {
     return period;
   }
@@ -126,7 +128,8 @@ public class ModifyDBInstanceChargeTypeRequest {
    * Get periodUnit
    * @return periodUnit
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getPeriodUnit() {
     return periodUnit;
   }

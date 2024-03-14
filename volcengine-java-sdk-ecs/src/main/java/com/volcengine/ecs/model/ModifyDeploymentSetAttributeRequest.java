@@ -68,7 +68,8 @@ public class ModifyDeploymentSetAttributeRequest {
    * Get deploymentSetId
    * @return deploymentSetId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getDeploymentSetId() {
     return deploymentSetId;
   }
@@ -86,7 +87,8 @@ public class ModifyDeploymentSetAttributeRequest {
    * Get deploymentSetName
    * @return deploymentSetName
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getDeploymentSetName() {
     return deploymentSetName;
   }

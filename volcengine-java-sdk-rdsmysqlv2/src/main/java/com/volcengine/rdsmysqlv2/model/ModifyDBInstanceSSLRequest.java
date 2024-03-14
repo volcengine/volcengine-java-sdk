@@ -32,6 +32,9 @@ public class ModifyDBInstanceSSLRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;
 
+  @SerializedName("ReloadSSLCertificate")
+  private Boolean reloadSSLCertificate = null;
+
   @SerializedName("SSLEnable")
   private Boolean ssLEnable = null;
 
@@ -52,6 +55,24 @@ public class ModifyDBInstanceSSLRequest {
 
   public void setInstanceId(String instanceId) {
     this.instanceId = instanceId;
+  }
+
+  public ModifyDBInstanceSSLRequest reloadSSLCertificate(Boolean reloadSSLCertificate) {
+    this.reloadSSLCertificate = reloadSSLCertificate;
+    return this;
+  }
+
+   /**
+   * Get reloadSSLCertificate
+   * @return reloadSSLCertificate
+  **/
+  @Schema(description = "")
+  public Boolean isReloadSSLCertificate() {
+    return reloadSSLCertificate;
+  }
+
+  public void setReloadSSLCertificate(Boolean reloadSSLCertificate) {
+    this.reloadSSLCertificate = reloadSSLCertificate;
   }
 
   public ModifyDBInstanceSSLRequest ssLEnable(Boolean ssLEnable) {
@@ -83,12 +104,13 @@ public class ModifyDBInstanceSSLRequest {
     }
     ModifyDBInstanceSSLRequest modifyDBInstanceSSLRequest = (ModifyDBInstanceSSLRequest) o;
     return Objects.equals(this.instanceId, modifyDBInstanceSSLRequest.instanceId) &&
+        Objects.equals(this.reloadSSLCertificate, modifyDBInstanceSSLRequest.reloadSSLCertificate) &&
         Objects.equals(this.ssLEnable, modifyDBInstanceSSLRequest.ssLEnable);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, ssLEnable);
+    return Objects.hash(instanceId, reloadSSLCertificate, ssLEnable);
   }
 
 
@@ -98,6 +120,7 @@ public class ModifyDBInstanceSSLRequest {
     sb.append("class ModifyDBInstanceSSLRequest {\n");
     
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    reloadSSLCertificate: ").append(toIndentedString(reloadSSLCertificate)).append("\n");
     sb.append("    ssLEnable: ").append(toIndentedString(ssLEnable)).append("\n");
     sb.append("}");
     return sb.toString();

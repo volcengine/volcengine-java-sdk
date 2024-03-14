@@ -61,6 +61,9 @@ public class ModifyBackupPolicyRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;
 
+  @SerializedName("LockDdlTime")
+  private Integer lockDdlTime = null;
+
   @SerializedName("LogBackupRetentionDay")
   private Integer logBackupRetentionDay = null;
 
@@ -251,13 +254,32 @@ public class ModifyBackupPolicyRequest {
    * Get instanceId
    * @return instanceId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getInstanceId() {
     return instanceId;
   }
 
   public void setInstanceId(String instanceId) {
     this.instanceId = instanceId;
+  }
+
+  public ModifyBackupPolicyRequest lockDdlTime(Integer lockDdlTime) {
+    this.lockDdlTime = lockDdlTime;
+    return this;
+  }
+
+   /**
+   * Get lockDdlTime
+   * @return lockDdlTime
+  **/
+  @Schema(description = "")
+  public Integer getLockDdlTime() {
+    return lockDdlTime;
+  }
+
+  public void setLockDdlTime(Integer lockDdlTime) {
+    this.lockDdlTime = lockDdlTime;
   }
 
   public ModifyBackupPolicyRequest logBackupRetentionDay(Integer logBackupRetentionDay) {
@@ -298,12 +320,13 @@ public class ModifyBackupPolicyRequest {
         Objects.equals(this.dataFullBackupTime, modifyBackupPolicyRequest.dataFullBackupTime) &&
         Objects.equals(this.dataIncrBackupPeriods, modifyBackupPolicyRequest.dataIncrBackupPeriods) &&
         Objects.equals(this.instanceId, modifyBackupPolicyRequest.instanceId) &&
+        Objects.equals(this.lockDdlTime, modifyBackupPolicyRequest.lockDdlTime) &&
         Objects.equals(this.logBackupRetentionDay, modifyBackupPolicyRequest.logBackupRetentionDay);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(binlogFileCountsEnable, binlogLimitCount, binlogLocalRetentionHour, binlogSpaceLimitEnable, binlogStoragePercentage, dataBackupRetentionDay, dataFullBackupPeriods, dataFullBackupTime, dataIncrBackupPeriods, instanceId, logBackupRetentionDay);
+    return Objects.hash(binlogFileCountsEnable, binlogLimitCount, binlogLocalRetentionHour, binlogSpaceLimitEnable, binlogStoragePercentage, dataBackupRetentionDay, dataFullBackupPeriods, dataFullBackupTime, dataIncrBackupPeriods, instanceId, lockDdlTime, logBackupRetentionDay);
   }
 
 
@@ -322,6 +345,7 @@ public class ModifyBackupPolicyRequest {
     sb.append("    dataFullBackupTime: ").append(toIndentedString(dataFullBackupTime)).append("\n");
     sb.append("    dataIncrBackupPeriods: ").append(toIndentedString(dataIncrBackupPeriods)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    lockDdlTime: ").append(toIndentedString(lockDdlTime)).append("\n");
     sb.append("    logBackupRetentionDay: ").append(toIndentedString(logBackupRetentionDay)).append("\n");
     sb.append("}");
     return sb.toString();

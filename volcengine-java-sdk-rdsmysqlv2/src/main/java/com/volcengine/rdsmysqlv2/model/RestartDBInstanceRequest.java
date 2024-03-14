@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -29,8 +31,61 @@ import javax.validation.Valid;
 
 
 public class RestartDBInstanceRequest {
+  @SerializedName("ApplyScope")
+  private String applyScope = null;
+
+  @SerializedName("CustomNodeIds")
+  private List<String> customNodeIds = null;
+
   @SerializedName("InstanceId")
   private String instanceId = null;
+
+  @SerializedName("SwitchType")
+  private String switchType = null;
+
+  public RestartDBInstanceRequest applyScope(String applyScope) {
+    this.applyScope = applyScope;
+    return this;
+  }
+
+   /**
+   * Get applyScope
+   * @return applyScope
+  **/
+  @Schema(description = "")
+  public String getApplyScope() {
+    return applyScope;
+  }
+
+  public void setApplyScope(String applyScope) {
+    this.applyScope = applyScope;
+  }
+
+  public RestartDBInstanceRequest customNodeIds(List<String> customNodeIds) {
+    this.customNodeIds = customNodeIds;
+    return this;
+  }
+
+  public RestartDBInstanceRequest addCustomNodeIdsItem(String customNodeIdsItem) {
+    if (this.customNodeIds == null) {
+      this.customNodeIds = new ArrayList<String>();
+    }
+    this.customNodeIds.add(customNodeIdsItem);
+    return this;
+  }
+
+   /**
+   * Get customNodeIds
+   * @return customNodeIds
+  **/
+  @Schema(description = "")
+  public List<String> getCustomNodeIds() {
+    return customNodeIds;
+  }
+
+  public void setCustomNodeIds(List<String> customNodeIds) {
+    this.customNodeIds = customNodeIds;
+  }
 
   public RestartDBInstanceRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
@@ -51,6 +106,24 @@ public class RestartDBInstanceRequest {
     this.instanceId = instanceId;
   }
 
+  public RestartDBInstanceRequest switchType(String switchType) {
+    this.switchType = switchType;
+    return this;
+  }
+
+   /**
+   * Get switchType
+   * @return switchType
+  **/
+  @Schema(description = "")
+  public String getSwitchType() {
+    return switchType;
+  }
+
+  public void setSwitchType(String switchType) {
+    this.switchType = switchType;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -61,12 +134,15 @@ public class RestartDBInstanceRequest {
       return false;
     }
     RestartDBInstanceRequest restartDBInstanceRequest = (RestartDBInstanceRequest) o;
-    return Objects.equals(this.instanceId, restartDBInstanceRequest.instanceId);
+    return Objects.equals(this.applyScope, restartDBInstanceRequest.applyScope) &&
+        Objects.equals(this.customNodeIds, restartDBInstanceRequest.customNodeIds) &&
+        Objects.equals(this.instanceId, restartDBInstanceRequest.instanceId) &&
+        Objects.equals(this.switchType, restartDBInstanceRequest.switchType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId);
+    return Objects.hash(applyScope, customNodeIds, instanceId, switchType);
   }
 
 
@@ -75,7 +151,10 @@ public class RestartDBInstanceRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class RestartDBInstanceRequest {\n");
     
+    sb.append("    applyScope: ").append(toIndentedString(applyScope)).append("\n");
+    sb.append("    customNodeIds: ").append(toIndentedString(customNodeIds)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    switchType: ").append(toIndentedString(switchType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

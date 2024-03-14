@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.ecs.model.EipAddressForRunInstancesInput;
 import com.volcengine.ecs.model.NetworkInterfaceForRunInstancesInput;
 import com.volcengine.ecs.model.PlacementForRunInstancesInput;
 import com.volcengine.ecs.model.TagForRunInstancesInput;
@@ -50,6 +51,9 @@ public class RunInstancesRequest {
   @SerializedName("CreditSpecification")
   private String creditSpecification = null;
 
+  @SerializedName("DeploymentSetGroupNumber")
+  private Integer deploymentSetGroupNumber = null;
+
   @SerializedName("DeploymentSetId")
   private String deploymentSetId = null;
 
@@ -58,6 +62,9 @@ public class RunInstancesRequest {
 
   @SerializedName("DryRun")
   private Boolean dryRun = null;
+
+  @SerializedName("EipAddress")
+  private EipAddressForRunInstancesInput eipAddress = null;
 
   @SerializedName("HostName")
   private String hostName = null;
@@ -230,6 +237,24 @@ public class RunInstancesRequest {
     this.creditSpecification = creditSpecification;
   }
 
+  public RunInstancesRequest deploymentSetGroupNumber(Integer deploymentSetGroupNumber) {
+    this.deploymentSetGroupNumber = deploymentSetGroupNumber;
+    return this;
+  }
+
+   /**
+   * Get deploymentSetGroupNumber
+   * @return deploymentSetGroupNumber
+  **/
+  @Schema(description = "")
+  public Integer getDeploymentSetGroupNumber() {
+    return deploymentSetGroupNumber;
+  }
+
+  public void setDeploymentSetGroupNumber(Integer deploymentSetGroupNumber) {
+    this.deploymentSetGroupNumber = deploymentSetGroupNumber;
+  }
+
   public RunInstancesRequest deploymentSetId(String deploymentSetId) {
     this.deploymentSetId = deploymentSetId;
     return this;
@@ -284,16 +309,35 @@ public class RunInstancesRequest {
     this.dryRun = dryRun;
   }
 
+  public RunInstancesRequest eipAddress(EipAddressForRunInstancesInput eipAddress) {
+    this.eipAddress = eipAddress;
+    return this;
+  }
+
+   /**
+   * Get eipAddress
+   * @return eipAddress
+  **/
+  @Valid
+  @Schema(description = "")
+  public EipAddressForRunInstancesInput getEipAddress() {
+    return eipAddress;
+  }
+
+  public void setEipAddress(EipAddressForRunInstancesInput eipAddress) {
+    this.eipAddress = eipAddress;
+  }
+
   public RunInstancesRequest hostName(String hostName) {
     this.hostName = hostName;
     return this;
   }
 
    /**
-   * this field is deprecated
+   * Get hostName
    * @return hostName
   **/
-  @Schema(description = "this field is deprecated")
+  @Schema(description = "")
   public String getHostName() {
     return hostName;
   }
@@ -347,7 +391,8 @@ public class RunInstancesRequest {
    * Get imageId
    * @return imageId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getImageId() {
     return imageId;
   }
@@ -401,7 +446,8 @@ public class RunInstancesRequest {
    * Get instanceName
    * @return instanceName
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getInstanceName() {
     return instanceName;
   }
@@ -789,7 +835,8 @@ public class RunInstancesRequest {
    * Get zoneId
    * @return zoneId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getZoneId() {
     return zoneId;
   }
@@ -813,9 +860,11 @@ public class RunInstancesRequest {
         Objects.equals(this.clientToken, runInstancesRequest.clientToken) &&
         Objects.equals(this.count, runInstancesRequest.count) &&
         Objects.equals(this.creditSpecification, runInstancesRequest.creditSpecification) &&
+        Objects.equals(this.deploymentSetGroupNumber, runInstancesRequest.deploymentSetGroupNumber) &&
         Objects.equals(this.deploymentSetId, runInstancesRequest.deploymentSetId) &&
         Objects.equals(this.description, runInstancesRequest.description) &&
         Objects.equals(this.dryRun, runInstancesRequest.dryRun) &&
+        Objects.equals(this.eipAddress, runInstancesRequest.eipAddress) &&
         Objects.equals(this.hostName, runInstancesRequest.hostName) &&
         Objects.equals(this.hostname, runInstancesRequest.hostname) &&
         Objects.equals(this.hpcClusterId, runInstancesRequest.hpcClusterId) &&
@@ -847,7 +896,7 @@ public class RunInstancesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoRenew, autoRenewPeriod, clientToken, count, creditSpecification, deploymentSetId, description, dryRun, hostName, hostname, hpcClusterId, imageId, installRunCommandAgent, instanceChargeType, instanceName, instanceType, instanceTypeId, keepImageCredential, keyPairName, minCount, networkInterfaces, password, period, periodUnit, placement, projectName, securityEnhancementStrategy, spotPriceLimit, spotStrategy, suffixIndex, tags, uniqueSuffix, userData, volumes, zoneId);
+    return Objects.hash(autoRenew, autoRenewPeriod, clientToken, count, creditSpecification, deploymentSetGroupNumber, deploymentSetId, description, dryRun, eipAddress, hostName, hostname, hpcClusterId, imageId, installRunCommandAgent, instanceChargeType, instanceName, instanceType, instanceTypeId, keepImageCredential, keyPairName, minCount, networkInterfaces, password, period, periodUnit, placement, projectName, securityEnhancementStrategy, spotPriceLimit, spotStrategy, suffixIndex, tags, uniqueSuffix, userData, volumes, zoneId);
   }
 
 
@@ -861,9 +910,11 @@ public class RunInstancesRequest {
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    count: ").append(toIndentedString(count)).append("\n");
     sb.append("    creditSpecification: ").append(toIndentedString(creditSpecification)).append("\n");
+    sb.append("    deploymentSetGroupNumber: ").append(toIndentedString(deploymentSetGroupNumber)).append("\n");
     sb.append("    deploymentSetId: ").append(toIndentedString(deploymentSetId)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    dryRun: ").append(toIndentedString(dryRun)).append("\n");
+    sb.append("    eipAddress: ").append(toIndentedString(eipAddress)).append("\n");
     sb.append("    hostName: ").append(toIndentedString(hostName)).append("\n");
     sb.append("    hostname: ").append(toIndentedString(hostname)).append("\n");
     sb.append("    hpcClusterId: ").append(toIndentedString(hpcClusterId)).append("\n");

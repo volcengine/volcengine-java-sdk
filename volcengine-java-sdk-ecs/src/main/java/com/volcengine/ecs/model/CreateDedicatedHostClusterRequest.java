@@ -68,7 +68,8 @@ public class CreateDedicatedHostClusterRequest {
    * Get dedicatedHostClusterName
    * @return dedicatedHostClusterName
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getDedicatedHostClusterName() {
     return dedicatedHostClusterName;
   }
@@ -104,7 +105,8 @@ public class CreateDedicatedHostClusterRequest {
    * Get zoneId
    * @return zoneId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getZoneId() {
     return zoneId;
   }

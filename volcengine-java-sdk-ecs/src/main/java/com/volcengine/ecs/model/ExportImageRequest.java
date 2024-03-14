@@ -47,7 +47,8 @@ public class ExportImageRequest {
    * Get imageId
    * @return imageId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getImageId() {
     return imageId;
   }
@@ -65,7 +66,8 @@ public class ExportImageRequest {
    * Get toSBucket
    * @return toSBucket
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getToSBucket() {
     return toSBucket;
   }
@@ -83,7 +85,8 @@ public class ExportImageRequest {
    * Get toSPrefix
    * @return toSPrefix
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getToSPrefix() {
     return toSPrefix;
   }

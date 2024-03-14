@@ -56,7 +56,8 @@ public class DescribeAvailableResourceRequest {
    * Get destinationResource
    * @return destinationResource
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getDestinationResource() {
     return destinationResource;
   }

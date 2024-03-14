@@ -41,9 +41,6 @@ public class ParameterForDescribeApplyParameterTemplateOutput {
   @SerializedName("Restart")
   private Boolean restart = null;
 
-  @SerializedName("Result")
-  private String result = null;
-
   public ParameterForDescribeApplyParameterTemplateOutput name(String name) {
     this.name = name;
     return this;
@@ -116,24 +113,6 @@ public class ParameterForDescribeApplyParameterTemplateOutput {
     this.restart = restart;
   }
 
-  public ParameterForDescribeApplyParameterTemplateOutput result(String result) {
-    this.result = result;
-    return this;
-  }
-
-   /**
-   * Get result
-   * @return result
-  **/
-  @Schema(description = "")
-  public String getResult() {
-    return result;
-  }
-
-  public void setResult(String result) {
-    this.result = result;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -147,13 +126,12 @@ public class ParameterForDescribeApplyParameterTemplateOutput {
     return Objects.equals(this.name, parameterForDescribeApplyParameterTemplateOutput.name) &&
         Objects.equals(this.newValue, parameterForDescribeApplyParameterTemplateOutput.newValue) &&
         Objects.equals(this.oldValue, parameterForDescribeApplyParameterTemplateOutput.oldValue) &&
-        Objects.equals(this.restart, parameterForDescribeApplyParameterTemplateOutput.restart) &&
-        Objects.equals(this.result, parameterForDescribeApplyParameterTemplateOutput.result);
+        Objects.equals(this.restart, parameterForDescribeApplyParameterTemplateOutput.restart);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, newValue, oldValue, restart, result);
+    return Objects.hash(name, newValue, oldValue, restart);
   }
 
 
@@ -166,7 +144,6 @@ public class ParameterForDescribeApplyParameterTemplateOutput {
     sb.append("    newValue: ").append(toIndentedString(newValue)).append("\n");
     sb.append("    oldValue: ").append(toIndentedString(oldValue)).append("\n");
     sb.append("    restart: ").append(toIndentedString(restart)).append("\n");
-    sb.append("    result: ").append(toIndentedString(result)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -20,7 +20,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.rdsmysqlv2.model.DatabasePrivilegeForCreateDatabaseInput;
-import com.volcengine.rdsmysqlv2.model.DatabasePrivilegesInfoForCreateDatabaseInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -44,9 +43,6 @@ public class CreateDatabaseRequest {
 
   @SerializedName("DatabasePrivileges")
   private List<DatabasePrivilegeForCreateDatabaseInput> databasePrivileges = null;
-
-  @SerializedName("DatabasePrivilegesInfo")
-  private List<DatabasePrivilegesInfoForCreateDatabaseInput> databasePrivilegesInfo = null;
 
   @SerializedName("InstanceId")
   private String instanceId = null;
@@ -96,7 +92,8 @@ public class CreateDatabaseRequest {
    * Get dbName
    * @return dbName
   **/
- @Size(min=2,max=64)  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getDbName() {
     return dbName;
   }
@@ -132,33 +129,6 @@ public class CreateDatabaseRequest {
     this.databasePrivileges = databasePrivileges;
   }
 
-  public CreateDatabaseRequest databasePrivilegesInfo(List<DatabasePrivilegesInfoForCreateDatabaseInput> databasePrivilegesInfo) {
-    this.databasePrivilegesInfo = databasePrivilegesInfo;
-    return this;
-  }
-
-  public CreateDatabaseRequest addDatabasePrivilegesInfoItem(DatabasePrivilegesInfoForCreateDatabaseInput databasePrivilegesInfoItem) {
-    if (this.databasePrivilegesInfo == null) {
-      this.databasePrivilegesInfo = new ArrayList<DatabasePrivilegesInfoForCreateDatabaseInput>();
-    }
-    this.databasePrivilegesInfo.add(databasePrivilegesInfoItem);
-    return this;
-  }
-
-   /**
-   * Get databasePrivilegesInfo
-   * @return databasePrivilegesInfo
-  **/
-  @Valid
-  @Schema(description = "")
-  public List<DatabasePrivilegesInfoForCreateDatabaseInput> getDatabasePrivilegesInfo() {
-    return databasePrivilegesInfo;
-  }
-
-  public void setDatabasePrivilegesInfo(List<DatabasePrivilegesInfoForCreateDatabaseInput> databasePrivilegesInfo) {
-    this.databasePrivilegesInfo = databasePrivilegesInfo;
-  }
-
   public CreateDatabaseRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
     return this;
@@ -192,13 +162,12 @@ public class CreateDatabaseRequest {
         Objects.equals(this.dbDesc, createDatabaseRequest.dbDesc) &&
         Objects.equals(this.dbName, createDatabaseRequest.dbName) &&
         Objects.equals(this.databasePrivileges, createDatabaseRequest.databasePrivileges) &&
-        Objects.equals(this.databasePrivilegesInfo, createDatabaseRequest.databasePrivilegesInfo) &&
         Objects.equals(this.instanceId, createDatabaseRequest.instanceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(characterSetName, dbDesc, dbName, databasePrivileges, databasePrivilegesInfo, instanceId);
+    return Objects.hash(characterSetName, dbDesc, dbName, databasePrivileges, instanceId);
   }
 
 
@@ -211,7 +180,6 @@ public class CreateDatabaseRequest {
     sb.append("    dbDesc: ").append(toIndentedString(dbDesc)).append("\n");
     sb.append("    dbName: ").append(toIndentedString(dbName)).append("\n");
     sb.append("    databasePrivileges: ").append(toIndentedString(databasePrivileges)).append("\n");
-    sb.append("    databasePrivilegesInfo: ").append(toIndentedString(databasePrivilegesInfo)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -59,6 +59,9 @@ public class DescribeSpotAdviceRequest {
   @SerializedName("NextToken")
   private String nextToken = null;
 
+  @SerializedName("ZoneId")
+  private String zoneId = null;
+
   public DescribeSpotAdviceRequest cpus(Integer cpus) {
     this.cpus = cpus;
     return this;
@@ -230,6 +233,24 @@ public class DescribeSpotAdviceRequest {
     this.nextToken = nextToken;
   }
 
+  public DescribeSpotAdviceRequest zoneId(String zoneId) {
+    this.zoneId = zoneId;
+    return this;
+  }
+
+   /**
+   * Get zoneId
+   * @return zoneId
+  **/
+  @Schema(description = "")
+  public String getZoneId() {
+    return zoneId;
+  }
+
+  public void setZoneId(String zoneId) {
+    this.zoneId = zoneId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -248,12 +269,13 @@ public class DescribeSpotAdviceRequest {
         Objects.equals(this.memorySize, describeSpotAdviceRequest.memorySize) &&
         Objects.equals(this.minCpus, describeSpotAdviceRequest.minCpus) &&
         Objects.equals(this.minMemorySize, describeSpotAdviceRequest.minMemorySize) &&
-        Objects.equals(this.nextToken, describeSpotAdviceRequest.nextToken);
+        Objects.equals(this.nextToken, describeSpotAdviceRequest.nextToken) &&
+        Objects.equals(this.zoneId, describeSpotAdviceRequest.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cpus, gpu, instanceTypeFamily, instanceTypeIds, maxResults, memorySize, minCpus, minMemorySize, nextToken);
+    return Objects.hash(cpus, gpu, instanceTypeFamily, instanceTypeIds, maxResults, memorySize, minCpus, minMemorySize, nextToken, zoneId);
   }
 
 
@@ -271,6 +293,7 @@ public class DescribeSpotAdviceRequest {
     sb.append("    minCpus: ").append(toIndentedString(minCpus)).append("\n");
     sb.append("    minMemorySize: ").append(toIndentedString(minMemorySize)).append("\n");
     sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
+    sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

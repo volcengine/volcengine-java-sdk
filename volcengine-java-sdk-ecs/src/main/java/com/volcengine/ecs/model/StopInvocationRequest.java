@@ -41,7 +41,8 @@ public class StopInvocationRequest {
    * Get invocationId
    * @return invocationId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getInvocationId() {
     return invocationId;
   }

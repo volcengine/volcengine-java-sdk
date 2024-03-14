@@ -44,7 +44,8 @@ public class GetBackupDownloadLinkRequest {
    * Get backupId
    * @return backupId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getBackupId() {
     return backupId;
   }

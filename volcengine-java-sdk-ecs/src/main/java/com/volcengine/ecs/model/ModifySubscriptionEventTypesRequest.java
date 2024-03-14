@@ -72,7 +72,8 @@ public class ModifySubscriptionEventTypesRequest {
    * Get subscriptionId
    * @return subscriptionId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getSubscriptionId() {
     return subscriptionId;
   }

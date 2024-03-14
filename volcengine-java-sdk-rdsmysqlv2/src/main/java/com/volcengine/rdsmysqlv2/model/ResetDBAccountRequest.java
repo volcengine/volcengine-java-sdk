@@ -35,6 +35,9 @@ public class ResetDBAccountRequest {
   @SerializedName("AccountPassword")
   private String accountPassword = null;
 
+  @SerializedName("Host")
+  private String host = null;
+
   @SerializedName("InstanceId")
   private String instanceId = null;
 
@@ -48,7 +51,7 @@ public class ResetDBAccountRequest {
    * @return accountName
   **/
   @NotNull
- @Size(min=2,max=32)  @Schema(required = true, description = "")
+  @Schema(required = true, description = "")
   public String getAccountName() {
     return accountName;
   }
@@ -66,13 +69,32 @@ public class ResetDBAccountRequest {
    * Get accountPassword
    * @return accountPassword
   **/
- @Size(min=8,max=32)  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getAccountPassword() {
     return accountPassword;
   }
 
   public void setAccountPassword(String accountPassword) {
     this.accountPassword = accountPassword;
+  }
+
+  public ResetDBAccountRequest host(String host) {
+    this.host = host;
+    return this;
+  }
+
+   /**
+   * Get host
+   * @return host
+  **/
+  @Schema(description = "")
+  public String getHost() {
+    return host;
+  }
+
+  public void setHost(String host) {
+    this.host = host;
   }
 
   public ResetDBAccountRequest instanceId(String instanceId) {
@@ -106,12 +128,13 @@ public class ResetDBAccountRequest {
     ResetDBAccountRequest resetDBAccountRequest = (ResetDBAccountRequest) o;
     return Objects.equals(this.accountName, resetDBAccountRequest.accountName) &&
         Objects.equals(this.accountPassword, resetDBAccountRequest.accountPassword) &&
+        Objects.equals(this.host, resetDBAccountRequest.host) &&
         Objects.equals(this.instanceId, resetDBAccountRequest.instanceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountName, accountPassword, instanceId);
+    return Objects.hash(accountName, accountPassword, host, instanceId);
   }
 
 
@@ -122,6 +145,7 @@ public class ResetDBAccountRequest {
     
     sb.append("    accountName: ").append(toIndentedString(accountName)).append("\n");
     sb.append("    accountPassword: ").append(toIndentedString(accountPassword)).append("\n");
+    sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("}");
     return sb.toString();

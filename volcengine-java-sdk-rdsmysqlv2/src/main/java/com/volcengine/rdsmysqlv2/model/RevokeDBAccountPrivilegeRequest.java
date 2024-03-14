@@ -35,6 +35,9 @@ public class RevokeDBAccountPrivilegeRequest {
   @SerializedName("DBNames")
   private String dbNames = null;
 
+  @SerializedName("Host")
+  private String host = null;
+
   @SerializedName("InstanceId")
   private String instanceId = null;
 
@@ -48,7 +51,7 @@ public class RevokeDBAccountPrivilegeRequest {
    * @return accountName
   **/
   @NotNull
- @Size(min=2,max=32)  @Schema(required = true, description = "")
+  @Schema(required = true, description = "")
   public String getAccountName() {
     return accountName;
   }
@@ -74,6 +77,24 @@ public class RevokeDBAccountPrivilegeRequest {
 
   public void setDbNames(String dbNames) {
     this.dbNames = dbNames;
+  }
+
+  public RevokeDBAccountPrivilegeRequest host(String host) {
+    this.host = host;
+    return this;
+  }
+
+   /**
+   * Get host
+   * @return host
+  **/
+  @Schema(description = "")
+  public String getHost() {
+    return host;
+  }
+
+  public void setHost(String host) {
+    this.host = host;
   }
 
   public RevokeDBAccountPrivilegeRequest instanceId(String instanceId) {
@@ -107,12 +128,13 @@ public class RevokeDBAccountPrivilegeRequest {
     RevokeDBAccountPrivilegeRequest revokeDBAccountPrivilegeRequest = (RevokeDBAccountPrivilegeRequest) o;
     return Objects.equals(this.accountName, revokeDBAccountPrivilegeRequest.accountName) &&
         Objects.equals(this.dbNames, revokeDBAccountPrivilegeRequest.dbNames) &&
+        Objects.equals(this.host, revokeDBAccountPrivilegeRequest.host) &&
         Objects.equals(this.instanceId, revokeDBAccountPrivilegeRequest.instanceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountName, dbNames, instanceId);
+    return Objects.hash(accountName, dbNames, host, instanceId);
   }
 
 
@@ -123,6 +145,7 @@ public class RevokeDBAccountPrivilegeRequest {
     
     sb.append("    accountName: ").append(toIndentedString(accountName)).append("\n");
     sb.append("    dbNames: ").append(toIndentedString(dbNames)).append("\n");
+    sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -37,11 +37,8 @@ public class DescribeCloudAssistantStatusRequest {
   @SerializedName("InstanceIds")
   private List<String> instanceIds = null;
 
-  @SerializedName("OsType")
+  @SerializedName("OSType")
   private String osType = null;
-
-  @SerializedName("OsVersion")
-  private String osVersion = null;
 
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
@@ -114,24 +111,6 @@ public class DescribeCloudAssistantStatusRequest {
     this.osType = osType;
   }
 
-  public DescribeCloudAssistantStatusRequest osVersion(String osVersion) {
-    this.osVersion = osVersion;
-    return this;
-  }
-
-   /**
-   * Get osVersion
-   * @return osVersion
-  **/
-  @Schema(description = "")
-  public String getOsVersion() {
-    return osVersion;
-  }
-
-  public void setOsVersion(String osVersion) {
-    this.osVersion = osVersion;
-  }
-
   public DescribeCloudAssistantStatusRequest pageNumber(Integer pageNumber) {
     this.pageNumber = pageNumber;
     return this;
@@ -199,7 +178,6 @@ public class DescribeCloudAssistantStatusRequest {
     return Objects.equals(this.clientVersion, describeCloudAssistantStatusRequest.clientVersion) &&
         Objects.equals(this.instanceIds, describeCloudAssistantStatusRequest.instanceIds) &&
         Objects.equals(this.osType, describeCloudAssistantStatusRequest.osType) &&
-        Objects.equals(this.osVersion, describeCloudAssistantStatusRequest.osVersion) &&
         Objects.equals(this.pageNumber, describeCloudAssistantStatusRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeCloudAssistantStatusRequest.pageSize) &&
         Objects.equals(this.status, describeCloudAssistantStatusRequest.status);
@@ -207,7 +185,7 @@ public class DescribeCloudAssistantStatusRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientVersion, instanceIds, osType, osVersion, pageNumber, pageSize, status);
+    return Objects.hash(clientVersion, instanceIds, osType, pageNumber, pageSize, status);
   }
 
 
@@ -219,7 +197,6 @@ public class DescribeCloudAssistantStatusRequest {
     sb.append("    clientVersion: ").append(toIndentedString(clientVersion)).append("\n");
     sb.append("    instanceIds: ").append(toIndentedString(instanceIds)).append("\n");
     sb.append("    osType: ").append(toIndentedString(osType)).append("\n");
-    sb.append("    osVersion: ").append(toIndentedString(osVersion)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");

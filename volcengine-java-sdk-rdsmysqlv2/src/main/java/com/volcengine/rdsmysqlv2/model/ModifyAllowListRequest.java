@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -46,6 +48,9 @@ public class ModifyAllowListRequest {
 
   @SerializedName("ModifyMode")
   private String modifyMode = null;
+
+  @SerializedName("SecurityGroupIds")
+  private List<String> securityGroupIds = null;
 
   public ModifyAllowListRequest allowList(String allowList) {
     this.allowList = allowList;
@@ -157,6 +162,32 @@ public class ModifyAllowListRequest {
     this.modifyMode = modifyMode;
   }
 
+  public ModifyAllowListRequest securityGroupIds(List<String> securityGroupIds) {
+    this.securityGroupIds = securityGroupIds;
+    return this;
+  }
+
+  public ModifyAllowListRequest addSecurityGroupIdsItem(String securityGroupIdsItem) {
+    if (this.securityGroupIds == null) {
+      this.securityGroupIds = new ArrayList<String>();
+    }
+    this.securityGroupIds.add(securityGroupIdsItem);
+    return this;
+  }
+
+   /**
+   * Get securityGroupIds
+   * @return securityGroupIds
+  **/
+  @Schema(description = "")
+  public List<String> getSecurityGroupIds() {
+    return securityGroupIds;
+  }
+
+  public void setSecurityGroupIds(List<String> securityGroupIds) {
+    this.securityGroupIds = securityGroupIds;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -172,12 +203,13 @@ public class ModifyAllowListRequest {
         Objects.equals(this.allowListId, modifyAllowListRequest.allowListId) &&
         Objects.equals(this.allowListName, modifyAllowListRequest.allowListName) &&
         Objects.equals(this.applyInstanceNum, modifyAllowListRequest.applyInstanceNum) &&
-        Objects.equals(this.modifyMode, modifyAllowListRequest.modifyMode);
+        Objects.equals(this.modifyMode, modifyAllowListRequest.modifyMode) &&
+        Objects.equals(this.securityGroupIds, modifyAllowListRequest.securityGroupIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowList, allowListDesc, allowListId, allowListName, applyInstanceNum, modifyMode);
+    return Objects.hash(allowList, allowListDesc, allowListId, allowListName, applyInstanceNum, modifyMode, securityGroupIds);
   }
 
 
@@ -192,6 +224,7 @@ public class ModifyAllowListRequest {
     sb.append("    allowListName: ").append(toIndentedString(allowListName)).append("\n");
     sb.append("    applyInstanceNum: ").append(toIndentedString(applyInstanceNum)).append("\n");
     sb.append("    modifyMode: ").append(toIndentedString(modifyMode)).append("\n");
+    sb.append("    securityGroupIds: ").append(toIndentedString(securityGroupIds)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -41,6 +41,9 @@ public class ModifyInstanceSpecRequest {
   @SerializedName("InstanceType")
   private String instanceType = null;
 
+  @SerializedName("InstanceTypeId")
+  private String instanceTypeId = null;
+
   public ModifyInstanceSpecRequest clientToken(String clientToken) {
     this.clientToken = clientToken;
     return this;
@@ -86,7 +89,8 @@ public class ModifyInstanceSpecRequest {
    * Get instanceId
    * @return instanceId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getInstanceId() {
     return instanceId;
   }
@@ -113,6 +117,24 @@ public class ModifyInstanceSpecRequest {
     this.instanceType = instanceType;
   }
 
+  public ModifyInstanceSpecRequest instanceTypeId(String instanceTypeId) {
+    this.instanceTypeId = instanceTypeId;
+    return this;
+  }
+
+   /**
+   * Get instanceTypeId
+   * @return instanceTypeId
+  **/
+  @Schema(description = "")
+  public String getInstanceTypeId() {
+    return instanceTypeId;
+  }
+
+  public void setInstanceTypeId(String instanceTypeId) {
+    this.instanceTypeId = instanceTypeId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -126,12 +148,13 @@ public class ModifyInstanceSpecRequest {
     return Objects.equals(this.clientToken, modifyInstanceSpecRequest.clientToken) &&
         Objects.equals(this.dryRun, modifyInstanceSpecRequest.dryRun) &&
         Objects.equals(this.instanceId, modifyInstanceSpecRequest.instanceId) &&
-        Objects.equals(this.instanceType, modifyInstanceSpecRequest.instanceType);
+        Objects.equals(this.instanceType, modifyInstanceSpecRequest.instanceType) &&
+        Objects.equals(this.instanceTypeId, modifyInstanceSpecRequest.instanceTypeId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, dryRun, instanceId, instanceType);
+    return Objects.hash(clientToken, dryRun, instanceId, instanceType, instanceTypeId);
   }
 
 
@@ -144,6 +167,7 @@ public class ModifyInstanceSpecRequest {
     sb.append("    dryRun: ").append(toIndentedString(dryRun)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
+    sb.append("    instanceTypeId: ").append(toIndentedString(instanceTypeId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
