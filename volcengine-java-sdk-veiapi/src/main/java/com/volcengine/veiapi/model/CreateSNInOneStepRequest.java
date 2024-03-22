@@ -33,7 +33,7 @@ public class CreateSNInOneStepRequest {
   private Boolean autoRenew = null;
 
   @SerializedName("count_of_month")
-  private String countOfMonth = null;
+  private Integer countOfMonth = null;
 
   @SerializedName("type")
   private Integer type = null;
@@ -56,7 +56,7 @@ public class CreateSNInOneStepRequest {
     this.autoRenew = autoRenew;
   }
 
-  public CreateSNInOneStepRequest countOfMonth(String countOfMonth) {
+  public CreateSNInOneStepRequest countOfMonth(Integer countOfMonth) {
     this.countOfMonth = countOfMonth;
     return this;
   }
@@ -67,11 +67,11 @@ public class CreateSNInOneStepRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getCountOfMonth() {
+  public Integer getCountOfMonth() {
     return countOfMonth;
   }
 
-  public void setCountOfMonth(String countOfMonth) {
+  public void setCountOfMonth(Integer countOfMonth) {
     this.countOfMonth = countOfMonth;
   }
 
