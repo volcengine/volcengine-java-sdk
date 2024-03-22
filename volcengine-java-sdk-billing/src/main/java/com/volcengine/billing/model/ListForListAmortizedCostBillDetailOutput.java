@@ -197,6 +197,9 @@ public class ListForListAmortizedCostBillDetailOutput {
   @SerializedName("Project")
   private String project = null;
 
+  @SerializedName("ProjectDisplayName")
+  private String projectDisplayName = null;
+
   @SerializedName("Region")
   private String region = null;
 
@@ -1241,6 +1244,24 @@ public class ListForListAmortizedCostBillDetailOutput {
     this.project = project;
   }
 
+  public ListForListAmortizedCostBillDetailOutput projectDisplayName(String projectDisplayName) {
+    this.projectDisplayName = projectDisplayName;
+    return this;
+  }
+
+   /**
+   * Get projectDisplayName
+   * @return projectDisplayName
+  **/
+  @Schema(description = "")
+  public String getProjectDisplayName() {
+    return projectDisplayName;
+  }
+
+  public void setProjectDisplayName(String projectDisplayName) {
+    this.projectDisplayName = projectDisplayName;
+  }
+
   public ListForListAmortizedCostBillDetailOutput region(String region) {
     this.region = region;
     return this;
@@ -1523,6 +1544,7 @@ public class ListForListAmortizedCostBillDetailOutput {
         Objects.equals(this.product, listForListAmortizedCostBillDetailOutput.product) &&
         Objects.equals(this.productZh, listForListAmortizedCostBillDetailOutput.productZh) &&
         Objects.equals(this.project, listForListAmortizedCostBillDetailOutput.project) &&
+        Objects.equals(this.projectDisplayName, listForListAmortizedCostBillDetailOutput.projectDisplayName) &&
         Objects.equals(this.region, listForListAmortizedCostBillDetailOutput.region) &&
         Objects.equals(this.roundAmount, listForListAmortizedCostBillDetailOutput.roundAmount) &&
         Objects.equals(this.sellerCustomerName, listForListAmortizedCostBillDetailOutput.sellerCustomerName) &&
@@ -1539,7 +1561,7 @@ public class ListForListAmortizedCostBillDetailOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(amortizedBeginTime, amortizedDay, amortizedEndTime, amortizedMonth, amortizedType, billCategory, billID, billPeriod, billingFunction, billingMethodCode, billingMode, busiPeriod, businessMode, configName, costID, count, couponAmount, currency, dailyAmortizedCouponAmount, dailyAmortizedDiscountBillAmount, dailyAmortizedOriginalBillAmount, dailyAmortizedPaidAmount, dailyAmortizedPayableAmount, dailyAmortizedPreferentialBillAmount, dailyAmortizedRoundAmount, discountBillAmount, discountBizBillingFunction, discountBizMeasureInterval, discountBizUnitPrice, discountBizUnitPriceInterval, effectiveFactor, element, expandField, expenseBeginTime, expenseEndTime, factor, instanceName, instanceNo, marketPrice, measureInterval, originalBillAmount, ownerCustomerName, ownerID, ownerUserName, paidAmount, payableAmount, payerCustomerName, payerID, payerUserName, preferentialBillAmount, price, priceInterval, priceUnit, product, productZh, project, region, roundAmount, sellerCustomerName, sellerID, sellerUserName, subjectName, tag, tradeTime, unit, useDuration, useDurationUnit, zone);
+    return Objects.hash(amortizedBeginTime, amortizedDay, amortizedEndTime, amortizedMonth, amortizedType, billCategory, billID, billPeriod, billingFunction, billingMethodCode, billingMode, busiPeriod, businessMode, configName, costID, count, couponAmount, currency, dailyAmortizedCouponAmount, dailyAmortizedDiscountBillAmount, dailyAmortizedOriginalBillAmount, dailyAmortizedPaidAmount, dailyAmortizedPayableAmount, dailyAmortizedPreferentialBillAmount, dailyAmortizedRoundAmount, discountBillAmount, discountBizBillingFunction, discountBizMeasureInterval, discountBizUnitPrice, discountBizUnitPriceInterval, effectiveFactor, element, expandField, expenseBeginTime, expenseEndTime, factor, instanceName, instanceNo, marketPrice, measureInterval, originalBillAmount, ownerCustomerName, ownerID, ownerUserName, paidAmount, payableAmount, payerCustomerName, payerID, payerUserName, preferentialBillAmount, price, priceInterval, priceUnit, product, productZh, project, projectDisplayName, region, roundAmount, sellerCustomerName, sellerID, sellerUserName, subjectName, tag, tradeTime, unit, useDuration, useDurationUnit, zone);
   }
 
 
@@ -1604,6 +1626,7 @@ public class ListForListAmortizedCostBillDetailOutput {
     sb.append("    product: ").append(toIndentedString(product)).append("\n");
     sb.append("    productZh: ").append(toIndentedString(productZh)).append("\n");
     sb.append("    project: ").append(toIndentedString(project)).append("\n");
+    sb.append("    projectDisplayName: ").append(toIndentedString(projectDisplayName)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    roundAmount: ").append(toIndentedString(roundAmount)).append("\n");
     sb.append("    sellerCustomerName: ").append(toIndentedString(sellerCustomerName)).append("\n");
