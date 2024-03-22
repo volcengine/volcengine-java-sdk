@@ -3,7 +3,7 @@
     <parent>
         <artifactId>volcengine-java-sdk</artifactId>
         <groupId>com.volcengine</groupId>
-        <version>0.1.101</version>
+        <version>0.1.102</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -166,6 +166,12 @@
             <dependency>
                 <groupId>com.volcengine</groupId>
                 <artifactId>volcengine-java-sdk-rdsmssql</artifactId>
+                <optional>false</optional>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.volcengine</groupId>
+                <artifactId>volcengine-java-sdk-veiapi</artifactId>
                 <optional>false</optional>
                 <version>${project.version}</version>
             </dependency>
