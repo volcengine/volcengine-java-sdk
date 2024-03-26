@@ -28,15 +28,21 @@ import javax.validation.Valid;
  */
 
 
-public class GetSAMLProviderResponse {
+public class GetSAMLProviderResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("CertificateExpireTime")
+  private String certificateExpireTime = null;
+
   @SerializedName("CreateDate")
   private String createDate = null;
 
   @SerializedName("Description")
   private String description = null;
 
-  @SerializedName("SAMLProviderName")
-  private String saMLProviderName = null;
+  @SerializedName("EncodedSAMLMetadataDocument")
+  private String encodedSAMLMetadataDocument = null;
+
+  @SerializedName("ProviderName")
+  private String providerName = null;
 
   @SerializedName("SSOType")
   private Integer ssOType = null;
@@ -49,6 +55,24 @@ public class GetSAMLProviderResponse {
 
   @SerializedName("UpdateDate")
   private String updateDate = null;
+
+  public GetSAMLProviderResponse certificateExpireTime(String certificateExpireTime) {
+    this.certificateExpireTime = certificateExpireTime;
+    return this;
+  }
+
+   /**
+   * Get certificateExpireTime
+   * @return certificateExpireTime
+  **/
+  @Schema(description = "")
+  public String getCertificateExpireTime() {
+    return certificateExpireTime;
+  }
+
+  public void setCertificateExpireTime(String certificateExpireTime) {
+    this.certificateExpireTime = certificateExpireTime;
+  }
 
   public GetSAMLProviderResponse createDate(String createDate) {
     this.createDate = createDate;
@@ -86,22 +110,40 @@ public class GetSAMLProviderResponse {
     this.description = description;
   }
 
-  public GetSAMLProviderResponse saMLProviderName(String saMLProviderName) {
-    this.saMLProviderName = saMLProviderName;
+  public GetSAMLProviderResponse encodedSAMLMetadataDocument(String encodedSAMLMetadataDocument) {
+    this.encodedSAMLMetadataDocument = encodedSAMLMetadataDocument;
     return this;
   }
 
    /**
-   * Get saMLProviderName
-   * @return saMLProviderName
+   * Get encodedSAMLMetadataDocument
+   * @return encodedSAMLMetadataDocument
   **/
   @Schema(description = "")
-  public String getSaMLProviderName() {
-    return saMLProviderName;
+  public String getEncodedSAMLMetadataDocument() {
+    return encodedSAMLMetadataDocument;
   }
 
-  public void setSaMLProviderName(String saMLProviderName) {
-    this.saMLProviderName = saMLProviderName;
+  public void setEncodedSAMLMetadataDocument(String encodedSAMLMetadataDocument) {
+    this.encodedSAMLMetadataDocument = encodedSAMLMetadataDocument;
+  }
+
+  public GetSAMLProviderResponse providerName(String providerName) {
+    this.providerName = providerName;
+    return this;
+  }
+
+   /**
+   * Get providerName
+   * @return providerName
+  **/
+  @Schema(description = "")
+  public String getProviderName() {
+    return providerName;
+  }
+
+  public void setProviderName(String providerName) {
+    this.providerName = providerName;
   }
 
   public GetSAMLProviderResponse ssOType(Integer ssOType) {
@@ -186,9 +228,11 @@ public class GetSAMLProviderResponse {
       return false;
     }
     GetSAMLProviderResponse getSAMLProviderResponse = (GetSAMLProviderResponse) o;
-    return Objects.equals(this.createDate, getSAMLProviderResponse.createDate) &&
+    return Objects.equals(this.certificateExpireTime, getSAMLProviderResponse.certificateExpireTime) &&
+        Objects.equals(this.createDate, getSAMLProviderResponse.createDate) &&
         Objects.equals(this.description, getSAMLProviderResponse.description) &&
-        Objects.equals(this.saMLProviderName, getSAMLProviderResponse.saMLProviderName) &&
+        Objects.equals(this.encodedSAMLMetadataDocument, getSAMLProviderResponse.encodedSAMLMetadataDocument) &&
+        Objects.equals(this.providerName, getSAMLProviderResponse.providerName) &&
         Objects.equals(this.ssOType, getSAMLProviderResponse.ssOType) &&
         Objects.equals(this.status, getSAMLProviderResponse.status) &&
         Objects.equals(this.trn, getSAMLProviderResponse.trn) &&
@@ -197,7 +241,7 @@ public class GetSAMLProviderResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createDate, description, saMLProviderName, ssOType, status, trn, updateDate);
+    return Objects.hash(certificateExpireTime, createDate, description, encodedSAMLMetadataDocument, providerName, ssOType, status, trn, updateDate);
   }
 
 
@@ -206,9 +250,11 @@ public class GetSAMLProviderResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetSAMLProviderResponse {\n");
     
+    sb.append("    certificateExpireTime: ").append(toIndentedString(certificateExpireTime)).append("\n");
     sb.append("    createDate: ").append(toIndentedString(createDate)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    saMLProviderName: ").append(toIndentedString(saMLProviderName)).append("\n");
+    sb.append("    encodedSAMLMetadataDocument: ").append(toIndentedString(encodedSAMLMetadataDocument)).append("\n");
+    sb.append("    providerName: ").append(toIndentedString(providerName)).append("\n");
     sb.append("    ssOType: ").append(toIndentedString(ssOType)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    trn: ").append(toIndentedString(trn)).append("\n");

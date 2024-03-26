@@ -30,7 +30,7 @@ import javax.validation.Valid;
 
 public class UserForCreateUserOutput {
   @SerializedName("AccountId")
-  private Integer accountId = null;
+  private Long accountId = null;
 
   @SerializedName("CreateDate")
   private String createDate = null;
@@ -65,7 +65,7 @@ public class UserForCreateUserOutput {
   @SerializedName("UserName")
   private String userName = null;
 
-  public UserForCreateUserOutput accountId(Integer accountId) {
+  public UserForCreateUserOutput accountId(Long accountId) {
     this.accountId = accountId;
     return this;
   }
@@ -75,11 +75,11 @@ public class UserForCreateUserOutput {
    * @return accountId
   **/
   @Schema(description = "")
-  public Integer getAccountId() {
+  public Long getAccountId() {
     return accountId;
   }
 
-  public void setAccountId(Integer accountId) {
+  public void setAccountId(Long accountId) {
     this.accountId = accountId;
   }
 

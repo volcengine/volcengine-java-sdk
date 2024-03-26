@@ -29,7 +29,7 @@ import javax.validation.Valid;
  */
 
 
-public class GetPolicyResponse {
+public class GetPolicyResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Policy")
   private PolicyForGetPolicyOutput policy = null;
 

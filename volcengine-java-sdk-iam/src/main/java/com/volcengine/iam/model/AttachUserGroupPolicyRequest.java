@@ -32,8 +32,49 @@ public class AttachUserGroupPolicyRequest {
   @SerializedName("PolicyName")
   private String policyName = null;
 
-  @SerializedName("PolicyType")
-  private String policyType = null;
+  /**
+   * Gets or Sets policyType
+   */
+  @JsonAdapter(PolicyTypeEnum.Adapter.class)
+  public enum PolicyTypeEnum {
+    SYSTEM("System"),
+    CUSTOM("Custom");
+
+    private String value;
+
+    PolicyTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static PolicyTypeEnum fromValue(String input) {
+      for (PolicyTypeEnum b : PolicyTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<PolicyTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final PolicyTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public PolicyTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return PolicyTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("PolicyType")
+  private PolicyTypeEnum policyType = null;
 
   @SerializedName("UserGroupName")
   private String userGroupName = null;
@@ -48,7 +89,7 @@ public class AttachUserGroupPolicyRequest {
    * @return policyName
   **/
   @NotNull
-  @Schema(required = true, description = "")
+ @Size(min=1,max=64)  @Schema(required = true, description = "")
   public String getPolicyName() {
     return policyName;
   }
@@ -57,7 +98,7 @@ public class AttachUserGroupPolicyRequest {
     this.policyName = policyName;
   }
 
-  public AttachUserGroupPolicyRequest policyType(String policyType) {
+  public AttachUserGroupPolicyRequest policyType(PolicyTypeEnum policyType) {
     this.policyType = policyType;
     return this;
   }
@@ -68,11 +109,11 @@ public class AttachUserGroupPolicyRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getPolicyType() {
+  public PolicyTypeEnum getPolicyType() {
     return policyType;
   }
 
-  public void setPolicyType(String policyType) {
+  public void setPolicyType(PolicyTypeEnum policyType) {
     this.policyType = policyType;
   }
 
@@ -86,7 +127,7 @@ public class AttachUserGroupPolicyRequest {
    * @return userGroupName
   **/
   @NotNull
-  @Schema(required = true, description = "")
+ @Size(min=1,max=64)  @Schema(required = true, description = "")
   public String getUserGroupName() {
     return userGroupName;
   }

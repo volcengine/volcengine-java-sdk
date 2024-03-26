@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.iam.model.TagForCreateRoleInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -37,6 +40,9 @@ public class CreateRoleRequest {
 
   @SerializedName("RoleName")
   private String roleName = null;
+
+  @SerializedName("Tags")
+  private List<TagForCreateRoleInput> tags = null;
 
   @SerializedName("TrustPolicyDocument")
   private String trustPolicyDocument = null;
@@ -97,6 +103,33 @@ public class CreateRoleRequest {
     this.roleName = roleName;
   }
 
+  public CreateRoleRequest tags(List<TagForCreateRoleInput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public CreateRoleRequest addTagsItem(TagForCreateRoleInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForCreateRoleInput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForCreateRoleInput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForCreateRoleInput> tags) {
+    this.tags = tags;
+  }
+
   public CreateRoleRequest trustPolicyDocument(String trustPolicyDocument) {
     this.trustPolicyDocument = trustPolicyDocument;
     return this;
@@ -128,12 +161,13 @@ public class CreateRoleRequest {
     return Objects.equals(this.description, createRoleRequest.description) &&
         Objects.equals(this.displayName, createRoleRequest.displayName) &&
         Objects.equals(this.roleName, createRoleRequest.roleName) &&
+        Objects.equals(this.tags, createRoleRequest.tags) &&
         Objects.equals(this.trustPolicyDocument, createRoleRequest.trustPolicyDocument);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, displayName, roleName, trustPolicyDocument);
+    return Objects.hash(description, displayName, roleName, tags, trustPolicyDocument);
   }
 
 
@@ -145,6 +179,7 @@ public class CreateRoleRequest {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    roleName: ").append(toIndentedString(roleName)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    trustPolicyDocument: ").append(toIndentedString(trustPolicyDocument)).append("\n");
     sb.append("}");
     return sb.toString();

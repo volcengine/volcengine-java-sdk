@@ -24,11 +24,11 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * AttachedPolicyMetadataForListAttachedUserGroupPoliciesOutput
+ * AttachedPolicyMetadatumForListAttachedUserPoliciesOutput
  */
 
 
-public class AttachedPolicyMetadataForListAttachedUserGroupPoliciesOutput {
+public class AttachedPolicyMetadatumForListAttachedUserPoliciesOutput {
   @SerializedName("AttachDate")
   private String attachDate = null;
 
@@ -44,7 +44,7 @@ public class AttachedPolicyMetadataForListAttachedUserGroupPoliciesOutput {
   @SerializedName("PolicyType")
   private String policyType = null;
 
-  public AttachedPolicyMetadataForListAttachedUserGroupPoliciesOutput attachDate(String attachDate) {
+  public AttachedPolicyMetadatumForListAttachedUserPoliciesOutput attachDate(String attachDate) {
     this.attachDate = attachDate;
     return this;
   }
@@ -62,7 +62,7 @@ public class AttachedPolicyMetadataForListAttachedUserGroupPoliciesOutput {
     this.attachDate = attachDate;
   }
 
-  public AttachedPolicyMetadataForListAttachedUserGroupPoliciesOutput description(String description) {
+  public AttachedPolicyMetadatumForListAttachedUserPoliciesOutput description(String description) {
     this.description = description;
     return this;
   }
@@ -80,7 +80,7 @@ public class AttachedPolicyMetadataForListAttachedUserGroupPoliciesOutput {
     this.description = description;
   }
 
-  public AttachedPolicyMetadataForListAttachedUserGroupPoliciesOutput policyName(String policyName) {
+  public AttachedPolicyMetadatumForListAttachedUserPoliciesOutput policyName(String policyName) {
     this.policyName = policyName;
     return this;
   }
@@ -98,7 +98,7 @@ public class AttachedPolicyMetadataForListAttachedUserGroupPoliciesOutput {
     this.policyName = policyName;
   }
 
-  public AttachedPolicyMetadataForListAttachedUserGroupPoliciesOutput policyTrn(String policyTrn) {
+  public AttachedPolicyMetadatumForListAttachedUserPoliciesOutput policyTrn(String policyTrn) {
     this.policyTrn = policyTrn;
     return this;
   }
@@ -116,7 +116,7 @@ public class AttachedPolicyMetadataForListAttachedUserGroupPoliciesOutput {
     this.policyTrn = policyTrn;
   }
 
-  public AttachedPolicyMetadataForListAttachedUserGroupPoliciesOutput policyType(String policyType) {
+  public AttachedPolicyMetadatumForListAttachedUserPoliciesOutput policyType(String policyType) {
     this.policyType = policyType;
     return this;
   }
@@ -143,12 +143,12 @@ public class AttachedPolicyMetadataForListAttachedUserGroupPoliciesOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AttachedPolicyMetadataForListAttachedUserGroupPoliciesOutput attachedPolicyMetadataForListAttachedUserGroupPoliciesOutput = (AttachedPolicyMetadataForListAttachedUserGroupPoliciesOutput) o;
-    return Objects.equals(this.attachDate, attachedPolicyMetadataForListAttachedUserGroupPoliciesOutput.attachDate) &&
-        Objects.equals(this.description, attachedPolicyMetadataForListAttachedUserGroupPoliciesOutput.description) &&
-        Objects.equals(this.policyName, attachedPolicyMetadataForListAttachedUserGroupPoliciesOutput.policyName) &&
-        Objects.equals(this.policyTrn, attachedPolicyMetadataForListAttachedUserGroupPoliciesOutput.policyTrn) &&
-        Objects.equals(this.policyType, attachedPolicyMetadataForListAttachedUserGroupPoliciesOutput.policyType);
+    AttachedPolicyMetadatumForListAttachedUserPoliciesOutput attachedPolicyMetadatumForListAttachedUserPoliciesOutput = (AttachedPolicyMetadatumForListAttachedUserPoliciesOutput) o;
+    return Objects.equals(this.attachDate, attachedPolicyMetadatumForListAttachedUserPoliciesOutput.attachDate) &&
+        Objects.equals(this.description, attachedPolicyMetadatumForListAttachedUserPoliciesOutput.description) &&
+        Objects.equals(this.policyName, attachedPolicyMetadatumForListAttachedUserPoliciesOutput.policyName) &&
+        Objects.equals(this.policyTrn, attachedPolicyMetadatumForListAttachedUserPoliciesOutput.policyTrn) &&
+        Objects.equals(this.policyType, attachedPolicyMetadatumForListAttachedUserPoliciesOutput.policyType);
   }
 
   @Override
@@ -160,7 +160,7 @@ public class AttachedPolicyMetadataForListAttachedUserGroupPoliciesOutput {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AttachedPolicyMetadataForListAttachedUserGroupPoliciesOutput {\n");
+    sb.append("class AttachedPolicyMetadatumForListAttachedUserPoliciesOutput {\n");
     
     sb.append("    attachDate: ").append(toIndentedString(attachDate)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");

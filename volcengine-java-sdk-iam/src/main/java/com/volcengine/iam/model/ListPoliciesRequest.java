@@ -33,7 +33,7 @@ public class ListPoliciesRequest {
   private Integer limit = null;
 
   @SerializedName("Offset")
-  private String offset = null;
+  private Integer offset = null;
 
   @SerializedName("Scope")
   private String scope = null;
@@ -56,7 +56,7 @@ public class ListPoliciesRequest {
     this.limit = limit;
   }
 
-  public ListPoliciesRequest offset(String offset) {
+  public ListPoliciesRequest offset(Integer offset) {
     this.offset = offset;
     return this;
   }
@@ -66,11 +66,11 @@ public class ListPoliciesRequest {
    * @return offset
   **/
   @Schema(description = "")
-  public String getOffset() {
+  public Integer getOffset() {
     return offset;
   }
 
-  public void setOffset(String offset) {
+  public void setOffset(Integer offset) {
     this.offset = offset;
   }
 

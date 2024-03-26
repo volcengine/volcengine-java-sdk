@@ -24,11 +24,11 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * RoleMetadataForListRolesOutput
+ * RoleMetadatumForListRolesOutput
  */
 
 
-public class RoleMetadataForListRolesOutput {
+public class RoleMetadatumForListRolesOutput {
   @SerializedName("CreateDate")
   private String createDate = null;
 
@@ -47,7 +47,7 @@ public class RoleMetadataForListRolesOutput {
   @SerializedName("TrustPolicyDocument")
   private String trustPolicyDocument = null;
 
-  public RoleMetadataForListRolesOutput createDate(String createDate) {
+  public RoleMetadatumForListRolesOutput createDate(String createDate) {
     this.createDate = createDate;
     return this;
   }
@@ -65,7 +65,7 @@ public class RoleMetadataForListRolesOutput {
     this.createDate = createDate;
   }
 
-  public RoleMetadataForListRolesOutput description(String description) {
+  public RoleMetadatumForListRolesOutput description(String description) {
     this.description = description;
     return this;
   }
@@ -83,7 +83,7 @@ public class RoleMetadataForListRolesOutput {
     this.description = description;
   }
 
-  public RoleMetadataForListRolesOutput roleId(Integer roleId) {
+  public RoleMetadatumForListRolesOutput roleId(Integer roleId) {
     this.roleId = roleId;
     return this;
   }
@@ -101,7 +101,7 @@ public class RoleMetadataForListRolesOutput {
     this.roleId = roleId;
   }
 
-  public RoleMetadataForListRolesOutput roleName(String roleName) {
+  public RoleMetadatumForListRolesOutput roleName(String roleName) {
     this.roleName = roleName;
     return this;
   }
@@ -119,7 +119,7 @@ public class RoleMetadataForListRolesOutput {
     this.roleName = roleName;
   }
 
-  public RoleMetadataForListRolesOutput trn(String trn) {
+  public RoleMetadatumForListRolesOutput trn(String trn) {
     this.trn = trn;
     return this;
   }
@@ -137,7 +137,7 @@ public class RoleMetadataForListRolesOutput {
     this.trn = trn;
   }
 
-  public RoleMetadataForListRolesOutput trustPolicyDocument(String trustPolicyDocument) {
+  public RoleMetadatumForListRolesOutput trustPolicyDocument(String trustPolicyDocument) {
     this.trustPolicyDocument = trustPolicyDocument;
     return this;
   }
@@ -164,13 +164,13 @@ public class RoleMetadataForListRolesOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RoleMetadataForListRolesOutput roleMetadataForListRolesOutput = (RoleMetadataForListRolesOutput) o;
-    return Objects.equals(this.createDate, roleMetadataForListRolesOutput.createDate) &&
-        Objects.equals(this.description, roleMetadataForListRolesOutput.description) &&
-        Objects.equals(this.roleId, roleMetadataForListRolesOutput.roleId) &&
-        Objects.equals(this.roleName, roleMetadataForListRolesOutput.roleName) &&
-        Objects.equals(this.trn, roleMetadataForListRolesOutput.trn) &&
-        Objects.equals(this.trustPolicyDocument, roleMetadataForListRolesOutput.trustPolicyDocument);
+    RoleMetadatumForListRolesOutput roleMetadatumForListRolesOutput = (RoleMetadatumForListRolesOutput) o;
+    return Objects.equals(this.createDate, roleMetadatumForListRolesOutput.createDate) &&
+        Objects.equals(this.description, roleMetadatumForListRolesOutput.description) &&
+        Objects.equals(this.roleId, roleMetadatumForListRolesOutput.roleId) &&
+        Objects.equals(this.roleName, roleMetadatumForListRolesOutput.roleName) &&
+        Objects.equals(this.trn, roleMetadatumForListRolesOutput.trn) &&
+        Objects.equals(this.trustPolicyDocument, roleMetadatumForListRolesOutput.trustPolicyDocument);
   }
 
   @Override
@@ -182,7 +182,7 @@ public class RoleMetadataForListRolesOutput {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RoleMetadataForListRolesOutput {\n");
+    sb.append("class RoleMetadatumForListRolesOutput {\n");
     
     sb.append("    createDate: ").append(toIndentedString(createDate)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");

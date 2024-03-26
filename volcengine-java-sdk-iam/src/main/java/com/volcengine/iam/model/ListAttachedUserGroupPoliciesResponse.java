@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.iam.model.AttachedPolicyMetadataForListAttachedUserGroupPoliciesOutput;
+import com.volcengine.iam.model.AttachedPolicyMetadatumForListAttachedUserGroupPoliciesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -31,18 +31,18 @@ import javax.validation.Valid;
  */
 
 
-public class ListAttachedUserGroupPoliciesResponse {
+public class ListAttachedUserGroupPoliciesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("AttachedPolicyMetadata")
-  private List<AttachedPolicyMetadataForListAttachedUserGroupPoliciesOutput> attachedPolicyMetadata = null;
+  private List<AttachedPolicyMetadatumForListAttachedUserGroupPoliciesOutput> attachedPolicyMetadata = null;
 
-  public ListAttachedUserGroupPoliciesResponse attachedPolicyMetadata(List<AttachedPolicyMetadataForListAttachedUserGroupPoliciesOutput> attachedPolicyMetadata) {
+  public ListAttachedUserGroupPoliciesResponse attachedPolicyMetadata(List<AttachedPolicyMetadatumForListAttachedUserGroupPoliciesOutput> attachedPolicyMetadata) {
     this.attachedPolicyMetadata = attachedPolicyMetadata;
     return this;
   }
 
-  public ListAttachedUserGroupPoliciesResponse addAttachedPolicyMetadataItem(AttachedPolicyMetadataForListAttachedUserGroupPoliciesOutput attachedPolicyMetadataItem) {
+  public ListAttachedUserGroupPoliciesResponse addAttachedPolicyMetadataItem(AttachedPolicyMetadatumForListAttachedUserGroupPoliciesOutput attachedPolicyMetadataItem) {
     if (this.attachedPolicyMetadata == null) {
-      this.attachedPolicyMetadata = new ArrayList<AttachedPolicyMetadataForListAttachedUserGroupPoliciesOutput>();
+      this.attachedPolicyMetadata = new ArrayList<AttachedPolicyMetadatumForListAttachedUserGroupPoliciesOutput>();
     }
     this.attachedPolicyMetadata.add(attachedPolicyMetadataItem);
     return this;
@@ -54,11 +54,11 @@ public class ListAttachedUserGroupPoliciesResponse {
   **/
   @Valid
   @Schema(description = "")
-  public List<AttachedPolicyMetadataForListAttachedUserGroupPoliciesOutput> getAttachedPolicyMetadata() {
+  public List<AttachedPolicyMetadatumForListAttachedUserGroupPoliciesOutput> getAttachedPolicyMetadata() {
     return attachedPolicyMetadata;
   }
 
-  public void setAttachedPolicyMetadata(List<AttachedPolicyMetadataForListAttachedUserGroupPoliciesOutput> attachedPolicyMetadata) {
+  public void setAttachedPolicyMetadata(List<AttachedPolicyMetadatumForListAttachedUserGroupPoliciesOutput> attachedPolicyMetadata) {
     this.attachedPolicyMetadata = attachedPolicyMetadata;
   }
 

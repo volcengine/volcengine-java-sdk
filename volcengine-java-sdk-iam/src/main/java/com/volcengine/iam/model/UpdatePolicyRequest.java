@@ -50,7 +50,7 @@ public class UpdatePolicyRequest {
    * Get newDescription
    * @return newDescription
   **/
-  @Schema(description = "")
+ @Size(max=255)  @Schema(description = "")
   public String getNewDescription() {
     return newDescription;
   }
@@ -68,7 +68,7 @@ public class UpdatePolicyRequest {
    * Get newPolicyDocument
    * @return newPolicyDocument
   **/
-  @Schema(description = "")
+ @Size(max=6144)  @Schema(description = "")
   public String getNewPolicyDocument() {
     return newPolicyDocument;
   }
@@ -86,7 +86,7 @@ public class UpdatePolicyRequest {
    * Get newPolicyName
    * @return newPolicyName
   **/
-  @Schema(description = "")
+ @Size(min=1,max=64)  @Schema(description = "")
   public String getNewPolicyName() {
     return newPolicyName;
   }
@@ -105,7 +105,7 @@ public class UpdatePolicyRequest {
    * @return policyName
   **/
   @NotNull
-  @Schema(required = true, description = "")
+ @Size(min=1,max=64)  @Schema(required = true, description = "")
   public String getPolicyName() {
     return policyName;
   }

@@ -33,7 +33,7 @@ public class ListUsersForGroupRequest {
   private Integer limit = null;
 
   @SerializedName("Offset")
-  private String offset = null;
+  private Integer offset = null;
 
   @SerializedName("UserGroupName")
   private String userGroupName = null;
@@ -56,7 +56,7 @@ public class ListUsersForGroupRequest {
     this.limit = limit;
   }
 
-  public ListUsersForGroupRequest offset(String offset) {
+  public ListUsersForGroupRequest offset(Integer offset) {
     this.offset = offset;
     return this;
   }
@@ -66,11 +66,11 @@ public class ListUsersForGroupRequest {
    * @return offset
   **/
   @Schema(description = "")
-  public String getOffset() {
+  public Integer getOffset() {
     return offset;
   }
 
-  public void setOffset(String offset) {
+  public void setOffset(Integer offset) {
     this.offset = offset;
   }
 

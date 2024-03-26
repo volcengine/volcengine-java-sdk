@@ -35,6 +35,9 @@ public class SAMLProviderForListSAMLProvidersOutput {
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("ProviderName")
+  private String providerName = null;
+
   @SerializedName("SAMLProviderName")
   private String saMLProviderName = null;
 
@@ -84,6 +87,24 @@ public class SAMLProviderForListSAMLProvidersOutput {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public SAMLProviderForListSAMLProvidersOutput providerName(String providerName) {
+    this.providerName = providerName;
+    return this;
+  }
+
+   /**
+   * Get providerName
+   * @return providerName
+  **/
+  @Schema(description = "")
+  public String getProviderName() {
+    return providerName;
+  }
+
+  public void setProviderName(String providerName) {
+    this.providerName = providerName;
   }
 
   public SAMLProviderForListSAMLProvidersOutput saMLProviderName(String saMLProviderName) {
@@ -188,6 +209,7 @@ public class SAMLProviderForListSAMLProvidersOutput {
     SAMLProviderForListSAMLProvidersOutput saMLProviderForListSAMLProvidersOutput = (SAMLProviderForListSAMLProvidersOutput) o;
     return Objects.equals(this.createDate, saMLProviderForListSAMLProvidersOutput.createDate) &&
         Objects.equals(this.description, saMLProviderForListSAMLProvidersOutput.description) &&
+        Objects.equals(this.providerName, saMLProviderForListSAMLProvidersOutput.providerName) &&
         Objects.equals(this.saMLProviderName, saMLProviderForListSAMLProvidersOutput.saMLProviderName) &&
         Objects.equals(this.ssOType, saMLProviderForListSAMLProvidersOutput.ssOType) &&
         Objects.equals(this.status, saMLProviderForListSAMLProvidersOutput.status) &&
@@ -197,7 +219,7 @@ public class SAMLProviderForListSAMLProvidersOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createDate, description, saMLProviderName, ssOType, status, trn, updateDate);
+    return Objects.hash(createDate, description, providerName, saMLProviderName, ssOType, status, trn, updateDate);
   }
 
 
@@ -208,6 +230,7 @@ public class SAMLProviderForListSAMLProvidersOutput {
     
     sb.append("    createDate: ").append(toIndentedString(createDate)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    providerName: ").append(toIndentedString(providerName)).append("\n");
     sb.append("    saMLProviderName: ").append(toIndentedString(saMLProviderName)).append("\n");
     sb.append("    ssOType: ").append(toIndentedString(ssOType)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");

@@ -24,19 +24,19 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * UpdateSAMLProviderResponse
+ * CreateOAuthProviderResponse
  */
 
 
-public class UpdateSAMLProviderResponse {
+public class CreateOAuthProviderResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("CreateDate")
   private String createDate = null;
 
   @SerializedName("Description")
   private String description = null;
 
-  @SerializedName("SAMLProviderName")
-  private String saMLProviderName = null;
+  @SerializedName("OAuthProviderName")
+  private String oauthProviderName = null;
 
   @SerializedName("SSOType")
   private Integer ssOType = null;
@@ -50,7 +50,7 @@ public class UpdateSAMLProviderResponse {
   @SerializedName("UpdateDate")
   private String updateDate = null;
 
-  public UpdateSAMLProviderResponse createDate(String createDate) {
+  public CreateOAuthProviderResponse createDate(String createDate) {
     this.createDate = createDate;
     return this;
   }
@@ -68,7 +68,7 @@ public class UpdateSAMLProviderResponse {
     this.createDate = createDate;
   }
 
-  public UpdateSAMLProviderResponse description(String description) {
+  public CreateOAuthProviderResponse description(String description) {
     this.description = description;
     return this;
   }
@@ -86,25 +86,25 @@ public class UpdateSAMLProviderResponse {
     this.description = description;
   }
 
-  public UpdateSAMLProviderResponse saMLProviderName(String saMLProviderName) {
-    this.saMLProviderName = saMLProviderName;
+  public CreateOAuthProviderResponse oauthProviderName(String oauthProviderName) {
+    this.oauthProviderName = oauthProviderName;
     return this;
   }
 
    /**
-   * Get saMLProviderName
-   * @return saMLProviderName
+   * Get oauthProviderName
+   * @return oauthProviderName
   **/
   @Schema(description = "")
-  public String getSaMLProviderName() {
-    return saMLProviderName;
+  public String getOauthProviderName() {
+    return oauthProviderName;
   }
 
-  public void setSaMLProviderName(String saMLProviderName) {
-    this.saMLProviderName = saMLProviderName;
+  public void setOauthProviderName(String oauthProviderName) {
+    this.oauthProviderName = oauthProviderName;
   }
 
-  public UpdateSAMLProviderResponse ssOType(Integer ssOType) {
+  public CreateOAuthProviderResponse ssOType(Integer ssOType) {
     this.ssOType = ssOType;
     return this;
   }
@@ -122,7 +122,7 @@ public class UpdateSAMLProviderResponse {
     this.ssOType = ssOType;
   }
 
-  public UpdateSAMLProviderResponse status(Integer status) {
+  public CreateOAuthProviderResponse status(Integer status) {
     this.status = status;
     return this;
   }
@@ -140,7 +140,7 @@ public class UpdateSAMLProviderResponse {
     this.status = status;
   }
 
-  public UpdateSAMLProviderResponse trn(String trn) {
+  public CreateOAuthProviderResponse trn(String trn) {
     this.trn = trn;
     return this;
   }
@@ -158,7 +158,7 @@ public class UpdateSAMLProviderResponse {
     this.trn = trn;
   }
 
-  public UpdateSAMLProviderResponse updateDate(String updateDate) {
+  public CreateOAuthProviderResponse updateDate(String updateDate) {
     this.updateDate = updateDate;
     return this;
   }
@@ -185,30 +185,30 @@ public class UpdateSAMLProviderResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UpdateSAMLProviderResponse updateSAMLProviderResponse = (UpdateSAMLProviderResponse) o;
-    return Objects.equals(this.createDate, updateSAMLProviderResponse.createDate) &&
-        Objects.equals(this.description, updateSAMLProviderResponse.description) &&
-        Objects.equals(this.saMLProviderName, updateSAMLProviderResponse.saMLProviderName) &&
-        Objects.equals(this.ssOType, updateSAMLProviderResponse.ssOType) &&
-        Objects.equals(this.status, updateSAMLProviderResponse.status) &&
-        Objects.equals(this.trn, updateSAMLProviderResponse.trn) &&
-        Objects.equals(this.updateDate, updateSAMLProviderResponse.updateDate);
+    CreateOAuthProviderResponse createOAuthProviderResponse = (CreateOAuthProviderResponse) o;
+    return Objects.equals(this.createDate, createOAuthProviderResponse.createDate) &&
+        Objects.equals(this.description, createOAuthProviderResponse.description) &&
+        Objects.equals(this.oauthProviderName, createOAuthProviderResponse.oauthProviderName) &&
+        Objects.equals(this.ssOType, createOAuthProviderResponse.ssOType) &&
+        Objects.equals(this.status, createOAuthProviderResponse.status) &&
+        Objects.equals(this.trn, createOAuthProviderResponse.trn) &&
+        Objects.equals(this.updateDate, createOAuthProviderResponse.updateDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createDate, description, saMLProviderName, ssOType, status, trn, updateDate);
+    return Objects.hash(createDate, description, oauthProviderName, ssOType, status, trn, updateDate);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UpdateSAMLProviderResponse {\n");
+    sb.append("class CreateOAuthProviderResponse {\n");
     
     sb.append("    createDate: ").append(toIndentedString(createDate)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    saMLProviderName: ").append(toIndentedString(saMLProviderName)).append("\n");
+    sb.append("    oauthProviderName: ").append(toIndentedString(oauthProviderName)).append("\n");
     sb.append("    ssOType: ").append(toIndentedString(ssOType)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    trn: ").append(toIndentedString(trn)).append("\n");

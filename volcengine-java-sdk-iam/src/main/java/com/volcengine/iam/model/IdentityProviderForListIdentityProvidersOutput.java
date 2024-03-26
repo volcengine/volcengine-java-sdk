@@ -24,19 +24,22 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * CreateSAMLProviderResponse
+ * IdentityProviderForListIdentityProvidersOutput
  */
 
 
-public class CreateSAMLProviderResponse {
+public class IdentityProviderForListIdentityProvidersOutput {
   @SerializedName("CreateDate")
   private String createDate = null;
 
   @SerializedName("Description")
   private String description = null;
 
-  @SerializedName("SAMLProviderName")
-  private String saMLProviderName = null;
+  @SerializedName("IdpType")
+  private Integer idpType = null;
+
+  @SerializedName("ProviderName")
+  private String providerName = null;
 
   @SerializedName("SSOType")
   private Integer ssOType = null;
@@ -50,7 +53,7 @@ public class CreateSAMLProviderResponse {
   @SerializedName("UpdateDate")
   private String updateDate = null;
 
-  public CreateSAMLProviderResponse createDate(String createDate) {
+  public IdentityProviderForListIdentityProvidersOutput createDate(String createDate) {
     this.createDate = createDate;
     return this;
   }
@@ -68,7 +71,7 @@ public class CreateSAMLProviderResponse {
     this.createDate = createDate;
   }
 
-  public CreateSAMLProviderResponse description(String description) {
+  public IdentityProviderForListIdentityProvidersOutput description(String description) {
     this.description = description;
     return this;
   }
@@ -86,25 +89,43 @@ public class CreateSAMLProviderResponse {
     this.description = description;
   }
 
-  public CreateSAMLProviderResponse saMLProviderName(String saMLProviderName) {
-    this.saMLProviderName = saMLProviderName;
+  public IdentityProviderForListIdentityProvidersOutput idpType(Integer idpType) {
+    this.idpType = idpType;
     return this;
   }
 
    /**
-   * Get saMLProviderName
-   * @return saMLProviderName
+   * Get idpType
+   * @return idpType
   **/
   @Schema(description = "")
-  public String getSaMLProviderName() {
-    return saMLProviderName;
+  public Integer getIdpType() {
+    return idpType;
   }
 
-  public void setSaMLProviderName(String saMLProviderName) {
-    this.saMLProviderName = saMLProviderName;
+  public void setIdpType(Integer idpType) {
+    this.idpType = idpType;
   }
 
-  public CreateSAMLProviderResponse ssOType(Integer ssOType) {
+  public IdentityProviderForListIdentityProvidersOutput providerName(String providerName) {
+    this.providerName = providerName;
+    return this;
+  }
+
+   /**
+   * Get providerName
+   * @return providerName
+  **/
+  @Schema(description = "")
+  public String getProviderName() {
+    return providerName;
+  }
+
+  public void setProviderName(String providerName) {
+    this.providerName = providerName;
+  }
+
+  public IdentityProviderForListIdentityProvidersOutput ssOType(Integer ssOType) {
     this.ssOType = ssOType;
     return this;
   }
@@ -122,7 +143,7 @@ public class CreateSAMLProviderResponse {
     this.ssOType = ssOType;
   }
 
-  public CreateSAMLProviderResponse status(Integer status) {
+  public IdentityProviderForListIdentityProvidersOutput status(Integer status) {
     this.status = status;
     return this;
   }
@@ -140,7 +161,7 @@ public class CreateSAMLProviderResponse {
     this.status = status;
   }
 
-  public CreateSAMLProviderResponse trn(String trn) {
+  public IdentityProviderForListIdentityProvidersOutput trn(String trn) {
     this.trn = trn;
     return this;
   }
@@ -158,7 +179,7 @@ public class CreateSAMLProviderResponse {
     this.trn = trn;
   }
 
-  public CreateSAMLProviderResponse updateDate(String updateDate) {
+  public IdentityProviderForListIdentityProvidersOutput updateDate(String updateDate) {
     this.updateDate = updateDate;
     return this;
   }
@@ -185,30 +206,32 @@ public class CreateSAMLProviderResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateSAMLProviderResponse createSAMLProviderResponse = (CreateSAMLProviderResponse) o;
-    return Objects.equals(this.createDate, createSAMLProviderResponse.createDate) &&
-        Objects.equals(this.description, createSAMLProviderResponse.description) &&
-        Objects.equals(this.saMLProviderName, createSAMLProviderResponse.saMLProviderName) &&
-        Objects.equals(this.ssOType, createSAMLProviderResponse.ssOType) &&
-        Objects.equals(this.status, createSAMLProviderResponse.status) &&
-        Objects.equals(this.trn, createSAMLProviderResponse.trn) &&
-        Objects.equals(this.updateDate, createSAMLProviderResponse.updateDate);
+    IdentityProviderForListIdentityProvidersOutput identityProviderForListIdentityProvidersOutput = (IdentityProviderForListIdentityProvidersOutput) o;
+    return Objects.equals(this.createDate, identityProviderForListIdentityProvidersOutput.createDate) &&
+        Objects.equals(this.description, identityProviderForListIdentityProvidersOutput.description) &&
+        Objects.equals(this.idpType, identityProviderForListIdentityProvidersOutput.idpType) &&
+        Objects.equals(this.providerName, identityProviderForListIdentityProvidersOutput.providerName) &&
+        Objects.equals(this.ssOType, identityProviderForListIdentityProvidersOutput.ssOType) &&
+        Objects.equals(this.status, identityProviderForListIdentityProvidersOutput.status) &&
+        Objects.equals(this.trn, identityProviderForListIdentityProvidersOutput.trn) &&
+        Objects.equals(this.updateDate, identityProviderForListIdentityProvidersOutput.updateDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createDate, description, saMLProviderName, ssOType, status, trn, updateDate);
+    return Objects.hash(createDate, description, idpType, providerName, ssOType, status, trn, updateDate);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateSAMLProviderResponse {\n");
+    sb.append("class IdentityProviderForListIdentityProvidersOutput {\n");
     
     sb.append("    createDate: ").append(toIndentedString(createDate)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    saMLProviderName: ").append(toIndentedString(saMLProviderName)).append("\n");
+    sb.append("    idpType: ").append(toIndentedString(idpType)).append("\n");
+    sb.append("    providerName: ").append(toIndentedString(providerName)).append("\n");
     sb.append("    ssOType: ").append(toIndentedString(ssOType)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    trn: ").append(toIndentedString(trn)).append("\n");

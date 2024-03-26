@@ -29,7 +29,7 @@ import javax.validation.Valid;
  */
 
 
-public class CreateAccessKeyResponse {
+public class CreateAccessKeyResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("AccessKey")
   private AccessKeyForCreateAccessKeyOutput accessKey = null;
 

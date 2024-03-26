@@ -29,7 +29,7 @@ import javax.validation.Valid;
  */
 
 
-public class GetRoleResponse {
+public class GetRoleResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Role")
   private RoleForGetRoleOutput role = null;
 

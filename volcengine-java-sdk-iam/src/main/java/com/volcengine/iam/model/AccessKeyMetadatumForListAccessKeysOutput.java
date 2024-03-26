@@ -24,11 +24,11 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * AccessKeyMetadataForListAccessKeysOutput
+ * AccessKeyMetadatumForListAccessKeysOutput
  */
 
 
-public class AccessKeyMetadataForListAccessKeysOutput {
+public class AccessKeyMetadatumForListAccessKeysOutput {
   @SerializedName("AccessKeyId")
   private String accessKeyId = null;
 
@@ -44,7 +44,7 @@ public class AccessKeyMetadataForListAccessKeysOutput {
   @SerializedName("UserName")
   private String userName = null;
 
-  public AccessKeyMetadataForListAccessKeysOutput accessKeyId(String accessKeyId) {
+  public AccessKeyMetadatumForListAccessKeysOutput accessKeyId(String accessKeyId) {
     this.accessKeyId = accessKeyId;
     return this;
   }
@@ -62,7 +62,7 @@ public class AccessKeyMetadataForListAccessKeysOutput {
     this.accessKeyId = accessKeyId;
   }
 
-  public AccessKeyMetadataForListAccessKeysOutput createDate(String createDate) {
+  public AccessKeyMetadatumForListAccessKeysOutput createDate(String createDate) {
     this.createDate = createDate;
     return this;
   }
@@ -80,7 +80,7 @@ public class AccessKeyMetadataForListAccessKeysOutput {
     this.createDate = createDate;
   }
 
-  public AccessKeyMetadataForListAccessKeysOutput status(String status) {
+  public AccessKeyMetadatumForListAccessKeysOutput status(String status) {
     this.status = status;
     return this;
   }
@@ -98,7 +98,7 @@ public class AccessKeyMetadataForListAccessKeysOutput {
     this.status = status;
   }
 
-  public AccessKeyMetadataForListAccessKeysOutput updateDate(String updateDate) {
+  public AccessKeyMetadatumForListAccessKeysOutput updateDate(String updateDate) {
     this.updateDate = updateDate;
     return this;
   }
@@ -116,7 +116,7 @@ public class AccessKeyMetadataForListAccessKeysOutput {
     this.updateDate = updateDate;
   }
 
-  public AccessKeyMetadataForListAccessKeysOutput userName(String userName) {
+  public AccessKeyMetadatumForListAccessKeysOutput userName(String userName) {
     this.userName = userName;
     return this;
   }
@@ -143,12 +143,12 @@ public class AccessKeyMetadataForListAccessKeysOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AccessKeyMetadataForListAccessKeysOutput accessKeyMetadataForListAccessKeysOutput = (AccessKeyMetadataForListAccessKeysOutput) o;
-    return Objects.equals(this.accessKeyId, accessKeyMetadataForListAccessKeysOutput.accessKeyId) &&
-        Objects.equals(this.createDate, accessKeyMetadataForListAccessKeysOutput.createDate) &&
-        Objects.equals(this.status, accessKeyMetadataForListAccessKeysOutput.status) &&
-        Objects.equals(this.updateDate, accessKeyMetadataForListAccessKeysOutput.updateDate) &&
-        Objects.equals(this.userName, accessKeyMetadataForListAccessKeysOutput.userName);
+    AccessKeyMetadatumForListAccessKeysOutput accessKeyMetadatumForListAccessKeysOutput = (AccessKeyMetadatumForListAccessKeysOutput) o;
+    return Objects.equals(this.accessKeyId, accessKeyMetadatumForListAccessKeysOutput.accessKeyId) &&
+        Objects.equals(this.createDate, accessKeyMetadatumForListAccessKeysOutput.createDate) &&
+        Objects.equals(this.status, accessKeyMetadatumForListAccessKeysOutput.status) &&
+        Objects.equals(this.updateDate, accessKeyMetadatumForListAccessKeysOutput.updateDate) &&
+        Objects.equals(this.userName, accessKeyMetadatumForListAccessKeysOutput.userName);
   }
 
   @Override
@@ -160,7 +160,7 @@ public class AccessKeyMetadataForListAccessKeysOutput {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AccessKeyMetadataForListAccessKeysOutput {\n");
+    sb.append("class AccessKeyMetadatumForListAccessKeysOutput {\n");
     
     sb.append("    accessKeyId: ").append(toIndentedString(accessKeyId)).append("\n");
     sb.append("    createDate: ").append(toIndentedString(createDate)).append("\n");

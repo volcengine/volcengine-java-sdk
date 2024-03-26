@@ -29,7 +29,7 @@ import javax.validation.Valid;
  */
 
 
-public class GetGroupResponse {
+public class GetGroupResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("UserGroup")
   private UserGroupForGetGroupOutput userGroup = null;
 
