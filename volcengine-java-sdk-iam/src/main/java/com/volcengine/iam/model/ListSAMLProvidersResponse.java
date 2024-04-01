@@ -31,12 +31,12 @@ import javax.validation.Valid;
  */
 
 
-public class ListSAMLProvidersResponse {
+public class ListSAMLProvidersResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Limit")
   private Integer limit = null;
 
   @SerializedName("Offset")
-  private Integer offset = null;
+  private Long offset = null;
 
   @SerializedName("SAMLProviders")
   private List<SAMLProviderForListSAMLProvidersOutput> saMLProviders = null;
@@ -62,7 +62,7 @@ public class ListSAMLProvidersResponse {
     this.limit = limit;
   }
 
-  public ListSAMLProvidersResponse offset(Integer offset) {
+  public ListSAMLProvidersResponse offset(Long offset) {
     this.offset = offset;
     return this;
   }
@@ -72,11 +72,11 @@ public class ListSAMLProvidersResponse {
    * @return offset
   **/
   @Schema(description = "")
-  public Integer getOffset() {
+  public Long getOffset() {
     return offset;
   }
 
-  public void setOffset(Integer offset) {
+  public void setOffset(Long offset) {
     this.offset = offset;
   }
 

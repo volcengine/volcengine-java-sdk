@@ -31,7 +31,7 @@ import javax.validation.Valid;
  */
 
 
-public class ListGroupsForUserResponse {
+public class ListGroupsForUserResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Limit")
   private Integer limit = null;
 

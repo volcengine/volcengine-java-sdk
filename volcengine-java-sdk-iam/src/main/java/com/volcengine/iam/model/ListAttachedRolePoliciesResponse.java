@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.iam.model.AttachedPolicyMetadataForListAttachedRolePoliciesOutput;
+import com.volcengine.iam.model.AttachedPolicyMetadatumForListAttachedRolePoliciesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -31,18 +31,18 @@ import javax.validation.Valid;
  */
 
 
-public class ListAttachedRolePoliciesResponse {
+public class ListAttachedRolePoliciesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("AttachedPolicyMetadata")
-  private List<AttachedPolicyMetadataForListAttachedRolePoliciesOutput> attachedPolicyMetadata = null;
+  private List<AttachedPolicyMetadatumForListAttachedRolePoliciesOutput> attachedPolicyMetadata = null;
 
-  public ListAttachedRolePoliciesResponse attachedPolicyMetadata(List<AttachedPolicyMetadataForListAttachedRolePoliciesOutput> attachedPolicyMetadata) {
+  public ListAttachedRolePoliciesResponse attachedPolicyMetadata(List<AttachedPolicyMetadatumForListAttachedRolePoliciesOutput> attachedPolicyMetadata) {
     this.attachedPolicyMetadata = attachedPolicyMetadata;
     return this;
   }
 
-  public ListAttachedRolePoliciesResponse addAttachedPolicyMetadataItem(AttachedPolicyMetadataForListAttachedRolePoliciesOutput attachedPolicyMetadataItem) {
+  public ListAttachedRolePoliciesResponse addAttachedPolicyMetadataItem(AttachedPolicyMetadatumForListAttachedRolePoliciesOutput attachedPolicyMetadataItem) {
     if (this.attachedPolicyMetadata == null) {
-      this.attachedPolicyMetadata = new ArrayList<AttachedPolicyMetadataForListAttachedRolePoliciesOutput>();
+      this.attachedPolicyMetadata = new ArrayList<AttachedPolicyMetadatumForListAttachedRolePoliciesOutput>();
     }
     this.attachedPolicyMetadata.add(attachedPolicyMetadataItem);
     return this;
@@ -54,11 +54,11 @@ public class ListAttachedRolePoliciesResponse {
   **/
   @Valid
   @Schema(description = "")
-  public List<AttachedPolicyMetadataForListAttachedRolePoliciesOutput> getAttachedPolicyMetadata() {
+  public List<AttachedPolicyMetadatumForListAttachedRolePoliciesOutput> getAttachedPolicyMetadata() {
     return attachedPolicyMetadata;
   }
 
-  public void setAttachedPolicyMetadata(List<AttachedPolicyMetadataForListAttachedRolePoliciesOutput> attachedPolicyMetadata) {
+  public void setAttachedPolicyMetadata(List<AttachedPolicyMetadatumForListAttachedRolePoliciesOutput> attachedPolicyMetadata) {
     this.attachedPolicyMetadata = attachedPolicyMetadata;
   }
 

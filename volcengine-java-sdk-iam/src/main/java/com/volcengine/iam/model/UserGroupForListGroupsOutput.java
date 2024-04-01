@@ -30,7 +30,7 @@ import javax.validation.Valid;
 
 public class UserGroupForListGroupsOutput {
   @SerializedName("AccountID")
-  private Integer accountID = null;
+  private Long accountID = null;
 
   @SerializedName("CreateDate")
   private String createDate = null;
@@ -47,7 +47,7 @@ public class UserGroupForListGroupsOutput {
   @SerializedName("UserGroupName")
   private String userGroupName = null;
 
-  public UserGroupForListGroupsOutput accountID(Integer accountID) {
+  public UserGroupForListGroupsOutput accountID(Long accountID) {
     this.accountID = accountID;
     return this;
   }
@@ -57,11 +57,11 @@ public class UserGroupForListGroupsOutput {
    * @return accountID
   **/
   @Schema(description = "")
-  public Integer getAccountID() {
+  public Long getAccountID() {
     return accountID;
   }
 
-  public void setAccountID(Integer accountID) {
+  public void setAccountID(Long accountID) {
     this.accountID = accountID;
   }
 

@@ -21,7 +21,7 @@ import javax.validation.Valid;
  */
 
 
-public class UpdateRoleResponse {
+public class UpdateRoleResponse extends com.volcengine.model.AbstractResponse {
 
   @Override
   public boolean equals(java.lang.Object o) {

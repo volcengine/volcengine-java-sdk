@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.iam.model.PolicyMetadataForListPoliciesOutput;
+import com.volcengine.iam.model.PolicyMetadatumForListPoliciesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -31,7 +31,7 @@ import javax.validation.Valid;
  */
 
 
-public class ListPoliciesResponse {
+public class ListPoliciesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Limit")
   private Integer limit = null;
 
@@ -39,7 +39,7 @@ public class ListPoliciesResponse {
   private Integer offset = null;
 
   @SerializedName("PolicyMetadata")
-  private List<PolicyMetadataForListPoliciesOutput> policyMetadata = null;
+  private List<PolicyMetadatumForListPoliciesOutput> policyMetadata = null;
 
   @SerializedName("Total")
   private Integer total = null;
@@ -80,14 +80,14 @@ public class ListPoliciesResponse {
     this.offset = offset;
   }
 
-  public ListPoliciesResponse policyMetadata(List<PolicyMetadataForListPoliciesOutput> policyMetadata) {
+  public ListPoliciesResponse policyMetadata(List<PolicyMetadatumForListPoliciesOutput> policyMetadata) {
     this.policyMetadata = policyMetadata;
     return this;
   }
 
-  public ListPoliciesResponse addPolicyMetadataItem(PolicyMetadataForListPoliciesOutput policyMetadataItem) {
+  public ListPoliciesResponse addPolicyMetadataItem(PolicyMetadatumForListPoliciesOutput policyMetadataItem) {
     if (this.policyMetadata == null) {
-      this.policyMetadata = new ArrayList<PolicyMetadataForListPoliciesOutput>();
+      this.policyMetadata = new ArrayList<PolicyMetadatumForListPoliciesOutput>();
     }
     this.policyMetadata.add(policyMetadataItem);
     return this;
@@ -99,11 +99,11 @@ public class ListPoliciesResponse {
   **/
   @Valid
   @Schema(description = "")
-  public List<PolicyMetadataForListPoliciesOutput> getPolicyMetadata() {
+  public List<PolicyMetadatumForListPoliciesOutput> getPolicyMetadata() {
     return policyMetadata;
   }
 
-  public void setPolicyMetadata(List<PolicyMetadataForListPoliciesOutput> policyMetadata) {
+  public void setPolicyMetadata(List<PolicyMetadatumForListPoliciesOutput> policyMetadata) {
     this.policyMetadata = policyMetadata;
   }
 

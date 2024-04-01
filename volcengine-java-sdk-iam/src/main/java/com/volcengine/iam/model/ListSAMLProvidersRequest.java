@@ -33,7 +33,7 @@ public class ListSAMLProvidersRequest {
   private Integer limit = null;
 
   @SerializedName("Offset")
-  private Integer offset = null;
+  private Long offset = null;
 
   public ListSAMLProvidersRequest limit(Integer limit) {
     this.limit = limit;
@@ -42,9 +42,11 @@ public class ListSAMLProvidersRequest {
 
    /**
    * Get limit
+   * minimum: 0
+   * maximum: 100
    * @return limit
   **/
-  @Schema(description = "")
+ @Min(0) @Max(100)  @Schema(description = "")
   public Integer getLimit() {
     return limit;
   }
@@ -53,7 +55,7 @@ public class ListSAMLProvidersRequest {
     this.limit = limit;
   }
 
-  public ListSAMLProvidersRequest offset(Integer offset) {
+  public ListSAMLProvidersRequest offset(Long offset) {
     this.offset = offset;
     return this;
   }
@@ -63,11 +65,11 @@ public class ListSAMLProvidersRequest {
    * @return offset
   **/
   @Schema(description = "")
-  public Integer getOffset() {
+  public Long getOffset() {
     return offset;
   }
 
-  public void setOffset(Integer offset) {
+  public void setOffset(Long offset) {
     this.offset = offset;
   }
 

@@ -14,14 +14,6 @@ package com.volcengine.iam.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import com.volcengine.iam.model.UserGroupForUpdateGroupOutput;
-import io.swagger.v3.oas.annotations.media.Schema;
-import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -29,29 +21,7 @@ import javax.validation.Valid;
  */
 
 
-public class UpdateGroupResponse {
-  @SerializedName("UserGroup")
-  private UserGroupForUpdateGroupOutput userGroup = null;
-
-  public UpdateGroupResponse userGroup(UserGroupForUpdateGroupOutput userGroup) {
-    this.userGroup = userGroup;
-    return this;
-  }
-
-   /**
-   * Get userGroup
-   * @return userGroup
-  **/
-  @Valid
-  @Schema(description = "")
-  public UserGroupForUpdateGroupOutput getUserGroup() {
-    return userGroup;
-  }
-
-  public void setUserGroup(UserGroupForUpdateGroupOutput userGroup) {
-    this.userGroup = userGroup;
-  }
-
+public class UpdateGroupResponse extends com.volcengine.model.AbstractResponse {
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -61,13 +31,12 @@ public class UpdateGroupResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UpdateGroupResponse updateGroupResponse = (UpdateGroupResponse) o;
-    return Objects.equals(this.userGroup, updateGroupResponse.userGroup);
+    return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(userGroup);
+    return Objects.hash();
   }
 
 
@@ -76,7 +45,6 @@ public class UpdateGroupResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateGroupResponse {\n");
     
-    sb.append("    userGroup: ").append(toIndentedString(userGroup)).append("\n");
     sb.append("}");
     return sb.toString();
   }

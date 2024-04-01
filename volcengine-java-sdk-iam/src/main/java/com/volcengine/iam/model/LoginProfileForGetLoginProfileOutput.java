@@ -29,20 +29,59 @@ import javax.validation.Valid;
 
 
 public class LoginProfileForGetLoginProfileOutput {
+  @SerializedName("CreateDate")
+  private String createDate = null;
+
   @SerializedName("LastLoginDate")
   private String lastLoginDate = null;
 
   @SerializedName("LastLoginIp")
   private String lastLoginIp = null;
 
+  @SerializedName("LastResetPasswordTime")
+  private Integer lastResetPasswordTime = null;
+
   @SerializedName("LoginAllowed")
   private Boolean loginAllowed = null;
+
+  @SerializedName("LoginLocked")
+  private Boolean loginLocked = null;
+
+  @SerializedName("PasswordExpireAt")
+  private Integer passwordExpireAt = null;
 
   @SerializedName("PasswordResetRequired")
   private Boolean passwordResetRequired = null;
 
+  @SerializedName("Status")
+  private String status = null;
+
+  @SerializedName("UpdateDate")
+  private String updateDate = null;
+
+  @SerializedName("UserId")
+  private Long userId = null;
+
   @SerializedName("UserName")
   private String userName = null;
+
+  public LoginProfileForGetLoginProfileOutput createDate(String createDate) {
+    this.createDate = createDate;
+    return this;
+  }
+
+   /**
+   * Get createDate
+   * @return createDate
+  **/
+  @Schema(description = "")
+  public String getCreateDate() {
+    return createDate;
+  }
+
+  public void setCreateDate(String createDate) {
+    this.createDate = createDate;
+  }
 
   public LoginProfileForGetLoginProfileOutput lastLoginDate(String lastLoginDate) {
     this.lastLoginDate = lastLoginDate;
@@ -80,6 +119,24 @@ public class LoginProfileForGetLoginProfileOutput {
     this.lastLoginIp = lastLoginIp;
   }
 
+  public LoginProfileForGetLoginProfileOutput lastResetPasswordTime(Integer lastResetPasswordTime) {
+    this.lastResetPasswordTime = lastResetPasswordTime;
+    return this;
+  }
+
+   /**
+   * Get lastResetPasswordTime
+   * @return lastResetPasswordTime
+  **/
+  @Schema(description = "")
+  public Integer getLastResetPasswordTime() {
+    return lastResetPasswordTime;
+  }
+
+  public void setLastResetPasswordTime(Integer lastResetPasswordTime) {
+    this.lastResetPasswordTime = lastResetPasswordTime;
+  }
+
   public LoginProfileForGetLoginProfileOutput loginAllowed(Boolean loginAllowed) {
     this.loginAllowed = loginAllowed;
     return this;
@@ -98,6 +155,42 @@ public class LoginProfileForGetLoginProfileOutput {
     this.loginAllowed = loginAllowed;
   }
 
+  public LoginProfileForGetLoginProfileOutput loginLocked(Boolean loginLocked) {
+    this.loginLocked = loginLocked;
+    return this;
+  }
+
+   /**
+   * Get loginLocked
+   * @return loginLocked
+  **/
+  @Schema(description = "")
+  public Boolean isLoginLocked() {
+    return loginLocked;
+  }
+
+  public void setLoginLocked(Boolean loginLocked) {
+    this.loginLocked = loginLocked;
+  }
+
+  public LoginProfileForGetLoginProfileOutput passwordExpireAt(Integer passwordExpireAt) {
+    this.passwordExpireAt = passwordExpireAt;
+    return this;
+  }
+
+   /**
+   * Get passwordExpireAt
+   * @return passwordExpireAt
+  **/
+  @Schema(description = "")
+  public Integer getPasswordExpireAt() {
+    return passwordExpireAt;
+  }
+
+  public void setPasswordExpireAt(Integer passwordExpireAt) {
+    this.passwordExpireAt = passwordExpireAt;
+  }
+
   public LoginProfileForGetLoginProfileOutput passwordResetRequired(Boolean passwordResetRequired) {
     this.passwordResetRequired = passwordResetRequired;
     return this;
@@ -114,6 +207,60 @@ public class LoginProfileForGetLoginProfileOutput {
 
   public void setPasswordResetRequired(Boolean passwordResetRequired) {
     this.passwordResetRequired = passwordResetRequired;
+  }
+
+  public LoginProfileForGetLoginProfileOutput status(String status) {
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * Get status
+   * @return status
+  **/
+  @Schema(description = "")
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
+  public LoginProfileForGetLoginProfileOutput updateDate(String updateDate) {
+    this.updateDate = updateDate;
+    return this;
+  }
+
+   /**
+   * Get updateDate
+   * @return updateDate
+  **/
+  @Schema(description = "")
+  public String getUpdateDate() {
+    return updateDate;
+  }
+
+  public void setUpdateDate(String updateDate) {
+    this.updateDate = updateDate;
+  }
+
+  public LoginProfileForGetLoginProfileOutput userId(Long userId) {
+    this.userId = userId;
+    return this;
+  }
+
+   /**
+   * Get userId
+   * @return userId
+  **/
+  @Schema(description = "")
+  public Long getUserId() {
+    return userId;
+  }
+
+  public void setUserId(Long userId) {
+    this.userId = userId;
   }
 
   public LoginProfileForGetLoginProfileOutput userName(String userName) {
@@ -144,16 +291,23 @@ public class LoginProfileForGetLoginProfileOutput {
       return false;
     }
     LoginProfileForGetLoginProfileOutput loginProfileForGetLoginProfileOutput = (LoginProfileForGetLoginProfileOutput) o;
-    return Objects.equals(this.lastLoginDate, loginProfileForGetLoginProfileOutput.lastLoginDate) &&
+    return Objects.equals(this.createDate, loginProfileForGetLoginProfileOutput.createDate) &&
+        Objects.equals(this.lastLoginDate, loginProfileForGetLoginProfileOutput.lastLoginDate) &&
         Objects.equals(this.lastLoginIp, loginProfileForGetLoginProfileOutput.lastLoginIp) &&
+        Objects.equals(this.lastResetPasswordTime, loginProfileForGetLoginProfileOutput.lastResetPasswordTime) &&
         Objects.equals(this.loginAllowed, loginProfileForGetLoginProfileOutput.loginAllowed) &&
+        Objects.equals(this.loginLocked, loginProfileForGetLoginProfileOutput.loginLocked) &&
+        Objects.equals(this.passwordExpireAt, loginProfileForGetLoginProfileOutput.passwordExpireAt) &&
         Objects.equals(this.passwordResetRequired, loginProfileForGetLoginProfileOutput.passwordResetRequired) &&
+        Objects.equals(this.status, loginProfileForGetLoginProfileOutput.status) &&
+        Objects.equals(this.updateDate, loginProfileForGetLoginProfileOutput.updateDate) &&
+        Objects.equals(this.userId, loginProfileForGetLoginProfileOutput.userId) &&
         Objects.equals(this.userName, loginProfileForGetLoginProfileOutput.userName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(lastLoginDate, lastLoginIp, loginAllowed, passwordResetRequired, userName);
+    return Objects.hash(createDate, lastLoginDate, lastLoginIp, lastResetPasswordTime, loginAllowed, loginLocked, passwordExpireAt, passwordResetRequired, status, updateDate, userId, userName);
   }
 
 
@@ -162,10 +316,17 @@ public class LoginProfileForGetLoginProfileOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class LoginProfileForGetLoginProfileOutput {\n");
     
+    sb.append("    createDate: ").append(toIndentedString(createDate)).append("\n");
     sb.append("    lastLoginDate: ").append(toIndentedString(lastLoginDate)).append("\n");
     sb.append("    lastLoginIp: ").append(toIndentedString(lastLoginIp)).append("\n");
+    sb.append("    lastResetPasswordTime: ").append(toIndentedString(lastResetPasswordTime)).append("\n");
     sb.append("    loginAllowed: ").append(toIndentedString(loginAllowed)).append("\n");
+    sb.append("    loginLocked: ").append(toIndentedString(loginLocked)).append("\n");
+    sb.append("    passwordExpireAt: ").append(toIndentedString(passwordExpireAt)).append("\n");
     sb.append("    passwordResetRequired: ").append(toIndentedString(passwordResetRequired)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    updateDate: ").append(toIndentedString(updateDate)).append("\n");
+    sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("    userName: ").append(toIndentedString(userName)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -47,7 +47,7 @@ public class CreatePolicyRequest {
    * Get description
    * @return description
   **/
-  @Schema(description = "")
+ @Size(max=255)  @Schema(description = "")
   public String getDescription() {
     return description;
   }
@@ -66,7 +66,7 @@ public class CreatePolicyRequest {
    * @return policyDocument
   **/
   @NotNull
-  @Schema(required = true, description = "")
+ @Size(min=1,max=6144)  @Schema(required = true, description = "")
   public String getPolicyDocument() {
     return policyDocument;
   }
@@ -85,7 +85,7 @@ public class CreatePolicyRequest {
    * @return policyName
   **/
   @NotNull
-  @Schema(required = true, description = "")
+ @Size(min=1,max=64)  @Schema(required = true, description = "")
   public String getPolicyName() {
     return policyName;
   }

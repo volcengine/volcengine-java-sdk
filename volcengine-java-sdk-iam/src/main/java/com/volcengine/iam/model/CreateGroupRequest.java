@@ -47,7 +47,7 @@ public class CreateGroupRequest {
    * Get description
    * @return description
   **/
-  @Schema(description = "")
+ @Size(max=128)  @Schema(description = "")
   public String getDescription() {
     return description;
   }
@@ -65,7 +65,7 @@ public class CreateGroupRequest {
    * Get displayName
    * @return displayName
   **/
-  @Schema(description = "")
+ @Size(max=64)  @Schema(description = "")
   public String getDisplayName() {
     return displayName;
   }
@@ -84,7 +84,7 @@ public class CreateGroupRequest {
    * @return userGroupName
   **/
   @NotNull
-  @Schema(required = true, description = "")
+ @Size(max=64)  @Schema(required = true, description = "")
   public String getUserGroupName() {
     return userGroupName;
   }

@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.iam.model.TagForCreateUserInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -40,6 +43,9 @@ public class CreateUserRequest {
 
   @SerializedName("MobilePhone")
   private String mobilePhone = null;
+
+  @SerializedName("Tags")
+  private List<TagForCreateUserInput> tags = null;
 
   @SerializedName("UserName")
   private String userName = null;
@@ -116,6 +122,33 @@ public class CreateUserRequest {
     this.mobilePhone = mobilePhone;
   }
 
+  public CreateUserRequest tags(List<TagForCreateUserInput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public CreateUserRequest addTagsItem(TagForCreateUserInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForCreateUserInput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForCreateUserInput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForCreateUserInput> tags) {
+    this.tags = tags;
+  }
+
   public CreateUserRequest userName(String userName) {
     this.userName = userName;
     return this;
@@ -149,12 +182,13 @@ public class CreateUserRequest {
         Objects.equals(this.displayName, createUserRequest.displayName) &&
         Objects.equals(this.email, createUserRequest.email) &&
         Objects.equals(this.mobilePhone, createUserRequest.mobilePhone) &&
+        Objects.equals(this.tags, createUserRequest.tags) &&
         Objects.equals(this.userName, createUserRequest.userName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, displayName, email, mobilePhone, userName);
+    return Objects.hash(description, displayName, email, mobilePhone, tags, userName);
   }
 
 
@@ -167,6 +201,7 @@ public class CreateUserRequest {
     sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    mobilePhone: ").append(toIndentedString(mobilePhone)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    userName: ").append(toIndentedString(userName)).append("\n");
     sb.append("}");
     return sb.toString();

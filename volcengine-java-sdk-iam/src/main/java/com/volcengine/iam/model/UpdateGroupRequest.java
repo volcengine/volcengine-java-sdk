@@ -50,7 +50,7 @@ public class UpdateGroupRequest {
    * Get newDescription
    * @return newDescription
   **/
-  @Schema(description = "")
+ @Size(max=128)  @Schema(description = "")
   public String getNewDescription() {
     return newDescription;
   }
@@ -68,7 +68,7 @@ public class UpdateGroupRequest {
    * Get newDisplayName
    * @return newDisplayName
   **/
-  @Schema(description = "")
+ @Size(max=64)  @Schema(description = "")
   public String getNewDisplayName() {
     return newDisplayName;
   }
@@ -86,7 +86,7 @@ public class UpdateGroupRequest {
    * Get newUserGroupName
    * @return newUserGroupName
   **/
-  @Schema(description = "")
+ @Size(max=64)  @Schema(description = "")
   public String getNewUserGroupName() {
     return newUserGroupName;
   }

@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.iam.model.AccessKeyMetadataForListAccessKeysOutput;
+import com.volcengine.iam.model.AccessKeyMetadatumForListAccessKeysOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -31,18 +31,18 @@ import javax.validation.Valid;
  */
 
 
-public class ListAccessKeysResponse {
+public class ListAccessKeysResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("AccessKeyMetadata")
-  private List<AccessKeyMetadataForListAccessKeysOutput> accessKeyMetadata = null;
+  private List<AccessKeyMetadatumForListAccessKeysOutput> accessKeyMetadata = null;
 
-  public ListAccessKeysResponse accessKeyMetadata(List<AccessKeyMetadataForListAccessKeysOutput> accessKeyMetadata) {
+  public ListAccessKeysResponse accessKeyMetadata(List<AccessKeyMetadatumForListAccessKeysOutput> accessKeyMetadata) {
     this.accessKeyMetadata = accessKeyMetadata;
     return this;
   }
 
-  public ListAccessKeysResponse addAccessKeyMetadataItem(AccessKeyMetadataForListAccessKeysOutput accessKeyMetadataItem) {
+  public ListAccessKeysResponse addAccessKeyMetadataItem(AccessKeyMetadatumForListAccessKeysOutput accessKeyMetadataItem) {
     if (this.accessKeyMetadata == null) {
-      this.accessKeyMetadata = new ArrayList<AccessKeyMetadataForListAccessKeysOutput>();
+      this.accessKeyMetadata = new ArrayList<AccessKeyMetadatumForListAccessKeysOutput>();
     }
     this.accessKeyMetadata.add(accessKeyMetadataItem);
     return this;
@@ -54,11 +54,11 @@ public class ListAccessKeysResponse {
   **/
   @Valid
   @Schema(description = "")
-  public List<AccessKeyMetadataForListAccessKeysOutput> getAccessKeyMetadata() {
+  public List<AccessKeyMetadatumForListAccessKeysOutput> getAccessKeyMetadata() {
     return accessKeyMetadata;
   }
 
-  public void setAccessKeyMetadata(List<AccessKeyMetadataForListAccessKeysOutput> accessKeyMetadata) {
+  public void setAccessKeyMetadata(List<AccessKeyMetadatumForListAccessKeysOutput> accessKeyMetadata) {
     this.accessKeyMetadata = accessKeyMetadata;
   }
 
