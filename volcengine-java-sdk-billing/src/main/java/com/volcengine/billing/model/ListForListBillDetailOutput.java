@@ -182,6 +182,9 @@ public class ListForListBillDetailOutput {
   @SerializedName("Project")
   private String project = null;
 
+  @SerializedName("ProjectDisplayName")
+  private String projectDisplayName = null;
+
   @SerializedName("Region")
   private String region = null;
 
@@ -1157,6 +1160,24 @@ public class ListForListBillDetailOutput {
     this.project = project;
   }
 
+  public ListForListBillDetailOutput projectDisplayName(String projectDisplayName) {
+    this.projectDisplayName = projectDisplayName;
+    return this;
+  }
+
+   /**
+   * Get projectDisplayName
+   * @return projectDisplayName
+  **/
+  @Schema(description = "")
+  public String getProjectDisplayName() {
+    return projectDisplayName;
+  }
+
+  public void setProjectDisplayName(String projectDisplayName) {
+    this.projectDisplayName = projectDisplayName;
+  }
+
   public ListForListBillDetailOutput region(String region) {
     this.region = region;
     return this;
@@ -1560,6 +1581,7 @@ public class ListForListBillDetailOutput {
         Objects.equals(this.product, listForListBillDetailOutput.product) &&
         Objects.equals(this.productZh, listForListBillDetailOutput.productZh) &&
         Objects.equals(this.project, listForListBillDetailOutput.project) &&
+        Objects.equals(this.projectDisplayName, listForListBillDetailOutput.projectDisplayName) &&
         Objects.equals(this.region, listForListBillDetailOutput.region) &&
         Objects.equals(this.regionCode, listForListBillDetailOutput.regionCode) &&
         Objects.equals(this.reservationInstance, listForListBillDetailOutput.reservationInstance) &&
@@ -1583,7 +1605,7 @@ public class ListForListBillDetailOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(billCategory, billDetailId, billID, billPeriod, billingFunction, billingMethodCode, billingMode, busiPeriod, businessMode, configName, configurationCode, count, couponAmount, creditCarriedAmount, currency, deductionCount, deductionUseDuration, discountBillAmount, discountBizBillingFunction, discountBizMeasureInterval, discountBizUnitPrice, discountBizUnitPriceInterval, effectiveFactor, element, elementCode, expandField, expenseBeginTime, expenseDate, expenseEndTime, factor, factorCode, instanceName, instanceNo, marketPrice, measureInterval, originalBillAmount, ownerCustomerName, ownerID, ownerUserName, paidAmount, payableAmount, payerCustomerName, payerID, payerUserName, preferentialBillAmount, price, priceInterval, priceUnit, product, productZh, project, region, regionCode, reservationInstance, roundAmount, sellerCustomerName, sellerID, sellerUserName, sellingMode, settlementType, solutionZh, subjectName, tag, tradeTime, unit, unpaidAmount, useDuration, useDurationUnit, zone, zoneCode);
+    return Objects.hash(billCategory, billDetailId, billID, billPeriod, billingFunction, billingMethodCode, billingMode, busiPeriod, businessMode, configName, configurationCode, count, couponAmount, creditCarriedAmount, currency, deductionCount, deductionUseDuration, discountBillAmount, discountBizBillingFunction, discountBizMeasureInterval, discountBizUnitPrice, discountBizUnitPriceInterval, effectiveFactor, element, elementCode, expandField, expenseBeginTime, expenseDate, expenseEndTime, factor, factorCode, instanceName, instanceNo, marketPrice, measureInterval, originalBillAmount, ownerCustomerName, ownerID, ownerUserName, paidAmount, payableAmount, payerCustomerName, payerID, payerUserName, preferentialBillAmount, price, priceInterval, priceUnit, product, productZh, project, projectDisplayName, region, regionCode, reservationInstance, roundAmount, sellerCustomerName, sellerID, sellerUserName, sellingMode, settlementType, solutionZh, subjectName, tag, tradeTime, unit, unpaidAmount, useDuration, useDurationUnit, zone, zoneCode);
   }
 
 
@@ -1643,6 +1665,7 @@ public class ListForListBillDetailOutput {
     sb.append("    product: ").append(toIndentedString(product)).append("\n");
     sb.append("    productZh: ").append(toIndentedString(productZh)).append("\n");
     sb.append("    project: ").append(toIndentedString(project)).append("\n");
+    sb.append("    projectDisplayName: ").append(toIndentedString(projectDisplayName)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    regionCode: ").append(toIndentedString(regionCode)).append("\n");
     sb.append("    reservationInstance: ").append(toIndentedString(reservationInstance)).append("\n");

@@ -40,6 +40,9 @@ public class ListSplitBillDetailRequest {
   @SerializedName("BillingMode")
   private List<String> billingMode = null;
 
+  @SerializedName("ExpenseDate")
+  private String expenseDate = null;
+
   @SerializedName("GroupPeriod")
   private Integer groupPeriod = null;
 
@@ -133,6 +136,24 @@ public class ListSplitBillDetailRequest {
 
   public void setBillingMode(List<String> billingMode) {
     this.billingMode = billingMode;
+  }
+
+  public ListSplitBillDetailRequest expenseDate(String expenseDate) {
+    this.expenseDate = expenseDate;
+    return this;
+  }
+
+   /**
+   * Get expenseDate
+   * @return expenseDate
+  **/
+  @Schema(description = "")
+  public String getExpenseDate() {
+    return expenseDate;
+  }
+
+  public void setExpenseDate(String expenseDate) {
+    this.expenseDate = expenseDate;
   }
 
   public ListSplitBillDetailRequest groupPeriod(Integer groupPeriod) {
@@ -301,6 +322,7 @@ public class ListSplitBillDetailRequest {
     return Objects.equals(this.billCategory, listSplitBillDetailRequest.billCategory) &&
         Objects.equals(this.billPeriod, listSplitBillDetailRequest.billPeriod) &&
         Objects.equals(this.billingMode, listSplitBillDetailRequest.billingMode) &&
+        Objects.equals(this.expenseDate, listSplitBillDetailRequest.expenseDate) &&
         Objects.equals(this.groupPeriod, listSplitBillDetailRequest.groupPeriod) &&
         Objects.equals(this.ignoreZero, listSplitBillDetailRequest.ignoreZero) &&
         Objects.equals(this.instanceNo, listSplitBillDetailRequest.instanceNo) &&
@@ -313,7 +335,7 @@ public class ListSplitBillDetailRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(billCategory, billPeriod, billingMode, groupPeriod, ignoreZero, instanceNo, limit, needRecordNum, offset, product, splitItemID);
+    return Objects.hash(billCategory, billPeriod, billingMode, expenseDate, groupPeriod, ignoreZero, instanceNo, limit, needRecordNum, offset, product, splitItemID);
   }
 
 
@@ -325,6 +347,7 @@ public class ListSplitBillDetailRequest {
     sb.append("    billCategory: ").append(toIndentedString(billCategory)).append("\n");
     sb.append("    billPeriod: ").append(toIndentedString(billPeriod)).append("\n");
     sb.append("    billingMode: ").append(toIndentedString(billingMode)).append("\n");
+    sb.append("    expenseDate: ").append(toIndentedString(expenseDate)).append("\n");
     sb.append("    groupPeriod: ").append(toIndentedString(groupPeriod)).append("\n");
     sb.append("    ignoreZero: ").append(toIndentedString(ignoreZero)).append("\n");
     sb.append("    instanceNo: ").append(toIndentedString(instanceNo)).append("\n");
