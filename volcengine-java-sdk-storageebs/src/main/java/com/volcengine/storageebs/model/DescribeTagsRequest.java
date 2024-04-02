@@ -31,7 +31,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class DescribeTagsRequest {
   @SerializedName("PageNumber")
   private Integer pageNumber = null;

@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class ModifyVolumeAttributeRequest {
   @SerializedName("DeleteWithInstance")
   private Boolean deleteWithInstance = null;

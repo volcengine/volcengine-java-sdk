@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class ModifyVolumeChargeTypeResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Number")
   private String number = null;
