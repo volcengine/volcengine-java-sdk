@@ -32,8 +32,14 @@ public class DomainExtensionForModifyListenerAttributesInput {
   @SerializedName("Action")
   private String action = null;
 
+  @SerializedName("CertCenterCertificateId")
+  private String certCenterCertificateId = null;
+
   @SerializedName("CertificateId")
   private String certificateId = null;
+
+  @SerializedName("CertificateSource")
+  private String certificateSource = null;
 
   @SerializedName("Domain")
   private String domain = null;
@@ -59,6 +65,24 @@ public class DomainExtensionForModifyListenerAttributesInput {
     this.action = action;
   }
 
+  public DomainExtensionForModifyListenerAttributesInput certCenterCertificateId(String certCenterCertificateId) {
+    this.certCenterCertificateId = certCenterCertificateId;
+    return this;
+  }
+
+   /**
+   * Get certCenterCertificateId
+   * @return certCenterCertificateId
+  **/
+  @Schema(description = "")
+  public String getCertCenterCertificateId() {
+    return certCenterCertificateId;
+  }
+
+  public void setCertCenterCertificateId(String certCenterCertificateId) {
+    this.certCenterCertificateId = certCenterCertificateId;
+  }
+
   public DomainExtensionForModifyListenerAttributesInput certificateId(String certificateId) {
     this.certificateId = certificateId;
     return this;
@@ -75,6 +99,24 @@ public class DomainExtensionForModifyListenerAttributesInput {
 
   public void setCertificateId(String certificateId) {
     this.certificateId = certificateId;
+  }
+
+  public DomainExtensionForModifyListenerAttributesInput certificateSource(String certificateSource) {
+    this.certificateSource = certificateSource;
+    return this;
+  }
+
+   /**
+   * Get certificateSource
+   * @return certificateSource
+  **/
+  @Schema(description = "")
+  public String getCertificateSource() {
+    return certificateSource;
+  }
+
+  public void setCertificateSource(String certificateSource) {
+    this.certificateSource = certificateSource;
   }
 
   public DomainExtensionForModifyListenerAttributesInput domain(String domain) {
@@ -124,14 +166,16 @@ public class DomainExtensionForModifyListenerAttributesInput {
     }
     DomainExtensionForModifyListenerAttributesInput domainExtensionForModifyListenerAttributesInput = (DomainExtensionForModifyListenerAttributesInput) o;
     return Objects.equals(this.action, domainExtensionForModifyListenerAttributesInput.action) &&
+        Objects.equals(this.certCenterCertificateId, domainExtensionForModifyListenerAttributesInput.certCenterCertificateId) &&
         Objects.equals(this.certificateId, domainExtensionForModifyListenerAttributesInput.certificateId) &&
+        Objects.equals(this.certificateSource, domainExtensionForModifyListenerAttributesInput.certificateSource) &&
         Objects.equals(this.domain, domainExtensionForModifyListenerAttributesInput.domain) &&
         Objects.equals(this.domainExtensionId, domainExtensionForModifyListenerAttributesInput.domainExtensionId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, certificateId, domain, domainExtensionId);
+    return Objects.hash(action, certCenterCertificateId, certificateId, certificateSource, domain, domainExtensionId);
   }
 
 
@@ -141,7 +185,9 @@ public class DomainExtensionForModifyListenerAttributesInput {
     sb.append("class DomainExtensionForModifyListenerAttributesInput {\n");
     
     sb.append("    action: ").append(toIndentedString(action)).append("\n");
+    sb.append("    certCenterCertificateId: ").append(toIndentedString(certCenterCertificateId)).append("\n");
     sb.append("    certificateId: ").append(toIndentedString(certificateId)).append("\n");
+    sb.append("    certificateSource: ").append(toIndentedString(certificateSource)).append("\n");
     sb.append("    domain: ").append(toIndentedString(domain)).append("\n");
     sb.append("    domainExtensionId: ").append(toIndentedString(domainExtensionId)).append("\n");
     sb.append("}");

@@ -49,6 +49,9 @@ public class DescribeListenersRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
 
+  @SerializedName("Protocol")
+  private String protocol = null;
+
   public DescribeListenersRequest listenerIds(List<String> listenerIds) {
     this.listenerIds = listenerIds;
     return this;
@@ -165,6 +168,24 @@ public class DescribeListenersRequest {
     this.projectName = projectName;
   }
 
+  public DescribeListenersRequest protocol(String protocol) {
+    this.protocol = protocol;
+    return this;
+  }
+
+   /**
+   * Get protocol
+   * @return protocol
+  **/
+  @Schema(description = "")
+  public String getProtocol() {
+    return protocol;
+  }
+
+  public void setProtocol(String protocol) {
+    this.protocol = protocol;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -180,12 +201,13 @@ public class DescribeListenersRequest {
         Objects.equals(this.loadBalancerId, describeListenersRequest.loadBalancerId) &&
         Objects.equals(this.pageNumber, describeListenersRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeListenersRequest.pageSize) &&
-        Objects.equals(this.projectName, describeListenersRequest.projectName);
+        Objects.equals(this.projectName, describeListenersRequest.projectName) &&
+        Objects.equals(this.protocol, describeListenersRequest.protocol);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(listenerIds, listenerName, loadBalancerId, pageNumber, pageSize, projectName);
+    return Objects.hash(listenerIds, listenerName, loadBalancerId, pageNumber, pageSize, projectName, protocol);
   }
 
 
@@ -200,6 +222,7 @@ public class DescribeListenersRequest {
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
     sb.append("}");
     return sb.toString();
   }

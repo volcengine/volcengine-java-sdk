@@ -45,8 +45,14 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
   @SerializedName("CACertificateId")
   private String caCertificateId = null;
 
+  @SerializedName("CertCenterCertificateId")
+  private String certCenterCertificateId = null;
+
   @SerializedName("CertificateId")
   private String certificateId = null;
+
+  @SerializedName("CertificateSource")
+  private String certificateSource = null;
 
   @SerializedName("CreateTime")
   private String createTime = null;
@@ -86,6 +92,9 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
 
   @SerializedName("Protocol")
   private String protocol = null;
+
+  @SerializedName("ProxyProtocolDisabled")
+  private String proxyProtocolDisabled = null;
 
   @SerializedName("RequestId")
   private String requestId = null;
@@ -182,6 +191,24 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
     this.caCertificateId = caCertificateId;
   }
 
+  public DescribeListenerAttributesResponse certCenterCertificateId(String certCenterCertificateId) {
+    this.certCenterCertificateId = certCenterCertificateId;
+    return this;
+  }
+
+   /**
+   * Get certCenterCertificateId
+   * @return certCenterCertificateId
+  **/
+  @Schema(description = "")
+  public String getCertCenterCertificateId() {
+    return certCenterCertificateId;
+  }
+
+  public void setCertCenterCertificateId(String certCenterCertificateId) {
+    this.certCenterCertificateId = certCenterCertificateId;
+  }
+
   public DescribeListenerAttributesResponse certificateId(String certificateId) {
     this.certificateId = certificateId;
     return this;
@@ -198,6 +225,24 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
 
   public void setCertificateId(String certificateId) {
     this.certificateId = certificateId;
+  }
+
+  public DescribeListenerAttributesResponse certificateSource(String certificateSource) {
+    this.certificateSource = certificateSource;
+    return this;
+  }
+
+   /**
+   * Get certificateSource
+   * @return certificateSource
+  **/
+  @Schema(description = "")
+  public String getCertificateSource() {
+    return certificateSource;
+  }
+
+  public void setCertificateSource(String certificateSource) {
+    this.certificateSource = certificateSource;
   }
 
   public DescribeListenerAttributesResponse createTime(String createTime) {
@@ -443,6 +488,24 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
     this.protocol = protocol;
   }
 
+  public DescribeListenerAttributesResponse proxyProtocolDisabled(String proxyProtocolDisabled) {
+    this.proxyProtocolDisabled = proxyProtocolDisabled;
+    return this;
+  }
+
+   /**
+   * Get proxyProtocolDisabled
+   * @return proxyProtocolDisabled
+  **/
+  @Schema(description = "")
+  public String getProxyProtocolDisabled() {
+    return proxyProtocolDisabled;
+  }
+
+  public void setProxyProtocolDisabled(String proxyProtocolDisabled) {
+    this.proxyProtocolDisabled = proxyProtocolDisabled;
+  }
+
   public DescribeListenerAttributesResponse requestId(String requestId) {
     this.requestId = requestId;
     return this;
@@ -556,7 +619,9 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
         Objects.equals(this.aclStatus, describeListenerAttributesResponse.aclStatus) &&
         Objects.equals(this.aclType, describeListenerAttributesResponse.aclType) &&
         Objects.equals(this.caCertificateId, describeListenerAttributesResponse.caCertificateId) &&
+        Objects.equals(this.certCenterCertificateId, describeListenerAttributesResponse.certCenterCertificateId) &&
         Objects.equals(this.certificateId, describeListenerAttributesResponse.certificateId) &&
+        Objects.equals(this.certificateSource, describeListenerAttributesResponse.certificateSource) &&
         Objects.equals(this.createTime, describeListenerAttributesResponse.createTime) &&
         Objects.equals(this.customizedCfgId, describeListenerAttributesResponse.customizedCfgId) &&
         Objects.equals(this.description, describeListenerAttributesResponse.description) &&
@@ -570,6 +635,7 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
         Objects.equals(this.port, describeListenerAttributesResponse.port) &&
         Objects.equals(this.projectName, describeListenerAttributesResponse.projectName) &&
         Objects.equals(this.protocol, describeListenerAttributesResponse.protocol) &&
+        Objects.equals(this.proxyProtocolDisabled, describeListenerAttributesResponse.proxyProtocolDisabled) &&
         Objects.equals(this.requestId, describeListenerAttributesResponse.requestId) &&
         Objects.equals(this.serverGroupId, describeListenerAttributesResponse.serverGroupId) &&
         Objects.equals(this.serverGroups, describeListenerAttributesResponse.serverGroups) &&
@@ -579,7 +645,7 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclIds, aclStatus, aclType, caCertificateId, certificateId, createTime, customizedCfgId, description, domainExtensions, enableHttp2, enableQuic, enabled, listenerId, listenerName, loadBalancerId, port, projectName, protocol, requestId, serverGroupId, serverGroups, status, updateTime);
+    return Objects.hash(aclIds, aclStatus, aclType, caCertificateId, certCenterCertificateId, certificateId, certificateSource, createTime, customizedCfgId, description, domainExtensions, enableHttp2, enableQuic, enabled, listenerId, listenerName, loadBalancerId, port, projectName, protocol, proxyProtocolDisabled, requestId, serverGroupId, serverGroups, status, updateTime);
   }
 
 
@@ -592,7 +658,9 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
     sb.append("    aclStatus: ").append(toIndentedString(aclStatus)).append("\n");
     sb.append("    aclType: ").append(toIndentedString(aclType)).append("\n");
     sb.append("    caCertificateId: ").append(toIndentedString(caCertificateId)).append("\n");
+    sb.append("    certCenterCertificateId: ").append(toIndentedString(certCenterCertificateId)).append("\n");
     sb.append("    certificateId: ").append(toIndentedString(certificateId)).append("\n");
+    sb.append("    certificateSource: ").append(toIndentedString(certificateSource)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    customizedCfgId: ").append(toIndentedString(customizedCfgId)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
@@ -606,6 +674,7 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
+    sb.append("    proxyProtocolDisabled: ").append(toIndentedString(proxyProtocolDisabled)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    serverGroupId: ").append(toIndentedString(serverGroupId)).append("\n");
     sb.append("    serverGroups: ").append(toIndentedString(serverGroups)).append("\n");

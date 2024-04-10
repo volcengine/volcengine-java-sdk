@@ -45,8 +45,14 @@ public class ListenerForDescribeListenersOutput {
   @SerializedName("CACertificateId")
   private String caCertificateId = null;
 
+  @SerializedName("CertCenterCertificateId")
+  private String certCenterCertificateId = null;
+
   @SerializedName("CertificateId")
   private String certificateId = null;
+
+  @SerializedName("CertificateSource")
+  private String certificateSource = null;
 
   @SerializedName("CreateTime")
   private String createTime = null;
@@ -86,6 +92,9 @@ public class ListenerForDescribeListenersOutput {
 
   @SerializedName("Protocol")
   private String protocol = null;
+
+  @SerializedName("ProxyProtocolDisabled")
+  private String proxyProtocolDisabled = null;
 
   @SerializedName("ServerGroupId")
   private String serverGroupId = null;
@@ -179,6 +188,24 @@ public class ListenerForDescribeListenersOutput {
     this.caCertificateId = caCertificateId;
   }
 
+  public ListenerForDescribeListenersOutput certCenterCertificateId(String certCenterCertificateId) {
+    this.certCenterCertificateId = certCenterCertificateId;
+    return this;
+  }
+
+   /**
+   * Get certCenterCertificateId
+   * @return certCenterCertificateId
+  **/
+  @Schema(description = "")
+  public String getCertCenterCertificateId() {
+    return certCenterCertificateId;
+  }
+
+  public void setCertCenterCertificateId(String certCenterCertificateId) {
+    this.certCenterCertificateId = certCenterCertificateId;
+  }
+
   public ListenerForDescribeListenersOutput certificateId(String certificateId) {
     this.certificateId = certificateId;
     return this;
@@ -195,6 +222,24 @@ public class ListenerForDescribeListenersOutput {
 
   public void setCertificateId(String certificateId) {
     this.certificateId = certificateId;
+  }
+
+  public ListenerForDescribeListenersOutput certificateSource(String certificateSource) {
+    this.certificateSource = certificateSource;
+    return this;
+  }
+
+   /**
+   * Get certificateSource
+   * @return certificateSource
+  **/
+  @Schema(description = "")
+  public String getCertificateSource() {
+    return certificateSource;
+  }
+
+  public void setCertificateSource(String certificateSource) {
+    this.certificateSource = certificateSource;
   }
 
   public ListenerForDescribeListenersOutput createTime(String createTime) {
@@ -440,6 +485,24 @@ public class ListenerForDescribeListenersOutput {
     this.protocol = protocol;
   }
 
+  public ListenerForDescribeListenersOutput proxyProtocolDisabled(String proxyProtocolDisabled) {
+    this.proxyProtocolDisabled = proxyProtocolDisabled;
+    return this;
+  }
+
+   /**
+   * Get proxyProtocolDisabled
+   * @return proxyProtocolDisabled
+  **/
+  @Schema(description = "")
+  public String getProxyProtocolDisabled() {
+    return proxyProtocolDisabled;
+  }
+
+  public void setProxyProtocolDisabled(String proxyProtocolDisabled) {
+    this.proxyProtocolDisabled = proxyProtocolDisabled;
+  }
+
   public ListenerForDescribeListenersOutput serverGroupId(String serverGroupId) {
     this.serverGroupId = serverGroupId;
     return this;
@@ -535,7 +598,9 @@ public class ListenerForDescribeListenersOutput {
         Objects.equals(this.aclStatus, listenerForDescribeListenersOutput.aclStatus) &&
         Objects.equals(this.aclType, listenerForDescribeListenersOutput.aclType) &&
         Objects.equals(this.caCertificateId, listenerForDescribeListenersOutput.caCertificateId) &&
+        Objects.equals(this.certCenterCertificateId, listenerForDescribeListenersOutput.certCenterCertificateId) &&
         Objects.equals(this.certificateId, listenerForDescribeListenersOutput.certificateId) &&
+        Objects.equals(this.certificateSource, listenerForDescribeListenersOutput.certificateSource) &&
         Objects.equals(this.createTime, listenerForDescribeListenersOutput.createTime) &&
         Objects.equals(this.customizedCfgId, listenerForDescribeListenersOutput.customizedCfgId) &&
         Objects.equals(this.description, listenerForDescribeListenersOutput.description) &&
@@ -549,6 +614,7 @@ public class ListenerForDescribeListenersOutput {
         Objects.equals(this.port, listenerForDescribeListenersOutput.port) &&
         Objects.equals(this.projectName, listenerForDescribeListenersOutput.projectName) &&
         Objects.equals(this.protocol, listenerForDescribeListenersOutput.protocol) &&
+        Objects.equals(this.proxyProtocolDisabled, listenerForDescribeListenersOutput.proxyProtocolDisabled) &&
         Objects.equals(this.serverGroupId, listenerForDescribeListenersOutput.serverGroupId) &&
         Objects.equals(this.serverGroups, listenerForDescribeListenersOutput.serverGroups) &&
         Objects.equals(this.status, listenerForDescribeListenersOutput.status) &&
@@ -557,7 +623,7 @@ public class ListenerForDescribeListenersOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclIds, aclStatus, aclType, caCertificateId, certificateId, createTime, customizedCfgId, description, domainExtensions, enableHttp2, enableQuic, enabled, listenerId, listenerName, loadBalancerId, port, projectName, protocol, serverGroupId, serverGroups, status, updateTime);
+    return Objects.hash(aclIds, aclStatus, aclType, caCertificateId, certCenterCertificateId, certificateId, certificateSource, createTime, customizedCfgId, description, domainExtensions, enableHttp2, enableQuic, enabled, listenerId, listenerName, loadBalancerId, port, projectName, protocol, proxyProtocolDisabled, serverGroupId, serverGroups, status, updateTime);
   }
 
 
@@ -570,7 +636,9 @@ public class ListenerForDescribeListenersOutput {
     sb.append("    aclStatus: ").append(toIndentedString(aclStatus)).append("\n");
     sb.append("    aclType: ").append(toIndentedString(aclType)).append("\n");
     sb.append("    caCertificateId: ").append(toIndentedString(caCertificateId)).append("\n");
+    sb.append("    certCenterCertificateId: ").append(toIndentedString(certCenterCertificateId)).append("\n");
     sb.append("    certificateId: ").append(toIndentedString(certificateId)).append("\n");
+    sb.append("    certificateSource: ").append(toIndentedString(certificateSource)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    customizedCfgId: ").append(toIndentedString(customizedCfgId)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
@@ -584,6 +652,7 @@ public class ListenerForDescribeListenersOutput {
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
+    sb.append("    proxyProtocolDisabled: ").append(toIndentedString(proxyProtocolDisabled)).append("\n");
     sb.append("    serverGroupId: ").append(toIndentedString(serverGroupId)).append("\n");
     sb.append("    serverGroups: ").append(toIndentedString(serverGroups)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");

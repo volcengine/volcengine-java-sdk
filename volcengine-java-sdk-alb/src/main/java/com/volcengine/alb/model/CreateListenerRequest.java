@@ -44,8 +44,14 @@ public class CreateListenerRequest {
   @SerializedName("CACertificateId")
   private String caCertificateId = null;
 
+  @SerializedName("CertCenterCertificateId")
+  private String certCenterCertificateId = null;
+
   @SerializedName("CertificateId")
   private String certificateId = null;
+
+  @SerializedName("CertificateSource")
+  private String certificateSource = null;
 
   @SerializedName("Description")
   private String description = null;
@@ -73,6 +79,9 @@ public class CreateListenerRequest {
 
   @SerializedName("Protocol")
   private String protocol = null;
+
+  @SerializedName("ProxyProtocolDisabled")
+  private String proxyProtocolDisabled = null;
 
   @SerializedName("ServerGroupId")
   private String serverGroupId = null;
@@ -157,6 +166,24 @@ public class CreateListenerRequest {
     this.caCertificateId = caCertificateId;
   }
 
+  public CreateListenerRequest certCenterCertificateId(String certCenterCertificateId) {
+    this.certCenterCertificateId = certCenterCertificateId;
+    return this;
+  }
+
+   /**
+   * Get certCenterCertificateId
+   * @return certCenterCertificateId
+  **/
+  @Schema(description = "")
+  public String getCertCenterCertificateId() {
+    return certCenterCertificateId;
+  }
+
+  public void setCertCenterCertificateId(String certCenterCertificateId) {
+    this.certCenterCertificateId = certCenterCertificateId;
+  }
+
   public CreateListenerRequest certificateId(String certificateId) {
     this.certificateId = certificateId;
     return this;
@@ -173,6 +200,24 @@ public class CreateListenerRequest {
 
   public void setCertificateId(String certificateId) {
     this.certificateId = certificateId;
+  }
+
+  public CreateListenerRequest certificateSource(String certificateSource) {
+    this.certificateSource = certificateSource;
+    return this;
+  }
+
+   /**
+   * Get certificateSource
+   * @return certificateSource
+  **/
+  @Schema(description = "")
+  public String getCertificateSource() {
+    return certificateSource;
+  }
+
+  public void setCertificateSource(String certificateSource) {
+    this.certificateSource = certificateSource;
   }
 
   public CreateListenerRequest description(String description) {
@@ -349,6 +394,24 @@ public class CreateListenerRequest {
     this.protocol = protocol;
   }
 
+  public CreateListenerRequest proxyProtocolDisabled(String proxyProtocolDisabled) {
+    this.proxyProtocolDisabled = proxyProtocolDisabled;
+    return this;
+  }
+
+   /**
+   * Get proxyProtocolDisabled
+   * @return proxyProtocolDisabled
+  **/
+  @Schema(description = "")
+  public String getProxyProtocolDisabled() {
+    return proxyProtocolDisabled;
+  }
+
+  public void setProxyProtocolDisabled(String proxyProtocolDisabled) {
+    this.proxyProtocolDisabled = proxyProtocolDisabled;
+  }
+
   public CreateListenerRequest serverGroupId(String serverGroupId) {
     this.serverGroupId = serverGroupId;
     return this;
@@ -382,7 +445,9 @@ public class CreateListenerRequest {
         Objects.equals(this.aclStatus, createListenerRequest.aclStatus) &&
         Objects.equals(this.aclType, createListenerRequest.aclType) &&
         Objects.equals(this.caCertificateId, createListenerRequest.caCertificateId) &&
+        Objects.equals(this.certCenterCertificateId, createListenerRequest.certCenterCertificateId) &&
         Objects.equals(this.certificateId, createListenerRequest.certificateId) &&
+        Objects.equals(this.certificateSource, createListenerRequest.certificateSource) &&
         Objects.equals(this.description, createListenerRequest.description) &&
         Objects.equals(this.domainExtensions, createListenerRequest.domainExtensions) &&
         Objects.equals(this.enableHttp2, createListenerRequest.enableHttp2) &&
@@ -392,12 +457,13 @@ public class CreateListenerRequest {
         Objects.equals(this.loadBalancerId, createListenerRequest.loadBalancerId) &&
         Objects.equals(this.port, createListenerRequest.port) &&
         Objects.equals(this.protocol, createListenerRequest.protocol) &&
+        Objects.equals(this.proxyProtocolDisabled, createListenerRequest.proxyProtocolDisabled) &&
         Objects.equals(this.serverGroupId, createListenerRequest.serverGroupId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclIds, aclStatus, aclType, caCertificateId, certificateId, description, domainExtensions, enableHttp2, enableQuic, enabled, listenerName, loadBalancerId, port, protocol, serverGroupId);
+    return Objects.hash(aclIds, aclStatus, aclType, caCertificateId, certCenterCertificateId, certificateId, certificateSource, description, domainExtensions, enableHttp2, enableQuic, enabled, listenerName, loadBalancerId, port, protocol, proxyProtocolDisabled, serverGroupId);
   }
 
 
@@ -410,7 +476,9 @@ public class CreateListenerRequest {
     sb.append("    aclStatus: ").append(toIndentedString(aclStatus)).append("\n");
     sb.append("    aclType: ").append(toIndentedString(aclType)).append("\n");
     sb.append("    caCertificateId: ").append(toIndentedString(caCertificateId)).append("\n");
+    sb.append("    certCenterCertificateId: ").append(toIndentedString(certCenterCertificateId)).append("\n");
     sb.append("    certificateId: ").append(toIndentedString(certificateId)).append("\n");
+    sb.append("    certificateSource: ").append(toIndentedString(certificateSource)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    domainExtensions: ").append(toIndentedString(domainExtensions)).append("\n");
     sb.append("    enableHttp2: ").append(toIndentedString(enableHttp2)).append("\n");
@@ -420,6 +488,7 @@ public class CreateListenerRequest {
     sb.append("    loadBalancerId: ").append(toIndentedString(loadBalancerId)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
+    sb.append("    proxyProtocolDisabled: ").append(toIndentedString(proxyProtocolDisabled)).append("\n");
     sb.append("    serverGroupId: ").append(toIndentedString(serverGroupId)).append("\n");
     sb.append("}");
     return sb.toString();

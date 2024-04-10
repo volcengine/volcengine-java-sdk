@@ -29,11 +29,17 @@ import javax.validation.Valid;
 
 
 public class ReplaceCertificateRequest {
+  @SerializedName("CertCenterCertificateId")
+  private String certCenterCertificateId = null;
+
   @SerializedName("CertificateId")
   private String certificateId = null;
 
   @SerializedName("CertificateName")
   private String certificateName = null;
+
+  @SerializedName("CertificateSource")
+  private String certificateSource = null;
 
   @SerializedName("Description")
   private String description = null;
@@ -52,6 +58,24 @@ public class ReplaceCertificateRequest {
 
   @SerializedName("UpdateMode")
   private String updateMode = null;
+
+  public ReplaceCertificateRequest certCenterCertificateId(String certCenterCertificateId) {
+    this.certCenterCertificateId = certCenterCertificateId;
+    return this;
+  }
+
+   /**
+   * Get certCenterCertificateId
+   * @return certCenterCertificateId
+  **/
+  @Schema(description = "")
+  public String getCertCenterCertificateId() {
+    return certCenterCertificateId;
+  }
+
+  public void setCertCenterCertificateId(String certCenterCertificateId) {
+    this.certCenterCertificateId = certCenterCertificateId;
+  }
 
   public ReplaceCertificateRequest certificateId(String certificateId) {
     this.certificateId = certificateId;
@@ -87,6 +111,24 @@ public class ReplaceCertificateRequest {
 
   public void setCertificateName(String certificateName) {
     this.certificateName = certificateName;
+  }
+
+  public ReplaceCertificateRequest certificateSource(String certificateSource) {
+    this.certificateSource = certificateSource;
+    return this;
+  }
+
+   /**
+   * Get certificateSource
+   * @return certificateSource
+  **/
+  @Schema(description = "")
+  public String getCertificateSource() {
+    return certificateSource;
+  }
+
+  public void setCertificateSource(String certificateSource) {
+    this.certificateSource = certificateSource;
   }
 
   public ReplaceCertificateRequest description(String description) {
@@ -209,8 +251,10 @@ public class ReplaceCertificateRequest {
       return false;
     }
     ReplaceCertificateRequest replaceCertificateRequest = (ReplaceCertificateRequest) o;
-    return Objects.equals(this.certificateId, replaceCertificateRequest.certificateId) &&
+    return Objects.equals(this.certCenterCertificateId, replaceCertificateRequest.certCenterCertificateId) &&
+        Objects.equals(this.certificateId, replaceCertificateRequest.certificateId) &&
         Objects.equals(this.certificateName, replaceCertificateRequest.certificateName) &&
+        Objects.equals(this.certificateSource, replaceCertificateRequest.certificateSource) &&
         Objects.equals(this.description, replaceCertificateRequest.description) &&
         Objects.equals(this.oldCertificateId, replaceCertificateRequest.oldCertificateId) &&
         Objects.equals(this.privateKey, replaceCertificateRequest.privateKey) &&
@@ -221,7 +265,7 @@ public class ReplaceCertificateRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(certificateId, certificateName, description, oldCertificateId, privateKey, projectName, publicKey, updateMode);
+    return Objects.hash(certCenterCertificateId, certificateId, certificateName, certificateSource, description, oldCertificateId, privateKey, projectName, publicKey, updateMode);
   }
 
 
@@ -230,8 +274,10 @@ public class ReplaceCertificateRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ReplaceCertificateRequest {\n");
     
+    sb.append("    certCenterCertificateId: ").append(toIndentedString(certCenterCertificateId)).append("\n");
     sb.append("    certificateId: ").append(toIndentedString(certificateId)).append("\n");
     sb.append("    certificateName: ").append(toIndentedString(certificateName)).append("\n");
+    sb.append("    certificateSource: ").append(toIndentedString(certificateSource)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    oldCertificateId: ").append(toIndentedString(oldCertificateId)).append("\n");
     sb.append("    privateKey: ").append(toIndentedString(privateKey)).append("\n");
