@@ -24,21 +24,18 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DeleteRepositoryRequest
+ * FailureForDeleteTagsOutput
  */
 
 
-public class DeleteRepositoryRequest {
+public class FailureForDeleteTagsOutput {
   @SerializedName("Name")
   private String name = null;
 
-  @SerializedName("Namespace")
-  private String namespace = null;
+  @SerializedName("Reason")
+  private String reason = null;
 
-  @SerializedName("Registry")
-  private String registry = null;
-
-  public DeleteRepositoryRequest name(String name) {
+  public FailureForDeleteTagsOutput name(String name) {
     this.name = name;
     return this;
   }
@@ -47,8 +44,7 @@ public class DeleteRepositoryRequest {
    * Get name
    * @return name
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getName() {
     return name;
   }
@@ -57,42 +53,22 @@ public class DeleteRepositoryRequest {
     this.name = name;
   }
 
-  public DeleteRepositoryRequest namespace(String namespace) {
-    this.namespace = namespace;
+  public FailureForDeleteTagsOutput reason(String reason) {
+    this.reason = reason;
     return this;
   }
 
    /**
-   * Get namespace
-   * @return namespace
+   * Get reason
+   * @return reason
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getNamespace() {
-    return namespace;
+  @Schema(description = "")
+  public String getReason() {
+    return reason;
   }
 
-  public void setNamespace(String namespace) {
-    this.namespace = namespace;
-  }
-
-  public DeleteRepositoryRequest registry(String registry) {
-    this.registry = registry;
-    return this;
-  }
-
-   /**
-   * Get registry
-   * @return registry
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getRegistry() {
-    return registry;
-  }
-
-  public void setRegistry(String registry) {
-    this.registry = registry;
+  public void setReason(String reason) {
+    this.reason = reason;
   }
 
 
@@ -104,26 +80,24 @@ public class DeleteRepositoryRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeleteRepositoryRequest deleteRepositoryRequest = (DeleteRepositoryRequest) o;
-    return Objects.equals(this.name, deleteRepositoryRequest.name) &&
-        Objects.equals(this.namespace, deleteRepositoryRequest.namespace) &&
-        Objects.equals(this.registry, deleteRepositoryRequest.registry);
+    FailureForDeleteTagsOutput failureForDeleteTagsOutput = (FailureForDeleteTagsOutput) o;
+    return Objects.equals(this.name, failureForDeleteTagsOutput.name) &&
+        Objects.equals(this.reason, failureForDeleteTagsOutput.reason);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, namespace, registry);
+    return Objects.hash(name, reason);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeleteRepositoryRequest {\n");
+    sb.append("class FailureForDeleteTagsOutput {\n");
     
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
-    sb.append("    registry: ").append(toIndentedString(registry)).append("\n");
+    sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
     sb.append("}");
     return sb.toString();
   }

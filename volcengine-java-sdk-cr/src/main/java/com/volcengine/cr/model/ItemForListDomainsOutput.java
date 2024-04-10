@@ -29,11 +29,53 @@ import javax.validation.Valid;
 
 
 public class ItemForListDomainsOutput {
+  @SerializedName("CreateTime")
+  private String createTime = null;
+
+  @SerializedName("Default")
+  private Boolean _default = null;
+
   @SerializedName("Domain")
   private String domain = null;
 
   @SerializedName("Type")
   private String type = null;
+
+  public ItemForListDomainsOutput createTime(String createTime) {
+    this.createTime = createTime;
+    return this;
+  }
+
+   /**
+   * Get createTime
+   * @return createTime
+  **/
+  @Schema(description = "")
+  public String getCreateTime() {
+    return createTime;
+  }
+
+  public void setCreateTime(String createTime) {
+    this.createTime = createTime;
+  }
+
+  public ItemForListDomainsOutput _default(Boolean _default) {
+    this._default = _default;
+    return this;
+  }
+
+   /**
+   * Get _default
+   * @return _default
+  **/
+  @Schema(description = "")
+  public Boolean isDefault() {
+    return _default;
+  }
+
+  public void setDefault(Boolean _default) {
+    this._default = _default;
+  }
 
   public ItemForListDomainsOutput domain(String domain) {
     this.domain = domain;
@@ -81,13 +123,15 @@ public class ItemForListDomainsOutput {
       return false;
     }
     ItemForListDomainsOutput itemForListDomainsOutput = (ItemForListDomainsOutput) o;
-    return Objects.equals(this.domain, itemForListDomainsOutput.domain) &&
+    return Objects.equals(this.createTime, itemForListDomainsOutput.createTime) &&
+        Objects.equals(this._default, itemForListDomainsOutput._default) &&
+        Objects.equals(this.domain, itemForListDomainsOutput.domain) &&
         Objects.equals(this.type, itemForListDomainsOutput.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(domain, type);
+    return Objects.hash(createTime, _default, domain, type);
   }
 
 
@@ -96,6 +140,8 @@ public class ItemForListDomainsOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ItemForListDomainsOutput {\n");
     
+    sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
+    sb.append("    _default: ").append(toIndentedString(_default)).append("\n");
     sb.append("    domain: ").append(toIndentedString(domain)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");

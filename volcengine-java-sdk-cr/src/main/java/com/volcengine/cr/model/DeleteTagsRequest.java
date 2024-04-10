@@ -78,7 +78,8 @@ public class DeleteTagsRequest {
    * Get namespace
    * @return namespace
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getNamespace() {
     return namespace;
   }
@@ -96,7 +97,8 @@ public class DeleteTagsRequest {
    * Get registry
    * @return registry
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getRegistry() {
     return registry;
   }
@@ -114,7 +116,8 @@ public class DeleteTagsRequest {
    * Get repository
    * @return repository
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getRepository() {
     return repository;
   }

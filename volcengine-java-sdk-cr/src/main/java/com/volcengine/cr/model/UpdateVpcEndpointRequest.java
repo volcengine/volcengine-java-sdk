@@ -47,7 +47,8 @@ public class UpdateVpcEndpointRequest {
    * Get registry
    * @return registry
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getRegistry() {
     return registry;
   }
