@@ -29,7 +29,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class OperationDetailForCreateTagsOutput {
   @SerializedName("Error")
   private ErrorForCreateTagsOutput error = null;

@@ -21,44 +21,54 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * TerminateVolumesRequest
+ * TagForDescribeSnapshotsOutput
  */
 
 
+public class TagForDescribeSnapshotsOutput {
+  @SerializedName("Key")
+  private String key = null;
 
-public class TerminateVolumesRequest {
-  @SerializedName("VolumeIds")
-  private List<String> volumeIds = null;
+  @SerializedName("Value")
+  private String value = null;
 
-  public TerminateVolumesRequest volumeIds(List<String> volumeIds) {
-    this.volumeIds = volumeIds;
-    return this;
-  }
-
-  public TerminateVolumesRequest addVolumeIdsItem(String volumeIdsItem) {
-    if (this.volumeIds == null) {
-      this.volumeIds = new ArrayList<String>();
-    }
-    this.volumeIds.add(volumeIdsItem);
+  public TagForDescribeSnapshotsOutput key(String key) {
+    this.key = key;
     return this;
   }
 
    /**
-   * Get volumeIds
-   * @return volumeIds
+   * Get key
+   * @return key
   **/
   @Schema(description = "")
-  public List<String> getVolumeIds() {
-    return volumeIds;
+  public String getKey() {
+    return key;
   }
 
-  public void setVolumeIds(List<String> volumeIds) {
-    this.volumeIds = volumeIds;
+  public void setKey(String key) {
+    this.key = key;
+  }
+
+  public TagForDescribeSnapshotsOutput value(String value) {
+    this.value = value;
+    return this;
+  }
+
+   /**
+   * Get value
+   * @return value
+  **/
+  @Schema(description = "")
+  public String getValue() {
+    return value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
   }
 
 
@@ -70,22 +80,24 @@ public class TerminateVolumesRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TerminateVolumesRequest terminateVolumesRequest = (TerminateVolumesRequest) o;
-    return Objects.equals(this.volumeIds, terminateVolumesRequest.volumeIds);
+    TagForDescribeSnapshotsOutput tagForDescribeSnapshotsOutput = (TagForDescribeSnapshotsOutput) o;
+    return Objects.equals(this.key, tagForDescribeSnapshotsOutput.key) &&
+        Objects.equals(this.value, tagForDescribeSnapshotsOutput.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(volumeIds);
+    return Objects.hash(key, value);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TerminateVolumesRequest {\n");
+    sb.append("class TagForDescribeSnapshotsOutput {\n");
     
-    sb.append("    volumeIds: ").append(toIndentedString(volumeIds)).append("\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
   }
