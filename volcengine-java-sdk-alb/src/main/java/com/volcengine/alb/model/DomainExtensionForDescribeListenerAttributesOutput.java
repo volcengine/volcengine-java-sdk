@@ -29,8 +29,14 @@ import javax.validation.Valid;
 
 
 public class DomainExtensionForDescribeListenerAttributesOutput {
+  @SerializedName("CertCenterCertificateId")
+  private String certCenterCertificateId = null;
+
   @SerializedName("CertificateId")
   private String certificateId = null;
+
+  @SerializedName("CertificateSource")
+  private String certificateSource = null;
 
   @SerializedName("Domain")
   private String domain = null;
@@ -40,6 +46,24 @@ public class DomainExtensionForDescribeListenerAttributesOutput {
 
   @SerializedName("ListenerId")
   private String listenerId = null;
+
+  public DomainExtensionForDescribeListenerAttributesOutput certCenterCertificateId(String certCenterCertificateId) {
+    this.certCenterCertificateId = certCenterCertificateId;
+    return this;
+  }
+
+   /**
+   * Get certCenterCertificateId
+   * @return certCenterCertificateId
+  **/
+  @Schema(description = "")
+  public String getCertCenterCertificateId() {
+    return certCenterCertificateId;
+  }
+
+  public void setCertCenterCertificateId(String certCenterCertificateId) {
+    this.certCenterCertificateId = certCenterCertificateId;
+  }
 
   public DomainExtensionForDescribeListenerAttributesOutput certificateId(String certificateId) {
     this.certificateId = certificateId;
@@ -57,6 +81,24 @@ public class DomainExtensionForDescribeListenerAttributesOutput {
 
   public void setCertificateId(String certificateId) {
     this.certificateId = certificateId;
+  }
+
+  public DomainExtensionForDescribeListenerAttributesOutput certificateSource(String certificateSource) {
+    this.certificateSource = certificateSource;
+    return this;
+  }
+
+   /**
+   * Get certificateSource
+   * @return certificateSource
+  **/
+  @Schema(description = "")
+  public String getCertificateSource() {
+    return certificateSource;
+  }
+
+  public void setCertificateSource(String certificateSource) {
+    this.certificateSource = certificateSource;
   }
 
   public DomainExtensionForDescribeListenerAttributesOutput domain(String domain) {
@@ -123,7 +165,9 @@ public class DomainExtensionForDescribeListenerAttributesOutput {
       return false;
     }
     DomainExtensionForDescribeListenerAttributesOutput domainExtensionForDescribeListenerAttributesOutput = (DomainExtensionForDescribeListenerAttributesOutput) o;
-    return Objects.equals(this.certificateId, domainExtensionForDescribeListenerAttributesOutput.certificateId) &&
+    return Objects.equals(this.certCenterCertificateId, domainExtensionForDescribeListenerAttributesOutput.certCenterCertificateId) &&
+        Objects.equals(this.certificateId, domainExtensionForDescribeListenerAttributesOutput.certificateId) &&
+        Objects.equals(this.certificateSource, domainExtensionForDescribeListenerAttributesOutput.certificateSource) &&
         Objects.equals(this.domain, domainExtensionForDescribeListenerAttributesOutput.domain) &&
         Objects.equals(this.domainExtensionId, domainExtensionForDescribeListenerAttributesOutput.domainExtensionId) &&
         Objects.equals(this.listenerId, domainExtensionForDescribeListenerAttributesOutput.listenerId);
@@ -131,7 +175,7 @@ public class DomainExtensionForDescribeListenerAttributesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(certificateId, domain, domainExtensionId, listenerId);
+    return Objects.hash(certCenterCertificateId, certificateId, certificateSource, domain, domainExtensionId, listenerId);
   }
 
 
@@ -140,7 +184,9 @@ public class DomainExtensionForDescribeListenerAttributesOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class DomainExtensionForDescribeListenerAttributesOutput {\n");
     
+    sb.append("    certCenterCertificateId: ").append(toIndentedString(certCenterCertificateId)).append("\n");
     sb.append("    certificateId: ").append(toIndentedString(certificateId)).append("\n");
+    sb.append("    certificateSource: ").append(toIndentedString(certificateSource)).append("\n");
     sb.append("    domain: ").append(toIndentedString(domain)).append("\n");
     sb.append("    domainExtensionId: ").append(toIndentedString(domainExtensionId)).append("\n");
     sb.append("    listenerId: ").append(toIndentedString(listenerId)).append("\n");
