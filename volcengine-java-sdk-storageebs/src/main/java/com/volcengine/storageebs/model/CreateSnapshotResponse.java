@@ -24,31 +24,30 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * TerminateVolumesResponse
+ * CreateSnapshotResponse
  */
 
 
+public class CreateSnapshotResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("SnapshotId")
+  private String snapshotId = null;
 
-public class TerminateVolumesResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("Number")
-  private String number = null;
-
-  public TerminateVolumesResponse number(String number) {
-    this.number = number;
+  public CreateSnapshotResponse snapshotId(String snapshotId) {
+    this.snapshotId = snapshotId;
     return this;
   }
 
    /**
-   * Get number
-   * @return number
+   * Get snapshotId
+   * @return snapshotId
   **/
   @Schema(description = "")
-  public String getNumber() {
-    return number;
+  public String getSnapshotId() {
+    return snapshotId;
   }
 
-  public void setNumber(String number) {
-    this.number = number;
+  public void setSnapshotId(String snapshotId) {
+    this.snapshotId = snapshotId;
   }
 
 
@@ -60,22 +59,22 @@ public class TerminateVolumesResponse extends com.volcengine.model.AbstractRespo
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TerminateVolumesResponse terminateVolumesResponse = (TerminateVolumesResponse) o;
-    return Objects.equals(this.number, terminateVolumesResponse.number);
+    CreateSnapshotResponse createSnapshotResponse = (CreateSnapshotResponse) o;
+    return Objects.equals(this.snapshotId, createSnapshotResponse.snapshotId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(number);
+    return Objects.hash(snapshotId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TerminateVolumesResponse {\n");
+    sb.append("class CreateSnapshotResponse {\n");
     
-    sb.append("    number: ").append(toIndentedString(number)).append("\n");
+    sb.append("    snapshotId: ").append(toIndentedString(snapshotId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

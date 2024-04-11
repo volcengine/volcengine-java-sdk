@@ -31,7 +31,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class DescribeTagsResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("PageNumber")
   private Integer pageNumber = null;

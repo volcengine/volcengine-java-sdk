@@ -21,7 +21,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class ModifyVolumeAttributeResponse extends com.volcengine.model.AbstractResponse {
 
   @Override

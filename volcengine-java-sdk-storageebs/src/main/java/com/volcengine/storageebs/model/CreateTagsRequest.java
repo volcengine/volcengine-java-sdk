@@ -31,7 +31,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class CreateTagsRequest {
   @SerializedName("ResourceIds")
   private List<String> resourceIds = null;

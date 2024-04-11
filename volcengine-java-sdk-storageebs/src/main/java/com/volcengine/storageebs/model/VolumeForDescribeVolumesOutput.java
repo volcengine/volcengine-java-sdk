@@ -31,7 +31,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class VolumeForDescribeVolumesOutput {
   @SerializedName("AutoSnapshotPolicyId")
   private String autoSnapshotPolicyId = null;

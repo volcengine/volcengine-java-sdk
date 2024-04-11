@@ -30,7 +30,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class ModifyVolumeChargeTypeRequest {
   @SerializedName("AutoPay")
   private Boolean autoPay = null;

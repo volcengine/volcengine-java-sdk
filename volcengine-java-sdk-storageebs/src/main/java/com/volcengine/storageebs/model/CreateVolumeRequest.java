@@ -31,7 +31,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class CreateVolumeRequest {
   @SerializedName("ClientToken")
   private String clientToken = null;
@@ -50,6 +49,9 @@ public class CreateVolumeRequest {
 
   @SerializedName("Size")
   private String size = null;
+
+  @SerializedName("SnapshotId")
+  private String snapshotId = null;
 
   @SerializedName("Tags")
   private List<TagForCreateVolumeInput> tags = null;
@@ -174,6 +176,24 @@ public class CreateVolumeRequest {
     this.size = size;
   }
 
+  public CreateVolumeRequest snapshotId(String snapshotId) {
+    this.snapshotId = snapshotId;
+    return this;
+  }
+
+   /**
+   * Get snapshotId
+   * @return snapshotId
+  **/
+  @Schema(description = "")
+  public String getSnapshotId() {
+    return snapshotId;
+  }
+
+  public void setSnapshotId(String snapshotId) {
+    this.snapshotId = snapshotId;
+  }
+
   public CreateVolumeRequest tags(List<TagForCreateVolumeInput> tags) {
     this.tags = tags;
     return this;
@@ -289,6 +309,7 @@ public class CreateVolumeRequest {
         Objects.equals(this.kind, createVolumeRequest.kind) &&
         Objects.equals(this.projectName, createVolumeRequest.projectName) &&
         Objects.equals(this.size, createVolumeRequest.size) &&
+        Objects.equals(this.snapshotId, createVolumeRequest.snapshotId) &&
         Objects.equals(this.tags, createVolumeRequest.tags) &&
         Objects.equals(this.volumeChargeType, createVolumeRequest.volumeChargeType) &&
         Objects.equals(this.volumeName, createVolumeRequest.volumeName) &&
@@ -298,7 +319,7 @@ public class CreateVolumeRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, description, instanceId, kind, projectName, size, tags, volumeChargeType, volumeName, volumeType, zoneId);
+    return Objects.hash(clientToken, description, instanceId, kind, projectName, size, snapshotId, tags, volumeChargeType, volumeName, volumeType, zoneId);
   }
 
 
@@ -313,6 +334,7 @@ public class CreateVolumeRequest {
     sb.append("    kind: ").append(toIndentedString(kind)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
+    sb.append("    snapshotId: ").append(toIndentedString(snapshotId)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    volumeChargeType: ").append(toIndentedString(volumeChargeType)).append("\n");
     sb.append("    volumeName: ").append(toIndentedString(volumeName)).append("\n");
