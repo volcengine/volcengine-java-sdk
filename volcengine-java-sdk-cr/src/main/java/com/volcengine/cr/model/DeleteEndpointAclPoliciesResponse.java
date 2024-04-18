@@ -17,11 +17,11 @@ import java.util.Arrays;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * CreateNamespaceResponse
+ * DeleteEndpointAclPoliciesResponse
  */
 
 
-public class CreateNamespaceResponse extends com.volcengine.model.AbstractResponse {
+public class DeleteEndpointAclPoliciesResponse extends com.volcengine.model.AbstractResponse {
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -43,7 +43,7 @@ public class CreateNamespaceResponse extends com.volcengine.model.AbstractRespon
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateNamespaceResponse {\n");
+    sb.append("class DeleteEndpointAclPoliciesResponse {\n");
     
     sb.append("}");
     return sb.toString();

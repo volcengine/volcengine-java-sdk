@@ -44,7 +44,8 @@ public class SetUserRequest {
    * Get password
    * @return password
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getPassword() {
     return password;
   }
@@ -62,7 +63,8 @@ public class SetUserRequest {
    * Get registry
    * @return registry
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getRegistry() {
     return registry;
   }

@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.cr.model.AclPolicyForGetPublicEndpointOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -28,7 +31,10 @@ import javax.validation.Valid;
  */
 
 
-public class GetPublicEndpointResponse {
+public class GetPublicEndpointResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("AclPolicies")
+  private List<AclPolicyForGetPublicEndpointOutput> aclPolicies = null;
+
   @SerializedName("Enabled")
   private Boolean enabled = null;
 
@@ -37,6 +43,33 @@ public class GetPublicEndpointResponse {
 
   @SerializedName("Status")
   private String status = null;
+
+  public GetPublicEndpointResponse aclPolicies(List<AclPolicyForGetPublicEndpointOutput> aclPolicies) {
+    this.aclPolicies = aclPolicies;
+    return this;
+  }
+
+  public GetPublicEndpointResponse addAclPoliciesItem(AclPolicyForGetPublicEndpointOutput aclPoliciesItem) {
+    if (this.aclPolicies == null) {
+      this.aclPolicies = new ArrayList<AclPolicyForGetPublicEndpointOutput>();
+    }
+    this.aclPolicies.add(aclPoliciesItem);
+    return this;
+  }
+
+   /**
+   * Get aclPolicies
+   * @return aclPolicies
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<AclPolicyForGetPublicEndpointOutput> getAclPolicies() {
+    return aclPolicies;
+  }
+
+  public void setAclPolicies(List<AclPolicyForGetPublicEndpointOutput> aclPolicies) {
+    this.aclPolicies = aclPolicies;
+  }
 
   public GetPublicEndpointResponse enabled(Boolean enabled) {
     this.enabled = enabled;
@@ -102,14 +135,15 @@ public class GetPublicEndpointResponse {
       return false;
     }
     GetPublicEndpointResponse getPublicEndpointResponse = (GetPublicEndpointResponse) o;
-    return Objects.equals(this.enabled, getPublicEndpointResponse.enabled) &&
+    return Objects.equals(this.aclPolicies, getPublicEndpointResponse.aclPolicies) &&
+        Objects.equals(this.enabled, getPublicEndpointResponse.enabled) &&
         Objects.equals(this.registry, getPublicEndpointResponse.registry) &&
         Objects.equals(this.status, getPublicEndpointResponse.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(enabled, registry, status);
+    return Objects.hash(aclPolicies, enabled, registry, status);
   }
 
 
@@ -118,6 +152,7 @@ public class GetPublicEndpointResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetPublicEndpointResponse {\n");
     
+    sb.append("    aclPolicies: ").append(toIndentedString(aclPolicies)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    registry: ").append(toIndentedString(registry)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");

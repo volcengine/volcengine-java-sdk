@@ -35,6 +35,9 @@ public class CreateNamespaceRequest {
   @SerializedName("Name")
   private String name = null;
 
+  @SerializedName("Project")
+  private String project = null;
+
   @SerializedName("Registry")
   private String registry = null;
 
@@ -65,13 +68,32 @@ public class CreateNamespaceRequest {
    * Get name
    * @return name
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getName() {
     return name;
   }
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public CreateNamespaceRequest project(String project) {
+    this.project = project;
+    return this;
+  }
+
+   /**
+   * Get project
+   * @return project
+  **/
+  @Schema(description = "")
+  public String getProject() {
+    return project;
+  }
+
+  public void setProject(String project) {
+    this.project = project;
   }
 
   public CreateNamespaceRequest registry(String registry) {
@@ -83,7 +105,8 @@ public class CreateNamespaceRequest {
    * Get registry
    * @return registry
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getRegistry() {
     return registry;
   }
@@ -104,12 +127,13 @@ public class CreateNamespaceRequest {
     CreateNamespaceRequest createNamespaceRequest = (CreateNamespaceRequest) o;
     return Objects.equals(this.clientToken, createNamespaceRequest.clientToken) &&
         Objects.equals(this.name, createNamespaceRequest.name) &&
+        Objects.equals(this.project, createNamespaceRequest.project) &&
         Objects.equals(this.registry, createNamespaceRequest.registry);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, name, registry);
+    return Objects.hash(clientToken, name, project, registry);
   }
 
 
@@ -120,6 +144,7 @@ public class CreateNamespaceRequest {
     
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    project: ").append(toIndentedString(project)).append("\n");
     sb.append("    registry: ").append(toIndentedString(registry)).append("\n");
     sb.append("}");
     return sb.toString();

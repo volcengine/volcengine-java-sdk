@@ -28,7 +28,7 @@ import javax.validation.Valid;
  */
 
 
-public class GetAuthorizationTokenResponse {
+public class GetAuthorizationTokenResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("ExpireTime")
   private String expireTime = null;
 

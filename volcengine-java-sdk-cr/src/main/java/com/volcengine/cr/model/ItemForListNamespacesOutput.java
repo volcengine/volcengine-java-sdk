@@ -35,6 +35,9 @@ public class ItemForListNamespacesOutput {
   @SerializedName("Name")
   private String name = null;
 
+  @SerializedName("Project")
+  private String project = null;
+
   public ItemForListNamespacesOutput createTime(String createTime) {
     this.createTime = createTime;
     return this;
@@ -71,6 +74,24 @@ public class ItemForListNamespacesOutput {
     this.name = name;
   }
 
+  public ItemForListNamespacesOutput project(String project) {
+    this.project = project;
+    return this;
+  }
+
+   /**
+   * Get project
+   * @return project
+  **/
+  @Schema(description = "")
+  public String getProject() {
+    return project;
+  }
+
+  public void setProject(String project) {
+    this.project = project;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -82,12 +103,13 @@ public class ItemForListNamespacesOutput {
     }
     ItemForListNamespacesOutput itemForListNamespacesOutput = (ItemForListNamespacesOutput) o;
     return Objects.equals(this.createTime, itemForListNamespacesOutput.createTime) &&
-        Objects.equals(this.name, itemForListNamespacesOutput.name);
+        Objects.equals(this.name, itemForListNamespacesOutput.name) &&
+        Objects.equals(this.project, itemForListNamespacesOutput.project);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createTime, name);
+    return Objects.hash(createTime, name, project);
   }
 
 
@@ -98,6 +120,7 @@ public class ItemForListNamespacesOutput {
     
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    project: ").append(toIndentedString(project)).append("\n");
     sb.append("}");
     return sb.toString();
   }

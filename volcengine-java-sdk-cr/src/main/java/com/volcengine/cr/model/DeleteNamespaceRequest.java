@@ -44,7 +44,8 @@ public class DeleteNamespaceRequest {
    * Get name
    * @return name
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getName() {
     return name;
   }
@@ -62,7 +63,8 @@ public class DeleteNamespaceRequest {
    * Get registry
    * @return registry
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getRegistry() {
     return registry;
   }
