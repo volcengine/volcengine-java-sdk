@@ -38,6 +38,15 @@ public class UpdateLoginProfileRequest {
   @SerializedName("PasswordResetRequired")
   private Boolean passwordResetRequired = null;
 
+  @SerializedName("SafeAuthExemptDuration")
+  private Integer safeAuthExemptDuration = null;
+
+  @SerializedName("SafeAuthFlag")
+  private Boolean safeAuthFlag = null;
+
+  @SerializedName("SafeAuthType")
+  private String safeAuthType = null;
+
   @SerializedName("UserName")
   private String userName = null;
 
@@ -95,6 +104,60 @@ public class UpdateLoginProfileRequest {
     this.passwordResetRequired = passwordResetRequired;
   }
 
+  public UpdateLoginProfileRequest safeAuthExemptDuration(Integer safeAuthExemptDuration) {
+    this.safeAuthExemptDuration = safeAuthExemptDuration;
+    return this;
+  }
+
+   /**
+   * Get safeAuthExemptDuration
+   * @return safeAuthExemptDuration
+  **/
+  @Schema(description = "")
+  public Integer getSafeAuthExemptDuration() {
+    return safeAuthExemptDuration;
+  }
+
+  public void setSafeAuthExemptDuration(Integer safeAuthExemptDuration) {
+    this.safeAuthExemptDuration = safeAuthExemptDuration;
+  }
+
+  public UpdateLoginProfileRequest safeAuthFlag(Boolean safeAuthFlag) {
+    this.safeAuthFlag = safeAuthFlag;
+    return this;
+  }
+
+   /**
+   * Get safeAuthFlag
+   * @return safeAuthFlag
+  **/
+  @Schema(description = "")
+  public Boolean isSafeAuthFlag() {
+    return safeAuthFlag;
+  }
+
+  public void setSafeAuthFlag(Boolean safeAuthFlag) {
+    this.safeAuthFlag = safeAuthFlag;
+  }
+
+  public UpdateLoginProfileRequest safeAuthType(String safeAuthType) {
+    this.safeAuthType = safeAuthType;
+    return this;
+  }
+
+   /**
+   * Get safeAuthType
+   * @return safeAuthType
+  **/
+  @Schema(description = "")
+  public String getSafeAuthType() {
+    return safeAuthType;
+  }
+
+  public void setSafeAuthType(String safeAuthType) {
+    this.safeAuthType = safeAuthType;
+  }
+
   public UpdateLoginProfileRequest userName(String userName) {
     this.userName = userName;
     return this;
@@ -127,12 +190,15 @@ public class UpdateLoginProfileRequest {
     return Objects.equals(this.loginAllowed, updateLoginProfileRequest.loginAllowed) &&
         Objects.equals(this.password, updateLoginProfileRequest.password) &&
         Objects.equals(this.passwordResetRequired, updateLoginProfileRequest.passwordResetRequired) &&
+        Objects.equals(this.safeAuthExemptDuration, updateLoginProfileRequest.safeAuthExemptDuration) &&
+        Objects.equals(this.safeAuthFlag, updateLoginProfileRequest.safeAuthFlag) &&
+        Objects.equals(this.safeAuthType, updateLoginProfileRequest.safeAuthType) &&
         Objects.equals(this.userName, updateLoginProfileRequest.userName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(loginAllowed, password, passwordResetRequired, userName);
+    return Objects.hash(loginAllowed, password, passwordResetRequired, safeAuthExemptDuration, safeAuthFlag, safeAuthType, userName);
   }
 
 
@@ -144,6 +210,9 @@ public class UpdateLoginProfileRequest {
     sb.append("    loginAllowed: ").append(toIndentedString(loginAllowed)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    passwordResetRequired: ").append(toIndentedString(passwordResetRequired)).append("\n");
+    sb.append("    safeAuthExemptDuration: ").append(toIndentedString(safeAuthExemptDuration)).append("\n");
+    sb.append("    safeAuthFlag: ").append(toIndentedString(safeAuthFlag)).append("\n");
+    sb.append("    safeAuthType: ").append(toIndentedString(safeAuthType)).append("\n");
     sb.append("    userName: ").append(toIndentedString(userName)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -19,59 +19,56 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.cr.model.FilterForGetVpcEndpointInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * GetVpcEndpointRequest
+ * AclPolicyForGetPublicEndpointOutput
  */
 
 
-public class GetVpcEndpointRequest {
-  @SerializedName("Filter")
-  private FilterForGetVpcEndpointInput filter = null;
+public class AclPolicyForGetPublicEndpointOutput {
+  @SerializedName("Description")
+  private String description = null;
 
-  @SerializedName("Registry")
-  private String registry = null;
+  @SerializedName("Entry")
+  private String entry = null;
 
-  public GetVpcEndpointRequest filter(FilterForGetVpcEndpointInput filter) {
-    this.filter = filter;
+  public AclPolicyForGetPublicEndpointOutput description(String description) {
+    this.description = description;
     return this;
   }
 
    /**
-   * Get filter
-   * @return filter
+   * Get description
+   * @return description
   **/
-  @Valid
   @Schema(description = "")
-  public FilterForGetVpcEndpointInput getFilter() {
-    return filter;
+  public String getDescription() {
+    return description;
   }
 
-  public void setFilter(FilterForGetVpcEndpointInput filter) {
-    this.filter = filter;
+  public void setDescription(String description) {
+    this.description = description;
   }
 
-  public GetVpcEndpointRequest registry(String registry) {
-    this.registry = registry;
+  public AclPolicyForGetPublicEndpointOutput entry(String entry) {
+    this.entry = entry;
     return this;
   }
 
    /**
-   * Get registry
-   * @return registry
+   * Get entry
+   * @return entry
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getRegistry() {
-    return registry;
+  @Schema(description = "")
+  public String getEntry() {
+    return entry;
   }
 
-  public void setRegistry(String registry) {
-    this.registry = registry;
+  public void setEntry(String entry) {
+    this.entry = entry;
   }
 
 
@@ -83,24 +80,24 @@ public class GetVpcEndpointRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GetVpcEndpointRequest getVpcEndpointRequest = (GetVpcEndpointRequest) o;
-    return Objects.equals(this.filter, getVpcEndpointRequest.filter) &&
-        Objects.equals(this.registry, getVpcEndpointRequest.registry);
+    AclPolicyForGetPublicEndpointOutput aclPolicyForGetPublicEndpointOutput = (AclPolicyForGetPublicEndpointOutput) o;
+    return Objects.equals(this.description, aclPolicyForGetPublicEndpointOutput.description) &&
+        Objects.equals(this.entry, aclPolicyForGetPublicEndpointOutput.entry);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(filter, registry);
+    return Objects.hash(description, entry);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetVpcEndpointRequest {\n");
+    sb.append("class AclPolicyForGetPublicEndpointOutput {\n");
     
-    sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
-    sb.append("    registry: ").append(toIndentedString(registry)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    entry: ").append(toIndentedString(entry)).append("\n");
     sb.append("}");
     return sb.toString();
   }

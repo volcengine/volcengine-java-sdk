@@ -41,6 +41,9 @@ public class ImageAttributeForListTagsOutput {
   @SerializedName("Os")
   private String os = null;
 
+  @SerializedName("Size")
+  private Long size = null;
+
   public ImageAttributeForListTagsOutput architecture(String architecture) {
     this.architecture = architecture;
     return this;
@@ -113,6 +116,24 @@ public class ImageAttributeForListTagsOutput {
     this.os = os;
   }
 
+  public ImageAttributeForListTagsOutput size(Long size) {
+    this.size = size;
+    return this;
+  }
+
+   /**
+   * Get size
+   * @return size
+  **/
+  @Schema(description = "")
+  public Long getSize() {
+    return size;
+  }
+
+  public void setSize(Long size) {
+    this.size = size;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -126,12 +147,13 @@ public class ImageAttributeForListTagsOutput {
     return Objects.equals(this.architecture, imageAttributeForListTagsOutput.architecture) &&
         Objects.equals(this.author, imageAttributeForListTagsOutput.author) &&
         Objects.equals(this.digest, imageAttributeForListTagsOutput.digest) &&
-        Objects.equals(this.os, imageAttributeForListTagsOutput.os);
+        Objects.equals(this.os, imageAttributeForListTagsOutput.os) &&
+        Objects.equals(this.size, imageAttributeForListTagsOutput.size);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(architecture, author, digest, os);
+    return Objects.hash(architecture, author, digest, os, size);
   }
 
 
@@ -144,6 +166,7 @@ public class ImageAttributeForListTagsOutput {
     sb.append("    author: ").append(toIndentedString(author)).append("\n");
     sb.append("    digest: ").append(toIndentedString(digest)).append("\n");
     sb.append("    os: ").append(toIndentedString(os)).append("\n");
+    sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -110,7 +110,8 @@ public class UpdateRepositoryRequest {
    * Get name
    * @return name
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getName() {
     return name;
   }
@@ -128,7 +129,8 @@ public class UpdateRepositoryRequest {
    * Get namespace
    * @return namespace
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getNamespace() {
     return namespace;
   }
@@ -146,7 +148,8 @@ public class UpdateRepositoryRequest {
    * Get registry
    * @return registry
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getRegistry() {
     return registry;
   }

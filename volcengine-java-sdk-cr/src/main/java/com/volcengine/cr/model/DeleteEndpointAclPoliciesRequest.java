@@ -19,7 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.cr.model.VpcForGetVpcEndpointOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -27,18 +26,47 @@ import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * GetVpcEndpointResponse
+ * DeleteEndpointAclPoliciesRequest
  */
 
 
-public class GetVpcEndpointResponse extends com.volcengine.model.AbstractResponse {
+public class DeleteEndpointAclPoliciesRequest {
+  @SerializedName("Entries")
+  private List<String> entries = null;
+
   @SerializedName("Registry")
   private String registry = null;
 
-  @SerializedName("Vpcs")
-  private List<VpcForGetVpcEndpointOutput> vpcs = null;
+  @SerializedName("Type")
+  private String type = null;
 
-  public GetVpcEndpointResponse registry(String registry) {
+  public DeleteEndpointAclPoliciesRequest entries(List<String> entries) {
+    this.entries = entries;
+    return this;
+  }
+
+  public DeleteEndpointAclPoliciesRequest addEntriesItem(String entriesItem) {
+    if (this.entries == null) {
+      this.entries = new ArrayList<String>();
+    }
+    this.entries.add(entriesItem);
+    return this;
+  }
+
+   /**
+   * Get entries
+   * @return entries
+  **/
+  @Schema(description = "")
+  public List<String> getEntries() {
+    return entries;
+  }
+
+  public void setEntries(List<String> entries) {
+    this.entries = entries;
+  }
+
+  public DeleteEndpointAclPoliciesRequest registry(String registry) {
     this.registry = registry;
     return this;
   }
@@ -47,7 +75,8 @@ public class GetVpcEndpointResponse extends com.volcengine.model.AbstractRespons
    * Get registry
    * @return registry
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getRegistry() {
     return registry;
   }
@@ -56,31 +85,23 @@ public class GetVpcEndpointResponse extends com.volcengine.model.AbstractRespons
     this.registry = registry;
   }
 
-  public GetVpcEndpointResponse vpcs(List<VpcForGetVpcEndpointOutput> vpcs) {
-    this.vpcs = vpcs;
-    return this;
-  }
-
-  public GetVpcEndpointResponse addVpcsItem(VpcForGetVpcEndpointOutput vpcsItem) {
-    if (this.vpcs == null) {
-      this.vpcs = new ArrayList<VpcForGetVpcEndpointOutput>();
-    }
-    this.vpcs.add(vpcsItem);
+  public DeleteEndpointAclPoliciesRequest type(String type) {
+    this.type = type;
     return this;
   }
 
    /**
-   * Get vpcs
-   * @return vpcs
+   * Get type
+   * @return type
   **/
-  @Valid
-  @Schema(description = "")
-  public List<VpcForGetVpcEndpointOutput> getVpcs() {
-    return vpcs;
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getType() {
+    return type;
   }
 
-  public void setVpcs(List<VpcForGetVpcEndpointOutput> vpcs) {
-    this.vpcs = vpcs;
+  public void setType(String type) {
+    this.type = type;
   }
 
 
@@ -92,24 +113,26 @@ public class GetVpcEndpointResponse extends com.volcengine.model.AbstractRespons
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GetVpcEndpointResponse getVpcEndpointResponse = (GetVpcEndpointResponse) o;
-    return Objects.equals(this.registry, getVpcEndpointResponse.registry) &&
-        Objects.equals(this.vpcs, getVpcEndpointResponse.vpcs);
+    DeleteEndpointAclPoliciesRequest deleteEndpointAclPoliciesRequest = (DeleteEndpointAclPoliciesRequest) o;
+    return Objects.equals(this.entries, deleteEndpointAclPoliciesRequest.entries) &&
+        Objects.equals(this.registry, deleteEndpointAclPoliciesRequest.registry) &&
+        Objects.equals(this.type, deleteEndpointAclPoliciesRequest.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(registry, vpcs);
+    return Objects.hash(entries, registry, type);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetVpcEndpointResponse {\n");
+    sb.append("class DeleteEndpointAclPoliciesRequest {\n");
     
+    sb.append("    entries: ").append(toIndentedString(entries)).append("\n");
     sb.append("    registry: ").append(toIndentedString(registry)).append("\n");
-    sb.append("    vpcs: ").append(toIndentedString(vpcs)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }

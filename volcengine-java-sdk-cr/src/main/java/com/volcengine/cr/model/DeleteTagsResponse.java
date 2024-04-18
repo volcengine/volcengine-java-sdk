@@ -14,6 +14,17 @@ package com.volcengine.cr.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import com.volcengine.cr.model.FailureForDeleteTagsOutput;
+import com.volcengine.cr.model.SuccessForDeleteTagsOutput;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -21,7 +32,67 @@ import javax.validation.Valid;
  */
 
 
-public class DeleteTagsResponse {
+public class DeleteTagsResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("Failures")
+  private List<FailureForDeleteTagsOutput> failures = null;
+
+  @SerializedName("Successes")
+  private List<SuccessForDeleteTagsOutput> successes = null;
+
+  public DeleteTagsResponse failures(List<FailureForDeleteTagsOutput> failures) {
+    this.failures = failures;
+    return this;
+  }
+
+  public DeleteTagsResponse addFailuresItem(FailureForDeleteTagsOutput failuresItem) {
+    if (this.failures == null) {
+      this.failures = new ArrayList<FailureForDeleteTagsOutput>();
+    }
+    this.failures.add(failuresItem);
+    return this;
+  }
+
+   /**
+   * Get failures
+   * @return failures
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<FailureForDeleteTagsOutput> getFailures() {
+    return failures;
+  }
+
+  public void setFailures(List<FailureForDeleteTagsOutput> failures) {
+    this.failures = failures;
+  }
+
+  public DeleteTagsResponse successes(List<SuccessForDeleteTagsOutput> successes) {
+    this.successes = successes;
+    return this;
+  }
+
+  public DeleteTagsResponse addSuccessesItem(SuccessForDeleteTagsOutput successesItem) {
+    if (this.successes == null) {
+      this.successes = new ArrayList<SuccessForDeleteTagsOutput>();
+    }
+    this.successes.add(successesItem);
+    return this;
+  }
+
+   /**
+   * Get successes
+   * @return successes
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<SuccessForDeleteTagsOutput> getSuccesses() {
+    return successes;
+  }
+
+  public void setSuccesses(List<SuccessForDeleteTagsOutput> successes) {
+    this.successes = successes;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -31,12 +102,14 @@ public class DeleteTagsResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return true;
+    DeleteTagsResponse deleteTagsResponse = (DeleteTagsResponse) o;
+    return Objects.equals(this.failures, deleteTagsResponse.failures) &&
+        Objects.equals(this.successes, deleteTagsResponse.successes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash();
+    return Objects.hash(failures, successes);
   }
 
 
@@ -45,6 +118,8 @@ public class DeleteTagsResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteTagsResponse {\n");
     
+    sb.append("    failures: ").append(toIndentedString(failures)).append("\n");
+    sb.append("    successes: ").append(toIndentedString(successes)).append("\n");
     sb.append("}");
     return sb.toString();
   }

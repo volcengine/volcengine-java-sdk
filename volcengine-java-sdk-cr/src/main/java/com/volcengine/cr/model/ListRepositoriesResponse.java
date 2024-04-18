@@ -31,7 +31,7 @@ import javax.validation.Valid;
  */
 
 
-public class ListRepositoriesResponse {
+public class ListRepositoriesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Items")
   private List<ItemForListRepositoriesOutput> items = null;
 
