@@ -62,7 +62,8 @@ public class DeleteVolumeRequest {
    * Get volumeId
    * @return volumeId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getVolumeId() {
     return volumeId;
   }

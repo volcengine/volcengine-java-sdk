@@ -44,7 +44,8 @@ public class DetachVolumeRequest {
    * Get instanceId
    * @return instanceId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getInstanceId() {
     return instanceId;
   }
@@ -62,7 +63,8 @@ public class DetachVolumeRequest {
    * Get volumeId
    * @return volumeId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getVolumeId() {
     return volumeId;
   }

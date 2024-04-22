@@ -65,7 +65,8 @@ public class AttachVolumeRequest {
    * Get instanceId
    * @return instanceId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getInstanceId() {
     return instanceId;
   }
@@ -83,7 +84,8 @@ public class AttachVolumeRequest {
    * Get volumeId
    * @return volumeId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getVolumeId() {
     return volumeId;
   }

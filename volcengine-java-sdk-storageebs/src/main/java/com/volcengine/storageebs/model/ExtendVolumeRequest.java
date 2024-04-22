@@ -65,7 +65,8 @@ public class ExtendVolumeRequest {
    * Get newSize
    * @return newSize
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getNewSize() {
     return newSize;
   }
@@ -83,7 +84,8 @@ public class ExtendVolumeRequest {
    * Get volumeId
    * @return volumeId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getVolumeId() {
     return volumeId;
   }
