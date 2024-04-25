@@ -236,5 +236,6 @@
         <module>volcengine-java-sdk-rdsmssql</module>
         <module>volcengine-java-sdk-veiapi</module>
         <module>volcengine-java-sdk-privatelink</module>
+        <module>volcengine-java-sdk-dcdn</module>
     </modules>
 </project>
