@@ -86,7 +86,8 @@ public class ModifyVolumeAttributeRequest {
    * Get volumeId
    * @return volumeId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getVolumeId() {
     return volumeId;
   }
@@ -104,7 +105,8 @@ public class ModifyVolumeAttributeRequest {
    * Get volumeName
    * @return volumeName
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getVolumeName() {
     return volumeName;
   }

@@ -167,7 +167,8 @@ public class CreateVolumeRequest {
    * Get size
    * @return size
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getSize() {
     return size;
   }
@@ -248,7 +249,8 @@ public class CreateVolumeRequest {
    * Get volumeName
    * @return volumeName
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getVolumeName() {
     return volumeName;
   }
@@ -266,7 +268,8 @@ public class CreateVolumeRequest {
    * Get volumeType
    * @return volumeType
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getVolumeType() {
     return volumeType;
   }

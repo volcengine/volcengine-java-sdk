@@ -139,7 +139,8 @@ public class CreateAutoSnapshotPolicyRequest {
    * Get retentionDays
    * @return retentionDays
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public Integer getRetentionDays() {
     return retentionDays;
   }

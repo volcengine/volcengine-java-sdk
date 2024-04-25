@@ -70,7 +70,8 @@ public class ModifyVolumeChargeTypeRequest {
    * Get diskChargeType
    * @return diskChargeType
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getDiskChargeType() {
     return diskChargeType;
   }
@@ -88,7 +89,8 @@ public class ModifyVolumeChargeTypeRequest {
    * Get instanceId
    * @return instanceId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getInstanceId() {
     return instanceId;
   }
