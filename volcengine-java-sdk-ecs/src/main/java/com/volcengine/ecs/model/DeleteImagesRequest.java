@@ -31,8 +31,29 @@ import javax.validation.Valid;
 
 
 public class DeleteImagesRequest {
+  @SerializedName("DeleteBindedSnapshots")
+  private Boolean deleteBindedSnapshots = null;
+
   @SerializedName("ImageIds")
   private List<String> imageIds = null;
+
+  public DeleteImagesRequest deleteBindedSnapshots(Boolean deleteBindedSnapshots) {
+    this.deleteBindedSnapshots = deleteBindedSnapshots;
+    return this;
+  }
+
+   /**
+   * Get deleteBindedSnapshots
+   * @return deleteBindedSnapshots
+  **/
+  @Schema(description = "")
+  public Boolean isDeleteBindedSnapshots() {
+    return deleteBindedSnapshots;
+  }
+
+  public void setDeleteBindedSnapshots(Boolean deleteBindedSnapshots) {
+    this.deleteBindedSnapshots = deleteBindedSnapshots;
+  }
 
   public DeleteImagesRequest imageIds(List<String> imageIds) {
     this.imageIds = imageIds;
@@ -70,12 +91,13 @@ public class DeleteImagesRequest {
       return false;
     }
     DeleteImagesRequest deleteImagesRequest = (DeleteImagesRequest) o;
-    return Objects.equals(this.imageIds, deleteImagesRequest.imageIds);
+    return Objects.equals(this.deleteBindedSnapshots, deleteImagesRequest.deleteBindedSnapshots) &&
+        Objects.equals(this.imageIds, deleteImagesRequest.imageIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(imageIds);
+    return Objects.hash(deleteBindedSnapshots, imageIds);
   }
 
 
@@ -84,6 +106,7 @@ public class DeleteImagesRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteImagesRequest {\n");
     
+    sb.append("    deleteBindedSnapshots: ").append(toIndentedString(deleteBindedSnapshots)).append("\n");
     sb.append("    imageIds: ").append(toIndentedString(imageIds)).append("\n");
     sb.append("}");
     return sb.toString();

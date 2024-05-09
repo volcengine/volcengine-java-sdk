@@ -44,6 +44,9 @@ public class ImportImageRequest {
   @SerializedName("ImageName")
   private String imageName = null;
 
+  @SerializedName("NeedDetection")
+  private Boolean needDetection = null;
+
   @SerializedName("OsType")
   private String osType = null;
 
@@ -133,6 +136,24 @@ public class ImportImageRequest {
 
   public void setImageName(String imageName) {
     this.imageName = imageName;
+  }
+
+  public ImportImageRequest needDetection(Boolean needDetection) {
+    this.needDetection = needDetection;
+    return this;
+  }
+
+   /**
+   * Get needDetection
+   * @return needDetection
+  **/
+  @Schema(description = "")
+  public Boolean isNeedDetection() {
+    return needDetection;
+  }
+
+  public void setNeedDetection(Boolean needDetection) {
+    this.needDetection = needDetection;
   }
 
   public ImportImageRequest osType(String osType) {
@@ -268,6 +289,7 @@ public class ImportImageRequest {
         Objects.equals(this.bootMode, importImageRequest.bootMode) &&
         Objects.equals(this.description, importImageRequest.description) &&
         Objects.equals(this.imageName, importImageRequest.imageName) &&
+        Objects.equals(this.needDetection, importImageRequest.needDetection) &&
         Objects.equals(this.osType, importImageRequest.osType) &&
         Objects.equals(this.platform, importImageRequest.platform) &&
         Objects.equals(this.platformVersion, importImageRequest.platformVersion) &&
@@ -278,7 +300,7 @@ public class ImportImageRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(architecture, bootMode, description, imageName, osType, platform, platformVersion, projectName, tags, url);
+    return Objects.hash(architecture, bootMode, description, imageName, needDetection, osType, platform, platformVersion, projectName, tags, url);
   }
 
 
@@ -291,6 +313,7 @@ public class ImportImageRequest {
     sb.append("    bootMode: ").append(toIndentedString(bootMode)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    imageName: ").append(toIndentedString(imageName)).append("\n");
+    sb.append("    needDetection: ").append(toIndentedString(needDetection)).append("\n");
     sb.append("    osType: ").append(toIndentedString(osType)).append("\n");
     sb.append("    platform: ").append(toIndentedString(platform)).append("\n");
     sb.append("    platformVersion: ").append(toIndentedString(platformVersion)).append("\n");

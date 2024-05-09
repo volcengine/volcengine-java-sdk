@@ -41,6 +41,9 @@ public class DescribeInstancesRequest {
   @SerializedName("DeploymentSetIds")
   private List<String> deploymentSetIds = null;
 
+  @SerializedName("EipAddresses")
+  private List<String> eipAddresses = null;
+
   @SerializedName("HpcClusterId")
   private String hpcClusterId = null;
 
@@ -149,6 +152,32 @@ public class DescribeInstancesRequest {
 
   public void setDeploymentSetIds(List<String> deploymentSetIds) {
     this.deploymentSetIds = deploymentSetIds;
+  }
+
+  public DescribeInstancesRequest eipAddresses(List<String> eipAddresses) {
+    this.eipAddresses = eipAddresses;
+    return this;
+  }
+
+  public DescribeInstancesRequest addEipAddressesItem(String eipAddressesItem) {
+    if (this.eipAddresses == null) {
+      this.eipAddresses = new ArrayList<String>();
+    }
+    this.eipAddresses.add(eipAddressesItem);
+    return this;
+  }
+
+   /**
+   * Get eipAddresses
+   * @return eipAddresses
+  **/
+  @Schema(description = "")
+  public List<String> getEipAddresses() {
+    return eipAddresses;
+  }
+
+  public void setEipAddresses(List<String> eipAddresses) {
+    this.eipAddresses = eipAddresses;
   }
 
   public DescribeInstancesRequest hpcClusterId(String hpcClusterId) {
@@ -493,6 +522,7 @@ public class DescribeInstancesRequest {
     return Objects.equals(this.dedicatedHostClusterId, describeInstancesRequest.dedicatedHostClusterId) &&
         Objects.equals(this.dedicatedHostId, describeInstancesRequest.dedicatedHostId) &&
         Objects.equals(this.deploymentSetIds, describeInstancesRequest.deploymentSetIds) &&
+        Objects.equals(this.eipAddresses, describeInstancesRequest.eipAddresses) &&
         Objects.equals(this.hpcClusterId, describeInstancesRequest.hpcClusterId) &&
         Objects.equals(this.instanceChargeType, describeInstancesRequest.instanceChargeType) &&
         Objects.equals(this.instanceIds, describeInstancesRequest.instanceIds) &&
@@ -513,7 +543,7 @@ public class DescribeInstancesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dedicatedHostClusterId, dedicatedHostId, deploymentSetIds, hpcClusterId, instanceChargeType, instanceIds, instanceName, instanceTypeFamilies, instanceTypeIds, instanceTypes, keyPairName, maxResults, nextToken, primaryIpAddress, projectName, status, tagFilters, vpcId, zoneId);
+    return Objects.hash(dedicatedHostClusterId, dedicatedHostId, deploymentSetIds, eipAddresses, hpcClusterId, instanceChargeType, instanceIds, instanceName, instanceTypeFamilies, instanceTypeIds, instanceTypes, keyPairName, maxResults, nextToken, primaryIpAddress, projectName, status, tagFilters, vpcId, zoneId);
   }
 
 
@@ -525,6 +555,7 @@ public class DescribeInstancesRequest {
     sb.append("    dedicatedHostClusterId: ").append(toIndentedString(dedicatedHostClusterId)).append("\n");
     sb.append("    dedicatedHostId: ").append(toIndentedString(dedicatedHostId)).append("\n");
     sb.append("    deploymentSetIds: ").append(toIndentedString(deploymentSetIds)).append("\n");
+    sb.append("    eipAddresses: ").append(toIndentedString(eipAddresses)).append("\n");
     sb.append("    hpcClusterId: ").append(toIndentedString(hpcClusterId)).append("\n");
     sb.append("    instanceChargeType: ").append(toIndentedString(instanceChargeType)).append("\n");
     sb.append("    instanceIds: ").append(toIndentedString(instanceIds)).append("\n");
