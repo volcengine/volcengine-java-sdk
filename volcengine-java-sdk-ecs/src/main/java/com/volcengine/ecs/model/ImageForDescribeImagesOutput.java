@@ -19,6 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.ecs.model.DetectionResultForDescribeImagesOutput;
+import com.volcengine.ecs.model.SnapshotForDescribeImagesOutput;
 import com.volcengine.ecs.model.TagForDescribeImagesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -43,6 +45,9 @@ public class ImageForDescribeImagesOutput {
 
   @SerializedName("Description")
   private String description = null;
+
+  @SerializedName("DetectionResults")
+  private List<DetectionResultForDescribeImagesOutput> detectionResults = null;
 
   @SerializedName("ImageId")
   private String imageId = null;
@@ -76,6 +81,9 @@ public class ImageForDescribeImagesOutput {
 
   @SerializedName("Size")
   private Integer size = null;
+
+  @SerializedName("Snapshots")
+  private List<SnapshotForDescribeImagesOutput> snapshots = null;
 
   @SerializedName("Status")
   private String status = null;
@@ -162,6 +170,33 @@ public class ImageForDescribeImagesOutput {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public ImageForDescribeImagesOutput detectionResults(List<DetectionResultForDescribeImagesOutput> detectionResults) {
+    this.detectionResults = detectionResults;
+    return this;
+  }
+
+  public ImageForDescribeImagesOutput addDetectionResultsItem(DetectionResultForDescribeImagesOutput detectionResultsItem) {
+    if (this.detectionResults == null) {
+      this.detectionResults = new ArrayList<DetectionResultForDescribeImagesOutput>();
+    }
+    this.detectionResults.add(detectionResultsItem);
+    return this;
+  }
+
+   /**
+   * Get detectionResults
+   * @return detectionResults
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<DetectionResultForDescribeImagesOutput> getDetectionResults() {
+    return detectionResults;
+  }
+
+  public void setDetectionResults(List<DetectionResultForDescribeImagesOutput> detectionResults) {
+    this.detectionResults = detectionResults;
   }
 
   public ImageForDescribeImagesOutput imageId(String imageId) {
@@ -362,6 +397,33 @@ public class ImageForDescribeImagesOutput {
     this.size = size;
   }
 
+  public ImageForDescribeImagesOutput snapshots(List<SnapshotForDescribeImagesOutput> snapshots) {
+    this.snapshots = snapshots;
+    return this;
+  }
+
+  public ImageForDescribeImagesOutput addSnapshotsItem(SnapshotForDescribeImagesOutput snapshotsItem) {
+    if (this.snapshots == null) {
+      this.snapshots = new ArrayList<SnapshotForDescribeImagesOutput>();
+    }
+    this.snapshots.add(snapshotsItem);
+    return this;
+  }
+
+   /**
+   * Get snapshots
+   * @return snapshots
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<SnapshotForDescribeImagesOutput> getSnapshots() {
+    return snapshots;
+  }
+
+  public void setSnapshots(List<SnapshotForDescribeImagesOutput> snapshots) {
+    this.snapshots = snapshots;
+  }
+
   public ImageForDescribeImagesOutput status(String status) {
     this.status = status;
     return this;
@@ -475,6 +537,7 @@ public class ImageForDescribeImagesOutput {
         Objects.equals(this.bootMode, imageForDescribeImagesOutput.bootMode) &&
         Objects.equals(this.createdAt, imageForDescribeImagesOutput.createdAt) &&
         Objects.equals(this.description, imageForDescribeImagesOutput.description) &&
+        Objects.equals(this.detectionResults, imageForDescribeImagesOutput.detectionResults) &&
         Objects.equals(this.imageId, imageForDescribeImagesOutput.imageId) &&
         Objects.equals(this.imageName, imageForDescribeImagesOutput.imageName) &&
         Objects.equals(this.imageOwnerId, imageForDescribeImagesOutput.imageOwnerId) &&
@@ -486,6 +549,7 @@ public class ImageForDescribeImagesOutput {
         Objects.equals(this.projectName, imageForDescribeImagesOutput.projectName) &&
         Objects.equals(this.shareStatus, imageForDescribeImagesOutput.shareStatus) &&
         Objects.equals(this.size, imageForDescribeImagesOutput.size) &&
+        Objects.equals(this.snapshots, imageForDescribeImagesOutput.snapshots) &&
         Objects.equals(this.status, imageForDescribeImagesOutput.status) &&
         Objects.equals(this.tags, imageForDescribeImagesOutput.tags) &&
         Objects.equals(this.updatedAt, imageForDescribeImagesOutput.updatedAt) &&
@@ -495,7 +559,7 @@ public class ImageForDescribeImagesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(architecture, bootMode, createdAt, description, imageId, imageName, imageOwnerId, isSupportCloudInit, osName, osType, platform, platformVersion, projectName, shareStatus, size, status, tags, updatedAt, virtualSize, visibility);
+    return Objects.hash(architecture, bootMode, createdAt, description, detectionResults, imageId, imageName, imageOwnerId, isSupportCloudInit, osName, osType, platform, platformVersion, projectName, shareStatus, size, snapshots, status, tags, updatedAt, virtualSize, visibility);
   }
 
 
@@ -508,6 +572,7 @@ public class ImageForDescribeImagesOutput {
     sb.append("    bootMode: ").append(toIndentedString(bootMode)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    detectionResults: ").append(toIndentedString(detectionResults)).append("\n");
     sb.append("    imageId: ").append(toIndentedString(imageId)).append("\n");
     sb.append("    imageName: ").append(toIndentedString(imageName)).append("\n");
     sb.append("    imageOwnerId: ").append(toIndentedString(imageOwnerId)).append("\n");
@@ -519,6 +584,7 @@ public class ImageForDescribeImagesOutput {
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    shareStatus: ").append(toIndentedString(shareStatus)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
+    sb.append("    snapshots: ").append(toIndentedString(snapshots)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");

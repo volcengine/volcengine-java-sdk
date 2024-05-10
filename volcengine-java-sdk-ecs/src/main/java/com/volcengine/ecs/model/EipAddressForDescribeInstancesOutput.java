@@ -32,6 +32,9 @@ public class EipAddressForDescribeInstancesOutput {
   @SerializedName("AllocationId")
   private String allocationId = null;
 
+  @SerializedName("IpAddress")
+  private String ipAddress = null;
+
   public EipAddressForDescribeInstancesOutput allocationId(String allocationId) {
     this.allocationId = allocationId;
     return this;
@@ -50,6 +53,24 @@ public class EipAddressForDescribeInstancesOutput {
     this.allocationId = allocationId;
   }
 
+  public EipAddressForDescribeInstancesOutput ipAddress(String ipAddress) {
+    this.ipAddress = ipAddress;
+    return this;
+  }
+
+   /**
+   * Get ipAddress
+   * @return ipAddress
+  **/
+  @Schema(description = "")
+  public String getIpAddress() {
+    return ipAddress;
+  }
+
+  public void setIpAddress(String ipAddress) {
+    this.ipAddress = ipAddress;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -60,12 +81,13 @@ public class EipAddressForDescribeInstancesOutput {
       return false;
     }
     EipAddressForDescribeInstancesOutput eipAddressForDescribeInstancesOutput = (EipAddressForDescribeInstancesOutput) o;
-    return Objects.equals(this.allocationId, eipAddressForDescribeInstancesOutput.allocationId);
+    return Objects.equals(this.allocationId, eipAddressForDescribeInstancesOutput.allocationId) &&
+        Objects.equals(this.ipAddress, eipAddressForDescribeInstancesOutput.ipAddress);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allocationId);
+    return Objects.hash(allocationId, ipAddress);
   }
 
 
@@ -75,6 +97,7 @@ public class EipAddressForDescribeInstancesOutput {
     sb.append("class EipAddressForDescribeInstancesOutput {\n");
     
     sb.append("    allocationId: ").append(toIndentedString(allocationId)).append("\n");
+    sb.append("    ipAddress: ").append(toIndentedString(ipAddress)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -41,8 +41,17 @@ public class CreateImageRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;
 
+  @SerializedName("NeedDetection")
+  private Boolean needDetection = null;
+
   @SerializedName("ProjectName")
   private String projectName = null;
+
+  @SerializedName("SnapshotGroupId")
+  private String snapshotGroupId = null;
+
+  @SerializedName("SnapshotId")
+  private String snapshotId = null;
 
   @SerializedName("Tags")
   private List<TagForCreateImageInput> tags = null;
@@ -93,14 +102,31 @@ public class CreateImageRequest {
    * Get instanceId
    * @return instanceId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getInstanceId() {
     return instanceId;
   }
 
   public void setInstanceId(String instanceId) {
     this.instanceId = instanceId;
+  }
+
+  public CreateImageRequest needDetection(Boolean needDetection) {
+    this.needDetection = needDetection;
+    return this;
+  }
+
+   /**
+   * Get needDetection
+   * @return needDetection
+  **/
+  @Schema(description = "")
+  public Boolean isNeedDetection() {
+    return needDetection;
+  }
+
+  public void setNeedDetection(Boolean needDetection) {
+    this.needDetection = needDetection;
   }
 
   public CreateImageRequest projectName(String projectName) {
@@ -119,6 +145,42 @@ public class CreateImageRequest {
 
   public void setProjectName(String projectName) {
     this.projectName = projectName;
+  }
+
+  public CreateImageRequest snapshotGroupId(String snapshotGroupId) {
+    this.snapshotGroupId = snapshotGroupId;
+    return this;
+  }
+
+   /**
+   * Get snapshotGroupId
+   * @return snapshotGroupId
+  **/
+  @Schema(description = "")
+  public String getSnapshotGroupId() {
+    return snapshotGroupId;
+  }
+
+  public void setSnapshotGroupId(String snapshotGroupId) {
+    this.snapshotGroupId = snapshotGroupId;
+  }
+
+  public CreateImageRequest snapshotId(String snapshotId) {
+    this.snapshotId = snapshotId;
+    return this;
+  }
+
+   /**
+   * Get snapshotId
+   * @return snapshotId
+  **/
+  @Schema(description = "")
+  public String getSnapshotId() {
+    return snapshotId;
+  }
+
+  public void setSnapshotId(String snapshotId) {
+    this.snapshotId = snapshotId;
   }
 
   public CreateImageRequest tags(List<TagForCreateImageInput> tags) {
@@ -161,13 +223,16 @@ public class CreateImageRequest {
     return Objects.equals(this.description, createImageRequest.description) &&
         Objects.equals(this.imageName, createImageRequest.imageName) &&
         Objects.equals(this.instanceId, createImageRequest.instanceId) &&
+        Objects.equals(this.needDetection, createImageRequest.needDetection) &&
         Objects.equals(this.projectName, createImageRequest.projectName) &&
+        Objects.equals(this.snapshotGroupId, createImageRequest.snapshotGroupId) &&
+        Objects.equals(this.snapshotId, createImageRequest.snapshotId) &&
         Objects.equals(this.tags, createImageRequest.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, imageName, instanceId, projectName, tags);
+    return Objects.hash(description, imageName, instanceId, needDetection, projectName, snapshotGroupId, snapshotId, tags);
   }
 
 
@@ -179,7 +244,10 @@ public class CreateImageRequest {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    imageName: ").append(toIndentedString(imageName)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    needDetection: ").append(toIndentedString(needDetection)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    snapshotGroupId: ").append(toIndentedString(snapshotGroupId)).append("\n");
+    sb.append("    snapshotId: ").append(toIndentedString(snapshotId)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
