@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.clb.model.TagForDescribeCertificatesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -54,6 +55,12 @@ public class CertificateForDescribeCertificatesOutput {
 
   @SerializedName("ProjectName")
   private String projectName = null;
+
+  @SerializedName("ServiceManaged")
+  private Boolean serviceManaged = null;
+
+  @SerializedName("Tags")
+  private List<TagForDescribeCertificatesOutput> tags = null;
 
   public CertificateForDescribeCertificatesOutput certificateId(String certificateId) {
     this.certificateId = certificateId;
@@ -207,6 +214,51 @@ public class CertificateForDescribeCertificatesOutput {
     this.projectName = projectName;
   }
 
+  public CertificateForDescribeCertificatesOutput serviceManaged(Boolean serviceManaged) {
+    this.serviceManaged = serviceManaged;
+    return this;
+  }
+
+   /**
+   * Get serviceManaged
+   * @return serviceManaged
+  **/
+  @Schema(description = "")
+  public Boolean isServiceManaged() {
+    return serviceManaged;
+  }
+
+  public void setServiceManaged(Boolean serviceManaged) {
+    this.serviceManaged = serviceManaged;
+  }
+
+  public CertificateForDescribeCertificatesOutput tags(List<TagForDescribeCertificatesOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public CertificateForDescribeCertificatesOutput addTagsItem(TagForDescribeCertificatesOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForDescribeCertificatesOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForDescribeCertificatesOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForDescribeCertificatesOutput> tags) {
+    this.tags = tags;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -224,12 +276,14 @@ public class CertificateForDescribeCertificatesOutput {
         Objects.equals(this.domainName, certificateForDescribeCertificatesOutput.domainName) &&
         Objects.equals(this.expiredAt, certificateForDescribeCertificatesOutput.expiredAt) &&
         Objects.equals(this.listeners, certificateForDescribeCertificatesOutput.listeners) &&
-        Objects.equals(this.projectName, certificateForDescribeCertificatesOutput.projectName);
+        Objects.equals(this.projectName, certificateForDescribeCertificatesOutput.projectName) &&
+        Objects.equals(this.serviceManaged, certificateForDescribeCertificatesOutput.serviceManaged) &&
+        Objects.equals(this.tags, certificateForDescribeCertificatesOutput.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(certificateId, certificateName, createTime, description, domainName, expiredAt, listeners, projectName);
+    return Objects.hash(certificateId, certificateName, createTime, description, domainName, expiredAt, listeners, projectName, serviceManaged, tags);
   }
 
 
@@ -246,6 +300,8 @@ public class CertificateForDescribeCertificatesOutput {
     sb.append("    expiredAt: ").append(toIndentedString(expiredAt)).append("\n");
     sb.append("    listeners: ").append(toIndentedString(listeners)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    serviceManaged: ").append(toIndentedString(serviceManaged)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.clb.model.ServerForDescribeServerGroupAttributesOutput;
+import com.volcengine.clb.model.TagForDescribeServerGroupAttributesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -55,6 +56,9 @@ public class DescribeServerGroupAttributesResponse extends com.volcengine.model.
 
   @SerializedName("Servers")
   private List<ServerForDescribeServerGroupAttributesOutput> servers = null;
+
+  @SerializedName("Tags")
+  private List<TagForDescribeServerGroupAttributesOutput> tags = null;
 
   @SerializedName("Type")
   private String type = null;
@@ -220,6 +224,33 @@ public class DescribeServerGroupAttributesResponse extends com.volcengine.model.
     this.servers = servers;
   }
 
+  public DescribeServerGroupAttributesResponse tags(List<TagForDescribeServerGroupAttributesOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public DescribeServerGroupAttributesResponse addTagsItem(TagForDescribeServerGroupAttributesOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForDescribeServerGroupAttributesOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForDescribeServerGroupAttributesOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForDescribeServerGroupAttributesOutput> tags) {
+    this.tags = tags;
+  }
+
   public DescribeServerGroupAttributesResponse type(String type) {
     this.type = type;
     return this;
@@ -256,12 +287,13 @@ public class DescribeServerGroupAttributesResponse extends com.volcengine.model.
         Objects.equals(this.serverGroupId, describeServerGroupAttributesResponse.serverGroupId) &&
         Objects.equals(this.serverGroupName, describeServerGroupAttributesResponse.serverGroupName) &&
         Objects.equals(this.servers, describeServerGroupAttributesResponse.servers) &&
+        Objects.equals(this.tags, describeServerGroupAttributesResponse.tags) &&
         Objects.equals(this.type, describeServerGroupAttributesResponse.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(addressIpVersion, description, listeners, loadBalancerId, requestId, serverGroupId, serverGroupName, servers, type);
+    return Objects.hash(addressIpVersion, description, listeners, loadBalancerId, requestId, serverGroupId, serverGroupName, servers, tags, type);
   }
 
 
@@ -278,6 +310,7 @@ public class DescribeServerGroupAttributesResponse extends com.volcengine.model.
     sb.append("    serverGroupId: ").append(toIndentedString(serverGroupId)).append("\n");
     sb.append("    serverGroupName: ").append(toIndentedString(serverGroupName)).append("\n");
     sb.append("    servers: ").append(toIndentedString(servers)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.clb.model.AccessLogForDescribeLoadBalancerAttributesOutput;
 import com.volcengine.clb.model.EipForDescribeLoadBalancerAttributesOutput;
+import com.volcengine.clb.model.EniAddressForDescribeLoadBalancerAttributesOutput;
 import com.volcengine.clb.model.Ipv6AddressBandwidthForDescribeLoadBalancerAttributesOutput;
 import com.volcengine.clb.model.ListenerForDescribeLoadBalancerAttributesOutput;
 import com.volcengine.clb.model.ServerGroupForDescribeLoadBalancerAttributesOutput;
@@ -76,11 +77,20 @@ public class DescribeLoadBalancerAttributesResponse extends com.volcengine.model
   @SerializedName("EniAddress")
   private String eniAddress = null;
 
+  @SerializedName("EniAddressNum")
+  private Integer eniAddressNum = null;
+
+  @SerializedName("EniAddresses")
+  private List<EniAddressForDescribeLoadBalancerAttributesOutput> eniAddresses = null;
+
   @SerializedName("EniID")
   private String eniID = null;
 
   @SerializedName("EniIpv6Address")
   private String eniIpv6Address = null;
+
+  @SerializedName("ExclusiveClusterId")
+  private String exclusiveClusterId = null;
 
   @SerializedName("ExpiredTime")
   private String expiredTime = null;
@@ -120,6 +130,9 @@ public class DescribeLoadBalancerAttributesResponse extends com.volcengine.model
 
   @SerializedName("ModificationProtectionStatus")
   private String modificationProtectionStatus = null;
+
+  @SerializedName("NewArch")
+  private Boolean newArch = null;
 
   @SerializedName("OverdueTime")
   private String overdueTime = null;
@@ -401,6 +414,51 @@ public class DescribeLoadBalancerAttributesResponse extends com.volcengine.model
     this.eniAddress = eniAddress;
   }
 
+  public DescribeLoadBalancerAttributesResponse eniAddressNum(Integer eniAddressNum) {
+    this.eniAddressNum = eniAddressNum;
+    return this;
+  }
+
+   /**
+   * Get eniAddressNum
+   * @return eniAddressNum
+  **/
+  @Schema(description = "")
+  public Integer getEniAddressNum() {
+    return eniAddressNum;
+  }
+
+  public void setEniAddressNum(Integer eniAddressNum) {
+    this.eniAddressNum = eniAddressNum;
+  }
+
+  public DescribeLoadBalancerAttributesResponse eniAddresses(List<EniAddressForDescribeLoadBalancerAttributesOutput> eniAddresses) {
+    this.eniAddresses = eniAddresses;
+    return this;
+  }
+
+  public DescribeLoadBalancerAttributesResponse addEniAddressesItem(EniAddressForDescribeLoadBalancerAttributesOutput eniAddressesItem) {
+    if (this.eniAddresses == null) {
+      this.eniAddresses = new ArrayList<EniAddressForDescribeLoadBalancerAttributesOutput>();
+    }
+    this.eniAddresses.add(eniAddressesItem);
+    return this;
+  }
+
+   /**
+   * Get eniAddresses
+   * @return eniAddresses
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<EniAddressForDescribeLoadBalancerAttributesOutput> getEniAddresses() {
+    return eniAddresses;
+  }
+
+  public void setEniAddresses(List<EniAddressForDescribeLoadBalancerAttributesOutput> eniAddresses) {
+    this.eniAddresses = eniAddresses;
+  }
+
   public DescribeLoadBalancerAttributesResponse eniID(String eniID) {
     this.eniID = eniID;
     return this;
@@ -435,6 +493,24 @@ public class DescribeLoadBalancerAttributesResponse extends com.volcengine.model
 
   public void setEniIpv6Address(String eniIpv6Address) {
     this.eniIpv6Address = eniIpv6Address;
+  }
+
+  public DescribeLoadBalancerAttributesResponse exclusiveClusterId(String exclusiveClusterId) {
+    this.exclusiveClusterId = exclusiveClusterId;
+    return this;
+  }
+
+   /**
+   * Get exclusiveClusterId
+   * @return exclusiveClusterId
+  **/
+  @Schema(description = "")
+  public String getExclusiveClusterId() {
+    return exclusiveClusterId;
+  }
+
+  public void setExclusiveClusterId(String exclusiveClusterId) {
+    this.exclusiveClusterId = exclusiveClusterId;
   }
 
   public DescribeLoadBalancerAttributesResponse expiredTime(String expiredTime) {
@@ -679,6 +755,24 @@ public class DescribeLoadBalancerAttributesResponse extends com.volcengine.model
 
   public void setModificationProtectionStatus(String modificationProtectionStatus) {
     this.modificationProtectionStatus = modificationProtectionStatus;
+  }
+
+  public DescribeLoadBalancerAttributesResponse newArch(Boolean newArch) {
+    this.newArch = newArch;
+    return this;
+  }
+
+   /**
+   * Get newArch
+   * @return newArch
+  **/
+  @Schema(description = "")
+  public Boolean isNewArch() {
+    return newArch;
+  }
+
+  public void setNewArch(Boolean newArch) {
+    this.newArch = newArch;
   }
 
   public DescribeLoadBalancerAttributesResponse overdueTime(String overdueTime) {
@@ -938,8 +1032,11 @@ public class DescribeLoadBalancerAttributesResponse extends com.volcengine.model
         Objects.equals(this.eipID, describeLoadBalancerAttributesResponse.eipID) &&
         Objects.equals(this.enabled, describeLoadBalancerAttributesResponse.enabled) &&
         Objects.equals(this.eniAddress, describeLoadBalancerAttributesResponse.eniAddress) &&
+        Objects.equals(this.eniAddressNum, describeLoadBalancerAttributesResponse.eniAddressNum) &&
+        Objects.equals(this.eniAddresses, describeLoadBalancerAttributesResponse.eniAddresses) &&
         Objects.equals(this.eniID, describeLoadBalancerAttributesResponse.eniID) &&
         Objects.equals(this.eniIpv6Address, describeLoadBalancerAttributesResponse.eniIpv6Address) &&
+        Objects.equals(this.exclusiveClusterId, describeLoadBalancerAttributesResponse.exclusiveClusterId) &&
         Objects.equals(this.expiredTime, describeLoadBalancerAttributesResponse.expiredTime) &&
         Objects.equals(this.ipv6AddressBandwidth, describeLoadBalancerAttributesResponse.ipv6AddressBandwidth) &&
         Objects.equals(this.ipv6EipId, describeLoadBalancerAttributesResponse.ipv6EipId) &&
@@ -953,6 +1050,7 @@ public class DescribeLoadBalancerAttributesResponse extends com.volcengine.model
         Objects.equals(this.masterZoneId, describeLoadBalancerAttributesResponse.masterZoneId) &&
         Objects.equals(this.modificationProtectionReason, describeLoadBalancerAttributesResponse.modificationProtectionReason) &&
         Objects.equals(this.modificationProtectionStatus, describeLoadBalancerAttributesResponse.modificationProtectionStatus) &&
+        Objects.equals(this.newArch, describeLoadBalancerAttributesResponse.newArch) &&
         Objects.equals(this.overdueTime, describeLoadBalancerAttributesResponse.overdueTime) &&
         Objects.equals(this.projectName, describeLoadBalancerAttributesResponse.projectName) &&
         Objects.equals(this.requestId, describeLoadBalancerAttributesResponse.requestId) &&
@@ -969,7 +1067,7 @@ public class DescribeLoadBalancerAttributesResponse extends com.volcengine.model
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessLog, accountId, addressIpVersion, allowedPorts, businessStatus, createTime, deletedTime, description, eip, eipAddress, eipID, enabled, eniAddress, eniID, eniIpv6Address, expiredTime, ipv6AddressBandwidth, ipv6EipId, listeners, loadBalancerBillingType, loadBalancerId, loadBalancerName, loadBalancerSpec, lockReason, logTopicId, masterZoneId, modificationProtectionReason, modificationProtectionStatus, overdueTime, projectName, requestId, serverGroups, serviceManaged, slaveZoneId, status, subnetId, tags, type, updateTime, vpcId);
+    return Objects.hash(accessLog, accountId, addressIpVersion, allowedPorts, businessStatus, createTime, deletedTime, description, eip, eipAddress, eipID, enabled, eniAddress, eniAddressNum, eniAddresses, eniID, eniIpv6Address, exclusiveClusterId, expiredTime, ipv6AddressBandwidth, ipv6EipId, listeners, loadBalancerBillingType, loadBalancerId, loadBalancerName, loadBalancerSpec, lockReason, logTopicId, masterZoneId, modificationProtectionReason, modificationProtectionStatus, newArch, overdueTime, projectName, requestId, serverGroups, serviceManaged, slaveZoneId, status, subnetId, tags, type, updateTime, vpcId);
   }
 
 
@@ -991,8 +1089,11 @@ public class DescribeLoadBalancerAttributesResponse extends com.volcengine.model
     sb.append("    eipID: ").append(toIndentedString(eipID)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    eniAddress: ").append(toIndentedString(eniAddress)).append("\n");
+    sb.append("    eniAddressNum: ").append(toIndentedString(eniAddressNum)).append("\n");
+    sb.append("    eniAddresses: ").append(toIndentedString(eniAddresses)).append("\n");
     sb.append("    eniID: ").append(toIndentedString(eniID)).append("\n");
     sb.append("    eniIpv6Address: ").append(toIndentedString(eniIpv6Address)).append("\n");
+    sb.append("    exclusiveClusterId: ").append(toIndentedString(exclusiveClusterId)).append("\n");
     sb.append("    expiredTime: ").append(toIndentedString(expiredTime)).append("\n");
     sb.append("    ipv6AddressBandwidth: ").append(toIndentedString(ipv6AddressBandwidth)).append("\n");
     sb.append("    ipv6EipId: ").append(toIndentedString(ipv6EipId)).append("\n");
@@ -1006,6 +1107,7 @@ public class DescribeLoadBalancerAttributesResponse extends com.volcengine.model
     sb.append("    masterZoneId: ").append(toIndentedString(masterZoneId)).append("\n");
     sb.append("    modificationProtectionReason: ").append(toIndentedString(modificationProtectionReason)).append("\n");
     sb.append("    modificationProtectionStatus: ").append(toIndentedString(modificationProtectionStatus)).append("\n");
+    sb.append("    newArch: ").append(toIndentedString(newArch)).append("\n");
     sb.append("    overdueTime: ").append(toIndentedString(overdueTime)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");

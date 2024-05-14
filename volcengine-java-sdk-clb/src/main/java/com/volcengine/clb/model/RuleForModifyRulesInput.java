@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.clb.model.RedirectConfigForModifyRulesInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -29,14 +30,38 @@ import javax.validation.Valid;
 
 
 public class RuleForModifyRulesInput {
+  @SerializedName("ActionType")
+  private String actionType = null;
+
   @SerializedName("Description")
   private String description = null;
+
+  @SerializedName("RedirectConfig")
+  private RedirectConfigForModifyRulesInput redirectConfig = null;
 
   @SerializedName("RuleId")
   private String ruleId = null;
 
   @SerializedName("ServerGroupId")
   private String serverGroupId = null;
+
+  public RuleForModifyRulesInput actionType(String actionType) {
+    this.actionType = actionType;
+    return this;
+  }
+
+   /**
+   * Get actionType
+   * @return actionType
+  **/
+  @Schema(description = "")
+  public String getActionType() {
+    return actionType;
+  }
+
+  public void setActionType(String actionType) {
+    this.actionType = actionType;
+  }
 
   public RuleForModifyRulesInput description(String description) {
     this.description = description;
@@ -54,6 +79,25 @@ public class RuleForModifyRulesInput {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public RuleForModifyRulesInput redirectConfig(RedirectConfigForModifyRulesInput redirectConfig) {
+    this.redirectConfig = redirectConfig;
+    return this;
+  }
+
+   /**
+   * Get redirectConfig
+   * @return redirectConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public RedirectConfigForModifyRulesInput getRedirectConfig() {
+    return redirectConfig;
+  }
+
+  public void setRedirectConfig(RedirectConfigForModifyRulesInput redirectConfig) {
+    this.redirectConfig = redirectConfig;
   }
 
   public RuleForModifyRulesInput ruleId(String ruleId) {
@@ -103,14 +147,16 @@ public class RuleForModifyRulesInput {
       return false;
     }
     RuleForModifyRulesInput ruleForModifyRulesInput = (RuleForModifyRulesInput) o;
-    return Objects.equals(this.description, ruleForModifyRulesInput.description) &&
+    return Objects.equals(this.actionType, ruleForModifyRulesInput.actionType) &&
+        Objects.equals(this.description, ruleForModifyRulesInput.description) &&
+        Objects.equals(this.redirectConfig, ruleForModifyRulesInput.redirectConfig) &&
         Objects.equals(this.ruleId, ruleForModifyRulesInput.ruleId) &&
         Objects.equals(this.serverGroupId, ruleForModifyRulesInput.serverGroupId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, ruleId, serverGroupId);
+    return Objects.hash(actionType, description, redirectConfig, ruleId, serverGroupId);
   }
 
 
@@ -119,7 +165,9 @@ public class RuleForModifyRulesInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class RuleForModifyRulesInput {\n");
     
+    sb.append("    actionType: ").append(toIndentedString(actionType)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    redirectConfig: ").append(toIndentedString(redirectConfig)).append("\n");
     sb.append("    ruleId: ").append(toIndentedString(ruleId)).append("\n");
     sb.append("    serverGroupId: ").append(toIndentedString(serverGroupId)).append("\n");
     sb.append("}");

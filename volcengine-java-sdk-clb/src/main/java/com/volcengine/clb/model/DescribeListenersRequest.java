@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.clb.model.TagFilterForDescribeListenersInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -45,6 +46,9 @@ public class DescribeListenersRequest {
 
   @SerializedName("PageSize")
   private Integer pageSize = null;
+
+  @SerializedName("TagFilters")
+  private List<TagFilterForDescribeListenersInput> tagFilters = null;
 
   public DescribeListenersRequest listenerIds(List<String> listenerIds) {
     this.listenerIds = listenerIds;
@@ -144,6 +148,33 @@ public class DescribeListenersRequest {
     this.pageSize = pageSize;
   }
 
+  public DescribeListenersRequest tagFilters(List<TagFilterForDescribeListenersInput> tagFilters) {
+    this.tagFilters = tagFilters;
+    return this;
+  }
+
+  public DescribeListenersRequest addTagFiltersItem(TagFilterForDescribeListenersInput tagFiltersItem) {
+    if (this.tagFilters == null) {
+      this.tagFilters = new ArrayList<TagFilterForDescribeListenersInput>();
+    }
+    this.tagFilters.add(tagFiltersItem);
+    return this;
+  }
+
+   /**
+   * Get tagFilters
+   * @return tagFilters
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagFilterForDescribeListenersInput> getTagFilters() {
+    return tagFilters;
+  }
+
+  public void setTagFilters(List<TagFilterForDescribeListenersInput> tagFilters) {
+    this.tagFilters = tagFilters;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -158,12 +189,13 @@ public class DescribeListenersRequest {
         Objects.equals(this.listenerName, describeListenersRequest.listenerName) &&
         Objects.equals(this.loadBalancerId, describeListenersRequest.loadBalancerId) &&
         Objects.equals(this.pageNumber, describeListenersRequest.pageNumber) &&
-        Objects.equals(this.pageSize, describeListenersRequest.pageSize);
+        Objects.equals(this.pageSize, describeListenersRequest.pageSize) &&
+        Objects.equals(this.tagFilters, describeListenersRequest.tagFilters);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(listenerIds, listenerName, loadBalancerId, pageNumber, pageSize);
+    return Objects.hash(listenerIds, listenerName, loadBalancerId, pageNumber, pageSize, tagFilters);
   }
 
 
@@ -177,6 +209,7 @@ public class DescribeListenersRequest {
     sb.append("    loadBalancerId: ").append(toIndentedString(loadBalancerId)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("}");
     return sb.toString();
   }

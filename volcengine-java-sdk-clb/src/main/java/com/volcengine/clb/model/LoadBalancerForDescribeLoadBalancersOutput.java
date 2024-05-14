@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.clb.model.EniAddressForDescribeLoadBalancersOutput;
 import com.volcengine.clb.model.TagForDescribeLoadBalancersOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -32,6 +33,9 @@ import javax.validation.Valid;
 
 
 public class LoadBalancerForDescribeLoadBalancersOutput {
+  @SerializedName("AccountId")
+  private String accountId = null;
+
   @SerializedName("AddressIpVersion")
   private String addressIpVersion = null;
 
@@ -56,11 +60,20 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
   @SerializedName("EniAddress")
   private String eniAddress = null;
 
+  @SerializedName("EniAddressNum")
+  private Integer eniAddressNum = null;
+
+  @SerializedName("EniAddresses")
+  private List<EniAddressForDescribeLoadBalancersOutput> eniAddresses = null;
+
   @SerializedName("EniID")
   private String eniID = null;
 
   @SerializedName("EniIpv6Address")
   private String eniIpv6Address = null;
+
+  @SerializedName("ExclusiveClusterId")
+  private String exclusiveClusterId = null;
 
   @SerializedName("ExpiredTime")
   private String expiredTime = null;
@@ -92,6 +105,9 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
   @SerializedName("ModificationProtectionStatus")
   private String modificationProtectionStatus = null;
 
+  @SerializedName("NewArch")
+  private Boolean newArch = null;
+
   @SerializedName("OverdueTime")
   private String overdueTime = null;
 
@@ -121,6 +137,24 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
 
   @SerializedName("VpcId")
   private String vpcId = null;
+
+  public LoadBalancerForDescribeLoadBalancersOutput accountId(String accountId) {
+    this.accountId = accountId;
+    return this;
+  }
+
+   /**
+   * Get accountId
+   * @return accountId
+  **/
+  @Schema(description = "")
+  public String getAccountId() {
+    return accountId;
+  }
+
+  public void setAccountId(String accountId) {
+    this.accountId = accountId;
+  }
 
   public LoadBalancerForDescribeLoadBalancersOutput addressIpVersion(String addressIpVersion) {
     this.addressIpVersion = addressIpVersion;
@@ -266,6 +300,51 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
     this.eniAddress = eniAddress;
   }
 
+  public LoadBalancerForDescribeLoadBalancersOutput eniAddressNum(Integer eniAddressNum) {
+    this.eniAddressNum = eniAddressNum;
+    return this;
+  }
+
+   /**
+   * Get eniAddressNum
+   * @return eniAddressNum
+  **/
+  @Schema(description = "")
+  public Integer getEniAddressNum() {
+    return eniAddressNum;
+  }
+
+  public void setEniAddressNum(Integer eniAddressNum) {
+    this.eniAddressNum = eniAddressNum;
+  }
+
+  public LoadBalancerForDescribeLoadBalancersOutput eniAddresses(List<EniAddressForDescribeLoadBalancersOutput> eniAddresses) {
+    this.eniAddresses = eniAddresses;
+    return this;
+  }
+
+  public LoadBalancerForDescribeLoadBalancersOutput addEniAddressesItem(EniAddressForDescribeLoadBalancersOutput eniAddressesItem) {
+    if (this.eniAddresses == null) {
+      this.eniAddresses = new ArrayList<EniAddressForDescribeLoadBalancersOutput>();
+    }
+    this.eniAddresses.add(eniAddressesItem);
+    return this;
+  }
+
+   /**
+   * Get eniAddresses
+   * @return eniAddresses
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<EniAddressForDescribeLoadBalancersOutput> getEniAddresses() {
+    return eniAddresses;
+  }
+
+  public void setEniAddresses(List<EniAddressForDescribeLoadBalancersOutput> eniAddresses) {
+    this.eniAddresses = eniAddresses;
+  }
+
   public LoadBalancerForDescribeLoadBalancersOutput eniID(String eniID) {
     this.eniID = eniID;
     return this;
@@ -300,6 +379,24 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
 
   public void setEniIpv6Address(String eniIpv6Address) {
     this.eniIpv6Address = eniIpv6Address;
+  }
+
+  public LoadBalancerForDescribeLoadBalancersOutput exclusiveClusterId(String exclusiveClusterId) {
+    this.exclusiveClusterId = exclusiveClusterId;
+    return this;
+  }
+
+   /**
+   * Get exclusiveClusterId
+   * @return exclusiveClusterId
+  **/
+  @Schema(description = "")
+  public String getExclusiveClusterId() {
+    return exclusiveClusterId;
+  }
+
+  public void setExclusiveClusterId(String exclusiveClusterId) {
+    this.exclusiveClusterId = exclusiveClusterId;
   }
 
   public LoadBalancerForDescribeLoadBalancersOutput expiredTime(String expiredTime) {
@@ -480,6 +577,24 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
 
   public void setModificationProtectionStatus(String modificationProtectionStatus) {
     this.modificationProtectionStatus = modificationProtectionStatus;
+  }
+
+  public LoadBalancerForDescribeLoadBalancersOutput newArch(Boolean newArch) {
+    this.newArch = newArch;
+    return this;
+  }
+
+   /**
+   * Get newArch
+   * @return newArch
+  **/
+  @Schema(description = "")
+  public Boolean isNewArch() {
+    return newArch;
+  }
+
+  public void setNewArch(Boolean newArch) {
+    this.newArch = newArch;
   }
 
   public LoadBalancerForDescribeLoadBalancersOutput overdueTime(String overdueTime) {
@@ -681,7 +796,8 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
       return false;
     }
     LoadBalancerForDescribeLoadBalancersOutput loadBalancerForDescribeLoadBalancersOutput = (LoadBalancerForDescribeLoadBalancersOutput) o;
-    return Objects.equals(this.addressIpVersion, loadBalancerForDescribeLoadBalancersOutput.addressIpVersion) &&
+    return Objects.equals(this.accountId, loadBalancerForDescribeLoadBalancersOutput.accountId) &&
+        Objects.equals(this.addressIpVersion, loadBalancerForDescribeLoadBalancersOutput.addressIpVersion) &&
         Objects.equals(this.businessStatus, loadBalancerForDescribeLoadBalancersOutput.businessStatus) &&
         Objects.equals(this.createTime, loadBalancerForDescribeLoadBalancersOutput.createTime) &&
         Objects.equals(this.deletedTime, loadBalancerForDescribeLoadBalancersOutput.deletedTime) &&
@@ -689,8 +805,11 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
         Objects.equals(this.eipAddress, loadBalancerForDescribeLoadBalancersOutput.eipAddress) &&
         Objects.equals(this.eipID, loadBalancerForDescribeLoadBalancersOutput.eipID) &&
         Objects.equals(this.eniAddress, loadBalancerForDescribeLoadBalancersOutput.eniAddress) &&
+        Objects.equals(this.eniAddressNum, loadBalancerForDescribeLoadBalancersOutput.eniAddressNum) &&
+        Objects.equals(this.eniAddresses, loadBalancerForDescribeLoadBalancersOutput.eniAddresses) &&
         Objects.equals(this.eniID, loadBalancerForDescribeLoadBalancersOutput.eniID) &&
         Objects.equals(this.eniIpv6Address, loadBalancerForDescribeLoadBalancersOutput.eniIpv6Address) &&
+        Objects.equals(this.exclusiveClusterId, loadBalancerForDescribeLoadBalancersOutput.exclusiveClusterId) &&
         Objects.equals(this.expiredTime, loadBalancerForDescribeLoadBalancersOutput.expiredTime) &&
         Objects.equals(this.ipv6EipId, loadBalancerForDescribeLoadBalancersOutput.ipv6EipId) &&
         Objects.equals(this.loadBalancerBillingType, loadBalancerForDescribeLoadBalancersOutput.loadBalancerBillingType) &&
@@ -701,6 +820,7 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
         Objects.equals(this.masterZoneId, loadBalancerForDescribeLoadBalancersOutput.masterZoneId) &&
         Objects.equals(this.modificationProtectionReason, loadBalancerForDescribeLoadBalancersOutput.modificationProtectionReason) &&
         Objects.equals(this.modificationProtectionStatus, loadBalancerForDescribeLoadBalancersOutput.modificationProtectionStatus) &&
+        Objects.equals(this.newArch, loadBalancerForDescribeLoadBalancersOutput.newArch) &&
         Objects.equals(this.overdueTime, loadBalancerForDescribeLoadBalancersOutput.overdueTime) &&
         Objects.equals(this.projectName, loadBalancerForDescribeLoadBalancersOutput.projectName) &&
         Objects.equals(this.serviceManaged, loadBalancerForDescribeLoadBalancersOutput.serviceManaged) &&
@@ -715,7 +835,7 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addressIpVersion, businessStatus, createTime, deletedTime, description, eipAddress, eipID, eniAddress, eniID, eniIpv6Address, expiredTime, ipv6EipId, loadBalancerBillingType, loadBalancerId, loadBalancerName, loadBalancerSpec, lockReason, masterZoneId, modificationProtectionReason, modificationProtectionStatus, overdueTime, projectName, serviceManaged, slaveZoneId, status, subnetId, tags, type, updateTime, vpcId);
+    return Objects.hash(accountId, addressIpVersion, businessStatus, createTime, deletedTime, description, eipAddress, eipID, eniAddress, eniAddressNum, eniAddresses, eniID, eniIpv6Address, exclusiveClusterId, expiredTime, ipv6EipId, loadBalancerBillingType, loadBalancerId, loadBalancerName, loadBalancerSpec, lockReason, masterZoneId, modificationProtectionReason, modificationProtectionStatus, newArch, overdueTime, projectName, serviceManaged, slaveZoneId, status, subnetId, tags, type, updateTime, vpcId);
   }
 
 
@@ -724,6 +844,7 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class LoadBalancerForDescribeLoadBalancersOutput {\n");
     
+    sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    addressIpVersion: ").append(toIndentedString(addressIpVersion)).append("\n");
     sb.append("    businessStatus: ").append(toIndentedString(businessStatus)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
@@ -732,8 +853,11 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
     sb.append("    eipAddress: ").append(toIndentedString(eipAddress)).append("\n");
     sb.append("    eipID: ").append(toIndentedString(eipID)).append("\n");
     sb.append("    eniAddress: ").append(toIndentedString(eniAddress)).append("\n");
+    sb.append("    eniAddressNum: ").append(toIndentedString(eniAddressNum)).append("\n");
+    sb.append("    eniAddresses: ").append(toIndentedString(eniAddresses)).append("\n");
     sb.append("    eniID: ").append(toIndentedString(eniID)).append("\n");
     sb.append("    eniIpv6Address: ").append(toIndentedString(eniIpv6Address)).append("\n");
+    sb.append("    exclusiveClusterId: ").append(toIndentedString(exclusiveClusterId)).append("\n");
     sb.append("    expiredTime: ").append(toIndentedString(expiredTime)).append("\n");
     sb.append("    ipv6EipId: ").append(toIndentedString(ipv6EipId)).append("\n");
     sb.append("    loadBalancerBillingType: ").append(toIndentedString(loadBalancerBillingType)).append("\n");
@@ -744,6 +868,7 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
     sb.append("    masterZoneId: ").append(toIndentedString(masterZoneId)).append("\n");
     sb.append("    modificationProtectionReason: ").append(toIndentedString(modificationProtectionReason)).append("\n");
     sb.append("    modificationProtectionStatus: ").append(toIndentedString(modificationProtectionStatus)).append("\n");
+    sb.append("    newArch: ").append(toIndentedString(newArch)).append("\n");
     sb.append("    overdueTime: ").append(toIndentedString(overdueTime)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    serviceManaged: ").append(toIndentedString(serviceManaged)).append("\n");

@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.clb.model.TagFilterForDescribeServerGroupsInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -45,6 +46,9 @@ public class DescribeServerGroupsRequest {
 
   @SerializedName("ServerGroupName")
   private String serverGroupName = null;
+
+  @SerializedName("TagFilters")
+  private List<TagFilterForDescribeServerGroupsInput> tagFilters = null;
 
   @SerializedName("Type")
   private String type = null;
@@ -147,6 +151,33 @@ public class DescribeServerGroupsRequest {
     this.serverGroupName = serverGroupName;
   }
 
+  public DescribeServerGroupsRequest tagFilters(List<TagFilterForDescribeServerGroupsInput> tagFilters) {
+    this.tagFilters = tagFilters;
+    return this;
+  }
+
+  public DescribeServerGroupsRequest addTagFiltersItem(TagFilterForDescribeServerGroupsInput tagFiltersItem) {
+    if (this.tagFilters == null) {
+      this.tagFilters = new ArrayList<TagFilterForDescribeServerGroupsInput>();
+    }
+    this.tagFilters.add(tagFiltersItem);
+    return this;
+  }
+
+   /**
+   * Get tagFilters
+   * @return tagFilters
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagFilterForDescribeServerGroupsInput> getTagFilters() {
+    return tagFilters;
+  }
+
+  public void setTagFilters(List<TagFilterForDescribeServerGroupsInput> tagFilters) {
+    this.tagFilters = tagFilters;
+  }
+
   public DescribeServerGroupsRequest type(String type) {
     this.type = type;
     return this;
@@ -180,12 +211,13 @@ public class DescribeServerGroupsRequest {
         Objects.equals(this.pageSize, describeServerGroupsRequest.pageSize) &&
         Objects.equals(this.serverGroupIds, describeServerGroupsRequest.serverGroupIds) &&
         Objects.equals(this.serverGroupName, describeServerGroupsRequest.serverGroupName) &&
+        Objects.equals(this.tagFilters, describeServerGroupsRequest.tagFilters) &&
         Objects.equals(this.type, describeServerGroupsRequest.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(loadBalancerId, pageNumber, pageSize, serverGroupIds, serverGroupName, type);
+    return Objects.hash(loadBalancerId, pageNumber, pageSize, serverGroupIds, serverGroupName, tagFilters, type);
   }
 
 
@@ -199,6 +231,7 @@ public class DescribeServerGroupsRequest {
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    serverGroupIds: ").append(toIndentedString(serverGroupIds)).append("\n");
     sb.append("    serverGroupName: ").append(toIndentedString(serverGroupName)).append("\n");
+    sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

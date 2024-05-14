@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.clb.model.ServerForCreateServerGroupInput;
+import com.volcengine.clb.model.TagForCreateServerGroupInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -46,6 +47,9 @@ public class CreateServerGroupRequest {
 
   @SerializedName("Servers")
   private List<ServerForCreateServerGroupInput> servers = null;
+
+  @SerializedName("Tags")
+  private List<TagForCreateServerGroupInput> tags = null;
 
   @SerializedName("Type")
   private String type = null;
@@ -150,6 +154,33 @@ public class CreateServerGroupRequest {
     this.servers = servers;
   }
 
+  public CreateServerGroupRequest tags(List<TagForCreateServerGroupInput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public CreateServerGroupRequest addTagsItem(TagForCreateServerGroupInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForCreateServerGroupInput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForCreateServerGroupInput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForCreateServerGroupInput> tags) {
+    this.tags = tags;
+  }
+
   public CreateServerGroupRequest type(String type) {
     this.type = type;
     return this;
@@ -183,12 +214,13 @@ public class CreateServerGroupRequest {
         Objects.equals(this.loadBalancerId, createServerGroupRequest.loadBalancerId) &&
         Objects.equals(this.serverGroupName, createServerGroupRequest.serverGroupName) &&
         Objects.equals(this.servers, createServerGroupRequest.servers) &&
+        Objects.equals(this.tags, createServerGroupRequest.tags) &&
         Objects.equals(this.type, createServerGroupRequest.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(addressIpVersion, description, loadBalancerId, serverGroupName, servers, type);
+    return Objects.hash(addressIpVersion, description, loadBalancerId, serverGroupName, servers, tags, type);
   }
 
 
@@ -202,6 +234,7 @@ public class CreateServerGroupRequest {
     sb.append("    loadBalancerId: ").append(toIndentedString(loadBalancerId)).append("\n");
     sb.append("    serverGroupName: ").append(toIndentedString(serverGroupName)).append("\n");
     sb.append("    servers: ").append(toIndentedString(servers)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
