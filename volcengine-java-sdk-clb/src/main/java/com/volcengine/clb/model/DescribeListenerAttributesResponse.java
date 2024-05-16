@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.clb.model.HealthCheckForDescribeListenerAttributesOutput;
+import com.volcengine.clb.model.TagForDescribeListenerAttributesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -53,6 +54,9 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
   @SerializedName("ConnectionDrainTimeout")
   private Integer connectionDrainTimeout = null;
 
+  @SerializedName("Cookie")
+  private String cookie = null;
+
   @SerializedName("CreateTime")
   private String createTime = null;
 
@@ -67,6 +71,9 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
 
   @SerializedName("HealthCheck")
   private HealthCheckForDescribeListenerAttributesOutput healthCheck = null;
+
+  @SerializedName("Http2Enabled")
+  private String http2Enabled = null;
 
   @SerializedName("ListenerId")
   private String listenerId = null;
@@ -103,6 +110,9 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
 
   @SerializedName("Status")
   private String status = null;
+
+  @SerializedName("Tags")
+  private List<TagForDescribeListenerAttributesOutput> tags = null;
 
   @SerializedName("UpdateTime")
   private String updateTime = null;
@@ -241,6 +251,24 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
     this.connectionDrainTimeout = connectionDrainTimeout;
   }
 
+  public DescribeListenerAttributesResponse cookie(String cookie) {
+    this.cookie = cookie;
+    return this;
+  }
+
+   /**
+   * Get cookie
+   * @return cookie
+  **/
+  @Schema(description = "")
+  public String getCookie() {
+    return cookie;
+  }
+
+  public void setCookie(String cookie) {
+    this.cookie = cookie;
+  }
+
   public DescribeListenerAttributesResponse createTime(String createTime) {
     this.createTime = createTime;
     return this;
@@ -330,6 +358,24 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
 
   public void setHealthCheck(HealthCheckForDescribeListenerAttributesOutput healthCheck) {
     this.healthCheck = healthCheck;
+  }
+
+  public DescribeListenerAttributesResponse http2Enabled(String http2Enabled) {
+    this.http2Enabled = http2Enabled;
+    return this;
+  }
+
+   /**
+   * Get http2Enabled
+   * @return http2Enabled
+  **/
+  @Schema(description = "")
+  public String getHttp2Enabled() {
+    return http2Enabled;
+  }
+
+  public void setHttp2Enabled(String http2Enabled) {
+    this.http2Enabled = http2Enabled;
   }
 
   public DescribeListenerAttributesResponse listenerId(String listenerId) {
@@ -548,6 +594,33 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
     this.status = status;
   }
 
+  public DescribeListenerAttributesResponse tags(List<TagForDescribeListenerAttributesOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public DescribeListenerAttributesResponse addTagsItem(TagForDescribeListenerAttributesOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForDescribeListenerAttributesOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForDescribeListenerAttributesOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForDescribeListenerAttributesOutput> tags) {
+    this.tags = tags;
+  }
+
   public DescribeListenerAttributesResponse updateTime(String updateTime) {
     this.updateTime = updateTime;
     return this;
@@ -583,11 +656,13 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
         Objects.equals(this.certificateId, describeListenerAttributesResponse.certificateId) &&
         Objects.equals(this.connectionDrainEnabled, describeListenerAttributesResponse.connectionDrainEnabled) &&
         Objects.equals(this.connectionDrainTimeout, describeListenerAttributesResponse.connectionDrainTimeout) &&
+        Objects.equals(this.cookie, describeListenerAttributesResponse.cookie) &&
         Objects.equals(this.createTime, describeListenerAttributesResponse.createTime) &&
         Objects.equals(this.description, describeListenerAttributesResponse.description) &&
         Objects.equals(this.enabled, describeListenerAttributesResponse.enabled) &&
         Objects.equals(this.establishedTimeout, describeListenerAttributesResponse.establishedTimeout) &&
         Objects.equals(this.healthCheck, describeListenerAttributesResponse.healthCheck) &&
+        Objects.equals(this.http2Enabled, describeListenerAttributesResponse.http2Enabled) &&
         Objects.equals(this.listenerId, describeListenerAttributesResponse.listenerId) &&
         Objects.equals(this.listenerName, describeListenerAttributesResponse.listenerName) &&
         Objects.equals(this.loadBalancerId, describeListenerAttributesResponse.loadBalancerId) &&
@@ -600,12 +675,13 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
         Objects.equals(this.scheduler, describeListenerAttributesResponse.scheduler) &&
         Objects.equals(this.serverGroupId, describeListenerAttributesResponse.serverGroupId) &&
         Objects.equals(this.status, describeListenerAttributesResponse.status) &&
+        Objects.equals(this.tags, describeListenerAttributesResponse.tags) &&
         Objects.equals(this.updateTime, describeListenerAttributesResponse.updateTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclIds, aclStatus, aclType, bandwidth, certificateId, connectionDrainEnabled, connectionDrainTimeout, createTime, description, enabled, establishedTimeout, healthCheck, listenerId, listenerName, loadBalancerId, persistenceTimeout, persistenceType, port, protocol, proxyProtocolType, requestId, scheduler, serverGroupId, status, updateTime);
+    return Objects.hash(aclIds, aclStatus, aclType, bandwidth, certificateId, connectionDrainEnabled, connectionDrainTimeout, cookie, createTime, description, enabled, establishedTimeout, healthCheck, http2Enabled, listenerId, listenerName, loadBalancerId, persistenceTimeout, persistenceType, port, protocol, proxyProtocolType, requestId, scheduler, serverGroupId, status, tags, updateTime);
   }
 
 
@@ -621,11 +697,13 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
     sb.append("    certificateId: ").append(toIndentedString(certificateId)).append("\n");
     sb.append("    connectionDrainEnabled: ").append(toIndentedString(connectionDrainEnabled)).append("\n");
     sb.append("    connectionDrainTimeout: ").append(toIndentedString(connectionDrainTimeout)).append("\n");
+    sb.append("    cookie: ").append(toIndentedString(cookie)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    establishedTimeout: ").append(toIndentedString(establishedTimeout)).append("\n");
     sb.append("    healthCheck: ").append(toIndentedString(healthCheck)).append("\n");
+    sb.append("    http2Enabled: ").append(toIndentedString(http2Enabled)).append("\n");
     sb.append("    listenerId: ").append(toIndentedString(listenerId)).append("\n");
     sb.append("    listenerName: ").append(toIndentedString(listenerName)).append("\n");
     sb.append("    loadBalancerId: ").append(toIndentedString(loadBalancerId)).append("\n");
@@ -638,6 +716,7 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
     sb.append("    scheduler: ").append(toIndentedString(scheduler)).append("\n");
     sb.append("    serverGroupId: ").append(toIndentedString(serverGroupId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("}");
     return sb.toString();

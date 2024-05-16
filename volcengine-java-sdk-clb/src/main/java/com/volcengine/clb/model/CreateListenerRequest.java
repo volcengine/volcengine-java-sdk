@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.clb.model.HealthCheckForCreateListenerInput;
+import com.volcengine.clb.model.TagForCreateListenerInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -53,6 +54,9 @@ public class CreateListenerRequest {
   @SerializedName("ConnectionDrainTimeout")
   private Integer connectionDrainTimeout = null;
 
+  @SerializedName("Cookie")
+  private String cookie = null;
+
   @SerializedName("Description")
   private String description = null;
 
@@ -64,6 +68,9 @@ public class CreateListenerRequest {
 
   @SerializedName("HealthCheck")
   private HealthCheckForCreateListenerInput healthCheck = null;
+
+  @SerializedName("Http2Enabled")
+  private String http2Enabled = null;
 
   @SerializedName("ListenerName")
   private String listenerName = null;
@@ -91,6 +98,9 @@ public class CreateListenerRequest {
 
   @SerializedName("ServerGroupId")
   private String serverGroupId = null;
+
+  @SerializedName("Tags")
+  private List<TagForCreateListenerInput> tags = null;
 
   public CreateListenerRequest aclIds(List<String> aclIds) {
     this.aclIds = aclIds;
@@ -226,6 +236,24 @@ public class CreateListenerRequest {
     this.connectionDrainTimeout = connectionDrainTimeout;
   }
 
+  public CreateListenerRequest cookie(String cookie) {
+    this.cookie = cookie;
+    return this;
+  }
+
+   /**
+   * Get cookie
+   * @return cookie
+  **/
+  @Schema(description = "")
+  public String getCookie() {
+    return cookie;
+  }
+
+  public void setCookie(String cookie) {
+    this.cookie = cookie;
+  }
+
   public CreateListenerRequest description(String description) {
     this.description = description;
     return this;
@@ -297,6 +325,24 @@ public class CreateListenerRequest {
 
   public void setHealthCheck(HealthCheckForCreateListenerInput healthCheck) {
     this.healthCheck = healthCheck;
+  }
+
+  public CreateListenerRequest http2Enabled(String http2Enabled) {
+    this.http2Enabled = http2Enabled;
+    return this;
+  }
+
+   /**
+   * Get http2Enabled
+   * @return http2Enabled
+  **/
+  @Schema(description = "")
+  public String getHttp2Enabled() {
+    return http2Enabled;
+  }
+
+  public void setHttp2Enabled(String http2Enabled) {
+    this.http2Enabled = http2Enabled;
   }
 
   public CreateListenerRequest listenerName(String listenerName) {
@@ -465,6 +511,33 @@ public class CreateListenerRequest {
     this.serverGroupId = serverGroupId;
   }
 
+  public CreateListenerRequest tags(List<TagForCreateListenerInput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public CreateListenerRequest addTagsItem(TagForCreateListenerInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForCreateListenerInput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForCreateListenerInput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForCreateListenerInput> tags) {
+    this.tags = tags;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -482,10 +555,12 @@ public class CreateListenerRequest {
         Objects.equals(this.certificateId, createListenerRequest.certificateId) &&
         Objects.equals(this.connectionDrainEnabled, createListenerRequest.connectionDrainEnabled) &&
         Objects.equals(this.connectionDrainTimeout, createListenerRequest.connectionDrainTimeout) &&
+        Objects.equals(this.cookie, createListenerRequest.cookie) &&
         Objects.equals(this.description, createListenerRequest.description) &&
         Objects.equals(this.enabled, createListenerRequest.enabled) &&
         Objects.equals(this.establishedTimeout, createListenerRequest.establishedTimeout) &&
         Objects.equals(this.healthCheck, createListenerRequest.healthCheck) &&
+        Objects.equals(this.http2Enabled, createListenerRequest.http2Enabled) &&
         Objects.equals(this.listenerName, createListenerRequest.listenerName) &&
         Objects.equals(this.loadBalancerId, createListenerRequest.loadBalancerId) &&
         Objects.equals(this.persistenceTimeout, createListenerRequest.persistenceTimeout) &&
@@ -494,12 +569,13 @@ public class CreateListenerRequest {
         Objects.equals(this.protocol, createListenerRequest.protocol) &&
         Objects.equals(this.proxyProtocolType, createListenerRequest.proxyProtocolType) &&
         Objects.equals(this.scheduler, createListenerRequest.scheduler) &&
-        Objects.equals(this.serverGroupId, createListenerRequest.serverGroupId);
+        Objects.equals(this.serverGroupId, createListenerRequest.serverGroupId) &&
+        Objects.equals(this.tags, createListenerRequest.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclIds, aclStatus, aclType, bandwidth, certificateId, connectionDrainEnabled, connectionDrainTimeout, description, enabled, establishedTimeout, healthCheck, listenerName, loadBalancerId, persistenceTimeout, persistenceType, port, protocol, proxyProtocolType, scheduler, serverGroupId);
+    return Objects.hash(aclIds, aclStatus, aclType, bandwidth, certificateId, connectionDrainEnabled, connectionDrainTimeout, cookie, description, enabled, establishedTimeout, healthCheck, http2Enabled, listenerName, loadBalancerId, persistenceTimeout, persistenceType, port, protocol, proxyProtocolType, scheduler, serverGroupId, tags);
   }
 
 
@@ -515,10 +591,12 @@ public class CreateListenerRequest {
     sb.append("    certificateId: ").append(toIndentedString(certificateId)).append("\n");
     sb.append("    connectionDrainEnabled: ").append(toIndentedString(connectionDrainEnabled)).append("\n");
     sb.append("    connectionDrainTimeout: ").append(toIndentedString(connectionDrainTimeout)).append("\n");
+    sb.append("    cookie: ").append(toIndentedString(cookie)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    establishedTimeout: ").append(toIndentedString(establishedTimeout)).append("\n");
     sb.append("    healthCheck: ").append(toIndentedString(healthCheck)).append("\n");
+    sb.append("    http2Enabled: ").append(toIndentedString(http2Enabled)).append("\n");
     sb.append("    listenerName: ").append(toIndentedString(listenerName)).append("\n");
     sb.append("    loadBalancerId: ").append(toIndentedString(loadBalancerId)).append("\n");
     sb.append("    persistenceTimeout: ").append(toIndentedString(persistenceTimeout)).append("\n");
@@ -528,6 +606,7 @@ public class CreateListenerRequest {
     sb.append("    proxyProtocolType: ").append(toIndentedString(proxyProtocolType)).append("\n");
     sb.append("    scheduler: ").append(toIndentedString(scheduler)).append("\n");
     sb.append("    serverGroupId: ").append(toIndentedString(serverGroupId)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.clb.model.TagForDescribeServerGroupsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -43,6 +46,9 @@ public class ServerGroupForDescribeServerGroupsOutput {
 
   @SerializedName("ServerGroupName")
   private String serverGroupName = null;
+
+  @SerializedName("Tags")
+  private List<TagForDescribeServerGroupsOutput> tags = null;
 
   @SerializedName("Type")
   private String type = null;
@@ -140,6 +146,33 @@ public class ServerGroupForDescribeServerGroupsOutput {
     this.serverGroupName = serverGroupName;
   }
 
+  public ServerGroupForDescribeServerGroupsOutput tags(List<TagForDescribeServerGroupsOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public ServerGroupForDescribeServerGroupsOutput addTagsItem(TagForDescribeServerGroupsOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForDescribeServerGroupsOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForDescribeServerGroupsOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForDescribeServerGroupsOutput> tags) {
+    this.tags = tags;
+  }
+
   public ServerGroupForDescribeServerGroupsOutput type(String type) {
     this.type = type;
     return this;
@@ -191,13 +224,14 @@ public class ServerGroupForDescribeServerGroupsOutput {
         Objects.equals(this.description, serverGroupForDescribeServerGroupsOutput.description) &&
         Objects.equals(this.serverGroupId, serverGroupForDescribeServerGroupsOutput.serverGroupId) &&
         Objects.equals(this.serverGroupName, serverGroupForDescribeServerGroupsOutput.serverGroupName) &&
+        Objects.equals(this.tags, serverGroupForDescribeServerGroupsOutput.tags) &&
         Objects.equals(this.type, serverGroupForDescribeServerGroupsOutput.type) &&
         Objects.equals(this.updateTime, serverGroupForDescribeServerGroupsOutput.updateTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(addressIpVersion, createTime, description, serverGroupId, serverGroupName, type, updateTime);
+    return Objects.hash(addressIpVersion, createTime, description, serverGroupId, serverGroupName, tags, type, updateTime);
   }
 
 
@@ -211,6 +245,7 @@ public class ServerGroupForDescribeServerGroupsOutput {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    serverGroupId: ").append(toIndentedString(serverGroupId)).append("\n");
     sb.append("    serverGroupName: ").append(toIndentedString(serverGroupName)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("}");

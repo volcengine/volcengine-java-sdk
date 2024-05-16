@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.clb.model.RedirectConfigForDescribeRulesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -29,11 +30,17 @@ import javax.validation.Valid;
 
 
 public class RuleForDescribeRulesOutput {
+  @SerializedName("ActionType")
+  private String actionType = null;
+
   @SerializedName("Description")
   private String description = null;
 
   @SerializedName("Domain")
   private String domain = null;
+
+  @SerializedName("RedirectConfig")
+  private RedirectConfigForDescribeRulesOutput redirectConfig = null;
 
   @SerializedName("RuleId")
   private String ruleId = null;
@@ -43,6 +50,24 @@ public class RuleForDescribeRulesOutput {
 
   @SerializedName("Url")
   private String url = null;
+
+  public RuleForDescribeRulesOutput actionType(String actionType) {
+    this.actionType = actionType;
+    return this;
+  }
+
+   /**
+   * Get actionType
+   * @return actionType
+  **/
+  @Schema(description = "")
+  public String getActionType() {
+    return actionType;
+  }
+
+  public void setActionType(String actionType) {
+    this.actionType = actionType;
+  }
 
   public RuleForDescribeRulesOutput description(String description) {
     this.description = description;
@@ -78,6 +103,25 @@ public class RuleForDescribeRulesOutput {
 
   public void setDomain(String domain) {
     this.domain = domain;
+  }
+
+  public RuleForDescribeRulesOutput redirectConfig(RedirectConfigForDescribeRulesOutput redirectConfig) {
+    this.redirectConfig = redirectConfig;
+    return this;
+  }
+
+   /**
+   * Get redirectConfig
+   * @return redirectConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public RedirectConfigForDescribeRulesOutput getRedirectConfig() {
+    return redirectConfig;
+  }
+
+  public void setRedirectConfig(RedirectConfigForDescribeRulesOutput redirectConfig) {
+    this.redirectConfig = redirectConfig;
   }
 
   public RuleForDescribeRulesOutput ruleId(String ruleId) {
@@ -144,8 +188,10 @@ public class RuleForDescribeRulesOutput {
       return false;
     }
     RuleForDescribeRulesOutput ruleForDescribeRulesOutput = (RuleForDescribeRulesOutput) o;
-    return Objects.equals(this.description, ruleForDescribeRulesOutput.description) &&
+    return Objects.equals(this.actionType, ruleForDescribeRulesOutput.actionType) &&
+        Objects.equals(this.description, ruleForDescribeRulesOutput.description) &&
         Objects.equals(this.domain, ruleForDescribeRulesOutput.domain) &&
+        Objects.equals(this.redirectConfig, ruleForDescribeRulesOutput.redirectConfig) &&
         Objects.equals(this.ruleId, ruleForDescribeRulesOutput.ruleId) &&
         Objects.equals(this.serverGroupId, ruleForDescribeRulesOutput.serverGroupId) &&
         Objects.equals(this.url, ruleForDescribeRulesOutput.url);
@@ -153,7 +199,7 @@ public class RuleForDescribeRulesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, domain, ruleId, serverGroupId, url);
+    return Objects.hash(actionType, description, domain, redirectConfig, ruleId, serverGroupId, url);
   }
 
 
@@ -162,8 +208,10 @@ public class RuleForDescribeRulesOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class RuleForDescribeRulesOutput {\n");
     
+    sb.append("    actionType: ").append(toIndentedString(actionType)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    domain: ").append(toIndentedString(domain)).append("\n");
+    sb.append("    redirectConfig: ").append(toIndentedString(redirectConfig)).append("\n");
     sb.append("    ruleId: ").append(toIndentedString(ruleId)).append("\n");
     sb.append("    serverGroupId: ").append(toIndentedString(serverGroupId)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");

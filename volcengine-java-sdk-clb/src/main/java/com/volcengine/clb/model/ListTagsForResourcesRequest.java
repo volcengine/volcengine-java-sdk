@@ -46,7 +46,11 @@ public class ListTagsForResourcesRequest {
    */
   @JsonAdapter(ResourceTypeEnum.Adapter.class)
   public enum ResourceTypeEnum {
-    CLB("CLB");
+    CLB("CLB"),
+    ACL("acl"),
+    CERTIFICATE("certificate"),
+    LISTENER("listener"),
+    SERVERGROUP("servergroup");
 
     private String value;
 

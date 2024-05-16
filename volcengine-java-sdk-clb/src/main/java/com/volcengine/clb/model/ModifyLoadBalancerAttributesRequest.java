@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -29,6 +31,9 @@ import javax.validation.Valid;
 
 
 public class ModifyLoadBalancerAttributesRequest {
+  @SerializedName("AllowedPorts")
+  private List<String> allowedPorts = null;
+
   @SerializedName("Description")
   private String description = null;
 
@@ -49,6 +54,32 @@ public class ModifyLoadBalancerAttributesRequest {
 
   @SerializedName("Type")
   private String type = null;
+
+  public ModifyLoadBalancerAttributesRequest allowedPorts(List<String> allowedPorts) {
+    this.allowedPorts = allowedPorts;
+    return this;
+  }
+
+  public ModifyLoadBalancerAttributesRequest addAllowedPortsItem(String allowedPortsItem) {
+    if (this.allowedPorts == null) {
+      this.allowedPorts = new ArrayList<String>();
+    }
+    this.allowedPorts.add(allowedPortsItem);
+    return this;
+  }
+
+   /**
+   * Get allowedPorts
+   * @return allowedPorts
+  **/
+  @Schema(description = "")
+  public List<String> getAllowedPorts() {
+    return allowedPorts;
+  }
+
+  public void setAllowedPorts(List<String> allowedPorts) {
+    this.allowedPorts = allowedPorts;
+  }
 
   public ModifyLoadBalancerAttributesRequest description(String description) {
     this.description = description;
@@ -187,7 +218,8 @@ public class ModifyLoadBalancerAttributesRequest {
       return false;
     }
     ModifyLoadBalancerAttributesRequest modifyLoadBalancerAttributesRequest = (ModifyLoadBalancerAttributesRequest) o;
-    return Objects.equals(this.description, modifyLoadBalancerAttributesRequest.description) &&
+    return Objects.equals(this.allowedPorts, modifyLoadBalancerAttributesRequest.allowedPorts) &&
+        Objects.equals(this.description, modifyLoadBalancerAttributesRequest.description) &&
         Objects.equals(this.loadBalancerId, modifyLoadBalancerAttributesRequest.loadBalancerId) &&
         Objects.equals(this.loadBalancerName, modifyLoadBalancerAttributesRequest.loadBalancerName) &&
         Objects.equals(this.loadBalancerSpec, modifyLoadBalancerAttributesRequest.loadBalancerSpec) &&
@@ -198,7 +230,7 @@ public class ModifyLoadBalancerAttributesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, loadBalancerId, loadBalancerName, loadBalancerSpec, modificationProtectionReason, modificationProtectionStatus, type);
+    return Objects.hash(allowedPorts, description, loadBalancerId, loadBalancerName, loadBalancerSpec, modificationProtectionReason, modificationProtectionStatus, type);
   }
 
 
@@ -207,6 +239,7 @@ public class ModifyLoadBalancerAttributesRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ModifyLoadBalancerAttributesRequest {\n");
     
+    sb.append("    allowedPorts: ").append(toIndentedString(allowedPorts)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    loadBalancerId: ").append(toIndentedString(loadBalancerId)).append("\n");
     sb.append("    loadBalancerName: ").append(toIndentedString(loadBalancerName)).append("\n");

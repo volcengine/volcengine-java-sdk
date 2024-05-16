@@ -53,6 +53,9 @@ public class ModifyListenerAttributesRequest {
   @SerializedName("ConnectionDrainTimeout")
   private Integer connectionDrainTimeout = null;
 
+  @SerializedName("Cookie")
+  private String cookie = null;
+
   @SerializedName("Description")
   private String description = null;
 
@@ -64,6 +67,9 @@ public class ModifyListenerAttributesRequest {
 
   @SerializedName("HealthCheck")
   private HealthCheckForModifyListenerAttributesInput healthCheck = null;
+
+  @SerializedName("Http2Enabled")
+  private String http2Enabled = null;
 
   @SerializedName("ListenerId")
   private String listenerId = null;
@@ -220,6 +226,24 @@ public class ModifyListenerAttributesRequest {
     this.connectionDrainTimeout = connectionDrainTimeout;
   }
 
+  public ModifyListenerAttributesRequest cookie(String cookie) {
+    this.cookie = cookie;
+    return this;
+  }
+
+   /**
+   * Get cookie
+   * @return cookie
+  **/
+  @Schema(description = "")
+  public String getCookie() {
+    return cookie;
+  }
+
+  public void setCookie(String cookie) {
+    this.cookie = cookie;
+  }
+
   public ModifyListenerAttributesRequest description(String description) {
     this.description = description;
     return this;
@@ -291,6 +315,24 @@ public class ModifyListenerAttributesRequest {
 
   public void setHealthCheck(HealthCheckForModifyListenerAttributesInput healthCheck) {
     this.healthCheck = healthCheck;
+  }
+
+  public ModifyListenerAttributesRequest http2Enabled(String http2Enabled) {
+    this.http2Enabled = http2Enabled;
+    return this;
+  }
+
+   /**
+   * Get http2Enabled
+   * @return http2Enabled
+  **/
+  @Schema(description = "")
+  public String getHttp2Enabled() {
+    return http2Enabled;
+  }
+
+  public void setHttp2Enabled(String http2Enabled) {
+    this.http2Enabled = http2Enabled;
   }
 
   public ModifyListenerAttributesRequest listenerId(String listenerId) {
@@ -437,10 +479,12 @@ public class ModifyListenerAttributesRequest {
         Objects.equals(this.certificateId, modifyListenerAttributesRequest.certificateId) &&
         Objects.equals(this.connectionDrainEnabled, modifyListenerAttributesRequest.connectionDrainEnabled) &&
         Objects.equals(this.connectionDrainTimeout, modifyListenerAttributesRequest.connectionDrainTimeout) &&
+        Objects.equals(this.cookie, modifyListenerAttributesRequest.cookie) &&
         Objects.equals(this.description, modifyListenerAttributesRequest.description) &&
         Objects.equals(this.enabled, modifyListenerAttributesRequest.enabled) &&
         Objects.equals(this.establishedTimeout, modifyListenerAttributesRequest.establishedTimeout) &&
         Objects.equals(this.healthCheck, modifyListenerAttributesRequest.healthCheck) &&
+        Objects.equals(this.http2Enabled, modifyListenerAttributesRequest.http2Enabled) &&
         Objects.equals(this.listenerId, modifyListenerAttributesRequest.listenerId) &&
         Objects.equals(this.listenerName, modifyListenerAttributesRequest.listenerName) &&
         Objects.equals(this.persistenceTimeout, modifyListenerAttributesRequest.persistenceTimeout) &&
@@ -452,7 +496,7 @@ public class ModifyListenerAttributesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclIds, aclStatus, aclType, bandwidth, certificateId, connectionDrainEnabled, connectionDrainTimeout, description, enabled, establishedTimeout, healthCheck, listenerId, listenerName, persistenceTimeout, persistenceType, proxyProtocolType, scheduler, serverGroupId);
+    return Objects.hash(aclIds, aclStatus, aclType, bandwidth, certificateId, connectionDrainEnabled, connectionDrainTimeout, cookie, description, enabled, establishedTimeout, healthCheck, http2Enabled, listenerId, listenerName, persistenceTimeout, persistenceType, proxyProtocolType, scheduler, serverGroupId);
   }
 
 
@@ -468,10 +512,12 @@ public class ModifyListenerAttributesRequest {
     sb.append("    certificateId: ").append(toIndentedString(certificateId)).append("\n");
     sb.append("    connectionDrainEnabled: ").append(toIndentedString(connectionDrainEnabled)).append("\n");
     sb.append("    connectionDrainTimeout: ").append(toIndentedString(connectionDrainTimeout)).append("\n");
+    sb.append("    cookie: ").append(toIndentedString(cookie)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    establishedTimeout: ").append(toIndentedString(establishedTimeout)).append("\n");
     sb.append("    healthCheck: ").append(toIndentedString(healthCheck)).append("\n");
+    sb.append("    http2Enabled: ").append(toIndentedString(http2Enabled)).append("\n");
     sb.append("    listenerId: ").append(toIndentedString(listenerId)).append("\n");
     sb.append("    listenerName: ").append(toIndentedString(listenerName)).append("\n");
     sb.append("    persistenceTimeout: ").append(toIndentedString(persistenceTimeout)).append("\n");

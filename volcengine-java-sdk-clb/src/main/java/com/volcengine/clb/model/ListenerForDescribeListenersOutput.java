@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.clb.model.HealthCheckForDescribeListenersOutput;
+import com.volcengine.clb.model.TagForDescribeListenersOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -53,14 +54,23 @@ public class ListenerForDescribeListenersOutput {
   @SerializedName("ConnectionDrainTimeout")
   private Integer connectionDrainTimeout = null;
 
+  @SerializedName("Cookie")
+  private String cookie = null;
+
   @SerializedName("CreateTime")
   private String createTime = null;
+
+  @SerializedName("Description")
+  private String description = null;
 
   @SerializedName("Enabled")
   private String enabled = null;
 
   @SerializedName("HealthCheck")
   private HealthCheckForDescribeListenersOutput healthCheck = null;
+
+  @SerializedName("Http2Enabled")
+  private String http2Enabled = null;
 
   @SerializedName("ListenerId")
   private String listenerId = null;
@@ -91,6 +101,9 @@ public class ListenerForDescribeListenersOutput {
 
   @SerializedName("Status")
   private String status = null;
+
+  @SerializedName("Tags")
+  private List<TagForDescribeListenersOutput> tags = null;
 
   @SerializedName("UpdateTime")
   private String updateTime = null;
@@ -229,6 +242,24 @@ public class ListenerForDescribeListenersOutput {
     this.connectionDrainTimeout = connectionDrainTimeout;
   }
 
+  public ListenerForDescribeListenersOutput cookie(String cookie) {
+    this.cookie = cookie;
+    return this;
+  }
+
+   /**
+   * Get cookie
+   * @return cookie
+  **/
+  @Schema(description = "")
+  public String getCookie() {
+    return cookie;
+  }
+
+  public void setCookie(String cookie) {
+    this.cookie = cookie;
+  }
+
   public ListenerForDescribeListenersOutput createTime(String createTime) {
     this.createTime = createTime;
     return this;
@@ -245,6 +276,24 @@ public class ListenerForDescribeListenersOutput {
 
   public void setCreateTime(String createTime) {
     this.createTime = createTime;
+  }
+
+  public ListenerForDescribeListenersOutput description(String description) {
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Get description
+   * @return description
+  **/
+  @Schema(description = "")
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   public ListenerForDescribeListenersOutput enabled(String enabled) {
@@ -282,6 +331,24 @@ public class ListenerForDescribeListenersOutput {
 
   public void setHealthCheck(HealthCheckForDescribeListenersOutput healthCheck) {
     this.healthCheck = healthCheck;
+  }
+
+  public ListenerForDescribeListenersOutput http2Enabled(String http2Enabled) {
+    this.http2Enabled = http2Enabled;
+    return this;
+  }
+
+   /**
+   * Get http2Enabled
+   * @return http2Enabled
+  **/
+  @Schema(description = "")
+  public String getHttp2Enabled() {
+    return http2Enabled;
+  }
+
+  public void setHttp2Enabled(String http2Enabled) {
+    this.http2Enabled = http2Enabled;
   }
 
   public ListenerForDescribeListenersOutput listenerId(String listenerId) {
@@ -464,6 +531,33 @@ public class ListenerForDescribeListenersOutput {
     this.status = status;
   }
 
+  public ListenerForDescribeListenersOutput tags(List<TagForDescribeListenersOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public ListenerForDescribeListenersOutput addTagsItem(TagForDescribeListenersOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForDescribeListenersOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForDescribeListenersOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForDescribeListenersOutput> tags) {
+    this.tags = tags;
+  }
+
   public ListenerForDescribeListenersOutput updateTime(String updateTime) {
     this.updateTime = updateTime;
     return this;
@@ -499,9 +593,12 @@ public class ListenerForDescribeListenersOutput {
         Objects.equals(this.certificateId, listenerForDescribeListenersOutput.certificateId) &&
         Objects.equals(this.connectionDrainEnabled, listenerForDescribeListenersOutput.connectionDrainEnabled) &&
         Objects.equals(this.connectionDrainTimeout, listenerForDescribeListenersOutput.connectionDrainTimeout) &&
+        Objects.equals(this.cookie, listenerForDescribeListenersOutput.cookie) &&
         Objects.equals(this.createTime, listenerForDescribeListenersOutput.createTime) &&
+        Objects.equals(this.description, listenerForDescribeListenersOutput.description) &&
         Objects.equals(this.enabled, listenerForDescribeListenersOutput.enabled) &&
         Objects.equals(this.healthCheck, listenerForDescribeListenersOutput.healthCheck) &&
+        Objects.equals(this.http2Enabled, listenerForDescribeListenersOutput.http2Enabled) &&
         Objects.equals(this.listenerId, listenerForDescribeListenersOutput.listenerId) &&
         Objects.equals(this.listenerName, listenerForDescribeListenersOutput.listenerName) &&
         Objects.equals(this.persistenceTimeout, listenerForDescribeListenersOutput.persistenceTimeout) &&
@@ -512,12 +609,13 @@ public class ListenerForDescribeListenersOutput {
         Objects.equals(this.scheduler, listenerForDescribeListenersOutput.scheduler) &&
         Objects.equals(this.serverGroupId, listenerForDescribeListenersOutput.serverGroupId) &&
         Objects.equals(this.status, listenerForDescribeListenersOutput.status) &&
+        Objects.equals(this.tags, listenerForDescribeListenersOutput.tags) &&
         Objects.equals(this.updateTime, listenerForDescribeListenersOutput.updateTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclIds, aclStatus, aclType, bandwidth, certificateId, connectionDrainEnabled, connectionDrainTimeout, createTime, enabled, healthCheck, listenerId, listenerName, persistenceTimeout, persistenceType, port, protocol, proxyProtocolType, scheduler, serverGroupId, status, updateTime);
+    return Objects.hash(aclIds, aclStatus, aclType, bandwidth, certificateId, connectionDrainEnabled, connectionDrainTimeout, cookie, createTime, description, enabled, healthCheck, http2Enabled, listenerId, listenerName, persistenceTimeout, persistenceType, port, protocol, proxyProtocolType, scheduler, serverGroupId, status, tags, updateTime);
   }
 
 
@@ -533,9 +631,12 @@ public class ListenerForDescribeListenersOutput {
     sb.append("    certificateId: ").append(toIndentedString(certificateId)).append("\n");
     sb.append("    connectionDrainEnabled: ").append(toIndentedString(connectionDrainEnabled)).append("\n");
     sb.append("    connectionDrainTimeout: ").append(toIndentedString(connectionDrainTimeout)).append("\n");
+    sb.append("    cookie: ").append(toIndentedString(cookie)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    healthCheck: ").append(toIndentedString(healthCheck)).append("\n");
+    sb.append("    http2Enabled: ").append(toIndentedString(http2Enabled)).append("\n");
     sb.append("    listenerId: ").append(toIndentedString(listenerId)).append("\n");
     sb.append("    listenerName: ").append(toIndentedString(listenerName)).append("\n");
     sb.append("    persistenceTimeout: ").append(toIndentedString(persistenceTimeout)).append("\n");
@@ -546,6 +647,7 @@ public class ListenerForDescribeListenersOutput {
     sb.append("    scheduler: ").append(toIndentedString(scheduler)).append("\n");
     sb.append("    serverGroupId: ").append(toIndentedString(serverGroupId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("}");
     return sb.toString();

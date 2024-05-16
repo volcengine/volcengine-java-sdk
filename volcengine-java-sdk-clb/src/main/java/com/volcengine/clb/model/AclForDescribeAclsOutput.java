@@ -53,6 +53,9 @@ public class AclForDescribeAclsOutput {
   @SerializedName("ProjectName")
   private String projectName = null;
 
+  @SerializedName("ServiceManaged")
+  private String serviceManaged = null;
+
   @SerializedName("Status")
   private String status = null;
 
@@ -196,6 +199,24 @@ public class AclForDescribeAclsOutput {
     this.projectName = projectName;
   }
 
+  public AclForDescribeAclsOutput serviceManaged(String serviceManaged) {
+    this.serviceManaged = serviceManaged;
+    return this;
+  }
+
+   /**
+   * Get serviceManaged
+   * @return serviceManaged
+  **/
+  @Schema(description = "")
+  public String getServiceManaged() {
+    return serviceManaged;
+  }
+
+  public void setServiceManaged(String serviceManaged) {
+    this.serviceManaged = serviceManaged;
+  }
+
   public AclForDescribeAclsOutput status(String status) {
     this.status = status;
     return this;
@@ -276,6 +297,7 @@ public class AclForDescribeAclsOutput {
         Objects.equals(this.description, aclForDescribeAclsOutput.description) &&
         Objects.equals(this.listeners, aclForDescribeAclsOutput.listeners) &&
         Objects.equals(this.projectName, aclForDescribeAclsOutput.projectName) &&
+        Objects.equals(this.serviceManaged, aclForDescribeAclsOutput.serviceManaged) &&
         Objects.equals(this.status, aclForDescribeAclsOutput.status) &&
         Objects.equals(this.tags, aclForDescribeAclsOutput.tags) &&
         Objects.equals(this.updateTime, aclForDescribeAclsOutput.updateTime);
@@ -283,7 +305,7 @@ public class AclForDescribeAclsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclEntryCount, aclId, aclName, createTime, description, listeners, projectName, status, tags, updateTime);
+    return Objects.hash(aclEntryCount, aclId, aclName, createTime, description, listeners, projectName, serviceManaged, status, tags, updateTime);
   }
 
 
@@ -299,6 +321,7 @@ public class AclForDescribeAclsOutput {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    listeners: ").append(toIndentedString(listeners)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    serviceManaged: ").append(toIndentedString(serviceManaged)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");

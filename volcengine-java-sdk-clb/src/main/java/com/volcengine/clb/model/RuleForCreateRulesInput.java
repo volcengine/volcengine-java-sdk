@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.clb.model.RedirectConfigForCreateRulesInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -29,17 +30,41 @@ import javax.validation.Valid;
 
 
 public class RuleForCreateRulesInput {
+  @SerializedName("ActionType")
+  private String actionType = null;
+
   @SerializedName("Description")
   private String description = null;
 
   @SerializedName("Domain")
   private String domain = null;
 
+  @SerializedName("RedirectConfig")
+  private RedirectConfigForCreateRulesInput redirectConfig = null;
+
   @SerializedName("ServerGroupId")
   private String serverGroupId = null;
 
   @SerializedName("Url")
   private String url = null;
+
+  public RuleForCreateRulesInput actionType(String actionType) {
+    this.actionType = actionType;
+    return this;
+  }
+
+   /**
+   * Get actionType
+   * @return actionType
+  **/
+  @Schema(description = "")
+  public String getActionType() {
+    return actionType;
+  }
+
+  public void setActionType(String actionType) {
+    this.actionType = actionType;
+  }
 
   public RuleForCreateRulesInput description(String description) {
     this.description = description;
@@ -77,6 +102,25 @@ public class RuleForCreateRulesInput {
     this.domain = domain;
   }
 
+  public RuleForCreateRulesInput redirectConfig(RedirectConfigForCreateRulesInput redirectConfig) {
+    this.redirectConfig = redirectConfig;
+    return this;
+  }
+
+   /**
+   * Get redirectConfig
+   * @return redirectConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public RedirectConfigForCreateRulesInput getRedirectConfig() {
+    return redirectConfig;
+  }
+
+  public void setRedirectConfig(RedirectConfigForCreateRulesInput redirectConfig) {
+    this.redirectConfig = redirectConfig;
+  }
+
   public RuleForCreateRulesInput serverGroupId(String serverGroupId) {
     this.serverGroupId = serverGroupId;
     return this;
@@ -86,8 +130,7 @@ public class RuleForCreateRulesInput {
    * Get serverGroupId
    * @return serverGroupId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getServerGroupId() {
     return serverGroupId;
   }
@@ -124,15 +167,17 @@ public class RuleForCreateRulesInput {
       return false;
     }
     RuleForCreateRulesInput ruleForCreateRulesInput = (RuleForCreateRulesInput) o;
-    return Objects.equals(this.description, ruleForCreateRulesInput.description) &&
+    return Objects.equals(this.actionType, ruleForCreateRulesInput.actionType) &&
+        Objects.equals(this.description, ruleForCreateRulesInput.description) &&
         Objects.equals(this.domain, ruleForCreateRulesInput.domain) &&
+        Objects.equals(this.redirectConfig, ruleForCreateRulesInput.redirectConfig) &&
         Objects.equals(this.serverGroupId, ruleForCreateRulesInput.serverGroupId) &&
         Objects.equals(this.url, ruleForCreateRulesInput.url);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, domain, serverGroupId, url);
+    return Objects.hash(actionType, description, domain, redirectConfig, serverGroupId, url);
   }
 
 
@@ -141,8 +186,10 @@ public class RuleForCreateRulesInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class RuleForCreateRulesInput {\n");
     
+    sb.append("    actionType: ").append(toIndentedString(actionType)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    domain: ").append(toIndentedString(domain)).append("\n");
+    sb.append("    redirectConfig: ").append(toIndentedString(redirectConfig)).append("\n");
     sb.append("    serverGroupId: ").append(toIndentedString(serverGroupId)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("}");
