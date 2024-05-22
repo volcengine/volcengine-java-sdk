@@ -44,6 +44,9 @@ public class BinlogFileForDescribeBinlogFilesOutput {
   @SerializedName("FileSize")
   private Integer fileSize = null;
 
+  @SerializedName("NodeId")
+  private String nodeId = null;
+
   @SerializedName("UpdateTime")
   private String updateTime = null;
 
@@ -137,6 +140,24 @@ public class BinlogFileForDescribeBinlogFilesOutput {
     this.fileSize = fileSize;
   }
 
+  public BinlogFileForDescribeBinlogFilesOutput nodeId(String nodeId) {
+    this.nodeId = nodeId;
+    return this;
+  }
+
+   /**
+   * Get nodeId
+   * @return nodeId
+  **/
+  @Schema(description = "")
+  public String getNodeId() {
+    return nodeId;
+  }
+
+  public void setNodeId(String nodeId) {
+    this.nodeId = nodeId;
+  }
+
   public BinlogFileForDescribeBinlogFilesOutput updateTime(String updateTime) {
     this.updateTime = updateTime;
     return this;
@@ -170,12 +191,13 @@ public class BinlogFileForDescribeBinlogFilesOutput {
         Objects.equals(this.downloadStatus, binlogFileForDescribeBinlogFilesOutput.downloadStatus) &&
         Objects.equals(this.fileName, binlogFileForDescribeBinlogFilesOutput.fileName) &&
         Objects.equals(this.fileSize, binlogFileForDescribeBinlogFilesOutput.fileSize) &&
+        Objects.equals(this.nodeId, binlogFileForDescribeBinlogFilesOutput.nodeId) &&
         Objects.equals(this.updateTime, binlogFileForDescribeBinlogFilesOutput.updateTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(backupRegion, backupStatus, downloadStatus, fileName, fileSize, updateTime);
+    return Objects.hash(backupRegion, backupStatus, downloadStatus, fileName, fileSize, nodeId, updateTime);
   }
 
 
@@ -189,6 +211,7 @@ public class BinlogFileForDescribeBinlogFilesOutput {
     sb.append("    downloadStatus: ").append(toIndentedString(downloadStatus)).append("\n");
     sb.append("    fileName: ").append(toIndentedString(fileName)).append("\n");
     sb.append("    fileSize: ").append(toIndentedString(fileSize)).append("\n");
+    sb.append("    nodeId: ").append(toIndentedString(nodeId)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("}");
     return sb.toString();

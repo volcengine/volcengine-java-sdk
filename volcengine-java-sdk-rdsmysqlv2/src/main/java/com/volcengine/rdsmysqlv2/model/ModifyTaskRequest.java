@@ -29,6 +29,9 @@ import javax.validation.Valid;
 
 
 public class ModifyTaskRequest {
+  @SerializedName("InstanceId")
+  private String instanceId = null;
+
   @SerializedName("ModifyType")
   private String modifyType = null;
 
@@ -37,6 +40,25 @@ public class ModifyTaskRequest {
 
   @SerializedName("TaskId")
   private String taskId = null;
+
+  public ModifyTaskRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
+    return this;
+  }
+
+   /**
+   * Get instanceId
+   * @return instanceId
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getInstanceId() {
+    return instanceId;
+  }
+
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
+  }
 
   public ModifyTaskRequest modifyType(String modifyType) {
     this.modifyType = modifyType;
@@ -104,14 +126,15 @@ public class ModifyTaskRequest {
       return false;
     }
     ModifyTaskRequest modifyTaskRequest = (ModifyTaskRequest) o;
-    return Objects.equals(this.modifyType, modifyTaskRequest.modifyType) &&
+    return Objects.equals(this.instanceId, modifyTaskRequest.instanceId) &&
+        Objects.equals(this.modifyType, modifyTaskRequest.modifyType) &&
         Objects.equals(this.switchTime, modifyTaskRequest.switchTime) &&
         Objects.equals(this.taskId, modifyTaskRequest.taskId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(modifyType, switchTime, taskId);
+    return Objects.hash(instanceId, modifyType, switchTime, taskId);
   }
 
 
@@ -120,6 +143,7 @@ public class ModifyTaskRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ModifyTaskRequest {\n");
     
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    modifyType: ").append(toIndentedString(modifyType)).append("\n");
     sb.append("    switchTime: ").append(toIndentedString(switchTime)).append("\n");
     sb.append("    taskId: ").append(toIndentedString(taskId)).append("\n");

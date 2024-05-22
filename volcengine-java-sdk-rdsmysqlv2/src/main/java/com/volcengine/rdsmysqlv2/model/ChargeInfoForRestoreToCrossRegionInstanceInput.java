@@ -24,19 +24,19 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ModifyDBInstanceChargeTypeRequest
+ * ChargeInfoForRestoreToCrossRegionInstanceInput
  */
 
 
-public class ModifyDBInstanceChargeTypeRequest {
+public class ChargeInfoForRestoreToCrossRegionInstanceInput {
   @SerializedName("AutoRenew")
   private Boolean autoRenew = null;
 
   @SerializedName("ChargeType")
   private String chargeType = null;
 
-  @SerializedName("InstanceId")
-  private String instanceId = null;
+  @SerializedName("Number")
+  private Integer number = null;
 
   @SerializedName("Period")
   private Integer period = null;
@@ -44,7 +44,7 @@ public class ModifyDBInstanceChargeTypeRequest {
   @SerializedName("PeriodUnit")
   private String periodUnit = null;
 
-  public ModifyDBInstanceChargeTypeRequest autoRenew(Boolean autoRenew) {
+  public ChargeInfoForRestoreToCrossRegionInstanceInput autoRenew(Boolean autoRenew) {
     this.autoRenew = autoRenew;
     return this;
   }
@@ -62,7 +62,7 @@ public class ModifyDBInstanceChargeTypeRequest {
     this.autoRenew = autoRenew;
   }
 
-  public ModifyDBInstanceChargeTypeRequest chargeType(String chargeType) {
+  public ChargeInfoForRestoreToCrossRegionInstanceInput chargeType(String chargeType) {
     this.chargeType = chargeType;
     return this;
   }
@@ -71,8 +71,7 @@ public class ModifyDBInstanceChargeTypeRequest {
    * Get chargeType
    * @return chargeType
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getChargeType() {
     return chargeType;
   }
@@ -81,26 +80,25 @@ public class ModifyDBInstanceChargeTypeRequest {
     this.chargeType = chargeType;
   }
 
-  public ModifyDBInstanceChargeTypeRequest instanceId(String instanceId) {
-    this.instanceId = instanceId;
+  public ChargeInfoForRestoreToCrossRegionInstanceInput number(Integer number) {
+    this.number = number;
     return this;
   }
 
    /**
-   * Get instanceId
-   * @return instanceId
+   * Get number
+   * @return number
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getInstanceId() {
-    return instanceId;
+  @Schema(description = "")
+  public Integer getNumber() {
+    return number;
   }
 
-  public void setInstanceId(String instanceId) {
-    this.instanceId = instanceId;
+  public void setNumber(Integer number) {
+    this.number = number;
   }
 
-  public ModifyDBInstanceChargeTypeRequest period(Integer period) {
+  public ChargeInfoForRestoreToCrossRegionInstanceInput period(Integer period) {
     this.period = period;
     return this;
   }
@@ -118,7 +116,7 @@ public class ModifyDBInstanceChargeTypeRequest {
     this.period = period;
   }
 
-  public ModifyDBInstanceChargeTypeRequest periodUnit(String periodUnit) {
+  public ChargeInfoForRestoreToCrossRegionInstanceInput periodUnit(String periodUnit) {
     this.periodUnit = periodUnit;
     return this;
   }
@@ -145,28 +143,28 @@ public class ModifyDBInstanceChargeTypeRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ModifyDBInstanceChargeTypeRequest modifyDBInstanceChargeTypeRequest = (ModifyDBInstanceChargeTypeRequest) o;
-    return Objects.equals(this.autoRenew, modifyDBInstanceChargeTypeRequest.autoRenew) &&
-        Objects.equals(this.chargeType, modifyDBInstanceChargeTypeRequest.chargeType) &&
-        Objects.equals(this.instanceId, modifyDBInstanceChargeTypeRequest.instanceId) &&
-        Objects.equals(this.period, modifyDBInstanceChargeTypeRequest.period) &&
-        Objects.equals(this.periodUnit, modifyDBInstanceChargeTypeRequest.periodUnit);
+    ChargeInfoForRestoreToCrossRegionInstanceInput chargeInfoForRestoreToCrossRegionInstanceInput = (ChargeInfoForRestoreToCrossRegionInstanceInput) o;
+    return Objects.equals(this.autoRenew, chargeInfoForRestoreToCrossRegionInstanceInput.autoRenew) &&
+        Objects.equals(this.chargeType, chargeInfoForRestoreToCrossRegionInstanceInput.chargeType) &&
+        Objects.equals(this.number, chargeInfoForRestoreToCrossRegionInstanceInput.number) &&
+        Objects.equals(this.period, chargeInfoForRestoreToCrossRegionInstanceInput.period) &&
+        Objects.equals(this.periodUnit, chargeInfoForRestoreToCrossRegionInstanceInput.periodUnit);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoRenew, chargeType, instanceId, period, periodUnit);
+    return Objects.hash(autoRenew, chargeType, number, period, periodUnit);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ModifyDBInstanceChargeTypeRequest {\n");
+    sb.append("class ChargeInfoForRestoreToCrossRegionInstanceInput {\n");
     
     sb.append("    autoRenew: ").append(toIndentedString(autoRenew)).append("\n");
     sb.append("    chargeType: ").append(toIndentedString(chargeType)).append("\n");
-    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    number: ").append(toIndentedString(number)).append("\n");
     sb.append("    period: ").append(toIndentedString(period)).append("\n");
     sb.append("    periodUnit: ").append(toIndentedString(periodUnit)).append("\n");
     sb.append("}");

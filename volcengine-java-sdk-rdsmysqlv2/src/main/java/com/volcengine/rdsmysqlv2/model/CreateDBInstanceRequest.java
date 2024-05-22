@@ -64,6 +64,9 @@ public class CreateDBInstanceRequest {
   @SerializedName("NodeInfo")
   private List<NodeInfoForCreateDBInstanceInput> nodeInfo = null;
 
+  @SerializedName("Port")
+  private Integer port = null;
+
   @SerializedName("ProjectName")
   private String projectName = null;
 
@@ -293,6 +296,24 @@ public class CreateDBInstanceRequest {
     this.nodeInfo = nodeInfo;
   }
 
+  public CreateDBInstanceRequest port(Integer port) {
+    this.port = port;
+    return this;
+  }
+
+   /**
+   * Get port
+   * @return port
+  **/
+  @Schema(description = "")
+  public Integer getPort() {
+    return port;
+  }
+
+  public void setPort(Integer port) {
+    this.port = port;
+  }
+
   public CreateDBInstanceRequest projectName(String projectName) {
     this.projectName = projectName;
     return this;
@@ -443,6 +464,7 @@ public class CreateDBInstanceRequest {
         Objects.equals(this.instanceType, createDBInstanceRequest.instanceType) &&
         Objects.equals(this.lowerCaseTableNames, createDBInstanceRequest.lowerCaseTableNames) &&
         Objects.equals(this.nodeInfo, createDBInstanceRequest.nodeInfo) &&
+        Objects.equals(this.port, createDBInstanceRequest.port) &&
         Objects.equals(this.projectName, createDBInstanceRequest.projectName) &&
         Objects.equals(this.storageSpace, createDBInstanceRequest.storageSpace) &&
         Objects.equals(this.storageType, createDBInstanceRequest.storageType) &&
@@ -454,7 +476,7 @@ public class CreateDBInstanceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowListIds, chargeInfo, dbEngineVersion, dbParamGroupId, dbTimeZone, instanceName, instanceTags, instanceType, lowerCaseTableNames, nodeInfo, projectName, storageSpace, storageType, subnetId, superAccountName, superAccountPassword, vpcId);
+    return Objects.hash(allowListIds, chargeInfo, dbEngineVersion, dbParamGroupId, dbTimeZone, instanceName, instanceTags, instanceType, lowerCaseTableNames, nodeInfo, port, projectName, storageSpace, storageType, subnetId, superAccountName, superAccountPassword, vpcId);
   }
 
 
@@ -473,6 +495,7 @@ public class CreateDBInstanceRequest {
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("    lowerCaseTableNames: ").append(toIndentedString(lowerCaseTableNames)).append("\n");
     sb.append("    nodeInfo: ").append(toIndentedString(nodeInfo)).append("\n");
+    sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    storageSpace: ").append(toIndentedString(storageSpace)).append("\n");
     sb.append("    storageType: ").append(toIndentedString(storageType)).append("\n");

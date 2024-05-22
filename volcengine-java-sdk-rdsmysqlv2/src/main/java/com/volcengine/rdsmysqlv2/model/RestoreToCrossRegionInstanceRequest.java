@@ -19,9 +19,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.rdsmysqlv2.model.ChargeInfoForRestoreToNewInstanceInput;
-import com.volcengine.rdsmysqlv2.model.InstanceTagForRestoreToNewInstanceInput;
-import com.volcengine.rdsmysqlv2.model.NodeInfoForRestoreToNewInstanceInput;
+import com.volcengine.rdsmysqlv2.model.ChargeInfoForRestoreToCrossRegionInstanceInput;
+import com.volcengine.rdsmysqlv2.model.InstanceTagForRestoreToCrossRegionInstanceInput;
+import com.volcengine.rdsmysqlv2.model.NodeInfoForRestoreToCrossRegionInstanceInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -29,11 +29,11 @@ import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * RestoreToNewInstanceRequest
+ * RestoreToCrossRegionInstanceRequest
  */
 
 
-public class RestoreToNewInstanceRequest {
+public class RestoreToCrossRegionInstanceRequest {
   @SerializedName("AllowListIds")
   private List<String> allowListIds = null;
 
@@ -41,19 +41,22 @@ public class RestoreToNewInstanceRequest {
   private String backupId = null;
 
   @SerializedName("ChargeInfo")
-  private ChargeInfoForRestoreToNewInstanceInput chargeInfo = null;
+  private ChargeInfoForRestoreToCrossRegionInstanceInput chargeInfo = null;
 
   @SerializedName("DBParamGroupId")
   private String dbParamGroupId = null;
+
+  @SerializedName("DstRegionId")
+  private String dstRegionId = null;
 
   @SerializedName("InstanceName")
   private String instanceName = null;
 
   @SerializedName("InstanceTags")
-  private List<InstanceTagForRestoreToNewInstanceInput> instanceTags = null;
+  private List<InstanceTagForRestoreToCrossRegionInstanceInput> instanceTags = null;
 
   @SerializedName("NodeInfo")
-  private List<NodeInfoForRestoreToNewInstanceInput> nodeInfo = null;
+  private List<NodeInfoForRestoreToCrossRegionInstanceInput> nodeInfo = null;
 
   @SerializedName("Port")
   private Integer port = null;
@@ -64,8 +67,11 @@ public class RestoreToNewInstanceRequest {
   @SerializedName("RestoreTime")
   private String restoreTime = null;
 
-  @SerializedName("SrcInstanceId")
-  private String srcInstanceId = null;
+  @SerializedName("SrcRegionId")
+  private String srcRegionId = null;
+
+  @SerializedName("SrcRegionInstanceId")
+  private String srcRegionInstanceId = null;
 
   @SerializedName("StorageSpace")
   private Integer storageSpace = null;
@@ -79,12 +85,12 @@ public class RestoreToNewInstanceRequest {
   @SerializedName("VpcId")
   private String vpcId = null;
 
-  public RestoreToNewInstanceRequest allowListIds(List<String> allowListIds) {
+  public RestoreToCrossRegionInstanceRequest allowListIds(List<String> allowListIds) {
     this.allowListIds = allowListIds;
     return this;
   }
 
-  public RestoreToNewInstanceRequest addAllowListIdsItem(String allowListIdsItem) {
+  public RestoreToCrossRegionInstanceRequest addAllowListIdsItem(String allowListIdsItem) {
     if (this.allowListIds == null) {
       this.allowListIds = new ArrayList<String>();
     }
@@ -105,7 +111,7 @@ public class RestoreToNewInstanceRequest {
     this.allowListIds = allowListIds;
   }
 
-  public RestoreToNewInstanceRequest backupId(String backupId) {
+  public RestoreToCrossRegionInstanceRequest backupId(String backupId) {
     this.backupId = backupId;
     return this;
   }
@@ -123,7 +129,7 @@ public class RestoreToNewInstanceRequest {
     this.backupId = backupId;
   }
 
-  public RestoreToNewInstanceRequest chargeInfo(ChargeInfoForRestoreToNewInstanceInput chargeInfo) {
+  public RestoreToCrossRegionInstanceRequest chargeInfo(ChargeInfoForRestoreToCrossRegionInstanceInput chargeInfo) {
     this.chargeInfo = chargeInfo;
     return this;
   }
@@ -134,15 +140,15 @@ public class RestoreToNewInstanceRequest {
   **/
   @Valid
   @Schema(description = "")
-  public ChargeInfoForRestoreToNewInstanceInput getChargeInfo() {
+  public ChargeInfoForRestoreToCrossRegionInstanceInput getChargeInfo() {
     return chargeInfo;
   }
 
-  public void setChargeInfo(ChargeInfoForRestoreToNewInstanceInput chargeInfo) {
+  public void setChargeInfo(ChargeInfoForRestoreToCrossRegionInstanceInput chargeInfo) {
     this.chargeInfo = chargeInfo;
   }
 
-  public RestoreToNewInstanceRequest dbParamGroupId(String dbParamGroupId) {
+  public RestoreToCrossRegionInstanceRequest dbParamGroupId(String dbParamGroupId) {
     this.dbParamGroupId = dbParamGroupId;
     return this;
   }
@@ -160,7 +166,26 @@ public class RestoreToNewInstanceRequest {
     this.dbParamGroupId = dbParamGroupId;
   }
 
-  public RestoreToNewInstanceRequest instanceName(String instanceName) {
+  public RestoreToCrossRegionInstanceRequest dstRegionId(String dstRegionId) {
+    this.dstRegionId = dstRegionId;
+    return this;
+  }
+
+   /**
+   * Get dstRegionId
+   * @return dstRegionId
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getDstRegionId() {
+    return dstRegionId;
+  }
+
+  public void setDstRegionId(String dstRegionId) {
+    this.dstRegionId = dstRegionId;
+  }
+
+  public RestoreToCrossRegionInstanceRequest instanceName(String instanceName) {
     this.instanceName = instanceName;
     return this;
   }
@@ -178,14 +203,14 @@ public class RestoreToNewInstanceRequest {
     this.instanceName = instanceName;
   }
 
-  public RestoreToNewInstanceRequest instanceTags(List<InstanceTagForRestoreToNewInstanceInput> instanceTags) {
+  public RestoreToCrossRegionInstanceRequest instanceTags(List<InstanceTagForRestoreToCrossRegionInstanceInput> instanceTags) {
     this.instanceTags = instanceTags;
     return this;
   }
 
-  public RestoreToNewInstanceRequest addInstanceTagsItem(InstanceTagForRestoreToNewInstanceInput instanceTagsItem) {
+  public RestoreToCrossRegionInstanceRequest addInstanceTagsItem(InstanceTagForRestoreToCrossRegionInstanceInput instanceTagsItem) {
     if (this.instanceTags == null) {
-      this.instanceTags = new ArrayList<InstanceTagForRestoreToNewInstanceInput>();
+      this.instanceTags = new ArrayList<InstanceTagForRestoreToCrossRegionInstanceInput>();
     }
     this.instanceTags.add(instanceTagsItem);
     return this;
@@ -197,22 +222,22 @@ public class RestoreToNewInstanceRequest {
   **/
   @Valid
   @Schema(description = "")
-  public List<InstanceTagForRestoreToNewInstanceInput> getInstanceTags() {
+  public List<InstanceTagForRestoreToCrossRegionInstanceInput> getInstanceTags() {
     return instanceTags;
   }
 
-  public void setInstanceTags(List<InstanceTagForRestoreToNewInstanceInput> instanceTags) {
+  public void setInstanceTags(List<InstanceTagForRestoreToCrossRegionInstanceInput> instanceTags) {
     this.instanceTags = instanceTags;
   }
 
-  public RestoreToNewInstanceRequest nodeInfo(List<NodeInfoForRestoreToNewInstanceInput> nodeInfo) {
+  public RestoreToCrossRegionInstanceRequest nodeInfo(List<NodeInfoForRestoreToCrossRegionInstanceInput> nodeInfo) {
     this.nodeInfo = nodeInfo;
     return this;
   }
 
-  public RestoreToNewInstanceRequest addNodeInfoItem(NodeInfoForRestoreToNewInstanceInput nodeInfoItem) {
+  public RestoreToCrossRegionInstanceRequest addNodeInfoItem(NodeInfoForRestoreToCrossRegionInstanceInput nodeInfoItem) {
     if (this.nodeInfo == null) {
-      this.nodeInfo = new ArrayList<NodeInfoForRestoreToNewInstanceInput>();
+      this.nodeInfo = new ArrayList<NodeInfoForRestoreToCrossRegionInstanceInput>();
     }
     this.nodeInfo.add(nodeInfoItem);
     return this;
@@ -224,15 +249,15 @@ public class RestoreToNewInstanceRequest {
   **/
   @Valid
   @Schema(description = "")
-  public List<NodeInfoForRestoreToNewInstanceInput> getNodeInfo() {
+  public List<NodeInfoForRestoreToCrossRegionInstanceInput> getNodeInfo() {
     return nodeInfo;
   }
 
-  public void setNodeInfo(List<NodeInfoForRestoreToNewInstanceInput> nodeInfo) {
+  public void setNodeInfo(List<NodeInfoForRestoreToCrossRegionInstanceInput> nodeInfo) {
     this.nodeInfo = nodeInfo;
   }
 
-  public RestoreToNewInstanceRequest port(Integer port) {
+  public RestoreToCrossRegionInstanceRequest port(Integer port) {
     this.port = port;
     return this;
   }
@@ -250,7 +275,7 @@ public class RestoreToNewInstanceRequest {
     this.port = port;
   }
 
-  public RestoreToNewInstanceRequest projectName(String projectName) {
+  public RestoreToCrossRegionInstanceRequest projectName(String projectName) {
     this.projectName = projectName;
     return this;
   }
@@ -268,7 +293,7 @@ public class RestoreToNewInstanceRequest {
     this.projectName = projectName;
   }
 
-  public RestoreToNewInstanceRequest restoreTime(String restoreTime) {
+  public RestoreToCrossRegionInstanceRequest restoreTime(String restoreTime) {
     this.restoreTime = restoreTime;
     return this;
   }
@@ -286,26 +311,45 @@ public class RestoreToNewInstanceRequest {
     this.restoreTime = restoreTime;
   }
 
-  public RestoreToNewInstanceRequest srcInstanceId(String srcInstanceId) {
-    this.srcInstanceId = srcInstanceId;
+  public RestoreToCrossRegionInstanceRequest srcRegionId(String srcRegionId) {
+    this.srcRegionId = srcRegionId;
     return this;
   }
 
    /**
-   * Get srcInstanceId
-   * @return srcInstanceId
+   * Get srcRegionId
+   * @return srcRegionId
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getSrcInstanceId() {
-    return srcInstanceId;
+  public String getSrcRegionId() {
+    return srcRegionId;
   }
 
-  public void setSrcInstanceId(String srcInstanceId) {
-    this.srcInstanceId = srcInstanceId;
+  public void setSrcRegionId(String srcRegionId) {
+    this.srcRegionId = srcRegionId;
   }
 
-  public RestoreToNewInstanceRequest storageSpace(Integer storageSpace) {
+  public RestoreToCrossRegionInstanceRequest srcRegionInstanceId(String srcRegionInstanceId) {
+    this.srcRegionInstanceId = srcRegionInstanceId;
+    return this;
+  }
+
+   /**
+   * Get srcRegionInstanceId
+   * @return srcRegionInstanceId
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getSrcRegionInstanceId() {
+    return srcRegionInstanceId;
+  }
+
+  public void setSrcRegionInstanceId(String srcRegionInstanceId) {
+    this.srcRegionInstanceId = srcRegionInstanceId;
+  }
+
+  public RestoreToCrossRegionInstanceRequest storageSpace(Integer storageSpace) {
     this.storageSpace = storageSpace;
     return this;
   }
@@ -323,7 +367,7 @@ public class RestoreToNewInstanceRequest {
     this.storageSpace = storageSpace;
   }
 
-  public RestoreToNewInstanceRequest storageType(String storageType) {
+  public RestoreToCrossRegionInstanceRequest storageType(String storageType) {
     this.storageType = storageType;
     return this;
   }
@@ -342,7 +386,7 @@ public class RestoreToNewInstanceRequest {
     this.storageType = storageType;
   }
 
-  public RestoreToNewInstanceRequest subnetId(String subnetId) {
+  public RestoreToCrossRegionInstanceRequest subnetId(String subnetId) {
     this.subnetId = subnetId;
     return this;
   }
@@ -361,7 +405,7 @@ public class RestoreToNewInstanceRequest {
     this.subnetId = subnetId;
   }
 
-  public RestoreToNewInstanceRequest vpcId(String vpcId) {
+  public RestoreToCrossRegionInstanceRequest vpcId(String vpcId) {
     this.vpcId = vpcId;
     return this;
   }
@@ -389,46 +433,50 @@ public class RestoreToNewInstanceRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RestoreToNewInstanceRequest restoreToNewInstanceRequest = (RestoreToNewInstanceRequest) o;
-    return Objects.equals(this.allowListIds, restoreToNewInstanceRequest.allowListIds) &&
-        Objects.equals(this.backupId, restoreToNewInstanceRequest.backupId) &&
-        Objects.equals(this.chargeInfo, restoreToNewInstanceRequest.chargeInfo) &&
-        Objects.equals(this.dbParamGroupId, restoreToNewInstanceRequest.dbParamGroupId) &&
-        Objects.equals(this.instanceName, restoreToNewInstanceRequest.instanceName) &&
-        Objects.equals(this.instanceTags, restoreToNewInstanceRequest.instanceTags) &&
-        Objects.equals(this.nodeInfo, restoreToNewInstanceRequest.nodeInfo) &&
-        Objects.equals(this.port, restoreToNewInstanceRequest.port) &&
-        Objects.equals(this.projectName, restoreToNewInstanceRequest.projectName) &&
-        Objects.equals(this.restoreTime, restoreToNewInstanceRequest.restoreTime) &&
-        Objects.equals(this.srcInstanceId, restoreToNewInstanceRequest.srcInstanceId) &&
-        Objects.equals(this.storageSpace, restoreToNewInstanceRequest.storageSpace) &&
-        Objects.equals(this.storageType, restoreToNewInstanceRequest.storageType) &&
-        Objects.equals(this.subnetId, restoreToNewInstanceRequest.subnetId) &&
-        Objects.equals(this.vpcId, restoreToNewInstanceRequest.vpcId);
+    RestoreToCrossRegionInstanceRequest restoreToCrossRegionInstanceRequest = (RestoreToCrossRegionInstanceRequest) o;
+    return Objects.equals(this.allowListIds, restoreToCrossRegionInstanceRequest.allowListIds) &&
+        Objects.equals(this.backupId, restoreToCrossRegionInstanceRequest.backupId) &&
+        Objects.equals(this.chargeInfo, restoreToCrossRegionInstanceRequest.chargeInfo) &&
+        Objects.equals(this.dbParamGroupId, restoreToCrossRegionInstanceRequest.dbParamGroupId) &&
+        Objects.equals(this.dstRegionId, restoreToCrossRegionInstanceRequest.dstRegionId) &&
+        Objects.equals(this.instanceName, restoreToCrossRegionInstanceRequest.instanceName) &&
+        Objects.equals(this.instanceTags, restoreToCrossRegionInstanceRequest.instanceTags) &&
+        Objects.equals(this.nodeInfo, restoreToCrossRegionInstanceRequest.nodeInfo) &&
+        Objects.equals(this.port, restoreToCrossRegionInstanceRequest.port) &&
+        Objects.equals(this.projectName, restoreToCrossRegionInstanceRequest.projectName) &&
+        Objects.equals(this.restoreTime, restoreToCrossRegionInstanceRequest.restoreTime) &&
+        Objects.equals(this.srcRegionId, restoreToCrossRegionInstanceRequest.srcRegionId) &&
+        Objects.equals(this.srcRegionInstanceId, restoreToCrossRegionInstanceRequest.srcRegionInstanceId) &&
+        Objects.equals(this.storageSpace, restoreToCrossRegionInstanceRequest.storageSpace) &&
+        Objects.equals(this.storageType, restoreToCrossRegionInstanceRequest.storageType) &&
+        Objects.equals(this.subnetId, restoreToCrossRegionInstanceRequest.subnetId) &&
+        Objects.equals(this.vpcId, restoreToCrossRegionInstanceRequest.vpcId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowListIds, backupId, chargeInfo, dbParamGroupId, instanceName, instanceTags, nodeInfo, port, projectName, restoreTime, srcInstanceId, storageSpace, storageType, subnetId, vpcId);
+    return Objects.hash(allowListIds, backupId, chargeInfo, dbParamGroupId, dstRegionId, instanceName, instanceTags, nodeInfo, port, projectName, restoreTime, srcRegionId, srcRegionInstanceId, storageSpace, storageType, subnetId, vpcId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RestoreToNewInstanceRequest {\n");
+    sb.append("class RestoreToCrossRegionInstanceRequest {\n");
     
     sb.append("    allowListIds: ").append(toIndentedString(allowListIds)).append("\n");
     sb.append("    backupId: ").append(toIndentedString(backupId)).append("\n");
     sb.append("    chargeInfo: ").append(toIndentedString(chargeInfo)).append("\n");
     sb.append("    dbParamGroupId: ").append(toIndentedString(dbParamGroupId)).append("\n");
+    sb.append("    dstRegionId: ").append(toIndentedString(dstRegionId)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    instanceTags: ").append(toIndentedString(instanceTags)).append("\n");
     sb.append("    nodeInfo: ").append(toIndentedString(nodeInfo)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    restoreTime: ").append(toIndentedString(restoreTime)).append("\n");
-    sb.append("    srcInstanceId: ").append(toIndentedString(srcInstanceId)).append("\n");
+    sb.append("    srcRegionId: ").append(toIndentedString(srcRegionId)).append("\n");
+    sb.append("    srcRegionInstanceId: ").append(toIndentedString(srcRegionInstanceId)).append("\n");
     sb.append("    storageSpace: ").append(toIndentedString(storageSpace)).append("\n");
     sb.append("    storageType: ").append(toIndentedString(storageType)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
