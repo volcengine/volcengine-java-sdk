@@ -29,8 +29,29 @@ import javax.validation.Valid;
 
 
 public class DeleteScalingGroupRequest {
+  @SerializedName("KeepInstance")
+  private Boolean keepInstance = null;
+
   @SerializedName("ScalingGroupId")
   private String scalingGroupId = null;
+
+  public DeleteScalingGroupRequest keepInstance(Boolean keepInstance) {
+    this.keepInstance = keepInstance;
+    return this;
+  }
+
+   /**
+   * Get keepInstance
+   * @return keepInstance
+  **/
+  @Schema(description = "")
+  public Boolean isKeepInstance() {
+    return keepInstance;
+  }
+
+  public void setKeepInstance(Boolean keepInstance) {
+    this.keepInstance = keepInstance;
+  }
 
   public DeleteScalingGroupRequest scalingGroupId(String scalingGroupId) {
     this.scalingGroupId = scalingGroupId;
@@ -41,7 +62,8 @@ public class DeleteScalingGroupRequest {
    * Get scalingGroupId
    * @return scalingGroupId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getScalingGroupId() {
     return scalingGroupId;
   }
@@ -60,12 +82,13 @@ public class DeleteScalingGroupRequest {
       return false;
     }
     DeleteScalingGroupRequest deleteScalingGroupRequest = (DeleteScalingGroupRequest) o;
-    return Objects.equals(this.scalingGroupId, deleteScalingGroupRequest.scalingGroupId);
+    return Objects.equals(this.keepInstance, deleteScalingGroupRequest.keepInstance) &&
+        Objects.equals(this.scalingGroupId, deleteScalingGroupRequest.scalingGroupId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(scalingGroupId);
+    return Objects.hash(keepInstance, scalingGroupId);
   }
 
 
@@ -74,6 +97,7 @@ public class DeleteScalingGroupRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteScalingGroupRequest {\n");
     
+    sb.append("    keepInstance: ").append(toIndentedString(keepInstance)).append("\n");
     sb.append("    scalingGroupId: ").append(toIndentedString(scalingGroupId)).append("\n");
     sb.append("}");
     return sb.toString();

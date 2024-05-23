@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.autoscaling.model.LifecycleCommandForCreateLifecycleHookInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -29,6 +30,12 @@ import javax.validation.Valid;
 
 
 public class CreateLifecycleHookRequest {
+  @SerializedName("ClientToken")
+  private String clientToken = null;
+
+  @SerializedName("LifecycleCommand")
+  private LifecycleCommandForCreateLifecycleHookInput lifecycleCommand = null;
+
   @SerializedName("LifecycleHookName")
   private String lifecycleHookName = null;
 
@@ -44,6 +51,43 @@ public class CreateLifecycleHookRequest {
   @SerializedName("ScalingGroupId")
   private String scalingGroupId = null;
 
+  public CreateLifecycleHookRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
+
+  public CreateLifecycleHookRequest lifecycleCommand(LifecycleCommandForCreateLifecycleHookInput lifecycleCommand) {
+    this.lifecycleCommand = lifecycleCommand;
+    return this;
+  }
+
+   /**
+   * Get lifecycleCommand
+   * @return lifecycleCommand
+  **/
+  @Valid
+  @Schema(description = "")
+  public LifecycleCommandForCreateLifecycleHookInput getLifecycleCommand() {
+    return lifecycleCommand;
+  }
+
+  public void setLifecycleCommand(LifecycleCommandForCreateLifecycleHookInput lifecycleCommand) {
+    this.lifecycleCommand = lifecycleCommand;
+  }
+
   public CreateLifecycleHookRequest lifecycleHookName(String lifecycleHookName) {
     this.lifecycleHookName = lifecycleHookName;
     return this;
@@ -53,7 +97,8 @@ public class CreateLifecycleHookRequest {
    * Get lifecycleHookName
    * @return lifecycleHookName
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getLifecycleHookName() {
     return lifecycleHookName;
   }
@@ -71,7 +116,8 @@ public class CreateLifecycleHookRequest {
    * Get lifecycleHookPolicy
    * @return lifecycleHookPolicy
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getLifecycleHookPolicy() {
     return lifecycleHookPolicy;
   }
@@ -89,7 +135,8 @@ public class CreateLifecycleHookRequest {
    * Get lifecycleHookTimeout
    * @return lifecycleHookTimeout
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public Integer getLifecycleHookTimeout() {
     return lifecycleHookTimeout;
   }
@@ -107,7 +154,8 @@ public class CreateLifecycleHookRequest {
    * Get lifecycleHookType
    * @return lifecycleHookType
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getLifecycleHookType() {
     return lifecycleHookType;
   }
@@ -125,7 +173,8 @@ public class CreateLifecycleHookRequest {
    * Get scalingGroupId
    * @return scalingGroupId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getScalingGroupId() {
     return scalingGroupId;
   }
@@ -144,7 +193,9 @@ public class CreateLifecycleHookRequest {
       return false;
     }
     CreateLifecycleHookRequest createLifecycleHookRequest = (CreateLifecycleHookRequest) o;
-    return Objects.equals(this.lifecycleHookName, createLifecycleHookRequest.lifecycleHookName) &&
+    return Objects.equals(this.clientToken, createLifecycleHookRequest.clientToken) &&
+        Objects.equals(this.lifecycleCommand, createLifecycleHookRequest.lifecycleCommand) &&
+        Objects.equals(this.lifecycleHookName, createLifecycleHookRequest.lifecycleHookName) &&
         Objects.equals(this.lifecycleHookPolicy, createLifecycleHookRequest.lifecycleHookPolicy) &&
         Objects.equals(this.lifecycleHookTimeout, createLifecycleHookRequest.lifecycleHookTimeout) &&
         Objects.equals(this.lifecycleHookType, createLifecycleHookRequest.lifecycleHookType) &&
@@ -153,7 +204,7 @@ public class CreateLifecycleHookRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(lifecycleHookName, lifecycleHookPolicy, lifecycleHookTimeout, lifecycleHookType, scalingGroupId);
+    return Objects.hash(clientToken, lifecycleCommand, lifecycleHookName, lifecycleHookPolicy, lifecycleHookTimeout, lifecycleHookType, scalingGroupId);
   }
 
 
@@ -162,6 +213,8 @@ public class CreateLifecycleHookRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateLifecycleHookRequest {\n");
     
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
+    sb.append("    lifecycleCommand: ").append(toIndentedString(lifecycleCommand)).append("\n");
     sb.append("    lifecycleHookName: ").append(toIndentedString(lifecycleHookName)).append("\n");
     sb.append("    lifecycleHookPolicy: ").append(toIndentedString(lifecycleHookPolicy)).append("\n");
     sb.append("    lifecycleHookTimeout: ").append(toIndentedString(lifecycleHookTimeout)).append("\n");

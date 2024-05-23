@@ -35,6 +35,9 @@ public class ServerGroupAttributeForCreateScalingGroupInput {
   @SerializedName("ServerGroupId")
   private String serverGroupId = null;
 
+  @SerializedName("Type")
+  private String type = null;
+
   @SerializedName("Weight")
   private Integer weight = null;
 
@@ -74,6 +77,24 @@ public class ServerGroupAttributeForCreateScalingGroupInput {
     this.serverGroupId = serverGroupId;
   }
 
+  public ServerGroupAttributeForCreateScalingGroupInput type(String type) {
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @Schema(description = "")
+  public String getType() {
+    return type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
   public ServerGroupAttributeForCreateScalingGroupInput weight(Integer weight) {
     this.weight = weight;
     return this;
@@ -104,12 +125,13 @@ public class ServerGroupAttributeForCreateScalingGroupInput {
     ServerGroupAttributeForCreateScalingGroupInput serverGroupAttributeForCreateScalingGroupInput = (ServerGroupAttributeForCreateScalingGroupInput) o;
     return Objects.equals(this.port, serverGroupAttributeForCreateScalingGroupInput.port) &&
         Objects.equals(this.serverGroupId, serverGroupAttributeForCreateScalingGroupInput.serverGroupId) &&
+        Objects.equals(this.type, serverGroupAttributeForCreateScalingGroupInput.type) &&
         Objects.equals(this.weight, serverGroupAttributeForCreateScalingGroupInput.weight);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(port, serverGroupId, weight);
+    return Objects.hash(port, serverGroupId, type, weight);
   }
 
 
@@ -120,6 +142,7 @@ public class ServerGroupAttributeForCreateScalingGroupInput {
     
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    serverGroupId: ").append(toIndentedString(serverGroupId)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    weight: ").append(toIndentedString(weight)).append("\n");
     sb.append("}");
     return sb.toString();

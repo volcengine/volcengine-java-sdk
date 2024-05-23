@@ -32,6 +32,9 @@ public class LaunchTemplateOverrideForModifyScalingGroupInput {
   @SerializedName("InstanceType")
   private String instanceType = null;
 
+  @SerializedName("PriceLimit")
+  private Float priceLimit = null;
+
   public LaunchTemplateOverrideForModifyScalingGroupInput instanceType(String instanceType) {
     this.instanceType = instanceType;
     return this;
@@ -50,6 +53,24 @@ public class LaunchTemplateOverrideForModifyScalingGroupInput {
     this.instanceType = instanceType;
   }
 
+  public LaunchTemplateOverrideForModifyScalingGroupInput priceLimit(Float priceLimit) {
+    this.priceLimit = priceLimit;
+    return this;
+  }
+
+   /**
+   * Get priceLimit
+   * @return priceLimit
+  **/
+  @Schema(description = "")
+  public Float getPriceLimit() {
+    return priceLimit;
+  }
+
+  public void setPriceLimit(Float priceLimit) {
+    this.priceLimit = priceLimit;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -60,12 +81,13 @@ public class LaunchTemplateOverrideForModifyScalingGroupInput {
       return false;
     }
     LaunchTemplateOverrideForModifyScalingGroupInput launchTemplateOverrideForModifyScalingGroupInput = (LaunchTemplateOverrideForModifyScalingGroupInput) o;
-    return Objects.equals(this.instanceType, launchTemplateOverrideForModifyScalingGroupInput.instanceType);
+    return Objects.equals(this.instanceType, launchTemplateOverrideForModifyScalingGroupInput.instanceType) &&
+        Objects.equals(this.priceLimit, launchTemplateOverrideForModifyScalingGroupInput.priceLimit);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceType);
+    return Objects.hash(instanceType, priceLimit);
   }
 
 
@@ -75,6 +97,7 @@ public class LaunchTemplateOverrideForModifyScalingGroupInput {
     sb.append("class LaunchTemplateOverrideForModifyScalingGroupInput {\n");
     
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
+    sb.append("    priceLimit: ").append(toIndentedString(priceLimit)).append("\n");
     sb.append("}");
     return sb.toString();
   }

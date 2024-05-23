@@ -50,7 +50,8 @@ public class ScheduledPolicyForCreateScalingPolicyInput {
    * Get launchTime
    * @return launchTime
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getLaunchTime() {
     return launchTime;
   }

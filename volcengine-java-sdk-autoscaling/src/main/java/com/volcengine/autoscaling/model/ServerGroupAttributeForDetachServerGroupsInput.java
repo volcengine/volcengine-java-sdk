@@ -29,8 +29,33 @@ import javax.validation.Valid;
 
 
 public class ServerGroupAttributeForDetachServerGroupsInput {
+  @SerializedName("Port")
+  private Integer port = null;
+
   @SerializedName("ServerGroupId")
   private String serverGroupId = null;
+
+  @SerializedName("Type")
+  private String type = null;
+
+  public ServerGroupAttributeForDetachServerGroupsInput port(Integer port) {
+    this.port = port;
+    return this;
+  }
+
+   /**
+   * Get port
+   * @return port
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public Integer getPort() {
+    return port;
+  }
+
+  public void setPort(Integer port) {
+    this.port = port;
+  }
 
   public ServerGroupAttributeForDetachServerGroupsInput serverGroupId(String serverGroupId) {
     this.serverGroupId = serverGroupId;
@@ -41,13 +66,32 @@ public class ServerGroupAttributeForDetachServerGroupsInput {
    * Get serverGroupId
    * @return serverGroupId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getServerGroupId() {
     return serverGroupId;
   }
 
   public void setServerGroupId(String serverGroupId) {
     this.serverGroupId = serverGroupId;
+  }
+
+  public ServerGroupAttributeForDetachServerGroupsInput type(String type) {
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @Schema(description = "")
+  public String getType() {
+    return type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
   }
 
 
@@ -60,12 +104,14 @@ public class ServerGroupAttributeForDetachServerGroupsInput {
       return false;
     }
     ServerGroupAttributeForDetachServerGroupsInput serverGroupAttributeForDetachServerGroupsInput = (ServerGroupAttributeForDetachServerGroupsInput) o;
-    return Objects.equals(this.serverGroupId, serverGroupAttributeForDetachServerGroupsInput.serverGroupId);
+    return Objects.equals(this.port, serverGroupAttributeForDetachServerGroupsInput.port) &&
+        Objects.equals(this.serverGroupId, serverGroupAttributeForDetachServerGroupsInput.serverGroupId) &&
+        Objects.equals(this.type, serverGroupAttributeForDetachServerGroupsInput.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(serverGroupId);
+    return Objects.hash(port, serverGroupId, type);
   }
 
 
@@ -74,7 +120,9 @@ public class ServerGroupAttributeForDetachServerGroupsInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ServerGroupAttributeForDetachServerGroupsInput {\n");
     
+    sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    serverGroupId: ").append(toIndentedString(serverGroupId)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }

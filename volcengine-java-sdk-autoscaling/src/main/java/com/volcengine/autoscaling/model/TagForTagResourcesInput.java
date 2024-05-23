@@ -44,7 +44,8 @@ public class TagForTagResourcesInput {
    * Get key
    * @return key
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getKey() {
     return key;
   }

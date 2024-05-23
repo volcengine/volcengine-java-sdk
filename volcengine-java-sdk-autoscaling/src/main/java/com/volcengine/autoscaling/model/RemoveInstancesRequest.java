@@ -34,6 +34,9 @@ public class RemoveInstancesRequest {
   @SerializedName("DecreaseDesiredCapacity")
   private Boolean decreaseDesiredCapacity = null;
 
+  @SerializedName("ForceDelete")
+  private Boolean forceDelete = null;
+
   @SerializedName("InstanceIds")
   private List<String> instanceIds = null;
 
@@ -62,6 +65,24 @@ public class RemoveInstancesRequest {
 
   public void setDecreaseDesiredCapacity(Boolean decreaseDesiredCapacity) {
     this.decreaseDesiredCapacity = decreaseDesiredCapacity;
+  }
+
+  public RemoveInstancesRequest forceDelete(Boolean forceDelete) {
+    this.forceDelete = forceDelete;
+    return this;
+  }
+
+   /**
+   * Get forceDelete
+   * @return forceDelete
+  **/
+  @Schema(description = "")
+  public Boolean isForceDelete() {
+    return forceDelete;
+  }
+
+  public void setForceDelete(Boolean forceDelete) {
+    this.forceDelete = forceDelete;
   }
 
   public RemoveInstancesRequest instanceIds(List<String> instanceIds) {
@@ -135,7 +156,8 @@ public class RemoveInstancesRequest {
    * Get scalingGroupId
    * @return scalingGroupId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getScalingGroupId() {
     return scalingGroupId;
   }
@@ -155,6 +177,7 @@ public class RemoveInstancesRequest {
     }
     RemoveInstancesRequest removeInstancesRequest = (RemoveInstancesRequest) o;
     return Objects.equals(this.decreaseDesiredCapacity, removeInstancesRequest.decreaseDesiredCapacity) &&
+        Objects.equals(this.forceDelete, removeInstancesRequest.forceDelete) &&
         Objects.equals(this.instanceIds, removeInstancesRequest.instanceIds) &&
         Objects.equals(this.lifecycleHook, removeInstancesRequest.lifecycleHook) &&
         Objects.equals(this.removeMode, removeInstancesRequest.removeMode) &&
@@ -163,7 +186,7 @@ public class RemoveInstancesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(decreaseDesiredCapacity, instanceIds, lifecycleHook, removeMode, scalingGroupId);
+    return Objects.hash(decreaseDesiredCapacity, forceDelete, instanceIds, lifecycleHook, removeMode, scalingGroupId);
   }
 
 
@@ -173,6 +196,7 @@ public class RemoveInstancesRequest {
     sb.append("class RemoveInstancesRequest {\n");
     
     sb.append("    decreaseDesiredCapacity: ").append(toIndentedString(decreaseDesiredCapacity)).append("\n");
+    sb.append("    forceDelete: ").append(toIndentedString(forceDelete)).append("\n");
     sb.append("    instanceIds: ").append(toIndentedString(instanceIds)).append("\n");
     sb.append("    lifecycleHook: ").append(toIndentedString(lifecycleHook)).append("\n");
     sb.append("    removeMode: ").append(toIndentedString(removeMode)).append("\n");

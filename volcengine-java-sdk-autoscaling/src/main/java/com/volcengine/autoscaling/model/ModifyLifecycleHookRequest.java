@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.autoscaling.model.LifecycleCommandForModifyLifecycleHookInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -29,6 +30,9 @@ import javax.validation.Valid;
 
 
 public class ModifyLifecycleHookRequest {
+  @SerializedName("LifecycleCommand")
+  private LifecycleCommandForModifyLifecycleHookInput lifecycleCommand = null;
+
   @SerializedName("LifecycleHookId")
   private String lifecycleHookId = null;
 
@@ -41,6 +45,25 @@ public class ModifyLifecycleHookRequest {
   @SerializedName("LifecycleHookType")
   private String lifecycleHookType = null;
 
+  public ModifyLifecycleHookRequest lifecycleCommand(LifecycleCommandForModifyLifecycleHookInput lifecycleCommand) {
+    this.lifecycleCommand = lifecycleCommand;
+    return this;
+  }
+
+   /**
+   * Get lifecycleCommand
+   * @return lifecycleCommand
+  **/
+  @Valid
+  @Schema(description = "")
+  public LifecycleCommandForModifyLifecycleHookInput getLifecycleCommand() {
+    return lifecycleCommand;
+  }
+
+  public void setLifecycleCommand(LifecycleCommandForModifyLifecycleHookInput lifecycleCommand) {
+    this.lifecycleCommand = lifecycleCommand;
+  }
+
   public ModifyLifecycleHookRequest lifecycleHookId(String lifecycleHookId) {
     this.lifecycleHookId = lifecycleHookId;
     return this;
@@ -50,7 +73,8 @@ public class ModifyLifecycleHookRequest {
    * Get lifecycleHookId
    * @return lifecycleHookId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getLifecycleHookId() {
     return lifecycleHookId;
   }
@@ -123,7 +147,8 @@ public class ModifyLifecycleHookRequest {
       return false;
     }
     ModifyLifecycleHookRequest modifyLifecycleHookRequest = (ModifyLifecycleHookRequest) o;
-    return Objects.equals(this.lifecycleHookId, modifyLifecycleHookRequest.lifecycleHookId) &&
+    return Objects.equals(this.lifecycleCommand, modifyLifecycleHookRequest.lifecycleCommand) &&
+        Objects.equals(this.lifecycleHookId, modifyLifecycleHookRequest.lifecycleHookId) &&
         Objects.equals(this.lifecycleHookPolicy, modifyLifecycleHookRequest.lifecycleHookPolicy) &&
         Objects.equals(this.lifecycleHookTimeout, modifyLifecycleHookRequest.lifecycleHookTimeout) &&
         Objects.equals(this.lifecycleHookType, modifyLifecycleHookRequest.lifecycleHookType);
@@ -131,7 +156,7 @@ public class ModifyLifecycleHookRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(lifecycleHookId, lifecycleHookPolicy, lifecycleHookTimeout, lifecycleHookType);
+    return Objects.hash(lifecycleCommand, lifecycleHookId, lifecycleHookPolicy, lifecycleHookTimeout, lifecycleHookType);
   }
 
 
@@ -140,6 +165,7 @@ public class ModifyLifecycleHookRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ModifyLifecycleHookRequest {\n");
     
+    sb.append("    lifecycleCommand: ").append(toIndentedString(lifecycleCommand)).append("\n");
     sb.append("    lifecycleHookId: ").append(toIndentedString(lifecycleHookId)).append("\n");
     sb.append("    lifecycleHookPolicy: ").append(toIndentedString(lifecycleHookPolicy)).append("\n");
     sb.append("    lifecycleHookTimeout: ").append(toIndentedString(lifecycleHookTimeout)).append("\n");

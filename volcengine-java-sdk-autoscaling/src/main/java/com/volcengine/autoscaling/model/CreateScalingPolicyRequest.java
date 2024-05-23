@@ -137,7 +137,8 @@ public class CreateScalingPolicyRequest {
    * Get scalingGroupId
    * @return scalingGroupId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getScalingGroupId() {
     return scalingGroupId;
   }
@@ -155,7 +156,8 @@ public class CreateScalingPolicyRequest {
    * Get scalingPolicyName
    * @return scalingPolicyName
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getScalingPolicyName() {
     return scalingPolicyName;
   }
@@ -173,7 +175,8 @@ public class CreateScalingPolicyRequest {
    * Get scalingPolicyType
    * @return scalingPolicyType
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getScalingPolicyType() {
     return scalingPolicyType;
   }
