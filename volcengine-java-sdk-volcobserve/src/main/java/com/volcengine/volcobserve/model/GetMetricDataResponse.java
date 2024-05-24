@@ -29,7 +29,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class GetMetricDataResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Data")
   private DataForGetMetricDataOutput data = null;

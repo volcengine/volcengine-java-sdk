@@ -19,23 +19,26 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.volcobserve.model.ObjectForCreateObjectGroupInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DimensionForGetMetricDataInput
+ * CreateObjectGroupRequest
  */
 
 
-public class DimensionForGetMetricDataInput {
+public class CreateObjectGroupRequest {
   @SerializedName("Name")
   private String name = null;
 
-  @SerializedName("Value")
-  private String value = null;
+  @SerializedName("Objects")
+  private List<ObjectForCreateObjectGroupInput> objects = null;
 
-  public DimensionForGetMetricDataInput name(String name) {
+  public CreateObjectGroupRequest name(String name) {
     this.name = name;
     return this;
   }
@@ -44,7 +47,8 @@ public class DimensionForGetMetricDataInput {
    * Get name
    * @return name
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getName() {
     return name;
   }
@@ -53,22 +57,31 @@ public class DimensionForGetMetricDataInput {
     this.name = name;
   }
 
-  public DimensionForGetMetricDataInput value(String value) {
-    this.value = value;
+  public CreateObjectGroupRequest objects(List<ObjectForCreateObjectGroupInput> objects) {
+    this.objects = objects;
+    return this;
+  }
+
+  public CreateObjectGroupRequest addObjectsItem(ObjectForCreateObjectGroupInput objectsItem) {
+    if (this.objects == null) {
+      this.objects = new ArrayList<ObjectForCreateObjectGroupInput>();
+    }
+    this.objects.add(objectsItem);
     return this;
   }
 
    /**
-   * Get value
-   * @return value
+   * Get objects
+   * @return objects
   **/
+  @Valid
   @Schema(description = "")
-  public String getValue() {
-    return value;
+  public List<ObjectForCreateObjectGroupInput> getObjects() {
+    return objects;
   }
 
-  public void setValue(String value) {
-    this.value = value;
+  public void setObjects(List<ObjectForCreateObjectGroupInput> objects) {
+    this.objects = objects;
   }
 
 
@@ -80,24 +93,24 @@ public class DimensionForGetMetricDataInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DimensionForGetMetricDataInput dimensionForGetMetricDataInput = (DimensionForGetMetricDataInput) o;
-    return Objects.equals(this.name, dimensionForGetMetricDataInput.name) &&
-        Objects.equals(this.value, dimensionForGetMetricDataInput.value);
+    CreateObjectGroupRequest createObjectGroupRequest = (CreateObjectGroupRequest) o;
+    return Objects.equals(this.name, createObjectGroupRequest.name) &&
+        Objects.equals(this.objects, createObjectGroupRequest.objects);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, value);
+    return Objects.hash(name, objects);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DimensionForGetMetricDataInput {\n");
+    sb.append("class CreateObjectGroupRequest {\n");
     
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    objects: ").append(toIndentedString(objects)).append("\n");
     sb.append("}");
     return sb.toString();
   }

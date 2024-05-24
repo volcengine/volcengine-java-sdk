@@ -31,7 +31,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class GetTopDataRequest {
   @SerializedName("Asc")
   private Boolean asc = null;

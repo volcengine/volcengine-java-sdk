@@ -31,7 +31,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class InstanceForGetMetricDataInput {
   @SerializedName("Dimensions")
   private List<DimensionForGetMetricDataInput> dimensions = null;

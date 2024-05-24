@@ -29,7 +29,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class GetTopDataResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Data")
   private DataForGetTopDataOutput data = null;

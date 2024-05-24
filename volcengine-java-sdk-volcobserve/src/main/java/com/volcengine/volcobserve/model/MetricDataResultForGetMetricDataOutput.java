@@ -32,7 +32,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class MetricDataResultForGetMetricDataOutput {
   @SerializedName("DataPoints")
   private List<DataPointForGetMetricDataOutput> dataPoints = null;

@@ -19,47 +19,35 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.volcobserve.model.DimensionForGetTopDataInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * InstanceForGetTopDataInput
+ * CreateObjectGroupResponse
  */
 
 
-public class InstanceForGetTopDataInput {
-  @SerializedName("Dimensions")
-  private List<DimensionForGetTopDataInput> dimensions = null;
+public class CreateObjectGroupResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("Data")
+  private String data = null;
 
-  public InstanceForGetTopDataInput dimensions(List<DimensionForGetTopDataInput> dimensions) {
-    this.dimensions = dimensions;
-    return this;
-  }
-
-  public InstanceForGetTopDataInput addDimensionsItem(DimensionForGetTopDataInput dimensionsItem) {
-    if (this.dimensions == null) {
-      this.dimensions = new ArrayList<DimensionForGetTopDataInput>();
-    }
-    this.dimensions.add(dimensionsItem);
+  public CreateObjectGroupResponse data(String data) {
+    this.data = data;
     return this;
   }
 
    /**
-   * Get dimensions
-   * @return dimensions
+   * Get data
+   * @return data
   **/
-  @Valid
   @Schema(description = "")
-  public List<DimensionForGetTopDataInput> getDimensions() {
-    return dimensions;
+  public String getData() {
+    return data;
   }
 
-  public void setDimensions(List<DimensionForGetTopDataInput> dimensions) {
-    this.dimensions = dimensions;
+  public void setData(String data) {
+    this.data = data;
   }
 
 
@@ -71,22 +59,22 @@ public class InstanceForGetTopDataInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    InstanceForGetTopDataInput instanceForGetTopDataInput = (InstanceForGetTopDataInput) o;
-    return Objects.equals(this.dimensions, instanceForGetTopDataInput.dimensions);
+    CreateObjectGroupResponse createObjectGroupResponse = (CreateObjectGroupResponse) o;
+    return Objects.equals(this.data, createObjectGroupResponse.data);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dimensions);
+    return Objects.hash(data);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class InstanceForGetTopDataInput {\n");
+    sb.append("class CreateObjectGroupResponse {\n");
     
-    sb.append("    dimensions: ").append(toIndentedString(dimensions)).append("\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();
   }

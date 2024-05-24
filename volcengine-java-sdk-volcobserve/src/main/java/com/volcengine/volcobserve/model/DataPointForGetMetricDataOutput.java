@@ -28,7 +28,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class DataPointForGetMetricDataOutput {
   @SerializedName("Timestamp")
   private Integer timestamp = null;

@@ -31,7 +31,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class DataForGetMetricDataOutput {
   @SerializedName("DescriptionCN")
   private String descriptionCN = null;

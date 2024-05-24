@@ -31,7 +31,6 @@ import javax.validation.Valid;
  */
 
 
-
 public class GetMetricDataRequest {
   @SerializedName("EndTime")
   private Integer endTime = null;
