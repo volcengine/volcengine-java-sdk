@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class TopDataResultForGetTopDataOutput {
   @SerializedName("GroupKeys")
   private Map<String, Object> groupKeys = null;
