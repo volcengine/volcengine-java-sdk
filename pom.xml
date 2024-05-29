@@ -4,7 +4,7 @@
     <groupId>com.volcengine</groupId>
     <artifactId>volcengine-java-sdk</artifactId>
     <packaging>pom</packaging>
-    <version>0.1.111</version>
+    <version>0.1.112</version>
     <name>volcengine-java-sdk</name>
     <url>https://open.volcengineapi.com</url>
     <description>The Java SDK For Volcengine</description>
@@ -239,5 +239,6 @@
         <module>volcengine-java-sdk-dcdn</module>
         <module>volcengine-java-sdk-organization</module>
         <module>volcengine-java-sdk-ark</module>
+        <module>volcengine-java-sdk-cdn</module>
     </modules>
 </project>
