@@ -21,19 +21,17 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ListObjectGroupsRequest
+ * ListContactsRequest
  */
 
 
 
-public class ListObjectGroupsRequest {
-  @SerializedName("Ids")
-  private List<String> ids = null;
+public class ListContactsRequest {
+  @SerializedName("Email")
+  private String email = null;
 
   @SerializedName("Name")
   private String name = null;
@@ -44,33 +42,28 @@ public class ListObjectGroupsRequest {
   @SerializedName("PageSize")
   private Integer pageSize = null;
 
-  public ListObjectGroupsRequest ids(List<String> ids) {
-    this.ids = ids;
-    return this;
-  }
+  @SerializedName("Phone")
+  private String phone = null;
 
-  public ListObjectGroupsRequest addIdsItem(String idsItem) {
-    if (this.ids == null) {
-      this.ids = new ArrayList<String>();
-    }
-    this.ids.add(idsItem);
+  public ListContactsRequest email(String email) {
+    this.email = email;
     return this;
   }
 
    /**
-   * Get ids
-   * @return ids
+   * Get email
+   * @return email
   **/
   @Schema(description = "")
-  public List<String> getIds() {
-    return ids;
+  public String getEmail() {
+    return email;
   }
 
-  public void setIds(List<String> ids) {
-    this.ids = ids;
+  public void setEmail(String email) {
+    this.email = email;
   }
 
-  public ListObjectGroupsRequest name(String name) {
+  public ListContactsRequest name(String name) {
     this.name = name;
     return this;
   }
@@ -88,7 +81,7 @@ public class ListObjectGroupsRequest {
     this.name = name;
   }
 
-  public ListObjectGroupsRequest pageNumber(Integer pageNumber) {
+  public ListContactsRequest pageNumber(Integer pageNumber) {
     this.pageNumber = pageNumber;
     return this;
   }
@@ -106,7 +99,7 @@ public class ListObjectGroupsRequest {
     this.pageNumber = pageNumber;
   }
 
-  public ListObjectGroupsRequest pageSize(Integer pageSize) {
+  public ListContactsRequest pageSize(Integer pageSize) {
     this.pageSize = pageSize;
     return this;
   }
@@ -124,6 +117,24 @@ public class ListObjectGroupsRequest {
     this.pageSize = pageSize;
   }
 
+  public ListContactsRequest phone(String phone) {
+    this.phone = phone;
+    return this;
+  }
+
+   /**
+   * Get phone
+   * @return phone
+  **/
+  @Schema(description = "")
+  public String getPhone() {
+    return phone;
+  }
+
+  public void setPhone(String phone) {
+    this.phone = phone;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -133,28 +144,30 @@ public class ListObjectGroupsRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ListObjectGroupsRequest listObjectGroupsRequest = (ListObjectGroupsRequest) o;
-    return Objects.equals(this.ids, listObjectGroupsRequest.ids) &&
-        Objects.equals(this.name, listObjectGroupsRequest.name) &&
-        Objects.equals(this.pageNumber, listObjectGroupsRequest.pageNumber) &&
-        Objects.equals(this.pageSize, listObjectGroupsRequest.pageSize);
+    ListContactsRequest listContactsRequest = (ListContactsRequest) o;
+    return Objects.equals(this.email, listContactsRequest.email) &&
+        Objects.equals(this.name, listContactsRequest.name) &&
+        Objects.equals(this.pageNumber, listContactsRequest.pageNumber) &&
+        Objects.equals(this.pageSize, listContactsRequest.pageSize) &&
+        Objects.equals(this.phone, listContactsRequest.phone);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ids, name, pageNumber, pageSize);
+    return Objects.hash(email, name, pageNumber, pageSize, phone);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ListObjectGroupsRequest {\n");
+    sb.append("class ListContactsRequest {\n");
     
-    sb.append("    ids: ").append(toIndentedString(ids)).append("\n");
+    sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    phone: ").append(toIndentedString(phone)).append("\n");
     sb.append("}");
     return sb.toString();
   }

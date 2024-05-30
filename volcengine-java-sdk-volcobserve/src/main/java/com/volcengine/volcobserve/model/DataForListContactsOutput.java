@@ -24,19 +24,61 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DimensionForGetMetricDataInput
+ * DataForListContactsOutput
  */
 
 
 
-public class DimensionForGetMetricDataInput {
+public class DataForListContactsOutput {
+  @SerializedName("Email")
+  private String email = null;
+
+  @SerializedName("Id")
+  private String id = null;
+
   @SerializedName("Name")
   private String name = null;
 
-  @SerializedName("Value")
-  private String value = null;
+  @SerializedName("Phone")
+  private String phone = null;
 
-  public DimensionForGetMetricDataInput name(String name) {
+  public DataForListContactsOutput email(String email) {
+    this.email = email;
+    return this;
+  }
+
+   /**
+   * Get email
+   * @return email
+  **/
+  @Schema(description = "")
+  public String getEmail() {
+    return email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  public DataForListContactsOutput id(String id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Get id
+   * @return id
+  **/
+  @Schema(description = "")
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public DataForListContactsOutput name(String name) {
     this.name = name;
     return this;
   }
@@ -54,22 +96,22 @@ public class DimensionForGetMetricDataInput {
     this.name = name;
   }
 
-  public DimensionForGetMetricDataInput value(String value) {
-    this.value = value;
+  public DataForListContactsOutput phone(String phone) {
+    this.phone = phone;
     return this;
   }
 
    /**
-   * Get value
-   * @return value
+   * Get phone
+   * @return phone
   **/
   @Schema(description = "")
-  public String getValue() {
-    return value;
+  public String getPhone() {
+    return phone;
   }
 
-  public void setValue(String value) {
-    this.value = value;
+  public void setPhone(String phone) {
+    this.phone = phone;
   }
 
 
@@ -81,24 +123,28 @@ public class DimensionForGetMetricDataInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DimensionForGetMetricDataInput dimensionForGetMetricDataInput = (DimensionForGetMetricDataInput) o;
-    return Objects.equals(this.name, dimensionForGetMetricDataInput.name) &&
-        Objects.equals(this.value, dimensionForGetMetricDataInput.value);
+    DataForListContactsOutput dataForListContactsOutput = (DataForListContactsOutput) o;
+    return Objects.equals(this.email, dataForListContactsOutput.email) &&
+        Objects.equals(this.id, dataForListContactsOutput.id) &&
+        Objects.equals(this.name, dataForListContactsOutput.name) &&
+        Objects.equals(this.phone, dataForListContactsOutput.phone);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, value);
+    return Objects.hash(email, id, name, phone);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DimensionForGetMetricDataInput {\n");
+    sb.append("class DataForListContactsOutput {\n");
     
+    sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    phone: ").append(toIndentedString(phone)).append("\n");
     sb.append("}");
     return sb.toString();
   }

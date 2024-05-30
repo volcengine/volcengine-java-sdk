@@ -21,34 +21,44 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * CreateObjectGroupResponse
+ * DeleteContactGroupByIdsRequest
  */
 
 
 
-public class CreateObjectGroupResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("Data")
-  private String data = null;
+public class DeleteContactGroupByIdsRequest {
+  @SerializedName("Ids")
+  private List<String> ids = null;
 
-  public CreateObjectGroupResponse data(String data) {
-    this.data = data;
+  public DeleteContactGroupByIdsRequest ids(List<String> ids) {
+    this.ids = ids;
+    return this;
+  }
+
+  public DeleteContactGroupByIdsRequest addIdsItem(String idsItem) {
+    if (this.ids == null) {
+      this.ids = new ArrayList<String>();
+    }
+    this.ids.add(idsItem);
     return this;
   }
 
    /**
-   * Get data
-   * @return data
+   * Get ids
+   * @return ids
   **/
   @Schema(description = "")
-  public String getData() {
-    return data;
+  public List<String> getIds() {
+    return ids;
   }
 
-  public void setData(String data) {
-    this.data = data;
+  public void setIds(List<String> ids) {
+    this.ids = ids;
   }
 
 
@@ -60,22 +70,22 @@ public class CreateObjectGroupResponse extends com.volcengine.model.AbstractResp
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateObjectGroupResponse createObjectGroupResponse = (CreateObjectGroupResponse) o;
-    return Objects.equals(this.data, createObjectGroupResponse.data);
+    DeleteContactGroupByIdsRequest deleteContactGroupByIdsRequest = (DeleteContactGroupByIdsRequest) o;
+    return Objects.equals(this.ids, deleteContactGroupByIdsRequest.ids);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data);
+    return Objects.hash(ids);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateObjectGroupResponse {\n");
+    sb.append("class DeleteContactGroupByIdsRequest {\n");
     
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    ids: ").append(toIndentedString(ids)).append("\n");
     sb.append("}");
     return sb.toString();
   }

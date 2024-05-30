@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.volcobserve.model.DataForListContactsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -26,17 +27,14 @@ import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ListObjectGroupsRequest
+ * ListContactsResponse
  */
 
 
 
-public class ListObjectGroupsRequest {
-  @SerializedName("Ids")
-  private List<String> ids = null;
-
-  @SerializedName("Name")
-  private String name = null;
+public class ListContactsResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("Data")
+  private List<DataForListContactsOutput> data = null;
 
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
@@ -44,51 +42,37 @@ public class ListObjectGroupsRequest {
   @SerializedName("PageSize")
   private Integer pageSize = null;
 
-  public ListObjectGroupsRequest ids(List<String> ids) {
-    this.ids = ids;
+  @SerializedName("TotalCount")
+  private Integer totalCount = null;
+
+  public ListContactsResponse data(List<DataForListContactsOutput> data) {
+    this.data = data;
     return this;
   }
 
-  public ListObjectGroupsRequest addIdsItem(String idsItem) {
-    if (this.ids == null) {
-      this.ids = new ArrayList<String>();
+  public ListContactsResponse addDataItem(DataForListContactsOutput dataItem) {
+    if (this.data == null) {
+      this.data = new ArrayList<DataForListContactsOutput>();
     }
-    this.ids.add(idsItem);
+    this.data.add(dataItem);
     return this;
   }
 
    /**
-   * Get ids
-   * @return ids
+   * Get data
+   * @return data
   **/
+  @Valid
   @Schema(description = "")
-  public List<String> getIds() {
-    return ids;
+  public List<DataForListContactsOutput> getData() {
+    return data;
   }
 
-  public void setIds(List<String> ids) {
-    this.ids = ids;
+  public void setData(List<DataForListContactsOutput> data) {
+    this.data = data;
   }
 
-  public ListObjectGroupsRequest name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Get name
-   * @return name
-  **/
-  @Schema(description = "")
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public ListObjectGroupsRequest pageNumber(Integer pageNumber) {
+  public ListContactsResponse pageNumber(Integer pageNumber) {
     this.pageNumber = pageNumber;
     return this;
   }
@@ -106,7 +90,7 @@ public class ListObjectGroupsRequest {
     this.pageNumber = pageNumber;
   }
 
-  public ListObjectGroupsRequest pageSize(Integer pageSize) {
+  public ListContactsResponse pageSize(Integer pageSize) {
     this.pageSize = pageSize;
     return this;
   }
@@ -124,6 +108,24 @@ public class ListObjectGroupsRequest {
     this.pageSize = pageSize;
   }
 
+  public ListContactsResponse totalCount(Integer totalCount) {
+    this.totalCount = totalCount;
+    return this;
+  }
+
+   /**
+   * Get totalCount
+   * @return totalCount
+  **/
+  @Schema(description = "")
+  public Integer getTotalCount() {
+    return totalCount;
+  }
+
+  public void setTotalCount(Integer totalCount) {
+    this.totalCount = totalCount;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -133,28 +135,28 @@ public class ListObjectGroupsRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ListObjectGroupsRequest listObjectGroupsRequest = (ListObjectGroupsRequest) o;
-    return Objects.equals(this.ids, listObjectGroupsRequest.ids) &&
-        Objects.equals(this.name, listObjectGroupsRequest.name) &&
-        Objects.equals(this.pageNumber, listObjectGroupsRequest.pageNumber) &&
-        Objects.equals(this.pageSize, listObjectGroupsRequest.pageSize);
+    ListContactsResponse listContactsResponse = (ListContactsResponse) o;
+    return Objects.equals(this.data, listContactsResponse.data) &&
+        Objects.equals(this.pageNumber, listContactsResponse.pageNumber) &&
+        Objects.equals(this.pageSize, listContactsResponse.pageSize) &&
+        Objects.equals(this.totalCount, listContactsResponse.totalCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ids, name, pageNumber, pageSize);
+    return Objects.hash(data, pageNumber, pageSize, totalCount);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ListObjectGroupsRequest {\n");
+    sb.append("class ListContactsResponse {\n");
     
-    sb.append("    ids: ").append(toIndentedString(ids)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("}");
     return sb.toString();
   }

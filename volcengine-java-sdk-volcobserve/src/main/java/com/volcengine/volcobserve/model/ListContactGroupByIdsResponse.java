@@ -19,22 +19,33 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.volcobserve.model.DataForListContactGroupByIdsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * CreateObjectGroupResponse
+ * ListContactGroupByIdsResponse
  */
 
 
 
-public class CreateObjectGroupResponse extends com.volcengine.model.AbstractResponse {
+public class ListContactGroupByIdsResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Data")
-  private String data = null;
+  private List<DataForListContactGroupByIdsOutput> data = null;
 
-  public CreateObjectGroupResponse data(String data) {
+  public ListContactGroupByIdsResponse data(List<DataForListContactGroupByIdsOutput> data) {
     this.data = data;
+    return this;
+  }
+
+  public ListContactGroupByIdsResponse addDataItem(DataForListContactGroupByIdsOutput dataItem) {
+    if (this.data == null) {
+      this.data = new ArrayList<DataForListContactGroupByIdsOutput>();
+    }
+    this.data.add(dataItem);
     return this;
   }
 
@@ -42,12 +53,13 @@ public class CreateObjectGroupResponse extends com.volcengine.model.AbstractResp
    * Get data
    * @return data
   **/
+  @Valid
   @Schema(description = "")
-  public String getData() {
+  public List<DataForListContactGroupByIdsOutput> getData() {
     return data;
   }
 
-  public void setData(String data) {
+  public void setData(List<DataForListContactGroupByIdsOutput> data) {
     this.data = data;
   }
 
@@ -60,8 +72,8 @@ public class CreateObjectGroupResponse extends com.volcengine.model.AbstractResp
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateObjectGroupResponse createObjectGroupResponse = (CreateObjectGroupResponse) o;
-    return Objects.equals(this.data, createObjectGroupResponse.data);
+    ListContactGroupByIdsResponse listContactGroupByIdsResponse = (ListContactGroupByIdsResponse) o;
+    return Objects.equals(this.data, listContactGroupByIdsResponse.data);
   }
 
   @Override
@@ -73,7 +85,7 @@ public class CreateObjectGroupResponse extends com.volcengine.model.AbstractResp
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateObjectGroupResponse {\n");
+    sb.append("class ListContactGroupByIdsResponse {\n");
     
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");

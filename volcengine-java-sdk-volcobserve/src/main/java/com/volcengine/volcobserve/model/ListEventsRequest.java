@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ListEventsRequest {
   @SerializedName("Asc")
   private Boolean asc = null;
@@ -48,6 +49,7 @@ public class ListEventsRequest {
    */
   @JsonAdapter(OrderByEnum.Adapter.class)
   public enum OrderByEnum {
+    @SerializedName("HappenTime")
     HAPPENTIME("HappenTime");
 
     private String value;

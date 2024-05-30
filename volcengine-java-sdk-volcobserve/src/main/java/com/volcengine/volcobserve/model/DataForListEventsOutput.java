@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DataForListEventsOutput {
   @SerializedName("Detail")
   private Map<String, Object> detail = null;

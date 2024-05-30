@@ -21,19 +21,50 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DeleteObjectGroupRequest
+ * UpdateContactsWithContactGroupsRequest
  */
 
 
 
-public class DeleteObjectGroupRequest {
+public class UpdateContactsWithContactGroupsRequest {
+  @SerializedName("ContactGroupIds")
+  private List<String> contactGroupIds = null;
+
   @SerializedName("Id")
   private String id = null;
 
-  public DeleteObjectGroupRequest id(String id) {
+  public UpdateContactsWithContactGroupsRequest contactGroupIds(List<String> contactGroupIds) {
+    this.contactGroupIds = contactGroupIds;
+    return this;
+  }
+
+  public UpdateContactsWithContactGroupsRequest addContactGroupIdsItem(String contactGroupIdsItem) {
+    if (this.contactGroupIds == null) {
+      this.contactGroupIds = new ArrayList<String>();
+    }
+    this.contactGroupIds.add(contactGroupIdsItem);
+    return this;
+  }
+
+   /**
+   * Get contactGroupIds
+   * @return contactGroupIds
+  **/
+  @Schema(description = "")
+  public List<String> getContactGroupIds() {
+    return contactGroupIds;
+  }
+
+  public void setContactGroupIds(List<String> contactGroupIds) {
+    this.contactGroupIds = contactGroupIds;
+  }
+
+  public UpdateContactsWithContactGroupsRequest id(String id) {
     this.id = id;
     return this;
   }
@@ -61,21 +92,23 @@ public class DeleteObjectGroupRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeleteObjectGroupRequest deleteObjectGroupRequest = (DeleteObjectGroupRequest) o;
-    return Objects.equals(this.id, deleteObjectGroupRequest.id);
+    UpdateContactsWithContactGroupsRequest updateContactsWithContactGroupsRequest = (UpdateContactsWithContactGroupsRequest) o;
+    return Objects.equals(this.contactGroupIds, updateContactsWithContactGroupsRequest.contactGroupIds) &&
+        Objects.equals(this.id, updateContactsWithContactGroupsRequest.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id);
+    return Objects.hash(contactGroupIds, id);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeleteObjectGroupRequest {\n");
+    sb.append("class UpdateContactsWithContactGroupsRequest {\n");
     
+    sb.append("    contactGroupIds: ").append(toIndentedString(contactGroupIds)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();

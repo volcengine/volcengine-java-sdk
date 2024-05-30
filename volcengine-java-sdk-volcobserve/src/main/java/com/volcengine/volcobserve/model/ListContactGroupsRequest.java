@@ -21,20 +21,15 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ListObjectGroupsRequest
+ * ListContactGroupsRequest
  */
 
 
 
-public class ListObjectGroupsRequest {
-  @SerializedName("Ids")
-  private List<String> ids = null;
-
+public class ListContactGroupsRequest {
   @SerializedName("Name")
   private String name = null;
 
@@ -44,33 +39,7 @@ public class ListObjectGroupsRequest {
   @SerializedName("PageSize")
   private Integer pageSize = null;
 
-  public ListObjectGroupsRequest ids(List<String> ids) {
-    this.ids = ids;
-    return this;
-  }
-
-  public ListObjectGroupsRequest addIdsItem(String idsItem) {
-    if (this.ids == null) {
-      this.ids = new ArrayList<String>();
-    }
-    this.ids.add(idsItem);
-    return this;
-  }
-
-   /**
-   * Get ids
-   * @return ids
-  **/
-  @Schema(description = "")
-  public List<String> getIds() {
-    return ids;
-  }
-
-  public void setIds(List<String> ids) {
-    this.ids = ids;
-  }
-
-  public ListObjectGroupsRequest name(String name) {
+  public ListContactGroupsRequest name(String name) {
     this.name = name;
     return this;
   }
@@ -88,7 +57,7 @@ public class ListObjectGroupsRequest {
     this.name = name;
   }
 
-  public ListObjectGroupsRequest pageNumber(Integer pageNumber) {
+  public ListContactGroupsRequest pageNumber(Integer pageNumber) {
     this.pageNumber = pageNumber;
     return this;
   }
@@ -106,7 +75,7 @@ public class ListObjectGroupsRequest {
     this.pageNumber = pageNumber;
   }
 
-  public ListObjectGroupsRequest pageSize(Integer pageSize) {
+  public ListContactGroupsRequest pageSize(Integer pageSize) {
     this.pageSize = pageSize;
     return this;
   }
@@ -133,25 +102,23 @@ public class ListObjectGroupsRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ListObjectGroupsRequest listObjectGroupsRequest = (ListObjectGroupsRequest) o;
-    return Objects.equals(this.ids, listObjectGroupsRequest.ids) &&
-        Objects.equals(this.name, listObjectGroupsRequest.name) &&
-        Objects.equals(this.pageNumber, listObjectGroupsRequest.pageNumber) &&
-        Objects.equals(this.pageSize, listObjectGroupsRequest.pageSize);
+    ListContactGroupsRequest listContactGroupsRequest = (ListContactGroupsRequest) o;
+    return Objects.equals(this.name, listContactGroupsRequest.name) &&
+        Objects.equals(this.pageNumber, listContactGroupsRequest.pageNumber) &&
+        Objects.equals(this.pageSize, listContactGroupsRequest.pageSize);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ids, name, pageNumber, pageSize);
+    return Objects.hash(name, pageNumber, pageSize);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ListObjectGroupsRequest {\n");
+    sb.append("class ListContactGroupsRequest {\n");
     
-    sb.append("    ids: ").append(toIndentedString(ids)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");

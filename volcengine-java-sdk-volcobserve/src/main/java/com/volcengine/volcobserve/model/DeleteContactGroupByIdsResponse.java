@@ -21,20 +21,30 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * CreateObjectGroupResponse
+ * DeleteContactGroupByIdsResponse
  */
 
 
 
-public class CreateObjectGroupResponse extends com.volcengine.model.AbstractResponse {
+public class DeleteContactGroupByIdsResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Data")
-  private String data = null;
+  private List<String> data = null;
 
-  public CreateObjectGroupResponse data(String data) {
+  public DeleteContactGroupByIdsResponse data(List<String> data) {
     this.data = data;
+    return this;
+  }
+
+  public DeleteContactGroupByIdsResponse addDataItem(String dataItem) {
+    if (this.data == null) {
+      this.data = new ArrayList<String>();
+    }
+    this.data.add(dataItem);
     return this;
   }
 
@@ -43,11 +53,11 @@ public class CreateObjectGroupResponse extends com.volcengine.model.AbstractResp
    * @return data
   **/
   @Schema(description = "")
-  public String getData() {
+  public List<String> getData() {
     return data;
   }
 
-  public void setData(String data) {
+  public void setData(List<String> data) {
     this.data = data;
   }
 
@@ -60,8 +70,8 @@ public class CreateObjectGroupResponse extends com.volcengine.model.AbstractResp
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateObjectGroupResponse createObjectGroupResponse = (CreateObjectGroupResponse) o;
-    return Objects.equals(this.data, createObjectGroupResponse.data);
+    DeleteContactGroupByIdsResponse deleteContactGroupByIdsResponse = (DeleteContactGroupByIdsResponse) o;
+    return Objects.equals(this.data, deleteContactGroupByIdsResponse.data);
   }
 
   @Override
@@ -73,7 +83,7 @@ public class CreateObjectGroupResponse extends com.volcengine.model.AbstractResp
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateObjectGroupResponse {\n");
+    sb.append("class DeleteContactGroupByIdsResponse {\n");
     
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");

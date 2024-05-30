@@ -24,19 +24,59 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DimensionForGetMetricDataInput
+ * UpdateContactGroupRequest
  */
 
 
 
-public class DimensionForGetMetricDataInput {
+public class UpdateContactGroupRequest {
+  @SerializedName("Description")
+  private String description = null;
+
+  @SerializedName("Id")
+  private String id = null;
+
   @SerializedName("Name")
   private String name = null;
 
-  @SerializedName("Value")
-  private String value = null;
+  public UpdateContactGroupRequest description(String description) {
+    this.description = description;
+    return this;
+  }
 
-  public DimensionForGetMetricDataInput name(String name) {
+   /**
+   * Get description
+   * @return description
+  **/
+  @Schema(description = "")
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public UpdateContactGroupRequest id(String id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Get id
+   * @return id
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public UpdateContactGroupRequest name(String name) {
     this.name = name;
     return this;
   }
@@ -54,24 +94,6 @@ public class DimensionForGetMetricDataInput {
     this.name = name;
   }
 
-  public DimensionForGetMetricDataInput value(String value) {
-    this.value = value;
-    return this;
-  }
-
-   /**
-   * Get value
-   * @return value
-  **/
-  @Schema(description = "")
-  public String getValue() {
-    return value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -81,24 +103,26 @@ public class DimensionForGetMetricDataInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DimensionForGetMetricDataInput dimensionForGetMetricDataInput = (DimensionForGetMetricDataInput) o;
-    return Objects.equals(this.name, dimensionForGetMetricDataInput.name) &&
-        Objects.equals(this.value, dimensionForGetMetricDataInput.value);
+    UpdateContactGroupRequest updateContactGroupRequest = (UpdateContactGroupRequest) o;
+    return Objects.equals(this.description, updateContactGroupRequest.description) &&
+        Objects.equals(this.id, updateContactGroupRequest.id) &&
+        Objects.equals(this.name, updateContactGroupRequest.name);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, value);
+    return Objects.hash(description, id, name);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DimensionForGetMetricDataInput {\n");
+    sb.append("class UpdateContactGroupRequest {\n");
     
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
   }
