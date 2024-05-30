@@ -239,5 +239,6 @@
         <module>volcengine-java-sdk-dcdn</module>
         <module>volcengine-java-sdk-organization</module>
         <module>volcengine-java-sdk-ark</module>
+        <module>volcengine-java-sdk-ark-runtime</module>
     </modules>
 </project>
