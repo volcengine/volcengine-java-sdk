@@ -1,7 +1,9 @@
 .idea/
 bin/
 vendor/
+target/
 output_result
 *.log
 *.class
 *.lst
+*.iml

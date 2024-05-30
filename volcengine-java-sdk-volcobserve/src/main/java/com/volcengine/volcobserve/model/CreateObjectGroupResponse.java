@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateObjectGroupResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Data")
   private String data = null;
