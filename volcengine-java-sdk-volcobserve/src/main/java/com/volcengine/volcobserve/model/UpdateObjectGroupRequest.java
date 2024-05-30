@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class UpdateObjectGroupRequest {
   @SerializedName("Id")
   private String id = null;

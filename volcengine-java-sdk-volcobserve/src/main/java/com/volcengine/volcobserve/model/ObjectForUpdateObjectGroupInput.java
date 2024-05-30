@@ -31,12 +31,10 @@ import javax.validation.Valid;
  */
 
 
+
 public class ObjectForUpdateObjectGroupInput {
   @SerializedName("Dimensions")
   private Map<String, List<String>> dimensions = null;
-
-  @SerializedName("Id")
-  private String id = null;
 
   @SerializedName("Namespace")
   private String namespace = null;
@@ -69,24 +67,6 @@ public class ObjectForUpdateObjectGroupInput {
 
   public void setDimensions(Map<String, List<String>> dimensions) {
     this.dimensions = dimensions;
-  }
-
-  public ObjectForUpdateObjectGroupInput id(String id) {
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * Get id
-   * @return id
-  **/
-  @Schema(description = "")
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
   }
 
   public ObjectForUpdateObjectGroupInput namespace(String namespace) {
@@ -136,14 +116,13 @@ public class ObjectForUpdateObjectGroupInput {
     }
     ObjectForUpdateObjectGroupInput objectForUpdateObjectGroupInput = (ObjectForUpdateObjectGroupInput) o;
     return Objects.equals(this.dimensions, objectForUpdateObjectGroupInput.dimensions) &&
-        Objects.equals(this.id, objectForUpdateObjectGroupInput.id) &&
         Objects.equals(this.namespace, objectForUpdateObjectGroupInput.namespace) &&
         Objects.equals(this.region, objectForUpdateObjectGroupInput.region);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dimensions, id, namespace, region);
+    return Objects.hash(dimensions, namespace, region);
   }
 
 
@@ -153,7 +132,6 @@ public class ObjectForUpdateObjectGroupInput {
     sb.append("class ObjectForUpdateObjectGroupInput {\n");
     
     sb.append("    dimensions: ").append(toIndentedString(dimensions)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("}");

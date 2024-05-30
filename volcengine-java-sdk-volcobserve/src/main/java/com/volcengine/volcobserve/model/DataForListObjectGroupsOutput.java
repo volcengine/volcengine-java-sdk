@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DataForListObjectGroupsOutput {
   @SerializedName("AlertTemplateId")
   private String alertTemplateId = null;

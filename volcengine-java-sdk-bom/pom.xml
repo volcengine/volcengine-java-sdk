@@ -201,6 +201,12 @@
             </dependency>
             <dependency>
                 <groupId>com.volcengine</groupId>
+                <artifactId>volcengine-java-sdk-ark-runtime</artifactId>
+                <optional>false</optional>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.volcengine</groupId>
                 <artifactId>volcengine-java-sdk-cdn</artifactId>
                 <optional>false</optional>
                 <version>${project.version}</version>
