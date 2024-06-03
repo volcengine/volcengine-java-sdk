@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class AssignIpv6AddressesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Ipv6Set")
   private List<String> ipv6Set = null;

@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ResourceForAssociateNetworkAclInput {
   @SerializedName("ResourceId")
   private String resourceId = null;

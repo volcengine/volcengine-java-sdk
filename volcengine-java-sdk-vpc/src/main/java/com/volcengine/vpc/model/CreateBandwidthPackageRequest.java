@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateBandwidthPackageRequest {
   @SerializedName("Bandwidth")
   private Integer bandwidth = null;
@@ -49,15 +50,25 @@ public class CreateBandwidthPackageRequest {
    */
   @JsonAdapter(ISPEnum.Adapter.class)
   public enum ISPEnum {
+    @SerializedName("BGP")
     BGP("BGP"),
+    @SerializedName("SingleLine_BGP")
     SINGLELINE_BGP("SingleLine_BGP"),
+    @SerializedName("Static_BGP")
     STATIC_BGP("Static_BGP"),
+    @SerializedName("Fusion_BGP")
     FUSION_BGP("Fusion_BGP"),
+    @SerializedName("ChinaMobile")
     CHINAMOBILE("ChinaMobile"),
+    @SerializedName("ChinaUnicom")
     CHINAUNICOM("ChinaUnicom"),
+    @SerializedName("ChinaTelecom")
     CHINATELECOM("ChinaTelecom"),
+    @SerializedName("ChinaMobile_Value")
     CHINAMOBILE_VALUE("ChinaMobile_Value"),
+    @SerializedName("ChinaUnicom_Value")
     CHINAUNICOM_VALUE("ChinaUnicom_Value"),
+    @SerializedName("ChinaTelecom_Value")
     CHINATELECOM_VALUE("ChinaTelecom_Value");
 
     private String value;
@@ -110,7 +121,9 @@ public class CreateBandwidthPackageRequest {
    */
   @JsonAdapter(ProtocolEnum.Adapter.class)
   public enum ProtocolEnum {
+    @SerializedName("IPv4")
     IPV4("IPv4"),
+    @SerializedName("IPv6")
     IPV6("IPv6");
 
     private String value;

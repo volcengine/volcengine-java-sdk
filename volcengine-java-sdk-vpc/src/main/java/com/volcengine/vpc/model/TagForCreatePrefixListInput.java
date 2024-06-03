@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class TagForCreatePrefixListInput {
   @SerializedName("Key")
   private String key = null;

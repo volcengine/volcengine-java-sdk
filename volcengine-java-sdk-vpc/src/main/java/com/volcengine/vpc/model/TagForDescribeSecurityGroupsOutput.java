@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class TagForDescribeSecurityGroupsOutput {
   @SerializedName("Key")
   private String key = null;

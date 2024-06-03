@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeEipAddressAttributesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("AllocationId")
   private String allocationId = null;
@@ -82,6 +83,9 @@ public class DescribeEipAddressAttributesResponse extends com.volcengine.model.A
 
   @SerializedName("ProjectName")
   private String projectName = null;
+
+  @SerializedName("ReleaseWithInstance")
+  private Boolean releaseWithInstance = null;
 
   @SerializedName("RequestId")
   private String requestId = null;
@@ -404,6 +408,24 @@ public class DescribeEipAddressAttributesResponse extends com.volcengine.model.A
     this.projectName = projectName;
   }
 
+  public DescribeEipAddressAttributesResponse releaseWithInstance(Boolean releaseWithInstance) {
+    this.releaseWithInstance = releaseWithInstance;
+    return this;
+  }
+
+   /**
+   * Get releaseWithInstance
+   * @return releaseWithInstance
+  **/
+  @Schema(description = "")
+  public Boolean isReleaseWithInstance() {
+    return releaseWithInstance;
+  }
+
+  public void setReleaseWithInstance(Boolean releaseWithInstance) {
+    this.releaseWithInstance = releaseWithInstance;
+  }
+
   public DescribeEipAddressAttributesResponse requestId(String requestId) {
     this.requestId = requestId;
     return this;
@@ -538,6 +560,7 @@ public class DescribeEipAddressAttributesResponse extends com.volcengine.model.A
         Objects.equals(this.name, describeEipAddressAttributesResponse.name) &&
         Objects.equals(this.overdueTime, describeEipAddressAttributesResponse.overdueTime) &&
         Objects.equals(this.projectName, describeEipAddressAttributesResponse.projectName) &&
+        Objects.equals(this.releaseWithInstance, describeEipAddressAttributesResponse.releaseWithInstance) &&
         Objects.equals(this.requestId, describeEipAddressAttributesResponse.requestId) &&
         Objects.equals(this.securityProtectionTypes, describeEipAddressAttributesResponse.securityProtectionTypes) &&
         Objects.equals(this.status, describeEipAddressAttributesResponse.status) &&
@@ -547,7 +570,7 @@ public class DescribeEipAddressAttributesResponse extends com.volcengine.model.A
 
   @Override
   public int hashCode() {
-    return Objects.hash(allocationId, allocationTime, bandwidth, bandwidthPackageId, billingType, businessStatus, deletedTime, description, eipAddress, expiredTime, ISP, instanceId, instanceType, lockReason, name, overdueTime, projectName, requestId, securityProtectionTypes, status, tags, updatedAt);
+    return Objects.hash(allocationId, allocationTime, bandwidth, bandwidthPackageId, billingType, businessStatus, deletedTime, description, eipAddress, expiredTime, ISP, instanceId, instanceType, lockReason, name, overdueTime, projectName, releaseWithInstance, requestId, securityProtectionTypes, status, tags, updatedAt);
   }
 
 
@@ -573,6 +596,7 @@ public class DescribeEipAddressAttributesResponse extends com.volcengine.model.A
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    overdueTime: ").append(toIndentedString(overdueTime)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    releaseWithInstance: ").append(toIndentedString(releaseWithInstance)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    securityProtectionTypes: ").append(toIndentedString(securityProtectionTypes)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");

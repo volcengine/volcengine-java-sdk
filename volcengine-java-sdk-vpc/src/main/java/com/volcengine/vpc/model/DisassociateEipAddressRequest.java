@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DisassociateEipAddressRequest {
   @SerializedName("AllocationId")
   private String allocationId = null;
@@ -43,9 +44,13 @@ public class DisassociateEipAddressRequest {
    */
   @JsonAdapter(InstanceTypeEnum.Adapter.class)
   public enum InstanceTypeEnum {
+    @SerializedName("Nat")
     NAT("Nat"),
+    @SerializedName("NetworkInterface")
     NETWORKINTERFACE("NetworkInterface"),
+    @SerializedName("ClbInstance")
     CLBINSTANCE("ClbInstance"),
+    @SerializedName("EcsInstance")
     ECSINSTANCE("EcsInstance");
 
     private String value;

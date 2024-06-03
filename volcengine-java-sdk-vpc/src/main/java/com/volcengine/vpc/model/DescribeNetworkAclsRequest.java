@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeNetworkAclsRequest {
   @SerializedName("MaxResults")
   private Integer maxResults = null;

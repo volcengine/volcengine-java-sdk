@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ModifyEipAddressAttributesRequest {
   @SerializedName("AllocationId")
   private String allocationId = null;
@@ -40,6 +41,9 @@ public class ModifyEipAddressAttributesRequest {
 
   @SerializedName("Name")
   private String name = null;
+
+  @SerializedName("ReleaseWithInstance")
+  private Boolean releaseWithInstance = null;
 
   public ModifyEipAddressAttributesRequest allocationId(String allocationId) {
     this.allocationId = allocationId;
@@ -116,6 +120,24 @@ public class ModifyEipAddressAttributesRequest {
     this.name = name;
   }
 
+  public ModifyEipAddressAttributesRequest releaseWithInstance(Boolean releaseWithInstance) {
+    this.releaseWithInstance = releaseWithInstance;
+    return this;
+  }
+
+   /**
+   * Get releaseWithInstance
+   * @return releaseWithInstance
+  **/
+  @Schema(description = "")
+  public Boolean isReleaseWithInstance() {
+    return releaseWithInstance;
+  }
+
+  public void setReleaseWithInstance(Boolean releaseWithInstance) {
+    this.releaseWithInstance = releaseWithInstance;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -129,12 +151,13 @@ public class ModifyEipAddressAttributesRequest {
     return Objects.equals(this.allocationId, modifyEipAddressAttributesRequest.allocationId) &&
         Objects.equals(this.bandwidth, modifyEipAddressAttributesRequest.bandwidth) &&
         Objects.equals(this.description, modifyEipAddressAttributesRequest.description) &&
-        Objects.equals(this.name, modifyEipAddressAttributesRequest.name);
+        Objects.equals(this.name, modifyEipAddressAttributesRequest.name) &&
+        Objects.equals(this.releaseWithInstance, modifyEipAddressAttributesRequest.releaseWithInstance);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allocationId, bandwidth, description, name);
+    return Objects.hash(allocationId, bandwidth, description, name, releaseWithInstance);
   }
 
 
@@ -147,6 +170,7 @@ public class ModifyEipAddressAttributesRequest {
     sb.append("    bandwidth: ").append(toIndentedString(bandwidth)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    releaseWithInstance: ").append(toIndentedString(releaseWithInstance)).append("\n");
     sb.append("}");
     return sb.toString();
   }

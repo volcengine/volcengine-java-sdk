@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class RemoveBandwidthPackageIpRequest {
   @SerializedName("AllocationId")
   private String allocationId = null;

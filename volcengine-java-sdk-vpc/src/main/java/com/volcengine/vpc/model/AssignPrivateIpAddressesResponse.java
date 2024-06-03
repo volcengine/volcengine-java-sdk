@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class AssignPrivateIpAddressesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("NetworkInterfaceId")
   private String networkInterfaceId = null;

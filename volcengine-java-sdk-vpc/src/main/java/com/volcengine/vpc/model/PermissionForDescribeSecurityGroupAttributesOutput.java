@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class PermissionForDescribeSecurityGroupAttributesOutput {
   @SerializedName("CidrIp")
   private String cidrIp = null;
