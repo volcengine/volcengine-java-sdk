@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class UpdateAuthResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("IsSuccess")
   private Boolean isSuccess = null;

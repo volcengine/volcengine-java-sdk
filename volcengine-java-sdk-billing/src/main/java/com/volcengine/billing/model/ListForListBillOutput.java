@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ListForListBillOutput {
   @SerializedName("BillCategoryParent")
   private String billCategoryParent = null;
