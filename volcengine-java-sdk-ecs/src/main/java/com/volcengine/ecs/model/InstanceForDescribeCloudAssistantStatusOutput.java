@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class InstanceForDescribeCloudAssistantStatusOutput {
   @SerializedName("ClientVersion")
   private String clientVersion = null;

@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeInstanceTypeFamiliesRequest {
   @SerializedName("Generation")
   private String generation = null;

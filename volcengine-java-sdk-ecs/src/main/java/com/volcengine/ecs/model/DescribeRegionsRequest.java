@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeRegionsRequest {
   @SerializedName("MaxResults")
   private Integer maxResults = null;

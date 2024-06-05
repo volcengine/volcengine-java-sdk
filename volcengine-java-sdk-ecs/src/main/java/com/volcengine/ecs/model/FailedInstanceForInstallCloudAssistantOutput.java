@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class FailedInstanceForInstallCloudAssistantOutput {
   @SerializedName("ErrorMessage")
   private String errorMessage = null;

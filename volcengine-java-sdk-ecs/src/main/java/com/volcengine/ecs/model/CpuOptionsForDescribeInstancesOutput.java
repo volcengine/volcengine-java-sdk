@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CpuOptionsForDescribeInstancesOutput {
   @SerializedName("CoreCount")
   private Integer coreCount = null;

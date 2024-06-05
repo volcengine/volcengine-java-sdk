@@ -30,9 +30,31 @@ import javax.validation.Valid;
  */
 
 
+
 public class DeleteInstancesRequest {
+  @SerializedName("ClientToken")
+  private String clientToken = null;
+
   @SerializedName("InstanceIds")
   private List<String> instanceIds = null;
+
+  public DeleteInstancesRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
 
   public DeleteInstancesRequest instanceIds(List<String> instanceIds) {
     this.instanceIds = instanceIds;
@@ -70,12 +92,13 @@ public class DeleteInstancesRequest {
       return false;
     }
     DeleteInstancesRequest deleteInstancesRequest = (DeleteInstancesRequest) o;
-    return Objects.equals(this.instanceIds, deleteInstancesRequest.instanceIds);
+    return Objects.equals(this.clientToken, deleteInstancesRequest.clientToken) &&
+        Objects.equals(this.instanceIds, deleteInstancesRequest.instanceIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceIds);
+    return Objects.hash(clientToken, instanceIds);
   }
 
 
@@ -84,6 +107,7 @@ public class DeleteInstancesRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteInstancesRequest {\n");
     
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    instanceIds: ").append(toIndentedString(instanceIds)).append("\n");
     sb.append("}");
     return sb.toString();

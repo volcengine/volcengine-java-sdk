@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DeleteCommandRequest {
   @SerializedName("CommandId")
   private String commandId = null;

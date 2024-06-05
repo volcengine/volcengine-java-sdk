@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DeleteCommandResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("CommandId")
   private String commandId = null;

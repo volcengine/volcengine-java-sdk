@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DeploymentSetForDescribeDeploymentSetsOutput {
   @SerializedName("Capacities")
   private List<CapacityForDescribeDeploymentSetsOutput> capacities = null;
@@ -49,6 +50,9 @@ public class DeploymentSetForDescribeDeploymentSetsOutput {
 
   @SerializedName("Granularity")
   private String granularity = null;
+
+  @SerializedName("GroupCount")
+  private Integer groupCount = null;
 
   @SerializedName("InstanceAmount")
   private Integer instanceAmount = null;
@@ -176,6 +180,24 @@ public class DeploymentSetForDescribeDeploymentSetsOutput {
     this.granularity = granularity;
   }
 
+  public DeploymentSetForDescribeDeploymentSetsOutput groupCount(Integer groupCount) {
+    this.groupCount = groupCount;
+    return this;
+  }
+
+   /**
+   * Get groupCount
+   * @return groupCount
+  **/
+  @Schema(description = "")
+  public Integer getGroupCount() {
+    return groupCount;
+  }
+
+  public void setGroupCount(Integer groupCount) {
+    this.groupCount = groupCount;
+  }
+
   public DeploymentSetForDescribeDeploymentSetsOutput instanceAmount(Integer instanceAmount) {
     this.instanceAmount = instanceAmount;
     return this;
@@ -254,6 +276,7 @@ public class DeploymentSetForDescribeDeploymentSetsOutput {
         Objects.equals(this.deploymentSetId, deploymentSetForDescribeDeploymentSetsOutput.deploymentSetId) &&
         Objects.equals(this.deploymentSetName, deploymentSetForDescribeDeploymentSetsOutput.deploymentSetName) &&
         Objects.equals(this.granularity, deploymentSetForDescribeDeploymentSetsOutput.granularity) &&
+        Objects.equals(this.groupCount, deploymentSetForDescribeDeploymentSetsOutput.groupCount) &&
         Objects.equals(this.instanceAmount, deploymentSetForDescribeDeploymentSetsOutput.instanceAmount) &&
         Objects.equals(this.instanceIds, deploymentSetForDescribeDeploymentSetsOutput.instanceIds) &&
         Objects.equals(this.strategy, deploymentSetForDescribeDeploymentSetsOutput.strategy);
@@ -261,7 +284,7 @@ public class DeploymentSetForDescribeDeploymentSetsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(capacities, createdAt, deploymentSetDescription, deploymentSetId, deploymentSetName, granularity, instanceAmount, instanceIds, strategy);
+    return Objects.hash(capacities, createdAt, deploymentSetDescription, deploymentSetId, deploymentSetName, granularity, groupCount, instanceAmount, instanceIds, strategy);
   }
 
 
@@ -276,6 +299,7 @@ public class DeploymentSetForDescribeDeploymentSetsOutput {
     sb.append("    deploymentSetId: ").append(toIndentedString(deploymentSetId)).append("\n");
     sb.append("    deploymentSetName: ").append(toIndentedString(deploymentSetName)).append("\n");
     sb.append("    granularity: ").append(toIndentedString(granularity)).append("\n");
+    sb.append("    groupCount: ").append(toIndentedString(groupCount)).append("\n");
     sb.append("    instanceAmount: ").append(toIndentedString(instanceAmount)).append("\n");
     sb.append("    instanceIds: ").append(toIndentedString(instanceIds)).append("\n");
     sb.append("    strategy: ").append(toIndentedString(strategy)).append("\n");

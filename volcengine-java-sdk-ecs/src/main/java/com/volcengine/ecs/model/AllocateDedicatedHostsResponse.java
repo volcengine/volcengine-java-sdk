@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class AllocateDedicatedHostsResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("DedicatedHostIds")
   private List<String> dedicatedHostIds = null;

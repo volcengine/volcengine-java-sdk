@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CommandForDescribeCommandsOutput {
   @SerializedName("CommandContent")
   private String commandContent = null;

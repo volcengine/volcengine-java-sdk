@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class RdmaForDescribeInstanceTypesOutput {
   @SerializedName("RdmaNetworkInterfaces")
   private Integer rdmaNetworkInterfaces = null;

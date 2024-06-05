@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ModifyDedicatedHostAttributeRequest {
   @SerializedName("AutoPlacement")
   private String autoPlacement = null;

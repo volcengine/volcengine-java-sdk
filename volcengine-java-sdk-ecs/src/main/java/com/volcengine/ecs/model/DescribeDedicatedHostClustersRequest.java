@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeDedicatedHostClustersRequest {
   @SerializedName("DedicatedHostClusterIds")
   private List<String> dedicatedHostClusterIds = null;

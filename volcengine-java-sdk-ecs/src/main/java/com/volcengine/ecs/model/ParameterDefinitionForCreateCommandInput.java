@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ParameterDefinitionForCreateCommandInput {
   @SerializedName("DecimalPrecision")
   private Integer decimalPrecision = null;

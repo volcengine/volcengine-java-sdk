@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ModifyInstanceChargeTypeRequest {
   @SerializedName("AutoPay")
   private Boolean autoPay = null;
@@ -42,6 +43,9 @@ public class ModifyInstanceChargeTypeRequest {
 
   @SerializedName("ClientToken")
   private String clientToken = null;
+
+  @SerializedName("DryRun")
+  private Boolean dryRun = null;
 
   @SerializedName("IncludeDataVolumes")
   private Boolean includeDataVolumes = null;
@@ -128,6 +132,24 @@ public class ModifyInstanceChargeTypeRequest {
 
   public void setClientToken(String clientToken) {
     this.clientToken = clientToken;
+  }
+
+  public ModifyInstanceChargeTypeRequest dryRun(Boolean dryRun) {
+    this.dryRun = dryRun;
+    return this;
+  }
+
+   /**
+   * Get dryRun
+   * @return dryRun
+  **/
+  @Schema(description = "")
+  public Boolean isDryRun() {
+    return dryRun;
+  }
+
+  public void setDryRun(Boolean dryRun) {
+    this.dryRun = dryRun;
   }
 
   public ModifyInstanceChargeTypeRequest includeDataVolumes(Boolean includeDataVolumes) {
@@ -242,6 +264,7 @@ public class ModifyInstanceChargeTypeRequest {
         Objects.equals(this.autoRenew, modifyInstanceChargeTypeRequest.autoRenew) &&
         Objects.equals(this.autoRenewPeriod, modifyInstanceChargeTypeRequest.autoRenewPeriod) &&
         Objects.equals(this.clientToken, modifyInstanceChargeTypeRequest.clientToken) &&
+        Objects.equals(this.dryRun, modifyInstanceChargeTypeRequest.dryRun) &&
         Objects.equals(this.includeDataVolumes, modifyInstanceChargeTypeRequest.includeDataVolumes) &&
         Objects.equals(this.instanceChargeType, modifyInstanceChargeTypeRequest.instanceChargeType) &&
         Objects.equals(this.instanceIds, modifyInstanceChargeTypeRequest.instanceIds) &&
@@ -251,7 +274,7 @@ public class ModifyInstanceChargeTypeRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoPay, autoRenew, autoRenewPeriod, clientToken, includeDataVolumes, instanceChargeType, instanceIds, period, periodUnit);
+    return Objects.hash(autoPay, autoRenew, autoRenewPeriod, clientToken, dryRun, includeDataVolumes, instanceChargeType, instanceIds, period, periodUnit);
   }
 
 
@@ -264,6 +287,7 @@ public class ModifyInstanceChargeTypeRequest {
     sb.append("    autoRenew: ").append(toIndentedString(autoRenew)).append("\n");
     sb.append("    autoRenewPeriod: ").append(toIndentedString(autoRenewPeriod)).append("\n");
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
+    sb.append("    dryRun: ").append(toIndentedString(dryRun)).append("\n");
     sb.append("    includeDataVolumes: ").append(toIndentedString(includeDataVolumes)).append("\n");
     sb.append("    instanceChargeType: ").append(toIndentedString(instanceChargeType)).append("\n");
     sb.append("    instanceIds: ").append(toIndentedString(instanceIds)).append("\n");

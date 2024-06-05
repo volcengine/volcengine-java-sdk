@@ -28,12 +28,34 @@ import javax.validation.Valid;
  */
 
 
+
 public class DeleteInstanceRequest {
+  @SerializedName("ClientToken")
+  private String clientToken = null;
+
   @SerializedName("DryRun")
   private Boolean dryRun = null;
 
   @SerializedName("InstanceId")
   private String instanceId = null;
+
+  public DeleteInstanceRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
 
   public DeleteInstanceRequest dryRun(Boolean dryRun) {
     this.dryRun = dryRun;
@@ -82,13 +104,14 @@ public class DeleteInstanceRequest {
       return false;
     }
     DeleteInstanceRequest deleteInstanceRequest = (DeleteInstanceRequest) o;
-    return Objects.equals(this.dryRun, deleteInstanceRequest.dryRun) &&
+    return Objects.equals(this.clientToken, deleteInstanceRequest.clientToken) &&
+        Objects.equals(this.dryRun, deleteInstanceRequest.dryRun) &&
         Objects.equals(this.instanceId, deleteInstanceRequest.instanceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dryRun, instanceId);
+    return Objects.hash(clientToken, dryRun, instanceId);
   }
 
 
@@ -97,6 +120,7 @@ public class DeleteInstanceRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteInstanceRequest {\n");
     
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    dryRun: ").append(toIndentedString(dryRun)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("}");

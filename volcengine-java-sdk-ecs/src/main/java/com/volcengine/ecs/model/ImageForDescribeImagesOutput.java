@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.ecs.model.DetectionResultForDescribeImagesOutput;
+import com.volcengine.ecs.model.DetectionResultsForDescribeImagesOutput;
 import com.volcengine.ecs.model.SnapshotForDescribeImagesOutput;
 import com.volcengine.ecs.model.TagForDescribeImagesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -31,6 +31,7 @@ import javax.validation.Valid;
 /**
  * ImageForDescribeImagesOutput
  */
+
 
 
 public class ImageForDescribeImagesOutput {
@@ -47,7 +48,7 @@ public class ImageForDescribeImagesOutput {
   private String description = null;
 
   @SerializedName("DetectionResults")
-  private List<DetectionResultForDescribeImagesOutput> detectionResults = null;
+  private DetectionResultsForDescribeImagesOutput detectionResults = null;
 
   @SerializedName("ImageId")
   private String imageId = null;
@@ -57,6 +58,9 @@ public class ImageForDescribeImagesOutput {
 
   @SerializedName("ImageOwnerId")
   private String imageOwnerId = null;
+
+  @SerializedName("IsLTS")
+  private Boolean isLTS = null;
 
   @SerializedName("IsSupportCloudInit")
   private Boolean isSupportCloudInit = null;
@@ -172,16 +176,8 @@ public class ImageForDescribeImagesOutput {
     this.description = description;
   }
 
-  public ImageForDescribeImagesOutput detectionResults(List<DetectionResultForDescribeImagesOutput> detectionResults) {
+  public ImageForDescribeImagesOutput detectionResults(DetectionResultsForDescribeImagesOutput detectionResults) {
     this.detectionResults = detectionResults;
-    return this;
-  }
-
-  public ImageForDescribeImagesOutput addDetectionResultsItem(DetectionResultForDescribeImagesOutput detectionResultsItem) {
-    if (this.detectionResults == null) {
-      this.detectionResults = new ArrayList<DetectionResultForDescribeImagesOutput>();
-    }
-    this.detectionResults.add(detectionResultsItem);
     return this;
   }
 
@@ -191,11 +187,11 @@ public class ImageForDescribeImagesOutput {
   **/
   @Valid
   @Schema(description = "")
-  public List<DetectionResultForDescribeImagesOutput> getDetectionResults() {
+  public DetectionResultsForDescribeImagesOutput getDetectionResults() {
     return detectionResults;
   }
 
-  public void setDetectionResults(List<DetectionResultForDescribeImagesOutput> detectionResults) {
+  public void setDetectionResults(DetectionResultsForDescribeImagesOutput detectionResults) {
     this.detectionResults = detectionResults;
   }
 
@@ -251,6 +247,24 @@ public class ImageForDescribeImagesOutput {
 
   public void setImageOwnerId(String imageOwnerId) {
     this.imageOwnerId = imageOwnerId;
+  }
+
+  public ImageForDescribeImagesOutput isLTS(Boolean isLTS) {
+    this.isLTS = isLTS;
+    return this;
+  }
+
+   /**
+   * Get isLTS
+   * @return isLTS
+  **/
+  @Schema(description = "")
+  public Boolean isIsLTS() {
+    return isLTS;
+  }
+
+  public void setIsLTS(Boolean isLTS) {
+    this.isLTS = isLTS;
   }
 
   public ImageForDescribeImagesOutput isSupportCloudInit(Boolean isSupportCloudInit) {
@@ -541,6 +555,7 @@ public class ImageForDescribeImagesOutput {
         Objects.equals(this.imageId, imageForDescribeImagesOutput.imageId) &&
         Objects.equals(this.imageName, imageForDescribeImagesOutput.imageName) &&
         Objects.equals(this.imageOwnerId, imageForDescribeImagesOutput.imageOwnerId) &&
+        Objects.equals(this.isLTS, imageForDescribeImagesOutput.isLTS) &&
         Objects.equals(this.isSupportCloudInit, imageForDescribeImagesOutput.isSupportCloudInit) &&
         Objects.equals(this.osName, imageForDescribeImagesOutput.osName) &&
         Objects.equals(this.osType, imageForDescribeImagesOutput.osType) &&
@@ -559,7 +574,7 @@ public class ImageForDescribeImagesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(architecture, bootMode, createdAt, description, detectionResults, imageId, imageName, imageOwnerId, isSupportCloudInit, osName, osType, platform, platformVersion, projectName, shareStatus, size, snapshots, status, tags, updatedAt, virtualSize, visibility);
+    return Objects.hash(architecture, bootMode, createdAt, description, detectionResults, imageId, imageName, imageOwnerId, isLTS, isSupportCloudInit, osName, osType, platform, platformVersion, projectName, shareStatus, size, snapshots, status, tags, updatedAt, virtualSize, visibility);
   }
 
 
@@ -576,6 +591,7 @@ public class ImageForDescribeImagesOutput {
     sb.append("    imageId: ").append(toIndentedString(imageId)).append("\n");
     sb.append("    imageName: ").append(toIndentedString(imageName)).append("\n");
     sb.append("    imageOwnerId: ").append(toIndentedString(imageOwnerId)).append("\n");
+    sb.append("    isLTS: ").append(toIndentedString(isLTS)).append("\n");
     sb.append("    isSupportCloudInit: ").append(toIndentedString(isSupportCloudInit)).append("\n");
     sb.append("    osName: ").append(toIndentedString(osName)).append("\n");
     sb.append("    osType: ").append(toIndentedString(osType)).append("\n");

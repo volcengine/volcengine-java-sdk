@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeDedicatedHostTypesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("DedicatedHostTypes")
   private List<DedicatedHostTypeForDescribeDedicatedHostTypesOutput> dedicatedHostTypes = null;

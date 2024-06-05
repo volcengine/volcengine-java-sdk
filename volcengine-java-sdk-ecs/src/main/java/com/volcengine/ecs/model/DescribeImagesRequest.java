@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeImagesRequest {
   @SerializedName("ImageIds")
   private List<String> imageIds = null;
@@ -44,6 +45,9 @@ public class DescribeImagesRequest {
   @SerializedName("InstanceTypeId")
   private String instanceTypeId = null;
 
+  @SerializedName("IsLTS")
+  private Boolean isLTS = null;
+
   @SerializedName("IsSupportCloudInit")
   private Boolean isSupportCloudInit = null;
 
@@ -55,6 +59,9 @@ public class DescribeImagesRequest {
 
   @SerializedName("OsType")
   private String osType = null;
+
+  @SerializedName("Platform")
+  private String platform = null;
 
   @SerializedName("ProjectName")
   private String projectName = null;
@@ -148,6 +155,24 @@ public class DescribeImagesRequest {
     this.instanceTypeId = instanceTypeId;
   }
 
+  public DescribeImagesRequest isLTS(Boolean isLTS) {
+    this.isLTS = isLTS;
+    return this;
+  }
+
+   /**
+   * Get isLTS
+   * @return isLTS
+  **/
+  @Schema(description = "")
+  public Boolean isIsLTS() {
+    return isLTS;
+  }
+
+  public void setIsLTS(Boolean isLTS) {
+    this.isLTS = isLTS;
+  }
+
   public DescribeImagesRequest isSupportCloudInit(Boolean isSupportCloudInit) {
     this.isSupportCloudInit = isSupportCloudInit;
     return this;
@@ -218,6 +243,24 @@ public class DescribeImagesRequest {
 
   public void setOsType(String osType) {
     this.osType = osType;
+  }
+
+  public DescribeImagesRequest platform(String platform) {
+    this.platform = platform;
+    return this;
+  }
+
+   /**
+   * Get platform
+   * @return platform
+  **/
+  @Schema(description = "")
+  public String getPlatform() {
+    return platform;
+  }
+
+  public void setPlatform(String platform) {
+    this.platform = platform;
   }
 
   public DescribeImagesRequest projectName(String projectName) {
@@ -323,10 +366,12 @@ public class DescribeImagesRequest {
         Objects.equals(this.imageName, describeImagesRequest.imageName) &&
         Objects.equals(this.imageStatus, describeImagesRequest.imageStatus) &&
         Objects.equals(this.instanceTypeId, describeImagesRequest.instanceTypeId) &&
+        Objects.equals(this.isLTS, describeImagesRequest.isLTS) &&
         Objects.equals(this.isSupportCloudInit, describeImagesRequest.isSupportCloudInit) &&
         Objects.equals(this.maxResults, describeImagesRequest.maxResults) &&
         Objects.equals(this.nextToken, describeImagesRequest.nextToken) &&
         Objects.equals(this.osType, describeImagesRequest.osType) &&
+        Objects.equals(this.platform, describeImagesRequest.platform) &&
         Objects.equals(this.projectName, describeImagesRequest.projectName) &&
         Objects.equals(this.status, describeImagesRequest.status) &&
         Objects.equals(this.tagFilters, describeImagesRequest.tagFilters) &&
@@ -335,7 +380,7 @@ public class DescribeImagesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(imageIds, imageName, imageStatus, instanceTypeId, isSupportCloudInit, maxResults, nextToken, osType, projectName, status, tagFilters, visibility);
+    return Objects.hash(imageIds, imageName, imageStatus, instanceTypeId, isLTS, isSupportCloudInit, maxResults, nextToken, osType, platform, projectName, status, tagFilters, visibility);
   }
 
 
@@ -348,10 +393,12 @@ public class DescribeImagesRequest {
     sb.append("    imageName: ").append(toIndentedString(imageName)).append("\n");
     sb.append("    imageStatus: ").append(toIndentedString(imageStatus)).append("\n");
     sb.append("    instanceTypeId: ").append(toIndentedString(instanceTypeId)).append("\n");
+    sb.append("    isLTS: ").append(toIndentedString(isLTS)).append("\n");
     sb.append("    isSupportCloudInit: ").append(toIndentedString(isSupportCloudInit)).append("\n");
     sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
     sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
     sb.append("    osType: ").append(toIndentedString(osType)).append("\n");
+    sb.append("    platform: ").append(toIndentedString(platform)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
