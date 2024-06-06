@@ -10,9 +10,11 @@ import com.volcengine.ark.runtime.exception.ArkAPIError;
 import com.volcengine.ark.runtime.exception.ArkException;
 import com.volcengine.ark.runtime.exception.ArkHttpException;
 import com.volcengine.ark.runtime.interceptor.AuthenticationInterceptor;
-import com.volcengine.ark.runtime.interceptor.EndpointStsAuthenticationInterceptor;
+import com.volcengine.ark.runtime.interceptor.ArkResourceStsAuthenticationInterceptor;
 import com.volcengine.ark.runtime.interceptor.RequestIdInterceptor;
 import com.volcengine.ark.runtime.interceptor.RetryInterceptor;
+import com.volcengine.ark.runtime.model.bot.completion.chat.BotChatCompletionRequest;
+import com.volcengine.ark.runtime.model.bot.completion.chat.BotChatCompletionResult;
 import com.volcengine.ark.runtime.model.completion.chat.*;
 import com.volcengine.ark.runtime.model.embeddings.EmbeddingRequest;
 import com.volcengine.ark.runtime.model.embeddings.EmbeddingResult;
@@ -63,7 +65,7 @@ public class ArkService extends ArkBaseService implements ArkBaseServiceImpl {
 
     public ArkService(final String ak, final String sk, final Duration timeout) {
         ObjectMapper mapper = defaultObjectMapper();
-        OkHttpClient client = defaultEndpointStsClient(ak, sk, timeout, BASE_REGION);
+        OkHttpClient client = defaultResourceStsClient(ak, sk, timeout, BASE_REGION);
         Retrofit retrofit = defaultRetrofit(client, mapper, BASE_URL);
 
         this.api = retrofit.create(ArkApi.class);
@@ -97,9 +99,9 @@ public class ArkService extends ArkBaseService implements ArkBaseServiceImpl {
                 .build();
     }
 
-    public static OkHttpClient defaultEndpointStsClient(String ak, String sk, Duration timeout, String region) {
+    public static OkHttpClient defaultResourceStsClient(String ak, String sk, Duration timeout, String region) {
         return new OkHttpClient.Builder()
-                .addInterceptor(new EndpointStsAuthenticationInterceptor(ak, sk, region))
+                .addInterceptor(new ArkResourceStsAuthenticationInterceptor(ak, sk, region))
                 .addInterceptor(new RequestIdInterceptor())
                 .connectionPool(new ConnectionPool(5, 1, TimeUnit.SECONDS))
                 .readTimeout(timeout.toMillis(), TimeUnit.MILLISECONDS)
@@ -182,6 +184,17 @@ public class ArkService extends ArkBaseService implements ArkBaseServiceImpl {
         return execute(api.createEmbeddings(request, request.getModel(), customHeaders));
     }
 
+    @Override
+    public BotChatCompletionResult createBotChatCompletion(BotChatCompletionRequest request) {
+        return execute(api.createBotChatCompletion(request, request.getModel()));
+    }
+
+    @Override
+    public Flowable<ChatCompletionChunk> streamBotChatCompletion(BotChatCompletionRequest request) {
+        request.setStream(true);
+        return stream(api.createBotChatCompletionStream(request, request.getModel()), ChatCompletionChunk.class);
+    }
+
     public void shutdownExecutor() {
         Objects.requireNonNull(this.executorService, "executorService must be set in order to shut down");
         this.executorService.shutdown();
@@ -241,7 +254,7 @@ public class ArkService extends ArkBaseService implements ArkBaseServiceImpl {
             if (apiKey != null && apiKey.length() > 0) {
                 clientBuilder.addInterceptor(new AuthenticationInterceptor(apiKey));
             } else if (ak != null && sk != null && ak.length() > 0 && sk.length() > 0) {
-                clientBuilder.addInterceptor(new EndpointStsAuthenticationInterceptor(ak, sk, region));
+                clientBuilder.addInterceptor(new ArkResourceStsAuthenticationInterceptor(ak, sk, region));
             } else {
                 throw new ArkException("missing api_key or ak&sk.");
             }
