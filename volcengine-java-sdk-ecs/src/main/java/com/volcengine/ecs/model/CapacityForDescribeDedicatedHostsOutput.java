@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CapacityForDescribeDedicatedHostsOutput {
   @SerializedName("AvailableMemory")
   private Integer availableMemory = null;

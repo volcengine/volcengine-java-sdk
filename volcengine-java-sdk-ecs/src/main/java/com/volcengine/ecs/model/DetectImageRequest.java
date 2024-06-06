@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DetectImageRequest {
   @SerializedName("ImageId")
   private String imageId = null;

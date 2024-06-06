@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class AuthorizeSecurityGroupIngressRequest {
   @SerializedName("CidrIp")
   private String cidrIp = null;

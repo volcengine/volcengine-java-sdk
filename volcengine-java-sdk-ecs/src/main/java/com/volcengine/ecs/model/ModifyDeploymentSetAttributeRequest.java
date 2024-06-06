@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ModifyDeploymentSetAttributeRequest {
   @SerializedName("ClientToken")
   private String clientToken = null;
@@ -87,8 +88,7 @@ public class ModifyDeploymentSetAttributeRequest {
    * Get deploymentSetName
    * @return deploymentSetName
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getDeploymentSetName() {
     return deploymentSetName;
   }

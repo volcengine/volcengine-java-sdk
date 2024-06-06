@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class PlacementForDescribeInstancesOutput {
   @SerializedName("Affinity")
   private String affinity = null;

@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class HandleInvitationRequest {
   @SerializedName("Action")
   private Integer action = null;

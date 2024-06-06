@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DeleteFinancialRelationRequest {
   @SerializedName("Relation")
   private Integer relation = null;

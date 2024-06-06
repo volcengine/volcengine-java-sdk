@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeVpcsRequest {
   @SerializedName("IsDefault")
   private Boolean isDefault = null;

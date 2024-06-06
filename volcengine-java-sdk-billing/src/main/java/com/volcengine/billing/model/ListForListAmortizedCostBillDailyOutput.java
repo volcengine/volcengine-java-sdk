@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ListForListAmortizedCostBillDailyOutput {
   @SerializedName("AmortizedBeginTime")
   private String amortizedBeginTime = null;

@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ImportImageRequest {
   @SerializedName("Architecture")
   private String architecture = null;
@@ -43,6 +44,9 @@ public class ImportImageRequest {
 
   @SerializedName("ImageName")
   private String imageName = null;
+
+  @SerializedName("LicenseType")
+  private String licenseType = null;
 
   @SerializedName("NeedDetection")
   private Boolean needDetection = null;
@@ -136,6 +140,24 @@ public class ImportImageRequest {
 
   public void setImageName(String imageName) {
     this.imageName = imageName;
+  }
+
+  public ImportImageRequest licenseType(String licenseType) {
+    this.licenseType = licenseType;
+    return this;
+  }
+
+   /**
+   * Get licenseType
+   * @return licenseType
+  **/
+  @Schema(description = "")
+  public String getLicenseType() {
+    return licenseType;
+  }
+
+  public void setLicenseType(String licenseType) {
+    this.licenseType = licenseType;
   }
 
   public ImportImageRequest needDetection(Boolean needDetection) {
@@ -289,6 +311,7 @@ public class ImportImageRequest {
         Objects.equals(this.bootMode, importImageRequest.bootMode) &&
         Objects.equals(this.description, importImageRequest.description) &&
         Objects.equals(this.imageName, importImageRequest.imageName) &&
+        Objects.equals(this.licenseType, importImageRequest.licenseType) &&
         Objects.equals(this.needDetection, importImageRequest.needDetection) &&
         Objects.equals(this.osType, importImageRequest.osType) &&
         Objects.equals(this.platform, importImageRequest.platform) &&
@@ -300,7 +323,7 @@ public class ImportImageRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(architecture, bootMode, description, imageName, needDetection, osType, platform, platformVersion, projectName, tags, url);
+    return Objects.hash(architecture, bootMode, description, imageName, licenseType, needDetection, osType, platform, platformVersion, projectName, tags, url);
   }
 
 
@@ -313,6 +336,7 @@ public class ImportImageRequest {
     sb.append("    bootMode: ").append(toIndentedString(bootMode)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    imageName: ").append(toIndentedString(imageName)).append("\n");
+    sb.append("    licenseType: ").append(toIndentedString(licenseType)).append("\n");
     sb.append("    needDetection: ").append(toIndentedString(needDetection)).append("\n");
     sb.append("    osType: ").append(toIndentedString(osType)).append("\n");
     sb.append("    platform: ").append(toIndentedString(platform)).append("\n");

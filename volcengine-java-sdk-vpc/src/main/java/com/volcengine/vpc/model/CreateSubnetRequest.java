@@ -19,13 +19,17 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vpc.model.TagForCreateSubnetInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
  * CreateSubnetRequest
  */
+
 
 
 public class CreateSubnetRequest {
@@ -43,6 +47,9 @@ public class CreateSubnetRequest {
 
   @SerializedName("SubnetName")
   private String subnetName = null;
+
+  @SerializedName("Tags")
+  private List<TagForCreateSubnetInput> tags = null;
 
   @SerializedName("VpcId")
   private String vpcId = null;
@@ -143,6 +150,33 @@ public class CreateSubnetRequest {
     this.subnetName = subnetName;
   }
 
+  public CreateSubnetRequest tags(List<TagForCreateSubnetInput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public CreateSubnetRequest addTagsItem(TagForCreateSubnetInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForCreateSubnetInput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForCreateSubnetInput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForCreateSubnetInput> tags) {
+    this.tags = tags;
+  }
+
   public CreateSubnetRequest vpcId(String vpcId) {
     this.vpcId = vpcId;
     return this;
@@ -196,13 +230,14 @@ public class CreateSubnetRequest {
         Objects.equals(this.description, createSubnetRequest.description) &&
         Objects.equals(this.ipv6CidrBlock, createSubnetRequest.ipv6CidrBlock) &&
         Objects.equals(this.subnetName, createSubnetRequest.subnetName) &&
+        Objects.equals(this.tags, createSubnetRequest.tags) &&
         Objects.equals(this.vpcId, createSubnetRequest.vpcId) &&
         Objects.equals(this.zoneId, createSubnetRequest.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cidrBlock, clientToken, description, ipv6CidrBlock, subnetName, vpcId, zoneId);
+    return Objects.hash(cidrBlock, clientToken, description, ipv6CidrBlock, subnetName, tags, vpcId, zoneId);
   }
 
 
@@ -216,6 +251,7 @@ public class CreateSubnetRequest {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    ipv6CidrBlock: ").append(toIndentedString(ipv6CidrBlock)).append("\n");
     sb.append("    subnetName: ").append(toIndentedString(subnetName)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");

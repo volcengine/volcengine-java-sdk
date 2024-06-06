@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ListBillOverviewByCategoryRequest {
   @SerializedName("BillCategoryParent")
   private List<String> billCategoryParent = null;
@@ -39,6 +40,12 @@ public class ListBillOverviewByCategoryRequest {
 
   @SerializedName("BillingMode")
   private List<String> billingMode = null;
+
+  @SerializedName("OwnerID")
+  private List<Long> ownerID = null;
+
+  @SerializedName("PayerID")
+  private List<Long> payerID = null;
 
   public ListBillOverviewByCategoryRequest billCategoryParent(List<String> billCategoryParent) {
     this.billCategoryParent = billCategoryParent;
@@ -111,6 +118,58 @@ public class ListBillOverviewByCategoryRequest {
     this.billingMode = billingMode;
   }
 
+  public ListBillOverviewByCategoryRequest ownerID(List<Long> ownerID) {
+    this.ownerID = ownerID;
+    return this;
+  }
+
+  public ListBillOverviewByCategoryRequest addOwnerIDItem(Long ownerIDItem) {
+    if (this.ownerID == null) {
+      this.ownerID = new ArrayList<Long>();
+    }
+    this.ownerID.add(ownerIDItem);
+    return this;
+  }
+
+   /**
+   * Get ownerID
+   * @return ownerID
+  **/
+  @Schema(description = "")
+  public List<Long> getOwnerID() {
+    return ownerID;
+  }
+
+  public void setOwnerID(List<Long> ownerID) {
+    this.ownerID = ownerID;
+  }
+
+  public ListBillOverviewByCategoryRequest payerID(List<Long> payerID) {
+    this.payerID = payerID;
+    return this;
+  }
+
+  public ListBillOverviewByCategoryRequest addPayerIDItem(Long payerIDItem) {
+    if (this.payerID == null) {
+      this.payerID = new ArrayList<Long>();
+    }
+    this.payerID.add(payerIDItem);
+    return this;
+  }
+
+   /**
+   * Get payerID
+   * @return payerID
+  **/
+  @Schema(description = "")
+  public List<Long> getPayerID() {
+    return payerID;
+  }
+
+  public void setPayerID(List<Long> payerID) {
+    this.payerID = payerID;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -123,12 +182,14 @@ public class ListBillOverviewByCategoryRequest {
     ListBillOverviewByCategoryRequest listBillOverviewByCategoryRequest = (ListBillOverviewByCategoryRequest) o;
     return Objects.equals(this.billCategoryParent, listBillOverviewByCategoryRequest.billCategoryParent) &&
         Objects.equals(this.billPeriod, listBillOverviewByCategoryRequest.billPeriod) &&
-        Objects.equals(this.billingMode, listBillOverviewByCategoryRequest.billingMode);
+        Objects.equals(this.billingMode, listBillOverviewByCategoryRequest.billingMode) &&
+        Objects.equals(this.ownerID, listBillOverviewByCategoryRequest.ownerID) &&
+        Objects.equals(this.payerID, listBillOverviewByCategoryRequest.payerID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(billCategoryParent, billPeriod, billingMode);
+    return Objects.hash(billCategoryParent, billPeriod, billingMode, ownerID, payerID);
   }
 
 
@@ -140,6 +201,8 @@ public class ListBillOverviewByCategoryRequest {
     sb.append("    billCategoryParent: ").append(toIndentedString(billCategoryParent)).append("\n");
     sb.append("    billPeriod: ").append(toIndentedString(billPeriod)).append("\n");
     sb.append("    billingMode: ").append(toIndentedString(billingMode)).append("\n");
+    sb.append("    ownerID: ").append(toIndentedString(ownerID)).append("\n");
+    sb.append("    payerID: ").append(toIndentedString(payerID)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -51,6 +51,8 @@ import com.volcengine.vpc.model.AuthorizeSecurityGroupEgressRequest;
 import com.volcengine.vpc.model.AuthorizeSecurityGroupEgressResponse;
 import com.volcengine.vpc.model.AuthorizeSecurityGroupIngressRequest;
 import com.volcengine.vpc.model.AuthorizeSecurityGroupIngressResponse;
+import com.volcengine.vpc.model.CancelBandwidthPackageEipBandwidthRequest;
+import com.volcengine.vpc.model.CancelBandwidthPackageEipBandwidthResponse;
 import com.volcengine.vpc.model.CreateBandwidthPackageRequest;
 import com.volcengine.vpc.model.CreateBandwidthPackageResponse;
 import com.volcengine.vpc.model.CreateHaVipRequest;
@@ -145,6 +147,8 @@ import com.volcengine.vpc.model.ListTagsForResourcesRequest;
 import com.volcengine.vpc.model.ListTagsForResourcesResponse;
 import com.volcengine.vpc.model.ModifyBandwidthPackageAttributesRequest;
 import com.volcengine.vpc.model.ModifyBandwidthPackageAttributesResponse;
+import com.volcengine.vpc.model.ModifyBandwidthPackageEipBandwidthRequest;
+import com.volcengine.vpc.model.ModifyBandwidthPackageEipBandwidthResponse;
 import com.volcengine.vpc.model.ModifyBandwidthPackageSpecRequest;
 import com.volcengine.vpc.model.ModifyBandwidthPackageSpecResponse;
 import com.volcengine.vpc.model.ModifyEipAddressAttributesRequest;
@@ -181,6 +185,8 @@ import com.volcengine.vpc.model.RevokeSecurityGroupIngressRequest;
 import com.volcengine.vpc.model.RevokeSecurityGroupIngressResponse;
 import com.volcengine.vpc.model.TagResourcesRequest;
 import com.volcengine.vpc.model.TagResourcesResponse;
+import com.volcengine.vpc.model.TemporaryUpgradeEipAddressRequest;
+import com.volcengine.vpc.model.TemporaryUpgradeEipAddressResponse;
 import com.volcengine.vpc.model.UnassignIpv6AddressesRequest;
 import com.volcengine.vpc.model.UnassignIpv6AddressesResponse;
 import com.volcengine.vpc.model.UnassignPrivateIpAddressesRequest;
@@ -1700,6 +1706,130 @@ public class VpcApi {
 
         com.squareup.okhttp.Call call = authorizeSecurityGroupIngressValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<AuthorizeSecurityGroupIngressResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for cancelBandwidthPackageEipBandwidth
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call cancelBandwidthPackageEipBandwidthCall(CancelBandwidthPackageEipBandwidthRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/CancelBandwidthPackageEipBandwidth/2020-04-01/vpc/get/text_plain/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call cancelBandwidthPackageEipBandwidthValidateBeforeCall(CancelBandwidthPackageEipBandwidthRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling cancelBandwidthPackageEipBandwidth(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = cancelBandwidthPackageEipBandwidthCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return CancelBandwidthPackageEipBandwidthResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public CancelBandwidthPackageEipBandwidthResponse cancelBandwidthPackageEipBandwidth(CancelBandwidthPackageEipBandwidthRequest body) throws ApiException {
+        ApiResponse<CancelBandwidthPackageEipBandwidthResponse> resp = cancelBandwidthPackageEipBandwidthWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;CancelBandwidthPackageEipBandwidthResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<CancelBandwidthPackageEipBandwidthResponse> cancelBandwidthPackageEipBandwidthWithHttpInfo( @NotNull CancelBandwidthPackageEipBandwidthRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = cancelBandwidthPackageEipBandwidthValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<CancelBandwidthPackageEipBandwidthResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call cancelBandwidthPackageEipBandwidthAsync(CancelBandwidthPackageEipBandwidthRequest body, final ApiCallback<CancelBandwidthPackageEipBandwidthResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = cancelBandwidthPackageEipBandwidthValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CancelBandwidthPackageEipBandwidthResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -7532,6 +7662,130 @@ public class VpcApi {
         return call;
     }
     /**
+     * Build call for modifyBandwidthPackageEipBandwidth
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call modifyBandwidthPackageEipBandwidthCall(ModifyBandwidthPackageEipBandwidthRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/ModifyBandwidthPackageEipBandwidth/2020-04-01/vpc/get/text_plain/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call modifyBandwidthPackageEipBandwidthValidateBeforeCall(ModifyBandwidthPackageEipBandwidthRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling modifyBandwidthPackageEipBandwidth(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = modifyBandwidthPackageEipBandwidthCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ModifyBandwidthPackageEipBandwidthResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ModifyBandwidthPackageEipBandwidthResponse modifyBandwidthPackageEipBandwidth(ModifyBandwidthPackageEipBandwidthRequest body) throws ApiException {
+        ApiResponse<ModifyBandwidthPackageEipBandwidthResponse> resp = modifyBandwidthPackageEipBandwidthWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;ModifyBandwidthPackageEipBandwidthResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ModifyBandwidthPackageEipBandwidthResponse> modifyBandwidthPackageEipBandwidthWithHttpInfo( @NotNull ModifyBandwidthPackageEipBandwidthRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = modifyBandwidthPackageEipBandwidthValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<ModifyBandwidthPackageEipBandwidthResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call modifyBandwidthPackageEipBandwidthAsync(ModifyBandwidthPackageEipBandwidthRequest body, final ApiCallback<ModifyBandwidthPackageEipBandwidthResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = modifyBandwidthPackageEipBandwidthValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ModifyBandwidthPackageEipBandwidthResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for modifyBandwidthPackageSpec
      * @param body  (required)
      * @param progressListener Progress listener
@@ -9760,6 +10014,130 @@ public class VpcApi {
 
         com.squareup.okhttp.Call call = tagResourcesValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<TagResourcesResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for temporaryUpgradeEipAddress
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call temporaryUpgradeEipAddressCall(TemporaryUpgradeEipAddressRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/TemporaryUpgradeEipAddress/2020-04-01/vpc/get/text_plain/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call temporaryUpgradeEipAddressValidateBeforeCall(TemporaryUpgradeEipAddressRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling temporaryUpgradeEipAddress(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = temporaryUpgradeEipAddressCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return TemporaryUpgradeEipAddressResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public TemporaryUpgradeEipAddressResponse temporaryUpgradeEipAddress(TemporaryUpgradeEipAddressRequest body) throws ApiException {
+        ApiResponse<TemporaryUpgradeEipAddressResponse> resp = temporaryUpgradeEipAddressWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;TemporaryUpgradeEipAddressResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<TemporaryUpgradeEipAddressResponse> temporaryUpgradeEipAddressWithHttpInfo( @NotNull TemporaryUpgradeEipAddressRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = temporaryUpgradeEipAddressValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<TemporaryUpgradeEipAddressResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call temporaryUpgradeEipAddressAsync(TemporaryUpgradeEipAddressRequest body, final ApiCallback<TemporaryUpgradeEipAddressResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = temporaryUpgradeEipAddressValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<TemporaryUpgradeEipAddressResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

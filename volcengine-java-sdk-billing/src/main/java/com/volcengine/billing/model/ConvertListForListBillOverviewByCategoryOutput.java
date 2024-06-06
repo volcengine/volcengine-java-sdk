@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ConvertListForListBillOverviewByCategoryOutput {
   @SerializedName("List")
   private List<ListForListBillOverviewByCategoryOutput> list = null;

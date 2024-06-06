@@ -10,6 +10,7 @@ import java.time.Duration;
 public abstract class ArkBaseService {
 
     static final String BASE_URL = "https://ark.cn-beijing.volces.com";
+    static final String BASE_REGION = "cn-beijing";
     static final Duration DEFAULT_TIMEOUT = Duration.ofSeconds(60);
     String apiKey = "";
     String ak = "";

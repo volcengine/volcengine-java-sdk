@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ModifyInstanceVpcAttributeRequest {
   @SerializedName("ClientToken")
   private String clientToken = null;

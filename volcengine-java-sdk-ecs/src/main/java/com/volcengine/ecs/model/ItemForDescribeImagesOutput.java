@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ItemForDescribeImagesOutput {
   @SerializedName("Name")
   private String name = null;

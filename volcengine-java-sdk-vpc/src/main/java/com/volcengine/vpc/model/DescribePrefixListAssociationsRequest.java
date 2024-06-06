@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribePrefixListAssociationsRequest {
   @SerializedName("MaxResults")
   private Integer maxResults = null;
@@ -49,7 +50,9 @@ public class DescribePrefixListAssociationsRequest {
    */
   @JsonAdapter(ResourceTypeEnum.Adapter.class)
   public enum ResourceTypeEnum {
+    @SerializedName("VpcRouteTable")
     VPCROUTETABLE("VpcRouteTable"),
+    @SerializedName("VpcSecurityGroup")
     VPCSECURITYGROUP("VpcSecurityGroup");
 
     private String value;

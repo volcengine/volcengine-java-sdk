@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeCloudAssistantStatusResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Instances")
   private List<InstanceForDescribeCloudAssistantStatusOutput> instances = null;

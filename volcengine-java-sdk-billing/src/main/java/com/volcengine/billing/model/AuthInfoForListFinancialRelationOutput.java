@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class AuthInfoForListFinancialRelationOutput {
   @SerializedName("AuthID")
   private String authID = null;

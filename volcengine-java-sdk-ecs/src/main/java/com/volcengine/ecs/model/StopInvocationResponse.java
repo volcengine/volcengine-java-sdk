@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class StopInvocationResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("InvocationId")
   private String invocationId = null;

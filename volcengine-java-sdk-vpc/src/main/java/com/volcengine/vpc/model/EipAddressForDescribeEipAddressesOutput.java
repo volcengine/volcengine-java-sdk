@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class EipAddressForDescribeEipAddressesOutput {
   @SerializedName("AllocationId")
   private String allocationId = null;
@@ -82,6 +83,9 @@ public class EipAddressForDescribeEipAddressesOutput {
 
   @SerializedName("ProjectName")
   private String projectName = null;
+
+  @SerializedName("ReleaseWithInstance")
+  private Boolean releaseWithInstance = null;
 
   @SerializedName("SecurityProtectionTypes")
   private List<String> securityProtectionTypes = null;
@@ -401,6 +405,24 @@ public class EipAddressForDescribeEipAddressesOutput {
     this.projectName = projectName;
   }
 
+  public EipAddressForDescribeEipAddressesOutput releaseWithInstance(Boolean releaseWithInstance) {
+    this.releaseWithInstance = releaseWithInstance;
+    return this;
+  }
+
+   /**
+   * Get releaseWithInstance
+   * @return releaseWithInstance
+  **/
+  @Schema(description = "")
+  public Boolean isReleaseWithInstance() {
+    return releaseWithInstance;
+  }
+
+  public void setReleaseWithInstance(Boolean releaseWithInstance) {
+    this.releaseWithInstance = releaseWithInstance;
+  }
+
   public EipAddressForDescribeEipAddressesOutput securityProtectionTypes(List<String> securityProtectionTypes) {
     this.securityProtectionTypes = securityProtectionTypes;
     return this;
@@ -517,6 +539,7 @@ public class EipAddressForDescribeEipAddressesOutput {
         Objects.equals(this.name, eipAddressForDescribeEipAddressesOutput.name) &&
         Objects.equals(this.overdueTime, eipAddressForDescribeEipAddressesOutput.overdueTime) &&
         Objects.equals(this.projectName, eipAddressForDescribeEipAddressesOutput.projectName) &&
+        Objects.equals(this.releaseWithInstance, eipAddressForDescribeEipAddressesOutput.releaseWithInstance) &&
         Objects.equals(this.securityProtectionTypes, eipAddressForDescribeEipAddressesOutput.securityProtectionTypes) &&
         Objects.equals(this.status, eipAddressForDescribeEipAddressesOutput.status) &&
         Objects.equals(this.tags, eipAddressForDescribeEipAddressesOutput.tags) &&
@@ -525,7 +548,7 @@ public class EipAddressForDescribeEipAddressesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allocationId, allocationTime, bandwidth, bandwidthPackageId, billingType, businessStatus, deletedTime, description, eipAddress, expiredTime, ISP, instanceId, instanceType, lockReason, name, overdueTime, projectName, securityProtectionTypes, status, tags, updatedAt);
+    return Objects.hash(allocationId, allocationTime, bandwidth, bandwidthPackageId, billingType, businessStatus, deletedTime, description, eipAddress, expiredTime, ISP, instanceId, instanceType, lockReason, name, overdueTime, projectName, releaseWithInstance, securityProtectionTypes, status, tags, updatedAt);
   }
 
 
@@ -551,6 +574,7 @@ public class EipAddressForDescribeEipAddressesOutput {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    overdueTime: ").append(toIndentedString(overdueTime)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    releaseWithInstance: ").append(toIndentedString(releaseWithInstance)).append("\n");
     sb.append("    securityProtectionTypes: ").append(toIndentedString(securityProtectionTypes)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");

@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ModifyImageAttributeRequest {
   @SerializedName("BootMode")
   private String bootMode = null;

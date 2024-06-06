@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateSubscriptionResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("SubscriptionId")
   private String subscriptionId = null;

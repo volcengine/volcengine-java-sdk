@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class StopInstancesRequest {
   @SerializedName("ClientToken")
   private String clientToken = null;

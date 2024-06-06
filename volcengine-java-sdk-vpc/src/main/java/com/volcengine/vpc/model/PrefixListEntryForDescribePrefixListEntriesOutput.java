@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class PrefixListEntryForDescribePrefixListEntriesOutput {
   @SerializedName("Cidr")
   private String cidr = null;

@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class AuthForListInvitationOutput {
   @SerializedName("AuthID")
   private String authID = null;

@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeNetworkInterfaceAttributesRequest {
   @SerializedName("NetworkInterfaceId")
   private String networkInterfaceId = null;

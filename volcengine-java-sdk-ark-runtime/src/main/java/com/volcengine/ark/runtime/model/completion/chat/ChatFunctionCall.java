@@ -12,9 +12,9 @@ public class ChatFunctionCall {
     /**
      * The arguments of the call produced by the model, represented as a JsonNode for easy manipulation.
      */
-    JsonNode arguments;
+    String arguments;
 
-    public ChatFunctionCall(String name, JsonNode arguments) {
+    public ChatFunctionCall(String name, String arguments) {
         this.name = name;
         this.arguments = arguments;
     }
@@ -29,11 +29,11 @@ public class ChatFunctionCall {
         this.name = name;
     }
 
-    public JsonNode getArguments() {
+    public String getArguments() {
         return arguments;
     }
 
-    public void setArguments(JsonNode arguments) {
+    public void setArguments(String arguments) {
         this.arguments = arguments;
     }
 

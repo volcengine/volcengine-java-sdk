@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateDeploymentSetRequest {
   @SerializedName("ClientToken")
   private String clientToken = null;
@@ -40,6 +41,9 @@ public class CreateDeploymentSetRequest {
 
   @SerializedName("Granularity")
   private String granularity = null;
+
+  @SerializedName("GroupCount")
+  private Integer groupCount = null;
 
   @SerializedName("Strategy")
   private String strategy = null;
@@ -117,6 +121,24 @@ public class CreateDeploymentSetRequest {
     this.granularity = granularity;
   }
 
+  public CreateDeploymentSetRequest groupCount(Integer groupCount) {
+    this.groupCount = groupCount;
+    return this;
+  }
+
+   /**
+   * Get groupCount
+   * @return groupCount
+  **/
+  @Schema(description = "")
+  public Integer getGroupCount() {
+    return groupCount;
+  }
+
+  public void setGroupCount(Integer groupCount) {
+    this.groupCount = groupCount;
+  }
+
   public CreateDeploymentSetRequest strategy(String strategy) {
     this.strategy = strategy;
     return this;
@@ -149,12 +171,13 @@ public class CreateDeploymentSetRequest {
         Objects.equals(this.deploymentSetName, createDeploymentSetRequest.deploymentSetName) &&
         Objects.equals(this.description, createDeploymentSetRequest.description) &&
         Objects.equals(this.granularity, createDeploymentSetRequest.granularity) &&
+        Objects.equals(this.groupCount, createDeploymentSetRequest.groupCount) &&
         Objects.equals(this.strategy, createDeploymentSetRequest.strategy);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, deploymentSetName, description, granularity, strategy);
+    return Objects.hash(clientToken, deploymentSetName, description, granularity, groupCount, strategy);
   }
 
 
@@ -167,6 +190,7 @@ public class CreateDeploymentSetRequest {
     sb.append("    deploymentSetName: ").append(toIndentedString(deploymentSetName)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    granularity: ").append(toIndentedString(granularity)).append("\n");
+    sb.append("    groupCount: ").append(toIndentedString(groupCount)).append("\n");
     sb.append("    strategy: ").append(toIndentedString(strategy)).append("\n");
     sb.append("}");
     return sb.toString();

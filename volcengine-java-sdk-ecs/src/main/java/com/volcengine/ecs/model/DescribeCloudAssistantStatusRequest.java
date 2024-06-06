@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeCloudAssistantStatusRequest {
   @SerializedName("ClientVersion")
   private String clientVersion = null;

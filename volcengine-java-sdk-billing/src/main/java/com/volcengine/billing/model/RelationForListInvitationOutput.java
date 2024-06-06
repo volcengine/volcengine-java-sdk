@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class RelationForListInvitationOutput {
   @SerializedName("AccountAlias")
   private String accountAlias = null;

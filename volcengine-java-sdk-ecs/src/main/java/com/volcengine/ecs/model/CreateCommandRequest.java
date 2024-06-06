@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateCommandRequest {
   @SerializedName("CommandContent")
   private String commandContent = null;

@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateFinancialRelationRequest {
   @SerializedName("AccountAlias")
   private String accountAlias = null;

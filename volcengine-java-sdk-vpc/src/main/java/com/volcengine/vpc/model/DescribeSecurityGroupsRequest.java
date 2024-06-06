@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeSecurityGroupsRequest {
   @SerializedName("MaxResults")
   private Integer maxResults = null;

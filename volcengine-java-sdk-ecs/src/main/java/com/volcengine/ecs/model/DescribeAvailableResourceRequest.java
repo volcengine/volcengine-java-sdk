@@ -28,9 +28,13 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeAvailableResourceRequest {
   @SerializedName("DestinationResource")
   private String destinationResource = null;
+
+  @SerializedName("ElasticScheduledInstanceType")
+  private String elasticScheduledInstanceType = null;
 
   @SerializedName("InstanceChargeType")
   private String instanceChargeType = null;
@@ -43,6 +47,9 @@ public class DescribeAvailableResourceRequest {
 
   @SerializedName("SpotStrategy")
   private String spotStrategy = null;
+
+  @SerializedName("VolumeType")
+  private String volumeType = null;
 
   @SerializedName("ZoneId")
   private String zoneId = null;
@@ -64,6 +71,24 @@ public class DescribeAvailableResourceRequest {
 
   public void setDestinationResource(String destinationResource) {
     this.destinationResource = destinationResource;
+  }
+
+  public DescribeAvailableResourceRequest elasticScheduledInstanceType(String elasticScheduledInstanceType) {
+    this.elasticScheduledInstanceType = elasticScheduledInstanceType;
+    return this;
+  }
+
+   /**
+   * Get elasticScheduledInstanceType
+   * @return elasticScheduledInstanceType
+  **/
+  @Schema(description = "")
+  public String getElasticScheduledInstanceType() {
+    return elasticScheduledInstanceType;
+  }
+
+  public void setElasticScheduledInstanceType(String elasticScheduledInstanceType) {
+    this.elasticScheduledInstanceType = elasticScheduledInstanceType;
   }
 
   public DescribeAvailableResourceRequest instanceChargeType(String instanceChargeType) {
@@ -138,6 +163,24 @@ public class DescribeAvailableResourceRequest {
     this.spotStrategy = spotStrategy;
   }
 
+  public DescribeAvailableResourceRequest volumeType(String volumeType) {
+    this.volumeType = volumeType;
+    return this;
+  }
+
+   /**
+   * Get volumeType
+   * @return volumeType
+  **/
+  @Schema(description = "")
+  public String getVolumeType() {
+    return volumeType;
+  }
+
+  public void setVolumeType(String volumeType) {
+    this.volumeType = volumeType;
+  }
+
   public DescribeAvailableResourceRequest zoneId(String zoneId) {
     this.zoneId = zoneId;
     return this;
@@ -167,16 +210,18 @@ public class DescribeAvailableResourceRequest {
     }
     DescribeAvailableResourceRequest describeAvailableResourceRequest = (DescribeAvailableResourceRequest) o;
     return Objects.equals(this.destinationResource, describeAvailableResourceRequest.destinationResource) &&
+        Objects.equals(this.elasticScheduledInstanceType, describeAvailableResourceRequest.elasticScheduledInstanceType) &&
         Objects.equals(this.instanceChargeType, describeAvailableResourceRequest.instanceChargeType) &&
         Objects.equals(this.instanceType, describeAvailableResourceRequest.instanceType) &&
         Objects.equals(this.instanceTypeId, describeAvailableResourceRequest.instanceTypeId) &&
         Objects.equals(this.spotStrategy, describeAvailableResourceRequest.spotStrategy) &&
+        Objects.equals(this.volumeType, describeAvailableResourceRequest.volumeType) &&
         Objects.equals(this.zoneId, describeAvailableResourceRequest.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(destinationResource, instanceChargeType, instanceType, instanceTypeId, spotStrategy, zoneId);
+    return Objects.hash(destinationResource, elasticScheduledInstanceType, instanceChargeType, instanceType, instanceTypeId, spotStrategy, volumeType, zoneId);
   }
 
 
@@ -186,10 +231,12 @@ public class DescribeAvailableResourceRequest {
     sb.append("class DescribeAvailableResourceRequest {\n");
     
     sb.append("    destinationResource: ").append(toIndentedString(destinationResource)).append("\n");
+    sb.append("    elasticScheduledInstanceType: ").append(toIndentedString(elasticScheduledInstanceType)).append("\n");
     sb.append("    instanceChargeType: ").append(toIndentedString(instanceChargeType)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("    instanceTypeId: ").append(toIndentedString(instanceTypeId)).append("\n");
     sb.append("    spotStrategy: ").append(toIndentedString(spotStrategy)).append("\n");
+    sb.append("    volumeType: ").append(toIndentedString(volumeType)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");
     return sb.toString();

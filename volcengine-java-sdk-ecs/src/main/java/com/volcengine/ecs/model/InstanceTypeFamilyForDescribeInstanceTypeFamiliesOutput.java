@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class InstanceTypeFamilyForDescribeInstanceTypeFamiliesOutput {
   @SerializedName("Generation")
   private String generation = null;

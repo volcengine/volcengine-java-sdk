@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DeleteInvocationRequest {
   @SerializedName("InvocationId")
   private String invocationId = null;

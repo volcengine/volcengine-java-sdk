@@ -31,7 +31,11 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribePrefixListsRequest {
+  @SerializedName("IpVersion")
+  private String ipVersion = null;
+
   @SerializedName("MaxResults")
   private Integer maxResults = null;
 
@@ -50,8 +54,29 @@ public class DescribePrefixListsRequest {
   @SerializedName("PrefixListName")
   private String prefixListName = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("TagFilters")
   private List<TagFilterForDescribePrefixListsInput> tagFilters = null;
+
+  public DescribePrefixListsRequest ipVersion(String ipVersion) {
+    this.ipVersion = ipVersion;
+    return this;
+  }
+
+   /**
+   * Get ipVersion
+   * @return ipVersion
+  **/
+  @Schema(description = "")
+  public String getIpVersion() {
+    return ipVersion;
+  }
+
+  public void setIpVersion(String ipVersion) {
+    this.ipVersion = ipVersion;
+  }
 
   public DescribePrefixListsRequest maxResults(Integer maxResults) {
     this.maxResults = maxResults;
@@ -171,6 +196,24 @@ public class DescribePrefixListsRequest {
     this.prefixListName = prefixListName;
   }
 
+  public DescribePrefixListsRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public DescribePrefixListsRequest tagFilters(List<TagFilterForDescribePrefixListsInput> tagFilters) {
     this.tagFilters = tagFilters;
     return this;
@@ -208,18 +251,20 @@ public class DescribePrefixListsRequest {
       return false;
     }
     DescribePrefixListsRequest describePrefixListsRequest = (DescribePrefixListsRequest) o;
-    return Objects.equals(this.maxResults, describePrefixListsRequest.maxResults) &&
+    return Objects.equals(this.ipVersion, describePrefixListsRequest.ipVersion) &&
+        Objects.equals(this.maxResults, describePrefixListsRequest.maxResults) &&
         Objects.equals(this.nextToken, describePrefixListsRequest.nextToken) &&
         Objects.equals(this.pageNumber, describePrefixListsRequest.pageNumber) &&
         Objects.equals(this.pageSize, describePrefixListsRequest.pageSize) &&
         Objects.equals(this.prefixListIds, describePrefixListsRequest.prefixListIds) &&
         Objects.equals(this.prefixListName, describePrefixListsRequest.prefixListName) &&
+        Objects.equals(this.projectName, describePrefixListsRequest.projectName) &&
         Objects.equals(this.tagFilters, describePrefixListsRequest.tagFilters);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(maxResults, nextToken, pageNumber, pageSize, prefixListIds, prefixListName, tagFilters);
+    return Objects.hash(ipVersion, maxResults, nextToken, pageNumber, pageSize, prefixListIds, prefixListName, projectName, tagFilters);
   }
 
 
@@ -228,12 +273,14 @@ public class DescribePrefixListsRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribePrefixListsRequest {\n");
     
+    sb.append("    ipVersion: ").append(toIndentedString(ipVersion)).append("\n");
     sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
     sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    prefixListIds: ").append(toIndentedString(prefixListIds)).append("\n");
     sb.append("    prefixListName: ").append(toIndentedString(prefixListName)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("}");
     return sb.toString();
