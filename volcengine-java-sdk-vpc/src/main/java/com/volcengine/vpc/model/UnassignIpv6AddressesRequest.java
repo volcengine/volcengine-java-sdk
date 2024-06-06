@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class UnassignIpv6AddressesRequest {
   @SerializedName("Ipv6Address")
   private List<String> ipv6Address = null;

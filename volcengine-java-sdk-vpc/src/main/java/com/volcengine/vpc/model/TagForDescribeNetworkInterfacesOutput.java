@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class TagForDescribeNetworkInterfacesOutput {
   @SerializedName("Key")
   private String key = null;

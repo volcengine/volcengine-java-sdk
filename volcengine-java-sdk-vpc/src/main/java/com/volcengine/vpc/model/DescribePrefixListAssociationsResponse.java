@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribePrefixListAssociationsResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("NextToken")
   private String nextToken = null;

@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DisassociateHaVipRequest {
   @SerializedName("ClientToken")
   private String clientToken = null;
@@ -43,7 +44,9 @@ public class DisassociateHaVipRequest {
    */
   @JsonAdapter(InstanceTypeEnum.Adapter.class)
   public enum InstanceTypeEnum {
+    @SerializedName("NetworkInterface")
     NETWORKINTERFACE("NetworkInterface"),
+    @SerializedName("EcsInstance")
     ECSINSTANCE("EcsInstance");
 
     private String value;

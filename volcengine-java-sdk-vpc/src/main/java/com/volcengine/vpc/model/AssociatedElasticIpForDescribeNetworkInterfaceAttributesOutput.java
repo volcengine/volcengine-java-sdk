@@ -28,12 +28,16 @@ import javax.validation.Valid;
  */
 
 
+
 public class AssociatedElasticIpForDescribeNetworkInterfaceAttributesOutput {
   @SerializedName("AllocationId")
   private String allocationId = null;
 
   @SerializedName("EipAddress")
   private String eipAddress = null;
+
+  @SerializedName("ReleaseWithInstance")
+  private Boolean releaseWithInstance = null;
 
   public AssociatedElasticIpForDescribeNetworkInterfaceAttributesOutput allocationId(String allocationId) {
     this.allocationId = allocationId;
@@ -71,6 +75,24 @@ public class AssociatedElasticIpForDescribeNetworkInterfaceAttributesOutput {
     this.eipAddress = eipAddress;
   }
 
+  public AssociatedElasticIpForDescribeNetworkInterfaceAttributesOutput releaseWithInstance(Boolean releaseWithInstance) {
+    this.releaseWithInstance = releaseWithInstance;
+    return this;
+  }
+
+   /**
+   * Get releaseWithInstance
+   * @return releaseWithInstance
+  **/
+  @Schema(description = "")
+  public Boolean isReleaseWithInstance() {
+    return releaseWithInstance;
+  }
+
+  public void setReleaseWithInstance(Boolean releaseWithInstance) {
+    this.releaseWithInstance = releaseWithInstance;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -82,12 +104,13 @@ public class AssociatedElasticIpForDescribeNetworkInterfaceAttributesOutput {
     }
     AssociatedElasticIpForDescribeNetworkInterfaceAttributesOutput associatedElasticIpForDescribeNetworkInterfaceAttributesOutput = (AssociatedElasticIpForDescribeNetworkInterfaceAttributesOutput) o;
     return Objects.equals(this.allocationId, associatedElasticIpForDescribeNetworkInterfaceAttributesOutput.allocationId) &&
-        Objects.equals(this.eipAddress, associatedElasticIpForDescribeNetworkInterfaceAttributesOutput.eipAddress);
+        Objects.equals(this.eipAddress, associatedElasticIpForDescribeNetworkInterfaceAttributesOutput.eipAddress) &&
+        Objects.equals(this.releaseWithInstance, associatedElasticIpForDescribeNetworkInterfaceAttributesOutput.releaseWithInstance);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allocationId, eipAddress);
+    return Objects.hash(allocationId, eipAddress, releaseWithInstance);
   }
 
 
@@ -98,6 +121,7 @@ public class AssociatedElasticIpForDescribeNetworkInterfaceAttributesOutput {
     
     sb.append("    allocationId: ").append(toIndentedString(allocationId)).append("\n");
     sb.append("    eipAddress: ").append(toIndentedString(eipAddress)).append("\n");
+    sb.append("    releaseWithInstance: ").append(toIndentedString(releaseWithInstance)).append("\n");
     sb.append("}");
     return sb.toString();
   }

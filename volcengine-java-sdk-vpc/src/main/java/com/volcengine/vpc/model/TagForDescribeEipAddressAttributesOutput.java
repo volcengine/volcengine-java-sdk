@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class TagForDescribeEipAddressAttributesOutput {
   @SerializedName("Key")
   private String key = null;

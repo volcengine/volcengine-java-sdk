@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateHaVipResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("HaVipId")
   private String haVipId = null;

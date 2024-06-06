@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribePrefixListEntriesRequest {
   @SerializedName("MaxResults")
   private Integer maxResults = null;

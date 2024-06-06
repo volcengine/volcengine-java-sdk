@@ -32,6 +32,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreatePrefixListRequest {
   @SerializedName("ClientToken")
   private String clientToken = null;
@@ -47,7 +48,9 @@ public class CreatePrefixListRequest {
    */
   @JsonAdapter(IpVersionEnum.Adapter.class)
   public enum IpVersionEnum {
+    @SerializedName("IPv4")
     IPV4("IPv4"),
+    @SerializedName("IPv6")
     IPV6("IPv6");
 
     private String value;
@@ -94,6 +97,9 @@ public class CreatePrefixListRequest {
 
   @SerializedName("PrefixListName")
   private String prefixListName = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
 
   @SerializedName("Tags")
   private List<TagForCreatePrefixListInput> tags = null;
@@ -234,6 +240,24 @@ public class CreatePrefixListRequest {
     this.prefixListName = prefixListName;
   }
 
+  public CreatePrefixListRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public CreatePrefixListRequest tags(List<TagForCreatePrefixListInput> tags) {
     this.tags = tags;
     return this;
@@ -278,12 +302,13 @@ public class CreatePrefixListRequest {
         Objects.equals(this.maxEntries, createPrefixListRequest.maxEntries) &&
         Objects.equals(this.prefixListEntries, createPrefixListRequest.prefixListEntries) &&
         Objects.equals(this.prefixListName, createPrefixListRequest.prefixListName) &&
+        Objects.equals(this.projectName, createPrefixListRequest.projectName) &&
         Objects.equals(this.tags, createPrefixListRequest.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, description, dryRun, ipVersion, maxEntries, prefixListEntries, prefixListName, tags);
+    return Objects.hash(clientToken, description, dryRun, ipVersion, maxEntries, prefixListEntries, prefixListName, projectName, tags);
   }
 
 
@@ -299,6 +324,7 @@ public class CreatePrefixListRequest {
     sb.append("    maxEntries: ").append(toIndentedString(maxEntries)).append("\n");
     sb.append("    prefixListEntries: ").append(toIndentedString(prefixListEntries)).append("\n");
     sb.append("    prefixListName: ").append(toIndentedString(prefixListName)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
