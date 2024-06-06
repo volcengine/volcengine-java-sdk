@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DedicatedHostTypeForDescribeDedicatedHostTypesOutput {
   @SerializedName("Cores")
   private Integer cores = null;

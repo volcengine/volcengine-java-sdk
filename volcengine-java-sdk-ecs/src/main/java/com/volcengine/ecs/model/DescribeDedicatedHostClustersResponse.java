@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeDedicatedHostClustersResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("DedicatedHostClusters")
   private List<DedicatedHostClusterForDescribeDedicatedHostClustersOutput> dedicatedHostClusters = null;

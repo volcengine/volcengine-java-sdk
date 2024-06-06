@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DedicatedHostClusterCapacityForDescribeDedicatedHostClustersOutput {
   @SerializedName("AvailableInstanceTypes")
   private List<AvailableInstanceTypeForDescribeDedicatedHostClustersOutput> availableInstanceTypes = null;

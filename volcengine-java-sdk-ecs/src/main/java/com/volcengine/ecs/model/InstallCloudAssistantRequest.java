@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class InstallCloudAssistantRequest {
   @SerializedName("InstanceIds")
   private List<String> instanceIds = null;

@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class RebootInstancesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("OperationDetails")
   private List<OperationDetailForRebootInstancesOutput> operationDetails = null;

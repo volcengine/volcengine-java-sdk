@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateKeyPairRequest {
   @SerializedName("ClientToken")
   private String clientToken = null;

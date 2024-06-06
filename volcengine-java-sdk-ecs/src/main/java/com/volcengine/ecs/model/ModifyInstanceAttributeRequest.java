@@ -28,12 +28,16 @@ import javax.validation.Valid;
  */
 
 
+
 public class ModifyInstanceAttributeRequest {
   @SerializedName("ClientToken")
   private String clientToken = null;
 
   @SerializedName("Description")
   private String description = null;
+
+  @SerializedName("Hostname")
+  private String hostname = null;
 
   @SerializedName("InstanceId")
   private String instanceId = null;
@@ -81,6 +85,24 @@ public class ModifyInstanceAttributeRequest {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public ModifyInstanceAttributeRequest hostname(String hostname) {
+    this.hostname = hostname;
+    return this;
+  }
+
+   /**
+   * Get hostname
+   * @return hostname
+  **/
+  @Schema(description = "")
+  public String getHostname() {
+    return hostname;
+  }
+
+  public void setHostname(String hostname) {
+    this.hostname = hostname;
   }
 
   public ModifyInstanceAttributeRequest instanceId(String instanceId) {
@@ -168,6 +190,7 @@ public class ModifyInstanceAttributeRequest {
     ModifyInstanceAttributeRequest modifyInstanceAttributeRequest = (ModifyInstanceAttributeRequest) o;
     return Objects.equals(this.clientToken, modifyInstanceAttributeRequest.clientToken) &&
         Objects.equals(this.description, modifyInstanceAttributeRequest.description) &&
+        Objects.equals(this.hostname, modifyInstanceAttributeRequest.hostname) &&
         Objects.equals(this.instanceId, modifyInstanceAttributeRequest.instanceId) &&
         Objects.equals(this.instanceName, modifyInstanceAttributeRequest.instanceName) &&
         Objects.equals(this.password, modifyInstanceAttributeRequest.password) &&
@@ -176,7 +199,7 @@ public class ModifyInstanceAttributeRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, description, instanceId, instanceName, password, userData);
+    return Objects.hash(clientToken, description, hostname, instanceId, instanceName, password, userData);
   }
 
 
@@ -187,6 +210,7 @@ public class ModifyInstanceAttributeRequest {
     
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    hostname: ").append(toIndentedString(hostname)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");

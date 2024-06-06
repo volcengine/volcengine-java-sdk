@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class RenewDedicatedHostRequest {
   @SerializedName("ClientToken")
   private String clientToken = null;

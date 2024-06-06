@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ModifyInstancePlacementRequest {
   @SerializedName("Affinity")
   private String affinity = null;
@@ -38,8 +39,20 @@ public class ModifyInstancePlacementRequest {
   @SerializedName("DedicatedHostId")
   private String dedicatedHostId = null;
 
+  @SerializedName("DryRun")
+  private Boolean dryRun = null;
+
   @SerializedName("InstanceId")
   private String instanceId = null;
+
+  @SerializedName("InstanceTypeId")
+  private String instanceTypeId = null;
+
+  @SerializedName("MigrationType")
+  private String migrationType = null;
+
+  @SerializedName("Tenancy")
+  private String tenancy = null;
 
   public ModifyInstancePlacementRequest affinity(String affinity) {
     this.affinity = affinity;
@@ -95,6 +108,24 @@ public class ModifyInstancePlacementRequest {
     this.dedicatedHostId = dedicatedHostId;
   }
 
+  public ModifyInstancePlacementRequest dryRun(Boolean dryRun) {
+    this.dryRun = dryRun;
+    return this;
+  }
+
+   /**
+   * Get dryRun
+   * @return dryRun
+  **/
+  @Schema(description = "")
+  public Boolean isDryRun() {
+    return dryRun;
+  }
+
+  public void setDryRun(Boolean dryRun) {
+    this.dryRun = dryRun;
+  }
+
   public ModifyInstancePlacementRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
     return this;
@@ -114,6 +145,60 @@ public class ModifyInstancePlacementRequest {
     this.instanceId = instanceId;
   }
 
+  public ModifyInstancePlacementRequest instanceTypeId(String instanceTypeId) {
+    this.instanceTypeId = instanceTypeId;
+    return this;
+  }
+
+   /**
+   * Get instanceTypeId
+   * @return instanceTypeId
+  **/
+  @Schema(description = "")
+  public String getInstanceTypeId() {
+    return instanceTypeId;
+  }
+
+  public void setInstanceTypeId(String instanceTypeId) {
+    this.instanceTypeId = instanceTypeId;
+  }
+
+  public ModifyInstancePlacementRequest migrationType(String migrationType) {
+    this.migrationType = migrationType;
+    return this;
+  }
+
+   /**
+   * Get migrationType
+   * @return migrationType
+  **/
+  @Schema(description = "")
+  public String getMigrationType() {
+    return migrationType;
+  }
+
+  public void setMigrationType(String migrationType) {
+    this.migrationType = migrationType;
+  }
+
+  public ModifyInstancePlacementRequest tenancy(String tenancy) {
+    this.tenancy = tenancy;
+    return this;
+  }
+
+   /**
+   * Get tenancy
+   * @return tenancy
+  **/
+  @Schema(description = "")
+  public String getTenancy() {
+    return tenancy;
+  }
+
+  public void setTenancy(String tenancy) {
+    this.tenancy = tenancy;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -127,12 +212,16 @@ public class ModifyInstancePlacementRequest {
     return Objects.equals(this.affinity, modifyInstancePlacementRequest.affinity) &&
         Objects.equals(this.clientToken, modifyInstancePlacementRequest.clientToken) &&
         Objects.equals(this.dedicatedHostId, modifyInstancePlacementRequest.dedicatedHostId) &&
-        Objects.equals(this.instanceId, modifyInstancePlacementRequest.instanceId);
+        Objects.equals(this.dryRun, modifyInstancePlacementRequest.dryRun) &&
+        Objects.equals(this.instanceId, modifyInstancePlacementRequest.instanceId) &&
+        Objects.equals(this.instanceTypeId, modifyInstancePlacementRequest.instanceTypeId) &&
+        Objects.equals(this.migrationType, modifyInstancePlacementRequest.migrationType) &&
+        Objects.equals(this.tenancy, modifyInstancePlacementRequest.tenancy);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(affinity, clientToken, dedicatedHostId, instanceId);
+    return Objects.hash(affinity, clientToken, dedicatedHostId, dryRun, instanceId, instanceTypeId, migrationType, tenancy);
   }
 
 
@@ -144,7 +233,11 @@ public class ModifyInstancePlacementRequest {
     sb.append("    affinity: ").append(toIndentedString(affinity)).append("\n");
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    dedicatedHostId: ").append(toIndentedString(dedicatedHostId)).append("\n");
+    sb.append("    dryRun: ").append(toIndentedString(dryRun)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    instanceTypeId: ").append(toIndentedString(instanceTypeId)).append("\n");
+    sb.append("    migrationType: ").append(toIndentedString(migrationType)).append("\n");
+    sb.append("    tenancy: ").append(toIndentedString(tenancy)).append("\n");
     sb.append("}");
     return sb.toString();
   }

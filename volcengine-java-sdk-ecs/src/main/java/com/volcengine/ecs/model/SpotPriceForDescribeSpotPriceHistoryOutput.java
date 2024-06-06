@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class SpotPriceForDescribeSpotPriceHistoryOutput {
   @SerializedName("InstanceTypeId")
   private String instanceTypeId = null;

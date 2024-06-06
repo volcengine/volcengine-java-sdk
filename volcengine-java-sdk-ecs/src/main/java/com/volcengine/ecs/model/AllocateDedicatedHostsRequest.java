@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class AllocateDedicatedHostsRequest {
   @SerializedName("AutoPlacement")
   private String autoPlacement = null;
@@ -50,6 +51,9 @@ public class AllocateDedicatedHostsRequest {
   @SerializedName("CpuOvercommitRatio")
   private Double cpuOvercommitRatio = null;
 
+  @SerializedName("DedicatedHostClusterId")
+  private String dedicatedHostClusterId = null;
+
   @SerializedName("DedicatedHostName")
   private String dedicatedHostName = null;
 
@@ -61,6 +65,9 @@ public class AllocateDedicatedHostsRequest {
 
   @SerializedName("Description")
   private String description = null;
+
+  @SerializedName("DryRun")
+  private Boolean dryRun = null;
 
   @SerializedName("Period")
   private Integer period = null;
@@ -197,6 +204,24 @@ public class AllocateDedicatedHostsRequest {
     this.cpuOvercommitRatio = cpuOvercommitRatio;
   }
 
+  public AllocateDedicatedHostsRequest dedicatedHostClusterId(String dedicatedHostClusterId) {
+    this.dedicatedHostClusterId = dedicatedHostClusterId;
+    return this;
+  }
+
+   /**
+   * Get dedicatedHostClusterId
+   * @return dedicatedHostClusterId
+  **/
+  @Schema(description = "")
+  public String getDedicatedHostClusterId() {
+    return dedicatedHostClusterId;
+  }
+
+  public void setDedicatedHostClusterId(String dedicatedHostClusterId) {
+    this.dedicatedHostClusterId = dedicatedHostClusterId;
+  }
+
   public AllocateDedicatedHostsRequest dedicatedHostName(String dedicatedHostName) {
     this.dedicatedHostName = dedicatedHostName;
     return this;
@@ -271,6 +296,24 @@ public class AllocateDedicatedHostsRequest {
     this.description = description;
   }
 
+  public AllocateDedicatedHostsRequest dryRun(Boolean dryRun) {
+    this.dryRun = dryRun;
+    return this;
+  }
+
+   /**
+   * Get dryRun
+   * @return dryRun
+  **/
+  @Schema(description = "")
+  public Boolean isDryRun() {
+    return dryRun;
+  }
+
+  public void setDryRun(Boolean dryRun) {
+    this.dryRun = dryRun;
+  }
+
   public AllocateDedicatedHostsRequest period(Integer period) {
     this.period = period;
     return this;
@@ -343,10 +386,12 @@ public class AllocateDedicatedHostsRequest {
         Objects.equals(this.clientToken, allocateDedicatedHostsRequest.clientToken) &&
         Objects.equals(this.count, allocateDedicatedHostsRequest.count) &&
         Objects.equals(this.cpuOvercommitRatio, allocateDedicatedHostsRequest.cpuOvercommitRatio) &&
+        Objects.equals(this.dedicatedHostClusterId, allocateDedicatedHostsRequest.dedicatedHostClusterId) &&
         Objects.equals(this.dedicatedHostName, allocateDedicatedHostsRequest.dedicatedHostName) &&
         Objects.equals(this.dedicatedHostRecovery, allocateDedicatedHostsRequest.dedicatedHostRecovery) &&
         Objects.equals(this.dedicatedHostTypeId, allocateDedicatedHostsRequest.dedicatedHostTypeId) &&
         Objects.equals(this.description, allocateDedicatedHostsRequest.description) &&
+        Objects.equals(this.dryRun, allocateDedicatedHostsRequest.dryRun) &&
         Objects.equals(this.period, allocateDedicatedHostsRequest.period) &&
         Objects.equals(this.periodUnit, allocateDedicatedHostsRequest.periodUnit) &&
         Objects.equals(this.zoneId, allocateDedicatedHostsRequest.zoneId);
@@ -354,7 +399,7 @@ public class AllocateDedicatedHostsRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoPlacement, autoRenew, autoRenewPeriod, chargeType, clientToken, count, cpuOvercommitRatio, dedicatedHostName, dedicatedHostRecovery, dedicatedHostTypeId, description, period, periodUnit, zoneId);
+    return Objects.hash(autoPlacement, autoRenew, autoRenewPeriod, chargeType, clientToken, count, cpuOvercommitRatio, dedicatedHostClusterId, dedicatedHostName, dedicatedHostRecovery, dedicatedHostTypeId, description, dryRun, period, periodUnit, zoneId);
   }
 
 
@@ -370,10 +415,12 @@ public class AllocateDedicatedHostsRequest {
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    count: ").append(toIndentedString(count)).append("\n");
     sb.append("    cpuOvercommitRatio: ").append(toIndentedString(cpuOvercommitRatio)).append("\n");
+    sb.append("    dedicatedHostClusterId: ").append(toIndentedString(dedicatedHostClusterId)).append("\n");
     sb.append("    dedicatedHostName: ").append(toIndentedString(dedicatedHostName)).append("\n");
     sb.append("    dedicatedHostRecovery: ").append(toIndentedString(dedicatedHostRecovery)).append("\n");
     sb.append("    dedicatedHostTypeId: ").append(toIndentedString(dedicatedHostTypeId)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    dryRun: ").append(toIndentedString(dryRun)).append("\n");
     sb.append("    period: ").append(toIndentedString(period)).append("\n");
     sb.append("    periodUnit: ").append(toIndentedString(periodUnit)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");

@@ -32,6 +32,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DedicatedHostForDescribeDedicatedHostsOutput {
   @SerializedName("AutoPlacement")
   private String autoPlacement = null;

@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateDedicatedHostClusterResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("DedicatedHostClusterId")
   private String dedicatedHostClusterId = null;

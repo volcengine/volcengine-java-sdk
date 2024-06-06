@@ -31,12 +31,16 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeInstancesRequest {
   @SerializedName("DedicatedHostClusterId")
   private String dedicatedHostClusterId = null;
 
   @SerializedName("DedicatedHostId")
   private String dedicatedHostId = null;
+
+  @SerializedName("DeploymentSetGroupNumbers")
+  private List<Integer> deploymentSetGroupNumbers = null;
 
   @SerializedName("DeploymentSetIds")
   private List<String> deploymentSetIds = null;
@@ -79,6 +83,9 @@ public class DescribeInstancesRequest {
 
   @SerializedName("ProjectName")
   private String projectName = null;
+
+  @SerializedName("ScheduledInstanceId")
+  private String scheduledInstanceId = null;
 
   @SerializedName("Status")
   private String status = null;
@@ -126,6 +133,32 @@ public class DescribeInstancesRequest {
 
   public void setDedicatedHostId(String dedicatedHostId) {
     this.dedicatedHostId = dedicatedHostId;
+  }
+
+  public DescribeInstancesRequest deploymentSetGroupNumbers(List<Integer> deploymentSetGroupNumbers) {
+    this.deploymentSetGroupNumbers = deploymentSetGroupNumbers;
+    return this;
+  }
+
+  public DescribeInstancesRequest addDeploymentSetGroupNumbersItem(Integer deploymentSetGroupNumbersItem) {
+    if (this.deploymentSetGroupNumbers == null) {
+      this.deploymentSetGroupNumbers = new ArrayList<Integer>();
+    }
+    this.deploymentSetGroupNumbers.add(deploymentSetGroupNumbersItem);
+    return this;
+  }
+
+   /**
+   * Get deploymentSetGroupNumbers
+   * @return deploymentSetGroupNumbers
+  **/
+  @Schema(description = "")
+  public List<Integer> getDeploymentSetGroupNumbers() {
+    return deploymentSetGroupNumbers;
+  }
+
+  public void setDeploymentSetGroupNumbers(List<Integer> deploymentSetGroupNumbers) {
+    this.deploymentSetGroupNumbers = deploymentSetGroupNumbers;
   }
 
   public DescribeInstancesRequest deploymentSetIds(List<String> deploymentSetIds) {
@@ -428,6 +461,24 @@ public class DescribeInstancesRequest {
     this.projectName = projectName;
   }
 
+  public DescribeInstancesRequest scheduledInstanceId(String scheduledInstanceId) {
+    this.scheduledInstanceId = scheduledInstanceId;
+    return this;
+  }
+
+   /**
+   * Get scheduledInstanceId
+   * @return scheduledInstanceId
+  **/
+  @Schema(description = "")
+  public String getScheduledInstanceId() {
+    return scheduledInstanceId;
+  }
+
+  public void setScheduledInstanceId(String scheduledInstanceId) {
+    this.scheduledInstanceId = scheduledInstanceId;
+  }
+
   public DescribeInstancesRequest status(String status) {
     this.status = status;
     return this;
@@ -521,6 +572,7 @@ public class DescribeInstancesRequest {
     DescribeInstancesRequest describeInstancesRequest = (DescribeInstancesRequest) o;
     return Objects.equals(this.dedicatedHostClusterId, describeInstancesRequest.dedicatedHostClusterId) &&
         Objects.equals(this.dedicatedHostId, describeInstancesRequest.dedicatedHostId) &&
+        Objects.equals(this.deploymentSetGroupNumbers, describeInstancesRequest.deploymentSetGroupNumbers) &&
         Objects.equals(this.deploymentSetIds, describeInstancesRequest.deploymentSetIds) &&
         Objects.equals(this.eipAddresses, describeInstancesRequest.eipAddresses) &&
         Objects.equals(this.hpcClusterId, describeInstancesRequest.hpcClusterId) &&
@@ -535,6 +587,7 @@ public class DescribeInstancesRequest {
         Objects.equals(this.nextToken, describeInstancesRequest.nextToken) &&
         Objects.equals(this.primaryIpAddress, describeInstancesRequest.primaryIpAddress) &&
         Objects.equals(this.projectName, describeInstancesRequest.projectName) &&
+        Objects.equals(this.scheduledInstanceId, describeInstancesRequest.scheduledInstanceId) &&
         Objects.equals(this.status, describeInstancesRequest.status) &&
         Objects.equals(this.tagFilters, describeInstancesRequest.tagFilters) &&
         Objects.equals(this.vpcId, describeInstancesRequest.vpcId) &&
@@ -543,7 +596,7 @@ public class DescribeInstancesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dedicatedHostClusterId, dedicatedHostId, deploymentSetIds, eipAddresses, hpcClusterId, instanceChargeType, instanceIds, instanceName, instanceTypeFamilies, instanceTypeIds, instanceTypes, keyPairName, maxResults, nextToken, primaryIpAddress, projectName, status, tagFilters, vpcId, zoneId);
+    return Objects.hash(dedicatedHostClusterId, dedicatedHostId, deploymentSetGroupNumbers, deploymentSetIds, eipAddresses, hpcClusterId, instanceChargeType, instanceIds, instanceName, instanceTypeFamilies, instanceTypeIds, instanceTypes, keyPairName, maxResults, nextToken, primaryIpAddress, projectName, scheduledInstanceId, status, tagFilters, vpcId, zoneId);
   }
 
 
@@ -554,6 +607,7 @@ public class DescribeInstancesRequest {
     
     sb.append("    dedicatedHostClusterId: ").append(toIndentedString(dedicatedHostClusterId)).append("\n");
     sb.append("    dedicatedHostId: ").append(toIndentedString(dedicatedHostId)).append("\n");
+    sb.append("    deploymentSetGroupNumbers: ").append(toIndentedString(deploymentSetGroupNumbers)).append("\n");
     sb.append("    deploymentSetIds: ").append(toIndentedString(deploymentSetIds)).append("\n");
     sb.append("    eipAddresses: ").append(toIndentedString(eipAddresses)).append("\n");
     sb.append("    hpcClusterId: ").append(toIndentedString(hpcClusterId)).append("\n");
@@ -568,6 +622,7 @@ public class DescribeInstancesRequest {
     sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
     sb.append("    primaryIpAddress: ").append(toIndentedString(primaryIpAddress)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    scheduledInstanceId: ").append(toIndentedString(scheduledInstanceId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");

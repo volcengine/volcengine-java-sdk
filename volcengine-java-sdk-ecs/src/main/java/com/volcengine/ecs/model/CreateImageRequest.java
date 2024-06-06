@@ -31,7 +31,11 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateImageRequest {
+  @SerializedName("CreateWholeImage")
+  private Boolean createWholeImage = null;
+
   @SerializedName("Description")
   private String description = null;
 
@@ -55,6 +59,24 @@ public class CreateImageRequest {
 
   @SerializedName("Tags")
   private List<TagForCreateImageInput> tags = null;
+
+  public CreateImageRequest createWholeImage(Boolean createWholeImage) {
+    this.createWholeImage = createWholeImage;
+    return this;
+  }
+
+   /**
+   * Get createWholeImage
+   * @return createWholeImage
+  **/
+  @Schema(description = "")
+  public Boolean isCreateWholeImage() {
+    return createWholeImage;
+  }
+
+  public void setCreateWholeImage(Boolean createWholeImage) {
+    this.createWholeImage = createWholeImage;
+  }
 
   public CreateImageRequest description(String description) {
     this.description = description;
@@ -220,7 +242,8 @@ public class CreateImageRequest {
       return false;
     }
     CreateImageRequest createImageRequest = (CreateImageRequest) o;
-    return Objects.equals(this.description, createImageRequest.description) &&
+    return Objects.equals(this.createWholeImage, createImageRequest.createWholeImage) &&
+        Objects.equals(this.description, createImageRequest.description) &&
         Objects.equals(this.imageName, createImageRequest.imageName) &&
         Objects.equals(this.instanceId, createImageRequest.instanceId) &&
         Objects.equals(this.needDetection, createImageRequest.needDetection) &&
@@ -232,7 +255,7 @@ public class CreateImageRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, imageName, instanceId, needDetection, projectName, snapshotGroupId, snapshotId, tags);
+    return Objects.hash(createWholeImage, description, imageName, instanceId, needDetection, projectName, snapshotGroupId, snapshotId, tags);
   }
 
 
@@ -241,6 +264,7 @@ public class CreateImageRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateImageRequest {\n");
     
+    sb.append("    createWholeImage: ").append(toIndentedString(createWholeImage)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    imageName: ").append(toIndentedString(imageName)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");

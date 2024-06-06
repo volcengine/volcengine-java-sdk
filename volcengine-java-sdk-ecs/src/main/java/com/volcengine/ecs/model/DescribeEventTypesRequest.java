@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeEventTypesRequest {
   @SerializedName("Kind")
   private String kind = null;

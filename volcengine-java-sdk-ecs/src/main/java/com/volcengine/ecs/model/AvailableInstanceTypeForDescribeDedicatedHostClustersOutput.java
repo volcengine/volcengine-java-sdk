@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class AvailableInstanceTypeForDescribeDedicatedHostClustersOutput {
   @SerializedName("AvailableCapacity")
   private Integer availableCapacity = null;

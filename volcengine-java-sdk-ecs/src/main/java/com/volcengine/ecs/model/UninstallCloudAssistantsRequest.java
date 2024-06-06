@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class UninstallCloudAssistantsRequest {
   @SerializedName("InstanceIds")
   private List<String> instanceIds = null;

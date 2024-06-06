@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class SupportedResourceForDescribeAvailableResourceOutput {
   @SerializedName("Status")
   private String status = null;

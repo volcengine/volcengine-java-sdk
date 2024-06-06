@@ -27,18 +27,19 @@ import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DetectionResultForDescribeImagesOutput
+ * DetectionResultsForDescribeImagesOutput
  */
 
 
-public class DetectionResultForDescribeImagesOutput {
+
+public class DetectionResultsForDescribeImagesOutput {
   @SerializedName("DetectionStatus")
   private String detectionStatus = null;
 
   @SerializedName("Items")
   private List<ItemForDescribeImagesOutput> items = null;
 
-  public DetectionResultForDescribeImagesOutput detectionStatus(String detectionStatus) {
+  public DetectionResultsForDescribeImagesOutput detectionStatus(String detectionStatus) {
     this.detectionStatus = detectionStatus;
     return this;
   }
@@ -56,12 +57,12 @@ public class DetectionResultForDescribeImagesOutput {
     this.detectionStatus = detectionStatus;
   }
 
-  public DetectionResultForDescribeImagesOutput items(List<ItemForDescribeImagesOutput> items) {
+  public DetectionResultsForDescribeImagesOutput items(List<ItemForDescribeImagesOutput> items) {
     this.items = items;
     return this;
   }
 
-  public DetectionResultForDescribeImagesOutput addItemsItem(ItemForDescribeImagesOutput itemsItem) {
+  public DetectionResultsForDescribeImagesOutput addItemsItem(ItemForDescribeImagesOutput itemsItem) {
     if (this.items == null) {
       this.items = new ArrayList<ItemForDescribeImagesOutput>();
     }
@@ -92,9 +93,9 @@ public class DetectionResultForDescribeImagesOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DetectionResultForDescribeImagesOutput detectionResultForDescribeImagesOutput = (DetectionResultForDescribeImagesOutput) o;
-    return Objects.equals(this.detectionStatus, detectionResultForDescribeImagesOutput.detectionStatus) &&
-        Objects.equals(this.items, detectionResultForDescribeImagesOutput.items);
+    DetectionResultsForDescribeImagesOutput detectionResultsForDescribeImagesOutput = (DetectionResultsForDescribeImagesOutput) o;
+    return Objects.equals(this.detectionStatus, detectionResultsForDescribeImagesOutput.detectionStatus) &&
+        Objects.equals(this.items, detectionResultsForDescribeImagesOutput.items);
   }
 
   @Override
@@ -106,7 +107,7 @@ public class DetectionResultForDescribeImagesOutput {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DetectionResultForDescribeImagesOutput {\n");
+    sb.append("class DetectionResultsForDescribeImagesOutput {\n");
     
     sb.append("    detectionStatus: ").append(toIndentedString(detectionStatus)).append("\n");
     sb.append("    items: ").append(toIndentedString(items)).append("\n");

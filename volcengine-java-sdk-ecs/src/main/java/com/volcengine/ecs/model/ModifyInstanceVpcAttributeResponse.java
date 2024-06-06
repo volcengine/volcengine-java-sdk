@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ModifyInstanceVpcAttributeResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("NetworkInterfaceId")
   private String networkInterfaceId = null;

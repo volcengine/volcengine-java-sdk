@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ModifyInstanceSpecRequest {
   @SerializedName("ClientToken")
   private String clientToken = null;

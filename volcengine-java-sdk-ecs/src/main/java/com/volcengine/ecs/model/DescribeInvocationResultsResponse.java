@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeInvocationResultsResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("InvocationResults")
   private List<InvocationResultForDescribeInvocationResultsOutput> invocationResults = null;

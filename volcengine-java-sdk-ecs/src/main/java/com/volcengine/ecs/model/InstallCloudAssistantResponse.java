@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class InstallCloudAssistantResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("FailedInstances")
   private List<FailedInstanceForInstallCloudAssistantOutput> failedInstances = null;

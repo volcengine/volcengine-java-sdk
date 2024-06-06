@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeInstanceTypesRequest {
   @SerializedName("InstanceTypeIds")
   private List<String> instanceTypeIds = null;

@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeSpotPriceHistoryRequest {
   @SerializedName("InstanceTypeId")
   private String instanceTypeId = null;

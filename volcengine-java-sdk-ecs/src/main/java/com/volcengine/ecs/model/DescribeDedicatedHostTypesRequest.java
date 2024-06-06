@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeDedicatedHostTypesRequest {
   @SerializedName("DedicatedHostTypeIds")
   private List<String> dedicatedHostTypeIds = null;

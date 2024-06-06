@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ModifyCommandResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("CommandId")
   private String commandId = null;

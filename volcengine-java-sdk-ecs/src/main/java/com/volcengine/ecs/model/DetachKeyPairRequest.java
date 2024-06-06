@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DetachKeyPairRequest {
   @SerializedName("ClientToken")
   private String clientToken = null;

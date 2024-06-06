@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeSubscriptionsRequest {
   @SerializedName("MaxResults")
   private String maxResults = null;

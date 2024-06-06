@@ -21,11 +21,14 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
  * EipAddressForRunInstancesInput
  */
+
 
 
 public class EipAddressForRunInstancesInput {
@@ -43,6 +46,12 @@ public class EipAddressForRunInstancesInput {
 
   @SerializedName("ReleaseWithInstance")
   private Boolean releaseWithInstance = null;
+
+  @SerializedName("SecurityProtectionInstanceId")
+  private Integer securityProtectionInstanceId = null;
+
+  @SerializedName("SecurityProtectionTypes")
+  private List<String> securityProtectionTypes = null;
 
   public EipAddressForRunInstancesInput bandwidthMbps(Integer bandwidthMbps) {
     this.bandwidthMbps = bandwidthMbps;
@@ -134,6 +143,50 @@ public class EipAddressForRunInstancesInput {
     this.releaseWithInstance = releaseWithInstance;
   }
 
+  public EipAddressForRunInstancesInput securityProtectionInstanceId(Integer securityProtectionInstanceId) {
+    this.securityProtectionInstanceId = securityProtectionInstanceId;
+    return this;
+  }
+
+   /**
+   * Get securityProtectionInstanceId
+   * @return securityProtectionInstanceId
+  **/
+  @Schema(description = "")
+  public Integer getSecurityProtectionInstanceId() {
+    return securityProtectionInstanceId;
+  }
+
+  public void setSecurityProtectionInstanceId(Integer securityProtectionInstanceId) {
+    this.securityProtectionInstanceId = securityProtectionInstanceId;
+  }
+
+  public EipAddressForRunInstancesInput securityProtectionTypes(List<String> securityProtectionTypes) {
+    this.securityProtectionTypes = securityProtectionTypes;
+    return this;
+  }
+
+  public EipAddressForRunInstancesInput addSecurityProtectionTypesItem(String securityProtectionTypesItem) {
+    if (this.securityProtectionTypes == null) {
+      this.securityProtectionTypes = new ArrayList<String>();
+    }
+    this.securityProtectionTypes.add(securityProtectionTypesItem);
+    return this;
+  }
+
+   /**
+   * Get securityProtectionTypes
+   * @return securityProtectionTypes
+  **/
+  @Schema(description = "")
+  public List<String> getSecurityProtectionTypes() {
+    return securityProtectionTypes;
+  }
+
+  public void setSecurityProtectionTypes(List<String> securityProtectionTypes) {
+    this.securityProtectionTypes = securityProtectionTypes;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -148,12 +201,14 @@ public class EipAddressForRunInstancesInput {
         Objects.equals(this.bandwidthPackageId, eipAddressForRunInstancesInput.bandwidthPackageId) &&
         Objects.equals(this.chargeType, eipAddressForRunInstancesInput.chargeType) &&
         Objects.equals(this.ISP, eipAddressForRunInstancesInput.ISP) &&
-        Objects.equals(this.releaseWithInstance, eipAddressForRunInstancesInput.releaseWithInstance);
+        Objects.equals(this.releaseWithInstance, eipAddressForRunInstancesInput.releaseWithInstance) &&
+        Objects.equals(this.securityProtectionInstanceId, eipAddressForRunInstancesInput.securityProtectionInstanceId) &&
+        Objects.equals(this.securityProtectionTypes, eipAddressForRunInstancesInput.securityProtectionTypes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidthMbps, bandwidthPackageId, chargeType, ISP, releaseWithInstance);
+    return Objects.hash(bandwidthMbps, bandwidthPackageId, chargeType, ISP, releaseWithInstance, securityProtectionInstanceId, securityProtectionTypes);
   }
 
 
@@ -167,6 +222,8 @@ public class EipAddressForRunInstancesInput {
     sb.append("    chargeType: ").append(toIndentedString(chargeType)).append("\n");
     sb.append("    ISP: ").append(toIndentedString(ISP)).append("\n");
     sb.append("    releaseWithInstance: ").append(toIndentedString(releaseWithInstance)).append("\n");
+    sb.append("    securityProtectionInstanceId: ").append(toIndentedString(securityProtectionInstanceId)).append("\n");
+    sb.append("    securityProtectionTypes: ").append(toIndentedString(securityProtectionTypes)).append("\n");
     sb.append("}");
     return sb.toString();
   }

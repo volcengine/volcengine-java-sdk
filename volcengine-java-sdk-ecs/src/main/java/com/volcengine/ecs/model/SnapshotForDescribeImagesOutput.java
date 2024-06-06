@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class SnapshotForDescribeImagesOutput {
   @SerializedName("Size")
   private Integer size = null;

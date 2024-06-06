@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class InvocationResultForDescribeInvocationResultsOutput {
   @SerializedName("CommandId")
   private String commandId = null;

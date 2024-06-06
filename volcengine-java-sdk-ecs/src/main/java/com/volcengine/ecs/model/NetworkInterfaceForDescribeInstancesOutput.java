@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class NetworkInterfaceForDescribeInstancesOutput {
   @SerializedName("Ipv6Addresses")
   private List<String> ipv6Addresses = null;

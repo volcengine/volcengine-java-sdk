@@ -36,6 +36,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class InstanceForDescribeInstancesOutput {
   @SerializedName("CpuOptions")
   private CpuOptionsForDescribeInstancesOutput cpuOptions = null;
@@ -46,6 +47,9 @@ public class InstanceForDescribeInstancesOutput {
   @SerializedName("CreatedAt")
   private String createdAt = null;
 
+  @SerializedName("DeploymentSetGroupNumber")
+  private Integer deploymentSetGroupNumber = null;
+
   @SerializedName("DeploymentSetId")
   private String deploymentSetId = null;
 
@@ -55,6 +59,9 @@ public class InstanceForDescribeInstancesOutput {
   @SerializedName("EipAddress")
   private EipAddressForDescribeInstancesOutput eipAddress = null;
 
+  @SerializedName("ElasticScheduledInstanceType")
+  private String elasticScheduledInstanceType = null;
+
   @SerializedName("ExpiredAt")
   private String expiredAt = null;
 
@@ -63,6 +70,9 @@ public class InstanceForDescribeInstancesOutput {
 
   @SerializedName("Hostname")
   private String hostname = null;
+
+  @SerializedName("HpcClusterId")
+  private String hpcClusterId = null;
 
   @SerializedName("ImageId")
   private String imageId = null;
@@ -108,6 +118,9 @@ public class InstanceForDescribeInstancesOutput {
 
   @SerializedName("RdmaIpAddresses")
   private List<String> rdmaIpAddresses = null;
+
+  @SerializedName("ScheduledInstanceId")
+  private String scheduledInstanceId = null;
 
   @SerializedName("SpotPriceLimit")
   private Float spotPriceLimit = null;
@@ -191,6 +204,24 @@ public class InstanceForDescribeInstancesOutput {
     this.createdAt = createdAt;
   }
 
+  public InstanceForDescribeInstancesOutput deploymentSetGroupNumber(Integer deploymentSetGroupNumber) {
+    this.deploymentSetGroupNumber = deploymentSetGroupNumber;
+    return this;
+  }
+
+   /**
+   * Get deploymentSetGroupNumber
+   * @return deploymentSetGroupNumber
+  **/
+  @Schema(description = "")
+  public Integer getDeploymentSetGroupNumber() {
+    return deploymentSetGroupNumber;
+  }
+
+  public void setDeploymentSetGroupNumber(Integer deploymentSetGroupNumber) {
+    this.deploymentSetGroupNumber = deploymentSetGroupNumber;
+  }
+
   public InstanceForDescribeInstancesOutput deploymentSetId(String deploymentSetId) {
     this.deploymentSetId = deploymentSetId;
     return this;
@@ -246,6 +277,24 @@ public class InstanceForDescribeInstancesOutput {
     this.eipAddress = eipAddress;
   }
 
+  public InstanceForDescribeInstancesOutput elasticScheduledInstanceType(String elasticScheduledInstanceType) {
+    this.elasticScheduledInstanceType = elasticScheduledInstanceType;
+    return this;
+  }
+
+   /**
+   * Get elasticScheduledInstanceType
+   * @return elasticScheduledInstanceType
+  **/
+  @Schema(description = "")
+  public String getElasticScheduledInstanceType() {
+    return elasticScheduledInstanceType;
+  }
+
+  public void setElasticScheduledInstanceType(String elasticScheduledInstanceType) {
+    this.elasticScheduledInstanceType = elasticScheduledInstanceType;
+  }
+
   public InstanceForDescribeInstancesOutput expiredAt(String expiredAt) {
     this.expiredAt = expiredAt;
     return this;
@@ -298,6 +347,24 @@ public class InstanceForDescribeInstancesOutput {
 
   public void setHostname(String hostname) {
     this.hostname = hostname;
+  }
+
+  public InstanceForDescribeInstancesOutput hpcClusterId(String hpcClusterId) {
+    this.hpcClusterId = hpcClusterId;
+    return this;
+  }
+
+   /**
+   * Get hpcClusterId
+   * @return hpcClusterId
+  **/
+  @Schema(description = "")
+  public String getHpcClusterId() {
+    return hpcClusterId;
+  }
+
+  public void setHpcClusterId(String hpcClusterId) {
+    this.hpcClusterId = hpcClusterId;
   }
 
   public InstanceForDescribeInstancesOutput imageId(String imageId) {
@@ -597,6 +664,24 @@ public class InstanceForDescribeInstancesOutput {
     this.rdmaIpAddresses = rdmaIpAddresses;
   }
 
+  public InstanceForDescribeInstancesOutput scheduledInstanceId(String scheduledInstanceId) {
+    this.scheduledInstanceId = scheduledInstanceId;
+    return this;
+  }
+
+   /**
+   * Get scheduledInstanceId
+   * @return scheduledInstanceId
+  **/
+  @Schema(description = "")
+  public String getScheduledInstanceId() {
+    return scheduledInstanceId;
+  }
+
+  public void setScheduledInstanceId(String scheduledInstanceId) {
+    this.scheduledInstanceId = scheduledInstanceId;
+  }
+
   public InstanceForDescribeInstancesOutput spotPriceLimit(Float spotPriceLimit) {
     this.spotPriceLimit = spotPriceLimit;
     return this;
@@ -781,12 +866,15 @@ public class InstanceForDescribeInstancesOutput {
     return Objects.equals(this.cpuOptions, instanceForDescribeInstancesOutput.cpuOptions) &&
         Objects.equals(this.cpus, instanceForDescribeInstancesOutput.cpus) &&
         Objects.equals(this.createdAt, instanceForDescribeInstancesOutput.createdAt) &&
+        Objects.equals(this.deploymentSetGroupNumber, instanceForDescribeInstancesOutput.deploymentSetGroupNumber) &&
         Objects.equals(this.deploymentSetId, instanceForDescribeInstancesOutput.deploymentSetId) &&
         Objects.equals(this.description, instanceForDescribeInstancesOutput.description) &&
         Objects.equals(this.eipAddress, instanceForDescribeInstancesOutput.eipAddress) &&
+        Objects.equals(this.elasticScheduledInstanceType, instanceForDescribeInstancesOutput.elasticScheduledInstanceType) &&
         Objects.equals(this.expiredAt, instanceForDescribeInstancesOutput.expiredAt) &&
         Objects.equals(this.hostName, instanceForDescribeInstancesOutput.hostName) &&
         Objects.equals(this.hostname, instanceForDescribeInstancesOutput.hostname) &&
+        Objects.equals(this.hpcClusterId, instanceForDescribeInstancesOutput.hpcClusterId) &&
         Objects.equals(this.imageId, instanceForDescribeInstancesOutput.imageId) &&
         Objects.equals(this.instanceChargeType, instanceForDescribeInstancesOutput.instanceChargeType) &&
         Objects.equals(this.instanceId, instanceForDescribeInstancesOutput.instanceId) &&
@@ -802,6 +890,7 @@ public class InstanceForDescribeInstancesOutput {
         Objects.equals(this.placement, instanceForDescribeInstancesOutput.placement) &&
         Objects.equals(this.projectName, instanceForDescribeInstancesOutput.projectName) &&
         Objects.equals(this.rdmaIpAddresses, instanceForDescribeInstancesOutput.rdmaIpAddresses) &&
+        Objects.equals(this.scheduledInstanceId, instanceForDescribeInstancesOutput.scheduledInstanceId) &&
         Objects.equals(this.spotPriceLimit, instanceForDescribeInstancesOutput.spotPriceLimit) &&
         Objects.equals(this.spotStrategy, instanceForDescribeInstancesOutput.spotStrategy) &&
         Objects.equals(this.status, instanceForDescribeInstancesOutput.status) &&
@@ -815,7 +904,7 @@ public class InstanceForDescribeInstancesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cpuOptions, cpus, createdAt, deploymentSetId, description, eipAddress, expiredAt, hostName, hostname, imageId, instanceChargeType, instanceId, instanceName, instanceTypeId, keyPairId, keyPairName, localVolumes, memorySize, networkInterfaces, osName, osType, placement, projectName, rdmaIpAddresses, spotPriceLimit, spotStrategy, status, stoppedMode, tags, updatedAt, uuid, vpcId, zoneId);
+    return Objects.hash(cpuOptions, cpus, createdAt, deploymentSetGroupNumber, deploymentSetId, description, eipAddress, elasticScheduledInstanceType, expiredAt, hostName, hostname, hpcClusterId, imageId, instanceChargeType, instanceId, instanceName, instanceTypeId, keyPairId, keyPairName, localVolumes, memorySize, networkInterfaces, osName, osType, placement, projectName, rdmaIpAddresses, scheduledInstanceId, spotPriceLimit, spotStrategy, status, stoppedMode, tags, updatedAt, uuid, vpcId, zoneId);
   }
 
 
@@ -827,12 +916,15 @@ public class InstanceForDescribeInstancesOutput {
     sb.append("    cpuOptions: ").append(toIndentedString(cpuOptions)).append("\n");
     sb.append("    cpus: ").append(toIndentedString(cpus)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    deploymentSetGroupNumber: ").append(toIndentedString(deploymentSetGroupNumber)).append("\n");
     sb.append("    deploymentSetId: ").append(toIndentedString(deploymentSetId)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    eipAddress: ").append(toIndentedString(eipAddress)).append("\n");
+    sb.append("    elasticScheduledInstanceType: ").append(toIndentedString(elasticScheduledInstanceType)).append("\n");
     sb.append("    expiredAt: ").append(toIndentedString(expiredAt)).append("\n");
     sb.append("    hostName: ").append(toIndentedString(hostName)).append("\n");
     sb.append("    hostname: ").append(toIndentedString(hostname)).append("\n");
+    sb.append("    hpcClusterId: ").append(toIndentedString(hpcClusterId)).append("\n");
     sb.append("    imageId: ").append(toIndentedString(imageId)).append("\n");
     sb.append("    instanceChargeType: ").append(toIndentedString(instanceChargeType)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
@@ -848,6 +940,7 @@ public class InstanceForDescribeInstancesOutput {
     sb.append("    placement: ").append(toIndentedString(placement)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    rdmaIpAddresses: ").append(toIndentedString(rdmaIpAddresses)).append("\n");
+    sb.append("    scheduledInstanceId: ").append(toIndentedString(scheduledInstanceId)).append("\n");
     sb.append("    spotPriceLimit: ").append(toIndentedString(spotPriceLimit)).append("\n");
     sb.append("    spotStrategy: ").append(toIndentedString(spotStrategy)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");

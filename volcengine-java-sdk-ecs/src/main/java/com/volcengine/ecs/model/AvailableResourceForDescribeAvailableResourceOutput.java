@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class AvailableResourceForDescribeAvailableResourceOutput {
   @SerializedName("SupportedResources")
   private List<SupportedResourceForDescribeAvailableResourceOutput> supportedResources = null;
