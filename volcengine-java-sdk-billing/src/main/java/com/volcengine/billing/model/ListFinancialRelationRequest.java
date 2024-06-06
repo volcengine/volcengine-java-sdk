@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ListFinancialRelationRequest {
   @SerializedName("AccountIDSearchList")
   private List<String> accountIDSearchList = null;

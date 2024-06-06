@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ListBillRequest {
   @SerializedName("BillCategoryParent")
   private List<String> billCategoryParent = null;
@@ -52,8 +53,14 @@ public class ListBillRequest {
   @SerializedName("Offset")
   private Integer offset = null;
 
+  @SerializedName("OwnerID")
+  private List<Long> ownerID = null;
+
   @SerializedName("PayStatus")
   private String payStatus = null;
+
+  @SerializedName("PayerID")
+  private List<Long> payerID = null;
 
   @SerializedName("Product")
   private List<String> product = null;
@@ -202,6 +209,32 @@ public class ListBillRequest {
     this.offset = offset;
   }
 
+  public ListBillRequest ownerID(List<Long> ownerID) {
+    this.ownerID = ownerID;
+    return this;
+  }
+
+  public ListBillRequest addOwnerIDItem(Long ownerIDItem) {
+    if (this.ownerID == null) {
+      this.ownerID = new ArrayList<Long>();
+    }
+    this.ownerID.add(ownerIDItem);
+    return this;
+  }
+
+   /**
+   * Get ownerID
+   * @return ownerID
+  **/
+  @Schema(description = "")
+  public List<Long> getOwnerID() {
+    return ownerID;
+  }
+
+  public void setOwnerID(List<Long> ownerID) {
+    this.ownerID = ownerID;
+  }
+
   public ListBillRequest payStatus(String payStatus) {
     this.payStatus = payStatus;
     return this;
@@ -218,6 +251,32 @@ public class ListBillRequest {
 
   public void setPayStatus(String payStatus) {
     this.payStatus = payStatus;
+  }
+
+  public ListBillRequest payerID(List<Long> payerID) {
+    this.payerID = payerID;
+    return this;
+  }
+
+  public ListBillRequest addPayerIDItem(Long payerIDItem) {
+    if (this.payerID == null) {
+      this.payerID = new ArrayList<Long>();
+    }
+    this.payerID.add(payerIDItem);
+    return this;
+  }
+
+   /**
+   * Get payerID
+   * @return payerID
+  **/
+  @Schema(description = "")
+  public List<Long> getPayerID() {
+    return payerID;
+  }
+
+  public void setPayerID(List<Long> payerID) {
+    this.payerID = payerID;
   }
 
   public ListBillRequest product(List<String> product) {
@@ -263,13 +322,15 @@ public class ListBillRequest {
         Objects.equals(this.limit, listBillRequest.limit) &&
         Objects.equals(this.needRecordNum, listBillRequest.needRecordNum) &&
         Objects.equals(this.offset, listBillRequest.offset) &&
+        Objects.equals(this.ownerID, listBillRequest.ownerID) &&
         Objects.equals(this.payStatus, listBillRequest.payStatus) &&
+        Objects.equals(this.payerID, listBillRequest.payerID) &&
         Objects.equals(this.product, listBillRequest.product);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(billCategoryParent, billPeriod, billingMode, ignoreZero, limit, needRecordNum, offset, payStatus, product);
+    return Objects.hash(billCategoryParent, billPeriod, billingMode, ignoreZero, limit, needRecordNum, offset, ownerID, payStatus, payerID, product);
   }
 
 
@@ -285,7 +346,9 @@ public class ListBillRequest {
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
     sb.append("    needRecordNum: ").append(toIndentedString(needRecordNum)).append("\n");
     sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
+    sb.append("    ownerID: ").append(toIndentedString(ownerID)).append("\n");
     sb.append("    payStatus: ").append(toIndentedString(payStatus)).append("\n");
+    sb.append("    payerID: ").append(toIndentedString(payerID)).append("\n");
     sb.append("    product: ").append(toIndentedString(product)).append("\n");
     sb.append("}");
     return sb.toString();

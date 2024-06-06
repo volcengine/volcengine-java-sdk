@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class UpdateAuthRequest {
   @SerializedName("AuthListStr")
   private String authListStr = null;
