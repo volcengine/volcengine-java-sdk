@@ -31,7 +31,7 @@ public class EndpointStsAuthenticationInterceptor implements Interceptor {
     private final ReentrantReadWriteLock lock = new ReentrantReadWriteLock();
     private final ArkApi volcClient;
 
-    public EndpointStsAuthenticationInterceptor(String ak, String sk) {
+    public EndpointStsAuthenticationInterceptor(String ak, String sk, String region) {
         Objects.requireNonNull(ak, "Ak token required");
         Objects.requireNonNull(sk, "Sk token required");
         this.ak = ak;
@@ -40,9 +40,8 @@ public class EndpointStsAuthenticationInterceptor implements Interceptor {
 
         ApiClient apiClient = new ApiClient()
                 .setCredentials(Credentials.getCredentials(ak,sk))
-                .setRegion("cn-beijing");
-        ArkApi arkApi = new ArkApi(apiClient);
-        this.volcClient = arkApi;
+                .setRegion(region);
+        this.volcClient = new ArkApi(apiClient);
     }
 
     @Override

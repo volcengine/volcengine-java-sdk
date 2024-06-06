@@ -16,9 +16,9 @@ public class ChatToolCall {
     /**
      * The function that the model called
      */
-    ChatFunction function;
+    ChatFunctionCall function;
 
-    public ChatToolCall(String id, String type, ChatFunction function) {
+    public ChatToolCall(String id, String type, ChatFunctionCall function) {
         this.id = id;
         this.type = type;
         this.function = function;
@@ -42,11 +42,11 @@ public class ChatToolCall {
         this.type = type;
     }
 
-    public ChatFunction getFunction() {
+    public ChatFunctionCall getFunction() {
         return function;
     }
 
-    public void setFunction(ChatFunction function) {
+    public void setFunction(ChatFunctionCall function) {
         this.function = function;
     }
 
