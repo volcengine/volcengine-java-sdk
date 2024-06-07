@@ -235,6 +235,9 @@ public class ArkService extends ArkBaseService implements ArkBaseServiceImpl {
 
         public ArkService.Builder baseUrl(String baseUrl) {
             this.baseUrl = baseUrl;
+            if (!baseUrl.endsWith("/")) {
+                this.baseUrl = baseUrl + "/";
+            }
             return this;
         }
 
