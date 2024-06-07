@@ -186,13 +186,13 @@ public class ArkService extends ArkBaseService implements ArkBaseServiceImpl {
 
     @Override
     public BotChatCompletionResult createBotChatCompletion(BotChatCompletionRequest request) {
-        return execute(api.createBotChatCompletion(request, request.getModel()));
+        return execute(api.createBotChatCompletion(request, request.getModel(), new HashMap<>()));
     }
 
     @Override
     public Flowable<ChatCompletionChunk> streamBotChatCompletion(BotChatCompletionRequest request) {
         request.setStream(true);
-        return stream(api.createBotChatCompletionStream(request, request.getModel()), ChatCompletionChunk.class);
+        return stream(api.createBotChatCompletionStream(request, request.getModel(), new HashMap<>()), ChatCompletionChunk.class);
     }
 
     public void shutdownExecutor() {
@@ -235,6 +235,9 @@ public class ArkService extends ArkBaseService implements ArkBaseServiceImpl {
 
         public ArkService.Builder baseUrl(String baseUrl) {
             this.baseUrl = baseUrl;
+            if (!baseUrl.endsWith("/")) {
+                this.baseUrl = baseUrl + "/";
+            }
             return this;
         }
 
