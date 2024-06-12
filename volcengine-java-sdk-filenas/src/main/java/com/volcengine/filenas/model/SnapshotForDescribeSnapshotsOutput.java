@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class SnapshotForDescribeSnapshotsOutput {
   @SerializedName("CreateTime")
   private String createTime = null;
@@ -61,7 +62,9 @@ public class SnapshotForDescribeSnapshotsOutput {
    */
   @JsonAdapter(SnapshotTypeEnum.Adapter.class)
   public enum SnapshotTypeEnum {
+    @SerializedName("Manual")
     MANUAL("Manual"),
+    @SerializedName("Auto")
     AUTO("Auto");
 
     private String value;
@@ -111,8 +114,11 @@ public class SnapshotForDescribeSnapshotsOutput {
    */
   @JsonAdapter(StatusEnum.Adapter.class)
   public enum StatusEnum {
+    @SerializedName("Progressing")
     PROGRESSING("Progressing"),
+    @SerializedName("Accomplished")
     ACCOMPLISHED("Accomplished"),
+    @SerializedName("Failed")
     FAILED("Failed");
 
     private String value;

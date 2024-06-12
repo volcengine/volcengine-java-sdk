@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class PermissionRuleForDescribePermissionRulesOutput {
   @SerializedName("CidrIp")
   private String cidrIp = null;
@@ -40,7 +41,9 @@ public class PermissionRuleForDescribePermissionRulesOutput {
    */
   @JsonAdapter(RwModeEnum.Adapter.class)
   public enum RwModeEnum {
+    @SerializedName("RW")
     RW("RW"),
+    @SerializedName("RO")
     RO("RO");
 
     private String value;
@@ -84,9 +87,13 @@ public class PermissionRuleForDescribePermissionRulesOutput {
    */
   @JsonAdapter(UserModeEnum.Adapter.class)
   public enum UserModeEnum {
+    @SerializedName("All_squash")
     ALL_SQUASH("All_squash"),
+    @SerializedName("No_all_squash")
     NO_ALL_SQUASH("No_all_squash"),
+    @SerializedName("Root_squash")
     ROOT_SQUASH("Root_squash"),
+    @SerializedName("No_root_squash")
     NO_ROOT_SQUASH("No_root_squash");
 
     private String value;

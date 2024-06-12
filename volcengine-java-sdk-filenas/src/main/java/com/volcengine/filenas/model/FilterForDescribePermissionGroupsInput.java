@@ -28,13 +28,16 @@ import javax.validation.Valid;
  */
 
 
+
 public class FilterForDescribePermissionGroupsInput {
   /**
    * Gets or Sets key
    */
   @JsonAdapter(KeyEnum.Adapter.class)
   public enum KeyEnum {
+    @SerializedName("PermissionGroupName")
     PERMISSIONGROUPNAME("PermissionGroupName"),
+    @SerializedName("PermissionGroupId")
     PERMISSIONGROUPID("PermissionGroupId");
 
     private String value;

@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class UpdatePermissionGroupRequest {
   @SerializedName("Description")
   private String description = null;
@@ -37,7 +38,12 @@ public class UpdatePermissionGroupRequest {
    */
   @JsonAdapter(FileSystemTypeEnum.Adapter.class)
   public enum FileSystemTypeEnum {
-    EXTREME("Extreme");
+    @SerializedName("Extreme")
+    EXTREME("Extreme"),
+    @SerializedName("Capacity")
+    CAPACITY("Capacity"),
+    @SerializedName("Cache")
+    CACHE("Cache");
 
     private String value;
 

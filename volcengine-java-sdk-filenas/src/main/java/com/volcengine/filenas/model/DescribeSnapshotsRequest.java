@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeSnapshotsRequest {
   @SerializedName("FileSystemId")
   private String fileSystemId = null;
@@ -49,7 +50,9 @@ public class DescribeSnapshotsRequest {
    */
   @JsonAdapter(SnapshotTypeEnum.Adapter.class)
   public enum SnapshotTypeEnum {
+    @SerializedName("Manual")
     MANUAL("Manual"),
+    @SerializedName("Auto")
     AUTO("Auto");
 
     private String value;
@@ -93,9 +96,13 @@ public class DescribeSnapshotsRequest {
    */
   @JsonAdapter(StatusEnum.Adapter.class)
   public enum StatusEnum {
+    @SerializedName("Progressing")
     PROGRESSING("Progressing"),
+    @SerializedName("Accomplished")
     ACCOMPLISHED("Accomplished"),
+    @SerializedName("Failed")
     FAILED("Failed"),
+    @SerializedName("Deleting")
     DELETING("Deleting");
 
     private String value;

@@ -31,7 +31,20 @@ import javax.validation.Valid;
  */
 
 
+
 public class UpdateFileSystemRequest {
+  @SerializedName("AutoExpand")
+  private Boolean autoExpand = null;
+
+  @SerializedName("AutoExpandLimit")
+  private Integer autoExpandLimit = null;
+
+  @SerializedName("AutoExpandStep")
+  private Integer autoExpandStep = null;
+
+  @SerializedName("AutoExpandThreshold")
+  private Integer autoExpandThreshold = null;
+
   @SerializedName("Description")
   private String description = null;
 
@@ -46,6 +59,78 @@ public class UpdateFileSystemRequest {
 
   @SerializedName("Tags")
   private List<TagForUpdateFileSystemInput> tags = null;
+
+  public UpdateFileSystemRequest autoExpand(Boolean autoExpand) {
+    this.autoExpand = autoExpand;
+    return this;
+  }
+
+   /**
+   * Get autoExpand
+   * @return autoExpand
+  **/
+  @Schema(description = "")
+  public Boolean isAutoExpand() {
+    return autoExpand;
+  }
+
+  public void setAutoExpand(Boolean autoExpand) {
+    this.autoExpand = autoExpand;
+  }
+
+  public UpdateFileSystemRequest autoExpandLimit(Integer autoExpandLimit) {
+    this.autoExpandLimit = autoExpandLimit;
+    return this;
+  }
+
+   /**
+   * Get autoExpandLimit
+   * @return autoExpandLimit
+  **/
+  @Schema(description = "")
+  public Integer getAutoExpandLimit() {
+    return autoExpandLimit;
+  }
+
+  public void setAutoExpandLimit(Integer autoExpandLimit) {
+    this.autoExpandLimit = autoExpandLimit;
+  }
+
+  public UpdateFileSystemRequest autoExpandStep(Integer autoExpandStep) {
+    this.autoExpandStep = autoExpandStep;
+    return this;
+  }
+
+   /**
+   * Get autoExpandStep
+   * @return autoExpandStep
+  **/
+  @Schema(description = "")
+  public Integer getAutoExpandStep() {
+    return autoExpandStep;
+  }
+
+  public void setAutoExpandStep(Integer autoExpandStep) {
+    this.autoExpandStep = autoExpandStep;
+  }
+
+  public UpdateFileSystemRequest autoExpandThreshold(Integer autoExpandThreshold) {
+    this.autoExpandThreshold = autoExpandThreshold;
+    return this;
+  }
+
+   /**
+   * Get autoExpandThreshold
+   * @return autoExpandThreshold
+  **/
+  @Schema(description = "")
+  public Integer getAutoExpandThreshold() {
+    return autoExpandThreshold;
+  }
+
+  public void setAutoExpandThreshold(Integer autoExpandThreshold) {
+    this.autoExpandThreshold = autoExpandThreshold;
+  }
 
   public UpdateFileSystemRequest description(String description) {
     this.description = description;
@@ -157,7 +242,11 @@ public class UpdateFileSystemRequest {
       return false;
     }
     UpdateFileSystemRequest updateFileSystemRequest = (UpdateFileSystemRequest) o;
-    return Objects.equals(this.description, updateFileSystemRequest.description) &&
+    return Objects.equals(this.autoExpand, updateFileSystemRequest.autoExpand) &&
+        Objects.equals(this.autoExpandLimit, updateFileSystemRequest.autoExpandLimit) &&
+        Objects.equals(this.autoExpandStep, updateFileSystemRequest.autoExpandStep) &&
+        Objects.equals(this.autoExpandThreshold, updateFileSystemRequest.autoExpandThreshold) &&
+        Objects.equals(this.description, updateFileSystemRequest.description) &&
         Objects.equals(this.fileSystemId, updateFileSystemRequest.fileSystemId) &&
         Objects.equals(this.fileSystemName, updateFileSystemRequest.fileSystemName) &&
         Objects.equals(this.projectName, updateFileSystemRequest.projectName) &&
@@ -166,7 +255,7 @@ public class UpdateFileSystemRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, fileSystemId, fileSystemName, projectName, tags);
+    return Objects.hash(autoExpand, autoExpandLimit, autoExpandStep, autoExpandThreshold, description, fileSystemId, fileSystemName, projectName, tags);
   }
 
 
@@ -175,6 +264,10 @@ public class UpdateFileSystemRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateFileSystemRequest {\n");
     
+    sb.append("    autoExpand: ").append(toIndentedString(autoExpand)).append("\n");
+    sb.append("    autoExpandLimit: ").append(toIndentedString(autoExpandLimit)).append("\n");
+    sb.append("    autoExpandStep: ").append(toIndentedString(autoExpandStep)).append("\n");
+    sb.append("    autoExpandThreshold: ").append(toIndentedString(autoExpandThreshold)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    fileSystemId: ").append(toIndentedString(fileSystemId)).append("\n");
     sb.append("    fileSystemName: ").append(toIndentedString(fileSystemName)).append("\n");

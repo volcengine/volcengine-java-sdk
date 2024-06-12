@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class RegionForDescribeRegionsOutput {
   @SerializedName("RegionId")
   private String regionId = null;
@@ -40,8 +41,11 @@ public class RegionForDescribeRegionsOutput {
    */
   @JsonAdapter(StatusEnum.Adapter.class)
   public enum StatusEnum {
+    @SerializedName("OnSale")
     ONSALE("OnSale"),
+    @SerializedName("SoldOut")
     SOLDOUT("SoldOut"),
+    @SerializedName("UnSold")
     UNSOLD("UnSold");
 
     private String value;

@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class StatisticForDescribeFileSystemStatisticsOutput {
   @SerializedName("CommonCapacity")
   private CommonCapacityForDescribeFileSystemStatisticsOutput commonCapacity = null;

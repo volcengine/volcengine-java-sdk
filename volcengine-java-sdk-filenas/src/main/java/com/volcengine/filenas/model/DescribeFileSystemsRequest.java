@@ -32,6 +32,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeFileSystemsRequest {
   @SerializedName("FileSystemIds")
   private String fileSystemIds = null;
@@ -41,6 +42,7 @@ public class DescribeFileSystemsRequest {
    */
   @JsonAdapter(FileSystemTypeEnum.Adapter.class)
   public enum FileSystemTypeEnum {
+    @SerializedName("Extreme")
     EXTREME("Extreme");
 
     private String value;
