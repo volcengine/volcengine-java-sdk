@@ -24,52 +24,31 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * TagForDescribeListenersOutput
+ * DescribeLoadBalancerSpecsRequest
  */
 
 
 
-public class TagForDescribeListenersOutput {
-  @SerializedName("Key")
-  private String key = null;
+public class DescribeLoadBalancerSpecsRequest {
+  @SerializedName("EnglishSpec")
+  private String englishSpec = null;
 
-  @SerializedName("Value")
-  private String value = null;
-
-  public TagForDescribeListenersOutput key(String key) {
-    this.key = key;
+  public DescribeLoadBalancerSpecsRequest englishSpec(String englishSpec) {
+    this.englishSpec = englishSpec;
     return this;
   }
 
    /**
-   * Get key
-   * @return key
+   * Get englishSpec
+   * @return englishSpec
   **/
   @Schema(description = "")
-  public String getKey() {
-    return key;
+  public String getEnglishSpec() {
+    return englishSpec;
   }
 
-  public void setKey(String key) {
-    this.key = key;
-  }
-
-  public TagForDescribeListenersOutput value(String value) {
-    this.value = value;
-    return this;
-  }
-
-   /**
-   * Get value
-   * @return value
-  **/
-  @Schema(description = "")
-  public String getValue() {
-    return value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
+  public void setEnglishSpec(String englishSpec) {
+    this.englishSpec = englishSpec;
   }
 
 
@@ -81,24 +60,22 @@ public class TagForDescribeListenersOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TagForDescribeListenersOutput tagForDescribeListenersOutput = (TagForDescribeListenersOutput) o;
-    return Objects.equals(this.key, tagForDescribeListenersOutput.key) &&
-        Objects.equals(this.value, tagForDescribeListenersOutput.value);
+    DescribeLoadBalancerSpecsRequest describeLoadBalancerSpecsRequest = (DescribeLoadBalancerSpecsRequest) o;
+    return Objects.equals(this.englishSpec, describeLoadBalancerSpecsRequest.englishSpec);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(key, value);
+    return Objects.hash(englishSpec);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TagForDescribeListenersOutput {\n");
+    sb.append("class DescribeLoadBalancerSpecsRequest {\n");
     
-    sb.append("    key: ").append(toIndentedString(key)).append("\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    englishSpec: ").append(toIndentedString(englishSpec)).append("\n");
     sb.append("}");
     return sb.toString();
   }

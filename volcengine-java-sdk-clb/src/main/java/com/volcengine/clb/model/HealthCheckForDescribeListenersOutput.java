@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class HealthCheckForDescribeListenersOutput {
   @SerializedName("Domain")
   private String domain = null;
@@ -46,6 +47,9 @@ public class HealthCheckForDescribeListenersOutput {
 
   @SerializedName("Method")
   private String method = null;
+
+  @SerializedName("Port")
+  private Integer port = null;
 
   @SerializedName("Timeout")
   private Integer timeout = null;
@@ -170,6 +174,24 @@ public class HealthCheckForDescribeListenersOutput {
     this.method = method;
   }
 
+  public HealthCheckForDescribeListenersOutput port(Integer port) {
+    this.port = port;
+    return this;
+  }
+
+   /**
+   * Get port
+   * @return port
+  **/
+  @Schema(description = "")
+  public Integer getPort() {
+    return port;
+  }
+
+  public void setPort(Integer port) {
+    this.port = port;
+  }
+
   public HealthCheckForDescribeListenersOutput timeout(Integer timeout) {
     this.timeout = timeout;
     return this;
@@ -276,6 +298,7 @@ public class HealthCheckForDescribeListenersOutput {
         Objects.equals(this.httpCode, healthCheckForDescribeListenersOutput.httpCode) &&
         Objects.equals(this.interval, healthCheckForDescribeListenersOutput.interval) &&
         Objects.equals(this.method, healthCheckForDescribeListenersOutput.method) &&
+        Objects.equals(this.port, healthCheckForDescribeListenersOutput.port) &&
         Objects.equals(this.timeout, healthCheckForDescribeListenersOutput.timeout) &&
         Objects.equals(this.udpExpect, healthCheckForDescribeListenersOutput.udpExpect) &&
         Objects.equals(this.udpRequest, healthCheckForDescribeListenersOutput.udpRequest) &&
@@ -285,7 +308,7 @@ public class HealthCheckForDescribeListenersOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(domain, enabled, healthyThreshold, httpCode, interval, method, timeout, udpExpect, udpRequest, unHealthyThreshold, uri);
+    return Objects.hash(domain, enabled, healthyThreshold, httpCode, interval, method, port, timeout, udpExpect, udpRequest, unHealthyThreshold, uri);
   }
 
 
@@ -300,6 +323,7 @@ public class HealthCheckForDescribeListenersOutput {
     sb.append("    httpCode: ").append(toIndentedString(httpCode)).append("\n");
     sb.append("    interval: ").append(toIndentedString(interval)).append("\n");
     sb.append("    method: ").append(toIndentedString(method)).append("\n");
+    sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");
     sb.append("    udpExpect: ").append(toIndentedString(udpExpect)).append("\n");
     sb.append("    udpRequest: ").append(toIndentedString(udpRequest)).append("\n");

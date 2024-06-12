@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateHealthCheckLogProjectResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("LogProjectId")
   private String logProjectId = null;

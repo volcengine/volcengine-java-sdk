@@ -32,6 +32,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ListenerForDescribeListenersOutput {
   @SerializedName("AclIds")
   private List<String> aclIds = null;
@@ -47,6 +48,12 @@ public class ListenerForDescribeListenersOutput {
 
   @SerializedName("CertificateId")
   private String certificateId = null;
+
+  @SerializedName("ClientBodyTimeout")
+  private Integer clientBodyTimeout = null;
+
+  @SerializedName("ClientHeaderTimeout")
+  private Integer clientHeaderTimeout = null;
 
   @SerializedName("ConnectionDrainEnabled")
   private String connectionDrainEnabled = null;
@@ -66,11 +73,17 @@ public class ListenerForDescribeListenersOutput {
   @SerializedName("Enabled")
   private String enabled = null;
 
+  @SerializedName("EndPort")
+  private Integer endPort = null;
+
   @SerializedName("HealthCheck")
   private HealthCheckForDescribeListenersOutput healthCheck = null;
 
   @SerializedName("Http2Enabled")
   private String http2Enabled = null;
+
+  @SerializedName("KeepaliveTimeout")
+  private Integer keepaliveTimeout = null;
 
   @SerializedName("ListenerId")
   private String listenerId = null;
@@ -90,14 +103,32 @@ public class ListenerForDescribeListenersOutput {
   @SerializedName("Protocol")
   private String protocol = null;
 
+  @SerializedName("ProxyConnectTimeout")
+  private Integer proxyConnectTimeout = null;
+
   @SerializedName("ProxyProtocolType")
   private String proxyProtocolType = null;
+
+  @SerializedName("ProxyReadTimeout")
+  private Integer proxyReadTimeout = null;
+
+  @SerializedName("ProxySendTimeout")
+  private Integer proxySendTimeout = null;
 
   @SerializedName("Scheduler")
   private String scheduler = null;
 
+  @SerializedName("SecurityPolicyId")
+  private String securityPolicyId = null;
+
+  @SerializedName("SendTimeout")
+  private Integer sendTimeout = null;
+
   @SerializedName("ServerGroupId")
   private String serverGroupId = null;
+
+  @SerializedName("StartPort")
+  private Integer startPort = null;
 
   @SerializedName("Status")
   private String status = null;
@@ -204,6 +235,42 @@ public class ListenerForDescribeListenersOutput {
 
   public void setCertificateId(String certificateId) {
     this.certificateId = certificateId;
+  }
+
+  public ListenerForDescribeListenersOutput clientBodyTimeout(Integer clientBodyTimeout) {
+    this.clientBodyTimeout = clientBodyTimeout;
+    return this;
+  }
+
+   /**
+   * Get clientBodyTimeout
+   * @return clientBodyTimeout
+  **/
+  @Schema(description = "")
+  public Integer getClientBodyTimeout() {
+    return clientBodyTimeout;
+  }
+
+  public void setClientBodyTimeout(Integer clientBodyTimeout) {
+    this.clientBodyTimeout = clientBodyTimeout;
+  }
+
+  public ListenerForDescribeListenersOutput clientHeaderTimeout(Integer clientHeaderTimeout) {
+    this.clientHeaderTimeout = clientHeaderTimeout;
+    return this;
+  }
+
+   /**
+   * Get clientHeaderTimeout
+   * @return clientHeaderTimeout
+  **/
+  @Schema(description = "")
+  public Integer getClientHeaderTimeout() {
+    return clientHeaderTimeout;
+  }
+
+  public void setClientHeaderTimeout(Integer clientHeaderTimeout) {
+    this.clientHeaderTimeout = clientHeaderTimeout;
   }
 
   public ListenerForDescribeListenersOutput connectionDrainEnabled(String connectionDrainEnabled) {
@@ -314,6 +381,24 @@ public class ListenerForDescribeListenersOutput {
     this.enabled = enabled;
   }
 
+  public ListenerForDescribeListenersOutput endPort(Integer endPort) {
+    this.endPort = endPort;
+    return this;
+  }
+
+   /**
+   * Get endPort
+   * @return endPort
+  **/
+  @Schema(description = "")
+  public Integer getEndPort() {
+    return endPort;
+  }
+
+  public void setEndPort(Integer endPort) {
+    this.endPort = endPort;
+  }
+
   public ListenerForDescribeListenersOutput healthCheck(HealthCheckForDescribeListenersOutput healthCheck) {
     this.healthCheck = healthCheck;
     return this;
@@ -349,6 +434,24 @@ public class ListenerForDescribeListenersOutput {
 
   public void setHttp2Enabled(String http2Enabled) {
     this.http2Enabled = http2Enabled;
+  }
+
+  public ListenerForDescribeListenersOutput keepaliveTimeout(Integer keepaliveTimeout) {
+    this.keepaliveTimeout = keepaliveTimeout;
+    return this;
+  }
+
+   /**
+   * Get keepaliveTimeout
+   * @return keepaliveTimeout
+  **/
+  @Schema(description = "")
+  public Integer getKeepaliveTimeout() {
+    return keepaliveTimeout;
+  }
+
+  public void setKeepaliveTimeout(Integer keepaliveTimeout) {
+    this.keepaliveTimeout = keepaliveTimeout;
   }
 
   public ListenerForDescribeListenersOutput listenerId(String listenerId) {
@@ -459,6 +562,24 @@ public class ListenerForDescribeListenersOutput {
     this.protocol = protocol;
   }
 
+  public ListenerForDescribeListenersOutput proxyConnectTimeout(Integer proxyConnectTimeout) {
+    this.proxyConnectTimeout = proxyConnectTimeout;
+    return this;
+  }
+
+   /**
+   * Get proxyConnectTimeout
+   * @return proxyConnectTimeout
+  **/
+  @Schema(description = "")
+  public Integer getProxyConnectTimeout() {
+    return proxyConnectTimeout;
+  }
+
+  public void setProxyConnectTimeout(Integer proxyConnectTimeout) {
+    this.proxyConnectTimeout = proxyConnectTimeout;
+  }
+
   public ListenerForDescribeListenersOutput proxyProtocolType(String proxyProtocolType) {
     this.proxyProtocolType = proxyProtocolType;
     return this;
@@ -475,6 +596,42 @@ public class ListenerForDescribeListenersOutput {
 
   public void setProxyProtocolType(String proxyProtocolType) {
     this.proxyProtocolType = proxyProtocolType;
+  }
+
+  public ListenerForDescribeListenersOutput proxyReadTimeout(Integer proxyReadTimeout) {
+    this.proxyReadTimeout = proxyReadTimeout;
+    return this;
+  }
+
+   /**
+   * Get proxyReadTimeout
+   * @return proxyReadTimeout
+  **/
+  @Schema(description = "")
+  public Integer getProxyReadTimeout() {
+    return proxyReadTimeout;
+  }
+
+  public void setProxyReadTimeout(Integer proxyReadTimeout) {
+    this.proxyReadTimeout = proxyReadTimeout;
+  }
+
+  public ListenerForDescribeListenersOutput proxySendTimeout(Integer proxySendTimeout) {
+    this.proxySendTimeout = proxySendTimeout;
+    return this;
+  }
+
+   /**
+   * Get proxySendTimeout
+   * @return proxySendTimeout
+  **/
+  @Schema(description = "")
+  public Integer getProxySendTimeout() {
+    return proxySendTimeout;
+  }
+
+  public void setProxySendTimeout(Integer proxySendTimeout) {
+    this.proxySendTimeout = proxySendTimeout;
   }
 
   public ListenerForDescribeListenersOutput scheduler(String scheduler) {
@@ -495,6 +652,42 @@ public class ListenerForDescribeListenersOutput {
     this.scheduler = scheduler;
   }
 
+  public ListenerForDescribeListenersOutput securityPolicyId(String securityPolicyId) {
+    this.securityPolicyId = securityPolicyId;
+    return this;
+  }
+
+   /**
+   * Get securityPolicyId
+   * @return securityPolicyId
+  **/
+  @Schema(description = "")
+  public String getSecurityPolicyId() {
+    return securityPolicyId;
+  }
+
+  public void setSecurityPolicyId(String securityPolicyId) {
+    this.securityPolicyId = securityPolicyId;
+  }
+
+  public ListenerForDescribeListenersOutput sendTimeout(Integer sendTimeout) {
+    this.sendTimeout = sendTimeout;
+    return this;
+  }
+
+   /**
+   * Get sendTimeout
+   * @return sendTimeout
+  **/
+  @Schema(description = "")
+  public Integer getSendTimeout() {
+    return sendTimeout;
+  }
+
+  public void setSendTimeout(Integer sendTimeout) {
+    this.sendTimeout = sendTimeout;
+  }
+
   public ListenerForDescribeListenersOutput serverGroupId(String serverGroupId) {
     this.serverGroupId = serverGroupId;
     return this;
@@ -511,6 +704,24 @@ public class ListenerForDescribeListenersOutput {
 
   public void setServerGroupId(String serverGroupId) {
     this.serverGroupId = serverGroupId;
+  }
+
+  public ListenerForDescribeListenersOutput startPort(Integer startPort) {
+    this.startPort = startPort;
+    return this;
+  }
+
+   /**
+   * Get startPort
+   * @return startPort
+  **/
+  @Schema(description = "")
+  public Integer getStartPort() {
+    return startPort;
+  }
+
+  public void setStartPort(Integer startPort) {
+    this.startPort = startPort;
   }
 
   public ListenerForDescribeListenersOutput status(String status) {
@@ -591,23 +802,33 @@ public class ListenerForDescribeListenersOutput {
         Objects.equals(this.aclType, listenerForDescribeListenersOutput.aclType) &&
         Objects.equals(this.bandwidth, listenerForDescribeListenersOutput.bandwidth) &&
         Objects.equals(this.certificateId, listenerForDescribeListenersOutput.certificateId) &&
+        Objects.equals(this.clientBodyTimeout, listenerForDescribeListenersOutput.clientBodyTimeout) &&
+        Objects.equals(this.clientHeaderTimeout, listenerForDescribeListenersOutput.clientHeaderTimeout) &&
         Objects.equals(this.connectionDrainEnabled, listenerForDescribeListenersOutput.connectionDrainEnabled) &&
         Objects.equals(this.connectionDrainTimeout, listenerForDescribeListenersOutput.connectionDrainTimeout) &&
         Objects.equals(this.cookie, listenerForDescribeListenersOutput.cookie) &&
         Objects.equals(this.createTime, listenerForDescribeListenersOutput.createTime) &&
         Objects.equals(this.description, listenerForDescribeListenersOutput.description) &&
         Objects.equals(this.enabled, listenerForDescribeListenersOutput.enabled) &&
+        Objects.equals(this.endPort, listenerForDescribeListenersOutput.endPort) &&
         Objects.equals(this.healthCheck, listenerForDescribeListenersOutput.healthCheck) &&
         Objects.equals(this.http2Enabled, listenerForDescribeListenersOutput.http2Enabled) &&
+        Objects.equals(this.keepaliveTimeout, listenerForDescribeListenersOutput.keepaliveTimeout) &&
         Objects.equals(this.listenerId, listenerForDescribeListenersOutput.listenerId) &&
         Objects.equals(this.listenerName, listenerForDescribeListenersOutput.listenerName) &&
         Objects.equals(this.persistenceTimeout, listenerForDescribeListenersOutput.persistenceTimeout) &&
         Objects.equals(this.persistenceType, listenerForDescribeListenersOutput.persistenceType) &&
         Objects.equals(this.port, listenerForDescribeListenersOutput.port) &&
         Objects.equals(this.protocol, listenerForDescribeListenersOutput.protocol) &&
+        Objects.equals(this.proxyConnectTimeout, listenerForDescribeListenersOutput.proxyConnectTimeout) &&
         Objects.equals(this.proxyProtocolType, listenerForDescribeListenersOutput.proxyProtocolType) &&
+        Objects.equals(this.proxyReadTimeout, listenerForDescribeListenersOutput.proxyReadTimeout) &&
+        Objects.equals(this.proxySendTimeout, listenerForDescribeListenersOutput.proxySendTimeout) &&
         Objects.equals(this.scheduler, listenerForDescribeListenersOutput.scheduler) &&
+        Objects.equals(this.securityPolicyId, listenerForDescribeListenersOutput.securityPolicyId) &&
+        Objects.equals(this.sendTimeout, listenerForDescribeListenersOutput.sendTimeout) &&
         Objects.equals(this.serverGroupId, listenerForDescribeListenersOutput.serverGroupId) &&
+        Objects.equals(this.startPort, listenerForDescribeListenersOutput.startPort) &&
         Objects.equals(this.status, listenerForDescribeListenersOutput.status) &&
         Objects.equals(this.tags, listenerForDescribeListenersOutput.tags) &&
         Objects.equals(this.updateTime, listenerForDescribeListenersOutput.updateTime);
@@ -615,7 +836,7 @@ public class ListenerForDescribeListenersOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclIds, aclStatus, aclType, bandwidth, certificateId, connectionDrainEnabled, connectionDrainTimeout, cookie, createTime, description, enabled, healthCheck, http2Enabled, listenerId, listenerName, persistenceTimeout, persistenceType, port, protocol, proxyProtocolType, scheduler, serverGroupId, status, tags, updateTime);
+    return Objects.hash(aclIds, aclStatus, aclType, bandwidth, certificateId, clientBodyTimeout, clientHeaderTimeout, connectionDrainEnabled, connectionDrainTimeout, cookie, createTime, description, enabled, endPort, healthCheck, http2Enabled, keepaliveTimeout, listenerId, listenerName, persistenceTimeout, persistenceType, port, protocol, proxyConnectTimeout, proxyProtocolType, proxyReadTimeout, proxySendTimeout, scheduler, securityPolicyId, sendTimeout, serverGroupId, startPort, status, tags, updateTime);
   }
 
 
@@ -629,23 +850,33 @@ public class ListenerForDescribeListenersOutput {
     sb.append("    aclType: ").append(toIndentedString(aclType)).append("\n");
     sb.append("    bandwidth: ").append(toIndentedString(bandwidth)).append("\n");
     sb.append("    certificateId: ").append(toIndentedString(certificateId)).append("\n");
+    sb.append("    clientBodyTimeout: ").append(toIndentedString(clientBodyTimeout)).append("\n");
+    sb.append("    clientHeaderTimeout: ").append(toIndentedString(clientHeaderTimeout)).append("\n");
     sb.append("    connectionDrainEnabled: ").append(toIndentedString(connectionDrainEnabled)).append("\n");
     sb.append("    connectionDrainTimeout: ").append(toIndentedString(connectionDrainTimeout)).append("\n");
     sb.append("    cookie: ").append(toIndentedString(cookie)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
+    sb.append("    endPort: ").append(toIndentedString(endPort)).append("\n");
     sb.append("    healthCheck: ").append(toIndentedString(healthCheck)).append("\n");
     sb.append("    http2Enabled: ").append(toIndentedString(http2Enabled)).append("\n");
+    sb.append("    keepaliveTimeout: ").append(toIndentedString(keepaliveTimeout)).append("\n");
     sb.append("    listenerId: ").append(toIndentedString(listenerId)).append("\n");
     sb.append("    listenerName: ").append(toIndentedString(listenerName)).append("\n");
     sb.append("    persistenceTimeout: ").append(toIndentedString(persistenceTimeout)).append("\n");
     sb.append("    persistenceType: ").append(toIndentedString(persistenceType)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
+    sb.append("    proxyConnectTimeout: ").append(toIndentedString(proxyConnectTimeout)).append("\n");
     sb.append("    proxyProtocolType: ").append(toIndentedString(proxyProtocolType)).append("\n");
+    sb.append("    proxyReadTimeout: ").append(toIndentedString(proxyReadTimeout)).append("\n");
+    sb.append("    proxySendTimeout: ").append(toIndentedString(proxySendTimeout)).append("\n");
     sb.append("    scheduler: ").append(toIndentedString(scheduler)).append("\n");
+    sb.append("    securityPolicyId: ").append(toIndentedString(securityPolicyId)).append("\n");
+    sb.append("    sendTimeout: ").append(toIndentedString(sendTimeout)).append("\n");
     sb.append("    serverGroupId: ").append(toIndentedString(serverGroupId)).append("\n");
+    sb.append("    startPort: ").append(toIndentedString(startPort)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");

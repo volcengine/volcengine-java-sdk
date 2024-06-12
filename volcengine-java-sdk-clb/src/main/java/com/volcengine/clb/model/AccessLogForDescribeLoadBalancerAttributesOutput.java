@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class AccessLogForDescribeLoadBalancerAttributesOutput {
   @SerializedName("BucketName")
   private String bucketName = null;

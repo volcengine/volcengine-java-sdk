@@ -19,42 +19,54 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.clb.model.LoadBalancerSpecForDescribeLoadBalancerSpecsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DescribeHealthCheckLogProjectAttributesResponse
+ * DescribeLoadBalancerSpecsResponse
  */
 
 
 
-public class DescribeHealthCheckLogProjectAttributesResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("LogProjectId")
-  private String logProjectId = null;
+public class DescribeLoadBalancerSpecsResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("LoadBalancerSpecs")
+  private List<LoadBalancerSpecForDescribeLoadBalancerSpecsOutput> loadBalancerSpecs = null;
 
   @SerializedName("RequestId")
   private String requestId = null;
 
-  public DescribeHealthCheckLogProjectAttributesResponse logProjectId(String logProjectId) {
-    this.logProjectId = logProjectId;
+  public DescribeLoadBalancerSpecsResponse loadBalancerSpecs(List<LoadBalancerSpecForDescribeLoadBalancerSpecsOutput> loadBalancerSpecs) {
+    this.loadBalancerSpecs = loadBalancerSpecs;
+    return this;
+  }
+
+  public DescribeLoadBalancerSpecsResponse addLoadBalancerSpecsItem(LoadBalancerSpecForDescribeLoadBalancerSpecsOutput loadBalancerSpecsItem) {
+    if (this.loadBalancerSpecs == null) {
+      this.loadBalancerSpecs = new ArrayList<LoadBalancerSpecForDescribeLoadBalancerSpecsOutput>();
+    }
+    this.loadBalancerSpecs.add(loadBalancerSpecsItem);
     return this;
   }
 
    /**
-   * Get logProjectId
-   * @return logProjectId
+   * Get loadBalancerSpecs
+   * @return loadBalancerSpecs
   **/
+  @Valid
   @Schema(description = "")
-  public String getLogProjectId() {
-    return logProjectId;
+  public List<LoadBalancerSpecForDescribeLoadBalancerSpecsOutput> getLoadBalancerSpecs() {
+    return loadBalancerSpecs;
   }
 
-  public void setLogProjectId(String logProjectId) {
-    this.logProjectId = logProjectId;
+  public void setLoadBalancerSpecs(List<LoadBalancerSpecForDescribeLoadBalancerSpecsOutput> loadBalancerSpecs) {
+    this.loadBalancerSpecs = loadBalancerSpecs;
   }
 
-  public DescribeHealthCheckLogProjectAttributesResponse requestId(String requestId) {
+  public DescribeLoadBalancerSpecsResponse requestId(String requestId) {
     this.requestId = requestId;
     return this;
   }
@@ -81,23 +93,23 @@ public class DescribeHealthCheckLogProjectAttributesResponse extends com.volceng
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DescribeHealthCheckLogProjectAttributesResponse describeHealthCheckLogProjectAttributesResponse = (DescribeHealthCheckLogProjectAttributesResponse) o;
-    return Objects.equals(this.logProjectId, describeHealthCheckLogProjectAttributesResponse.logProjectId) &&
-        Objects.equals(this.requestId, describeHealthCheckLogProjectAttributesResponse.requestId);
+    DescribeLoadBalancerSpecsResponse describeLoadBalancerSpecsResponse = (DescribeLoadBalancerSpecsResponse) o;
+    return Objects.equals(this.loadBalancerSpecs, describeLoadBalancerSpecsResponse.loadBalancerSpecs) &&
+        Objects.equals(this.requestId, describeLoadBalancerSpecsResponse.requestId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(logProjectId, requestId);
+    return Objects.hash(loadBalancerSpecs, requestId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DescribeHealthCheckLogProjectAttributesResponse {\n");
+    sb.append("class DescribeLoadBalancerSpecsResponse {\n");
     
-    sb.append("    logProjectId: ").append(toIndentedString(logProjectId)).append("\n");
+    sb.append("    loadBalancerSpecs: ").append(toIndentedString(loadBalancerSpecs)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("}");
     return sb.toString();

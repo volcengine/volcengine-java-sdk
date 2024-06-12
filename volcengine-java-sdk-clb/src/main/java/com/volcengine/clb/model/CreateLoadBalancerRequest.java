@@ -32,6 +32,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateLoadBalancerRequest {
   @SerializedName("AddressIpVersion")
   private String addressIpVersion = null;
