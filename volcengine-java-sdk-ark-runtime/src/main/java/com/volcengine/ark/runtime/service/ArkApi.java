@@ -1,6 +1,8 @@
 package com.volcengine.ark.runtime.service;
 
 import com.volcengine.ark.runtime.Const;
+import com.volcengine.ark.runtime.model.bot.completion.chat.BotChatCompletionRequest;
+import com.volcengine.ark.runtime.model.bot.completion.chat.BotChatCompletionResult;
 import com.volcengine.ark.runtime.model.completion.chat.ChatCompletionRequest;
 import com.volcengine.ark.runtime.model.completion.chat.ChatCompletionResult;
 import com.volcengine.ark.runtime.model.embeddings.EmbeddingRequest;
@@ -20,6 +22,13 @@ public interface ArkApi {
     @Streaming
     @POST("/api/v3/chat/completions")
     Call<ResponseBody> createChatCompletionStream(@Body ChatCompletionRequest request, @Header(Const.REQUEST_MODEL) String model, @HeaderMap Map<String, String> customHeaders);
+
+    @POST("/api/v3/bots/chat/completions")
+    Single<BotChatCompletionResult> createBotChatCompletion(@Body BotChatCompletionRequest request, @Header(Const.REQUEST_BOT) String botId, @HeaderMap Map<String, String> customHeaders);
+
+    @Streaming
+    @POST("/api/v3/bots/chat/completions")
+    Call<ResponseBody> createBotChatCompletionStream(@Body BotChatCompletionRequest request, @Header(Const.REQUEST_BOT) String botId, @HeaderMap Map<String, String> customHeaders);
 
     @POST("/api/v3/embeddings")
     Single<EmbeddingResult> createEmbeddings(@Body EmbeddingRequest request, @Header(Const.REQUEST_MODEL) String model, @HeaderMap Map<String, String> customHeaders);
