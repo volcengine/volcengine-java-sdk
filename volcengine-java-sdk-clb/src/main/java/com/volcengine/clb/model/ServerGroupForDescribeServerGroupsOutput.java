@@ -31,9 +31,13 @@ import javax.validation.Valid;
  */
 
 
+
 public class ServerGroupForDescribeServerGroupsOutput {
   @SerializedName("AddressIpVersion")
   private String addressIpVersion = null;
+
+  @SerializedName("AnyPortEnabled")
+  private String anyPortEnabled = null;
 
   @SerializedName("CreateTime")
   private String createTime = null;
@@ -72,6 +76,24 @@ public class ServerGroupForDescribeServerGroupsOutput {
 
   public void setAddressIpVersion(String addressIpVersion) {
     this.addressIpVersion = addressIpVersion;
+  }
+
+  public ServerGroupForDescribeServerGroupsOutput anyPortEnabled(String anyPortEnabled) {
+    this.anyPortEnabled = anyPortEnabled;
+    return this;
+  }
+
+   /**
+   * Get anyPortEnabled
+   * @return anyPortEnabled
+  **/
+  @Schema(description = "")
+  public String getAnyPortEnabled() {
+    return anyPortEnabled;
+  }
+
+  public void setAnyPortEnabled(String anyPortEnabled) {
+    this.anyPortEnabled = anyPortEnabled;
   }
 
   public ServerGroupForDescribeServerGroupsOutput createTime(String createTime) {
@@ -220,6 +242,7 @@ public class ServerGroupForDescribeServerGroupsOutput {
     }
     ServerGroupForDescribeServerGroupsOutput serverGroupForDescribeServerGroupsOutput = (ServerGroupForDescribeServerGroupsOutput) o;
     return Objects.equals(this.addressIpVersion, serverGroupForDescribeServerGroupsOutput.addressIpVersion) &&
+        Objects.equals(this.anyPortEnabled, serverGroupForDescribeServerGroupsOutput.anyPortEnabled) &&
         Objects.equals(this.createTime, serverGroupForDescribeServerGroupsOutput.createTime) &&
         Objects.equals(this.description, serverGroupForDescribeServerGroupsOutput.description) &&
         Objects.equals(this.serverGroupId, serverGroupForDescribeServerGroupsOutput.serverGroupId) &&
@@ -231,7 +254,7 @@ public class ServerGroupForDescribeServerGroupsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addressIpVersion, createTime, description, serverGroupId, serverGroupName, tags, type, updateTime);
+    return Objects.hash(addressIpVersion, anyPortEnabled, createTime, description, serverGroupId, serverGroupName, tags, type, updateTime);
   }
 
 
@@ -241,6 +264,7 @@ public class ServerGroupForDescribeServerGroupsOutput {
     sb.append("class ServerGroupForDescribeServerGroupsOutput {\n");
     
     sb.append("    addressIpVersion: ").append(toIndentedString(addressIpVersion)).append("\n");
+    sb.append("    anyPortEnabled: ").append(toIndentedString(anyPortEnabled)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    serverGroupId: ").append(toIndentedString(serverGroupId)).append("\n");

@@ -30,12 +30,19 @@ import javax.validation.Valid;
  */
 
 
+
 public class ModifyLoadBalancerAttributesRequest {
+  @SerializedName("AddressIpVersion")
+  private String addressIpVersion = null;
+
   @SerializedName("AllowedPorts")
   private List<String> allowedPorts = null;
 
   @SerializedName("Description")
   private String description = null;
+
+  @SerializedName("EniIpv6Address")
+  private String eniIpv6Address = null;
 
   @SerializedName("LoadBalancerId")
   private String loadBalancerId = null;
@@ -54,6 +61,24 @@ public class ModifyLoadBalancerAttributesRequest {
 
   @SerializedName("Type")
   private String type = null;
+
+  public ModifyLoadBalancerAttributesRequest addressIpVersion(String addressIpVersion) {
+    this.addressIpVersion = addressIpVersion;
+    return this;
+  }
+
+   /**
+   * Get addressIpVersion
+   * @return addressIpVersion
+  **/
+  @Schema(description = "")
+  public String getAddressIpVersion() {
+    return addressIpVersion;
+  }
+
+  public void setAddressIpVersion(String addressIpVersion) {
+    this.addressIpVersion = addressIpVersion;
+  }
 
   public ModifyLoadBalancerAttributesRequest allowedPorts(List<String> allowedPorts) {
     this.allowedPorts = allowedPorts;
@@ -97,6 +122,24 @@ public class ModifyLoadBalancerAttributesRequest {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public ModifyLoadBalancerAttributesRequest eniIpv6Address(String eniIpv6Address) {
+    this.eniIpv6Address = eniIpv6Address;
+    return this;
+  }
+
+   /**
+   * Get eniIpv6Address
+   * @return eniIpv6Address
+  **/
+  @Schema(description = "")
+  public String getEniIpv6Address() {
+    return eniIpv6Address;
+  }
+
+  public void setEniIpv6Address(String eniIpv6Address) {
+    this.eniIpv6Address = eniIpv6Address;
   }
 
   public ModifyLoadBalancerAttributesRequest loadBalancerId(String loadBalancerId) {
@@ -218,8 +261,10 @@ public class ModifyLoadBalancerAttributesRequest {
       return false;
     }
     ModifyLoadBalancerAttributesRequest modifyLoadBalancerAttributesRequest = (ModifyLoadBalancerAttributesRequest) o;
-    return Objects.equals(this.allowedPorts, modifyLoadBalancerAttributesRequest.allowedPorts) &&
+    return Objects.equals(this.addressIpVersion, modifyLoadBalancerAttributesRequest.addressIpVersion) &&
+        Objects.equals(this.allowedPorts, modifyLoadBalancerAttributesRequest.allowedPorts) &&
         Objects.equals(this.description, modifyLoadBalancerAttributesRequest.description) &&
+        Objects.equals(this.eniIpv6Address, modifyLoadBalancerAttributesRequest.eniIpv6Address) &&
         Objects.equals(this.loadBalancerId, modifyLoadBalancerAttributesRequest.loadBalancerId) &&
         Objects.equals(this.loadBalancerName, modifyLoadBalancerAttributesRequest.loadBalancerName) &&
         Objects.equals(this.loadBalancerSpec, modifyLoadBalancerAttributesRequest.loadBalancerSpec) &&
@@ -230,7 +275,7 @@ public class ModifyLoadBalancerAttributesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowedPorts, description, loadBalancerId, loadBalancerName, loadBalancerSpec, modificationProtectionReason, modificationProtectionStatus, type);
+    return Objects.hash(addressIpVersion, allowedPorts, description, eniIpv6Address, loadBalancerId, loadBalancerName, loadBalancerSpec, modificationProtectionReason, modificationProtectionStatus, type);
   }
 
 
@@ -239,8 +284,10 @@ public class ModifyLoadBalancerAttributesRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ModifyLoadBalancerAttributesRequest {\n");
     
+    sb.append("    addressIpVersion: ").append(toIndentedString(addressIpVersion)).append("\n");
     sb.append("    allowedPorts: ").append(toIndentedString(allowedPorts)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    eniIpv6Address: ").append(toIndentedString(eniIpv6Address)).append("\n");
     sb.append("    loadBalancerId: ").append(toIndentedString(loadBalancerId)).append("\n");
     sb.append("    loadBalancerName: ").append(toIndentedString(loadBalancerName)).append("\n");
     sb.append("    loadBalancerSpec: ").append(toIndentedString(loadBalancerSpec)).append("\n");

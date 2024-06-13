@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeLoadBalancersBillingRequest {
   @SerializedName("LoadBalancerIds")
   private List<String> loadBalancerIds = null;

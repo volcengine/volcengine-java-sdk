@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ModifyListenerAttributesRequest {
   @SerializedName("AclIds")
   private List<String> aclIds = null;
@@ -46,6 +47,12 @@ public class ModifyListenerAttributesRequest {
 
   @SerializedName("CertificateId")
   private String certificateId = null;
+
+  @SerializedName("ClientBodyTimeout")
+  private Integer clientBodyTimeout = null;
+
+  @SerializedName("ClientHeaderTimeout")
+  private Integer clientHeaderTimeout = null;
 
   @SerializedName("ConnectionDrainEnabled")
   private String connectionDrainEnabled = null;
@@ -71,6 +78,9 @@ public class ModifyListenerAttributesRequest {
   @SerializedName("Http2Enabled")
   private String http2Enabled = null;
 
+  @SerializedName("KeepaliveTimeout")
+  private Integer keepaliveTimeout = null;
+
   @SerializedName("ListenerId")
   private String listenerId = null;
 
@@ -83,11 +93,26 @@ public class ModifyListenerAttributesRequest {
   @SerializedName("PersistenceType")
   private String persistenceType = null;
 
+  @SerializedName("ProxyConnectTimeout")
+  private Integer proxyConnectTimeout = null;
+
   @SerializedName("ProxyProtocolType")
   private String proxyProtocolType = null;
 
+  @SerializedName("ProxyReadTimeout")
+  private Integer proxyReadTimeout = null;
+
+  @SerializedName("ProxySendTimeout")
+  private Integer proxySendTimeout = null;
+
   @SerializedName("Scheduler")
   private String scheduler = null;
+
+  @SerializedName("SecurityPolicyId")
+  private String securityPolicyId = null;
+
+  @SerializedName("SendTimeout")
+  private Integer sendTimeout = null;
 
   @SerializedName("ServerGroupId")
   private String serverGroupId = null;
@@ -188,6 +213,42 @@ public class ModifyListenerAttributesRequest {
 
   public void setCertificateId(String certificateId) {
     this.certificateId = certificateId;
+  }
+
+  public ModifyListenerAttributesRequest clientBodyTimeout(Integer clientBodyTimeout) {
+    this.clientBodyTimeout = clientBodyTimeout;
+    return this;
+  }
+
+   /**
+   * Get clientBodyTimeout
+   * @return clientBodyTimeout
+  **/
+  @Schema(description = "")
+  public Integer getClientBodyTimeout() {
+    return clientBodyTimeout;
+  }
+
+  public void setClientBodyTimeout(Integer clientBodyTimeout) {
+    this.clientBodyTimeout = clientBodyTimeout;
+  }
+
+  public ModifyListenerAttributesRequest clientHeaderTimeout(Integer clientHeaderTimeout) {
+    this.clientHeaderTimeout = clientHeaderTimeout;
+    return this;
+  }
+
+   /**
+   * Get clientHeaderTimeout
+   * @return clientHeaderTimeout
+  **/
+  @Schema(description = "")
+  public Integer getClientHeaderTimeout() {
+    return clientHeaderTimeout;
+  }
+
+  public void setClientHeaderTimeout(Integer clientHeaderTimeout) {
+    this.clientHeaderTimeout = clientHeaderTimeout;
   }
 
   public ModifyListenerAttributesRequest connectionDrainEnabled(String connectionDrainEnabled) {
@@ -335,6 +396,24 @@ public class ModifyListenerAttributesRequest {
     this.http2Enabled = http2Enabled;
   }
 
+  public ModifyListenerAttributesRequest keepaliveTimeout(Integer keepaliveTimeout) {
+    this.keepaliveTimeout = keepaliveTimeout;
+    return this;
+  }
+
+   /**
+   * Get keepaliveTimeout
+   * @return keepaliveTimeout
+  **/
+  @Schema(description = "")
+  public Integer getKeepaliveTimeout() {
+    return keepaliveTimeout;
+  }
+
+  public void setKeepaliveTimeout(Integer keepaliveTimeout) {
+    this.keepaliveTimeout = keepaliveTimeout;
+  }
+
   public ModifyListenerAttributesRequest listenerId(String listenerId) {
     this.listenerId = listenerId;
     return this;
@@ -408,6 +487,24 @@ public class ModifyListenerAttributesRequest {
     this.persistenceType = persistenceType;
   }
 
+  public ModifyListenerAttributesRequest proxyConnectTimeout(Integer proxyConnectTimeout) {
+    this.proxyConnectTimeout = proxyConnectTimeout;
+    return this;
+  }
+
+   /**
+   * Get proxyConnectTimeout
+   * @return proxyConnectTimeout
+  **/
+  @Schema(description = "")
+  public Integer getProxyConnectTimeout() {
+    return proxyConnectTimeout;
+  }
+
+  public void setProxyConnectTimeout(Integer proxyConnectTimeout) {
+    this.proxyConnectTimeout = proxyConnectTimeout;
+  }
+
   public ModifyListenerAttributesRequest proxyProtocolType(String proxyProtocolType) {
     this.proxyProtocolType = proxyProtocolType;
     return this;
@@ -426,6 +523,42 @@ public class ModifyListenerAttributesRequest {
     this.proxyProtocolType = proxyProtocolType;
   }
 
+  public ModifyListenerAttributesRequest proxyReadTimeout(Integer proxyReadTimeout) {
+    this.proxyReadTimeout = proxyReadTimeout;
+    return this;
+  }
+
+   /**
+   * Get proxyReadTimeout
+   * @return proxyReadTimeout
+  **/
+  @Schema(description = "")
+  public Integer getProxyReadTimeout() {
+    return proxyReadTimeout;
+  }
+
+  public void setProxyReadTimeout(Integer proxyReadTimeout) {
+    this.proxyReadTimeout = proxyReadTimeout;
+  }
+
+  public ModifyListenerAttributesRequest proxySendTimeout(Integer proxySendTimeout) {
+    this.proxySendTimeout = proxySendTimeout;
+    return this;
+  }
+
+   /**
+   * Get proxySendTimeout
+   * @return proxySendTimeout
+  **/
+  @Schema(description = "")
+  public Integer getProxySendTimeout() {
+    return proxySendTimeout;
+  }
+
+  public void setProxySendTimeout(Integer proxySendTimeout) {
+    this.proxySendTimeout = proxySendTimeout;
+  }
+
   public ModifyListenerAttributesRequest scheduler(String scheduler) {
     this.scheduler = scheduler;
     return this;
@@ -442,6 +575,42 @@ public class ModifyListenerAttributesRequest {
 
   public void setScheduler(String scheduler) {
     this.scheduler = scheduler;
+  }
+
+  public ModifyListenerAttributesRequest securityPolicyId(String securityPolicyId) {
+    this.securityPolicyId = securityPolicyId;
+    return this;
+  }
+
+   /**
+   * Get securityPolicyId
+   * @return securityPolicyId
+  **/
+  @Schema(description = "")
+  public String getSecurityPolicyId() {
+    return securityPolicyId;
+  }
+
+  public void setSecurityPolicyId(String securityPolicyId) {
+    this.securityPolicyId = securityPolicyId;
+  }
+
+  public ModifyListenerAttributesRequest sendTimeout(Integer sendTimeout) {
+    this.sendTimeout = sendTimeout;
+    return this;
+  }
+
+   /**
+   * Get sendTimeout
+   * @return sendTimeout
+  **/
+  @Schema(description = "")
+  public Integer getSendTimeout() {
+    return sendTimeout;
+  }
+
+  public void setSendTimeout(Integer sendTimeout) {
+    this.sendTimeout = sendTimeout;
   }
 
   public ModifyListenerAttributesRequest serverGroupId(String serverGroupId) {
@@ -477,6 +646,8 @@ public class ModifyListenerAttributesRequest {
         Objects.equals(this.aclType, modifyListenerAttributesRequest.aclType) &&
         Objects.equals(this.bandwidth, modifyListenerAttributesRequest.bandwidth) &&
         Objects.equals(this.certificateId, modifyListenerAttributesRequest.certificateId) &&
+        Objects.equals(this.clientBodyTimeout, modifyListenerAttributesRequest.clientBodyTimeout) &&
+        Objects.equals(this.clientHeaderTimeout, modifyListenerAttributesRequest.clientHeaderTimeout) &&
         Objects.equals(this.connectionDrainEnabled, modifyListenerAttributesRequest.connectionDrainEnabled) &&
         Objects.equals(this.connectionDrainTimeout, modifyListenerAttributesRequest.connectionDrainTimeout) &&
         Objects.equals(this.cookie, modifyListenerAttributesRequest.cookie) &&
@@ -485,18 +656,24 @@ public class ModifyListenerAttributesRequest {
         Objects.equals(this.establishedTimeout, modifyListenerAttributesRequest.establishedTimeout) &&
         Objects.equals(this.healthCheck, modifyListenerAttributesRequest.healthCheck) &&
         Objects.equals(this.http2Enabled, modifyListenerAttributesRequest.http2Enabled) &&
+        Objects.equals(this.keepaliveTimeout, modifyListenerAttributesRequest.keepaliveTimeout) &&
         Objects.equals(this.listenerId, modifyListenerAttributesRequest.listenerId) &&
         Objects.equals(this.listenerName, modifyListenerAttributesRequest.listenerName) &&
         Objects.equals(this.persistenceTimeout, modifyListenerAttributesRequest.persistenceTimeout) &&
         Objects.equals(this.persistenceType, modifyListenerAttributesRequest.persistenceType) &&
+        Objects.equals(this.proxyConnectTimeout, modifyListenerAttributesRequest.proxyConnectTimeout) &&
         Objects.equals(this.proxyProtocolType, modifyListenerAttributesRequest.proxyProtocolType) &&
+        Objects.equals(this.proxyReadTimeout, modifyListenerAttributesRequest.proxyReadTimeout) &&
+        Objects.equals(this.proxySendTimeout, modifyListenerAttributesRequest.proxySendTimeout) &&
         Objects.equals(this.scheduler, modifyListenerAttributesRequest.scheduler) &&
+        Objects.equals(this.securityPolicyId, modifyListenerAttributesRequest.securityPolicyId) &&
+        Objects.equals(this.sendTimeout, modifyListenerAttributesRequest.sendTimeout) &&
         Objects.equals(this.serverGroupId, modifyListenerAttributesRequest.serverGroupId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclIds, aclStatus, aclType, bandwidth, certificateId, connectionDrainEnabled, connectionDrainTimeout, cookie, description, enabled, establishedTimeout, healthCheck, http2Enabled, listenerId, listenerName, persistenceTimeout, persistenceType, proxyProtocolType, scheduler, serverGroupId);
+    return Objects.hash(aclIds, aclStatus, aclType, bandwidth, certificateId, clientBodyTimeout, clientHeaderTimeout, connectionDrainEnabled, connectionDrainTimeout, cookie, description, enabled, establishedTimeout, healthCheck, http2Enabled, keepaliveTimeout, listenerId, listenerName, persistenceTimeout, persistenceType, proxyConnectTimeout, proxyProtocolType, proxyReadTimeout, proxySendTimeout, scheduler, securityPolicyId, sendTimeout, serverGroupId);
   }
 
 
@@ -510,6 +687,8 @@ public class ModifyListenerAttributesRequest {
     sb.append("    aclType: ").append(toIndentedString(aclType)).append("\n");
     sb.append("    bandwidth: ").append(toIndentedString(bandwidth)).append("\n");
     sb.append("    certificateId: ").append(toIndentedString(certificateId)).append("\n");
+    sb.append("    clientBodyTimeout: ").append(toIndentedString(clientBodyTimeout)).append("\n");
+    sb.append("    clientHeaderTimeout: ").append(toIndentedString(clientHeaderTimeout)).append("\n");
     sb.append("    connectionDrainEnabled: ").append(toIndentedString(connectionDrainEnabled)).append("\n");
     sb.append("    connectionDrainTimeout: ").append(toIndentedString(connectionDrainTimeout)).append("\n");
     sb.append("    cookie: ").append(toIndentedString(cookie)).append("\n");
@@ -518,12 +697,18 @@ public class ModifyListenerAttributesRequest {
     sb.append("    establishedTimeout: ").append(toIndentedString(establishedTimeout)).append("\n");
     sb.append("    healthCheck: ").append(toIndentedString(healthCheck)).append("\n");
     sb.append("    http2Enabled: ").append(toIndentedString(http2Enabled)).append("\n");
+    sb.append("    keepaliveTimeout: ").append(toIndentedString(keepaliveTimeout)).append("\n");
     sb.append("    listenerId: ").append(toIndentedString(listenerId)).append("\n");
     sb.append("    listenerName: ").append(toIndentedString(listenerName)).append("\n");
     sb.append("    persistenceTimeout: ").append(toIndentedString(persistenceTimeout)).append("\n");
     sb.append("    persistenceType: ").append(toIndentedString(persistenceType)).append("\n");
+    sb.append("    proxyConnectTimeout: ").append(toIndentedString(proxyConnectTimeout)).append("\n");
     sb.append("    proxyProtocolType: ").append(toIndentedString(proxyProtocolType)).append("\n");
+    sb.append("    proxyReadTimeout: ").append(toIndentedString(proxyReadTimeout)).append("\n");
+    sb.append("    proxySendTimeout: ").append(toIndentedString(proxySendTimeout)).append("\n");
     sb.append("    scheduler: ").append(toIndentedString(scheduler)).append("\n");
+    sb.append("    securityPolicyId: ").append(toIndentedString(securityPolicyId)).append("\n");
+    sb.append("    sendTimeout: ").append(toIndentedString(sendTimeout)).append("\n");
     sb.append("    serverGroupId: ").append(toIndentedString(serverGroupId)).append("\n");
     sb.append("}");
     return sb.toString();

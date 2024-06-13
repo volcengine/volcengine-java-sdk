@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class EniAddressForDescribeLoadBalancersOutput {
   @SerializedName("EipAddress")
   private String eipAddress = null;

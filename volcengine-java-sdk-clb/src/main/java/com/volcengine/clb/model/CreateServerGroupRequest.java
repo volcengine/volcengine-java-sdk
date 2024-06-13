@@ -32,9 +32,13 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateServerGroupRequest {
   @SerializedName("AddressIpVersion")
   private String addressIpVersion = null;
+
+  @SerializedName("AnyPortEnabled")
+  private String anyPortEnabled = null;
 
   @SerializedName("Description")
   private String description = null;
@@ -70,6 +74,24 @@ public class CreateServerGroupRequest {
 
   public void setAddressIpVersion(String addressIpVersion) {
     this.addressIpVersion = addressIpVersion;
+  }
+
+  public CreateServerGroupRequest anyPortEnabled(String anyPortEnabled) {
+    this.anyPortEnabled = anyPortEnabled;
+    return this;
+  }
+
+   /**
+   * Get anyPortEnabled
+   * @return anyPortEnabled
+  **/
+  @Schema(description = "")
+  public String getAnyPortEnabled() {
+    return anyPortEnabled;
+  }
+
+  public void setAnyPortEnabled(String anyPortEnabled) {
+    this.anyPortEnabled = anyPortEnabled;
   }
 
   public CreateServerGroupRequest description(String description) {
@@ -210,6 +232,7 @@ public class CreateServerGroupRequest {
     }
     CreateServerGroupRequest createServerGroupRequest = (CreateServerGroupRequest) o;
     return Objects.equals(this.addressIpVersion, createServerGroupRequest.addressIpVersion) &&
+        Objects.equals(this.anyPortEnabled, createServerGroupRequest.anyPortEnabled) &&
         Objects.equals(this.description, createServerGroupRequest.description) &&
         Objects.equals(this.loadBalancerId, createServerGroupRequest.loadBalancerId) &&
         Objects.equals(this.serverGroupName, createServerGroupRequest.serverGroupName) &&
@@ -220,7 +243,7 @@ public class CreateServerGroupRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addressIpVersion, description, loadBalancerId, serverGroupName, servers, tags, type);
+    return Objects.hash(addressIpVersion, anyPortEnabled, description, loadBalancerId, serverGroupName, servers, tags, type);
   }
 
 
@@ -230,6 +253,7 @@ public class CreateServerGroupRequest {
     sb.append("class CreateServerGroupRequest {\n");
     
     sb.append("    addressIpVersion: ").append(toIndentedString(addressIpVersion)).append("\n");
+    sb.append("    anyPortEnabled: ").append(toIndentedString(anyPortEnabled)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    loadBalancerId: ").append(toIndentedString(loadBalancerId)).append("\n");
     sb.append("    serverGroupName: ").append(toIndentedString(serverGroupName)).append("\n");

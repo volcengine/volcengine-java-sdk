@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeHealthCheckLogTopicAttributesRequest {
   @SerializedName("LogTopicId")
   private String logTopicId = null;

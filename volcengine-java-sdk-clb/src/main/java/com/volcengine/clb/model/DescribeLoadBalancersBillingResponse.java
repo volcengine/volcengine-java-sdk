@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeLoadBalancersBillingResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("LoadBalancerBillingConfigs")
   private List<LoadBalancerBillingConfigForDescribeLoadBalancersBillingOutput> loadBalancerBillingConfigs = null;

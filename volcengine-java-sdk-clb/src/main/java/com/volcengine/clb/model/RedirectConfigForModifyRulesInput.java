@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class RedirectConfigForModifyRulesInput {
   @SerializedName("Host")
   private String host = null;
