@@ -134,7 +134,8 @@ public class ModifyScalingPolicyRequest {
    * Get scalingPolicyId
    * @return scalingPolicyId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getScalingPolicyId() {
     return scalingPolicyId;
   }

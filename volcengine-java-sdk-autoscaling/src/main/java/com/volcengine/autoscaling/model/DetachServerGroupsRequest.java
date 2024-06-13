@@ -50,7 +50,7 @@ public class DetachServerGroupsRequest {
    * Get clientToken
    * @return clientToken
   **/
-  @Schema(description = "")
+ @Size(max=64)  @Schema(description = "")
   public String getClientToken() {
     return clientToken;
   }
@@ -68,7 +68,8 @@ public class DetachServerGroupsRequest {
    * Get scalingGroupId
    * @return scalingGroupId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getScalingGroupId() {
     return scalingGroupId;
   }

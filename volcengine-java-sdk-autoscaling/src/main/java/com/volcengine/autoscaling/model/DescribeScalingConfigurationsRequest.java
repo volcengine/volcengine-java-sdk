@@ -71,9 +71,11 @@ public class DescribeScalingConfigurationsRequest {
 
    /**
    * Get pageSize
+   * minimum: 1
+   * maximum: 100
    * @return pageSize
   **/
-  @Schema(description = "")
+ @Min(1) @Max(100)  @Schema(description = "")
   public Integer getPageSize() {
     return pageSize;
   }

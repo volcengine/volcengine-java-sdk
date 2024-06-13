@@ -93,7 +93,8 @@ public class SetInstancesProtectionRequest {
    * Get scalingGroupId
    * @return scalingGroupId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getScalingGroupId() {
     return scalingGroupId;
   }

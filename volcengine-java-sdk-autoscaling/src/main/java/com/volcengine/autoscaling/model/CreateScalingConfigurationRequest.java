@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.autoscaling.model.EipForCreateScalingConfigurationInput;
+import com.volcengine.autoscaling.model.InstanceTypeOverrideForCreateScalingConfigurationInput;
 import com.volcengine.autoscaling.model.VolumeForCreateScalingConfigurationInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -53,6 +54,9 @@ public class CreateScalingConfigurationRequest {
 
   @SerializedName("InstanceName")
   private String instanceName = null;
+
+  @SerializedName("InstanceTypeOverrides")
+  private List<InstanceTypeOverrideForCreateScalingConfigurationInput> instanceTypeOverrides = null;
 
   @SerializedName("InstanceTypes")
   private List<String> instanceTypes = null;
@@ -178,7 +182,8 @@ public class CreateScalingConfigurationRequest {
    * Get imageId
    * @return imageId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getImageId() {
     return imageId;
   }
@@ -214,13 +219,41 @@ public class CreateScalingConfigurationRequest {
    * Get instanceName
    * @return instanceName
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getInstanceName() {
     return instanceName;
   }
 
   public void setInstanceName(String instanceName) {
     this.instanceName = instanceName;
+  }
+
+  public CreateScalingConfigurationRequest instanceTypeOverrides(List<InstanceTypeOverrideForCreateScalingConfigurationInput> instanceTypeOverrides) {
+    this.instanceTypeOverrides = instanceTypeOverrides;
+    return this;
+  }
+
+  public CreateScalingConfigurationRequest addInstanceTypeOverridesItem(InstanceTypeOverrideForCreateScalingConfigurationInput instanceTypeOverridesItem) {
+    if (this.instanceTypeOverrides == null) {
+      this.instanceTypeOverrides = new ArrayList<InstanceTypeOverrideForCreateScalingConfigurationInput>();
+    }
+    this.instanceTypeOverrides.add(instanceTypeOverridesItem);
+    return this;
+  }
+
+   /**
+   * Get instanceTypeOverrides
+   * @return instanceTypeOverrides
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<InstanceTypeOverrideForCreateScalingConfigurationInput> getInstanceTypeOverrides() {
+    return instanceTypeOverrides;
+  }
+
+  public void setInstanceTypeOverrides(List<InstanceTypeOverrideForCreateScalingConfigurationInput> instanceTypeOverrides) {
+    this.instanceTypeOverrides = instanceTypeOverrides;
   }
 
   public CreateScalingConfigurationRequest instanceTypes(List<String> instanceTypes) {
@@ -294,7 +327,7 @@ public class CreateScalingConfigurationRequest {
    * Get password
    * @return password
   **/
-  @Schema(description = "")
+ @Size(min=8,max=30)  @Schema(description = "")
   public String getPassword() {
     return password;
   }
@@ -312,7 +345,7 @@ public class CreateScalingConfigurationRequest {
    * Get projectName
    * @return projectName
   **/
-  @Schema(description = "")
+ @Size(max=64)  @Schema(description = "")
   public String getProjectName() {
     return projectName;
   }
@@ -330,7 +363,8 @@ public class CreateScalingConfigurationRequest {
    * Get scalingConfigurationName
    * @return scalingConfigurationName
   **/
-  @Schema(description = "")
+  @NotNull
+ @Size(min=1,max=128)  @Schema(required = true, description = "")
   public String getScalingConfigurationName() {
     return scalingConfigurationName;
   }
@@ -348,7 +382,8 @@ public class CreateScalingConfigurationRequest {
    * Get scalingGroupId
    * @return scalingGroupId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getScalingGroupId() {
     return scalingGroupId;
   }
@@ -517,6 +552,7 @@ public class CreateScalingConfigurationRequest {
         Objects.equals(this.imageId, createScalingConfigurationRequest.imageId) &&
         Objects.equals(this.instanceDescription, createScalingConfigurationRequest.instanceDescription) &&
         Objects.equals(this.instanceName, createScalingConfigurationRequest.instanceName) &&
+        Objects.equals(this.instanceTypeOverrides, createScalingConfigurationRequest.instanceTypeOverrides) &&
         Objects.equals(this.instanceTypes, createScalingConfigurationRequest.instanceTypes) &&
         Objects.equals(this.ipv6AddressCount, createScalingConfigurationRequest.ipv6AddressCount) &&
         Objects.equals(this.keyPairName, createScalingConfigurationRequest.keyPairName) &&
@@ -535,7 +571,7 @@ public class CreateScalingConfigurationRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, eip, hostName, hpcClusterId, imageId, instanceDescription, instanceName, instanceTypes, ipv6AddressCount, keyPairName, password, projectName, scalingConfigurationName, scalingGroupId, securityEnhancementStrategy, securityGroupIds, spotStrategy, tags, userData, volumes, zoneId);
+    return Objects.hash(clientToken, eip, hostName, hpcClusterId, imageId, instanceDescription, instanceName, instanceTypeOverrides, instanceTypes, ipv6AddressCount, keyPairName, password, projectName, scalingConfigurationName, scalingGroupId, securityEnhancementStrategy, securityGroupIds, spotStrategy, tags, userData, volumes, zoneId);
   }
 
 
@@ -551,6 +587,7 @@ public class CreateScalingConfigurationRequest {
     sb.append("    imageId: ").append(toIndentedString(imageId)).append("\n");
     sb.append("    instanceDescription: ").append(toIndentedString(instanceDescription)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
+    sb.append("    instanceTypeOverrides: ").append(toIndentedString(instanceTypeOverrides)).append("\n");
     sb.append("    instanceTypes: ").append(toIndentedString(instanceTypes)).append("\n");
     sb.append("    ipv6AddressCount: ").append(toIndentedString(ipv6AddressCount)).append("\n");
     sb.append("    keyPairName: ").append(toIndentedString(keyPairName)).append("\n");

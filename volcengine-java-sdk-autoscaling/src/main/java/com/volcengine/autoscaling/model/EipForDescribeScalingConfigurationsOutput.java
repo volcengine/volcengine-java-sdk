@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -32,11 +34,20 @@ public class EipForDescribeScalingConfigurationsOutput {
   @SerializedName("Bandwidth")
   private Integer bandwidth = null;
 
+  @SerializedName("BandwidthPackageId")
+  private String bandwidthPackageId = null;
+
   @SerializedName("BillingType")
   private String billingType = null;
 
   @SerializedName("ISP")
   private String ISP = null;
+
+  @SerializedName("SecurityProtectionInstanceId")
+  private Integer securityProtectionInstanceId = null;
+
+  @SerializedName("SecurityProtectionTypes")
+  private List<String> securityProtectionTypes = null;
 
   public EipForDescribeScalingConfigurationsOutput bandwidth(Integer bandwidth) {
     this.bandwidth = bandwidth;
@@ -54,6 +65,24 @@ public class EipForDescribeScalingConfigurationsOutput {
 
   public void setBandwidth(Integer bandwidth) {
     this.bandwidth = bandwidth;
+  }
+
+  public EipForDescribeScalingConfigurationsOutput bandwidthPackageId(String bandwidthPackageId) {
+    this.bandwidthPackageId = bandwidthPackageId;
+    return this;
+  }
+
+   /**
+   * Get bandwidthPackageId
+   * @return bandwidthPackageId
+  **/
+  @Schema(description = "")
+  public String getBandwidthPackageId() {
+    return bandwidthPackageId;
+  }
+
+  public void setBandwidthPackageId(String bandwidthPackageId) {
+    this.bandwidthPackageId = bandwidthPackageId;
   }
 
   public EipForDescribeScalingConfigurationsOutput billingType(String billingType) {
@@ -92,6 +121,50 @@ public class EipForDescribeScalingConfigurationsOutput {
     this.ISP = ISP;
   }
 
+  public EipForDescribeScalingConfigurationsOutput securityProtectionInstanceId(Integer securityProtectionInstanceId) {
+    this.securityProtectionInstanceId = securityProtectionInstanceId;
+    return this;
+  }
+
+   /**
+   * Get securityProtectionInstanceId
+   * @return securityProtectionInstanceId
+  **/
+  @Schema(description = "")
+  public Integer getSecurityProtectionInstanceId() {
+    return securityProtectionInstanceId;
+  }
+
+  public void setSecurityProtectionInstanceId(Integer securityProtectionInstanceId) {
+    this.securityProtectionInstanceId = securityProtectionInstanceId;
+  }
+
+  public EipForDescribeScalingConfigurationsOutput securityProtectionTypes(List<String> securityProtectionTypes) {
+    this.securityProtectionTypes = securityProtectionTypes;
+    return this;
+  }
+
+  public EipForDescribeScalingConfigurationsOutput addSecurityProtectionTypesItem(String securityProtectionTypesItem) {
+    if (this.securityProtectionTypes == null) {
+      this.securityProtectionTypes = new ArrayList<String>();
+    }
+    this.securityProtectionTypes.add(securityProtectionTypesItem);
+    return this;
+  }
+
+   /**
+   * Get securityProtectionTypes
+   * @return securityProtectionTypes
+  **/
+  @Schema(description = "")
+  public List<String> getSecurityProtectionTypes() {
+    return securityProtectionTypes;
+  }
+
+  public void setSecurityProtectionTypes(List<String> securityProtectionTypes) {
+    this.securityProtectionTypes = securityProtectionTypes;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -103,13 +176,16 @@ public class EipForDescribeScalingConfigurationsOutput {
     }
     EipForDescribeScalingConfigurationsOutput eipForDescribeScalingConfigurationsOutput = (EipForDescribeScalingConfigurationsOutput) o;
     return Objects.equals(this.bandwidth, eipForDescribeScalingConfigurationsOutput.bandwidth) &&
+        Objects.equals(this.bandwidthPackageId, eipForDescribeScalingConfigurationsOutput.bandwidthPackageId) &&
         Objects.equals(this.billingType, eipForDescribeScalingConfigurationsOutput.billingType) &&
-        Objects.equals(this.ISP, eipForDescribeScalingConfigurationsOutput.ISP);
+        Objects.equals(this.ISP, eipForDescribeScalingConfigurationsOutput.ISP) &&
+        Objects.equals(this.securityProtectionInstanceId, eipForDescribeScalingConfigurationsOutput.securityProtectionInstanceId) &&
+        Objects.equals(this.securityProtectionTypes, eipForDescribeScalingConfigurationsOutput.securityProtectionTypes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidth, billingType, ISP);
+    return Objects.hash(bandwidth, bandwidthPackageId, billingType, ISP, securityProtectionInstanceId, securityProtectionTypes);
   }
 
 
@@ -119,8 +195,11 @@ public class EipForDescribeScalingConfigurationsOutput {
     sb.append("class EipForDescribeScalingConfigurationsOutput {\n");
     
     sb.append("    bandwidth: ").append(toIndentedString(bandwidth)).append("\n");
+    sb.append("    bandwidthPackageId: ").append(toIndentedString(bandwidthPackageId)).append("\n");
     sb.append("    billingType: ").append(toIndentedString(billingType)).append("\n");
     sb.append("    ISP: ").append(toIndentedString(ISP)).append("\n");
+    sb.append("    securityProtectionInstanceId: ").append(toIndentedString(securityProtectionInstanceId)).append("\n");
+    sb.append("    securityProtectionTypes: ").append(toIndentedString(securityProtectionTypes)).append("\n");
     sb.append("}");
     return sb.toString();
   }

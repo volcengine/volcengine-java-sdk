@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.autoscaling.model.InstancesDistributionForDescribeScalingGroupsOutput;
 import com.volcengine.autoscaling.model.LaunchTemplateOverrideForDescribeScalingGroupsOutput;
 import com.volcengine.autoscaling.model.ServerGroupAttributeForDescribeScalingGroupsOutput;
 import com.volcengine.autoscaling.model.TagForDescribeScalingGroupsOutput;
@@ -55,6 +56,9 @@ public class ScalingGroupForDescribeScalingGroupsOutput {
   @SerializedName("InstanceTerminatePolicy")
   private String instanceTerminatePolicy = null;
 
+  @SerializedName("InstancesDistribution")
+  private InstancesDistributionForDescribeScalingGroupsOutput instancesDistribution = null;
+
   @SerializedName("LaunchTemplateId")
   private String launchTemplateId = null;
 
@@ -66,6 +70,9 @@ public class ScalingGroupForDescribeScalingGroupsOutput {
 
   @SerializedName("LifecycleState")
   private String lifecycleState = null;
+
+  @SerializedName("LoadBalancerHealthCheckGracePeriod")
+  private Integer loadBalancerHealthCheckGracePeriod = null;
 
   @SerializedName("MaxInstanceNumber")
   private Integer maxInstanceNumber = null;
@@ -96,6 +103,9 @@ public class ScalingGroupForDescribeScalingGroupsOutput {
 
   @SerializedName("SubnetIds")
   private List<String> subnetIds = null;
+
+  @SerializedName("SuspendedProcesses")
+  private List<String> suspendedProcesses = null;
 
   @SerializedName("Tags")
   private List<TagForDescribeScalingGroupsOutput> tags = null;
@@ -243,6 +253,25 @@ public class ScalingGroupForDescribeScalingGroupsOutput {
     this.instanceTerminatePolicy = instanceTerminatePolicy;
   }
 
+  public ScalingGroupForDescribeScalingGroupsOutput instancesDistribution(InstancesDistributionForDescribeScalingGroupsOutput instancesDistribution) {
+    this.instancesDistribution = instancesDistribution;
+    return this;
+  }
+
+   /**
+   * Get instancesDistribution
+   * @return instancesDistribution
+  **/
+  @Valid
+  @Schema(description = "")
+  public InstancesDistributionForDescribeScalingGroupsOutput getInstancesDistribution() {
+    return instancesDistribution;
+  }
+
+  public void setInstancesDistribution(InstancesDistributionForDescribeScalingGroupsOutput instancesDistribution) {
+    this.instancesDistribution = instancesDistribution;
+  }
+
   public ScalingGroupForDescribeScalingGroupsOutput launchTemplateId(String launchTemplateId) {
     this.launchTemplateId = launchTemplateId;
     return this;
@@ -322,6 +351,24 @@ public class ScalingGroupForDescribeScalingGroupsOutput {
 
   public void setLifecycleState(String lifecycleState) {
     this.lifecycleState = lifecycleState;
+  }
+
+  public ScalingGroupForDescribeScalingGroupsOutput loadBalancerHealthCheckGracePeriod(Integer loadBalancerHealthCheckGracePeriod) {
+    this.loadBalancerHealthCheckGracePeriod = loadBalancerHealthCheckGracePeriod;
+    return this;
+  }
+
+   /**
+   * Get loadBalancerHealthCheckGracePeriod
+   * @return loadBalancerHealthCheckGracePeriod
+  **/
+  @Schema(description = "")
+  public Integer getLoadBalancerHealthCheckGracePeriod() {
+    return loadBalancerHealthCheckGracePeriod;
+  }
+
+  public void setLoadBalancerHealthCheckGracePeriod(Integer loadBalancerHealthCheckGracePeriod) {
+    this.loadBalancerHealthCheckGracePeriod = loadBalancerHealthCheckGracePeriod;
   }
 
   public ScalingGroupForDescribeScalingGroupsOutput maxInstanceNumber(Integer maxInstanceNumber) {
@@ -521,6 +568,32 @@ public class ScalingGroupForDescribeScalingGroupsOutput {
     this.subnetIds = subnetIds;
   }
 
+  public ScalingGroupForDescribeScalingGroupsOutput suspendedProcesses(List<String> suspendedProcesses) {
+    this.suspendedProcesses = suspendedProcesses;
+    return this;
+  }
+
+  public ScalingGroupForDescribeScalingGroupsOutput addSuspendedProcessesItem(String suspendedProcessesItem) {
+    if (this.suspendedProcesses == null) {
+      this.suspendedProcesses = new ArrayList<String>();
+    }
+    this.suspendedProcesses.add(suspendedProcessesItem);
+    return this;
+  }
+
+   /**
+   * Get suspendedProcesses
+   * @return suspendedProcesses
+  **/
+  @Schema(description = "")
+  public List<String> getSuspendedProcesses() {
+    return suspendedProcesses;
+  }
+
+  public void setSuspendedProcesses(List<String> suspendedProcesses) {
+    this.suspendedProcesses = suspendedProcesses;
+  }
+
   public ScalingGroupForDescribeScalingGroupsOutput tags(List<TagForDescribeScalingGroupsOutput> tags) {
     this.tags = tags;
     return this;
@@ -619,10 +692,12 @@ public class ScalingGroupForDescribeScalingGroupsOutput {
         Objects.equals(this.desireInstanceNumber, scalingGroupForDescribeScalingGroupsOutput.desireInstanceNumber) &&
         Objects.equals(this.healthCheckType, scalingGroupForDescribeScalingGroupsOutput.healthCheckType) &&
         Objects.equals(this.instanceTerminatePolicy, scalingGroupForDescribeScalingGroupsOutput.instanceTerminatePolicy) &&
+        Objects.equals(this.instancesDistribution, scalingGroupForDescribeScalingGroupsOutput.instancesDistribution) &&
         Objects.equals(this.launchTemplateId, scalingGroupForDescribeScalingGroupsOutput.launchTemplateId) &&
         Objects.equals(this.launchTemplateOverrides, scalingGroupForDescribeScalingGroupsOutput.launchTemplateOverrides) &&
         Objects.equals(this.launchTemplateVersion, scalingGroupForDescribeScalingGroupsOutput.launchTemplateVersion) &&
         Objects.equals(this.lifecycleState, scalingGroupForDescribeScalingGroupsOutput.lifecycleState) &&
+        Objects.equals(this.loadBalancerHealthCheckGracePeriod, scalingGroupForDescribeScalingGroupsOutput.loadBalancerHealthCheckGracePeriod) &&
         Objects.equals(this.maxInstanceNumber, scalingGroupForDescribeScalingGroupsOutput.maxInstanceNumber) &&
         Objects.equals(this.minInstanceNumber, scalingGroupForDescribeScalingGroupsOutput.minInstanceNumber) &&
         Objects.equals(this.multiAZPolicy, scalingGroupForDescribeScalingGroupsOutput.multiAZPolicy) &&
@@ -633,6 +708,7 @@ public class ScalingGroupForDescribeScalingGroupsOutput {
         Objects.equals(this.serverGroupAttributes, scalingGroupForDescribeScalingGroupsOutput.serverGroupAttributes) &&
         Objects.equals(this.stoppedInstanceCount, scalingGroupForDescribeScalingGroupsOutput.stoppedInstanceCount) &&
         Objects.equals(this.subnetIds, scalingGroupForDescribeScalingGroupsOutput.subnetIds) &&
+        Objects.equals(this.suspendedProcesses, scalingGroupForDescribeScalingGroupsOutput.suspendedProcesses) &&
         Objects.equals(this.tags, scalingGroupForDescribeScalingGroupsOutput.tags) &&
         Objects.equals(this.totalInstanceCount, scalingGroupForDescribeScalingGroupsOutput.totalInstanceCount) &&
         Objects.equals(this.updatedAt, scalingGroupForDescribeScalingGroupsOutput.updatedAt) &&
@@ -641,7 +717,7 @@ public class ScalingGroupForDescribeScalingGroupsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(activeScalingConfigurationId, createdAt, dbInstanceIds, defaultCooldown, desireInstanceNumber, healthCheckType, instanceTerminatePolicy, launchTemplateId, launchTemplateOverrides, launchTemplateVersion, lifecycleState, maxInstanceNumber, minInstanceNumber, multiAZPolicy, projectName, scalingGroupId, scalingGroupName, scalingMode, serverGroupAttributes, stoppedInstanceCount, subnetIds, tags, totalInstanceCount, updatedAt, vpcId);
+    return Objects.hash(activeScalingConfigurationId, createdAt, dbInstanceIds, defaultCooldown, desireInstanceNumber, healthCheckType, instanceTerminatePolicy, instancesDistribution, launchTemplateId, launchTemplateOverrides, launchTemplateVersion, lifecycleState, loadBalancerHealthCheckGracePeriod, maxInstanceNumber, minInstanceNumber, multiAZPolicy, projectName, scalingGroupId, scalingGroupName, scalingMode, serverGroupAttributes, stoppedInstanceCount, subnetIds, suspendedProcesses, tags, totalInstanceCount, updatedAt, vpcId);
   }
 
 
@@ -657,10 +733,12 @@ public class ScalingGroupForDescribeScalingGroupsOutput {
     sb.append("    desireInstanceNumber: ").append(toIndentedString(desireInstanceNumber)).append("\n");
     sb.append("    healthCheckType: ").append(toIndentedString(healthCheckType)).append("\n");
     sb.append("    instanceTerminatePolicy: ").append(toIndentedString(instanceTerminatePolicy)).append("\n");
+    sb.append("    instancesDistribution: ").append(toIndentedString(instancesDistribution)).append("\n");
     sb.append("    launchTemplateId: ").append(toIndentedString(launchTemplateId)).append("\n");
     sb.append("    launchTemplateOverrides: ").append(toIndentedString(launchTemplateOverrides)).append("\n");
     sb.append("    launchTemplateVersion: ").append(toIndentedString(launchTemplateVersion)).append("\n");
     sb.append("    lifecycleState: ").append(toIndentedString(lifecycleState)).append("\n");
+    sb.append("    loadBalancerHealthCheckGracePeriod: ").append(toIndentedString(loadBalancerHealthCheckGracePeriod)).append("\n");
     sb.append("    maxInstanceNumber: ").append(toIndentedString(maxInstanceNumber)).append("\n");
     sb.append("    minInstanceNumber: ").append(toIndentedString(minInstanceNumber)).append("\n");
     sb.append("    multiAZPolicy: ").append(toIndentedString(multiAZPolicy)).append("\n");
@@ -671,6 +749,7 @@ public class ScalingGroupForDescribeScalingGroupsOutput {
     sb.append("    serverGroupAttributes: ").append(toIndentedString(serverGroupAttributes)).append("\n");
     sb.append("    stoppedInstanceCount: ").append(toIndentedString(stoppedInstanceCount)).append("\n");
     sb.append("    subnetIds: ").append(toIndentedString(subnetIds)).append("\n");
+    sb.append("    suspendedProcesses: ").append(toIndentedString(suspendedProcesses)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    totalInstanceCount: ").append(toIndentedString(totalInstanceCount)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");

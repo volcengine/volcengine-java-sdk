@@ -41,7 +41,8 @@ public class DeleteScalingConfigurationRequest {
    * Get scalingConfigurationId
    * @return scalingConfigurationId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getScalingConfigurationId() {
     return scalingConfigurationId;
   }

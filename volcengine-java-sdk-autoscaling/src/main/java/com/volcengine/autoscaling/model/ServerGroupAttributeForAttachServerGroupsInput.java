@@ -35,6 +35,9 @@ public class ServerGroupAttributeForAttachServerGroupsInput {
   @SerializedName("ServerGroupId")
   private String serverGroupId = null;
 
+  @SerializedName("Type")
+  private String type = null;
+
   @SerializedName("Weight")
   private Integer weight = null;
 
@@ -47,7 +50,8 @@ public class ServerGroupAttributeForAttachServerGroupsInput {
    * Get port
    * @return port
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public Integer getPort() {
     return port;
   }
@@ -65,13 +69,32 @@ public class ServerGroupAttributeForAttachServerGroupsInput {
    * Get serverGroupId
    * @return serverGroupId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getServerGroupId() {
     return serverGroupId;
   }
 
   public void setServerGroupId(String serverGroupId) {
     this.serverGroupId = serverGroupId;
+  }
+
+  public ServerGroupAttributeForAttachServerGroupsInput type(String type) {
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @Schema(description = "")
+  public String getType() {
+    return type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
   }
 
   public ServerGroupAttributeForAttachServerGroupsInput weight(Integer weight) {
@@ -83,7 +106,8 @@ public class ServerGroupAttributeForAttachServerGroupsInput {
    * Get weight
    * @return weight
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public Integer getWeight() {
     return weight;
   }
@@ -104,12 +128,13 @@ public class ServerGroupAttributeForAttachServerGroupsInput {
     ServerGroupAttributeForAttachServerGroupsInput serverGroupAttributeForAttachServerGroupsInput = (ServerGroupAttributeForAttachServerGroupsInput) o;
     return Objects.equals(this.port, serverGroupAttributeForAttachServerGroupsInput.port) &&
         Objects.equals(this.serverGroupId, serverGroupAttributeForAttachServerGroupsInput.serverGroupId) &&
+        Objects.equals(this.type, serverGroupAttributeForAttachServerGroupsInput.type) &&
         Objects.equals(this.weight, serverGroupAttributeForAttachServerGroupsInput.weight);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(port, serverGroupId, weight);
+    return Objects.hash(port, serverGroupId, type, weight);
   }
 
 
@@ -120,6 +145,7 @@ public class ServerGroupAttributeForAttachServerGroupsInput {
     
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    serverGroupId: ").append(toIndentedString(serverGroupId)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    weight: ").append(toIndentedString(weight)).append("\n");
     sb.append("}");
     return sb.toString();

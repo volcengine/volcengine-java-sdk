@@ -38,6 +38,9 @@ public class ServerGroupAttributeForDescribeScalingGroupsOutput {
   @SerializedName("ServerGroupId")
   private String serverGroupId = null;
 
+  @SerializedName("Type")
+  private String type = null;
+
   @SerializedName("Weight")
   private Integer weight = null;
 
@@ -95,6 +98,24 @@ public class ServerGroupAttributeForDescribeScalingGroupsOutput {
     this.serverGroupId = serverGroupId;
   }
 
+  public ServerGroupAttributeForDescribeScalingGroupsOutput type(String type) {
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @Schema(description = "")
+  public String getType() {
+    return type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
   public ServerGroupAttributeForDescribeScalingGroupsOutput weight(Integer weight) {
     this.weight = weight;
     return this;
@@ -126,12 +147,13 @@ public class ServerGroupAttributeForDescribeScalingGroupsOutput {
     return Objects.equals(this.loadBalancerId, serverGroupAttributeForDescribeScalingGroupsOutput.loadBalancerId) &&
         Objects.equals(this.port, serverGroupAttributeForDescribeScalingGroupsOutput.port) &&
         Objects.equals(this.serverGroupId, serverGroupAttributeForDescribeScalingGroupsOutput.serverGroupId) &&
+        Objects.equals(this.type, serverGroupAttributeForDescribeScalingGroupsOutput.type) &&
         Objects.equals(this.weight, serverGroupAttributeForDescribeScalingGroupsOutput.weight);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(loadBalancerId, port, serverGroupId, weight);
+    return Objects.hash(loadBalancerId, port, serverGroupId, type, weight);
   }
 
 
@@ -143,6 +165,7 @@ public class ServerGroupAttributeForDescribeScalingGroupsOutput {
     sb.append("    loadBalancerId: ").append(toIndentedString(loadBalancerId)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    serverGroupId: ").append(toIndentedString(serverGroupId)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    weight: ").append(toIndentedString(weight)).append("\n");
     sb.append("}");
     return sb.toString();
