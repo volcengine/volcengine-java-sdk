@@ -29,11 +29,32 @@ import javax.validation.Valid;
 
 
 public class CompleteLifecycleActivityRequest {
+  @SerializedName("ClientToken")
+  private String clientToken = null;
+
   @SerializedName("LifecycleActivityId")
   private String lifecycleActivityId = null;
 
   @SerializedName("LifecycleActivityPolicy")
   private String lifecycleActivityPolicy = null;
+
+  public CompleteLifecycleActivityRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
 
   public CompleteLifecycleActivityRequest lifecycleActivityId(String lifecycleActivityId) {
     this.lifecycleActivityId = lifecycleActivityId;
@@ -44,7 +65,8 @@ public class CompleteLifecycleActivityRequest {
    * Get lifecycleActivityId
    * @return lifecycleActivityId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getLifecycleActivityId() {
     return lifecycleActivityId;
   }
@@ -81,13 +103,14 @@ public class CompleteLifecycleActivityRequest {
       return false;
     }
     CompleteLifecycleActivityRequest completeLifecycleActivityRequest = (CompleteLifecycleActivityRequest) o;
-    return Objects.equals(this.lifecycleActivityId, completeLifecycleActivityRequest.lifecycleActivityId) &&
+    return Objects.equals(this.clientToken, completeLifecycleActivityRequest.clientToken) &&
+        Objects.equals(this.lifecycleActivityId, completeLifecycleActivityRequest.lifecycleActivityId) &&
         Objects.equals(this.lifecycleActivityPolicy, completeLifecycleActivityRequest.lifecycleActivityPolicy);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(lifecycleActivityId, lifecycleActivityPolicy);
+    return Objects.hash(clientToken, lifecycleActivityId, lifecycleActivityPolicy);
   }
 
 
@@ -96,6 +119,7 @@ public class CompleteLifecycleActivityRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CompleteLifecycleActivityRequest {\n");
     
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    lifecycleActivityId: ").append(toIndentedString(lifecycleActivityId)).append("\n");
     sb.append("    lifecycleActivityPolicy: ").append(toIndentedString(lifecycleActivityPolicy)).append("\n");
     sb.append("}");

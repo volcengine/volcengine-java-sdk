@@ -32,6 +32,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeListenerAttributesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("AclIds")
   private List<String> aclIds = null;
@@ -47,6 +48,12 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
 
   @SerializedName("CertificateId")
   private String certificateId = null;
+
+  @SerializedName("ClientBodyTimeout")
+  private Integer clientBodyTimeout = null;
+
+  @SerializedName("ClientHeaderTimeout")
+  private Integer clientHeaderTimeout = null;
 
   @SerializedName("ConnectionDrainEnabled")
   private String connectionDrainEnabled = null;
@@ -66,6 +73,9 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
   @SerializedName("Enabled")
   private String enabled = null;
 
+  @SerializedName("EndPort")
+  private Integer endPort = null;
+
   @SerializedName("EstablishedTimeout")
   private Integer establishedTimeout = null;
 
@@ -74,6 +84,9 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
 
   @SerializedName("Http2Enabled")
   private String http2Enabled = null;
+
+  @SerializedName("KeepaliveTimeout")
+  private Integer keepaliveTimeout = null;
 
   @SerializedName("ListenerId")
   private String listenerId = null;
@@ -96,8 +109,17 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
   @SerializedName("Protocol")
   private String protocol = null;
 
+  @SerializedName("ProxyConnectTimeout")
+  private Integer proxyConnectTimeout = null;
+
   @SerializedName("ProxyProtocolType")
   private String proxyProtocolType = null;
+
+  @SerializedName("ProxyReadTimeout")
+  private Integer proxyReadTimeout = null;
+
+  @SerializedName("ProxySendTimeout")
+  private Integer proxySendTimeout = null;
 
   @SerializedName("RequestId")
   private String requestId = null;
@@ -105,8 +127,17 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
   @SerializedName("Scheduler")
   private String scheduler = null;
 
+  @SerializedName("SecurityPolicyId")
+  private String securityPolicyId = null;
+
+  @SerializedName("SendTimeout")
+  private Integer sendTimeout = null;
+
   @SerializedName("ServerGroupId")
   private String serverGroupId = null;
+
+  @SerializedName("StartPort")
+  private Integer startPort = null;
 
   @SerializedName("Status")
   private String status = null;
@@ -213,6 +244,42 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
 
   public void setCertificateId(String certificateId) {
     this.certificateId = certificateId;
+  }
+
+  public DescribeListenerAttributesResponse clientBodyTimeout(Integer clientBodyTimeout) {
+    this.clientBodyTimeout = clientBodyTimeout;
+    return this;
+  }
+
+   /**
+   * Get clientBodyTimeout
+   * @return clientBodyTimeout
+  **/
+  @Schema(description = "")
+  public Integer getClientBodyTimeout() {
+    return clientBodyTimeout;
+  }
+
+  public void setClientBodyTimeout(Integer clientBodyTimeout) {
+    this.clientBodyTimeout = clientBodyTimeout;
+  }
+
+  public DescribeListenerAttributesResponse clientHeaderTimeout(Integer clientHeaderTimeout) {
+    this.clientHeaderTimeout = clientHeaderTimeout;
+    return this;
+  }
+
+   /**
+   * Get clientHeaderTimeout
+   * @return clientHeaderTimeout
+  **/
+  @Schema(description = "")
+  public Integer getClientHeaderTimeout() {
+    return clientHeaderTimeout;
+  }
+
+  public void setClientHeaderTimeout(Integer clientHeaderTimeout) {
+    this.clientHeaderTimeout = clientHeaderTimeout;
   }
 
   public DescribeListenerAttributesResponse connectionDrainEnabled(String connectionDrainEnabled) {
@@ -323,6 +390,24 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
     this.enabled = enabled;
   }
 
+  public DescribeListenerAttributesResponse endPort(Integer endPort) {
+    this.endPort = endPort;
+    return this;
+  }
+
+   /**
+   * Get endPort
+   * @return endPort
+  **/
+  @Schema(description = "")
+  public Integer getEndPort() {
+    return endPort;
+  }
+
+  public void setEndPort(Integer endPort) {
+    this.endPort = endPort;
+  }
+
   public DescribeListenerAttributesResponse establishedTimeout(Integer establishedTimeout) {
     this.establishedTimeout = establishedTimeout;
     return this;
@@ -376,6 +461,24 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
 
   public void setHttp2Enabled(String http2Enabled) {
     this.http2Enabled = http2Enabled;
+  }
+
+  public DescribeListenerAttributesResponse keepaliveTimeout(Integer keepaliveTimeout) {
+    this.keepaliveTimeout = keepaliveTimeout;
+    return this;
+  }
+
+   /**
+   * Get keepaliveTimeout
+   * @return keepaliveTimeout
+  **/
+  @Schema(description = "")
+  public Integer getKeepaliveTimeout() {
+    return keepaliveTimeout;
+  }
+
+  public void setKeepaliveTimeout(Integer keepaliveTimeout) {
+    this.keepaliveTimeout = keepaliveTimeout;
   }
 
   public DescribeListenerAttributesResponse listenerId(String listenerId) {
@@ -504,6 +607,24 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
     this.protocol = protocol;
   }
 
+  public DescribeListenerAttributesResponse proxyConnectTimeout(Integer proxyConnectTimeout) {
+    this.proxyConnectTimeout = proxyConnectTimeout;
+    return this;
+  }
+
+   /**
+   * Get proxyConnectTimeout
+   * @return proxyConnectTimeout
+  **/
+  @Schema(description = "")
+  public Integer getProxyConnectTimeout() {
+    return proxyConnectTimeout;
+  }
+
+  public void setProxyConnectTimeout(Integer proxyConnectTimeout) {
+    this.proxyConnectTimeout = proxyConnectTimeout;
+  }
+
   public DescribeListenerAttributesResponse proxyProtocolType(String proxyProtocolType) {
     this.proxyProtocolType = proxyProtocolType;
     return this;
@@ -520,6 +641,42 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
 
   public void setProxyProtocolType(String proxyProtocolType) {
     this.proxyProtocolType = proxyProtocolType;
+  }
+
+  public DescribeListenerAttributesResponse proxyReadTimeout(Integer proxyReadTimeout) {
+    this.proxyReadTimeout = proxyReadTimeout;
+    return this;
+  }
+
+   /**
+   * Get proxyReadTimeout
+   * @return proxyReadTimeout
+  **/
+  @Schema(description = "")
+  public Integer getProxyReadTimeout() {
+    return proxyReadTimeout;
+  }
+
+  public void setProxyReadTimeout(Integer proxyReadTimeout) {
+    this.proxyReadTimeout = proxyReadTimeout;
+  }
+
+  public DescribeListenerAttributesResponse proxySendTimeout(Integer proxySendTimeout) {
+    this.proxySendTimeout = proxySendTimeout;
+    return this;
+  }
+
+   /**
+   * Get proxySendTimeout
+   * @return proxySendTimeout
+  **/
+  @Schema(description = "")
+  public Integer getProxySendTimeout() {
+    return proxySendTimeout;
+  }
+
+  public void setProxySendTimeout(Integer proxySendTimeout) {
+    this.proxySendTimeout = proxySendTimeout;
   }
 
   public DescribeListenerAttributesResponse requestId(String requestId) {
@@ -558,6 +715,42 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
     this.scheduler = scheduler;
   }
 
+  public DescribeListenerAttributesResponse securityPolicyId(String securityPolicyId) {
+    this.securityPolicyId = securityPolicyId;
+    return this;
+  }
+
+   /**
+   * Get securityPolicyId
+   * @return securityPolicyId
+  **/
+  @Schema(description = "")
+  public String getSecurityPolicyId() {
+    return securityPolicyId;
+  }
+
+  public void setSecurityPolicyId(String securityPolicyId) {
+    this.securityPolicyId = securityPolicyId;
+  }
+
+  public DescribeListenerAttributesResponse sendTimeout(Integer sendTimeout) {
+    this.sendTimeout = sendTimeout;
+    return this;
+  }
+
+   /**
+   * Get sendTimeout
+   * @return sendTimeout
+  **/
+  @Schema(description = "")
+  public Integer getSendTimeout() {
+    return sendTimeout;
+  }
+
+  public void setSendTimeout(Integer sendTimeout) {
+    this.sendTimeout = sendTimeout;
+  }
+
   public DescribeListenerAttributesResponse serverGroupId(String serverGroupId) {
     this.serverGroupId = serverGroupId;
     return this;
@@ -574,6 +767,24 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
 
   public void setServerGroupId(String serverGroupId) {
     this.serverGroupId = serverGroupId;
+  }
+
+  public DescribeListenerAttributesResponse startPort(Integer startPort) {
+    this.startPort = startPort;
+    return this;
+  }
+
+   /**
+   * Get startPort
+   * @return startPort
+  **/
+  @Schema(description = "")
+  public Integer getStartPort() {
+    return startPort;
+  }
+
+  public void setStartPort(Integer startPort) {
+    this.startPort = startPort;
   }
 
   public DescribeListenerAttributesResponse status(String status) {
@@ -654,15 +865,19 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
         Objects.equals(this.aclType, describeListenerAttributesResponse.aclType) &&
         Objects.equals(this.bandwidth, describeListenerAttributesResponse.bandwidth) &&
         Objects.equals(this.certificateId, describeListenerAttributesResponse.certificateId) &&
+        Objects.equals(this.clientBodyTimeout, describeListenerAttributesResponse.clientBodyTimeout) &&
+        Objects.equals(this.clientHeaderTimeout, describeListenerAttributesResponse.clientHeaderTimeout) &&
         Objects.equals(this.connectionDrainEnabled, describeListenerAttributesResponse.connectionDrainEnabled) &&
         Objects.equals(this.connectionDrainTimeout, describeListenerAttributesResponse.connectionDrainTimeout) &&
         Objects.equals(this.cookie, describeListenerAttributesResponse.cookie) &&
         Objects.equals(this.createTime, describeListenerAttributesResponse.createTime) &&
         Objects.equals(this.description, describeListenerAttributesResponse.description) &&
         Objects.equals(this.enabled, describeListenerAttributesResponse.enabled) &&
+        Objects.equals(this.endPort, describeListenerAttributesResponse.endPort) &&
         Objects.equals(this.establishedTimeout, describeListenerAttributesResponse.establishedTimeout) &&
         Objects.equals(this.healthCheck, describeListenerAttributesResponse.healthCheck) &&
         Objects.equals(this.http2Enabled, describeListenerAttributesResponse.http2Enabled) &&
+        Objects.equals(this.keepaliveTimeout, describeListenerAttributesResponse.keepaliveTimeout) &&
         Objects.equals(this.listenerId, describeListenerAttributesResponse.listenerId) &&
         Objects.equals(this.listenerName, describeListenerAttributesResponse.listenerName) &&
         Objects.equals(this.loadBalancerId, describeListenerAttributesResponse.loadBalancerId) &&
@@ -670,10 +885,16 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
         Objects.equals(this.persistenceType, describeListenerAttributesResponse.persistenceType) &&
         Objects.equals(this.port, describeListenerAttributesResponse.port) &&
         Objects.equals(this.protocol, describeListenerAttributesResponse.protocol) &&
+        Objects.equals(this.proxyConnectTimeout, describeListenerAttributesResponse.proxyConnectTimeout) &&
         Objects.equals(this.proxyProtocolType, describeListenerAttributesResponse.proxyProtocolType) &&
+        Objects.equals(this.proxyReadTimeout, describeListenerAttributesResponse.proxyReadTimeout) &&
+        Objects.equals(this.proxySendTimeout, describeListenerAttributesResponse.proxySendTimeout) &&
         Objects.equals(this.requestId, describeListenerAttributesResponse.requestId) &&
         Objects.equals(this.scheduler, describeListenerAttributesResponse.scheduler) &&
+        Objects.equals(this.securityPolicyId, describeListenerAttributesResponse.securityPolicyId) &&
+        Objects.equals(this.sendTimeout, describeListenerAttributesResponse.sendTimeout) &&
         Objects.equals(this.serverGroupId, describeListenerAttributesResponse.serverGroupId) &&
+        Objects.equals(this.startPort, describeListenerAttributesResponse.startPort) &&
         Objects.equals(this.status, describeListenerAttributesResponse.status) &&
         Objects.equals(this.tags, describeListenerAttributesResponse.tags) &&
         Objects.equals(this.updateTime, describeListenerAttributesResponse.updateTime);
@@ -681,7 +902,7 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclIds, aclStatus, aclType, bandwidth, certificateId, connectionDrainEnabled, connectionDrainTimeout, cookie, createTime, description, enabled, establishedTimeout, healthCheck, http2Enabled, listenerId, listenerName, loadBalancerId, persistenceTimeout, persistenceType, port, protocol, proxyProtocolType, requestId, scheduler, serverGroupId, status, tags, updateTime);
+    return Objects.hash(aclIds, aclStatus, aclType, bandwidth, certificateId, clientBodyTimeout, clientHeaderTimeout, connectionDrainEnabled, connectionDrainTimeout, cookie, createTime, description, enabled, endPort, establishedTimeout, healthCheck, http2Enabled, keepaliveTimeout, listenerId, listenerName, loadBalancerId, persistenceTimeout, persistenceType, port, protocol, proxyConnectTimeout, proxyProtocolType, proxyReadTimeout, proxySendTimeout, requestId, scheduler, securityPolicyId, sendTimeout, serverGroupId, startPort, status, tags, updateTime);
   }
 
 
@@ -695,15 +916,19 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
     sb.append("    aclType: ").append(toIndentedString(aclType)).append("\n");
     sb.append("    bandwidth: ").append(toIndentedString(bandwidth)).append("\n");
     sb.append("    certificateId: ").append(toIndentedString(certificateId)).append("\n");
+    sb.append("    clientBodyTimeout: ").append(toIndentedString(clientBodyTimeout)).append("\n");
+    sb.append("    clientHeaderTimeout: ").append(toIndentedString(clientHeaderTimeout)).append("\n");
     sb.append("    connectionDrainEnabled: ").append(toIndentedString(connectionDrainEnabled)).append("\n");
     sb.append("    connectionDrainTimeout: ").append(toIndentedString(connectionDrainTimeout)).append("\n");
     sb.append("    cookie: ").append(toIndentedString(cookie)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
+    sb.append("    endPort: ").append(toIndentedString(endPort)).append("\n");
     sb.append("    establishedTimeout: ").append(toIndentedString(establishedTimeout)).append("\n");
     sb.append("    healthCheck: ").append(toIndentedString(healthCheck)).append("\n");
     sb.append("    http2Enabled: ").append(toIndentedString(http2Enabled)).append("\n");
+    sb.append("    keepaliveTimeout: ").append(toIndentedString(keepaliveTimeout)).append("\n");
     sb.append("    listenerId: ").append(toIndentedString(listenerId)).append("\n");
     sb.append("    listenerName: ").append(toIndentedString(listenerName)).append("\n");
     sb.append("    loadBalancerId: ").append(toIndentedString(loadBalancerId)).append("\n");
@@ -711,10 +936,16 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
     sb.append("    persistenceType: ").append(toIndentedString(persistenceType)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
+    sb.append("    proxyConnectTimeout: ").append(toIndentedString(proxyConnectTimeout)).append("\n");
     sb.append("    proxyProtocolType: ").append(toIndentedString(proxyProtocolType)).append("\n");
+    sb.append("    proxyReadTimeout: ").append(toIndentedString(proxyReadTimeout)).append("\n");
+    sb.append("    proxySendTimeout: ").append(toIndentedString(proxySendTimeout)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    scheduler: ").append(toIndentedString(scheduler)).append("\n");
+    sb.append("    securityPolicyId: ").append(toIndentedString(securityPolicyId)).append("\n");
+    sb.append("    sendTimeout: ").append(toIndentedString(sendTimeout)).append("\n");
     sb.append("    serverGroupId: ").append(toIndentedString(serverGroupId)).append("\n");
+    sb.append("    startPort: ").append(toIndentedString(startPort)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");

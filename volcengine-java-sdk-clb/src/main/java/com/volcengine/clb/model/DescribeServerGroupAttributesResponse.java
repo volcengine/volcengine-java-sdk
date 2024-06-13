@@ -32,9 +32,13 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeServerGroupAttributesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("AddressIpVersion")
   private String addressIpVersion = null;
+
+  @SerializedName("AnyPortEnabled")
+  private String anyPortEnabled = null;
 
   @SerializedName("Description")
   private String description = null;
@@ -79,6 +83,24 @@ public class DescribeServerGroupAttributesResponse extends com.volcengine.model.
 
   public void setAddressIpVersion(String addressIpVersion) {
     this.addressIpVersion = addressIpVersion;
+  }
+
+  public DescribeServerGroupAttributesResponse anyPortEnabled(String anyPortEnabled) {
+    this.anyPortEnabled = anyPortEnabled;
+    return this;
+  }
+
+   /**
+   * Get anyPortEnabled
+   * @return anyPortEnabled
+  **/
+  @Schema(description = "")
+  public String getAnyPortEnabled() {
+    return anyPortEnabled;
+  }
+
+  public void setAnyPortEnabled(String anyPortEnabled) {
+    this.anyPortEnabled = anyPortEnabled;
   }
 
   public DescribeServerGroupAttributesResponse description(String description) {
@@ -280,6 +302,7 @@ public class DescribeServerGroupAttributesResponse extends com.volcengine.model.
     }
     DescribeServerGroupAttributesResponse describeServerGroupAttributesResponse = (DescribeServerGroupAttributesResponse) o;
     return Objects.equals(this.addressIpVersion, describeServerGroupAttributesResponse.addressIpVersion) &&
+        Objects.equals(this.anyPortEnabled, describeServerGroupAttributesResponse.anyPortEnabled) &&
         Objects.equals(this.description, describeServerGroupAttributesResponse.description) &&
         Objects.equals(this.listeners, describeServerGroupAttributesResponse.listeners) &&
         Objects.equals(this.loadBalancerId, describeServerGroupAttributesResponse.loadBalancerId) &&
@@ -293,7 +316,7 @@ public class DescribeServerGroupAttributesResponse extends com.volcengine.model.
 
   @Override
   public int hashCode() {
-    return Objects.hash(addressIpVersion, description, listeners, loadBalancerId, requestId, serverGroupId, serverGroupName, servers, tags, type);
+    return Objects.hash(addressIpVersion, anyPortEnabled, description, listeners, loadBalancerId, requestId, serverGroupId, serverGroupName, servers, tags, type);
   }
 
 
@@ -303,6 +326,7 @@ public class DescribeServerGroupAttributesResponse extends com.volcengine.model.
     sb.append("class DescribeServerGroupAttributesResponse {\n");
     
     sb.append("    addressIpVersion: ").append(toIndentedString(addressIpVersion)).append("\n");
+    sb.append("    anyPortEnabled: ").append(toIndentedString(anyPortEnabled)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    listeners: ").append(toIndentedString(listeners)).append("\n");
     sb.append("    loadBalancerId: ").append(toIndentedString(loadBalancerId)).append("\n");

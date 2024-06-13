@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.autoscaling.model.InstancesDistributionForModifyScalingGroupInput;
 import com.volcengine.autoscaling.model.LaunchTemplateOverrideForModifyScalingGroupInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -46,6 +47,9 @@ public class ModifyScalingGroupRequest {
 
   @SerializedName("InstanceTerminatePolicy")
   private String instanceTerminatePolicy = null;
+
+  @SerializedName("InstancesDistribution")
+  private InstancesDistributionForModifyScalingGroupInput instancesDistribution = null;
 
   @SerializedName("LaunchTemplateId")
   private String launchTemplateId = null;
@@ -162,6 +166,25 @@ public class ModifyScalingGroupRequest {
 
   public void setInstanceTerminatePolicy(String instanceTerminatePolicy) {
     this.instanceTerminatePolicy = instanceTerminatePolicy;
+  }
+
+  public ModifyScalingGroupRequest instancesDistribution(InstancesDistributionForModifyScalingGroupInput instancesDistribution) {
+    this.instancesDistribution = instancesDistribution;
+    return this;
+  }
+
+   /**
+   * Get instancesDistribution
+   * @return instancesDistribution
+  **/
+  @Valid
+  @Schema(description = "")
+  public InstancesDistributionForModifyScalingGroupInput getInstancesDistribution() {
+    return instancesDistribution;
+  }
+
+  public void setInstancesDistribution(InstancesDistributionForModifyScalingGroupInput instancesDistribution) {
+    this.instancesDistribution = instancesDistribution;
   }
 
   public ModifyScalingGroupRequest launchTemplateId(String launchTemplateId) {
@@ -290,7 +313,8 @@ public class ModifyScalingGroupRequest {
    * Get scalingGroupId
    * @return scalingGroupId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getScalingGroupId() {
     return scalingGroupId;
   }
@@ -308,7 +332,7 @@ public class ModifyScalingGroupRequest {
    * Get scalingGroupName
    * @return scalingGroupName
   **/
-  @Schema(description = "")
+ @Size(max=128)  @Schema(description = "")
   public String getScalingGroupName() {
     return scalingGroupName;
   }
@@ -358,6 +382,7 @@ public class ModifyScalingGroupRequest {
         Objects.equals(this.desireInstanceNumber, modifyScalingGroupRequest.desireInstanceNumber) &&
         Objects.equals(this.healthCheckType, modifyScalingGroupRequest.healthCheckType) &&
         Objects.equals(this.instanceTerminatePolicy, modifyScalingGroupRequest.instanceTerminatePolicy) &&
+        Objects.equals(this.instancesDistribution, modifyScalingGroupRequest.instancesDistribution) &&
         Objects.equals(this.launchTemplateId, modifyScalingGroupRequest.launchTemplateId) &&
         Objects.equals(this.launchTemplateOverrides, modifyScalingGroupRequest.launchTemplateOverrides) &&
         Objects.equals(this.launchTemplateVersion, modifyScalingGroupRequest.launchTemplateVersion) &&
@@ -371,7 +396,7 @@ public class ModifyScalingGroupRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(activeScalingConfigurationId, defaultCooldown, desireInstanceNumber, healthCheckType, instanceTerminatePolicy, launchTemplateId, launchTemplateOverrides, launchTemplateVersion, maxInstanceNumber, minInstanceNumber, multiAZPolicy, scalingGroupId, scalingGroupName, subnetIds);
+    return Objects.hash(activeScalingConfigurationId, defaultCooldown, desireInstanceNumber, healthCheckType, instanceTerminatePolicy, instancesDistribution, launchTemplateId, launchTemplateOverrides, launchTemplateVersion, maxInstanceNumber, minInstanceNumber, multiAZPolicy, scalingGroupId, scalingGroupName, subnetIds);
   }
 
 
@@ -385,6 +410,7 @@ public class ModifyScalingGroupRequest {
     sb.append("    desireInstanceNumber: ").append(toIndentedString(desireInstanceNumber)).append("\n");
     sb.append("    healthCheckType: ").append(toIndentedString(healthCheckType)).append("\n");
     sb.append("    instanceTerminatePolicy: ").append(toIndentedString(instanceTerminatePolicy)).append("\n");
+    sb.append("    instancesDistribution: ").append(toIndentedString(instancesDistribution)).append("\n");
     sb.append("    launchTemplateId: ").append(toIndentedString(launchTemplateId)).append("\n");
     sb.append("    launchTemplateOverrides: ").append(toIndentedString(launchTemplateOverrides)).append("\n");
     sb.append("    launchTemplateVersion: ").append(toIndentedString(launchTemplateVersion)).append("\n");

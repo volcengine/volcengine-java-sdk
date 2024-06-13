@@ -32,6 +32,12 @@ public class LaunchTemplateOverrideForDescribeScalingGroupsOutput {
   @SerializedName("InstanceType")
   private String instanceType = null;
 
+  @SerializedName("PriceLimit")
+  private Float priceLimit = null;
+
+  @SerializedName("WeightedCapacity")
+  private Integer weightedCapacity = null;
+
   public LaunchTemplateOverrideForDescribeScalingGroupsOutput instanceType(String instanceType) {
     this.instanceType = instanceType;
     return this;
@@ -50,6 +56,42 @@ public class LaunchTemplateOverrideForDescribeScalingGroupsOutput {
     this.instanceType = instanceType;
   }
 
+  public LaunchTemplateOverrideForDescribeScalingGroupsOutput priceLimit(Float priceLimit) {
+    this.priceLimit = priceLimit;
+    return this;
+  }
+
+   /**
+   * Get priceLimit
+   * @return priceLimit
+  **/
+  @Schema(description = "")
+  public Float getPriceLimit() {
+    return priceLimit;
+  }
+
+  public void setPriceLimit(Float priceLimit) {
+    this.priceLimit = priceLimit;
+  }
+
+  public LaunchTemplateOverrideForDescribeScalingGroupsOutput weightedCapacity(Integer weightedCapacity) {
+    this.weightedCapacity = weightedCapacity;
+    return this;
+  }
+
+   /**
+   * Get weightedCapacity
+   * @return weightedCapacity
+  **/
+  @Schema(description = "")
+  public Integer getWeightedCapacity() {
+    return weightedCapacity;
+  }
+
+  public void setWeightedCapacity(Integer weightedCapacity) {
+    this.weightedCapacity = weightedCapacity;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -60,12 +102,14 @@ public class LaunchTemplateOverrideForDescribeScalingGroupsOutput {
       return false;
     }
     LaunchTemplateOverrideForDescribeScalingGroupsOutput launchTemplateOverrideForDescribeScalingGroupsOutput = (LaunchTemplateOverrideForDescribeScalingGroupsOutput) o;
-    return Objects.equals(this.instanceType, launchTemplateOverrideForDescribeScalingGroupsOutput.instanceType);
+    return Objects.equals(this.instanceType, launchTemplateOverrideForDescribeScalingGroupsOutput.instanceType) &&
+        Objects.equals(this.priceLimit, launchTemplateOverrideForDescribeScalingGroupsOutput.priceLimit) &&
+        Objects.equals(this.weightedCapacity, launchTemplateOverrideForDescribeScalingGroupsOutput.weightedCapacity);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceType);
+    return Objects.hash(instanceType, priceLimit, weightedCapacity);
   }
 
 
@@ -75,6 +119,8 @@ public class LaunchTemplateOverrideForDescribeScalingGroupsOutput {
     sb.append("class LaunchTemplateOverrideForDescribeScalingGroupsOutput {\n");
     
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
+    sb.append("    priceLimit: ").append(toIndentedString(priceLimit)).append("\n");
+    sb.append("    weightedCapacity: ").append(toIndentedString(weightedCapacity)).append("\n");
     sb.append("}");
     return sb.toString();
   }

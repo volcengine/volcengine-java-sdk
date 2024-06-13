@@ -1,7 +1,9 @@
 package com.volcengine.ark.runtime.model.completion.chat;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ChatCompletionContentPart {
 
     String type;

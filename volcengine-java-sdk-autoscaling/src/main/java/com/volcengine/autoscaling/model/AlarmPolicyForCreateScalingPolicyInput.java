@@ -65,9 +65,11 @@ public class AlarmPolicyForCreateScalingPolicyInput {
 
    /**
    * Get evaluationCount
+   * minimum: 1
+   * maximum: 180
    * @return evaluationCount
   **/
-  @Schema(description = "")
+ @Min(1) @Max(180)  @Schema(description = "")
   public Integer getEvaluationCount() {
     return evaluationCount;
   }

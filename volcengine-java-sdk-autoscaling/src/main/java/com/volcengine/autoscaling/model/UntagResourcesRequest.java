@@ -75,7 +75,8 @@ public class UntagResourcesRequest {
    * Get resourceType
    * @return resourceType
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getResourceType() {
     return resourceType;
   }

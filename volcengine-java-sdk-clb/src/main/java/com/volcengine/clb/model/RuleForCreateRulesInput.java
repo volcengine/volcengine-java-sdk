@@ -29,6 +29,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class RuleForCreateRulesInput {
   @SerializedName("ActionType")
   private String actionType = null;

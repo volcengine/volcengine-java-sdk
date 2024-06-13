@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeHealthCheckLogTopicAttributesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("LoadBalancerIds")
   private List<String> loadBalancerIds = null;

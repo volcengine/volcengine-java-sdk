@@ -41,7 +41,8 @@ public class DeleteLifecycleHookRequest {
    * Get lifecycleHookId
    * @return lifecycleHookId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getLifecycleHookId() {
     return lifecycleHookId;
   }

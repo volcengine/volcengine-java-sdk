@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.autoscaling.model.EipForDescribeScalingConfigurationsOutput;
+import com.volcengine.autoscaling.model.InstanceTypeOverrideForDescribeScalingConfigurationsOutput;
 import com.volcengine.autoscaling.model.TagForDescribeScalingConfigurationsOutput;
 import com.volcengine.autoscaling.model.VolumeForDescribeScalingConfigurationsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -57,6 +58,9 @@ public class ScalingConfigurationForDescribeScalingConfigurationsOutput {
 
   @SerializedName("InstanceName")
   private String instanceName = null;
+
+  @SerializedName("InstanceTypeOverrides")
+  private List<InstanceTypeOverrideForDescribeScalingConfigurationsOutput> instanceTypeOverrides = null;
 
   @SerializedName("InstanceTypes")
   private List<String> instanceTypes = null;
@@ -249,6 +253,33 @@ public class ScalingConfigurationForDescribeScalingConfigurationsOutput {
 
   public void setInstanceName(String instanceName) {
     this.instanceName = instanceName;
+  }
+
+  public ScalingConfigurationForDescribeScalingConfigurationsOutput instanceTypeOverrides(List<InstanceTypeOverrideForDescribeScalingConfigurationsOutput> instanceTypeOverrides) {
+    this.instanceTypeOverrides = instanceTypeOverrides;
+    return this;
+  }
+
+  public ScalingConfigurationForDescribeScalingConfigurationsOutput addInstanceTypeOverridesItem(InstanceTypeOverrideForDescribeScalingConfigurationsOutput instanceTypeOverridesItem) {
+    if (this.instanceTypeOverrides == null) {
+      this.instanceTypeOverrides = new ArrayList<InstanceTypeOverrideForDescribeScalingConfigurationsOutput>();
+    }
+    this.instanceTypeOverrides.add(instanceTypeOverridesItem);
+    return this;
+  }
+
+   /**
+   * Get instanceTypeOverrides
+   * @return instanceTypeOverrides
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<InstanceTypeOverrideForDescribeScalingConfigurationsOutput> getInstanceTypeOverrides() {
+    return instanceTypeOverrides;
+  }
+
+  public void setInstanceTypeOverrides(List<InstanceTypeOverrideForDescribeScalingConfigurationsOutput> instanceTypeOverrides) {
+    this.instanceTypeOverrides = instanceTypeOverrides;
   }
 
   public ScalingConfigurationForDescribeScalingConfigurationsOutput instanceTypes(List<String> instanceTypes) {
@@ -591,6 +622,7 @@ public class ScalingConfigurationForDescribeScalingConfigurationsOutput {
         Objects.equals(this.instanceChargeType, scalingConfigurationForDescribeScalingConfigurationsOutput.instanceChargeType) &&
         Objects.equals(this.instanceDescription, scalingConfigurationForDescribeScalingConfigurationsOutput.instanceDescription) &&
         Objects.equals(this.instanceName, scalingConfigurationForDescribeScalingConfigurationsOutput.instanceName) &&
+        Objects.equals(this.instanceTypeOverrides, scalingConfigurationForDescribeScalingConfigurationsOutput.instanceTypeOverrides) &&
         Objects.equals(this.instanceTypes, scalingConfigurationForDescribeScalingConfigurationsOutput.instanceTypes) &&
         Objects.equals(this.ipv6AddressCount, scalingConfigurationForDescribeScalingConfigurationsOutput.ipv6AddressCount) &&
         Objects.equals(this.keyPairName, scalingConfigurationForDescribeScalingConfigurationsOutput.keyPairName) &&
@@ -611,7 +643,7 @@ public class ScalingConfigurationForDescribeScalingConfigurationsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, eip, hostName, hpcClusterId, imageId, instanceChargeType, instanceDescription, instanceName, instanceTypes, ipv6AddressCount, keyPairName, lifecycleState, projectName, scalingConfigurationId, scalingConfigurationName, scalingGroupId, securityEnhancementStrategy, securityGroupIds, spotStrategy, tags, updatedAt, userData, volumes, zoneId);
+    return Objects.hash(createdAt, eip, hostName, hpcClusterId, imageId, instanceChargeType, instanceDescription, instanceName, instanceTypeOverrides, instanceTypes, ipv6AddressCount, keyPairName, lifecycleState, projectName, scalingConfigurationId, scalingConfigurationName, scalingGroupId, securityEnhancementStrategy, securityGroupIds, spotStrategy, tags, updatedAt, userData, volumes, zoneId);
   }
 
 
@@ -628,6 +660,7 @@ public class ScalingConfigurationForDescribeScalingConfigurationsOutput {
     sb.append("    instanceChargeType: ").append(toIndentedString(instanceChargeType)).append("\n");
     sb.append("    instanceDescription: ").append(toIndentedString(instanceDescription)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
+    sb.append("    instanceTypeOverrides: ").append(toIndentedString(instanceTypeOverrides)).append("\n");
     sb.append("    instanceTypes: ").append(toIndentedString(instanceTypes)).append("\n");
     sb.append("    ipv6AddressCount: ").append(toIndentedString(ipv6AddressCount)).append("\n");
     sb.append("    keyPairName: ").append(toIndentedString(keyPairName)).append("\n");

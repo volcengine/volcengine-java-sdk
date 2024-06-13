@@ -33,7 +33,7 @@ import javax.validation.Valid;
 
 public class ListTagResourcesRequest {
   @SerializedName("MaxResults")
-  private String maxResults = null;
+  private Integer maxResults = null;
 
   @SerializedName("NextToken")
   private String nextToken = null;
@@ -47,21 +47,23 @@ public class ListTagResourcesRequest {
   @SerializedName("TagFilters")
   private List<TagFilterForListTagResourcesInput> tagFilters = null;
 
-  public ListTagResourcesRequest maxResults(String maxResults) {
+  public ListTagResourcesRequest maxResults(Integer maxResults) {
     this.maxResults = maxResults;
     return this;
   }
 
    /**
    * Get maxResults
+   * minimum: 1
+   * maximum: 100
    * @return maxResults
   **/
-  @Schema(description = "")
-  public String getMaxResults() {
+ @Min(1) @Max(100)  @Schema(description = "")
+  public Integer getMaxResults() {
     return maxResults;
   }
 
-  public void setMaxResults(String maxResults) {
+  public void setMaxResults(Integer maxResults) {
     this.maxResults = maxResults;
   }
 
@@ -118,7 +120,8 @@ public class ListTagResourcesRequest {
    * Get resourceType
    * @return resourceType
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getResourceType() {
     return resourceType;
   }

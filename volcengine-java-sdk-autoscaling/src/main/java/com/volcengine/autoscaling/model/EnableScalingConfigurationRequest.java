@@ -44,7 +44,8 @@ public class EnableScalingConfigurationRequest {
    * Get scalingConfigurationId
    * @return scalingConfigurationId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getScalingConfigurationId() {
     return scalingConfigurationId;
   }
@@ -62,7 +63,8 @@ public class EnableScalingConfigurationRequest {
    * Get scalingGroupId
    * @return scalingGroupId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getScalingGroupId() {
     return scalingGroupId;
   }

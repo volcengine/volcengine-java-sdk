@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.autoscaling.model.InstancesDistributionForCreateScalingGroupInput;
 import com.volcengine.autoscaling.model.LaunchTemplateOverrideForCreateScalingGroupInput;
 import com.volcengine.autoscaling.model.ServerGroupAttributeForCreateScalingGroupInput;
 import com.volcengine.autoscaling.model.TagForCreateScalingGroupInput;
@@ -51,6 +52,9 @@ public class CreateScalingGroupRequest {
 
   @SerializedName("InstanceTerminatePolicy")
   private String instanceTerminatePolicy = null;
+
+  @SerializedName("InstancesDistribution")
+  private InstancesDistributionForCreateScalingGroupInput instancesDistribution = null;
 
   @SerializedName("LaunchTemplateId")
   private String launchTemplateId = null;
@@ -97,7 +101,7 @@ public class CreateScalingGroupRequest {
    * Get clientToken
    * @return clientToken
   **/
-  @Schema(description = "")
+ @Size(max=64)  @Schema(description = "")
   public String getClientToken() {
     return clientToken;
   }
@@ -139,9 +143,11 @@ public class CreateScalingGroupRequest {
 
    /**
    * Get defaultCooldown
+   * minimum: 5
+   * maximum: 86400
    * @return defaultCooldown
   **/
-  @Schema(description = "")
+ @Min(5) @Max(86400)  @Schema(description = "")
   public Integer getDefaultCooldown() {
     return defaultCooldown;
   }
@@ -202,6 +208,25 @@ public class CreateScalingGroupRequest {
 
   public void setInstanceTerminatePolicy(String instanceTerminatePolicy) {
     this.instanceTerminatePolicy = instanceTerminatePolicy;
+  }
+
+  public CreateScalingGroupRequest instancesDistribution(InstancesDistributionForCreateScalingGroupInput instancesDistribution) {
+    this.instancesDistribution = instancesDistribution;
+    return this;
+  }
+
+   /**
+   * Get instancesDistribution
+   * @return instancesDistribution
+  **/
+  @Valid
+  @Schema(description = "")
+  public InstancesDistributionForCreateScalingGroupInput getInstancesDistribution() {
+    return instancesDistribution;
+  }
+
+  public void setInstancesDistribution(InstancesDistributionForCreateScalingGroupInput instancesDistribution) {
+    this.instancesDistribution = instancesDistribution;
   }
 
   public CreateScalingGroupRequest launchTemplateId(String launchTemplateId) {
@@ -276,7 +301,8 @@ public class CreateScalingGroupRequest {
    * Get maxInstanceNumber
    * @return maxInstanceNumber
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public Integer getMaxInstanceNumber() {
     return maxInstanceNumber;
   }
@@ -294,7 +320,8 @@ public class CreateScalingGroupRequest {
    * Get minInstanceNumber
    * @return minInstanceNumber
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public Integer getMinInstanceNumber() {
     return minInstanceNumber;
   }
@@ -330,7 +357,7 @@ public class CreateScalingGroupRequest {
    * Get projectName
    * @return projectName
   **/
-  @Schema(description = "")
+ @Size(max=64)  @Schema(description = "")
   public String getProjectName() {
     return projectName;
   }
@@ -348,7 +375,8 @@ public class CreateScalingGroupRequest {
    * Get scalingGroupName
    * @return scalingGroupName
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getScalingGroupName() {
     return scalingGroupName;
   }
@@ -471,6 +499,7 @@ public class CreateScalingGroupRequest {
         Objects.equals(this.desireInstanceNumber, createScalingGroupRequest.desireInstanceNumber) &&
         Objects.equals(this.healthCheckType, createScalingGroupRequest.healthCheckType) &&
         Objects.equals(this.instanceTerminatePolicy, createScalingGroupRequest.instanceTerminatePolicy) &&
+        Objects.equals(this.instancesDistribution, createScalingGroupRequest.instancesDistribution) &&
         Objects.equals(this.launchTemplateId, createScalingGroupRequest.launchTemplateId) &&
         Objects.equals(this.launchTemplateOverrides, createScalingGroupRequest.launchTemplateOverrides) &&
         Objects.equals(this.launchTemplateVersion, createScalingGroupRequest.launchTemplateVersion) &&
@@ -487,7 +516,7 @@ public class CreateScalingGroupRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, dbInstanceIds, defaultCooldown, desireInstanceNumber, healthCheckType, instanceTerminatePolicy, launchTemplateId, launchTemplateOverrides, launchTemplateVersion, maxInstanceNumber, minInstanceNumber, multiAZPolicy, projectName, scalingGroupName, scalingMode, serverGroupAttributes, subnetIds, tags);
+    return Objects.hash(clientToken, dbInstanceIds, defaultCooldown, desireInstanceNumber, healthCheckType, instanceTerminatePolicy, instancesDistribution, launchTemplateId, launchTemplateOverrides, launchTemplateVersion, maxInstanceNumber, minInstanceNumber, multiAZPolicy, projectName, scalingGroupName, scalingMode, serverGroupAttributes, subnetIds, tags);
   }
 
 
@@ -502,6 +531,7 @@ public class CreateScalingGroupRequest {
     sb.append("    desireInstanceNumber: ").append(toIndentedString(desireInstanceNumber)).append("\n");
     sb.append("    healthCheckType: ").append(toIndentedString(healthCheckType)).append("\n");
     sb.append("    instanceTerminatePolicy: ").append(toIndentedString(instanceTerminatePolicy)).append("\n");
+    sb.append("    instancesDistribution: ").append(toIndentedString(instancesDistribution)).append("\n");
     sb.append("    launchTemplateId: ").append(toIndentedString(launchTemplateId)).append("\n");
     sb.append("    launchTemplateOverrides: ").append(toIndentedString(launchTemplateOverrides)).append("\n");
     sb.append("    launchTemplateVersion: ").append(toIndentedString(launchTemplateVersion)).append("\n");

@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeZonesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("MasterZones")
   private List<MasterZoneForDescribeZonesOutput> masterZones = null;
