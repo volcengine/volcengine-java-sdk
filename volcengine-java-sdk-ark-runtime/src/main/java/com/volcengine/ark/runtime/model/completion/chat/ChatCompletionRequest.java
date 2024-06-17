@@ -1,6 +1,7 @@
 package com.volcengine.ark.runtime.model.completion.chat;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.volcengine.ark.runtime.model.bot.completion.chat.BotChatCompletionRequest;
 
 import java.util.List;
 import java.util.Map;

@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.volcengine.StringUtil;
 import com.volcengine.ark.runtime.*;
 import com.volcengine.ark.runtime.exception.ArkAPIError;
 import com.volcengine.ark.runtime.exception.ArkException;
@@ -13,6 +14,7 @@ import com.volcengine.ark.runtime.interceptor.AuthenticationInterceptor;
 import com.volcengine.ark.runtime.interceptor.ArkResourceStsAuthenticationInterceptor;
 import com.volcengine.ark.runtime.interceptor.RequestIdInterceptor;
 import com.volcengine.ark.runtime.interceptor.RetryInterceptor;
+import com.volcengine.ark.runtime.model.bot.completion.chat.BotChatCompletionChunk;
 import com.volcengine.ark.runtime.model.bot.completion.chat.BotChatCompletionRequest;
 import com.volcengine.ark.runtime.model.bot.completion.chat.BotChatCompletionResult;
 import com.volcengine.ark.runtime.model.completion.chat.*;
@@ -25,6 +27,7 @@ import io.reactivex.Flowable;
 import io.reactivex.Single;
 import okhttp3.Headers;
 import okhttp3.ResponseBody;
+import org.apache.commons.lang.StringUtils;
 import retrofit2.Call;
 import retrofit2.HttpException;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
@@ -190,9 +193,9 @@ public class ArkService extends ArkBaseService implements ArkBaseServiceImpl {
     }
 
     @Override
-    public Flowable<ChatCompletionChunk> streamBotChatCompletion(BotChatCompletionRequest request) {
+    public Flowable<BotChatCompletionChunk> streamBotChatCompletion(BotChatCompletionRequest request) {
         request.setStream(true);
-        return stream(api.createBotChatCompletionStream(request, request.getModel(), new HashMap<>()), ChatCompletionChunk.class);
+        return stream(api.createBotChatCompletionStream(request, request.getModel(), new HashMap<>()), BotChatCompletionChunk.class);
     }
 
     public void shutdownExecutor() {
