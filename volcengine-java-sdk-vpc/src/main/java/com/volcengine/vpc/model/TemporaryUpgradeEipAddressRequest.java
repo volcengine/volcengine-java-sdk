@@ -66,11 +66,10 @@ public class TemporaryUpgradeEipAddressRequest {
    /**
    * Get bandwidth
    * minimum: 1
-   * maximum: 1000
    * @return bandwidth
   **/
   @NotNull
- @Min(1) @Max(1000)  @Schema(required = true, description = "")
+ @Min(1)  @Schema(required = true, description = "")
   public Integer getBandwidth() {
     return bandwidth;
   }
