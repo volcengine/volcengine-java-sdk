@@ -67,6 +67,12 @@ public class ResponseBodyCallback implements Callback<ResponseBody> {
             while (!emitter.isCancelled() && (line = reader.readLine()) != null) {
                 if (line.startsWith("data:")) {
                     String data = line.substring(5).trim();
+
+                    ArkAPIError err = mapper.readValue(data, ArkAPIError.class);
+                    if (err.getError() != null) {
+                        throw new ArkHttpException(err, null, -1, requestId);
+                    }
+
                     sse = new SSE(data);
                 } else if (line.equals("") && sse != null) {
                     if (sse.isDone()) {
