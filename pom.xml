@@ -242,5 +242,6 @@
         <module>volcengine-java-sdk-ark-runtime</module>
         <module>volcengine-java-sdk-cdn</module>
         <module>volcengine-java-sdk-waf</module>
+        <module>volcengine-java-sdk-vefaas</module>
     </modules>
 </project>
