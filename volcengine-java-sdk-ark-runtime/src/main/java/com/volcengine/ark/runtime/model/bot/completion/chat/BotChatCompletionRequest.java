@@ -62,7 +62,11 @@ public class BotChatCompletionRequest extends ChatCompletionRequest {
                 '}';
     }
 
-    public static final class Builder {
+    public static Builder builder() {
+        return new Builder();
+    }
+
+    public static final class Builder extends ChatCompletionRequest.Builder {
         private Map<String, Object> metadata;
         private String botId;
         private String model;
@@ -97,6 +101,8 @@ public class BotChatCompletionRequest extends ChatCompletionRequest {
 
         public Builder botId(String botId) {
             this.botId = botId;
+            // overwrite the model.
+            this.model = botId;
             return this;
         }
 
