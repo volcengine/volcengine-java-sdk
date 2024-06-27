@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class TagForUpdateFileSystemInput {
   @SerializedName("Key")
   private String key = null;
@@ -37,7 +38,9 @@ public class TagForUpdateFileSystemInput {
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
+    @SerializedName("Custom")
     CUSTOM("Custom"),
+    @SerializedName("System")
     SYSTEM("System");
 
     private String value;

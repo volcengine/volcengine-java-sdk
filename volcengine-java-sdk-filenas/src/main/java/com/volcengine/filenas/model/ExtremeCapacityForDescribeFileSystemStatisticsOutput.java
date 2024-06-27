@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ExtremeCapacityForDescribeFileSystemStatisticsOutput {
   @SerializedName("Total")
   private Long total = null;

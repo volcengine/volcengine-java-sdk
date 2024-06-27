@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class UpdateSnapshotRequest {
   @SerializedName("Description")
   private String description = null;

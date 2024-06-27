@@ -28,14 +28,18 @@ import javax.validation.Valid;
  */
 
 
+
 public class SaleForDescribeZonesOutput {
   /**
    * Gets or Sets fileSystemType
    */
   @JsonAdapter(FileSystemTypeEnum.Adapter.class)
   public enum FileSystemTypeEnum {
+    @SerializedName("Extreme")
     EXTREME("Extreme"),
+    @SerializedName("Common")
     COMMON("Common"),
+    @SerializedName("Cache")
     CACHE("Cache");
 
     private String value;
@@ -79,7 +83,9 @@ public class SaleForDescribeZonesOutput {
    */
   @JsonAdapter(ProtocolTypeEnum.Adapter.class)
   public enum ProtocolTypeEnum {
+    @SerializedName("NFS")
     NFS("NFS"),
+    @SerializedName("SMB")
     SMB("SMB");
 
     private String value;
@@ -123,8 +129,11 @@ public class SaleForDescribeZonesOutput {
    */
   @JsonAdapter(StatusEnum.Adapter.class)
   public enum StatusEnum {
+    @SerializedName("OnSale")
     ONSALE("OnSale"),
+    @SerializedName("SoldOut")
     SOLDOUT("SoldOut"),
+    @SerializedName("UnSold")
     UNSOLD("UnSold");
 
     private String value;

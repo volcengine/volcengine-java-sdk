@@ -32,6 +32,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class FileSystemForDescribeFileSystemsOutput {
   @SerializedName("Capacity")
   private CapacityForDescribeFileSystemsOutput capacity = null;
@@ -41,9 +42,13 @@ public class FileSystemForDescribeFileSystemsOutput {
    */
   @JsonAdapter(ChargeTypeEnum.Adapter.class)
   public enum ChargeTypeEnum {
+    @SerializedName("PayAsYouGo")
     PAYASYOUGO("PayAsYouGo"),
+    @SerializedName("Subscription")
     SUBSCRIPTION("Subscription"),
+    @SerializedName("Package")
     PACKAGE("Package"),
+    @SerializedName("NotEnabled")
     NOTENABLED("NotEnabled");
 
     private String value;
@@ -99,9 +104,14 @@ public class FileSystemForDescribeFileSystemsOutput {
    */
   @JsonAdapter(FileSystemTypeEnum.Adapter.class)
   public enum FileSystemTypeEnum {
+    @SerializedName("Extreme")
     EXTREME("Extreme"),
+    @SerializedName("Common")
     COMMON("Common"),
-    CACHE("Cache");
+    @SerializedName("Cache")
+    CACHE("Cache"),
+    @SerializedName("Capacity")
+    CAPACITY("Capacity");
 
     private String value;
 
@@ -147,6 +157,7 @@ public class FileSystemForDescribeFileSystemsOutput {
    */
   @JsonAdapter(ProtocolTypeEnum.Adapter.class)
   public enum ProtocolTypeEnum {
+    @SerializedName("NFS")
     NFS("NFS");
 
     private String value;
@@ -196,14 +207,23 @@ public class FileSystemForDescribeFileSystemsOutput {
    */
   @JsonAdapter(StatusEnum.Adapter.class)
   public enum StatusEnum {
+    @SerializedName("Unknown")
     UNKNOWN("Unknown"),
+    @SerializedName("Running")
     RUNNING("Running"),
+    @SerializedName("Creating")
     CREATING("Creating"),
+    @SerializedName("Expanding")
     EXPANDING("Expanding"),
+    @SerializedName("Error")
     ERROR("Error"),
+    @SerializedName("Deleting")
     DELETING("Deleting"),
+    @SerializedName("DeleteError")
     DELETEERROR("DeleteError"),
+    @SerializedName("Deleted")
     DELETED("Deleted"),
+    @SerializedName("Stopped")
     STOPPED("Stopped");
 
     private String value;
@@ -247,7 +267,9 @@ public class FileSystemForDescribeFileSystemsOutput {
    */
   @JsonAdapter(StorageTypeEnum.Adapter.class)
   public enum StorageTypeEnum {
+    @SerializedName("Standard")
     STANDARD("Standard"),
+    @SerializedName("Advance")
     ADVANCE("Advance");
 
     private String value;

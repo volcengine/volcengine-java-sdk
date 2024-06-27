@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class PermissionGroupForDescribeMountPointsOutput {
   @SerializedName("CreateTime")
   private String createTime = null;
@@ -46,6 +47,7 @@ public class PermissionGroupForDescribeMountPointsOutput {
    */
   @JsonAdapter(FileSystemTypeEnum.Adapter.class)
   public enum FileSystemTypeEnum {
+    @SerializedName("Extreme")
     EXTREME("Extreme");
 
     private String value;

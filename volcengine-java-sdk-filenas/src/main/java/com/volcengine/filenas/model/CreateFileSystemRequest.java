@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateFileSystemRequest {
   @SerializedName("Capacity")
   private Integer capacity = null;
@@ -40,6 +41,7 @@ public class CreateFileSystemRequest {
    */
   @JsonAdapter(ChargeTypeEnum.Adapter.class)
   public enum ChargeTypeEnum {
+    @SerializedName("PayAsYouGo")
     PAYASYOUGO("PayAsYouGo");
 
     private String value;
@@ -92,7 +94,12 @@ public class CreateFileSystemRequest {
    */
   @JsonAdapter(FileSystemTypeEnum.Adapter.class)
   public enum FileSystemTypeEnum {
-    EXTREME("Extreme");
+    @SerializedName("Extreme")
+    EXTREME("Extreme"),
+    @SerializedName("Capacity")
+    CAPACITY("Capacity"),
+    @SerializedName("Cache")
+    CACHE("Cache");
 
     private String value;
 
@@ -138,6 +145,7 @@ public class CreateFileSystemRequest {
    */
   @JsonAdapter(ProtocolTypeEnum.Adapter.class)
   public enum ProtocolTypeEnum {
+    @SerializedName("NFS")
     NFS("NFS");
 
     private String value;
@@ -184,6 +192,7 @@ public class CreateFileSystemRequest {
    */
   @JsonAdapter(StorageTypeEnum.Adapter.class)
   public enum StorageTypeEnum {
+    @SerializedName("Standard")
     STANDARD("Standard");
 
     private String value;

@@ -31,13 +31,19 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribePermissionGroupsRequest {
   /**
    * Gets or Sets fileSystemType
    */
   @JsonAdapter(FileSystemTypeEnum.Adapter.class)
   public enum FileSystemTypeEnum {
-    EXTREME("Extreme");
+    @SerializedName("Extreme")
+    EXTREME("Extreme"),
+    @SerializedName("Capacity")
+    CAPACITY("Capacity"),
+    @SerializedName("Cache")
+    CACHE("Cache");
 
     private String value;
 

@@ -29,6 +29,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ConvertMountPointForDescribeMountPointsOutput {
   @SerializedName("CreateTime")
   private String createTime = null;
@@ -53,14 +54,23 @@ public class ConvertMountPointForDescribeMountPointsOutput {
    */
   @JsonAdapter(StatusEnum.Adapter.class)
   public enum StatusEnum {
+    @SerializedName("Unknown")
     UNKNOWN("Unknown"),
+    @SerializedName("Creating")
     CREATING("Creating"),
+    @SerializedName("Running")
     RUNNING("Running"),
+    @SerializedName("Updating")
     UPDATING("Updating"),
+    @SerializedName("Error")
     ERROR("Error"),
+    @SerializedName("Deleting")
     DELETING("Deleting"),
+    @SerializedName("DeleteError")
     DELETEERROR("DeleteError"),
+    @SerializedName("Deleted")
     DELETED("Deleted"),
+    @SerializedName("Stopped")
     STOPPED("Stopped");
 
     private String value;

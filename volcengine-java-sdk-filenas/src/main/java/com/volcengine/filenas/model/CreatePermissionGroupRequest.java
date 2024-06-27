@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreatePermissionGroupRequest {
   @SerializedName("Description")
   private String description = null;
@@ -37,7 +38,12 @@ public class CreatePermissionGroupRequest {
    */
   @JsonAdapter(FileSystemTypeEnum.Adapter.class)
   public enum FileSystemTypeEnum {
-    EXTREME("Extreme");
+    @SerializedName("Extreme")
+    EXTREME("Extreme"),
+    @SerializedName("Capacity")
+    CAPACITY("Capacity"),
+    @SerializedName("Cache")
+    CACHE("Cache");
 
     private String value;
 
@@ -105,8 +111,7 @@ public class CreatePermissionGroupRequest {
    * Get fileSystemType
    * @return fileSystemType
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public FileSystemTypeEnum getFileSystemType() {
     return fileSystemType;
   }

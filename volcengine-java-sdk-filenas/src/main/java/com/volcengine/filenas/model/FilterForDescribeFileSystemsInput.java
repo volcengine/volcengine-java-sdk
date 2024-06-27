@@ -28,19 +28,28 @@ import javax.validation.Valid;
  */
 
 
+
 public class FilterForDescribeFileSystemsInput {
   /**
    * Gets or Sets key
    */
   @JsonAdapter(KeyEnum.Adapter.class)
   public enum KeyEnum {
+    @SerializedName("Status")
     STATUS("Status"),
+    @SerializedName("FileSystemName")
     FILESYSTEMNAME("FileSystemName"),
+    @SerializedName("ZoneId")
     ZONEID("ZoneId"),
+    @SerializedName("ProtocolType")
     PROTOCOLTYPE("ProtocolType"),
+    @SerializedName("StorageType")
     STORAGETYPE("StorageType"),
+    @SerializedName("ChargeType")
     CHARGETYPE("ChargeType"),
+    @SerializedName("PermissionGroupId")
     PERMISSIONGROUPID("PermissionGroupId"),
+    @SerializedName("MountPointId")
     MOUNTPOINTID("MountPointId");
 
     private String value;

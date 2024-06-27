@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreatePermissionGroupResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("PermissionGroupId")
   private String permissionGroupId = null;

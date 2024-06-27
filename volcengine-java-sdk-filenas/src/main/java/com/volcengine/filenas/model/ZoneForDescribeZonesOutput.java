@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ZoneForDescribeZonesOutput {
   @SerializedName("Sales")
   private List<SaleForDescribeZonesOutput> sales = null;
@@ -40,8 +41,11 @@ public class ZoneForDescribeZonesOutput {
    */
   @JsonAdapter(StatusEnum.Adapter.class)
   public enum StatusEnum {
+    @SerializedName("OnSale")
     ONSALE("OnSale"),
+    @SerializedName("SoldOut")
     SOLDOUT("SoldOut"),
+    @SerializedName("UnSold")
     UNSOLD("UnSold");
 
     private String value;
