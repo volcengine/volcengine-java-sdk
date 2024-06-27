@@ -17,10 +17,13 @@ public class RequestIdInterceptor implements Interceptor {
 
     @Override
     public Response intercept(Chain chain) throws IOException {
-        Request request = chain.request()
-                .newBuilder()
-                .header(Const.CLIENT_REQUEST_HEADER, genRequestId())
-                .build();
+        Request.Builder requestBuilder = chain.request().newBuilder();
+
+        if (chain.request().header(Const.CLIENT_REQUEST_HEADER) == null || chain.request().header(Const.CLIENT_REQUEST_HEADER).length() == 0) {
+            requestBuilder = requestBuilder.header(Const.CLIENT_REQUEST_HEADER, genRequestId());
+        }
+
+        Request request = requestBuilder.build();
         return chain.proceed(request);
     }
 
