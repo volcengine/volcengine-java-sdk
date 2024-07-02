@@ -20,6 +20,8 @@ import com.volcengine.ark.runtime.model.bot.completion.chat.BotChatCompletionRes
 import com.volcengine.ark.runtime.model.completion.chat.*;
 import com.volcengine.ark.runtime.model.embeddings.EmbeddingRequest;
 import com.volcengine.ark.runtime.model.embeddings.EmbeddingResult;
+import com.volcengine.ark.runtime.model.tokenization.TokenizationRequest;
+import com.volcengine.ark.runtime.model.tokenization.TokenizationResult;
 import com.volcengine.ark.runtime.utils.ResponseBodyCallback;
 import com.volcengine.ark.runtime.utils.SSE;
 import io.reactivex.BackpressureStrategy;
@@ -196,6 +198,14 @@ public class ArkService extends ArkBaseService implements ArkBaseServiceImpl {
     public Flowable<BotChatCompletionChunk> streamBotChatCompletion(BotChatCompletionRequest request) {
         request.setStream(true);
         return stream(api.createBotChatCompletionStream(request, request.getModel(), new HashMap<>()), BotChatCompletionChunk.class);
+    }
+
+    public TokenizationResult createTokenization(TokenizationRequest request) {
+        return execute(api.createTokenization(request, request.getModel(), new HashMap<>()));
+    }
+
+    public TokenizationResult createTokenization(TokenizationRequest request, Map<String, String> customHeaders) {
+        return execute(api.createTokenization(request, request.getModel(), customHeaders));
     }
 
     public void shutdownExecutor() {
