@@ -41,8 +41,26 @@ public class CreateDomainRequest {
   @SerializedName("BackendGroups")
   private List<BackendGroupForCreateDomainInput> backendGroups = null;
 
+  @SerializedName("BotDytokenEnable")
+  private Integer botDytokenEnable = null;
+
+  @SerializedName("BotFrequencyEnable")
+  private Integer botFrequencyEnable = null;
+
+  @SerializedName("BotRepeatEnable")
+  private Integer botRepeatEnable = null;
+
+  @SerializedName("BotSequenceDefaultAction")
+  private Integer botSequenceDefaultAction = null;
+
+  @SerializedName("BotSequenceEnable")
+  private Integer botSequenceEnable = null;
+
   @SerializedName("CertificateID")
   private Integer certificateID = null;
+
+  @SerializedName("CertificatePlatform")
+  private String certificatePlatform = null;
 
   @SerializedName("ClientIPLocation")
   private Integer clientIPLocation = null;
@@ -107,6 +125,9 @@ public class CreateDomainRequest {
   @SerializedName("PublicRealServer")
   private Integer publicRealServer = null;
 
+  @SerializedName("RedirectHTTPS")
+  private Boolean redirectHTTPS = null;
+
   @SerializedName("Region")
   private String region = null;
 
@@ -118,6 +139,9 @@ public class CreateDomainRequest {
 
   @SerializedName("TLSEnable")
   private Integer tlSEnable = null;
+
+  @SerializedName("VolcCertificateID")
+  private String volcCertificateID = null;
 
   @SerializedName("VpcID")
   private String vpcID = null;
@@ -168,6 +192,96 @@ public class CreateDomainRequest {
     this.backendGroups = backendGroups;
   }
 
+  public CreateDomainRequest botDytokenEnable(Integer botDytokenEnable) {
+    this.botDytokenEnable = botDytokenEnable;
+    return this;
+  }
+
+   /**
+   * Get botDytokenEnable
+   * @return botDytokenEnable
+  **/
+  @Schema(description = "")
+  public Integer getBotDytokenEnable() {
+    return botDytokenEnable;
+  }
+
+  public void setBotDytokenEnable(Integer botDytokenEnable) {
+    this.botDytokenEnable = botDytokenEnable;
+  }
+
+  public CreateDomainRequest botFrequencyEnable(Integer botFrequencyEnable) {
+    this.botFrequencyEnable = botFrequencyEnable;
+    return this;
+  }
+
+   /**
+   * Get botFrequencyEnable
+   * @return botFrequencyEnable
+  **/
+  @Schema(description = "")
+  public Integer getBotFrequencyEnable() {
+    return botFrequencyEnable;
+  }
+
+  public void setBotFrequencyEnable(Integer botFrequencyEnable) {
+    this.botFrequencyEnable = botFrequencyEnable;
+  }
+
+  public CreateDomainRequest botRepeatEnable(Integer botRepeatEnable) {
+    this.botRepeatEnable = botRepeatEnable;
+    return this;
+  }
+
+   /**
+   * Get botRepeatEnable
+   * @return botRepeatEnable
+  **/
+  @Schema(description = "")
+  public Integer getBotRepeatEnable() {
+    return botRepeatEnable;
+  }
+
+  public void setBotRepeatEnable(Integer botRepeatEnable) {
+    this.botRepeatEnable = botRepeatEnable;
+  }
+
+  public CreateDomainRequest botSequenceDefaultAction(Integer botSequenceDefaultAction) {
+    this.botSequenceDefaultAction = botSequenceDefaultAction;
+    return this;
+  }
+
+   /**
+   * Get botSequenceDefaultAction
+   * @return botSequenceDefaultAction
+  **/
+  @Schema(description = "")
+  public Integer getBotSequenceDefaultAction() {
+    return botSequenceDefaultAction;
+  }
+
+  public void setBotSequenceDefaultAction(Integer botSequenceDefaultAction) {
+    this.botSequenceDefaultAction = botSequenceDefaultAction;
+  }
+
+  public CreateDomainRequest botSequenceEnable(Integer botSequenceEnable) {
+    this.botSequenceEnable = botSequenceEnable;
+    return this;
+  }
+
+   /**
+   * Get botSequenceEnable
+   * @return botSequenceEnable
+  **/
+  @Schema(description = "")
+  public Integer getBotSequenceEnable() {
+    return botSequenceEnable;
+  }
+
+  public void setBotSequenceEnable(Integer botSequenceEnable) {
+    this.botSequenceEnable = botSequenceEnable;
+  }
+
   public CreateDomainRequest certificateID(Integer certificateID) {
     this.certificateID = certificateID;
     return this;
@@ -184,6 +298,24 @@ public class CreateDomainRequest {
 
   public void setCertificateID(Integer certificateID) {
     this.certificateID = certificateID;
+  }
+
+  public CreateDomainRequest certificatePlatform(String certificatePlatform) {
+    this.certificatePlatform = certificatePlatform;
+    return this;
+  }
+
+   /**
+   * Get certificatePlatform
+   * @return certificatePlatform
+  **/
+  @Schema(description = "")
+  public String getCertificatePlatform() {
+    return certificatePlatform;
+  }
+
+  public void setCertificatePlatform(String certificatePlatform) {
+    this.certificatePlatform = certificatePlatform;
   }
 
   public CreateDomainRequest clientIPLocation(Integer clientIPLocation) {
@@ -591,6 +723,24 @@ public class CreateDomainRequest {
     this.publicRealServer = publicRealServer;
   }
 
+  public CreateDomainRequest redirectHTTPS(Boolean redirectHTTPS) {
+    this.redirectHTTPS = redirectHTTPS;
+    return this;
+  }
+
+   /**
+   * Get redirectHTTPS
+   * @return redirectHTTPS
+  **/
+  @Schema(description = "")
+  public Boolean isRedirectHTTPS() {
+    return redirectHTTPS;
+  }
+
+  public void setRedirectHTTPS(Boolean redirectHTTPS) {
+    this.redirectHTTPS = redirectHTTPS;
+  }
+
   public CreateDomainRequest region(String region) {
     this.region = region;
     return this;
@@ -680,6 +830,24 @@ public class CreateDomainRequest {
     this.tlSEnable = tlSEnable;
   }
 
+  public CreateDomainRequest volcCertificateID(String volcCertificateID) {
+    this.volcCertificateID = volcCertificateID;
+    return this;
+  }
+
+   /**
+   * Get volcCertificateID
+   * @return volcCertificateID
+  **/
+  @Schema(description = "")
+  public String getVolcCertificateID() {
+    return volcCertificateID;
+  }
+
+  public void setVolcCertificateID(String volcCertificateID) {
+    this.volcCertificateID = volcCertificateID;
+  }
+
   public CreateDomainRequest vpcID(String vpcID) {
     this.vpcID = vpcID;
     return this;
@@ -710,7 +878,13 @@ public class CreateDomainRequest {
     CreateDomainRequest createDomainRequest = (CreateDomainRequest) o;
     return Objects.equals(this.accessMode, createDomainRequest.accessMode) &&
         Objects.equals(this.backendGroups, createDomainRequest.backendGroups) &&
+        Objects.equals(this.botDytokenEnable, createDomainRequest.botDytokenEnable) &&
+        Objects.equals(this.botFrequencyEnable, createDomainRequest.botFrequencyEnable) &&
+        Objects.equals(this.botRepeatEnable, createDomainRequest.botRepeatEnable) &&
+        Objects.equals(this.botSequenceDefaultAction, createDomainRequest.botSequenceDefaultAction) &&
+        Objects.equals(this.botSequenceEnable, createDomainRequest.botSequenceEnable) &&
         Objects.equals(this.certificateID, createDomainRequest.certificateID) &&
+        Objects.equals(this.certificatePlatform, createDomainRequest.certificatePlatform) &&
         Objects.equals(this.clientIPLocation, createDomainRequest.clientIPLocation) &&
         Objects.equals(this.clientMaxBodySize, createDomainRequest.clientMaxBodySize) &&
         Objects.equals(this.cloudAccessConfig, createDomainRequest.cloudAccessConfig) &&
@@ -732,16 +906,18 @@ public class CreateDomainRequest {
         Objects.equals(this.proxyRetry, createDomainRequest.proxyRetry) &&
         Objects.equals(this.proxyWriteTimeOut, createDomainRequest.proxyWriteTimeOut) &&
         Objects.equals(this.publicRealServer, createDomainRequest.publicRealServer) &&
+        Objects.equals(this.redirectHTTPS, createDomainRequest.redirectHTTPS) &&
         Objects.equals(this.region, createDomainRequest.region) &&
         Objects.equals(this.ssLCiphers, createDomainRequest.ssLCiphers) &&
         Objects.equals(this.ssLProtocols, createDomainRequest.ssLProtocols) &&
         Objects.equals(this.tlSEnable, createDomainRequest.tlSEnable) &&
+        Objects.equals(this.volcCertificateID, createDomainRequest.volcCertificateID) &&
         Objects.equals(this.vpcID, createDomainRequest.vpcID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessMode, backendGroups, certificateID, clientIPLocation, clientMaxBodySize, cloudAccessConfig, customHeader, domain, enableHTTP2, enableIPv6, keepAliveRequest, keepAliveTimeOut, lbAlgorithm, protocolFollow, protocolPorts, protocols, proxyConfig, proxyConnectTimeOut, proxyKeepAlive, proxyKeepAliveTimeOut, proxyReadTimeOut, proxyRetry, proxyWriteTimeOut, publicRealServer, region, ssLCiphers, ssLProtocols, tlSEnable, vpcID);
+    return Objects.hash(accessMode, backendGroups, botDytokenEnable, botFrequencyEnable, botRepeatEnable, botSequenceDefaultAction, botSequenceEnable, certificateID, certificatePlatform, clientIPLocation, clientMaxBodySize, cloudAccessConfig, customHeader, domain, enableHTTP2, enableIPv6, keepAliveRequest, keepAliveTimeOut, lbAlgorithm, protocolFollow, protocolPorts, protocols, proxyConfig, proxyConnectTimeOut, proxyKeepAlive, proxyKeepAliveTimeOut, proxyReadTimeOut, proxyRetry, proxyWriteTimeOut, publicRealServer, redirectHTTPS, region, ssLCiphers, ssLProtocols, tlSEnable, volcCertificateID, vpcID);
   }
 
 
@@ -752,7 +928,13 @@ public class CreateDomainRequest {
     
     sb.append("    accessMode: ").append(toIndentedString(accessMode)).append("\n");
     sb.append("    backendGroups: ").append(toIndentedString(backendGroups)).append("\n");
+    sb.append("    botDytokenEnable: ").append(toIndentedString(botDytokenEnable)).append("\n");
+    sb.append("    botFrequencyEnable: ").append(toIndentedString(botFrequencyEnable)).append("\n");
+    sb.append("    botRepeatEnable: ").append(toIndentedString(botRepeatEnable)).append("\n");
+    sb.append("    botSequenceDefaultAction: ").append(toIndentedString(botSequenceDefaultAction)).append("\n");
+    sb.append("    botSequenceEnable: ").append(toIndentedString(botSequenceEnable)).append("\n");
     sb.append("    certificateID: ").append(toIndentedString(certificateID)).append("\n");
+    sb.append("    certificatePlatform: ").append(toIndentedString(certificatePlatform)).append("\n");
     sb.append("    clientIPLocation: ").append(toIndentedString(clientIPLocation)).append("\n");
     sb.append("    clientMaxBodySize: ").append(toIndentedString(clientMaxBodySize)).append("\n");
     sb.append("    cloudAccessConfig: ").append(toIndentedString(cloudAccessConfig)).append("\n");
@@ -774,10 +956,12 @@ public class CreateDomainRequest {
     sb.append("    proxyRetry: ").append(toIndentedString(proxyRetry)).append("\n");
     sb.append("    proxyWriteTimeOut: ").append(toIndentedString(proxyWriteTimeOut)).append("\n");
     sb.append("    publicRealServer: ").append(toIndentedString(publicRealServer)).append("\n");
+    sb.append("    redirectHTTPS: ").append(toIndentedString(redirectHTTPS)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    ssLCiphers: ").append(toIndentedString(ssLCiphers)).append("\n");
     sb.append("    ssLProtocols: ").append(toIndentedString(ssLProtocols)).append("\n");
     sb.append("    tlSEnable: ").append(toIndentedString(tlSEnable)).append("\n");
+    sb.append("    volcCertificateID: ").append(toIndentedString(volcCertificateID)).append("\n");
     sb.append("    vpcID: ").append(toIndentedString(vpcID)).append("\n");
     sb.append("}");
     return sb.toString();
