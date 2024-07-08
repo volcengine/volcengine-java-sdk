@@ -34,7 +34,7 @@ public class TokenizationExample {
 
         System.out.println("\n----- tokenization request -----");
         List<String> texts = new ArrayList<>();
-        texts.add("The food was delicious and the waiter...");
+        texts.add("花椰菜又称菜花、花菜，是一种常见的蔬菜。");
         TokenizationRequest tokenizationRequest = TokenizationRequest.builder()
                 .model("${YOUR_ENDPOINT_ID}")
                 .text(texts)
