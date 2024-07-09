@@ -224,6 +224,8 @@ public class ArkService extends ArkBaseService implements ArkBaseServiceImpl {
         private String region = BASE_REGION;
         private String baseUrl = BASE_URL;
         private Duration timeout = DEFAULT_TIMEOUT;
+
+        private Duration connectTimeout = DEFAULT_CONNECT_TIMEOUT;
         private int retryTimes = 0;
 
         public ArkService.Builder ak(String ak) {
@@ -259,6 +261,11 @@ public class ArkService extends ArkBaseService implements ArkBaseServiceImpl {
             return this;
         }
 
+        public ArkService.Builder connectTimeout(Duration connectTimeout) {
+            this.connectTimeout = connectTimeout;
+            return this;
+        }
+
         public ArkService.Builder retryTimes(int retryTimes) {
             this.retryTimes = retryTimes;
             return this;
@@ -280,6 +287,7 @@ public class ArkService extends ArkBaseService implements ArkBaseServiceImpl {
                     .addInterceptor(new RetryInterceptor(retryTimes))
                     .connectionPool(new ConnectionPool(5, 1, TimeUnit.SECONDS))
                     .readTimeout(timeout.toMillis(), TimeUnit.MILLISECONDS)
+                    .connectTimeout(connectTimeout)
                     .build();
             Retrofit retrofit = defaultRetrofit(client, mapper, baseUrl);
 
