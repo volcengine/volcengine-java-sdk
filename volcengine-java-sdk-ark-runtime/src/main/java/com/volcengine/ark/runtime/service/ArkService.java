@@ -224,7 +224,6 @@ public class ArkService extends ArkBaseService implements ArkBaseServiceImpl {
         private String region = BASE_REGION;
         private String baseUrl = BASE_URL;
         private Duration timeout = DEFAULT_TIMEOUT;
-
         private Duration connectTimeout = DEFAULT_CONNECT_TIMEOUT;
         private int retryTimes = 0;
 
