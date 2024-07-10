@@ -23,7 +23,6 @@ import com.volcengine.vefaas.model.EnvForCreateFunctionInput;
 import com.volcengine.vefaas.model.NasStorageForCreateFunctionInput;
 import com.volcengine.vefaas.model.SourceAccessConfigForCreateFunctionInput;
 import com.volcengine.vefaas.model.TlsConfigForCreateFunctionInput;
-import com.volcengine.vefaas.model.TopParamForCreateFunctionInput;
 import com.volcengine.vefaas.model.TosMountConfigForCreateFunctionInput;
 import com.volcengine.vefaas.model.VpcConfigForCreateFunctionInput;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -80,9 +79,6 @@ public class CreateFunctionRequest {
 
   @SerializedName("TlsConfig")
   private TlsConfigForCreateFunctionInput tlsConfig = null;
-
-  @SerializedName("TopParam")
-  private TopParamForCreateFunctionInput topParam = null;
 
   @SerializedName("TosMountConfig")
   private TosMountConfigForCreateFunctionInput tosMountConfig = null;
@@ -356,25 +352,6 @@ public class CreateFunctionRequest {
     this.tlsConfig = tlsConfig;
   }
 
-  public CreateFunctionRequest topParam(TopParamForCreateFunctionInput topParam) {
-    this.topParam = topParam;
-    return this;
-  }
-
-   /**
-   * Get topParam
-   * @return topParam
-  **/
-  @Valid
-  @Schema(description = "")
-  public TopParamForCreateFunctionInput getTopParam() {
-    return topParam;
-  }
-
-  public void setTopParam(TopParamForCreateFunctionInput topParam) {
-    this.topParam = topParam;
-  }
-
   public CreateFunctionRequest tosMountConfig(TosMountConfigForCreateFunctionInput tosMountConfig) {
     this.tosMountConfig = tosMountConfig;
     return this;
@@ -437,14 +414,13 @@ public class CreateFunctionRequest {
         Objects.equals(this.sourceAccessConfig, createFunctionRequest.sourceAccessConfig) &&
         Objects.equals(this.sourceType, createFunctionRequest.sourceType) &&
         Objects.equals(this.tlsConfig, createFunctionRequest.tlsConfig) &&
-        Objects.equals(this.topParam, createFunctionRequest.topParam) &&
         Objects.equals(this.tosMountConfig, createFunctionRequest.tosMountConfig) &&
         Objects.equals(this.vpcConfig, createFunctionRequest.vpcConfig);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, envs, exclusiveMode, initializerSec, maxConcurrency, memoryMB, name, nasStorage, requestTimeout, runtime, source, sourceAccessConfig, sourceType, tlsConfig, topParam, tosMountConfig, vpcConfig);
+    return Objects.hash(description, envs, exclusiveMode, initializerSec, maxConcurrency, memoryMB, name, nasStorage, requestTimeout, runtime, source, sourceAccessConfig, sourceType, tlsConfig, tosMountConfig, vpcConfig);
   }
 
 
@@ -467,7 +443,6 @@ public class CreateFunctionRequest {
     sb.append("    sourceAccessConfig: ").append(toIndentedString(sourceAccessConfig)).append("\n");
     sb.append("    sourceType: ").append(toIndentedString(sourceType)).append("\n");
     sb.append("    tlsConfig: ").append(toIndentedString(tlsConfig)).append("\n");
-    sb.append("    topParam: ").append(toIndentedString(topParam)).append("\n");
     sb.append("    tosMountConfig: ").append(toIndentedString(tosMountConfig)).append("\n");
     sb.append("    vpcConfig: ").append(toIndentedString(vpcConfig)).append("\n");
     sb.append("}");

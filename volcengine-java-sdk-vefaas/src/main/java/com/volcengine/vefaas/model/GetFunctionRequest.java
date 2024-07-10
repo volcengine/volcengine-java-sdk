@@ -19,7 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.vefaas.model.TopParamForGetFunctionInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -33,9 +32,6 @@ import javax.validation.Valid;
 public class GetFunctionRequest {
   @SerializedName("Id")
   private String id = null;
-
-  @SerializedName("TopParam")
-  private TopParamForGetFunctionInput topParam = null;
 
   public GetFunctionRequest id(String id) {
     this.id = id;
@@ -56,25 +52,6 @@ public class GetFunctionRequest {
     this.id = id;
   }
 
-  public GetFunctionRequest topParam(TopParamForGetFunctionInput topParam) {
-    this.topParam = topParam;
-    return this;
-  }
-
-   /**
-   * Get topParam
-   * @return topParam
-  **/
-  @Valid
-  @Schema(description = "")
-  public TopParamForGetFunctionInput getTopParam() {
-    return topParam;
-  }
-
-  public void setTopParam(TopParamForGetFunctionInput topParam) {
-    this.topParam = topParam;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -85,13 +62,12 @@ public class GetFunctionRequest {
       return false;
     }
     GetFunctionRequest getFunctionRequest = (GetFunctionRequest) o;
-    return Objects.equals(this.id, getFunctionRequest.id) &&
-        Objects.equals(this.topParam, getFunctionRequest.topParam);
+    return Objects.equals(this.id, getFunctionRequest.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, topParam);
+    return Objects.hash(id);
   }
 
 
@@ -101,7 +77,6 @@ public class GetFunctionRequest {
     sb.append("class GetFunctionRequest {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    topParam: ").append(toIndentedString(topParam)).append("\n");
     sb.append("}");
     return sb.toString();
   }
