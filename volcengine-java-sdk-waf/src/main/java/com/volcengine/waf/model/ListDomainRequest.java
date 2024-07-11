@@ -30,6 +30,9 @@ import javax.validation.Valid;
 
 
 public class ListDomainRequest {
+  @SerializedName("ALBInstanceID")
+  private String alBInstanceID = null;
+
   @SerializedName("AccurateQuery")
   private Integer accurateQuery = null;
 
@@ -44,6 +47,24 @@ public class ListDomainRequest {
 
   @SerializedName("Region")
   private String region = null;
+
+  public ListDomainRequest alBInstanceID(String alBInstanceID) {
+    this.alBInstanceID = alBInstanceID;
+    return this;
+  }
+
+   /**
+   * Get alBInstanceID
+   * @return alBInstanceID
+  **/
+  @Schema(description = "")
+  public String getAlBInstanceID() {
+    return alBInstanceID;
+  }
+
+  public void setAlBInstanceID(String alBInstanceID) {
+    this.alBInstanceID = alBInstanceID;
+  }
 
   public ListDomainRequest accurateQuery(Integer accurateQuery) {
     this.accurateQuery = accurateQuery;
@@ -149,7 +170,8 @@ public class ListDomainRequest {
       return false;
     }
     ListDomainRequest listDomainRequest = (ListDomainRequest) o;
-    return Objects.equals(this.accurateQuery, listDomainRequest.accurateQuery) &&
+    return Objects.equals(this.alBInstanceID, listDomainRequest.alBInstanceID) &&
+        Objects.equals(this.accurateQuery, listDomainRequest.accurateQuery) &&
         Objects.equals(this.domain, listDomainRequest.domain) &&
         Objects.equals(this.page, listDomainRequest.page) &&
         Objects.equals(this.pageSize, listDomainRequest.pageSize) &&
@@ -158,7 +180,7 @@ public class ListDomainRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accurateQuery, domain, page, pageSize, region);
+    return Objects.hash(alBInstanceID, accurateQuery, domain, page, pageSize, region);
   }
 
 
@@ -167,6 +189,7 @@ public class ListDomainRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListDomainRequest {\n");
     
+    sb.append("    alBInstanceID: ").append(toIndentedString(alBInstanceID)).append("\n");
     sb.append("    accurateQuery: ").append(toIndentedString(accurateQuery)).append("\n");
     sb.append("    domain: ").append(toIndentedString(domain)).append("\n");
     sb.append("    page: ").append(toIndentedString(page)).append("\n");

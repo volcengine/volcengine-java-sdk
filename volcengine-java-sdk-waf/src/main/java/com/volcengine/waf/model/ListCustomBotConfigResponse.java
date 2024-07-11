@@ -36,14 +36,11 @@ public class ListCustomBotConfigResponse extends com.volcengine.model.AbstractRe
   @SerializedName("Count")
   private Integer count = null;
 
+  @SerializedName("CurrentPage")
+  private Integer currentPage = null;
+
   @SerializedName("Data")
   private List<DataForListCustomBotConfigOutput> data = null;
-
-  @SerializedName("Page")
-  private Integer page = null;
-
-  @SerializedName("PageNumber")
-  private Integer pageNumber = null;
 
   @SerializedName("PageSize")
   private Integer pageSize = null;
@@ -67,6 +64,24 @@ public class ListCustomBotConfigResponse extends com.volcengine.model.AbstractRe
 
   public void setCount(Integer count) {
     this.count = count;
+  }
+
+  public ListCustomBotConfigResponse currentPage(Integer currentPage) {
+    this.currentPage = currentPage;
+    return this;
+  }
+
+   /**
+   * Get currentPage
+   * @return currentPage
+  **/
+  @Schema(description = "")
+  public Integer getCurrentPage() {
+    return currentPage;
+  }
+
+  public void setCurrentPage(Integer currentPage) {
+    this.currentPage = currentPage;
   }
 
   public ListCustomBotConfigResponse data(List<DataForListCustomBotConfigOutput> data) {
@@ -94,42 +109,6 @@ public class ListCustomBotConfigResponse extends com.volcengine.model.AbstractRe
 
   public void setData(List<DataForListCustomBotConfigOutput> data) {
     this.data = data;
-  }
-
-  public ListCustomBotConfigResponse page(Integer page) {
-    this.page = page;
-    return this;
-  }
-
-   /**
-   * Get page
-   * @return page
-  **/
-  @Schema(description = "")
-  public Integer getPage() {
-    return page;
-  }
-
-  public void setPage(Integer page) {
-    this.page = page;
-  }
-
-  public ListCustomBotConfigResponse pageNumber(Integer pageNumber) {
-    this.pageNumber = pageNumber;
-    return this;
-  }
-
-   /**
-   * Get pageNumber
-   * @return pageNumber
-  **/
-  @Schema(description = "")
-  public Integer getPageNumber() {
-    return pageNumber;
-  }
-
-  public void setPageNumber(Integer pageNumber) {
-    this.pageNumber = pageNumber;
   }
 
   public ListCustomBotConfigResponse pageSize(Integer pageSize) {
@@ -179,16 +158,15 @@ public class ListCustomBotConfigResponse extends com.volcengine.model.AbstractRe
     }
     ListCustomBotConfigResponse listCustomBotConfigResponse = (ListCustomBotConfigResponse) o;
     return Objects.equals(this.count, listCustomBotConfigResponse.count) &&
+        Objects.equals(this.currentPage, listCustomBotConfigResponse.currentPage) &&
         Objects.equals(this.data, listCustomBotConfigResponse.data) &&
-        Objects.equals(this.page, listCustomBotConfigResponse.page) &&
-        Objects.equals(this.pageNumber, listCustomBotConfigResponse.pageNumber) &&
         Objects.equals(this.pageSize, listCustomBotConfigResponse.pageSize) &&
         Objects.equals(this.totalCount, listCustomBotConfigResponse.totalCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(count, data, page, pageNumber, pageSize, totalCount);
+    return Objects.hash(count, currentPage, data, pageSize, totalCount);
   }
 
 
@@ -198,9 +176,8 @@ public class ListCustomBotConfigResponse extends com.volcengine.model.AbstractRe
     sb.append("class ListCustomBotConfigResponse {\n");
     
     sb.append("    count: ").append(toIndentedString(count)).append("\n");
+    sb.append("    currentPage: ").append(toIndentedString(currentPage)).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("    page: ").append(toIndentedString(page)).append("\n");
-    sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("}");
