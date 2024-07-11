@@ -33,11 +33,29 @@ public class UpdateWafServiceControlRequest {
   @SerializedName("ApiEnable")
   private Integer apiEnable = null;
 
+  @SerializedName("AutoCCEnable")
+  private Integer autoCCEnable = null;
+
   @SerializedName("BlackIpEnable")
   private Integer blackIpEnable = null;
 
   @SerializedName("BlackLctEnable")
   private Integer blackLctEnable = null;
+
+  @SerializedName("BotDytokenEnable")
+  private String botDytokenEnable = null;
+
+  @SerializedName("BotFrequencyEnable")
+  private Integer botFrequencyEnable = null;
+
+  @SerializedName("BotRepeatEnable")
+  private Integer botRepeatEnable = null;
+
+  @SerializedName("BotSequenceDefaultAction")
+  private Integer botSequenceDefaultAction = null;
+
+  @SerializedName("BotSequenceEnable")
+  private Integer botSequenceEnable = null;
 
   @SerializedName("CcEnable")
   private Integer ccEnable = null;
@@ -93,6 +111,24 @@ public class UpdateWafServiceControlRequest {
     this.apiEnable = apiEnable;
   }
 
+  public UpdateWafServiceControlRequest autoCCEnable(Integer autoCCEnable) {
+    this.autoCCEnable = autoCCEnable;
+    return this;
+  }
+
+   /**
+   * Get autoCCEnable
+   * @return autoCCEnable
+  **/
+  @Schema(description = "")
+  public Integer getAutoCCEnable() {
+    return autoCCEnable;
+  }
+
+  public void setAutoCCEnable(Integer autoCCEnable) {
+    this.autoCCEnable = autoCCEnable;
+  }
+
   public UpdateWafServiceControlRequest blackIpEnable(Integer blackIpEnable) {
     this.blackIpEnable = blackIpEnable;
     return this;
@@ -127,6 +163,96 @@ public class UpdateWafServiceControlRequest {
 
   public void setBlackLctEnable(Integer blackLctEnable) {
     this.blackLctEnable = blackLctEnable;
+  }
+
+  public UpdateWafServiceControlRequest botDytokenEnable(String botDytokenEnable) {
+    this.botDytokenEnable = botDytokenEnable;
+    return this;
+  }
+
+   /**
+   * Get botDytokenEnable
+   * @return botDytokenEnable
+  **/
+  @Schema(description = "")
+  public String getBotDytokenEnable() {
+    return botDytokenEnable;
+  }
+
+  public void setBotDytokenEnable(String botDytokenEnable) {
+    this.botDytokenEnable = botDytokenEnable;
+  }
+
+  public UpdateWafServiceControlRequest botFrequencyEnable(Integer botFrequencyEnable) {
+    this.botFrequencyEnable = botFrequencyEnable;
+    return this;
+  }
+
+   /**
+   * Get botFrequencyEnable
+   * @return botFrequencyEnable
+  **/
+  @Schema(description = "")
+  public Integer getBotFrequencyEnable() {
+    return botFrequencyEnable;
+  }
+
+  public void setBotFrequencyEnable(Integer botFrequencyEnable) {
+    this.botFrequencyEnable = botFrequencyEnable;
+  }
+
+  public UpdateWafServiceControlRequest botRepeatEnable(Integer botRepeatEnable) {
+    this.botRepeatEnable = botRepeatEnable;
+    return this;
+  }
+
+   /**
+   * Get botRepeatEnable
+   * @return botRepeatEnable
+  **/
+  @Schema(description = "")
+  public Integer getBotRepeatEnable() {
+    return botRepeatEnable;
+  }
+
+  public void setBotRepeatEnable(Integer botRepeatEnable) {
+    this.botRepeatEnable = botRepeatEnable;
+  }
+
+  public UpdateWafServiceControlRequest botSequenceDefaultAction(Integer botSequenceDefaultAction) {
+    this.botSequenceDefaultAction = botSequenceDefaultAction;
+    return this;
+  }
+
+   /**
+   * Get botSequenceDefaultAction
+   * @return botSequenceDefaultAction
+  **/
+  @Schema(description = "")
+  public Integer getBotSequenceDefaultAction() {
+    return botSequenceDefaultAction;
+  }
+
+  public void setBotSequenceDefaultAction(Integer botSequenceDefaultAction) {
+    this.botSequenceDefaultAction = botSequenceDefaultAction;
+  }
+
+  public UpdateWafServiceControlRequest botSequenceEnable(Integer botSequenceEnable) {
+    this.botSequenceEnable = botSequenceEnable;
+    return this;
+  }
+
+   /**
+   * Get botSequenceEnable
+   * @return botSequenceEnable
+  **/
+  @Schema(description = "")
+  public Integer getBotSequenceEnable() {
+    return botSequenceEnable;
+  }
+
+  public void setBotSequenceEnable(Integer botSequenceEnable) {
+    this.botSequenceEnable = botSequenceEnable;
   }
 
   public UpdateWafServiceControlRequest ccEnable(Integer ccEnable) {
@@ -357,8 +483,14 @@ public class UpdateWafServiceControlRequest {
     }
     UpdateWafServiceControlRequest updateWafServiceControlRequest = (UpdateWafServiceControlRequest) o;
     return Objects.equals(this.apiEnable, updateWafServiceControlRequest.apiEnable) &&
+        Objects.equals(this.autoCCEnable, updateWafServiceControlRequest.autoCCEnable) &&
         Objects.equals(this.blackIpEnable, updateWafServiceControlRequest.blackIpEnable) &&
         Objects.equals(this.blackLctEnable, updateWafServiceControlRequest.blackLctEnable) &&
+        Objects.equals(this.botDytokenEnable, updateWafServiceControlRequest.botDytokenEnable) &&
+        Objects.equals(this.botFrequencyEnable, updateWafServiceControlRequest.botFrequencyEnable) &&
+        Objects.equals(this.botRepeatEnable, updateWafServiceControlRequest.botRepeatEnable) &&
+        Objects.equals(this.botSequenceDefaultAction, updateWafServiceControlRequest.botSequenceDefaultAction) &&
+        Objects.equals(this.botSequenceEnable, updateWafServiceControlRequest.botSequenceEnable) &&
         Objects.equals(this.ccEnable, updateWafServiceControlRequest.ccEnable) &&
         Objects.equals(this.customBotEnable, updateWafServiceControlRequest.customBotEnable) &&
         Objects.equals(this.customRspEnable, updateWafServiceControlRequest.customRspEnable) &&
@@ -375,7 +507,7 @@ public class UpdateWafServiceControlRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiEnable, blackIpEnable, blackLctEnable, ccEnable, customBotEnable, customRspEnable, dlpEnable, host, systemBotEnable, tlSEnable, tamperProofEnable, wafEnable, wafWhiteReqEnable, whiteEnable, whiteFieldEnable);
+    return Objects.hash(apiEnable, autoCCEnable, blackIpEnable, blackLctEnable, botDytokenEnable, botFrequencyEnable, botRepeatEnable, botSequenceDefaultAction, botSequenceEnable, ccEnable, customBotEnable, customRspEnable, dlpEnable, host, systemBotEnable, tlSEnable, tamperProofEnable, wafEnable, wafWhiteReqEnable, whiteEnable, whiteFieldEnable);
   }
 
 
@@ -385,8 +517,14 @@ public class UpdateWafServiceControlRequest {
     sb.append("class UpdateWafServiceControlRequest {\n");
     
     sb.append("    apiEnable: ").append(toIndentedString(apiEnable)).append("\n");
+    sb.append("    autoCCEnable: ").append(toIndentedString(autoCCEnable)).append("\n");
     sb.append("    blackIpEnable: ").append(toIndentedString(blackIpEnable)).append("\n");
     sb.append("    blackLctEnable: ").append(toIndentedString(blackLctEnable)).append("\n");
+    sb.append("    botDytokenEnable: ").append(toIndentedString(botDytokenEnable)).append("\n");
+    sb.append("    botFrequencyEnable: ").append(toIndentedString(botFrequencyEnable)).append("\n");
+    sb.append("    botRepeatEnable: ").append(toIndentedString(botRepeatEnable)).append("\n");
+    sb.append("    botSequenceDefaultAction: ").append(toIndentedString(botSequenceDefaultAction)).append("\n");
+    sb.append("    botSequenceEnable: ").append(toIndentedString(botSequenceEnable)).append("\n");
     sb.append("    ccEnable: ").append(toIndentedString(ccEnable)).append("\n");
     sb.append("    customBotEnable: ").append(toIndentedString(customBotEnable)).append("\n");
     sb.append("    customRspEnable: ").append(toIndentedString(customRspEnable)).append("\n");
