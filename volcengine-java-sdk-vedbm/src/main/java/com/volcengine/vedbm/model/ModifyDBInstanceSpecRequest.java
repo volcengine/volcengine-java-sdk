@@ -19,16 +19,14 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.vedbm.model.ZoneNodeInfoForModifyDBInstanceSpecInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
  * ModifyDBInstanceSpecRequest
  */
+
 
 
 public class ModifyDBInstanceSpecRequest {
@@ -41,9 +39,6 @@ public class ModifyDBInstanceSpecRequest {
   @SerializedName("NodeSpec")
   private String nodeSpec = null;
 
-  @SerializedName("ZoneNodeInfos")
-  private List<ZoneNodeInfoForModifyDBInstanceSpecInput> zoneNodeInfos = null;
-
   public ModifyDBInstanceSpecRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
     return this;
@@ -53,7 +48,8 @@ public class ModifyDBInstanceSpecRequest {
    * Get instanceId
    * @return instanceId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getInstanceId() {
     return instanceId;
   }
@@ -69,9 +65,12 @@ public class ModifyDBInstanceSpecRequest {
 
    /**
    * Get nodeNumber
+   * minimum: 2
+   * maximum: 16
    * @return nodeNumber
   **/
-  @Schema(description = "")
+  @NotNull
+ @Min(2) @Max(16)  @Schema(required = true, description = "")
   public Integer getNodeNumber() {
     return nodeNumber;
   }
@@ -89,40 +88,14 @@ public class ModifyDBInstanceSpecRequest {
    * Get nodeSpec
    * @return nodeSpec
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getNodeSpec() {
     return nodeSpec;
   }
 
   public void setNodeSpec(String nodeSpec) {
     this.nodeSpec = nodeSpec;
-  }
-
-  public ModifyDBInstanceSpecRequest zoneNodeInfos(List<ZoneNodeInfoForModifyDBInstanceSpecInput> zoneNodeInfos) {
-    this.zoneNodeInfos = zoneNodeInfos;
-    return this;
-  }
-
-  public ModifyDBInstanceSpecRequest addZoneNodeInfosItem(ZoneNodeInfoForModifyDBInstanceSpecInput zoneNodeInfosItem) {
-    if (this.zoneNodeInfos == null) {
-      this.zoneNodeInfos = new ArrayList<ZoneNodeInfoForModifyDBInstanceSpecInput>();
-    }
-    this.zoneNodeInfos.add(zoneNodeInfosItem);
-    return this;
-  }
-
-   /**
-   * Get zoneNodeInfos
-   * @return zoneNodeInfos
-  **/
-  @Valid
-  @Schema(description = "")
-  public List<ZoneNodeInfoForModifyDBInstanceSpecInput> getZoneNodeInfos() {
-    return zoneNodeInfos;
-  }
-
-  public void setZoneNodeInfos(List<ZoneNodeInfoForModifyDBInstanceSpecInput> zoneNodeInfos) {
-    this.zoneNodeInfos = zoneNodeInfos;
   }
 
 
@@ -137,13 +110,12 @@ public class ModifyDBInstanceSpecRequest {
     ModifyDBInstanceSpecRequest modifyDBInstanceSpecRequest = (ModifyDBInstanceSpecRequest) o;
     return Objects.equals(this.instanceId, modifyDBInstanceSpecRequest.instanceId) &&
         Objects.equals(this.nodeNumber, modifyDBInstanceSpecRequest.nodeNumber) &&
-        Objects.equals(this.nodeSpec, modifyDBInstanceSpecRequest.nodeSpec) &&
-        Objects.equals(this.zoneNodeInfos, modifyDBInstanceSpecRequest.zoneNodeInfos);
+        Objects.equals(this.nodeSpec, modifyDBInstanceSpecRequest.nodeSpec);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, nodeNumber, nodeSpec, zoneNodeInfos);
+    return Objects.hash(instanceId, nodeNumber, nodeSpec);
   }
 
 
@@ -155,7 +127,6 @@ public class ModifyDBInstanceSpecRequest {
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    nodeNumber: ").append(toIndentedString(nodeNumber)).append("\n");
     sb.append("    nodeSpec: ").append(toIndentedString(nodeSpec)).append("\n");
-    sb.append("    zoneNodeInfos: ").append(toIndentedString(zoneNodeInfos)).append("\n");
     sb.append("}");
     return sb.toString();
   }

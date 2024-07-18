@@ -28,9 +28,76 @@ import javax.validation.Valid;
  */
 
 
+
 public class DeleteDBInstanceRequest {
+  /**
+   * Gets or Sets dataKeepPolicy
+   */
+  @JsonAdapter(DataKeepPolicyEnum.Adapter.class)
+  public enum DataKeepPolicyEnum {
+    @SerializedName("All")
+    ALL("All"),
+    @SerializedName("Last")
+    LAST("Last"),
+    @SerializedName("None")
+    NONE("None");
+
+    private String value;
+
+    DataKeepPolicyEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static DataKeepPolicyEnum fromValue(String input) {
+      for (DataKeepPolicyEnum b : DataKeepPolicyEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<DataKeepPolicyEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final DataKeepPolicyEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public DataKeepPolicyEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return DataKeepPolicyEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("DataKeepPolicy")
+  private DataKeepPolicyEnum dataKeepPolicy = null;
+
   @SerializedName("InstanceId")
   private String instanceId = null;
+
+  public DeleteDBInstanceRequest dataKeepPolicy(DataKeepPolicyEnum dataKeepPolicy) {
+    this.dataKeepPolicy = dataKeepPolicy;
+    return this;
+  }
+
+   /**
+   * Get dataKeepPolicy
+   * @return dataKeepPolicy
+  **/
+  @Schema(description = "")
+  public DataKeepPolicyEnum getDataKeepPolicy() {
+    return dataKeepPolicy;
+  }
+
+  public void setDataKeepPolicy(DataKeepPolicyEnum dataKeepPolicy) {
+    this.dataKeepPolicy = dataKeepPolicy;
+  }
 
   public DeleteDBInstanceRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
@@ -41,7 +108,8 @@ public class DeleteDBInstanceRequest {
    * Get instanceId
    * @return instanceId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getInstanceId() {
     return instanceId;
   }
@@ -60,12 +128,13 @@ public class DeleteDBInstanceRequest {
       return false;
     }
     DeleteDBInstanceRequest deleteDBInstanceRequest = (DeleteDBInstanceRequest) o;
-    return Objects.equals(this.instanceId, deleteDBInstanceRequest.instanceId);
+    return Objects.equals(this.dataKeepPolicy, deleteDBInstanceRequest.dataKeepPolicy) &&
+        Objects.equals(this.instanceId, deleteDBInstanceRequest.instanceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId);
+    return Objects.hash(dataKeepPolicy, instanceId);
   }
 
 
@@ -74,6 +143,7 @@ public class DeleteDBInstanceRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteDBInstanceRequest {\n");
     
+    sb.append("    dataKeepPolicy: ").append(toIndentedString(dataKeepPolicy)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("}");
     return sb.toString();

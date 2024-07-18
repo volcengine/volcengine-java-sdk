@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class InstanceStructureForDescribeDBInstanceDetailOutput {
   @SerializedName("Nodes")
   private List<NodeForDescribeDBInstanceDetailOutput> nodes = null;

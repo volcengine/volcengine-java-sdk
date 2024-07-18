@@ -28,18 +28,107 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateDBEndpointRequest {
   @SerializedName("AutoAddNewNodes")
   private Boolean autoAddNewNodes = null;
 
-  @SerializedName("ConsistLevel")
-  private String consistLevel = null;
+  /**
+   * Gets or Sets consistLevel
+   */
+  @JsonAdapter(ConsistLevelEnum.Adapter.class)
+  public enum ConsistLevelEnum {
+    @SerializedName("Eventual")
+    EVENTUAL("Eventual"),
+    @SerializedName("Session")
+    SESSION("Session"),
+    @SerializedName("Global")
+    GLOBAL("Global");
+
+    private String value;
+
+    ConsistLevelEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ConsistLevelEnum fromValue(String input) {
+      for (ConsistLevelEnum b : ConsistLevelEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ConsistLevelEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ConsistLevelEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ConsistLevelEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ConsistLevelEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("ConsistLevel")
+  private ConsistLevelEnum consistLevel = null;
 
   @SerializedName("ConsistTimeout")
   private Integer consistTimeout = null;
 
-  @SerializedName("ConsistTimeoutAction")
-  private String consistTimeoutAction = null;
+  /**
+   * Gets or Sets consistTimeoutAction
+   */
+  @JsonAdapter(ConsistTimeoutActionEnum.Adapter.class)
+  public enum ConsistTimeoutActionEnum {
+    @SerializedName("ReturnError")
+    RETURNERROR("ReturnError"),
+    @SerializedName("ReadMaster")
+    READMASTER("ReadMaster");
+
+    private String value;
+
+    ConsistTimeoutActionEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ConsistTimeoutActionEnum fromValue(String input) {
+      for (ConsistTimeoutActionEnum b : ConsistTimeoutActionEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ConsistTimeoutActionEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ConsistTimeoutActionEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ConsistTimeoutActionEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ConsistTimeoutActionEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("ConsistTimeoutAction")
+  private ConsistTimeoutActionEnum consistTimeoutAction = null;
 
   @SerializedName("Description")
   private String description = null;
@@ -50,8 +139,49 @@ public class CreateDBEndpointRequest {
   @SerializedName("EndpointName")
   private String endpointName = null;
 
-  @SerializedName("EndpointType")
-  private String endpointType = null;
+  /**
+   * Gets or Sets endpointType
+   */
+  @JsonAdapter(EndpointTypeEnum.Adapter.class)
+  public enum EndpointTypeEnum {
+    @SerializedName("Custom")
+    CUSTOM("Custom");
+
+    private String value;
+
+    EndpointTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static EndpointTypeEnum fromValue(String input) {
+      for (EndpointTypeEnum b : EndpointTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<EndpointTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final EndpointTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public EndpointTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return EndpointTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("EndpointType")
+  private EndpointTypeEnum endpointType = null;
 
   @SerializedName("InstanceId")
   private String instanceId = null;
@@ -62,8 +192,51 @@ public class CreateDBEndpointRequest {
   @SerializedName("Nodes")
   private String nodes = null;
 
-  @SerializedName("ReadWriteMode")
-  private String readWriteMode = null;
+  /**
+   * Gets or Sets readWriteMode
+   */
+  @JsonAdapter(ReadWriteModeEnum.Adapter.class)
+  public enum ReadWriteModeEnum {
+    @SerializedName("ReadWrite")
+    READWRITE("ReadWrite"),
+    @SerializedName(" ReadOnly")
+    _READONLY(" ReadOnly");
+
+    private String value;
+
+    ReadWriteModeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ReadWriteModeEnum fromValue(String input) {
+      for (ReadWriteModeEnum b : ReadWriteModeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ReadWriteModeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ReadWriteModeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ReadWriteModeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ReadWriteModeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("ReadWriteMode")
+  private ReadWriteModeEnum readWriteMode = null;
 
   public CreateDBEndpointRequest autoAddNewNodes(Boolean autoAddNewNodes) {
     this.autoAddNewNodes = autoAddNewNodes;
@@ -83,7 +256,7 @@ public class CreateDBEndpointRequest {
     this.autoAddNewNodes = autoAddNewNodes;
   }
 
-  public CreateDBEndpointRequest consistLevel(String consistLevel) {
+  public CreateDBEndpointRequest consistLevel(ConsistLevelEnum consistLevel) {
     this.consistLevel = consistLevel;
     return this;
   }
@@ -93,11 +266,11 @@ public class CreateDBEndpointRequest {
    * @return consistLevel
   **/
   @Schema(description = "")
-  public String getConsistLevel() {
+  public ConsistLevelEnum getConsistLevel() {
     return consistLevel;
   }
 
-  public void setConsistLevel(String consistLevel) {
+  public void setConsistLevel(ConsistLevelEnum consistLevel) {
     this.consistLevel = consistLevel;
   }
 
@@ -119,7 +292,7 @@ public class CreateDBEndpointRequest {
     this.consistTimeout = consistTimeout;
   }
 
-  public CreateDBEndpointRequest consistTimeoutAction(String consistTimeoutAction) {
+  public CreateDBEndpointRequest consistTimeoutAction(ConsistTimeoutActionEnum consistTimeoutAction) {
     this.consistTimeoutAction = consistTimeoutAction;
     return this;
   }
@@ -129,11 +302,11 @@ public class CreateDBEndpointRequest {
    * @return consistTimeoutAction
   **/
   @Schema(description = "")
-  public String getConsistTimeoutAction() {
+  public ConsistTimeoutActionEnum getConsistTimeoutAction() {
     return consistTimeoutAction;
   }
 
-  public void setConsistTimeoutAction(String consistTimeoutAction) {
+  public void setConsistTimeoutAction(ConsistTimeoutActionEnum consistTimeoutAction) {
     this.consistTimeoutAction = consistTimeoutAction;
   }
 
@@ -191,7 +364,7 @@ public class CreateDBEndpointRequest {
     this.endpointName = endpointName;
   }
 
-  public CreateDBEndpointRequest endpointType(String endpointType) {
+  public CreateDBEndpointRequest endpointType(EndpointTypeEnum endpointType) {
     this.endpointType = endpointType;
     return this;
   }
@@ -200,12 +373,13 @@ public class CreateDBEndpointRequest {
    * Get endpointType
    * @return endpointType
   **/
-  @Schema(description = "")
-  public String getEndpointType() {
+  @NotNull
+  @Schema(required = true, description = "")
+  public EndpointTypeEnum getEndpointType() {
     return endpointType;
   }
 
-  public void setEndpointType(String endpointType) {
+  public void setEndpointType(EndpointTypeEnum endpointType) {
     this.endpointType = endpointType;
   }
 
@@ -218,7 +392,8 @@ public class CreateDBEndpointRequest {
    * Get instanceId
    * @return instanceId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getInstanceId() {
     return instanceId;
   }
@@ -254,7 +429,8 @@ public class CreateDBEndpointRequest {
    * Get nodes
    * @return nodes
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getNodes() {
     return nodes;
   }
@@ -263,7 +439,7 @@ public class CreateDBEndpointRequest {
     this.nodes = nodes;
   }
 
-  public CreateDBEndpointRequest readWriteMode(String readWriteMode) {
+  public CreateDBEndpointRequest readWriteMode(ReadWriteModeEnum readWriteMode) {
     this.readWriteMode = readWriteMode;
     return this;
   }
@@ -273,11 +449,11 @@ public class CreateDBEndpointRequest {
    * @return readWriteMode
   **/
   @Schema(description = "")
-  public String getReadWriteMode() {
+  public ReadWriteModeEnum getReadWriteMode() {
     return readWriteMode;
   }
 
-  public void setReadWriteMode(String readWriteMode) {
+  public void setReadWriteMode(ReadWriteModeEnum readWriteMode) {
     this.readWriteMode = readWriteMode;
   }
 
