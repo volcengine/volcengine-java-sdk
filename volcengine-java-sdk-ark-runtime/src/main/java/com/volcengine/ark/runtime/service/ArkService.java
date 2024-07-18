@@ -40,6 +40,7 @@ import retrofit2.Retrofit;
 import retrofit2.http.HeaderMap;
 
 import java.io.IOException;
+import java.net.Proxy;
 import java.time.Duration;
 import java.util.*;
 import java.util.concurrent.ExecutorService;
@@ -226,6 +227,7 @@ public class ArkService extends ArkBaseService implements ArkBaseServiceImpl {
         private Duration timeout = DEFAULT_TIMEOUT;
         private Duration connectTimeout = DEFAULT_CONNECT_TIMEOUT;
         private int retryTimes = 0;
+        private Proxy proxy;
 
         public ArkService.Builder ak(String ak) {
             this.ak = ak;
@@ -270,6 +272,11 @@ public class ArkService extends ArkBaseService implements ArkBaseServiceImpl {
             return this;
         }
 
+        public ArkService.Builder proxy(Proxy proxy) {
+            this.proxy = proxy;
+            return this;
+        }
+
         public ArkService build() {
             ObjectMapper mapper = defaultObjectMapper();
             OkHttpClient.Builder clientBuilder = new OkHttpClient.Builder();
@@ -279,6 +286,10 @@ public class ArkService extends ArkBaseService implements ArkBaseServiceImpl {
                 clientBuilder.addInterceptor(new ArkResourceStsAuthenticationInterceptor(ak, sk, region));
             } else {
                 throw new ArkException("missing api_key or ak&sk.");
+            }
+
+            if (proxy != null) {
+                clientBuilder.proxy(proxy);
             }
 
             OkHttpClient client = clientBuilder
