@@ -245,5 +245,6 @@
         <module>volcengine-java-sdk-vefaas</module>
         <module>volcengine-java-sdk-iam20210801</module>
         <module>volcengine-java-sdk-transitrouter</module>
+        <module>volcengine-java-sdk-sts</module>
     </modules>
 </project>
