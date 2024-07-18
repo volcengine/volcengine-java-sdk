@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class NodeForDescribeDBInstanceDetailOutput {
   @SerializedName("Memory")
   private Integer memory = null;
@@ -38,8 +39,51 @@ public class NodeForDescribeDBInstanceDetailOutput {
   @SerializedName("NodeSpec")
   private String nodeSpec = null;
 
-  @SerializedName("NodeType")
-  private String nodeType = null;
+  /**
+   * Gets or Sets nodeType
+   */
+  @JsonAdapter(NodeTypeEnum.Adapter.class)
+  public enum NodeTypeEnum {
+    @SerializedName("Primary")
+    PRIMARY("Primary"),
+    @SerializedName("ReadOnly")
+    READONLY("ReadOnly");
+
+    private String value;
+
+    NodeTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static NodeTypeEnum fromValue(String input) {
+      for (NodeTypeEnum b : NodeTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<NodeTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final NodeTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public NodeTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return NodeTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("NodeType")
+  private NodeTypeEnum nodeType = null;
 
   @SerializedName("ZoneId")
   private String zoneId = null;
@@ -101,7 +145,7 @@ public class NodeForDescribeDBInstanceDetailOutput {
     this.nodeSpec = nodeSpec;
   }
 
-  public NodeForDescribeDBInstanceDetailOutput nodeType(String nodeType) {
+  public NodeForDescribeDBInstanceDetailOutput nodeType(NodeTypeEnum nodeType) {
     this.nodeType = nodeType;
     return this;
   }
@@ -111,11 +155,11 @@ public class NodeForDescribeDBInstanceDetailOutput {
    * @return nodeType
   **/
   @Schema(description = "")
-  public String getNodeType() {
+  public NodeTypeEnum getNodeType() {
     return nodeType;
   }
 
-  public void setNodeType(String nodeType) {
+  public void setNodeType(NodeTypeEnum nodeType) {
     this.nodeType = nodeType;
   }
 

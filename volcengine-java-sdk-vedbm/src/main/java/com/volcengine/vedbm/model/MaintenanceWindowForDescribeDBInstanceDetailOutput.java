@@ -30,20 +30,117 @@ import javax.validation.Valid;
  */
 
 
+
 public class MaintenanceWindowForDescribeDBInstanceDetailOutput {
-  @SerializedName("DayKind")
-  private String dayKind = null;
+  /**
+   * Gets or Sets dayKind
+   */
+  @JsonAdapter(DayKindEnum.Adapter.class)
+  public enum DayKindEnum {
+    @SerializedName("Week")
+    WEEK("Week"),
+    @SerializedName("Month")
+    MONTH("Month");
+
+    private String value;
+
+    DayKindEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static DayKindEnum fromValue(String input) {
+      for (DayKindEnum b : DayKindEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<DayKindEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final DayKindEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public DayKindEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return DayKindEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("DayKind")
+  private DayKindEnum dayKind = null;
 
   @SerializedName("DayOfMonth")
   private List<Integer> dayOfMonth = null;
 
-  @SerializedName("DayOfWeek")
-  private List<String> dayOfWeek = null;
+  /**
+   * Gets or Sets dayOfWeek
+   */
+  @JsonAdapter(DayOfWeekEnum.Adapter.class)
+  public enum DayOfWeekEnum {
+    @SerializedName("Sunday")
+    SUNDAY("Sunday"),
+    @SerializedName("Monday")
+    MONDAY("Monday"),
+    @SerializedName("Tuesday")
+    TUESDAY("Tuesday"),
+    @SerializedName("Wednesday")
+    WEDNESDAY("Wednesday"),
+    @SerializedName("Thursday")
+    THURSDAY("Thursday"),
+    @SerializedName("Friday")
+    FRIDAY("Friday"),
+    @SerializedName("Saturday")
+    SATURDAY("Saturday");
+
+    private String value;
+
+    DayOfWeekEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static DayOfWeekEnum fromValue(String input) {
+      for (DayOfWeekEnum b : DayOfWeekEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<DayOfWeekEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final DayOfWeekEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public DayOfWeekEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return DayOfWeekEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("DayOfWeek")
+  private List<DayOfWeekEnum> dayOfWeek = null;
 
   @SerializedName("MaintenanceTime")
   private String maintenanceTime = null;
 
-  public MaintenanceWindowForDescribeDBInstanceDetailOutput dayKind(String dayKind) {
+  public MaintenanceWindowForDescribeDBInstanceDetailOutput dayKind(DayKindEnum dayKind) {
     this.dayKind = dayKind;
     return this;
   }
@@ -53,11 +150,11 @@ public class MaintenanceWindowForDescribeDBInstanceDetailOutput {
    * @return dayKind
   **/
   @Schema(description = "")
-  public String getDayKind() {
+  public DayKindEnum getDayKind() {
     return dayKind;
   }
 
-  public void setDayKind(String dayKind) {
+  public void setDayKind(DayKindEnum dayKind) {
     this.dayKind = dayKind;
   }
 
@@ -87,14 +184,14 @@ public class MaintenanceWindowForDescribeDBInstanceDetailOutput {
     this.dayOfMonth = dayOfMonth;
   }
 
-  public MaintenanceWindowForDescribeDBInstanceDetailOutput dayOfWeek(List<String> dayOfWeek) {
+  public MaintenanceWindowForDescribeDBInstanceDetailOutput dayOfWeek(List<DayOfWeekEnum> dayOfWeek) {
     this.dayOfWeek = dayOfWeek;
     return this;
   }
 
-  public MaintenanceWindowForDescribeDBInstanceDetailOutput addDayOfWeekItem(String dayOfWeekItem) {
+  public MaintenanceWindowForDescribeDBInstanceDetailOutput addDayOfWeekItem(DayOfWeekEnum dayOfWeekItem) {
     if (this.dayOfWeek == null) {
-      this.dayOfWeek = new ArrayList<String>();
+      this.dayOfWeek = new ArrayList<DayOfWeekEnum>();
     }
     this.dayOfWeek.add(dayOfWeekItem);
     return this;
@@ -105,11 +202,11 @@ public class MaintenanceWindowForDescribeDBInstanceDetailOutput {
    * @return dayOfWeek
   **/
   @Schema(description = "")
-  public List<String> getDayOfWeek() {
+  public List<DayOfWeekEnum> getDayOfWeek() {
     return dayOfWeek;
   }
 
-  public void setDayOfWeek(List<String> dayOfWeek) {
+  public void setDayOfWeek(List<DayOfWeekEnum> dayOfWeek) {
     this.dayOfWeek = dayOfWeek;
   }
 

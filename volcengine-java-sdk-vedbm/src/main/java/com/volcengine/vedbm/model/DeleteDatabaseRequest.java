@@ -24,51 +24,54 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ZoneNodeInfoForModifyDBInstanceSpecInput
+ * DeleteDatabaseRequest
  */
 
 
-public class ZoneNodeInfoForModifyDBInstanceSpecInput {
-  @SerializedName("ZoneId")
-  private String zoneId = null;
 
-  @SerializedName("ZoneNodeNumber")
-  private Integer zoneNodeNumber = null;
+public class DeleteDatabaseRequest {
+  @SerializedName("DBName")
+  private String dbName = null;
 
-  public ZoneNodeInfoForModifyDBInstanceSpecInput zoneId(String zoneId) {
-    this.zoneId = zoneId;
+  @SerializedName("InstanceId")
+  private String instanceId = null;
+
+  public DeleteDatabaseRequest dbName(String dbName) {
+    this.dbName = dbName;
     return this;
   }
 
    /**
-   * Get zoneId
-   * @return zoneId
+   * Get dbName
+   * @return dbName
   **/
-  @Schema(description = "")
-  public String getZoneId() {
-    return zoneId;
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getDbName() {
+    return dbName;
   }
 
-  public void setZoneId(String zoneId) {
-    this.zoneId = zoneId;
+  public void setDbName(String dbName) {
+    this.dbName = dbName;
   }
 
-  public ZoneNodeInfoForModifyDBInstanceSpecInput zoneNodeNumber(Integer zoneNodeNumber) {
-    this.zoneNodeNumber = zoneNodeNumber;
+  public DeleteDatabaseRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
     return this;
   }
 
    /**
-   * Get zoneNodeNumber
-   * @return zoneNodeNumber
+   * Get instanceId
+   * @return instanceId
   **/
-  @Schema(description = "")
-  public Integer getZoneNodeNumber() {
-    return zoneNodeNumber;
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getInstanceId() {
+    return instanceId;
   }
 
-  public void setZoneNodeNumber(Integer zoneNodeNumber) {
-    this.zoneNodeNumber = zoneNodeNumber;
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
   }
 
 
@@ -80,24 +83,24 @@ public class ZoneNodeInfoForModifyDBInstanceSpecInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ZoneNodeInfoForModifyDBInstanceSpecInput zoneNodeInfoForModifyDBInstanceSpecInput = (ZoneNodeInfoForModifyDBInstanceSpecInput) o;
-    return Objects.equals(this.zoneId, zoneNodeInfoForModifyDBInstanceSpecInput.zoneId) &&
-        Objects.equals(this.zoneNodeNumber, zoneNodeInfoForModifyDBInstanceSpecInput.zoneNodeNumber);
+    DeleteDatabaseRequest deleteDatabaseRequest = (DeleteDatabaseRequest) o;
+    return Objects.equals(this.dbName, deleteDatabaseRequest.dbName) &&
+        Objects.equals(this.instanceId, deleteDatabaseRequest.instanceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(zoneId, zoneNodeNumber);
+    return Objects.hash(dbName, instanceId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ZoneNodeInfoForModifyDBInstanceSpecInput {\n");
+    sb.append("class DeleteDatabaseRequest {\n");
     
-    sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
-    sb.append("    zoneNodeNumber: ").append(toIndentedString(zoneNodeNumber)).append("\n");
+    sb.append("    dbName: ").append(toIndentedString(dbName)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

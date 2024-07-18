@@ -31,9 +31,53 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeDBInstancesRequest {
-  @SerializedName("ChargeType")
-  private String chargeType = null;
+  /**
+   * Gets or Sets chargeType
+   */
+  @JsonAdapter(ChargeTypeEnum.Adapter.class)
+  public enum ChargeTypeEnum {
+    @SerializedName("PostPaid")
+    POSTPAID("PostPaid"),
+    @SerializedName("PrePaid")
+    PREPAID("PrePaid");
+
+    private String value;
+
+    ChargeTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ChargeTypeEnum fromValue(String input) {
+      for (ChargeTypeEnum b : ChargeTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ChargeTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ChargeTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ChargeTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ChargeTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("ChargeType")
+  private ChargeTypeEnum chargeType = null;
 
   @SerializedName("CreateTimeEnd")
   private String createTimeEnd = null;
@@ -41,8 +85,49 @@ public class DescribeDBInstancesRequest {
   @SerializedName("CreateTimeStart")
   private String createTimeStart = null;
 
-  @SerializedName("DBEngineVersion")
-  private String dbEngineVersion = null;
+  /**
+   * Gets or Sets dbEngineVersion
+   */
+  @JsonAdapter(DbEngineVersionEnum.Adapter.class)
+  public enum DbEngineVersionEnum {
+    @SerializedName("MySQL_8_0")
+    MYSQL_8_0("MySQL_8_0");
+
+    private String value;
+
+    DbEngineVersionEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static DbEngineVersionEnum fromValue(String input) {
+      for (DbEngineVersionEnum b : DbEngineVersionEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<DbEngineVersionEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final DbEngineVersionEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public DbEngineVersionEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return DbEngineVersionEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("DBEngineVersion")
+  private DbEngineVersionEnum dbEngineVersion = null;
 
   @SerializedName("InstanceId")
   private String instanceId = null;
@@ -50,8 +135,83 @@ public class DescribeDBInstancesRequest {
   @SerializedName("InstanceName")
   private String instanceName = null;
 
-  @SerializedName("InstanceStatus")
-  private String instanceStatus = null;
+  /**
+   * Gets or Sets instanceStatus
+   */
+  @JsonAdapter(InstanceStatusEnum.Adapter.class)
+  public enum InstanceStatusEnum {
+    @SerializedName("WaitingPaid")
+    WAITINGPAID("WaitingPaid"),
+    @SerializedName("Running")
+    RUNNING("Running"),
+    @SerializedName("Creating")
+    CREATING("Creating"),
+    @SerializedName("Scaling")
+    SCALING("Scaling"),
+    @SerializedName("Restarting")
+    RESTARTING("Restarting"),
+    @SerializedName("Restoring")
+    RESTORING("Restoring"),
+    @SerializedName("Upgrading")
+    UPGRADING("Upgrading"),
+    @SerializedName("PrimaryChanging")
+    PRIMARYCHANGING("PrimaryChanging"),
+    @SerializedName("Unavailable")
+    UNAVAILABLE("Unavailable"),
+    @SerializedName("Deleting")
+    DELETING("Deleting"),
+    @SerializedName("Deleted")
+    DELETED("Deleted"),
+    @SerializedName("CreateFailed")
+    CREATEFAILED("CreateFailed"),
+    @SerializedName("Closing")
+    CLOSING("Closing"),
+    @SerializedName("Expired")
+    EXPIRED("Expired"),
+    @SerializedName("Owing")
+    OWING("Owing"),
+    @SerializedName("Resuming")
+    RESUMING("Resuming"),
+    @SerializedName("AllowListMaintaining")
+    ALLOWLISTMAINTAINING("AllowListMaintaining"),
+    @SerializedName("Error")
+    ERROR("Error");
+
+    private String value;
+
+    InstanceStatusEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static InstanceStatusEnum fromValue(String input) {
+      for (InstanceStatusEnum b : InstanceStatusEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<InstanceStatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final InstanceStatusEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public InstanceStatusEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return InstanceStatusEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("InstanceStatus")
+  private InstanceStatusEnum instanceStatus = null;
 
   @SerializedName("NodeSpec")
   private String nodeSpec = null;
@@ -71,7 +231,7 @@ public class DescribeDBInstancesRequest {
   @SerializedName("ZoneId")
   private String zoneId = null;
 
-  public DescribeDBInstancesRequest chargeType(String chargeType) {
+  public DescribeDBInstancesRequest chargeType(ChargeTypeEnum chargeType) {
     this.chargeType = chargeType;
     return this;
   }
@@ -81,11 +241,11 @@ public class DescribeDBInstancesRequest {
    * @return chargeType
   **/
   @Schema(description = "")
-  public String getChargeType() {
+  public ChargeTypeEnum getChargeType() {
     return chargeType;
   }
 
-  public void setChargeType(String chargeType) {
+  public void setChargeType(ChargeTypeEnum chargeType) {
     this.chargeType = chargeType;
   }
 
@@ -125,7 +285,7 @@ public class DescribeDBInstancesRequest {
     this.createTimeStart = createTimeStart;
   }
 
-  public DescribeDBInstancesRequest dbEngineVersion(String dbEngineVersion) {
+  public DescribeDBInstancesRequest dbEngineVersion(DbEngineVersionEnum dbEngineVersion) {
     this.dbEngineVersion = dbEngineVersion;
     return this;
   }
@@ -135,11 +295,11 @@ public class DescribeDBInstancesRequest {
    * @return dbEngineVersion
   **/
   @Schema(description = "")
-  public String getDbEngineVersion() {
+  public DbEngineVersionEnum getDbEngineVersion() {
     return dbEngineVersion;
   }
 
-  public void setDbEngineVersion(String dbEngineVersion) {
+  public void setDbEngineVersion(DbEngineVersionEnum dbEngineVersion) {
     this.dbEngineVersion = dbEngineVersion;
   }
 
@@ -179,7 +339,7 @@ public class DescribeDBInstancesRequest {
     this.instanceName = instanceName;
   }
 
-  public DescribeDBInstancesRequest instanceStatus(String instanceStatus) {
+  public DescribeDBInstancesRequest instanceStatus(InstanceStatusEnum instanceStatus) {
     this.instanceStatus = instanceStatus;
     return this;
   }
@@ -189,11 +349,11 @@ public class DescribeDBInstancesRequest {
    * @return instanceStatus
   **/
   @Schema(description = "")
-  public String getInstanceStatus() {
+  public InstanceStatusEnum getInstanceStatus() {
     return instanceStatus;
   }
 
-  public void setInstanceStatus(String instanceStatus) {
+  public void setInstanceStatus(InstanceStatusEnum instanceStatus) {
     this.instanceStatus = instanceStatus;
   }
 
@@ -222,9 +382,10 @@ public class DescribeDBInstancesRequest {
 
    /**
    * Get pageNumber
+   * minimum: 1
    * @return pageNumber
   **/
-  @Schema(description = "")
+ @Min(1)  @Schema(description = "")
   public Integer getPageNumber() {
     return pageNumber;
   }
@@ -240,9 +401,11 @@ public class DescribeDBInstancesRequest {
 
    /**
    * Get pageSize
+   * minimum: 1
+   * maximum: 1000
    * @return pageSize
   **/
-  @Schema(description = "")
+ @Min(1) @Max(1000)  @Schema(description = "")
   public Integer getPageSize() {
     return pageSize;
   }

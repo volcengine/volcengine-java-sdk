@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ModifyDBInstanceNameRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;
@@ -44,7 +45,8 @@ public class ModifyDBInstanceNameRequest {
    * Get instanceId
    * @return instanceId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getInstanceId() {
     return instanceId;
   }
@@ -62,7 +64,8 @@ public class ModifyDBInstanceNameRequest {
    * Get instanceNewName
    * @return instanceNewName
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getInstanceNewName() {
     return instanceNewName;
   }
