@@ -24,32 +24,54 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * GetFunctionRequest
+ * GetRevisionRequest
  */
 
 
 
-public class GetFunctionRequest {
-  @SerializedName("Id")
-  private String id = null;
+public class GetRevisionRequest {
+  @SerializedName("FunctionId")
+  private String functionId = null;
 
-  public GetFunctionRequest id(String id) {
-    this.id = id;
+  @SerializedName("RevisionNumber")
+  private Integer revisionNumber = null;
+
+  public GetRevisionRequest functionId(String functionId) {
+    this.functionId = functionId;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Get functionId
+   * @return functionId
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getId() {
-    return id;
+  public String getFunctionId() {
+    return functionId;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setFunctionId(String functionId) {
+    this.functionId = functionId;
+  }
+
+  public GetRevisionRequest revisionNumber(Integer revisionNumber) {
+    this.revisionNumber = revisionNumber;
+    return this;
+  }
+
+   /**
+   * Get revisionNumber
+   * @return revisionNumber
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public Integer getRevisionNumber() {
+    return revisionNumber;
+  }
+
+  public void setRevisionNumber(Integer revisionNumber) {
+    this.revisionNumber = revisionNumber;
   }
 
 
@@ -61,22 +83,24 @@ public class GetFunctionRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GetFunctionRequest getFunctionRequest = (GetFunctionRequest) o;
-    return Objects.equals(this.id, getFunctionRequest.id);
+    GetRevisionRequest getRevisionRequest = (GetRevisionRequest) o;
+    return Objects.equals(this.functionId, getRevisionRequest.functionId) &&
+        Objects.equals(this.revisionNumber, getRevisionRequest.revisionNumber);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id);
+    return Objects.hash(functionId, revisionNumber);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetFunctionRequest {\n");
+    sb.append("class GetRevisionRequest {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
+    sb.append("    revisionNumber: ").append(toIndentedString(revisionNumber)).append("\n");
     sb.append("}");
     return sb.toString();
   }

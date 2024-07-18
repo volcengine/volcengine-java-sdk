@@ -24,32 +24,52 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * GetFunctionRequest
+ * OrderByForListReleaseRecordsInput
  */
 
 
 
-public class GetFunctionRequest {
-  @SerializedName("Id")
-  private String id = null;
+public class OrderByForListReleaseRecordsInput {
+  @SerializedName("Ascend")
+  private Boolean ascend = null;
 
-  public GetFunctionRequest id(String id) {
-    this.id = id;
+  @SerializedName("Key")
+  private String key = null;
+
+  public OrderByForListReleaseRecordsInput ascend(Boolean ascend) {
+    this.ascend = ascend;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Get ascend
+   * @return ascend
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getId() {
-    return id;
+  @Schema(description = "")
+  public Boolean isAscend() {
+    return ascend;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setAscend(Boolean ascend) {
+    this.ascend = ascend;
+  }
+
+  public OrderByForListReleaseRecordsInput key(String key) {
+    this.key = key;
+    return this;
+  }
+
+   /**
+   * Get key
+   * @return key
+  **/
+  @Schema(description = "")
+  public String getKey() {
+    return key;
+  }
+
+  public void setKey(String key) {
+    this.key = key;
   }
 
 
@@ -61,22 +81,24 @@ public class GetFunctionRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GetFunctionRequest getFunctionRequest = (GetFunctionRequest) o;
-    return Objects.equals(this.id, getFunctionRequest.id);
+    OrderByForListReleaseRecordsInput orderByForListReleaseRecordsInput = (OrderByForListReleaseRecordsInput) o;
+    return Objects.equals(this.ascend, orderByForListReleaseRecordsInput.ascend) &&
+        Objects.equals(this.key, orderByForListReleaseRecordsInput.key);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id);
+    return Objects.hash(ascend, key);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetFunctionRequest {\n");
+    sb.append("class OrderByForListReleaseRecordsInput {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    ascend: ").append(toIndentedString(ascend)).append("\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("}");
     return sb.toString();
   }

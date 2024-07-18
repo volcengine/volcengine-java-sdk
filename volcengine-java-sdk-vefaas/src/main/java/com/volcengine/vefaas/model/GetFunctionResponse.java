@@ -46,9 +46,6 @@ public class GetFunctionResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("CreationTime")
   private String creationTime = null;
 
-  @SerializedName("DebugInstanceEnable")
-  private Boolean debugInstanceEnable = null;
-
   @SerializedName("Description")
   private String description = null;
 
@@ -88,9 +85,6 @@ public class GetFunctionResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("RequestTimeout")
   private Integer requestTimeout = null;
 
-  @SerializedName("ResourcePoolId")
-  private String resourcePoolId = null;
-
   @SerializedName("Runtime")
   private String runtime = null;
 
@@ -108,9 +102,6 @@ public class GetFunctionResponse extends com.volcengine.model.AbstractResponse {
 
   @SerializedName("TriggersCount")
   private Integer triggersCount = null;
-
-  @SerializedName("UseStatus")
-  private String useStatus = null;
 
   @SerializedName("VpcConfig")
   private VpcConfigForGetFunctionOutput vpcConfig = null;
@@ -167,24 +158,6 @@ public class GetFunctionResponse extends com.volcengine.model.AbstractResponse {
 
   public void setCreationTime(String creationTime) {
     this.creationTime = creationTime;
-  }
-
-  public GetFunctionResponse debugInstanceEnable(Boolean debugInstanceEnable) {
-    this.debugInstanceEnable = debugInstanceEnable;
-    return this;
-  }
-
-   /**
-   * Get debugInstanceEnable
-   * @return debugInstanceEnable
-  **/
-  @Schema(description = "")
-  public Boolean isDebugInstanceEnable() {
-    return debugInstanceEnable;
-  }
-
-  public void setDebugInstanceEnable(Boolean debugInstanceEnable) {
-    this.debugInstanceEnable = debugInstanceEnable;
   }
 
   public GetFunctionResponse description(String description) {
@@ -431,24 +404,6 @@ public class GetFunctionResponse extends com.volcengine.model.AbstractResponse {
     this.requestTimeout = requestTimeout;
   }
 
-  public GetFunctionResponse resourcePoolId(String resourcePoolId) {
-    this.resourcePoolId = resourcePoolId;
-    return this;
-  }
-
-   /**
-   * Get resourcePoolId
-   * @return resourcePoolId
-  **/
-  @Schema(description = "")
-  public String getResourcePoolId() {
-    return resourcePoolId;
-  }
-
-  public void setResourcePoolId(String resourcePoolId) {
-    this.resourcePoolId = resourcePoolId;
-  }
-
   public GetFunctionResponse runtime(String runtime) {
     this.runtime = runtime;
     return this;
@@ -559,24 +514,6 @@ public class GetFunctionResponse extends com.volcengine.model.AbstractResponse {
     this.triggersCount = triggersCount;
   }
 
-  public GetFunctionResponse useStatus(String useStatus) {
-    this.useStatus = useStatus;
-    return this;
-  }
-
-   /**
-   * Get useStatus
-   * @return useStatus
-  **/
-  @Schema(description = "")
-  public String getUseStatus() {
-    return useStatus;
-  }
-
-  public void setUseStatus(String useStatus) {
-    this.useStatus = useStatus;
-  }
-
   public GetFunctionResponse vpcConfig(VpcConfigForGetFunctionOutput vpcConfig) {
     this.vpcConfig = vpcConfig;
     return this;
@@ -609,7 +546,6 @@ public class GetFunctionResponse extends com.volcengine.model.AbstractResponse {
     return Objects.equals(this.codeSize, getFunctionResponse.codeSize) &&
         Objects.equals(this.codeSizeLimit, getFunctionResponse.codeSizeLimit) &&
         Objects.equals(this.creationTime, getFunctionResponse.creationTime) &&
-        Objects.equals(this.debugInstanceEnable, getFunctionResponse.debugInstanceEnable) &&
         Objects.equals(this.description, getFunctionResponse.description) &&
         Objects.equals(this.envs, getFunctionResponse.envs) &&
         Objects.equals(this.exclusiveMode, getFunctionResponse.exclusiveMode) &&
@@ -623,20 +559,18 @@ public class GetFunctionResponse extends com.volcengine.model.AbstractResponse {
         Objects.equals(this.nasStorage, getFunctionResponse.nasStorage) &&
         Objects.equals(this.owner, getFunctionResponse.owner) &&
         Objects.equals(this.requestTimeout, getFunctionResponse.requestTimeout) &&
-        Objects.equals(this.resourcePoolId, getFunctionResponse.resourcePoolId) &&
         Objects.equals(this.runtime, getFunctionResponse.runtime) &&
         Objects.equals(this.sourceLocation, getFunctionResponse.sourceLocation) &&
         Objects.equals(this.sourceType, getFunctionResponse.sourceType) &&
         Objects.equals(this.tlsConfig, getFunctionResponse.tlsConfig) &&
         Objects.equals(this.tosMountConfig, getFunctionResponse.tosMountConfig) &&
         Objects.equals(this.triggersCount, getFunctionResponse.triggersCount) &&
-        Objects.equals(this.useStatus, getFunctionResponse.useStatus) &&
         Objects.equals(this.vpcConfig, getFunctionResponse.vpcConfig);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(codeSize, codeSizeLimit, creationTime, debugInstanceEnable, description, envs, exclusiveMode, id, initializerSec, instanceType, lastUpdateTime, maxConcurrency, memoryMB, name, nasStorage, owner, requestTimeout, resourcePoolId, runtime, sourceLocation, sourceType, tlsConfig, tosMountConfig, triggersCount, useStatus, vpcConfig);
+    return Objects.hash(codeSize, codeSizeLimit, creationTime, description, envs, exclusiveMode, id, initializerSec, instanceType, lastUpdateTime, maxConcurrency, memoryMB, name, nasStorage, owner, requestTimeout, runtime, sourceLocation, sourceType, tlsConfig, tosMountConfig, triggersCount, vpcConfig);
   }
 
 
@@ -648,7 +582,6 @@ public class GetFunctionResponse extends com.volcengine.model.AbstractResponse {
     sb.append("    codeSize: ").append(toIndentedString(codeSize)).append("\n");
     sb.append("    codeSizeLimit: ").append(toIndentedString(codeSizeLimit)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
-    sb.append("    debugInstanceEnable: ").append(toIndentedString(debugInstanceEnable)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    envs: ").append(toIndentedString(envs)).append("\n");
     sb.append("    exclusiveMode: ").append(toIndentedString(exclusiveMode)).append("\n");
@@ -662,14 +595,12 @@ public class GetFunctionResponse extends com.volcengine.model.AbstractResponse {
     sb.append("    nasStorage: ").append(toIndentedString(nasStorage)).append("\n");
     sb.append("    owner: ").append(toIndentedString(owner)).append("\n");
     sb.append("    requestTimeout: ").append(toIndentedString(requestTimeout)).append("\n");
-    sb.append("    resourcePoolId: ").append(toIndentedString(resourcePoolId)).append("\n");
     sb.append("    runtime: ").append(toIndentedString(runtime)).append("\n");
     sb.append("    sourceLocation: ").append(toIndentedString(sourceLocation)).append("\n");
     sb.append("    sourceType: ").append(toIndentedString(sourceType)).append("\n");
     sb.append("    tlsConfig: ").append(toIndentedString(tlsConfig)).append("\n");
     sb.append("    tosMountConfig: ").append(toIndentedString(tosMountConfig)).append("\n");
     sb.append("    triggersCount: ").append(toIndentedString(triggersCount)).append("\n");
-    sb.append("    useStatus: ").append(toIndentedString(useStatus)).append("\n");
     sb.append("    vpcConfig: ").append(toIndentedString(vpcConfig)).append("\n");
     sb.append("}");
     return sb.toString();

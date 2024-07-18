@@ -24,12 +24,12 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * TopParamForCreateFunctionInput
+ * TopParamForListRevisionsInput
  */
 
 
 
-public class TopParamForCreateFunctionInput {
+public class TopParamForListRevisionsInput {
   @SerializedName("AccountId")
   private Long accountId = null;
 
@@ -63,7 +63,7 @@ public class TopParamForCreateFunctionInput {
   @SerializedName("UserId")
   private Long userId = null;
 
-  public TopParamForCreateFunctionInput accountId(Long accountId) {
+  public TopParamForListRevisionsInput accountId(Long accountId) {
     this.accountId = accountId;
     return this;
   }
@@ -81,7 +81,7 @@ public class TopParamForCreateFunctionInput {
     this.accountId = accountId;
   }
 
-  public TopParamForCreateFunctionInput destService(String destService) {
+  public TopParamForListRevisionsInput destService(String destService) {
     this.destService = destService;
     return this;
   }
@@ -99,7 +99,7 @@ public class TopParamForCreateFunctionInput {
     this.destService = destService;
   }
 
-  public TopParamForCreateFunctionInput isInternal(String isInternal) {
+  public TopParamForListRevisionsInput isInternal(String isInternal) {
     this.isInternal = isInternal;
     return this;
   }
@@ -117,7 +117,7 @@ public class TopParamForCreateFunctionInput {
     this.isInternal = isInternal;
   }
 
-  public TopParamForCreateFunctionInput psm(String psm) {
+  public TopParamForListRevisionsInput psm(String psm) {
     this.psm = psm;
     return this;
   }
@@ -135,7 +135,7 @@ public class TopParamForCreateFunctionInput {
     this.psm = psm;
   }
 
-  public TopParamForCreateFunctionInput realIp(String realIp) {
+  public TopParamForListRevisionsInput realIp(String realIp) {
     this.realIp = realIp;
     return this;
   }
@@ -153,7 +153,7 @@ public class TopParamForCreateFunctionInput {
     this.realIp = realIp;
   }
 
-  public TopParamForCreateFunctionInput region(String region) {
+  public TopParamForListRevisionsInput region(String region) {
     this.region = region;
     return this;
   }
@@ -171,7 +171,7 @@ public class TopParamForCreateFunctionInput {
     this.region = region;
   }
 
-  public TopParamForCreateFunctionInput requestId(String requestId) {
+  public TopParamForListRevisionsInput requestId(String requestId) {
     this.requestId = requestId;
     return this;
   }
@@ -189,7 +189,7 @@ public class TopParamForCreateFunctionInput {
     this.requestId = requestId;
   }
 
-  public TopParamForCreateFunctionInput roleId(Long roleId) {
+  public TopParamForListRevisionsInput roleId(Long roleId) {
     this.roleId = roleId;
     return this;
   }
@@ -207,7 +207,7 @@ public class TopParamForCreateFunctionInput {
     this.roleId = roleId;
   }
 
-  public TopParamForCreateFunctionInput site(String site) {
+  public TopParamForListRevisionsInput site(String site) {
     this.site = site;
     return this;
   }
@@ -225,7 +225,7 @@ public class TopParamForCreateFunctionInput {
     this.site = site;
   }
 
-  public TopParamForCreateFunctionInput sourceService(String sourceService) {
+  public TopParamForListRevisionsInput sourceService(String sourceService) {
     this.sourceService = sourceService;
     return this;
   }
@@ -243,7 +243,7 @@ public class TopParamForCreateFunctionInput {
     this.sourceService = sourceService;
   }
 
-  public TopParamForCreateFunctionInput userId(Long userId) {
+  public TopParamForListRevisionsInput userId(Long userId) {
     this.userId = userId;
     return this;
   }
@@ -270,18 +270,18 @@ public class TopParamForCreateFunctionInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TopParamForCreateFunctionInput topParamForCreateFunctionInput = (TopParamForCreateFunctionInput) o;
-    return Objects.equals(this.accountId, topParamForCreateFunctionInput.accountId) &&
-        Objects.equals(this.destService, topParamForCreateFunctionInput.destService) &&
-        Objects.equals(this.isInternal, topParamForCreateFunctionInput.isInternal) &&
-        Objects.equals(this.psm, topParamForCreateFunctionInput.psm) &&
-        Objects.equals(this.realIp, topParamForCreateFunctionInput.realIp) &&
-        Objects.equals(this.region, topParamForCreateFunctionInput.region) &&
-        Objects.equals(this.requestId, topParamForCreateFunctionInput.requestId) &&
-        Objects.equals(this.roleId, topParamForCreateFunctionInput.roleId) &&
-        Objects.equals(this.site, topParamForCreateFunctionInput.site) &&
-        Objects.equals(this.sourceService, topParamForCreateFunctionInput.sourceService) &&
-        Objects.equals(this.userId, topParamForCreateFunctionInput.userId);
+    TopParamForListRevisionsInput topParamForListRevisionsInput = (TopParamForListRevisionsInput) o;
+    return Objects.equals(this.accountId, topParamForListRevisionsInput.accountId) &&
+        Objects.equals(this.destService, topParamForListRevisionsInput.destService) &&
+        Objects.equals(this.isInternal, topParamForListRevisionsInput.isInternal) &&
+        Objects.equals(this.psm, topParamForListRevisionsInput.psm) &&
+        Objects.equals(this.realIp, topParamForListRevisionsInput.realIp) &&
+        Objects.equals(this.region, topParamForListRevisionsInput.region) &&
+        Objects.equals(this.requestId, topParamForListRevisionsInput.requestId) &&
+        Objects.equals(this.roleId, topParamForListRevisionsInput.roleId) &&
+        Objects.equals(this.site, topParamForListRevisionsInput.site) &&
+        Objects.equals(this.sourceService, topParamForListRevisionsInput.sourceService) &&
+        Objects.equals(this.userId, topParamForListRevisionsInput.userId);
   }
 
   @Override
@@ -293,7 +293,7 @@ public class TopParamForCreateFunctionInput {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TopParamForCreateFunctionInput {\n");
+    sb.append("class TopParamForListRevisionsInput {\n");
     
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    destService: ").append(toIndentedString(destService)).append("\n");

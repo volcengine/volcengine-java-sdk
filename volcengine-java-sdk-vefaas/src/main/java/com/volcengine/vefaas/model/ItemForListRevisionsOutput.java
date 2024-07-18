@@ -19,11 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.vefaas.model.EnvForCreateFunctionOutput;
-import com.volcengine.vefaas.model.NasStorageForCreateFunctionOutput;
-import com.volcengine.vefaas.model.TlsConfigForCreateFunctionOutput;
-import com.volcengine.vefaas.model.TosMountConfigForCreateFunctionOutput;
-import com.volcengine.vefaas.model.VpcConfigForCreateFunctionOutput;
+import com.volcengine.vefaas.model.EnvForListRevisionsOutput;
+import com.volcengine.vefaas.model.NasStorageForListRevisionsOutput;
+import com.volcengine.vefaas.model.TlsConfigForListRevisionsOutput;
+import com.volcengine.vefaas.model.TosMountConfigForListRevisionsOutput;
+import com.volcengine.vefaas.model.VpcConfigForListRevisionsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -31,12 +31,12 @@ import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * CreateFunctionResponse
+ * ItemForListRevisionsOutput
  */
 
 
 
-public class CreateFunctionResponse extends com.volcengine.model.AbstractResponse {
+public class ItemForListRevisionsOutput {
   @SerializedName("CodeSize")
   private Integer codeSize = null;
 
@@ -50,7 +50,7 @@ public class CreateFunctionResponse extends com.volcengine.model.AbstractRespons
   private String description = null;
 
   @SerializedName("Envs")
-  private List<EnvForCreateFunctionOutput> envs = null;
+  private List<EnvForListRevisionsOutput> envs = null;
 
   @SerializedName("ExclusiveMode")
   private Boolean exclusiveMode = null;
@@ -61,14 +61,11 @@ public class CreateFunctionResponse extends com.volcengine.model.AbstractRespons
   @SerializedName("InitializerSec")
   private Integer initializerSec = null;
 
-  @SerializedName("InstanceType")
-  private String instanceType = null;
-
-  @SerializedName("LastUpdateTime")
-  private String lastUpdateTime = null;
-
   @SerializedName("MaxConcurrency")
   private Integer maxConcurrency = null;
+
+  @SerializedName("MaxReplicas")
+  private Integer maxReplicas = null;
 
   @SerializedName("MemoryMB")
   private Integer memoryMB = null;
@@ -77,16 +74,25 @@ public class CreateFunctionResponse extends com.volcengine.model.AbstractRespons
   private String name = null;
 
   @SerializedName("NasStorage")
-  private NasStorageForCreateFunctionOutput nasStorage = null;
-
-  @SerializedName("Owner")
-  private String owner = null;
+  private NasStorageForListRevisionsOutput nasStorage = null;
 
   @SerializedName("RequestTimeout")
   private Integer requestTimeout = null;
 
+  @SerializedName("RevisionCreationTime")
+  private String revisionCreationTime = null;
+
+  @SerializedName("RevisionDescription")
+  private String revisionDescription = null;
+
+  @SerializedName("RevisionNumber")
+  private Integer revisionNumber = null;
+
   @SerializedName("Runtime")
   private String runtime = null;
+
+  @SerializedName("Source")
+  private String source = null;
 
   @SerializedName("SourceLocation")
   private String sourceLocation = null;
@@ -95,18 +101,15 @@ public class CreateFunctionResponse extends com.volcengine.model.AbstractRespons
   private String sourceType = null;
 
   @SerializedName("TlsConfig")
-  private TlsConfigForCreateFunctionOutput tlsConfig = null;
+  private TlsConfigForListRevisionsOutput tlsConfig = null;
 
   @SerializedName("TosMountConfig")
-  private TosMountConfigForCreateFunctionOutput tosMountConfig = null;
-
-  @SerializedName("TriggersCount")
-  private Integer triggersCount = null;
+  private TosMountConfigForListRevisionsOutput tosMountConfig = null;
 
   @SerializedName("VpcConfig")
-  private VpcConfigForCreateFunctionOutput vpcConfig = null;
+  private VpcConfigForListRevisionsOutput vpcConfig = null;
 
-  public CreateFunctionResponse codeSize(Integer codeSize) {
+  public ItemForListRevisionsOutput codeSize(Integer codeSize) {
     this.codeSize = codeSize;
     return this;
   }
@@ -124,7 +127,7 @@ public class CreateFunctionResponse extends com.volcengine.model.AbstractRespons
     this.codeSize = codeSize;
   }
 
-  public CreateFunctionResponse codeSizeLimit(Integer codeSizeLimit) {
+  public ItemForListRevisionsOutput codeSizeLimit(Integer codeSizeLimit) {
     this.codeSizeLimit = codeSizeLimit;
     return this;
   }
@@ -142,7 +145,7 @@ public class CreateFunctionResponse extends com.volcengine.model.AbstractRespons
     this.codeSizeLimit = codeSizeLimit;
   }
 
-  public CreateFunctionResponse creationTime(String creationTime) {
+  public ItemForListRevisionsOutput creationTime(String creationTime) {
     this.creationTime = creationTime;
     return this;
   }
@@ -160,7 +163,7 @@ public class CreateFunctionResponse extends com.volcengine.model.AbstractRespons
     this.creationTime = creationTime;
   }
 
-  public CreateFunctionResponse description(String description) {
+  public ItemForListRevisionsOutput description(String description) {
     this.description = description;
     return this;
   }
@@ -178,14 +181,14 @@ public class CreateFunctionResponse extends com.volcengine.model.AbstractRespons
     this.description = description;
   }
 
-  public CreateFunctionResponse envs(List<EnvForCreateFunctionOutput> envs) {
+  public ItemForListRevisionsOutput envs(List<EnvForListRevisionsOutput> envs) {
     this.envs = envs;
     return this;
   }
 
-  public CreateFunctionResponse addEnvsItem(EnvForCreateFunctionOutput envsItem) {
+  public ItemForListRevisionsOutput addEnvsItem(EnvForListRevisionsOutput envsItem) {
     if (this.envs == null) {
-      this.envs = new ArrayList<EnvForCreateFunctionOutput>();
+      this.envs = new ArrayList<EnvForListRevisionsOutput>();
     }
     this.envs.add(envsItem);
     return this;
@@ -197,15 +200,15 @@ public class CreateFunctionResponse extends com.volcengine.model.AbstractRespons
   **/
   @Valid
   @Schema(description = "")
-  public List<EnvForCreateFunctionOutput> getEnvs() {
+  public List<EnvForListRevisionsOutput> getEnvs() {
     return envs;
   }
 
-  public void setEnvs(List<EnvForCreateFunctionOutput> envs) {
+  public void setEnvs(List<EnvForListRevisionsOutput> envs) {
     this.envs = envs;
   }
 
-  public CreateFunctionResponse exclusiveMode(Boolean exclusiveMode) {
+  public ItemForListRevisionsOutput exclusiveMode(Boolean exclusiveMode) {
     this.exclusiveMode = exclusiveMode;
     return this;
   }
@@ -223,7 +226,7 @@ public class CreateFunctionResponse extends com.volcengine.model.AbstractRespons
     this.exclusiveMode = exclusiveMode;
   }
 
-  public CreateFunctionResponse id(String id) {
+  public ItemForListRevisionsOutput id(String id) {
     this.id = id;
     return this;
   }
@@ -241,7 +244,7 @@ public class CreateFunctionResponse extends com.volcengine.model.AbstractRespons
     this.id = id;
   }
 
-  public CreateFunctionResponse initializerSec(Integer initializerSec) {
+  public ItemForListRevisionsOutput initializerSec(Integer initializerSec) {
     this.initializerSec = initializerSec;
     return this;
   }
@@ -259,43 +262,7 @@ public class CreateFunctionResponse extends com.volcengine.model.AbstractRespons
     this.initializerSec = initializerSec;
   }
 
-  public CreateFunctionResponse instanceType(String instanceType) {
-    this.instanceType = instanceType;
-    return this;
-  }
-
-   /**
-   * Get instanceType
-   * @return instanceType
-  **/
-  @Schema(description = "")
-  public String getInstanceType() {
-    return instanceType;
-  }
-
-  public void setInstanceType(String instanceType) {
-    this.instanceType = instanceType;
-  }
-
-  public CreateFunctionResponse lastUpdateTime(String lastUpdateTime) {
-    this.lastUpdateTime = lastUpdateTime;
-    return this;
-  }
-
-   /**
-   * Get lastUpdateTime
-   * @return lastUpdateTime
-  **/
-  @Schema(description = "")
-  public String getLastUpdateTime() {
-    return lastUpdateTime;
-  }
-
-  public void setLastUpdateTime(String lastUpdateTime) {
-    this.lastUpdateTime = lastUpdateTime;
-  }
-
-  public CreateFunctionResponse maxConcurrency(Integer maxConcurrency) {
+  public ItemForListRevisionsOutput maxConcurrency(Integer maxConcurrency) {
     this.maxConcurrency = maxConcurrency;
     return this;
   }
@@ -313,7 +280,25 @@ public class CreateFunctionResponse extends com.volcengine.model.AbstractRespons
     this.maxConcurrency = maxConcurrency;
   }
 
-  public CreateFunctionResponse memoryMB(Integer memoryMB) {
+  public ItemForListRevisionsOutput maxReplicas(Integer maxReplicas) {
+    this.maxReplicas = maxReplicas;
+    return this;
+  }
+
+   /**
+   * Get maxReplicas
+   * @return maxReplicas
+  **/
+  @Schema(description = "")
+  public Integer getMaxReplicas() {
+    return maxReplicas;
+  }
+
+  public void setMaxReplicas(Integer maxReplicas) {
+    this.maxReplicas = maxReplicas;
+  }
+
+  public ItemForListRevisionsOutput memoryMB(Integer memoryMB) {
     this.memoryMB = memoryMB;
     return this;
   }
@@ -331,7 +316,7 @@ public class CreateFunctionResponse extends com.volcengine.model.AbstractRespons
     this.memoryMB = memoryMB;
   }
 
-  public CreateFunctionResponse name(String name) {
+  public ItemForListRevisionsOutput name(String name) {
     this.name = name;
     return this;
   }
@@ -349,7 +334,7 @@ public class CreateFunctionResponse extends com.volcengine.model.AbstractRespons
     this.name = name;
   }
 
-  public CreateFunctionResponse nasStorage(NasStorageForCreateFunctionOutput nasStorage) {
+  public ItemForListRevisionsOutput nasStorage(NasStorageForListRevisionsOutput nasStorage) {
     this.nasStorage = nasStorage;
     return this;
   }
@@ -360,33 +345,15 @@ public class CreateFunctionResponse extends com.volcengine.model.AbstractRespons
   **/
   @Valid
   @Schema(description = "")
-  public NasStorageForCreateFunctionOutput getNasStorage() {
+  public NasStorageForListRevisionsOutput getNasStorage() {
     return nasStorage;
   }
 
-  public void setNasStorage(NasStorageForCreateFunctionOutput nasStorage) {
+  public void setNasStorage(NasStorageForListRevisionsOutput nasStorage) {
     this.nasStorage = nasStorage;
   }
 
-  public CreateFunctionResponse owner(String owner) {
-    this.owner = owner;
-    return this;
-  }
-
-   /**
-   * Get owner
-   * @return owner
-  **/
-  @Schema(description = "")
-  public String getOwner() {
-    return owner;
-  }
-
-  public void setOwner(String owner) {
-    this.owner = owner;
-  }
-
-  public CreateFunctionResponse requestTimeout(Integer requestTimeout) {
+  public ItemForListRevisionsOutput requestTimeout(Integer requestTimeout) {
     this.requestTimeout = requestTimeout;
     return this;
   }
@@ -404,7 +371,61 @@ public class CreateFunctionResponse extends com.volcengine.model.AbstractRespons
     this.requestTimeout = requestTimeout;
   }
 
-  public CreateFunctionResponse runtime(String runtime) {
+  public ItemForListRevisionsOutput revisionCreationTime(String revisionCreationTime) {
+    this.revisionCreationTime = revisionCreationTime;
+    return this;
+  }
+
+   /**
+   * Get revisionCreationTime
+   * @return revisionCreationTime
+  **/
+  @Schema(description = "")
+  public String getRevisionCreationTime() {
+    return revisionCreationTime;
+  }
+
+  public void setRevisionCreationTime(String revisionCreationTime) {
+    this.revisionCreationTime = revisionCreationTime;
+  }
+
+  public ItemForListRevisionsOutput revisionDescription(String revisionDescription) {
+    this.revisionDescription = revisionDescription;
+    return this;
+  }
+
+   /**
+   * Get revisionDescription
+   * @return revisionDescription
+  **/
+  @Schema(description = "")
+  public String getRevisionDescription() {
+    return revisionDescription;
+  }
+
+  public void setRevisionDescription(String revisionDescription) {
+    this.revisionDescription = revisionDescription;
+  }
+
+  public ItemForListRevisionsOutput revisionNumber(Integer revisionNumber) {
+    this.revisionNumber = revisionNumber;
+    return this;
+  }
+
+   /**
+   * Get revisionNumber
+   * @return revisionNumber
+  **/
+  @Schema(description = "")
+  public Integer getRevisionNumber() {
+    return revisionNumber;
+  }
+
+  public void setRevisionNumber(Integer revisionNumber) {
+    this.revisionNumber = revisionNumber;
+  }
+
+  public ItemForListRevisionsOutput runtime(String runtime) {
     this.runtime = runtime;
     return this;
   }
@@ -422,7 +443,25 @@ public class CreateFunctionResponse extends com.volcengine.model.AbstractRespons
     this.runtime = runtime;
   }
 
-  public CreateFunctionResponse sourceLocation(String sourceLocation) {
+  public ItemForListRevisionsOutput source(String source) {
+    this.source = source;
+    return this;
+  }
+
+   /**
+   * Get source
+   * @return source
+  **/
+  @Schema(description = "")
+  public String getSource() {
+    return source;
+  }
+
+  public void setSource(String source) {
+    this.source = source;
+  }
+
+  public ItemForListRevisionsOutput sourceLocation(String sourceLocation) {
     this.sourceLocation = sourceLocation;
     return this;
   }
@@ -440,7 +479,7 @@ public class CreateFunctionResponse extends com.volcengine.model.AbstractRespons
     this.sourceLocation = sourceLocation;
   }
 
-  public CreateFunctionResponse sourceType(String sourceType) {
+  public ItemForListRevisionsOutput sourceType(String sourceType) {
     this.sourceType = sourceType;
     return this;
   }
@@ -458,7 +497,7 @@ public class CreateFunctionResponse extends com.volcengine.model.AbstractRespons
     this.sourceType = sourceType;
   }
 
-  public CreateFunctionResponse tlsConfig(TlsConfigForCreateFunctionOutput tlsConfig) {
+  public ItemForListRevisionsOutput tlsConfig(TlsConfigForListRevisionsOutput tlsConfig) {
     this.tlsConfig = tlsConfig;
     return this;
   }
@@ -469,15 +508,15 @@ public class CreateFunctionResponse extends com.volcengine.model.AbstractRespons
   **/
   @Valid
   @Schema(description = "")
-  public TlsConfigForCreateFunctionOutput getTlsConfig() {
+  public TlsConfigForListRevisionsOutput getTlsConfig() {
     return tlsConfig;
   }
 
-  public void setTlsConfig(TlsConfigForCreateFunctionOutput tlsConfig) {
+  public void setTlsConfig(TlsConfigForListRevisionsOutput tlsConfig) {
     this.tlsConfig = tlsConfig;
   }
 
-  public CreateFunctionResponse tosMountConfig(TosMountConfigForCreateFunctionOutput tosMountConfig) {
+  public ItemForListRevisionsOutput tosMountConfig(TosMountConfigForListRevisionsOutput tosMountConfig) {
     this.tosMountConfig = tosMountConfig;
     return this;
   }
@@ -488,33 +527,15 @@ public class CreateFunctionResponse extends com.volcengine.model.AbstractRespons
   **/
   @Valid
   @Schema(description = "")
-  public TosMountConfigForCreateFunctionOutput getTosMountConfig() {
+  public TosMountConfigForListRevisionsOutput getTosMountConfig() {
     return tosMountConfig;
   }
 
-  public void setTosMountConfig(TosMountConfigForCreateFunctionOutput tosMountConfig) {
+  public void setTosMountConfig(TosMountConfigForListRevisionsOutput tosMountConfig) {
     this.tosMountConfig = tosMountConfig;
   }
 
-  public CreateFunctionResponse triggersCount(Integer triggersCount) {
-    this.triggersCount = triggersCount;
-    return this;
-  }
-
-   /**
-   * Get triggersCount
-   * @return triggersCount
-  **/
-  @Schema(description = "")
-  public Integer getTriggersCount() {
-    return triggersCount;
-  }
-
-  public void setTriggersCount(Integer triggersCount) {
-    this.triggersCount = triggersCount;
-  }
-
-  public CreateFunctionResponse vpcConfig(VpcConfigForCreateFunctionOutput vpcConfig) {
+  public ItemForListRevisionsOutput vpcConfig(VpcConfigForListRevisionsOutput vpcConfig) {
     this.vpcConfig = vpcConfig;
     return this;
   }
@@ -525,11 +546,11 @@ public class CreateFunctionResponse extends com.volcengine.model.AbstractRespons
   **/
   @Valid
   @Schema(description = "")
-  public VpcConfigForCreateFunctionOutput getVpcConfig() {
+  public VpcConfigForListRevisionsOutput getVpcConfig() {
     return vpcConfig;
   }
 
-  public void setVpcConfig(VpcConfigForCreateFunctionOutput vpcConfig) {
+  public void setVpcConfig(VpcConfigForListRevisionsOutput vpcConfig) {
     this.vpcConfig = vpcConfig;
   }
 
@@ -542,42 +563,43 @@ public class CreateFunctionResponse extends com.volcengine.model.AbstractRespons
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateFunctionResponse createFunctionResponse = (CreateFunctionResponse) o;
-    return Objects.equals(this.codeSize, createFunctionResponse.codeSize) &&
-        Objects.equals(this.codeSizeLimit, createFunctionResponse.codeSizeLimit) &&
-        Objects.equals(this.creationTime, createFunctionResponse.creationTime) &&
-        Objects.equals(this.description, createFunctionResponse.description) &&
-        Objects.equals(this.envs, createFunctionResponse.envs) &&
-        Objects.equals(this.exclusiveMode, createFunctionResponse.exclusiveMode) &&
-        Objects.equals(this.id, createFunctionResponse.id) &&
-        Objects.equals(this.initializerSec, createFunctionResponse.initializerSec) &&
-        Objects.equals(this.instanceType, createFunctionResponse.instanceType) &&
-        Objects.equals(this.lastUpdateTime, createFunctionResponse.lastUpdateTime) &&
-        Objects.equals(this.maxConcurrency, createFunctionResponse.maxConcurrency) &&
-        Objects.equals(this.memoryMB, createFunctionResponse.memoryMB) &&
-        Objects.equals(this.name, createFunctionResponse.name) &&
-        Objects.equals(this.nasStorage, createFunctionResponse.nasStorage) &&
-        Objects.equals(this.owner, createFunctionResponse.owner) &&
-        Objects.equals(this.requestTimeout, createFunctionResponse.requestTimeout) &&
-        Objects.equals(this.runtime, createFunctionResponse.runtime) &&
-        Objects.equals(this.sourceLocation, createFunctionResponse.sourceLocation) &&
-        Objects.equals(this.sourceType, createFunctionResponse.sourceType) &&
-        Objects.equals(this.tlsConfig, createFunctionResponse.tlsConfig) &&
-        Objects.equals(this.tosMountConfig, createFunctionResponse.tosMountConfig) &&
-        Objects.equals(this.triggersCount, createFunctionResponse.triggersCount) &&
-        Objects.equals(this.vpcConfig, createFunctionResponse.vpcConfig);
+    ItemForListRevisionsOutput itemForListRevisionsOutput = (ItemForListRevisionsOutput) o;
+    return Objects.equals(this.codeSize, itemForListRevisionsOutput.codeSize) &&
+        Objects.equals(this.codeSizeLimit, itemForListRevisionsOutput.codeSizeLimit) &&
+        Objects.equals(this.creationTime, itemForListRevisionsOutput.creationTime) &&
+        Objects.equals(this.description, itemForListRevisionsOutput.description) &&
+        Objects.equals(this.envs, itemForListRevisionsOutput.envs) &&
+        Objects.equals(this.exclusiveMode, itemForListRevisionsOutput.exclusiveMode) &&
+        Objects.equals(this.id, itemForListRevisionsOutput.id) &&
+        Objects.equals(this.initializerSec, itemForListRevisionsOutput.initializerSec) &&
+        Objects.equals(this.maxConcurrency, itemForListRevisionsOutput.maxConcurrency) &&
+        Objects.equals(this.maxReplicas, itemForListRevisionsOutput.maxReplicas) &&
+        Objects.equals(this.memoryMB, itemForListRevisionsOutput.memoryMB) &&
+        Objects.equals(this.name, itemForListRevisionsOutput.name) &&
+        Objects.equals(this.nasStorage, itemForListRevisionsOutput.nasStorage) &&
+        Objects.equals(this.requestTimeout, itemForListRevisionsOutput.requestTimeout) &&
+        Objects.equals(this.revisionCreationTime, itemForListRevisionsOutput.revisionCreationTime) &&
+        Objects.equals(this.revisionDescription, itemForListRevisionsOutput.revisionDescription) &&
+        Objects.equals(this.revisionNumber, itemForListRevisionsOutput.revisionNumber) &&
+        Objects.equals(this.runtime, itemForListRevisionsOutput.runtime) &&
+        Objects.equals(this.source, itemForListRevisionsOutput.source) &&
+        Objects.equals(this.sourceLocation, itemForListRevisionsOutput.sourceLocation) &&
+        Objects.equals(this.sourceType, itemForListRevisionsOutput.sourceType) &&
+        Objects.equals(this.tlsConfig, itemForListRevisionsOutput.tlsConfig) &&
+        Objects.equals(this.tosMountConfig, itemForListRevisionsOutput.tosMountConfig) &&
+        Objects.equals(this.vpcConfig, itemForListRevisionsOutput.vpcConfig);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(codeSize, codeSizeLimit, creationTime, description, envs, exclusiveMode, id, initializerSec, instanceType, lastUpdateTime, maxConcurrency, memoryMB, name, nasStorage, owner, requestTimeout, runtime, sourceLocation, sourceType, tlsConfig, tosMountConfig, triggersCount, vpcConfig);
+    return Objects.hash(codeSize, codeSizeLimit, creationTime, description, envs, exclusiveMode, id, initializerSec, maxConcurrency, maxReplicas, memoryMB, name, nasStorage, requestTimeout, revisionCreationTime, revisionDescription, revisionNumber, runtime, source, sourceLocation, sourceType, tlsConfig, tosMountConfig, vpcConfig);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateFunctionResponse {\n");
+    sb.append("class ItemForListRevisionsOutput {\n");
     
     sb.append("    codeSize: ").append(toIndentedString(codeSize)).append("\n");
     sb.append("    codeSizeLimit: ").append(toIndentedString(codeSizeLimit)).append("\n");
@@ -587,20 +609,21 @@ public class CreateFunctionResponse extends com.volcengine.model.AbstractRespons
     sb.append("    exclusiveMode: ").append(toIndentedString(exclusiveMode)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    initializerSec: ").append(toIndentedString(initializerSec)).append("\n");
-    sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
-    sb.append("    lastUpdateTime: ").append(toIndentedString(lastUpdateTime)).append("\n");
     sb.append("    maxConcurrency: ").append(toIndentedString(maxConcurrency)).append("\n");
+    sb.append("    maxReplicas: ").append(toIndentedString(maxReplicas)).append("\n");
     sb.append("    memoryMB: ").append(toIndentedString(memoryMB)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    nasStorage: ").append(toIndentedString(nasStorage)).append("\n");
-    sb.append("    owner: ").append(toIndentedString(owner)).append("\n");
     sb.append("    requestTimeout: ").append(toIndentedString(requestTimeout)).append("\n");
+    sb.append("    revisionCreationTime: ").append(toIndentedString(revisionCreationTime)).append("\n");
+    sb.append("    revisionDescription: ").append(toIndentedString(revisionDescription)).append("\n");
+    sb.append("    revisionNumber: ").append(toIndentedString(revisionNumber)).append("\n");
     sb.append("    runtime: ").append(toIndentedString(runtime)).append("\n");
+    sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    sourceLocation: ").append(toIndentedString(sourceLocation)).append("\n");
     sb.append("    sourceType: ").append(toIndentedString(sourceType)).append("\n");
     sb.append("    tlsConfig: ").append(toIndentedString(tlsConfig)).append("\n");
     sb.append("    tosMountConfig: ").append(toIndentedString(tosMountConfig)).append("\n");
-    sb.append("    triggersCount: ").append(toIndentedString(triggersCount)).append("\n");
     sb.append("    vpcConfig: ").append(toIndentedString(vpcConfig)).append("\n");
     sb.append("}");
     return sb.toString();

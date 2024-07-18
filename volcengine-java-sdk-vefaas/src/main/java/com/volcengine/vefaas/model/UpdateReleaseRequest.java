@@ -24,32 +24,54 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * GetFunctionRequest
+ * UpdateReleaseRequest
  */
 
 
 
-public class GetFunctionRequest {
-  @SerializedName("Id")
-  private String id = null;
+public class UpdateReleaseRequest {
+  @SerializedName("FunctionId")
+  private String functionId = null;
 
-  public GetFunctionRequest id(String id) {
-    this.id = id;
+  @SerializedName("TargetTrafficWeight")
+  private Integer targetTrafficWeight = null;
+
+  public UpdateReleaseRequest functionId(String functionId) {
+    this.functionId = functionId;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Get functionId
+   * @return functionId
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getId() {
-    return id;
+  public String getFunctionId() {
+    return functionId;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setFunctionId(String functionId) {
+    this.functionId = functionId;
+  }
+
+  public UpdateReleaseRequest targetTrafficWeight(Integer targetTrafficWeight) {
+    this.targetTrafficWeight = targetTrafficWeight;
+    return this;
+  }
+
+   /**
+   * Get targetTrafficWeight
+   * @return targetTrafficWeight
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public Integer getTargetTrafficWeight() {
+    return targetTrafficWeight;
+  }
+
+  public void setTargetTrafficWeight(Integer targetTrafficWeight) {
+    this.targetTrafficWeight = targetTrafficWeight;
   }
 
 
@@ -61,22 +83,24 @@ public class GetFunctionRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GetFunctionRequest getFunctionRequest = (GetFunctionRequest) o;
-    return Objects.equals(this.id, getFunctionRequest.id);
+    UpdateReleaseRequest updateReleaseRequest = (UpdateReleaseRequest) o;
+    return Objects.equals(this.functionId, updateReleaseRequest.functionId) &&
+        Objects.equals(this.targetTrafficWeight, updateReleaseRequest.targetTrafficWeight);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id);
+    return Objects.hash(functionId, targetTrafficWeight);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetFunctionRequest {\n");
+    sb.append("class UpdateReleaseRequest {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
+    sb.append("    targetTrafficWeight: ").append(toIndentedString(targetTrafficWeight)).append("\n");
     sb.append("}");
     return sb.toString();
   }

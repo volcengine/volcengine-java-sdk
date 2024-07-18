@@ -24,32 +24,52 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * GetFunctionRequest
+ * EnvForListRevisionsOutput
  */
 
 
 
-public class GetFunctionRequest {
-  @SerializedName("Id")
-  private String id = null;
+public class EnvForListRevisionsOutput {
+  @SerializedName("Key")
+  private String key = null;
 
-  public GetFunctionRequest id(String id) {
-    this.id = id;
+  @SerializedName("Value")
+  private String value = null;
+
+  public EnvForListRevisionsOutput key(String key) {
+    this.key = key;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Get key
+   * @return key
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getId() {
-    return id;
+  @Schema(description = "")
+  public String getKey() {
+    return key;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setKey(String key) {
+    this.key = key;
+  }
+
+  public EnvForListRevisionsOutput value(String value) {
+    this.value = value;
+    return this;
+  }
+
+   /**
+   * Get value
+   * @return value
+  **/
+  @Schema(description = "")
+  public String getValue() {
+    return value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
   }
 
 
@@ -61,22 +81,24 @@ public class GetFunctionRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GetFunctionRequest getFunctionRequest = (GetFunctionRequest) o;
-    return Objects.equals(this.id, getFunctionRequest.id);
+    EnvForListRevisionsOutput envForListRevisionsOutput = (EnvForListRevisionsOutput) o;
+    return Objects.equals(this.key, envForListRevisionsOutput.key) &&
+        Objects.equals(this.value, envForListRevisionsOutput.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id);
+    return Objects.hash(key, value);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetFunctionRequest {\n");
+    sb.append("class EnvForListRevisionsOutput {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
   }

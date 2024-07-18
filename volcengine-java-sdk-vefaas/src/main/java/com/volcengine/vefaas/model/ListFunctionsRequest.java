@@ -24,32 +24,52 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * GetFunctionRequest
+ * ListFunctionsRequest
  */
 
 
 
-public class GetFunctionRequest {
-  @SerializedName("Id")
-  private String id = null;
+public class ListFunctionsRequest {
+  @SerializedName("PageNumber")
+  private Integer pageNumber = null;
 
-  public GetFunctionRequest id(String id) {
-    this.id = id;
+  @SerializedName("PageSize")
+  private Integer pageSize = null;
+
+  public ListFunctionsRequest pageNumber(Integer pageNumber) {
+    this.pageNumber = pageNumber;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Get pageNumber
+   * @return pageNumber
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getId() {
-    return id;
+  @Schema(description = "")
+  public Integer getPageNumber() {
+    return pageNumber;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setPageNumber(Integer pageNumber) {
+    this.pageNumber = pageNumber;
+  }
+
+  public ListFunctionsRequest pageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+    return this;
+  }
+
+   /**
+   * Get pageSize
+   * @return pageSize
+  **/
+  @Schema(description = "")
+  public Integer getPageSize() {
+    return pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
   }
 
 
@@ -61,22 +81,24 @@ public class GetFunctionRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GetFunctionRequest getFunctionRequest = (GetFunctionRequest) o;
-    return Objects.equals(this.id, getFunctionRequest.id);
+    ListFunctionsRequest listFunctionsRequest = (ListFunctionsRequest) o;
+    return Objects.equals(this.pageNumber, listFunctionsRequest.pageNumber) &&
+        Objects.equals(this.pageSize, listFunctionsRequest.pageSize);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id);
+    return Objects.hash(pageNumber, pageSize);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetFunctionRequest {\n");
+    sb.append("class ListFunctionsRequest {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
+    sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("}");
     return sb.toString();
   }

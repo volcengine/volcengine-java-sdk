@@ -24,32 +24,31 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * GetFunctionRequest
+ * GetFunctionInstanceLogsResponse
  */
 
 
 
-public class GetFunctionRequest {
-  @SerializedName("Id")
-  private String id = null;
+public class GetFunctionInstanceLogsResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("Logs")
+  private String logs = null;
 
-  public GetFunctionRequest id(String id) {
-    this.id = id;
+  public GetFunctionInstanceLogsResponse logs(String logs) {
+    this.logs = logs;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Get logs
+   * @return logs
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getId() {
-    return id;
+  @Schema(description = "")
+  public String getLogs() {
+    return logs;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setLogs(String logs) {
+    this.logs = logs;
   }
 
 
@@ -61,22 +60,22 @@ public class GetFunctionRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GetFunctionRequest getFunctionRequest = (GetFunctionRequest) o;
-    return Objects.equals(this.id, getFunctionRequest.id);
+    GetFunctionInstanceLogsResponse getFunctionInstanceLogsResponse = (GetFunctionInstanceLogsResponse) o;
+    return Objects.equals(this.logs, getFunctionInstanceLogsResponse.logs);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id);
+    return Objects.hash(logs);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetFunctionRequest {\n");
+    sb.append("class GetFunctionInstanceLogsResponse {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    logs: ").append(toIndentedString(logs)).append("\n");
     sb.append("}");
     return sb.toString();
   }

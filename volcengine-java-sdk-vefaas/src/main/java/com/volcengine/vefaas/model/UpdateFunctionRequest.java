@@ -23,7 +23,6 @@ import com.volcengine.vefaas.model.EnvForUpdateFunctionInput;
 import com.volcengine.vefaas.model.NasStorageForUpdateFunctionInput;
 import com.volcengine.vefaas.model.SourceAccessConfigForUpdateFunctionInput;
 import com.volcengine.vefaas.model.TlsConfigForUpdateFunctionInput;
-import com.volcengine.vefaas.model.TopParamForUpdateFunctionInput;
 import com.volcengine.vefaas.model.TosMountConfigForUpdateFunctionInput;
 import com.volcengine.vefaas.model.VpcConfigForUpdateFunctionInput;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -39,9 +38,6 @@ import javax.validation.Valid;
 
 
 public class UpdateFunctionRequest {
-  @SerializedName("DebugInstanceEnable")
-  private Boolean debugInstanceEnable = null;
-
   @SerializedName("Description")
   private String description = null;
 
@@ -69,6 +65,9 @@ public class UpdateFunctionRequest {
   @SerializedName("RequestTimeout")
   private Integer requestTimeout = null;
 
+  @SerializedName("Runtime")
+  private String runtime = null;
+
   @SerializedName("Source")
   private String source = null;
 
@@ -81,32 +80,11 @@ public class UpdateFunctionRequest {
   @SerializedName("TlsConfig")
   private TlsConfigForUpdateFunctionInput tlsConfig = null;
 
-  @SerializedName("TopParam")
-  private TopParamForUpdateFunctionInput topParam = null;
-
   @SerializedName("TosMountConfig")
   private TosMountConfigForUpdateFunctionInput tosMountConfig = null;
 
   @SerializedName("VpcConfig")
   private VpcConfigForUpdateFunctionInput vpcConfig = null;
-
-  public UpdateFunctionRequest debugInstanceEnable(Boolean debugInstanceEnable) {
-    this.debugInstanceEnable = debugInstanceEnable;
-    return this;
-  }
-
-   /**
-   * Get debugInstanceEnable
-   * @return debugInstanceEnable
-  **/
-  @Schema(description = "")
-  public Boolean isDebugInstanceEnable() {
-    return debugInstanceEnable;
-  }
-
-  public void setDebugInstanceEnable(Boolean debugInstanceEnable) {
-    this.debugInstanceEnable = debugInstanceEnable;
-  }
 
   public UpdateFunctionRequest description(String description) {
     this.description = description;
@@ -281,6 +259,24 @@ public class UpdateFunctionRequest {
     this.requestTimeout = requestTimeout;
   }
 
+  public UpdateFunctionRequest runtime(String runtime) {
+    this.runtime = runtime;
+    return this;
+  }
+
+   /**
+   * Get runtime
+   * @return runtime
+  **/
+  @Schema(description = "")
+  public String getRuntime() {
+    return runtime;
+  }
+
+  public void setRuntime(String runtime) {
+    this.runtime = runtime;
+  }
+
   public UpdateFunctionRequest source(String source) {
     this.source = source;
     return this;
@@ -355,25 +351,6 @@ public class UpdateFunctionRequest {
     this.tlsConfig = tlsConfig;
   }
 
-  public UpdateFunctionRequest topParam(TopParamForUpdateFunctionInput topParam) {
-    this.topParam = topParam;
-    return this;
-  }
-
-   /**
-   * Get topParam
-   * @return topParam
-  **/
-  @Valid
-  @Schema(description = "")
-  public TopParamForUpdateFunctionInput getTopParam() {
-    return topParam;
-  }
-
-  public void setTopParam(TopParamForUpdateFunctionInput topParam) {
-    this.topParam = topParam;
-  }
-
   public UpdateFunctionRequest tosMountConfig(TosMountConfigForUpdateFunctionInput tosMountConfig) {
     this.tosMountConfig = tosMountConfig;
     return this;
@@ -422,8 +399,7 @@ public class UpdateFunctionRequest {
       return false;
     }
     UpdateFunctionRequest updateFunctionRequest = (UpdateFunctionRequest) o;
-    return Objects.equals(this.debugInstanceEnable, updateFunctionRequest.debugInstanceEnable) &&
-        Objects.equals(this.description, updateFunctionRequest.description) &&
+    return Objects.equals(this.description, updateFunctionRequest.description) &&
         Objects.equals(this.envs, updateFunctionRequest.envs) &&
         Objects.equals(this.exclusiveMode, updateFunctionRequest.exclusiveMode) &&
         Objects.equals(this.id, updateFunctionRequest.id) &&
@@ -432,18 +408,18 @@ public class UpdateFunctionRequest {
         Objects.equals(this.memoryMB, updateFunctionRequest.memoryMB) &&
         Objects.equals(this.nasStorage, updateFunctionRequest.nasStorage) &&
         Objects.equals(this.requestTimeout, updateFunctionRequest.requestTimeout) &&
+        Objects.equals(this.runtime, updateFunctionRequest.runtime) &&
         Objects.equals(this.source, updateFunctionRequest.source) &&
         Objects.equals(this.sourceAccessConfig, updateFunctionRequest.sourceAccessConfig) &&
         Objects.equals(this.sourceType, updateFunctionRequest.sourceType) &&
         Objects.equals(this.tlsConfig, updateFunctionRequest.tlsConfig) &&
-        Objects.equals(this.topParam, updateFunctionRequest.topParam) &&
         Objects.equals(this.tosMountConfig, updateFunctionRequest.tosMountConfig) &&
         Objects.equals(this.vpcConfig, updateFunctionRequest.vpcConfig);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(debugInstanceEnable, description, envs, exclusiveMode, id, initializerSec, maxConcurrency, memoryMB, nasStorage, requestTimeout, source, sourceAccessConfig, sourceType, tlsConfig, topParam, tosMountConfig, vpcConfig);
+    return Objects.hash(description, envs, exclusiveMode, id, initializerSec, maxConcurrency, memoryMB, nasStorage, requestTimeout, runtime, source, sourceAccessConfig, sourceType, tlsConfig, tosMountConfig, vpcConfig);
   }
 
 
@@ -452,7 +428,6 @@ public class UpdateFunctionRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateFunctionRequest {\n");
     
-    sb.append("    debugInstanceEnable: ").append(toIndentedString(debugInstanceEnable)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    envs: ").append(toIndentedString(envs)).append("\n");
     sb.append("    exclusiveMode: ").append(toIndentedString(exclusiveMode)).append("\n");
@@ -462,11 +437,11 @@ public class UpdateFunctionRequest {
     sb.append("    memoryMB: ").append(toIndentedString(memoryMB)).append("\n");
     sb.append("    nasStorage: ").append(toIndentedString(nasStorage)).append("\n");
     sb.append("    requestTimeout: ").append(toIndentedString(requestTimeout)).append("\n");
+    sb.append("    runtime: ").append(toIndentedString(runtime)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    sourceAccessConfig: ").append(toIndentedString(sourceAccessConfig)).append("\n");
     sb.append("    sourceType: ").append(toIndentedString(sourceType)).append("\n");
     sb.append("    tlsConfig: ").append(toIndentedString(tlsConfig)).append("\n");
-    sb.append("    topParam: ").append(toIndentedString(topParam)).append("\n");
     sb.append("    tosMountConfig: ").append(toIndentedString(tosMountConfig)).append("\n");
     sb.append("    vpcConfig: ").append(toIndentedString(vpcConfig)).append("\n");
     sb.append("}");
