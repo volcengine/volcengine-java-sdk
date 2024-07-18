@@ -32,12 +32,54 @@ import javax.validation.Valid;
  */
 
 
+
 public class InstanceDetailForDescribeDBInstanceDetailOutput {
   @SerializedName("CreateTime")
   private String createTime = null;
 
-  @SerializedName("DBEngineVersion")
-  private String dbEngineVersion = null;
+  /**
+   * Gets or Sets dbEngineVersion
+   */
+  @JsonAdapter(DbEngineVersionEnum.Adapter.class)
+  public enum DbEngineVersionEnum {
+    @SerializedName("MySQL_8_0")
+    MYSQL_8_0("MySQL_8_0");
+
+    private String value;
+
+    DbEngineVersionEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static DbEngineVersionEnum fromValue(String input) {
+      for (DbEngineVersionEnum b : DbEngineVersionEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<DbEngineVersionEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final DbEngineVersionEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public DbEngineVersionEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return DbEngineVersionEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("DBEngineVersion")
+  private DbEngineVersionEnum dbEngineVersion = null;
 
   @SerializedName("InstanceId")
   private String instanceId = null;
@@ -57,6 +99,9 @@ public class InstanceDetailForDescribeDBInstanceDetailOutput {
   @SerializedName("MaintenanceWindow")
   private MaintenanceWindowForDescribeDBInstanceDetailOutput maintenanceWindow = null;
 
+  @SerializedName("PrePaidStorageInGB")
+  private Integer prePaidStorageInGB = null;
+
   @SerializedName("ProjectName")
   private String projectName = null;
 
@@ -65,6 +110,52 @@ public class InstanceDetailForDescribeDBInstanceDetailOutput {
 
   @SerializedName("SpecFamily")
   private String specFamily = null;
+
+  /**
+   * Gets or Sets storageChargeType
+   */
+  @JsonAdapter(StorageChargeTypeEnum.Adapter.class)
+  public enum StorageChargeTypeEnum {
+    @SerializedName("PostPaid")
+    POSTPAID("PostPaid"),
+    @SerializedName("PrePaid")
+    PREPAID("PrePaid");
+
+    private String value;
+
+    StorageChargeTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static StorageChargeTypeEnum fromValue(String input) {
+      for (StorageChargeTypeEnum b : StorageChargeTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<StorageChargeTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final StorageChargeTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public StorageChargeTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return StorageChargeTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("StorageChargeType")
+  private StorageChargeTypeEnum storageChargeType = null;
 
   @SerializedName("StorageUsedGiB")
   private Float storageUsedGiB = null;
@@ -99,7 +190,7 @@ public class InstanceDetailForDescribeDBInstanceDetailOutput {
     this.createTime = createTime;
   }
 
-  public InstanceDetailForDescribeDBInstanceDetailOutput dbEngineVersion(String dbEngineVersion) {
+  public InstanceDetailForDescribeDBInstanceDetailOutput dbEngineVersion(DbEngineVersionEnum dbEngineVersion) {
     this.dbEngineVersion = dbEngineVersion;
     return this;
   }
@@ -109,11 +200,11 @@ public class InstanceDetailForDescribeDBInstanceDetailOutput {
    * @return dbEngineVersion
   **/
   @Schema(description = "")
-  public String getDbEngineVersion() {
+  public DbEngineVersionEnum getDbEngineVersion() {
     return dbEngineVersion;
   }
 
-  public void setDbEngineVersion(String dbEngineVersion) {
+  public void setDbEngineVersion(DbEngineVersionEnum dbEngineVersion) {
     this.dbEngineVersion = dbEngineVersion;
   }
 
@@ -235,6 +326,24 @@ public class InstanceDetailForDescribeDBInstanceDetailOutput {
     this.maintenanceWindow = maintenanceWindow;
   }
 
+  public InstanceDetailForDescribeDBInstanceDetailOutput prePaidStorageInGB(Integer prePaidStorageInGB) {
+    this.prePaidStorageInGB = prePaidStorageInGB;
+    return this;
+  }
+
+   /**
+   * Get prePaidStorageInGB
+   * @return prePaidStorageInGB
+  **/
+  @Schema(description = "")
+  public Integer getPrePaidStorageInGB() {
+    return prePaidStorageInGB;
+  }
+
+  public void setPrePaidStorageInGB(Integer prePaidStorageInGB) {
+    this.prePaidStorageInGB = prePaidStorageInGB;
+  }
+
   public InstanceDetailForDescribeDBInstanceDetailOutput projectName(String projectName) {
     this.projectName = projectName;
     return this;
@@ -287,6 +396,24 @@ public class InstanceDetailForDescribeDBInstanceDetailOutput {
 
   public void setSpecFamily(String specFamily) {
     this.specFamily = specFamily;
+  }
+
+  public InstanceDetailForDescribeDBInstanceDetailOutput storageChargeType(StorageChargeTypeEnum storageChargeType) {
+    this.storageChargeType = storageChargeType;
+    return this;
+  }
+
+   /**
+   * Get storageChargeType
+   * @return storageChargeType
+  **/
+  @Schema(description = "")
+  public StorageChargeTypeEnum getStorageChargeType() {
+    return storageChargeType;
+  }
+
+  public void setStorageChargeType(StorageChargeTypeEnum storageChargeType) {
+    this.storageChargeType = storageChargeType;
   }
 
   public InstanceDetailForDescribeDBInstanceDetailOutput storageUsedGiB(Float storageUsedGiB) {
@@ -397,9 +524,11 @@ public class InstanceDetailForDescribeDBInstanceDetailOutput {
         Objects.equals(this.instanceStructures, instanceDetailForDescribeDBInstanceDetailOutput.instanceStructures) &&
         Objects.equals(this.lowerCaseTableNames, instanceDetailForDescribeDBInstanceDetailOutput.lowerCaseTableNames) &&
         Objects.equals(this.maintenanceWindow, instanceDetailForDescribeDBInstanceDetailOutput.maintenanceWindow) &&
+        Objects.equals(this.prePaidStorageInGB, instanceDetailForDescribeDBInstanceDetailOutput.prePaidStorageInGB) &&
         Objects.equals(this.projectName, instanceDetailForDescribeDBInstanceDetailOutput.projectName) &&
         Objects.equals(this.regionId, instanceDetailForDescribeDBInstanceDetailOutput.regionId) &&
         Objects.equals(this.specFamily, instanceDetailForDescribeDBInstanceDetailOutput.specFamily) &&
+        Objects.equals(this.storageChargeType, instanceDetailForDescribeDBInstanceDetailOutput.storageChargeType) &&
         Objects.equals(this.storageUsedGiB, instanceDetailForDescribeDBInstanceDetailOutput.storageUsedGiB) &&
         Objects.equals(this.subnetId, instanceDetailForDescribeDBInstanceDetailOutput.subnetId) &&
         Objects.equals(this.timeZone, instanceDetailForDescribeDBInstanceDetailOutput.timeZone) &&
@@ -409,7 +538,7 @@ public class InstanceDetailForDescribeDBInstanceDetailOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createTime, dbEngineVersion, instanceId, instanceName, instanceStatus, instanceStructures, lowerCaseTableNames, maintenanceWindow, projectName, regionId, specFamily, storageUsedGiB, subnetId, timeZone, vpcId, zoneIds);
+    return Objects.hash(createTime, dbEngineVersion, instanceId, instanceName, instanceStatus, instanceStructures, lowerCaseTableNames, maintenanceWindow, prePaidStorageInGB, projectName, regionId, specFamily, storageChargeType, storageUsedGiB, subnetId, timeZone, vpcId, zoneIds);
   }
 
 
@@ -426,9 +555,11 @@ public class InstanceDetailForDescribeDBInstanceDetailOutput {
     sb.append("    instanceStructures: ").append(toIndentedString(instanceStructures)).append("\n");
     sb.append("    lowerCaseTableNames: ").append(toIndentedString(lowerCaseTableNames)).append("\n");
     sb.append("    maintenanceWindow: ").append(toIndentedString(maintenanceWindow)).append("\n");
+    sb.append("    prePaidStorageInGB: ").append(toIndentedString(prePaidStorageInGB)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    regionId: ").append(toIndentedString(regionId)).append("\n");
     sb.append("    specFamily: ").append(toIndentedString(specFamily)).append("\n");
+    sb.append("    storageChargeType: ").append(toIndentedString(storageChargeType)).append("\n");
     sb.append("    storageUsedGiB: ").append(toIndentedString(storageUsedGiB)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    timeZone: ").append(toIndentedString(timeZone)).append("\n");

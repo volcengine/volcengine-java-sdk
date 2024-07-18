@@ -24,51 +24,52 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ZoneNodeInfoForCreateDBInstanceInput
+ * TagForAddTagsToResourceInput
  */
 
 
-public class ZoneNodeInfoForCreateDBInstanceInput {
-  @SerializedName("ZoneId")
-  private String zoneId = null;
 
-  @SerializedName("ZoneNodeNumber")
-  private Integer zoneNodeNumber = null;
+public class TagForAddTagsToResourceInput {
+  @SerializedName("Key")
+  private String key = null;
 
-  public ZoneNodeInfoForCreateDBInstanceInput zoneId(String zoneId) {
-    this.zoneId = zoneId;
+  @SerializedName("Value")
+  private String value = null;
+
+  public TagForAddTagsToResourceInput key(String key) {
+    this.key = key;
     return this;
   }
 
    /**
-   * Get zoneId
-   * @return zoneId
+   * Get key
+   * @return key
   **/
   @Schema(description = "")
-  public String getZoneId() {
-    return zoneId;
+  public String getKey() {
+    return key;
   }
 
-  public void setZoneId(String zoneId) {
-    this.zoneId = zoneId;
+  public void setKey(String key) {
+    this.key = key;
   }
 
-  public ZoneNodeInfoForCreateDBInstanceInput zoneNodeNumber(Integer zoneNodeNumber) {
-    this.zoneNodeNumber = zoneNodeNumber;
+  public TagForAddTagsToResourceInput value(String value) {
+    this.value = value;
     return this;
   }
 
    /**
-   * Get zoneNodeNumber
-   * @return zoneNodeNumber
+   * Get value
+   * @return value
   **/
   @Schema(description = "")
-  public Integer getZoneNodeNumber() {
-    return zoneNodeNumber;
+  public String getValue() {
+    return value;
   }
 
-  public void setZoneNodeNumber(Integer zoneNodeNumber) {
-    this.zoneNodeNumber = zoneNodeNumber;
+  public void setValue(String value) {
+    this.value = value;
   }
 
 
@@ -80,24 +81,24 @@ public class ZoneNodeInfoForCreateDBInstanceInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ZoneNodeInfoForCreateDBInstanceInput zoneNodeInfoForCreateDBInstanceInput = (ZoneNodeInfoForCreateDBInstanceInput) o;
-    return Objects.equals(this.zoneId, zoneNodeInfoForCreateDBInstanceInput.zoneId) &&
-        Objects.equals(this.zoneNodeNumber, zoneNodeInfoForCreateDBInstanceInput.zoneNodeNumber);
+    TagForAddTagsToResourceInput tagForAddTagsToResourceInput = (TagForAddTagsToResourceInput) o;
+    return Objects.equals(this.key, tagForAddTagsToResourceInput.key) &&
+        Objects.equals(this.value, tagForAddTagsToResourceInput.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(zoneId, zoneNodeNumber);
+    return Objects.hash(key, value);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ZoneNodeInfoForCreateDBInstanceInput {\n");
+    sb.append("class TagForAddTagsToResourceInput {\n");
     
-    sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
-    sb.append("    zoneNodeNumber: ").append(toIndentedString(zoneNodeNumber)).append("\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
   }
