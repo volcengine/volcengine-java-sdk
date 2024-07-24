@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class RestartDBInstanceRequest {
   @SerializedName("ApplyScope")
   private String applyScope = null;

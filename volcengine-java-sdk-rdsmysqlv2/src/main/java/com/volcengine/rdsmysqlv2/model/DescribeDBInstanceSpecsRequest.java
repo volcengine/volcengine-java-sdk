@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeDBInstanceSpecsRequest {
   @SerializedName("DBEngineVersion")
   private String dbEngineVersion = null;

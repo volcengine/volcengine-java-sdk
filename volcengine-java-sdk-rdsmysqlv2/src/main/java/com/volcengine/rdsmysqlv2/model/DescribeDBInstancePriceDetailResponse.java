@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeDBInstancePriceDetailResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("BillingMethod")
   private String billingMethod = null;

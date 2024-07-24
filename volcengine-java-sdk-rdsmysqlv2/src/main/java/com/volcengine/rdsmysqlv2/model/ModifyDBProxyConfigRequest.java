@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ModifyDBProxyConfigRequest {
   @SerializedName("ConnectionPoolType")
   private String connectionPoolType = null;

@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeDBInstanceTDEResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("TDEStatus")
   private String tdEStatus = null;

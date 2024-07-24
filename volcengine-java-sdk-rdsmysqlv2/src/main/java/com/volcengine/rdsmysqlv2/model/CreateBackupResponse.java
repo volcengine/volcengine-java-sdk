@@ -14,6 +14,13 @@ package com.volcengine.rdsmysqlv2.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -21,7 +28,29 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateBackupResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("BackupId")
+  private String backupId = null;
+
+  public CreateBackupResponse backupId(String backupId) {
+    this.backupId = backupId;
+    return this;
+  }
+
+   /**
+   * Get backupId
+   * @return backupId
+  **/
+  @Schema(description = "")
+  public String getBackupId() {
+    return backupId;
+  }
+
+  public void setBackupId(String backupId) {
+    this.backupId = backupId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -31,12 +60,13 @@ public class CreateBackupResponse extends com.volcengine.model.AbstractResponse 
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return true;
+    CreateBackupResponse createBackupResponse = (CreateBackupResponse) o;
+    return Objects.equals(this.backupId, createBackupResponse.backupId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash();
+    return Objects.hash(backupId);
   }
 
 
@@ -45,6 +75,7 @@ public class CreateBackupResponse extends com.volcengine.model.AbstractResponse 
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateBackupResponse {\n");
     
+    sb.append("    backupId: ").append(toIndentedString(backupId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

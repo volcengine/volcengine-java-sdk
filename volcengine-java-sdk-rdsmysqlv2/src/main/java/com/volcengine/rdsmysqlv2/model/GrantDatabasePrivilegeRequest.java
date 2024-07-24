@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class GrantDatabasePrivilegeRequest {
   @SerializedName("DBName")
   private String dbName = null;

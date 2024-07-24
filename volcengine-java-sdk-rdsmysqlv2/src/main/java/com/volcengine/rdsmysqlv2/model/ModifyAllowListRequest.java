@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ModifyAllowListRequest {
   @SerializedName("AllowList")
   private String allowList = null;
@@ -58,6 +59,9 @@ public class ModifyAllowListRequest {
 
   @SerializedName("SecurityGroupIds")
   private List<String> securityGroupIds = null;
+
+  @SerializedName("UpdateSecurityGroup")
+  private Boolean updateSecurityGroup = null;
 
   @SerializedName("UserAllowList")
   private String userAllowList = null;
@@ -243,6 +247,24 @@ public class ModifyAllowListRequest {
     this.securityGroupIds = securityGroupIds;
   }
 
+  public ModifyAllowListRequest updateSecurityGroup(Boolean updateSecurityGroup) {
+    this.updateSecurityGroup = updateSecurityGroup;
+    return this;
+  }
+
+   /**
+   * Get updateSecurityGroup
+   * @return updateSecurityGroup
+  **/
+  @Schema(description = "")
+  public Boolean isUpdateSecurityGroup() {
+    return updateSecurityGroup;
+  }
+
+  public void setUpdateSecurityGroup(Boolean updateSecurityGroup) {
+    this.updateSecurityGroup = updateSecurityGroup;
+  }
+
   public ModifyAllowListRequest userAllowList(String userAllowList) {
     this.userAllowList = userAllowList;
     return this;
@@ -280,12 +302,13 @@ public class ModifyAllowListRequest {
         Objects.equals(this.modifyMode, modifyAllowListRequest.modifyMode) &&
         Objects.equals(this.securityGroupBindInfos, modifyAllowListRequest.securityGroupBindInfos) &&
         Objects.equals(this.securityGroupIds, modifyAllowListRequest.securityGroupIds) &&
+        Objects.equals(this.updateSecurityGroup, modifyAllowListRequest.updateSecurityGroup) &&
         Objects.equals(this.userAllowList, modifyAllowListRequest.userAllowList);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowList, allowListCategory, allowListDesc, allowListId, allowListName, applyInstanceNum, modifyMode, securityGroupBindInfos, securityGroupIds, userAllowList);
+    return Objects.hash(allowList, allowListCategory, allowListDesc, allowListId, allowListName, applyInstanceNum, modifyMode, securityGroupBindInfos, securityGroupIds, updateSecurityGroup, userAllowList);
   }
 
 
@@ -303,6 +326,7 @@ public class ModifyAllowListRequest {
     sb.append("    modifyMode: ").append(toIndentedString(modifyMode)).append("\n");
     sb.append("    securityGroupBindInfos: ").append(toIndentedString(securityGroupBindInfos)).append("\n");
     sb.append("    securityGroupIds: ").append(toIndentedString(securityGroupIds)).append("\n");
+    sb.append("    updateSecurityGroup: ").append(toIndentedString(updateSecurityGroup)).append("\n");
     sb.append("    userAllowList: ").append(toIndentedString(userAllowList)).append("\n");
     sb.append("}");
     return sb.toString();

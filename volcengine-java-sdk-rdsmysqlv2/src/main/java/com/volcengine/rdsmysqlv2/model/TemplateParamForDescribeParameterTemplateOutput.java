@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class TemplateParamForDescribeParameterTemplateOutput {
   @SerializedName("DefaultValue")
   private String defaultValue = null;

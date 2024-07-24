@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateDBEndpointResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("EndpointId")
   private String endpointId = null;

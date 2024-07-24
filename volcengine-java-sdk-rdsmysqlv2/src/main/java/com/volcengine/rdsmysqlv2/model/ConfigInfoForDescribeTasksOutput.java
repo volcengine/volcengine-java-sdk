@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ConfigInfoForDescribeTasksOutput {
   @SerializedName("ConfigInfoKey")
   private String configInfoKey = null;

@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ModifyDatabaseDescriptionRequest {
   @SerializedName("DBDesc")
   private String dbDesc = null;

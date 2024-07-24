@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class SecurityGroupBindInfoForDescribeAllowListDetailOutput {
   @SerializedName("BindMode")
   private String bindMode = null;

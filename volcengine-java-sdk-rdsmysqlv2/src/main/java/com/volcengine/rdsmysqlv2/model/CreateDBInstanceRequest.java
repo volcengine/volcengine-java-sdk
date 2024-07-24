@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.rdsmysqlv2.model.ChargeInfoForCreateDBInstanceInput;
 import com.volcengine.rdsmysqlv2.model.InstanceTagForCreateDBInstanceInput;
+import com.volcengine.rdsmysqlv2.model.MaintenanceWindowForCreateDBInstanceInput;
 import com.volcengine.rdsmysqlv2.model.NodeInfoForCreateDBInstanceInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -31,6 +32,7 @@ import javax.validation.Valid;
 /**
  * CreateDBInstanceRequest
  */
+
 
 
 public class CreateDBInstanceRequest {
@@ -60,6 +62,9 @@ public class CreateDBInstanceRequest {
 
   @SerializedName("LowerCaseTableNames")
   private String lowerCaseTableNames = null;
+
+  @SerializedName("MaintenanceWindow")
+  private MaintenanceWindowForCreateDBInstanceInput maintenanceWindow = null;
 
   @SerializedName("NodeInfo")
   private List<NodeInfoForCreateDBInstanceInput> nodeInfo = null;
@@ -269,6 +274,25 @@ public class CreateDBInstanceRequest {
     this.lowerCaseTableNames = lowerCaseTableNames;
   }
 
+  public CreateDBInstanceRequest maintenanceWindow(MaintenanceWindowForCreateDBInstanceInput maintenanceWindow) {
+    this.maintenanceWindow = maintenanceWindow;
+    return this;
+  }
+
+   /**
+   * Get maintenanceWindow
+   * @return maintenanceWindow
+  **/
+  @Valid
+  @Schema(description = "")
+  public MaintenanceWindowForCreateDBInstanceInput getMaintenanceWindow() {
+    return maintenanceWindow;
+  }
+
+  public void setMaintenanceWindow(MaintenanceWindowForCreateDBInstanceInput maintenanceWindow) {
+    this.maintenanceWindow = maintenanceWindow;
+  }
+
   public CreateDBInstanceRequest nodeInfo(List<NodeInfoForCreateDBInstanceInput> nodeInfo) {
     this.nodeInfo = nodeInfo;
     return this;
@@ -463,6 +487,7 @@ public class CreateDBInstanceRequest {
         Objects.equals(this.instanceTags, createDBInstanceRequest.instanceTags) &&
         Objects.equals(this.instanceType, createDBInstanceRequest.instanceType) &&
         Objects.equals(this.lowerCaseTableNames, createDBInstanceRequest.lowerCaseTableNames) &&
+        Objects.equals(this.maintenanceWindow, createDBInstanceRequest.maintenanceWindow) &&
         Objects.equals(this.nodeInfo, createDBInstanceRequest.nodeInfo) &&
         Objects.equals(this.port, createDBInstanceRequest.port) &&
         Objects.equals(this.projectName, createDBInstanceRequest.projectName) &&
@@ -476,7 +501,7 @@ public class CreateDBInstanceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowListIds, chargeInfo, dbEngineVersion, dbParamGroupId, dbTimeZone, instanceName, instanceTags, instanceType, lowerCaseTableNames, nodeInfo, port, projectName, storageSpace, storageType, subnetId, superAccountName, superAccountPassword, vpcId);
+    return Objects.hash(allowListIds, chargeInfo, dbEngineVersion, dbParamGroupId, dbTimeZone, instanceName, instanceTags, instanceType, lowerCaseTableNames, maintenanceWindow, nodeInfo, port, projectName, storageSpace, storageType, subnetId, superAccountName, superAccountPassword, vpcId);
   }
 
 
@@ -494,6 +519,7 @@ public class CreateDBInstanceRequest {
     sb.append("    instanceTags: ").append(toIndentedString(instanceTags)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("    lowerCaseTableNames: ").append(toIndentedString(lowerCaseTableNames)).append("\n");
+    sb.append("    maintenanceWindow: ").append(toIndentedString(maintenanceWindow)).append("\n");
     sb.append("    nodeInfo: ").append(toIndentedString(nodeInfo)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");

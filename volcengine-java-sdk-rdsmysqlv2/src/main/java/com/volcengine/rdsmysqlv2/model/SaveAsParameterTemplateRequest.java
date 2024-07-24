@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class SaveAsParameterTemplateRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;

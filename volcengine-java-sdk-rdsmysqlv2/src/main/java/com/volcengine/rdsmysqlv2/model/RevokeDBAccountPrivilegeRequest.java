@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class RevokeDBAccountPrivilegeRequest {
   @SerializedName("AccountName")
   private String accountName = null;

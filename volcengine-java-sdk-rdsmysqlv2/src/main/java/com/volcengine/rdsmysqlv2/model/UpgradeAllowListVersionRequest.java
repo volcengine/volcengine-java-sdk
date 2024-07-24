@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class UpgradeAllowListVersionRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;

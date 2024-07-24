@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeBinlogFilesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("BinlogFiles")
   private List<BinlogFileForDescribeBinlogFilesOutput> binlogFiles = null;

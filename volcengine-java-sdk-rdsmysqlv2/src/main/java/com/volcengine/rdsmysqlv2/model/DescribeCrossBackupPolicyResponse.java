@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeCrossBackupPolicyResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("BackupEnabled")
   private Boolean backupEnabled = null;

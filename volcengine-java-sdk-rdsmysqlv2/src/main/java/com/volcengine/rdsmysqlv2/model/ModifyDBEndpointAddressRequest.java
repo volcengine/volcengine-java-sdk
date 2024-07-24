@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ModifyDBEndpointAddressRequest {
   @SerializedName("DomainPrefix")
   private String domainPrefix = null;

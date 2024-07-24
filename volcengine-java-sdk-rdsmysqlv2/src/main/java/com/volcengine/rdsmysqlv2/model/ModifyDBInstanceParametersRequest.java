@@ -31,12 +31,45 @@ import javax.validation.Valid;
  */
 
 
+
 public class ModifyDBInstanceParametersRequest {
+  @SerializedName("CustomNodeIds")
+  private List<String> customNodeIds = null;
+
   @SerializedName("InstanceId")
   private String instanceId = null;
 
+  @SerializedName("ParamApplyScope")
+  private String paramApplyScope = null;
+
   @SerializedName("Parameters")
   private List<ParameterForModifyDBInstanceParametersInput> parameters = null;
+
+  public ModifyDBInstanceParametersRequest customNodeIds(List<String> customNodeIds) {
+    this.customNodeIds = customNodeIds;
+    return this;
+  }
+
+  public ModifyDBInstanceParametersRequest addCustomNodeIdsItem(String customNodeIdsItem) {
+    if (this.customNodeIds == null) {
+      this.customNodeIds = new ArrayList<String>();
+    }
+    this.customNodeIds.add(customNodeIdsItem);
+    return this;
+  }
+
+   /**
+   * Get customNodeIds
+   * @return customNodeIds
+  **/
+  @Schema(description = "")
+  public List<String> getCustomNodeIds() {
+    return customNodeIds;
+  }
+
+  public void setCustomNodeIds(List<String> customNodeIds) {
+    this.customNodeIds = customNodeIds;
+  }
 
   public ModifyDBInstanceParametersRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
@@ -55,6 +88,24 @@ public class ModifyDBInstanceParametersRequest {
 
   public void setInstanceId(String instanceId) {
     this.instanceId = instanceId;
+  }
+
+  public ModifyDBInstanceParametersRequest paramApplyScope(String paramApplyScope) {
+    this.paramApplyScope = paramApplyScope;
+    return this;
+  }
+
+   /**
+   * Get paramApplyScope
+   * @return paramApplyScope
+  **/
+  @Schema(description = "")
+  public String getParamApplyScope() {
+    return paramApplyScope;
+  }
+
+  public void setParamApplyScope(String paramApplyScope) {
+    this.paramApplyScope = paramApplyScope;
   }
 
   public ModifyDBInstanceParametersRequest parameters(List<ParameterForModifyDBInstanceParametersInput> parameters) {
@@ -94,13 +145,15 @@ public class ModifyDBInstanceParametersRequest {
       return false;
     }
     ModifyDBInstanceParametersRequest modifyDBInstanceParametersRequest = (ModifyDBInstanceParametersRequest) o;
-    return Objects.equals(this.instanceId, modifyDBInstanceParametersRequest.instanceId) &&
+    return Objects.equals(this.customNodeIds, modifyDBInstanceParametersRequest.customNodeIds) &&
+        Objects.equals(this.instanceId, modifyDBInstanceParametersRequest.instanceId) &&
+        Objects.equals(this.paramApplyScope, modifyDBInstanceParametersRequest.paramApplyScope) &&
         Objects.equals(this.parameters, modifyDBInstanceParametersRequest.parameters);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, parameters);
+    return Objects.hash(customNodeIds, instanceId, paramApplyScope, parameters);
   }
 
 
@@ -109,7 +162,9 @@ public class ModifyDBInstanceParametersRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ModifyDBInstanceParametersRequest {\n");
     
+    sb.append("    customNodeIds: ").append(toIndentedString(customNodeIds)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    paramApplyScope: ").append(toIndentedString(paramApplyScope)).append("\n");
     sb.append("    parameters: ").append(toIndentedString(parameters)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ModifyBackupPolicyRequest {
   @SerializedName("BinlogFileCountsEnable")
   private Boolean binlogFileCountsEnable = null;

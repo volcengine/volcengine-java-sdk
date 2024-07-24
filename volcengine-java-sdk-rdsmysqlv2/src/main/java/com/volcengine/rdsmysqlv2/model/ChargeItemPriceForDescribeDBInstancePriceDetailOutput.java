@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ChargeItemPriceForDescribeDBInstancePriceDetailOutput {
   @SerializedName("ChargeItemKey")
   private String chargeItemKey = null;
@@ -36,7 +37,7 @@ public class ChargeItemPriceForDescribeDBInstancePriceDetailOutput {
   private String chargeItemType = null;
 
   @SerializedName("ChargeItemValue")
-  private Integer chargeItemValue = null;
+  private Long chargeItemValue = null;
 
   @SerializedName("DiscountPrice")
   private Double discountPrice = null;
@@ -83,7 +84,7 @@ public class ChargeItemPriceForDescribeDBInstancePriceDetailOutput {
     this.chargeItemType = chargeItemType;
   }
 
-  public ChargeItemPriceForDescribeDBInstancePriceDetailOutput chargeItemValue(Integer chargeItemValue) {
+  public ChargeItemPriceForDescribeDBInstancePriceDetailOutput chargeItemValue(Long chargeItemValue) {
     this.chargeItemValue = chargeItemValue;
     return this;
   }
@@ -93,11 +94,11 @@ public class ChargeItemPriceForDescribeDBInstancePriceDetailOutput {
    * @return chargeItemValue
   **/
   @Schema(description = "")
-  public Integer getChargeItemValue() {
+  public Long getChargeItemValue() {
     return chargeItemValue;
   }
 
-  public void setChargeItemValue(Integer chargeItemValue) {
+  public void setChargeItemValue(Long chargeItemValue) {
     this.chargeItemValue = chargeItemValue;
   }
 

@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CheckModifyDBProxyAllowedForDescribeDBProxyConfigOutput {
   @SerializedName("Allowed")
   private Boolean allowed = null;

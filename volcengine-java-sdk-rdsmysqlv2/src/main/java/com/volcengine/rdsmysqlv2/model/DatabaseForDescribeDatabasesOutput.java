@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DatabaseForDescribeDatabasesOutput {
   @SerializedName("CharacterSetName")
   private String characterSetName = null;
