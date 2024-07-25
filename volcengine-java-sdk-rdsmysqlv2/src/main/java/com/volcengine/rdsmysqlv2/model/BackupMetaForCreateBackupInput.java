@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -28,9 +30,13 @@ import javax.validation.Valid;
  */
 
 
+
 public class BackupMetaForCreateBackupInput {
   @SerializedName("DBName")
   private String dbName = null;
+
+  @SerializedName("TableNames")
+  private List<String> tableNames = null;
 
   public BackupMetaForCreateBackupInput dbName(String dbName) {
     this.dbName = dbName;
@@ -50,6 +56,32 @@ public class BackupMetaForCreateBackupInput {
     this.dbName = dbName;
   }
 
+  public BackupMetaForCreateBackupInput tableNames(List<String> tableNames) {
+    this.tableNames = tableNames;
+    return this;
+  }
+
+  public BackupMetaForCreateBackupInput addTableNamesItem(String tableNamesItem) {
+    if (this.tableNames == null) {
+      this.tableNames = new ArrayList<String>();
+    }
+    this.tableNames.add(tableNamesItem);
+    return this;
+  }
+
+   /**
+   * Get tableNames
+   * @return tableNames
+  **/
+  @Schema(description = "")
+  public List<String> getTableNames() {
+    return tableNames;
+  }
+
+  public void setTableNames(List<String> tableNames) {
+    this.tableNames = tableNames;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -60,12 +92,13 @@ public class BackupMetaForCreateBackupInput {
       return false;
     }
     BackupMetaForCreateBackupInput backupMetaForCreateBackupInput = (BackupMetaForCreateBackupInput) o;
-    return Objects.equals(this.dbName, backupMetaForCreateBackupInput.dbName);
+    return Objects.equals(this.dbName, backupMetaForCreateBackupInput.dbName) &&
+        Objects.equals(this.tableNames, backupMetaForCreateBackupInput.tableNames);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dbName);
+    return Objects.hash(dbName, tableNames);
   }
 
 
@@ -75,6 +108,7 @@ public class BackupMetaForCreateBackupInput {
     sb.append("class BackupMetaForCreateBackupInput {\n");
     
     sb.append("    dbName: ").append(toIndentedString(dbName)).append("\n");
+    sb.append("    tableNames: ").append(toIndentedString(tableNames)).append("\n");
     sb.append("}");
     return sb.toString();
   }

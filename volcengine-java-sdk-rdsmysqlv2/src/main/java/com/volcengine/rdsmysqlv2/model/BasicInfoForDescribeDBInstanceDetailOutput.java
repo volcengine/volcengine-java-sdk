@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class BasicInfoForDescribeDBInstanceDetailOutput {
   @SerializedName("AllowListVersion")
   private String allowListVersion = null;
@@ -78,7 +79,7 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
   private String regionId = null;
 
   @SerializedName("StorageSpace")
-  private Integer storageSpace = null;
+  private Long storageSpace = null;
 
   @SerializedName("StorageType")
   private String storageType = null;
@@ -377,7 +378,7 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
     this.regionId = regionId;
   }
 
-  public BasicInfoForDescribeDBInstanceDetailOutput storageSpace(Integer storageSpace) {
+  public BasicInfoForDescribeDBInstanceDetailOutput storageSpace(Long storageSpace) {
     this.storageSpace = storageSpace;
     return this;
   }
@@ -387,11 +388,11 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
    * @return storageSpace
   **/
   @Schema(description = "")
-  public Integer getStorageSpace() {
+  public Long getStorageSpace() {
     return storageSpace;
   }
 
-  public void setStorageSpace(Integer storageSpace) {
+  public void setStorageSpace(Long storageSpace) {
     this.storageSpace = storageSpace;
   }
 

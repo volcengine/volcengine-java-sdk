@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class InstanceTagForCreateDBInstanceInput {
   @SerializedName("Key")
   private String key = null;

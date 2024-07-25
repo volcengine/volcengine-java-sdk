@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class NodeInfoForCreateDBInstanceInput {
   @SerializedName("NodeId")
   private String nodeId = null;

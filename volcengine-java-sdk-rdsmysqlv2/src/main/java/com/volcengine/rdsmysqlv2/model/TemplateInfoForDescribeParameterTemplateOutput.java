@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class TemplateInfoForDescribeParameterTemplateOutput {
   @SerializedName("AccountId")
   private String accountId = null;
@@ -42,7 +43,7 @@ public class TemplateInfoForDescribeParameterTemplateOutput {
   private Boolean needRestart = null;
 
   @SerializedName("ParameterNum")
-  private Integer parameterNum = null;
+  private Long parameterNum = null;
 
   @SerializedName("ProjectName")
   private String projectName = null;
@@ -128,7 +129,7 @@ public class TemplateInfoForDescribeParameterTemplateOutput {
     this.needRestart = needRestart;
   }
 
-  public TemplateInfoForDescribeParameterTemplateOutput parameterNum(Integer parameterNum) {
+  public TemplateInfoForDescribeParameterTemplateOutput parameterNum(Long parameterNum) {
     this.parameterNum = parameterNum;
     return this;
   }
@@ -138,11 +139,11 @@ public class TemplateInfoForDescribeParameterTemplateOutput {
    * @return parameterNum
   **/
   @Schema(description = "")
-  public Integer getParameterNum() {
+  public Long getParameterNum() {
     return parameterNum;
   }
 
-  public void setParameterNum(Integer parameterNum) {
+  public void setParameterNum(Long parameterNum) {
     this.parameterNum = parameterNum;
   }
 

@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class TaskProgressForDescribeTasksOutput {
   @SerializedName("Name")
   private String name = null;

@@ -30,9 +30,10 @@ import javax.validation.Valid;
  */
 
 
+
 public class ModifyReadOnlyNodeDelayReplicationTimeRequest {
   @SerializedName("DelayReplicationTime")
-  private Integer delayReplicationTime = null;
+  private Long delayReplicationTime = null;
 
   @SerializedName("InstanceId")
   private String instanceId = null;
@@ -43,7 +44,7 @@ public class ModifyReadOnlyNodeDelayReplicationTimeRequest {
   @SerializedName("UpdateEndpointIds")
   private List<String> updateEndpointIds = null;
 
-  public ModifyReadOnlyNodeDelayReplicationTimeRequest delayReplicationTime(Integer delayReplicationTime) {
+  public ModifyReadOnlyNodeDelayReplicationTimeRequest delayReplicationTime(Long delayReplicationTime) {
     this.delayReplicationTime = delayReplicationTime;
     return this;
   }
@@ -54,11 +55,11 @@ public class ModifyReadOnlyNodeDelayReplicationTimeRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getDelayReplicationTime() {
+  public Long getDelayReplicationTime() {
     return delayReplicationTime;
   }
 
-  public void setDelayReplicationTime(Integer delayReplicationTime) {
+  public void setDelayReplicationTime(Long delayReplicationTime) {
     this.delayReplicationTime = delayReplicationTime;
   }
 

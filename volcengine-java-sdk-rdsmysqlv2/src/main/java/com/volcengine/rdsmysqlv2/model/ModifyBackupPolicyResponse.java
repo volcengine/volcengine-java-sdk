@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ModifyBackupPolicyResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("BinlogFileCountsEnable")
   private Boolean binlogFileCountsEnable = null;

@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribePlannedEventsResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("PlannedEvents")
   private List<PlannedEventForDescribePlannedEventsOutput> plannedEvents = null;

@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeParameterTemplateRequest {
   @SerializedName("TemplateId")
   private String templateId = null;

@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ModifyDBInstanceSpecRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;

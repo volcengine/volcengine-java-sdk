@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ModifyDBInstanceMaintenanceWindowRequest {
   @SerializedName("DayKind")
   private String dayKind = null;

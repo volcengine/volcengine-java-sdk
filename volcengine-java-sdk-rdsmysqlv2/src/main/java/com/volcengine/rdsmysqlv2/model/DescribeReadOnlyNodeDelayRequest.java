@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeReadOnlyNodeDelayRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;

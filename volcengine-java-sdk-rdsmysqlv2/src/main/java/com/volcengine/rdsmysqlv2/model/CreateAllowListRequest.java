@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateAllowListRequest {
   @SerializedName("AllowList")
   private String allowList = null;

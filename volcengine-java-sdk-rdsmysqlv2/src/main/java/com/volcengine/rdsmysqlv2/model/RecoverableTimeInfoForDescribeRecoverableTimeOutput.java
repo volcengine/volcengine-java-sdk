@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class RecoverableTimeInfoForDescribeRecoverableTimeOutput {
   @SerializedName("EarliestRecoverableTime")
   private String earliestRecoverableTime = null;
