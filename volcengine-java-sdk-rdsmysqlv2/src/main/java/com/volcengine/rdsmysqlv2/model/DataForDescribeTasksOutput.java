@@ -33,12 +33,13 @@ import javax.validation.Valid;
  */
 
 
+
 public class DataForDescribeTasksOutput {
   @SerializedName("ConfigInfos")
   private List<ConfigInfoForDescribeTasksOutput> configInfos = null;
 
   @SerializedName("CostTimeMS")
-  private Integer costTimeMS = null;
+  private Long costTimeMS = null;
 
   @SerializedName("CreateTime")
   private String createTime = null;
@@ -106,7 +107,7 @@ public class DataForDescribeTasksOutput {
     this.configInfos = configInfos;
   }
 
-  public DataForDescribeTasksOutput costTimeMS(Integer costTimeMS) {
+  public DataForDescribeTasksOutput costTimeMS(Long costTimeMS) {
     this.costTimeMS = costTimeMS;
     return this;
   }
@@ -116,11 +117,11 @@ public class DataForDescribeTasksOutput {
    * @return costTimeMS
   **/
   @Schema(description = "")
-  public Integer getCostTimeMS() {
+  public Long getCostTimeMS() {
     return costTimeMS;
   }
 
-  public void setCostTimeMS(Integer costTimeMS) {
+  public void setCostTimeMS(Long costTimeMS) {
     this.costTimeMS = costTimeMS;
   }
 

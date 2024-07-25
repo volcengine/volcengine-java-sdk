@@ -28,9 +28,13 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeDBInstanceParametersRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;
+
+  @SerializedName("NodeId")
+  private String nodeId = null;
 
   @SerializedName("ParameterName")
   private String parameterName = null;
@@ -52,6 +56,24 @@ public class DescribeDBInstanceParametersRequest {
 
   public void setInstanceId(String instanceId) {
     this.instanceId = instanceId;
+  }
+
+  public DescribeDBInstanceParametersRequest nodeId(String nodeId) {
+    this.nodeId = nodeId;
+    return this;
+  }
+
+   /**
+   * Get nodeId
+   * @return nodeId
+  **/
+  @Schema(description = "")
+  public String getNodeId() {
+    return nodeId;
+  }
+
+  public void setNodeId(String nodeId) {
+    this.nodeId = nodeId;
   }
 
   public DescribeDBInstanceParametersRequest parameterName(String parameterName) {
@@ -83,12 +105,13 @@ public class DescribeDBInstanceParametersRequest {
     }
     DescribeDBInstanceParametersRequest describeDBInstanceParametersRequest = (DescribeDBInstanceParametersRequest) o;
     return Objects.equals(this.instanceId, describeDBInstanceParametersRequest.instanceId) &&
+        Objects.equals(this.nodeId, describeDBInstanceParametersRequest.nodeId) &&
         Objects.equals(this.parameterName, describeDBInstanceParametersRequest.parameterName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, parameterName);
+    return Objects.hash(instanceId, nodeId, parameterName);
   }
 
 
@@ -98,6 +121,7 @@ public class DescribeDBInstanceParametersRequest {
     sb.append("class DescribeDBInstanceParametersRequest {\n");
     
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    nodeId: ").append(toIndentedString(nodeId)).append("\n");
     sb.append("    parameterName: ").append(toIndentedString(parameterName)).append("\n");
     sb.append("}");
     return sb.toString();

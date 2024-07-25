@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class RebuildDBInstanceRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;

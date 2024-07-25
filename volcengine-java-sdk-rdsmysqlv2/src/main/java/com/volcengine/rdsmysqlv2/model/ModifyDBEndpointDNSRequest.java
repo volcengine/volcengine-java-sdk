@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ModifyDBEndpointDNSRequest {
   @SerializedName("DNSVisibility")
   private Boolean dnSVisibility = null;

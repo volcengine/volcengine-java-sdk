@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class GetBackupDownloadLinkResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("BackupDownloadLink")
   private String backupDownloadLink = null;
@@ -45,7 +46,10 @@ public class GetBackupDownloadLinkResponse extends com.volcengine.model.Abstract
   private String backupType = null;
 
   @SerializedName("DownloadProgress")
-  private Integer downloadProgress = null;
+  private Long downloadProgress = null;
+
+  @SerializedName("InnerBackupDownloadLink")
+  private String innerBackupDownloadLink = null;
 
   @SerializedName("InstanceId")
   private String instanceId = null;
@@ -143,7 +147,7 @@ public class GetBackupDownloadLinkResponse extends com.volcengine.model.Abstract
     this.backupType = backupType;
   }
 
-  public GetBackupDownloadLinkResponse downloadProgress(Integer downloadProgress) {
+  public GetBackupDownloadLinkResponse downloadProgress(Long downloadProgress) {
     this.downloadProgress = downloadProgress;
     return this;
   }
@@ -153,12 +157,30 @@ public class GetBackupDownloadLinkResponse extends com.volcengine.model.Abstract
    * @return downloadProgress
   **/
   @Schema(description = "")
-  public Integer getDownloadProgress() {
+  public Long getDownloadProgress() {
     return downloadProgress;
   }
 
-  public void setDownloadProgress(Integer downloadProgress) {
+  public void setDownloadProgress(Long downloadProgress) {
     this.downloadProgress = downloadProgress;
+  }
+
+  public GetBackupDownloadLinkResponse innerBackupDownloadLink(String innerBackupDownloadLink) {
+    this.innerBackupDownloadLink = innerBackupDownloadLink;
+    return this;
+  }
+
+   /**
+   * Get innerBackupDownloadLink
+   * @return innerBackupDownloadLink
+  **/
+  @Schema(description = "")
+  public String getInnerBackupDownloadLink() {
+    return innerBackupDownloadLink;
+  }
+
+  public void setInnerBackupDownloadLink(String innerBackupDownloadLink) {
+    this.innerBackupDownloadLink = innerBackupDownloadLink;
   }
 
   public GetBackupDownloadLinkResponse instanceId(String instanceId) {
@@ -213,13 +235,14 @@ public class GetBackupDownloadLinkResponse extends com.volcengine.model.Abstract
         Objects.equals(this.backupId, getBackupDownloadLinkResponse.backupId) &&
         Objects.equals(this.backupType, getBackupDownloadLinkResponse.backupType) &&
         Objects.equals(this.downloadProgress, getBackupDownloadLinkResponse.downloadProgress) &&
+        Objects.equals(this.innerBackupDownloadLink, getBackupDownloadLinkResponse.innerBackupDownloadLink) &&
         Objects.equals(this.instanceId, getBackupDownloadLinkResponse.instanceId) &&
         Objects.equals(this.linkExpiredTime, getBackupDownloadLinkResponse.linkExpiredTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(backupDownloadLink, backupFileName, backupFileSize, backupId, backupType, downloadProgress, instanceId, linkExpiredTime);
+    return Objects.hash(backupDownloadLink, backupFileName, backupFileSize, backupId, backupType, downloadProgress, innerBackupDownloadLink, instanceId, linkExpiredTime);
   }
 
 
@@ -234,6 +257,7 @@ public class GetBackupDownloadLinkResponse extends com.volcengine.model.Abstract
     sb.append("    backupId: ").append(toIndentedString(backupId)).append("\n");
     sb.append("    backupType: ").append(toIndentedString(backupType)).append("\n");
     sb.append("    downloadProgress: ").append(toIndentedString(downloadProgress)).append("\n");
+    sb.append("    innerBackupDownloadLink: ").append(toIndentedString(innerBackupDownloadLink)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    linkExpiredTime: ").append(toIndentedString(linkExpiredTime)).append("\n");
     sb.append("}");

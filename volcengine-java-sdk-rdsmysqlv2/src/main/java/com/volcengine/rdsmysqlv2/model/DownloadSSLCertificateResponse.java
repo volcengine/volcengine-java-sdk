@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DownloadSSLCertificateResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Certificate")
   private List<Integer> certificate = null;

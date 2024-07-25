@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class StepExtraInfoForDescribeTasksOutput {
   @SerializedName("Type")
   private String type = null;

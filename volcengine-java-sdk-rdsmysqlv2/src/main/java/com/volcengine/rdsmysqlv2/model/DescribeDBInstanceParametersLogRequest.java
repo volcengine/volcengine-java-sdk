@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeDBInstanceParametersLogRequest {
   @SerializedName("EndTime")
   private String endTime = null;

@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribePlannedEventsRequest {
   @SerializedName("BeginTime")
   private String beginTime = null;

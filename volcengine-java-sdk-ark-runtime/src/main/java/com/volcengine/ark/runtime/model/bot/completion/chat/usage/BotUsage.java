@@ -19,4 +19,20 @@ public class BotUsage {
      */
     @JsonProperty("action_usage")
     private List<BotActionUsage> actionUsage;
+
+    public List<BotModelUsage> getModelUsage() {
+        return modelUsage;
+    }
+
+    public void setModelUsage(List<BotModelUsage> modelUsage) {
+        this.modelUsage = modelUsage;
+    }
+
+    public List<BotActionUsage> getActionUsage() {
+        return actionUsage;
+    }
+
+    public void setActionUsage(List<BotActionUsage> actionUsage) {
+        this.actionUsage = actionUsage;
+    }
 }

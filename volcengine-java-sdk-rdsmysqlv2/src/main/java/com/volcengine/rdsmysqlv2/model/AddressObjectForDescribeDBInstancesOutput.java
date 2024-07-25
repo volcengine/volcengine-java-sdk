@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class AddressObjectForDescribeDBInstancesOutput {
   @SerializedName("DNSVisibility")
   private Boolean dnSVisibility = null;

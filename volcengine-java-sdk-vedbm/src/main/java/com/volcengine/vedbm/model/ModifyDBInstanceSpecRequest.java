@@ -36,8 +36,82 @@ public class ModifyDBInstanceSpecRequest {
   @SerializedName("NodeNumber")
   private Integer nodeNumber = null;
 
-  @SerializedName("NodeSpec")
-  private String nodeSpec = null;
+  /**
+   * Gets or Sets nodeSpec
+   */
+  @JsonAdapter(NodeSpecEnum.Adapter.class)
+  public enum NodeSpecEnum {
+    @SerializedName("vedb.mysql.x4.large")
+    X4_LARGE("vedb.mysql.x4.large"),
+    @SerializedName("vedb.mysql.x8.large")
+    X8_LARGE("vedb.mysql.x8.large"),
+    @SerializedName("vedb.mysql.x4.xlarge")
+    X4_XLARGE("vedb.mysql.x4.xlarge"),
+    @SerializedName("vedb.mysql.x8.xlarge")
+    X8_XLARGE("vedb.mysql.x8.xlarge"),
+    @SerializedName("vedb.mysql.x4.2xlarge")
+    X4_2XLARGE("vedb.mysql.x4.2xlarge"),
+    @SerializedName("vedb.mysql.x8.2xlarge")
+    X8_2XLARGE("vedb.mysql.x8.2xlarge"),
+    @SerializedName("vedb.mysql.x4.4xlarge")
+    X4_4XLARGE("vedb.mysql.x4.4xlarge"),
+    @SerializedName("vedb.mysql.x8.4xlarge")
+    X8_4XLARGE("vedb.mysql.x8.4xlarge"),
+    @SerializedName("vedb.mysql.x8.6xlarge")
+    X8_6XLARGE("vedb.mysql.x8.6xlarge"),
+    @SerializedName("vedb.mysql.x4.8xlarge")
+    X4_8XLARGE("vedb.mysql.x4.8xlarge"),
+    @SerializedName("vedb.mysql.x8.8xlarge")
+    X8_8XLARGE("vedb.mysql.x8.8xlarge"),
+    @SerializedName("vedb.mysql.g4.large")
+    G4_LARGE("vedb.mysql.g4.large"),
+    @SerializedName("vedb.mysql.g4.xlarge")
+    G4_XLARGE("vedb.mysql.g4.xlarge"),
+    @SerializedName("vedb.mysql.g4.2xlarge")
+    G4_2XLARGE("vedb.mysql.g4.2xlarge"),
+    @SerializedName("vedb.mysql.g8.2xlarge")
+    G8_2XLARGE("vedb.mysql.g8.2xlarge"),
+    @SerializedName("vedb.mysql.g4.4xlarge")
+    G4_4XLARGE("vedb.mysql.g4.4xlarge");
+
+    private String value;
+
+    NodeSpecEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static NodeSpecEnum fromValue(String input) {
+      for (NodeSpecEnum b : NodeSpecEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<NodeSpecEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final NodeSpecEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public NodeSpecEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return NodeSpecEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("NodeSpec")
+  private NodeSpecEnum nodeSpec = null;
+
+  @SerializedName("PrePaidStorageInGB")
+  private Integer prePaidStorageInGB = null;
 
   public ModifyDBInstanceSpecRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
@@ -65,12 +139,10 @@ public class ModifyDBInstanceSpecRequest {
 
    /**
    * Get nodeNumber
-   * minimum: 2
-   * maximum: 16
    * @return nodeNumber
   **/
   @NotNull
- @Min(2) @Max(16)  @Schema(required = true, description = "")
+  @Schema(required = true, description = "")
   public Integer getNodeNumber() {
     return nodeNumber;
   }
@@ -79,7 +151,7 @@ public class ModifyDBInstanceSpecRequest {
     this.nodeNumber = nodeNumber;
   }
 
-  public ModifyDBInstanceSpecRequest nodeSpec(String nodeSpec) {
+  public ModifyDBInstanceSpecRequest nodeSpec(NodeSpecEnum nodeSpec) {
     this.nodeSpec = nodeSpec;
     return this;
   }
@@ -90,12 +162,30 @@ public class ModifyDBInstanceSpecRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getNodeSpec() {
+  public NodeSpecEnum getNodeSpec() {
     return nodeSpec;
   }
 
-  public void setNodeSpec(String nodeSpec) {
+  public void setNodeSpec(NodeSpecEnum nodeSpec) {
     this.nodeSpec = nodeSpec;
+  }
+
+  public ModifyDBInstanceSpecRequest prePaidStorageInGB(Integer prePaidStorageInGB) {
+    this.prePaidStorageInGB = prePaidStorageInGB;
+    return this;
+  }
+
+   /**
+   * Get prePaidStorageInGB
+   * @return prePaidStorageInGB
+  **/
+  @Schema(description = "")
+  public Integer getPrePaidStorageInGB() {
+    return prePaidStorageInGB;
+  }
+
+  public void setPrePaidStorageInGB(Integer prePaidStorageInGB) {
+    this.prePaidStorageInGB = prePaidStorageInGB;
   }
 
 
@@ -110,12 +200,13 @@ public class ModifyDBInstanceSpecRequest {
     ModifyDBInstanceSpecRequest modifyDBInstanceSpecRequest = (ModifyDBInstanceSpecRequest) o;
     return Objects.equals(this.instanceId, modifyDBInstanceSpecRequest.instanceId) &&
         Objects.equals(this.nodeNumber, modifyDBInstanceSpecRequest.nodeNumber) &&
-        Objects.equals(this.nodeSpec, modifyDBInstanceSpecRequest.nodeSpec);
+        Objects.equals(this.nodeSpec, modifyDBInstanceSpecRequest.nodeSpec) &&
+        Objects.equals(this.prePaidStorageInGB, modifyDBInstanceSpecRequest.prePaidStorageInGB);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, nodeNumber, nodeSpec);
+    return Objects.hash(instanceId, nodeNumber, nodeSpec, prePaidStorageInGB);
   }
 
 
@@ -127,6 +218,7 @@ public class ModifyDBInstanceSpecRequest {
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    nodeNumber: ").append(toIndentedString(nodeNumber)).append("\n");
     sb.append("    nodeSpec: ").append(toIndentedString(nodeSpec)).append("\n");
+    sb.append("    prePaidStorageInGB: ").append(toIndentedString(prePaidStorageInGB)).append("\n");
     sb.append("}");
     return sb.toString();
   }

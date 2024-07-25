@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeDBInstanceSpecsResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("InstanceSpecsInfo")
   private List<InstanceSpecsInfoForDescribeDBInstanceSpecsOutput> instanceSpecsInfo = null;

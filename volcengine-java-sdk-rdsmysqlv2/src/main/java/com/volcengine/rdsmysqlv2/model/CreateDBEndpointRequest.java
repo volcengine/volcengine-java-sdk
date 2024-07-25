@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateDBEndpointRequest {
   @SerializedName("AutoAddNewNodes")
   private Boolean autoAddNewNodes = null;

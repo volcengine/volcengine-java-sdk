@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class PlannedEventForDescribePlannedEventsOutput {
   @SerializedName("BusinessImpact")
   private String businessImpact = null;

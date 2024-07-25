@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeAvailableCrossRegionResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Regions")
   private List<String> regions = null;

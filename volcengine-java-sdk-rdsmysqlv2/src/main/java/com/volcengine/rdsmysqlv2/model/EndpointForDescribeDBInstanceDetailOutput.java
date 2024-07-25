@@ -32,6 +32,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class EndpointForDescribeDBInstanceDetailOutput {
   @SerializedName("Addresses")
   private List<AddressForDescribeDBInstanceDetailOutput> addresses = null;

@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ModifyDBInstanceChargeTypeRequest {
   @SerializedName("AutoRenew")
   private Boolean autoRenew = null;

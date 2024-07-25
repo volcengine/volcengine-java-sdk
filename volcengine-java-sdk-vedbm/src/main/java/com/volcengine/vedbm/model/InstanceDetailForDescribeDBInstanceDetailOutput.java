@@ -87,8 +87,83 @@ public class InstanceDetailForDescribeDBInstanceDetailOutput {
   @SerializedName("InstanceName")
   private String instanceName = null;
 
-  @SerializedName("InstanceStatus")
-  private String instanceStatus = null;
+  /**
+   * Gets or Sets instanceStatus
+   */
+  @JsonAdapter(InstanceStatusEnum.Adapter.class)
+  public enum InstanceStatusEnum {
+    @SerializedName("WaitingPaid")
+    WAITINGPAID("WaitingPaid"),
+    @SerializedName("Running")
+    RUNNING("Running"),
+    @SerializedName("Creating")
+    CREATING("Creating"),
+    @SerializedName("Scaling")
+    SCALING("Scaling"),
+    @SerializedName("Restarting")
+    RESTARTING("Restarting"),
+    @SerializedName("Restoring")
+    RESTORING("Restoring"),
+    @SerializedName("Upgrading")
+    UPGRADING("Upgrading"),
+    @SerializedName("PrimaryChanging")
+    PRIMARYCHANGING("PrimaryChanging"),
+    @SerializedName("Unavailable")
+    UNAVAILABLE("Unavailable"),
+    @SerializedName("Deleting")
+    DELETING("Deleting"),
+    @SerializedName("Deleted")
+    DELETED("Deleted"),
+    @SerializedName("CreateFailed")
+    CREATEFAILED("CreateFailed"),
+    @SerializedName("Closing")
+    CLOSING("Closing"),
+    @SerializedName("Expired")
+    EXPIRED("Expired"),
+    @SerializedName("Owing")
+    OWING("Owing"),
+    @SerializedName("Resuming")
+    RESUMING("Resuming"),
+    @SerializedName("AllowListMaintaining")
+    ALLOWLISTMAINTAINING("AllowListMaintaining"),
+    @SerializedName("Error")
+    ERROR("Error");
+
+    private String value;
+
+    InstanceStatusEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static InstanceStatusEnum fromValue(String input) {
+      for (InstanceStatusEnum b : InstanceStatusEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<InstanceStatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final InstanceStatusEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public InstanceStatusEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return InstanceStatusEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("InstanceStatus")
+  private InstanceStatusEnum instanceStatus = null;
 
   @SerializedName("InstanceStructures")
   private List<InstanceStructureForDescribeDBInstanceDetailOutput> instanceStructures = null;
@@ -108,8 +183,51 @@ public class InstanceDetailForDescribeDBInstanceDetailOutput {
   @SerializedName("RegionId")
   private String regionId = null;
 
-  @SerializedName("SpecFamily")
-  private String specFamily = null;
+  /**
+   * Gets or Sets specFamily
+   */
+  @JsonAdapter(SpecFamilyEnum.Adapter.class)
+  public enum SpecFamilyEnum {
+    @SerializedName("General")
+    GENERAL("General"),
+    @SerializedName("Exclusive")
+    EXCLUSIVE("Exclusive");
+
+    private String value;
+
+    SpecFamilyEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static SpecFamilyEnum fromValue(String input) {
+      for (SpecFamilyEnum b : SpecFamilyEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<SpecFamilyEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final SpecFamilyEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public SpecFamilyEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return SpecFamilyEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("SpecFamily")
+  private SpecFamilyEnum specFamily = null;
 
   /**
    * Gets or Sets storageChargeType
@@ -158,7 +276,7 @@ public class InstanceDetailForDescribeDBInstanceDetailOutput {
   private StorageChargeTypeEnum storageChargeType = null;
 
   @SerializedName("StorageUsedGiB")
-  private Float storageUsedGiB = null;
+  private Double storageUsedGiB = null;
 
   @SerializedName("SubnetId")
   private String subnetId = null;
@@ -244,7 +362,7 @@ public class InstanceDetailForDescribeDBInstanceDetailOutput {
     this.instanceName = instanceName;
   }
 
-  public InstanceDetailForDescribeDBInstanceDetailOutput instanceStatus(String instanceStatus) {
+  public InstanceDetailForDescribeDBInstanceDetailOutput instanceStatus(InstanceStatusEnum instanceStatus) {
     this.instanceStatus = instanceStatus;
     return this;
   }
@@ -254,11 +372,11 @@ public class InstanceDetailForDescribeDBInstanceDetailOutput {
    * @return instanceStatus
   **/
   @Schema(description = "")
-  public String getInstanceStatus() {
+  public InstanceStatusEnum getInstanceStatus() {
     return instanceStatus;
   }
 
-  public void setInstanceStatus(String instanceStatus) {
+  public void setInstanceStatus(InstanceStatusEnum instanceStatus) {
     this.instanceStatus = instanceStatus;
   }
 
@@ -380,7 +498,7 @@ public class InstanceDetailForDescribeDBInstanceDetailOutput {
     this.regionId = regionId;
   }
 
-  public InstanceDetailForDescribeDBInstanceDetailOutput specFamily(String specFamily) {
+  public InstanceDetailForDescribeDBInstanceDetailOutput specFamily(SpecFamilyEnum specFamily) {
     this.specFamily = specFamily;
     return this;
   }
@@ -390,11 +508,11 @@ public class InstanceDetailForDescribeDBInstanceDetailOutput {
    * @return specFamily
   **/
   @Schema(description = "")
-  public String getSpecFamily() {
+  public SpecFamilyEnum getSpecFamily() {
     return specFamily;
   }
 
-  public void setSpecFamily(String specFamily) {
+  public void setSpecFamily(SpecFamilyEnum specFamily) {
     this.specFamily = specFamily;
   }
 
@@ -416,7 +534,7 @@ public class InstanceDetailForDescribeDBInstanceDetailOutput {
     this.storageChargeType = storageChargeType;
   }
 
-  public InstanceDetailForDescribeDBInstanceDetailOutput storageUsedGiB(Float storageUsedGiB) {
+  public InstanceDetailForDescribeDBInstanceDetailOutput storageUsedGiB(Double storageUsedGiB) {
     this.storageUsedGiB = storageUsedGiB;
     return this;
   }
@@ -426,11 +544,11 @@ public class InstanceDetailForDescribeDBInstanceDetailOutput {
    * @return storageUsedGiB
   **/
   @Schema(description = "")
-  public Float getStorageUsedGiB() {
+  public Double getStorageUsedGiB() {
     return storageUsedGiB;
   }
 
-  public void setStorageUsedGiB(Float storageUsedGiB) {
+  public void setStorageUsedGiB(Double storageUsedGiB) {
     this.storageUsedGiB = storageUsedGiB;
   }
 

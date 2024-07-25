@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class InstanceTagForRestoreToNewInstanceInput {
   @SerializedName("Key")
   private String key = null;

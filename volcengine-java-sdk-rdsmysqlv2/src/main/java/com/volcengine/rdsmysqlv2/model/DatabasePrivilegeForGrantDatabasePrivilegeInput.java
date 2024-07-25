@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DatabasePrivilegeForGrantDatabasePrivilegeInput {
   @SerializedName("AccountName")
   private String accountName = null;

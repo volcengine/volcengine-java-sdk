@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ListParameterTemplatesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("TemplateInfos")
   private List<TemplateInfoForListParameterTemplatesOutput> templateInfos = null;

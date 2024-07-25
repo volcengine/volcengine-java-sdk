@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class RemoveTagsFromResourceRequest {
   @SerializedName("InstanceIds")
   private List<String> instanceIds = null;

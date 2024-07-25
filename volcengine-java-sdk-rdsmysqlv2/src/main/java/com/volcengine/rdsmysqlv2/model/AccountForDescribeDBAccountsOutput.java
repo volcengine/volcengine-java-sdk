@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class AccountForDescribeDBAccountsOutput {
   @SerializedName("AccountDesc")
   private String accountDesc = null;

@@ -28,7 +28,11 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeDBInstanceSSLResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("Address")
+  private String address = null;
+
   @SerializedName("InstanceId")
   private String instanceId = null;
 
@@ -43,6 +47,24 @@ public class DescribeDBInstanceSSLResponse extends com.volcengine.model.Abstract
 
   @SerializedName("TLSVersion")
   private String tlSVersion = null;
+
+  public DescribeDBInstanceSSLResponse address(String address) {
+    this.address = address;
+    return this;
+  }
+
+   /**
+   * Get address
+   * @return address
+  **/
+  @Schema(description = "")
+  public String getAddress() {
+    return address;
+  }
+
+  public void setAddress(String address) {
+    this.address = address;
+  }
 
   public DescribeDBInstanceSSLResponse instanceId(String instanceId) {
     this.instanceId = instanceId;
@@ -144,7 +166,8 @@ public class DescribeDBInstanceSSLResponse extends com.volcengine.model.Abstract
       return false;
     }
     DescribeDBInstanceSSLResponse describeDBInstanceSSLResponse = (DescribeDBInstanceSSLResponse) o;
-    return Objects.equals(this.instanceId, describeDBInstanceSSLResponse.instanceId) &&
+    return Objects.equals(this.address, describeDBInstanceSSLResponse.address) &&
+        Objects.equals(this.instanceId, describeDBInstanceSSLResponse.instanceId) &&
         Objects.equals(this.isValid, describeDBInstanceSSLResponse.isValid) &&
         Objects.equals(this.ssLEnable, describeDBInstanceSSLResponse.ssLEnable) &&
         Objects.equals(this.ssLExpireTime, describeDBInstanceSSLResponse.ssLExpireTime) &&
@@ -153,7 +176,7 @@ public class DescribeDBInstanceSSLResponse extends com.volcengine.model.Abstract
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, isValid, ssLEnable, ssLExpireTime, tlSVersion);
+    return Objects.hash(address, instanceId, isValid, ssLEnable, ssLExpireTime, tlSVersion);
   }
 
 
@@ -162,6 +185,7 @@ public class DescribeDBInstanceSSLResponse extends com.volcengine.model.Abstract
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeDBInstanceSSLResponse {\n");
     
+    sb.append("    address: ").append(toIndentedString(address)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    isValid: ").append(toIndentedString(isValid)).append("\n");
     sb.append("    ssLEnable: ").append(toIndentedString(ssLEnable)).append("\n");

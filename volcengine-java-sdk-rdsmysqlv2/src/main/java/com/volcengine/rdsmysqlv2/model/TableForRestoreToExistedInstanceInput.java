@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class TableForRestoreToExistedInstanceInput {
   @SerializedName("NewTableName")
   private String newTableName = null;

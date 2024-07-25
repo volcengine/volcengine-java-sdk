@@ -151,8 +151,51 @@ public class ModifyDBEndpointRequest {
   @SerializedName("Nodes")
   private String nodes = null;
 
-  @SerializedName("ReadWriteMode")
-  private String readWriteMode = null;
+  /**
+   * Gets or Sets readWriteMode
+   */
+  @JsonAdapter(ReadWriteModeEnum.Adapter.class)
+  public enum ReadWriteModeEnum {
+    @SerializedName("ReadWrite")
+    READWRITE("ReadWrite"),
+    @SerializedName("ReadOnly")
+    READONLY("ReadOnly");
+
+    private String value;
+
+    ReadWriteModeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ReadWriteModeEnum fromValue(String input) {
+      for (ReadWriteModeEnum b : ReadWriteModeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ReadWriteModeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ReadWriteModeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ReadWriteModeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ReadWriteModeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("ReadWriteMode")
+  private ReadWriteModeEnum readWriteMode = null;
 
   public ModifyDBEndpointRequest autoAddNewNodes(Boolean autoAddNewNodes) {
     this.autoAddNewNodes = autoAddNewNodes;
@@ -354,7 +397,7 @@ public class ModifyDBEndpointRequest {
     this.nodes = nodes;
   }
 
-  public ModifyDBEndpointRequest readWriteMode(String readWriteMode) {
+  public ModifyDBEndpointRequest readWriteMode(ReadWriteModeEnum readWriteMode) {
     this.readWriteMode = readWriteMode;
     return this;
   }
@@ -364,11 +407,11 @@ public class ModifyDBEndpointRequest {
    * @return readWriteMode
   **/
   @Schema(description = "")
-  public String getReadWriteMode() {
+  public ReadWriteModeEnum getReadWriteMode() {
     return readWriteMode;
   }
 
-  public void setReadWriteMode(String readWriteMode) {
+  public void setReadWriteMode(ReadWriteModeEnum readWriteMode) {
     this.readWriteMode = readWriteMode;
   }
 
