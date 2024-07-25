@@ -132,19 +132,53 @@ public class CreateDBInstanceRequest {
   @SerializedName("InstanceName")
   private String instanceName = null;
 
+  @SerializedName("LowerCaseTableNames")
+  private String lowerCaseTableNames = null;
+
+  @SerializedName("NodeNumber")
+  private Integer nodeNumber = null;
+
   /**
-   * Gets or Sets lowerCaseTableNames
+   * Gets or Sets nodeSpec
    */
-  @JsonAdapter(LowerCaseTableNamesEnum.Adapter.class)
-  public enum LowerCaseTableNamesEnum {
-    @SerializedName("1")
-    _1("1"),
-    @SerializedName("0")
-    _0("0");
+  @JsonAdapter(NodeSpecEnum.Adapter.class)
+  public enum NodeSpecEnum {
+    @SerializedName("vedb.mysql.x4.large")
+    X4_LARGE("vedb.mysql.x4.large"),
+    @SerializedName("vedb.mysql.x8.large")
+    X8_LARGE("vedb.mysql.x8.large"),
+    @SerializedName("vedb.mysql.x4.xlarge")
+    X4_XLARGE("vedb.mysql.x4.xlarge"),
+    @SerializedName("vedb.mysql.x8.xlarge")
+    X8_XLARGE("vedb.mysql.x8.xlarge"),
+    @SerializedName("vedb.mysql.x4.2xlarge")
+    X4_2XLARGE("vedb.mysql.x4.2xlarge"),
+    @SerializedName("vedb.mysql.x8.2xlarge")
+    X8_2XLARGE("vedb.mysql.x8.2xlarge"),
+    @SerializedName("vedb.mysql.x4.4xlarge")
+    X4_4XLARGE("vedb.mysql.x4.4xlarge"),
+    @SerializedName("vedb.mysql.x8.4xlarge")
+    X8_4XLARGE("vedb.mysql.x8.4xlarge"),
+    @SerializedName("vedb.mysql.x8.6xlarge")
+    X8_6XLARGE("vedb.mysql.x8.6xlarge"),
+    @SerializedName("vedb.mysql.x4.8xlarge")
+    X4_8XLARGE("vedb.mysql.x4.8xlarge"),
+    @SerializedName("vedb.mysql.x8.8xlarge")
+    X8_8XLARGE("vedb.mysql.x8.8xlarge"),
+    @SerializedName("vedb.mysql.g4.large")
+    G4_LARGE("vedb.mysql.g4.large"),
+    @SerializedName("vedb.mysql.g4.xlarge")
+    G4_XLARGE("vedb.mysql.g4.xlarge"),
+    @SerializedName("vedb.mysql.g4.2xlarge")
+    G4_2XLARGE("vedb.mysql.g4.2xlarge"),
+    @SerializedName("vedb.mysql.g8.2xlarge")
+    G8_2XLARGE("vedb.mysql.g8.2xlarge"),
+    @SerializedName("vedb.mysql.g4.4xlarge")
+    G4_4XLARGE("vedb.mysql.g4.4xlarge");
 
     private String value;
 
-    LowerCaseTableNamesEnum(String value) {
+    NodeSpecEnum(String value) {
       this.value = value;
     }
     public String getValue() {
@@ -155,34 +189,28 @@ public class CreateDBInstanceRequest {
     public String toString() {
       return String.valueOf(value);
     }
-    public static LowerCaseTableNamesEnum fromValue(String input) {
-      for (LowerCaseTableNamesEnum b : LowerCaseTableNamesEnum.values()) {
+    public static NodeSpecEnum fromValue(String input) {
+      for (NodeSpecEnum b : NodeSpecEnum.values()) {
         if (b.value.equals(input)) {
           return b;
         }
       }
       return null;
     }
-    public static class Adapter extends TypeAdapter<LowerCaseTableNamesEnum> {
+    public static class Adapter extends TypeAdapter<NodeSpecEnum> {
       @Override
-      public void write(final JsonWriter jsonWriter, final LowerCaseTableNamesEnum enumeration) throws IOException {
+      public void write(final JsonWriter jsonWriter, final NodeSpecEnum enumeration) throws IOException {
         jsonWriter.value(String.valueOf(enumeration.getValue()));
       }
 
       @Override
-      public LowerCaseTableNamesEnum read(final JsonReader jsonReader) throws IOException {
+      public NodeSpecEnum read(final JsonReader jsonReader) throws IOException {
         Object value = jsonReader.nextString();
-        return LowerCaseTableNamesEnum.fromValue((String)(value));
+        return NodeSpecEnum.fromValue((String)(value));
       }
     }
-  }  @SerializedName("LowerCaseTableNames")
-  private LowerCaseTableNamesEnum lowerCaseTableNames = null;
-
-  @SerializedName("NodeNumber")
-  private Integer nodeNumber = null;
-
-  @SerializedName("NodeSpec")
-  private String nodeSpec = null;
+  }  @SerializedName("NodeSpec")
+  private NodeSpecEnum nodeSpec = null;
 
   @SerializedName("Number")
   private Integer number = null;
@@ -398,7 +426,7 @@ public class CreateDBInstanceRequest {
     this.instanceName = instanceName;
   }
 
-  public CreateDBInstanceRequest lowerCaseTableNames(LowerCaseTableNamesEnum lowerCaseTableNames) {
+  public CreateDBInstanceRequest lowerCaseTableNames(String lowerCaseTableNames) {
     this.lowerCaseTableNames = lowerCaseTableNames;
     return this;
   }
@@ -408,11 +436,11 @@ public class CreateDBInstanceRequest {
    * @return lowerCaseTableNames
   **/
   @Schema(description = "")
-  public LowerCaseTableNamesEnum getLowerCaseTableNames() {
+  public String getLowerCaseTableNames() {
     return lowerCaseTableNames;
   }
 
-  public void setLowerCaseTableNames(LowerCaseTableNamesEnum lowerCaseTableNames) {
+  public void setLowerCaseTableNames(String lowerCaseTableNames) {
     this.lowerCaseTableNames = lowerCaseTableNames;
   }
 
@@ -423,12 +451,10 @@ public class CreateDBInstanceRequest {
 
    /**
    * Get nodeNumber
-   * minimum: 2
-   * maximum: 16
    * @return nodeNumber
   **/
   @NotNull
- @Min(2) @Max(16)  @Schema(required = true, description = "")
+  @Schema(required = true, description = "")
   public Integer getNodeNumber() {
     return nodeNumber;
   }
@@ -437,7 +463,7 @@ public class CreateDBInstanceRequest {
     this.nodeNumber = nodeNumber;
   }
 
-  public CreateDBInstanceRequest nodeSpec(String nodeSpec) {
+  public CreateDBInstanceRequest nodeSpec(NodeSpecEnum nodeSpec) {
     this.nodeSpec = nodeSpec;
     return this;
   }
@@ -448,11 +474,11 @@ public class CreateDBInstanceRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getNodeSpec() {
+  public NodeSpecEnum getNodeSpec() {
     return nodeSpec;
   }
 
-  public void setNodeSpec(String nodeSpec) {
+  public void setNodeSpec(NodeSpecEnum nodeSpec) {
     this.nodeSpec = nodeSpec;
   }
 

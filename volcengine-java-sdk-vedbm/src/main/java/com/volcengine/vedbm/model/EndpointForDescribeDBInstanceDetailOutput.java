@@ -209,8 +209,8 @@ public class EndpointForDescribeDBInstanceDetailOutput {
   public enum ReadWriteModeEnum {
     @SerializedName("ReadWrite")
     READWRITE("ReadWrite"),
-    @SerializedName(" ReadOnly")
-    _READONLY(" ReadOnly");
+    @SerializedName("ReadOnly")
+    READONLY("ReadOnly");
 
     private String value;
 
