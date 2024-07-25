@@ -19,17 +19,23 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vedbm.model.AddressForDescribeDBEndpointOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ModifyDBEndpointRequest
+ * EndpointForDescribeDBEndpointOutput
  */
 
 
 
-public class ModifyDBEndpointRequest {
+public class EndpointForDescribeDBEndpointOutput {
+  @SerializedName("Addresses")
+  private List<AddressForDescribeDBEndpointOutput> addresses = null;
+
   @SerializedName("AutoAddNewNodes")
   private Boolean autoAddNewNodes = null;
 
@@ -142,14 +148,59 @@ public class ModifyDBEndpointRequest {
   @SerializedName("EndpointName")
   private String endpointName = null;
 
-  @SerializedName("InstanceId")
-  private String instanceId = null;
+  /**
+   * Gets or Sets endpointType
+   */
+  @JsonAdapter(EndpointTypeEnum.Adapter.class)
+  public enum EndpointTypeEnum {
+    @SerializedName("Cluster")
+    CLUSTER("Cluster"),
+    @SerializedName("Primary")
+    PRIMARY("Primary"),
+    @SerializedName("Custom")
+    CUSTOM("Custom");
+
+    private String value;
+
+    EndpointTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static EndpointTypeEnum fromValue(String input) {
+      for (EndpointTypeEnum b : EndpointTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<EndpointTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final EndpointTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public EndpointTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return EndpointTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("EndpointType")
+  private EndpointTypeEnum endpointType = null;
 
   @SerializedName("MasterAcceptReadRequests")
   private Boolean masterAcceptReadRequests = null;
 
-  @SerializedName("Nodes")
-  private String nodes = null;
+  @SerializedName("NodeIds")
+  private List<String> nodeIds = null;
 
   /**
    * Gets or Sets readWriteMode
@@ -197,7 +248,34 @@ public class ModifyDBEndpointRequest {
   }  @SerializedName("ReadWriteMode")
   private ReadWriteModeEnum readWriteMode = null;
 
-  public ModifyDBEndpointRequest autoAddNewNodes(Boolean autoAddNewNodes) {
+  public EndpointForDescribeDBEndpointOutput addresses(List<AddressForDescribeDBEndpointOutput> addresses) {
+    this.addresses = addresses;
+    return this;
+  }
+
+  public EndpointForDescribeDBEndpointOutput addAddressesItem(AddressForDescribeDBEndpointOutput addressesItem) {
+    if (this.addresses == null) {
+      this.addresses = new ArrayList<AddressForDescribeDBEndpointOutput>();
+    }
+    this.addresses.add(addressesItem);
+    return this;
+  }
+
+   /**
+   * Get addresses
+   * @return addresses
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<AddressForDescribeDBEndpointOutput> getAddresses() {
+    return addresses;
+  }
+
+  public void setAddresses(List<AddressForDescribeDBEndpointOutput> addresses) {
+    this.addresses = addresses;
+  }
+
+  public EndpointForDescribeDBEndpointOutput autoAddNewNodes(Boolean autoAddNewNodes) {
     this.autoAddNewNodes = autoAddNewNodes;
     return this;
   }
@@ -215,7 +293,7 @@ public class ModifyDBEndpointRequest {
     this.autoAddNewNodes = autoAddNewNodes;
   }
 
-  public ModifyDBEndpointRequest consistLevel(ConsistLevelEnum consistLevel) {
+  public EndpointForDescribeDBEndpointOutput consistLevel(ConsistLevelEnum consistLevel) {
     this.consistLevel = consistLevel;
     return this;
   }
@@ -233,7 +311,7 @@ public class ModifyDBEndpointRequest {
     this.consistLevel = consistLevel;
   }
 
-  public ModifyDBEndpointRequest consistTimeout(Integer consistTimeout) {
+  public EndpointForDescribeDBEndpointOutput consistTimeout(Integer consistTimeout) {
     this.consistTimeout = consistTimeout;
     return this;
   }
@@ -251,7 +329,7 @@ public class ModifyDBEndpointRequest {
     this.consistTimeout = consistTimeout;
   }
 
-  public ModifyDBEndpointRequest consistTimeoutAction(ConsistTimeoutActionEnum consistTimeoutAction) {
+  public EndpointForDescribeDBEndpointOutput consistTimeoutAction(ConsistTimeoutActionEnum consistTimeoutAction) {
     this.consistTimeoutAction = consistTimeoutAction;
     return this;
   }
@@ -269,7 +347,7 @@ public class ModifyDBEndpointRequest {
     this.consistTimeoutAction = consistTimeoutAction;
   }
 
-  public ModifyDBEndpointRequest description(String description) {
+  public EndpointForDescribeDBEndpointOutput description(String description) {
     this.description = description;
     return this;
   }
@@ -287,7 +365,7 @@ public class ModifyDBEndpointRequest {
     this.description = description;
   }
 
-  public ModifyDBEndpointRequest distributedTransaction(Boolean distributedTransaction) {
+  public EndpointForDescribeDBEndpointOutput distributedTransaction(Boolean distributedTransaction) {
     this.distributedTransaction = distributedTransaction;
     return this;
   }
@@ -305,7 +383,7 @@ public class ModifyDBEndpointRequest {
     this.distributedTransaction = distributedTransaction;
   }
 
-  public ModifyDBEndpointRequest endpointId(String endpointId) {
+  public EndpointForDescribeDBEndpointOutput endpointId(String endpointId) {
     this.endpointId = endpointId;
     return this;
   }
@@ -314,8 +392,7 @@ public class ModifyDBEndpointRequest {
    * Get endpointId
    * @return endpointId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getEndpointId() {
     return endpointId;
   }
@@ -324,7 +401,7 @@ public class ModifyDBEndpointRequest {
     this.endpointId = endpointId;
   }
 
-  public ModifyDBEndpointRequest endpointName(String endpointName) {
+  public EndpointForDescribeDBEndpointOutput endpointName(String endpointName) {
     this.endpointName = endpointName;
     return this;
   }
@@ -342,26 +419,25 @@ public class ModifyDBEndpointRequest {
     this.endpointName = endpointName;
   }
 
-  public ModifyDBEndpointRequest instanceId(String instanceId) {
-    this.instanceId = instanceId;
+  public EndpointForDescribeDBEndpointOutput endpointType(EndpointTypeEnum endpointType) {
+    this.endpointType = endpointType;
     return this;
   }
 
    /**
-   * Get instanceId
-   * @return instanceId
+   * Get endpointType
+   * @return endpointType
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getInstanceId() {
-    return instanceId;
+  @Schema(description = "")
+  public EndpointTypeEnum getEndpointType() {
+    return endpointType;
   }
 
-  public void setInstanceId(String instanceId) {
-    this.instanceId = instanceId;
+  public void setEndpointType(EndpointTypeEnum endpointType) {
+    this.endpointType = endpointType;
   }
 
-  public ModifyDBEndpointRequest masterAcceptReadRequests(Boolean masterAcceptReadRequests) {
+  public EndpointForDescribeDBEndpointOutput masterAcceptReadRequests(Boolean masterAcceptReadRequests) {
     this.masterAcceptReadRequests = masterAcceptReadRequests;
     return this;
   }
@@ -379,25 +455,33 @@ public class ModifyDBEndpointRequest {
     this.masterAcceptReadRequests = masterAcceptReadRequests;
   }
 
-  public ModifyDBEndpointRequest nodes(String nodes) {
-    this.nodes = nodes;
+  public EndpointForDescribeDBEndpointOutput nodeIds(List<String> nodeIds) {
+    this.nodeIds = nodeIds;
+    return this;
+  }
+
+  public EndpointForDescribeDBEndpointOutput addNodeIdsItem(String nodeIdsItem) {
+    if (this.nodeIds == null) {
+      this.nodeIds = new ArrayList<String>();
+    }
+    this.nodeIds.add(nodeIdsItem);
     return this;
   }
 
    /**
-   * Get nodes
-   * @return nodes
+   * Get nodeIds
+   * @return nodeIds
   **/
   @Schema(description = "")
-  public String getNodes() {
-    return nodes;
+  public List<String> getNodeIds() {
+    return nodeIds;
   }
 
-  public void setNodes(String nodes) {
-    this.nodes = nodes;
+  public void setNodeIds(List<String> nodeIds) {
+    this.nodeIds = nodeIds;
   }
 
-  public ModifyDBEndpointRequest readWriteMode(ReadWriteModeEnum readWriteMode) {
+  public EndpointForDescribeDBEndpointOutput readWriteMode(ReadWriteModeEnum readWriteMode) {
     this.readWriteMode = readWriteMode;
     return this;
   }
@@ -424,32 +508,34 @@ public class ModifyDBEndpointRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ModifyDBEndpointRequest modifyDBEndpointRequest = (ModifyDBEndpointRequest) o;
-    return Objects.equals(this.autoAddNewNodes, modifyDBEndpointRequest.autoAddNewNodes) &&
-        Objects.equals(this.consistLevel, modifyDBEndpointRequest.consistLevel) &&
-        Objects.equals(this.consistTimeout, modifyDBEndpointRequest.consistTimeout) &&
-        Objects.equals(this.consistTimeoutAction, modifyDBEndpointRequest.consistTimeoutAction) &&
-        Objects.equals(this.description, modifyDBEndpointRequest.description) &&
-        Objects.equals(this.distributedTransaction, modifyDBEndpointRequest.distributedTransaction) &&
-        Objects.equals(this.endpointId, modifyDBEndpointRequest.endpointId) &&
-        Objects.equals(this.endpointName, modifyDBEndpointRequest.endpointName) &&
-        Objects.equals(this.instanceId, modifyDBEndpointRequest.instanceId) &&
-        Objects.equals(this.masterAcceptReadRequests, modifyDBEndpointRequest.masterAcceptReadRequests) &&
-        Objects.equals(this.nodes, modifyDBEndpointRequest.nodes) &&
-        Objects.equals(this.readWriteMode, modifyDBEndpointRequest.readWriteMode);
+    EndpointForDescribeDBEndpointOutput endpointForDescribeDBEndpointOutput = (EndpointForDescribeDBEndpointOutput) o;
+    return Objects.equals(this.addresses, endpointForDescribeDBEndpointOutput.addresses) &&
+        Objects.equals(this.autoAddNewNodes, endpointForDescribeDBEndpointOutput.autoAddNewNodes) &&
+        Objects.equals(this.consistLevel, endpointForDescribeDBEndpointOutput.consistLevel) &&
+        Objects.equals(this.consistTimeout, endpointForDescribeDBEndpointOutput.consistTimeout) &&
+        Objects.equals(this.consistTimeoutAction, endpointForDescribeDBEndpointOutput.consistTimeoutAction) &&
+        Objects.equals(this.description, endpointForDescribeDBEndpointOutput.description) &&
+        Objects.equals(this.distributedTransaction, endpointForDescribeDBEndpointOutput.distributedTransaction) &&
+        Objects.equals(this.endpointId, endpointForDescribeDBEndpointOutput.endpointId) &&
+        Objects.equals(this.endpointName, endpointForDescribeDBEndpointOutput.endpointName) &&
+        Objects.equals(this.endpointType, endpointForDescribeDBEndpointOutput.endpointType) &&
+        Objects.equals(this.masterAcceptReadRequests, endpointForDescribeDBEndpointOutput.masterAcceptReadRequests) &&
+        Objects.equals(this.nodeIds, endpointForDescribeDBEndpointOutput.nodeIds) &&
+        Objects.equals(this.readWriteMode, endpointForDescribeDBEndpointOutput.readWriteMode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoAddNewNodes, consistLevel, consistTimeout, consistTimeoutAction, description, distributedTransaction, endpointId, endpointName, instanceId, masterAcceptReadRequests, nodes, readWriteMode);
+    return Objects.hash(addresses, autoAddNewNodes, consistLevel, consistTimeout, consistTimeoutAction, description, distributedTransaction, endpointId, endpointName, endpointType, masterAcceptReadRequests, nodeIds, readWriteMode);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ModifyDBEndpointRequest {\n");
+    sb.append("class EndpointForDescribeDBEndpointOutput {\n");
     
+    sb.append("    addresses: ").append(toIndentedString(addresses)).append("\n");
     sb.append("    autoAddNewNodes: ").append(toIndentedString(autoAddNewNodes)).append("\n");
     sb.append("    consistLevel: ").append(toIndentedString(consistLevel)).append("\n");
     sb.append("    consistTimeout: ").append(toIndentedString(consistTimeout)).append("\n");
@@ -458,9 +544,9 @@ public class ModifyDBEndpointRequest {
     sb.append("    distributedTransaction: ").append(toIndentedString(distributedTransaction)).append("\n");
     sb.append("    endpointId: ").append(toIndentedString(endpointId)).append("\n");
     sb.append("    endpointName: ").append(toIndentedString(endpointName)).append("\n");
-    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    endpointType: ").append(toIndentedString(endpointType)).append("\n");
     sb.append("    masterAcceptReadRequests: ").append(toIndentedString(masterAcceptReadRequests)).append("\n");
-    sb.append("    nodes: ").append(toIndentedString(nodes)).append("\n");
+    sb.append("    nodeIds: ").append(toIndentedString(nodeIds)).append("\n");
     sb.append("    readWriteMode: ").append(toIndentedString(readWriteMode)).append("\n");
     sb.append("}");
     return sb.toString();

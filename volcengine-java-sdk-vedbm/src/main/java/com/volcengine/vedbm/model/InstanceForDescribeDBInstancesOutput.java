@@ -161,9 +161,6 @@ public class InstanceForDescribeDBInstancesOutput {
   @SerializedName("Tags")
   private List<TagForDescribeDBInstancesOutput> tags = null;
 
-  @SerializedName("TenantId")
-  private String tenantId = null;
-
   @SerializedName("TimeZone")
   private String timeZone = null;
 
@@ -444,24 +441,6 @@ public class InstanceForDescribeDBInstancesOutput {
     this.tags = tags;
   }
 
-  public InstanceForDescribeDBInstancesOutput tenantId(String tenantId) {
-    this.tenantId = tenantId;
-    return this;
-  }
-
-   /**
-   * Get tenantId
-   * @return tenantId
-  **/
-  @Schema(description = "")
-  public String getTenantId() {
-    return tenantId;
-  }
-
-  public void setTenantId(String tenantId) {
-    this.tenantId = tenantId;
-  }
-
   public InstanceForDescribeDBInstancesOutput timeZone(String timeZone) {
     this.timeZone = timeZone;
     return this;
@@ -540,7 +519,6 @@ public class InstanceForDescribeDBInstancesOutput {
         Objects.equals(this.storageUsedGiB, instanceForDescribeDBInstancesOutput.storageUsedGiB) &&
         Objects.equals(this.subnetId, instanceForDescribeDBInstancesOutput.subnetId) &&
         Objects.equals(this.tags, instanceForDescribeDBInstancesOutput.tags) &&
-        Objects.equals(this.tenantId, instanceForDescribeDBInstancesOutput.tenantId) &&
         Objects.equals(this.timeZone, instanceForDescribeDBInstancesOutput.timeZone) &&
         Objects.equals(this.vpcId, instanceForDescribeDBInstancesOutput.vpcId) &&
         Objects.equals(this.zoneIds, instanceForDescribeDBInstancesOutput.zoneIds);
@@ -548,7 +526,7 @@ public class InstanceForDescribeDBInstancesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(chargeDetail, createTime, dbEngineVersion, instanceId, instanceName, instanceStatus, nodes, prePaidStorageInGB, projectName, regionId, storageChargeType, storageUsedGiB, subnetId, tags, tenantId, timeZone, vpcId, zoneIds);
+    return Objects.hash(chargeDetail, createTime, dbEngineVersion, instanceId, instanceName, instanceStatus, nodes, prePaidStorageInGB, projectName, regionId, storageChargeType, storageUsedGiB, subnetId, tags, timeZone, vpcId, zoneIds);
   }
 
 
@@ -571,7 +549,6 @@ public class InstanceForDescribeDBInstancesOutput {
     sb.append("    storageUsedGiB: ").append(toIndentedString(storageUsedGiB)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
-    sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
     sb.append("    timeZone: ").append(toIndentedString(timeZone)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("    zoneIds: ").append(toIndentedString(zoneIds)).append("\n");

@@ -36,8 +36,49 @@ public class InstanceStructureForDescribeDBInstanceDetailOutput {
   @SerializedName("Nodes")
   private List<NodeForDescribeDBInstanceDetailOutput> nodes = null;
 
-  @SerializedName("SubInstanceType")
-  private String subInstanceType = null;
+  /**
+   * Gets or Sets subInstanceType
+   */
+  @JsonAdapter(SubInstanceTypeEnum.Adapter.class)
+  public enum SubInstanceTypeEnum {
+    @SerializedName("Primary")
+    PRIMARY("Primary");
+
+    private String value;
+
+    SubInstanceTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static SubInstanceTypeEnum fromValue(String input) {
+      for (SubInstanceTypeEnum b : SubInstanceTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<SubInstanceTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final SubInstanceTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public SubInstanceTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return SubInstanceTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("SubInstanceType")
+  private SubInstanceTypeEnum subInstanceType = null;
 
   @SerializedName("ZoneIds")
   private String zoneIds = null;
@@ -69,7 +110,7 @@ public class InstanceStructureForDescribeDBInstanceDetailOutput {
     this.nodes = nodes;
   }
 
-  public InstanceStructureForDescribeDBInstanceDetailOutput subInstanceType(String subInstanceType) {
+  public InstanceStructureForDescribeDBInstanceDetailOutput subInstanceType(SubInstanceTypeEnum subInstanceType) {
     this.subInstanceType = subInstanceType;
     return this;
   }
@@ -79,11 +120,11 @@ public class InstanceStructureForDescribeDBInstanceDetailOutput {
    * @return subInstanceType
   **/
   @Schema(description = "")
-  public String getSubInstanceType() {
+  public SubInstanceTypeEnum getSubInstanceType() {
     return subInstanceType;
   }
 
-  public void setSubInstanceType(String subInstanceType) {
+  public void setSubInstanceType(SubInstanceTypeEnum subInstanceType) {
     this.subInstanceType = subInstanceType;
   }
 

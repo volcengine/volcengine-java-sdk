@@ -47,7 +47,9 @@ public class ChargeDetailForDescribeDBInstanceDetailOutput {
     @SerializedName("Normal")
     NORMAL("Normal"),
     @SerializedName("Overdue")
-    OVERDUE("Overdue");
+    OVERDUE("Overdue"),
+    @SerializedName("Shutdown")
+    SHUTDOWN("Shutdown");
 
     private String value;
 
@@ -130,9 +132,6 @@ public class ChargeDetailForDescribeDBInstanceDetailOutput {
     }
   }  @SerializedName("ChargeType")
   private ChargeTypeEnum chargeType = null;
-
-  @SerializedName("OrderId")
-  private String orderId = null;
 
   @SerializedName("OverdueReclaimTime")
   private String overdueReclaimTime = null;
@@ -230,24 +229,6 @@ public class ChargeDetailForDescribeDBInstanceDetailOutput {
     this.chargeType = chargeType;
   }
 
-  public ChargeDetailForDescribeDBInstanceDetailOutput orderId(String orderId) {
-    this.orderId = orderId;
-    return this;
-  }
-
-   /**
-   * Get orderId
-   * @return orderId
-  **/
-  @Schema(description = "")
-  public String getOrderId() {
-    return orderId;
-  }
-
-  public void setOrderId(String orderId) {
-    this.orderId = orderId;
-  }
-
   public ChargeDetailForDescribeDBInstanceDetailOutput overdueReclaimTime(String overdueReclaimTime) {
     this.overdueReclaimTime = overdueReclaimTime;
     return this;
@@ -299,14 +280,13 @@ public class ChargeDetailForDescribeDBInstanceDetailOutput {
         Objects.equals(this.chargeStartTime, chargeDetailForDescribeDBInstanceDetailOutput.chargeStartTime) &&
         Objects.equals(this.chargeStatus, chargeDetailForDescribeDBInstanceDetailOutput.chargeStatus) &&
         Objects.equals(this.chargeType, chargeDetailForDescribeDBInstanceDetailOutput.chargeType) &&
-        Objects.equals(this.orderId, chargeDetailForDescribeDBInstanceDetailOutput.orderId) &&
         Objects.equals(this.overdueReclaimTime, chargeDetailForDescribeDBInstanceDetailOutput.overdueReclaimTime) &&
         Objects.equals(this.overdueTime, chargeDetailForDescribeDBInstanceDetailOutput.overdueTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoRenew, chargeEndTime, chargeStartTime, chargeStatus, chargeType, orderId, overdueReclaimTime, overdueTime);
+    return Objects.hash(autoRenew, chargeEndTime, chargeStartTime, chargeStatus, chargeType, overdueReclaimTime, overdueTime);
   }
 
 
@@ -320,7 +300,6 @@ public class ChargeDetailForDescribeDBInstanceDetailOutput {
     sb.append("    chargeStartTime: ").append(toIndentedString(chargeStartTime)).append("\n");
     sb.append("    chargeStatus: ").append(toIndentedString(chargeStatus)).append("\n");
     sb.append("    chargeType: ").append(toIndentedString(chargeType)).append("\n");
-    sb.append("    orderId: ").append(toIndentedString(orderId)).append("\n");
     sb.append("    overdueReclaimTime: ").append(toIndentedString(overdueReclaimTime)).append("\n");
     sb.append("    overdueTime: ").append(toIndentedString(overdueTime)).append("\n");
     sb.append("}");

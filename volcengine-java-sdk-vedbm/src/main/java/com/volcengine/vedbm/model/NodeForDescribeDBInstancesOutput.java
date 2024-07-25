@@ -36,8 +36,79 @@ public class NodeForDescribeDBInstancesOutput {
   @SerializedName("NodeId")
   private String nodeId = null;
 
-  @SerializedName("NodeSpec")
-  private String nodeSpec = null;
+  /**
+   * Gets or Sets nodeSpec
+   */
+  @JsonAdapter(NodeSpecEnum.Adapter.class)
+  public enum NodeSpecEnum {
+    @SerializedName("vedb.mysql.x4.large")
+    X4_LARGE("vedb.mysql.x4.large"),
+    @SerializedName("vedb.mysql.x8.large")
+    X8_LARGE("vedb.mysql.x8.large"),
+    @SerializedName("vedb.mysql.x4.xlarge")
+    X4_XLARGE("vedb.mysql.x4.xlarge"),
+    @SerializedName("vedb.mysql.x8.xlarge")
+    X8_XLARGE("vedb.mysql.x8.xlarge"),
+    @SerializedName("vedb.mysql.x4.2xlarge")
+    X4_2XLARGE("vedb.mysql.x4.2xlarge"),
+    @SerializedName("vedb.mysql.x8.2xlarge")
+    X8_2XLARGE("vedb.mysql.x8.2xlarge"),
+    @SerializedName("vedb.mysql.x4.4xlarge")
+    X4_4XLARGE("vedb.mysql.x4.4xlarge"),
+    @SerializedName("vedb.mysql.x8.4xlarge")
+    X8_4XLARGE("vedb.mysql.x8.4xlarge"),
+    @SerializedName("vedb.mysql.x8.6xlarge")
+    X8_6XLARGE("vedb.mysql.x8.6xlarge"),
+    @SerializedName("vedb.mysql.x4.8xlarge")
+    X4_8XLARGE("vedb.mysql.x4.8xlarge"),
+    @SerializedName("vedb.mysql.x8.8xlarge")
+    X8_8XLARGE("vedb.mysql.x8.8xlarge"),
+    @SerializedName("vedb.mysql.g4.large")
+    G4_LARGE("vedb.mysql.g4.large"),
+    @SerializedName("vedb.mysql.g4.xlarge")
+    G4_XLARGE("vedb.mysql.g4.xlarge"),
+    @SerializedName("vedb.mysql.g4.2xlarge")
+    G4_2XLARGE("vedb.mysql.g4.2xlarge"),
+    @SerializedName("vedb.mysql.g8.2xlarge")
+    G8_2XLARGE("vedb.mysql.g8.2xlarge"),
+    @SerializedName("vedb.mysql.g4.4xlarge")
+    G4_4XLARGE("vedb.mysql.g4.4xlarge");
+
+    private String value;
+
+    NodeSpecEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static NodeSpecEnum fromValue(String input) {
+      for (NodeSpecEnum b : NodeSpecEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<NodeSpecEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final NodeSpecEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public NodeSpecEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return NodeSpecEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("NodeSpec")
+  private NodeSpecEnum nodeSpec = null;
 
   /**
    * Gets or Sets nodeType
@@ -127,7 +198,7 @@ public class NodeForDescribeDBInstancesOutput {
     this.nodeId = nodeId;
   }
 
-  public NodeForDescribeDBInstancesOutput nodeSpec(String nodeSpec) {
+  public NodeForDescribeDBInstancesOutput nodeSpec(NodeSpecEnum nodeSpec) {
     this.nodeSpec = nodeSpec;
     return this;
   }
@@ -137,11 +208,11 @@ public class NodeForDescribeDBInstancesOutput {
    * @return nodeSpec
   **/
   @Schema(description = "")
-  public String getNodeSpec() {
+  public NodeSpecEnum getNodeSpec() {
     return nodeSpec;
   }
 
-  public void setNodeSpec(String nodeSpec) {
+  public void setNodeSpec(NodeSpecEnum nodeSpec) {
     this.nodeSpec = nodeSpec;
   }
 
