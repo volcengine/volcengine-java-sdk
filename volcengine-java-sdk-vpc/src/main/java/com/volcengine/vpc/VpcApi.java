@@ -53,6 +53,8 @@ import com.volcengine.vpc.model.AuthorizeSecurityGroupIngressRequest;
 import com.volcengine.vpc.model.AuthorizeSecurityGroupIngressResponse;
 import com.volcengine.vpc.model.CancelBandwidthPackageEipBandwidthRequest;
 import com.volcengine.vpc.model.CancelBandwidthPackageEipBandwidthResponse;
+import com.volcengine.vpc.model.ConvertEipAddressBillingTypeRequest;
+import com.volcengine.vpc.model.ConvertEipAddressBillingTypeResponse;
 import com.volcengine.vpc.model.CreateBandwidthPackageRequest;
 import com.volcengine.vpc.model.CreateBandwidthPackageResponse;
 import com.volcengine.vpc.model.CreateHaVipRequest;
@@ -1830,6 +1832,130 @@ public class VpcApi {
 
         com.squareup.okhttp.Call call = cancelBandwidthPackageEipBandwidthValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<CancelBandwidthPackageEipBandwidthResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for convertEipAddressBillingType
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call convertEipAddressBillingTypeCall(ConvertEipAddressBillingTypeRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/ConvertEipAddressBillingType/2020-04-01/vpc/get/text_plain/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call convertEipAddressBillingTypeValidateBeforeCall(ConvertEipAddressBillingTypeRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling convertEipAddressBillingType(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = convertEipAddressBillingTypeCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ConvertEipAddressBillingTypeResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ConvertEipAddressBillingTypeResponse convertEipAddressBillingType(ConvertEipAddressBillingTypeRequest body) throws ApiException {
+        ApiResponse<ConvertEipAddressBillingTypeResponse> resp = convertEipAddressBillingTypeWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;ConvertEipAddressBillingTypeResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ConvertEipAddressBillingTypeResponse> convertEipAddressBillingTypeWithHttpInfo( @NotNull ConvertEipAddressBillingTypeRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = convertEipAddressBillingTypeValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<ConvertEipAddressBillingTypeResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call convertEipAddressBillingTypeAsync(ConvertEipAddressBillingTypeRequest body, final ApiCallback<ConvertEipAddressBillingTypeResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = convertEipAddressBillingTypeValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ConvertEipAddressBillingTypeResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
