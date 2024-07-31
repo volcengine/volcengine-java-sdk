@@ -14,6 +14,13 @@ package com.volcengine.rdsmysqlv2.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -23,6 +30,48 @@ import javax.validation.Valid;
 
 
 public class DescribeBackupDecryptionKeyResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("DecryptionKey")
+  private String decryptionKey = null;
+
+  @SerializedName("Iv")
+  private String iv = null;
+
+  public DescribeBackupDecryptionKeyResponse decryptionKey(String decryptionKey) {
+    this.decryptionKey = decryptionKey;
+    return this;
+  }
+
+   /**
+   * Get decryptionKey
+   * @return decryptionKey
+  **/
+  @Schema(description = "")
+  public String getDecryptionKey() {
+    return decryptionKey;
+  }
+
+  public void setDecryptionKey(String decryptionKey) {
+    this.decryptionKey = decryptionKey;
+  }
+
+  public DescribeBackupDecryptionKeyResponse iv(String iv) {
+    this.iv = iv;
+    return this;
+  }
+
+   /**
+   * Get iv
+   * @return iv
+  **/
+  @Schema(description = "")
+  public String getIv() {
+    return iv;
+  }
+
+  public void setIv(String iv) {
+    this.iv = iv;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -32,12 +81,14 @@ public class DescribeBackupDecryptionKeyResponse extends com.volcengine.model.Ab
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return true;
+    DescribeBackupDecryptionKeyResponse describeBackupDecryptionKeyResponse = (DescribeBackupDecryptionKeyResponse) o;
+    return Objects.equals(this.decryptionKey, describeBackupDecryptionKeyResponse.decryptionKey) &&
+        Objects.equals(this.iv, describeBackupDecryptionKeyResponse.iv);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash();
+    return Objects.hash(decryptionKey, iv);
   }
 
 
@@ -46,6 +97,8 @@ public class DescribeBackupDecryptionKeyResponse extends com.volcengine.model.Ab
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeBackupDecryptionKeyResponse {\n");
     
+    sb.append("    decryptionKey: ").append(toIndentedString(decryptionKey)).append("\n");
+    sb.append("    iv: ").append(toIndentedString(iv)).append("\n");
     sb.append("}");
     return sb.toString();
   }
