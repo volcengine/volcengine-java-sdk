@@ -1,7 +1,9 @@
 package com.volcengine.ark.runtime.model.completion.chat;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.volcengine.ark.runtime.model.bot.completion.chat.BotChatCompletionRequest;
+import com.volcengine.ark.runtime.utils.JacksonUtil;
 
 import java.util.List;
 import java.util.Map;
@@ -114,6 +116,30 @@ public class ChatCompletionRequest {
      */
     @JsonProperty("top_logprobs")
     Integer topLogprobs;
+
+    @JsonProperty("repetition_penalty")
+    Double repetitionPenalty;
+
+    /**
+     * How many chat completion chatCompletionChoices to generate for each input message.
+     */
+    Integer n;
+
+    @JsonProperty("tool_choice")
+    Object toolChoice;
+
+    /**
+     * `type` must be one of `text` or `json_object`.
+     * If the request only specifies type=`json_object` and no schema is specified, refer to the openai behavior,
+     * the model outputs an arbitrary json object (depending on the user's instruction in the user prompt/system prompt)
+     *
+     * Even if the schema is specified, still need to specify the expected json format in user prompt/system prompt
+     */
+    @JsonProperty("response_format")
+    ChatCompletionRequestResponseFormat responseFormat;
+
+    @JsonProperty("max_prompt_tokens")
+    Integer maxPromptTokens;
 
     public String getModel() {
         return model;
@@ -251,6 +277,46 @@ public class ChatCompletionRequest {
         this.topLogprobs = topLogprobs;
     }
 
+    public Double getRepetitionPenalty() {
+        return repetitionPenalty;
+    }
+
+    public void setRepetitionPenalty(Double repetitionPenalty) {
+        this.repetitionPenalty = repetitionPenalty;
+    }
+
+    public Integer getN() {
+        return n;
+    }
+
+    public void setN(Integer n) {
+        this.n = n;
+    }
+
+    public Object getToolChoice() {
+        return toolChoice;
+    }
+
+    public void setToolChoice(Object toolChoice) {
+        this.toolChoice = toolChoice;
+    }
+
+    public ChatCompletionRequestResponseFormat getResponseFormat() {
+        return responseFormat;
+    }
+
+    public void setResponseFormat(ChatCompletionRequestResponseFormat responseFormat) {
+        this.responseFormat = responseFormat;
+    }
+
+    public Integer getMaxPromptTokens() {
+        return maxPromptTokens;
+    }
+
+    public void setMaxPromptTokens(Integer maxPromptTokens) {
+        this.maxPromptTokens = maxPromptTokens;
+    }
+
     @Override
     public String toString() {
         return "ChatCompletionRequest{" +
@@ -271,6 +337,11 @@ public class ChatCompletionRequest {
                 ", functionCall=" + functionCall +
                 ", logprobs=" + logprobs +
                 ", topLogprobs=" + topLogprobs +
+                ", repetitionPenalty=" + repetitionPenalty +
+                ", n=" + n +
+                ", toolChoice=" + toolChoice +
+                ", responseFormat=" + responseFormat +
+                ", maxPromptTokens=" + maxPromptTokens +
                 '}';
     }
 
@@ -315,6 +386,72 @@ public class ChatCompletionRequest {
         }
     }
 
+    public static class ChatCompletionRequestResponseFormat {
+        String type;
+        JsonNode schema;
+
+        public ChatCompletionRequestResponseFormat(String type) {
+            this.type = type;
+        }
+
+        public ChatCompletionRequestResponseFormat(String type, Object schema) {
+            this.type = type;
+            this.schema = JacksonUtil.clsToJsonNode(schema);
+        }
+
+        public String getType() {
+            return type;
+        }
+
+        public void setType(String type) {
+            this.type = type;
+        }
+
+        public JsonNode getSchema() {
+            return schema;
+        }
+
+        public void setSchema(JsonNode schema) {
+            this.schema = schema;
+        }
+    }
+
+    public static class ChatCompletionRequestToolChoice {
+        String type;
+        ChatCompletionRequestToolChoiceFunction function;
+
+        public String getType() {
+            return type;
+        }
+
+        public void setType(String type) {
+            this.type = type;
+        }
+
+        public ChatCompletionRequestToolChoiceFunction getFunction() {
+            return function;
+        }
+
+        public void setFunction(ChatCompletionRequestToolChoiceFunction function) {
+            this.function = function;
+        }
+
+        public ChatCompletionRequestToolChoice(String type, ChatCompletionRequestToolChoiceFunction function) {
+            this.type = type;
+            this.function = function;
+        }
+
+    }
+
+    public static class ChatCompletionRequestToolChoiceFunction {
+        String name;
+
+        public ChatCompletionRequestToolChoiceFunction(String name) {
+            this.name = name;
+        }
+
+    }
+
     public static ChatCompletionRequest.Builder builder() {
         return new ChatCompletionRequest.Builder();
     }
@@ -337,6 +474,11 @@ public class ChatCompletionRequest {
         private ChatCompletionRequestFunctionCall functionCall;
         private Boolean logprobs;
         private Integer topLogprobs;
+        private Double repetitionPenalty;
+        private Integer n;
+        private Object toolChoice;
+        private ChatCompletionRequestResponseFormat responseFormat;
+        private Integer maxPromptTokens;
 
         public ChatCompletionRequest.Builder model(String model) {
             this.model = model;
@@ -423,6 +565,36 @@ public class ChatCompletionRequest {
             return this;
         }
 
+        public ChatCompletionRequest.Builder repetitionPenalty(Double repetitionPenalty) {
+            this.repetitionPenalty = repetitionPenalty;
+            return this;
+        }
+
+        public ChatCompletionRequest.Builder n(Integer n) {
+            this.n = n;
+            return this;
+        }
+
+        public ChatCompletionRequest.Builder toolChoice(String toolChoice) {
+            this.toolChoice = toolChoice;
+            return this;
+        }
+
+        public ChatCompletionRequest.Builder toolChoice(ChatCompletionRequestToolChoice toolChoice) {
+            this.toolChoice = toolChoice;
+            return this;
+        }
+
+        public ChatCompletionRequest.Builder responseFormat(ChatCompletionRequestResponseFormat responseFormat) {
+            this.responseFormat = responseFormat;
+            return this;
+        }
+
+        public ChatCompletionRequest.Builder maxPromptTokens(Integer maxPromptTokens) {
+            this.maxPromptTokens = maxPromptTokens;
+            return this;
+        }
+
         public ChatCompletionRequest build() {
             ChatCompletionRequest chatCompletionRequest = new ChatCompletionRequest();
             chatCompletionRequest.setModel(model);
@@ -442,6 +614,11 @@ public class ChatCompletionRequest {
             chatCompletionRequest.setFunctionCall(functionCall);
             chatCompletionRequest.setLogprobs(logprobs);
             chatCompletionRequest.setTopLogprobs(topLogprobs);
+            chatCompletionRequest.setRepetitionPenalty(repetitionPenalty);
+            chatCompletionRequest.setN(n);
+            chatCompletionRequest.setToolChoice(toolChoice);
+            chatCompletionRequest.setResponseFormat(responseFormat);
+            chatCompletionRequest.setMaxPromptTokens(maxPromptTokens);
             return chatCompletionRequest;
         }
     }
