@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class InstanceSpecsInfoForDescribeDBInstanceSpecsOutput {
   @SerializedName("Connection")
   private Integer connection = null;

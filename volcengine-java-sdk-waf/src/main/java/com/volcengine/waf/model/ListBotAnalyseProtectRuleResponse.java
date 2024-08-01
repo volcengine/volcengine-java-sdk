@@ -36,11 +36,11 @@ public class ListBotAnalyseProtectRuleResponse extends com.volcengine.model.Abst
   @SerializedName("Count")
   private Integer count = null;
 
+  @SerializedName("CurrentPage")
+  private Integer currentPage = null;
+
   @SerializedName("Data")
   private List<DataForListBotAnalyseProtectRuleOutput> data = null;
-
-  @SerializedName("PageNumber")
-  private Integer pageNumber = null;
 
   @SerializedName("PageSize")
   private Integer pageSize = null;
@@ -64,6 +64,24 @@ public class ListBotAnalyseProtectRuleResponse extends com.volcengine.model.Abst
 
   public void setCount(Integer count) {
     this.count = count;
+  }
+
+  public ListBotAnalyseProtectRuleResponse currentPage(Integer currentPage) {
+    this.currentPage = currentPage;
+    return this;
+  }
+
+   /**
+   * Get currentPage
+   * @return currentPage
+  **/
+  @Schema(description = "")
+  public Integer getCurrentPage() {
+    return currentPage;
+  }
+
+  public void setCurrentPage(Integer currentPage) {
+    this.currentPage = currentPage;
   }
 
   public ListBotAnalyseProtectRuleResponse data(List<DataForListBotAnalyseProtectRuleOutput> data) {
@@ -91,24 +109,6 @@ public class ListBotAnalyseProtectRuleResponse extends com.volcengine.model.Abst
 
   public void setData(List<DataForListBotAnalyseProtectRuleOutput> data) {
     this.data = data;
-  }
-
-  public ListBotAnalyseProtectRuleResponse pageNumber(Integer pageNumber) {
-    this.pageNumber = pageNumber;
-    return this;
-  }
-
-   /**
-   * Get pageNumber
-   * @return pageNumber
-  **/
-  @Schema(description = "")
-  public Integer getPageNumber() {
-    return pageNumber;
-  }
-
-  public void setPageNumber(Integer pageNumber) {
-    this.pageNumber = pageNumber;
   }
 
   public ListBotAnalyseProtectRuleResponse pageSize(Integer pageSize) {
@@ -158,15 +158,15 @@ public class ListBotAnalyseProtectRuleResponse extends com.volcengine.model.Abst
     }
     ListBotAnalyseProtectRuleResponse listBotAnalyseProtectRuleResponse = (ListBotAnalyseProtectRuleResponse) o;
     return Objects.equals(this.count, listBotAnalyseProtectRuleResponse.count) &&
+        Objects.equals(this.currentPage, listBotAnalyseProtectRuleResponse.currentPage) &&
         Objects.equals(this.data, listBotAnalyseProtectRuleResponse.data) &&
-        Objects.equals(this.pageNumber, listBotAnalyseProtectRuleResponse.pageNumber) &&
         Objects.equals(this.pageSize, listBotAnalyseProtectRuleResponse.pageSize) &&
         Objects.equals(this.totalCount, listBotAnalyseProtectRuleResponse.totalCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(count, data, pageNumber, pageSize, totalCount);
+    return Objects.hash(count, currentPage, data, pageSize, totalCount);
   }
 
 
@@ -176,8 +176,8 @@ public class ListBotAnalyseProtectRuleResponse extends com.volcengine.model.Abst
     sb.append("class ListBotAnalyseProtectRuleResponse {\n");
     
     sb.append("    count: ").append(toIndentedString(count)).append("\n");
+    sb.append("    currentPage: ").append(toIndentedString(currentPage)).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("}");

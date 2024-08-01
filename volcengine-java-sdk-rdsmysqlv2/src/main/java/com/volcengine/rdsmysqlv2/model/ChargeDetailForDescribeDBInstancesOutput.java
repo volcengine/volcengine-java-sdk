@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ChargeDetailForDescribeDBInstancesOutput {
   @SerializedName("AutoRenew")
   private Boolean autoRenew = null;

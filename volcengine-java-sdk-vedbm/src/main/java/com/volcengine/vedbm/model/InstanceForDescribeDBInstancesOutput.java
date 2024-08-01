@@ -33,6 +33,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class InstanceForDescribeDBInstancesOutput {
   @SerializedName("ChargeDetail")
   private ChargeDetailForDescribeDBInstancesOutput chargeDetail = null;
@@ -40,8 +41,49 @@ public class InstanceForDescribeDBInstancesOutput {
   @SerializedName("CreateTime")
   private String createTime = null;
 
-  @SerializedName("DBEngineVersion")
-  private String dbEngineVersion = null;
+  /**
+   * Gets or Sets dbEngineVersion
+   */
+  @JsonAdapter(DbEngineVersionEnum.Adapter.class)
+  public enum DbEngineVersionEnum {
+    @SerializedName("MySQL_8_0")
+    MYSQL_8_0("MySQL_8_0");
+
+    private String value;
+
+    DbEngineVersionEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static DbEngineVersionEnum fromValue(String input) {
+      for (DbEngineVersionEnum b : DbEngineVersionEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<DbEngineVersionEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final DbEngineVersionEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public DbEngineVersionEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return DbEngineVersionEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("DBEngineVersion")
+  private DbEngineVersionEnum dbEngineVersion = null;
 
   @SerializedName("InstanceId")
   private String instanceId = null;
@@ -64,6 +106,52 @@ public class InstanceForDescribeDBInstancesOutput {
   @SerializedName("RegionId")
   private String regionId = null;
 
+  /**
+   * Gets or Sets storageChargeType
+   */
+  @JsonAdapter(StorageChargeTypeEnum.Adapter.class)
+  public enum StorageChargeTypeEnum {
+    @SerializedName("PostPaid")
+    POSTPAID("PostPaid"),
+    @SerializedName("PrePaid")
+    PREPAID("PrePaid");
+
+    private String value;
+
+    StorageChargeTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static StorageChargeTypeEnum fromValue(String input) {
+      for (StorageChargeTypeEnum b : StorageChargeTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<StorageChargeTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final StorageChargeTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public StorageChargeTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return StorageChargeTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("StorageChargeType")
+  private StorageChargeTypeEnum storageChargeType = null;
+
   @SerializedName("StorageUsedGiB")
   private Double storageUsedGiB = null;
 
@@ -72,9 +160,6 @@ public class InstanceForDescribeDBInstancesOutput {
 
   @SerializedName("Tags")
   private List<TagForDescribeDBInstancesOutput> tags = null;
-
-  @SerializedName("TenantId")
-  private String tenantId = null;
 
   @SerializedName("TimeZone")
   private String timeZone = null;
@@ -122,7 +207,7 @@ public class InstanceForDescribeDBInstancesOutput {
     this.createTime = createTime;
   }
 
-  public InstanceForDescribeDBInstancesOutput dbEngineVersion(String dbEngineVersion) {
+  public InstanceForDescribeDBInstancesOutput dbEngineVersion(DbEngineVersionEnum dbEngineVersion) {
     this.dbEngineVersion = dbEngineVersion;
     return this;
   }
@@ -132,11 +217,11 @@ public class InstanceForDescribeDBInstancesOutput {
    * @return dbEngineVersion
   **/
   @Schema(description = "")
-  public String getDbEngineVersion() {
+  public DbEngineVersionEnum getDbEngineVersion() {
     return dbEngineVersion;
   }
 
-  public void setDbEngineVersion(String dbEngineVersion) {
+  public void setDbEngineVersion(DbEngineVersionEnum dbEngineVersion) {
     this.dbEngineVersion = dbEngineVersion;
   }
 
@@ -275,6 +360,24 @@ public class InstanceForDescribeDBInstancesOutput {
     this.regionId = regionId;
   }
 
+  public InstanceForDescribeDBInstancesOutput storageChargeType(StorageChargeTypeEnum storageChargeType) {
+    this.storageChargeType = storageChargeType;
+    return this;
+  }
+
+   /**
+   * Get storageChargeType
+   * @return storageChargeType
+  **/
+  @Schema(description = "")
+  public StorageChargeTypeEnum getStorageChargeType() {
+    return storageChargeType;
+  }
+
+  public void setStorageChargeType(StorageChargeTypeEnum storageChargeType) {
+    this.storageChargeType = storageChargeType;
+  }
+
   public InstanceForDescribeDBInstancesOutput storageUsedGiB(Double storageUsedGiB) {
     this.storageUsedGiB = storageUsedGiB;
     return this;
@@ -336,24 +439,6 @@ public class InstanceForDescribeDBInstancesOutput {
 
   public void setTags(List<TagForDescribeDBInstancesOutput> tags) {
     this.tags = tags;
-  }
-
-  public InstanceForDescribeDBInstancesOutput tenantId(String tenantId) {
-    this.tenantId = tenantId;
-    return this;
-  }
-
-   /**
-   * Get tenantId
-   * @return tenantId
-  **/
-  @Schema(description = "")
-  public String getTenantId() {
-    return tenantId;
-  }
-
-  public void setTenantId(String tenantId) {
-    this.tenantId = tenantId;
   }
 
   public InstanceForDescribeDBInstancesOutput timeZone(String timeZone) {
@@ -430,10 +515,10 @@ public class InstanceForDescribeDBInstancesOutput {
         Objects.equals(this.prePaidStorageInGB, instanceForDescribeDBInstancesOutput.prePaidStorageInGB) &&
         Objects.equals(this.projectName, instanceForDescribeDBInstancesOutput.projectName) &&
         Objects.equals(this.regionId, instanceForDescribeDBInstancesOutput.regionId) &&
+        Objects.equals(this.storageChargeType, instanceForDescribeDBInstancesOutput.storageChargeType) &&
         Objects.equals(this.storageUsedGiB, instanceForDescribeDBInstancesOutput.storageUsedGiB) &&
         Objects.equals(this.subnetId, instanceForDescribeDBInstancesOutput.subnetId) &&
         Objects.equals(this.tags, instanceForDescribeDBInstancesOutput.tags) &&
-        Objects.equals(this.tenantId, instanceForDescribeDBInstancesOutput.tenantId) &&
         Objects.equals(this.timeZone, instanceForDescribeDBInstancesOutput.timeZone) &&
         Objects.equals(this.vpcId, instanceForDescribeDBInstancesOutput.vpcId) &&
         Objects.equals(this.zoneIds, instanceForDescribeDBInstancesOutput.zoneIds);
@@ -441,7 +526,7 @@ public class InstanceForDescribeDBInstancesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(chargeDetail, createTime, dbEngineVersion, instanceId, instanceName, instanceStatus, nodes, prePaidStorageInGB, projectName, regionId, storageUsedGiB, subnetId, tags, tenantId, timeZone, vpcId, zoneIds);
+    return Objects.hash(chargeDetail, createTime, dbEngineVersion, instanceId, instanceName, instanceStatus, nodes, prePaidStorageInGB, projectName, regionId, storageChargeType, storageUsedGiB, subnetId, tags, timeZone, vpcId, zoneIds);
   }
 
 
@@ -460,10 +545,10 @@ public class InstanceForDescribeDBInstancesOutput {
     sb.append("    prePaidStorageInGB: ").append(toIndentedString(prePaidStorageInGB)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    regionId: ").append(toIndentedString(regionId)).append("\n");
+    sb.append("    storageChargeType: ").append(toIndentedString(storageChargeType)).append("\n");
     sb.append("    storageUsedGiB: ").append(toIndentedString(storageUsedGiB)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
-    sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
     sb.append("    timeZone: ").append(toIndentedString(timeZone)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("    zoneIds: ").append(toIndentedString(zoneIds)).append("\n");

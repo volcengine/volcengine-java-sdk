@@ -31,9 +31,53 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeDBInstancesRequest {
-  @SerializedName("ChargeType")
-  private String chargeType = null;
+  /**
+   * Gets or Sets chargeType
+   */
+  @JsonAdapter(ChargeTypeEnum.Adapter.class)
+  public enum ChargeTypeEnum {
+    @SerializedName("PostPaid")
+    POSTPAID("PostPaid"),
+    @SerializedName("PrePaid")
+    PREPAID("PrePaid");
+
+    private String value;
+
+    ChargeTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ChargeTypeEnum fromValue(String input) {
+      for (ChargeTypeEnum b : ChargeTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ChargeTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ChargeTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ChargeTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ChargeTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("ChargeType")
+  private ChargeTypeEnum chargeType = null;
 
   @SerializedName("CreateTimeEnd")
   private String createTimeEnd = null;
@@ -41,8 +85,49 @@ public class DescribeDBInstancesRequest {
   @SerializedName("CreateTimeStart")
   private String createTimeStart = null;
 
-  @SerializedName("DBEngineVersion")
-  private String dbEngineVersion = null;
+  /**
+   * Gets or Sets dbEngineVersion
+   */
+  @JsonAdapter(DbEngineVersionEnum.Adapter.class)
+  public enum DbEngineVersionEnum {
+    @SerializedName("MySQL_8_0")
+    MYSQL_8_0("MySQL_8_0");
+
+    private String value;
+
+    DbEngineVersionEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static DbEngineVersionEnum fromValue(String input) {
+      for (DbEngineVersionEnum b : DbEngineVersionEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<DbEngineVersionEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final DbEngineVersionEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public DbEngineVersionEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return DbEngineVersionEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("DBEngineVersion")
+  private DbEngineVersionEnum dbEngineVersion = null;
 
   @SerializedName("InstanceId")
   private String instanceId = null;
@@ -50,11 +135,157 @@ public class DescribeDBInstancesRequest {
   @SerializedName("InstanceName")
   private String instanceName = null;
 
-  @SerializedName("InstanceStatus")
-  private String instanceStatus = null;
+  /**
+   * Gets or Sets instanceStatus
+   */
+  @JsonAdapter(InstanceStatusEnum.Adapter.class)
+  public enum InstanceStatusEnum {
+    @SerializedName("WaitingPaid")
+    WAITINGPAID("WaitingPaid"),
+    @SerializedName("Running")
+    RUNNING("Running"),
+    @SerializedName("Creating")
+    CREATING("Creating"),
+    @SerializedName("Scaling")
+    SCALING("Scaling"),
+    @SerializedName("Restarting")
+    RESTARTING("Restarting"),
+    @SerializedName("Restoring")
+    RESTORING("Restoring"),
+    @SerializedName("Upgrading")
+    UPGRADING("Upgrading"),
+    @SerializedName("PrimaryChanging")
+    PRIMARYCHANGING("PrimaryChanging"),
+    @SerializedName("Unavailable")
+    UNAVAILABLE("Unavailable"),
+    @SerializedName("Deleting")
+    DELETING("Deleting"),
+    @SerializedName("Deleted")
+    DELETED("Deleted"),
+    @SerializedName("CreateFailed")
+    CREATEFAILED("CreateFailed"),
+    @SerializedName("Closing")
+    CLOSING("Closing"),
+    @SerializedName("Expired")
+    EXPIRED("Expired"),
+    @SerializedName("Owing")
+    OWING("Owing"),
+    @SerializedName("Resuming")
+    RESUMING("Resuming"),
+    @SerializedName("AllowListMaintaining")
+    ALLOWLISTMAINTAINING("AllowListMaintaining"),
+    @SerializedName("Error")
+    ERROR("Error");
 
-  @SerializedName("NodeSpec")
-  private String nodeSpec = null;
+    private String value;
+
+    InstanceStatusEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static InstanceStatusEnum fromValue(String input) {
+      for (InstanceStatusEnum b : InstanceStatusEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<InstanceStatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final InstanceStatusEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public InstanceStatusEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return InstanceStatusEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("InstanceStatus")
+  private InstanceStatusEnum instanceStatus = null;
+
+  /**
+   * Gets or Sets nodeSpec
+   */
+  @JsonAdapter(NodeSpecEnum.Adapter.class)
+  public enum NodeSpecEnum {
+    @SerializedName("vedb.mysql.x4.large")
+    X4_LARGE("vedb.mysql.x4.large"),
+    @SerializedName("vedb.mysql.x8.large")
+    X8_LARGE("vedb.mysql.x8.large"),
+    @SerializedName("vedb.mysql.x4.xlarge")
+    X4_XLARGE("vedb.mysql.x4.xlarge"),
+    @SerializedName("vedb.mysql.x8.xlarge")
+    X8_XLARGE("vedb.mysql.x8.xlarge"),
+    @SerializedName("vedb.mysql.x4.2xlarge")
+    X4_2XLARGE("vedb.mysql.x4.2xlarge"),
+    @SerializedName("vedb.mysql.x8.2xlarge")
+    X8_2XLARGE("vedb.mysql.x8.2xlarge"),
+    @SerializedName("vedb.mysql.x4.4xlarge")
+    X4_4XLARGE("vedb.mysql.x4.4xlarge"),
+    @SerializedName("vedb.mysql.x8.4xlarge")
+    X8_4XLARGE("vedb.mysql.x8.4xlarge"),
+    @SerializedName("vedb.mysql.x8.6xlarge")
+    X8_6XLARGE("vedb.mysql.x8.6xlarge"),
+    @SerializedName("vedb.mysql.x4.8xlarge")
+    X4_8XLARGE("vedb.mysql.x4.8xlarge"),
+    @SerializedName("vedb.mysql.x8.8xlarge")
+    X8_8XLARGE("vedb.mysql.x8.8xlarge"),
+    @SerializedName("vedb.mysql.g4.large")
+    G4_LARGE("vedb.mysql.g4.large"),
+    @SerializedName("vedb.mysql.g4.xlarge")
+    G4_XLARGE("vedb.mysql.g4.xlarge"),
+    @SerializedName("vedb.mysql.g4.2xlarge")
+    G4_2XLARGE("vedb.mysql.g4.2xlarge"),
+    @SerializedName("vedb.mysql.g8.2xlarge")
+    G8_2XLARGE("vedb.mysql.g8.2xlarge"),
+    @SerializedName("vedb.mysql.g4.4xlarge")
+    G4_4XLARGE("vedb.mysql.g4.4xlarge");
+
+    private String value;
+
+    NodeSpecEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static NodeSpecEnum fromValue(String input) {
+      for (NodeSpecEnum b : NodeSpecEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<NodeSpecEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final NodeSpecEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public NodeSpecEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return NodeSpecEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("NodeSpec")
+  private NodeSpecEnum nodeSpec = null;
 
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
@@ -71,7 +302,7 @@ public class DescribeDBInstancesRequest {
   @SerializedName("ZoneId")
   private String zoneId = null;
 
-  public DescribeDBInstancesRequest chargeType(String chargeType) {
+  public DescribeDBInstancesRequest chargeType(ChargeTypeEnum chargeType) {
     this.chargeType = chargeType;
     return this;
   }
@@ -81,11 +312,11 @@ public class DescribeDBInstancesRequest {
    * @return chargeType
   **/
   @Schema(description = "")
-  public String getChargeType() {
+  public ChargeTypeEnum getChargeType() {
     return chargeType;
   }
 
-  public void setChargeType(String chargeType) {
+  public void setChargeType(ChargeTypeEnum chargeType) {
     this.chargeType = chargeType;
   }
 
@@ -125,7 +356,7 @@ public class DescribeDBInstancesRequest {
     this.createTimeStart = createTimeStart;
   }
 
-  public DescribeDBInstancesRequest dbEngineVersion(String dbEngineVersion) {
+  public DescribeDBInstancesRequest dbEngineVersion(DbEngineVersionEnum dbEngineVersion) {
     this.dbEngineVersion = dbEngineVersion;
     return this;
   }
@@ -135,11 +366,11 @@ public class DescribeDBInstancesRequest {
    * @return dbEngineVersion
   **/
   @Schema(description = "")
-  public String getDbEngineVersion() {
+  public DbEngineVersionEnum getDbEngineVersion() {
     return dbEngineVersion;
   }
 
-  public void setDbEngineVersion(String dbEngineVersion) {
+  public void setDbEngineVersion(DbEngineVersionEnum dbEngineVersion) {
     this.dbEngineVersion = dbEngineVersion;
   }
 
@@ -179,7 +410,7 @@ public class DescribeDBInstancesRequest {
     this.instanceName = instanceName;
   }
 
-  public DescribeDBInstancesRequest instanceStatus(String instanceStatus) {
+  public DescribeDBInstancesRequest instanceStatus(InstanceStatusEnum instanceStatus) {
     this.instanceStatus = instanceStatus;
     return this;
   }
@@ -189,15 +420,15 @@ public class DescribeDBInstancesRequest {
    * @return instanceStatus
   **/
   @Schema(description = "")
-  public String getInstanceStatus() {
+  public InstanceStatusEnum getInstanceStatus() {
     return instanceStatus;
   }
 
-  public void setInstanceStatus(String instanceStatus) {
+  public void setInstanceStatus(InstanceStatusEnum instanceStatus) {
     this.instanceStatus = instanceStatus;
   }
 
-  public DescribeDBInstancesRequest nodeSpec(String nodeSpec) {
+  public DescribeDBInstancesRequest nodeSpec(NodeSpecEnum nodeSpec) {
     this.nodeSpec = nodeSpec;
     return this;
   }
@@ -207,11 +438,11 @@ public class DescribeDBInstancesRequest {
    * @return nodeSpec
   **/
   @Schema(description = "")
-  public String getNodeSpec() {
+  public NodeSpecEnum getNodeSpec() {
     return nodeSpec;
   }
 
-  public void setNodeSpec(String nodeSpec) {
+  public void setNodeSpec(NodeSpecEnum nodeSpec) {
     this.nodeSpec = nodeSpec;
   }
 
@@ -222,9 +453,10 @@ public class DescribeDBInstancesRequest {
 
    /**
    * Get pageNumber
+   * minimum: 1
    * @return pageNumber
   **/
-  @Schema(description = "")
+ @Min(1)  @Schema(description = "")
   public Integer getPageNumber() {
     return pageNumber;
   }

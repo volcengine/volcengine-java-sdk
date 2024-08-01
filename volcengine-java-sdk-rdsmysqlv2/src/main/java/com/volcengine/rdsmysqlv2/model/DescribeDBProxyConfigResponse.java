@@ -32,6 +32,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeDBProxyConfigResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("BinlogDump")
   private Boolean binlogDump = null;

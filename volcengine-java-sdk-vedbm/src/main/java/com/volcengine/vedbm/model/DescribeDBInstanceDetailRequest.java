@@ -28,12 +28,10 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeDBInstanceDetailRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;
-
-  @SerializedName("ProjectName")
-  private String projectName = null;
 
   public DescribeDBInstanceDetailRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
@@ -44,31 +42,14 @@ public class DescribeDBInstanceDetailRequest {
    * Get instanceId
    * @return instanceId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getInstanceId() {
     return instanceId;
   }
 
   public void setInstanceId(String instanceId) {
     this.instanceId = instanceId;
-  }
-
-  public DescribeDBInstanceDetailRequest projectName(String projectName) {
-    this.projectName = projectName;
-    return this;
-  }
-
-   /**
-   * Get projectName
-   * @return projectName
-  **/
-  @Schema(description = "")
-  public String getProjectName() {
-    return projectName;
-  }
-
-  public void setProjectName(String projectName) {
-    this.projectName = projectName;
   }
 
 
@@ -81,13 +62,12 @@ public class DescribeDBInstanceDetailRequest {
       return false;
     }
     DescribeDBInstanceDetailRequest describeDBInstanceDetailRequest = (DescribeDBInstanceDetailRequest) o;
-    return Objects.equals(this.instanceId, describeDBInstanceDetailRequest.instanceId) &&
-        Objects.equals(this.projectName, describeDBInstanceDetailRequest.projectName);
+    return Objects.equals(this.instanceId, describeDBInstanceDetailRequest.instanceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, projectName);
+    return Objects.hash(instanceId);
   }
 
 
@@ -97,7 +77,6 @@ public class DescribeDBInstanceDetailRequest {
     sb.append("class DescribeDBInstanceDetailRequest {\n");
     
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
-    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CopyParameterTemplateRequest {
   @SerializedName("SrcTemplateId")
   private String srcTemplateId = null;

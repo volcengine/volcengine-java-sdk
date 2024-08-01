@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class FailoverQueryInfoForDescribeFailoverLogsOutput {
   @SerializedName("ChangeTime")
   private String changeTime = null;

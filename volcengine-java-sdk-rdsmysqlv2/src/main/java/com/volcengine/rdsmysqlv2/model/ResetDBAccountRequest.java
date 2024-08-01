@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ResetDBAccountRequest {
   @SerializedName("AccountName")
   private String accountName = null;

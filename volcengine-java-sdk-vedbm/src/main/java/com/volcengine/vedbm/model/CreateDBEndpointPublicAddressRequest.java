@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateDBEndpointPublicAddressRequest {
   @SerializedName("EipId")
   private String eipId = null;
@@ -47,7 +48,8 @@ public class CreateDBEndpointPublicAddressRequest {
    * Get eipId
    * @return eipId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getEipId() {
     return eipId;
   }
@@ -65,7 +67,8 @@ public class CreateDBEndpointPublicAddressRequest {
    * Get endpointId
    * @return endpointId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getEndpointId() {
     return endpointId;
   }
@@ -83,7 +86,8 @@ public class CreateDBEndpointPublicAddressRequest {
    * Get instanceId
    * @return instanceId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getInstanceId() {
     return instanceId;
   }

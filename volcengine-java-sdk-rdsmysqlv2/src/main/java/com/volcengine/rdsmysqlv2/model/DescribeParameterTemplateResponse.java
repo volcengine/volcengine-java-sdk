@@ -29,6 +29,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeParameterTemplateResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("TemplateInfo")
   private TemplateInfoForDescribeParameterTemplateOutput templateInfo = null;

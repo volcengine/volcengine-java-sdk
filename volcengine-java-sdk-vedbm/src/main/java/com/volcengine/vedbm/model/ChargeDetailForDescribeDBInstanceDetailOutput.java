@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ChargeDetailForDescribeDBInstanceDetailOutput {
   @SerializedName("AutoRenew")
   private Boolean autoRenew = null;
@@ -38,14 +39,99 @@ public class ChargeDetailForDescribeDBInstanceDetailOutput {
   @SerializedName("ChargeStartTime")
   private String chargeStartTime = null;
 
-  @SerializedName("ChargeStatus")
-  private String chargeStatus = null;
+  /**
+   * Gets or Sets chargeStatus
+   */
+  @JsonAdapter(ChargeStatusEnum.Adapter.class)
+  public enum ChargeStatusEnum {
+    @SerializedName("Normal")
+    NORMAL("Normal"),
+    @SerializedName("Overdue")
+    OVERDUE("Overdue"),
+    @SerializedName("Shutdown")
+    SHUTDOWN("Shutdown");
 
-  @SerializedName("ChargeType")
-  private String chargeType = null;
+    private String value;
 
-  @SerializedName("OrderId")
-  private String orderId = null;
+    ChargeStatusEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ChargeStatusEnum fromValue(String input) {
+      for (ChargeStatusEnum b : ChargeStatusEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ChargeStatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ChargeStatusEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ChargeStatusEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ChargeStatusEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("ChargeStatus")
+  private ChargeStatusEnum chargeStatus = null;
+
+  /**
+   * Gets or Sets chargeType
+   */
+  @JsonAdapter(ChargeTypeEnum.Adapter.class)
+  public enum ChargeTypeEnum {
+    @SerializedName("PostPaid")
+    POSTPAID("PostPaid"),
+    @SerializedName("PrePaid")
+    PREPAID("PrePaid");
+
+    private String value;
+
+    ChargeTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ChargeTypeEnum fromValue(String input) {
+      for (ChargeTypeEnum b : ChargeTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ChargeTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ChargeTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ChargeTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ChargeTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("ChargeType")
+  private ChargeTypeEnum chargeType = null;
 
   @SerializedName("OverdueReclaimTime")
   private String overdueReclaimTime = null;
@@ -107,7 +193,7 @@ public class ChargeDetailForDescribeDBInstanceDetailOutput {
     this.chargeStartTime = chargeStartTime;
   }
 
-  public ChargeDetailForDescribeDBInstanceDetailOutput chargeStatus(String chargeStatus) {
+  public ChargeDetailForDescribeDBInstanceDetailOutput chargeStatus(ChargeStatusEnum chargeStatus) {
     this.chargeStatus = chargeStatus;
     return this;
   }
@@ -117,15 +203,15 @@ public class ChargeDetailForDescribeDBInstanceDetailOutput {
    * @return chargeStatus
   **/
   @Schema(description = "")
-  public String getChargeStatus() {
+  public ChargeStatusEnum getChargeStatus() {
     return chargeStatus;
   }
 
-  public void setChargeStatus(String chargeStatus) {
+  public void setChargeStatus(ChargeStatusEnum chargeStatus) {
     this.chargeStatus = chargeStatus;
   }
 
-  public ChargeDetailForDescribeDBInstanceDetailOutput chargeType(String chargeType) {
+  public ChargeDetailForDescribeDBInstanceDetailOutput chargeType(ChargeTypeEnum chargeType) {
     this.chargeType = chargeType;
     return this;
   }
@@ -135,30 +221,12 @@ public class ChargeDetailForDescribeDBInstanceDetailOutput {
    * @return chargeType
   **/
   @Schema(description = "")
-  public String getChargeType() {
+  public ChargeTypeEnum getChargeType() {
     return chargeType;
   }
 
-  public void setChargeType(String chargeType) {
+  public void setChargeType(ChargeTypeEnum chargeType) {
     this.chargeType = chargeType;
-  }
-
-  public ChargeDetailForDescribeDBInstanceDetailOutput orderId(String orderId) {
-    this.orderId = orderId;
-    return this;
-  }
-
-   /**
-   * Get orderId
-   * @return orderId
-  **/
-  @Schema(description = "")
-  public String getOrderId() {
-    return orderId;
-  }
-
-  public void setOrderId(String orderId) {
-    this.orderId = orderId;
   }
 
   public ChargeDetailForDescribeDBInstanceDetailOutput overdueReclaimTime(String overdueReclaimTime) {
@@ -212,14 +280,13 @@ public class ChargeDetailForDescribeDBInstanceDetailOutput {
         Objects.equals(this.chargeStartTime, chargeDetailForDescribeDBInstanceDetailOutput.chargeStartTime) &&
         Objects.equals(this.chargeStatus, chargeDetailForDescribeDBInstanceDetailOutput.chargeStatus) &&
         Objects.equals(this.chargeType, chargeDetailForDescribeDBInstanceDetailOutput.chargeType) &&
-        Objects.equals(this.orderId, chargeDetailForDescribeDBInstanceDetailOutput.orderId) &&
         Objects.equals(this.overdueReclaimTime, chargeDetailForDescribeDBInstanceDetailOutput.overdueReclaimTime) &&
         Objects.equals(this.overdueTime, chargeDetailForDescribeDBInstanceDetailOutput.overdueTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoRenew, chargeEndTime, chargeStartTime, chargeStatus, chargeType, orderId, overdueReclaimTime, overdueTime);
+    return Objects.hash(autoRenew, chargeEndTime, chargeStartTime, chargeStatus, chargeType, overdueReclaimTime, overdueTime);
   }
 
 
@@ -233,7 +300,6 @@ public class ChargeDetailForDescribeDBInstanceDetailOutput {
     sb.append("    chargeStartTime: ").append(toIndentedString(chargeStartTime)).append("\n");
     sb.append("    chargeStatus: ").append(toIndentedString(chargeStatus)).append("\n");
     sb.append("    chargeType: ").append(toIndentedString(chargeType)).append("\n");
-    sb.append("    orderId: ").append(toIndentedString(orderId)).append("\n");
     sb.append("    overdueReclaimTime: ").append(toIndentedString(overdueReclaimTime)).append("\n");
     sb.append("    overdueTime: ").append(toIndentedString(overdueTime)).append("\n");
     sb.append("}");

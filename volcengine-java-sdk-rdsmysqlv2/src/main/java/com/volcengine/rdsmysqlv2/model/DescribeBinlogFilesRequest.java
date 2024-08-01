@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeBinlogFilesRequest {
   @SerializedName("BackupFileNumber")
   private Integer backupFileNumber = null;

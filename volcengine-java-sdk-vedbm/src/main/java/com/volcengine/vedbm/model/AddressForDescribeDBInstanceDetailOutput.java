@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class AddressForDescribeDBInstanceDetailOutput {
   @SerializedName("DNSVisibility")
   private Boolean dnSVisibility = null;
@@ -41,8 +42,51 @@ public class AddressForDescribeDBInstanceDetailOutput {
   @SerializedName("IPAddress")
   private String ipAddress = null;
 
-  @SerializedName("NetworkType")
-  private String networkType = null;
+  /**
+   * Gets or Sets networkType
+   */
+  @JsonAdapter(NetworkTypeEnum.Adapter.class)
+  public enum NetworkTypeEnum {
+    @SerializedName("Private")
+    PRIVATE("Private"),
+    @SerializedName("Public")
+    PUBLIC("Public");
+
+    private String value;
+
+    NetworkTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static NetworkTypeEnum fromValue(String input) {
+      for (NetworkTypeEnum b : NetworkTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<NetworkTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final NetworkTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public NetworkTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return NetworkTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("NetworkType")
+  private NetworkTypeEnum networkType = null;
 
   @SerializedName("Port")
   private String port = null;
@@ -122,7 +166,7 @@ public class AddressForDescribeDBInstanceDetailOutput {
     this.ipAddress = ipAddress;
   }
 
-  public AddressForDescribeDBInstanceDetailOutput networkType(String networkType) {
+  public AddressForDescribeDBInstanceDetailOutput networkType(NetworkTypeEnum networkType) {
     this.networkType = networkType;
     return this;
   }
@@ -132,11 +176,11 @@ public class AddressForDescribeDBInstanceDetailOutput {
    * @return networkType
   **/
   @Schema(description = "")
-  public String getNetworkType() {
+  public NetworkTypeEnum getNetworkType() {
     return networkType;
   }
 
-  public void setNetworkType(String networkType) {
+  public void setNetworkType(NetworkTypeEnum networkType) {
     this.networkType = networkType;
   }
 

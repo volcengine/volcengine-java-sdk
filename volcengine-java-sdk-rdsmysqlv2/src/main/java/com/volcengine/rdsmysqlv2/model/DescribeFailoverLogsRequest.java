@@ -28,7 +28,11 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeFailoverLogsRequest {
+  @SerializedName("EndTime")
+  private String endTime = null;
+
   @SerializedName("InstanceId")
   private String instanceId = null;
 
@@ -37,6 +41,27 @@ public class DescribeFailoverLogsRequest {
 
   @SerializedName("Offset")
   private Integer offset = null;
+
+  @SerializedName("StartTime")
+  private String startTime = null;
+
+  public DescribeFailoverLogsRequest endTime(String endTime) {
+    this.endTime = endTime;
+    return this;
+  }
+
+   /**
+   * Get endTime
+   * @return endTime
+  **/
+  @Schema(description = "")
+  public String getEndTime() {
+    return endTime;
+  }
+
+  public void setEndTime(String endTime) {
+    this.endTime = endTime;
+  }
 
   public DescribeFailoverLogsRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
@@ -93,6 +118,24 @@ public class DescribeFailoverLogsRequest {
     this.offset = offset;
   }
 
+  public DescribeFailoverLogsRequest startTime(String startTime) {
+    this.startTime = startTime;
+    return this;
+  }
+
+   /**
+   * Get startTime
+   * @return startTime
+  **/
+  @Schema(description = "")
+  public String getStartTime() {
+    return startTime;
+  }
+
+  public void setStartTime(String startTime) {
+    this.startTime = startTime;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -103,14 +146,16 @@ public class DescribeFailoverLogsRequest {
       return false;
     }
     DescribeFailoverLogsRequest describeFailoverLogsRequest = (DescribeFailoverLogsRequest) o;
-    return Objects.equals(this.instanceId, describeFailoverLogsRequest.instanceId) &&
+    return Objects.equals(this.endTime, describeFailoverLogsRequest.endTime) &&
+        Objects.equals(this.instanceId, describeFailoverLogsRequest.instanceId) &&
         Objects.equals(this.limit, describeFailoverLogsRequest.limit) &&
-        Objects.equals(this.offset, describeFailoverLogsRequest.offset);
+        Objects.equals(this.offset, describeFailoverLogsRequest.offset) &&
+        Objects.equals(this.startTime, describeFailoverLogsRequest.startTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, limit, offset);
+    return Objects.hash(endTime, instanceId, limit, offset, startTime);
   }
 
 
@@ -119,9 +164,11 @@ public class DescribeFailoverLogsRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeFailoverLogsRequest {\n");
     
+    sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
     sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
+    sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
     sb.append("}");
     return sb.toString();
   }

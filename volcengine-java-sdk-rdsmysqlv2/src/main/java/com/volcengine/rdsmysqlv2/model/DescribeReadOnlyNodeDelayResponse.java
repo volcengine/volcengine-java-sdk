@@ -28,14 +28,15 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeReadOnlyNodeDelayResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("DelayReplicationTime")
-  private Integer delayReplicationTime = null;
+  private Long delayReplicationTime = null;
 
   @SerializedName("NodeId")
   private String nodeId = null;
 
-  public DescribeReadOnlyNodeDelayResponse delayReplicationTime(Integer delayReplicationTime) {
+  public DescribeReadOnlyNodeDelayResponse delayReplicationTime(Long delayReplicationTime) {
     this.delayReplicationTime = delayReplicationTime;
     return this;
   }
@@ -45,11 +46,11 @@ public class DescribeReadOnlyNodeDelayResponse extends com.volcengine.model.Abst
    * @return delayReplicationTime
   **/
   @Schema(description = "")
-  public Integer getDelayReplicationTime() {
+  public Long getDelayReplicationTime() {
     return delayReplicationTime;
   }
 
-  public void setDelayReplicationTime(Integer delayReplicationTime) {
+  public void setDelayReplicationTime(Long delayReplicationTime) {
     this.delayReplicationTime = delayReplicationTime;
   }
 

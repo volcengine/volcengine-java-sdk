@@ -20,7 +20,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vedbm.model.TagForCreateDBInstanceInput;
-import com.volcengine.vedbm.model.ZoneNodeInfoForCreateDBInstanceInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -32,15 +31,100 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateDBInstanceRequest {
-  @SerializedName("ChargeType")
-  private String chargeType = null;
+  @SerializedName("AutoRenew")
+  private Boolean autoRenew = null;
 
-  @SerializedName("CreateType")
-  private String createType = null;
+  /**
+   * Gets or Sets chargeType
+   */
+  @JsonAdapter(ChargeTypeEnum.Adapter.class)
+  public enum ChargeTypeEnum {
+    @SerializedName("PostPaid")
+    POSTPAID("PostPaid"),
+    @SerializedName("PrePaid")
+    PREPAID("PrePaid");
 
-  @SerializedName("DBEngineVersion")
-  private String dbEngineVersion = null;
+    private String value;
+
+    ChargeTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ChargeTypeEnum fromValue(String input) {
+      for (ChargeTypeEnum b : ChargeTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ChargeTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ChargeTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ChargeTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ChargeTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("ChargeType")
+  private ChargeTypeEnum chargeType = null;
+
+  /**
+   * Gets or Sets dbEngineVersion
+   */
+  @JsonAdapter(DbEngineVersionEnum.Adapter.class)
+  public enum DbEngineVersionEnum {
+    @SerializedName("MySQL_8_0")
+    MYSQL_8_0("MySQL_8_0");
+
+    private String value;
+
+    DbEngineVersionEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static DbEngineVersionEnum fromValue(String input) {
+      for (DbEngineVersionEnum b : DbEngineVersionEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<DbEngineVersionEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final DbEngineVersionEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public DbEngineVersionEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return DbEngineVersionEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("DBEngineVersion")
+  private DbEngineVersionEnum dbEngineVersion = null;
 
   @SerializedName("DBTimeZone")
   private String dbTimeZone = null;
@@ -54,17 +138,183 @@ public class CreateDBInstanceRequest {
   @SerializedName("NodeNumber")
   private Integer nodeNumber = null;
 
-  @SerializedName("NodeSpec")
-  private String nodeSpec = null;
+  /**
+   * Gets or Sets nodeSpec
+   */
+  @JsonAdapter(NodeSpecEnum.Adapter.class)
+  public enum NodeSpecEnum {
+    @SerializedName("vedb.mysql.x4.large")
+    X4_LARGE("vedb.mysql.x4.large"),
+    @SerializedName("vedb.mysql.x8.large")
+    X8_LARGE("vedb.mysql.x8.large"),
+    @SerializedName("vedb.mysql.x4.xlarge")
+    X4_XLARGE("vedb.mysql.x4.xlarge"),
+    @SerializedName("vedb.mysql.x8.xlarge")
+    X8_XLARGE("vedb.mysql.x8.xlarge"),
+    @SerializedName("vedb.mysql.x4.2xlarge")
+    X4_2XLARGE("vedb.mysql.x4.2xlarge"),
+    @SerializedName("vedb.mysql.x8.2xlarge")
+    X8_2XLARGE("vedb.mysql.x8.2xlarge"),
+    @SerializedName("vedb.mysql.x4.4xlarge")
+    X4_4XLARGE("vedb.mysql.x4.4xlarge"),
+    @SerializedName("vedb.mysql.x8.4xlarge")
+    X8_4XLARGE("vedb.mysql.x8.4xlarge"),
+    @SerializedName("vedb.mysql.x8.6xlarge")
+    X8_6XLARGE("vedb.mysql.x8.6xlarge"),
+    @SerializedName("vedb.mysql.x4.8xlarge")
+    X4_8XLARGE("vedb.mysql.x4.8xlarge"),
+    @SerializedName("vedb.mysql.x8.8xlarge")
+    X8_8XLARGE("vedb.mysql.x8.8xlarge"),
+    @SerializedName("vedb.mysql.g4.large")
+    G4_LARGE("vedb.mysql.g4.large"),
+    @SerializedName("vedb.mysql.g4.xlarge")
+    G4_XLARGE("vedb.mysql.g4.xlarge"),
+    @SerializedName("vedb.mysql.g4.2xlarge")
+    G4_2XLARGE("vedb.mysql.g4.2xlarge"),
+    @SerializedName("vedb.mysql.g8.2xlarge")
+    G8_2XLARGE("vedb.mysql.g8.2xlarge"),
+    @SerializedName("vedb.mysql.g4.4xlarge")
+    G4_4XLARGE("vedb.mysql.g4.4xlarge");
+
+    private String value;
+
+    NodeSpecEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static NodeSpecEnum fromValue(String input) {
+      for (NodeSpecEnum b : NodeSpecEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<NodeSpecEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final NodeSpecEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public NodeSpecEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return NodeSpecEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("NodeSpec")
+  private NodeSpecEnum nodeSpec = null;
+
+  @SerializedName("Number")
+  private Integer number = null;
+
+  @SerializedName("Period")
+  private Integer period = null;
+
+  /**
+   * Gets or Sets periodUnit
+   */
+  @JsonAdapter(PeriodUnitEnum.Adapter.class)
+  public enum PeriodUnitEnum {
+    @SerializedName("Month")
+    MONTH("Month"),
+    @SerializedName("Year")
+    YEAR("Year");
+
+    private String value;
+
+    PeriodUnitEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static PeriodUnitEnum fromValue(String input) {
+      for (PeriodUnitEnum b : PeriodUnitEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<PeriodUnitEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final PeriodUnitEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public PeriodUnitEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return PeriodUnitEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("PeriodUnit")
+  private PeriodUnitEnum periodUnit = null;
+
+  @SerializedName("PrePaidStorageInGB")
+  private Integer prePaidStorageInGB = null;
 
   @SerializedName("ProjectName")
   private String projectName = null;
 
-  @SerializedName("StoragePoolName")
-  private String storagePoolName = null;
+  /**
+   * Gets or Sets storageChargeType
+   */
+  @JsonAdapter(StorageChargeTypeEnum.Adapter.class)
+  public enum StorageChargeTypeEnum {
+    @SerializedName("PostPaid")
+    POSTPAID("PostPaid"),
+    @SerializedName("PrePaid")
+    PREPAID("PrePaid");
 
-  @SerializedName("StoragePoolType")
-  private String storagePoolType = null;
+    private String value;
+
+    StorageChargeTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static StorageChargeTypeEnum fromValue(String input) {
+      for (StorageChargeTypeEnum b : StorageChargeTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<StorageChargeTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final StorageChargeTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public StorageChargeTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return StorageChargeTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("StorageChargeType")
+  private StorageChargeTypeEnum storageChargeType = null;
 
   @SerializedName("SubnetId")
   private String subnetId = null;
@@ -84,10 +334,25 @@ public class CreateDBInstanceRequest {
   @SerializedName("ZoneIds")
   private String zoneIds = null;
 
-  @SerializedName("ZoneNodeInfos")
-  private List<ZoneNodeInfoForCreateDBInstanceInput> zoneNodeInfos = null;
+  public CreateDBInstanceRequest autoRenew(Boolean autoRenew) {
+    this.autoRenew = autoRenew;
+    return this;
+  }
 
-  public CreateDBInstanceRequest chargeType(String chargeType) {
+   /**
+   * Get autoRenew
+   * @return autoRenew
+  **/
+  @Schema(description = "")
+  public Boolean isAutoRenew() {
+    return autoRenew;
+  }
+
+  public void setAutoRenew(Boolean autoRenew) {
+    this.autoRenew = autoRenew;
+  }
+
+  public CreateDBInstanceRequest chargeType(ChargeTypeEnum chargeType) {
     this.chargeType = chargeType;
     return this;
   }
@@ -96,34 +361,17 @@ public class CreateDBInstanceRequest {
    * Get chargeType
    * @return chargeType
   **/
-  @Schema(description = "")
-  public String getChargeType() {
+  @NotNull
+  @Schema(required = true, description = "")
+  public ChargeTypeEnum getChargeType() {
     return chargeType;
   }
 
-  public void setChargeType(String chargeType) {
+  public void setChargeType(ChargeTypeEnum chargeType) {
     this.chargeType = chargeType;
   }
 
-  public CreateDBInstanceRequest createType(String createType) {
-    this.createType = createType;
-    return this;
-  }
-
-   /**
-   * Get createType
-   * @return createType
-  **/
-  @Schema(description = "")
-  public String getCreateType() {
-    return createType;
-  }
-
-  public void setCreateType(String createType) {
-    this.createType = createType;
-  }
-
-  public CreateDBInstanceRequest dbEngineVersion(String dbEngineVersion) {
+  public CreateDBInstanceRequest dbEngineVersion(DbEngineVersionEnum dbEngineVersion) {
     this.dbEngineVersion = dbEngineVersion;
     return this;
   }
@@ -132,12 +380,13 @@ public class CreateDBInstanceRequest {
    * Get dbEngineVersion
    * @return dbEngineVersion
   **/
-  @Schema(description = "")
-  public String getDbEngineVersion() {
+  @NotNull
+  @Schema(required = true, description = "")
+  public DbEngineVersionEnum getDbEngineVersion() {
     return dbEngineVersion;
   }
 
-  public void setDbEngineVersion(String dbEngineVersion) {
+  public void setDbEngineVersion(DbEngineVersionEnum dbEngineVersion) {
     this.dbEngineVersion = dbEngineVersion;
   }
 
@@ -204,7 +453,8 @@ public class CreateDBInstanceRequest {
    * Get nodeNumber
    * @return nodeNumber
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public Integer getNodeNumber() {
     return nodeNumber;
   }
@@ -213,7 +463,7 @@ public class CreateDBInstanceRequest {
     this.nodeNumber = nodeNumber;
   }
 
-  public CreateDBInstanceRequest nodeSpec(String nodeSpec) {
+  public CreateDBInstanceRequest nodeSpec(NodeSpecEnum nodeSpec) {
     this.nodeSpec = nodeSpec;
     return this;
   }
@@ -222,13 +472,86 @@ public class CreateDBInstanceRequest {
    * Get nodeSpec
    * @return nodeSpec
   **/
-  @Schema(description = "")
-  public String getNodeSpec() {
+  @NotNull
+  @Schema(required = true, description = "")
+  public NodeSpecEnum getNodeSpec() {
     return nodeSpec;
   }
 
-  public void setNodeSpec(String nodeSpec) {
+  public void setNodeSpec(NodeSpecEnum nodeSpec) {
     this.nodeSpec = nodeSpec;
+  }
+
+  public CreateDBInstanceRequest number(Integer number) {
+    this.number = number;
+    return this;
+  }
+
+   /**
+   * Get number
+   * @return number
+  **/
+  @Schema(description = "")
+  public Integer getNumber() {
+    return number;
+  }
+
+  public void setNumber(Integer number) {
+    this.number = number;
+  }
+
+  public CreateDBInstanceRequest period(Integer period) {
+    this.period = period;
+    return this;
+  }
+
+   /**
+   * Get period
+   * @return period
+  **/
+  @Schema(description = "")
+  public Integer getPeriod() {
+    return period;
+  }
+
+  public void setPeriod(Integer period) {
+    this.period = period;
+  }
+
+  public CreateDBInstanceRequest periodUnit(PeriodUnitEnum periodUnit) {
+    this.periodUnit = periodUnit;
+    return this;
+  }
+
+   /**
+   * Get periodUnit
+   * @return periodUnit
+  **/
+  @Schema(description = "")
+  public PeriodUnitEnum getPeriodUnit() {
+    return periodUnit;
+  }
+
+  public void setPeriodUnit(PeriodUnitEnum periodUnit) {
+    this.periodUnit = periodUnit;
+  }
+
+  public CreateDBInstanceRequest prePaidStorageInGB(Integer prePaidStorageInGB) {
+    this.prePaidStorageInGB = prePaidStorageInGB;
+    return this;
+  }
+
+   /**
+   * Get prePaidStorageInGB
+   * @return prePaidStorageInGB
+  **/
+  @Schema(description = "")
+  public Integer getPrePaidStorageInGB() {
+    return prePaidStorageInGB;
+  }
+
+  public void setPrePaidStorageInGB(Integer prePaidStorageInGB) {
+    this.prePaidStorageInGB = prePaidStorageInGB;
   }
 
   public CreateDBInstanceRequest projectName(String projectName) {
@@ -249,40 +572,22 @@ public class CreateDBInstanceRequest {
     this.projectName = projectName;
   }
 
-  public CreateDBInstanceRequest storagePoolName(String storagePoolName) {
-    this.storagePoolName = storagePoolName;
+  public CreateDBInstanceRequest storageChargeType(StorageChargeTypeEnum storageChargeType) {
+    this.storageChargeType = storageChargeType;
     return this;
   }
 
    /**
-   * Get storagePoolName
-   * @return storagePoolName
+   * Get storageChargeType
+   * @return storageChargeType
   **/
   @Schema(description = "")
-  public String getStoragePoolName() {
-    return storagePoolName;
+  public StorageChargeTypeEnum getStorageChargeType() {
+    return storageChargeType;
   }
 
-  public void setStoragePoolName(String storagePoolName) {
-    this.storagePoolName = storagePoolName;
-  }
-
-  public CreateDBInstanceRequest storagePoolType(String storagePoolType) {
-    this.storagePoolType = storagePoolType;
-    return this;
-  }
-
-   /**
-   * Get storagePoolType
-   * @return storagePoolType
-  **/
-  @Schema(description = "")
-  public String getStoragePoolType() {
-    return storagePoolType;
-  }
-
-  public void setStoragePoolType(String storagePoolType) {
-    this.storagePoolType = storagePoolType;
+  public void setStorageChargeType(StorageChargeTypeEnum storageChargeType) {
+    this.storageChargeType = storageChargeType;
   }
 
   public CreateDBInstanceRequest subnetId(String subnetId) {
@@ -294,7 +599,8 @@ public class CreateDBInstanceRequest {
    * Get subnetId
    * @return subnetId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getSubnetId() {
     return subnetId;
   }
@@ -375,7 +681,8 @@ public class CreateDBInstanceRequest {
    * Get vpcId
    * @return vpcId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getVpcId() {
     return vpcId;
   }
@@ -393,40 +700,14 @@ public class CreateDBInstanceRequest {
    * Get zoneIds
    * @return zoneIds
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getZoneIds() {
     return zoneIds;
   }
 
   public void setZoneIds(String zoneIds) {
     this.zoneIds = zoneIds;
-  }
-
-  public CreateDBInstanceRequest zoneNodeInfos(List<ZoneNodeInfoForCreateDBInstanceInput> zoneNodeInfos) {
-    this.zoneNodeInfos = zoneNodeInfos;
-    return this;
-  }
-
-  public CreateDBInstanceRequest addZoneNodeInfosItem(ZoneNodeInfoForCreateDBInstanceInput zoneNodeInfosItem) {
-    if (this.zoneNodeInfos == null) {
-      this.zoneNodeInfos = new ArrayList<ZoneNodeInfoForCreateDBInstanceInput>();
-    }
-    this.zoneNodeInfos.add(zoneNodeInfosItem);
-    return this;
-  }
-
-   /**
-   * Get zoneNodeInfos
-   * @return zoneNodeInfos
-  **/
-  @Valid
-  @Schema(description = "")
-  public List<ZoneNodeInfoForCreateDBInstanceInput> getZoneNodeInfos() {
-    return zoneNodeInfos;
-  }
-
-  public void setZoneNodeInfos(List<ZoneNodeInfoForCreateDBInstanceInput> zoneNodeInfos) {
-    this.zoneNodeInfos = zoneNodeInfos;
   }
 
 
@@ -439,29 +720,31 @@ public class CreateDBInstanceRequest {
       return false;
     }
     CreateDBInstanceRequest createDBInstanceRequest = (CreateDBInstanceRequest) o;
-    return Objects.equals(this.chargeType, createDBInstanceRequest.chargeType) &&
-        Objects.equals(this.createType, createDBInstanceRequest.createType) &&
+    return Objects.equals(this.autoRenew, createDBInstanceRequest.autoRenew) &&
+        Objects.equals(this.chargeType, createDBInstanceRequest.chargeType) &&
         Objects.equals(this.dbEngineVersion, createDBInstanceRequest.dbEngineVersion) &&
         Objects.equals(this.dbTimeZone, createDBInstanceRequest.dbTimeZone) &&
         Objects.equals(this.instanceName, createDBInstanceRequest.instanceName) &&
         Objects.equals(this.lowerCaseTableNames, createDBInstanceRequest.lowerCaseTableNames) &&
         Objects.equals(this.nodeNumber, createDBInstanceRequest.nodeNumber) &&
         Objects.equals(this.nodeSpec, createDBInstanceRequest.nodeSpec) &&
+        Objects.equals(this.number, createDBInstanceRequest.number) &&
+        Objects.equals(this.period, createDBInstanceRequest.period) &&
+        Objects.equals(this.periodUnit, createDBInstanceRequest.periodUnit) &&
+        Objects.equals(this.prePaidStorageInGB, createDBInstanceRequest.prePaidStorageInGB) &&
         Objects.equals(this.projectName, createDBInstanceRequest.projectName) &&
-        Objects.equals(this.storagePoolName, createDBInstanceRequest.storagePoolName) &&
-        Objects.equals(this.storagePoolType, createDBInstanceRequest.storagePoolType) &&
+        Objects.equals(this.storageChargeType, createDBInstanceRequest.storageChargeType) &&
         Objects.equals(this.subnetId, createDBInstanceRequest.subnetId) &&
         Objects.equals(this.superAccountName, createDBInstanceRequest.superAccountName) &&
         Objects.equals(this.superAccountPassword, createDBInstanceRequest.superAccountPassword) &&
         Objects.equals(this.tags, createDBInstanceRequest.tags) &&
         Objects.equals(this.vpcId, createDBInstanceRequest.vpcId) &&
-        Objects.equals(this.zoneIds, createDBInstanceRequest.zoneIds) &&
-        Objects.equals(this.zoneNodeInfos, createDBInstanceRequest.zoneNodeInfos);
+        Objects.equals(this.zoneIds, createDBInstanceRequest.zoneIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(chargeType, createType, dbEngineVersion, dbTimeZone, instanceName, lowerCaseTableNames, nodeNumber, nodeSpec, projectName, storagePoolName, storagePoolType, subnetId, superAccountName, superAccountPassword, tags, vpcId, zoneIds, zoneNodeInfos);
+    return Objects.hash(autoRenew, chargeType, dbEngineVersion, dbTimeZone, instanceName, lowerCaseTableNames, nodeNumber, nodeSpec, number, period, periodUnit, prePaidStorageInGB, projectName, storageChargeType, subnetId, superAccountName, superAccountPassword, tags, vpcId, zoneIds);
   }
 
 
@@ -470,24 +753,26 @@ public class CreateDBInstanceRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateDBInstanceRequest {\n");
     
+    sb.append("    autoRenew: ").append(toIndentedString(autoRenew)).append("\n");
     sb.append("    chargeType: ").append(toIndentedString(chargeType)).append("\n");
-    sb.append("    createType: ").append(toIndentedString(createType)).append("\n");
     sb.append("    dbEngineVersion: ").append(toIndentedString(dbEngineVersion)).append("\n");
     sb.append("    dbTimeZone: ").append(toIndentedString(dbTimeZone)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    lowerCaseTableNames: ").append(toIndentedString(lowerCaseTableNames)).append("\n");
     sb.append("    nodeNumber: ").append(toIndentedString(nodeNumber)).append("\n");
     sb.append("    nodeSpec: ").append(toIndentedString(nodeSpec)).append("\n");
+    sb.append("    number: ").append(toIndentedString(number)).append("\n");
+    sb.append("    period: ").append(toIndentedString(period)).append("\n");
+    sb.append("    periodUnit: ").append(toIndentedString(periodUnit)).append("\n");
+    sb.append("    prePaidStorageInGB: ").append(toIndentedString(prePaidStorageInGB)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
-    sb.append("    storagePoolName: ").append(toIndentedString(storagePoolName)).append("\n");
-    sb.append("    storagePoolType: ").append(toIndentedString(storagePoolType)).append("\n");
+    sb.append("    storageChargeType: ").append(toIndentedString(storageChargeType)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    superAccountName: ").append(toIndentedString(superAccountName)).append("\n");
     sb.append("    superAccountPassword: ").append(toIndentedString(superAccountPassword)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("    zoneIds: ").append(toIndentedString(zoneIds)).append("\n");
-    sb.append("    zoneNodeInfos: ").append(toIndentedString(zoneNodeInfos)).append("\n");
     sb.append("}");
     return sb.toString();
   }

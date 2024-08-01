@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class BinlogFileForDescribeBinlogFilesOutput {
   @SerializedName("BackupRegion")
   private String backupRegion = null;
@@ -42,7 +43,10 @@ public class BinlogFileForDescribeBinlogFilesOutput {
   private String fileName = null;
 
   @SerializedName("FileSize")
-  private Integer fileSize = null;
+  private Long fileSize = null;
+
+  @SerializedName("IsEncrypted")
+  private Boolean isEncrypted = null;
 
   @SerializedName("NodeId")
   private String nodeId = null;
@@ -122,7 +126,7 @@ public class BinlogFileForDescribeBinlogFilesOutput {
     this.fileName = fileName;
   }
 
-  public BinlogFileForDescribeBinlogFilesOutput fileSize(Integer fileSize) {
+  public BinlogFileForDescribeBinlogFilesOutput fileSize(Long fileSize) {
     this.fileSize = fileSize;
     return this;
   }
@@ -132,12 +136,30 @@ public class BinlogFileForDescribeBinlogFilesOutput {
    * @return fileSize
   **/
   @Schema(description = "")
-  public Integer getFileSize() {
+  public Long getFileSize() {
     return fileSize;
   }
 
-  public void setFileSize(Integer fileSize) {
+  public void setFileSize(Long fileSize) {
     this.fileSize = fileSize;
+  }
+
+  public BinlogFileForDescribeBinlogFilesOutput isEncrypted(Boolean isEncrypted) {
+    this.isEncrypted = isEncrypted;
+    return this;
+  }
+
+   /**
+   * Get isEncrypted
+   * @return isEncrypted
+  **/
+  @Schema(description = "")
+  public Boolean isIsEncrypted() {
+    return isEncrypted;
+  }
+
+  public void setIsEncrypted(Boolean isEncrypted) {
+    this.isEncrypted = isEncrypted;
   }
 
   public BinlogFileForDescribeBinlogFilesOutput nodeId(String nodeId) {
@@ -191,13 +213,14 @@ public class BinlogFileForDescribeBinlogFilesOutput {
         Objects.equals(this.downloadStatus, binlogFileForDescribeBinlogFilesOutput.downloadStatus) &&
         Objects.equals(this.fileName, binlogFileForDescribeBinlogFilesOutput.fileName) &&
         Objects.equals(this.fileSize, binlogFileForDescribeBinlogFilesOutput.fileSize) &&
+        Objects.equals(this.isEncrypted, binlogFileForDescribeBinlogFilesOutput.isEncrypted) &&
         Objects.equals(this.nodeId, binlogFileForDescribeBinlogFilesOutput.nodeId) &&
         Objects.equals(this.updateTime, binlogFileForDescribeBinlogFilesOutput.updateTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(backupRegion, backupStatus, downloadStatus, fileName, fileSize, nodeId, updateTime);
+    return Objects.hash(backupRegion, backupStatus, downloadStatus, fileName, fileSize, isEncrypted, nodeId, updateTime);
   }
 
 
@@ -211,6 +234,7 @@ public class BinlogFileForDescribeBinlogFilesOutput {
     sb.append("    downloadStatus: ").append(toIndentedString(downloadStatus)).append("\n");
     sb.append("    fileName: ").append(toIndentedString(fileName)).append("\n");
     sb.append("    fileSize: ").append(toIndentedString(fileSize)).append("\n");
+    sb.append("    isEncrypted: ").append(toIndentedString(isEncrypted)).append("\n");
     sb.append("    nodeId: ").append(toIndentedString(nodeId)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("}");

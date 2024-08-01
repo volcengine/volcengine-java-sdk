@@ -19,7 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.vefaas.model.TopParamForDeleteFunctionInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -33,9 +32,6 @@ import javax.validation.Valid;
 public class DeleteFunctionRequest {
   @SerializedName("Id")
   private String id = null;
-
-  @SerializedName("TopParam")
-  private TopParamForDeleteFunctionInput topParam = null;
 
   public DeleteFunctionRequest id(String id) {
     this.id = id;
@@ -56,25 +52,6 @@ public class DeleteFunctionRequest {
     this.id = id;
   }
 
-  public DeleteFunctionRequest topParam(TopParamForDeleteFunctionInput topParam) {
-    this.topParam = topParam;
-    return this;
-  }
-
-   /**
-   * Get topParam
-   * @return topParam
-  **/
-  @Valid
-  @Schema(description = "")
-  public TopParamForDeleteFunctionInput getTopParam() {
-    return topParam;
-  }
-
-  public void setTopParam(TopParamForDeleteFunctionInput topParam) {
-    this.topParam = topParam;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -85,13 +62,12 @@ public class DeleteFunctionRequest {
       return false;
     }
     DeleteFunctionRequest deleteFunctionRequest = (DeleteFunctionRequest) o;
-    return Objects.equals(this.id, deleteFunctionRequest.id) &&
-        Objects.equals(this.topParam, deleteFunctionRequest.topParam);
+    return Objects.equals(this.id, deleteFunctionRequest.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, topParam);
+    return Objects.hash(id);
   }
 
 
@@ -101,7 +77,6 @@ public class DeleteFunctionRequest {
     sb.append("class DeleteFunctionRequest {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    topParam: ").append(toIndentedString(topParam)).append("\n");
     sb.append("}");
     return sb.toString();
   }

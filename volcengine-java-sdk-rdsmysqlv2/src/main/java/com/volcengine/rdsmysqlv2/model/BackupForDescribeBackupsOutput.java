@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class BackupForDescribeBackupsOutput {
   @SerializedName("BackupEndTime")
   private String backupEndTime = null;
@@ -39,7 +40,7 @@ public class BackupForDescribeBackupsOutput {
   private String backupFileName = null;
 
   @SerializedName("BackupFileSize")
-  private Integer backupFileSize = null;
+  private Long backupFileSize = null;
 
   @SerializedName("BackupId")
   private String backupId = null;
@@ -76,6 +77,9 @@ public class BackupForDescribeBackupsOutput {
 
   @SerializedName("ExpiredTime")
   private String expiredTime = null;
+
+  @SerializedName("IsEncrypted")
+  private Boolean isEncrypted = null;
 
   @SerializedName("IsExpired")
   private Boolean isExpired = null;
@@ -116,7 +120,7 @@ public class BackupForDescribeBackupsOutput {
     this.backupFileName = backupFileName;
   }
 
-  public BackupForDescribeBackupsOutput backupFileSize(Integer backupFileSize) {
+  public BackupForDescribeBackupsOutput backupFileSize(Long backupFileSize) {
     this.backupFileSize = backupFileSize;
     return this;
   }
@@ -126,11 +130,11 @@ public class BackupForDescribeBackupsOutput {
    * @return backupFileSize
   **/
   @Schema(description = "")
-  public Integer getBackupFileSize() {
+  public Long getBackupFileSize() {
     return backupFileSize;
   }
 
-  public void setBackupFileSize(Integer backupFileSize) {
+  public void setBackupFileSize(Long backupFileSize) {
     this.backupFileSize = backupFileSize;
   }
 
@@ -359,6 +363,24 @@ public class BackupForDescribeBackupsOutput {
     this.expiredTime = expiredTime;
   }
 
+  public BackupForDescribeBackupsOutput isEncrypted(Boolean isEncrypted) {
+    this.isEncrypted = isEncrypted;
+    return this;
+  }
+
+   /**
+   * Get isEncrypted
+   * @return isEncrypted
+  **/
+  @Schema(description = "")
+  public Boolean isIsEncrypted() {
+    return isEncrypted;
+  }
+
+  public void setIsEncrypted(Boolean isEncrypted) {
+    this.isEncrypted = isEncrypted;
+  }
+
   public BackupForDescribeBackupsOutput isExpired(Boolean isExpired) {
     this.isExpired = isExpired;
     return this;
@@ -402,12 +424,13 @@ public class BackupForDescribeBackupsOutput {
         Objects.equals(this.downloadStatus, backupForDescribeBackupsOutput.downloadStatus) &&
         Objects.equals(this.errorMessage, backupForDescribeBackupsOutput.errorMessage) &&
         Objects.equals(this.expiredTime, backupForDescribeBackupsOutput.expiredTime) &&
+        Objects.equals(this.isEncrypted, backupForDescribeBackupsOutput.isEncrypted) &&
         Objects.equals(this.isExpired, backupForDescribeBackupsOutput.isExpired);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(backupEndTime, backupFileName, backupFileSize, backupId, backupMethod, backupRegion, backupStartTime, backupStatus, backupType, consistentTime, createType, dbTableInfos, downloadStatus, errorMessage, expiredTime, isExpired);
+    return Objects.hash(backupEndTime, backupFileName, backupFileSize, backupId, backupMethod, backupRegion, backupStartTime, backupStatus, backupType, consistentTime, createType, dbTableInfos, downloadStatus, errorMessage, expiredTime, isEncrypted, isExpired);
   }
 
 
@@ -431,6 +454,7 @@ public class BackupForDescribeBackupsOutput {
     sb.append("    downloadStatus: ").append(toIndentedString(downloadStatus)).append("\n");
     sb.append("    errorMessage: ").append(toIndentedString(errorMessage)).append("\n");
     sb.append("    expiredTime: ").append(toIndentedString(expiredTime)).append("\n");
+    sb.append("    isEncrypted: ").append(toIndentedString(isEncrypted)).append("\n");
     sb.append("    isExpired: ").append(toIndentedString(isExpired)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -66,6 +66,21 @@ public class DataForListDomainOutput {
   @SerializedName("BlackLctEnable")
   private Integer blackLctEnable = null;
 
+  @SerializedName("BotDytokenEnable")
+  private Integer botDytokenEnable = null;
+
+  @SerializedName("BotFrequencyEnable")
+  private Integer botFrequencyEnable = null;
+
+  @SerializedName("BotRepeatEnable")
+  private Integer botRepeatEnable = null;
+
+  @SerializedName("BotSequenceDefaultAction")
+  private Integer botSequenceDefaultAction = null;
+
+  @SerializedName("BotSequenceEnable")
+  private Integer botSequenceEnable = null;
+
   @SerializedName("CcEnable")
   private Integer ccEnable = null;
 
@@ -74,6 +89,9 @@ public class DataForListDomainOutput {
 
   @SerializedName("CertificateName")
   private String certificateName = null;
+
+  @SerializedName("CertificatePlatform")
+  private String certificatePlatform = null;
 
   @SerializedName("ClbInstanceIDs")
   private String clbInstanceIDs = null;
@@ -209,6 +227,9 @@ public class DataForListDomainOutput {
 
   @SerializedName("UpdateTime")
   private String updateTime = null;
+
+  @SerializedName("VolcCertificateID")
+  private String volcCertificateID = null;
 
   @SerializedName("VpcID")
   private String vpcID = null;
@@ -414,6 +435,96 @@ public class DataForListDomainOutput {
     this.blackLctEnable = blackLctEnable;
   }
 
+  public DataForListDomainOutput botDytokenEnable(Integer botDytokenEnable) {
+    this.botDytokenEnable = botDytokenEnable;
+    return this;
+  }
+
+   /**
+   * Get botDytokenEnable
+   * @return botDytokenEnable
+  **/
+  @Schema(description = "")
+  public Integer getBotDytokenEnable() {
+    return botDytokenEnable;
+  }
+
+  public void setBotDytokenEnable(Integer botDytokenEnable) {
+    this.botDytokenEnable = botDytokenEnable;
+  }
+
+  public DataForListDomainOutput botFrequencyEnable(Integer botFrequencyEnable) {
+    this.botFrequencyEnable = botFrequencyEnable;
+    return this;
+  }
+
+   /**
+   * Get botFrequencyEnable
+   * @return botFrequencyEnable
+  **/
+  @Schema(description = "")
+  public Integer getBotFrequencyEnable() {
+    return botFrequencyEnable;
+  }
+
+  public void setBotFrequencyEnable(Integer botFrequencyEnable) {
+    this.botFrequencyEnable = botFrequencyEnable;
+  }
+
+  public DataForListDomainOutput botRepeatEnable(Integer botRepeatEnable) {
+    this.botRepeatEnable = botRepeatEnable;
+    return this;
+  }
+
+   /**
+   * Get botRepeatEnable
+   * @return botRepeatEnable
+  **/
+  @Schema(description = "")
+  public Integer getBotRepeatEnable() {
+    return botRepeatEnable;
+  }
+
+  public void setBotRepeatEnable(Integer botRepeatEnable) {
+    this.botRepeatEnable = botRepeatEnable;
+  }
+
+  public DataForListDomainOutput botSequenceDefaultAction(Integer botSequenceDefaultAction) {
+    this.botSequenceDefaultAction = botSequenceDefaultAction;
+    return this;
+  }
+
+   /**
+   * Get botSequenceDefaultAction
+   * @return botSequenceDefaultAction
+  **/
+  @Schema(description = "")
+  public Integer getBotSequenceDefaultAction() {
+    return botSequenceDefaultAction;
+  }
+
+  public void setBotSequenceDefaultAction(Integer botSequenceDefaultAction) {
+    this.botSequenceDefaultAction = botSequenceDefaultAction;
+  }
+
+  public DataForListDomainOutput botSequenceEnable(Integer botSequenceEnable) {
+    this.botSequenceEnable = botSequenceEnable;
+    return this;
+  }
+
+   /**
+   * Get botSequenceEnable
+   * @return botSequenceEnable
+  **/
+  @Schema(description = "")
+  public Integer getBotSequenceEnable() {
+    return botSequenceEnable;
+  }
+
+  public void setBotSequenceEnable(Integer botSequenceEnable) {
+    this.botSequenceEnable = botSequenceEnable;
+  }
+
   public DataForListDomainOutput ccEnable(Integer ccEnable) {
     this.ccEnable = ccEnable;
     return this;
@@ -466,6 +577,24 @@ public class DataForListDomainOutput {
 
   public void setCertificateName(String certificateName) {
     this.certificateName = certificateName;
+  }
+
+  public DataForListDomainOutput certificatePlatform(String certificatePlatform) {
+    this.certificatePlatform = certificatePlatform;
+    return this;
+  }
+
+   /**
+   * Get certificatePlatform
+   * @return certificatePlatform
+  **/
+  @Schema(description = "")
+  public String getCertificatePlatform() {
+    return certificatePlatform;
+  }
+
+  public void setCertificatePlatform(String certificatePlatform) {
+    this.certificatePlatform = certificatePlatform;
   }
 
   public DataForListDomainOutput clbInstanceIDs(String clbInstanceIDs) {
@@ -1329,6 +1458,24 @@ public class DataForListDomainOutput {
     this.updateTime = updateTime;
   }
 
+  public DataForListDomainOutput volcCertificateID(String volcCertificateID) {
+    this.volcCertificateID = volcCertificateID;
+    return this;
+  }
+
+   /**
+   * Get volcCertificateID
+   * @return volcCertificateID
+  **/
+  @Schema(description = "")
+  public String getVolcCertificateID() {
+    return volcCertificateID;
+  }
+
+  public void setVolcCertificateID(String volcCertificateID) {
+    this.volcCertificateID = volcCertificateID;
+  }
+
   public DataForListDomainOutput vpcID(String vpcID) {
     this.vpcID = vpcID;
     return this;
@@ -1439,9 +1586,15 @@ public class DataForListDomainOutput {
         Objects.equals(this.backendGroups, dataForListDomainOutput.backendGroups) &&
         Objects.equals(this.blackIpEnable, dataForListDomainOutput.blackIpEnable) &&
         Objects.equals(this.blackLctEnable, dataForListDomainOutput.blackLctEnable) &&
+        Objects.equals(this.botDytokenEnable, dataForListDomainOutput.botDytokenEnable) &&
+        Objects.equals(this.botFrequencyEnable, dataForListDomainOutput.botFrequencyEnable) &&
+        Objects.equals(this.botRepeatEnable, dataForListDomainOutput.botRepeatEnable) &&
+        Objects.equals(this.botSequenceDefaultAction, dataForListDomainOutput.botSequenceDefaultAction) &&
+        Objects.equals(this.botSequenceEnable, dataForListDomainOutput.botSequenceEnable) &&
         Objects.equals(this.ccEnable, dataForListDomainOutput.ccEnable) &&
         Objects.equals(this.certificateID, dataForListDomainOutput.certificateID) &&
         Objects.equals(this.certificateName, dataForListDomainOutput.certificateName) &&
+        Objects.equals(this.certificatePlatform, dataForListDomainOutput.certificatePlatform) &&
         Objects.equals(this.clbInstanceIDs, dataForListDomainOutput.clbInstanceIDs) &&
         Objects.equals(this.clbListenerId, dataForListDomainOutput.clbListenerId) &&
         Objects.equals(this.clbPoolId, dataForListDomainOutput.clbPoolId) &&
@@ -1487,6 +1640,7 @@ public class DataForListDomainOutput {
         Objects.equals(this.tlSEnable, dataForListDomainOutput.tlSEnable) &&
         Objects.equals(this.tamperProofEnable, dataForListDomainOutput.tamperProofEnable) &&
         Objects.equals(this.updateTime, dataForListDomainOutput.updateTime) &&
+        Objects.equals(this.volcCertificateID, dataForListDomainOutput.volcCertificateID) &&
         Objects.equals(this.vpcID, dataForListDomainOutput.vpcID) &&
         Objects.equals(this.wafEnable, dataForListDomainOutput.wafEnable) &&
         Objects.equals(this.wafWhiteReqEnable, dataForListDomainOutput.wafWhiteReqEnable) &&
@@ -1496,7 +1650,7 @@ public class DataForListDomainOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessMode, advancedDefenseIP, advancedDefenseIPv6, apiEnable, attackStatus, autoCCEnable, automaticBlackEnable, backendGroups, blackIpEnable, blackLctEnable, ccEnable, certificateID, certificateName, clbInstanceIDs, clbListenerId, clbPoolId, clbServerId, clientIPLocation, clientMaxBodySize, cloudAccessConfig, cname, customBotEnable, customHeader, customRspEnable, defenceMode, dlpEnable, domain, enableHTTP2, enableIPv6, keepAliveRequest, keepAliveTimeOut, lbAlgorithm, port, protocolFollow, protocolPorts, protocols, proxyConfig, proxyConnectTimeOut, proxyKeepAlive, proxyKeepAliveTimeOut, proxyReadTimeOut, proxyRetry, proxyWriteTimeOut, publicRealServer, redirectHTTPS, region, rspAbnormalEnable, ssLCiphers, ssLProtocols, serverIps, srcIps, srcProtocol, status, systemBotEnable, tcPListenerConfig, tlSEnable, tamperProofEnable, updateTime, vpcID, wafEnable, wafWhiteReqEnable, whiteEnable, whiteFieldEnable);
+    return Objects.hash(accessMode, advancedDefenseIP, advancedDefenseIPv6, apiEnable, attackStatus, autoCCEnable, automaticBlackEnable, backendGroups, blackIpEnable, blackLctEnable, botDytokenEnable, botFrequencyEnable, botRepeatEnable, botSequenceDefaultAction, botSequenceEnable, ccEnable, certificateID, certificateName, certificatePlatform, clbInstanceIDs, clbListenerId, clbPoolId, clbServerId, clientIPLocation, clientMaxBodySize, cloudAccessConfig, cname, customBotEnable, customHeader, customRspEnable, defenceMode, dlpEnable, domain, enableHTTP2, enableIPv6, keepAliveRequest, keepAliveTimeOut, lbAlgorithm, port, protocolFollow, protocolPorts, protocols, proxyConfig, proxyConnectTimeOut, proxyKeepAlive, proxyKeepAliveTimeOut, proxyReadTimeOut, proxyRetry, proxyWriteTimeOut, publicRealServer, redirectHTTPS, region, rspAbnormalEnable, ssLCiphers, ssLProtocols, serverIps, srcIps, srcProtocol, status, systemBotEnable, tcPListenerConfig, tlSEnable, tamperProofEnable, updateTime, volcCertificateID, vpcID, wafEnable, wafWhiteReqEnable, whiteEnable, whiteFieldEnable);
   }
 
 
@@ -1515,9 +1669,15 @@ public class DataForListDomainOutput {
     sb.append("    backendGroups: ").append(toIndentedString(backendGroups)).append("\n");
     sb.append("    blackIpEnable: ").append(toIndentedString(blackIpEnable)).append("\n");
     sb.append("    blackLctEnable: ").append(toIndentedString(blackLctEnable)).append("\n");
+    sb.append("    botDytokenEnable: ").append(toIndentedString(botDytokenEnable)).append("\n");
+    sb.append("    botFrequencyEnable: ").append(toIndentedString(botFrequencyEnable)).append("\n");
+    sb.append("    botRepeatEnable: ").append(toIndentedString(botRepeatEnable)).append("\n");
+    sb.append("    botSequenceDefaultAction: ").append(toIndentedString(botSequenceDefaultAction)).append("\n");
+    sb.append("    botSequenceEnable: ").append(toIndentedString(botSequenceEnable)).append("\n");
     sb.append("    ccEnable: ").append(toIndentedString(ccEnable)).append("\n");
     sb.append("    certificateID: ").append(toIndentedString(certificateID)).append("\n");
     sb.append("    certificateName: ").append(toIndentedString(certificateName)).append("\n");
+    sb.append("    certificatePlatform: ").append(toIndentedString(certificatePlatform)).append("\n");
     sb.append("    clbInstanceIDs: ").append(toIndentedString(clbInstanceIDs)).append("\n");
     sb.append("    clbListenerId: ").append(toIndentedString(clbListenerId)).append("\n");
     sb.append("    clbPoolId: ").append(toIndentedString(clbPoolId)).append("\n");
@@ -1563,6 +1723,7 @@ public class DataForListDomainOutput {
     sb.append("    tlSEnable: ").append(toIndentedString(tlSEnable)).append("\n");
     sb.append("    tamperProofEnable: ").append(toIndentedString(tamperProofEnable)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
+    sb.append("    volcCertificateID: ").append(toIndentedString(volcCertificateID)).append("\n");
     sb.append("    vpcID: ").append(toIndentedString(vpcID)).append("\n");
     sb.append("    wafEnable: ").append(toIndentedString(wafEnable)).append("\n");
     sb.append("    wafWhiteReqEnable: ").append(toIndentedString(wafWhiteReqEnable)).append("\n");
