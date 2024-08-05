@@ -55,7 +55,7 @@ public class AclForDescribeAclsOutput {
   private String projectName = null;
 
   @SerializedName("ServiceManaged")
-  private String serviceManaged = null;
+  private Boolean serviceManaged = null;
 
   @SerializedName("Status")
   private String status = null;
@@ -200,7 +200,7 @@ public class AclForDescribeAclsOutput {
     this.projectName = projectName;
   }
 
-  public AclForDescribeAclsOutput serviceManaged(String serviceManaged) {
+  public AclForDescribeAclsOutput serviceManaged(Boolean serviceManaged) {
     this.serviceManaged = serviceManaged;
     return this;
   }
@@ -210,11 +210,11 @@ public class AclForDescribeAclsOutput {
    * @return serviceManaged
   **/
   @Schema(description = "")
-  public String getServiceManaged() {
+  public Boolean isServiceManaged() {
     return serviceManaged;
   }
 
-  public void setServiceManaged(String serviceManaged) {
+  public void setServiceManaged(Boolean serviceManaged) {
     this.serviceManaged = serviceManaged;
   }
 
