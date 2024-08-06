@@ -1,6 +1,7 @@
 package com.volcengine.ark.runtime.model.tokenization;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
 
@@ -11,10 +12,13 @@ public class Tokenization {
 
     String object;
 
+    @JsonProperty("total_tokens")
     Integer totalTokens;
 
+    @JsonProperty("token_ids")
     List<Integer> tokenIds;
 
+    @JsonProperty("offset_mapping")
     List<List<Integer>> offsetMapping;
 
     public Integer getIndex() {
