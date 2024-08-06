@@ -89,11 +89,6 @@ public class ChatCompletionRequest {
     String user;
 
     /**
-     * A list of the available functions.
-     */
-    List<ChatFunction> functions;
-
-    /**
      * A list of the available tools.
      */
     List<ChatTool> tools;
@@ -137,9 +132,6 @@ public class ChatCompletionRequest {
      */
     @JsonProperty("response_format")
     ChatCompletionRequestResponseFormat responseFormat;
-
-    @JsonProperty("max_prompt_tokens")
-    Integer maxPromptTokens;
 
     public String getModel() {
         return model;
@@ -237,14 +229,6 @@ public class ChatCompletionRequest {
         this.user = user;
     }
 
-    public List<ChatFunction> getFunctions() {
-        return functions;
-    }
-
-    public void setFunctions(List<ChatFunction> functions) {
-        this.functions = functions;
-    }
-
     public List<ChatTool> getTools() {
         return tools;
     }
@@ -309,14 +293,6 @@ public class ChatCompletionRequest {
         this.responseFormat = responseFormat;
     }
 
-    public Integer getMaxPromptTokens() {
-        return maxPromptTokens;
-    }
-
-    public void setMaxPromptTokens(Integer maxPromptTokens) {
-        this.maxPromptTokens = maxPromptTokens;
-    }
-
     @Override
     public String toString() {
         return "ChatCompletionRequest{" +
@@ -332,7 +308,6 @@ public class ChatCompletionRequest {
                 ", frequencyPenalty=" + frequencyPenalty +
                 ", logitBias=" + logitBias +
                 ", user='" + user + '\'' +
-                ", functions=" + functions +
                 ", tools=" + tools +
                 ", functionCall=" + functionCall +
                 ", logprobs=" + logprobs +
@@ -341,7 +316,6 @@ public class ChatCompletionRequest {
                 ", n=" + n +
                 ", toolChoice=" + toolChoice +
                 ", responseFormat=" + responseFormat +
-                ", maxPromptTokens=" + maxPromptTokens +
                 '}';
     }
 
@@ -476,7 +450,6 @@ public class ChatCompletionRequest {
         private Double frequencyPenalty;
         private Map<String, Integer> logitBias;
         private String user;
-        private List<ChatFunction> functions;
         private List<ChatTool> tools;
         private ChatCompletionRequestFunctionCall functionCall;
         private Boolean logprobs;
@@ -485,7 +458,6 @@ public class ChatCompletionRequest {
         private Integer n;
         private Object toolChoice;
         private ChatCompletionRequestResponseFormat responseFormat;
-        private Integer maxPromptTokens;
 
         public ChatCompletionRequest.Builder model(String model) {
             this.model = model;
@@ -547,11 +519,6 @@ public class ChatCompletionRequest {
             return this;
         }
 
-        public ChatCompletionRequest.Builder functions(List<ChatFunction> functions) {
-            this.functions = functions;
-            return this;
-        }
-
         public ChatCompletionRequest.Builder tools(List<ChatTool> tools) {
             this.tools = tools;
             return this;
@@ -597,11 +564,6 @@ public class ChatCompletionRequest {
             return this;
         }
 
-        public ChatCompletionRequest.Builder maxPromptTokens(Integer maxPromptTokens) {
-            this.maxPromptTokens = maxPromptTokens;
-            return this;
-        }
-
         public ChatCompletionRequest build() {
             ChatCompletionRequest chatCompletionRequest = new ChatCompletionRequest();
             chatCompletionRequest.setModel(model);
@@ -616,7 +578,6 @@ public class ChatCompletionRequest {
             chatCompletionRequest.setFrequencyPenalty(frequencyPenalty);
             chatCompletionRequest.setLogitBias(logitBias);
             chatCompletionRequest.setUser(user);
-            chatCompletionRequest.setFunctions(functions);
             chatCompletionRequest.setTools(tools);
             chatCompletionRequest.setFunctionCall(functionCall);
             chatCompletionRequest.setLogprobs(logprobs);
@@ -625,7 +586,6 @@ public class ChatCompletionRequest {
             chatCompletionRequest.setN(n);
             chatCompletionRequest.setToolChoice(toolChoice);
             chatCompletionRequest.setResponseFormat(responseFormat);
-            chatCompletionRequest.setMaxPromptTokens(maxPromptTokens);
             return chatCompletionRequest;
         }
     }
