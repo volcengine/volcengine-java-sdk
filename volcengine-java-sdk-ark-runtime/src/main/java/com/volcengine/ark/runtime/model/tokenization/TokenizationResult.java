@@ -1,16 +1,14 @@
-package com.volcengine.ark.runtime.model.embeddings;
-
+package com.volcengine.ark.runtime.model.tokenization;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.volcengine.ark.runtime.model.Usage;
+import com.volcengine.ark.runtime.model.embeddings.Embedding;
 
 import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class EmbeddingResult {
-
+public class TokenizationResult {
     /**
-     * Unique id assigned to this embedding
+     * Unique id assigned to this tokenization
      */
     String id;
 
@@ -20,7 +18,7 @@ public class EmbeddingResult {
     String created;
 
     /**
-     * The model used for generating embeddings
+     * The model used for generating tokenization
      */
     String model;
 
@@ -30,46 +28,9 @@ public class EmbeddingResult {
     String object;
 
     /**
-     * A list of the calculated embeddings
+     * A list of the calculated tokenization
      */
-    List<Embedding> data;
-
-    /**
-     * The API usage for this request
-     */
-    Usage usage;
-
-    public String getModel() {
-        return model;
-    }
-
-    public void setModel(String model) {
-        this.model = model;
-    }
-
-    public String getObject() {
-        return object;
-    }
-
-    public void setObject(String object) {
-        this.object = object;
-    }
-
-    public List<Embedding> getData() {
-        return data;
-    }
-
-    public void setData(List<Embedding> data) {
-        this.data = data;
-    }
-
-    public Usage getUsage() {
-        return usage;
-    }
-
-    public void setUsage(Usage usage) {
-        this.usage = usage;
-    }
+    List<Tokenization> data;
 
     public String getId() {
         return id;
@@ -87,15 +48,38 @@ public class EmbeddingResult {
         this.created = created;
     }
 
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public String getObject() {
+        return object;
+    }
+
+    public void setObject(String object) {
+        this.object = object;
+    }
+
+    public List<Tokenization> getData() {
+        return data;
+    }
+
+    public void setData(List<Tokenization> data) {
+        this.data = data;
+    }
+
     @Override
     public String toString() {
-        return "EmbeddingResult{" +
+        return "TokenizationResult{" +
                 "id='" + id + '\'' +
                 ", created='" + created + '\'' +
                 ", model='" + model + '\'' +
                 ", object='" + object + '\'' +
                 ", data=" + data +
-                ", usage=" + usage +
                 '}';
     }
 }

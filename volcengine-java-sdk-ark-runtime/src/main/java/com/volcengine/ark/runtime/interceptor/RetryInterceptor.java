@@ -28,7 +28,7 @@ public class RetryInterceptor implements Interceptor {
         Response response = chain.proceed(request);
 
         int tryCount = 0;
-        while (response.code() >= 500 && tryCount < retryTimes) {
+        while ((response.code() >= 500 || response.code() == 429) && tryCount < retryTimes) {
             tryCount++;
 
             // retry the request

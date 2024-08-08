@@ -20,6 +20,8 @@ import com.volcengine.ark.runtime.model.bot.completion.chat.BotChatCompletionRes
 import com.volcengine.ark.runtime.model.completion.chat.*;
 import com.volcengine.ark.runtime.model.embeddings.EmbeddingRequest;
 import com.volcengine.ark.runtime.model.embeddings.EmbeddingResult;
+import com.volcengine.ark.runtime.model.tokenization.TokenizationRequest;
+import com.volcengine.ark.runtime.model.tokenization.TokenizationResult;
 import com.volcengine.ark.runtime.utils.ResponseBodyCallback;
 import com.volcengine.ark.runtime.utils.SSE;
 import io.reactivex.BackpressureStrategy;
@@ -38,6 +40,7 @@ import retrofit2.Retrofit;
 import retrofit2.http.HeaderMap;
 
 import java.io.IOException;
+import java.net.Proxy;
 import java.time.Duration;
 import java.util.*;
 import java.util.concurrent.ExecutorService;
@@ -198,6 +201,14 @@ public class ArkService extends ArkBaseService implements ArkBaseServiceImpl {
         return stream(api.createBotChatCompletionStream(request, request.getModel(), new HashMap<>()), BotChatCompletionChunk.class);
     }
 
+    public TokenizationResult createTokenization(TokenizationRequest request) {
+        return execute(api.createTokenization(request, request.getModel(), new HashMap<>()));
+    }
+
+    public TokenizationResult createTokenization(TokenizationRequest request, Map<String, String> customHeaders) {
+        return execute(api.createTokenization(request, request.getModel(), customHeaders));
+    }
+
     public void shutdownExecutor() {
         Objects.requireNonNull(this.executorService, "executorService must be set in order to shut down");
         this.executorService.shutdown();
@@ -214,7 +225,9 @@ public class ArkService extends ArkBaseService implements ArkBaseServiceImpl {
         private String region = BASE_REGION;
         private String baseUrl = BASE_URL;
         private Duration timeout = DEFAULT_TIMEOUT;
+        private Duration connectTimeout = DEFAULT_CONNECT_TIMEOUT;
         private int retryTimes = 0;
+        private Proxy proxy;
 
         public ArkService.Builder ak(String ak) {
             this.ak = ak;
@@ -249,8 +262,18 @@ public class ArkService extends ArkBaseService implements ArkBaseServiceImpl {
             return this;
         }
 
+        public ArkService.Builder connectTimeout(Duration connectTimeout) {
+            this.connectTimeout = connectTimeout;
+            return this;
+        }
+
         public ArkService.Builder retryTimes(int retryTimes) {
             this.retryTimes = retryTimes;
+            return this;
+        }
+
+        public ArkService.Builder proxy(Proxy proxy) {
+            this.proxy = proxy;
             return this;
         }
 
@@ -265,11 +288,16 @@ public class ArkService extends ArkBaseService implements ArkBaseServiceImpl {
                 throw new ArkException("missing api_key or ak&sk.");
             }
 
+            if (proxy != null) {
+                clientBuilder.proxy(proxy);
+            }
+
             OkHttpClient client = clientBuilder
                     .addInterceptor(new RequestIdInterceptor())
                     .addInterceptor(new RetryInterceptor(retryTimes))
                     .connectionPool(new ConnectionPool(5, 1, TimeUnit.SECONDS))
                     .readTimeout(timeout.toMillis(), TimeUnit.MILLISECONDS)
+                    .connectTimeout(connectTimeout)
                     .build();
             Retrofit retrofit = defaultRetrofit(client, mapper, baseUrl);
 

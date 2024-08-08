@@ -52,7 +52,6 @@ public class BotChatCompletionRequest extends ChatCompletionRequest {
                 ", frequencyPenalty=" + getFrequencyPenalty() +
                 ", logitBias=" + getLogitBias() +
                 ", user='" + getUser() + '\'' +
-                ", functions=" + getFunctions() +
                 ", tools=" + getTools() +
                 ", functionCall=" + getFunctionCall() +
                 ", logprobs=" + getLogprobs() +
@@ -208,7 +207,6 @@ public class BotChatCompletionRequest extends ChatCompletionRequest {
             botChatCompletionRequest.setFrequencyPenalty(frequencyPenalty);
             botChatCompletionRequest.setLogitBias(logitBias);
             botChatCompletionRequest.setUser(user);
-            botChatCompletionRequest.setFunctions(functions);
             botChatCompletionRequest.setTools(tools);
             botChatCompletionRequest.setFunctionCall(functionCall);
             botChatCompletionRequest.setLogprobs(logprobs);
