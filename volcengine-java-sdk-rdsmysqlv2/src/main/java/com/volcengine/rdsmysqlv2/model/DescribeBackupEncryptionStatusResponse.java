@@ -14,6 +14,13 @@ package com.volcengine.rdsmysqlv2.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -23,6 +30,48 @@ import javax.validation.Valid;
 
 
 public class DescribeBackupEncryptionStatusResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("DataEncryptionStatus")
+  private String dataEncryptionStatus = null;
+
+  @SerializedName("LogEncryptionStatus")
+  private String logEncryptionStatus = null;
+
+  public DescribeBackupEncryptionStatusResponse dataEncryptionStatus(String dataEncryptionStatus) {
+    this.dataEncryptionStatus = dataEncryptionStatus;
+    return this;
+  }
+
+   /**
+   * Get dataEncryptionStatus
+   * @return dataEncryptionStatus
+  **/
+  @Schema(description = "")
+  public String getDataEncryptionStatus() {
+    return dataEncryptionStatus;
+  }
+
+  public void setDataEncryptionStatus(String dataEncryptionStatus) {
+    this.dataEncryptionStatus = dataEncryptionStatus;
+  }
+
+  public DescribeBackupEncryptionStatusResponse logEncryptionStatus(String logEncryptionStatus) {
+    this.logEncryptionStatus = logEncryptionStatus;
+    return this;
+  }
+
+   /**
+   * Get logEncryptionStatus
+   * @return logEncryptionStatus
+  **/
+  @Schema(description = "")
+  public String getLogEncryptionStatus() {
+    return logEncryptionStatus;
+  }
+
+  public void setLogEncryptionStatus(String logEncryptionStatus) {
+    this.logEncryptionStatus = logEncryptionStatus;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -32,12 +81,14 @@ public class DescribeBackupEncryptionStatusResponse extends com.volcengine.model
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return true;
+    DescribeBackupEncryptionStatusResponse describeBackupEncryptionStatusResponse = (DescribeBackupEncryptionStatusResponse) o;
+    return Objects.equals(this.dataEncryptionStatus, describeBackupEncryptionStatusResponse.dataEncryptionStatus) &&
+        Objects.equals(this.logEncryptionStatus, describeBackupEncryptionStatusResponse.logEncryptionStatus);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash();
+    return Objects.hash(dataEncryptionStatus, logEncryptionStatus);
   }
 
 
@@ -46,6 +97,8 @@ public class DescribeBackupEncryptionStatusResponse extends com.volcengine.model
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeBackupEncryptionStatusResponse {\n");
     
+    sb.append("    dataEncryptionStatus: ").append(toIndentedString(dataEncryptionStatus)).append("\n");
+    sb.append("    logEncryptionStatus: ").append(toIndentedString(logEncryptionStatus)).append("\n");
     sb.append("}");
     return sb.toString();
   }

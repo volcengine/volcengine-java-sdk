@@ -7,6 +7,10 @@ import com.volcengine.ark.runtime.model.bot.completion.chat.BotChatCompletionRes
 import com.volcengine.ark.runtime.model.completion.chat.ChatCompletionChunk;
 import com.volcengine.ark.runtime.model.completion.chat.ChatCompletionRequest;
 import com.volcengine.ark.runtime.model.completion.chat.ChatCompletionResult;
+import com.volcengine.ark.runtime.model.embeddings.EmbeddingRequest;
+import com.volcengine.ark.runtime.model.embeddings.EmbeddingResult;
+import com.volcengine.ark.runtime.model.tokenization.TokenizationRequest;
+import com.volcengine.ark.runtime.model.tokenization.TokenizationResult;
 import io.reactivex.Flowable;
 
 
@@ -19,4 +23,8 @@ public interface ArkBaseServiceImpl {
     BotChatCompletionResult createBotChatCompletion(BotChatCompletionRequest request);
 
     Flowable<BotChatCompletionChunk> streamBotChatCompletion(BotChatCompletionRequest request);
+
+    TokenizationResult createTokenization(TokenizationRequest request);
+
+    EmbeddingResult createEmbeddings(EmbeddingRequest request);
 }

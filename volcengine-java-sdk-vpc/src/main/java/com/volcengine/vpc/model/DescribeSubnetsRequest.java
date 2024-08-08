@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vpc.model.TagFilterForDescribeSubnetsInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -58,6 +59,9 @@ public class DescribeSubnetsRequest {
 
   @SerializedName("SubnetName")
   private String subnetName = null;
+
+  @SerializedName("TagFilters")
+  private List<TagFilterForDescribeSubnetsInput> tagFilters = null;
 
   @SerializedName("VpcId")
   private String vpcId = null;
@@ -236,6 +240,33 @@ public class DescribeSubnetsRequest {
     this.subnetName = subnetName;
   }
 
+  public DescribeSubnetsRequest tagFilters(List<TagFilterForDescribeSubnetsInput> tagFilters) {
+    this.tagFilters = tagFilters;
+    return this;
+  }
+
+  public DescribeSubnetsRequest addTagFiltersItem(TagFilterForDescribeSubnetsInput tagFiltersItem) {
+    if (this.tagFilters == null) {
+      this.tagFilters = new ArrayList<TagFilterForDescribeSubnetsInput>();
+    }
+    this.tagFilters.add(tagFiltersItem);
+    return this;
+  }
+
+   /**
+   * Get tagFilters
+   * @return tagFilters
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagFilterForDescribeSubnetsInput> getTagFilters() {
+    return tagFilters;
+  }
+
+  public void setTagFilters(List<TagFilterForDescribeSubnetsInput> tagFilters) {
+    this.tagFilters = tagFilters;
+  }
+
   public DescribeSubnetsRequest vpcId(String vpcId) {
     this.vpcId = vpcId;
     return this;
@@ -291,13 +322,14 @@ public class DescribeSubnetsRequest {
         Objects.equals(this.routeTableId, describeSubnetsRequest.routeTableId) &&
         Objects.equals(this.subnetIds, describeSubnetsRequest.subnetIds) &&
         Objects.equals(this.subnetName, describeSubnetsRequest.subnetName) &&
+        Objects.equals(this.tagFilters, describeSubnetsRequest.tagFilters) &&
         Objects.equals(this.vpcId, describeSubnetsRequest.vpcId) &&
         Objects.equals(this.zoneId, describeSubnetsRequest.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(isDefault, maxResults, nextToken, pageNumber, pageSize, projectName, routeTableId, subnetIds, subnetName, vpcId, zoneId);
+    return Objects.hash(isDefault, maxResults, nextToken, pageNumber, pageSize, projectName, routeTableId, subnetIds, subnetName, tagFilters, vpcId, zoneId);
   }
 
 
@@ -315,6 +347,7 @@ public class DescribeSubnetsRequest {
     sb.append("    routeTableId: ").append(toIndentedString(routeTableId)).append("\n");
     sb.append("    subnetIds: ").append(toIndentedString(subnetIds)).append("\n");
     sb.append("    subnetName: ").append(toIndentedString(subnetName)).append("\n");
+    sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");

@@ -56,6 +56,9 @@ public class PrefixListForDescribePrefixListsOutput {
   @SerializedName("PrefixListName")
   private String prefixListName = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("Status")
   private String status = null;
 
@@ -214,6 +217,24 @@ public class PrefixListForDescribePrefixListsOutput {
     this.prefixListName = prefixListName;
   }
 
+  public PrefixListForDescribePrefixListsOutput projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public PrefixListForDescribePrefixListsOutput status(String status) {
     this.status = status;
     return this;
@@ -268,13 +289,14 @@ public class PrefixListForDescribePrefixListsOutput {
         Objects.equals(this.maxEntries, prefixListForDescribePrefixListsOutput.maxEntries) &&
         Objects.equals(this.prefixListId, prefixListForDescribePrefixListsOutput.prefixListId) &&
         Objects.equals(this.prefixListName, prefixListForDescribePrefixListsOutput.prefixListName) &&
+        Objects.equals(this.projectName, prefixListForDescribePrefixListsOutput.projectName) &&
         Objects.equals(this.status, prefixListForDescribePrefixListsOutput.status) &&
         Objects.equals(this.updateTime, prefixListForDescribePrefixListsOutput.updateTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(associationCount, cidrs, creationTime, description, ipVersion, maxEntries, prefixListId, prefixListName, status, updateTime);
+    return Objects.hash(associationCount, cidrs, creationTime, description, ipVersion, maxEntries, prefixListId, prefixListName, projectName, status, updateTime);
   }
 
 
@@ -291,6 +313,7 @@ public class PrefixListForDescribePrefixListsOutput {
     sb.append("    maxEntries: ").append(toIndentedString(maxEntries)).append("\n");
     sb.append("    prefixListId: ").append(toIndentedString(prefixListId)).append("\n");
     sb.append("    prefixListName: ").append(toIndentedString(prefixListName)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("}");

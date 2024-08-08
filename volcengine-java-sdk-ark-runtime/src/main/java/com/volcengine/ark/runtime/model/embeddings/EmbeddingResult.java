@@ -10,7 +10,17 @@ import java.util.List;
 public class EmbeddingResult {
 
     /**
-     * The GPTmodel used for generating embeddings
+     * Unique id assigned to this embedding
+     */
+    String id;
+
+    /**
+     * The creation time in epoch seconds.
+     */
+    String created;
+
+    /**
+     * The model used for generating embeddings
      */
     String model;
 
@@ -61,10 +71,28 @@ public class EmbeddingResult {
         this.usage = usage;
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getCreated() {
+        return created;
+    }
+
+    public void setCreated(String created) {
+        this.created = created;
+    }
+
     @Override
     public String toString() {
         return "EmbeddingResult{" +
-                "model='" + model + '\'' +
+                "id='" + id + '\'' +
+                ", created='" + created + '\'' +
+                ", model='" + model + '\'' +
                 ", object='" + object + '\'' +
                 ", data=" + data +
                 ", usage=" + usage +
