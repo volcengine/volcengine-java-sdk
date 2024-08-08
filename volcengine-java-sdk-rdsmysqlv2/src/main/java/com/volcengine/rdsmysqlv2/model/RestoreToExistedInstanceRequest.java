@@ -93,7 +93,8 @@ public class RestoreToExistedInstanceRequest {
    * Get restoreType
    * @return restoreType
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getRestoreType() {
     return restoreType;
   }
