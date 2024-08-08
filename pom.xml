@@ -246,5 +246,6 @@
         <module>volcengine-java-sdk-iam20210801</module>
         <module>volcengine-java-sdk-transitrouter</module>
         <module>volcengine-java-sdk-sts</module>
+        <module>volcengine-java-sdk-kms</module>
     </modules>
 </project>
