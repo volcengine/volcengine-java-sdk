@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DownloadBackupResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("BackupId")
   private String backupId = null;

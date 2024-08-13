@@ -32,6 +32,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class InstancesInfoForDescribeDBInstancesOutput {
   @SerializedName("ChargeDetail")
   private ChargeDetailForDescribeDBInstancesOutput chargeDetail = null;
@@ -41,6 +42,9 @@ public class InstancesInfoForDescribeDBInstancesOutput {
 
   @SerializedName("DBEngineVersion")
   private String dbEngineVersion = null;
+
+  @SerializedName("InstanceCategory")
+  private String instanceCategory = null;
 
   @SerializedName("InstanceId")
   private String instanceId = null;
@@ -63,8 +67,14 @@ public class InstancesInfoForDescribeDBInstancesOutput {
   @SerializedName("Port")
   private String port = null;
 
+  @SerializedName("PrimaryInstanceId")
+  private String primaryInstanceId = null;
+
   @SerializedName("ProjectName")
   private String projectName = null;
+
+  @SerializedName("ReadOnlyNumber")
+  private Integer readOnlyNumber = null;
 
   @SerializedName("RegionId")
   private String regionId = null;
@@ -143,6 +153,24 @@ public class InstancesInfoForDescribeDBInstancesOutput {
 
   public void setDbEngineVersion(String dbEngineVersion) {
     this.dbEngineVersion = dbEngineVersion;
+  }
+
+  public InstancesInfoForDescribeDBInstancesOutput instanceCategory(String instanceCategory) {
+    this.instanceCategory = instanceCategory;
+    return this;
+  }
+
+   /**
+   * Get instanceCategory
+   * @return instanceCategory
+  **/
+  @Schema(description = "")
+  public String getInstanceCategory() {
+    return instanceCategory;
+  }
+
+  public void setInstanceCategory(String instanceCategory) {
+    this.instanceCategory = instanceCategory;
   }
 
   public InstancesInfoForDescribeDBInstancesOutput instanceId(String instanceId) {
@@ -280,6 +308,24 @@ public class InstancesInfoForDescribeDBInstancesOutput {
     this.port = port;
   }
 
+  public InstancesInfoForDescribeDBInstancesOutput primaryInstanceId(String primaryInstanceId) {
+    this.primaryInstanceId = primaryInstanceId;
+    return this;
+  }
+
+   /**
+   * Get primaryInstanceId
+   * @return primaryInstanceId
+  **/
+  @Schema(description = "")
+  public String getPrimaryInstanceId() {
+    return primaryInstanceId;
+  }
+
+  public void setPrimaryInstanceId(String primaryInstanceId) {
+    this.primaryInstanceId = primaryInstanceId;
+  }
+
   public InstancesInfoForDescribeDBInstancesOutput projectName(String projectName) {
     this.projectName = projectName;
     return this;
@@ -296,6 +342,24 @@ public class InstancesInfoForDescribeDBInstancesOutput {
 
   public void setProjectName(String projectName) {
     this.projectName = projectName;
+  }
+
+  public InstancesInfoForDescribeDBInstancesOutput readOnlyNumber(Integer readOnlyNumber) {
+    this.readOnlyNumber = readOnlyNumber;
+    return this;
+  }
+
+   /**
+   * Get readOnlyNumber
+   * @return readOnlyNumber
+  **/
+  @Schema(description = "")
+  public Integer getReadOnlyNumber() {
+    return readOnlyNumber;
+  }
+
+  public void setReadOnlyNumber(Integer readOnlyNumber) {
+    this.readOnlyNumber = readOnlyNumber;
   }
 
   public InstancesInfoForDescribeDBInstancesOutput regionId(String regionId) {
@@ -455,6 +519,7 @@ public class InstancesInfoForDescribeDBInstancesOutput {
     return Objects.equals(this.chargeDetail, instancesInfoForDescribeDBInstancesOutput.chargeDetail) &&
         Objects.equals(this.createTime, instancesInfoForDescribeDBInstancesOutput.createTime) &&
         Objects.equals(this.dbEngineVersion, instancesInfoForDescribeDBInstancesOutput.dbEngineVersion) &&
+        Objects.equals(this.instanceCategory, instancesInfoForDescribeDBInstancesOutput.instanceCategory) &&
         Objects.equals(this.instanceId, instancesInfoForDescribeDBInstancesOutput.instanceId) &&
         Objects.equals(this.instanceName, instancesInfoForDescribeDBInstancesOutput.instanceName) &&
         Objects.equals(this.instanceStatus, instancesInfoForDescribeDBInstancesOutput.instanceStatus) &&
@@ -462,7 +527,9 @@ public class InstancesInfoForDescribeDBInstancesOutput {
         Objects.equals(this.nodeDetailInfo, instancesInfoForDescribeDBInstancesOutput.nodeDetailInfo) &&
         Objects.equals(this.nodeSpec, instancesInfoForDescribeDBInstancesOutput.nodeSpec) &&
         Objects.equals(this.port, instancesInfoForDescribeDBInstancesOutput.port) &&
+        Objects.equals(this.primaryInstanceId, instancesInfoForDescribeDBInstancesOutput.primaryInstanceId) &&
         Objects.equals(this.projectName, instancesInfoForDescribeDBInstancesOutput.projectName) &&
+        Objects.equals(this.readOnlyNumber, instancesInfoForDescribeDBInstancesOutput.readOnlyNumber) &&
         Objects.equals(this.regionId, instancesInfoForDescribeDBInstancesOutput.regionId) &&
         Objects.equals(this.serverCollation, instancesInfoForDescribeDBInstancesOutput.serverCollation) &&
         Objects.equals(this.storageSpace, instancesInfoForDescribeDBInstancesOutput.storageSpace) &&
@@ -475,7 +542,7 @@ public class InstancesInfoForDescribeDBInstancesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(chargeDetail, createTime, dbEngineVersion, instanceId, instanceName, instanceStatus, instanceType, nodeDetailInfo, nodeSpec, port, projectName, regionId, serverCollation, storageSpace, storageType, subnetId, timeZone, vpcId, zoneId);
+    return Objects.hash(chargeDetail, createTime, dbEngineVersion, instanceCategory, instanceId, instanceName, instanceStatus, instanceType, nodeDetailInfo, nodeSpec, port, primaryInstanceId, projectName, readOnlyNumber, regionId, serverCollation, storageSpace, storageType, subnetId, timeZone, vpcId, zoneId);
   }
 
 
@@ -487,6 +554,7 @@ public class InstancesInfoForDescribeDBInstancesOutput {
     sb.append("    chargeDetail: ").append(toIndentedString(chargeDetail)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    dbEngineVersion: ").append(toIndentedString(dbEngineVersion)).append("\n");
+    sb.append("    instanceCategory: ").append(toIndentedString(instanceCategory)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    instanceStatus: ").append(toIndentedString(instanceStatus)).append("\n");
@@ -494,7 +562,9 @@ public class InstancesInfoForDescribeDBInstancesOutput {
     sb.append("    nodeDetailInfo: ").append(toIndentedString(nodeDetailInfo)).append("\n");
     sb.append("    nodeSpec: ").append(toIndentedString(nodeSpec)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
+    sb.append("    primaryInstanceId: ").append(toIndentedString(primaryInstanceId)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    readOnlyNumber: ").append(toIndentedString(readOnlyNumber)).append("\n");
     sb.append("    regionId: ").append(toIndentedString(regionId)).append("\n");
     sb.append("    serverCollation: ").append(toIndentedString(serverCollation)).append("\n");
     sb.append("    storageSpace: ").append(toIndentedString(storageSpace)).append("\n");

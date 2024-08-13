@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeTosRestoreTaskDetailRequest {
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
@@ -47,8 +48,7 @@ public class DescribeTosRestoreTaskDetailRequest {
    * Get pageNumber
    * @return pageNumber
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public Integer getPageNumber() {
     return pageNumber;
   }
@@ -66,8 +66,7 @@ public class DescribeTosRestoreTaskDetailRequest {
    * Get pageSize
    * @return pageSize
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public Integer getPageSize() {
     return pageSize;
   }

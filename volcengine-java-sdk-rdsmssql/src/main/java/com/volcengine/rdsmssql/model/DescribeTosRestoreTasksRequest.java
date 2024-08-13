@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeTosRestoreTasksRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;
@@ -92,8 +93,7 @@ public class DescribeTosRestoreTasksRequest {
    * Get pageNumber
    * @return pageNumber
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public Integer getPageNumber() {
     return pageNumber;
   }
@@ -111,8 +111,7 @@ public class DescribeTosRestoreTasksRequest {
    * Get pageSize
    * @return pageSize
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public Integer getPageSize() {
     return pageSize;
   }

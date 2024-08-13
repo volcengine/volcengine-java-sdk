@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class InstanceParameterForDescribeDBInstanceParametersOutput {
   @SerializedName("CheckingCode")
   private String checkingCode = null;

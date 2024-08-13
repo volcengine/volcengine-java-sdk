@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class RestoreTaskDetailForDescribeTosRestoreTaskDetailOutput {
   @SerializedName("BackupType")
   private String backupType = null;
