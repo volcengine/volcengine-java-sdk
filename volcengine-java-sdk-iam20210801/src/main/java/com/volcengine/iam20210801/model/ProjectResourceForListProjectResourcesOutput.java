@@ -28,9 +28,10 @@ import javax.validation.Valid;
  */
 
 
+
 public class ProjectResourceForListProjectResourcesOutput {
   @SerializedName("AccountID")
-  private String accountID = null;
+  private Long accountID = null;
 
   @SerializedName("CreateDate")
   private String createDate = null;
@@ -56,7 +57,7 @@ public class ProjectResourceForListProjectResourcesOutput {
   @SerializedName("UpdateDate")
   private String updateDate = null;
 
-  public ProjectResourceForListProjectResourcesOutput accountID(String accountID) {
+  public ProjectResourceForListProjectResourcesOutput accountID(Long accountID) {
     this.accountID = accountID;
     return this;
   }
@@ -66,11 +67,11 @@ public class ProjectResourceForListProjectResourcesOutput {
    * @return accountID
   **/
   @Schema(description = "")
-  public String getAccountID() {
+  public Long getAccountID() {
     return accountID;
   }
 
-  public void setAccountID(String accountID) {
+  public void setAccountID(Long accountID) {
     this.accountID = accountID;
   }
 

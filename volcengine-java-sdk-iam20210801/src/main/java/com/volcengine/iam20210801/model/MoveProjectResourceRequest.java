@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class MoveProjectResourceRequest {
   @SerializedName("ResourceTrn")
   private List<String> resourceTrn = null;

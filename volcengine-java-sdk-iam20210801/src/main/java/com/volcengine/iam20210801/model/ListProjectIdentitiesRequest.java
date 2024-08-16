@@ -28,14 +28,18 @@ import javax.validation.Valid;
  */
 
 
+
 public class ListProjectIdentitiesRequest {
   /**
    * Gets or Sets identityType
    */
   @JsonAdapter(IdentityTypeEnum.Adapter.class)
   public enum IdentityTypeEnum {
+    @SerializedName("User")
     USER("User"),
+    @SerializedName("Role")
     ROLE("Role"),
+    @SerializedName("UserGroup")
     USERGROUP("UserGroup");
 
     private String value;
