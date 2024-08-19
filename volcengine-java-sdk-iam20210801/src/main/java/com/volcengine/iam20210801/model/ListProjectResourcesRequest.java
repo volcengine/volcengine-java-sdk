@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ListProjectResourcesRequest {
   @SerializedName("Limit")
   private Integer limit = null;
@@ -40,7 +41,9 @@ public class ListProjectResourcesRequest {
    */
   @JsonAdapter(OrderByEnum.Adapter.class)
   public enum OrderByEnum {
+    @SerializedName("CreatedTime")
     CREATEDTIME("CreatedTime"),
+    @SerializedName("UpdatedTime")
     UPDATEDTIME("UpdatedTime");
 
     private String value;

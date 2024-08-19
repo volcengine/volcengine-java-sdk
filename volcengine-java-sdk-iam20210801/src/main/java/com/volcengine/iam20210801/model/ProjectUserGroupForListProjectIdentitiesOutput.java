@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ProjectUserGroupForListProjectIdentitiesOutput {
   @SerializedName("Description")
   private String description = null;

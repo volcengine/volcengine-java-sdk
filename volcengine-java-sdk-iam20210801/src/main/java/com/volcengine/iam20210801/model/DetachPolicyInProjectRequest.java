@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DetachPolicyInProjectRequest {
   @SerializedName("PolicyName")
   private String policyName = null;
@@ -39,7 +40,9 @@ public class DetachPolicyInProjectRequest {
    */
   @JsonAdapter(PolicyTypeEnum.Adapter.class)
   public enum PolicyTypeEnum {
+    @SerializedName("System")
     SYSTEM("System"),
+    @SerializedName("Custom")
     CUSTOM("Custom");
 
     private String value;
@@ -86,8 +89,11 @@ public class DetachPolicyInProjectRequest {
    */
   @JsonAdapter(PrincipalTypeEnum.Adapter.class)
   public enum PrincipalTypeEnum {
+    @SerializedName("User")
     USER("User"),
+    @SerializedName("Role")
     ROLE("Role"),
+    @SerializedName("UserGroup")
     USERGROUP("UserGroup");
 
     private String value;
