@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vpn.model.HealthCheckerForDescribeVpnConnectionsOutput;
 import com.volcengine.vpn.model.IkeConfigForDescribeVpnConnectionsOutput;
 import com.volcengine.vpn.model.IpsecConfigForDescribeVpnConnectionsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -64,6 +65,9 @@ public class VpnConnectionForDescribeVpnConnectionsOutput {
   @SerializedName("DpdAction")
   private String dpdAction = null;
 
+  @SerializedName("HealthCheckers")
+  private List<HealthCheckerForDescribeVpnConnectionsOutput> healthCheckers = null;
+
   @SerializedName("IkeConfig")
   private IkeConfigForDescribeVpnConnectionsOutput ikeConfig = null;
 
@@ -72,6 +76,9 @@ public class VpnConnectionForDescribeVpnConnectionsOutput {
 
   @SerializedName("IpsecConfig")
   private IpsecConfigForDescribeVpnConnectionsOutput ipsecConfig = null;
+
+  @SerializedName("IsBlocked")
+  private String isBlocked = null;
 
   @SerializedName("LocalSubnet")
   private List<String> localSubnet = null;
@@ -94,6 +101,9 @@ public class VpnConnectionForDescribeVpnConnectionsOutput {
   @SerializedName("RemoteSubnet")
   private List<String> remoteSubnet = null;
 
+  @SerializedName("RequestId")
+  private String requestId = null;
+
   @SerializedName("Status")
   private String status = null;
 
@@ -111,9 +121,6 @@ public class VpnConnectionForDescribeVpnConnectionsOutput {
 
   @SerializedName("VpnGatewayId")
   private String vpnGatewayId = null;
-
-  @SerializedName("ZoneId")
-  private String zoneId = null;
 
   public VpnConnectionForDescribeVpnConnectionsOutput accountId(String accountId) {
     this.accountId = accountId;
@@ -295,6 +302,33 @@ public class VpnConnectionForDescribeVpnConnectionsOutput {
     this.dpdAction = dpdAction;
   }
 
+  public VpnConnectionForDescribeVpnConnectionsOutput healthCheckers(List<HealthCheckerForDescribeVpnConnectionsOutput> healthCheckers) {
+    this.healthCheckers = healthCheckers;
+    return this;
+  }
+
+  public VpnConnectionForDescribeVpnConnectionsOutput addHealthCheckersItem(HealthCheckerForDescribeVpnConnectionsOutput healthCheckersItem) {
+    if (this.healthCheckers == null) {
+      this.healthCheckers = new ArrayList<HealthCheckerForDescribeVpnConnectionsOutput>();
+    }
+    this.healthCheckers.add(healthCheckersItem);
+    return this;
+  }
+
+   /**
+   * Get healthCheckers
+   * @return healthCheckers
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<HealthCheckerForDescribeVpnConnectionsOutput> getHealthCheckers() {
+    return healthCheckers;
+  }
+
+  public void setHealthCheckers(List<HealthCheckerForDescribeVpnConnectionsOutput> healthCheckers) {
+    this.healthCheckers = healthCheckers;
+  }
+
   public VpnConnectionForDescribeVpnConnectionsOutput ikeConfig(IkeConfigForDescribeVpnConnectionsOutput ikeConfig) {
     this.ikeConfig = ikeConfig;
     return this;
@@ -349,6 +383,24 @@ public class VpnConnectionForDescribeVpnConnectionsOutput {
 
   public void setIpsecConfig(IpsecConfigForDescribeVpnConnectionsOutput ipsecConfig) {
     this.ipsecConfig = ipsecConfig;
+  }
+
+  public VpnConnectionForDescribeVpnConnectionsOutput isBlocked(String isBlocked) {
+    this.isBlocked = isBlocked;
+    return this;
+  }
+
+   /**
+   * Get isBlocked
+   * @return isBlocked
+  **/
+  @Schema(description = "")
+  public String getIsBlocked() {
+    return isBlocked;
+  }
+
+  public void setIsBlocked(String isBlocked) {
+    this.isBlocked = isBlocked;
   }
 
   public VpnConnectionForDescribeVpnConnectionsOutput localSubnet(List<String> localSubnet) {
@@ -493,6 +545,24 @@ public class VpnConnectionForDescribeVpnConnectionsOutput {
     this.remoteSubnet = remoteSubnet;
   }
 
+  public VpnConnectionForDescribeVpnConnectionsOutput requestId(String requestId) {
+    this.requestId = requestId;
+    return this;
+  }
+
+   /**
+   * Get requestId
+   * @return requestId
+  **/
+  @Schema(description = "")
+  public String getRequestId() {
+    return requestId;
+  }
+
+  public void setRequestId(String requestId) {
+    this.requestId = requestId;
+  }
+
   public VpnConnectionForDescribeVpnConnectionsOutput status(String status) {
     this.status = status;
     return this;
@@ -601,24 +671,6 @@ public class VpnConnectionForDescribeVpnConnectionsOutput {
     this.vpnGatewayId = vpnGatewayId;
   }
 
-  public VpnConnectionForDescribeVpnConnectionsOutput zoneId(String zoneId) {
-    this.zoneId = zoneId;
-    return this;
-  }
-
-   /**
-   * Get zoneId
-   * @return zoneId
-  **/
-  @Schema(description = "")
-  public String getZoneId() {
-    return zoneId;
-  }
-
-  public void setZoneId(String zoneId) {
-    this.zoneId = zoneId;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -639,9 +691,11 @@ public class VpnConnectionForDescribeVpnConnectionsOutput {
         Objects.equals(this.deletedTime, vpnConnectionForDescribeVpnConnectionsOutput.deletedTime) &&
         Objects.equals(this.description, vpnConnectionForDescribeVpnConnectionsOutput.description) &&
         Objects.equals(this.dpdAction, vpnConnectionForDescribeVpnConnectionsOutput.dpdAction) &&
+        Objects.equals(this.healthCheckers, vpnConnectionForDescribeVpnConnectionsOutput.healthCheckers) &&
         Objects.equals(this.ikeConfig, vpnConnectionForDescribeVpnConnectionsOutput.ikeConfig) &&
         Objects.equals(this.ipAddress, vpnConnectionForDescribeVpnConnectionsOutput.ipAddress) &&
         Objects.equals(this.ipsecConfig, vpnConnectionForDescribeVpnConnectionsOutput.ipsecConfig) &&
+        Objects.equals(this.isBlocked, vpnConnectionForDescribeVpnConnectionsOutput.isBlocked) &&
         Objects.equals(this.localSubnet, vpnConnectionForDescribeVpnConnectionsOutput.localSubnet) &&
         Objects.equals(this.logEnabled, vpnConnectionForDescribeVpnConnectionsOutput.logEnabled) &&
         Objects.equals(this.natTraversal, vpnConnectionForDescribeVpnConnectionsOutput.natTraversal) &&
@@ -649,18 +703,18 @@ public class VpnConnectionForDescribeVpnConnectionsOutput {
         Objects.equals(this.overdueTime, vpnConnectionForDescribeVpnConnectionsOutput.overdueTime) &&
         Objects.equals(this.projectName, vpnConnectionForDescribeVpnConnectionsOutput.projectName) &&
         Objects.equals(this.remoteSubnet, vpnConnectionForDescribeVpnConnectionsOutput.remoteSubnet) &&
+        Objects.equals(this.requestId, vpnConnectionForDescribeVpnConnectionsOutput.requestId) &&
         Objects.equals(this.status, vpnConnectionForDescribeVpnConnectionsOutput.status) &&
         Objects.equals(this.transitRouterId, vpnConnectionForDescribeVpnConnectionsOutput.transitRouterId) &&
         Objects.equals(this.updateTime, vpnConnectionForDescribeVpnConnectionsOutput.updateTime) &&
         Objects.equals(this.vpnConnectionId, vpnConnectionForDescribeVpnConnectionsOutput.vpnConnectionId) &&
         Objects.equals(this.vpnConnectionName, vpnConnectionForDescribeVpnConnectionsOutput.vpnConnectionName) &&
-        Objects.equals(this.vpnGatewayId, vpnConnectionForDescribeVpnConnectionsOutput.vpnGatewayId) &&
-        Objects.equals(this.zoneId, vpnConnectionForDescribeVpnConnectionsOutput.zoneId);
+        Objects.equals(this.vpnGatewayId, vpnConnectionForDescribeVpnConnectionsOutput.vpnGatewayId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, attachStatus, attachType, businessStatus, connectStatus, creationTime, customerGatewayId, deletedTime, description, dpdAction, ikeConfig, ipAddress, ipsecConfig, localSubnet, logEnabled, natTraversal, negotiateInstantly, overdueTime, projectName, remoteSubnet, status, transitRouterId, updateTime, vpnConnectionId, vpnConnectionName, vpnGatewayId, zoneId);
+    return Objects.hash(accountId, attachStatus, attachType, businessStatus, connectStatus, creationTime, customerGatewayId, deletedTime, description, dpdAction, healthCheckers, ikeConfig, ipAddress, ipsecConfig, isBlocked, localSubnet, logEnabled, natTraversal, negotiateInstantly, overdueTime, projectName, remoteSubnet, requestId, status, transitRouterId, updateTime, vpnConnectionId, vpnConnectionName, vpnGatewayId);
   }
 
 
@@ -679,9 +733,11 @@ public class VpnConnectionForDescribeVpnConnectionsOutput {
     sb.append("    deletedTime: ").append(toIndentedString(deletedTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    dpdAction: ").append(toIndentedString(dpdAction)).append("\n");
+    sb.append("    healthCheckers: ").append(toIndentedString(healthCheckers)).append("\n");
     sb.append("    ikeConfig: ").append(toIndentedString(ikeConfig)).append("\n");
     sb.append("    ipAddress: ").append(toIndentedString(ipAddress)).append("\n");
     sb.append("    ipsecConfig: ").append(toIndentedString(ipsecConfig)).append("\n");
+    sb.append("    isBlocked: ").append(toIndentedString(isBlocked)).append("\n");
     sb.append("    localSubnet: ").append(toIndentedString(localSubnet)).append("\n");
     sb.append("    logEnabled: ").append(toIndentedString(logEnabled)).append("\n");
     sb.append("    natTraversal: ").append(toIndentedString(natTraversal)).append("\n");
@@ -689,13 +745,13 @@ public class VpnConnectionForDescribeVpnConnectionsOutput {
     sb.append("    overdueTime: ").append(toIndentedString(overdueTime)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    remoteSubnet: ").append(toIndentedString(remoteSubnet)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    transitRouterId: ").append(toIndentedString(transitRouterId)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    vpnConnectionId: ").append(toIndentedString(vpnConnectionId)).append("\n");
     sb.append("    vpnConnectionName: ").append(toIndentedString(vpnConnectionName)).append("\n");
     sb.append("    vpnGatewayId: ").append(toIndentedString(vpnGatewayId)).append("\n");
-    sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

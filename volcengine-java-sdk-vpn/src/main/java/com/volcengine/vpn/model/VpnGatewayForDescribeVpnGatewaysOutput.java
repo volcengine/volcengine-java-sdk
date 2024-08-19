@@ -63,6 +63,9 @@ public class VpnGatewayForDescribeVpnGatewaysOutput {
   @SerializedName("IpAddress")
   private String ipAddress = null;
 
+  @SerializedName("IsBlocked")
+  private Boolean isBlocked = null;
+
   @SerializedName("LockReason")
   private String lockReason = null;
 
@@ -271,6 +274,24 @@ public class VpnGatewayForDescribeVpnGatewaysOutput {
 
   public void setIpAddress(String ipAddress) {
     this.ipAddress = ipAddress;
+  }
+
+  public VpnGatewayForDescribeVpnGatewaysOutput isBlocked(Boolean isBlocked) {
+    this.isBlocked = isBlocked;
+    return this;
+  }
+
+   /**
+   * Get isBlocked
+   * @return isBlocked
+  **/
+  @Schema(description = "")
+  public Boolean isIsBlocked() {
+    return isBlocked;
+  }
+
+  public void setIsBlocked(Boolean isBlocked) {
+    this.isBlocked = isBlocked;
   }
 
   public VpnGatewayForDescribeVpnGatewaysOutput lockReason(String lockReason) {
@@ -482,6 +503,7 @@ public class VpnGatewayForDescribeVpnGatewaysOutput {
         Objects.equals(this.description, vpnGatewayForDescribeVpnGatewaysOutput.description) &&
         Objects.equals(this.expiredTime, vpnGatewayForDescribeVpnGatewaysOutput.expiredTime) &&
         Objects.equals(this.ipAddress, vpnGatewayForDescribeVpnGatewaysOutput.ipAddress) &&
+        Objects.equals(this.isBlocked, vpnGatewayForDescribeVpnGatewaysOutput.isBlocked) &&
         Objects.equals(this.lockReason, vpnGatewayForDescribeVpnGatewaysOutput.lockReason) &&
         Objects.equals(this.projectName, vpnGatewayForDescribeVpnGatewaysOutput.projectName) &&
         Objects.equals(this.routeCount, vpnGatewayForDescribeVpnGatewaysOutput.routeCount) &&
@@ -496,7 +518,7 @@ public class VpnGatewayForDescribeVpnGatewaysOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, bandwidth, billingType, businessStatus, connectionCount, creationTime, deletedTime, description, expiredTime, ipAddress, lockReason, projectName, routeCount, status, subnetId, tags, updateTime, vpcId, vpnGatewayId, vpnGatewayName);
+    return Objects.hash(accountId, bandwidth, billingType, businessStatus, connectionCount, creationTime, deletedTime, description, expiredTime, ipAddress, isBlocked, lockReason, projectName, routeCount, status, subnetId, tags, updateTime, vpcId, vpnGatewayId, vpnGatewayName);
   }
 
 
@@ -515,6 +537,7 @@ public class VpnGatewayForDescribeVpnGatewaysOutput {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    expiredTime: ").append(toIndentedString(expiredTime)).append("\n");
     sb.append("    ipAddress: ").append(toIndentedString(ipAddress)).append("\n");
+    sb.append("    isBlocked: ").append(toIndentedString(isBlocked)).append("\n");
     sb.append("    lockReason: ").append(toIndentedString(lockReason)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    routeCount: ").append(toIndentedString(routeCount)).append("\n");

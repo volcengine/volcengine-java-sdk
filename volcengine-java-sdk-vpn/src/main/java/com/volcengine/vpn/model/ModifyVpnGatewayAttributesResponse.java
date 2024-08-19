@@ -30,8 +30,29 @@ import javax.validation.Valid;
 
 
 public class ModifyVpnGatewayAttributesResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("OrderId")
+  private String orderId = null;
+
   @SerializedName("RequestId")
   private String requestId = null;
+
+  public ModifyVpnGatewayAttributesResponse orderId(String orderId) {
+    this.orderId = orderId;
+    return this;
+  }
+
+   /**
+   * Get orderId
+   * @return orderId
+  **/
+  @Schema(description = "")
+  public String getOrderId() {
+    return orderId;
+  }
+
+  public void setOrderId(String orderId) {
+    this.orderId = orderId;
+  }
 
   public ModifyVpnGatewayAttributesResponse requestId(String requestId) {
     this.requestId = requestId;
@@ -61,12 +82,13 @@ public class ModifyVpnGatewayAttributesResponse extends com.volcengine.model.Abs
       return false;
     }
     ModifyVpnGatewayAttributesResponse modifyVpnGatewayAttributesResponse = (ModifyVpnGatewayAttributesResponse) o;
-    return Objects.equals(this.requestId, modifyVpnGatewayAttributesResponse.requestId);
+    return Objects.equals(this.orderId, modifyVpnGatewayAttributesResponse.orderId) &&
+        Objects.equals(this.requestId, modifyVpnGatewayAttributesResponse.requestId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestId);
+    return Objects.hash(orderId, requestId);
   }
 
 
@@ -75,6 +97,7 @@ public class ModifyVpnGatewayAttributesResponse extends com.volcengine.model.Abs
     StringBuilder sb = new StringBuilder();
     sb.append("class ModifyVpnGatewayAttributesResponse {\n");
     
+    sb.append("    orderId: ").append(toIndentedString(orderId)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("}");
     return sb.toString();

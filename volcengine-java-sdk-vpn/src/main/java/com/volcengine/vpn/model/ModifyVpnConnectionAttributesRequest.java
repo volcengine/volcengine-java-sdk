@@ -19,6 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vpn.model.IkeConfigForModifyVpnConnectionAttributesInput;
+import com.volcengine.vpn.model.IpsecConfigForModifyVpnConnectionAttributesInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -35,61 +37,14 @@ public class ModifyVpnConnectionAttributesRequest {
   @SerializedName("Description")
   private String description = null;
 
-  /**
-   * Gets or Sets dpdAction
-   */
-  @JsonAdapter(DpdActionEnum.Adapter.class)
-  public enum DpdActionEnum {
-    @SerializedName("none")
-    NONE("none"),
-    @SerializedName("clear")
-    CLEAR("clear"),
-    @SerializedName("hold")
-    HOLD("hold"),
-    @SerializedName("restart")
-    RESTART("restart");
-
-    private String value;
-
-    DpdActionEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static DpdActionEnum fromValue(String input) {
-      for (DpdActionEnum b : DpdActionEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<DpdActionEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final DpdActionEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public DpdActionEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return DpdActionEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("DpdAction")
-  private DpdActionEnum dpdAction = null;
+  @SerializedName("DpdAction")
+  private String dpdAction = null;
 
   @SerializedName("IkeConfig")
-  private String ikeConfig = null;
+  private IkeConfigForModifyVpnConnectionAttributesInput ikeConfig = null;
 
   @SerializedName("IpsecConfig")
-  private String ipsecConfig = null;
+  private IpsecConfigForModifyVpnConnectionAttributesInput ipsecConfig = null;
 
   @SerializedName("LocalSubnet")
   private List<String> localSubnet = null;
@@ -121,7 +76,7 @@ public class ModifyVpnConnectionAttributesRequest {
    * Get description
    * @return description
   **/
- @Size(min=1,max=255)  @Schema(description = "")
+  @Schema(description = "")
   public String getDescription() {
     return description;
   }
@@ -130,7 +85,7 @@ public class ModifyVpnConnectionAttributesRequest {
     this.description = description;
   }
 
-  public ModifyVpnConnectionAttributesRequest dpdAction(DpdActionEnum dpdAction) {
+  public ModifyVpnConnectionAttributesRequest dpdAction(String dpdAction) {
     this.dpdAction = dpdAction;
     return this;
   }
@@ -140,15 +95,15 @@ public class ModifyVpnConnectionAttributesRequest {
    * @return dpdAction
   **/
   @Schema(description = "")
-  public DpdActionEnum getDpdAction() {
+  public String getDpdAction() {
     return dpdAction;
   }
 
-  public void setDpdAction(DpdActionEnum dpdAction) {
+  public void setDpdAction(String dpdAction) {
     this.dpdAction = dpdAction;
   }
 
-  public ModifyVpnConnectionAttributesRequest ikeConfig(String ikeConfig) {
+  public ModifyVpnConnectionAttributesRequest ikeConfig(IkeConfigForModifyVpnConnectionAttributesInput ikeConfig) {
     this.ikeConfig = ikeConfig;
     return this;
   }
@@ -157,16 +112,17 @@ public class ModifyVpnConnectionAttributesRequest {
    * Get ikeConfig
    * @return ikeConfig
   **/
+  @Valid
   @Schema(description = "")
-  public String getIkeConfig() {
+  public IkeConfigForModifyVpnConnectionAttributesInput getIkeConfig() {
     return ikeConfig;
   }
 
-  public void setIkeConfig(String ikeConfig) {
+  public void setIkeConfig(IkeConfigForModifyVpnConnectionAttributesInput ikeConfig) {
     this.ikeConfig = ikeConfig;
   }
 
-  public ModifyVpnConnectionAttributesRequest ipsecConfig(String ipsecConfig) {
+  public ModifyVpnConnectionAttributesRequest ipsecConfig(IpsecConfigForModifyVpnConnectionAttributesInput ipsecConfig) {
     this.ipsecConfig = ipsecConfig;
     return this;
   }
@@ -175,12 +131,13 @@ public class ModifyVpnConnectionAttributesRequest {
    * Get ipsecConfig
    * @return ipsecConfig
   **/
+  @Valid
   @Schema(description = "")
-  public String getIpsecConfig() {
+  public IpsecConfigForModifyVpnConnectionAttributesInput getIpsecConfig() {
     return ipsecConfig;
   }
 
-  public void setIpsecConfig(String ipsecConfig) {
+  public void setIpsecConfig(IpsecConfigForModifyVpnConnectionAttributesInput ipsecConfig) {
     this.ipsecConfig = ipsecConfig;
   }
 
@@ -318,7 +275,7 @@ public class ModifyVpnConnectionAttributesRequest {
    * Get vpnConnectionName
    * @return vpnConnectionName
   **/
- @Size(min=1,max=128)  @Schema(description = "")
+  @Schema(description = "")
   public String getVpnConnectionName() {
     return vpnConnectionName;
   }

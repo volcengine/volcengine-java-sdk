@@ -72,7 +72,7 @@ public class CreateCustomerGatewayRequest {
    * Get customerGatewayName
    * @return customerGatewayName
   **/
- @Size(min=1,max=128)  @Schema(description = "")
+  @Schema(description = "")
   public String getCustomerGatewayName() {
     return customerGatewayName;
   }
@@ -90,7 +90,7 @@ public class CreateCustomerGatewayRequest {
    * Get description
    * @return description
   **/
- @Size(min=1,max=255)  @Schema(description = "")
+  @Schema(description = "")
   public String getDescription() {
     return description;
   }

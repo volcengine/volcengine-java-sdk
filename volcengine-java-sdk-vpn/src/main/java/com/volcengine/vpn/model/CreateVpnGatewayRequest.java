@@ -39,60 +39,29 @@ public class CreateVpnGatewayRequest {
   @SerializedName("BillingType")
   private Integer billingType = null;
 
+  @SerializedName("ClientToken")
+  private String clientToken = null;
+
   @SerializedName("Description")
   private String description = null;
+
+  @SerializedName("IpsecEnabled")
+  private Boolean ipsecEnabled = null;
 
   @SerializedName("Period")
   private Integer period = null;
 
-  /**
-   * Gets or Sets periodUnit
-   */
-  @JsonAdapter(PeriodUnitEnum.Adapter.class)
-  public enum PeriodUnitEnum {
-    @SerializedName("Month")
-    MONTH("Month"),
-    @SerializedName("Year")
-    YEAR("Year");
-
-    private String value;
-
-    PeriodUnitEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static PeriodUnitEnum fromValue(String input) {
-      for (PeriodUnitEnum b : PeriodUnitEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<PeriodUnitEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final PeriodUnitEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public PeriodUnitEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return PeriodUnitEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("PeriodUnit")
-  private PeriodUnitEnum periodUnit = null;
+  @SerializedName("PeriodUnit")
+  private String periodUnit = null;
 
   @SerializedName("ProjectName")
   private String projectName = null;
+
+  @SerializedName("SslEnabled")
+  private Boolean sslEnabled = null;
+
+  @SerializedName("SslMaxConnections")
+  private Integer sslMaxConnections = null;
 
   @SerializedName("SubnetId")
   private String subnetId = null;
@@ -113,12 +82,10 @@ public class CreateVpnGatewayRequest {
 
    /**
    * Get bandwidth
-   * minimum: 5
-   * maximum: 1000
    * @return bandwidth
   **/
   @NotNull
- @Min(5) @Max(1000)  @Schema(required = true, description = "")
+  @Schema(required = true, description = "")
   public Integer getBandwidth() {
     return bandwidth;
   }
@@ -134,17 +101,33 @@ public class CreateVpnGatewayRequest {
 
    /**
    * Get billingType
-   * minimum: 1
-   * maximum: 1
    * @return billingType
   **/
- @Min(1) @Max(1)  @Schema(description = "")
+  @Schema(description = "")
   public Integer getBillingType() {
     return billingType;
   }
 
   public void setBillingType(Integer billingType) {
     this.billingType = billingType;
+  }
+
+  public CreateVpnGatewayRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
   }
 
   public CreateVpnGatewayRequest description(String description) {
@@ -156,13 +139,31 @@ public class CreateVpnGatewayRequest {
    * Get description
    * @return description
   **/
- @Size(min=1,max=255)  @Schema(description = "")
+  @Schema(description = "")
   public String getDescription() {
     return description;
   }
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public CreateVpnGatewayRequest ipsecEnabled(Boolean ipsecEnabled) {
+    this.ipsecEnabled = ipsecEnabled;
+    return this;
+  }
+
+   /**
+   * Get ipsecEnabled
+   * @return ipsecEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isIpsecEnabled() {
+    return ipsecEnabled;
+  }
+
+  public void setIpsecEnabled(Boolean ipsecEnabled) {
+    this.ipsecEnabled = ipsecEnabled;
   }
 
   public CreateVpnGatewayRequest period(Integer period) {
@@ -183,7 +184,7 @@ public class CreateVpnGatewayRequest {
     this.period = period;
   }
 
-  public CreateVpnGatewayRequest periodUnit(PeriodUnitEnum periodUnit) {
+  public CreateVpnGatewayRequest periodUnit(String periodUnit) {
     this.periodUnit = periodUnit;
     return this;
   }
@@ -193,11 +194,11 @@ public class CreateVpnGatewayRequest {
    * @return periodUnit
   **/
   @Schema(description = "")
-  public PeriodUnitEnum getPeriodUnit() {
+  public String getPeriodUnit() {
     return periodUnit;
   }
 
-  public void setPeriodUnit(PeriodUnitEnum periodUnit) {
+  public void setPeriodUnit(String periodUnit) {
     this.periodUnit = periodUnit;
   }
 
@@ -217,6 +218,42 @@ public class CreateVpnGatewayRequest {
 
   public void setProjectName(String projectName) {
     this.projectName = projectName;
+  }
+
+  public CreateVpnGatewayRequest sslEnabled(Boolean sslEnabled) {
+    this.sslEnabled = sslEnabled;
+    return this;
+  }
+
+   /**
+   * Get sslEnabled
+   * @return sslEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isSslEnabled() {
+    return sslEnabled;
+  }
+
+  public void setSslEnabled(Boolean sslEnabled) {
+    this.sslEnabled = sslEnabled;
+  }
+
+  public CreateVpnGatewayRequest sslMaxConnections(Integer sslMaxConnections) {
+    this.sslMaxConnections = sslMaxConnections;
+    return this;
+  }
+
+   /**
+   * Get sslMaxConnections
+   * @return sslMaxConnections
+  **/
+  @Schema(description = "")
+  public Integer getSslMaxConnections() {
+    return sslMaxConnections;
+  }
+
+  public void setSslMaxConnections(Integer sslMaxConnections) {
+    this.sslMaxConnections = sslMaxConnections;
   }
 
   public CreateVpnGatewayRequest subnetId(String subnetId) {
@@ -293,7 +330,7 @@ public class CreateVpnGatewayRequest {
    * Get vpnGatewayName
    * @return vpnGatewayName
   **/
- @Size(min=1,max=128)  @Schema(description = "")
+  @Schema(description = "")
   public String getVpnGatewayName() {
     return vpnGatewayName;
   }
@@ -314,10 +351,14 @@ public class CreateVpnGatewayRequest {
     CreateVpnGatewayRequest createVpnGatewayRequest = (CreateVpnGatewayRequest) o;
     return Objects.equals(this.bandwidth, createVpnGatewayRequest.bandwidth) &&
         Objects.equals(this.billingType, createVpnGatewayRequest.billingType) &&
+        Objects.equals(this.clientToken, createVpnGatewayRequest.clientToken) &&
         Objects.equals(this.description, createVpnGatewayRequest.description) &&
+        Objects.equals(this.ipsecEnabled, createVpnGatewayRequest.ipsecEnabled) &&
         Objects.equals(this.period, createVpnGatewayRequest.period) &&
         Objects.equals(this.periodUnit, createVpnGatewayRequest.periodUnit) &&
         Objects.equals(this.projectName, createVpnGatewayRequest.projectName) &&
+        Objects.equals(this.sslEnabled, createVpnGatewayRequest.sslEnabled) &&
+        Objects.equals(this.sslMaxConnections, createVpnGatewayRequest.sslMaxConnections) &&
         Objects.equals(this.subnetId, createVpnGatewayRequest.subnetId) &&
         Objects.equals(this.tags, createVpnGatewayRequest.tags) &&
         Objects.equals(this.vpcId, createVpnGatewayRequest.vpcId) &&
@@ -326,7 +367,7 @@ public class CreateVpnGatewayRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidth, billingType, description, period, periodUnit, projectName, subnetId, tags, vpcId, vpnGatewayName);
+    return Objects.hash(bandwidth, billingType, clientToken, description, ipsecEnabled, period, periodUnit, projectName, sslEnabled, sslMaxConnections, subnetId, tags, vpcId, vpnGatewayName);
   }
 
 
@@ -337,10 +378,14 @@ public class CreateVpnGatewayRequest {
     
     sb.append("    bandwidth: ").append(toIndentedString(bandwidth)).append("\n");
     sb.append("    billingType: ").append(toIndentedString(billingType)).append("\n");
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    ipsecEnabled: ").append(toIndentedString(ipsecEnabled)).append("\n");
     sb.append("    period: ").append(toIndentedString(period)).append("\n");
     sb.append("    periodUnit: ").append(toIndentedString(periodUnit)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    sslEnabled: ").append(toIndentedString(sslEnabled)).append("\n");
+    sb.append("    sslMaxConnections: ").append(toIndentedString(sslMaxConnections)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
