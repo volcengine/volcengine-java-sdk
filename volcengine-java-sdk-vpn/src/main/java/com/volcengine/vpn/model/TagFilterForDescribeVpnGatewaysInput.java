@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -32,6 +34,9 @@ import javax.validation.Valid;
 public class TagFilterForDescribeVpnGatewaysInput {
   @SerializedName("Key")
   private String key = null;
+
+  @SerializedName("Values")
+  private List<String> values = null;
 
   public TagFilterForDescribeVpnGatewaysInput key(String key) {
     this.key = key;
@@ -51,6 +56,32 @@ public class TagFilterForDescribeVpnGatewaysInput {
     this.key = key;
   }
 
+  public TagFilterForDescribeVpnGatewaysInput values(List<String> values) {
+    this.values = values;
+    return this;
+  }
+
+  public TagFilterForDescribeVpnGatewaysInput addValuesItem(String valuesItem) {
+    if (this.values == null) {
+      this.values = new ArrayList<String>();
+    }
+    this.values.add(valuesItem);
+    return this;
+  }
+
+   /**
+   * Get values
+   * @return values
+  **/
+  @Schema(description = "")
+  public List<String> getValues() {
+    return values;
+  }
+
+  public void setValues(List<String> values) {
+    this.values = values;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -61,12 +92,13 @@ public class TagFilterForDescribeVpnGatewaysInput {
       return false;
     }
     TagFilterForDescribeVpnGatewaysInput tagFilterForDescribeVpnGatewaysInput = (TagFilterForDescribeVpnGatewaysInput) o;
-    return Objects.equals(this.key, tagFilterForDescribeVpnGatewaysInput.key);
+    return Objects.equals(this.key, tagFilterForDescribeVpnGatewaysInput.key) &&
+        Objects.equals(this.values, tagFilterForDescribeVpnGatewaysInput.values);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(key);
+    return Objects.hash(key, values);
   }
 
 
@@ -76,6 +108,7 @@ public class TagFilterForDescribeVpnGatewaysInput {
     sb.append("class TagFilterForDescribeVpnGatewaysInput {\n");
     
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    values: ").append(toIndentedString(values)).append("\n");
     sb.append("}");
     return sb.toString();
   }

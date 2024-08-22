@@ -85,12 +85,10 @@ public class SetVpnGatewayRenewalRequest {
 
    /**
    * Get renewType
-   * minimum: 1
-   * maximum: 3
    * @return renewType
   **/
   @NotNull
- @Min(1) @Max(3)  @Schema(required = true, description = "")
+  @Schema(required = true, description = "")
   public Integer getRenewType() {
     return renewType;
   }

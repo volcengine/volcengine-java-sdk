@@ -73,6 +73,9 @@ public class DescribeVpnConnectionAttributesResponse extends com.volcengine.mode
   @SerializedName("IpsecConfig")
   private IpsecConfigForDescribeVpnConnectionAttributesOutput ipsecConfig = null;
 
+  @SerializedName("IsBlocked")
+  private Boolean isBlocked = null;
+
   @SerializedName("LocalSubnet")
   private List<String> localSubnet = null;
 
@@ -100,9 +103,6 @@ public class DescribeVpnConnectionAttributesResponse extends com.volcengine.mode
   @SerializedName("Status")
   private String status = null;
 
-  @SerializedName("TransitRouterId")
-  private String transitRouterId = null;
-
   @SerializedName("UpdateTime")
   private String updateTime = null;
 
@@ -114,9 +114,6 @@ public class DescribeVpnConnectionAttributesResponse extends com.volcengine.mode
 
   @SerializedName("VpnGatewayId")
   private String vpnGatewayId = null;
-
-  @SerializedName("ZoneId")
-  private String zoneId = null;
 
   public DescribeVpnConnectionAttributesResponse accountId(String accountId) {
     this.accountId = accountId;
@@ -354,6 +351,24 @@ public class DescribeVpnConnectionAttributesResponse extends com.volcengine.mode
     this.ipsecConfig = ipsecConfig;
   }
 
+  public DescribeVpnConnectionAttributesResponse isBlocked(Boolean isBlocked) {
+    this.isBlocked = isBlocked;
+    return this;
+  }
+
+   /**
+   * Get isBlocked
+   * @return isBlocked
+  **/
+  @Schema(description = "")
+  public Boolean isIsBlocked() {
+    return isBlocked;
+  }
+
+  public void setIsBlocked(Boolean isBlocked) {
+    this.isBlocked = isBlocked;
+  }
+
   public DescribeVpnConnectionAttributesResponse localSubnet(List<String> localSubnet) {
     this.localSubnet = localSubnet;
     return this;
@@ -532,24 +547,6 @@ public class DescribeVpnConnectionAttributesResponse extends com.volcengine.mode
     this.status = status;
   }
 
-  public DescribeVpnConnectionAttributesResponse transitRouterId(String transitRouterId) {
-    this.transitRouterId = transitRouterId;
-    return this;
-  }
-
-   /**
-   * Get transitRouterId
-   * @return transitRouterId
-  **/
-  @Schema(description = "")
-  public String getTransitRouterId() {
-    return transitRouterId;
-  }
-
-  public void setTransitRouterId(String transitRouterId) {
-    this.transitRouterId = transitRouterId;
-  }
-
   public DescribeVpnConnectionAttributesResponse updateTime(String updateTime) {
     this.updateTime = updateTime;
     return this;
@@ -622,24 +619,6 @@ public class DescribeVpnConnectionAttributesResponse extends com.volcengine.mode
     this.vpnGatewayId = vpnGatewayId;
   }
 
-  public DescribeVpnConnectionAttributesResponse zoneId(String zoneId) {
-    this.zoneId = zoneId;
-    return this;
-  }
-
-   /**
-   * Get zoneId
-   * @return zoneId
-  **/
-  @Schema(description = "")
-  public String getZoneId() {
-    return zoneId;
-  }
-
-  public void setZoneId(String zoneId) {
-    this.zoneId = zoneId;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -663,6 +642,7 @@ public class DescribeVpnConnectionAttributesResponse extends com.volcengine.mode
         Objects.equals(this.ikeConfig, describeVpnConnectionAttributesResponse.ikeConfig) &&
         Objects.equals(this.ipAddress, describeVpnConnectionAttributesResponse.ipAddress) &&
         Objects.equals(this.ipsecConfig, describeVpnConnectionAttributesResponse.ipsecConfig) &&
+        Objects.equals(this.isBlocked, describeVpnConnectionAttributesResponse.isBlocked) &&
         Objects.equals(this.localSubnet, describeVpnConnectionAttributesResponse.localSubnet) &&
         Objects.equals(this.logEnabled, describeVpnConnectionAttributesResponse.logEnabled) &&
         Objects.equals(this.natTraversal, describeVpnConnectionAttributesResponse.natTraversal) &&
@@ -672,17 +652,15 @@ public class DescribeVpnConnectionAttributesResponse extends com.volcengine.mode
         Objects.equals(this.remoteSubnet, describeVpnConnectionAttributesResponse.remoteSubnet) &&
         Objects.equals(this.requestId, describeVpnConnectionAttributesResponse.requestId) &&
         Objects.equals(this.status, describeVpnConnectionAttributesResponse.status) &&
-        Objects.equals(this.transitRouterId, describeVpnConnectionAttributesResponse.transitRouterId) &&
         Objects.equals(this.updateTime, describeVpnConnectionAttributesResponse.updateTime) &&
         Objects.equals(this.vpnConnectionId, describeVpnConnectionAttributesResponse.vpnConnectionId) &&
         Objects.equals(this.vpnConnectionName, describeVpnConnectionAttributesResponse.vpnConnectionName) &&
-        Objects.equals(this.vpnGatewayId, describeVpnConnectionAttributesResponse.vpnGatewayId) &&
-        Objects.equals(this.zoneId, describeVpnConnectionAttributesResponse.zoneId);
+        Objects.equals(this.vpnGatewayId, describeVpnConnectionAttributesResponse.vpnGatewayId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, attachStatus, attachType, businessStatus, connectStatus, creationTime, customerGatewayId, deletedTime, description, dpdAction, ikeConfig, ipAddress, ipsecConfig, localSubnet, logEnabled, natTraversal, negotiateInstantly, overdueTime, projectName, remoteSubnet, requestId, status, transitRouterId, updateTime, vpnConnectionId, vpnConnectionName, vpnGatewayId, zoneId);
+    return Objects.hash(accountId, attachStatus, attachType, businessStatus, connectStatus, creationTime, customerGatewayId, deletedTime, description, dpdAction, ikeConfig, ipAddress, ipsecConfig, isBlocked, localSubnet, logEnabled, natTraversal, negotiateInstantly, overdueTime, projectName, remoteSubnet, requestId, status, updateTime, vpnConnectionId, vpnConnectionName, vpnGatewayId);
   }
 
 
@@ -704,6 +682,7 @@ public class DescribeVpnConnectionAttributesResponse extends com.volcengine.mode
     sb.append("    ikeConfig: ").append(toIndentedString(ikeConfig)).append("\n");
     sb.append("    ipAddress: ").append(toIndentedString(ipAddress)).append("\n");
     sb.append("    ipsecConfig: ").append(toIndentedString(ipsecConfig)).append("\n");
+    sb.append("    isBlocked: ").append(toIndentedString(isBlocked)).append("\n");
     sb.append("    localSubnet: ").append(toIndentedString(localSubnet)).append("\n");
     sb.append("    logEnabled: ").append(toIndentedString(logEnabled)).append("\n");
     sb.append("    natTraversal: ").append(toIndentedString(natTraversal)).append("\n");
@@ -713,12 +692,10 @@ public class DescribeVpnConnectionAttributesResponse extends com.volcengine.mode
     sb.append("    remoteSubnet: ").append(toIndentedString(remoteSubnet)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    transitRouterId: ").append(toIndentedString(transitRouterId)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    vpnConnectionId: ").append(toIndentedString(vpnConnectionId)).append("\n");
     sb.append("    vpnConnectionName: ").append(toIndentedString(vpnConnectionName)).append("\n");
     sb.append("    vpnGatewayId: ").append(toIndentedString(vpnGatewayId)).append("\n");
-    sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

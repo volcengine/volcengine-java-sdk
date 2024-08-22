@@ -32,102 +32,6 @@ import javax.validation.Valid;
 
 
 public class DescribeVpnConnectionsRequest {
-  /**
-   * Gets or Sets attachStatus
-   */
-  @JsonAdapter(AttachStatusEnum.Adapter.class)
-  public enum AttachStatusEnum {
-    @SerializedName("Attached")
-    ATTACHED("Attached"),
-    @SerializedName("Attaching")
-    ATTACHING("Attaching"),
-    @SerializedName("Detached")
-    DETACHED("Detached"),
-    @SerializedName("Detaching")
-    DETACHING("Detaching");
-
-    private String value;
-
-    AttachStatusEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static AttachStatusEnum fromValue(String input) {
-      for (AttachStatusEnum b : AttachStatusEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<AttachStatusEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final AttachStatusEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public AttachStatusEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return AttachStatusEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("AttachStatus")
-  private AttachStatusEnum attachStatus = null;
-
-  /**
-   * Gets or Sets attachType
-   */
-  @JsonAdapter(AttachTypeEnum.Adapter.class)
-  public enum AttachTypeEnum {
-    @SerializedName("VpnGateway")
-    VPNGATEWAY("VpnGateway"),
-    @SerializedName("TransitRouter")
-    TRANSITROUTER("TransitRouter");
-
-    private String value;
-
-    AttachTypeEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static AttachTypeEnum fromValue(String input) {
-      for (AttachTypeEnum b : AttachTypeEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<AttachTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final AttachTypeEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public AttachTypeEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return AttachTypeEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("AttachType")
-  private AttachTypeEnum attachType = null;
-
   @SerializedName("CustomerGatewayId")
   private String customerGatewayId = null;
 
@@ -140,9 +44,6 @@ public class DescribeVpnConnectionsRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
 
-  @SerializedName("TransitRouterId")
-  private String transitRouterId = null;
-
   @SerializedName("VpnConnectionIds")
   private List<String> vpnConnectionIds = null;
 
@@ -151,42 +52,6 @@ public class DescribeVpnConnectionsRequest {
 
   @SerializedName("VpnGatewayId")
   private String vpnGatewayId = null;
-
-  public DescribeVpnConnectionsRequest attachStatus(AttachStatusEnum attachStatus) {
-    this.attachStatus = attachStatus;
-    return this;
-  }
-
-   /**
-   * Get attachStatus
-   * @return attachStatus
-  **/
-  @Schema(description = "")
-  public AttachStatusEnum getAttachStatus() {
-    return attachStatus;
-  }
-
-  public void setAttachStatus(AttachStatusEnum attachStatus) {
-    this.attachStatus = attachStatus;
-  }
-
-  public DescribeVpnConnectionsRequest attachType(AttachTypeEnum attachType) {
-    this.attachType = attachType;
-    return this;
-  }
-
-   /**
-   * Get attachType
-   * @return attachType
-  **/
-  @Schema(description = "")
-  public AttachTypeEnum getAttachType() {
-    return attachType;
-  }
-
-  public void setAttachType(AttachTypeEnum attachType) {
-    this.attachType = attachType;
-  }
 
   public DescribeVpnConnectionsRequest customerGatewayId(String customerGatewayId) {
     this.customerGatewayId = customerGatewayId;
@@ -258,24 +123,6 @@ public class DescribeVpnConnectionsRequest {
 
   public void setProjectName(String projectName) {
     this.projectName = projectName;
-  }
-
-  public DescribeVpnConnectionsRequest transitRouterId(String transitRouterId) {
-    this.transitRouterId = transitRouterId;
-    return this;
-  }
-
-   /**
-   * Get transitRouterId
-   * @return transitRouterId
-  **/
-  @Schema(description = "")
-  public String getTransitRouterId() {
-    return transitRouterId;
-  }
-
-  public void setTransitRouterId(String transitRouterId) {
-    this.transitRouterId = transitRouterId;
   }
 
   public DescribeVpnConnectionsRequest vpnConnectionIds(List<String> vpnConnectionIds) {
@@ -350,13 +197,10 @@ public class DescribeVpnConnectionsRequest {
       return false;
     }
     DescribeVpnConnectionsRequest describeVpnConnectionsRequest = (DescribeVpnConnectionsRequest) o;
-    return Objects.equals(this.attachStatus, describeVpnConnectionsRequest.attachStatus) &&
-        Objects.equals(this.attachType, describeVpnConnectionsRequest.attachType) &&
-        Objects.equals(this.customerGatewayId, describeVpnConnectionsRequest.customerGatewayId) &&
+    return Objects.equals(this.customerGatewayId, describeVpnConnectionsRequest.customerGatewayId) &&
         Objects.equals(this.pageNumber, describeVpnConnectionsRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeVpnConnectionsRequest.pageSize) &&
         Objects.equals(this.projectName, describeVpnConnectionsRequest.projectName) &&
-        Objects.equals(this.transitRouterId, describeVpnConnectionsRequest.transitRouterId) &&
         Objects.equals(this.vpnConnectionIds, describeVpnConnectionsRequest.vpnConnectionIds) &&
         Objects.equals(this.vpnConnectionName, describeVpnConnectionsRequest.vpnConnectionName) &&
         Objects.equals(this.vpnGatewayId, describeVpnConnectionsRequest.vpnGatewayId);
@@ -364,7 +208,7 @@ public class DescribeVpnConnectionsRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(attachStatus, attachType, customerGatewayId, pageNumber, pageSize, projectName, transitRouterId, vpnConnectionIds, vpnConnectionName, vpnGatewayId);
+    return Objects.hash(customerGatewayId, pageNumber, pageSize, projectName, vpnConnectionIds, vpnConnectionName, vpnGatewayId);
   }
 
 
@@ -373,13 +217,10 @@ public class DescribeVpnConnectionsRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeVpnConnectionsRequest {\n");
     
-    sb.append("    attachStatus: ").append(toIndentedString(attachStatus)).append("\n");
-    sb.append("    attachType: ").append(toIndentedString(attachType)).append("\n");
     sb.append("    customerGatewayId: ").append(toIndentedString(customerGatewayId)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
-    sb.append("    transitRouterId: ").append(toIndentedString(transitRouterId)).append("\n");
     sb.append("    vpnConnectionIds: ").append(toIndentedString(vpnConnectionIds)).append("\n");
     sb.append("    vpnConnectionName: ").append(toIndentedString(vpnConnectionName)).append("\n");
     sb.append("    vpnGatewayId: ").append(toIndentedString(vpnGatewayId)).append("\n");

@@ -36,8 +36,14 @@ public class ModifyVpnGatewayAttributesRequest {
   @SerializedName("Description")
   private String description = null;
 
-  @SerializedName("NegotiateInstantly")
-  private String negotiateInstantly = null;
+  @SerializedName("IpsecEnabled")
+  private Boolean ipsecEnabled = null;
+
+  @SerializedName("SslEnabled")
+  private Boolean sslEnabled = null;
+
+  @SerializedName("SslMaxConnections")
+  private Integer sslMaxConnections = null;
 
   @SerializedName("VpnGatewayId")
   private String vpnGatewayId = null;
@@ -52,11 +58,9 @@ public class ModifyVpnGatewayAttributesRequest {
 
    /**
    * Get bandwidth
-   * minimum: 5
-   * maximum: 1000
    * @return bandwidth
   **/
- @Min(5) @Max(1000)  @Schema(description = "")
+  @Schema(description = "")
   public Integer getBandwidth() {
     return bandwidth;
   }
@@ -74,7 +78,7 @@ public class ModifyVpnGatewayAttributesRequest {
    * Get description
    * @return description
   **/
- @Size(min=1,max=255)  @Schema(description = "")
+  @Schema(description = "")
   public String getDescription() {
     return description;
   }
@@ -83,22 +87,58 @@ public class ModifyVpnGatewayAttributesRequest {
     this.description = description;
   }
 
-  public ModifyVpnGatewayAttributesRequest negotiateInstantly(String negotiateInstantly) {
-    this.negotiateInstantly = negotiateInstantly;
+  public ModifyVpnGatewayAttributesRequest ipsecEnabled(Boolean ipsecEnabled) {
+    this.ipsecEnabled = ipsecEnabled;
     return this;
   }
 
    /**
-   * Get negotiateInstantly
-   * @return negotiateInstantly
+   * Get ipsecEnabled
+   * @return ipsecEnabled
   **/
   @Schema(description = "")
-  public String getNegotiateInstantly() {
-    return negotiateInstantly;
+  public Boolean isIpsecEnabled() {
+    return ipsecEnabled;
   }
 
-  public void setNegotiateInstantly(String negotiateInstantly) {
-    this.negotiateInstantly = negotiateInstantly;
+  public void setIpsecEnabled(Boolean ipsecEnabled) {
+    this.ipsecEnabled = ipsecEnabled;
+  }
+
+  public ModifyVpnGatewayAttributesRequest sslEnabled(Boolean sslEnabled) {
+    this.sslEnabled = sslEnabled;
+    return this;
+  }
+
+   /**
+   * Get sslEnabled
+   * @return sslEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isSslEnabled() {
+    return sslEnabled;
+  }
+
+  public void setSslEnabled(Boolean sslEnabled) {
+    this.sslEnabled = sslEnabled;
+  }
+
+  public ModifyVpnGatewayAttributesRequest sslMaxConnections(Integer sslMaxConnections) {
+    this.sslMaxConnections = sslMaxConnections;
+    return this;
+  }
+
+   /**
+   * Get sslMaxConnections
+   * @return sslMaxConnections
+  **/
+  @Schema(description = "")
+  public Integer getSslMaxConnections() {
+    return sslMaxConnections;
+  }
+
+  public void setSslMaxConnections(Integer sslMaxConnections) {
+    this.sslMaxConnections = sslMaxConnections;
   }
 
   public ModifyVpnGatewayAttributesRequest vpnGatewayId(String vpnGatewayId) {
@@ -129,7 +169,7 @@ public class ModifyVpnGatewayAttributesRequest {
    * Get vpnGatewayName
    * @return vpnGatewayName
   **/
- @Size(min=1,max=128)  @Schema(description = "")
+  @Schema(description = "")
   public String getVpnGatewayName() {
     return vpnGatewayName;
   }
@@ -150,14 +190,16 @@ public class ModifyVpnGatewayAttributesRequest {
     ModifyVpnGatewayAttributesRequest modifyVpnGatewayAttributesRequest = (ModifyVpnGatewayAttributesRequest) o;
     return Objects.equals(this.bandwidth, modifyVpnGatewayAttributesRequest.bandwidth) &&
         Objects.equals(this.description, modifyVpnGatewayAttributesRequest.description) &&
-        Objects.equals(this.negotiateInstantly, modifyVpnGatewayAttributesRequest.negotiateInstantly) &&
+        Objects.equals(this.ipsecEnabled, modifyVpnGatewayAttributesRequest.ipsecEnabled) &&
+        Objects.equals(this.sslEnabled, modifyVpnGatewayAttributesRequest.sslEnabled) &&
+        Objects.equals(this.sslMaxConnections, modifyVpnGatewayAttributesRequest.sslMaxConnections) &&
         Objects.equals(this.vpnGatewayId, modifyVpnGatewayAttributesRequest.vpnGatewayId) &&
         Objects.equals(this.vpnGatewayName, modifyVpnGatewayAttributesRequest.vpnGatewayName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidth, description, negotiateInstantly, vpnGatewayId, vpnGatewayName);
+    return Objects.hash(bandwidth, description, ipsecEnabled, sslEnabled, sslMaxConnections, vpnGatewayId, vpnGatewayName);
   }
 
 
@@ -168,7 +210,9 @@ public class ModifyVpnGatewayAttributesRequest {
     
     sb.append("    bandwidth: ").append(toIndentedString(bandwidth)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    negotiateInstantly: ").append(toIndentedString(negotiateInstantly)).append("\n");
+    sb.append("    ipsecEnabled: ").append(toIndentedString(ipsecEnabled)).append("\n");
+    sb.append("    sslEnabled: ").append(toIndentedString(sslEnabled)).append("\n");
+    sb.append("    sslMaxConnections: ").append(toIndentedString(sslMaxConnections)).append("\n");
     sb.append("    vpnGatewayId: ").append(toIndentedString(vpnGatewayId)).append("\n");
     sb.append("    vpnGatewayName: ").append(toIndentedString(vpnGatewayName)).append("\n");
     sb.append("}");

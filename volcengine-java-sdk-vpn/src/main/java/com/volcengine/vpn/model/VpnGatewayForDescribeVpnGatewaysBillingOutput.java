@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vpn.model.TagForDescribeVpnGatewaysBillingOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -30,43 +33,103 @@ import javax.validation.Valid;
 
 
 public class VpnGatewayForDescribeVpnGatewaysBillingOutput {
-  @SerializedName("BillingStatus")
-  private Integer billingStatus = null;
+  @SerializedName("AccountId")
+  private String accountId = null;
+
+  @SerializedName("Bandwidth")
+  private Integer bandwidth = null;
 
   @SerializedName("BillingType")
   private Integer billingType = null;
 
+  @SerializedName("BusinessStatus")
+  private String businessStatus = null;
+
+  @SerializedName("ConnectionCount")
+  private Integer connectionCount = null;
+
+  @SerializedName("CreationTime")
+  private String creationTime = null;
+
+  @SerializedName("DeletedTime")
+  private String deletedTime = null;
+
+  @SerializedName("Description")
+  private String description = null;
+
   @SerializedName("ExpiredTime")
   private String expiredTime = null;
 
-  @SerializedName("ReclaimTime")
-  private String reclaimTime = null;
+  @SerializedName("IpAddress")
+  private String ipAddress = null;
 
-  @SerializedName("RemainRenewTimes")
-  private Integer remainRenewTimes = null;
+  @SerializedName("IsBlocked")
+  private Boolean isBlocked = null;
 
-  @SerializedName("RenewType")
-  private Integer renewType = null;
+  @SerializedName("LockReason")
+  private String lockReason = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
+  @SerializedName("RouteCount")
+  private Integer routeCount = null;
+
+  @SerializedName("Status")
+  private String status = null;
+
+  @SerializedName("SubnetId")
+  private String subnetId = null;
+
+  @SerializedName("Tags")
+  private List<TagForDescribeVpnGatewaysBillingOutput> tags = null;
+
+  @SerializedName("UpdateTime")
+  private String updateTime = null;
+
+  @SerializedName("VpcId")
+  private String vpcId = null;
 
   @SerializedName("VpnGatewayId")
   private String vpnGatewayId = null;
 
-  public VpnGatewayForDescribeVpnGatewaysBillingOutput billingStatus(Integer billingStatus) {
-    this.billingStatus = billingStatus;
+  @SerializedName("VpnGatewayName")
+  private String vpnGatewayName = null;
+
+  public VpnGatewayForDescribeVpnGatewaysBillingOutput accountId(String accountId) {
+    this.accountId = accountId;
     return this;
   }
 
    /**
-   * Get billingStatus
-   * @return billingStatus
+   * Get accountId
+   * @return accountId
   **/
   @Schema(description = "")
-  public Integer getBillingStatus() {
-    return billingStatus;
+  public String getAccountId() {
+    return accountId;
   }
 
-  public void setBillingStatus(Integer billingStatus) {
-    this.billingStatus = billingStatus;
+  public void setAccountId(String accountId) {
+    this.accountId = accountId;
+  }
+
+  public VpnGatewayForDescribeVpnGatewaysBillingOutput bandwidth(Integer bandwidth) {
+    this.bandwidth = bandwidth;
+    return this;
+  }
+
+   /**
+   * Get bandwidth
+   * @return bandwidth
+  **/
+  @Schema(description = "")
+  public Integer getBandwidth() {
+    return bandwidth;
+  }
+
+  public void setBandwidth(Integer bandwidth) {
+    this.bandwidth = bandwidth;
   }
 
   public VpnGatewayForDescribeVpnGatewaysBillingOutput billingType(Integer billingType) {
@@ -87,6 +150,96 @@ public class VpnGatewayForDescribeVpnGatewaysBillingOutput {
     this.billingType = billingType;
   }
 
+  public VpnGatewayForDescribeVpnGatewaysBillingOutput businessStatus(String businessStatus) {
+    this.businessStatus = businessStatus;
+    return this;
+  }
+
+   /**
+   * Get businessStatus
+   * @return businessStatus
+  **/
+  @Schema(description = "")
+  public String getBusinessStatus() {
+    return businessStatus;
+  }
+
+  public void setBusinessStatus(String businessStatus) {
+    this.businessStatus = businessStatus;
+  }
+
+  public VpnGatewayForDescribeVpnGatewaysBillingOutput connectionCount(Integer connectionCount) {
+    this.connectionCount = connectionCount;
+    return this;
+  }
+
+   /**
+   * Get connectionCount
+   * @return connectionCount
+  **/
+  @Schema(description = "")
+  public Integer getConnectionCount() {
+    return connectionCount;
+  }
+
+  public void setConnectionCount(Integer connectionCount) {
+    this.connectionCount = connectionCount;
+  }
+
+  public VpnGatewayForDescribeVpnGatewaysBillingOutput creationTime(String creationTime) {
+    this.creationTime = creationTime;
+    return this;
+  }
+
+   /**
+   * Get creationTime
+   * @return creationTime
+  **/
+  @Schema(description = "")
+  public String getCreationTime() {
+    return creationTime;
+  }
+
+  public void setCreationTime(String creationTime) {
+    this.creationTime = creationTime;
+  }
+
+  public VpnGatewayForDescribeVpnGatewaysBillingOutput deletedTime(String deletedTime) {
+    this.deletedTime = deletedTime;
+    return this;
+  }
+
+   /**
+   * Get deletedTime
+   * @return deletedTime
+  **/
+  @Schema(description = "")
+  public String getDeletedTime() {
+    return deletedTime;
+  }
+
+  public void setDeletedTime(String deletedTime) {
+    this.deletedTime = deletedTime;
+  }
+
+  public VpnGatewayForDescribeVpnGatewaysBillingOutput description(String description) {
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Get description
+   * @return description
+  **/
+  @Schema(description = "")
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
   public VpnGatewayForDescribeVpnGatewaysBillingOutput expiredTime(String expiredTime) {
     this.expiredTime = expiredTime;
     return this;
@@ -105,58 +258,193 @@ public class VpnGatewayForDescribeVpnGatewaysBillingOutput {
     this.expiredTime = expiredTime;
   }
 
-  public VpnGatewayForDescribeVpnGatewaysBillingOutput reclaimTime(String reclaimTime) {
-    this.reclaimTime = reclaimTime;
+  public VpnGatewayForDescribeVpnGatewaysBillingOutput ipAddress(String ipAddress) {
+    this.ipAddress = ipAddress;
     return this;
   }
 
    /**
-   * Get reclaimTime
-   * @return reclaimTime
+   * Get ipAddress
+   * @return ipAddress
   **/
   @Schema(description = "")
-  public String getReclaimTime() {
-    return reclaimTime;
+  public String getIpAddress() {
+    return ipAddress;
   }
 
-  public void setReclaimTime(String reclaimTime) {
-    this.reclaimTime = reclaimTime;
+  public void setIpAddress(String ipAddress) {
+    this.ipAddress = ipAddress;
   }
 
-  public VpnGatewayForDescribeVpnGatewaysBillingOutput remainRenewTimes(Integer remainRenewTimes) {
-    this.remainRenewTimes = remainRenewTimes;
+  public VpnGatewayForDescribeVpnGatewaysBillingOutput isBlocked(Boolean isBlocked) {
+    this.isBlocked = isBlocked;
     return this;
   }
 
    /**
-   * Get remainRenewTimes
-   * @return remainRenewTimes
+   * Get isBlocked
+   * @return isBlocked
   **/
   @Schema(description = "")
-  public Integer getRemainRenewTimes() {
-    return remainRenewTimes;
+  public Boolean isIsBlocked() {
+    return isBlocked;
   }
 
-  public void setRemainRenewTimes(Integer remainRenewTimes) {
-    this.remainRenewTimes = remainRenewTimes;
+  public void setIsBlocked(Boolean isBlocked) {
+    this.isBlocked = isBlocked;
   }
 
-  public VpnGatewayForDescribeVpnGatewaysBillingOutput renewType(Integer renewType) {
-    this.renewType = renewType;
+  public VpnGatewayForDescribeVpnGatewaysBillingOutput lockReason(String lockReason) {
+    this.lockReason = lockReason;
     return this;
   }
 
    /**
-   * Get renewType
-   * @return renewType
+   * Get lockReason
+   * @return lockReason
   **/
   @Schema(description = "")
-  public Integer getRenewType() {
-    return renewType;
+  public String getLockReason() {
+    return lockReason;
   }
 
-  public void setRenewType(Integer renewType) {
-    this.renewType = renewType;
+  public void setLockReason(String lockReason) {
+    this.lockReason = lockReason;
+  }
+
+  public VpnGatewayForDescribeVpnGatewaysBillingOutput projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
+  public VpnGatewayForDescribeVpnGatewaysBillingOutput routeCount(Integer routeCount) {
+    this.routeCount = routeCount;
+    return this;
+  }
+
+   /**
+   * Get routeCount
+   * @return routeCount
+  **/
+  @Schema(description = "")
+  public Integer getRouteCount() {
+    return routeCount;
+  }
+
+  public void setRouteCount(Integer routeCount) {
+    this.routeCount = routeCount;
+  }
+
+  public VpnGatewayForDescribeVpnGatewaysBillingOutput status(String status) {
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * Get status
+   * @return status
+  **/
+  @Schema(description = "")
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
+  public VpnGatewayForDescribeVpnGatewaysBillingOutput subnetId(String subnetId) {
+    this.subnetId = subnetId;
+    return this;
+  }
+
+   /**
+   * Get subnetId
+   * @return subnetId
+  **/
+  @Schema(description = "")
+  public String getSubnetId() {
+    return subnetId;
+  }
+
+  public void setSubnetId(String subnetId) {
+    this.subnetId = subnetId;
+  }
+
+  public VpnGatewayForDescribeVpnGatewaysBillingOutput tags(List<TagForDescribeVpnGatewaysBillingOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public VpnGatewayForDescribeVpnGatewaysBillingOutput addTagsItem(TagForDescribeVpnGatewaysBillingOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForDescribeVpnGatewaysBillingOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForDescribeVpnGatewaysBillingOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForDescribeVpnGatewaysBillingOutput> tags) {
+    this.tags = tags;
+  }
+
+  public VpnGatewayForDescribeVpnGatewaysBillingOutput updateTime(String updateTime) {
+    this.updateTime = updateTime;
+    return this;
+  }
+
+   /**
+   * Get updateTime
+   * @return updateTime
+  **/
+  @Schema(description = "")
+  public String getUpdateTime() {
+    return updateTime;
+  }
+
+  public void setUpdateTime(String updateTime) {
+    this.updateTime = updateTime;
+  }
+
+  public VpnGatewayForDescribeVpnGatewaysBillingOutput vpcId(String vpcId) {
+    this.vpcId = vpcId;
+    return this;
+  }
+
+   /**
+   * Get vpcId
+   * @return vpcId
+  **/
+  @Schema(description = "")
+  public String getVpcId() {
+    return vpcId;
+  }
+
+  public void setVpcId(String vpcId) {
+    this.vpcId = vpcId;
   }
 
   public VpnGatewayForDescribeVpnGatewaysBillingOutput vpnGatewayId(String vpnGatewayId) {
@@ -177,6 +465,24 @@ public class VpnGatewayForDescribeVpnGatewaysBillingOutput {
     this.vpnGatewayId = vpnGatewayId;
   }
 
+  public VpnGatewayForDescribeVpnGatewaysBillingOutput vpnGatewayName(String vpnGatewayName) {
+    this.vpnGatewayName = vpnGatewayName;
+    return this;
+  }
+
+   /**
+   * Get vpnGatewayName
+   * @return vpnGatewayName
+  **/
+  @Schema(description = "")
+  public String getVpnGatewayName() {
+    return vpnGatewayName;
+  }
+
+  public void setVpnGatewayName(String vpnGatewayName) {
+    this.vpnGatewayName = vpnGatewayName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -187,18 +493,32 @@ public class VpnGatewayForDescribeVpnGatewaysBillingOutput {
       return false;
     }
     VpnGatewayForDescribeVpnGatewaysBillingOutput vpnGatewayForDescribeVpnGatewaysBillingOutput = (VpnGatewayForDescribeVpnGatewaysBillingOutput) o;
-    return Objects.equals(this.billingStatus, vpnGatewayForDescribeVpnGatewaysBillingOutput.billingStatus) &&
+    return Objects.equals(this.accountId, vpnGatewayForDescribeVpnGatewaysBillingOutput.accountId) &&
+        Objects.equals(this.bandwidth, vpnGatewayForDescribeVpnGatewaysBillingOutput.bandwidth) &&
         Objects.equals(this.billingType, vpnGatewayForDescribeVpnGatewaysBillingOutput.billingType) &&
+        Objects.equals(this.businessStatus, vpnGatewayForDescribeVpnGatewaysBillingOutput.businessStatus) &&
+        Objects.equals(this.connectionCount, vpnGatewayForDescribeVpnGatewaysBillingOutput.connectionCount) &&
+        Objects.equals(this.creationTime, vpnGatewayForDescribeVpnGatewaysBillingOutput.creationTime) &&
+        Objects.equals(this.deletedTime, vpnGatewayForDescribeVpnGatewaysBillingOutput.deletedTime) &&
+        Objects.equals(this.description, vpnGatewayForDescribeVpnGatewaysBillingOutput.description) &&
         Objects.equals(this.expiredTime, vpnGatewayForDescribeVpnGatewaysBillingOutput.expiredTime) &&
-        Objects.equals(this.reclaimTime, vpnGatewayForDescribeVpnGatewaysBillingOutput.reclaimTime) &&
-        Objects.equals(this.remainRenewTimes, vpnGatewayForDescribeVpnGatewaysBillingOutput.remainRenewTimes) &&
-        Objects.equals(this.renewType, vpnGatewayForDescribeVpnGatewaysBillingOutput.renewType) &&
-        Objects.equals(this.vpnGatewayId, vpnGatewayForDescribeVpnGatewaysBillingOutput.vpnGatewayId);
+        Objects.equals(this.ipAddress, vpnGatewayForDescribeVpnGatewaysBillingOutput.ipAddress) &&
+        Objects.equals(this.isBlocked, vpnGatewayForDescribeVpnGatewaysBillingOutput.isBlocked) &&
+        Objects.equals(this.lockReason, vpnGatewayForDescribeVpnGatewaysBillingOutput.lockReason) &&
+        Objects.equals(this.projectName, vpnGatewayForDescribeVpnGatewaysBillingOutput.projectName) &&
+        Objects.equals(this.routeCount, vpnGatewayForDescribeVpnGatewaysBillingOutput.routeCount) &&
+        Objects.equals(this.status, vpnGatewayForDescribeVpnGatewaysBillingOutput.status) &&
+        Objects.equals(this.subnetId, vpnGatewayForDescribeVpnGatewaysBillingOutput.subnetId) &&
+        Objects.equals(this.tags, vpnGatewayForDescribeVpnGatewaysBillingOutput.tags) &&
+        Objects.equals(this.updateTime, vpnGatewayForDescribeVpnGatewaysBillingOutput.updateTime) &&
+        Objects.equals(this.vpcId, vpnGatewayForDescribeVpnGatewaysBillingOutput.vpcId) &&
+        Objects.equals(this.vpnGatewayId, vpnGatewayForDescribeVpnGatewaysBillingOutput.vpnGatewayId) &&
+        Objects.equals(this.vpnGatewayName, vpnGatewayForDescribeVpnGatewaysBillingOutput.vpnGatewayName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(billingStatus, billingType, expiredTime, reclaimTime, remainRenewTimes, renewType, vpnGatewayId);
+    return Objects.hash(accountId, bandwidth, billingType, businessStatus, connectionCount, creationTime, deletedTime, description, expiredTime, ipAddress, isBlocked, lockReason, projectName, routeCount, status, subnetId, tags, updateTime, vpcId, vpnGatewayId, vpnGatewayName);
   }
 
 
@@ -207,13 +527,27 @@ public class VpnGatewayForDescribeVpnGatewaysBillingOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class VpnGatewayForDescribeVpnGatewaysBillingOutput {\n");
     
-    sb.append("    billingStatus: ").append(toIndentedString(billingStatus)).append("\n");
+    sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
+    sb.append("    bandwidth: ").append(toIndentedString(bandwidth)).append("\n");
     sb.append("    billingType: ").append(toIndentedString(billingType)).append("\n");
+    sb.append("    businessStatus: ").append(toIndentedString(businessStatus)).append("\n");
+    sb.append("    connectionCount: ").append(toIndentedString(connectionCount)).append("\n");
+    sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
+    sb.append("    deletedTime: ").append(toIndentedString(deletedTime)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    expiredTime: ").append(toIndentedString(expiredTime)).append("\n");
-    sb.append("    reclaimTime: ").append(toIndentedString(reclaimTime)).append("\n");
-    sb.append("    remainRenewTimes: ").append(toIndentedString(remainRenewTimes)).append("\n");
-    sb.append("    renewType: ").append(toIndentedString(renewType)).append("\n");
+    sb.append("    ipAddress: ").append(toIndentedString(ipAddress)).append("\n");
+    sb.append("    isBlocked: ").append(toIndentedString(isBlocked)).append("\n");
+    sb.append("    lockReason: ").append(toIndentedString(lockReason)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    routeCount: ").append(toIndentedString(routeCount)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
+    sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("    vpnGatewayId: ").append(toIndentedString(vpnGatewayId)).append("\n");
+    sb.append("    vpnGatewayName: ").append(toIndentedString(vpnGatewayName)).append("\n");
     sb.append("}");
     return sb.toString();
   }
