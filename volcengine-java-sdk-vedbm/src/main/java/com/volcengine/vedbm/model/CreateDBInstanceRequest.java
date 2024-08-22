@@ -126,6 +126,54 @@ public class CreateDBInstanceRequest {
   }  @SerializedName("DBEngineVersion")
   private DbEngineVersionEnum dbEngineVersion = null;
 
+  /**
+   * Gets or Sets dbMinorVersion
+   */
+  @JsonAdapter(DbMinorVersionEnum.Adapter.class)
+  public enum DbMinorVersionEnum {
+    @SerializedName("3.0")
+    _0("3.0"),
+    @SerializedName("3.1")
+    _1("3.1"),
+    @SerializedName("3.2")
+    _2("3.2");
+
+    private String value;
+
+    DbMinorVersionEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static DbMinorVersionEnum fromValue(String input) {
+      for (DbMinorVersionEnum b : DbMinorVersionEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<DbMinorVersionEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final DbMinorVersionEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public DbMinorVersionEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return DbMinorVersionEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("DBMinorVersion")
+  private DbMinorVersionEnum dbMinorVersion = null;
+
   @SerializedName("DBTimeZone")
   private String dbTimeZone = null;
 
@@ -264,6 +312,9 @@ public class CreateDBInstanceRequest {
   }  @SerializedName("PeriodUnit")
   private PeriodUnitEnum periodUnit = null;
 
+  @SerializedName("Port")
+  private Integer port = null;
+
   @SerializedName("PrePaidStorageInGB")
   private Integer prePaidStorageInGB = null;
 
@@ -388,6 +439,24 @@ public class CreateDBInstanceRequest {
 
   public void setDbEngineVersion(DbEngineVersionEnum dbEngineVersion) {
     this.dbEngineVersion = dbEngineVersion;
+  }
+
+  public CreateDBInstanceRequest dbMinorVersion(DbMinorVersionEnum dbMinorVersion) {
+    this.dbMinorVersion = dbMinorVersion;
+    return this;
+  }
+
+   /**
+   * Get dbMinorVersion
+   * @return dbMinorVersion
+  **/
+  @Schema(description = "")
+  public DbMinorVersionEnum getDbMinorVersion() {
+    return dbMinorVersion;
+  }
+
+  public void setDbMinorVersion(DbMinorVersionEnum dbMinorVersion) {
+    this.dbMinorVersion = dbMinorVersion;
   }
 
   public CreateDBInstanceRequest dbTimeZone(String dbTimeZone) {
@@ -534,6 +603,24 @@ public class CreateDBInstanceRequest {
 
   public void setPeriodUnit(PeriodUnitEnum periodUnit) {
     this.periodUnit = periodUnit;
+  }
+
+  public CreateDBInstanceRequest port(Integer port) {
+    this.port = port;
+    return this;
+  }
+
+   /**
+   * Get port
+   * @return port
+  **/
+  @Schema(description = "")
+  public Integer getPort() {
+    return port;
+  }
+
+  public void setPort(Integer port) {
+    this.port = port;
   }
 
   public CreateDBInstanceRequest prePaidStorageInGB(Integer prePaidStorageInGB) {
@@ -723,6 +810,7 @@ public class CreateDBInstanceRequest {
     return Objects.equals(this.autoRenew, createDBInstanceRequest.autoRenew) &&
         Objects.equals(this.chargeType, createDBInstanceRequest.chargeType) &&
         Objects.equals(this.dbEngineVersion, createDBInstanceRequest.dbEngineVersion) &&
+        Objects.equals(this.dbMinorVersion, createDBInstanceRequest.dbMinorVersion) &&
         Objects.equals(this.dbTimeZone, createDBInstanceRequest.dbTimeZone) &&
         Objects.equals(this.instanceName, createDBInstanceRequest.instanceName) &&
         Objects.equals(this.lowerCaseTableNames, createDBInstanceRequest.lowerCaseTableNames) &&
@@ -731,6 +819,7 @@ public class CreateDBInstanceRequest {
         Objects.equals(this.number, createDBInstanceRequest.number) &&
         Objects.equals(this.period, createDBInstanceRequest.period) &&
         Objects.equals(this.periodUnit, createDBInstanceRequest.periodUnit) &&
+        Objects.equals(this.port, createDBInstanceRequest.port) &&
         Objects.equals(this.prePaidStorageInGB, createDBInstanceRequest.prePaidStorageInGB) &&
         Objects.equals(this.projectName, createDBInstanceRequest.projectName) &&
         Objects.equals(this.storageChargeType, createDBInstanceRequest.storageChargeType) &&
@@ -744,7 +833,7 @@ public class CreateDBInstanceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoRenew, chargeType, dbEngineVersion, dbTimeZone, instanceName, lowerCaseTableNames, nodeNumber, nodeSpec, number, period, periodUnit, prePaidStorageInGB, projectName, storageChargeType, subnetId, superAccountName, superAccountPassword, tags, vpcId, zoneIds);
+    return Objects.hash(autoRenew, chargeType, dbEngineVersion, dbMinorVersion, dbTimeZone, instanceName, lowerCaseTableNames, nodeNumber, nodeSpec, number, period, periodUnit, port, prePaidStorageInGB, projectName, storageChargeType, subnetId, superAccountName, superAccountPassword, tags, vpcId, zoneIds);
   }
 
 
@@ -756,6 +845,7 @@ public class CreateDBInstanceRequest {
     sb.append("    autoRenew: ").append(toIndentedString(autoRenew)).append("\n");
     sb.append("    chargeType: ").append(toIndentedString(chargeType)).append("\n");
     sb.append("    dbEngineVersion: ").append(toIndentedString(dbEngineVersion)).append("\n");
+    sb.append("    dbMinorVersion: ").append(toIndentedString(dbMinorVersion)).append("\n");
     sb.append("    dbTimeZone: ").append(toIndentedString(dbTimeZone)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    lowerCaseTableNames: ").append(toIndentedString(lowerCaseTableNames)).append("\n");
@@ -764,6 +854,7 @@ public class CreateDBInstanceRequest {
     sb.append("    number: ").append(toIndentedString(number)).append("\n");
     sb.append("    period: ").append(toIndentedString(period)).append("\n");
     sb.append("    periodUnit: ").append(toIndentedString(periodUnit)).append("\n");
+    sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    prePaidStorageInGB: ").append(toIndentedString(prePaidStorageInGB)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    storageChargeType: ").append(toIndentedString(storageChargeType)).append("\n");
