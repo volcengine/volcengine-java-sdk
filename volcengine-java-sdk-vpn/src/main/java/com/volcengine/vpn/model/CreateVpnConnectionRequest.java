@@ -19,6 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vpn.model.IkeConfigForCreateVpnConnectionInput;
+import com.volcengine.vpn.model.IpsecConfigForCreateVpnConnectionInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -32,51 +34,8 @@ import javax.validation.Valid;
 
 
 public class CreateVpnConnectionRequest {
-  /**
-   * Gets or Sets attachType
-   */
-  @JsonAdapter(AttachTypeEnum.Adapter.class)
-  public enum AttachTypeEnum {
-    @SerializedName("VpnGateway")
-    VPNGATEWAY("VpnGateway"),
-    @SerializedName("TransitRouter")
-    TRANSITROUTER("TransitRouter");
-
-    private String value;
-
-    AttachTypeEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static AttachTypeEnum fromValue(String input) {
-      for (AttachTypeEnum b : AttachTypeEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<AttachTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final AttachTypeEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public AttachTypeEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return AttachTypeEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("AttachType")
-  private AttachTypeEnum attachType = null;
+  @SerializedName("AttachType")
+  private String attachType = null;
 
   @SerializedName("ClientToken")
   private String clientToken = null;
@@ -87,61 +46,14 @@ public class CreateVpnConnectionRequest {
   @SerializedName("Description")
   private String description = null;
 
-  /**
-   * Gets or Sets dpdAction
-   */
-  @JsonAdapter(DpdActionEnum.Adapter.class)
-  public enum DpdActionEnum {
-    @SerializedName("none")
-    NONE("none"),
-    @SerializedName("clear")
-    CLEAR("clear"),
-    @SerializedName("hold")
-    HOLD("hold"),
-    @SerializedName("restart")
-    RESTART("restart");
-
-    private String value;
-
-    DpdActionEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static DpdActionEnum fromValue(String input) {
-      for (DpdActionEnum b : DpdActionEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<DpdActionEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final DpdActionEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public DpdActionEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return DpdActionEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("DpdAction")
-  private DpdActionEnum dpdAction = null;
+  @SerializedName("DpdAction")
+  private String dpdAction = null;
 
   @SerializedName("IkeConfig")
-  private String ikeConfig = null;
+  private IkeConfigForCreateVpnConnectionInput ikeConfig = null;
 
   @SerializedName("IpsecConfig")
-  private String ipsecConfig = null;
+  private IpsecConfigForCreateVpnConnectionInput ipsecConfig = null;
 
   @SerializedName("LocalSubnet")
   private List<String> localSubnet = null;
@@ -167,7 +79,7 @@ public class CreateVpnConnectionRequest {
   @SerializedName("VpnGatewayId")
   private String vpnGatewayId = null;
 
-  public CreateVpnConnectionRequest attachType(AttachTypeEnum attachType) {
+  public CreateVpnConnectionRequest attachType(String attachType) {
     this.attachType = attachType;
     return this;
   }
@@ -177,11 +89,11 @@ public class CreateVpnConnectionRequest {
    * @return attachType
   **/
   @Schema(description = "")
-  public AttachTypeEnum getAttachType() {
+  public String getAttachType() {
     return attachType;
   }
 
-  public void setAttachType(AttachTypeEnum attachType) {
+  public void setAttachType(String attachType) {
     this.attachType = attachType;
   }
 
@@ -231,7 +143,7 @@ public class CreateVpnConnectionRequest {
    * Get description
    * @return description
   **/
- @Size(min=1,max=255)  @Schema(description = "")
+  @Schema(description = "")
   public String getDescription() {
     return description;
   }
@@ -240,7 +152,7 @@ public class CreateVpnConnectionRequest {
     this.description = description;
   }
 
-  public CreateVpnConnectionRequest dpdAction(DpdActionEnum dpdAction) {
+  public CreateVpnConnectionRequest dpdAction(String dpdAction) {
     this.dpdAction = dpdAction;
     return this;
   }
@@ -250,15 +162,15 @@ public class CreateVpnConnectionRequest {
    * @return dpdAction
   **/
   @Schema(description = "")
-  public DpdActionEnum getDpdAction() {
+  public String getDpdAction() {
     return dpdAction;
   }
 
-  public void setDpdAction(DpdActionEnum dpdAction) {
+  public void setDpdAction(String dpdAction) {
     this.dpdAction = dpdAction;
   }
 
-  public CreateVpnConnectionRequest ikeConfig(String ikeConfig) {
+  public CreateVpnConnectionRequest ikeConfig(IkeConfigForCreateVpnConnectionInput ikeConfig) {
     this.ikeConfig = ikeConfig;
     return this;
   }
@@ -267,16 +179,17 @@ public class CreateVpnConnectionRequest {
    * Get ikeConfig
    * @return ikeConfig
   **/
+  @Valid
   @Schema(description = "")
-  public String getIkeConfig() {
+  public IkeConfigForCreateVpnConnectionInput getIkeConfig() {
     return ikeConfig;
   }
 
-  public void setIkeConfig(String ikeConfig) {
+  public void setIkeConfig(IkeConfigForCreateVpnConnectionInput ikeConfig) {
     this.ikeConfig = ikeConfig;
   }
 
-  public CreateVpnConnectionRequest ipsecConfig(String ipsecConfig) {
+  public CreateVpnConnectionRequest ipsecConfig(IpsecConfigForCreateVpnConnectionInput ipsecConfig) {
     this.ipsecConfig = ipsecConfig;
     return this;
   }
@@ -285,12 +198,13 @@ public class CreateVpnConnectionRequest {
    * Get ipsecConfig
    * @return ipsecConfig
   **/
+  @Valid
   @Schema(description = "")
-  public String getIpsecConfig() {
+  public IpsecConfigForCreateVpnConnectionInput getIpsecConfig() {
     return ipsecConfig;
   }
 
-  public void setIpsecConfig(String ipsecConfig) {
+  public void setIpsecConfig(IpsecConfigForCreateVpnConnectionInput ipsecConfig) {
     this.ipsecConfig = ipsecConfig;
   }
 
@@ -427,7 +341,7 @@ public class CreateVpnConnectionRequest {
    * Get vpnConnectionName
    * @return vpnConnectionName
   **/
- @Size(min=1,max=128)  @Schema(description = "")
+  @Schema(description = "")
   public String getVpnConnectionName() {
     return vpnConnectionName;
   }

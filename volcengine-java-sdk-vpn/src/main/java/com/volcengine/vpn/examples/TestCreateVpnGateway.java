@@ -28,7 +28,7 @@ public class TestCreateVpnGateway {
         createVpnGatewayRequest.setBillingType(1);
         createVpnGatewayRequest.setDescription("test");
         createVpnGatewayRequest.setPeriod(1);
-        createVpnGatewayRequest.setPeriodUnit(CreateVpnGatewayRequest.PeriodUnitEnum.valueOf(CreateVpnGatewayRequest.PeriodUnitEnum.class, "Month"));
+        createVpnGatewayRequest.setPeriodUnit("Month");
         createVpnGatewayRequest.setSubnetId("subnet-2fewbgn7jbk0059gp67ap****");
         createVpnGatewayRequest.setVpcId("vpc-12bhs1ivo6p6o17q7y2x3****");
         createVpnGatewayRequest.setVpnGatewayName("test");

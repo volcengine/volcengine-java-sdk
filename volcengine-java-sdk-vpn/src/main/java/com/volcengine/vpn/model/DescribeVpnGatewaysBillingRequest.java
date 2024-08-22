@@ -38,6 +38,9 @@ public class DescribeVpnGatewaysBillingRequest {
   @SerializedName("PageSize")
   private Integer pageSize = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("VpnGatewayIds")
   private List<String> vpnGatewayIds = null;
 
@@ -66,16 +69,33 @@ public class DescribeVpnGatewaysBillingRequest {
 
    /**
    * Get pageSize
-   * maximum: 100
    * @return pageSize
   **/
- @Max(100)  @Schema(description = "")
+  @Schema(description = "")
   public Integer getPageSize() {
     return pageSize;
   }
 
   public void setPageSize(Integer pageSize) {
     this.pageSize = pageSize;
+  }
+
+  public DescribeVpnGatewaysBillingRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
   }
 
   public DescribeVpnGatewaysBillingRequest vpnGatewayIds(List<String> vpnGatewayIds) {
@@ -116,12 +136,13 @@ public class DescribeVpnGatewaysBillingRequest {
     DescribeVpnGatewaysBillingRequest describeVpnGatewaysBillingRequest = (DescribeVpnGatewaysBillingRequest) o;
     return Objects.equals(this.pageNumber, describeVpnGatewaysBillingRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeVpnGatewaysBillingRequest.pageSize) &&
+        Objects.equals(this.projectName, describeVpnGatewaysBillingRequest.projectName) &&
         Objects.equals(this.vpnGatewayIds, describeVpnGatewaysBillingRequest.vpnGatewayIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pageNumber, pageSize, vpnGatewayIds);
+    return Objects.hash(pageNumber, pageSize, projectName, vpnGatewayIds);
   }
 
 
@@ -132,6 +153,7 @@ public class DescribeVpnGatewaysBillingRequest {
     
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    vpnGatewayIds: ").append(toIndentedString(vpnGatewayIds)).append("\n");
     sb.append("}");
     return sb.toString();

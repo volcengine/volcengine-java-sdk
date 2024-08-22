@@ -67,7 +67,7 @@ public class ModifyCustomerGatewayAttributesRequest {
    * Get customerGatewayName
    * @return customerGatewayName
   **/
- @Size(min=1,max=128)  @Schema(description = "")
+  @Schema(description = "")
   public String getCustomerGatewayName() {
     return customerGatewayName;
   }
@@ -85,7 +85,7 @@ public class ModifyCustomerGatewayAttributesRequest {
    * Get description
    * @return description
   **/
- @Size(min=1,max=255)  @Schema(description = "")
+  @Schema(description = "")
   public String getDescription() {
     return description;
   }
