@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class RemovePermissionFromVpcEndpointServiceRequest {
   @SerializedName("PermitAccountId")
   private String permitAccountId = null;

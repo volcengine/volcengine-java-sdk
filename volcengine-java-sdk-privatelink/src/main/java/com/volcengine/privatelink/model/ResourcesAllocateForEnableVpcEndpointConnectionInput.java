@@ -21,43 +21,55 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ResourceIdForCreateVpcEndpointServiceInput
+ * ResourcesAllocateForEnableVpcEndpointConnectionInput
  */
 
 
-public class ResourceIdForCreateVpcEndpointServiceInput {
-  @SerializedName("ZoneIds")
-  private List<String> zoneIds = null;
 
-  public ResourceIdForCreateVpcEndpointServiceInput zoneIds(List<String> zoneIds) {
-    this.zoneIds = zoneIds;
-    return this;
-  }
+public class ResourcesAllocateForEnableVpcEndpointConnectionInput {
+  @SerializedName("ResourceId")
+  private String resourceId = null;
 
-  public ResourceIdForCreateVpcEndpointServiceInput addZoneIdsItem(String zoneIdsItem) {
-    if (this.zoneIds == null) {
-      this.zoneIds = new ArrayList<String>();
-    }
-    this.zoneIds.add(zoneIdsItem);
+  @SerializedName("ZoneId")
+  private String zoneId = null;
+
+  public ResourcesAllocateForEnableVpcEndpointConnectionInput resourceId(String resourceId) {
+    this.resourceId = resourceId;
     return this;
   }
 
    /**
-   * Get zoneIds
-   * @return zoneIds
+   * Get resourceId
+   * @return resourceId
   **/
   @Schema(description = "")
-  public List<String> getZoneIds() {
-    return zoneIds;
+  public String getResourceId() {
+    return resourceId;
   }
 
-  public void setZoneIds(List<String> zoneIds) {
-    this.zoneIds = zoneIds;
+  public void setResourceId(String resourceId) {
+    this.resourceId = resourceId;
+  }
+
+  public ResourcesAllocateForEnableVpcEndpointConnectionInput zoneId(String zoneId) {
+    this.zoneId = zoneId;
+    return this;
+  }
+
+   /**
+   * Get zoneId
+   * @return zoneId
+  **/
+  @Schema(description = "")
+  public String getZoneId() {
+    return zoneId;
+  }
+
+  public void setZoneId(String zoneId) {
+    this.zoneId = zoneId;
   }
 
 
@@ -69,22 +81,24 @@ public class ResourceIdForCreateVpcEndpointServiceInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ResourceIdForCreateVpcEndpointServiceInput resourceIdForCreateVpcEndpointServiceInput = (ResourceIdForCreateVpcEndpointServiceInput) o;
-    return Objects.equals(this.zoneIds, resourceIdForCreateVpcEndpointServiceInput.zoneIds);
+    ResourcesAllocateForEnableVpcEndpointConnectionInput resourcesAllocateForEnableVpcEndpointConnectionInput = (ResourcesAllocateForEnableVpcEndpointConnectionInput) o;
+    return Objects.equals(this.resourceId, resourcesAllocateForEnableVpcEndpointConnectionInput.resourceId) &&
+        Objects.equals(this.zoneId, resourcesAllocateForEnableVpcEndpointConnectionInput.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(zoneIds);
+    return Objects.hash(resourceId, zoneId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ResourceIdForCreateVpcEndpointServiceInput {\n");
+    sb.append("class ResourcesAllocateForEnableVpcEndpointConnectionInput {\n");
     
-    sb.append("    zoneIds: ").append(toIndentedString(zoneIds)).append("\n");
+    sb.append("    resourceId: ").append(toIndentedString(resourceId)).append("\n");
+    sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

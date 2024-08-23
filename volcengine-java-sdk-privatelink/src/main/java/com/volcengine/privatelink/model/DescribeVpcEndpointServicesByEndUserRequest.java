@@ -28,7 +28,11 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeVpcEndpointServicesByEndUserRequest {
+  @SerializedName("FilterFinancialLocked")
+  private String filterFinancialLocked = null;
+
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
 
@@ -40,6 +44,30 @@ public class DescribeVpcEndpointServicesByEndUserRequest {
 
   @SerializedName("ServiceName")
   private String serviceName = null;
+
+  @SerializedName("ServiceOwner")
+  private String serviceOwner = null;
+
+  @SerializedName("ServiceType")
+  private String serviceType = null;
+
+  public DescribeVpcEndpointServicesByEndUserRequest filterFinancialLocked(String filterFinancialLocked) {
+    this.filterFinancialLocked = filterFinancialLocked;
+    return this;
+  }
+
+   /**
+   * Get filterFinancialLocked
+   * @return filterFinancialLocked
+  **/
+  @Schema(description = "")
+  public String getFilterFinancialLocked() {
+    return filterFinancialLocked;
+  }
+
+  public void setFilterFinancialLocked(String filterFinancialLocked) {
+    this.filterFinancialLocked = filterFinancialLocked;
+  }
 
   public DescribeVpcEndpointServicesByEndUserRequest pageNumber(Integer pageNumber) {
     this.pageNumber = pageNumber;
@@ -113,6 +141,42 @@ public class DescribeVpcEndpointServicesByEndUserRequest {
     this.serviceName = serviceName;
   }
 
+  public DescribeVpcEndpointServicesByEndUserRequest serviceOwner(String serviceOwner) {
+    this.serviceOwner = serviceOwner;
+    return this;
+  }
+
+   /**
+   * Get serviceOwner
+   * @return serviceOwner
+  **/
+  @Schema(description = "")
+  public String getServiceOwner() {
+    return serviceOwner;
+  }
+
+  public void setServiceOwner(String serviceOwner) {
+    this.serviceOwner = serviceOwner;
+  }
+
+  public DescribeVpcEndpointServicesByEndUserRequest serviceType(String serviceType) {
+    this.serviceType = serviceType;
+    return this;
+  }
+
+   /**
+   * Get serviceType
+   * @return serviceType
+  **/
+  @Schema(description = "")
+  public String getServiceType() {
+    return serviceType;
+  }
+
+  public void setServiceType(String serviceType) {
+    this.serviceType = serviceType;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -123,15 +187,18 @@ public class DescribeVpcEndpointServicesByEndUserRequest {
       return false;
     }
     DescribeVpcEndpointServicesByEndUserRequest describeVpcEndpointServicesByEndUserRequest = (DescribeVpcEndpointServicesByEndUserRequest) o;
-    return Objects.equals(this.pageNumber, describeVpcEndpointServicesByEndUserRequest.pageNumber) &&
+    return Objects.equals(this.filterFinancialLocked, describeVpcEndpointServicesByEndUserRequest.filterFinancialLocked) &&
+        Objects.equals(this.pageNumber, describeVpcEndpointServicesByEndUserRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeVpcEndpointServicesByEndUserRequest.pageSize) &&
         Objects.equals(this.serviceId, describeVpcEndpointServicesByEndUserRequest.serviceId) &&
-        Objects.equals(this.serviceName, describeVpcEndpointServicesByEndUserRequest.serviceName);
+        Objects.equals(this.serviceName, describeVpcEndpointServicesByEndUserRequest.serviceName) &&
+        Objects.equals(this.serviceOwner, describeVpcEndpointServicesByEndUserRequest.serviceOwner) &&
+        Objects.equals(this.serviceType, describeVpcEndpointServicesByEndUserRequest.serviceType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pageNumber, pageSize, serviceId, serviceName);
+    return Objects.hash(filterFinancialLocked, pageNumber, pageSize, serviceId, serviceName, serviceOwner, serviceType);
   }
 
 
@@ -140,10 +207,13 @@ public class DescribeVpcEndpointServicesByEndUserRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeVpcEndpointServicesByEndUserRequest {\n");
     
+    sb.append("    filterFinancialLocked: ").append(toIndentedString(filterFinancialLocked)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    serviceId: ").append(toIndentedString(serviceId)).append("\n");
     sb.append("    serviceName: ").append(toIndentedString(serviceName)).append("\n");
+    sb.append("    serviceOwner: ").append(toIndentedString(serviceOwner)).append("\n");
+    sb.append("    serviceType: ").append(toIndentedString(serviceType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

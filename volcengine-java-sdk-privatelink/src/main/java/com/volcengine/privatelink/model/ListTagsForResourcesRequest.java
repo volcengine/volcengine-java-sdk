@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ListTagsForResourcesRequest {
   @SerializedName("MaxResults")
   private Integer maxResults = null;

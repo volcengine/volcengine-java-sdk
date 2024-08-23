@@ -21,11 +21,14 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
  * ModifyVpcEndpointServiceAttributesRequest
  */
+
 
 
 public class ModifyVpcEndpointServiceAttributesRequest {
@@ -35,11 +38,17 @@ public class ModifyVpcEndpointServiceAttributesRequest {
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("IpAddressVersions")
+  private List<String> ipAddressVersions = null;
+
   @SerializedName("PrivateDNSEnabled")
   private String privateDNSEnabled = null;
 
   @SerializedName("PrivateDNSName")
   private String privateDNSName = null;
+
+  @SerializedName("PrivateDNSType")
+  private String privateDNSType = null;
 
   @SerializedName("ServiceId")
   private String serviceId = null;
@@ -80,6 +89,32 @@ public class ModifyVpcEndpointServiceAttributesRequest {
     this.description = description;
   }
 
+  public ModifyVpcEndpointServiceAttributesRequest ipAddressVersions(List<String> ipAddressVersions) {
+    this.ipAddressVersions = ipAddressVersions;
+    return this;
+  }
+
+  public ModifyVpcEndpointServiceAttributesRequest addIpAddressVersionsItem(String ipAddressVersionsItem) {
+    if (this.ipAddressVersions == null) {
+      this.ipAddressVersions = new ArrayList<String>();
+    }
+    this.ipAddressVersions.add(ipAddressVersionsItem);
+    return this;
+  }
+
+   /**
+   * Get ipAddressVersions
+   * @return ipAddressVersions
+  **/
+  @Schema(description = "")
+  public List<String> getIpAddressVersions() {
+    return ipAddressVersions;
+  }
+
+  public void setIpAddressVersions(List<String> ipAddressVersions) {
+    this.ipAddressVersions = ipAddressVersions;
+  }
+
   public ModifyVpcEndpointServiceAttributesRequest privateDNSEnabled(String privateDNSEnabled) {
     this.privateDNSEnabled = privateDNSEnabled;
     return this;
@@ -116,6 +151,24 @@ public class ModifyVpcEndpointServiceAttributesRequest {
     this.privateDNSName = privateDNSName;
   }
 
+  public ModifyVpcEndpointServiceAttributesRequest privateDNSType(String privateDNSType) {
+    this.privateDNSType = privateDNSType;
+    return this;
+  }
+
+   /**
+   * Get privateDNSType
+   * @return privateDNSType
+  **/
+  @Schema(description = "")
+  public String getPrivateDNSType() {
+    return privateDNSType;
+  }
+
+  public void setPrivateDNSType(String privateDNSType) {
+    this.privateDNSType = privateDNSType;
+  }
+
   public ModifyVpcEndpointServiceAttributesRequest serviceId(String serviceId) {
     this.serviceId = serviceId;
     return this;
@@ -147,14 +200,16 @@ public class ModifyVpcEndpointServiceAttributesRequest {
     ModifyVpcEndpointServiceAttributesRequest modifyVpcEndpointServiceAttributesRequest = (ModifyVpcEndpointServiceAttributesRequest) o;
     return Objects.equals(this.autoAcceptEnabled, modifyVpcEndpointServiceAttributesRequest.autoAcceptEnabled) &&
         Objects.equals(this.description, modifyVpcEndpointServiceAttributesRequest.description) &&
+        Objects.equals(this.ipAddressVersions, modifyVpcEndpointServiceAttributesRequest.ipAddressVersions) &&
         Objects.equals(this.privateDNSEnabled, modifyVpcEndpointServiceAttributesRequest.privateDNSEnabled) &&
         Objects.equals(this.privateDNSName, modifyVpcEndpointServiceAttributesRequest.privateDNSName) &&
+        Objects.equals(this.privateDNSType, modifyVpcEndpointServiceAttributesRequest.privateDNSType) &&
         Objects.equals(this.serviceId, modifyVpcEndpointServiceAttributesRequest.serviceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoAcceptEnabled, description, privateDNSEnabled, privateDNSName, serviceId);
+    return Objects.hash(autoAcceptEnabled, description, ipAddressVersions, privateDNSEnabled, privateDNSName, privateDNSType, serviceId);
   }
 
 
@@ -165,8 +220,10 @@ public class ModifyVpcEndpointServiceAttributesRequest {
     
     sb.append("    autoAcceptEnabled: ").append(toIndentedString(autoAcceptEnabled)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    ipAddressVersions: ").append(toIndentedString(ipAddressVersions)).append("\n");
     sb.append("    privateDNSEnabled: ").append(toIndentedString(privateDNSEnabled)).append("\n");
     sb.append("    privateDNSName: ").append(toIndentedString(privateDNSName)).append("\n");
+    sb.append("    privateDNSType: ").append(toIndentedString(privateDNSType)).append("\n");
     sb.append("    serviceId: ").append(toIndentedString(serviceId)).append("\n");
     sb.append("}");
     return sb.toString();

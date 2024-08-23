@@ -28,12 +28,16 @@ import javax.validation.Valid;
  */
 
 
+
 public class ZoneForDescribeVpcEndpointConnectionsOutput {
   @SerializedName("NetworkInterfaceIP")
   private String networkInterfaceIP = null;
 
   @SerializedName("NetworkInterfaceId")
   private String networkInterfaceId = null;
+
+  @SerializedName("NetworkInterfaceIpv6")
+  private String networkInterfaceIpv6 = null;
 
   @SerializedName("ResourceId")
   private String resourceId = null;
@@ -87,6 +91,24 @@ public class ZoneForDescribeVpcEndpointConnectionsOutput {
 
   public void setNetworkInterfaceId(String networkInterfaceId) {
     this.networkInterfaceId = networkInterfaceId;
+  }
+
+  public ZoneForDescribeVpcEndpointConnectionsOutput networkInterfaceIpv6(String networkInterfaceIpv6) {
+    this.networkInterfaceIpv6 = networkInterfaceIpv6;
+    return this;
+  }
+
+   /**
+   * Get networkInterfaceIpv6
+   * @return networkInterfaceIpv6
+  **/
+  @Schema(description = "")
+  public String getNetworkInterfaceIpv6() {
+    return networkInterfaceIpv6;
+  }
+
+  public void setNetworkInterfaceIpv6(String networkInterfaceIpv6) {
+    this.networkInterfaceIpv6 = networkInterfaceIpv6;
   }
 
   public ZoneForDescribeVpcEndpointConnectionsOutput resourceId(String resourceId) {
@@ -209,6 +231,7 @@ public class ZoneForDescribeVpcEndpointConnectionsOutput {
     ZoneForDescribeVpcEndpointConnectionsOutput zoneForDescribeVpcEndpointConnectionsOutput = (ZoneForDescribeVpcEndpointConnectionsOutput) o;
     return Objects.equals(this.networkInterfaceIP, zoneForDescribeVpcEndpointConnectionsOutput.networkInterfaceIP) &&
         Objects.equals(this.networkInterfaceId, zoneForDescribeVpcEndpointConnectionsOutput.networkInterfaceId) &&
+        Objects.equals(this.networkInterfaceIpv6, zoneForDescribeVpcEndpointConnectionsOutput.networkInterfaceIpv6) &&
         Objects.equals(this.resourceId, zoneForDescribeVpcEndpointConnectionsOutput.resourceId) &&
         Objects.equals(this.serviceStatus, zoneForDescribeVpcEndpointConnectionsOutput.serviceStatus) &&
         Objects.equals(this.subnetId, zoneForDescribeVpcEndpointConnectionsOutput.subnetId) &&
@@ -219,7 +242,7 @@ public class ZoneForDescribeVpcEndpointConnectionsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(networkInterfaceIP, networkInterfaceId, resourceId, serviceStatus, subnetId, zoneDomain, zoneId, zoneStatus);
+    return Objects.hash(networkInterfaceIP, networkInterfaceId, networkInterfaceIpv6, resourceId, serviceStatus, subnetId, zoneDomain, zoneId, zoneStatus);
   }
 
 
@@ -230,6 +253,7 @@ public class ZoneForDescribeVpcEndpointConnectionsOutput {
     
     sb.append("    networkInterfaceIP: ").append(toIndentedString(networkInterfaceIP)).append("\n");
     sb.append("    networkInterfaceId: ").append(toIndentedString(networkInterfaceId)).append("\n");
+    sb.append("    networkInterfaceIpv6: ").append(toIndentedString(networkInterfaceIpv6)).append("\n");
     sb.append("    resourceId: ").append(toIndentedString(resourceId)).append("\n");
     sb.append("    serviceStatus: ").append(toIndentedString(serviceStatus)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");

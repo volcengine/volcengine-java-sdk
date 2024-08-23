@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DisableVpcEndpointConnectionRequest {
   @SerializedName("EndpointId")
   private String endpointId = null;

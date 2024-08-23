@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class VpcGatewayEndpointServiceForDescribeVpcGatewayEndpointServicesOutput {
   @SerializedName("CreationTime")
   private String creationTime = null;

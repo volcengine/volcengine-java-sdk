@@ -28,12 +28,16 @@ import javax.validation.Valid;
  */
 
 
+
 public class AddZoneToVpcEndpointRequest {
   @SerializedName("EndpointId")
   private String endpointId = null;
 
   @SerializedName("PrivateIpAddress")
   private String privateIpAddress = null;
+
+  @SerializedName("PrivateIpv6Address")
+  private String privateIpv6Address = null;
 
   @SerializedName("SubnetId")
   private String subnetId = null;
@@ -76,6 +80,24 @@ public class AddZoneToVpcEndpointRequest {
 
   public void setPrivateIpAddress(String privateIpAddress) {
     this.privateIpAddress = privateIpAddress;
+  }
+
+  public AddZoneToVpcEndpointRequest privateIpv6Address(String privateIpv6Address) {
+    this.privateIpv6Address = privateIpv6Address;
+    return this;
+  }
+
+   /**
+   * Get privateIpv6Address
+   * @return privateIpv6Address
+  **/
+  @Schema(description = "")
+  public String getPrivateIpv6Address() {
+    return privateIpv6Address;
+  }
+
+  public void setPrivateIpv6Address(String privateIpv6Address) {
+    this.privateIpv6Address = privateIpv6Address;
   }
 
   public AddZoneToVpcEndpointRequest subnetId(String subnetId) {
@@ -128,13 +150,14 @@ public class AddZoneToVpcEndpointRequest {
     AddZoneToVpcEndpointRequest addZoneToVpcEndpointRequest = (AddZoneToVpcEndpointRequest) o;
     return Objects.equals(this.endpointId, addZoneToVpcEndpointRequest.endpointId) &&
         Objects.equals(this.privateIpAddress, addZoneToVpcEndpointRequest.privateIpAddress) &&
+        Objects.equals(this.privateIpv6Address, addZoneToVpcEndpointRequest.privateIpv6Address) &&
         Objects.equals(this.subnetId, addZoneToVpcEndpointRequest.subnetId) &&
         Objects.equals(this.zoneId, addZoneToVpcEndpointRequest.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(endpointId, privateIpAddress, subnetId, zoneId);
+    return Objects.hash(endpointId, privateIpAddress, privateIpv6Address, subnetId, zoneId);
   }
 
 
@@ -145,6 +168,7 @@ public class AddZoneToVpcEndpointRequest {
     
     sb.append("    endpointId: ").append(toIndentedString(endpointId)).append("\n");
     sb.append("    privateIpAddress: ").append(toIndentedString(privateIpAddress)).append("\n");
+    sb.append("    privateIpv6Address: ").append(toIndentedString(privateIpv6Address)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");

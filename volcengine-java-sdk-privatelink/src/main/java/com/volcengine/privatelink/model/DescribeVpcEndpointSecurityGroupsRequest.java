@@ -28,9 +28,16 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeVpcEndpointSecurityGroupsRequest {
   @SerializedName("EndpointId")
   private String endpointId = null;
+
+  @SerializedName("PageNumber")
+  private String pageNumber = null;
+
+  @SerializedName("PageSize")
+  private String pageSize = null;
 
   public DescribeVpcEndpointSecurityGroupsRequest endpointId(String endpointId) {
     this.endpointId = endpointId;
@@ -51,6 +58,42 @@ public class DescribeVpcEndpointSecurityGroupsRequest {
     this.endpointId = endpointId;
   }
 
+  public DescribeVpcEndpointSecurityGroupsRequest pageNumber(String pageNumber) {
+    this.pageNumber = pageNumber;
+    return this;
+  }
+
+   /**
+   * Get pageNumber
+   * @return pageNumber
+  **/
+  @Schema(description = "")
+  public String getPageNumber() {
+    return pageNumber;
+  }
+
+  public void setPageNumber(String pageNumber) {
+    this.pageNumber = pageNumber;
+  }
+
+  public DescribeVpcEndpointSecurityGroupsRequest pageSize(String pageSize) {
+    this.pageSize = pageSize;
+    return this;
+  }
+
+   /**
+   * Get pageSize
+   * @return pageSize
+  **/
+  @Schema(description = "")
+  public String getPageSize() {
+    return pageSize;
+  }
+
+  public void setPageSize(String pageSize) {
+    this.pageSize = pageSize;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -61,12 +104,14 @@ public class DescribeVpcEndpointSecurityGroupsRequest {
       return false;
     }
     DescribeVpcEndpointSecurityGroupsRequest describeVpcEndpointSecurityGroupsRequest = (DescribeVpcEndpointSecurityGroupsRequest) o;
-    return Objects.equals(this.endpointId, describeVpcEndpointSecurityGroupsRequest.endpointId);
+    return Objects.equals(this.endpointId, describeVpcEndpointSecurityGroupsRequest.endpointId) &&
+        Objects.equals(this.pageNumber, describeVpcEndpointSecurityGroupsRequest.pageNumber) &&
+        Objects.equals(this.pageSize, describeVpcEndpointSecurityGroupsRequest.pageSize);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(endpointId);
+    return Objects.hash(endpointId, pageNumber, pageSize);
   }
 
 
@@ -76,6 +121,8 @@ public class DescribeVpcEndpointSecurityGroupsRequest {
     sb.append("class DescribeVpcEndpointSecurityGroupsRequest {\n");
     
     sb.append("    endpointId: ").append(toIndentedString(endpointId)).append("\n");
+    sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
+    sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("}");
     return sb.toString();
   }

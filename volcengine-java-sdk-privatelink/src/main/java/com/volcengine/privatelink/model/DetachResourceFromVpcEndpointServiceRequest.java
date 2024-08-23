@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DetachResourceFromVpcEndpointServiceRequest {
   @SerializedName("ResourceId")
   private String resourceId = null;

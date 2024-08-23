@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeVpcEndpointServicesRequest {
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
@@ -49,6 +50,9 @@ public class DescribeVpcEndpointServicesRequest {
 
   @SerializedName("ServiceResourceType")
   private String serviceResourceType = null;
+
+  @SerializedName("ServiceType")
+  private String serviceType = null;
 
   @SerializedName("TagFilters")
   private List<TagFilterForDescribeVpcEndpointServicesInput> tagFilters = null;
@@ -169,6 +173,24 @@ public class DescribeVpcEndpointServicesRequest {
     this.serviceResourceType = serviceResourceType;
   }
 
+  public DescribeVpcEndpointServicesRequest serviceType(String serviceType) {
+    this.serviceType = serviceType;
+    return this;
+  }
+
+   /**
+   * Get serviceType
+   * @return serviceType
+  **/
+  @Schema(description = "")
+  public String getServiceType() {
+    return serviceType;
+  }
+
+  public void setServiceType(String serviceType) {
+    this.serviceType = serviceType;
+  }
+
   public DescribeVpcEndpointServicesRequest tagFilters(List<TagFilterForDescribeVpcEndpointServicesInput> tagFilters) {
     this.tagFilters = tagFilters;
     return this;
@@ -212,12 +234,13 @@ public class DescribeVpcEndpointServicesRequest {
         Objects.equals(this.serviceIds, describeVpcEndpointServicesRequest.serviceIds) &&
         Objects.equals(this.serviceName, describeVpcEndpointServicesRequest.serviceName) &&
         Objects.equals(this.serviceResourceType, describeVpcEndpointServicesRequest.serviceResourceType) &&
+        Objects.equals(this.serviceType, describeVpcEndpointServicesRequest.serviceType) &&
         Objects.equals(this.tagFilters, describeVpcEndpointServicesRequest.tagFilters);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pageNumber, pageSize, projectName, serviceIds, serviceName, serviceResourceType, tagFilters);
+    return Objects.hash(pageNumber, pageSize, projectName, serviceIds, serviceName, serviceResourceType, serviceType, tagFilters);
   }
 
 
@@ -232,6 +255,7 @@ public class DescribeVpcEndpointServicesRequest {
     sb.append("    serviceIds: ").append(toIndentedString(serviceIds)).append("\n");
     sb.append("    serviceName: ").append(toIndentedString(serviceName)).append("\n");
     sb.append("    serviceResourceType: ").append(toIndentedString(serviceResourceType)).append("\n");
+    sb.append("    serviceType: ").append(toIndentedString(serviceType)).append("\n");
     sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("}");
     return sb.toString();

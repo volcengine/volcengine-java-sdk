@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ResourceForCreateVpcEndpointServiceInput {
   @SerializedName("InstanceId")
   private String instanceId = null;

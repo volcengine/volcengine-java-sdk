@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeVpcEndpointServicePermissionsRequest {
   @SerializedName("PageNumber")
   private Integer pageNumber = null;

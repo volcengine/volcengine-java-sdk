@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeVpcEndpointAttributesRequest {
   @SerializedName("EndpointId")
   private String endpointId = null;

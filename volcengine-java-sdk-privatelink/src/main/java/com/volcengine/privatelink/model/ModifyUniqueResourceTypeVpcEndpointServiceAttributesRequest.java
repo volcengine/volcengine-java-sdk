@@ -31,12 +31,16 @@ import javax.validation.Valid;
  */
 
 
+
 public class ModifyUniqueResourceTypeVpcEndpointServiceAttributesRequest {
   @SerializedName("AutoAcceptEnabled")
   private Boolean autoAcceptEnabled = null;
 
   @SerializedName("Description")
   private String description = null;
+
+  @SerializedName("IpAddressVersions")
+  private List<String> ipAddressVersions = null;
 
   @SerializedName("Resource")
   private ResourceForModifyUniqueResourceTypeVpcEndpointServiceAttributesInput resource = null;
@@ -84,6 +88,32 @@ public class ModifyUniqueResourceTypeVpcEndpointServiceAttributesRequest {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public ModifyUniqueResourceTypeVpcEndpointServiceAttributesRequest ipAddressVersions(List<String> ipAddressVersions) {
+    this.ipAddressVersions = ipAddressVersions;
+    return this;
+  }
+
+  public ModifyUniqueResourceTypeVpcEndpointServiceAttributesRequest addIpAddressVersionsItem(String ipAddressVersionsItem) {
+    if (this.ipAddressVersions == null) {
+      this.ipAddressVersions = new ArrayList<String>();
+    }
+    this.ipAddressVersions.add(ipAddressVersionsItem);
+    return this;
+  }
+
+   /**
+   * Get ipAddressVersions
+   * @return ipAddressVersions
+  **/
+  @Schema(description = "")
+  public List<String> getIpAddressVersions() {
+    return ipAddressVersions;
+  }
+
+  public void setIpAddressVersions(List<String> ipAddressVersions) {
+    this.ipAddressVersions = ipAddressVersions;
   }
 
   public ModifyUniqueResourceTypeVpcEndpointServiceAttributesRequest resource(ResourceForModifyUniqueResourceTypeVpcEndpointServiceAttributesInput resource) {
@@ -180,6 +210,7 @@ public class ModifyUniqueResourceTypeVpcEndpointServiceAttributesRequest {
     ModifyUniqueResourceTypeVpcEndpointServiceAttributesRequest modifyUniqueResourceTypeVpcEndpointServiceAttributesRequest = (ModifyUniqueResourceTypeVpcEndpointServiceAttributesRequest) o;
     return Objects.equals(this.autoAcceptEnabled, modifyUniqueResourceTypeVpcEndpointServiceAttributesRequest.autoAcceptEnabled) &&
         Objects.equals(this.description, modifyUniqueResourceTypeVpcEndpointServiceAttributesRequest.description) &&
+        Objects.equals(this.ipAddressVersions, modifyUniqueResourceTypeVpcEndpointServiceAttributesRequest.ipAddressVersions) &&
         Objects.equals(this.resource, modifyUniqueResourceTypeVpcEndpointServiceAttributesRequest.resource) &&
         Objects.equals(this.serviceId, modifyUniqueResourceTypeVpcEndpointServiceAttributesRequest.serviceId) &&
         Objects.equals(this.zoneIDs, modifyUniqueResourceTypeVpcEndpointServiceAttributesRequest.zoneIDs) &&
@@ -188,7 +219,7 @@ public class ModifyUniqueResourceTypeVpcEndpointServiceAttributesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoAcceptEnabled, description, resource, serviceId, zoneIDs, zoneIds);
+    return Objects.hash(autoAcceptEnabled, description, ipAddressVersions, resource, serviceId, zoneIDs, zoneIds);
   }
 
 
@@ -199,6 +230,7 @@ public class ModifyUniqueResourceTypeVpcEndpointServiceAttributesRequest {
     
     sb.append("    autoAcceptEnabled: ").append(toIndentedString(autoAcceptEnabled)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    ipAddressVersions: ").append(toIndentedString(ipAddressVersions)).append("\n");
     sb.append("    resource: ").append(toIndentedString(resource)).append("\n");
     sb.append("    serviceId: ").append(toIndentedString(serviceId)).append("\n");
     sb.append("    zoneIDs: ").append(toIndentedString(zoneIDs)).append("\n");
