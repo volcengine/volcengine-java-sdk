@@ -197,10 +197,10 @@ public class CreateDBEndpointRequest {
    */
   @JsonAdapter(ReadWriteModeEnum.Adapter.class)
   public enum ReadWriteModeEnum {
-    @SerializedName("ReadWrite")
-    READWRITE("ReadWrite"),
     @SerializedName("ReadOnly")
-    READONLY("ReadOnly");
+    READONLY("ReadOnly"),
+    @SerializedName("ReadWrite")
+    READWRITE("ReadWrite");
 
     private String value;
 

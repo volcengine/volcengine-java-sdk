@@ -125,9 +125,7 @@ public class InstanceDetailForDescribeDBInstanceDetailOutput {
     @SerializedName("Resuming")
     RESUMING("Resuming"),
     @SerializedName("AllowListMaintaining")
-    ALLOWLISTMAINTAINING("AllowListMaintaining"),
-    @SerializedName("Error")
-    ERROR("Error");
+    ALLOWLISTMAINTAINING("AllowListMaintaining");
 
     private String value;
 

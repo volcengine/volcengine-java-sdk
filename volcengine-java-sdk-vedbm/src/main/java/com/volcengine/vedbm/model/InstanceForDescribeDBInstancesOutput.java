@@ -91,8 +91,81 @@ public class InstanceForDescribeDBInstancesOutput {
   @SerializedName("InstanceName")
   private String instanceName = null;
 
-  @SerializedName("InstanceStatus")
-  private String instanceStatus = null;
+  /**
+   * Gets or Sets instanceStatus
+   */
+  @JsonAdapter(InstanceStatusEnum.Adapter.class)
+  public enum InstanceStatusEnum {
+    @SerializedName("WaitingPaid")
+    WAITINGPAID("WaitingPaid"),
+    @SerializedName("Running")
+    RUNNING("Running"),
+    @SerializedName("Creating")
+    CREATING("Creating"),
+    @SerializedName("Scaling")
+    SCALING("Scaling"),
+    @SerializedName("Restarting")
+    RESTARTING("Restarting"),
+    @SerializedName("Restoring")
+    RESTORING("Restoring"),
+    @SerializedName("Upgrading")
+    UPGRADING("Upgrading"),
+    @SerializedName("PrimaryChanging")
+    PRIMARYCHANGING("PrimaryChanging"),
+    @SerializedName("Unavailable")
+    UNAVAILABLE("Unavailable"),
+    @SerializedName("Deleting")
+    DELETING("Deleting"),
+    @SerializedName("Deleted")
+    DELETED("Deleted"),
+    @SerializedName("CreateFailed")
+    CREATEFAILED("CreateFailed"),
+    @SerializedName("Closing")
+    CLOSING("Closing"),
+    @SerializedName("Expired")
+    EXPIRED("Expired"),
+    @SerializedName("Owing")
+    OWING("Owing"),
+    @SerializedName("Resuming")
+    RESUMING("Resuming"),
+    @SerializedName("AllowListMaintaining")
+    ALLOWLISTMAINTAINING("AllowListMaintaining");
+
+    private String value;
+
+    InstanceStatusEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static InstanceStatusEnum fromValue(String input) {
+      for (InstanceStatusEnum b : InstanceStatusEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<InstanceStatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final InstanceStatusEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public InstanceStatusEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return InstanceStatusEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("InstanceStatus")
+  private InstanceStatusEnum instanceStatus = null;
 
   @SerializedName("Nodes")
   private List<NodeForDescribeDBInstancesOutput> nodes = null;
@@ -261,7 +334,7 @@ public class InstanceForDescribeDBInstancesOutput {
     this.instanceName = instanceName;
   }
 
-  public InstanceForDescribeDBInstancesOutput instanceStatus(String instanceStatus) {
+  public InstanceForDescribeDBInstancesOutput instanceStatus(InstanceStatusEnum instanceStatus) {
     this.instanceStatus = instanceStatus;
     return this;
   }
@@ -271,11 +344,11 @@ public class InstanceForDescribeDBInstancesOutput {
    * @return instanceStatus
   **/
   @Schema(description = "")
-  public String getInstanceStatus() {
+  public InstanceStatusEnum getInstanceStatus() {
     return instanceStatus;
   }
 
-  public void setInstanceStatus(String instanceStatus) {
+  public void setInstanceStatus(InstanceStatusEnum instanceStatus) {
     this.instanceStatus = instanceStatus;
   }
 
