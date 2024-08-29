@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class PrivateDNSNameConfigurationForDescribeVpcEndpointServicesByEndUserOutput {
   @SerializedName("Name")
   private String name = null;

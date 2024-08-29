@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class AddPermissionToVpcEndpointServiceRequest {
   @SerializedName("PermitAccountId")
   private String permitAccountId = null;

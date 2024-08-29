@@ -35,12 +35,12 @@ public class DeleteDBInstanceRequest {
    */
   @JsonAdapter(DataKeepPolicyEnum.Adapter.class)
   public enum DataKeepPolicyEnum {
+    @SerializedName("None")
+    NONE("None"),
     @SerializedName("All")
     ALL("All"),
     @SerializedName("Last")
-    LAST("Last"),
-    @SerializedName("None")
-    NONE("None");
+    LAST("Last");
 
     private String value;
 

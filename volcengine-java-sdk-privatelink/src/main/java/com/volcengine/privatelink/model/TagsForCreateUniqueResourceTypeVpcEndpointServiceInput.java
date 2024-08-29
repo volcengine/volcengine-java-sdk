@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class TagsForCreateUniqueResourceTypeVpcEndpointServiceInput {
   @SerializedName("Key")
   private String key = null;

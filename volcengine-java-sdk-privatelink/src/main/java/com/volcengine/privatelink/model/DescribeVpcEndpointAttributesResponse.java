@@ -32,6 +32,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeVpcEndpointAttributesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("BusinessStatus")
   private String businessStatus = null;
@@ -57,11 +58,23 @@ public class DescribeVpcEndpointAttributesResponse extends com.volcengine.model.
   @SerializedName("EndpointId")
   private String endpointId = null;
 
+  @SerializedName("EndpointIndex")
+  private Integer endpointIndex = null;
+
   @SerializedName("EndpointName")
   private String endpointName = null;
 
   @SerializedName("EndpointType")
   private String endpointType = null;
+
+  @SerializedName("IpAddressVersions")
+  private List<String> ipAddressVersions = null;
+
+  @SerializedName("IpAddressVersions.N")
+  private List<String> ipAddressVersionsN = null;
+
+  @SerializedName("Payer")
+  private String payer = null;
 
   @SerializedName("PrivateDNSEnabled")
   private Boolean privateDNSEnabled = null;
@@ -238,6 +251,24 @@ public class DescribeVpcEndpointAttributesResponse extends com.volcengine.model.
     this.endpointId = endpointId;
   }
 
+  public DescribeVpcEndpointAttributesResponse endpointIndex(Integer endpointIndex) {
+    this.endpointIndex = endpointIndex;
+    return this;
+  }
+
+   /**
+   * Get endpointIndex
+   * @return endpointIndex
+  **/
+  @Schema(description = "")
+  public Integer getEndpointIndex() {
+    return endpointIndex;
+  }
+
+  public void setEndpointIndex(Integer endpointIndex) {
+    this.endpointIndex = endpointIndex;
+  }
+
   public DescribeVpcEndpointAttributesResponse endpointName(String endpointName) {
     this.endpointName = endpointName;
     return this;
@@ -272,6 +303,76 @@ public class DescribeVpcEndpointAttributesResponse extends com.volcengine.model.
 
   public void setEndpointType(String endpointType) {
     this.endpointType = endpointType;
+  }
+
+  public DescribeVpcEndpointAttributesResponse ipAddressVersions(List<String> ipAddressVersions) {
+    this.ipAddressVersions = ipAddressVersions;
+    return this;
+  }
+
+  public DescribeVpcEndpointAttributesResponse addIpAddressVersionsItem(String ipAddressVersionsItem) {
+    if (this.ipAddressVersions == null) {
+      this.ipAddressVersions = new ArrayList<String>();
+    }
+    this.ipAddressVersions.add(ipAddressVersionsItem);
+    return this;
+  }
+
+   /**
+   * Get ipAddressVersions
+   * @return ipAddressVersions
+  **/
+  @Schema(description = "")
+  public List<String> getIpAddressVersions() {
+    return ipAddressVersions;
+  }
+
+  public void setIpAddressVersions(List<String> ipAddressVersions) {
+    this.ipAddressVersions = ipAddressVersions;
+  }
+
+  public DescribeVpcEndpointAttributesResponse ipAddressVersionsN(List<String> ipAddressVersionsN) {
+    this.ipAddressVersionsN = ipAddressVersionsN;
+    return this;
+  }
+
+  public DescribeVpcEndpointAttributesResponse addIpAddressVersionsNItem(String ipAddressVersionsNItem) {
+    if (this.ipAddressVersionsN == null) {
+      this.ipAddressVersionsN = new ArrayList<String>();
+    }
+    this.ipAddressVersionsN.add(ipAddressVersionsNItem);
+    return this;
+  }
+
+   /**
+   * Get ipAddressVersionsN
+   * @return ipAddressVersionsN
+  **/
+  @Schema(description = "")
+  public List<String> getIpAddressVersionsN() {
+    return ipAddressVersionsN;
+  }
+
+  public void setIpAddressVersionsN(List<String> ipAddressVersionsN) {
+    this.ipAddressVersionsN = ipAddressVersionsN;
+  }
+
+  public DescribeVpcEndpointAttributesResponse payer(String payer) {
+    this.payer = payer;
+    return this;
+  }
+
+   /**
+   * Get payer
+   * @return payer
+  **/
+  @Schema(description = "")
+  public String getPayer() {
+    return payer;
+  }
+
+  public void setPayer(String payer) {
+    this.payer = payer;
   }
 
   public DescribeVpcEndpointAttributesResponse privateDNSEnabled(Boolean privateDNSEnabled) {
@@ -481,8 +582,12 @@ public class DescribeVpcEndpointAttributesResponse extends com.volcengine.model.
         Objects.equals(this.endpoint, describeVpcEndpointAttributesResponse.endpoint) &&
         Objects.equals(this.endpointDomain, describeVpcEndpointAttributesResponse.endpointDomain) &&
         Objects.equals(this.endpointId, describeVpcEndpointAttributesResponse.endpointId) &&
+        Objects.equals(this.endpointIndex, describeVpcEndpointAttributesResponse.endpointIndex) &&
         Objects.equals(this.endpointName, describeVpcEndpointAttributesResponse.endpointName) &&
         Objects.equals(this.endpointType, describeVpcEndpointAttributesResponse.endpointType) &&
+        Objects.equals(this.ipAddressVersions, describeVpcEndpointAttributesResponse.ipAddressVersions) &&
+        Objects.equals(this.ipAddressVersionsN, describeVpcEndpointAttributesResponse.ipAddressVersionsN) &&
+        Objects.equals(this.payer, describeVpcEndpointAttributesResponse.payer) &&
         Objects.equals(this.privateDNSEnabled, describeVpcEndpointAttributesResponse.privateDNSEnabled) &&
         Objects.equals(this.privateDNSName, describeVpcEndpointAttributesResponse.privateDNSName) &&
         Objects.equals(this.projectName, describeVpcEndpointAttributesResponse.projectName) &&
@@ -497,7 +602,7 @@ public class DescribeVpcEndpointAttributesResponse extends com.volcengine.model.
 
   @Override
   public int hashCode() {
-    return Objects.hash(businessStatus, connectionStatus, creationTime, deletedTime, description, endpoint, endpointDomain, endpointId, endpointName, endpointType, privateDNSEnabled, privateDNSName, projectName, requestId, serviceId, serviceName, status, tags, updateTime, vpcId);
+    return Objects.hash(businessStatus, connectionStatus, creationTime, deletedTime, description, endpoint, endpointDomain, endpointId, endpointIndex, endpointName, endpointType, ipAddressVersions, ipAddressVersionsN, payer, privateDNSEnabled, privateDNSName, projectName, requestId, serviceId, serviceName, status, tags, updateTime, vpcId);
   }
 
 
@@ -514,8 +619,12 @@ public class DescribeVpcEndpointAttributesResponse extends com.volcengine.model.
     sb.append("    endpoint: ").append(toIndentedString(endpoint)).append("\n");
     sb.append("    endpointDomain: ").append(toIndentedString(endpointDomain)).append("\n");
     sb.append("    endpointId: ").append(toIndentedString(endpointId)).append("\n");
+    sb.append("    endpointIndex: ").append(toIndentedString(endpointIndex)).append("\n");
     sb.append("    endpointName: ").append(toIndentedString(endpointName)).append("\n");
     sb.append("    endpointType: ").append(toIndentedString(endpointType)).append("\n");
+    sb.append("    ipAddressVersions: ").append(toIndentedString(ipAddressVersions)).append("\n");
+    sb.append("    ipAddressVersionsN: ").append(toIndentedString(ipAddressVersionsN)).append("\n");
+    sb.append("    payer: ").append(toIndentedString(payer)).append("\n");
     sb.append("    privateDNSEnabled: ").append(toIndentedString(privateDNSEnabled)).append("\n");
     sb.append("    privateDNSName: ").append(toIndentedString(privateDNSName)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");

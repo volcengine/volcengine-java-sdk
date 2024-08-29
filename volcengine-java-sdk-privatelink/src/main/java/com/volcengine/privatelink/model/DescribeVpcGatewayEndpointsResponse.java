@@ -32,6 +32,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeVpcGatewayEndpointsResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Endpoints")
   private List<EndpointForDescribeVpcGatewayEndpointsOutput> endpoints = null;

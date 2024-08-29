@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class PermissionForDescribeVpcEndpointServicePermissionsOutput {
   @SerializedName("PermitAccountId")
   private String permitAccountId = null;

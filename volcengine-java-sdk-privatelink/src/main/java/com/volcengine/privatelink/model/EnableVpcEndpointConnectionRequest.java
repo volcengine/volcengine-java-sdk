@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.privatelink.model.ResourcesAllocateForEnableVpcEndpointConnectionInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -28,9 +31,13 @@ import javax.validation.Valid;
  */
 
 
+
 public class EnableVpcEndpointConnectionRequest {
   @SerializedName("EndpointId")
   private String endpointId = null;
+
+  @SerializedName("ResourcesAllocate")
+  private List<ResourcesAllocateForEnableVpcEndpointConnectionInput> resourcesAllocate = null;
 
   @SerializedName("ServiceId")
   private String serviceId = null;
@@ -52,6 +59,33 @@ public class EnableVpcEndpointConnectionRequest {
 
   public void setEndpointId(String endpointId) {
     this.endpointId = endpointId;
+  }
+
+  public EnableVpcEndpointConnectionRequest resourcesAllocate(List<ResourcesAllocateForEnableVpcEndpointConnectionInput> resourcesAllocate) {
+    this.resourcesAllocate = resourcesAllocate;
+    return this;
+  }
+
+  public EnableVpcEndpointConnectionRequest addResourcesAllocateItem(ResourcesAllocateForEnableVpcEndpointConnectionInput resourcesAllocateItem) {
+    if (this.resourcesAllocate == null) {
+      this.resourcesAllocate = new ArrayList<ResourcesAllocateForEnableVpcEndpointConnectionInput>();
+    }
+    this.resourcesAllocate.add(resourcesAllocateItem);
+    return this;
+  }
+
+   /**
+   * Get resourcesAllocate
+   * @return resourcesAllocate
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<ResourcesAllocateForEnableVpcEndpointConnectionInput> getResourcesAllocate() {
+    return resourcesAllocate;
+  }
+
+  public void setResourcesAllocate(List<ResourcesAllocateForEnableVpcEndpointConnectionInput> resourcesAllocate) {
+    this.resourcesAllocate = resourcesAllocate;
   }
 
   public EnableVpcEndpointConnectionRequest serviceId(String serviceId) {
@@ -84,12 +118,13 @@ public class EnableVpcEndpointConnectionRequest {
     }
     EnableVpcEndpointConnectionRequest enableVpcEndpointConnectionRequest = (EnableVpcEndpointConnectionRequest) o;
     return Objects.equals(this.endpointId, enableVpcEndpointConnectionRequest.endpointId) &&
+        Objects.equals(this.resourcesAllocate, enableVpcEndpointConnectionRequest.resourcesAllocate) &&
         Objects.equals(this.serviceId, enableVpcEndpointConnectionRequest.serviceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(endpointId, serviceId);
+    return Objects.hash(endpointId, resourcesAllocate, serviceId);
   }
 
 
@@ -99,6 +134,7 @@ public class EnableVpcEndpointConnectionRequest {
     sb.append("class EnableVpcEndpointConnectionRequest {\n");
     
     sb.append("    endpointId: ").append(toIndentedString(endpointId)).append("\n");
+    sb.append("    resourcesAllocate: ").append(toIndentedString(resourcesAllocate)).append("\n");
     sb.append("    serviceId: ").append(toIndentedString(serviceId)).append("\n");
     sb.append("}");
     return sb.toString();

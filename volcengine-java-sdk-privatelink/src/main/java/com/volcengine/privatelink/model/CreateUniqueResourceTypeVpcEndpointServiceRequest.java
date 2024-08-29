@@ -32,6 +32,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateUniqueResourceTypeVpcEndpointServiceRequest {
   @SerializedName("AutoAcceptEnabled")
   private Boolean autoAcceptEnabled = null;
@@ -41,6 +42,9 @@ public class CreateUniqueResourceTypeVpcEndpointServiceRequest {
 
   @SerializedName("Description")
   private String description = null;
+
+  @SerializedName("IpAddressVersions")
+  private List<String> ipAddressVersions = null;
 
   @SerializedName("ProjectName")
   private String projectName = null;
@@ -109,6 +113,32 @@ public class CreateUniqueResourceTypeVpcEndpointServiceRequest {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public CreateUniqueResourceTypeVpcEndpointServiceRequest ipAddressVersions(List<String> ipAddressVersions) {
+    this.ipAddressVersions = ipAddressVersions;
+    return this;
+  }
+
+  public CreateUniqueResourceTypeVpcEndpointServiceRequest addIpAddressVersionsItem(String ipAddressVersionsItem) {
+    if (this.ipAddressVersions == null) {
+      this.ipAddressVersions = new ArrayList<String>();
+    }
+    this.ipAddressVersions.add(ipAddressVersionsItem);
+    return this;
+  }
+
+   /**
+   * Get ipAddressVersions
+   * @return ipAddressVersions
+  **/
+  @Schema(description = "")
+  public List<String> getIpAddressVersions() {
+    return ipAddressVersions;
+  }
+
+  public void setIpAddressVersions(List<String> ipAddressVersions) {
+    this.ipAddressVersions = ipAddressVersions;
   }
 
   public CreateUniqueResourceTypeVpcEndpointServiceRequest projectName(String projectName) {
@@ -224,6 +254,7 @@ public class CreateUniqueResourceTypeVpcEndpointServiceRequest {
     return Objects.equals(this.autoAcceptEnabled, createUniqueResourceTypeVpcEndpointServiceRequest.autoAcceptEnabled) &&
         Objects.equals(this.clientToken, createUniqueResourceTypeVpcEndpointServiceRequest.clientToken) &&
         Objects.equals(this.description, createUniqueResourceTypeVpcEndpointServiceRequest.description) &&
+        Objects.equals(this.ipAddressVersions, createUniqueResourceTypeVpcEndpointServiceRequest.ipAddressVersions) &&
         Objects.equals(this.projectName, createUniqueResourceTypeVpcEndpointServiceRequest.projectName) &&
         Objects.equals(this.resource, createUniqueResourceTypeVpcEndpointServiceRequest.resource) &&
         Objects.equals(this.serviceResourceType, createUniqueResourceTypeVpcEndpointServiceRequest.serviceResourceType) &&
@@ -233,7 +264,7 @@ public class CreateUniqueResourceTypeVpcEndpointServiceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoAcceptEnabled, clientToken, description, projectName, resource, serviceResourceType, tags, zoneIds);
+    return Objects.hash(autoAcceptEnabled, clientToken, description, ipAddressVersions, projectName, resource, serviceResourceType, tags, zoneIds);
   }
 
 
@@ -245,6 +276,7 @@ public class CreateUniqueResourceTypeVpcEndpointServiceRequest {
     sb.append("    autoAcceptEnabled: ").append(toIndentedString(autoAcceptEnabled)).append("\n");
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    ipAddressVersions: ").append(toIndentedString(ipAddressVersions)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    resource: ").append(toIndentedString(resource)).append("\n");
     sb.append("    serviceResourceType: ").append(toIndentedString(serviceResourceType)).append("\n");

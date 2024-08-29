@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribePrivateLinkAvailableZonesRequest {
   @SerializedName("ZoneIds")
   private List<String> zoneIds = null;

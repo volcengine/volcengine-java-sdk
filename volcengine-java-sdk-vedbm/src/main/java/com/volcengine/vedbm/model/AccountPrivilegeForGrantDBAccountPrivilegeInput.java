@@ -42,7 +42,9 @@ public class AccountPrivilegeForGrantDBAccountPrivilegeInput {
     @SerializedName("DDLOnly")
     DDLONLY("DDLOnly"),
     @SerializedName("DMLOnly")
-    DMLONLY("DMLOnly");
+    DMLONLY("DMLOnly"),
+    @SerializedName("Custom")
+    CUSTOM("Custom");
 
     private String value;
 
@@ -80,6 +82,9 @@ public class AccountPrivilegeForGrantDBAccountPrivilegeInput {
   }  @SerializedName("AccountPrivilege")
   private AccountPrivilegeEnum accountPrivilege = null;
 
+  @SerializedName("AccountPrivilegeDetail")
+  private String accountPrivilegeDetail = null;
+
   @SerializedName("DBName")
   private String dbName = null;
 
@@ -99,6 +104,24 @@ public class AccountPrivilegeForGrantDBAccountPrivilegeInput {
 
   public void setAccountPrivilege(AccountPrivilegeEnum accountPrivilege) {
     this.accountPrivilege = accountPrivilege;
+  }
+
+  public AccountPrivilegeForGrantDBAccountPrivilegeInput accountPrivilegeDetail(String accountPrivilegeDetail) {
+    this.accountPrivilegeDetail = accountPrivilegeDetail;
+    return this;
+  }
+
+   /**
+   * Get accountPrivilegeDetail
+   * @return accountPrivilegeDetail
+  **/
+  @Schema(description = "")
+  public String getAccountPrivilegeDetail() {
+    return accountPrivilegeDetail;
+  }
+
+  public void setAccountPrivilegeDetail(String accountPrivilegeDetail) {
+    this.accountPrivilegeDetail = accountPrivilegeDetail;
   }
 
   public AccountPrivilegeForGrantDBAccountPrivilegeInput dbName(String dbName) {
@@ -130,12 +153,13 @@ public class AccountPrivilegeForGrantDBAccountPrivilegeInput {
     }
     AccountPrivilegeForGrantDBAccountPrivilegeInput accountPrivilegeForGrantDBAccountPrivilegeInput = (AccountPrivilegeForGrantDBAccountPrivilegeInput) o;
     return Objects.equals(this.accountPrivilege, accountPrivilegeForGrantDBAccountPrivilegeInput.accountPrivilege) &&
+        Objects.equals(this.accountPrivilegeDetail, accountPrivilegeForGrantDBAccountPrivilegeInput.accountPrivilegeDetail) &&
         Objects.equals(this.dbName, accountPrivilegeForGrantDBAccountPrivilegeInput.dbName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountPrivilege, dbName);
+    return Objects.hash(accountPrivilege, accountPrivilegeDetail, dbName);
   }
 
 
@@ -145,6 +169,7 @@ public class AccountPrivilegeForGrantDBAccountPrivilegeInput {
     sb.append("class AccountPrivilegeForGrantDBAccountPrivilegeInput {\n");
     
     sb.append("    accountPrivilege: ").append(toIndentedString(accountPrivilege)).append("\n");
+    sb.append("    accountPrivilegeDetail: ").append(toIndentedString(accountPrivilegeDetail)).append("\n");
     sb.append("    dbName: ").append(toIndentedString(dbName)).append("\n");
     sb.append("}");
     return sb.toString();

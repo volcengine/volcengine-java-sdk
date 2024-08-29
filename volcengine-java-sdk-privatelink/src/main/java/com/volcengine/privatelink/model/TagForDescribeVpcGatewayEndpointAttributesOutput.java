@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class TagForDescribeVpcGatewayEndpointAttributesOutput {
   @SerializedName("Key")
   private String key = null;

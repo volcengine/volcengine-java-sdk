@@ -45,7 +45,9 @@ public class DatabasesPrivilegeForDescribeDatabasesOutput {
     @SerializedName("DDLOnly")
     DDLONLY("DDLOnly"),
     @SerializedName("DMLOnly")
-    DMLONLY("DMLOnly");
+    DMLONLY("DMLOnly"),
+    @SerializedName("Custom")
+    CUSTOM("Custom");
 
     private String value;
 
@@ -83,6 +85,9 @@ public class DatabasesPrivilegeForDescribeDatabasesOutput {
   }  @SerializedName("AccountPrivilege")
   private AccountPrivilegeEnum accountPrivilege = null;
 
+  @SerializedName("AccountPrivilegeDetail")
+  private String accountPrivilegeDetail = null;
+
   public DatabasesPrivilegeForDescribeDatabasesOutput accountName(String accountName) {
     this.accountName = accountName;
     return this;
@@ -119,6 +124,24 @@ public class DatabasesPrivilegeForDescribeDatabasesOutput {
     this.accountPrivilege = accountPrivilege;
   }
 
+  public DatabasesPrivilegeForDescribeDatabasesOutput accountPrivilegeDetail(String accountPrivilegeDetail) {
+    this.accountPrivilegeDetail = accountPrivilegeDetail;
+    return this;
+  }
+
+   /**
+   * Get accountPrivilegeDetail
+   * @return accountPrivilegeDetail
+  **/
+  @Schema(description = "")
+  public String getAccountPrivilegeDetail() {
+    return accountPrivilegeDetail;
+  }
+
+  public void setAccountPrivilegeDetail(String accountPrivilegeDetail) {
+    this.accountPrivilegeDetail = accountPrivilegeDetail;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -130,12 +153,13 @@ public class DatabasesPrivilegeForDescribeDatabasesOutput {
     }
     DatabasesPrivilegeForDescribeDatabasesOutput databasesPrivilegeForDescribeDatabasesOutput = (DatabasesPrivilegeForDescribeDatabasesOutput) o;
     return Objects.equals(this.accountName, databasesPrivilegeForDescribeDatabasesOutput.accountName) &&
-        Objects.equals(this.accountPrivilege, databasesPrivilegeForDescribeDatabasesOutput.accountPrivilege);
+        Objects.equals(this.accountPrivilege, databasesPrivilegeForDescribeDatabasesOutput.accountPrivilege) &&
+        Objects.equals(this.accountPrivilegeDetail, databasesPrivilegeForDescribeDatabasesOutput.accountPrivilegeDetail);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountName, accountPrivilege);
+    return Objects.hash(accountName, accountPrivilege, accountPrivilegeDetail);
   }
 
 
@@ -146,6 +170,7 @@ public class DatabasesPrivilegeForDescribeDatabasesOutput {
     
     sb.append("    accountName: ").append(toIndentedString(accountName)).append("\n");
     sb.append("    accountPrivilege: ").append(toIndentedString(accountPrivilege)).append("\n");
+    sb.append("    accountPrivilegeDetail: ").append(toIndentedString(accountPrivilegeDetail)).append("\n");
     sb.append("}");
     return sb.toString();
   }

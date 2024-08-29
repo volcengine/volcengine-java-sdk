@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ModifyVpcGatewayEndpointAttributesRequest {
   @SerializedName("Description")
   private String description = null;

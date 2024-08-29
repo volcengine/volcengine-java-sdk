@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class EndpointForDescribeVpcEndpointAttributesOutput {
   @SerializedName("BusinessStatus")
   private String businessStatus = null;
@@ -53,11 +54,20 @@ public class EndpointForDescribeVpcEndpointAttributesOutput {
   @SerializedName("EndpointId")
   private String endpointId = null;
 
+  @SerializedName("EndpointIndex")
+  private Integer endpointIndex = null;
+
   @SerializedName("EndpointName")
   private String endpointName = null;
 
   @SerializedName("EndpointType")
   private String endpointType = null;
+
+  @SerializedName("IpAddressVersions")
+  private List<String> ipAddressVersions = null;
+
+  @SerializedName("Payer")
+  private String payer = null;
 
   @SerializedName("PrivateDNSEnabled")
   private Boolean privateDNSEnabled = null;
@@ -212,6 +222,24 @@ public class EndpointForDescribeVpcEndpointAttributesOutput {
     this.endpointId = endpointId;
   }
 
+  public EndpointForDescribeVpcEndpointAttributesOutput endpointIndex(Integer endpointIndex) {
+    this.endpointIndex = endpointIndex;
+    return this;
+  }
+
+   /**
+   * Get endpointIndex
+   * @return endpointIndex
+  **/
+  @Schema(description = "")
+  public Integer getEndpointIndex() {
+    return endpointIndex;
+  }
+
+  public void setEndpointIndex(Integer endpointIndex) {
+    this.endpointIndex = endpointIndex;
+  }
+
   public EndpointForDescribeVpcEndpointAttributesOutput endpointName(String endpointName) {
     this.endpointName = endpointName;
     return this;
@@ -246,6 +274,50 @@ public class EndpointForDescribeVpcEndpointAttributesOutput {
 
   public void setEndpointType(String endpointType) {
     this.endpointType = endpointType;
+  }
+
+  public EndpointForDescribeVpcEndpointAttributesOutput ipAddressVersions(List<String> ipAddressVersions) {
+    this.ipAddressVersions = ipAddressVersions;
+    return this;
+  }
+
+  public EndpointForDescribeVpcEndpointAttributesOutput addIpAddressVersionsItem(String ipAddressVersionsItem) {
+    if (this.ipAddressVersions == null) {
+      this.ipAddressVersions = new ArrayList<String>();
+    }
+    this.ipAddressVersions.add(ipAddressVersionsItem);
+    return this;
+  }
+
+   /**
+   * Get ipAddressVersions
+   * @return ipAddressVersions
+  **/
+  @Schema(description = "")
+  public List<String> getIpAddressVersions() {
+    return ipAddressVersions;
+  }
+
+  public void setIpAddressVersions(List<String> ipAddressVersions) {
+    this.ipAddressVersions = ipAddressVersions;
+  }
+
+  public EndpointForDescribeVpcEndpointAttributesOutput payer(String payer) {
+    this.payer = payer;
+    return this;
+  }
+
+   /**
+   * Get payer
+   * @return payer
+  **/
+  @Schema(description = "")
+  public String getPayer() {
+    return payer;
+  }
+
+  public void setPayer(String payer) {
+    this.payer = payer;
   }
 
   public EndpointForDescribeVpcEndpointAttributesOutput privateDNSEnabled(Boolean privateDNSEnabled) {
@@ -436,8 +508,11 @@ public class EndpointForDescribeVpcEndpointAttributesOutput {
         Objects.equals(this.description, endpointForDescribeVpcEndpointAttributesOutput.description) &&
         Objects.equals(this.endpointDomain, endpointForDescribeVpcEndpointAttributesOutput.endpointDomain) &&
         Objects.equals(this.endpointId, endpointForDescribeVpcEndpointAttributesOutput.endpointId) &&
+        Objects.equals(this.endpointIndex, endpointForDescribeVpcEndpointAttributesOutput.endpointIndex) &&
         Objects.equals(this.endpointName, endpointForDescribeVpcEndpointAttributesOutput.endpointName) &&
         Objects.equals(this.endpointType, endpointForDescribeVpcEndpointAttributesOutput.endpointType) &&
+        Objects.equals(this.ipAddressVersions, endpointForDescribeVpcEndpointAttributesOutput.ipAddressVersions) &&
+        Objects.equals(this.payer, endpointForDescribeVpcEndpointAttributesOutput.payer) &&
         Objects.equals(this.privateDNSEnabled, endpointForDescribeVpcEndpointAttributesOutput.privateDNSEnabled) &&
         Objects.equals(this.privateDNSName, endpointForDescribeVpcEndpointAttributesOutput.privateDNSName) &&
         Objects.equals(this.projectName, endpointForDescribeVpcEndpointAttributesOutput.projectName) &&
@@ -451,7 +526,7 @@ public class EndpointForDescribeVpcEndpointAttributesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(businessStatus, connectionStatus, creationTime, deletedTime, description, endpointDomain, endpointId, endpointName, endpointType, privateDNSEnabled, privateDNSName, projectName, serviceId, serviceName, status, tags, updateTime, vpcId);
+    return Objects.hash(businessStatus, connectionStatus, creationTime, deletedTime, description, endpointDomain, endpointId, endpointIndex, endpointName, endpointType, ipAddressVersions, payer, privateDNSEnabled, privateDNSName, projectName, serviceId, serviceName, status, tags, updateTime, vpcId);
   }
 
 
@@ -467,8 +542,11 @@ public class EndpointForDescribeVpcEndpointAttributesOutput {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    endpointDomain: ").append(toIndentedString(endpointDomain)).append("\n");
     sb.append("    endpointId: ").append(toIndentedString(endpointId)).append("\n");
+    sb.append("    endpointIndex: ").append(toIndentedString(endpointIndex)).append("\n");
     sb.append("    endpointName: ").append(toIndentedString(endpointName)).append("\n");
     sb.append("    endpointType: ").append(toIndentedString(endpointType)).append("\n");
+    sb.append("    ipAddressVersions: ").append(toIndentedString(ipAddressVersions)).append("\n");
+    sb.append("    payer: ").append(toIndentedString(payer)).append("\n");
     sb.append("    privateDNSEnabled: ").append(toIndentedString(privateDNSEnabled)).append("\n");
     sb.append("    privateDNSName: ").append(toIndentedString(privateDNSName)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");

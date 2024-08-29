@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class VerifyVpcEndpointServicePrivateDNSRequest {
   @SerializedName("ServiceId")
   private String serviceId = null;

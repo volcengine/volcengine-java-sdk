@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class EndpointConnectionForDescribeVpcEndpointConnectionsOutput {
   @SerializedName("ConnectionStatus")
   private String connectionStatus = null;
