@@ -32,6 +32,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateVpcEndpointRequest {
   @SerializedName("ClientToken")
   private String clientToken = null;
@@ -41,6 +42,9 @@ public class CreateVpcEndpointRequest {
 
   @SerializedName("EndpointName")
   private String endpointName = null;
+
+  @SerializedName("IpAddressVersions")
+  private List<String> ipAddressVersions = null;
 
   @SerializedName("PrivateDNSEnabled")
   private String privateDNSEnabled = null;
@@ -118,6 +122,32 @@ public class CreateVpcEndpointRequest {
 
   public void setEndpointName(String endpointName) {
     this.endpointName = endpointName;
+  }
+
+  public CreateVpcEndpointRequest ipAddressVersions(List<String> ipAddressVersions) {
+    this.ipAddressVersions = ipAddressVersions;
+    return this;
+  }
+
+  public CreateVpcEndpointRequest addIpAddressVersionsItem(String ipAddressVersionsItem) {
+    if (this.ipAddressVersions == null) {
+      this.ipAddressVersions = new ArrayList<String>();
+    }
+    this.ipAddressVersions.add(ipAddressVersionsItem);
+    return this;
+  }
+
+   /**
+   * Get ipAddressVersions
+   * @return ipAddressVersions
+  **/
+  @Schema(description = "")
+  public List<String> getIpAddressVersions() {
+    return ipAddressVersions;
+  }
+
+  public void setIpAddressVersions(List<String> ipAddressVersions) {
+    this.ipAddressVersions = ipAddressVersions;
   }
 
   public CreateVpcEndpointRequest privateDNSEnabled(String privateDNSEnabled) {
@@ -305,6 +335,7 @@ public class CreateVpcEndpointRequest {
     return Objects.equals(this.clientToken, createVpcEndpointRequest.clientToken) &&
         Objects.equals(this.description, createVpcEndpointRequest.description) &&
         Objects.equals(this.endpointName, createVpcEndpointRequest.endpointName) &&
+        Objects.equals(this.ipAddressVersions, createVpcEndpointRequest.ipAddressVersions) &&
         Objects.equals(this.privateDNSEnabled, createVpcEndpointRequest.privateDNSEnabled) &&
         Objects.equals(this.projectName, createVpcEndpointRequest.projectName) &&
         Objects.equals(this.securityGroupIds, createVpcEndpointRequest.securityGroupIds) &&
@@ -317,7 +348,7 @@ public class CreateVpcEndpointRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, description, endpointName, privateDNSEnabled, projectName, securityGroupIds, serviceId, serviceName, tags, vpcId, zones);
+    return Objects.hash(clientToken, description, endpointName, ipAddressVersions, privateDNSEnabled, projectName, securityGroupIds, serviceId, serviceName, tags, vpcId, zones);
   }
 
 
@@ -329,6 +360,7 @@ public class CreateVpcEndpointRequest {
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    endpointName: ").append(toIndentedString(endpointName)).append("\n");
+    sb.append("    ipAddressVersions: ").append(toIndentedString(ipAddressVersions)).append("\n");
     sb.append("    privateDNSEnabled: ").append(toIndentedString(privateDNSEnabled)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    securityGroupIds: ").append(toIndentedString(securityGroupIds)).append("\n");

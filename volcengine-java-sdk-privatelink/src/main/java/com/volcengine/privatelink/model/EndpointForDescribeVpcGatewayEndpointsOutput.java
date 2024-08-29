@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class EndpointForDescribeVpcGatewayEndpointsOutput {
   @SerializedName("CreationTime")
   private String creationTime = null;

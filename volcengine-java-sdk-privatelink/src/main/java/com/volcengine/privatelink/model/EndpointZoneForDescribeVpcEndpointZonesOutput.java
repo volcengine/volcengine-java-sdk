@@ -28,12 +28,19 @@ import javax.validation.Valid;
  */
 
 
+
 public class EndpointZoneForDescribeVpcEndpointZonesOutput {
+  @SerializedName("Ipv6ServiceStatus")
+  private String ipv6ServiceStatus = null;
+
   @SerializedName("NetworkInterfaceIP")
   private String networkInterfaceIP = null;
 
   @SerializedName("NetworkInterfaceId")
   private String networkInterfaceId = null;
+
+  @SerializedName("NetworkInterfaceIpv6")
+  private String networkInterfaceIpv6 = null;
 
   @SerializedName("ServiceStatus")
   private String serviceStatus = null;
@@ -49,6 +56,24 @@ public class EndpointZoneForDescribeVpcEndpointZonesOutput {
 
   @SerializedName("ZoneStatus")
   private String zoneStatus = null;
+
+  public EndpointZoneForDescribeVpcEndpointZonesOutput ipv6ServiceStatus(String ipv6ServiceStatus) {
+    this.ipv6ServiceStatus = ipv6ServiceStatus;
+    return this;
+  }
+
+   /**
+   * Get ipv6ServiceStatus
+   * @return ipv6ServiceStatus
+  **/
+  @Schema(description = "")
+  public String getIpv6ServiceStatus() {
+    return ipv6ServiceStatus;
+  }
+
+  public void setIpv6ServiceStatus(String ipv6ServiceStatus) {
+    this.ipv6ServiceStatus = ipv6ServiceStatus;
+  }
 
   public EndpointZoneForDescribeVpcEndpointZonesOutput networkInterfaceIP(String networkInterfaceIP) {
     this.networkInterfaceIP = networkInterfaceIP;
@@ -84,6 +109,24 @@ public class EndpointZoneForDescribeVpcEndpointZonesOutput {
 
   public void setNetworkInterfaceId(String networkInterfaceId) {
     this.networkInterfaceId = networkInterfaceId;
+  }
+
+  public EndpointZoneForDescribeVpcEndpointZonesOutput networkInterfaceIpv6(String networkInterfaceIpv6) {
+    this.networkInterfaceIpv6 = networkInterfaceIpv6;
+    return this;
+  }
+
+   /**
+   * Get networkInterfaceIpv6
+   * @return networkInterfaceIpv6
+  **/
+  @Schema(description = "")
+  public String getNetworkInterfaceIpv6() {
+    return networkInterfaceIpv6;
+  }
+
+  public void setNetworkInterfaceIpv6(String networkInterfaceIpv6) {
+    this.networkInterfaceIpv6 = networkInterfaceIpv6;
   }
 
   public EndpointZoneForDescribeVpcEndpointZonesOutput serviceStatus(String serviceStatus) {
@@ -186,8 +229,10 @@ public class EndpointZoneForDescribeVpcEndpointZonesOutput {
       return false;
     }
     EndpointZoneForDescribeVpcEndpointZonesOutput endpointZoneForDescribeVpcEndpointZonesOutput = (EndpointZoneForDescribeVpcEndpointZonesOutput) o;
-    return Objects.equals(this.networkInterfaceIP, endpointZoneForDescribeVpcEndpointZonesOutput.networkInterfaceIP) &&
+    return Objects.equals(this.ipv6ServiceStatus, endpointZoneForDescribeVpcEndpointZonesOutput.ipv6ServiceStatus) &&
+        Objects.equals(this.networkInterfaceIP, endpointZoneForDescribeVpcEndpointZonesOutput.networkInterfaceIP) &&
         Objects.equals(this.networkInterfaceId, endpointZoneForDescribeVpcEndpointZonesOutput.networkInterfaceId) &&
+        Objects.equals(this.networkInterfaceIpv6, endpointZoneForDescribeVpcEndpointZonesOutput.networkInterfaceIpv6) &&
         Objects.equals(this.serviceStatus, endpointZoneForDescribeVpcEndpointZonesOutput.serviceStatus) &&
         Objects.equals(this.subnetId, endpointZoneForDescribeVpcEndpointZonesOutput.subnetId) &&
         Objects.equals(this.zoneDomain, endpointZoneForDescribeVpcEndpointZonesOutput.zoneDomain) &&
@@ -197,7 +242,7 @@ public class EndpointZoneForDescribeVpcEndpointZonesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(networkInterfaceIP, networkInterfaceId, serviceStatus, subnetId, zoneDomain, zoneId, zoneStatus);
+    return Objects.hash(ipv6ServiceStatus, networkInterfaceIP, networkInterfaceId, networkInterfaceIpv6, serviceStatus, subnetId, zoneDomain, zoneId, zoneStatus);
   }
 
 
@@ -206,8 +251,10 @@ public class EndpointZoneForDescribeVpcEndpointZonesOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class EndpointZoneForDescribeVpcEndpointZonesOutput {\n");
     
+    sb.append("    ipv6ServiceStatus: ").append(toIndentedString(ipv6ServiceStatus)).append("\n");
     sb.append("    networkInterfaceIP: ").append(toIndentedString(networkInterfaceIP)).append("\n");
     sb.append("    networkInterfaceId: ").append(toIndentedString(networkInterfaceId)).append("\n");
+    sb.append("    networkInterfaceIpv6: ").append(toIndentedString(networkInterfaceIpv6)).append("\n");
     sb.append("    serviceStatus: ").append(toIndentedString(serviceStatus)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    zoneDomain: ").append(toIndentedString(zoneDomain)).append("\n");

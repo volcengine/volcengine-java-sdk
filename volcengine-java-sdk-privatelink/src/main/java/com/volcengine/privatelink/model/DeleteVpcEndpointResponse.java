@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -28,9 +30,39 @@ import javax.validation.Valid;
  */
 
 
+
 public class DeleteVpcEndpointResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("PreOrderNumbers")
+  private List<String> preOrderNumbers = null;
+
   @SerializedName("RequestId")
   private String requestId = null;
+
+  public DeleteVpcEndpointResponse preOrderNumbers(List<String> preOrderNumbers) {
+    this.preOrderNumbers = preOrderNumbers;
+    return this;
+  }
+
+  public DeleteVpcEndpointResponse addPreOrderNumbersItem(String preOrderNumbersItem) {
+    if (this.preOrderNumbers == null) {
+      this.preOrderNumbers = new ArrayList<String>();
+    }
+    this.preOrderNumbers.add(preOrderNumbersItem);
+    return this;
+  }
+
+   /**
+   * Get preOrderNumbers
+   * @return preOrderNumbers
+  **/
+  @Schema(description = "")
+  public List<String> getPreOrderNumbers() {
+    return preOrderNumbers;
+  }
+
+  public void setPreOrderNumbers(List<String> preOrderNumbers) {
+    this.preOrderNumbers = preOrderNumbers;
+  }
 
   public DeleteVpcEndpointResponse requestId(String requestId) {
     this.requestId = requestId;
@@ -60,12 +92,13 @@ public class DeleteVpcEndpointResponse extends com.volcengine.model.AbstractResp
       return false;
     }
     DeleteVpcEndpointResponse deleteVpcEndpointResponse = (DeleteVpcEndpointResponse) o;
-    return Objects.equals(this.requestId, deleteVpcEndpointResponse.requestId);
+    return Objects.equals(this.preOrderNumbers, deleteVpcEndpointResponse.preOrderNumbers) &&
+        Objects.equals(this.requestId, deleteVpcEndpointResponse.requestId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestId);
+    return Objects.hash(preOrderNumbers, requestId);
   }
 
 
@@ -74,6 +107,7 @@ public class DeleteVpcEndpointResponse extends com.volcengine.model.AbstractResp
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteVpcEndpointResponse {\n");
     
+    sb.append("    preOrderNumbers: ").append(toIndentedString(preOrderNumbers)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -31,12 +31,19 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeVpcEndpointsRequest {
   @SerializedName("EndpointIds")
   private List<String> endpointIds = null;
 
+  @SerializedName("EndpointIndex")
+  private Integer endpointIndex = null;
+
   @SerializedName("EndpointName")
   private String endpointName = null;
+
+  @SerializedName("EndpointType")
+  private String endpointType = null;
 
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
@@ -88,6 +95,24 @@ public class DescribeVpcEndpointsRequest {
     this.endpointIds = endpointIds;
   }
 
+  public DescribeVpcEndpointsRequest endpointIndex(Integer endpointIndex) {
+    this.endpointIndex = endpointIndex;
+    return this;
+  }
+
+   /**
+   * Get endpointIndex
+   * @return endpointIndex
+  **/
+  @Schema(description = "")
+  public Integer getEndpointIndex() {
+    return endpointIndex;
+  }
+
+  public void setEndpointIndex(Integer endpointIndex) {
+    this.endpointIndex = endpointIndex;
+  }
+
   public DescribeVpcEndpointsRequest endpointName(String endpointName) {
     this.endpointName = endpointName;
     return this;
@@ -104,6 +129,24 @@ public class DescribeVpcEndpointsRequest {
 
   public void setEndpointName(String endpointName) {
     this.endpointName = endpointName;
+  }
+
+  public DescribeVpcEndpointsRequest endpointType(String endpointType) {
+    this.endpointType = endpointType;
+    return this;
+  }
+
+   /**
+   * Get endpointType
+   * @return endpointType
+  **/
+  @Schema(description = "")
+  public String getEndpointType() {
+    return endpointType;
+  }
+
+  public void setEndpointType(String endpointType) {
+    this.endpointType = endpointType;
   }
 
   public DescribeVpcEndpointsRequest pageNumber(Integer pageNumber) {
@@ -270,7 +313,9 @@ public class DescribeVpcEndpointsRequest {
     }
     DescribeVpcEndpointsRequest describeVpcEndpointsRequest = (DescribeVpcEndpointsRequest) o;
     return Objects.equals(this.endpointIds, describeVpcEndpointsRequest.endpointIds) &&
+        Objects.equals(this.endpointIndex, describeVpcEndpointsRequest.endpointIndex) &&
         Objects.equals(this.endpointName, describeVpcEndpointsRequest.endpointName) &&
+        Objects.equals(this.endpointType, describeVpcEndpointsRequest.endpointType) &&
         Objects.equals(this.pageNumber, describeVpcEndpointsRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeVpcEndpointsRequest.pageSize) &&
         Objects.equals(this.projectName, describeVpcEndpointsRequest.projectName) &&
@@ -283,7 +328,7 @@ public class DescribeVpcEndpointsRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(endpointIds, endpointName, pageNumber, pageSize, projectName, serviceId, serviceName, status, tagFilters, vpcId);
+    return Objects.hash(endpointIds, endpointIndex, endpointName, endpointType, pageNumber, pageSize, projectName, serviceId, serviceName, status, tagFilters, vpcId);
   }
 
 
@@ -293,7 +338,9 @@ public class DescribeVpcEndpointsRequest {
     sb.append("class DescribeVpcEndpointsRequest {\n");
     
     sb.append("    endpointIds: ").append(toIndentedString(endpointIds)).append("\n");
+    sb.append("    endpointIndex: ").append(toIndentedString(endpointIndex)).append("\n");
     sb.append("    endpointName: ").append(toIndentedString(endpointName)).append("\n");
+    sb.append("    endpointType: ").append(toIndentedString(endpointType)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");

@@ -20,7 +20,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.privatelink.model.ResourceForCreateVpcEndpointServiceInput;
-import com.volcengine.privatelink.model.ResourceIdForCreateVpcEndpointServiceInput;
 import com.volcengine.privatelink.model.TagForCreateVpcEndpointServiceInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -33,6 +32,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateVpcEndpointServiceRequest {
   @SerializedName("AutoAcceptEnabled")
   private Boolean autoAcceptEnabled = null;
@@ -43,17 +43,23 @@ public class CreateVpcEndpointServiceRequest {
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("IpAddressVersions")
+  private List<String> ipAddressVersions = null;
+
+  @SerializedName("Payer")
+  private String payer = null;
+
   @SerializedName("PrivateDNSEnabled")
   private Boolean privateDNSEnabled = null;
 
   @SerializedName("PrivateDNSName")
   private String privateDNSName = null;
 
+  @SerializedName("PrivateDNSType")
+  private String privateDNSType = null;
+
   @SerializedName("ProjectName")
   private String projectName = null;
-
-  @SerializedName("ResourceIds")
-  private List<ResourceIdForCreateVpcEndpointServiceInput> resourceIds = null;
 
   @SerializedName("Resources")
   private List<ResourceForCreateVpcEndpointServiceInput> resources = null;
@@ -61,8 +67,14 @@ public class CreateVpcEndpointServiceRequest {
   @SerializedName("ServiceNameSuffix")
   private String serviceNameSuffix = null;
 
+  @SerializedName("ServiceOwner")
+  private String serviceOwner = null;
+
   @SerializedName("ServiceResourceType")
   private String serviceResourceType = null;
+
+  @SerializedName("ServiceType")
+  private String serviceType = null;
 
   @SerializedName("Tags")
   private List<TagForCreateVpcEndpointServiceInput> tags = null;
@@ -124,6 +136,50 @@ public class CreateVpcEndpointServiceRequest {
     this.description = description;
   }
 
+  public CreateVpcEndpointServiceRequest ipAddressVersions(List<String> ipAddressVersions) {
+    this.ipAddressVersions = ipAddressVersions;
+    return this;
+  }
+
+  public CreateVpcEndpointServiceRequest addIpAddressVersionsItem(String ipAddressVersionsItem) {
+    if (this.ipAddressVersions == null) {
+      this.ipAddressVersions = new ArrayList<String>();
+    }
+    this.ipAddressVersions.add(ipAddressVersionsItem);
+    return this;
+  }
+
+   /**
+   * Get ipAddressVersions
+   * @return ipAddressVersions
+  **/
+  @Schema(description = "")
+  public List<String> getIpAddressVersions() {
+    return ipAddressVersions;
+  }
+
+  public void setIpAddressVersions(List<String> ipAddressVersions) {
+    this.ipAddressVersions = ipAddressVersions;
+  }
+
+  public CreateVpcEndpointServiceRequest payer(String payer) {
+    this.payer = payer;
+    return this;
+  }
+
+   /**
+   * Get payer
+   * @return payer
+  **/
+  @Schema(description = "")
+  public String getPayer() {
+    return payer;
+  }
+
+  public void setPayer(String payer) {
+    this.payer = payer;
+  }
+
   public CreateVpcEndpointServiceRequest privateDNSEnabled(Boolean privateDNSEnabled) {
     this.privateDNSEnabled = privateDNSEnabled;
     return this;
@@ -160,6 +216,24 @@ public class CreateVpcEndpointServiceRequest {
     this.privateDNSName = privateDNSName;
   }
 
+  public CreateVpcEndpointServiceRequest privateDNSType(String privateDNSType) {
+    this.privateDNSType = privateDNSType;
+    return this;
+  }
+
+   /**
+   * Get privateDNSType
+   * @return privateDNSType
+  **/
+  @Schema(description = "")
+  public String getPrivateDNSType() {
+    return privateDNSType;
+  }
+
+  public void setPrivateDNSType(String privateDNSType) {
+    this.privateDNSType = privateDNSType;
+  }
+
   public CreateVpcEndpointServiceRequest projectName(String projectName) {
     this.projectName = projectName;
     return this;
@@ -176,33 +250,6 @@ public class CreateVpcEndpointServiceRequest {
 
   public void setProjectName(String projectName) {
     this.projectName = projectName;
-  }
-
-  public CreateVpcEndpointServiceRequest resourceIds(List<ResourceIdForCreateVpcEndpointServiceInput> resourceIds) {
-    this.resourceIds = resourceIds;
-    return this;
-  }
-
-  public CreateVpcEndpointServiceRequest addResourceIdsItem(ResourceIdForCreateVpcEndpointServiceInput resourceIdsItem) {
-    if (this.resourceIds == null) {
-      this.resourceIds = new ArrayList<ResourceIdForCreateVpcEndpointServiceInput>();
-    }
-    this.resourceIds.add(resourceIdsItem);
-    return this;
-  }
-
-   /**
-   * Get resourceIds
-   * @return resourceIds
-  **/
-  @Valid
-  @Schema(description = "")
-  public List<ResourceIdForCreateVpcEndpointServiceInput> getResourceIds() {
-    return resourceIds;
-  }
-
-  public void setResourceIds(List<ResourceIdForCreateVpcEndpointServiceInput> resourceIds) {
-    this.resourceIds = resourceIds;
   }
 
   public CreateVpcEndpointServiceRequest resources(List<ResourceForCreateVpcEndpointServiceInput> resources) {
@@ -250,6 +297,24 @@ public class CreateVpcEndpointServiceRequest {
     this.serviceNameSuffix = serviceNameSuffix;
   }
 
+  public CreateVpcEndpointServiceRequest serviceOwner(String serviceOwner) {
+    this.serviceOwner = serviceOwner;
+    return this;
+  }
+
+   /**
+   * Get serviceOwner
+   * @return serviceOwner
+  **/
+  @Schema(description = "")
+  public String getServiceOwner() {
+    return serviceOwner;
+  }
+
+  public void setServiceOwner(String serviceOwner) {
+    this.serviceOwner = serviceOwner;
+  }
+
   public CreateVpcEndpointServiceRequest serviceResourceType(String serviceResourceType) {
     this.serviceResourceType = serviceResourceType;
     return this;
@@ -266,6 +331,24 @@ public class CreateVpcEndpointServiceRequest {
 
   public void setServiceResourceType(String serviceResourceType) {
     this.serviceResourceType = serviceResourceType;
+  }
+
+  public CreateVpcEndpointServiceRequest serviceType(String serviceType) {
+    this.serviceType = serviceType;
+    return this;
+  }
+
+   /**
+   * Get serviceType
+   * @return serviceType
+  **/
+  @Schema(description = "")
+  public String getServiceType() {
+    return serviceType;
+  }
+
+  public void setServiceType(String serviceType) {
+    this.serviceType = serviceType;
   }
 
   public CreateVpcEndpointServiceRequest tags(List<TagForCreateVpcEndpointServiceInput> tags) {
@@ -326,20 +409,24 @@ public class CreateVpcEndpointServiceRequest {
     return Objects.equals(this.autoAcceptEnabled, createVpcEndpointServiceRequest.autoAcceptEnabled) &&
         Objects.equals(this.clientToken, createVpcEndpointServiceRequest.clientToken) &&
         Objects.equals(this.description, createVpcEndpointServiceRequest.description) &&
+        Objects.equals(this.ipAddressVersions, createVpcEndpointServiceRequest.ipAddressVersions) &&
+        Objects.equals(this.payer, createVpcEndpointServiceRequest.payer) &&
         Objects.equals(this.privateDNSEnabled, createVpcEndpointServiceRequest.privateDNSEnabled) &&
         Objects.equals(this.privateDNSName, createVpcEndpointServiceRequest.privateDNSName) &&
+        Objects.equals(this.privateDNSType, createVpcEndpointServiceRequest.privateDNSType) &&
         Objects.equals(this.projectName, createVpcEndpointServiceRequest.projectName) &&
-        Objects.equals(this.resourceIds, createVpcEndpointServiceRequest.resourceIds) &&
         Objects.equals(this.resources, createVpcEndpointServiceRequest.resources) &&
         Objects.equals(this.serviceNameSuffix, createVpcEndpointServiceRequest.serviceNameSuffix) &&
+        Objects.equals(this.serviceOwner, createVpcEndpointServiceRequest.serviceOwner) &&
         Objects.equals(this.serviceResourceType, createVpcEndpointServiceRequest.serviceResourceType) &&
+        Objects.equals(this.serviceType, createVpcEndpointServiceRequest.serviceType) &&
         Objects.equals(this.tags, createVpcEndpointServiceRequest.tags) &&
         Objects.equals(this.wildcardDomainEnabled, createVpcEndpointServiceRequest.wildcardDomainEnabled);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoAcceptEnabled, clientToken, description, privateDNSEnabled, privateDNSName, projectName, resourceIds, resources, serviceNameSuffix, serviceResourceType, tags, wildcardDomainEnabled);
+    return Objects.hash(autoAcceptEnabled, clientToken, description, ipAddressVersions, payer, privateDNSEnabled, privateDNSName, privateDNSType, projectName, resources, serviceNameSuffix, serviceOwner, serviceResourceType, serviceType, tags, wildcardDomainEnabled);
   }
 
 
@@ -351,13 +438,17 @@ public class CreateVpcEndpointServiceRequest {
     sb.append("    autoAcceptEnabled: ").append(toIndentedString(autoAcceptEnabled)).append("\n");
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    ipAddressVersions: ").append(toIndentedString(ipAddressVersions)).append("\n");
+    sb.append("    payer: ").append(toIndentedString(payer)).append("\n");
     sb.append("    privateDNSEnabled: ").append(toIndentedString(privateDNSEnabled)).append("\n");
     sb.append("    privateDNSName: ").append(toIndentedString(privateDNSName)).append("\n");
+    sb.append("    privateDNSType: ").append(toIndentedString(privateDNSType)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
-    sb.append("    resourceIds: ").append(toIndentedString(resourceIds)).append("\n");
     sb.append("    resources: ").append(toIndentedString(resources)).append("\n");
     sb.append("    serviceNameSuffix: ").append(toIndentedString(serviceNameSuffix)).append("\n");
+    sb.append("    serviceOwner: ").append(toIndentedString(serviceOwner)).append("\n");
     sb.append("    serviceResourceType: ").append(toIndentedString(serviceResourceType)).append("\n");
+    sb.append("    serviceType: ").append(toIndentedString(serviceType)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    wildcardDomainEnabled: ").append(toIndentedString(wildcardDomainEnabled)).append("\n");
     sb.append("}");

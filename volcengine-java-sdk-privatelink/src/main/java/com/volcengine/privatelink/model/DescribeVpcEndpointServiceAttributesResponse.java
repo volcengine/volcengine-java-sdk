@@ -32,15 +32,28 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeVpcEndpointServiceAttributesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("AutoAcceptEnabled")
   private Boolean autoAcceptEnabled = null;
+
+  @SerializedName("BillingType")
+  private Integer billingType = null;
+
+  @SerializedName("BusinessStatus")
+  private String businessStatus = null;
 
   @SerializedName("CreationTime")
   private String creationTime = null;
 
   @SerializedName("Description")
   private String description = null;
+
+  @SerializedName("IpAddressVersions")
+  private List<String> ipAddressVersions = null;
+
+  @SerializedName("Payer")
+  private String payer = null;
 
   @SerializedName("PrivateDNSEnabled")
   private Boolean privateDNSEnabled = null;
@@ -50,6 +63,9 @@ public class DescribeVpcEndpointServiceAttributesResponse extends com.volcengine
 
   @SerializedName("PrivateDNSNameConfiguration")
   private PrivateDNSNameConfigurationForDescribeVpcEndpointServiceAttributesOutput privateDNSNameConfiguration = null;
+
+  @SerializedName("PrivateDNSType")
+  private String privateDNSType = null;
 
   @SerializedName("ProjectName")
   private String projectName = null;
@@ -65,6 +81,9 @@ public class DescribeVpcEndpointServiceAttributesResponse extends com.volcengine
 
   @SerializedName("ServiceName")
   private String serviceName = null;
+
+  @SerializedName("ServiceOwner")
+  private String serviceOwner = null;
 
   @SerializedName("ServiceResourceType")
   private String serviceResourceType = null;
@@ -87,6 +106,9 @@ public class DescribeVpcEndpointServiceAttributesResponse extends com.volcengine
   @SerializedName("ZoneIds")
   private List<String> zoneIds = null;
 
+  @SerializedName("ZoneIds.N")
+  private List<String> zoneIdsN = null;
+
   public DescribeVpcEndpointServiceAttributesResponse autoAcceptEnabled(Boolean autoAcceptEnabled) {
     this.autoAcceptEnabled = autoAcceptEnabled;
     return this;
@@ -103,6 +125,42 @@ public class DescribeVpcEndpointServiceAttributesResponse extends com.volcengine
 
   public void setAutoAcceptEnabled(Boolean autoAcceptEnabled) {
     this.autoAcceptEnabled = autoAcceptEnabled;
+  }
+
+  public DescribeVpcEndpointServiceAttributesResponse billingType(Integer billingType) {
+    this.billingType = billingType;
+    return this;
+  }
+
+   /**
+   * Get billingType
+   * @return billingType
+  **/
+  @Schema(description = "")
+  public Integer getBillingType() {
+    return billingType;
+  }
+
+  public void setBillingType(Integer billingType) {
+    this.billingType = billingType;
+  }
+
+  public DescribeVpcEndpointServiceAttributesResponse businessStatus(String businessStatus) {
+    this.businessStatus = businessStatus;
+    return this;
+  }
+
+   /**
+   * Get businessStatus
+   * @return businessStatus
+  **/
+  @Schema(description = "")
+  public String getBusinessStatus() {
+    return businessStatus;
+  }
+
+  public void setBusinessStatus(String businessStatus) {
+    this.businessStatus = businessStatus;
   }
 
   public DescribeVpcEndpointServiceAttributesResponse creationTime(String creationTime) {
@@ -139,6 +197,50 @@ public class DescribeVpcEndpointServiceAttributesResponse extends com.volcengine
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public DescribeVpcEndpointServiceAttributesResponse ipAddressVersions(List<String> ipAddressVersions) {
+    this.ipAddressVersions = ipAddressVersions;
+    return this;
+  }
+
+  public DescribeVpcEndpointServiceAttributesResponse addIpAddressVersionsItem(String ipAddressVersionsItem) {
+    if (this.ipAddressVersions == null) {
+      this.ipAddressVersions = new ArrayList<String>();
+    }
+    this.ipAddressVersions.add(ipAddressVersionsItem);
+    return this;
+  }
+
+   /**
+   * Get ipAddressVersions
+   * @return ipAddressVersions
+  **/
+  @Schema(description = "")
+  public List<String> getIpAddressVersions() {
+    return ipAddressVersions;
+  }
+
+  public void setIpAddressVersions(List<String> ipAddressVersions) {
+    this.ipAddressVersions = ipAddressVersions;
+  }
+
+  public DescribeVpcEndpointServiceAttributesResponse payer(String payer) {
+    this.payer = payer;
+    return this;
+  }
+
+   /**
+   * Get payer
+   * @return payer
+  **/
+  @Schema(description = "")
+  public String getPayer() {
+    return payer;
+  }
+
+  public void setPayer(String payer) {
+    this.payer = payer;
   }
 
   public DescribeVpcEndpointServiceAttributesResponse privateDNSEnabled(Boolean privateDNSEnabled) {
@@ -194,6 +296,24 @@ public class DescribeVpcEndpointServiceAttributesResponse extends com.volcengine
 
   public void setPrivateDNSNameConfiguration(PrivateDNSNameConfigurationForDescribeVpcEndpointServiceAttributesOutput privateDNSNameConfiguration) {
     this.privateDNSNameConfiguration = privateDNSNameConfiguration;
+  }
+
+  public DescribeVpcEndpointServiceAttributesResponse privateDNSType(String privateDNSType) {
+    this.privateDNSType = privateDNSType;
+    return this;
+  }
+
+   /**
+   * Get privateDNSType
+   * @return privateDNSType
+  **/
+  @Schema(description = "")
+  public String getPrivateDNSType() {
+    return privateDNSType;
+  }
+
+  public void setPrivateDNSType(String privateDNSType) {
+    this.privateDNSType = privateDNSType;
   }
 
   public DescribeVpcEndpointServiceAttributesResponse projectName(String projectName) {
@@ -284,6 +404,24 @@ public class DescribeVpcEndpointServiceAttributesResponse extends com.volcengine
 
   public void setServiceName(String serviceName) {
     this.serviceName = serviceName;
+  }
+
+  public DescribeVpcEndpointServiceAttributesResponse serviceOwner(String serviceOwner) {
+    this.serviceOwner = serviceOwner;
+    return this;
+  }
+
+   /**
+   * Get serviceOwner
+   * @return serviceOwner
+  **/
+  @Schema(description = "")
+  public String getServiceOwner() {
+    return serviceOwner;
+  }
+
+  public void setServiceOwner(String serviceOwner) {
+    this.serviceOwner = serviceOwner;
   }
 
   public DescribeVpcEndpointServiceAttributesResponse serviceResourceType(String serviceResourceType) {
@@ -429,6 +567,32 @@ public class DescribeVpcEndpointServiceAttributesResponse extends com.volcengine
     this.zoneIds = zoneIds;
   }
 
+  public DescribeVpcEndpointServiceAttributesResponse zoneIdsN(List<String> zoneIdsN) {
+    this.zoneIdsN = zoneIdsN;
+    return this;
+  }
+
+  public DescribeVpcEndpointServiceAttributesResponse addZoneIdsNItem(String zoneIdsNItem) {
+    if (this.zoneIdsN == null) {
+      this.zoneIdsN = new ArrayList<String>();
+    }
+    this.zoneIdsN.add(zoneIdsNItem);
+    return this;
+  }
+
+   /**
+   * Get zoneIdsN
+   * @return zoneIdsN
+  **/
+  @Schema(description = "")
+  public List<String> getZoneIdsN() {
+    return zoneIdsN;
+  }
+
+  public void setZoneIdsN(List<String> zoneIdsN) {
+    this.zoneIdsN = zoneIdsN;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -440,28 +604,35 @@ public class DescribeVpcEndpointServiceAttributesResponse extends com.volcengine
     }
     DescribeVpcEndpointServiceAttributesResponse describeVpcEndpointServiceAttributesResponse = (DescribeVpcEndpointServiceAttributesResponse) o;
     return Objects.equals(this.autoAcceptEnabled, describeVpcEndpointServiceAttributesResponse.autoAcceptEnabled) &&
+        Objects.equals(this.billingType, describeVpcEndpointServiceAttributesResponse.billingType) &&
+        Objects.equals(this.businessStatus, describeVpcEndpointServiceAttributesResponse.businessStatus) &&
         Objects.equals(this.creationTime, describeVpcEndpointServiceAttributesResponse.creationTime) &&
         Objects.equals(this.description, describeVpcEndpointServiceAttributesResponse.description) &&
+        Objects.equals(this.ipAddressVersions, describeVpcEndpointServiceAttributesResponse.ipAddressVersions) &&
+        Objects.equals(this.payer, describeVpcEndpointServiceAttributesResponse.payer) &&
         Objects.equals(this.privateDNSEnabled, describeVpcEndpointServiceAttributesResponse.privateDNSEnabled) &&
         Objects.equals(this.privateDNSName, describeVpcEndpointServiceAttributesResponse.privateDNSName) &&
         Objects.equals(this.privateDNSNameConfiguration, describeVpcEndpointServiceAttributesResponse.privateDNSNameConfiguration) &&
+        Objects.equals(this.privateDNSType, describeVpcEndpointServiceAttributesResponse.privateDNSType) &&
         Objects.equals(this.projectName, describeVpcEndpointServiceAttributesResponse.projectName) &&
         Objects.equals(this.requestId, describeVpcEndpointServiceAttributesResponse.requestId) &&
         Objects.equals(this.serviceDomain, describeVpcEndpointServiceAttributesResponse.serviceDomain) &&
         Objects.equals(this.serviceId, describeVpcEndpointServiceAttributesResponse.serviceId) &&
         Objects.equals(this.serviceName, describeVpcEndpointServiceAttributesResponse.serviceName) &&
+        Objects.equals(this.serviceOwner, describeVpcEndpointServiceAttributesResponse.serviceOwner) &&
         Objects.equals(this.serviceResourceType, describeVpcEndpointServiceAttributesResponse.serviceResourceType) &&
         Objects.equals(this.serviceType, describeVpcEndpointServiceAttributesResponse.serviceType) &&
         Objects.equals(this.status, describeVpcEndpointServiceAttributesResponse.status) &&
         Objects.equals(this.tags, describeVpcEndpointServiceAttributesResponse.tags) &&
         Objects.equals(this.updateTime, describeVpcEndpointServiceAttributesResponse.updateTime) &&
         Objects.equals(this.wildcardDomainEnabled, describeVpcEndpointServiceAttributesResponse.wildcardDomainEnabled) &&
-        Objects.equals(this.zoneIds, describeVpcEndpointServiceAttributesResponse.zoneIds);
+        Objects.equals(this.zoneIds, describeVpcEndpointServiceAttributesResponse.zoneIds) &&
+        Objects.equals(this.zoneIdsN, describeVpcEndpointServiceAttributesResponse.zoneIdsN);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoAcceptEnabled, creationTime, description, privateDNSEnabled, privateDNSName, privateDNSNameConfiguration, projectName, requestId, serviceDomain, serviceId, serviceName, serviceResourceType, serviceType, status, tags, updateTime, wildcardDomainEnabled, zoneIds);
+    return Objects.hash(autoAcceptEnabled, billingType, businessStatus, creationTime, description, ipAddressVersions, payer, privateDNSEnabled, privateDNSName, privateDNSNameConfiguration, privateDNSType, projectName, requestId, serviceDomain, serviceId, serviceName, serviceOwner, serviceResourceType, serviceType, status, tags, updateTime, wildcardDomainEnabled, zoneIds, zoneIdsN);
   }
 
 
@@ -471,16 +642,22 @@ public class DescribeVpcEndpointServiceAttributesResponse extends com.volcengine
     sb.append("class DescribeVpcEndpointServiceAttributesResponse {\n");
     
     sb.append("    autoAcceptEnabled: ").append(toIndentedString(autoAcceptEnabled)).append("\n");
+    sb.append("    billingType: ").append(toIndentedString(billingType)).append("\n");
+    sb.append("    businessStatus: ").append(toIndentedString(businessStatus)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    ipAddressVersions: ").append(toIndentedString(ipAddressVersions)).append("\n");
+    sb.append("    payer: ").append(toIndentedString(payer)).append("\n");
     sb.append("    privateDNSEnabled: ").append(toIndentedString(privateDNSEnabled)).append("\n");
     sb.append("    privateDNSName: ").append(toIndentedString(privateDNSName)).append("\n");
     sb.append("    privateDNSNameConfiguration: ").append(toIndentedString(privateDNSNameConfiguration)).append("\n");
+    sb.append("    privateDNSType: ").append(toIndentedString(privateDNSType)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    serviceDomain: ").append(toIndentedString(serviceDomain)).append("\n");
     sb.append("    serviceId: ").append(toIndentedString(serviceId)).append("\n");
     sb.append("    serviceName: ").append(toIndentedString(serviceName)).append("\n");
+    sb.append("    serviceOwner: ").append(toIndentedString(serviceOwner)).append("\n");
     sb.append("    serviceResourceType: ").append(toIndentedString(serviceResourceType)).append("\n");
     sb.append("    serviceType: ").append(toIndentedString(serviceType)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
@@ -488,6 +665,7 @@ public class DescribeVpcEndpointServiceAttributesResponse extends com.volcengine
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    wildcardDomainEnabled: ").append(toIndentedString(wildcardDomainEnabled)).append("\n");
     sb.append("    zoneIds: ").append(toIndentedString(zoneIds)).append("\n");
+    sb.append("    zoneIdsN: ").append(toIndentedString(zoneIdsN)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -21,11 +21,14 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
  * ModifyVpcEndpointAttributesRequest
  */
+
 
 
 public class ModifyVpcEndpointAttributesRequest {
@@ -37,6 +40,9 @@ public class ModifyVpcEndpointAttributesRequest {
 
   @SerializedName("EndpointName")
   private String endpointName = null;
+
+  @SerializedName("IpAddressVersions")
+  private List<String> ipAddressVersions = null;
 
   @SerializedName("PrivateDNSEnabled")
   private Boolean privateDNSEnabled = null;
@@ -96,6 +102,32 @@ public class ModifyVpcEndpointAttributesRequest {
     this.endpointName = endpointName;
   }
 
+  public ModifyVpcEndpointAttributesRequest ipAddressVersions(List<String> ipAddressVersions) {
+    this.ipAddressVersions = ipAddressVersions;
+    return this;
+  }
+
+  public ModifyVpcEndpointAttributesRequest addIpAddressVersionsItem(String ipAddressVersionsItem) {
+    if (this.ipAddressVersions == null) {
+      this.ipAddressVersions = new ArrayList<String>();
+    }
+    this.ipAddressVersions.add(ipAddressVersionsItem);
+    return this;
+  }
+
+   /**
+   * Get ipAddressVersions
+   * @return ipAddressVersions
+  **/
+  @Schema(description = "")
+  public List<String> getIpAddressVersions() {
+    return ipAddressVersions;
+  }
+
+  public void setIpAddressVersions(List<String> ipAddressVersions) {
+    this.ipAddressVersions = ipAddressVersions;
+  }
+
   public ModifyVpcEndpointAttributesRequest privateDNSEnabled(Boolean privateDNSEnabled) {
     this.privateDNSEnabled = privateDNSEnabled;
     return this;
@@ -127,12 +159,13 @@ public class ModifyVpcEndpointAttributesRequest {
     return Objects.equals(this.description, modifyVpcEndpointAttributesRequest.description) &&
         Objects.equals(this.endpointId, modifyVpcEndpointAttributesRequest.endpointId) &&
         Objects.equals(this.endpointName, modifyVpcEndpointAttributesRequest.endpointName) &&
+        Objects.equals(this.ipAddressVersions, modifyVpcEndpointAttributesRequest.ipAddressVersions) &&
         Objects.equals(this.privateDNSEnabled, modifyVpcEndpointAttributesRequest.privateDNSEnabled);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, endpointId, endpointName, privateDNSEnabled);
+    return Objects.hash(description, endpointId, endpointName, ipAddressVersions, privateDNSEnabled);
   }
 
 
@@ -144,6 +177,7 @@ public class ModifyVpcEndpointAttributesRequest {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    endpointId: ").append(toIndentedString(endpointId)).append("\n");
     sb.append("    endpointName: ").append(toIndentedString(endpointName)).append("\n");
+    sb.append("    ipAddressVersions: ").append(toIndentedString(ipAddressVersions)).append("\n");
     sb.append("    privateDNSEnabled: ").append(toIndentedString(privateDNSEnabled)).append("\n");
     sb.append("}");
     return sb.toString();
