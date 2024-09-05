@@ -48,6 +48,9 @@ public class KeyringForQueryKeyringOutput {
   @SerializedName("ProjectName")
   private String projectName = null;
 
+  @SerializedName("TRN")
+  private String TRN = null;
+
   @SerializedName("UID")
   private String UID = null;
 
@@ -162,6 +165,24 @@ public class KeyringForQueryKeyringOutput {
     this.projectName = projectName;
   }
 
+  public KeyringForQueryKeyringOutput TRN(String TRN) {
+    this.TRN = TRN;
+    return this;
+  }
+
+   /**
+   * Get TRN
+   * @return TRN
+  **/
+  @Schema(description = "")
+  public String getTRN() {
+    return TRN;
+  }
+
+  public void setTRN(String TRN) {
+    this.TRN = TRN;
+  }
+
   public KeyringForQueryKeyringOutput UID(String UID) {
     this.UID = UID;
     return this;
@@ -214,13 +235,14 @@ public class KeyringForQueryKeyringOutput {
         Objects.equals(this.keyringName, keyringForQueryKeyringOutput.keyringName) &&
         Objects.equals(this.keyringType, keyringForQueryKeyringOutput.keyringType) &&
         Objects.equals(this.projectName, keyringForQueryKeyringOutput.projectName) &&
+        Objects.equals(this.TRN, keyringForQueryKeyringOutput.TRN) &&
         Objects.equals(this.UID, keyringForQueryKeyringOutput.UID) &&
         Objects.equals(this.updateDate, keyringForQueryKeyringOutput.updateDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(creationDate, description, ID, keyringName, keyringType, projectName, UID, updateDate);
+    return Objects.hash(creationDate, description, ID, keyringName, keyringType, projectName, TRN, UID, updateDate);
   }
 
 
@@ -235,6 +257,7 @@ public class KeyringForQueryKeyringOutput {
     sb.append("    keyringName: ").append(toIndentedString(keyringName)).append("\n");
     sb.append("    keyringType: ").append(toIndentedString(keyringType)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    TRN: ").append(toIndentedString(TRN)).append("\n");
     sb.append("    UID: ").append(toIndentedString(UID)).append("\n");
     sb.append("    updateDate: ").append(toIndentedString(updateDate)).append("\n");
     sb.append("}");

@@ -39,11 +39,17 @@ public class KeyringForDescribeKeyringsOutput {
   @SerializedName("ID")
   private String ID = null;
 
+  @SerializedName("KeyCount")
+  private String keyCount = null;
+
   @SerializedName("KeyringName")
   private String keyringName = null;
 
   @SerializedName("KeyringType")
   private String keyringType = null;
+
+  @SerializedName("TRN")
+  private String TRN = null;
 
   @SerializedName("UID")
   private String UID = null;
@@ -105,6 +111,24 @@ public class KeyringForDescribeKeyringsOutput {
     this.ID = ID;
   }
 
+  public KeyringForDescribeKeyringsOutput keyCount(String keyCount) {
+    this.keyCount = keyCount;
+    return this;
+  }
+
+   /**
+   * Get keyCount
+   * @return keyCount
+  **/
+  @Schema(description = "")
+  public String getKeyCount() {
+    return keyCount;
+  }
+
+  public void setKeyCount(String keyCount) {
+    this.keyCount = keyCount;
+  }
+
   public KeyringForDescribeKeyringsOutput keyringName(String keyringName) {
     this.keyringName = keyringName;
     return this;
@@ -139,6 +163,24 @@ public class KeyringForDescribeKeyringsOutput {
 
   public void setKeyringType(String keyringType) {
     this.keyringType = keyringType;
+  }
+
+  public KeyringForDescribeKeyringsOutput TRN(String TRN) {
+    this.TRN = TRN;
+    return this;
+  }
+
+   /**
+   * Get TRN
+   * @return TRN
+  **/
+  @Schema(description = "")
+  public String getTRN() {
+    return TRN;
+  }
+
+  public void setTRN(String TRN) {
+    this.TRN = TRN;
   }
 
   public KeyringForDescribeKeyringsOutput UID(String UID) {
@@ -190,15 +232,17 @@ public class KeyringForDescribeKeyringsOutput {
     return Objects.equals(this.creationDate, keyringForDescribeKeyringsOutput.creationDate) &&
         Objects.equals(this.description, keyringForDescribeKeyringsOutput.description) &&
         Objects.equals(this.ID, keyringForDescribeKeyringsOutput.ID) &&
+        Objects.equals(this.keyCount, keyringForDescribeKeyringsOutput.keyCount) &&
         Objects.equals(this.keyringName, keyringForDescribeKeyringsOutput.keyringName) &&
         Objects.equals(this.keyringType, keyringForDescribeKeyringsOutput.keyringType) &&
+        Objects.equals(this.TRN, keyringForDescribeKeyringsOutput.TRN) &&
         Objects.equals(this.UID, keyringForDescribeKeyringsOutput.UID) &&
         Objects.equals(this.updateDate, keyringForDescribeKeyringsOutput.updateDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(creationDate, description, ID, keyringName, keyringType, UID, updateDate);
+    return Objects.hash(creationDate, description, ID, keyCount, keyringName, keyringType, TRN, UID, updateDate);
   }
 
 
@@ -210,8 +254,10 @@ public class KeyringForDescribeKeyringsOutput {
     sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    ID: ").append(toIndentedString(ID)).append("\n");
+    sb.append("    keyCount: ").append(toIndentedString(keyCount)).append("\n");
     sb.append("    keyringName: ").append(toIndentedString(keyringName)).append("\n");
     sb.append("    keyringType: ").append(toIndentedString(keyringType)).append("\n");
+    sb.append("    TRN: ").append(toIndentedString(TRN)).append("\n");
     sb.append("    UID: ").append(toIndentedString(UID)).append("\n");
     sb.append("    updateDate: ").append(toIndentedString(updateDate)).append("\n");
     sb.append("}");
