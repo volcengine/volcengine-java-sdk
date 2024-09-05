@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class HealthCheckForDescribeServerGroupsOutput {
   @SerializedName("Domain")
   private String domain = null;

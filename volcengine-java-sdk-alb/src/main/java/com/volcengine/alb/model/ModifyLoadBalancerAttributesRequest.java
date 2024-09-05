@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ModifyLoadBalancerAttributesRequest {
   @SerializedName("DeleteProtection")
   private String deleteProtection = null;
@@ -40,6 +41,15 @@ public class ModifyLoadBalancerAttributesRequest {
 
   @SerializedName("LoadBalancerName")
   private String loadBalancerName = null;
+
+  @SerializedName("WafInstanceId")
+  private String wafInstanceId = null;
+
+  @SerializedName("WafProtectedDomain")
+  private String wafProtectedDomain = null;
+
+  @SerializedName("WafProtectionEnabled")
+  private String wafProtectionEnabled = null;
 
   public ModifyLoadBalancerAttributesRequest deleteProtection(String deleteProtection) {
     this.deleteProtection = deleteProtection;
@@ -114,6 +124,63 @@ public class ModifyLoadBalancerAttributesRequest {
     this.loadBalancerName = loadBalancerName;
   }
 
+  public ModifyLoadBalancerAttributesRequest wafInstanceId(String wafInstanceId) {
+    this.wafInstanceId = wafInstanceId;
+    return this;
+  }
+
+   /**
+   * Get wafInstanceId
+   * @return wafInstanceId
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getWafInstanceId() {
+    return wafInstanceId;
+  }
+
+  public void setWafInstanceId(String wafInstanceId) {
+    this.wafInstanceId = wafInstanceId;
+  }
+
+  public ModifyLoadBalancerAttributesRequest wafProtectedDomain(String wafProtectedDomain) {
+    this.wafProtectedDomain = wafProtectedDomain;
+    return this;
+  }
+
+   /**
+   * Get wafProtectedDomain
+   * @return wafProtectedDomain
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getWafProtectedDomain() {
+    return wafProtectedDomain;
+  }
+
+  public void setWafProtectedDomain(String wafProtectedDomain) {
+    this.wafProtectedDomain = wafProtectedDomain;
+  }
+
+  public ModifyLoadBalancerAttributesRequest wafProtectionEnabled(String wafProtectionEnabled) {
+    this.wafProtectionEnabled = wafProtectionEnabled;
+    return this;
+  }
+
+   /**
+   * Get wafProtectionEnabled
+   * @return wafProtectionEnabled
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getWafProtectionEnabled() {
+    return wafProtectionEnabled;
+  }
+
+  public void setWafProtectionEnabled(String wafProtectionEnabled) {
+    this.wafProtectionEnabled = wafProtectionEnabled;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -127,12 +194,15 @@ public class ModifyLoadBalancerAttributesRequest {
     return Objects.equals(this.deleteProtection, modifyLoadBalancerAttributesRequest.deleteProtection) &&
         Objects.equals(this.description, modifyLoadBalancerAttributesRequest.description) &&
         Objects.equals(this.loadBalancerId, modifyLoadBalancerAttributesRequest.loadBalancerId) &&
-        Objects.equals(this.loadBalancerName, modifyLoadBalancerAttributesRequest.loadBalancerName);
+        Objects.equals(this.loadBalancerName, modifyLoadBalancerAttributesRequest.loadBalancerName) &&
+        Objects.equals(this.wafInstanceId, modifyLoadBalancerAttributesRequest.wafInstanceId) &&
+        Objects.equals(this.wafProtectedDomain, modifyLoadBalancerAttributesRequest.wafProtectedDomain) &&
+        Objects.equals(this.wafProtectionEnabled, modifyLoadBalancerAttributesRequest.wafProtectionEnabled);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleteProtection, description, loadBalancerId, loadBalancerName);
+    return Objects.hash(deleteProtection, description, loadBalancerId, loadBalancerName, wafInstanceId, wafProtectedDomain, wafProtectionEnabled);
   }
 
 
@@ -145,6 +215,9 @@ public class ModifyLoadBalancerAttributesRequest {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    loadBalancerId: ").append(toIndentedString(loadBalancerId)).append("\n");
     sb.append("    loadBalancerName: ").append(toIndentedString(loadBalancerName)).append("\n");
+    sb.append("    wafInstanceId: ").append(toIndentedString(wafInstanceId)).append("\n");
+    sb.append("    wafProtectedDomain: ").append(toIndentedString(wafProtectedDomain)).append("\n");
+    sb.append("    wafProtectionEnabled: ").append(toIndentedString(wafProtectionEnabled)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class RedirectConfigForCreateRulesInput {
   @SerializedName("RedirectDomain")
   private String redirectDomain = null;

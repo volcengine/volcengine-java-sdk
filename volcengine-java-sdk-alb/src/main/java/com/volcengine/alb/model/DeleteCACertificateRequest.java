@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DeleteCACertificateRequest {
   @SerializedName("CACertificateId")
   private String caCertificateId = null;

@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.alb.model.DomainExtensionForCreateListenerInput;
+import com.volcengine.alb.model.TagForCreateListenerInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -29,6 +30,7 @@ import javax.validation.Valid;
 /**
  * CreateListenerRequest
  */
+
 
 
 public class CreateListenerRequest {
@@ -52,6 +54,9 @@ public class CreateListenerRequest {
 
   @SerializedName("CertificateSource")
   private String certificateSource = null;
+
+  @SerializedName("ClientAddressTransmissionProtocol")
+  private String clientAddressTransmissionProtocol = null;
 
   @SerializedName("Description")
   private String description = null;
@@ -85,6 +90,9 @@ public class CreateListenerRequest {
 
   @SerializedName("ServerGroupId")
   private String serverGroupId = null;
+
+  @SerializedName("Tags")
+  private List<TagForCreateListenerInput> tags = null;
 
   public CreateListenerRequest aclIds(List<String> aclIds) {
     this.aclIds = aclIds;
@@ -218,6 +226,24 @@ public class CreateListenerRequest {
 
   public void setCertificateSource(String certificateSource) {
     this.certificateSource = certificateSource;
+  }
+
+  public CreateListenerRequest clientAddressTransmissionProtocol(String clientAddressTransmissionProtocol) {
+    this.clientAddressTransmissionProtocol = clientAddressTransmissionProtocol;
+    return this;
+  }
+
+   /**
+   * Get clientAddressTransmissionProtocol
+   * @return clientAddressTransmissionProtocol
+  **/
+  @Schema(description = "")
+  public String getClientAddressTransmissionProtocol() {
+    return clientAddressTransmissionProtocol;
+  }
+
+  public void setClientAddressTransmissionProtocol(String clientAddressTransmissionProtocol) {
+    this.clientAddressTransmissionProtocol = clientAddressTransmissionProtocol;
   }
 
   public CreateListenerRequest description(String description) {
@@ -431,6 +457,33 @@ public class CreateListenerRequest {
     this.serverGroupId = serverGroupId;
   }
 
+  public CreateListenerRequest tags(List<TagForCreateListenerInput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public CreateListenerRequest addTagsItem(TagForCreateListenerInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForCreateListenerInput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForCreateListenerInput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForCreateListenerInput> tags) {
+    this.tags = tags;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -448,6 +501,7 @@ public class CreateListenerRequest {
         Objects.equals(this.certCenterCertificateId, createListenerRequest.certCenterCertificateId) &&
         Objects.equals(this.certificateId, createListenerRequest.certificateId) &&
         Objects.equals(this.certificateSource, createListenerRequest.certificateSource) &&
+        Objects.equals(this.clientAddressTransmissionProtocol, createListenerRequest.clientAddressTransmissionProtocol) &&
         Objects.equals(this.description, createListenerRequest.description) &&
         Objects.equals(this.domainExtensions, createListenerRequest.domainExtensions) &&
         Objects.equals(this.enableHttp2, createListenerRequest.enableHttp2) &&
@@ -458,12 +512,13 @@ public class CreateListenerRequest {
         Objects.equals(this.port, createListenerRequest.port) &&
         Objects.equals(this.protocol, createListenerRequest.protocol) &&
         Objects.equals(this.proxyProtocolDisabled, createListenerRequest.proxyProtocolDisabled) &&
-        Objects.equals(this.serverGroupId, createListenerRequest.serverGroupId);
+        Objects.equals(this.serverGroupId, createListenerRequest.serverGroupId) &&
+        Objects.equals(this.tags, createListenerRequest.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclIds, aclStatus, aclType, caCertificateId, certCenterCertificateId, certificateId, certificateSource, description, domainExtensions, enableHttp2, enableQuic, enabled, listenerName, loadBalancerId, port, protocol, proxyProtocolDisabled, serverGroupId);
+    return Objects.hash(aclIds, aclStatus, aclType, caCertificateId, certCenterCertificateId, certificateId, certificateSource, clientAddressTransmissionProtocol, description, domainExtensions, enableHttp2, enableQuic, enabled, listenerName, loadBalancerId, port, protocol, proxyProtocolDisabled, serverGroupId, tags);
   }
 
 
@@ -479,6 +534,7 @@ public class CreateListenerRequest {
     sb.append("    certCenterCertificateId: ").append(toIndentedString(certCenterCertificateId)).append("\n");
     sb.append("    certificateId: ").append(toIndentedString(certificateId)).append("\n");
     sb.append("    certificateSource: ").append(toIndentedString(certificateSource)).append("\n");
+    sb.append("    clientAddressTransmissionProtocol: ").append(toIndentedString(clientAddressTransmissionProtocol)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    domainExtensions: ").append(toIndentedString(domainExtensions)).append("\n");
     sb.append("    enableHttp2: ").append(toIndentedString(enableHttp2)).append("\n");
@@ -490,6 +546,7 @@ public class CreateListenerRequest {
     sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
     sb.append("    proxyProtocolDisabled: ").append(toIndentedString(proxyProtocolDisabled)).append("\n");
     sb.append("    serverGroupId: ").append(toIndentedString(serverGroupId)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }

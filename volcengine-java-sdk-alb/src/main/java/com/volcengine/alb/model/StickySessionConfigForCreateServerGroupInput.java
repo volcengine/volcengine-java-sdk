@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class StickySessionConfigForCreateServerGroupInput {
   @SerializedName("Cookie")
   private String cookie = null;

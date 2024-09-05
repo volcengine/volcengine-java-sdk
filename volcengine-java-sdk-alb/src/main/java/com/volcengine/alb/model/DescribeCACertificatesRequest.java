@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeCACertificatesRequest {
   @SerializedName("CACertificateIds")
   private List<String> caCertificateIds = null;

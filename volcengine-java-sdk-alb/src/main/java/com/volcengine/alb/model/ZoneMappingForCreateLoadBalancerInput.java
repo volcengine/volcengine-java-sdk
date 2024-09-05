@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ZoneMappingForCreateLoadBalancerInput {
   @SerializedName("SubnetId")
   private String subnetId = null;

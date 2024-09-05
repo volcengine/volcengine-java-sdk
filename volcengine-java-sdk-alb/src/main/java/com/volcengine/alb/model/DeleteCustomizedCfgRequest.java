@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DeleteCustomizedCfgRequest {
   @SerializedName("CustomizedCfgId")
   private String customizedCfgId = null;

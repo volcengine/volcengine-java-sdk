@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.alb.model.ForwardGroupConfigForModifyRulesInput;
 import com.volcengine.alb.model.RedirectConfigForModifyRulesInput;
 import com.volcengine.alb.model.RewriteConfigForModifyRulesInput;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -30,9 +31,13 @@ import javax.validation.Valid;
  */
 
 
+
 public class RuleForModifyRulesInput {
   @SerializedName("Description")
   private String description = null;
+
+  @SerializedName("ForwardGroupConfig")
+  private ForwardGroupConfigForModifyRulesInput forwardGroupConfig = null;
 
   @SerializedName("RedirectConfig")
   private RedirectConfigForModifyRulesInput redirectConfig = null;
@@ -74,6 +79,25 @@ public class RuleForModifyRulesInput {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public RuleForModifyRulesInput forwardGroupConfig(ForwardGroupConfigForModifyRulesInput forwardGroupConfig) {
+    this.forwardGroupConfig = forwardGroupConfig;
+    return this;
+  }
+
+   /**
+   * Get forwardGroupConfig
+   * @return forwardGroupConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public ForwardGroupConfigForModifyRulesInput getForwardGroupConfig() {
+    return forwardGroupConfig;
+  }
+
+  public void setForwardGroupConfig(ForwardGroupConfigForModifyRulesInput forwardGroupConfig) {
+    this.forwardGroupConfig = forwardGroupConfig;
   }
 
   public RuleForModifyRulesInput redirectConfig(RedirectConfigForModifyRulesInput redirectConfig) {
@@ -234,6 +258,7 @@ public class RuleForModifyRulesInput {
     }
     RuleForModifyRulesInput ruleForModifyRulesInput = (RuleForModifyRulesInput) o;
     return Objects.equals(this.description, ruleForModifyRulesInput.description) &&
+        Objects.equals(this.forwardGroupConfig, ruleForModifyRulesInput.forwardGroupConfig) &&
         Objects.equals(this.redirectConfig, ruleForModifyRulesInput.redirectConfig) &&
         Objects.equals(this.rewriteConfig, ruleForModifyRulesInput.rewriteConfig) &&
         Objects.equals(this.rewriteEnabled, ruleForModifyRulesInput.rewriteEnabled) &&
@@ -246,7 +271,7 @@ public class RuleForModifyRulesInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, redirectConfig, rewriteConfig, rewriteEnabled, ruleAction, ruleId, serverGroupId, trafficLimitEnabled, trafficLimitQPS);
+    return Objects.hash(description, forwardGroupConfig, redirectConfig, rewriteConfig, rewriteEnabled, ruleAction, ruleId, serverGroupId, trafficLimitEnabled, trafficLimitQPS);
   }
 
 
@@ -256,6 +281,7 @@ public class RuleForModifyRulesInput {
     sb.append("class RuleForModifyRulesInput {\n");
     
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    forwardGroupConfig: ").append(toIndentedString(forwardGroupConfig)).append("\n");
     sb.append("    redirectConfig: ").append(toIndentedString(redirectConfig)).append("\n");
     sb.append("    rewriteConfig: ").append(toIndentedString(rewriteConfig)).append("\n");
     sb.append("    rewriteEnabled: ").append(toIndentedString(rewriteEnabled)).append("\n");

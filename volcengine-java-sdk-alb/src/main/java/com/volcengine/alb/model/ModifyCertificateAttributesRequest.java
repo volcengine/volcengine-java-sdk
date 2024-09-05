@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ModifyCertificateAttributesRequest {
   @SerializedName("CertificateId")
   private String certificateId = null;

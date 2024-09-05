@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CustomizedCfgForDescribeCustomizedCfgsOutput {
   @SerializedName("CreateTime")
   private String createTime = null;

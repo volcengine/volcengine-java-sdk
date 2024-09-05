@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeCustomizedCfgsResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("CustomizedCfgs")
   private List<CustomizedCfgForDescribeCustomizedCfgsOutput> customizedCfgs = null;

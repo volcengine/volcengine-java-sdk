@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateCustomizedCfgRequest {
   @SerializedName("CustomizedCfgContent")
   private String customizedCfgContent = null;

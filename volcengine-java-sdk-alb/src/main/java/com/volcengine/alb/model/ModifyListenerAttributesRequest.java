@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ModifyListenerAttributesRequest {
   @SerializedName("AclIds")
   private List<String> aclIds = null;
@@ -52,6 +53,9 @@ public class ModifyListenerAttributesRequest {
 
   @SerializedName("CertificateSource")
   private String certificateSource = null;
+
+  @SerializedName("ClientAddressTransmissionProtocol")
+  private String clientAddressTransmissionProtocol = null;
 
   @SerializedName("CustomizedCfgId")
   private String customizedCfgId = null;
@@ -215,6 +219,24 @@ public class ModifyListenerAttributesRequest {
 
   public void setCertificateSource(String certificateSource) {
     this.certificateSource = certificateSource;
+  }
+
+  public ModifyListenerAttributesRequest clientAddressTransmissionProtocol(String clientAddressTransmissionProtocol) {
+    this.clientAddressTransmissionProtocol = clientAddressTransmissionProtocol;
+    return this;
+  }
+
+   /**
+   * Get clientAddressTransmissionProtocol
+   * @return clientAddressTransmissionProtocol
+  **/
+  @Schema(description = "")
+  public String getClientAddressTransmissionProtocol() {
+    return clientAddressTransmissionProtocol;
+  }
+
+  public void setClientAddressTransmissionProtocol(String clientAddressTransmissionProtocol) {
+    this.clientAddressTransmissionProtocol = clientAddressTransmissionProtocol;
   }
 
   public ModifyListenerAttributesRequest customizedCfgId(String customizedCfgId) {
@@ -424,6 +446,7 @@ public class ModifyListenerAttributesRequest {
         Objects.equals(this.certCenterCertificateId, modifyListenerAttributesRequest.certCenterCertificateId) &&
         Objects.equals(this.certificateId, modifyListenerAttributesRequest.certificateId) &&
         Objects.equals(this.certificateSource, modifyListenerAttributesRequest.certificateSource) &&
+        Objects.equals(this.clientAddressTransmissionProtocol, modifyListenerAttributesRequest.clientAddressTransmissionProtocol) &&
         Objects.equals(this.customizedCfgId, modifyListenerAttributesRequest.customizedCfgId) &&
         Objects.equals(this.description, modifyListenerAttributesRequest.description) &&
         Objects.equals(this.domainExtensions, modifyListenerAttributesRequest.domainExtensions) &&
@@ -438,7 +461,7 @@ public class ModifyListenerAttributesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclIds, aclStatus, aclType, caCertificateId, certCenterCertificateId, certificateId, certificateSource, customizedCfgId, description, domainExtensions, enableHttp2, enableQuic, enabled, listenerId, listenerName, proxyProtocolDisabled, serverGroupId);
+    return Objects.hash(aclIds, aclStatus, aclType, caCertificateId, certCenterCertificateId, certificateId, certificateSource, clientAddressTransmissionProtocol, customizedCfgId, description, domainExtensions, enableHttp2, enableQuic, enabled, listenerId, listenerName, proxyProtocolDisabled, serverGroupId);
   }
 
 
@@ -454,6 +477,7 @@ public class ModifyListenerAttributesRequest {
     sb.append("    certCenterCertificateId: ").append(toIndentedString(certCenterCertificateId)).append("\n");
     sb.append("    certificateId: ").append(toIndentedString(certificateId)).append("\n");
     sb.append("    certificateSource: ").append(toIndentedString(certificateSource)).append("\n");
+    sb.append("    clientAddressTransmissionProtocol: ").append(toIndentedString(clientAddressTransmissionProtocol)).append("\n");
     sb.append("    customizedCfgId: ").append(toIndentedString(customizedCfgId)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    domainExtensions: ").append(toIndentedString(domainExtensions)).append("\n");

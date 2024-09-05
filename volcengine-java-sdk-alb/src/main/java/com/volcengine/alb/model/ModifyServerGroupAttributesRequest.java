@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ModifyServerGroupAttributesRequest {
   @SerializedName("Description")
   private String description = null;

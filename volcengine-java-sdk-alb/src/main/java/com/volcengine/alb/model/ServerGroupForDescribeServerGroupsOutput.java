@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.alb.model.HealthCheckForDescribeServerGroupsOutput;
 import com.volcengine.alb.model.StickySessionConfigForDescribeServerGroupsOutput;
+import com.volcengine.alb.model.TagForDescribeServerGroupsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -30,6 +31,7 @@ import javax.validation.Valid;
 /**
  * ServerGroupForDescribeServerGroupsOutput
  */
+
 
 
 public class ServerGroupForDescribeServerGroupsOutput {
@@ -68,6 +70,9 @@ public class ServerGroupForDescribeServerGroupsOutput {
 
   @SerializedName("StickySessionConfig")
   private StickySessionConfigForDescribeServerGroupsOutput stickySessionConfig = null;
+
+  @SerializedName("Tags")
+  private List<TagForDescribeServerGroupsOutput> tags = null;
 
   @SerializedName("UpdateTime")
   private String updateTime = null;
@@ -301,6 +306,33 @@ public class ServerGroupForDescribeServerGroupsOutput {
     this.stickySessionConfig = stickySessionConfig;
   }
 
+  public ServerGroupForDescribeServerGroupsOutput tags(List<TagForDescribeServerGroupsOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public ServerGroupForDescribeServerGroupsOutput addTagsItem(TagForDescribeServerGroupsOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForDescribeServerGroupsOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForDescribeServerGroupsOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForDescribeServerGroupsOutput> tags) {
+    this.tags = tags;
+  }
+
   public ServerGroupForDescribeServerGroupsOutput updateTime(String updateTime) {
     this.updateTime = updateTime;
     return this;
@@ -359,13 +391,14 @@ public class ServerGroupForDescribeServerGroupsOutput {
         Objects.equals(this.serverGroupType, serverGroupForDescribeServerGroupsOutput.serverGroupType) &&
         Objects.equals(this.status, serverGroupForDescribeServerGroupsOutput.status) &&
         Objects.equals(this.stickySessionConfig, serverGroupForDescribeServerGroupsOutput.stickySessionConfig) &&
+        Objects.equals(this.tags, serverGroupForDescribeServerGroupsOutput.tags) &&
         Objects.equals(this.updateTime, serverGroupForDescribeServerGroupsOutput.updateTime) &&
         Objects.equals(this.vpcId, serverGroupForDescribeServerGroupsOutput.vpcId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createTime, description, healthCheck, listeners, projectName, scheduler, serverCount, serverGroupId, serverGroupName, serverGroupType, status, stickySessionConfig, updateTime, vpcId);
+    return Objects.hash(createTime, description, healthCheck, listeners, projectName, scheduler, serverCount, serverGroupId, serverGroupName, serverGroupType, status, stickySessionConfig, tags, updateTime, vpcId);
   }
 
 
@@ -386,6 +419,7 @@ public class ServerGroupForDescribeServerGroupsOutput {
     sb.append("    serverGroupType: ").append(toIndentedString(serverGroupType)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    stickySessionConfig: ").append(toIndentedString(stickySessionConfig)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("}");

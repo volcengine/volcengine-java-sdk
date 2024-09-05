@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ModifyHealthCheckTemplatesAttributesRequest {
   @SerializedName("HealthCheckTemplates")
   private List<HealthCheckTemplateForModifyHealthCheckTemplatesAttributesInput> healthCheckTemplates = null;

@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DomainExtensionForDescribeListenerAttributesOutput {
   @SerializedName("CertCenterCertificateId")
   private String certCenterCertificateId = null;
@@ -46,6 +47,9 @@ public class DomainExtensionForDescribeListenerAttributesOutput {
 
   @SerializedName("ListenerId")
   private String listenerId = null;
+
+  @SerializedName("San")
+  private String san = null;
 
   public DomainExtensionForDescribeListenerAttributesOutput certCenterCertificateId(String certCenterCertificateId) {
     this.certCenterCertificateId = certCenterCertificateId;
@@ -155,6 +159,24 @@ public class DomainExtensionForDescribeListenerAttributesOutput {
     this.listenerId = listenerId;
   }
 
+  public DomainExtensionForDescribeListenerAttributesOutput san(String san) {
+    this.san = san;
+    return this;
+  }
+
+   /**
+   * Get san
+   * @return san
+  **/
+  @Schema(description = "")
+  public String getSan() {
+    return san;
+  }
+
+  public void setSan(String san) {
+    this.san = san;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -170,12 +192,13 @@ public class DomainExtensionForDescribeListenerAttributesOutput {
         Objects.equals(this.certificateSource, domainExtensionForDescribeListenerAttributesOutput.certificateSource) &&
         Objects.equals(this.domain, domainExtensionForDescribeListenerAttributesOutput.domain) &&
         Objects.equals(this.domainExtensionId, domainExtensionForDescribeListenerAttributesOutput.domainExtensionId) &&
-        Objects.equals(this.listenerId, domainExtensionForDescribeListenerAttributesOutput.listenerId);
+        Objects.equals(this.listenerId, domainExtensionForDescribeListenerAttributesOutput.listenerId) &&
+        Objects.equals(this.san, domainExtensionForDescribeListenerAttributesOutput.san);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(certCenterCertificateId, certificateId, certificateSource, domain, domainExtensionId, listenerId);
+    return Objects.hash(certCenterCertificateId, certificateId, certificateSource, domain, domainExtensionId, listenerId, san);
   }
 
 
@@ -190,6 +213,7 @@ public class DomainExtensionForDescribeListenerAttributesOutput {
     sb.append("    domain: ").append(toIndentedString(domain)).append("\n");
     sb.append("    domainExtensionId: ").append(toIndentedString(domainExtensionId)).append("\n");
     sb.append("    listenerId: ").append(toIndentedString(listenerId)).append("\n");
+    sb.append("    san: ").append(toIndentedString(san)).append("\n");
     sb.append("}");
     return sb.toString();
   }

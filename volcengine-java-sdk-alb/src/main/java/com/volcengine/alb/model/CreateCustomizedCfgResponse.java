@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateCustomizedCfgResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("CustomizedCfgId")
   private String customizedCfgId = null;

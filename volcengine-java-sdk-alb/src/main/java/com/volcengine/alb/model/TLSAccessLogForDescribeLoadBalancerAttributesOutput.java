@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class TLSAccessLogForDescribeLoadBalancerAttributesOutput {
   @SerializedName("Enabled")
   private Boolean enabled = null;
