@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class PolicyScopeForListEntitiesForPolicyOutput {
   @SerializedName("AttachDate")
   private String attachDate = null;

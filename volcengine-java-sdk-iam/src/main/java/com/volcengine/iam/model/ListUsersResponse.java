@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.iam.model.UserMetadatumForListUsersOutput;
+import com.volcengine.iam.model.UserMetadataForListUsersOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -29,6 +29,7 @@ import javax.validation.Valid;
 /**
  * ListUsersResponse
  */
+
 
 
 public class ListUsersResponse extends com.volcengine.model.AbstractResponse {
@@ -42,7 +43,7 @@ public class ListUsersResponse extends com.volcengine.model.AbstractResponse {
   private Integer total = null;
 
   @SerializedName("UserMetadata")
-  private List<UserMetadatumForListUsersOutput> userMetadata = null;
+  private List<UserMetadataForListUsersOutput> userMetadata = null;
 
   public ListUsersResponse limit(Integer limit) {
     this.limit = limit;
@@ -98,14 +99,14 @@ public class ListUsersResponse extends com.volcengine.model.AbstractResponse {
     this.total = total;
   }
 
-  public ListUsersResponse userMetadata(List<UserMetadatumForListUsersOutput> userMetadata) {
+  public ListUsersResponse userMetadata(List<UserMetadataForListUsersOutput> userMetadata) {
     this.userMetadata = userMetadata;
     return this;
   }
 
-  public ListUsersResponse addUserMetadataItem(UserMetadatumForListUsersOutput userMetadataItem) {
+  public ListUsersResponse addUserMetadataItem(UserMetadataForListUsersOutput userMetadataItem) {
     if (this.userMetadata == null) {
-      this.userMetadata = new ArrayList<UserMetadatumForListUsersOutput>();
+      this.userMetadata = new ArrayList<UserMetadataForListUsersOutput>();
     }
     this.userMetadata.add(userMetadataItem);
     return this;
@@ -117,11 +118,11 @@ public class ListUsersResponse extends com.volcengine.model.AbstractResponse {
   **/
   @Valid
   @Schema(description = "")
-  public List<UserMetadatumForListUsersOutput> getUserMetadata() {
+  public List<UserMetadataForListUsersOutput> getUserMetadata() {
     return userMetadata;
   }
 
-  public void setUserMetadata(List<UserMetadatumForListUsersOutput> userMetadata) {
+  public void setUserMetadata(List<UserMetadataForListUsersOutput> userMetadata) {
     this.userMetadata = userMetadata;
   }
 

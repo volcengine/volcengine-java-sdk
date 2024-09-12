@@ -28,9 +28,13 @@ import javax.validation.Valid;
  */
 
 
+
 public class DeleteAccessKeyRequest {
   @SerializedName("AccessKeyId")
   private String accessKeyId = null;
+
+  @SerializedName("UserName")
+  private String userName = null;
 
   public DeleteAccessKeyRequest accessKeyId(String accessKeyId) {
     this.accessKeyId = accessKeyId;
@@ -51,6 +55,24 @@ public class DeleteAccessKeyRequest {
     this.accessKeyId = accessKeyId;
   }
 
+  public DeleteAccessKeyRequest userName(String userName) {
+    this.userName = userName;
+    return this;
+  }
+
+   /**
+   * Get userName
+   * @return userName
+  **/
+  @Schema(description = "")
+  public String getUserName() {
+    return userName;
+  }
+
+  public void setUserName(String userName) {
+    this.userName = userName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -61,12 +83,13 @@ public class DeleteAccessKeyRequest {
       return false;
     }
     DeleteAccessKeyRequest deleteAccessKeyRequest = (DeleteAccessKeyRequest) o;
-    return Objects.equals(this.accessKeyId, deleteAccessKeyRequest.accessKeyId);
+    return Objects.equals(this.accessKeyId, deleteAccessKeyRequest.accessKeyId) &&
+        Objects.equals(this.userName, deleteAccessKeyRequest.userName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessKeyId);
+    return Objects.hash(accessKeyId, userName);
   }
 
 
@@ -76,6 +99,7 @@ public class DeleteAccessKeyRequest {
     sb.append("class DeleteAccessKeyRequest {\n");
     
     sb.append("    accessKeyId: ").append(toIndentedString(accessKeyId)).append("\n");
+    sb.append("    userName: ").append(toIndentedString(userName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

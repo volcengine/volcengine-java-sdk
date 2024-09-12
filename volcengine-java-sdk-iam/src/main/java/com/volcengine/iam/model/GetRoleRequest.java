@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class GetRoleRequest {
   @SerializedName("RoleName")
   private String roleName = null;

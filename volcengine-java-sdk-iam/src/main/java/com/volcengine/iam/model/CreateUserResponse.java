@@ -29,6 +29,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateUserResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("User")
   private UserForCreateUserOutput user = null;

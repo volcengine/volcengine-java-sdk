@@ -28,12 +28,16 @@ import javax.validation.Valid;
  */
 
 
+
 public class UpdateAccessKeyRequest {
   @SerializedName("AccessKeyId")
   private String accessKeyId = null;
 
   @SerializedName("Status")
   private String status = null;
+
+  @SerializedName("UserName")
+  private String userName = null;
 
   public UpdateAccessKeyRequest accessKeyId(String accessKeyId) {
     this.accessKeyId = accessKeyId;
@@ -73,6 +77,24 @@ public class UpdateAccessKeyRequest {
     this.status = status;
   }
 
+  public UpdateAccessKeyRequest userName(String userName) {
+    this.userName = userName;
+    return this;
+  }
+
+   /**
+   * Get userName
+   * @return userName
+  **/
+  @Schema(description = "")
+  public String getUserName() {
+    return userName;
+  }
+
+  public void setUserName(String userName) {
+    this.userName = userName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -84,12 +106,13 @@ public class UpdateAccessKeyRequest {
     }
     UpdateAccessKeyRequest updateAccessKeyRequest = (UpdateAccessKeyRequest) o;
     return Objects.equals(this.accessKeyId, updateAccessKeyRequest.accessKeyId) &&
-        Objects.equals(this.status, updateAccessKeyRequest.status);
+        Objects.equals(this.status, updateAccessKeyRequest.status) &&
+        Objects.equals(this.userName, updateAccessKeyRequest.userName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessKeyId, status);
+    return Objects.hash(accessKeyId, status, userName);
   }
 
 
@@ -100,6 +123,7 @@ public class UpdateAccessKeyRequest {
     
     sb.append("    accessKeyId: ").append(toIndentedString(accessKeyId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    userName: ").append(toIndentedString(userName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

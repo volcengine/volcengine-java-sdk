@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class GetSAMLProviderRequest {
   @SerializedName("SAMLProviderName")
   private String saMLProviderName = null;

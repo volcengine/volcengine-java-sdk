@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ListEntitiesForPolicyRequest {
   @SerializedName("EntityFilter")
   private String entityFilter = null;
@@ -41,8 +42,51 @@ public class ListEntitiesForPolicyRequest {
   @SerializedName("PolicyName")
   private String policyName = null;
 
-  @SerializedName("PolicyType")
-  private String policyType = null;
+  /**
+   * Gets or Sets policyType
+   */
+  @JsonAdapter(PolicyTypeEnum.Adapter.class)
+  public enum PolicyTypeEnum {
+    @SerializedName("System")
+    SYSTEM("System"),
+    @SerializedName("Custom")
+    CUSTOM("Custom");
+
+    private String value;
+
+    PolicyTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static PolicyTypeEnum fromValue(String input) {
+      for (PolicyTypeEnum b : PolicyTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<PolicyTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final PolicyTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public PolicyTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return PolicyTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("PolicyType")
+  private PolicyTypeEnum policyType = null;
 
   public ListEntitiesForPolicyRequest entityFilter(String entityFilter) {
     this.entityFilter = entityFilter;
@@ -53,8 +97,7 @@ public class ListEntitiesForPolicyRequest {
    * Get entityFilter
    * @return entityFilter
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getEntityFilter() {
     return entityFilter;
   }
@@ -118,7 +161,7 @@ public class ListEntitiesForPolicyRequest {
     this.policyName = policyName;
   }
 
-  public ListEntitiesForPolicyRequest policyType(String policyType) {
+  public ListEntitiesForPolicyRequest policyType(PolicyTypeEnum policyType) {
     this.policyType = policyType;
     return this;
   }
@@ -129,11 +172,11 @@ public class ListEntitiesForPolicyRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getPolicyType() {
+  public PolicyTypeEnum getPolicyType() {
     return policyType;
   }
 
-  public void setPolicyType(String policyType) {
+  public void setPolicyType(PolicyTypeEnum policyType) {
     this.policyType = policyType;
   }
 

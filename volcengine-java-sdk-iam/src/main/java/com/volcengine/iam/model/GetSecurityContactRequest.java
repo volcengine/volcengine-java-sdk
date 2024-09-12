@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class GetSecurityContactRequest {
   @SerializedName("UserName")
   private String userName = null;

@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ListPoliciesRequest {
   @SerializedName("Limit")
   private Integer limit = null;
@@ -37,6 +38,9 @@ public class ListPoliciesRequest {
 
   @SerializedName("Scope")
   private String scope = null;
+
+  @SerializedName("WithServiceRolePolicy")
+  private Integer withServiceRolePolicy = null;
 
   public ListPoliciesRequest limit(Integer limit) {
     this.limit = limit;
@@ -92,6 +96,24 @@ public class ListPoliciesRequest {
     this.scope = scope;
   }
 
+  public ListPoliciesRequest withServiceRolePolicy(Integer withServiceRolePolicy) {
+    this.withServiceRolePolicy = withServiceRolePolicy;
+    return this;
+  }
+
+   /**
+   * Get withServiceRolePolicy
+   * @return withServiceRolePolicy
+  **/
+  @Schema(description = "")
+  public Integer getWithServiceRolePolicy() {
+    return withServiceRolePolicy;
+  }
+
+  public void setWithServiceRolePolicy(Integer withServiceRolePolicy) {
+    this.withServiceRolePolicy = withServiceRolePolicy;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -104,12 +126,13 @@ public class ListPoliciesRequest {
     ListPoliciesRequest listPoliciesRequest = (ListPoliciesRequest) o;
     return Objects.equals(this.limit, listPoliciesRequest.limit) &&
         Objects.equals(this.offset, listPoliciesRequest.offset) &&
-        Objects.equals(this.scope, listPoliciesRequest.scope);
+        Objects.equals(this.scope, listPoliciesRequest.scope) &&
+        Objects.equals(this.withServiceRolePolicy, listPoliciesRequest.withServiceRolePolicy);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(limit, offset, scope);
+    return Objects.hash(limit, offset, scope, withServiceRolePolicy);
   }
 
 
@@ -121,6 +144,7 @@ public class ListPoliciesRequest {
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
     sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
     sb.append("    scope: ").append(toIndentedString(scope)).append("\n");
+    sb.append("    withServiceRolePolicy: ").append(toIndentedString(withServiceRolePolicy)).append("\n");
     sb.append("}");
     return sb.toString();
   }

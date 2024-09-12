@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class GetOAuthProviderResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("AuthorizeTemplate")
   private String authorizeTemplate = null;

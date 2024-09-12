@@ -19,16 +19,20 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.iam.model.PolicyScopeForListAttachedUserGroupPoliciesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * AttachedPolicyMetadatumForListAttachedRolePoliciesOutput
+ * AttachedPolicyMetadataForListAttachedUserGroupPoliciesOutput
  */
 
 
-public class AttachedPolicyMetadatumForListAttachedRolePoliciesOutput {
+
+public class AttachedPolicyMetadataForListAttachedUserGroupPoliciesOutput {
   @SerializedName("AttachDate")
   private String attachDate = null;
 
@@ -38,13 +42,16 @@ public class AttachedPolicyMetadatumForListAttachedRolePoliciesOutput {
   @SerializedName("PolicyName")
   private String policyName = null;
 
+  @SerializedName("PolicyScope")
+  private List<PolicyScopeForListAttachedUserGroupPoliciesOutput> policyScope = null;
+
   @SerializedName("PolicyTrn")
   private String policyTrn = null;
 
   @SerializedName("PolicyType")
   private String policyType = null;
 
-  public AttachedPolicyMetadatumForListAttachedRolePoliciesOutput attachDate(String attachDate) {
+  public AttachedPolicyMetadataForListAttachedUserGroupPoliciesOutput attachDate(String attachDate) {
     this.attachDate = attachDate;
     return this;
   }
@@ -62,7 +69,7 @@ public class AttachedPolicyMetadatumForListAttachedRolePoliciesOutput {
     this.attachDate = attachDate;
   }
 
-  public AttachedPolicyMetadatumForListAttachedRolePoliciesOutput description(String description) {
+  public AttachedPolicyMetadataForListAttachedUserGroupPoliciesOutput description(String description) {
     this.description = description;
     return this;
   }
@@ -80,7 +87,7 @@ public class AttachedPolicyMetadatumForListAttachedRolePoliciesOutput {
     this.description = description;
   }
 
-  public AttachedPolicyMetadatumForListAttachedRolePoliciesOutput policyName(String policyName) {
+  public AttachedPolicyMetadataForListAttachedUserGroupPoliciesOutput policyName(String policyName) {
     this.policyName = policyName;
     return this;
   }
@@ -98,7 +105,34 @@ public class AttachedPolicyMetadatumForListAttachedRolePoliciesOutput {
     this.policyName = policyName;
   }
 
-  public AttachedPolicyMetadatumForListAttachedRolePoliciesOutput policyTrn(String policyTrn) {
+  public AttachedPolicyMetadataForListAttachedUserGroupPoliciesOutput policyScope(List<PolicyScopeForListAttachedUserGroupPoliciesOutput> policyScope) {
+    this.policyScope = policyScope;
+    return this;
+  }
+
+  public AttachedPolicyMetadataForListAttachedUserGroupPoliciesOutput addPolicyScopeItem(PolicyScopeForListAttachedUserGroupPoliciesOutput policyScopeItem) {
+    if (this.policyScope == null) {
+      this.policyScope = new ArrayList<PolicyScopeForListAttachedUserGroupPoliciesOutput>();
+    }
+    this.policyScope.add(policyScopeItem);
+    return this;
+  }
+
+   /**
+   * Get policyScope
+   * @return policyScope
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<PolicyScopeForListAttachedUserGroupPoliciesOutput> getPolicyScope() {
+    return policyScope;
+  }
+
+  public void setPolicyScope(List<PolicyScopeForListAttachedUserGroupPoliciesOutput> policyScope) {
+    this.policyScope = policyScope;
+  }
+
+  public AttachedPolicyMetadataForListAttachedUserGroupPoliciesOutput policyTrn(String policyTrn) {
     this.policyTrn = policyTrn;
     return this;
   }
@@ -116,7 +150,7 @@ public class AttachedPolicyMetadatumForListAttachedRolePoliciesOutput {
     this.policyTrn = policyTrn;
   }
 
-  public AttachedPolicyMetadatumForListAttachedRolePoliciesOutput policyType(String policyType) {
+  public AttachedPolicyMetadataForListAttachedUserGroupPoliciesOutput policyType(String policyType) {
     this.policyType = policyType;
     return this;
   }
@@ -143,28 +177,30 @@ public class AttachedPolicyMetadatumForListAttachedRolePoliciesOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AttachedPolicyMetadatumForListAttachedRolePoliciesOutput attachedPolicyMetadatumForListAttachedRolePoliciesOutput = (AttachedPolicyMetadatumForListAttachedRolePoliciesOutput) o;
-    return Objects.equals(this.attachDate, attachedPolicyMetadatumForListAttachedRolePoliciesOutput.attachDate) &&
-        Objects.equals(this.description, attachedPolicyMetadatumForListAttachedRolePoliciesOutput.description) &&
-        Objects.equals(this.policyName, attachedPolicyMetadatumForListAttachedRolePoliciesOutput.policyName) &&
-        Objects.equals(this.policyTrn, attachedPolicyMetadatumForListAttachedRolePoliciesOutput.policyTrn) &&
-        Objects.equals(this.policyType, attachedPolicyMetadatumForListAttachedRolePoliciesOutput.policyType);
+    AttachedPolicyMetadataForListAttachedUserGroupPoliciesOutput attachedPolicyMetadataForListAttachedUserGroupPoliciesOutput = (AttachedPolicyMetadataForListAttachedUserGroupPoliciesOutput) o;
+    return Objects.equals(this.attachDate, attachedPolicyMetadataForListAttachedUserGroupPoliciesOutput.attachDate) &&
+        Objects.equals(this.description, attachedPolicyMetadataForListAttachedUserGroupPoliciesOutput.description) &&
+        Objects.equals(this.policyName, attachedPolicyMetadataForListAttachedUserGroupPoliciesOutput.policyName) &&
+        Objects.equals(this.policyScope, attachedPolicyMetadataForListAttachedUserGroupPoliciesOutput.policyScope) &&
+        Objects.equals(this.policyTrn, attachedPolicyMetadataForListAttachedUserGroupPoliciesOutput.policyTrn) &&
+        Objects.equals(this.policyType, attachedPolicyMetadataForListAttachedUserGroupPoliciesOutput.policyType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attachDate, description, policyName, policyTrn, policyType);
+    return Objects.hash(attachDate, description, policyName, policyScope, policyTrn, policyType);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AttachedPolicyMetadatumForListAttachedRolePoliciesOutput {\n");
+    sb.append("class AttachedPolicyMetadataForListAttachedUserGroupPoliciesOutput {\n");
     
     sb.append("    attachDate: ").append(toIndentedString(attachDate)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    policyName: ").append(toIndentedString(policyName)).append("\n");
+    sb.append("    policyScope: ").append(toIndentedString(policyScope)).append("\n");
     sb.append("    policyTrn: ").append(toIndentedString(policyTrn)).append("\n");
     sb.append("    policyType: ").append(toIndentedString(policyType)).append("\n");
     sb.append("}");

@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DeleteUserRequest {
   @SerializedName("UserName")
   private String userName = null;

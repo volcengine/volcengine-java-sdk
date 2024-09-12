@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.iam.model.PolicyMetadatumForListPoliciesOutput;
+import com.volcengine.iam.model.PolicyMetadataForListPoliciesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ListPoliciesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Limit")
   private Integer limit = null;
@@ -39,7 +40,7 @@ public class ListPoliciesResponse extends com.volcengine.model.AbstractResponse 
   private Integer offset = null;
 
   @SerializedName("PolicyMetadata")
-  private List<PolicyMetadatumForListPoliciesOutput> policyMetadata = null;
+  private List<PolicyMetadataForListPoliciesOutput> policyMetadata = null;
 
   @SerializedName("Total")
   private Integer total = null;
@@ -80,14 +81,14 @@ public class ListPoliciesResponse extends com.volcengine.model.AbstractResponse 
     this.offset = offset;
   }
 
-  public ListPoliciesResponse policyMetadata(List<PolicyMetadatumForListPoliciesOutput> policyMetadata) {
+  public ListPoliciesResponse policyMetadata(List<PolicyMetadataForListPoliciesOutput> policyMetadata) {
     this.policyMetadata = policyMetadata;
     return this;
   }
 
-  public ListPoliciesResponse addPolicyMetadataItem(PolicyMetadatumForListPoliciesOutput policyMetadataItem) {
+  public ListPoliciesResponse addPolicyMetadataItem(PolicyMetadataForListPoliciesOutput policyMetadataItem) {
     if (this.policyMetadata == null) {
-      this.policyMetadata = new ArrayList<PolicyMetadatumForListPoliciesOutput>();
+      this.policyMetadata = new ArrayList<PolicyMetadataForListPoliciesOutput>();
     }
     this.policyMetadata.add(policyMetadataItem);
     return this;
@@ -99,11 +100,11 @@ public class ListPoliciesResponse extends com.volcengine.model.AbstractResponse 
   **/
   @Valid
   @Schema(description = "")
-  public List<PolicyMetadatumForListPoliciesOutput> getPolicyMetadata() {
+  public List<PolicyMetadataForListPoliciesOutput> getPolicyMetadata() {
     return policyMetadata;
   }
 
-  public void setPolicyMetadata(List<PolicyMetadatumForListPoliciesOutput> policyMetadata) {
+  public void setPolicyMetadata(List<PolicyMetadataForListPoliciesOutput> policyMetadata) {
     this.policyMetadata = policyMetadata;
   }
 
