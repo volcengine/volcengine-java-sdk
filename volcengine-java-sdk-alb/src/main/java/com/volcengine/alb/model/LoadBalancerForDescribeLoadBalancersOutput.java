@@ -32,6 +32,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class LoadBalancerForDescribeLoadBalancersOutput {
   @SerializedName("AddressIpVersion")
   private String addressIpVersion = null;
@@ -87,6 +88,9 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
   @SerializedName("ProjectName")
   private String projectName = null;
 
+  @SerializedName("SniAutoMatch")
+  private String sniAutoMatch = null;
+
   @SerializedName("Status")
   private String status = null;
 
@@ -104,6 +108,12 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
 
   @SerializedName("VpcId")
   private String vpcId = null;
+
+  @SerializedName("WafInstanceId")
+  private String wafInstanceId = null;
+
+  @SerializedName("WafProtectionEnabled")
+  private String wafProtectionEnabled = null;
 
   @SerializedName("ZoneMappings")
   private List<ZoneMappingForDescribeLoadBalancersOutput> zoneMappings = null;
@@ -440,6 +450,24 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
     this.projectName = projectName;
   }
 
+  public LoadBalancerForDescribeLoadBalancersOutput sniAutoMatch(String sniAutoMatch) {
+    this.sniAutoMatch = sniAutoMatch;
+    return this;
+  }
+
+   /**
+   * Get sniAutoMatch
+   * @return sniAutoMatch
+  **/
+  @Schema(description = "")
+  public String getSniAutoMatch() {
+    return sniAutoMatch;
+  }
+
+  public void setSniAutoMatch(String sniAutoMatch) {
+    this.sniAutoMatch = sniAutoMatch;
+  }
+
   public LoadBalancerForDescribeLoadBalancersOutput status(String status) {
     this.status = status;
     return this;
@@ -557,6 +585,42 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
     this.vpcId = vpcId;
   }
 
+  public LoadBalancerForDescribeLoadBalancersOutput wafInstanceId(String wafInstanceId) {
+    this.wafInstanceId = wafInstanceId;
+    return this;
+  }
+
+   /**
+   * Get wafInstanceId
+   * @return wafInstanceId
+  **/
+  @Schema(description = "")
+  public String getWafInstanceId() {
+    return wafInstanceId;
+  }
+
+  public void setWafInstanceId(String wafInstanceId) {
+    this.wafInstanceId = wafInstanceId;
+  }
+
+  public LoadBalancerForDescribeLoadBalancersOutput wafProtectionEnabled(String wafProtectionEnabled) {
+    this.wafProtectionEnabled = wafProtectionEnabled;
+    return this;
+  }
+
+   /**
+   * Get wafProtectionEnabled
+   * @return wafProtectionEnabled
+  **/
+  @Schema(description = "")
+  public String getWafProtectionEnabled() {
+    return wafProtectionEnabled;
+  }
+
+  public void setWafProtectionEnabled(String wafProtectionEnabled) {
+    this.wafProtectionEnabled = wafProtectionEnabled;
+  }
+
   public LoadBalancerForDescribeLoadBalancersOutput zoneMappings(List<ZoneMappingForDescribeLoadBalancersOutput> zoneMappings) {
     this.zoneMappings = zoneMappings;
     return this;
@@ -612,18 +676,21 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
         Objects.equals(this.lockReason, loadBalancerForDescribeLoadBalancersOutput.lockReason) &&
         Objects.equals(this.overdueTime, loadBalancerForDescribeLoadBalancersOutput.overdueTime) &&
         Objects.equals(this.projectName, loadBalancerForDescribeLoadBalancersOutput.projectName) &&
+        Objects.equals(this.sniAutoMatch, loadBalancerForDescribeLoadBalancersOutput.sniAutoMatch) &&
         Objects.equals(this.status, loadBalancerForDescribeLoadBalancersOutput.status) &&
         Objects.equals(this.subnetId, loadBalancerForDescribeLoadBalancersOutput.subnetId) &&
         Objects.equals(this.tags, loadBalancerForDescribeLoadBalancersOutput.tags) &&
         Objects.equals(this.type, loadBalancerForDescribeLoadBalancersOutput.type) &&
         Objects.equals(this.updateTime, loadBalancerForDescribeLoadBalancersOutput.updateTime) &&
         Objects.equals(this.vpcId, loadBalancerForDescribeLoadBalancersOutput.vpcId) &&
+        Objects.equals(this.wafInstanceId, loadBalancerForDescribeLoadBalancersOutput.wafInstanceId) &&
+        Objects.equals(this.wafProtectionEnabled, loadBalancerForDescribeLoadBalancersOutput.wafProtectionEnabled) &&
         Objects.equals(this.zoneMappings, loadBalancerForDescribeLoadBalancersOutput.zoneMappings);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(addressIpVersion, businessStatus, createTime, dnSName, deleteProtection, deletedTime, description, eipAddress, eipId, eniAddress, eniId, loadBalancerBillingType, loadBalancerId, loadBalancerName, localAddresses, lockReason, overdueTime, projectName, status, subnetId, tags, type, updateTime, vpcId, zoneMappings);
+    return Objects.hash(addressIpVersion, businessStatus, createTime, dnSName, deleteProtection, deletedTime, description, eipAddress, eipId, eniAddress, eniId, loadBalancerBillingType, loadBalancerId, loadBalancerName, localAddresses, lockReason, overdueTime, projectName, sniAutoMatch, status, subnetId, tags, type, updateTime, vpcId, wafInstanceId, wafProtectionEnabled, zoneMappings);
   }
 
 
@@ -650,12 +717,15 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
     sb.append("    lockReason: ").append(toIndentedString(lockReason)).append("\n");
     sb.append("    overdueTime: ").append(toIndentedString(overdueTime)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    sniAutoMatch: ").append(toIndentedString(sniAutoMatch)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
+    sb.append("    wafInstanceId: ").append(toIndentedString(wafInstanceId)).append("\n");
+    sb.append("    wafProtectionEnabled: ").append(toIndentedString(wafProtectionEnabled)).append("\n");
     sb.append("    zoneMappings: ").append(toIndentedString(zoneMappings)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.alb.model.DomainExtensionForDescribeListenerAttributesOutput;
 import com.volcengine.alb.model.ServerGroupForDescribeListenerAttributesOutput;
+import com.volcengine.alb.model.TagForDescribeListenerAttributesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -30,6 +31,7 @@ import javax.validation.Valid;
 /**
  * DescribeListenerAttributesResponse
  */
+
 
 
 public class DescribeListenerAttributesResponse extends com.volcengine.model.AbstractResponse {
@@ -53,6 +55,9 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
 
   @SerializedName("CertificateSource")
   private String certificateSource = null;
+
+  @SerializedName("ClientAddressTransmissionProtocol")
+  private String clientAddressTransmissionProtocol = null;
 
   @SerializedName("CreateTime")
   private String createTime = null;
@@ -107,6 +112,9 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
 
   @SerializedName("Status")
   private String status = null;
+
+  @SerializedName("Tags")
+  private List<TagForDescribeListenerAttributesOutput> tags = null;
 
   @SerializedName("UpdateTime")
   private String updateTime = null;
@@ -243,6 +251,24 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
 
   public void setCertificateSource(String certificateSource) {
     this.certificateSource = certificateSource;
+  }
+
+  public DescribeListenerAttributesResponse clientAddressTransmissionProtocol(String clientAddressTransmissionProtocol) {
+    this.clientAddressTransmissionProtocol = clientAddressTransmissionProtocol;
+    return this;
+  }
+
+   /**
+   * Get clientAddressTransmissionProtocol
+   * @return clientAddressTransmissionProtocol
+  **/
+  @Schema(description = "")
+  public String getClientAddressTransmissionProtocol() {
+    return clientAddressTransmissionProtocol;
+  }
+
+  public void setClientAddressTransmissionProtocol(String clientAddressTransmissionProtocol) {
+    this.clientAddressTransmissionProtocol = clientAddressTransmissionProtocol;
   }
 
   public DescribeListenerAttributesResponse createTime(String createTime) {
@@ -587,6 +613,33 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
     this.status = status;
   }
 
+  public DescribeListenerAttributesResponse tags(List<TagForDescribeListenerAttributesOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public DescribeListenerAttributesResponse addTagsItem(TagForDescribeListenerAttributesOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForDescribeListenerAttributesOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForDescribeListenerAttributesOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForDescribeListenerAttributesOutput> tags) {
+    this.tags = tags;
+  }
+
   public DescribeListenerAttributesResponse updateTime(String updateTime) {
     this.updateTime = updateTime;
     return this;
@@ -622,6 +675,7 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
         Objects.equals(this.certCenterCertificateId, describeListenerAttributesResponse.certCenterCertificateId) &&
         Objects.equals(this.certificateId, describeListenerAttributesResponse.certificateId) &&
         Objects.equals(this.certificateSource, describeListenerAttributesResponse.certificateSource) &&
+        Objects.equals(this.clientAddressTransmissionProtocol, describeListenerAttributesResponse.clientAddressTransmissionProtocol) &&
         Objects.equals(this.createTime, describeListenerAttributesResponse.createTime) &&
         Objects.equals(this.customizedCfgId, describeListenerAttributesResponse.customizedCfgId) &&
         Objects.equals(this.description, describeListenerAttributesResponse.description) &&
@@ -640,12 +694,13 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
         Objects.equals(this.serverGroupId, describeListenerAttributesResponse.serverGroupId) &&
         Objects.equals(this.serverGroups, describeListenerAttributesResponse.serverGroups) &&
         Objects.equals(this.status, describeListenerAttributesResponse.status) &&
+        Objects.equals(this.tags, describeListenerAttributesResponse.tags) &&
         Objects.equals(this.updateTime, describeListenerAttributesResponse.updateTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclIds, aclStatus, aclType, caCertificateId, certCenterCertificateId, certificateId, certificateSource, createTime, customizedCfgId, description, domainExtensions, enableHttp2, enableQuic, enabled, listenerId, listenerName, loadBalancerId, port, projectName, protocol, proxyProtocolDisabled, requestId, serverGroupId, serverGroups, status, updateTime);
+    return Objects.hash(aclIds, aclStatus, aclType, caCertificateId, certCenterCertificateId, certificateId, certificateSource, clientAddressTransmissionProtocol, createTime, customizedCfgId, description, domainExtensions, enableHttp2, enableQuic, enabled, listenerId, listenerName, loadBalancerId, port, projectName, protocol, proxyProtocolDisabled, requestId, serverGroupId, serverGroups, status, tags, updateTime);
   }
 
 
@@ -661,6 +716,7 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
     sb.append("    certCenterCertificateId: ").append(toIndentedString(certCenterCertificateId)).append("\n");
     sb.append("    certificateId: ").append(toIndentedString(certificateId)).append("\n");
     sb.append("    certificateSource: ").append(toIndentedString(certificateSource)).append("\n");
+    sb.append("    clientAddressTransmissionProtocol: ").append(toIndentedString(clientAddressTransmissionProtocol)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    customizedCfgId: ").append(toIndentedString(customizedCfgId)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
@@ -679,6 +735,7 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
     sb.append("    serverGroupId: ").append(toIndentedString(serverGroupId)).append("\n");
     sb.append("    serverGroups: ").append(toIndentedString(serverGroups)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("}");
     return sb.toString();

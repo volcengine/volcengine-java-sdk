@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DomainExtensionForCreateListenerInput {
   @SerializedName("CertCenterCertificateId")
   private String certCenterCertificateId = null;

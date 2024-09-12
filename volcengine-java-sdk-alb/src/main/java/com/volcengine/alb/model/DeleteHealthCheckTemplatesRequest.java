@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DeleteHealthCheckTemplatesRequest {
   @SerializedName("HealthCheckTemplateIds")
   private List<String> healthCheckTemplateIds = null;

@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeCACertificatesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("CACertificates")
   private List<CACertificateForDescribeCACertificatesOutput> caCertificates = null;

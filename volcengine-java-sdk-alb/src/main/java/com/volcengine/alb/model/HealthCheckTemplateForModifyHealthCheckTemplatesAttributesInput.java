@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class HealthCheckTemplateForModifyHealthCheckTemplatesAttributesInput {
   @SerializedName("Description")
   private String description = null;

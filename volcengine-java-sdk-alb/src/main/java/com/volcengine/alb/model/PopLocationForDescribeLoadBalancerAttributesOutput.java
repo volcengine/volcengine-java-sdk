@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class PopLocationForDescribeLoadBalancerAttributesOutput {
   @SerializedName("PopId")
   private String popId = null;

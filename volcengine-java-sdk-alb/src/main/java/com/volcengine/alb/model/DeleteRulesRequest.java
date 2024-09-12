@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DeleteRulesRequest {
   @SerializedName("ListenerId")
   private String listenerId = null;

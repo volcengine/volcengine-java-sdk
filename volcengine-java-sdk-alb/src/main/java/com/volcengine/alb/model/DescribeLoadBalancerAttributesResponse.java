@@ -37,6 +37,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeLoadBalancerAttributesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("AccessLog")
   private AccessLogForDescribeLoadBalancerAttributesOutput accessLog = null;
@@ -110,6 +111,9 @@ public class DescribeLoadBalancerAttributesResponse extends com.volcengine.model
   @SerializedName("RequestId")
   private String requestId = null;
 
+  @SerializedName("SniAutoMatch")
+  private String sniAutoMatch = null;
+
   @SerializedName("Status")
   private String status = null;
 
@@ -130,6 +134,12 @@ public class DescribeLoadBalancerAttributesResponse extends com.volcengine.model
 
   @SerializedName("VpcId")
   private String vpcId = null;
+
+  @SerializedName("WafInstanceId")
+  private String wafInstanceId = null;
+
+  @SerializedName("WafProtectionEnabled")
+  private String wafProtectionEnabled = null;
 
   @SerializedName("ZoneMappings")
   private List<ZoneMappingForDescribeLoadBalancerAttributesOutput> zoneMappings = null;
@@ -586,6 +596,24 @@ public class DescribeLoadBalancerAttributesResponse extends com.volcengine.model
     this.requestId = requestId;
   }
 
+  public DescribeLoadBalancerAttributesResponse sniAutoMatch(String sniAutoMatch) {
+    this.sniAutoMatch = sniAutoMatch;
+    return this;
+  }
+
+   /**
+   * Get sniAutoMatch
+   * @return sniAutoMatch
+  **/
+  @Schema(description = "")
+  public String getSniAutoMatch() {
+    return sniAutoMatch;
+  }
+
+  public void setSniAutoMatch(String sniAutoMatch) {
+    this.sniAutoMatch = sniAutoMatch;
+  }
+
   public DescribeLoadBalancerAttributesResponse status(String status) {
     this.status = status;
     return this;
@@ -722,6 +750,42 @@ public class DescribeLoadBalancerAttributesResponse extends com.volcengine.model
     this.vpcId = vpcId;
   }
 
+  public DescribeLoadBalancerAttributesResponse wafInstanceId(String wafInstanceId) {
+    this.wafInstanceId = wafInstanceId;
+    return this;
+  }
+
+   /**
+   * Get wafInstanceId
+   * @return wafInstanceId
+  **/
+  @Schema(description = "")
+  public String getWafInstanceId() {
+    return wafInstanceId;
+  }
+
+  public void setWafInstanceId(String wafInstanceId) {
+    this.wafInstanceId = wafInstanceId;
+  }
+
+  public DescribeLoadBalancerAttributesResponse wafProtectionEnabled(String wafProtectionEnabled) {
+    this.wafProtectionEnabled = wafProtectionEnabled;
+    return this;
+  }
+
+   /**
+   * Get wafProtectionEnabled
+   * @return wafProtectionEnabled
+  **/
+  @Schema(description = "")
+  public String getWafProtectionEnabled() {
+    return wafProtectionEnabled;
+  }
+
+  public void setWafProtectionEnabled(String wafProtectionEnabled) {
+    this.wafProtectionEnabled = wafProtectionEnabled;
+  }
+
   public DescribeLoadBalancerAttributesResponse zoneMappings(List<ZoneMappingForDescribeLoadBalancerAttributesOutput> zoneMappings) {
     this.zoneMappings = zoneMappings;
     return this;
@@ -783,6 +847,7 @@ public class DescribeLoadBalancerAttributesResponse extends com.volcengine.model
         Objects.equals(this.overdueTime, describeLoadBalancerAttributesResponse.overdueTime) &&
         Objects.equals(this.projectName, describeLoadBalancerAttributesResponse.projectName) &&
         Objects.equals(this.requestId, describeLoadBalancerAttributesResponse.requestId) &&
+        Objects.equals(this.sniAutoMatch, describeLoadBalancerAttributesResponse.sniAutoMatch) &&
         Objects.equals(this.status, describeLoadBalancerAttributesResponse.status) &&
         Objects.equals(this.subnetId, describeLoadBalancerAttributesResponse.subnetId) &&
         Objects.equals(this.tlSAccessLog, describeLoadBalancerAttributesResponse.tlSAccessLog) &&
@@ -790,12 +855,14 @@ public class DescribeLoadBalancerAttributesResponse extends com.volcengine.model
         Objects.equals(this.type, describeLoadBalancerAttributesResponse.type) &&
         Objects.equals(this.updateTime, describeLoadBalancerAttributesResponse.updateTime) &&
         Objects.equals(this.vpcId, describeLoadBalancerAttributesResponse.vpcId) &&
+        Objects.equals(this.wafInstanceId, describeLoadBalancerAttributesResponse.wafInstanceId) &&
+        Objects.equals(this.wafProtectionEnabled, describeLoadBalancerAttributesResponse.wafProtectionEnabled) &&
         Objects.equals(this.zoneMappings, describeLoadBalancerAttributesResponse.zoneMappings);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessLog, addressIpVersion, businessStatus, createTime, dnSName, deleteProtection, deletedTime, description, eip, eipAddress, eipId, enabled, eniAddress, eniId, healthLog, listeners, loadBalancerBillingType, loadBalancerId, loadBalancerName, localAddresses, lockReason, overdueTime, projectName, requestId, status, subnetId, tlSAccessLog, tags, type, updateTime, vpcId, zoneMappings);
+    return Objects.hash(accessLog, addressIpVersion, businessStatus, createTime, dnSName, deleteProtection, deletedTime, description, eip, eipAddress, eipId, enabled, eniAddress, eniId, healthLog, listeners, loadBalancerBillingType, loadBalancerId, loadBalancerName, localAddresses, lockReason, overdueTime, projectName, requestId, sniAutoMatch, status, subnetId, tlSAccessLog, tags, type, updateTime, vpcId, wafInstanceId, wafProtectionEnabled, zoneMappings);
   }
 
 
@@ -828,6 +895,7 @@ public class DescribeLoadBalancerAttributesResponse extends com.volcengine.model
     sb.append("    overdueTime: ").append(toIndentedString(overdueTime)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
+    sb.append("    sniAutoMatch: ").append(toIndentedString(sniAutoMatch)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    tlSAccessLog: ").append(toIndentedString(tlSAccessLog)).append("\n");
@@ -835,6 +903,8 @@ public class DescribeLoadBalancerAttributesResponse extends com.volcengine.model
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
+    sb.append("    wafInstanceId: ").append(toIndentedString(wafInstanceId)).append("\n");
+    sb.append("    wafProtectionEnabled: ").append(toIndentedString(wafProtectionEnabled)).append("\n");
     sb.append("    zoneMappings: ").append(toIndentedString(zoneMappings)).append("\n");
     sb.append("}");
     return sb.toString();

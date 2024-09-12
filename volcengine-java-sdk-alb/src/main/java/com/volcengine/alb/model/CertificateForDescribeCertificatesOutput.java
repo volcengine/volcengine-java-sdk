@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CertificateForDescribeCertificatesOutput {
   @SerializedName("CertificateId")
   private String certificateId = null;
@@ -57,6 +58,9 @@ public class CertificateForDescribeCertificatesOutput {
 
   @SerializedName("ProjectName")
   private String projectName = null;
+
+  @SerializedName("San")
+  private String san = null;
 
   @SerializedName("Status")
   private String status = null;
@@ -231,6 +235,24 @@ public class CertificateForDescribeCertificatesOutput {
     this.projectName = projectName;
   }
 
+  public CertificateForDescribeCertificatesOutput san(String san) {
+    this.san = san;
+    return this;
+  }
+
+   /**
+   * Get san
+   * @return san
+  **/
+  @Schema(description = "")
+  public String getSan() {
+    return san;
+  }
+
+  public void setSan(String san) {
+    this.san = san;
+  }
+
   public CertificateForDescribeCertificatesOutput status(String status) {
     this.status = status;
     return this;
@@ -268,12 +290,13 @@ public class CertificateForDescribeCertificatesOutput {
         Objects.equals(this.expiredAt, certificateForDescribeCertificatesOutput.expiredAt) &&
         Objects.equals(this.listeners, certificateForDescribeCertificatesOutput.listeners) &&
         Objects.equals(this.projectName, certificateForDescribeCertificatesOutput.projectName) &&
+        Objects.equals(this.san, certificateForDescribeCertificatesOutput.san) &&
         Objects.equals(this.status, certificateForDescribeCertificatesOutput.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(certificateId, certificateName, certificateType, createTime, description, domainName, expiredAt, listeners, projectName, status);
+    return Objects.hash(certificateId, certificateName, certificateType, createTime, description, domainName, expiredAt, listeners, projectName, san, status);
   }
 
 
@@ -291,6 +314,7 @@ public class CertificateForDescribeCertificatesOutput {
     sb.append("    expiredAt: ").append(toIndentedString(expiredAt)).append("\n");
     sb.append("    listeners: ").append(toIndentedString(listeners)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    san: ").append(toIndentedString(san)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CACertificateForDescribeCACertificatesOutput {
   @SerializedName("CACertificateId")
   private String caCertificateId = null;
@@ -57,6 +58,9 @@ public class CACertificateForDescribeCACertificatesOutput {
 
   @SerializedName("ProjectName")
   private String projectName = null;
+
+  @SerializedName("San")
+  private String san = null;
 
   @SerializedName("Status")
   private String status = null;
@@ -231,6 +235,24 @@ public class CACertificateForDescribeCACertificatesOutput {
     this.projectName = projectName;
   }
 
+  public CACertificateForDescribeCACertificatesOutput san(String san) {
+    this.san = san;
+    return this;
+  }
+
+   /**
+   * Get san
+   * @return san
+  **/
+  @Schema(description = "")
+  public String getSan() {
+    return san;
+  }
+
+  public void setSan(String san) {
+    this.san = san;
+  }
+
   public CACertificateForDescribeCACertificatesOutput status(String status) {
     this.status = status;
     return this;
@@ -268,12 +290,13 @@ public class CACertificateForDescribeCACertificatesOutput {
         Objects.equals(this.expiredAt, caCertificateForDescribeCACertificatesOutput.expiredAt) &&
         Objects.equals(this.listeners, caCertificateForDescribeCACertificatesOutput.listeners) &&
         Objects.equals(this.projectName, caCertificateForDescribeCACertificatesOutput.projectName) &&
+        Objects.equals(this.san, caCertificateForDescribeCACertificatesOutput.san) &&
         Objects.equals(this.status, caCertificateForDescribeCACertificatesOutput.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(caCertificateId, caCertificateName, certificateType, createTime, description, domainName, expiredAt, listeners, projectName, status);
+    return Objects.hash(caCertificateId, caCertificateName, certificateType, createTime, description, domainName, expiredAt, listeners, projectName, san, status);
   }
 
 
@@ -291,6 +314,7 @@ public class CACertificateForDescribeCACertificatesOutput {
     sb.append("    expiredAt: ").append(toIndentedString(expiredAt)).append("\n");
     sb.append("    listeners: ").append(toIndentedString(listeners)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    san: ").append(toIndentedString(san)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
     return sb.toString();

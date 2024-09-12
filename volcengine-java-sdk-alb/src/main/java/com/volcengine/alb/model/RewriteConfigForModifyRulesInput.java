@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class RewriteConfigForModifyRulesInput {
   @SerializedName("RewritePath")
   private String rewritePath = null;

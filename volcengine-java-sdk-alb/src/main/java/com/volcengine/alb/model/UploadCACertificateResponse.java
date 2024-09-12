@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class UploadCACertificateResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("CACertificateId")
   private String caCertificateId = null;
