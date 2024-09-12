@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class SetSecurityConfigRequest {
   @SerializedName("SafeAuthExemptDuration")
   private String safeAuthExemptDuration = null;

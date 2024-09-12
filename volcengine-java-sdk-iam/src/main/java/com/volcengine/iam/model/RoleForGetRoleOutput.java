@@ -28,12 +28,22 @@ import javax.validation.Valid;
  */
 
 
+
 public class RoleForGetRoleOutput {
   @SerializedName("CreateDate")
   private String createDate = null;
 
   @SerializedName("Description")
   private String description = null;
+
+  @SerializedName("DisplayName")
+  private String displayName = null;
+
+  @SerializedName("IsServiceLinkedRole")
+  private Integer isServiceLinkedRole = null;
+
+  @SerializedName("MaxSessionDuration")
+  private Integer maxSessionDuration = null;
 
   @SerializedName("RoleId")
   private Integer roleId = null;
@@ -46,6 +56,9 @@ public class RoleForGetRoleOutput {
 
   @SerializedName("TrustPolicyDocument")
   private String trustPolicyDocument = null;
+
+  @SerializedName("UpdateDate")
+  private String updateDate = null;
 
   public RoleForGetRoleOutput createDate(String createDate) {
     this.createDate = createDate;
@@ -81,6 +94,60 @@ public class RoleForGetRoleOutput {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public RoleForGetRoleOutput displayName(String displayName) {
+    this.displayName = displayName;
+    return this;
+  }
+
+   /**
+   * Get displayName
+   * @return displayName
+  **/
+  @Schema(description = "")
+  public String getDisplayName() {
+    return displayName;
+  }
+
+  public void setDisplayName(String displayName) {
+    this.displayName = displayName;
+  }
+
+  public RoleForGetRoleOutput isServiceLinkedRole(Integer isServiceLinkedRole) {
+    this.isServiceLinkedRole = isServiceLinkedRole;
+    return this;
+  }
+
+   /**
+   * Get isServiceLinkedRole
+   * @return isServiceLinkedRole
+  **/
+  @Schema(description = "")
+  public Integer getIsServiceLinkedRole() {
+    return isServiceLinkedRole;
+  }
+
+  public void setIsServiceLinkedRole(Integer isServiceLinkedRole) {
+    this.isServiceLinkedRole = isServiceLinkedRole;
+  }
+
+  public RoleForGetRoleOutput maxSessionDuration(Integer maxSessionDuration) {
+    this.maxSessionDuration = maxSessionDuration;
+    return this;
+  }
+
+   /**
+   * Get maxSessionDuration
+   * @return maxSessionDuration
+  **/
+  @Schema(description = "")
+  public Integer getMaxSessionDuration() {
+    return maxSessionDuration;
+  }
+
+  public void setMaxSessionDuration(Integer maxSessionDuration) {
+    this.maxSessionDuration = maxSessionDuration;
   }
 
   public RoleForGetRoleOutput roleId(Integer roleId) {
@@ -155,6 +222,24 @@ public class RoleForGetRoleOutput {
     this.trustPolicyDocument = trustPolicyDocument;
   }
 
+  public RoleForGetRoleOutput updateDate(String updateDate) {
+    this.updateDate = updateDate;
+    return this;
+  }
+
+   /**
+   * Get updateDate
+   * @return updateDate
+  **/
+  @Schema(description = "")
+  public String getUpdateDate() {
+    return updateDate;
+  }
+
+  public void setUpdateDate(String updateDate) {
+    this.updateDate = updateDate;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -167,15 +252,19 @@ public class RoleForGetRoleOutput {
     RoleForGetRoleOutput roleForGetRoleOutput = (RoleForGetRoleOutput) o;
     return Objects.equals(this.createDate, roleForGetRoleOutput.createDate) &&
         Objects.equals(this.description, roleForGetRoleOutput.description) &&
+        Objects.equals(this.displayName, roleForGetRoleOutput.displayName) &&
+        Objects.equals(this.isServiceLinkedRole, roleForGetRoleOutput.isServiceLinkedRole) &&
+        Objects.equals(this.maxSessionDuration, roleForGetRoleOutput.maxSessionDuration) &&
         Objects.equals(this.roleId, roleForGetRoleOutput.roleId) &&
         Objects.equals(this.roleName, roleForGetRoleOutput.roleName) &&
         Objects.equals(this.trn, roleForGetRoleOutput.trn) &&
-        Objects.equals(this.trustPolicyDocument, roleForGetRoleOutput.trustPolicyDocument);
+        Objects.equals(this.trustPolicyDocument, roleForGetRoleOutput.trustPolicyDocument) &&
+        Objects.equals(this.updateDate, roleForGetRoleOutput.updateDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createDate, description, roleId, roleName, trn, trustPolicyDocument);
+    return Objects.hash(createDate, description, displayName, isServiceLinkedRole, maxSessionDuration, roleId, roleName, trn, trustPolicyDocument, updateDate);
   }
 
 
@@ -186,10 +275,14 @@ public class RoleForGetRoleOutput {
     
     sb.append("    createDate: ").append(toIndentedString(createDate)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
+    sb.append("    isServiceLinkedRole: ").append(toIndentedString(isServiceLinkedRole)).append("\n");
+    sb.append("    maxSessionDuration: ").append(toIndentedString(maxSessionDuration)).append("\n");
     sb.append("    roleId: ").append(toIndentedString(roleId)).append("\n");
     sb.append("    roleName: ").append(toIndentedString(roleName)).append("\n");
     sb.append("    trn: ").append(toIndentedString(trn)).append("\n");
     sb.append("    trustPolicyDocument: ").append(toIndentedString(trustPolicyDocument)).append("\n");
+    sb.append("    updateDate: ").append(toIndentedString(updateDate)).append("\n");
     sb.append("}");
     return sb.toString();
   }

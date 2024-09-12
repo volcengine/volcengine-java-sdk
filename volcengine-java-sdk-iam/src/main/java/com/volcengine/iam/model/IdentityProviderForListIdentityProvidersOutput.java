@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class IdentityProviderForListIdentityProvidersOutput {
   @SerializedName("CreateDate")
   private String createDate = null;

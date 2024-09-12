@@ -31,12 +31,19 @@ import javax.validation.Valid;
  */
 
 
+
 public class PolicyRoleForListEntitiesForPolicyOutput {
   @SerializedName("AttachDate")
   private String attachDate = null;
 
   @SerializedName("Description")
   private String description = null;
+
+  @SerializedName("DisplayName")
+  private String displayName = null;
+
+  @SerializedName("Id")
+  private Integer id = null;
 
   @SerializedName("PolicyScope")
   private List<PolicyScopeForListEntitiesForPolicyOutput> policyScope = null;
@@ -78,6 +85,42 @@ public class PolicyRoleForListEntitiesForPolicyOutput {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public PolicyRoleForListEntitiesForPolicyOutput displayName(String displayName) {
+    this.displayName = displayName;
+    return this;
+  }
+
+   /**
+   * Get displayName
+   * @return displayName
+  **/
+  @Schema(description = "")
+  public String getDisplayName() {
+    return displayName;
+  }
+
+  public void setDisplayName(String displayName) {
+    this.displayName = displayName;
+  }
+
+  public PolicyRoleForListEntitiesForPolicyOutput id(Integer id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Get id
+   * @return id
+  **/
+  @Schema(description = "")
+  public Integer getId() {
+    return id;
+  }
+
+  public void setId(Integer id) {
+    this.id = id;
   }
 
   public PolicyRoleForListEntitiesForPolicyOutput policyScope(List<PolicyScopeForListEntitiesForPolicyOutput> policyScope) {
@@ -137,13 +180,15 @@ public class PolicyRoleForListEntitiesForPolicyOutput {
     PolicyRoleForListEntitiesForPolicyOutput policyRoleForListEntitiesForPolicyOutput = (PolicyRoleForListEntitiesForPolicyOutput) o;
     return Objects.equals(this.attachDate, policyRoleForListEntitiesForPolicyOutput.attachDate) &&
         Objects.equals(this.description, policyRoleForListEntitiesForPolicyOutput.description) &&
+        Objects.equals(this.displayName, policyRoleForListEntitiesForPolicyOutput.displayName) &&
+        Objects.equals(this.id, policyRoleForListEntitiesForPolicyOutput.id) &&
         Objects.equals(this.policyScope, policyRoleForListEntitiesForPolicyOutput.policyScope) &&
         Objects.equals(this.roleName, policyRoleForListEntitiesForPolicyOutput.roleName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attachDate, description, policyScope, roleName);
+    return Objects.hash(attachDate, description, displayName, id, policyScope, roleName);
   }
 
 
@@ -154,6 +199,8 @@ public class PolicyRoleForListEntitiesForPolicyOutput {
     
     sb.append("    attachDate: ").append(toIndentedString(attachDate)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    policyScope: ").append(toIndentedString(policyScope)).append("\n");
     sb.append("    roleName: ").append(toIndentedString(roleName)).append("\n");
     sb.append("}");

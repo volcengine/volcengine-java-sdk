@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class TagForCreateRoleInput {
   @SerializedName("Key")
   private String key = null;

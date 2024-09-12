@@ -24,11 +24,12 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * UserMetadatumForListUsersOutput
+ * UserMetadataForListUsersOutput
  */
 
 
-public class UserMetadatumForListUsersOutput {
+
+public class UserMetadataForListUsersOutput {
   @SerializedName("AccountId")
   private Long accountId = null;
 
@@ -65,7 +66,7 @@ public class UserMetadatumForListUsersOutput {
   @SerializedName("UserName")
   private String userName = null;
 
-  public UserMetadatumForListUsersOutput accountId(Long accountId) {
+  public UserMetadataForListUsersOutput accountId(Long accountId) {
     this.accountId = accountId;
     return this;
   }
@@ -83,7 +84,7 @@ public class UserMetadatumForListUsersOutput {
     this.accountId = accountId;
   }
 
-  public UserMetadatumForListUsersOutput createDate(String createDate) {
+  public UserMetadataForListUsersOutput createDate(String createDate) {
     this.createDate = createDate;
     return this;
   }
@@ -101,7 +102,7 @@ public class UserMetadatumForListUsersOutput {
     this.createDate = createDate;
   }
 
-  public UserMetadatumForListUsersOutput description(String description) {
+  public UserMetadataForListUsersOutput description(String description) {
     this.description = description;
     return this;
   }
@@ -119,7 +120,7 @@ public class UserMetadatumForListUsersOutput {
     this.description = description;
   }
 
-  public UserMetadatumForListUsersOutput displayName(String displayName) {
+  public UserMetadataForListUsersOutput displayName(String displayName) {
     this.displayName = displayName;
     return this;
   }
@@ -137,7 +138,7 @@ public class UserMetadatumForListUsersOutput {
     this.displayName = displayName;
   }
 
-  public UserMetadatumForListUsersOutput email(String email) {
+  public UserMetadataForListUsersOutput email(String email) {
     this.email = email;
     return this;
   }
@@ -155,7 +156,7 @@ public class UserMetadatumForListUsersOutput {
     this.email = email;
   }
 
-  public UserMetadatumForListUsersOutput emailIsVerify(Boolean emailIsVerify) {
+  public UserMetadataForListUsersOutput emailIsVerify(Boolean emailIsVerify) {
     this.emailIsVerify = emailIsVerify;
     return this;
   }
@@ -173,7 +174,7 @@ public class UserMetadatumForListUsersOutput {
     this.emailIsVerify = emailIsVerify;
   }
 
-  public UserMetadatumForListUsersOutput id(Integer id) {
+  public UserMetadataForListUsersOutput id(Integer id) {
     this.id = id;
     return this;
   }
@@ -191,7 +192,7 @@ public class UserMetadatumForListUsersOutput {
     this.id = id;
   }
 
-  public UserMetadatumForListUsersOutput mobilePhone(String mobilePhone) {
+  public UserMetadataForListUsersOutput mobilePhone(String mobilePhone) {
     this.mobilePhone = mobilePhone;
     return this;
   }
@@ -209,7 +210,7 @@ public class UserMetadatumForListUsersOutput {
     this.mobilePhone = mobilePhone;
   }
 
-  public UserMetadatumForListUsersOutput mobilePhoneIsVerify(Boolean mobilePhoneIsVerify) {
+  public UserMetadataForListUsersOutput mobilePhoneIsVerify(Boolean mobilePhoneIsVerify) {
     this.mobilePhoneIsVerify = mobilePhoneIsVerify;
     return this;
   }
@@ -227,7 +228,7 @@ public class UserMetadatumForListUsersOutput {
     this.mobilePhoneIsVerify = mobilePhoneIsVerify;
   }
 
-  public UserMetadatumForListUsersOutput trn(String trn) {
+  public UserMetadataForListUsersOutput trn(String trn) {
     this.trn = trn;
     return this;
   }
@@ -245,7 +246,7 @@ public class UserMetadatumForListUsersOutput {
     this.trn = trn;
   }
 
-  public UserMetadatumForListUsersOutput updateDate(String updateDate) {
+  public UserMetadataForListUsersOutput updateDate(String updateDate) {
     this.updateDate = updateDate;
     return this;
   }
@@ -263,7 +264,7 @@ public class UserMetadatumForListUsersOutput {
     this.updateDate = updateDate;
   }
 
-  public UserMetadatumForListUsersOutput userName(String userName) {
+  public UserMetadataForListUsersOutput userName(String userName) {
     this.userName = userName;
     return this;
   }
@@ -290,19 +291,19 @@ public class UserMetadatumForListUsersOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UserMetadatumForListUsersOutput userMetadatumForListUsersOutput = (UserMetadatumForListUsersOutput) o;
-    return Objects.equals(this.accountId, userMetadatumForListUsersOutput.accountId) &&
-        Objects.equals(this.createDate, userMetadatumForListUsersOutput.createDate) &&
-        Objects.equals(this.description, userMetadatumForListUsersOutput.description) &&
-        Objects.equals(this.displayName, userMetadatumForListUsersOutput.displayName) &&
-        Objects.equals(this.email, userMetadatumForListUsersOutput.email) &&
-        Objects.equals(this.emailIsVerify, userMetadatumForListUsersOutput.emailIsVerify) &&
-        Objects.equals(this.id, userMetadatumForListUsersOutput.id) &&
-        Objects.equals(this.mobilePhone, userMetadatumForListUsersOutput.mobilePhone) &&
-        Objects.equals(this.mobilePhoneIsVerify, userMetadatumForListUsersOutput.mobilePhoneIsVerify) &&
-        Objects.equals(this.trn, userMetadatumForListUsersOutput.trn) &&
-        Objects.equals(this.updateDate, userMetadatumForListUsersOutput.updateDate) &&
-        Objects.equals(this.userName, userMetadatumForListUsersOutput.userName);
+    UserMetadataForListUsersOutput userMetadataForListUsersOutput = (UserMetadataForListUsersOutput) o;
+    return Objects.equals(this.accountId, userMetadataForListUsersOutput.accountId) &&
+        Objects.equals(this.createDate, userMetadataForListUsersOutput.createDate) &&
+        Objects.equals(this.description, userMetadataForListUsersOutput.description) &&
+        Objects.equals(this.displayName, userMetadataForListUsersOutput.displayName) &&
+        Objects.equals(this.email, userMetadataForListUsersOutput.email) &&
+        Objects.equals(this.emailIsVerify, userMetadataForListUsersOutput.emailIsVerify) &&
+        Objects.equals(this.id, userMetadataForListUsersOutput.id) &&
+        Objects.equals(this.mobilePhone, userMetadataForListUsersOutput.mobilePhone) &&
+        Objects.equals(this.mobilePhoneIsVerify, userMetadataForListUsersOutput.mobilePhoneIsVerify) &&
+        Objects.equals(this.trn, userMetadataForListUsersOutput.trn) &&
+        Objects.equals(this.updateDate, userMetadataForListUsersOutput.updateDate) &&
+        Objects.equals(this.userName, userMetadataForListUsersOutput.userName);
   }
 
   @Override
@@ -314,7 +315,7 @@ public class UserMetadatumForListUsersOutput {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UserMetadatumForListUsersOutput {\n");
+    sb.append("class UserMetadataForListUsersOutput {\n");
     
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    createDate: ").append(toIndentedString(createDate)).append("\n");

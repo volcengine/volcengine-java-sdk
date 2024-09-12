@@ -29,6 +29,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateRoleResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Role")
   private RoleForCreateRoleOutput role = null;

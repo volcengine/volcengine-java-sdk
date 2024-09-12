@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class LoginProfileForGetLoginProfileOutput {
   @SerializedName("CreateDate")
   private String createDate = null;
@@ -52,6 +53,21 @@ public class LoginProfileForGetLoginProfileOutput {
 
   @SerializedName("PasswordResetRequired")
   private Boolean passwordResetRequired = null;
+
+  @SerializedName("SafeAuthExemptDuration")
+  private Integer safeAuthExemptDuration = null;
+
+  @SerializedName("SafeAuthExemptRequired")
+  private Integer safeAuthExemptRequired = null;
+
+  @SerializedName("SafeAuthExemptUnit")
+  private Integer safeAuthExemptUnit = null;
+
+  @SerializedName("SafeAuthFlag")
+  private Boolean safeAuthFlag = null;
+
+  @SerializedName("SafeAuthType")
+  private String safeAuthType = null;
 
   @SerializedName("Status")
   private String status = null;
@@ -209,6 +225,96 @@ public class LoginProfileForGetLoginProfileOutput {
     this.passwordResetRequired = passwordResetRequired;
   }
 
+  public LoginProfileForGetLoginProfileOutput safeAuthExemptDuration(Integer safeAuthExemptDuration) {
+    this.safeAuthExemptDuration = safeAuthExemptDuration;
+    return this;
+  }
+
+   /**
+   * Get safeAuthExemptDuration
+   * @return safeAuthExemptDuration
+  **/
+  @Schema(description = "")
+  public Integer getSafeAuthExemptDuration() {
+    return safeAuthExemptDuration;
+  }
+
+  public void setSafeAuthExemptDuration(Integer safeAuthExemptDuration) {
+    this.safeAuthExemptDuration = safeAuthExemptDuration;
+  }
+
+  public LoginProfileForGetLoginProfileOutput safeAuthExemptRequired(Integer safeAuthExemptRequired) {
+    this.safeAuthExemptRequired = safeAuthExemptRequired;
+    return this;
+  }
+
+   /**
+   * Get safeAuthExemptRequired
+   * @return safeAuthExemptRequired
+  **/
+  @Schema(description = "")
+  public Integer getSafeAuthExemptRequired() {
+    return safeAuthExemptRequired;
+  }
+
+  public void setSafeAuthExemptRequired(Integer safeAuthExemptRequired) {
+    this.safeAuthExemptRequired = safeAuthExemptRequired;
+  }
+
+  public LoginProfileForGetLoginProfileOutput safeAuthExemptUnit(Integer safeAuthExemptUnit) {
+    this.safeAuthExemptUnit = safeAuthExemptUnit;
+    return this;
+  }
+
+   /**
+   * Get safeAuthExemptUnit
+   * @return safeAuthExemptUnit
+  **/
+  @Schema(description = "")
+  public Integer getSafeAuthExemptUnit() {
+    return safeAuthExemptUnit;
+  }
+
+  public void setSafeAuthExemptUnit(Integer safeAuthExemptUnit) {
+    this.safeAuthExemptUnit = safeAuthExemptUnit;
+  }
+
+  public LoginProfileForGetLoginProfileOutput safeAuthFlag(Boolean safeAuthFlag) {
+    this.safeAuthFlag = safeAuthFlag;
+    return this;
+  }
+
+   /**
+   * Get safeAuthFlag
+   * @return safeAuthFlag
+  **/
+  @Schema(description = "")
+  public Boolean isSafeAuthFlag() {
+    return safeAuthFlag;
+  }
+
+  public void setSafeAuthFlag(Boolean safeAuthFlag) {
+    this.safeAuthFlag = safeAuthFlag;
+  }
+
+  public LoginProfileForGetLoginProfileOutput safeAuthType(String safeAuthType) {
+    this.safeAuthType = safeAuthType;
+    return this;
+  }
+
+   /**
+   * Get safeAuthType
+   * @return safeAuthType
+  **/
+  @Schema(description = "")
+  public String getSafeAuthType() {
+    return safeAuthType;
+  }
+
+  public void setSafeAuthType(String safeAuthType) {
+    this.safeAuthType = safeAuthType;
+  }
+
   public LoginProfileForGetLoginProfileOutput status(String status) {
     this.status = status;
     return this;
@@ -299,6 +405,11 @@ public class LoginProfileForGetLoginProfileOutput {
         Objects.equals(this.loginLocked, loginProfileForGetLoginProfileOutput.loginLocked) &&
         Objects.equals(this.passwordExpireAt, loginProfileForGetLoginProfileOutput.passwordExpireAt) &&
         Objects.equals(this.passwordResetRequired, loginProfileForGetLoginProfileOutput.passwordResetRequired) &&
+        Objects.equals(this.safeAuthExemptDuration, loginProfileForGetLoginProfileOutput.safeAuthExemptDuration) &&
+        Objects.equals(this.safeAuthExemptRequired, loginProfileForGetLoginProfileOutput.safeAuthExemptRequired) &&
+        Objects.equals(this.safeAuthExemptUnit, loginProfileForGetLoginProfileOutput.safeAuthExemptUnit) &&
+        Objects.equals(this.safeAuthFlag, loginProfileForGetLoginProfileOutput.safeAuthFlag) &&
+        Objects.equals(this.safeAuthType, loginProfileForGetLoginProfileOutput.safeAuthType) &&
         Objects.equals(this.status, loginProfileForGetLoginProfileOutput.status) &&
         Objects.equals(this.updateDate, loginProfileForGetLoginProfileOutput.updateDate) &&
         Objects.equals(this.userId, loginProfileForGetLoginProfileOutput.userId) &&
@@ -307,7 +418,7 @@ public class LoginProfileForGetLoginProfileOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createDate, lastLoginDate, lastLoginIp, lastResetPasswordTime, loginAllowed, loginLocked, passwordExpireAt, passwordResetRequired, status, updateDate, userId, userName);
+    return Objects.hash(createDate, lastLoginDate, lastLoginIp, lastResetPasswordTime, loginAllowed, loginLocked, passwordExpireAt, passwordResetRequired, safeAuthExemptDuration, safeAuthExemptRequired, safeAuthExemptUnit, safeAuthFlag, safeAuthType, status, updateDate, userId, userName);
   }
 
 
@@ -324,6 +435,11 @@ public class LoginProfileForGetLoginProfileOutput {
     sb.append("    loginLocked: ").append(toIndentedString(loginLocked)).append("\n");
     sb.append("    passwordExpireAt: ").append(toIndentedString(passwordExpireAt)).append("\n");
     sb.append("    passwordResetRequired: ").append(toIndentedString(passwordResetRequired)).append("\n");
+    sb.append("    safeAuthExemptDuration: ").append(toIndentedString(safeAuthExemptDuration)).append("\n");
+    sb.append("    safeAuthExemptRequired: ").append(toIndentedString(safeAuthExemptRequired)).append("\n");
+    sb.append("    safeAuthExemptUnit: ").append(toIndentedString(safeAuthExemptUnit)).append("\n");
+    sb.append("    safeAuthFlag: ").append(toIndentedString(safeAuthFlag)).append("\n");
+    sb.append("    safeAuthType: ").append(toIndentedString(safeAuthType)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    updateDate: ").append(toIndentedString(updateDate)).append("\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");

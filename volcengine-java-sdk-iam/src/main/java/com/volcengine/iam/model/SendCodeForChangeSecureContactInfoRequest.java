@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class SendCodeForChangeSecureContactInfoRequest {
   @SerializedName("NewEmail")
   private String newEmail = null;

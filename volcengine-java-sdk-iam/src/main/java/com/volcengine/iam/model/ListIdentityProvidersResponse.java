@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ListIdentityProvidersResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("IdentityProviders")
   private List<IdentityProviderForListIdentityProvidersOutput> identityProviders = null;
