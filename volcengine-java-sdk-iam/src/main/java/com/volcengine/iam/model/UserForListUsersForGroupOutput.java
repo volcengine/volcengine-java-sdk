@@ -28,12 +28,16 @@ import javax.validation.Valid;
  */
 
 
+
 public class UserForListUsersForGroupOutput {
   @SerializedName("Description")
   private String description = null;
 
   @SerializedName("DisplayName")
   private String displayName = null;
+
+  @SerializedName("Id")
+  private Integer id = null;
 
   @SerializedName("JoinDate")
   private String joinDate = null;
@@ -75,6 +79,24 @@ public class UserForListUsersForGroupOutput {
 
   public void setDisplayName(String displayName) {
     this.displayName = displayName;
+  }
+
+  public UserForListUsersForGroupOutput id(Integer id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Get id
+   * @return id
+  **/
+  @Schema(description = "")
+  public Integer getId() {
+    return id;
+  }
+
+  public void setId(Integer id) {
+    this.id = id;
   }
 
   public UserForListUsersForGroupOutput joinDate(String joinDate) {
@@ -125,13 +147,14 @@ public class UserForListUsersForGroupOutput {
     UserForListUsersForGroupOutput userForListUsersForGroupOutput = (UserForListUsersForGroupOutput) o;
     return Objects.equals(this.description, userForListUsersForGroupOutput.description) &&
         Objects.equals(this.displayName, userForListUsersForGroupOutput.displayName) &&
+        Objects.equals(this.id, userForListUsersForGroupOutput.id) &&
         Objects.equals(this.joinDate, userForListUsersForGroupOutput.joinDate) &&
         Objects.equals(this.userName, userForListUsersForGroupOutput.userName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, displayName, joinDate, userName);
+    return Objects.hash(description, displayName, id, joinDate, userName);
   }
 
 
@@ -142,6 +165,7 @@ public class UserForListUsersForGroupOutput {
     
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    joinDate: ").append(toIndentedString(joinDate)).append("\n");
     sb.append("    userName: ").append(toIndentedString(userName)).append("\n");
     sb.append("}");

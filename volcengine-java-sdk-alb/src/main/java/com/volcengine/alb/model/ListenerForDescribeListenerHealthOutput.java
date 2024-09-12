@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ListenerForDescribeListenerHealthOutput {
   @SerializedName("ListenerId")
   private String listenerId = null;

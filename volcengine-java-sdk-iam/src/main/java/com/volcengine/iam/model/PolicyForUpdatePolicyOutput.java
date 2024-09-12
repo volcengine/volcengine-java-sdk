@@ -28,12 +28,22 @@ import javax.validation.Valid;
  */
 
 
+
 public class PolicyForUpdatePolicyOutput {
+  @SerializedName("AttachmentCount")
+  private Integer attachmentCount = null;
+
+  @SerializedName("Category")
+  private String category = null;
+
   @SerializedName("CreateDate")
   private String createDate = null;
 
   @SerializedName("Description")
   private String description = null;
+
+  @SerializedName("IsServiceRolePolicy")
+  private Integer isServiceRolePolicy = null;
 
   @SerializedName("PolicyDocument")
   private String policyDocument = null;
@@ -49,6 +59,42 @@ public class PolicyForUpdatePolicyOutput {
 
   @SerializedName("UpdateDate")
   private String updateDate = null;
+
+  public PolicyForUpdatePolicyOutput attachmentCount(Integer attachmentCount) {
+    this.attachmentCount = attachmentCount;
+    return this;
+  }
+
+   /**
+   * Get attachmentCount
+   * @return attachmentCount
+  **/
+  @Schema(description = "")
+  public Integer getAttachmentCount() {
+    return attachmentCount;
+  }
+
+  public void setAttachmentCount(Integer attachmentCount) {
+    this.attachmentCount = attachmentCount;
+  }
+
+  public PolicyForUpdatePolicyOutput category(String category) {
+    this.category = category;
+    return this;
+  }
+
+   /**
+   * Get category
+   * @return category
+  **/
+  @Schema(description = "")
+  public String getCategory() {
+    return category;
+  }
+
+  public void setCategory(String category) {
+    this.category = category;
+  }
 
   public PolicyForUpdatePolicyOutput createDate(String createDate) {
     this.createDate = createDate;
@@ -84,6 +130,24 @@ public class PolicyForUpdatePolicyOutput {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public PolicyForUpdatePolicyOutput isServiceRolePolicy(Integer isServiceRolePolicy) {
+    this.isServiceRolePolicy = isServiceRolePolicy;
+    return this;
+  }
+
+   /**
+   * Get isServiceRolePolicy
+   * @return isServiceRolePolicy
+  **/
+  @Schema(description = "")
+  public Integer getIsServiceRolePolicy() {
+    return isServiceRolePolicy;
+  }
+
+  public void setIsServiceRolePolicy(Integer isServiceRolePolicy) {
+    this.isServiceRolePolicy = isServiceRolePolicy;
   }
 
   public PolicyForUpdatePolicyOutput policyDocument(String policyDocument) {
@@ -186,8 +250,11 @@ public class PolicyForUpdatePolicyOutput {
       return false;
     }
     PolicyForUpdatePolicyOutput policyForUpdatePolicyOutput = (PolicyForUpdatePolicyOutput) o;
-    return Objects.equals(this.createDate, policyForUpdatePolicyOutput.createDate) &&
+    return Objects.equals(this.attachmentCount, policyForUpdatePolicyOutput.attachmentCount) &&
+        Objects.equals(this.category, policyForUpdatePolicyOutput.category) &&
+        Objects.equals(this.createDate, policyForUpdatePolicyOutput.createDate) &&
         Objects.equals(this.description, policyForUpdatePolicyOutput.description) &&
+        Objects.equals(this.isServiceRolePolicy, policyForUpdatePolicyOutput.isServiceRolePolicy) &&
         Objects.equals(this.policyDocument, policyForUpdatePolicyOutput.policyDocument) &&
         Objects.equals(this.policyName, policyForUpdatePolicyOutput.policyName) &&
         Objects.equals(this.policyTrn, policyForUpdatePolicyOutput.policyTrn) &&
@@ -197,7 +264,7 @@ public class PolicyForUpdatePolicyOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createDate, description, policyDocument, policyName, policyTrn, policyType, updateDate);
+    return Objects.hash(attachmentCount, category, createDate, description, isServiceRolePolicy, policyDocument, policyName, policyTrn, policyType, updateDate);
   }
 
 
@@ -206,8 +273,11 @@ public class PolicyForUpdatePolicyOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class PolicyForUpdatePolicyOutput {\n");
     
+    sb.append("    attachmentCount: ").append(toIndentedString(attachmentCount)).append("\n");
+    sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    createDate: ").append(toIndentedString(createDate)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    isServiceRolePolicy: ").append(toIndentedString(isServiceRolePolicy)).append("\n");
     sb.append("    policyDocument: ").append(toIndentedString(policyDocument)).append("\n");
     sb.append("    policyName: ").append(toIndentedString(policyName)).append("\n");
     sb.append("    policyTrn: ").append(toIndentedString(policyTrn)).append("\n");

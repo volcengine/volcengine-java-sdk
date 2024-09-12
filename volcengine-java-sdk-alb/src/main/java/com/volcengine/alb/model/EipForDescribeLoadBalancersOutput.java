@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class EipForDescribeLoadBalancersOutput {
   @SerializedName("AssociationMode")
   private String associationMode = null;

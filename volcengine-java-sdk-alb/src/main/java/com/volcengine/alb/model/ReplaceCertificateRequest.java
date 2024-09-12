@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ReplaceCertificateRequest {
   @SerializedName("CertCenterCertificateId")
   private String certCenterCertificateId = null;

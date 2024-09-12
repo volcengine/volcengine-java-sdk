@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class HealthLogForDescribeLoadBalancerAttributesOutput {
   @SerializedName("Enabled")
   private Boolean enabled = null;

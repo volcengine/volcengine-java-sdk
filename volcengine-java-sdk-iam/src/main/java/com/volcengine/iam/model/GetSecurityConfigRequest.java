@@ -28,30 +28,10 @@ import javax.validation.Valid;
  */
 
 
-public class GetSecurityConfigRequest {
-  @SerializedName("Origin")
-  private String origin = null;
 
+public class GetSecurityConfigRequest {
   @SerializedName("UserName")
   private String userName = null;
-
-  public GetSecurityConfigRequest origin(String origin) {
-    this.origin = origin;
-    return this;
-  }
-
-   /**
-   * Get origin
-   * @return origin
-  **/
-  @Schema(description = "")
-  public String getOrigin() {
-    return origin;
-  }
-
-  public void setOrigin(String origin) {
-    this.origin = origin;
-  }
 
   public GetSecurityConfigRequest userName(String userName) {
     this.userName = userName;
@@ -82,13 +62,12 @@ public class GetSecurityConfigRequest {
       return false;
     }
     GetSecurityConfigRequest getSecurityConfigRequest = (GetSecurityConfigRequest) o;
-    return Objects.equals(this.origin, getSecurityConfigRequest.origin) &&
-        Objects.equals(this.userName, getSecurityConfigRequest.userName);
+    return Objects.equals(this.userName, getSecurityConfigRequest.userName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(origin, userName);
+    return Objects.hash(userName);
   }
 
 
@@ -97,7 +76,6 @@ public class GetSecurityConfigRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetSecurityConfigRequest {\n");
     
-    sb.append("    origin: ").append(toIndentedString(origin)).append("\n");
     sb.append("    userName: ").append(toIndentedString(userName)).append("\n");
     sb.append("}");
     return sb.toString();

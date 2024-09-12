@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.iam.model.TagForCreateServiceLinkedRoleInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -28,9 +31,13 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateServiceLinkedRoleRequest {
   @SerializedName("ServiceName")
   private String serviceName = null;
+
+  @SerializedName("Tags")
+  private List<TagForCreateServiceLinkedRoleInput> tags = null;
 
   public CreateServiceLinkedRoleRequest serviceName(String serviceName) {
     this.serviceName = serviceName;
@@ -51,6 +58,33 @@ public class CreateServiceLinkedRoleRequest {
     this.serviceName = serviceName;
   }
 
+  public CreateServiceLinkedRoleRequest tags(List<TagForCreateServiceLinkedRoleInput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public CreateServiceLinkedRoleRequest addTagsItem(TagForCreateServiceLinkedRoleInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForCreateServiceLinkedRoleInput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForCreateServiceLinkedRoleInput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForCreateServiceLinkedRoleInput> tags) {
+    this.tags = tags;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -61,12 +95,13 @@ public class CreateServiceLinkedRoleRequest {
       return false;
     }
     CreateServiceLinkedRoleRequest createServiceLinkedRoleRequest = (CreateServiceLinkedRoleRequest) o;
-    return Objects.equals(this.serviceName, createServiceLinkedRoleRequest.serviceName);
+    return Objects.equals(this.serviceName, createServiceLinkedRoleRequest.serviceName) &&
+        Objects.equals(this.tags, createServiceLinkedRoleRequest.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(serviceName);
+    return Objects.hash(serviceName, tags);
   }
 
 
@@ -76,6 +111,7 @@ public class CreateServiceLinkedRoleRequest {
     sb.append("class CreateServiceLinkedRoleRequest {\n");
     
     sb.append("    serviceName: ").append(toIndentedString(serviceName)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }

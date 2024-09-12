@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DeleteSAMLProviderRequest {
   @SerializedName("SAMLProviderName")
   private String saMLProviderName = null;

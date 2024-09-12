@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ZoneMappingForDescribeLoadBalancerAttributesOutput {
   @SerializedName("LoadBalancerAddresses")
   private List<LoadBalancerAddressForDescribeLoadBalancerAttributesOutput> loadBalancerAddresses = null;

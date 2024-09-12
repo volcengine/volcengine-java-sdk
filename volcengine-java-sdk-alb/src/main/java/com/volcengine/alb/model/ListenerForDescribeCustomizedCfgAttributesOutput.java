@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ListenerForDescribeCustomizedCfgAttributesOutput {
   @SerializedName("ListenerId")
   private String listenerId = null;

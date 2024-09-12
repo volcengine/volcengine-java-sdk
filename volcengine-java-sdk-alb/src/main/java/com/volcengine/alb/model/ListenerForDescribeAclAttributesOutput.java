@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ListenerForDescribeAclAttributesOutput {
   @SerializedName("AclType")
   private String aclType = null;

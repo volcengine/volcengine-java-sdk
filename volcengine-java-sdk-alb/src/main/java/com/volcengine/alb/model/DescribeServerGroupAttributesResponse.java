@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import com.volcengine.alb.model.HealthCheckForDescribeServerGroupAttributesOutput;
 import com.volcengine.alb.model.ServerForDescribeServerGroupAttributesOutput;
 import com.volcengine.alb.model.StickySessionConfigForDescribeServerGroupAttributesOutput;
+import com.volcengine.alb.model.TagForDescribeServerGroupAttributesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -31,6 +32,7 @@ import javax.validation.Valid;
 /**
  * DescribeServerGroupAttributesResponse
  */
+
 
 
 public class DescribeServerGroupAttributesResponse extends com.volcengine.model.AbstractResponse {
@@ -69,6 +71,9 @@ public class DescribeServerGroupAttributesResponse extends com.volcengine.model.
 
   @SerializedName("StickySessionConfig")
   private StickySessionConfigForDescribeServerGroupAttributesOutput stickySessionConfig = null;
+
+  @SerializedName("Tags")
+  private List<TagForDescribeServerGroupAttributesOutput> tags = null;
 
   @SerializedName("VpcId")
   private String vpcId = null;
@@ -308,6 +313,33 @@ public class DescribeServerGroupAttributesResponse extends com.volcengine.model.
     this.stickySessionConfig = stickySessionConfig;
   }
 
+  public DescribeServerGroupAttributesResponse tags(List<TagForDescribeServerGroupAttributesOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public DescribeServerGroupAttributesResponse addTagsItem(TagForDescribeServerGroupAttributesOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForDescribeServerGroupAttributesOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForDescribeServerGroupAttributesOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForDescribeServerGroupAttributesOutput> tags) {
+    this.tags = tags;
+  }
+
   public DescribeServerGroupAttributesResponse vpcId(String vpcId) {
     this.vpcId = vpcId;
     return this;
@@ -348,12 +380,13 @@ public class DescribeServerGroupAttributesResponse extends com.volcengine.model.
         Objects.equals(this.servers, describeServerGroupAttributesResponse.servers) &&
         Objects.equals(this.status, describeServerGroupAttributesResponse.status) &&
         Objects.equals(this.stickySessionConfig, describeServerGroupAttributesResponse.stickySessionConfig) &&
+        Objects.equals(this.tags, describeServerGroupAttributesResponse.tags) &&
         Objects.equals(this.vpcId, describeServerGroupAttributesResponse.vpcId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, healthCheck, listeners, projectName, requestId, scheduler, serverGroupId, serverGroupName, serverGroupType, servers, status, stickySessionConfig, vpcId);
+    return Objects.hash(description, healthCheck, listeners, projectName, requestId, scheduler, serverGroupId, serverGroupName, serverGroupType, servers, status, stickySessionConfig, tags, vpcId);
   }
 
 
@@ -374,6 +407,7 @@ public class DescribeServerGroupAttributesResponse extends com.volcengine.model.
     sb.append("    servers: ").append(toIndentedString(servers)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    stickySessionConfig: ").append(toIndentedString(stickySessionConfig)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("}");
     return sb.toString();

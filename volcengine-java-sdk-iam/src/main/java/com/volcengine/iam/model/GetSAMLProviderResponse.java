@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class GetSAMLProviderResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("CertificateExpireTime")
   private String certificateExpireTime = null;

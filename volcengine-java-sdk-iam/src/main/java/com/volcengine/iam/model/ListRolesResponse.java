@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.iam.model.RoleMetadatumForListRolesOutput;
+import com.volcengine.iam.model.RoleMetadataForListRolesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ListRolesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Limit")
   private Integer limit = null;
@@ -39,7 +40,7 @@ public class ListRolesResponse extends com.volcengine.model.AbstractResponse {
   private Integer offset = null;
 
   @SerializedName("RoleMetadata")
-  private List<RoleMetadatumForListRolesOutput> roleMetadata = null;
+  private List<RoleMetadataForListRolesOutput> roleMetadata = null;
 
   @SerializedName("Total")
   private Integer total = null;
@@ -80,14 +81,14 @@ public class ListRolesResponse extends com.volcengine.model.AbstractResponse {
     this.offset = offset;
   }
 
-  public ListRolesResponse roleMetadata(List<RoleMetadatumForListRolesOutput> roleMetadata) {
+  public ListRolesResponse roleMetadata(List<RoleMetadataForListRolesOutput> roleMetadata) {
     this.roleMetadata = roleMetadata;
     return this;
   }
 
-  public ListRolesResponse addRoleMetadataItem(RoleMetadatumForListRolesOutput roleMetadataItem) {
+  public ListRolesResponse addRoleMetadataItem(RoleMetadataForListRolesOutput roleMetadataItem) {
     if (this.roleMetadata == null) {
-      this.roleMetadata = new ArrayList<RoleMetadatumForListRolesOutput>();
+      this.roleMetadata = new ArrayList<RoleMetadataForListRolesOutput>();
     }
     this.roleMetadata.add(roleMetadataItem);
     return this;
@@ -99,11 +100,11 @@ public class ListRolesResponse extends com.volcengine.model.AbstractResponse {
   **/
   @Valid
   @Schema(description = "")
-  public List<RoleMetadatumForListRolesOutput> getRoleMetadata() {
+  public List<RoleMetadataForListRolesOutput> getRoleMetadata() {
     return roleMetadata;
   }
 
-  public void setRoleMetadata(List<RoleMetadatumForListRolesOutput> roleMetadata) {
+  public void setRoleMetadata(List<RoleMetadataForListRolesOutput> roleMetadata) {
     this.roleMetadata = roleMetadata;
   }
 

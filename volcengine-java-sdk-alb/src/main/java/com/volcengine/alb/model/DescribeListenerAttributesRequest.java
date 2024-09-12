@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeListenerAttributesRequest {
   @SerializedName("ListenerId")
   private String listenerId = null;

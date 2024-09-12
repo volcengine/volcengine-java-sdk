@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.alb.model.DomainExtensionForDescribeListenersOutput;
 import com.volcengine.alb.model.ServerGroupForDescribeListenersOutput;
+import com.volcengine.alb.model.TagForDescribeListenersOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -30,6 +31,7 @@ import javax.validation.Valid;
 /**
  * ListenerForDescribeListenersOutput
  */
+
 
 
 public class ListenerForDescribeListenersOutput {
@@ -53,6 +55,9 @@ public class ListenerForDescribeListenersOutput {
 
   @SerializedName("CertificateSource")
   private String certificateSource = null;
+
+  @SerializedName("ClientAddressTransmissionProtocol")
+  private String clientAddressTransmissionProtocol = null;
 
   @SerializedName("CreateTime")
   private String createTime = null;
@@ -104,6 +109,9 @@ public class ListenerForDescribeListenersOutput {
 
   @SerializedName("Status")
   private String status = null;
+
+  @SerializedName("Tags")
+  private List<TagForDescribeListenersOutput> tags = null;
 
   @SerializedName("UpdateTime")
   private String updateTime = null;
@@ -240,6 +248,24 @@ public class ListenerForDescribeListenersOutput {
 
   public void setCertificateSource(String certificateSource) {
     this.certificateSource = certificateSource;
+  }
+
+  public ListenerForDescribeListenersOutput clientAddressTransmissionProtocol(String clientAddressTransmissionProtocol) {
+    this.clientAddressTransmissionProtocol = clientAddressTransmissionProtocol;
+    return this;
+  }
+
+   /**
+   * Get clientAddressTransmissionProtocol
+   * @return clientAddressTransmissionProtocol
+  **/
+  @Schema(description = "")
+  public String getClientAddressTransmissionProtocol() {
+    return clientAddressTransmissionProtocol;
+  }
+
+  public void setClientAddressTransmissionProtocol(String clientAddressTransmissionProtocol) {
+    this.clientAddressTransmissionProtocol = clientAddressTransmissionProtocol;
   }
 
   public ListenerForDescribeListenersOutput createTime(String createTime) {
@@ -566,6 +592,33 @@ public class ListenerForDescribeListenersOutput {
     this.status = status;
   }
 
+  public ListenerForDescribeListenersOutput tags(List<TagForDescribeListenersOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public ListenerForDescribeListenersOutput addTagsItem(TagForDescribeListenersOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForDescribeListenersOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForDescribeListenersOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForDescribeListenersOutput> tags) {
+    this.tags = tags;
+  }
+
   public ListenerForDescribeListenersOutput updateTime(String updateTime) {
     this.updateTime = updateTime;
     return this;
@@ -601,6 +654,7 @@ public class ListenerForDescribeListenersOutput {
         Objects.equals(this.certCenterCertificateId, listenerForDescribeListenersOutput.certCenterCertificateId) &&
         Objects.equals(this.certificateId, listenerForDescribeListenersOutput.certificateId) &&
         Objects.equals(this.certificateSource, listenerForDescribeListenersOutput.certificateSource) &&
+        Objects.equals(this.clientAddressTransmissionProtocol, listenerForDescribeListenersOutput.clientAddressTransmissionProtocol) &&
         Objects.equals(this.createTime, listenerForDescribeListenersOutput.createTime) &&
         Objects.equals(this.customizedCfgId, listenerForDescribeListenersOutput.customizedCfgId) &&
         Objects.equals(this.description, listenerForDescribeListenersOutput.description) &&
@@ -618,12 +672,13 @@ public class ListenerForDescribeListenersOutput {
         Objects.equals(this.serverGroupId, listenerForDescribeListenersOutput.serverGroupId) &&
         Objects.equals(this.serverGroups, listenerForDescribeListenersOutput.serverGroups) &&
         Objects.equals(this.status, listenerForDescribeListenersOutput.status) &&
+        Objects.equals(this.tags, listenerForDescribeListenersOutput.tags) &&
         Objects.equals(this.updateTime, listenerForDescribeListenersOutput.updateTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclIds, aclStatus, aclType, caCertificateId, certCenterCertificateId, certificateId, certificateSource, createTime, customizedCfgId, description, domainExtensions, enableHttp2, enableQuic, enabled, listenerId, listenerName, loadBalancerId, port, projectName, protocol, proxyProtocolDisabled, serverGroupId, serverGroups, status, updateTime);
+    return Objects.hash(aclIds, aclStatus, aclType, caCertificateId, certCenterCertificateId, certificateId, certificateSource, clientAddressTransmissionProtocol, createTime, customizedCfgId, description, domainExtensions, enableHttp2, enableQuic, enabled, listenerId, listenerName, loadBalancerId, port, projectName, protocol, proxyProtocolDisabled, serverGroupId, serverGroups, status, tags, updateTime);
   }
 
 
@@ -639,6 +694,7 @@ public class ListenerForDescribeListenersOutput {
     sb.append("    certCenterCertificateId: ").append(toIndentedString(certCenterCertificateId)).append("\n");
     sb.append("    certificateId: ").append(toIndentedString(certificateId)).append("\n");
     sb.append("    certificateSource: ").append(toIndentedString(certificateSource)).append("\n");
+    sb.append("    clientAddressTransmissionProtocol: ").append(toIndentedString(clientAddressTransmissionProtocol)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    customizedCfgId: ").append(toIndentedString(customizedCfgId)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
@@ -656,6 +712,7 @@ public class ListenerForDescribeListenersOutput {
     sb.append("    serverGroupId: ").append(toIndentedString(serverGroupId)).append("\n");
     sb.append("    serverGroups: ").append(toIndentedString(serverGroups)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("}");
     return sb.toString();

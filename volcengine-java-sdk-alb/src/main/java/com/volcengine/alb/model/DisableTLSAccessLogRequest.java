@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DisableTLSAccessLogRequest {
   @SerializedName("LoadBalancerId")
   private String loadBalancerId = null;

@@ -28,12 +28,16 @@ import javax.validation.Valid;
  */
 
 
+
 public class UpdateRoleRequest {
   @SerializedName("Description")
   private String description = null;
 
   @SerializedName("DisplayName")
   private String displayName = null;
+
+  @SerializedName("MaxSessionDuration")
+  private Integer maxSessionDuration = null;
 
   @SerializedName("NewRoleName")
   private String newRoleName = null;
@@ -78,6 +82,24 @@ public class UpdateRoleRequest {
 
   public void setDisplayName(String displayName) {
     this.displayName = displayName;
+  }
+
+  public UpdateRoleRequest maxSessionDuration(Integer maxSessionDuration) {
+    this.maxSessionDuration = maxSessionDuration;
+    return this;
+  }
+
+   /**
+   * Get maxSessionDuration
+   * @return maxSessionDuration
+  **/
+  @Schema(description = "")
+  public Integer getMaxSessionDuration() {
+    return maxSessionDuration;
+  }
+
+  public void setMaxSessionDuration(Integer maxSessionDuration) {
+    this.maxSessionDuration = maxSessionDuration;
   }
 
   public UpdateRoleRequest newRoleName(String newRoleName) {
@@ -148,6 +170,7 @@ public class UpdateRoleRequest {
     UpdateRoleRequest updateRoleRequest = (UpdateRoleRequest) o;
     return Objects.equals(this.description, updateRoleRequest.description) &&
         Objects.equals(this.displayName, updateRoleRequest.displayName) &&
+        Objects.equals(this.maxSessionDuration, updateRoleRequest.maxSessionDuration) &&
         Objects.equals(this.newRoleName, updateRoleRequest.newRoleName) &&
         Objects.equals(this.roleName, updateRoleRequest.roleName) &&
         Objects.equals(this.trustPolicyDocument, updateRoleRequest.trustPolicyDocument);
@@ -155,7 +178,7 @@ public class UpdateRoleRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, displayName, newRoleName, roleName, trustPolicyDocument);
+    return Objects.hash(description, displayName, maxSessionDuration, newRoleName, roleName, trustPolicyDocument);
   }
 
 
@@ -166,6 +189,7 @@ public class UpdateRoleRequest {
     
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
+    sb.append("    maxSessionDuration: ").append(toIndentedString(maxSessionDuration)).append("\n");
     sb.append("    newRoleName: ").append(toIndentedString(newRoleName)).append("\n");
     sb.append("    roleName: ").append(toIndentedString(roleName)).append("\n");
     sb.append("    trustPolicyDocument: ").append(toIndentedString(trustPolicyDocument)).append("\n");

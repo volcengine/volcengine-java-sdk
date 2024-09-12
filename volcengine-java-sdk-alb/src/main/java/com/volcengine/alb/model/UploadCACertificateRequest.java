@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class UploadCACertificateRequest {
   @SerializedName("CACertificate")
   private String caCertificate = null;

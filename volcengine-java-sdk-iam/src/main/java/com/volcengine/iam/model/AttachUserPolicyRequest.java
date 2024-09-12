@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class AttachUserPolicyRequest {
   @SerializedName("PolicyName")
   private String policyName = null;
@@ -37,7 +38,9 @@ public class AttachUserPolicyRequest {
    */
   @JsonAdapter(PolicyTypeEnum.Adapter.class)
   public enum PolicyTypeEnum {
+    @SerializedName("System")
     SYSTEM("System"),
+    @SerializedName("Custom")
     CUSTOM("Custom");
 
     private String value;

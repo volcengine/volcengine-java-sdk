@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class SAMLProviderForListSAMLProvidersOutput {
   @SerializedName("CreateDate")
   private String createDate = null;

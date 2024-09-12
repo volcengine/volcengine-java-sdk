@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeCustomizedCfgsRequest {
   @SerializedName("CustomizedCfgIds")
   private List<String> customizedCfgIds = null;

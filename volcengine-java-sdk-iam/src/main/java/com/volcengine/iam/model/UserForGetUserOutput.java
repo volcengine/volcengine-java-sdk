@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class UserForGetUserOutput {
   @SerializedName("AccountId")
   private Long accountId = null;

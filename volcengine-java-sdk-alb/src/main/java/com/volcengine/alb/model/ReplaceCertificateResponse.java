@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ReplaceCertificateResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("CertificateId")
   private String certificateId = null;

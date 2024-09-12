@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class GetLoginProfileRequest {
   @SerializedName("UserName")
   private String userName = null;

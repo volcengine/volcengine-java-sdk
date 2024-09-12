@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class GetGroupRequest {
   @SerializedName("UserGroupName")
   private String userGroupName = null;

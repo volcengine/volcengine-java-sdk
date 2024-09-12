@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class PolicyUserForListEntitiesForPolicyOutput {
   @SerializedName("AttachDate")
   private String attachDate = null;
@@ -40,6 +41,9 @@ public class PolicyUserForListEntitiesForPolicyOutput {
 
   @SerializedName("DisplayName")
   private String displayName = null;
+
+  @SerializedName("Id")
+  private Integer id = null;
 
   @SerializedName("PolicyScope")
   private List<PolicyScopeForListEntitiesForPolicyOutput> policyScope = null;
@@ -101,6 +105,24 @@ public class PolicyUserForListEntitiesForPolicyOutput {
     this.displayName = displayName;
   }
 
+  public PolicyUserForListEntitiesForPolicyOutput id(Integer id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Get id
+   * @return id
+  **/
+  @Schema(description = "")
+  public Integer getId() {
+    return id;
+  }
+
+  public void setId(Integer id) {
+    this.id = id;
+  }
+
   public PolicyUserForListEntitiesForPolicyOutput policyScope(List<PolicyScopeForListEntitiesForPolicyOutput> policyScope) {
     this.policyScope = policyScope;
     return this;
@@ -159,13 +181,14 @@ public class PolicyUserForListEntitiesForPolicyOutput {
     return Objects.equals(this.attachDate, policyUserForListEntitiesForPolicyOutput.attachDate) &&
         Objects.equals(this.description, policyUserForListEntitiesForPolicyOutput.description) &&
         Objects.equals(this.displayName, policyUserForListEntitiesForPolicyOutput.displayName) &&
+        Objects.equals(this.id, policyUserForListEntitiesForPolicyOutput.id) &&
         Objects.equals(this.policyScope, policyUserForListEntitiesForPolicyOutput.policyScope) &&
         Objects.equals(this.userName, policyUserForListEntitiesForPolicyOutput.userName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attachDate, description, displayName, policyScope, userName);
+    return Objects.hash(attachDate, description, displayName, id, policyScope, userName);
   }
 
 
@@ -177,6 +200,7 @@ public class PolicyUserForListEntitiesForPolicyOutput {
     sb.append("    attachDate: ").append(toIndentedString(attachDate)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    policyScope: ").append(toIndentedString(policyScope)).append("\n");
     sb.append("    userName: ").append(toIndentedString(userName)).append("\n");
     sb.append("}");

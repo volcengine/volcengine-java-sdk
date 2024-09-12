@@ -29,6 +29,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class GetLoginProfileResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("LoginProfile")
   private LoginProfileForGetLoginProfileOutput loginProfile = null;

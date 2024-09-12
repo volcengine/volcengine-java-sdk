@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class LoadBalancerAddressForDescribeLoadBalancerAttributesOutput {
   @SerializedName("Eip")
   private EipForDescribeLoadBalancerAttributesOutput eip = null;
