@@ -24,12 +24,12 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * PolicyScopeForListEntitiesForPolicyOutput
+ * PolicyScopeForListAttachedUserGroupPoliciesOutput
  */
 
 
 
-public class PolicyScopeForListEntitiesForPolicyOutput {
+public class PolicyScopeForListAttachedUserGroupPoliciesOutput {
   @SerializedName("AttachDate")
   private String attachDate = null;
 
@@ -42,7 +42,7 @@ public class PolicyScopeForListEntitiesForPolicyOutput {
   @SerializedName("ProjectName")
   private String projectName = null;
 
-  public PolicyScopeForListEntitiesForPolicyOutput attachDate(String attachDate) {
+  public PolicyScopeForListAttachedUserGroupPoliciesOutput attachDate(String attachDate) {
     this.attachDate = attachDate;
     return this;
   }
@@ -60,7 +60,7 @@ public class PolicyScopeForListEntitiesForPolicyOutput {
     this.attachDate = attachDate;
   }
 
-  public PolicyScopeForListEntitiesForPolicyOutput policyScopeType(String policyScopeType) {
+  public PolicyScopeForListAttachedUserGroupPoliciesOutput policyScopeType(String policyScopeType) {
     this.policyScopeType = policyScopeType;
     return this;
   }
@@ -78,7 +78,7 @@ public class PolicyScopeForListEntitiesForPolicyOutput {
     this.policyScopeType = policyScopeType;
   }
 
-  public PolicyScopeForListEntitiesForPolicyOutput projectDisplayName(String projectDisplayName) {
+  public PolicyScopeForListAttachedUserGroupPoliciesOutput projectDisplayName(String projectDisplayName) {
     this.projectDisplayName = projectDisplayName;
     return this;
   }
@@ -96,7 +96,7 @@ public class PolicyScopeForListEntitiesForPolicyOutput {
     this.projectDisplayName = projectDisplayName;
   }
 
-  public PolicyScopeForListEntitiesForPolicyOutput projectName(String projectName) {
+  public PolicyScopeForListAttachedUserGroupPoliciesOutput projectName(String projectName) {
     this.projectName = projectName;
     return this;
   }
@@ -123,11 +123,11 @@ public class PolicyScopeForListEntitiesForPolicyOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PolicyScopeForListEntitiesForPolicyOutput policyScopeForListEntitiesForPolicyOutput = (PolicyScopeForListEntitiesForPolicyOutput) o;
-    return Objects.equals(this.attachDate, policyScopeForListEntitiesForPolicyOutput.attachDate) &&
-        Objects.equals(this.policyScopeType, policyScopeForListEntitiesForPolicyOutput.policyScopeType) &&
-        Objects.equals(this.projectDisplayName, policyScopeForListEntitiesForPolicyOutput.projectDisplayName) &&
-        Objects.equals(this.projectName, policyScopeForListEntitiesForPolicyOutput.projectName);
+    PolicyScopeForListAttachedUserGroupPoliciesOutput policyScopeForListAttachedUserGroupPoliciesOutput = (PolicyScopeForListAttachedUserGroupPoliciesOutput) o;
+    return Objects.equals(this.attachDate, policyScopeForListAttachedUserGroupPoliciesOutput.attachDate) &&
+        Objects.equals(this.policyScopeType, policyScopeForListAttachedUserGroupPoliciesOutput.policyScopeType) &&
+        Objects.equals(this.projectDisplayName, policyScopeForListAttachedUserGroupPoliciesOutput.projectDisplayName) &&
+        Objects.equals(this.projectName, policyScopeForListAttachedUserGroupPoliciesOutput.projectName);
   }
 
   @Override
@@ -139,7 +139,7 @@ public class PolicyScopeForListEntitiesForPolicyOutput {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PolicyScopeForListEntitiesForPolicyOutput {\n");
+    sb.append("class PolicyScopeForListAttachedUserGroupPoliciesOutput {\n");
     
     sb.append("    attachDate: ").append(toIndentedString(attachDate)).append("\n");
     sb.append("    policyScopeType: ").append(toIndentedString(policyScopeType)).append("\n");

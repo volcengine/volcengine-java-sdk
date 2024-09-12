@@ -24,12 +24,12 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * RoleForGetRoleOutput
+ * RoleMetadataForListRolesOutput
  */
 
 
 
-public class RoleForGetRoleOutput {
+public class RoleMetadataForListRolesOutput {
   @SerializedName("CreateDate")
   private String createDate = null;
 
@@ -60,7 +60,7 @@ public class RoleForGetRoleOutput {
   @SerializedName("UpdateDate")
   private String updateDate = null;
 
-  public RoleForGetRoleOutput createDate(String createDate) {
+  public RoleMetadataForListRolesOutput createDate(String createDate) {
     this.createDate = createDate;
     return this;
   }
@@ -78,7 +78,7 @@ public class RoleForGetRoleOutput {
     this.createDate = createDate;
   }
 
-  public RoleForGetRoleOutput description(String description) {
+  public RoleMetadataForListRolesOutput description(String description) {
     this.description = description;
     return this;
   }
@@ -96,7 +96,7 @@ public class RoleForGetRoleOutput {
     this.description = description;
   }
 
-  public RoleForGetRoleOutput displayName(String displayName) {
+  public RoleMetadataForListRolesOutput displayName(String displayName) {
     this.displayName = displayName;
     return this;
   }
@@ -114,7 +114,7 @@ public class RoleForGetRoleOutput {
     this.displayName = displayName;
   }
 
-  public RoleForGetRoleOutput isServiceLinkedRole(Integer isServiceLinkedRole) {
+  public RoleMetadataForListRolesOutput isServiceLinkedRole(Integer isServiceLinkedRole) {
     this.isServiceLinkedRole = isServiceLinkedRole;
     return this;
   }
@@ -132,7 +132,7 @@ public class RoleForGetRoleOutput {
     this.isServiceLinkedRole = isServiceLinkedRole;
   }
 
-  public RoleForGetRoleOutput maxSessionDuration(Integer maxSessionDuration) {
+  public RoleMetadataForListRolesOutput maxSessionDuration(Integer maxSessionDuration) {
     this.maxSessionDuration = maxSessionDuration;
     return this;
   }
@@ -150,7 +150,7 @@ public class RoleForGetRoleOutput {
     this.maxSessionDuration = maxSessionDuration;
   }
 
-  public RoleForGetRoleOutput roleId(Integer roleId) {
+  public RoleMetadataForListRolesOutput roleId(Integer roleId) {
     this.roleId = roleId;
     return this;
   }
@@ -168,7 +168,7 @@ public class RoleForGetRoleOutput {
     this.roleId = roleId;
   }
 
-  public RoleForGetRoleOutput roleName(String roleName) {
+  public RoleMetadataForListRolesOutput roleName(String roleName) {
     this.roleName = roleName;
     return this;
   }
@@ -186,7 +186,7 @@ public class RoleForGetRoleOutput {
     this.roleName = roleName;
   }
 
-  public RoleForGetRoleOutput trn(String trn) {
+  public RoleMetadataForListRolesOutput trn(String trn) {
     this.trn = trn;
     return this;
   }
@@ -204,7 +204,7 @@ public class RoleForGetRoleOutput {
     this.trn = trn;
   }
 
-  public RoleForGetRoleOutput trustPolicyDocument(String trustPolicyDocument) {
+  public RoleMetadataForListRolesOutput trustPolicyDocument(String trustPolicyDocument) {
     this.trustPolicyDocument = trustPolicyDocument;
     return this;
   }
@@ -222,7 +222,7 @@ public class RoleForGetRoleOutput {
     this.trustPolicyDocument = trustPolicyDocument;
   }
 
-  public RoleForGetRoleOutput updateDate(String updateDate) {
+  public RoleMetadataForListRolesOutput updateDate(String updateDate) {
     this.updateDate = updateDate;
     return this;
   }
@@ -249,17 +249,17 @@ public class RoleForGetRoleOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RoleForGetRoleOutput roleForGetRoleOutput = (RoleForGetRoleOutput) o;
-    return Objects.equals(this.createDate, roleForGetRoleOutput.createDate) &&
-        Objects.equals(this.description, roleForGetRoleOutput.description) &&
-        Objects.equals(this.displayName, roleForGetRoleOutput.displayName) &&
-        Objects.equals(this.isServiceLinkedRole, roleForGetRoleOutput.isServiceLinkedRole) &&
-        Objects.equals(this.maxSessionDuration, roleForGetRoleOutput.maxSessionDuration) &&
-        Objects.equals(this.roleId, roleForGetRoleOutput.roleId) &&
-        Objects.equals(this.roleName, roleForGetRoleOutput.roleName) &&
-        Objects.equals(this.trn, roleForGetRoleOutput.trn) &&
-        Objects.equals(this.trustPolicyDocument, roleForGetRoleOutput.trustPolicyDocument) &&
-        Objects.equals(this.updateDate, roleForGetRoleOutput.updateDate);
+    RoleMetadataForListRolesOutput roleMetadataForListRolesOutput = (RoleMetadataForListRolesOutput) o;
+    return Objects.equals(this.createDate, roleMetadataForListRolesOutput.createDate) &&
+        Objects.equals(this.description, roleMetadataForListRolesOutput.description) &&
+        Objects.equals(this.displayName, roleMetadataForListRolesOutput.displayName) &&
+        Objects.equals(this.isServiceLinkedRole, roleMetadataForListRolesOutput.isServiceLinkedRole) &&
+        Objects.equals(this.maxSessionDuration, roleMetadataForListRolesOutput.maxSessionDuration) &&
+        Objects.equals(this.roleId, roleMetadataForListRolesOutput.roleId) &&
+        Objects.equals(this.roleName, roleMetadataForListRolesOutput.roleName) &&
+        Objects.equals(this.trn, roleMetadataForListRolesOutput.trn) &&
+        Objects.equals(this.trustPolicyDocument, roleMetadataForListRolesOutput.trustPolicyDocument) &&
+        Objects.equals(this.updateDate, roleMetadataForListRolesOutput.updateDate);
   }
 
   @Override
@@ -271,7 +271,7 @@ public class RoleForGetRoleOutput {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RoleForGetRoleOutput {\n");
+    sb.append("class RoleMetadataForListRolesOutput {\n");
     
     sb.append("    createDate: ").append(toIndentedString(createDate)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");

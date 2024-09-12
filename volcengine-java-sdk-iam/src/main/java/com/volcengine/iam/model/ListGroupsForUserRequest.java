@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ListGroupsForUserRequest {
   @SerializedName("Limit")
   private Integer limit = null;

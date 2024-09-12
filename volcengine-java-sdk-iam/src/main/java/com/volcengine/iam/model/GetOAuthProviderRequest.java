@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class GetOAuthProviderRequest {
   @SerializedName("OAuthProviderName")
   private String oauthProviderName = null;

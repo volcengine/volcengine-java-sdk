@@ -24,54 +24,52 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * RemoveUserFromGroupRequest
+ * TagForCreateServiceLinkedRoleInput
  */
 
 
 
-public class RemoveUserFromGroupRequest {
-  @SerializedName("UserGroupName")
-  private String userGroupName = null;
+public class TagForCreateServiceLinkedRoleInput {
+  @SerializedName("Key")
+  private String key = null;
 
-  @SerializedName("UserName")
-  private String userName = null;
+  @SerializedName("Value")
+  private String value = null;
 
-  public RemoveUserFromGroupRequest userGroupName(String userGroupName) {
-    this.userGroupName = userGroupName;
+  public TagForCreateServiceLinkedRoleInput key(String key) {
+    this.key = key;
     return this;
   }
 
    /**
-   * Get userGroupName
-   * @return userGroupName
+   * Get key
+   * @return key
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getUserGroupName() {
-    return userGroupName;
+  @Schema(description = "")
+  public String getKey() {
+    return key;
   }
 
-  public void setUserGroupName(String userGroupName) {
-    this.userGroupName = userGroupName;
+  public void setKey(String key) {
+    this.key = key;
   }
 
-  public RemoveUserFromGroupRequest userName(String userName) {
-    this.userName = userName;
+  public TagForCreateServiceLinkedRoleInput value(String value) {
+    this.value = value;
     return this;
   }
 
    /**
-   * Get userName
-   * @return userName
+   * Get value
+   * @return value
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getUserName() {
-    return userName;
+  @Schema(description = "")
+  public String getValue() {
+    return value;
   }
 
-  public void setUserName(String userName) {
-    this.userName = userName;
+  public void setValue(String value) {
+    this.value = value;
   }
 
 
@@ -83,24 +81,24 @@ public class RemoveUserFromGroupRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RemoveUserFromGroupRequest removeUserFromGroupRequest = (RemoveUserFromGroupRequest) o;
-    return Objects.equals(this.userGroupName, removeUserFromGroupRequest.userGroupName) &&
-        Objects.equals(this.userName, removeUserFromGroupRequest.userName);
+    TagForCreateServiceLinkedRoleInput tagForCreateServiceLinkedRoleInput = (TagForCreateServiceLinkedRoleInput) o;
+    return Objects.equals(this.key, tagForCreateServiceLinkedRoleInput.key) &&
+        Objects.equals(this.value, tagForCreateServiceLinkedRoleInput.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(userGroupName, userName);
+    return Objects.hash(key, value);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RemoveUserFromGroupRequest {\n");
+    sb.append("class TagForCreateServiceLinkedRoleInput {\n");
     
-    sb.append("    userGroupName: ").append(toIndentedString(userGroupName)).append("\n");
-    sb.append("    userName: ").append(toIndentedString(userName)).append("\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
   }

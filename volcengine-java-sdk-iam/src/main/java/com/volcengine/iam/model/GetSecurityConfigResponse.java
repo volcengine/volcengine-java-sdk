@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class GetSecurityConfigResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("SafeAuthClose")
   private Integer safeAuthClose = null;

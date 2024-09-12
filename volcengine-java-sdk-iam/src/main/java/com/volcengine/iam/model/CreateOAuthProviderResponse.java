@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateOAuthProviderResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("CreateDate")
   private String createDate = null;

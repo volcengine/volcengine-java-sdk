@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ListAttachedUserGroupPoliciesRequest {
   @SerializedName("UserGroupName")
   private String userGroupName = null;

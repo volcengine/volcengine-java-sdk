@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class PolicyUserGroupForListEntitiesForPolicyOutput {
   @SerializedName("AttachDate")
   private String attachDate = null;
@@ -40,6 +41,9 @@ public class PolicyUserGroupForListEntitiesForPolicyOutput {
 
   @SerializedName("DisplayName")
   private String displayName = null;
+
+  @SerializedName("Id")
+  private Integer id = null;
 
   @SerializedName("PolicyScope")
   private List<PolicyScopeForListEntitiesForPolicyOutput> policyScope = null;
@@ -101,6 +105,24 @@ public class PolicyUserGroupForListEntitiesForPolicyOutput {
     this.displayName = displayName;
   }
 
+  public PolicyUserGroupForListEntitiesForPolicyOutput id(Integer id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Get id
+   * @return id
+  **/
+  @Schema(description = "")
+  public Integer getId() {
+    return id;
+  }
+
+  public void setId(Integer id) {
+    this.id = id;
+  }
+
   public PolicyUserGroupForListEntitiesForPolicyOutput policyScope(List<PolicyScopeForListEntitiesForPolicyOutput> policyScope) {
     this.policyScope = policyScope;
     return this;
@@ -159,13 +181,14 @@ public class PolicyUserGroupForListEntitiesForPolicyOutput {
     return Objects.equals(this.attachDate, policyUserGroupForListEntitiesForPolicyOutput.attachDate) &&
         Objects.equals(this.description, policyUserGroupForListEntitiesForPolicyOutput.description) &&
         Objects.equals(this.displayName, policyUserGroupForListEntitiesForPolicyOutput.displayName) &&
+        Objects.equals(this.id, policyUserGroupForListEntitiesForPolicyOutput.id) &&
         Objects.equals(this.policyScope, policyUserGroupForListEntitiesForPolicyOutput.policyScope) &&
         Objects.equals(this.userGroupName, policyUserGroupForListEntitiesForPolicyOutput.userGroupName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attachDate, description, displayName, policyScope, userGroupName);
+    return Objects.hash(attachDate, description, displayName, id, policyScope, userGroupName);
   }
 
 
@@ -177,6 +200,7 @@ public class PolicyUserGroupForListEntitiesForPolicyOutput {
     sb.append("    attachDate: ").append(toIndentedString(attachDate)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    policyScope: ").append(toIndentedString(policyScope)).append("\n");
     sb.append("    userGroupName: ").append(toIndentedString(userGroupName)).append("\n");
     sb.append("}");

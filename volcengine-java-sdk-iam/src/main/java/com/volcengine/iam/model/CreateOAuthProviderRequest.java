@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateOAuthProviderRequest {
   @SerializedName("AuthorizeTemplate")
   private String authorizeTemplate = null;

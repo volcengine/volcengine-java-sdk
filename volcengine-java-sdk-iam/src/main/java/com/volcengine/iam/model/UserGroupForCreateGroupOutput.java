@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class UserGroupForCreateGroupOutput {
   @SerializedName("AccountID")
   private Long accountID = null;
@@ -43,6 +44,9 @@ public class UserGroupForCreateGroupOutput {
 
   @SerializedName("UpdateDate")
   private String updateDate = null;
+
+  @SerializedName("UserGroupID")
+  private Integer userGroupID = null;
 
   @SerializedName("UserGroupName")
   private String userGroupName = null;
@@ -137,6 +141,24 @@ public class UserGroupForCreateGroupOutput {
     this.updateDate = updateDate;
   }
 
+  public UserGroupForCreateGroupOutput userGroupID(Integer userGroupID) {
+    this.userGroupID = userGroupID;
+    return this;
+  }
+
+   /**
+   * Get userGroupID
+   * @return userGroupID
+  **/
+  @Schema(description = "")
+  public Integer getUserGroupID() {
+    return userGroupID;
+  }
+
+  public void setUserGroupID(Integer userGroupID) {
+    this.userGroupID = userGroupID;
+  }
+
   public UserGroupForCreateGroupOutput userGroupName(String userGroupName) {
     this.userGroupName = userGroupName;
     return this;
@@ -170,12 +192,13 @@ public class UserGroupForCreateGroupOutput {
         Objects.equals(this.description, userGroupForCreateGroupOutput.description) &&
         Objects.equals(this.displayName, userGroupForCreateGroupOutput.displayName) &&
         Objects.equals(this.updateDate, userGroupForCreateGroupOutput.updateDate) &&
+        Objects.equals(this.userGroupID, userGroupForCreateGroupOutput.userGroupID) &&
         Objects.equals(this.userGroupName, userGroupForCreateGroupOutput.userGroupName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountID, createDate, description, displayName, updateDate, userGroupName);
+    return Objects.hash(accountID, createDate, description, displayName, updateDate, userGroupID, userGroupName);
   }
 
 
@@ -189,6 +212,7 @@ public class UserGroupForCreateGroupOutput {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    updateDate: ").append(toIndentedString(updateDate)).append("\n");
+    sb.append("    userGroupID: ").append(toIndentedString(userGroupID)).append("\n");
     sb.append("    userGroupName: ").append(toIndentedString(userGroupName)).append("\n");
     sb.append("}");
     return sb.toString();

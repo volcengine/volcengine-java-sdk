@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.iam.model.AttachedPolicyMetadatumForListAttachedUserGroupPoliciesOutput;
+import com.volcengine.iam.model.AttachedPolicyMetadataForListAttachedUserGroupPoliciesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -31,18 +31,19 @@ import javax.validation.Valid;
  */
 
 
+
 public class ListAttachedUserGroupPoliciesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("AttachedPolicyMetadata")
-  private List<AttachedPolicyMetadatumForListAttachedUserGroupPoliciesOutput> attachedPolicyMetadata = null;
+  private List<AttachedPolicyMetadataForListAttachedUserGroupPoliciesOutput> attachedPolicyMetadata = null;
 
-  public ListAttachedUserGroupPoliciesResponse attachedPolicyMetadata(List<AttachedPolicyMetadatumForListAttachedUserGroupPoliciesOutput> attachedPolicyMetadata) {
+  public ListAttachedUserGroupPoliciesResponse attachedPolicyMetadata(List<AttachedPolicyMetadataForListAttachedUserGroupPoliciesOutput> attachedPolicyMetadata) {
     this.attachedPolicyMetadata = attachedPolicyMetadata;
     return this;
   }
 
-  public ListAttachedUserGroupPoliciesResponse addAttachedPolicyMetadataItem(AttachedPolicyMetadatumForListAttachedUserGroupPoliciesOutput attachedPolicyMetadataItem) {
+  public ListAttachedUserGroupPoliciesResponse addAttachedPolicyMetadataItem(AttachedPolicyMetadataForListAttachedUserGroupPoliciesOutput attachedPolicyMetadataItem) {
     if (this.attachedPolicyMetadata == null) {
-      this.attachedPolicyMetadata = new ArrayList<AttachedPolicyMetadatumForListAttachedUserGroupPoliciesOutput>();
+      this.attachedPolicyMetadata = new ArrayList<AttachedPolicyMetadataForListAttachedUserGroupPoliciesOutput>();
     }
     this.attachedPolicyMetadata.add(attachedPolicyMetadataItem);
     return this;
@@ -54,11 +55,11 @@ public class ListAttachedUserGroupPoliciesResponse extends com.volcengine.model.
   **/
   @Valid
   @Schema(description = "")
-  public List<AttachedPolicyMetadatumForListAttachedUserGroupPoliciesOutput> getAttachedPolicyMetadata() {
+  public List<AttachedPolicyMetadataForListAttachedUserGroupPoliciesOutput> getAttachedPolicyMetadata() {
     return attachedPolicyMetadata;
   }
 
-  public void setAttachedPolicyMetadata(List<AttachedPolicyMetadatumForListAttachedUserGroupPoliciesOutput> attachedPolicyMetadata) {
+  public void setAttachedPolicyMetadata(List<AttachedPolicyMetadataForListAttachedUserGroupPoliciesOutput> attachedPolicyMetadata) {
     this.attachedPolicyMetadata = attachedPolicyMetadata;
   }
 

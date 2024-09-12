@@ -28,9 +28,52 @@ import javax.validation.Valid;
  */
 
 
+
 public class GetUserRequest {
+  @SerializedName("AccessKeyID")
+  private String accessKeyID = null;
+
+  @SerializedName("ID")
+  private Long ID = null;
+
   @SerializedName("UserName")
   private String userName = null;
+
+  public GetUserRequest accessKeyID(String accessKeyID) {
+    this.accessKeyID = accessKeyID;
+    return this;
+  }
+
+   /**
+   * Get accessKeyID
+   * @return accessKeyID
+  **/
+  @Schema(description = "")
+  public String getAccessKeyID() {
+    return accessKeyID;
+  }
+
+  public void setAccessKeyID(String accessKeyID) {
+    this.accessKeyID = accessKeyID;
+  }
+
+  public GetUserRequest ID(Long ID) {
+    this.ID = ID;
+    return this;
+  }
+
+   /**
+   * Get ID
+   * @return ID
+  **/
+  @Schema(description = "")
+  public Long getID() {
+    return ID;
+  }
+
+  public void setID(Long ID) {
+    this.ID = ID;
+  }
 
   public GetUserRequest userName(String userName) {
     this.userName = userName;
@@ -41,8 +84,7 @@ public class GetUserRequest {
    * Get userName
    * @return userName
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getUserName() {
     return userName;
   }
@@ -61,12 +103,14 @@ public class GetUserRequest {
       return false;
     }
     GetUserRequest getUserRequest = (GetUserRequest) o;
-    return Objects.equals(this.userName, getUserRequest.userName);
+    return Objects.equals(this.accessKeyID, getUserRequest.accessKeyID) &&
+        Objects.equals(this.ID, getUserRequest.ID) &&
+        Objects.equals(this.userName, getUserRequest.userName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(userName);
+    return Objects.hash(accessKeyID, ID, userName);
   }
 
 
@@ -75,6 +119,8 @@ public class GetUserRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetUserRequest {\n");
     
+    sb.append("    accessKeyID: ").append(toIndentedString(accessKeyID)).append("\n");
+    sb.append("    ID: ").append(toIndentedString(ID)).append("\n");
     sb.append("    userName: ").append(toIndentedString(userName)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -29,6 +29,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class GetSecurityContactResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Email")
   private String email = null;
