@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DeleteAllowListRequest {
   @SerializedName("AllowListId")
   private String allowListId = null;

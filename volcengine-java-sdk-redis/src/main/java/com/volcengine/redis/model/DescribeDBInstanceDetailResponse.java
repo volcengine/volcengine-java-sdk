@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.redis.model.CapacityForDescribeDBInstanceDetailOutput;
+import com.volcengine.redis.model.TagForDescribeDBInstanceDetailOutput;
 import com.volcengine.redis.model.VisitAddrForDescribeDBInstanceDetailOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -32,7 +33,11 @@ import javax.validation.Valid;
  */
 
 
-public class DescribeDBInstanceDetailResponse {
+
+public class DescribeDBInstanceDetailResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("AutoRenew")
+  private Boolean autoRenew = null;
+
   @SerializedName("Capacity")
   private CapacityForDescribeDBInstanceDetailOutput capacity = null;
 
@@ -41,6 +46,9 @@ public class DescribeDBInstanceDetailResponse {
 
   @SerializedName("CreateTime")
   private String createTime = null;
+
+  @SerializedName("DataLayout")
+  private String dataLayout = null;
 
   @SerializedName("DeletionProtection")
   private String deletionProtection = null;
@@ -51,6 +59,9 @@ public class DescribeDBInstanceDetailResponse {
   @SerializedName("ExpiredTime")
   private String expiredTime = null;
 
+  @SerializedName("InstanceClass")
+  private String instanceClass = null;
+
   @SerializedName("InstanceId")
   private String instanceId = null;
 
@@ -59,6 +70,12 @@ public class DescribeDBInstanceDetailResponse {
 
   @SerializedName("MaintenanceTime")
   private String maintenanceTime = null;
+
+  @SerializedName("MaxConnections")
+  private Integer maxConnections = null;
+
+  @SerializedName("MultiAZ")
+  private String multiAZ = null;
 
   @SerializedName("NodeNumber")
   private Integer nodeNumber = null;
@@ -72,6 +89,9 @@ public class DescribeDBInstanceDetailResponse {
   @SerializedName("ShardCapacity")
   private Double shardCapacity = null;
 
+  @SerializedName("ShardCapacityV2")
+  private Integer shardCapacityV2 = null;
+
   @SerializedName("ShardNumber")
   private Integer shardNumber = null;
 
@@ -80,6 +100,12 @@ public class DescribeDBInstanceDetailResponse {
 
   @SerializedName("Status")
   private String status = null;
+
+  @SerializedName("SubnetId")
+  private String subnetId = null;
+
+  @SerializedName("Tags")
+  private List<TagForDescribeDBInstanceDetailOutput> tags = null;
 
   @SerializedName("VisitAddrs")
   private List<VisitAddrForDescribeDBInstanceDetailOutput> visitAddrs = null;
@@ -92,6 +118,24 @@ public class DescribeDBInstanceDetailResponse {
 
   @SerializedName("ZoneIds")
   private List<String> zoneIds = null;
+
+  public DescribeDBInstanceDetailResponse autoRenew(Boolean autoRenew) {
+    this.autoRenew = autoRenew;
+    return this;
+  }
+
+   /**
+   * Get autoRenew
+   * @return autoRenew
+  **/
+  @Schema(description = "")
+  public Boolean isAutoRenew() {
+    return autoRenew;
+  }
+
+  public void setAutoRenew(Boolean autoRenew) {
+    this.autoRenew = autoRenew;
+  }
 
   public DescribeDBInstanceDetailResponse capacity(CapacityForDescribeDBInstanceDetailOutput capacity) {
     this.capacity = capacity;
@@ -148,6 +192,24 @@ public class DescribeDBInstanceDetailResponse {
     this.createTime = createTime;
   }
 
+  public DescribeDBInstanceDetailResponse dataLayout(String dataLayout) {
+    this.dataLayout = dataLayout;
+    return this;
+  }
+
+   /**
+   * Get dataLayout
+   * @return dataLayout
+  **/
+  @Schema(description = "")
+  public String getDataLayout() {
+    return dataLayout;
+  }
+
+  public void setDataLayout(String dataLayout) {
+    this.dataLayout = dataLayout;
+  }
+
   public DescribeDBInstanceDetailResponse deletionProtection(String deletionProtection) {
     this.deletionProtection = deletionProtection;
     return this;
@@ -202,6 +264,24 @@ public class DescribeDBInstanceDetailResponse {
     this.expiredTime = expiredTime;
   }
 
+  public DescribeDBInstanceDetailResponse instanceClass(String instanceClass) {
+    this.instanceClass = instanceClass;
+    return this;
+  }
+
+   /**
+   * Get instanceClass
+   * @return instanceClass
+  **/
+  @Schema(description = "")
+  public String getInstanceClass() {
+    return instanceClass;
+  }
+
+  public void setInstanceClass(String instanceClass) {
+    this.instanceClass = instanceClass;
+  }
+
   public DescribeDBInstanceDetailResponse instanceId(String instanceId) {
     this.instanceId = instanceId;
     return this;
@@ -254,6 +334,42 @@ public class DescribeDBInstanceDetailResponse {
 
   public void setMaintenanceTime(String maintenanceTime) {
     this.maintenanceTime = maintenanceTime;
+  }
+
+  public DescribeDBInstanceDetailResponse maxConnections(Integer maxConnections) {
+    this.maxConnections = maxConnections;
+    return this;
+  }
+
+   /**
+   * Get maxConnections
+   * @return maxConnections
+  **/
+  @Schema(description = "")
+  public Integer getMaxConnections() {
+    return maxConnections;
+  }
+
+  public void setMaxConnections(Integer maxConnections) {
+    this.maxConnections = maxConnections;
+  }
+
+  public DescribeDBInstanceDetailResponse multiAZ(String multiAZ) {
+    this.multiAZ = multiAZ;
+    return this;
+  }
+
+   /**
+   * Get multiAZ
+   * @return multiAZ
+  **/
+  @Schema(description = "")
+  public String getMultiAZ() {
+    return multiAZ;
+  }
+
+  public void setMultiAZ(String multiAZ) {
+    this.multiAZ = multiAZ;
   }
 
   public DescribeDBInstanceDetailResponse nodeNumber(Integer nodeNumber) {
@@ -328,6 +444,24 @@ public class DescribeDBInstanceDetailResponse {
     this.shardCapacity = shardCapacity;
   }
 
+  public DescribeDBInstanceDetailResponse shardCapacityV2(Integer shardCapacityV2) {
+    this.shardCapacityV2 = shardCapacityV2;
+    return this;
+  }
+
+   /**
+   * Get shardCapacityV2
+   * @return shardCapacityV2
+  **/
+  @Schema(description = "")
+  public Integer getShardCapacityV2() {
+    return shardCapacityV2;
+  }
+
+  public void setShardCapacityV2(Integer shardCapacityV2) {
+    this.shardCapacityV2 = shardCapacityV2;
+  }
+
   public DescribeDBInstanceDetailResponse shardNumber(Integer shardNumber) {
     this.shardNumber = shardNumber;
     return this;
@@ -380,6 +514,51 @@ public class DescribeDBInstanceDetailResponse {
 
   public void setStatus(String status) {
     this.status = status;
+  }
+
+  public DescribeDBInstanceDetailResponse subnetId(String subnetId) {
+    this.subnetId = subnetId;
+    return this;
+  }
+
+   /**
+   * Get subnetId
+   * @return subnetId
+  **/
+  @Schema(description = "")
+  public String getSubnetId() {
+    return subnetId;
+  }
+
+  public void setSubnetId(String subnetId) {
+    this.subnetId = subnetId;
+  }
+
+  public DescribeDBInstanceDetailResponse tags(List<TagForDescribeDBInstanceDetailOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public DescribeDBInstanceDetailResponse addTagsItem(TagForDescribeDBInstanceDetailOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForDescribeDBInstanceDetailOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForDescribeDBInstanceDetailOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForDescribeDBInstanceDetailOutput> tags) {
+    this.tags = tags;
   }
 
   public DescribeDBInstanceDetailResponse visitAddrs(List<VisitAddrForDescribeDBInstanceDetailOutput> visitAddrs) {
@@ -481,22 +660,30 @@ public class DescribeDBInstanceDetailResponse {
       return false;
     }
     DescribeDBInstanceDetailResponse describeDBInstanceDetailResponse = (DescribeDBInstanceDetailResponse) o;
-    return Objects.equals(this.capacity, describeDBInstanceDetailResponse.capacity) &&
+    return Objects.equals(this.autoRenew, describeDBInstanceDetailResponse.autoRenew) &&
+        Objects.equals(this.capacity, describeDBInstanceDetailResponse.capacity) &&
         Objects.equals(this.chargeType, describeDBInstanceDetailResponse.chargeType) &&
         Objects.equals(this.createTime, describeDBInstanceDetailResponse.createTime) &&
+        Objects.equals(this.dataLayout, describeDBInstanceDetailResponse.dataLayout) &&
         Objects.equals(this.deletionProtection, describeDBInstanceDetailResponse.deletionProtection) &&
         Objects.equals(this.engineVersion, describeDBInstanceDetailResponse.engineVersion) &&
         Objects.equals(this.expiredTime, describeDBInstanceDetailResponse.expiredTime) &&
+        Objects.equals(this.instanceClass, describeDBInstanceDetailResponse.instanceClass) &&
         Objects.equals(this.instanceId, describeDBInstanceDetailResponse.instanceId) &&
         Objects.equals(this.instanceName, describeDBInstanceDetailResponse.instanceName) &&
         Objects.equals(this.maintenanceTime, describeDBInstanceDetailResponse.maintenanceTime) &&
+        Objects.equals(this.maxConnections, describeDBInstanceDetailResponse.maxConnections) &&
+        Objects.equals(this.multiAZ, describeDBInstanceDetailResponse.multiAZ) &&
         Objects.equals(this.nodeNumber, describeDBInstanceDetailResponse.nodeNumber) &&
         Objects.equals(this.projectName, describeDBInstanceDetailResponse.projectName) &&
         Objects.equals(this.regionId, describeDBInstanceDetailResponse.regionId) &&
         Objects.equals(this.shardCapacity, describeDBInstanceDetailResponse.shardCapacity) &&
+        Objects.equals(this.shardCapacityV2, describeDBInstanceDetailResponse.shardCapacityV2) &&
         Objects.equals(this.shardNumber, describeDBInstanceDetailResponse.shardNumber) &&
         Objects.equals(this.shardedCluster, describeDBInstanceDetailResponse.shardedCluster) &&
         Objects.equals(this.status, describeDBInstanceDetailResponse.status) &&
+        Objects.equals(this.subnetId, describeDBInstanceDetailResponse.subnetId) &&
+        Objects.equals(this.tags, describeDBInstanceDetailResponse.tags) &&
         Objects.equals(this.visitAddrs, describeDBInstanceDetailResponse.visitAddrs) &&
         Objects.equals(this.vpcAuthMode, describeDBInstanceDetailResponse.vpcAuthMode) &&
         Objects.equals(this.vpcId, describeDBInstanceDetailResponse.vpcId) &&
@@ -505,7 +692,7 @@ public class DescribeDBInstanceDetailResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(capacity, chargeType, createTime, deletionProtection, engineVersion, expiredTime, instanceId, instanceName, maintenanceTime, nodeNumber, projectName, regionId, shardCapacity, shardNumber, shardedCluster, status, visitAddrs, vpcAuthMode, vpcId, zoneIds);
+    return Objects.hash(autoRenew, capacity, chargeType, createTime, dataLayout, deletionProtection, engineVersion, expiredTime, instanceClass, instanceId, instanceName, maintenanceTime, maxConnections, multiAZ, nodeNumber, projectName, regionId, shardCapacity, shardCapacityV2, shardNumber, shardedCluster, status, subnetId, tags, visitAddrs, vpcAuthMode, vpcId, zoneIds);
   }
 
 
@@ -514,22 +701,30 @@ public class DescribeDBInstanceDetailResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeDBInstanceDetailResponse {\n");
     
+    sb.append("    autoRenew: ").append(toIndentedString(autoRenew)).append("\n");
     sb.append("    capacity: ").append(toIndentedString(capacity)).append("\n");
     sb.append("    chargeType: ").append(toIndentedString(chargeType)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
+    sb.append("    dataLayout: ").append(toIndentedString(dataLayout)).append("\n");
     sb.append("    deletionProtection: ").append(toIndentedString(deletionProtection)).append("\n");
     sb.append("    engineVersion: ").append(toIndentedString(engineVersion)).append("\n");
     sb.append("    expiredTime: ").append(toIndentedString(expiredTime)).append("\n");
+    sb.append("    instanceClass: ").append(toIndentedString(instanceClass)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    maintenanceTime: ").append(toIndentedString(maintenanceTime)).append("\n");
+    sb.append("    maxConnections: ").append(toIndentedString(maxConnections)).append("\n");
+    sb.append("    multiAZ: ").append(toIndentedString(multiAZ)).append("\n");
     sb.append("    nodeNumber: ").append(toIndentedString(nodeNumber)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    regionId: ").append(toIndentedString(regionId)).append("\n");
     sb.append("    shardCapacity: ").append(toIndentedString(shardCapacity)).append("\n");
+    sb.append("    shardCapacityV2: ").append(toIndentedString(shardCapacityV2)).append("\n");
     sb.append("    shardNumber: ").append(toIndentedString(shardNumber)).append("\n");
     sb.append("    shardedCluster: ").append(toIndentedString(shardedCluster)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    visitAddrs: ").append(toIndentedString(visitAddrs)).append("\n");
     sb.append("    vpcAuthMode: ").append(toIndentedString(vpcAuthMode)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");

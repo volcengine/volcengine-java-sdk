@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.redis.model.TagForDescribeDBInstancesInput;
+import com.volcengine.redis.model.TagFilterForDescribeDBInstancesInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -31,9 +31,13 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeDBInstancesRequest {
   @SerializedName("ChargeType")
   private String chargeType = null;
+
+  @SerializedName("DataLayout")
+  private String dataLayout = null;
 
   @SerializedName("EngineVersion")
   private String engineVersion = null;
@@ -56,14 +60,17 @@ public class DescribeDBInstancesRequest {
   @SerializedName("RegionId")
   private String regionId = null;
 
+  @SerializedName("ServiceType")
+  private String serviceType = null;
+
   @SerializedName("ShardedCluster")
   private Integer shardedCluster = null;
 
   @SerializedName("Status")
   private String status = null;
 
-  @SerializedName("Tags")
-  private List<TagForDescribeDBInstancesInput> tags = null;
+  @SerializedName("TagFilters")
+  private List<TagFilterForDescribeDBInstancesInput> tagFilters = null;
 
   @SerializedName("VpcId")
   private String vpcId = null;
@@ -87,6 +94,24 @@ public class DescribeDBInstancesRequest {
 
   public void setChargeType(String chargeType) {
     this.chargeType = chargeType;
+  }
+
+  public DescribeDBInstancesRequest dataLayout(String dataLayout) {
+    this.dataLayout = dataLayout;
+    return this;
+  }
+
+   /**
+   * Get dataLayout
+   * @return dataLayout
+  **/
+  @Schema(description = "")
+  public String getDataLayout() {
+    return dataLayout;
+  }
+
+  public void setDataLayout(String dataLayout) {
+    this.dataLayout = dataLayout;
   }
 
   public DescribeDBInstancesRequest engineVersion(String engineVersion) {
@@ -218,6 +243,24 @@ public class DescribeDBInstancesRequest {
     this.regionId = regionId;
   }
 
+  public DescribeDBInstancesRequest serviceType(String serviceType) {
+    this.serviceType = serviceType;
+    return this;
+  }
+
+   /**
+   * Get serviceType
+   * @return serviceType
+  **/
+  @Schema(description = "")
+  public String getServiceType() {
+    return serviceType;
+  }
+
+  public void setServiceType(String serviceType) {
+    this.serviceType = serviceType;
+  }
+
   public DescribeDBInstancesRequest shardedCluster(Integer shardedCluster) {
     this.shardedCluster = shardedCluster;
     return this;
@@ -254,31 +297,31 @@ public class DescribeDBInstancesRequest {
     this.status = status;
   }
 
-  public DescribeDBInstancesRequest tags(List<TagForDescribeDBInstancesInput> tags) {
-    this.tags = tags;
+  public DescribeDBInstancesRequest tagFilters(List<TagFilterForDescribeDBInstancesInput> tagFilters) {
+    this.tagFilters = tagFilters;
     return this;
   }
 
-  public DescribeDBInstancesRequest addTagsItem(TagForDescribeDBInstancesInput tagsItem) {
-    if (this.tags == null) {
-      this.tags = new ArrayList<TagForDescribeDBInstancesInput>();
+  public DescribeDBInstancesRequest addTagFiltersItem(TagFilterForDescribeDBInstancesInput tagFiltersItem) {
+    if (this.tagFilters == null) {
+      this.tagFilters = new ArrayList<TagFilterForDescribeDBInstancesInput>();
     }
-    this.tags.add(tagsItem);
+    this.tagFilters.add(tagFiltersItem);
     return this;
   }
 
    /**
-   * Get tags
-   * @return tags
+   * Get tagFilters
+   * @return tagFilters
   **/
   @Valid
   @Schema(description = "")
-  public List<TagForDescribeDBInstancesInput> getTags() {
-    return tags;
+  public List<TagFilterForDescribeDBInstancesInput> getTagFilters() {
+    return tagFilters;
   }
 
-  public void setTags(List<TagForDescribeDBInstancesInput> tags) {
-    this.tags = tags;
+  public void setTagFilters(List<TagFilterForDescribeDBInstancesInput> tagFilters) {
+    this.tagFilters = tagFilters;
   }
 
   public DescribeDBInstancesRequest vpcId(String vpcId) {
@@ -328,6 +371,7 @@ public class DescribeDBInstancesRequest {
     }
     DescribeDBInstancesRequest describeDBInstancesRequest = (DescribeDBInstancesRequest) o;
     return Objects.equals(this.chargeType, describeDBInstancesRequest.chargeType) &&
+        Objects.equals(this.dataLayout, describeDBInstancesRequest.dataLayout) &&
         Objects.equals(this.engineVersion, describeDBInstancesRequest.engineVersion) &&
         Objects.equals(this.instanceId, describeDBInstancesRequest.instanceId) &&
         Objects.equals(this.instanceName, describeDBInstancesRequest.instanceName) &&
@@ -335,16 +379,17 @@ public class DescribeDBInstancesRequest {
         Objects.equals(this.pageSize, describeDBInstancesRequest.pageSize) &&
         Objects.equals(this.projectName, describeDBInstancesRequest.projectName) &&
         Objects.equals(this.regionId, describeDBInstancesRequest.regionId) &&
+        Objects.equals(this.serviceType, describeDBInstancesRequest.serviceType) &&
         Objects.equals(this.shardedCluster, describeDBInstancesRequest.shardedCluster) &&
         Objects.equals(this.status, describeDBInstancesRequest.status) &&
-        Objects.equals(this.tags, describeDBInstancesRequest.tags) &&
+        Objects.equals(this.tagFilters, describeDBInstancesRequest.tagFilters) &&
         Objects.equals(this.vpcId, describeDBInstancesRequest.vpcId) &&
         Objects.equals(this.zoneId, describeDBInstancesRequest.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(chargeType, engineVersion, instanceId, instanceName, pageNumber, pageSize, projectName, regionId, shardedCluster, status, tags, vpcId, zoneId);
+    return Objects.hash(chargeType, dataLayout, engineVersion, instanceId, instanceName, pageNumber, pageSize, projectName, regionId, serviceType, shardedCluster, status, tagFilters, vpcId, zoneId);
   }
 
 
@@ -354,6 +399,7 @@ public class DescribeDBInstancesRequest {
     sb.append("class DescribeDBInstancesRequest {\n");
     
     sb.append("    chargeType: ").append(toIndentedString(chargeType)).append("\n");
+    sb.append("    dataLayout: ").append(toIndentedString(dataLayout)).append("\n");
     sb.append("    engineVersion: ").append(toIndentedString(engineVersion)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
@@ -361,9 +407,10 @@ public class DescribeDBInstancesRequest {
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    regionId: ").append(toIndentedString(regionId)).append("\n");
+    sb.append("    serviceType: ").append(toIndentedString(serviceType)).append("\n");
     sb.append("    shardedCluster: ").append(toIndentedString(shardedCluster)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");

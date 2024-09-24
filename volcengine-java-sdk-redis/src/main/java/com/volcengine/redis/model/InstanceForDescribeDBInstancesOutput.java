@@ -32,6 +32,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class InstanceForDescribeDBInstancesOutput {
   @SerializedName("Capacity")
   private CapacityForDescribeDBInstancesOutput capacity = null;
@@ -42,17 +43,29 @@ public class InstanceForDescribeDBInstancesOutput {
   @SerializedName("CreateTime")
   private String createTime = null;
 
+  @SerializedName("DataLayout")
+  private String dataLayout = null;
+
+  @SerializedName("DeletionProtection")
+  private String deletionProtection = null;
+
   @SerializedName("EngineVersion")
   private String engineVersion = null;
 
   @SerializedName("ExpiredTime")
   private String expiredTime = null;
 
+  @SerializedName("InstanceClass")
+  private String instanceClass = null;
+
   @SerializedName("InstanceId")
   private String instanceId = null;
 
   @SerializedName("InstanceName")
   private String instanceName = null;
+
+  @SerializedName("MultiAZ")
+  private String multiAZ = null;
 
   @SerializedName("NodeNumber")
   private Integer nodeNumber = null;
@@ -62,6 +75,9 @@ public class InstanceForDescribeDBInstancesOutput {
 
   @SerializedName("RegionId")
   private String regionId = null;
+
+  @SerializedName("ServiceType")
+  private String serviceType = null;
 
   @SerializedName("ShardCapacity")
   private Double shardCapacity = null;
@@ -139,6 +155,42 @@ public class InstanceForDescribeDBInstancesOutput {
     this.createTime = createTime;
   }
 
+  public InstanceForDescribeDBInstancesOutput dataLayout(String dataLayout) {
+    this.dataLayout = dataLayout;
+    return this;
+  }
+
+   /**
+   * Get dataLayout
+   * @return dataLayout
+  **/
+  @Schema(description = "")
+  public String getDataLayout() {
+    return dataLayout;
+  }
+
+  public void setDataLayout(String dataLayout) {
+    this.dataLayout = dataLayout;
+  }
+
+  public InstanceForDescribeDBInstancesOutput deletionProtection(String deletionProtection) {
+    this.deletionProtection = deletionProtection;
+    return this;
+  }
+
+   /**
+   * Get deletionProtection
+   * @return deletionProtection
+  **/
+  @Schema(description = "")
+  public String getDeletionProtection() {
+    return deletionProtection;
+  }
+
+  public void setDeletionProtection(String deletionProtection) {
+    this.deletionProtection = deletionProtection;
+  }
+
   public InstanceForDescribeDBInstancesOutput engineVersion(String engineVersion) {
     this.engineVersion = engineVersion;
     return this;
@@ -175,6 +227,24 @@ public class InstanceForDescribeDBInstancesOutput {
     this.expiredTime = expiredTime;
   }
 
+  public InstanceForDescribeDBInstancesOutput instanceClass(String instanceClass) {
+    this.instanceClass = instanceClass;
+    return this;
+  }
+
+   /**
+   * Get instanceClass
+   * @return instanceClass
+  **/
+  @Schema(description = "")
+  public String getInstanceClass() {
+    return instanceClass;
+  }
+
+  public void setInstanceClass(String instanceClass) {
+    this.instanceClass = instanceClass;
+  }
+
   public InstanceForDescribeDBInstancesOutput instanceId(String instanceId) {
     this.instanceId = instanceId;
     return this;
@@ -209,6 +279,24 @@ public class InstanceForDescribeDBInstancesOutput {
 
   public void setInstanceName(String instanceName) {
     this.instanceName = instanceName;
+  }
+
+  public InstanceForDescribeDBInstancesOutput multiAZ(String multiAZ) {
+    this.multiAZ = multiAZ;
+    return this;
+  }
+
+   /**
+   * Get multiAZ
+   * @return multiAZ
+  **/
+  @Schema(description = "")
+  public String getMultiAZ() {
+    return multiAZ;
+  }
+
+  public void setMultiAZ(String multiAZ) {
+    this.multiAZ = multiAZ;
   }
 
   public InstanceForDescribeDBInstancesOutput nodeNumber(Integer nodeNumber) {
@@ -263,6 +351,24 @@ public class InstanceForDescribeDBInstancesOutput {
 
   public void setRegionId(String regionId) {
     this.regionId = regionId;
+  }
+
+  public InstanceForDescribeDBInstancesOutput serviceType(String serviceType) {
+    this.serviceType = serviceType;
+    return this;
+  }
+
+   /**
+   * Get serviceType
+   * @return serviceType
+  **/
+  @Schema(description = "")
+  public String getServiceType() {
+    return serviceType;
+  }
+
+  public void setServiceType(String serviceType) {
+    this.serviceType = serviceType;
   }
 
   public InstanceForDescribeDBInstancesOutput shardCapacity(Double shardCapacity) {
@@ -421,13 +527,18 @@ public class InstanceForDescribeDBInstancesOutput {
     return Objects.equals(this.capacity, instanceForDescribeDBInstancesOutput.capacity) &&
         Objects.equals(this.chargeType, instanceForDescribeDBInstancesOutput.chargeType) &&
         Objects.equals(this.createTime, instanceForDescribeDBInstancesOutput.createTime) &&
+        Objects.equals(this.dataLayout, instanceForDescribeDBInstancesOutput.dataLayout) &&
+        Objects.equals(this.deletionProtection, instanceForDescribeDBInstancesOutput.deletionProtection) &&
         Objects.equals(this.engineVersion, instanceForDescribeDBInstancesOutput.engineVersion) &&
         Objects.equals(this.expiredTime, instanceForDescribeDBInstancesOutput.expiredTime) &&
+        Objects.equals(this.instanceClass, instanceForDescribeDBInstancesOutput.instanceClass) &&
         Objects.equals(this.instanceId, instanceForDescribeDBInstancesOutput.instanceId) &&
         Objects.equals(this.instanceName, instanceForDescribeDBInstancesOutput.instanceName) &&
+        Objects.equals(this.multiAZ, instanceForDescribeDBInstancesOutput.multiAZ) &&
         Objects.equals(this.nodeNumber, instanceForDescribeDBInstancesOutput.nodeNumber) &&
         Objects.equals(this.projectName, instanceForDescribeDBInstancesOutput.projectName) &&
         Objects.equals(this.regionId, instanceForDescribeDBInstancesOutput.regionId) &&
+        Objects.equals(this.serviceType, instanceForDescribeDBInstancesOutput.serviceType) &&
         Objects.equals(this.shardCapacity, instanceForDescribeDBInstancesOutput.shardCapacity) &&
         Objects.equals(this.shardNumber, instanceForDescribeDBInstancesOutput.shardNumber) &&
         Objects.equals(this.shardedCluster, instanceForDescribeDBInstancesOutput.shardedCluster) &&
@@ -439,7 +550,7 @@ public class InstanceForDescribeDBInstancesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(capacity, chargeType, createTime, engineVersion, expiredTime, instanceId, instanceName, nodeNumber, projectName, regionId, shardCapacity, shardNumber, shardedCluster, status, tags, vpcId, zoneIds);
+    return Objects.hash(capacity, chargeType, createTime, dataLayout, deletionProtection, engineVersion, expiredTime, instanceClass, instanceId, instanceName, multiAZ, nodeNumber, projectName, regionId, serviceType, shardCapacity, shardNumber, shardedCluster, status, tags, vpcId, zoneIds);
   }
 
 
@@ -451,13 +562,18 @@ public class InstanceForDescribeDBInstancesOutput {
     sb.append("    capacity: ").append(toIndentedString(capacity)).append("\n");
     sb.append("    chargeType: ").append(toIndentedString(chargeType)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
+    sb.append("    dataLayout: ").append(toIndentedString(dataLayout)).append("\n");
+    sb.append("    deletionProtection: ").append(toIndentedString(deletionProtection)).append("\n");
     sb.append("    engineVersion: ").append(toIndentedString(engineVersion)).append("\n");
     sb.append("    expiredTime: ").append(toIndentedString(expiredTime)).append("\n");
+    sb.append("    instanceClass: ").append(toIndentedString(instanceClass)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
+    sb.append("    multiAZ: ").append(toIndentedString(multiAZ)).append("\n");
     sb.append("    nodeNumber: ").append(toIndentedString(nodeNumber)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    regionId: ").append(toIndentedString(regionId)).append("\n");
+    sb.append("    serviceType: ").append(toIndentedString(serviceType)).append("\n");
     sb.append("    shardCapacity: ").append(toIndentedString(shardCapacity)).append("\n");
     sb.append("    shardNumber: ").append(toIndentedString(shardNumber)).append("\n");
     sb.append("    shardedCluster: ").append(toIndentedString(shardedCluster)).append("\n");

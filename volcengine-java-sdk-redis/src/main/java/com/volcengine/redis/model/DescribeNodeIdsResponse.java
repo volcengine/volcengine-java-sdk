@@ -30,7 +30,8 @@ import javax.validation.Valid;
  */
 
 
-public class DescribeNodeIdsResponse {
+
+public class DescribeNodeIdsResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("NodeIds")
   private List<String> nodeIds = null;
 

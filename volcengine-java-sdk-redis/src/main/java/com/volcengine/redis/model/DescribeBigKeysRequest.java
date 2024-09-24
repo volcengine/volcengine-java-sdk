@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeBigKeysRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;
@@ -37,9 +38,6 @@ public class DescribeBigKeysRequest {
 
   @SerializedName("OrderBy")
   private String orderBy = null;
-
-  @SerializedName("OrderType")
-  private String orderType = null;
 
   @SerializedName("PageSize")
   private Integer pageSize = null;
@@ -103,24 +101,6 @@ public class DescribeBigKeysRequest {
 
   public void setOrderBy(String orderBy) {
     this.orderBy = orderBy;
-  }
-
-  public DescribeBigKeysRequest orderType(String orderType) {
-    this.orderType = orderType;
-    return this;
-  }
-
-   /**
-   * Get orderType
-   * @return orderType
-  **/
-  @Schema(description = "")
-  public String getOrderType() {
-    return orderType;
-  }
-
-  public void setOrderType(String orderType) {
-    this.orderType = orderType;
   }
 
   public DescribeBigKeysRequest pageSize(Integer pageSize) {
@@ -191,7 +171,6 @@ public class DescribeBigKeysRequest {
     return Objects.equals(this.instanceId, describeBigKeysRequest.instanceId) &&
         Objects.equals(this.keyType, describeBigKeysRequest.keyType) &&
         Objects.equals(this.orderBy, describeBigKeysRequest.orderBy) &&
-        Objects.equals(this.orderType, describeBigKeysRequest.orderType) &&
         Objects.equals(this.pageSize, describeBigKeysRequest.pageSize) &&
         Objects.equals(this.queryEndTime, describeBigKeysRequest.queryEndTime) &&
         Objects.equals(this.queryStartTime, describeBigKeysRequest.queryStartTime);
@@ -199,7 +178,7 @@ public class DescribeBigKeysRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, keyType, orderBy, orderType, pageSize, queryEndTime, queryStartTime);
+    return Objects.hash(instanceId, keyType, orderBy, pageSize, queryEndTime, queryStartTime);
   }
 
 
@@ -211,7 +190,6 @@ public class DescribeBigKeysRequest {
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    keyType: ").append(toIndentedString(keyType)).append("\n");
     sb.append("    orderBy: ").append(toIndentedString(orderBy)).append("\n");
-    sb.append("    orderType: ").append(toIndentedString(orderType)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    queryEndTime: ").append(toIndentedString(queryEndTime)).append("\n");
     sb.append("    queryStartTime: ").append(toIndentedString(queryStartTime)).append("\n");

@@ -28,9 +28,13 @@ import javax.validation.Valid;
  */
 
 
+
 public class ModifyDBInstanceShardCapacityRequest {
   @SerializedName("ApplyImmediately")
   private Boolean applyImmediately = null;
+
+  @SerializedName("BackupPointName")
+  private String backupPointName = null;
 
   @SerializedName("ClientToken")
   private String clientToken = null;
@@ -61,6 +65,24 @@ public class ModifyDBInstanceShardCapacityRequest {
 
   public void setApplyImmediately(Boolean applyImmediately) {
     this.applyImmediately = applyImmediately;
+  }
+
+  public ModifyDBInstanceShardCapacityRequest backupPointName(String backupPointName) {
+    this.backupPointName = backupPointName;
+    return this;
+  }
+
+   /**
+   * Get backupPointName
+   * @return backupPointName
+  **/
+  @Schema(description = "")
+  public String getBackupPointName() {
+    return backupPointName;
+  }
+
+  public void setBackupPointName(String backupPointName) {
+    this.backupPointName = backupPointName;
   }
 
   public ModifyDBInstanceShardCapacityRequest clientToken(String clientToken) {
@@ -148,6 +170,7 @@ public class ModifyDBInstanceShardCapacityRequest {
     }
     ModifyDBInstanceShardCapacityRequest modifyDBInstanceShardCapacityRequest = (ModifyDBInstanceShardCapacityRequest) o;
     return Objects.equals(this.applyImmediately, modifyDBInstanceShardCapacityRequest.applyImmediately) &&
+        Objects.equals(this.backupPointName, modifyDBInstanceShardCapacityRequest.backupPointName) &&
         Objects.equals(this.clientToken, modifyDBInstanceShardCapacityRequest.clientToken) &&
         Objects.equals(this.createBackup, modifyDBInstanceShardCapacityRequest.createBackup) &&
         Objects.equals(this.instanceId, modifyDBInstanceShardCapacityRequest.instanceId) &&
@@ -156,7 +179,7 @@ public class ModifyDBInstanceShardCapacityRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(applyImmediately, clientToken, createBackup, instanceId, shardCapacity);
+    return Objects.hash(applyImmediately, backupPointName, clientToken, createBackup, instanceId, shardCapacity);
   }
 
 
@@ -166,6 +189,7 @@ public class ModifyDBInstanceShardCapacityRequest {
     sb.append("class ModifyDBInstanceShardCapacityRequest {\n");
     
     sb.append("    applyImmediately: ").append(toIndentedString(applyImmediately)).append("\n");
+    sb.append("    backupPointName: ").append(toIndentedString(backupPointName)).append("\n");
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    createBackup: ").append(toIndentedString(createBackup)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");

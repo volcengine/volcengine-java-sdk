@@ -24,51 +24,31 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * TagForDescribeDBInstancesInput
+ * NodesToRemoveForDecreaseDBInstanceNodeNumberInput
  */
 
 
-public class TagForDescribeDBInstancesInput {
-  @SerializedName("Key")
-  private String key = null;
 
-  @SerializedName("Value")
-  private String value = null;
+public class NodesToRemoveForDecreaseDBInstanceNodeNumberInput {
+  @SerializedName("AZ")
+  private String AZ = null;
 
-  public TagForDescribeDBInstancesInput key(String key) {
-    this.key = key;
+  public NodesToRemoveForDecreaseDBInstanceNodeNumberInput AZ(String AZ) {
+    this.AZ = AZ;
     return this;
   }
 
    /**
-   * Get key
-   * @return key
+   * Get AZ
+   * @return AZ
   **/
   @Schema(description = "")
-  public String getKey() {
-    return key;
+  public String getAZ() {
+    return AZ;
   }
 
-  public void setKey(String key) {
-    this.key = key;
-  }
-
-  public TagForDescribeDBInstancesInput value(String value) {
-    this.value = value;
-    return this;
-  }
-
-   /**
-   * Get value
-   * @return value
-  **/
-  @Schema(description = "")
-  public String getValue() {
-    return value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
+  public void setAZ(String AZ) {
+    this.AZ = AZ;
   }
 
 
@@ -80,24 +60,22 @@ public class TagForDescribeDBInstancesInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TagForDescribeDBInstancesInput tagForDescribeDBInstancesInput = (TagForDescribeDBInstancesInput) o;
-    return Objects.equals(this.key, tagForDescribeDBInstancesInput.key) &&
-        Objects.equals(this.value, tagForDescribeDBInstancesInput.value);
+    NodesToRemoveForDecreaseDBInstanceNodeNumberInput nodesToRemoveForDecreaseDBInstanceNodeNumberInput = (NodesToRemoveForDecreaseDBInstanceNodeNumberInput) o;
+    return Objects.equals(this.AZ, nodesToRemoveForDecreaseDBInstanceNodeNumberInput.AZ);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(key, value);
+    return Objects.hash(AZ);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TagForDescribeDBInstancesInput {\n");
+    sb.append("class NodesToRemoveForDecreaseDBInstanceNodeNumberInput {\n");
     
-    sb.append("    key: ").append(toIndentedString(key)).append("\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    AZ: ").append(toIndentedString(AZ)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -28,12 +28,16 @@ import javax.validation.Valid;
  */
 
 
+
 public class ZoneForDescribeZonesOutput {
   @SerializedName("ZoneId")
   private String zoneId = null;
 
   @SerializedName("ZoneName")
   private String zoneName = null;
+
+  @SerializedName("ZoneStatus")
+  private Integer zoneStatus = null;
 
   public ZoneForDescribeZonesOutput zoneId(String zoneId) {
     this.zoneId = zoneId;
@@ -71,6 +75,24 @@ public class ZoneForDescribeZonesOutput {
     this.zoneName = zoneName;
   }
 
+  public ZoneForDescribeZonesOutput zoneStatus(Integer zoneStatus) {
+    this.zoneStatus = zoneStatus;
+    return this;
+  }
+
+   /**
+   * Get zoneStatus
+   * @return zoneStatus
+  **/
+  @Schema(description = "")
+  public Integer getZoneStatus() {
+    return zoneStatus;
+  }
+
+  public void setZoneStatus(Integer zoneStatus) {
+    this.zoneStatus = zoneStatus;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -82,12 +104,13 @@ public class ZoneForDescribeZonesOutput {
     }
     ZoneForDescribeZonesOutput zoneForDescribeZonesOutput = (ZoneForDescribeZonesOutput) o;
     return Objects.equals(this.zoneId, zoneForDescribeZonesOutput.zoneId) &&
-        Objects.equals(this.zoneName, zoneForDescribeZonesOutput.zoneName);
+        Objects.equals(this.zoneName, zoneForDescribeZonesOutput.zoneName) &&
+        Objects.equals(this.zoneStatus, zoneForDescribeZonesOutput.zoneStatus);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(zoneId, zoneName);
+    return Objects.hash(zoneId, zoneName, zoneStatus);
   }
 
 
@@ -98,6 +121,7 @@ public class ZoneForDescribeZonesOutput {
     
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("    zoneName: ").append(toIndentedString(zoneName)).append("\n");
+    sb.append("    zoneStatus: ").append(toIndentedString(zoneStatus)).append("\n");
     sb.append("}");
     return sb.toString();
   }

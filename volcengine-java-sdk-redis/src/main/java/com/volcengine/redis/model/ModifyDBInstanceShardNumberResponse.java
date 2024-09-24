@@ -28,7 +28,8 @@ import javax.validation.Valid;
  */
 
 
-public class ModifyDBInstanceShardNumberResponse {
+
+public class ModifyDBInstanceShardNumberResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("OrderNO")
   private String orderNO = null;
 

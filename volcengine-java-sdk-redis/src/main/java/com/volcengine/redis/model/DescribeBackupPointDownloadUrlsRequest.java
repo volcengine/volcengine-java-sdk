@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeBackupPointDownloadUrlsRequest {
   @SerializedName("BackupPointId")
   private String backupPointId = null;
@@ -44,7 +45,8 @@ public class DescribeBackupPointDownloadUrlsRequest {
    * Get backupPointId
    * @return backupPointId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getBackupPointId() {
     return backupPointId;
   }
@@ -62,7 +64,8 @@ public class DescribeBackupPointDownloadUrlsRequest {
    * Get instanceId
    * @return instanceId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getInstanceId() {
     return instanceId;
   }

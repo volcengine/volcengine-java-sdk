@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class SlowQueryForDescribeSlowLogsOutput {
   @SerializedName("DBName")
   private String dbName = null;
