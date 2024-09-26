@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeDBInstancesRequest {
   @SerializedName("ChargeType")
   private String chargeType = null;
@@ -43,6 +44,9 @@ public class DescribeDBInstancesRequest {
 
   @SerializedName("DBEngineVersion")
   private String dbEngineVersion = null;
+
+  @SerializedName("InstanceCategory")
+  private String instanceCategory = null;
 
   @SerializedName("InstanceId")
   private String instanceId = null;
@@ -61,6 +65,9 @@ public class DescribeDBInstancesRequest {
 
   @SerializedName("PageSize")
   private Integer pageSize = null;
+
+  @SerializedName("PrimaryInstanceId")
+  private String primaryInstanceId = null;
 
   @SerializedName("TagFilters")
   private List<TagFilterForDescribeDBInstancesInput> tagFilters = null;
@@ -138,6 +145,24 @@ public class DescribeDBInstancesRequest {
 
   public void setDbEngineVersion(String dbEngineVersion) {
     this.dbEngineVersion = dbEngineVersion;
+  }
+
+  public DescribeDBInstancesRequest instanceCategory(String instanceCategory) {
+    this.instanceCategory = instanceCategory;
+    return this;
+  }
+
+   /**
+   * Get instanceCategory
+   * @return instanceCategory
+  **/
+  @Schema(description = "")
+  public String getInstanceCategory() {
+    return instanceCategory;
+  }
+
+  public void setInstanceCategory(String instanceCategory) {
+    this.instanceCategory = instanceCategory;
   }
 
   public DescribeDBInstancesRequest instanceId(String instanceId) {
@@ -248,6 +273,24 @@ public class DescribeDBInstancesRequest {
     this.pageSize = pageSize;
   }
 
+  public DescribeDBInstancesRequest primaryInstanceId(String primaryInstanceId) {
+    this.primaryInstanceId = primaryInstanceId;
+    return this;
+  }
+
+   /**
+   * Get primaryInstanceId
+   * @return primaryInstanceId
+  **/
+  @Schema(description = "")
+  public String getPrimaryInstanceId() {
+    return primaryInstanceId;
+  }
+
+  public void setPrimaryInstanceId(String primaryInstanceId) {
+    this.primaryInstanceId = primaryInstanceId;
+  }
+
   public DescribeDBInstancesRequest tagFilters(List<TagFilterForDescribeDBInstancesInput> tagFilters) {
     this.tagFilters = tagFilters;
     return this;
@@ -307,19 +350,21 @@ public class DescribeDBInstancesRequest {
         Objects.equals(this.createTimeEnd, describeDBInstancesRequest.createTimeEnd) &&
         Objects.equals(this.createTimeStart, describeDBInstancesRequest.createTimeStart) &&
         Objects.equals(this.dbEngineVersion, describeDBInstancesRequest.dbEngineVersion) &&
+        Objects.equals(this.instanceCategory, describeDBInstancesRequest.instanceCategory) &&
         Objects.equals(this.instanceId, describeDBInstancesRequest.instanceId) &&
         Objects.equals(this.instanceName, describeDBInstancesRequest.instanceName) &&
         Objects.equals(this.instanceStatus, describeDBInstancesRequest.instanceStatus) &&
         Objects.equals(this.instanceType, describeDBInstancesRequest.instanceType) &&
         Objects.equals(this.pageNumber, describeDBInstancesRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeDBInstancesRequest.pageSize) &&
+        Objects.equals(this.primaryInstanceId, describeDBInstancesRequest.primaryInstanceId) &&
         Objects.equals(this.tagFilters, describeDBInstancesRequest.tagFilters) &&
         Objects.equals(this.zoneId, describeDBInstancesRequest.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(chargeType, createTimeEnd, createTimeStart, dbEngineVersion, instanceId, instanceName, instanceStatus, instanceType, pageNumber, pageSize, tagFilters, zoneId);
+    return Objects.hash(chargeType, createTimeEnd, createTimeStart, dbEngineVersion, instanceCategory, instanceId, instanceName, instanceStatus, instanceType, pageNumber, pageSize, primaryInstanceId, tagFilters, zoneId);
   }
 
 
@@ -332,12 +377,14 @@ public class DescribeDBInstancesRequest {
     sb.append("    createTimeEnd: ").append(toIndentedString(createTimeEnd)).append("\n");
     sb.append("    createTimeStart: ").append(toIndentedString(createTimeStart)).append("\n");
     sb.append("    dbEngineVersion: ").append(toIndentedString(dbEngineVersion)).append("\n");
+    sb.append("    instanceCategory: ").append(toIndentedString(instanceCategory)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    instanceStatus: ").append(toIndentedString(instanceStatus)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    primaryInstanceId: ").append(toIndentedString(primaryInstanceId)).append("\n");
     sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");

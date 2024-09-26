@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeTosRestoreTaskDetailResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("RestoreTaskDetails")
   private List<RestoreTaskDetailForDescribeTosRestoreTaskDetailOutput> restoreTaskDetails = null;

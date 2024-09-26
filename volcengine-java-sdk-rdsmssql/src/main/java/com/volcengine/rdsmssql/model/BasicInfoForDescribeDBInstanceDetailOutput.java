@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class BasicInfoForDescribeDBInstanceDetailOutput {
   @SerializedName("BackupUse")
   private Float backupUse = null;

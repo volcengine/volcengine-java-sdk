@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class BackupsInfoForDescribeBackupsOutput {
   @SerializedName("BackupDatabaseDetail")
   private List<BackupDatabaseDetailForDescribeBackupsOutput> backupDatabaseDetail = null;
