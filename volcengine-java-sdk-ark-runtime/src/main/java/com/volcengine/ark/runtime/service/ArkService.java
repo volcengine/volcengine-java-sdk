@@ -195,10 +195,20 @@ public class ArkService extends ArkBaseService implements ArkBaseServiceImpl {
         return execute(api.createBotChatCompletion(request, request.getModel(), new HashMap<>()));
     }
 
+    public BotChatCompletionResult createBotChatCompletion(BotChatCompletionRequest request, Map<String, String> customHeaders) {
+        return execute(api.createBotChatCompletion(request, request.getModel(), customHeaders));
+    }
+
+
     @Override
     public Flowable<BotChatCompletionChunk> streamBotChatCompletion(BotChatCompletionRequest request) {
         request.setStream(true);
         return stream(api.createBotChatCompletionStream(request, request.getModel(), new HashMap<>()), BotChatCompletionChunk.class);
+    }
+
+    public Flowable<BotChatCompletionChunk> streamBotChatCompletion(BotChatCompletionRequest request, Map<String, String> customHeaders) {
+        request.setStream(true);
+        return stream(api.createBotChatCompletionStream(request, request.getModel(), customHeaders), BotChatCompletionChunk.class);
     }
 
     public TokenizationResult createTokenization(TokenizationRequest request) {

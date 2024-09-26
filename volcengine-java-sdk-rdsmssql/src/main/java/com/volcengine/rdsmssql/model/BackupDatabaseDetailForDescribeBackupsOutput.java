@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class BackupDatabaseDetailForDescribeBackupsOutput {
   @SerializedName("BackupDownloadLinkEIP")
   private String backupDownloadLinkEIP = null;

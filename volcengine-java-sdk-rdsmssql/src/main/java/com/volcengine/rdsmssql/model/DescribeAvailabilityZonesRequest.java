@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeAvailabilityZonesRequest {
   @SerializedName("RegionId")
   private String regionId = null;

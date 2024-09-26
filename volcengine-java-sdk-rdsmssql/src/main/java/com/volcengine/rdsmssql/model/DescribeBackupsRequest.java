@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeBackupsRequest {
   @SerializedName("BackupEndTime")
   private String backupEndTime = null;
@@ -150,8 +151,7 @@ public class DescribeBackupsRequest {
    * Get pageNumber
    * @return pageNumber
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public Integer getPageNumber() {
     return pageNumber;
   }
@@ -169,8 +169,7 @@ public class DescribeBackupsRequest {
    * Get pageSize
    * @return pageSize
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public Integer getPageSize() {
     return pageSize;
   }

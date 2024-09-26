@@ -32,6 +32,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateDBInstanceRequest {
   @SerializedName("ChargeInfo")
   private ChargeInfoForCreateDBInstanceInput chargeInfo = null;

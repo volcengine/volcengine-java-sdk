@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ConnectionInfoForDescribeDBInstanceDetailOutput {
   @SerializedName("Address")
   private List<AddressForDescribeDBInstanceDetailOutput> address = null;

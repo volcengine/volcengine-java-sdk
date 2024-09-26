@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class NodeDetailInfoForDescribeDBInstanceDetailOutput {
   @SerializedName("CreateTime")
   private String createTime = null;
