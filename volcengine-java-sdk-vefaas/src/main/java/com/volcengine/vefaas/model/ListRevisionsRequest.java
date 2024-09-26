@@ -20,7 +20,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vefaas.model.FilterForListRevisionsInput;
-import com.volcengine.vefaas.model.TopParamForListRevisionsInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -45,9 +44,6 @@ public class ListRevisionsRequest {
 
   @SerializedName("PageSize")
   private Integer pageSize = null;
-
-  @SerializedName("TopParam")
-  private TopParamForListRevisionsInput topParam = null;
 
   public ListRevisionsRequest filters(List<FilterForListRevisionsInput> filters) {
     this.filters = filters;
@@ -131,25 +127,6 @@ public class ListRevisionsRequest {
     this.pageSize = pageSize;
   }
 
-  public ListRevisionsRequest topParam(TopParamForListRevisionsInput topParam) {
-    this.topParam = topParam;
-    return this;
-  }
-
-   /**
-   * Get topParam
-   * @return topParam
-  **/
-  @Valid
-  @Schema(description = "")
-  public TopParamForListRevisionsInput getTopParam() {
-    return topParam;
-  }
-
-  public void setTopParam(TopParamForListRevisionsInput topParam) {
-    this.topParam = topParam;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -163,13 +140,12 @@ public class ListRevisionsRequest {
     return Objects.equals(this.filters, listRevisionsRequest.filters) &&
         Objects.equals(this.functionId, listRevisionsRequest.functionId) &&
         Objects.equals(this.pageNumber, listRevisionsRequest.pageNumber) &&
-        Objects.equals(this.pageSize, listRevisionsRequest.pageSize) &&
-        Objects.equals(this.topParam, listRevisionsRequest.topParam);
+        Objects.equals(this.pageSize, listRevisionsRequest.pageSize);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(filters, functionId, pageNumber, pageSize, topParam);
+    return Objects.hash(filters, functionId, pageNumber, pageSize);
   }
 
 
@@ -182,7 +158,6 @@ public class ListRevisionsRequest {
     sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
-    sb.append("    topParam: ").append(toIndentedString(topParam)).append("\n");
     sb.append("}");
     return sb.toString();
   }
