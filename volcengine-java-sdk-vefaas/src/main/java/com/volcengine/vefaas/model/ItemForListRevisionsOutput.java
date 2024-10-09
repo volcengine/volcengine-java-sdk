@@ -61,6 +61,9 @@ public class ItemForListRevisionsOutput {
   @SerializedName("InitializerSec")
   private Integer initializerSec = null;
 
+  @SerializedName("InstanceType")
+  private String instanceType = null;
+
   @SerializedName("MaxConcurrency")
   private Integer maxConcurrency = null;
 
@@ -260,6 +263,24 @@ public class ItemForListRevisionsOutput {
 
   public void setInitializerSec(Integer initializerSec) {
     this.initializerSec = initializerSec;
+  }
+
+  public ItemForListRevisionsOutput instanceType(String instanceType) {
+    this.instanceType = instanceType;
+    return this;
+  }
+
+   /**
+   * Get instanceType
+   * @return instanceType
+  **/
+  @Schema(description = "")
+  public String getInstanceType() {
+    return instanceType;
+  }
+
+  public void setInstanceType(String instanceType) {
+    this.instanceType = instanceType;
   }
 
   public ItemForListRevisionsOutput maxConcurrency(Integer maxConcurrency) {
@@ -572,6 +593,7 @@ public class ItemForListRevisionsOutput {
         Objects.equals(this.exclusiveMode, itemForListRevisionsOutput.exclusiveMode) &&
         Objects.equals(this.id, itemForListRevisionsOutput.id) &&
         Objects.equals(this.initializerSec, itemForListRevisionsOutput.initializerSec) &&
+        Objects.equals(this.instanceType, itemForListRevisionsOutput.instanceType) &&
         Objects.equals(this.maxConcurrency, itemForListRevisionsOutput.maxConcurrency) &&
         Objects.equals(this.maxReplicas, itemForListRevisionsOutput.maxReplicas) &&
         Objects.equals(this.memoryMB, itemForListRevisionsOutput.memoryMB) &&
@@ -592,7 +614,7 @@ public class ItemForListRevisionsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(codeSize, codeSizeLimit, creationTime, description, envs, exclusiveMode, id, initializerSec, maxConcurrency, maxReplicas, memoryMB, name, nasStorage, requestTimeout, revisionCreationTime, revisionDescription, revisionNumber, runtime, source, sourceLocation, sourceType, tlsConfig, tosMountConfig, vpcConfig);
+    return Objects.hash(codeSize, codeSizeLimit, creationTime, description, envs, exclusiveMode, id, initializerSec, instanceType, maxConcurrency, maxReplicas, memoryMB, name, nasStorage, requestTimeout, revisionCreationTime, revisionDescription, revisionNumber, runtime, source, sourceLocation, sourceType, tlsConfig, tosMountConfig, vpcConfig);
   }
 
 
@@ -609,6 +631,7 @@ public class ItemForListRevisionsOutput {
     sb.append("    exclusiveMode: ").append(toIndentedString(exclusiveMode)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    initializerSec: ").append(toIndentedString(initializerSec)).append("\n");
+    sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("    maxConcurrency: ").append(toIndentedString(maxConcurrency)).append("\n");
     sb.append("    maxReplicas: ").append(toIndentedString(maxReplicas)).append("\n");
     sb.append("    memoryMB: ").append(toIndentedString(memoryMB)).append("\n");

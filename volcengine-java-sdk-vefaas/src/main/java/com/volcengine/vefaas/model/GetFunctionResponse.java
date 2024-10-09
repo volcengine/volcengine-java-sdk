@@ -43,6 +43,9 @@ public class GetFunctionResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("CodeSizeLimit")
   private Integer codeSizeLimit = null;
 
+  @SerializedName("Command")
+  private String command = null;
+
   @SerializedName("CreationTime")
   private String creationTime = null;
 
@@ -81,6 +84,9 @@ public class GetFunctionResponse extends com.volcengine.model.AbstractResponse {
 
   @SerializedName("Owner")
   private String owner = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
 
   @SerializedName("RequestTimeout")
   private Integer requestTimeout = null;
@@ -140,6 +146,24 @@ public class GetFunctionResponse extends com.volcengine.model.AbstractResponse {
 
   public void setCodeSizeLimit(Integer codeSizeLimit) {
     this.codeSizeLimit = codeSizeLimit;
+  }
+
+  public GetFunctionResponse command(String command) {
+    this.command = command;
+    return this;
+  }
+
+   /**
+   * Get command
+   * @return command
+  **/
+  @Schema(description = "")
+  public String getCommand() {
+    return command;
+  }
+
+  public void setCommand(String command) {
+    this.command = command;
   }
 
   public GetFunctionResponse creationTime(String creationTime) {
@@ -386,6 +410,24 @@ public class GetFunctionResponse extends com.volcengine.model.AbstractResponse {
     this.owner = owner;
   }
 
+  public GetFunctionResponse projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public GetFunctionResponse requestTimeout(Integer requestTimeout) {
     this.requestTimeout = requestTimeout;
     return this;
@@ -545,6 +587,7 @@ public class GetFunctionResponse extends com.volcengine.model.AbstractResponse {
     GetFunctionResponse getFunctionResponse = (GetFunctionResponse) o;
     return Objects.equals(this.codeSize, getFunctionResponse.codeSize) &&
         Objects.equals(this.codeSizeLimit, getFunctionResponse.codeSizeLimit) &&
+        Objects.equals(this.command, getFunctionResponse.command) &&
         Objects.equals(this.creationTime, getFunctionResponse.creationTime) &&
         Objects.equals(this.description, getFunctionResponse.description) &&
         Objects.equals(this.envs, getFunctionResponse.envs) &&
@@ -558,6 +601,7 @@ public class GetFunctionResponse extends com.volcengine.model.AbstractResponse {
         Objects.equals(this.name, getFunctionResponse.name) &&
         Objects.equals(this.nasStorage, getFunctionResponse.nasStorage) &&
         Objects.equals(this.owner, getFunctionResponse.owner) &&
+        Objects.equals(this.projectName, getFunctionResponse.projectName) &&
         Objects.equals(this.requestTimeout, getFunctionResponse.requestTimeout) &&
         Objects.equals(this.runtime, getFunctionResponse.runtime) &&
         Objects.equals(this.sourceLocation, getFunctionResponse.sourceLocation) &&
@@ -570,7 +614,7 @@ public class GetFunctionResponse extends com.volcengine.model.AbstractResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(codeSize, codeSizeLimit, creationTime, description, envs, exclusiveMode, id, initializerSec, instanceType, lastUpdateTime, maxConcurrency, memoryMB, name, nasStorage, owner, requestTimeout, runtime, sourceLocation, sourceType, tlsConfig, tosMountConfig, triggersCount, vpcConfig);
+    return Objects.hash(codeSize, codeSizeLimit, command, creationTime, description, envs, exclusiveMode, id, initializerSec, instanceType, lastUpdateTime, maxConcurrency, memoryMB, name, nasStorage, owner, projectName, requestTimeout, runtime, sourceLocation, sourceType, tlsConfig, tosMountConfig, triggersCount, vpcConfig);
   }
 
 
@@ -581,6 +625,7 @@ public class GetFunctionResponse extends com.volcengine.model.AbstractResponse {
     
     sb.append("    codeSize: ").append(toIndentedString(codeSize)).append("\n");
     sb.append("    codeSizeLimit: ").append(toIndentedString(codeSizeLimit)).append("\n");
+    sb.append("    command: ").append(toIndentedString(command)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    envs: ").append(toIndentedString(envs)).append("\n");
@@ -594,6 +639,7 @@ public class GetFunctionResponse extends com.volcengine.model.AbstractResponse {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    nasStorage: ").append(toIndentedString(nasStorage)).append("\n");
     sb.append("    owner: ").append(toIndentedString(owner)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    requestTimeout: ").append(toIndentedString(requestTimeout)).append("\n");
     sb.append("    runtime: ").append(toIndentedString(runtime)).append("\n");
     sb.append("    sourceLocation: ").append(toIndentedString(sourceLocation)).append("\n");

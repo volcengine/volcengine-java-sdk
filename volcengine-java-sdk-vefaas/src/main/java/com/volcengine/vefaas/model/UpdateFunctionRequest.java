@@ -62,11 +62,11 @@ public class UpdateFunctionRequest {
   @SerializedName("NasStorage")
   private NasStorageForUpdateFunctionInput nasStorage = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("RequestTimeout")
   private Integer requestTimeout = null;
-
-  @SerializedName("Runtime")
-  private String runtime = null;
 
   @SerializedName("Source")
   private String source = null;
@@ -241,6 +241,24 @@ public class UpdateFunctionRequest {
     this.nasStorage = nasStorage;
   }
 
+  public UpdateFunctionRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public UpdateFunctionRequest requestTimeout(Integer requestTimeout) {
     this.requestTimeout = requestTimeout;
     return this;
@@ -257,24 +275,6 @@ public class UpdateFunctionRequest {
 
   public void setRequestTimeout(Integer requestTimeout) {
     this.requestTimeout = requestTimeout;
-  }
-
-  public UpdateFunctionRequest runtime(String runtime) {
-    this.runtime = runtime;
-    return this;
-  }
-
-   /**
-   * Get runtime
-   * @return runtime
-  **/
-  @Schema(description = "")
-  public String getRuntime() {
-    return runtime;
-  }
-
-  public void setRuntime(String runtime) {
-    this.runtime = runtime;
   }
 
   public UpdateFunctionRequest source(String source) {
@@ -407,8 +407,8 @@ public class UpdateFunctionRequest {
         Objects.equals(this.maxConcurrency, updateFunctionRequest.maxConcurrency) &&
         Objects.equals(this.memoryMB, updateFunctionRequest.memoryMB) &&
         Objects.equals(this.nasStorage, updateFunctionRequest.nasStorage) &&
+        Objects.equals(this.projectName, updateFunctionRequest.projectName) &&
         Objects.equals(this.requestTimeout, updateFunctionRequest.requestTimeout) &&
-        Objects.equals(this.runtime, updateFunctionRequest.runtime) &&
         Objects.equals(this.source, updateFunctionRequest.source) &&
         Objects.equals(this.sourceAccessConfig, updateFunctionRequest.sourceAccessConfig) &&
         Objects.equals(this.sourceType, updateFunctionRequest.sourceType) &&
@@ -419,7 +419,7 @@ public class UpdateFunctionRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, envs, exclusiveMode, id, initializerSec, maxConcurrency, memoryMB, nasStorage, requestTimeout, runtime, source, sourceAccessConfig, sourceType, tlsConfig, tosMountConfig, vpcConfig);
+    return Objects.hash(description, envs, exclusiveMode, id, initializerSec, maxConcurrency, memoryMB, nasStorage, projectName, requestTimeout, source, sourceAccessConfig, sourceType, tlsConfig, tosMountConfig, vpcConfig);
   }
 
 
@@ -436,8 +436,8 @@ public class UpdateFunctionRequest {
     sb.append("    maxConcurrency: ").append(toIndentedString(maxConcurrency)).append("\n");
     sb.append("    memoryMB: ").append(toIndentedString(memoryMB)).append("\n");
     sb.append("    nasStorage: ").append(toIndentedString(nasStorage)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    requestTimeout: ").append(toIndentedString(requestTimeout)).append("\n");
-    sb.append("    runtime: ").append(toIndentedString(runtime)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    sourceAccessConfig: ").append(toIndentedString(sourceAccessConfig)).append("\n");
     sb.append("    sourceType: ").append(toIndentedString(sourceType)).append("\n");
