@@ -32,6 +32,9 @@ import javax.validation.Valid;
 
 
 public class ModifyNetworkInterfaceAttributesRequest {
+  @SerializedName("DeleteOnTermination")
+  private Boolean deleteOnTermination = null;
+
   @SerializedName("Description")
   private String description = null;
 
@@ -41,8 +44,29 @@ public class ModifyNetworkInterfaceAttributesRequest {
   @SerializedName("NetworkInterfaceName")
   private String networkInterfaceName = null;
 
+  @SerializedName("PortSecurityEnabled")
+  private Boolean portSecurityEnabled = null;
+
   @SerializedName("SecurityGroupIds")
   private List<String> securityGroupIds = null;
+
+  public ModifyNetworkInterfaceAttributesRequest deleteOnTermination(Boolean deleteOnTermination) {
+    this.deleteOnTermination = deleteOnTermination;
+    return this;
+  }
+
+   /**
+   * Get deleteOnTermination
+   * @return deleteOnTermination
+  **/
+  @Schema(description = "")
+  public Boolean isDeleteOnTermination() {
+    return deleteOnTermination;
+  }
+
+  public void setDeleteOnTermination(Boolean deleteOnTermination) {
+    this.deleteOnTermination = deleteOnTermination;
+  }
 
   public ModifyNetworkInterfaceAttributesRequest description(String description) {
     this.description = description;
@@ -99,6 +123,24 @@ public class ModifyNetworkInterfaceAttributesRequest {
     this.networkInterfaceName = networkInterfaceName;
   }
 
+  public ModifyNetworkInterfaceAttributesRequest portSecurityEnabled(Boolean portSecurityEnabled) {
+    this.portSecurityEnabled = portSecurityEnabled;
+    return this;
+  }
+
+   /**
+   * Get portSecurityEnabled
+   * @return portSecurityEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isPortSecurityEnabled() {
+    return portSecurityEnabled;
+  }
+
+  public void setPortSecurityEnabled(Boolean portSecurityEnabled) {
+    this.portSecurityEnabled = portSecurityEnabled;
+  }
+
   public ModifyNetworkInterfaceAttributesRequest securityGroupIds(List<String> securityGroupIds) {
     this.securityGroupIds = securityGroupIds;
     return this;
@@ -135,15 +177,17 @@ public class ModifyNetworkInterfaceAttributesRequest {
       return false;
     }
     ModifyNetworkInterfaceAttributesRequest modifyNetworkInterfaceAttributesRequest = (ModifyNetworkInterfaceAttributesRequest) o;
-    return Objects.equals(this.description, modifyNetworkInterfaceAttributesRequest.description) &&
+    return Objects.equals(this.deleteOnTermination, modifyNetworkInterfaceAttributesRequest.deleteOnTermination) &&
+        Objects.equals(this.description, modifyNetworkInterfaceAttributesRequest.description) &&
         Objects.equals(this.networkInterfaceId, modifyNetworkInterfaceAttributesRequest.networkInterfaceId) &&
         Objects.equals(this.networkInterfaceName, modifyNetworkInterfaceAttributesRequest.networkInterfaceName) &&
+        Objects.equals(this.portSecurityEnabled, modifyNetworkInterfaceAttributesRequest.portSecurityEnabled) &&
         Objects.equals(this.securityGroupIds, modifyNetworkInterfaceAttributesRequest.securityGroupIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, networkInterfaceId, networkInterfaceName, securityGroupIds);
+    return Objects.hash(deleteOnTermination, description, networkInterfaceId, networkInterfaceName, portSecurityEnabled, securityGroupIds);
   }
 
 
@@ -152,9 +196,11 @@ public class ModifyNetworkInterfaceAttributesRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ModifyNetworkInterfaceAttributesRequest {\n");
     
+    sb.append("    deleteOnTermination: ").append(toIndentedString(deleteOnTermination)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    networkInterfaceId: ").append(toIndentedString(networkInterfaceId)).append("\n");
     sb.append("    networkInterfaceName: ").append(toIndentedString(networkInterfaceName)).append("\n");
+    sb.append("    portSecurityEnabled: ").append(toIndentedString(portSecurityEnabled)).append("\n");
     sb.append("    securityGroupIds: ").append(toIndentedString(securityGroupIds)).append("\n");
     sb.append("}");
     return sb.toString();

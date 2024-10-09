@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vpc.model.TagFilterForDescribeHaVipsInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -61,6 +62,9 @@ public class DescribeHaVipsRequest {
 
   @SerializedName("SubnetId")
   private String subnetId = null;
+
+  @SerializedName("TagFilters")
+  private List<TagFilterForDescribeHaVipsInput> tagFilters = null;
 
   @SerializedName("VpcId")
   private String vpcId = null;
@@ -256,6 +260,33 @@ public class DescribeHaVipsRequest {
     this.subnetId = subnetId;
   }
 
+  public DescribeHaVipsRequest tagFilters(List<TagFilterForDescribeHaVipsInput> tagFilters) {
+    this.tagFilters = tagFilters;
+    return this;
+  }
+
+  public DescribeHaVipsRequest addTagFiltersItem(TagFilterForDescribeHaVipsInput tagFiltersItem) {
+    if (this.tagFilters == null) {
+      this.tagFilters = new ArrayList<TagFilterForDescribeHaVipsInput>();
+    }
+    this.tagFilters.add(tagFiltersItem);
+    return this;
+  }
+
+   /**
+   * Get tagFilters
+   * @return tagFilters
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagFilterForDescribeHaVipsInput> getTagFilters() {
+    return tagFilters;
+  }
+
+  public void setTagFilters(List<TagFilterForDescribeHaVipsInput> tagFilters) {
+    this.tagFilters = tagFilters;
+  }
+
   public DescribeHaVipsRequest vpcId(String vpcId) {
     this.vpcId = vpcId;
     return this;
@@ -294,12 +325,13 @@ public class DescribeHaVipsRequest {
         Objects.equals(this.projectName, describeHaVipsRequest.projectName) &&
         Objects.equals(this.status, describeHaVipsRequest.status) &&
         Objects.equals(this.subnetId, describeHaVipsRequest.subnetId) &&
+        Objects.equals(this.tagFilters, describeHaVipsRequest.tagFilters) &&
         Objects.equals(this.vpcId, describeHaVipsRequest.vpcId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(haVipIds, haVipName, ipAddress, maxResults, nextToken, pageNumber, pageSize, projectName, status, subnetId, vpcId);
+    return Objects.hash(haVipIds, haVipName, ipAddress, maxResults, nextToken, pageNumber, pageSize, projectName, status, subnetId, tagFilters, vpcId);
   }
 
 
@@ -318,6 +350,7 @@ public class DescribeHaVipsRequest {
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
+    sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("}");
     return sb.toString();

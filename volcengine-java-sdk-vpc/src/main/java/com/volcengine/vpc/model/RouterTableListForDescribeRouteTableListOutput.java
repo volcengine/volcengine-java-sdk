@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vpc.model.TagForDescribeRouteTableListOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -55,6 +56,9 @@ public class RouterTableListForDescribeRouteTableListOutput {
 
   @SerializedName("SubnetIds")
   private List<String> subnetIds = null;
+
+  @SerializedName("Tags")
+  private List<TagForDescribeRouteTableListOutput> tags = null;
 
   @SerializedName("UpdateTime")
   private String updateTime = null;
@@ -217,6 +221,33 @@ public class RouterTableListForDescribeRouteTableListOutput {
     this.subnetIds = subnetIds;
   }
 
+  public RouterTableListForDescribeRouteTableListOutput tags(List<TagForDescribeRouteTableListOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public RouterTableListForDescribeRouteTableListOutput addTagsItem(TagForDescribeRouteTableListOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForDescribeRouteTableListOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForDescribeRouteTableListOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForDescribeRouteTableListOutput> tags) {
+    this.tags = tags;
+  }
+
   public RouterTableListForDescribeRouteTableListOutput updateTime(String updateTime) {
     this.updateTime = updateTime;
     return this;
@@ -289,6 +320,7 @@ public class RouterTableListForDescribeRouteTableListOutput {
         Objects.equals(this.routeTableName, routerTableListForDescribeRouteTableListOutput.routeTableName) &&
         Objects.equals(this.routeTableType, routerTableListForDescribeRouteTableListOutput.routeTableType) &&
         Objects.equals(this.subnetIds, routerTableListForDescribeRouteTableListOutput.subnetIds) &&
+        Objects.equals(this.tags, routerTableListForDescribeRouteTableListOutput.tags) &&
         Objects.equals(this.updateTime, routerTableListForDescribeRouteTableListOutput.updateTime) &&
         Objects.equals(this.vpcId, routerTableListForDescribeRouteTableListOutput.vpcId) &&
         Objects.equals(this.vpcName, routerTableListForDescribeRouteTableListOutput.vpcName);
@@ -296,7 +328,7 @@ public class RouterTableListForDescribeRouteTableListOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, creationTime, description, projectName, routeTableId, routeTableName, routeTableType, subnetIds, updateTime, vpcId, vpcName);
+    return Objects.hash(accountId, creationTime, description, projectName, routeTableId, routeTableName, routeTableType, subnetIds, tags, updateTime, vpcId, vpcName);
   }
 
 
@@ -313,6 +345,7 @@ public class RouterTableListForDescribeRouteTableListOutput {
     sb.append("    routeTableName: ").append(toIndentedString(routeTableName)).append("\n");
     sb.append("    routeTableType: ").append(toIndentedString(routeTableType)).append("\n");
     sb.append("    subnetIds: ").append(toIndentedString(subnetIds)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("    vpcName: ").append(toIndentedString(vpcName)).append("\n");

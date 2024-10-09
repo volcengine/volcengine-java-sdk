@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vpc.model.TagForCreateNetworkAclInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -41,6 +44,9 @@ public class CreateNetworkAclRequest {
 
   @SerializedName("ProjectName")
   private String projectName = null;
+
+  @SerializedName("Tags")
+  private List<TagForCreateNetworkAclInput> tags = null;
 
   @SerializedName("VpcId")
   private String vpcId = null;
@@ -117,6 +123,33 @@ public class CreateNetworkAclRequest {
     this.projectName = projectName;
   }
 
+  public CreateNetworkAclRequest tags(List<TagForCreateNetworkAclInput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public CreateNetworkAclRequest addTagsItem(TagForCreateNetworkAclInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForCreateNetworkAclInput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForCreateNetworkAclInput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForCreateNetworkAclInput> tags) {
+    this.tags = tags;
+  }
+
   public CreateNetworkAclRequest vpcId(String vpcId) {
     this.vpcId = vpcId;
     return this;
@@ -150,12 +183,13 @@ public class CreateNetworkAclRequest {
         Objects.equals(this.description, createNetworkAclRequest.description) &&
         Objects.equals(this.networkAclName, createNetworkAclRequest.networkAclName) &&
         Objects.equals(this.projectName, createNetworkAclRequest.projectName) &&
+        Objects.equals(this.tags, createNetworkAclRequest.tags) &&
         Objects.equals(this.vpcId, createNetworkAclRequest.vpcId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, description, networkAclName, projectName, vpcId);
+    return Objects.hash(clientToken, description, networkAclName, projectName, tags, vpcId);
   }
 
 
@@ -168,6 +202,7 @@ public class CreateNetworkAclRequest {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    networkAclName: ").append(toIndentedString(networkAclName)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("}");
     return sb.toString();

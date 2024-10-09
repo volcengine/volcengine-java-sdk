@@ -60,6 +60,9 @@ public class DescribeSubnetsRequest {
   @SerializedName("SubnetName")
   private String subnetName = null;
 
+  @SerializedName("SubnetOwnerId")
+  private String subnetOwnerId = null;
+
   @SerializedName("TagFilters")
   private List<TagFilterForDescribeSubnetsInput> tagFilters = null;
 
@@ -240,6 +243,24 @@ public class DescribeSubnetsRequest {
     this.subnetName = subnetName;
   }
 
+  public DescribeSubnetsRequest subnetOwnerId(String subnetOwnerId) {
+    this.subnetOwnerId = subnetOwnerId;
+    return this;
+  }
+
+   /**
+   * Get subnetOwnerId
+   * @return subnetOwnerId
+  **/
+  @Schema(description = "")
+  public String getSubnetOwnerId() {
+    return subnetOwnerId;
+  }
+
+  public void setSubnetOwnerId(String subnetOwnerId) {
+    this.subnetOwnerId = subnetOwnerId;
+  }
+
   public DescribeSubnetsRequest tagFilters(List<TagFilterForDescribeSubnetsInput> tagFilters) {
     this.tagFilters = tagFilters;
     return this;
@@ -322,6 +343,7 @@ public class DescribeSubnetsRequest {
         Objects.equals(this.routeTableId, describeSubnetsRequest.routeTableId) &&
         Objects.equals(this.subnetIds, describeSubnetsRequest.subnetIds) &&
         Objects.equals(this.subnetName, describeSubnetsRequest.subnetName) &&
+        Objects.equals(this.subnetOwnerId, describeSubnetsRequest.subnetOwnerId) &&
         Objects.equals(this.tagFilters, describeSubnetsRequest.tagFilters) &&
         Objects.equals(this.vpcId, describeSubnetsRequest.vpcId) &&
         Objects.equals(this.zoneId, describeSubnetsRequest.zoneId);
@@ -329,7 +351,7 @@ public class DescribeSubnetsRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(isDefault, maxResults, nextToken, pageNumber, pageSize, projectName, routeTableId, subnetIds, subnetName, tagFilters, vpcId, zoneId);
+    return Objects.hash(isDefault, maxResults, nextToken, pageNumber, pageSize, projectName, routeTableId, subnetIds, subnetName, subnetOwnerId, tagFilters, vpcId, zoneId);
   }
 
 
@@ -347,6 +369,7 @@ public class DescribeSubnetsRequest {
     sb.append("    routeTableId: ").append(toIndentedString(routeTableId)).append("\n");
     sb.append("    subnetIds: ").append(toIndentedString(subnetIds)).append("\n");
     sb.append("    subnetName: ").append(toIndentedString(subnetName)).append("\n");
+    sb.append("    subnetOwnerId: ").append(toIndentedString(subnetOwnerId)).append("\n");
     sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
