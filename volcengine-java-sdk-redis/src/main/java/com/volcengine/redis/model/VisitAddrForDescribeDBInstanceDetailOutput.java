@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class VisitAddrForDescribeDBInstanceDetailOutput {
   @SerializedName("AddrType")
   private String addrType = null;
@@ -40,6 +41,9 @@ public class VisitAddrForDescribeDBInstanceDetailOutput {
 
   @SerializedName("Port")
   private String port = null;
+
+  @SerializedName("VIP")
+  private String VIP = null;
 
   public VisitAddrForDescribeDBInstanceDetailOutput addrType(String addrType) {
     this.addrType = addrType;
@@ -113,6 +117,24 @@ public class VisitAddrForDescribeDBInstanceDetailOutput {
     this.port = port;
   }
 
+  public VisitAddrForDescribeDBInstanceDetailOutput VIP(String VIP) {
+    this.VIP = VIP;
+    return this;
+  }
+
+   /**
+   * Get VIP
+   * @return VIP
+  **/
+  @Schema(description = "")
+  public String getVIP() {
+    return VIP;
+  }
+
+  public void setVIP(String VIP) {
+    this.VIP = VIP;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -126,12 +148,13 @@ public class VisitAddrForDescribeDBInstanceDetailOutput {
     return Objects.equals(this.addrType, visitAddrForDescribeDBInstanceDetailOutput.addrType) &&
         Objects.equals(this.address, visitAddrForDescribeDBInstanceDetailOutput.address) &&
         Objects.equals(this.eipId, visitAddrForDescribeDBInstanceDetailOutput.eipId) &&
-        Objects.equals(this.port, visitAddrForDescribeDBInstanceDetailOutput.port);
+        Objects.equals(this.port, visitAddrForDescribeDBInstanceDetailOutput.port) &&
+        Objects.equals(this.VIP, visitAddrForDescribeDBInstanceDetailOutput.VIP);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(addrType, address, eipId, port);
+    return Objects.hash(addrType, address, eipId, port, VIP);
   }
 
 
@@ -144,6 +167,7 @@ public class VisitAddrForDescribeDBInstanceDetailOutput {
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
     sb.append("    eipId: ").append(toIndentedString(eipId)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
+    sb.append("    VIP: ").append(toIndentedString(VIP)).append("\n");
     sb.append("}");
     return sb.toString();
   }

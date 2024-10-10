@@ -34,6 +34,9 @@ import javax.validation.Valid;
 
 
 public class DescribeSecurityGroupAttributesResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("AccountId")
+  private String accountId = null;
+
   @SerializedName("CreationTime")
   private String creationTime = null;
 
@@ -72,6 +75,24 @@ public class DescribeSecurityGroupAttributesResponse extends com.volcengine.mode
 
   @SerializedName("VpcId")
   private String vpcId = null;
+
+  public DescribeSecurityGroupAttributesResponse accountId(String accountId) {
+    this.accountId = accountId;
+    return this;
+  }
+
+   /**
+   * Get accountId
+   * @return accountId
+  **/
+  @Schema(description = "")
+  public String getAccountId() {
+    return accountId;
+  }
+
+  public void setAccountId(String accountId) {
+    this.accountId = accountId;
+  }
 
   public DescribeSecurityGroupAttributesResponse creationTime(String creationTime) {
     this.creationTime = creationTime;
@@ -335,7 +356,8 @@ public class DescribeSecurityGroupAttributesResponse extends com.volcengine.mode
       return false;
     }
     DescribeSecurityGroupAttributesResponse describeSecurityGroupAttributesResponse = (DescribeSecurityGroupAttributesResponse) o;
-    return Objects.equals(this.creationTime, describeSecurityGroupAttributesResponse.creationTime) &&
+    return Objects.equals(this.accountId, describeSecurityGroupAttributesResponse.accountId) &&
+        Objects.equals(this.creationTime, describeSecurityGroupAttributesResponse.creationTime) &&
         Objects.equals(this.description, describeSecurityGroupAttributesResponse.description) &&
         Objects.equals(this.permissions, describeSecurityGroupAttributesResponse.permissions) &&
         Objects.equals(this.projectName, describeSecurityGroupAttributesResponse.projectName) &&
@@ -352,7 +374,7 @@ public class DescribeSecurityGroupAttributesResponse extends com.volcengine.mode
 
   @Override
   public int hashCode() {
-    return Objects.hash(creationTime, description, permissions, projectName, requestId, securityGroupId, securityGroupName, serviceManaged, status, tags, type, updateTime, vpcId);
+    return Objects.hash(accountId, creationTime, description, permissions, projectName, requestId, securityGroupId, securityGroupName, serviceManaged, status, tags, type, updateTime, vpcId);
   }
 
 
@@ -361,6 +383,7 @@ public class DescribeSecurityGroupAttributesResponse extends com.volcengine.mode
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeSecurityGroupAttributesResponse {\n");
     
+    sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");

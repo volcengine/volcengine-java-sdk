@@ -72,10 +72,9 @@ public class ModifyEipAddressAttributesRequest {
    /**
    * Get bandwidth
    * minimum: 1
-   * maximum: 1000
    * @return bandwidth
   **/
- @Min(1) @Max(1000)  @Schema(description = "")
+ @Min(1)  @Schema(description = "")
   public Integer getBandwidth() {
     return bandwidth;
   }

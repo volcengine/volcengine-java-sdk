@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class BackupPointDownloadUrlForDescribeBackupPointDownloadUrlsOutput {
   @SerializedName("PrivateDownloadUrl")
   private String privateDownloadUrl = null;

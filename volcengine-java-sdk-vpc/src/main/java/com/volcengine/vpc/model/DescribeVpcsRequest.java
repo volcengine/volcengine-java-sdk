@@ -60,6 +60,9 @@ public class DescribeVpcsRequest {
   @SerializedName("VpcName")
   private String vpcName = null;
 
+  @SerializedName("VpcOwnerId")
+  private Integer vpcOwnerId = null;
+
   public DescribeVpcsRequest isDefault(Boolean isDefault) {
     this.isDefault = isDefault;
     return this;
@@ -242,6 +245,24 @@ public class DescribeVpcsRequest {
     this.vpcName = vpcName;
   }
 
+  public DescribeVpcsRequest vpcOwnerId(Integer vpcOwnerId) {
+    this.vpcOwnerId = vpcOwnerId;
+    return this;
+  }
+
+   /**
+   * Get vpcOwnerId
+   * @return vpcOwnerId
+  **/
+  @Schema(description = "")
+  public Integer getVpcOwnerId() {
+    return vpcOwnerId;
+  }
+
+  public void setVpcOwnerId(Integer vpcOwnerId) {
+    this.vpcOwnerId = vpcOwnerId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -260,12 +281,13 @@ public class DescribeVpcsRequest {
         Objects.equals(this.projectName, describeVpcsRequest.projectName) &&
         Objects.equals(this.tagFilters, describeVpcsRequest.tagFilters) &&
         Objects.equals(this.vpcIds, describeVpcsRequest.vpcIds) &&
-        Objects.equals(this.vpcName, describeVpcsRequest.vpcName);
+        Objects.equals(this.vpcName, describeVpcsRequest.vpcName) &&
+        Objects.equals(this.vpcOwnerId, describeVpcsRequest.vpcOwnerId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(isDefault, maxResults, nextToken, pageNumber, pageSize, projectName, tagFilters, vpcIds, vpcName);
+    return Objects.hash(isDefault, maxResults, nextToken, pageNumber, pageSize, projectName, tagFilters, vpcIds, vpcName, vpcOwnerId);
   }
 
 
@@ -283,6 +305,7 @@ public class DescribeVpcsRequest {
     sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("    vpcIds: ").append(toIndentedString(vpcIds)).append("\n");
     sb.append("    vpcName: ").append(toIndentedString(vpcName)).append("\n");
+    sb.append("    vpcOwnerId: ").append(toIndentedString(vpcOwnerId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

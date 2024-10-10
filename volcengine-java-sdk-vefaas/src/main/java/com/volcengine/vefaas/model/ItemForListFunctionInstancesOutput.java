@@ -30,6 +30,9 @@ import javax.validation.Valid;
 
 
 public class ItemForListFunctionInstancesOutput {
+  @SerializedName("AvailabilityZone")
+  private String availabilityZone = null;
+
   @SerializedName("CreationTime")
   private String creationTime = null;
 
@@ -44,6 +47,24 @@ public class ItemForListFunctionInstancesOutput {
 
   @SerializedName("RevisionNumber")
   private Integer revisionNumber = null;
+
+  public ItemForListFunctionInstancesOutput availabilityZone(String availabilityZone) {
+    this.availabilityZone = availabilityZone;
+    return this;
+  }
+
+   /**
+   * Get availabilityZone
+   * @return availabilityZone
+  **/
+  @Schema(description = "")
+  public String getAvailabilityZone() {
+    return availabilityZone;
+  }
+
+  public void setAvailabilityZone(String availabilityZone) {
+    this.availabilityZone = availabilityZone;
+  }
 
   public ItemForListFunctionInstancesOutput creationTime(String creationTime) {
     this.creationTime = creationTime;
@@ -145,7 +166,8 @@ public class ItemForListFunctionInstancesOutput {
       return false;
     }
     ItemForListFunctionInstancesOutput itemForListFunctionInstancesOutput = (ItemForListFunctionInstancesOutput) o;
-    return Objects.equals(this.creationTime, itemForListFunctionInstancesOutput.creationTime) &&
+    return Objects.equals(this.availabilityZone, itemForListFunctionInstancesOutput.availabilityZone) &&
+        Objects.equals(this.creationTime, itemForListFunctionInstancesOutput.creationTime) &&
         Objects.equals(this.id, itemForListFunctionInstancesOutput.id) &&
         Objects.equals(this.instanceName, itemForListFunctionInstancesOutput.instanceName) &&
         Objects.equals(this.instanceStatus, itemForListFunctionInstancesOutput.instanceStatus) &&
@@ -154,7 +176,7 @@ public class ItemForListFunctionInstancesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(creationTime, id, instanceName, instanceStatus, revisionNumber);
+    return Objects.hash(availabilityZone, creationTime, id, instanceName, instanceStatus, revisionNumber);
   }
 
 
@@ -163,6 +185,7 @@ public class ItemForListFunctionInstancesOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ItemForListFunctionInstancesOutput {\n");
     
+    sb.append("    availabilityZone: ").append(toIndentedString(availabilityZone)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");

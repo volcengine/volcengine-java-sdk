@@ -28,7 +28,8 @@ import javax.validation.Valid;
  */
 
 
-public class DescribePitrTimeWindowResponse {
+
+public class DescribePitrTimeWindowResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("EndTime")
   private String endTime = null;
 

@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vefaas.model.EnvForListFunctionsOutput;
 import com.volcengine.vefaas.model.NasStorageForListFunctionsOutput;
+import com.volcengine.vefaas.model.TagForListFunctionsOutput;
 import com.volcengine.vefaas.model.TlsConfigForListFunctionsOutput;
 import com.volcengine.vefaas.model.TosMountConfigForListFunctionsOutput;
 import com.volcengine.vefaas.model.VpcConfigForListFunctionsOutput;
@@ -82,6 +83,9 @@ public class ItemForListFunctionsOutput {
   @SerializedName("Owner")
   private String owner = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("RequestTimeout")
   private Integer requestTimeout = null;
 
@@ -93,6 +97,9 @@ public class ItemForListFunctionsOutput {
 
   @SerializedName("SourceType")
   private String sourceType = null;
+
+  @SerializedName("Tags")
+  private List<TagForListFunctionsOutput> tags = null;
 
   @SerializedName("TlsConfig")
   private TlsConfigForListFunctionsOutput tlsConfig = null;
@@ -386,6 +393,24 @@ public class ItemForListFunctionsOutput {
     this.owner = owner;
   }
 
+  public ItemForListFunctionsOutput projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public ItemForListFunctionsOutput requestTimeout(Integer requestTimeout) {
     this.requestTimeout = requestTimeout;
     return this;
@@ -456,6 +481,33 @@ public class ItemForListFunctionsOutput {
 
   public void setSourceType(String sourceType) {
     this.sourceType = sourceType;
+  }
+
+  public ItemForListFunctionsOutput tags(List<TagForListFunctionsOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public ItemForListFunctionsOutput addTagsItem(TagForListFunctionsOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForListFunctionsOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForListFunctionsOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForListFunctionsOutput> tags) {
+    this.tags = tags;
   }
 
   public ItemForListFunctionsOutput tlsConfig(TlsConfigForListFunctionsOutput tlsConfig) {
@@ -558,10 +610,12 @@ public class ItemForListFunctionsOutput {
         Objects.equals(this.name, itemForListFunctionsOutput.name) &&
         Objects.equals(this.nasStorage, itemForListFunctionsOutput.nasStorage) &&
         Objects.equals(this.owner, itemForListFunctionsOutput.owner) &&
+        Objects.equals(this.projectName, itemForListFunctionsOutput.projectName) &&
         Objects.equals(this.requestTimeout, itemForListFunctionsOutput.requestTimeout) &&
         Objects.equals(this.runtime, itemForListFunctionsOutput.runtime) &&
         Objects.equals(this.sourceLocation, itemForListFunctionsOutput.sourceLocation) &&
         Objects.equals(this.sourceType, itemForListFunctionsOutput.sourceType) &&
+        Objects.equals(this.tags, itemForListFunctionsOutput.tags) &&
         Objects.equals(this.tlsConfig, itemForListFunctionsOutput.tlsConfig) &&
         Objects.equals(this.tosMountConfig, itemForListFunctionsOutput.tosMountConfig) &&
         Objects.equals(this.triggersCount, itemForListFunctionsOutput.triggersCount) &&
@@ -570,7 +624,7 @@ public class ItemForListFunctionsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(codeSize, codeSizeLimit, creationTime, description, envs, exclusiveMode, id, initializerSec, instanceType, lastUpdateTime, maxConcurrency, memoryMB, name, nasStorage, owner, requestTimeout, runtime, sourceLocation, sourceType, tlsConfig, tosMountConfig, triggersCount, vpcConfig);
+    return Objects.hash(codeSize, codeSizeLimit, creationTime, description, envs, exclusiveMode, id, initializerSec, instanceType, lastUpdateTime, maxConcurrency, memoryMB, name, nasStorage, owner, projectName, requestTimeout, runtime, sourceLocation, sourceType, tags, tlsConfig, tosMountConfig, triggersCount, vpcConfig);
   }
 
 
@@ -594,10 +648,12 @@ public class ItemForListFunctionsOutput {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    nasStorage: ").append(toIndentedString(nasStorage)).append("\n");
     sb.append("    owner: ").append(toIndentedString(owner)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    requestTimeout: ").append(toIndentedString(requestTimeout)).append("\n");
     sb.append("    runtime: ").append(toIndentedString(runtime)).append("\n");
     sb.append("    sourceLocation: ").append(toIndentedString(sourceLocation)).append("\n");
     sb.append("    sourceType: ").append(toIndentedString(sourceType)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    tlsConfig: ").append(toIndentedString(tlsConfig)).append("\n");
     sb.append("    tosMountConfig: ").append(toIndentedString(tosMountConfig)).append("\n");
     sb.append("    triggersCount: ").append(toIndentedString(triggersCount)).append("\n");

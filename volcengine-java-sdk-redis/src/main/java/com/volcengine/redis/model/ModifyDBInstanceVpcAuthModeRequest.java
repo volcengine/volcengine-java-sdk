@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ModifyDBInstanceVpcAuthModeRequest {
   @SerializedName("ClientToken")
   private String clientToken = null;
@@ -84,7 +85,8 @@ public class ModifyDBInstanceVpcAuthModeRequest {
    * Get vpcAuthMode
    * @return vpcAuthMode
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getVpcAuthMode() {
     return vpcAuthMode;
   }

@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vpc.model.TagForDescribePrefixListsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -61,6 +62,9 @@ public class PrefixListForDescribePrefixListsOutput {
 
   @SerializedName("Status")
   private String status = null;
+
+  @SerializedName("Tags")
+  private List<TagForDescribePrefixListsOutput> tags = null;
 
   @SerializedName("UpdateTime")
   private String updateTime = null;
@@ -253,6 +257,33 @@ public class PrefixListForDescribePrefixListsOutput {
     this.status = status;
   }
 
+  public PrefixListForDescribePrefixListsOutput tags(List<TagForDescribePrefixListsOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public PrefixListForDescribePrefixListsOutput addTagsItem(TagForDescribePrefixListsOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForDescribePrefixListsOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForDescribePrefixListsOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForDescribePrefixListsOutput> tags) {
+    this.tags = tags;
+  }
+
   public PrefixListForDescribePrefixListsOutput updateTime(String updateTime) {
     this.updateTime = updateTime;
     return this;
@@ -291,12 +322,13 @@ public class PrefixListForDescribePrefixListsOutput {
         Objects.equals(this.prefixListName, prefixListForDescribePrefixListsOutput.prefixListName) &&
         Objects.equals(this.projectName, prefixListForDescribePrefixListsOutput.projectName) &&
         Objects.equals(this.status, prefixListForDescribePrefixListsOutput.status) &&
+        Objects.equals(this.tags, prefixListForDescribePrefixListsOutput.tags) &&
         Objects.equals(this.updateTime, prefixListForDescribePrefixListsOutput.updateTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(associationCount, cidrs, creationTime, description, ipVersion, maxEntries, prefixListId, prefixListName, projectName, status, updateTime);
+    return Objects.hash(associationCount, cidrs, creationTime, description, ipVersion, maxEntries, prefixListId, prefixListName, projectName, status, tags, updateTime);
   }
 
 
@@ -315,6 +347,7 @@ public class PrefixListForDescribePrefixListsOutput {
     sb.append("    prefixListName: ").append(toIndentedString(prefixListName)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("}");
     return sb.toString();

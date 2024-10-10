@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vpc.model.TagFilterForDescribeNetworkAclsInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -55,6 +56,9 @@ public class DescribeNetworkAclsRequest {
 
   @SerializedName("SubnetId")
   private String subnetId = null;
+
+  @SerializedName("TagFilters")
+  private List<TagFilterForDescribeNetworkAclsInput> tagFilters = null;
 
   @SerializedName("VpcId")
   private String vpcId = null;
@@ -214,6 +218,33 @@ public class DescribeNetworkAclsRequest {
     this.subnetId = subnetId;
   }
 
+  public DescribeNetworkAclsRequest tagFilters(List<TagFilterForDescribeNetworkAclsInput> tagFilters) {
+    this.tagFilters = tagFilters;
+    return this;
+  }
+
+  public DescribeNetworkAclsRequest addTagFiltersItem(TagFilterForDescribeNetworkAclsInput tagFiltersItem) {
+    if (this.tagFilters == null) {
+      this.tagFilters = new ArrayList<TagFilterForDescribeNetworkAclsInput>();
+    }
+    this.tagFilters.add(tagFiltersItem);
+    return this;
+  }
+
+   /**
+   * Get tagFilters
+   * @return tagFilters
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagFilterForDescribeNetworkAclsInput> getTagFilters() {
+    return tagFilters;
+  }
+
+  public void setTagFilters(List<TagFilterForDescribeNetworkAclsInput> tagFilters) {
+    this.tagFilters = tagFilters;
+  }
+
   public DescribeNetworkAclsRequest vpcId(String vpcId) {
     this.vpcId = vpcId;
     return this;
@@ -250,12 +281,13 @@ public class DescribeNetworkAclsRequest {
         Objects.equals(this.pageSize, describeNetworkAclsRequest.pageSize) &&
         Objects.equals(this.projectName, describeNetworkAclsRequest.projectName) &&
         Objects.equals(this.subnetId, describeNetworkAclsRequest.subnetId) &&
+        Objects.equals(this.tagFilters, describeNetworkAclsRequest.tagFilters) &&
         Objects.equals(this.vpcId, describeNetworkAclsRequest.vpcId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(maxResults, networkAclIds, networkAclName, nextToken, pageNumber, pageSize, projectName, subnetId, vpcId);
+    return Objects.hash(maxResults, networkAclIds, networkAclName, nextToken, pageNumber, pageSize, projectName, subnetId, tagFilters, vpcId);
   }
 
 
@@ -272,6 +304,7 @@ public class DescribeNetworkAclsRequest {
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
+    sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("}");
     return sb.toString();

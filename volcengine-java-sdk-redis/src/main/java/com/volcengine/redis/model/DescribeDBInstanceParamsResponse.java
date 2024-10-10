@@ -31,7 +31,8 @@ import javax.validation.Valid;
  */
 
 
-public class DescribeDBInstanceParamsResponse {
+
+public class DescribeDBInstanceParamsResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Params")
   private List<ParamForDescribeDBInstanceParamsOutput> params = null;
 

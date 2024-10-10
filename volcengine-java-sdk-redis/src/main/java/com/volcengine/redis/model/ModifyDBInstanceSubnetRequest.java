@@ -28,12 +28,16 @@ import javax.validation.Valid;
  */
 
 
+
 public class ModifyDBInstanceSubnetRequest {
   @SerializedName("ClientToken")
   private String clientToken = null;
 
   @SerializedName("InstanceId")
   private String instanceId = null;
+
+  @SerializedName("RetentionDays")
+  private Integer retentionDays = null;
 
   @SerializedName("SubnetId")
   private String subnetId = null;
@@ -76,6 +80,24 @@ public class ModifyDBInstanceSubnetRequest {
 
   public void setInstanceId(String instanceId) {
     this.instanceId = instanceId;
+  }
+
+  public ModifyDBInstanceSubnetRequest retentionDays(Integer retentionDays) {
+    this.retentionDays = retentionDays;
+    return this;
+  }
+
+   /**
+   * Get retentionDays
+   * @return retentionDays
+  **/
+  @Schema(description = "")
+  public Integer getRetentionDays() {
+    return retentionDays;
+  }
+
+  public void setRetentionDays(Integer retentionDays) {
+    this.retentionDays = retentionDays;
   }
 
   public ModifyDBInstanceSubnetRequest subnetId(String subnetId) {
@@ -128,13 +150,14 @@ public class ModifyDBInstanceSubnetRequest {
     ModifyDBInstanceSubnetRequest modifyDBInstanceSubnetRequest = (ModifyDBInstanceSubnetRequest) o;
     return Objects.equals(this.clientToken, modifyDBInstanceSubnetRequest.clientToken) &&
         Objects.equals(this.instanceId, modifyDBInstanceSubnetRequest.instanceId) &&
+        Objects.equals(this.retentionDays, modifyDBInstanceSubnetRequest.retentionDays) &&
         Objects.equals(this.subnetId, modifyDBInstanceSubnetRequest.subnetId) &&
         Objects.equals(this.vpcId, modifyDBInstanceSubnetRequest.vpcId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, instanceId, subnetId, vpcId);
+    return Objects.hash(clientToken, instanceId, retentionDays, subnetId, vpcId);
   }
 
 
@@ -145,6 +168,7 @@ public class ModifyDBInstanceSubnetRequest {
     
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    retentionDays: ").append(toIndentedString(retentionDays)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("}");

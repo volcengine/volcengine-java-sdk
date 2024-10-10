@@ -110,6 +110,12 @@ public class AllocateEipAddressRequest {
   }  @SerializedName("ISP")
   private ISPEnum ISP = null;
 
+  @SerializedName("IpAddress")
+  private String ipAddress = null;
+
+  @SerializedName("IpAddressPoolId")
+  private String ipAddressPoolId = null;
+
   @SerializedName("Name")
   private String name = null;
 
@@ -128,6 +134,9 @@ public class AllocateEipAddressRequest {
   @SerializedName("RenewType")
   private Integer renewType = null;
 
+  @SerializedName("SecurityProtectionInstanceId")
+  private Integer securityProtectionInstanceId = null;
+
   @SerializedName("SecurityProtectionTypes")
   private List<String> securityProtectionTypes = null;
 
@@ -142,10 +151,9 @@ public class AllocateEipAddressRequest {
    /**
    * Get bandwidth
    * minimum: 1
-   * maximum: 500
    * @return bandwidth
   **/
- @Min(1) @Max(500)  @Schema(description = "")
+ @Min(1)  @Schema(description = "")
   public Integer getBandwidth() {
     return bandwidth;
   }
@@ -244,6 +252,42 @@ public class AllocateEipAddressRequest {
 
   public void setISP(ISPEnum ISP) {
     this.ISP = ISP;
+  }
+
+  public AllocateEipAddressRequest ipAddress(String ipAddress) {
+    this.ipAddress = ipAddress;
+    return this;
+  }
+
+   /**
+   * Get ipAddress
+   * @return ipAddress
+  **/
+  @Schema(description = "")
+  public String getIpAddress() {
+    return ipAddress;
+  }
+
+  public void setIpAddress(String ipAddress) {
+    this.ipAddress = ipAddress;
+  }
+
+  public AllocateEipAddressRequest ipAddressPoolId(String ipAddressPoolId) {
+    this.ipAddressPoolId = ipAddressPoolId;
+    return this;
+  }
+
+   /**
+   * Get ipAddressPoolId
+   * @return ipAddressPoolId
+  **/
+  @Schema(description = "")
+  public String getIpAddressPoolId() {
+    return ipAddressPoolId;
+  }
+
+  public void setIpAddressPoolId(String ipAddressPoolId) {
+    this.ipAddressPoolId = ipAddressPoolId;
   }
 
   public AllocateEipAddressRequest name(String name) {
@@ -358,6 +402,24 @@ public class AllocateEipAddressRequest {
     this.renewType = renewType;
   }
 
+  public AllocateEipAddressRequest securityProtectionInstanceId(Integer securityProtectionInstanceId) {
+    this.securityProtectionInstanceId = securityProtectionInstanceId;
+    return this;
+  }
+
+   /**
+   * Get securityProtectionInstanceId
+   * @return securityProtectionInstanceId
+  **/
+  @Schema(description = "")
+  public Integer getSecurityProtectionInstanceId() {
+    return securityProtectionInstanceId;
+  }
+
+  public void setSecurityProtectionInstanceId(Integer securityProtectionInstanceId) {
+    this.securityProtectionInstanceId = securityProtectionInstanceId;
+  }
+
   public AllocateEipAddressRequest securityProtectionTypes(List<String> securityProtectionTypes) {
     this.securityProtectionTypes = securityProtectionTypes;
     return this;
@@ -427,19 +489,22 @@ public class AllocateEipAddressRequest {
         Objects.equals(this.clientToken, allocateEipAddressRequest.clientToken) &&
         Objects.equals(this.description, allocateEipAddressRequest.description) &&
         Objects.equals(this.ISP, allocateEipAddressRequest.ISP) &&
+        Objects.equals(this.ipAddress, allocateEipAddressRequest.ipAddress) &&
+        Objects.equals(this.ipAddressPoolId, allocateEipAddressRequest.ipAddressPoolId) &&
         Objects.equals(this.name, allocateEipAddressRequest.name) &&
         Objects.equals(this.period, allocateEipAddressRequest.period) &&
         Objects.equals(this.periodUnit, allocateEipAddressRequest.periodUnit) &&
         Objects.equals(this.projectName, allocateEipAddressRequest.projectName) &&
         Objects.equals(this.renewPeriodTimes, allocateEipAddressRequest.renewPeriodTimes) &&
         Objects.equals(this.renewType, allocateEipAddressRequest.renewType) &&
+        Objects.equals(this.securityProtectionInstanceId, allocateEipAddressRequest.securityProtectionInstanceId) &&
         Objects.equals(this.securityProtectionTypes, allocateEipAddressRequest.securityProtectionTypes) &&
         Objects.equals(this.tags, allocateEipAddressRequest.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidth, bandwidthPackageId, billingType, clientToken, description, ISP, name, period, periodUnit, projectName, renewPeriodTimes, renewType, securityProtectionTypes, tags);
+    return Objects.hash(bandwidth, bandwidthPackageId, billingType, clientToken, description, ISP, ipAddress, ipAddressPoolId, name, period, periodUnit, projectName, renewPeriodTimes, renewType, securityProtectionInstanceId, securityProtectionTypes, tags);
   }
 
 
@@ -454,12 +519,15 @@ public class AllocateEipAddressRequest {
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    ISP: ").append(toIndentedString(ISP)).append("\n");
+    sb.append("    ipAddress: ").append(toIndentedString(ipAddress)).append("\n");
+    sb.append("    ipAddressPoolId: ").append(toIndentedString(ipAddressPoolId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    period: ").append(toIndentedString(period)).append("\n");
     sb.append("    periodUnit: ").append(toIndentedString(periodUnit)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    renewPeriodTimes: ").append(toIndentedString(renewPeriodTimes)).append("\n");
     sb.append("    renewType: ").append(toIndentedString(renewType)).append("\n");
+    sb.append("    securityProtectionInstanceId: ").append(toIndentedString(securityProtectionInstanceId)).append("\n");
     sb.append("    securityProtectionTypes: ").append(toIndentedString(securityProtectionTypes)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");

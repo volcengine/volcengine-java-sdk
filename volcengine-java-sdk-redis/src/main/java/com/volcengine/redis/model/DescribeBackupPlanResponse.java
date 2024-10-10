@@ -14,6 +14,15 @@ package com.volcengine.redis.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -21,7 +30,184 @@ import javax.validation.Valid;
  */
 
 
-public class DescribeBackupPlanResponse {
+
+public class DescribeBackupPlanResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("Active")
+  private Boolean active = null;
+
+  @SerializedName("BackupHour")
+  private Integer backupHour = null;
+
+  @SerializedName("BackupType")
+  private String backupType = null;
+
+  @SerializedName("ExpectNextBackupTime")
+  private String expectNextBackupTime = null;
+
+  @SerializedName("InstanceId")
+  private String instanceId = null;
+
+  @SerializedName("LastUpdateTime")
+  private String lastUpdateTime = null;
+
+  @SerializedName("Period")
+  private List<Integer> period = null;
+
+  @SerializedName("TTL")
+  private Integer TTL = null;
+
+  public DescribeBackupPlanResponse active(Boolean active) {
+    this.active = active;
+    return this;
+  }
+
+   /**
+   * Get active
+   * @return active
+  **/
+  @Schema(description = "")
+  public Boolean isActive() {
+    return active;
+  }
+
+  public void setActive(Boolean active) {
+    this.active = active;
+  }
+
+  public DescribeBackupPlanResponse backupHour(Integer backupHour) {
+    this.backupHour = backupHour;
+    return this;
+  }
+
+   /**
+   * Get backupHour
+   * @return backupHour
+  **/
+  @Schema(description = "")
+  public Integer getBackupHour() {
+    return backupHour;
+  }
+
+  public void setBackupHour(Integer backupHour) {
+    this.backupHour = backupHour;
+  }
+
+  public DescribeBackupPlanResponse backupType(String backupType) {
+    this.backupType = backupType;
+    return this;
+  }
+
+   /**
+   * Get backupType
+   * @return backupType
+  **/
+  @Schema(description = "")
+  public String getBackupType() {
+    return backupType;
+  }
+
+  public void setBackupType(String backupType) {
+    this.backupType = backupType;
+  }
+
+  public DescribeBackupPlanResponse expectNextBackupTime(String expectNextBackupTime) {
+    this.expectNextBackupTime = expectNextBackupTime;
+    return this;
+  }
+
+   /**
+   * Get expectNextBackupTime
+   * @return expectNextBackupTime
+  **/
+  @Schema(description = "")
+  public String getExpectNextBackupTime() {
+    return expectNextBackupTime;
+  }
+
+  public void setExpectNextBackupTime(String expectNextBackupTime) {
+    this.expectNextBackupTime = expectNextBackupTime;
+  }
+
+  public DescribeBackupPlanResponse instanceId(String instanceId) {
+    this.instanceId = instanceId;
+    return this;
+  }
+
+   /**
+   * Get instanceId
+   * @return instanceId
+  **/
+  @Schema(description = "")
+  public String getInstanceId() {
+    return instanceId;
+  }
+
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
+  }
+
+  public DescribeBackupPlanResponse lastUpdateTime(String lastUpdateTime) {
+    this.lastUpdateTime = lastUpdateTime;
+    return this;
+  }
+
+   /**
+   * Get lastUpdateTime
+   * @return lastUpdateTime
+  **/
+  @Schema(description = "")
+  public String getLastUpdateTime() {
+    return lastUpdateTime;
+  }
+
+  public void setLastUpdateTime(String lastUpdateTime) {
+    this.lastUpdateTime = lastUpdateTime;
+  }
+
+  public DescribeBackupPlanResponse period(List<Integer> period) {
+    this.period = period;
+    return this;
+  }
+
+  public DescribeBackupPlanResponse addPeriodItem(Integer periodItem) {
+    if (this.period == null) {
+      this.period = new ArrayList<Integer>();
+    }
+    this.period.add(periodItem);
+    return this;
+  }
+
+   /**
+   * Get period
+   * @return period
+  **/
+  @Schema(description = "")
+  public List<Integer> getPeriod() {
+    return period;
+  }
+
+  public void setPeriod(List<Integer> period) {
+    this.period = period;
+  }
+
+  public DescribeBackupPlanResponse TTL(Integer TTL) {
+    this.TTL = TTL;
+    return this;
+  }
+
+   /**
+   * Get TTL
+   * @return TTL
+  **/
+  @Schema(description = "")
+  public Integer getTTL() {
+    return TTL;
+  }
+
+  public void setTTL(Integer TTL) {
+    this.TTL = TTL;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -31,12 +217,20 @@ public class DescribeBackupPlanResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return true;
+    DescribeBackupPlanResponse describeBackupPlanResponse = (DescribeBackupPlanResponse) o;
+    return Objects.equals(this.active, describeBackupPlanResponse.active) &&
+        Objects.equals(this.backupHour, describeBackupPlanResponse.backupHour) &&
+        Objects.equals(this.backupType, describeBackupPlanResponse.backupType) &&
+        Objects.equals(this.expectNextBackupTime, describeBackupPlanResponse.expectNextBackupTime) &&
+        Objects.equals(this.instanceId, describeBackupPlanResponse.instanceId) &&
+        Objects.equals(this.lastUpdateTime, describeBackupPlanResponse.lastUpdateTime) &&
+        Objects.equals(this.period, describeBackupPlanResponse.period) &&
+        Objects.equals(this.TTL, describeBackupPlanResponse.TTL);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash();
+    return Objects.hash(active, backupHour, backupType, expectNextBackupTime, instanceId, lastUpdateTime, period, TTL);
   }
 
 
@@ -45,6 +239,14 @@ public class DescribeBackupPlanResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeBackupPlanResponse {\n");
     
+    sb.append("    active: ").append(toIndentedString(active)).append("\n");
+    sb.append("    backupHour: ").append(toIndentedString(backupHour)).append("\n");
+    sb.append("    backupType: ").append(toIndentedString(backupType)).append("\n");
+    sb.append("    expectNextBackupTime: ").append(toIndentedString(expectNextBackupTime)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    lastUpdateTime: ").append(toIndentedString(lastUpdateTime)).append("\n");
+    sb.append("    period: ").append(toIndentedString(period)).append("\n");
+    sb.append("    TTL: ").append(toIndentedString(TTL)).append("\n");
     sb.append("}");
     return sb.toString();
   }

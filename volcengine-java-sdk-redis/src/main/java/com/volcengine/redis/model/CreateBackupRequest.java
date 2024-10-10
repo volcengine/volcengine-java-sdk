@@ -28,12 +28,34 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateBackupRequest {
+  @SerializedName("BackupPointName")
+  private String backupPointName = null;
+
   @SerializedName("ClientToken")
   private String clientToken = null;
 
   @SerializedName("InstanceId")
   private String instanceId = null;
+
+  public CreateBackupRequest backupPointName(String backupPointName) {
+    this.backupPointName = backupPointName;
+    return this;
+  }
+
+   /**
+   * Get backupPointName
+   * @return backupPointName
+  **/
+  @Schema(description = "")
+  public String getBackupPointName() {
+    return backupPointName;
+  }
+
+  public void setBackupPointName(String backupPointName) {
+    this.backupPointName = backupPointName;
+  }
 
   public CreateBackupRequest clientToken(String clientToken) {
     this.clientToken = clientToken;
@@ -62,7 +84,8 @@ public class CreateBackupRequest {
    * Get instanceId
    * @return instanceId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getInstanceId() {
     return instanceId;
   }
@@ -81,13 +104,14 @@ public class CreateBackupRequest {
       return false;
     }
     CreateBackupRequest createBackupRequest = (CreateBackupRequest) o;
-    return Objects.equals(this.clientToken, createBackupRequest.clientToken) &&
+    return Objects.equals(this.backupPointName, createBackupRequest.backupPointName) &&
+        Objects.equals(this.clientToken, createBackupRequest.clientToken) &&
         Objects.equals(this.instanceId, createBackupRequest.instanceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, instanceId);
+    return Objects.hash(backupPointName, clientToken, instanceId);
   }
 
 
@@ -96,6 +120,7 @@ public class CreateBackupRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateBackupRequest {\n");
     
+    sb.append("    backupPointName: ").append(toIndentedString(backupPointName)).append("\n");
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("}");

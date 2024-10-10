@@ -72,6 +72,9 @@ public class EipAddressForDescribeEipAddressesOutput {
   @SerializedName("InstanceType")
   private String instanceType = null;
 
+  @SerializedName("IpAddressPoolId")
+  private String ipAddressPoolId = null;
+
   @SerializedName("LockReason")
   private String lockReason = null;
 
@@ -333,6 +336,24 @@ public class EipAddressForDescribeEipAddressesOutput {
     this.instanceType = instanceType;
   }
 
+  public EipAddressForDescribeEipAddressesOutput ipAddressPoolId(String ipAddressPoolId) {
+    this.ipAddressPoolId = ipAddressPoolId;
+    return this;
+  }
+
+   /**
+   * Get ipAddressPoolId
+   * @return ipAddressPoolId
+  **/
+  @Schema(description = "")
+  public String getIpAddressPoolId() {
+    return ipAddressPoolId;
+  }
+
+  public void setIpAddressPoolId(String ipAddressPoolId) {
+    this.ipAddressPoolId = ipAddressPoolId;
+  }
+
   public EipAddressForDescribeEipAddressesOutput lockReason(String lockReason) {
     this.lockReason = lockReason;
     return this;
@@ -535,6 +556,7 @@ public class EipAddressForDescribeEipAddressesOutput {
         Objects.equals(this.ISP, eipAddressForDescribeEipAddressesOutput.ISP) &&
         Objects.equals(this.instanceId, eipAddressForDescribeEipAddressesOutput.instanceId) &&
         Objects.equals(this.instanceType, eipAddressForDescribeEipAddressesOutput.instanceType) &&
+        Objects.equals(this.ipAddressPoolId, eipAddressForDescribeEipAddressesOutput.ipAddressPoolId) &&
         Objects.equals(this.lockReason, eipAddressForDescribeEipAddressesOutput.lockReason) &&
         Objects.equals(this.name, eipAddressForDescribeEipAddressesOutput.name) &&
         Objects.equals(this.overdueTime, eipAddressForDescribeEipAddressesOutput.overdueTime) &&
@@ -548,7 +570,7 @@ public class EipAddressForDescribeEipAddressesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allocationId, allocationTime, bandwidth, bandwidthPackageId, billingType, businessStatus, deletedTime, description, eipAddress, expiredTime, ISP, instanceId, instanceType, lockReason, name, overdueTime, projectName, releaseWithInstance, securityProtectionTypes, status, tags, updatedAt);
+    return Objects.hash(allocationId, allocationTime, bandwidth, bandwidthPackageId, billingType, businessStatus, deletedTime, description, eipAddress, expiredTime, ISP, instanceId, instanceType, ipAddressPoolId, lockReason, name, overdueTime, projectName, releaseWithInstance, securityProtectionTypes, status, tags, updatedAt);
   }
 
 
@@ -570,6 +592,7 @@ public class EipAddressForDescribeEipAddressesOutput {
     sb.append("    ISP: ").append(toIndentedString(ISP)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
+    sb.append("    ipAddressPoolId: ").append(toIndentedString(ipAddressPoolId)).append("\n");
     sb.append("    lockReason: ").append(toIndentedString(lockReason)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    overdueTime: ").append(toIndentedString(overdueTime)).append("\n");
