@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vpc.model.TagForCreateHaVipInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -44,6 +47,9 @@ public class CreateHaVipRequest {
 
   @SerializedName("SubnetId")
   private String subnetId = null;
+
+  @SerializedName("Tags")
+  private List<TagForCreateHaVipInput> tags = null;
 
   public CreateHaVipRequest clientToken(String clientToken) {
     this.clientToken = clientToken;
@@ -136,6 +142,33 @@ public class CreateHaVipRequest {
     this.subnetId = subnetId;
   }
 
+  public CreateHaVipRequest tags(List<TagForCreateHaVipInput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public CreateHaVipRequest addTagsItem(TagForCreateHaVipInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForCreateHaVipInput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForCreateHaVipInput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForCreateHaVipInput> tags) {
+    this.tags = tags;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -150,12 +183,13 @@ public class CreateHaVipRequest {
         Objects.equals(this.description, createHaVipRequest.description) &&
         Objects.equals(this.haVipName, createHaVipRequest.haVipName) &&
         Objects.equals(this.ipAddress, createHaVipRequest.ipAddress) &&
-        Objects.equals(this.subnetId, createHaVipRequest.subnetId);
+        Objects.equals(this.subnetId, createHaVipRequest.subnetId) &&
+        Objects.equals(this.tags, createHaVipRequest.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, description, haVipName, ipAddress, subnetId);
+    return Objects.hash(clientToken, description, haVipName, ipAddress, subnetId, tags);
   }
 
 
@@ -169,6 +203,7 @@ public class CreateHaVipRequest {
     sb.append("    haVipName: ").append(toIndentedString(haVipName)).append("\n");
     sb.append("    ipAddress: ").append(toIndentedString(ipAddress)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }

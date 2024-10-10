@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vpc.model.TagForCreateRouteTableInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -41,6 +44,9 @@ public class CreateRouteTableRequest {
 
   @SerializedName("RouteTableName")
   private String routeTableName = null;
+
+  @SerializedName("Tags")
+  private List<TagForCreateRouteTableInput> tags = null;
 
   @SerializedName("VpcId")
   private String vpcId = null;
@@ -117,6 +123,33 @@ public class CreateRouteTableRequest {
     this.routeTableName = routeTableName;
   }
 
+  public CreateRouteTableRequest tags(List<TagForCreateRouteTableInput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public CreateRouteTableRequest addTagsItem(TagForCreateRouteTableInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForCreateRouteTableInput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForCreateRouteTableInput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForCreateRouteTableInput> tags) {
+    this.tags = tags;
+  }
+
   public CreateRouteTableRequest vpcId(String vpcId) {
     this.vpcId = vpcId;
     return this;
@@ -150,12 +183,13 @@ public class CreateRouteTableRequest {
         Objects.equals(this.description, createRouteTableRequest.description) &&
         Objects.equals(this.projectName, createRouteTableRequest.projectName) &&
         Objects.equals(this.routeTableName, createRouteTableRequest.routeTableName) &&
+        Objects.equals(this.tags, createRouteTableRequest.tags) &&
         Objects.equals(this.vpcId, createRouteTableRequest.vpcId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, description, projectName, routeTableName, vpcId);
+    return Objects.hash(clientToken, description, projectName, routeTableName, tags, vpcId);
   }
 
 
@@ -168,6 +202,7 @@ public class CreateRouteTableRequest {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    routeTableName: ").append(toIndentedString(routeTableName)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("}");
     return sb.toString();

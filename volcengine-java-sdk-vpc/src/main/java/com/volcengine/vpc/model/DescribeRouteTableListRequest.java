@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vpc.model.TagFilterForDescribeRouteTableListInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -50,6 +53,9 @@ public class DescribeRouteTableListRequest {
 
   @SerializedName("RouteTableName")
   private String routeTableName = null;
+
+  @SerializedName("TagFilters")
+  private List<TagFilterForDescribeRouteTableListInput> tagFilters = null;
 
   @SerializedName("VpcId")
   private String vpcId = null;
@@ -181,6 +187,33 @@ public class DescribeRouteTableListRequest {
     this.routeTableName = routeTableName;
   }
 
+  public DescribeRouteTableListRequest tagFilters(List<TagFilterForDescribeRouteTableListInput> tagFilters) {
+    this.tagFilters = tagFilters;
+    return this;
+  }
+
+  public DescribeRouteTableListRequest addTagFiltersItem(TagFilterForDescribeRouteTableListInput tagFiltersItem) {
+    if (this.tagFilters == null) {
+      this.tagFilters = new ArrayList<TagFilterForDescribeRouteTableListInput>();
+    }
+    this.tagFilters.add(tagFiltersItem);
+    return this;
+  }
+
+   /**
+   * Get tagFilters
+   * @return tagFilters
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagFilterForDescribeRouteTableListInput> getTagFilters() {
+    return tagFilters;
+  }
+
+  public void setTagFilters(List<TagFilterForDescribeRouteTableListInput> tagFilters) {
+    this.tagFilters = tagFilters;
+  }
+
   public DescribeRouteTableListRequest vpcId(String vpcId) {
     this.vpcId = vpcId;
     return this;
@@ -216,12 +249,13 @@ public class DescribeRouteTableListRequest {
         Objects.equals(this.projectName, describeRouteTableListRequest.projectName) &&
         Objects.equals(this.routeTableId, describeRouteTableListRequest.routeTableId) &&
         Objects.equals(this.routeTableName, describeRouteTableListRequest.routeTableName) &&
+        Objects.equals(this.tagFilters, describeRouteTableListRequest.tagFilters) &&
         Objects.equals(this.vpcId, describeRouteTableListRequest.vpcId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(maxResults, nextToken, pageNumber, pageSize, projectName, routeTableId, routeTableName, vpcId);
+    return Objects.hash(maxResults, nextToken, pageNumber, pageSize, projectName, routeTableId, routeTableName, tagFilters, vpcId);
   }
 
 
@@ -237,6 +271,7 @@ public class DescribeRouteTableListRequest {
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    routeTableId: ").append(toIndentedString(routeTableId)).append("\n");
     sb.append("    routeTableName: ").append(toIndentedString(routeTableName)).append("\n");
+    sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("}");
     return sb.toString();

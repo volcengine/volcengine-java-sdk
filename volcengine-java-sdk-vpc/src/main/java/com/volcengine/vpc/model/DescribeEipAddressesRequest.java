@@ -159,6 +159,9 @@ public class DescribeEipAddressesRequest {
   }  @SerializedName("ISP")
   private ISPEnum ISP = null;
 
+  @SerializedName("IpAddressPoolId")
+  private String ipAddressPoolId = null;
+
   @SerializedName("MaxResults")
   private Integer maxResults = null;
 
@@ -359,6 +362,24 @@ public class DescribeEipAddressesRequest {
     this.ISP = ISP;
   }
 
+  public DescribeEipAddressesRequest ipAddressPoolId(String ipAddressPoolId) {
+    this.ipAddressPoolId = ipAddressPoolId;
+    return this;
+  }
+
+   /**
+   * Get ipAddressPoolId
+   * @return ipAddressPoolId
+  **/
+  @Schema(description = "")
+  public String getIpAddressPoolId() {
+    return ipAddressPoolId;
+  }
+
+  public void setIpAddressPoolId(String ipAddressPoolId) {
+    this.ipAddressPoolId = ipAddressPoolId;
+  }
+
   public DescribeEipAddressesRequest maxResults(Integer maxResults) {
     this.maxResults = maxResults;
     return this;
@@ -549,6 +570,7 @@ public class DescribeEipAddressesRequest {
         Objects.equals(this.billingType, describeEipAddressesRequest.billingType) &&
         Objects.equals(this.eipAddresses, describeEipAddressesRequest.eipAddresses) &&
         Objects.equals(this.ISP, describeEipAddressesRequest.ISP) &&
+        Objects.equals(this.ipAddressPoolId, describeEipAddressesRequest.ipAddressPoolId) &&
         Objects.equals(this.maxResults, describeEipAddressesRequest.maxResults) &&
         Objects.equals(this.name, describeEipAddressesRequest.name) &&
         Objects.equals(this.nextToken, describeEipAddressesRequest.nextToken) &&
@@ -562,7 +584,7 @@ public class DescribeEipAddressesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allocationIds, associatedInstanceId, associatedInstanceType, billingType, eipAddresses, ISP, maxResults, name, nextToken, pageNumber, pageSize, projectName, securityProtectionEnabled, status, tagFilters);
+    return Objects.hash(allocationIds, associatedInstanceId, associatedInstanceType, billingType, eipAddresses, ISP, ipAddressPoolId, maxResults, name, nextToken, pageNumber, pageSize, projectName, securityProtectionEnabled, status, tagFilters);
   }
 
 
@@ -577,6 +599,7 @@ public class DescribeEipAddressesRequest {
     sb.append("    billingType: ").append(toIndentedString(billingType)).append("\n");
     sb.append("    eipAddresses: ").append(toIndentedString(eipAddresses)).append("\n");
     sb.append("    ISP: ").append(toIndentedString(ISP)).append("\n");
+    sb.append("    ipAddressPoolId: ").append(toIndentedString(ipAddressPoolId)).append("\n");
     sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");

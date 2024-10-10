@@ -176,11 +176,10 @@ public class CreateBandwidthPackageRequest {
    /**
    * Get bandwidth
    * minimum: 2
-   * maximum: 5000
    * @return bandwidth
   **/
   @NotNull
- @Min(2) @Max(5000)  @Schema(required = true, description = "")
+ @Min(2)  @Schema(required = true, description = "")
   public Integer getBandwidth() {
     return bandwidth;
   }

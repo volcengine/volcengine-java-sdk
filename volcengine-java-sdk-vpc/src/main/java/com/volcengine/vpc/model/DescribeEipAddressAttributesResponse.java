@@ -72,6 +72,12 @@ public class DescribeEipAddressAttributesResponse extends com.volcengine.model.A
   @SerializedName("InstanceType")
   private String instanceType = null;
 
+  @SerializedName("IpAddressPoolId")
+  private String ipAddressPoolId = null;
+
+  @SerializedName("IsBlocked")
+  private Boolean isBlocked = null;
+
   @SerializedName("LockReason")
   private String lockReason = null;
 
@@ -92,6 +98,9 @@ public class DescribeEipAddressAttributesResponse extends com.volcengine.model.A
 
   @SerializedName("SecurityProtectionTypes")
   private List<String> securityProtectionTypes = null;
+
+  @SerializedName("ServiceManaged")
+  private Boolean serviceManaged = null;
 
   @SerializedName("Status")
   private String status = null;
@@ -336,6 +345,42 @@ public class DescribeEipAddressAttributesResponse extends com.volcengine.model.A
     this.instanceType = instanceType;
   }
 
+  public DescribeEipAddressAttributesResponse ipAddressPoolId(String ipAddressPoolId) {
+    this.ipAddressPoolId = ipAddressPoolId;
+    return this;
+  }
+
+   /**
+   * Get ipAddressPoolId
+   * @return ipAddressPoolId
+  **/
+  @Schema(description = "")
+  public String getIpAddressPoolId() {
+    return ipAddressPoolId;
+  }
+
+  public void setIpAddressPoolId(String ipAddressPoolId) {
+    this.ipAddressPoolId = ipAddressPoolId;
+  }
+
+  public DescribeEipAddressAttributesResponse isBlocked(Boolean isBlocked) {
+    this.isBlocked = isBlocked;
+    return this;
+  }
+
+   /**
+   * Get isBlocked
+   * @return isBlocked
+  **/
+  @Schema(description = "")
+  public Boolean isIsBlocked() {
+    return isBlocked;
+  }
+
+  public void setIsBlocked(Boolean isBlocked) {
+    this.isBlocked = isBlocked;
+  }
+
   public DescribeEipAddressAttributesResponse lockReason(String lockReason) {
     this.lockReason = lockReason;
     return this;
@@ -470,6 +515,24 @@ public class DescribeEipAddressAttributesResponse extends com.volcengine.model.A
     this.securityProtectionTypes = securityProtectionTypes;
   }
 
+  public DescribeEipAddressAttributesResponse serviceManaged(Boolean serviceManaged) {
+    this.serviceManaged = serviceManaged;
+    return this;
+  }
+
+   /**
+   * Get serviceManaged
+   * @return serviceManaged
+  **/
+  @Schema(description = "")
+  public Boolean isServiceManaged() {
+    return serviceManaged;
+  }
+
+  public void setServiceManaged(Boolean serviceManaged) {
+    this.serviceManaged = serviceManaged;
+  }
+
   public DescribeEipAddressAttributesResponse status(String status) {
     this.status = status;
     return this;
@@ -556,6 +619,8 @@ public class DescribeEipAddressAttributesResponse extends com.volcengine.model.A
         Objects.equals(this.ISP, describeEipAddressAttributesResponse.ISP) &&
         Objects.equals(this.instanceId, describeEipAddressAttributesResponse.instanceId) &&
         Objects.equals(this.instanceType, describeEipAddressAttributesResponse.instanceType) &&
+        Objects.equals(this.ipAddressPoolId, describeEipAddressAttributesResponse.ipAddressPoolId) &&
+        Objects.equals(this.isBlocked, describeEipAddressAttributesResponse.isBlocked) &&
         Objects.equals(this.lockReason, describeEipAddressAttributesResponse.lockReason) &&
         Objects.equals(this.name, describeEipAddressAttributesResponse.name) &&
         Objects.equals(this.overdueTime, describeEipAddressAttributesResponse.overdueTime) &&
@@ -563,6 +628,7 @@ public class DescribeEipAddressAttributesResponse extends com.volcengine.model.A
         Objects.equals(this.releaseWithInstance, describeEipAddressAttributesResponse.releaseWithInstance) &&
         Objects.equals(this.requestId, describeEipAddressAttributesResponse.requestId) &&
         Objects.equals(this.securityProtectionTypes, describeEipAddressAttributesResponse.securityProtectionTypes) &&
+        Objects.equals(this.serviceManaged, describeEipAddressAttributesResponse.serviceManaged) &&
         Objects.equals(this.status, describeEipAddressAttributesResponse.status) &&
         Objects.equals(this.tags, describeEipAddressAttributesResponse.tags) &&
         Objects.equals(this.updatedAt, describeEipAddressAttributesResponse.updatedAt);
@@ -570,7 +636,7 @@ public class DescribeEipAddressAttributesResponse extends com.volcengine.model.A
 
   @Override
   public int hashCode() {
-    return Objects.hash(allocationId, allocationTime, bandwidth, bandwidthPackageId, billingType, businessStatus, deletedTime, description, eipAddress, expiredTime, ISP, instanceId, instanceType, lockReason, name, overdueTime, projectName, releaseWithInstance, requestId, securityProtectionTypes, status, tags, updatedAt);
+    return Objects.hash(allocationId, allocationTime, bandwidth, bandwidthPackageId, billingType, businessStatus, deletedTime, description, eipAddress, expiredTime, ISP, instanceId, instanceType, ipAddressPoolId, isBlocked, lockReason, name, overdueTime, projectName, releaseWithInstance, requestId, securityProtectionTypes, serviceManaged, status, tags, updatedAt);
   }
 
 
@@ -592,6 +658,8 @@ public class DescribeEipAddressAttributesResponse extends com.volcengine.model.A
     sb.append("    ISP: ").append(toIndentedString(ISP)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
+    sb.append("    ipAddressPoolId: ").append(toIndentedString(ipAddressPoolId)).append("\n");
+    sb.append("    isBlocked: ").append(toIndentedString(isBlocked)).append("\n");
     sb.append("    lockReason: ").append(toIndentedString(lockReason)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    overdueTime: ").append(toIndentedString(overdueTime)).append("\n");
@@ -599,6 +667,7 @@ public class DescribeEipAddressAttributesResponse extends com.volcengine.model.A
     sb.append("    releaseWithInstance: ").append(toIndentedString(releaseWithInstance)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    securityProtectionTypes: ").append(toIndentedString(securityProtectionTypes)).append("\n");
+    sb.append("    serviceManaged: ").append(toIndentedString(serviceManaged)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");

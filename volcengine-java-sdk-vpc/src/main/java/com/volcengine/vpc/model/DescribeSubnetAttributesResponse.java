@@ -20,8 +20,11 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vpc.model.RouteTableForDescribeSubnetAttributesOutput;
+import com.volcengine.vpc.model.TagForDescribeSubnetAttributesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -72,6 +75,9 @@ public class DescribeSubnetAttributesResponse extends com.volcengine.model.Abstr
 
   @SerializedName("SubnetName")
   private String subnetName = null;
+
+  @SerializedName("Tags")
+  private List<TagForDescribeSubnetAttributesOutput> tags = null;
 
   @SerializedName("TotalIpv4Count")
   private Integer totalIpv4Count = null;
@@ -338,6 +344,33 @@ public class DescribeSubnetAttributesResponse extends com.volcengine.model.Abstr
     this.subnetName = subnetName;
   }
 
+  public DescribeSubnetAttributesResponse tags(List<TagForDescribeSubnetAttributesOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public DescribeSubnetAttributesResponse addTagsItem(TagForDescribeSubnetAttributesOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForDescribeSubnetAttributesOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForDescribeSubnetAttributesOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForDescribeSubnetAttributesOutput> tags) {
+    this.tags = tags;
+  }
+
   public DescribeSubnetAttributesResponse totalIpv4Count(Integer totalIpv4Count) {
     this.totalIpv4Count = totalIpv4Count;
     return this;
@@ -434,6 +467,7 @@ public class DescribeSubnetAttributesResponse extends com.volcengine.model.Abstr
         Objects.equals(this.status, describeSubnetAttributesResponse.status) &&
         Objects.equals(this.subnetId, describeSubnetAttributesResponse.subnetId) &&
         Objects.equals(this.subnetName, describeSubnetAttributesResponse.subnetName) &&
+        Objects.equals(this.tags, describeSubnetAttributesResponse.tags) &&
         Objects.equals(this.totalIpv4Count, describeSubnetAttributesResponse.totalIpv4Count) &&
         Objects.equals(this.updateTime, describeSubnetAttributesResponse.updateTime) &&
         Objects.equals(this.vpcId, describeSubnetAttributesResponse.vpcId) &&
@@ -442,7 +476,7 @@ public class DescribeSubnetAttributesResponse extends com.volcengine.model.Abstr
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, availableIpAddressCount, cidrBlock, creationTime, description, ipv6CidrBlock, isDefault, networkAclId, projectName, requestId, routeTable, status, subnetId, subnetName, totalIpv4Count, updateTime, vpcId, zoneId);
+    return Objects.hash(accountId, availableIpAddressCount, cidrBlock, creationTime, description, ipv6CidrBlock, isDefault, networkAclId, projectName, requestId, routeTable, status, subnetId, subnetName, tags, totalIpv4Count, updateTime, vpcId, zoneId);
   }
 
 
@@ -465,6 +499,7 @@ public class DescribeSubnetAttributesResponse extends com.volcengine.model.Abstr
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    subnetName: ").append(toIndentedString(subnetName)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    totalIpv4Count: ").append(toIndentedString(totalIpv4Count)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");

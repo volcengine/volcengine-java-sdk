@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import com.volcengine.vpc.model.EgressAclEntryForDescribeNetworkAclAttributesOutput;
 import com.volcengine.vpc.model.IngressAclEntryForDescribeNetworkAclAttributesOutput;
 import com.volcengine.vpc.model.ResourceForDescribeNetworkAclAttributesOutput;
+import com.volcengine.vpc.model.TagForDescribeNetworkAclAttributesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -61,6 +62,9 @@ public class NetworkAclAttributeForDescribeNetworkAclAttributesOutput {
 
   @SerializedName("Status")
   private String status = null;
+
+  @SerializedName("Tags")
+  private List<TagForDescribeNetworkAclAttributesOutput> tags = null;
 
   @SerializedName("UpdateTime")
   private String updateTime = null;
@@ -257,6 +261,33 @@ public class NetworkAclAttributeForDescribeNetworkAclAttributesOutput {
     this.status = status;
   }
 
+  public NetworkAclAttributeForDescribeNetworkAclAttributesOutput tags(List<TagForDescribeNetworkAclAttributesOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public NetworkAclAttributeForDescribeNetworkAclAttributesOutput addTagsItem(TagForDescribeNetworkAclAttributesOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForDescribeNetworkAclAttributesOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForDescribeNetworkAclAttributesOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForDescribeNetworkAclAttributesOutput> tags) {
+    this.tags = tags;
+  }
+
   public NetworkAclAttributeForDescribeNetworkAclAttributesOutput updateTime(String updateTime) {
     this.updateTime = updateTime;
     return this;
@@ -312,13 +343,14 @@ public class NetworkAclAttributeForDescribeNetworkAclAttributesOutput {
         Objects.equals(this.projectName, networkAclAttributeForDescribeNetworkAclAttributesOutput.projectName) &&
         Objects.equals(this.resources, networkAclAttributeForDescribeNetworkAclAttributesOutput.resources) &&
         Objects.equals(this.status, networkAclAttributeForDescribeNetworkAclAttributesOutput.status) &&
+        Objects.equals(this.tags, networkAclAttributeForDescribeNetworkAclAttributesOutput.tags) &&
         Objects.equals(this.updateTime, networkAclAttributeForDescribeNetworkAclAttributesOutput.updateTime) &&
         Objects.equals(this.vpcId, networkAclAttributeForDescribeNetworkAclAttributesOutput.vpcId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(creationTime, description, egressAclEntries, ingressAclEntries, networkAclId, networkAclName, projectName, resources, status, updateTime, vpcId);
+    return Objects.hash(creationTime, description, egressAclEntries, ingressAclEntries, networkAclId, networkAclName, projectName, resources, status, tags, updateTime, vpcId);
   }
 
 
@@ -336,6 +368,7 @@ public class NetworkAclAttributeForDescribeNetworkAclAttributesOutput {
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    resources: ").append(toIndentedString(resources)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("}");

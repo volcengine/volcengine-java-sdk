@@ -33,6 +33,9 @@ public class ReleaseEipAddressRequest {
   @SerializedName("AllocationId")
   private String allocationId = null;
 
+  @SerializedName("ClientToken")
+  private String clientToken = null;
+
   public ReleaseEipAddressRequest allocationId(String allocationId) {
     this.allocationId = allocationId;
     return this;
@@ -52,6 +55,24 @@ public class ReleaseEipAddressRequest {
     this.allocationId = allocationId;
   }
 
+  public ReleaseEipAddressRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -62,12 +83,13 @@ public class ReleaseEipAddressRequest {
       return false;
     }
     ReleaseEipAddressRequest releaseEipAddressRequest = (ReleaseEipAddressRequest) o;
-    return Objects.equals(this.allocationId, releaseEipAddressRequest.allocationId);
+    return Objects.equals(this.allocationId, releaseEipAddressRequest.allocationId) &&
+        Objects.equals(this.clientToken, releaseEipAddressRequest.clientToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allocationId);
+    return Objects.hash(allocationId, clientToken);
   }
 
 
@@ -77,6 +99,7 @@ public class ReleaseEipAddressRequest {
     sb.append("class ReleaseEipAddressRequest {\n");
     
     sb.append("    allocationId: ").append(toIndentedString(allocationId)).append("\n");
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("}");
     return sb.toString();
   }
