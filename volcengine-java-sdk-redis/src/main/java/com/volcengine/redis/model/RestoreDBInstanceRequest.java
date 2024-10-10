@@ -28,15 +28,40 @@ import javax.validation.Valid;
  */
 
 
+
 public class RestoreDBInstanceRequest {
+  @SerializedName("BackupPointId")
+  private String backupPointId = null;
+
   @SerializedName("BackupType")
   private String backupType = null;
+
+  @SerializedName("ClientToken")
+  private String clientToken = null;
 
   @SerializedName("InstanceId")
   private String instanceId = null;
 
   @SerializedName("TimePoint")
   private String timePoint = null;
+
+  public RestoreDBInstanceRequest backupPointId(String backupPointId) {
+    this.backupPointId = backupPointId;
+    return this;
+  }
+
+   /**
+   * Get backupPointId
+   * @return backupPointId
+  **/
+  @Schema(description = "")
+  public String getBackupPointId() {
+    return backupPointId;
+  }
+
+  public void setBackupPointId(String backupPointId) {
+    this.backupPointId = backupPointId;
+  }
 
   public RestoreDBInstanceRequest backupType(String backupType) {
     this.backupType = backupType;
@@ -56,6 +81,24 @@ public class RestoreDBInstanceRequest {
     this.backupType = backupType;
   }
 
+  public RestoreDBInstanceRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
+
   public RestoreDBInstanceRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
     return this;
@@ -65,7 +108,8 @@ public class RestoreDBInstanceRequest {
    * Get instanceId
    * @return instanceId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getInstanceId() {
     return instanceId;
   }
@@ -102,14 +146,16 @@ public class RestoreDBInstanceRequest {
       return false;
     }
     RestoreDBInstanceRequest restoreDBInstanceRequest = (RestoreDBInstanceRequest) o;
-    return Objects.equals(this.backupType, restoreDBInstanceRequest.backupType) &&
+    return Objects.equals(this.backupPointId, restoreDBInstanceRequest.backupPointId) &&
+        Objects.equals(this.backupType, restoreDBInstanceRequest.backupType) &&
+        Objects.equals(this.clientToken, restoreDBInstanceRequest.clientToken) &&
         Objects.equals(this.instanceId, restoreDBInstanceRequest.instanceId) &&
         Objects.equals(this.timePoint, restoreDBInstanceRequest.timePoint);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(backupType, instanceId, timePoint);
+    return Objects.hash(backupPointId, backupType, clientToken, instanceId, timePoint);
   }
 
 
@@ -118,7 +164,9 @@ public class RestoreDBInstanceRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class RestoreDBInstanceRequest {\n");
     
+    sb.append("    backupPointId: ").append(toIndentedString(backupPointId)).append("\n");
     sb.append("    backupType: ").append(toIndentedString(backupType)).append("\n");
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    timePoint: ").append(toIndentedString(timePoint)).append("\n");
     sb.append("}");

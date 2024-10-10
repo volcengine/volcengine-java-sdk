@@ -31,7 +31,8 @@ import javax.validation.Valid;
  */
 
 
-public class DescribeSlowLogsResponse {
+
+public class DescribeSlowLogsResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Context")
   private String context = null;
 

@@ -28,12 +28,10 @@ import javax.validation.Valid;
  */
 
 
+
 public class DeleteDBEndpointPublicAddressRequest {
   @SerializedName("ClientToken")
   private String clientToken = null;
-
-  @SerializedName("EipId")
-  private String eipId = null;
 
   @SerializedName("InstanceId")
   private String instanceId = null;
@@ -54,25 +52,6 @@ public class DeleteDBEndpointPublicAddressRequest {
 
   public void setClientToken(String clientToken) {
     this.clientToken = clientToken;
-  }
-
-  public DeleteDBEndpointPublicAddressRequest eipId(String eipId) {
-    this.eipId = eipId;
-    return this;
-  }
-
-   /**
-   * Get eipId
-   * @return eipId
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getEipId() {
-    return eipId;
-  }
-
-  public void setEipId(String eipId) {
-    this.eipId = eipId;
   }
 
   public DeleteDBEndpointPublicAddressRequest instanceId(String instanceId) {
@@ -105,13 +84,12 @@ public class DeleteDBEndpointPublicAddressRequest {
     }
     DeleteDBEndpointPublicAddressRequest deleteDBEndpointPublicAddressRequest = (DeleteDBEndpointPublicAddressRequest) o;
     return Objects.equals(this.clientToken, deleteDBEndpointPublicAddressRequest.clientToken) &&
-        Objects.equals(this.eipId, deleteDBEndpointPublicAddressRequest.eipId) &&
         Objects.equals(this.instanceId, deleteDBEndpointPublicAddressRequest.instanceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, eipId, instanceId);
+    return Objects.hash(clientToken, instanceId);
   }
 
 
@@ -121,7 +99,6 @@ public class DeleteDBEndpointPublicAddressRequest {
     sb.append("class DeleteDBEndpointPublicAddressRequest {\n");
     
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
-    sb.append("    eipId: ").append(toIndentedString(eipId)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("}");
     return sb.toString();

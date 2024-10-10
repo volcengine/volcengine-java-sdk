@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribePitrTimeWindowRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;
@@ -41,7 +42,8 @@ public class DescribePitrTimeWindowRequest {
    * Get instanceId
    * @return instanceId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getInstanceId() {
     return instanceId;
   }

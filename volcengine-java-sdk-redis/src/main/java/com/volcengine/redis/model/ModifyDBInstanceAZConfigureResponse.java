@@ -24,15 +24,16 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ModifyDBInstanceNodeNumberResponse
+ * ModifyDBInstanceAZConfigureResponse
  */
 
 
-public class ModifyDBInstanceNodeNumberResponse {
+
+public class ModifyDBInstanceAZConfigureResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("OrderNO")
   private String orderNO = null;
 
-  public ModifyDBInstanceNodeNumberResponse orderNO(String orderNO) {
+  public ModifyDBInstanceAZConfigureResponse orderNO(String orderNO) {
     this.orderNO = orderNO;
     return this;
   }
@@ -59,8 +60,8 @@ public class ModifyDBInstanceNodeNumberResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ModifyDBInstanceNodeNumberResponse modifyDBInstanceNodeNumberResponse = (ModifyDBInstanceNodeNumberResponse) o;
-    return Objects.equals(this.orderNO, modifyDBInstanceNodeNumberResponse.orderNO);
+    ModifyDBInstanceAZConfigureResponse modifyDBInstanceAZConfigureResponse = (ModifyDBInstanceAZConfigureResponse) o;
+    return Objects.equals(this.orderNO, modifyDBInstanceAZConfigureResponse.orderNO);
   }
 
   @Override
@@ -72,7 +73,7 @@ public class ModifyDBInstanceNodeNumberResponse {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ModifyDBInstanceNodeNumberResponse {\n");
+    sb.append("class ModifyDBInstanceAZConfigureResponse {\n");
     
     sb.append("    orderNO: ").append(toIndentedString(orderNO)).append("\n");
     sb.append("}");

@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ModifyBackupPlanRequest {
   @SerializedName("Active")
   private Boolean active = null;
@@ -55,7 +56,8 @@ public class ModifyBackupPlanRequest {
    * Get active
    * @return active
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public Boolean isActive() {
     return active;
   }
@@ -109,7 +111,8 @@ public class ModifyBackupPlanRequest {
    * Get instanceId
    * @return instanceId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getInstanceId() {
     return instanceId;
   }

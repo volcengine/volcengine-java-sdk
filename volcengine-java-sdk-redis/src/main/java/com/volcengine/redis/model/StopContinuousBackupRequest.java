@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class StopContinuousBackupRequest {
   @SerializedName("ClientToken")
   private String clientToken = null;
@@ -62,7 +63,8 @@ public class StopContinuousBackupRequest {
    * Get instanceId
    * @return instanceId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getInstanceId() {
     return instanceId;
   }

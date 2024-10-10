@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class AllowListForDescribeAllowListsOutput {
   @SerializedName("AllowListDesc")
   private String allowListDesc = null;

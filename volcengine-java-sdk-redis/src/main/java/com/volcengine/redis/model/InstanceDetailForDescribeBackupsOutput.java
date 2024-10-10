@@ -31,12 +31,16 @@ import javax.validation.Valid;
  */
 
 
+
 public class InstanceDetailForDescribeBackupsOutput {
   @SerializedName("AccountId")
-  private Integer accountId = null;
+  private Long accountId = null;
 
   @SerializedName("ArchType")
   private String archType = null;
+
+  @SerializedName("AutoRenew")
+  private Boolean autoRenew = null;
 
   @SerializedName("ChargeType")
   private String chargeType = null;
@@ -59,17 +63,11 @@ public class InstanceDetailForDescribeBackupsOutput {
   @SerializedName("NetworkType")
   private String networkType = null;
 
-  @SerializedName("ProjectName")
-  private String projectName = null;
-
   @SerializedName("RegionId")
   private String regionId = null;
 
   @SerializedName("Replicas")
   private Integer replicas = null;
-
-  @SerializedName("ServerCpu")
-  private Integer serverCpu = null;
 
   @SerializedName("ShardCapacity")
   private Long shardCapacity = null;
@@ -89,7 +87,7 @@ public class InstanceDetailForDescribeBackupsOutput {
   @SerializedName("ZoneIds")
   private List<String> zoneIds = null;
 
-  public InstanceDetailForDescribeBackupsOutput accountId(Integer accountId) {
+  public InstanceDetailForDescribeBackupsOutput accountId(Long accountId) {
     this.accountId = accountId;
     return this;
   }
@@ -99,11 +97,11 @@ public class InstanceDetailForDescribeBackupsOutput {
    * @return accountId
   **/
   @Schema(description = "")
-  public Integer getAccountId() {
+  public Long getAccountId() {
     return accountId;
   }
 
-  public void setAccountId(Integer accountId) {
+  public void setAccountId(Long accountId) {
     this.accountId = accountId;
   }
 
@@ -123,6 +121,24 @@ public class InstanceDetailForDescribeBackupsOutput {
 
   public void setArchType(String archType) {
     this.archType = archType;
+  }
+
+  public InstanceDetailForDescribeBackupsOutput autoRenew(Boolean autoRenew) {
+    this.autoRenew = autoRenew;
+    return this;
+  }
+
+   /**
+   * Get autoRenew
+   * @return autoRenew
+  **/
+  @Schema(description = "")
+  public Boolean isAutoRenew() {
+    return autoRenew;
+  }
+
+  public void setAutoRenew(Boolean autoRenew) {
+    this.autoRenew = autoRenew;
   }
 
   public InstanceDetailForDescribeBackupsOutput chargeType(String chargeType) {
@@ -251,24 +267,6 @@ public class InstanceDetailForDescribeBackupsOutput {
     this.networkType = networkType;
   }
 
-  public InstanceDetailForDescribeBackupsOutput projectName(String projectName) {
-    this.projectName = projectName;
-    return this;
-  }
-
-   /**
-   * Get projectName
-   * @return projectName
-  **/
-  @Schema(description = "")
-  public String getProjectName() {
-    return projectName;
-  }
-
-  public void setProjectName(String projectName) {
-    this.projectName = projectName;
-  }
-
   public InstanceDetailForDescribeBackupsOutput regionId(String regionId) {
     this.regionId = regionId;
     return this;
@@ -303,24 +301,6 @@ public class InstanceDetailForDescribeBackupsOutput {
 
   public void setReplicas(Integer replicas) {
     this.replicas = replicas;
-  }
-
-  public InstanceDetailForDescribeBackupsOutput serverCpu(Integer serverCpu) {
-    this.serverCpu = serverCpu;
-    return this;
-  }
-
-   /**
-   * Get serverCpu
-   * @return serverCpu
-  **/
-  @Schema(description = "")
-  public Integer getServerCpu() {
-    return serverCpu;
-  }
-
-  public void setServerCpu(Integer serverCpu) {
-    this.serverCpu = serverCpu;
   }
 
   public InstanceDetailForDescribeBackupsOutput shardCapacity(Long shardCapacity) {
@@ -452,6 +432,7 @@ public class InstanceDetailForDescribeBackupsOutput {
     InstanceDetailForDescribeBackupsOutput instanceDetailForDescribeBackupsOutput = (InstanceDetailForDescribeBackupsOutput) o;
     return Objects.equals(this.accountId, instanceDetailForDescribeBackupsOutput.accountId) &&
         Objects.equals(this.archType, instanceDetailForDescribeBackupsOutput.archType) &&
+        Objects.equals(this.autoRenew, instanceDetailForDescribeBackupsOutput.autoRenew) &&
         Objects.equals(this.chargeType, instanceDetailForDescribeBackupsOutput.chargeType) &&
         Objects.equals(this.engineVersion, instanceDetailForDescribeBackupsOutput.engineVersion) &&
         Objects.equals(this.expiredTime, instanceDetailForDescribeBackupsOutput.expiredTime) &&
@@ -459,10 +440,8 @@ public class InstanceDetailForDescribeBackupsOutput {
         Objects.equals(this.instanceName, instanceDetailForDescribeBackupsOutput.instanceName) &&
         Objects.equals(this.maintenanceTime, instanceDetailForDescribeBackupsOutput.maintenanceTime) &&
         Objects.equals(this.networkType, instanceDetailForDescribeBackupsOutput.networkType) &&
-        Objects.equals(this.projectName, instanceDetailForDescribeBackupsOutput.projectName) &&
         Objects.equals(this.regionId, instanceDetailForDescribeBackupsOutput.regionId) &&
         Objects.equals(this.replicas, instanceDetailForDescribeBackupsOutput.replicas) &&
-        Objects.equals(this.serverCpu, instanceDetailForDescribeBackupsOutput.serverCpu) &&
         Objects.equals(this.shardCapacity, instanceDetailForDescribeBackupsOutput.shardCapacity) &&
         Objects.equals(this.shardCount, instanceDetailForDescribeBackupsOutput.shardCount) &&
         Objects.equals(this.totalCapacity, instanceDetailForDescribeBackupsOutput.totalCapacity) &&
@@ -473,7 +452,7 @@ public class InstanceDetailForDescribeBackupsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, archType, chargeType, engineVersion, expiredTime, instanceId, instanceName, maintenanceTime, networkType, projectName, regionId, replicas, serverCpu, shardCapacity, shardCount, totalCapacity, usedCapacity, vpcInfo, zoneIds);
+    return Objects.hash(accountId, archType, autoRenew, chargeType, engineVersion, expiredTime, instanceId, instanceName, maintenanceTime, networkType, regionId, replicas, shardCapacity, shardCount, totalCapacity, usedCapacity, vpcInfo, zoneIds);
   }
 
 
@@ -484,6 +463,7 @@ public class InstanceDetailForDescribeBackupsOutput {
     
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    archType: ").append(toIndentedString(archType)).append("\n");
+    sb.append("    autoRenew: ").append(toIndentedString(autoRenew)).append("\n");
     sb.append("    chargeType: ").append(toIndentedString(chargeType)).append("\n");
     sb.append("    engineVersion: ").append(toIndentedString(engineVersion)).append("\n");
     sb.append("    expiredTime: ").append(toIndentedString(expiredTime)).append("\n");
@@ -491,10 +471,8 @@ public class InstanceDetailForDescribeBackupsOutput {
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    maintenanceTime: ").append(toIndentedString(maintenanceTime)).append("\n");
     sb.append("    networkType: ").append(toIndentedString(networkType)).append("\n");
-    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    regionId: ").append(toIndentedString(regionId)).append("\n");
     sb.append("    replicas: ").append(toIndentedString(replicas)).append("\n");
-    sb.append("    serverCpu: ").append(toIndentedString(serverCpu)).append("\n");
     sb.append("    shardCapacity: ").append(toIndentedString(shardCapacity)).append("\n");
     sb.append("    shardCount: ").append(toIndentedString(shardCount)).append("\n");
     sb.append("    totalCapacity: ").append(toIndentedString(totalCapacity)).append("\n");

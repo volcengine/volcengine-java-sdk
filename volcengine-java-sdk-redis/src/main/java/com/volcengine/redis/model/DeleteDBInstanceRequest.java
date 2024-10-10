@@ -28,15 +28,34 @@ import javax.validation.Valid;
  */
 
 
+
 public class DeleteDBInstanceRequest {
+  @SerializedName("BackupPointName")
+  private String backupPointName = null;
+
   @SerializedName("ClientToken")
   private String clientToken = null;
 
-  @SerializedName("CreateBackup")
-  private Boolean createBackup = null;
-
   @SerializedName("InstanceId")
   private String instanceId = null;
+
+  public DeleteDBInstanceRequest backupPointName(String backupPointName) {
+    this.backupPointName = backupPointName;
+    return this;
+  }
+
+   /**
+   * Get backupPointName
+   * @return backupPointName
+  **/
+  @Schema(description = "")
+  public String getBackupPointName() {
+    return backupPointName;
+  }
+
+  public void setBackupPointName(String backupPointName) {
+    this.backupPointName = backupPointName;
+  }
 
   public DeleteDBInstanceRequest clientToken(String clientToken) {
     this.clientToken = clientToken;
@@ -54,24 +73,6 @@ public class DeleteDBInstanceRequest {
 
   public void setClientToken(String clientToken) {
     this.clientToken = clientToken;
-  }
-
-  public DeleteDBInstanceRequest createBackup(Boolean createBackup) {
-    this.createBackup = createBackup;
-    return this;
-  }
-
-   /**
-   * Get createBackup
-   * @return createBackup
-  **/
-  @Schema(description = "")
-  public Boolean isCreateBackup() {
-    return createBackup;
-  }
-
-  public void setCreateBackup(Boolean createBackup) {
-    this.createBackup = createBackup;
   }
 
   public DeleteDBInstanceRequest instanceId(String instanceId) {
@@ -103,14 +104,14 @@ public class DeleteDBInstanceRequest {
       return false;
     }
     DeleteDBInstanceRequest deleteDBInstanceRequest = (DeleteDBInstanceRequest) o;
-    return Objects.equals(this.clientToken, deleteDBInstanceRequest.clientToken) &&
-        Objects.equals(this.createBackup, deleteDBInstanceRequest.createBackup) &&
+    return Objects.equals(this.backupPointName, deleteDBInstanceRequest.backupPointName) &&
+        Objects.equals(this.clientToken, deleteDBInstanceRequest.clientToken) &&
         Objects.equals(this.instanceId, deleteDBInstanceRequest.instanceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, createBackup, instanceId);
+    return Objects.hash(backupPointName, clientToken, instanceId);
   }
 
 
@@ -119,8 +120,8 @@ public class DeleteDBInstanceRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteDBInstanceRequest {\n");
     
+    sb.append("    backupPointName: ").append(toIndentedString(backupPointName)).append("\n");
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
-    sb.append("    createBackup: ").append(toIndentedString(createBackup)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("}");
     return sb.toString();

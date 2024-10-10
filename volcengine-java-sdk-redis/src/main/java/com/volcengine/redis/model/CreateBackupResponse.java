@@ -28,7 +28,8 @@ import javax.validation.Valid;
  */
 
 
-public class CreateBackupResponse {
+
+public class CreateBackupResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("BackupPointId")
   private String backupPointId = null;
 

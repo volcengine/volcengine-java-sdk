@@ -31,7 +31,8 @@ import javax.validation.Valid;
  */
 
 
-public class DescribeBackupsResponse {
+
+public class DescribeBackupsResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Backups")
   private List<BackupForDescribeBackupsOutput> backups = null;
 

@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeSlowLogsRequest {
   @SerializedName("Context")
   private String context = null;
@@ -51,6 +52,9 @@ public class DescribeSlowLogsRequest {
 
   @SerializedName("QueryStartTime")
   private String queryStartTime = null;
+
+  @SerializedName("SlowLogType")
+  private String slowLogType = null;
 
   public DescribeSlowLogsRequest context(String context) {
     this.context = context;
@@ -188,6 +192,24 @@ public class DescribeSlowLogsRequest {
     this.queryStartTime = queryStartTime;
   }
 
+  public DescribeSlowLogsRequest slowLogType(String slowLogType) {
+    this.slowLogType = slowLogType;
+    return this;
+  }
+
+   /**
+   * Get slowLogType
+   * @return slowLogType
+  **/
+  @Schema(description = "")
+  public String getSlowLogType() {
+    return slowLogType;
+  }
+
+  public void setSlowLogType(String slowLogType) {
+    this.slowLogType = slowLogType;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -204,12 +226,13 @@ public class DescribeSlowLogsRequest {
         Objects.equals(this.nodeIds, describeSlowLogsRequest.nodeIds) &&
         Objects.equals(this.pageSize, describeSlowLogsRequest.pageSize) &&
         Objects.equals(this.queryEndTime, describeSlowLogsRequest.queryEndTime) &&
-        Objects.equals(this.queryStartTime, describeSlowLogsRequest.queryStartTime);
+        Objects.equals(this.queryStartTime, describeSlowLogsRequest.queryStartTime) &&
+        Objects.equals(this.slowLogType, describeSlowLogsRequest.slowLogType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(context, dbName, instanceId, nodeIds, pageSize, queryEndTime, queryStartTime);
+    return Objects.hash(context, dbName, instanceId, nodeIds, pageSize, queryEndTime, queryStartTime, slowLogType);
   }
 
 
@@ -225,6 +248,7 @@ public class DescribeSlowLogsRequest {
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    queryEndTime: ").append(toIndentedString(queryEndTime)).append("\n");
     sb.append("    queryStartTime: ").append(toIndentedString(queryStartTime)).append("\n");
+    sb.append("    slowLogType: ").append(toIndentedString(slowLogType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

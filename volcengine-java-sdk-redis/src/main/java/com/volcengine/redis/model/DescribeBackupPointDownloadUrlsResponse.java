@@ -31,7 +31,8 @@ import javax.validation.Valid;
  */
 
 
-public class DescribeBackupPointDownloadUrlsResponse {
+
+public class DescribeBackupPointDownloadUrlsResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("BackupPointDownloadUrls")
   private List<BackupPointDownloadUrlForDescribeBackupPointDownloadUrlsOutput> backupPointDownloadUrls = null;
 

@@ -31,7 +31,8 @@ import javax.validation.Valid;
  */
 
 
-public class DescribeBigKeysResponse {
+
+public class DescribeBigKeysResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("BigKey")
   private List<BigKeyForDescribeBigKeysOutput> bigKey = null;
 

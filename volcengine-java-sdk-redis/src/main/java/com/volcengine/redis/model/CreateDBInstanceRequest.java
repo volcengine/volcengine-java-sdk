@@ -19,6 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.redis.model.ConfigureNodeForCreateDBInstanceInput;
+import com.volcengine.redis.model.TagForCreateDBInstanceInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -30,7 +32,11 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateDBInstanceRequest {
+  @SerializedName("AllowListIds")
+  private List<String> allowListIds = null;
+
   @SerializedName("AutoRenew")
   private Boolean autoRenew = null;
 
@@ -40,6 +46,9 @@ public class CreateDBInstanceRequest {
   @SerializedName("ClientToken")
   private String clientToken = null;
 
+  @SerializedName("ConfigureNodes")
+  private List<ConfigureNodeForCreateDBInstanceInput> configureNodes = null;
+
   @SerializedName("DeletionProtection")
   private String deletionProtection = null;
 
@@ -48,6 +57,9 @@ public class CreateDBInstanceRequest {
 
   @SerializedName("InstanceName")
   private String instanceName = null;
+
+  @SerializedName("MultiAZ")
+  private String multiAZ = null;
 
   @SerializedName("NodeNumber")
   private Integer nodeNumber = null;
@@ -79,11 +91,37 @@ public class CreateDBInstanceRequest {
   @SerializedName("SubnetId")
   private String subnetId = null;
 
+  @SerializedName("Tags")
+  private List<TagForCreateDBInstanceInput> tags = null;
+
   @SerializedName("VpcId")
   private String vpcId = null;
 
-  @SerializedName("ZoneIds")
-  private List<String> zoneIds = null;
+  public CreateDBInstanceRequest allowListIds(List<String> allowListIds) {
+    this.allowListIds = allowListIds;
+    return this;
+  }
+
+  public CreateDBInstanceRequest addAllowListIdsItem(String allowListIdsItem) {
+    if (this.allowListIds == null) {
+      this.allowListIds = new ArrayList<String>();
+    }
+    this.allowListIds.add(allowListIdsItem);
+    return this;
+  }
+
+   /**
+   * Get allowListIds
+   * @return allowListIds
+  **/
+  @Schema(description = "")
+  public List<String> getAllowListIds() {
+    return allowListIds;
+  }
+
+  public void setAllowListIds(List<String> allowListIds) {
+    this.allowListIds = allowListIds;
+  }
 
   public CreateDBInstanceRequest autoRenew(Boolean autoRenew) {
     this.autoRenew = autoRenew;
@@ -137,6 +175,33 @@ public class CreateDBInstanceRequest {
 
   public void setClientToken(String clientToken) {
     this.clientToken = clientToken;
+  }
+
+  public CreateDBInstanceRequest configureNodes(List<ConfigureNodeForCreateDBInstanceInput> configureNodes) {
+    this.configureNodes = configureNodes;
+    return this;
+  }
+
+  public CreateDBInstanceRequest addConfigureNodesItem(ConfigureNodeForCreateDBInstanceInput configureNodesItem) {
+    if (this.configureNodes == null) {
+      this.configureNodes = new ArrayList<ConfigureNodeForCreateDBInstanceInput>();
+    }
+    this.configureNodes.add(configureNodesItem);
+    return this;
+  }
+
+   /**
+   * Get configureNodes
+   * @return configureNodes
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<ConfigureNodeForCreateDBInstanceInput> getConfigureNodes() {
+    return configureNodes;
+  }
+
+  public void setConfigureNodes(List<ConfigureNodeForCreateDBInstanceInput> configureNodes) {
+    this.configureNodes = configureNodes;
   }
 
   public CreateDBInstanceRequest deletionProtection(String deletionProtection) {
@@ -194,6 +259,25 @@ public class CreateDBInstanceRequest {
     this.instanceName = instanceName;
   }
 
+  public CreateDBInstanceRequest multiAZ(String multiAZ) {
+    this.multiAZ = multiAZ;
+    return this;
+  }
+
+   /**
+   * Get multiAZ
+   * @return multiAZ
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getMultiAZ() {
+    return multiAZ;
+  }
+
+  public void setMultiAZ(String multiAZ) {
+    this.multiAZ = multiAZ;
+  }
+
   public CreateDBInstanceRequest nodeNumber(Integer nodeNumber) {
     this.nodeNumber = nodeNumber;
     return this;
@@ -203,7 +287,8 @@ public class CreateDBInstanceRequest {
    * Get nodeNumber
    * @return nodeNumber
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public Integer getNodeNumber() {
     return nodeNumber;
   }
@@ -221,7 +306,8 @@ public class CreateDBInstanceRequest {
    * Get password
    * @return password
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getPassword() {
     return password;
   }
@@ -349,7 +435,8 @@ public class CreateDBInstanceRequest {
    * Get shardedCluster
    * @return shardedCluster
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public Integer getShardedCluster() {
     return shardedCluster;
   }
@@ -367,13 +454,41 @@ public class CreateDBInstanceRequest {
    * Get subnetId
    * @return subnetId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getSubnetId() {
     return subnetId;
   }
 
   public void setSubnetId(String subnetId) {
     this.subnetId = subnetId;
+  }
+
+  public CreateDBInstanceRequest tags(List<TagForCreateDBInstanceInput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public CreateDBInstanceRequest addTagsItem(TagForCreateDBInstanceInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForCreateDBInstanceInput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForCreateDBInstanceInput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForCreateDBInstanceInput> tags) {
+    this.tags = tags;
   }
 
   public CreateDBInstanceRequest vpcId(String vpcId) {
@@ -385,39 +500,14 @@ public class CreateDBInstanceRequest {
    * Get vpcId
    * @return vpcId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getVpcId() {
     return vpcId;
   }
 
   public void setVpcId(String vpcId) {
     this.vpcId = vpcId;
-  }
-
-  public CreateDBInstanceRequest zoneIds(List<String> zoneIds) {
-    this.zoneIds = zoneIds;
-    return this;
-  }
-
-  public CreateDBInstanceRequest addZoneIdsItem(String zoneIdsItem) {
-    if (this.zoneIds == null) {
-      this.zoneIds = new ArrayList<String>();
-    }
-    this.zoneIds.add(zoneIdsItem);
-    return this;
-  }
-
-   /**
-   * Get zoneIds
-   * @return zoneIds
-  **/
-  @Schema(description = "")
-  public List<String> getZoneIds() {
-    return zoneIds;
-  }
-
-  public void setZoneIds(List<String> zoneIds) {
-    this.zoneIds = zoneIds;
   }
 
 
@@ -430,12 +520,15 @@ public class CreateDBInstanceRequest {
       return false;
     }
     CreateDBInstanceRequest createDBInstanceRequest = (CreateDBInstanceRequest) o;
-    return Objects.equals(this.autoRenew, createDBInstanceRequest.autoRenew) &&
+    return Objects.equals(this.allowListIds, createDBInstanceRequest.allowListIds) &&
+        Objects.equals(this.autoRenew, createDBInstanceRequest.autoRenew) &&
         Objects.equals(this.chargeType, createDBInstanceRequest.chargeType) &&
         Objects.equals(this.clientToken, createDBInstanceRequest.clientToken) &&
+        Objects.equals(this.configureNodes, createDBInstanceRequest.configureNodes) &&
         Objects.equals(this.deletionProtection, createDBInstanceRequest.deletionProtection) &&
         Objects.equals(this.engineVersion, createDBInstanceRequest.engineVersion) &&
         Objects.equals(this.instanceName, createDBInstanceRequest.instanceName) &&
+        Objects.equals(this.multiAZ, createDBInstanceRequest.multiAZ) &&
         Objects.equals(this.nodeNumber, createDBInstanceRequest.nodeNumber) &&
         Objects.equals(this.password, createDBInstanceRequest.password) &&
         Objects.equals(this.port, createDBInstanceRequest.port) &&
@@ -446,13 +539,13 @@ public class CreateDBInstanceRequest {
         Objects.equals(this.shardNumber, createDBInstanceRequest.shardNumber) &&
         Objects.equals(this.shardedCluster, createDBInstanceRequest.shardedCluster) &&
         Objects.equals(this.subnetId, createDBInstanceRequest.subnetId) &&
-        Objects.equals(this.vpcId, createDBInstanceRequest.vpcId) &&
-        Objects.equals(this.zoneIds, createDBInstanceRequest.zoneIds);
+        Objects.equals(this.tags, createDBInstanceRequest.tags) &&
+        Objects.equals(this.vpcId, createDBInstanceRequest.vpcId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoRenew, chargeType, clientToken, deletionProtection, engineVersion, instanceName, nodeNumber, password, port, projectName, purchaseMonths, regionId, shardCapacity, shardNumber, shardedCluster, subnetId, vpcId, zoneIds);
+    return Objects.hash(allowListIds, autoRenew, chargeType, clientToken, configureNodes, deletionProtection, engineVersion, instanceName, multiAZ, nodeNumber, password, port, projectName, purchaseMonths, regionId, shardCapacity, shardNumber, shardedCluster, subnetId, tags, vpcId);
   }
 
 
@@ -461,12 +554,15 @@ public class CreateDBInstanceRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateDBInstanceRequest {\n");
     
+    sb.append("    allowListIds: ").append(toIndentedString(allowListIds)).append("\n");
     sb.append("    autoRenew: ").append(toIndentedString(autoRenew)).append("\n");
     sb.append("    chargeType: ").append(toIndentedString(chargeType)).append("\n");
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
+    sb.append("    configureNodes: ").append(toIndentedString(configureNodes)).append("\n");
     sb.append("    deletionProtection: ").append(toIndentedString(deletionProtection)).append("\n");
     sb.append("    engineVersion: ").append(toIndentedString(engineVersion)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
+    sb.append("    multiAZ: ").append(toIndentedString(multiAZ)).append("\n");
     sb.append("    nodeNumber: ").append(toIndentedString(nodeNumber)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
@@ -477,8 +573,8 @@ public class CreateDBInstanceRequest {
     sb.append("    shardNumber: ").append(toIndentedString(shardNumber)).append("\n");
     sb.append("    shardedCluster: ").append(toIndentedString(shardedCluster)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
-    sb.append("    zoneIds: ").append(toIndentedString(zoneIds)).append("\n");
     sb.append("}");
     return sb.toString();
   }

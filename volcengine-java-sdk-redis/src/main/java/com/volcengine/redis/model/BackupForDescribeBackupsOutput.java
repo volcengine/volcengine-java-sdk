@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.redis.model.InstanceDetailForDescribeBackupsOutput;
+import com.volcengine.redis.model.InstanceInfoForDescribeBackupsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -29,24 +29,125 @@ import javax.validation.Valid;
  */
 
 
+
 public class BackupForDescribeBackupsOutput {
   @SerializedName("BackupPointId")
   private String backupPointId = null;
 
-  @SerializedName("BackupStrategy")
-  private String backupStrategy = null;
+  @SerializedName("BackupPointName")
+  private String backupPointName = null;
 
-  @SerializedName("BackupType")
-  private String backupType = null;
+  /**
+   * Gets or Sets backupStrategy
+   */
+  @JsonAdapter(BackupStrategyEnum.Adapter.class)
+  public enum BackupStrategyEnum {
+    @SerializedName("ManualBackup")
+    MANUALBACKUP("ManualBackup"),
+    @SerializedName("AutomatedBackup")
+    AUTOMATEDBACKUP("AutomatedBackup"),
+    @SerializedName("DataFlashBack")
+    DATAFLASHBACK("DataFlashBack"),
+    @SerializedName("AllStrategy")
+    ALLSTRATEGY("AllStrategy");
+
+    private String value;
+
+    BackupStrategyEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static BackupStrategyEnum fromValue(String input) {
+      for (BackupStrategyEnum b : BackupStrategyEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<BackupStrategyEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final BackupStrategyEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public BackupStrategyEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return BackupStrategyEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("BackupStrategy")
+  private BackupStrategyEnum backupStrategy = null;
+
+  /**
+   * Gets or Sets backupType
+   */
+  @JsonAdapter(BackupTypeEnum.Adapter.class)
+  public enum BackupTypeEnum {
+    @SerializedName("Invalid")
+    INVALID("Invalid"),
+    @SerializedName("Full")
+    FULL("Full"),
+    @SerializedName("Inc")
+    INC("Inc"),
+    @SerializedName("All")
+    ALL("All");
+
+    private String value;
+
+    BackupTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static BackupTypeEnum fromValue(String input) {
+      for (BackupTypeEnum b : BackupTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<BackupTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final BackupTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public BackupTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return BackupTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("BackupType")
+  private BackupTypeEnum backupType = null;
 
   @SerializedName("EndTime")
   private String endTime = null;
 
-  @SerializedName("InstanceDetail")
-  private InstanceDetailForDescribeBackupsOutput instanceDetail = null;
-
   @SerializedName("InstanceId")
   private String instanceId = null;
+
+  @SerializedName("InstanceInfo")
+  private InstanceInfoForDescribeBackupsOutput instanceInfo = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
 
   @SerializedName("Size")
   private Long size = null;
@@ -54,8 +155,58 @@ public class BackupForDescribeBackupsOutput {
   @SerializedName("StartTime")
   private String startTime = null;
 
-  @SerializedName("Status")
-  private String status = null;
+  /**
+   * Gets or Sets status
+   */
+  @JsonAdapter(StatusEnum.Adapter.class)
+  public enum StatusEnum {
+    @SerializedName("Creating")
+    CREATING("Creating"),
+    @SerializedName("Available")
+    AVAILABLE("Available"),
+    @SerializedName("Unavailable")
+    UNAVAILABLE("Unavailable"),
+    @SerializedName("Deleting")
+    DELETING("Deleting");
+
+    private String value;
+
+    StatusEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static StatusEnum fromValue(String input) {
+      for (StatusEnum b : StatusEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<StatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public StatusEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return StatusEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("Status")
+  private StatusEnum status = null;
+
+  @SerializedName("TTL")
+  private Integer TTL = null;
 
   public BackupForDescribeBackupsOutput backupPointId(String backupPointId) {
     this.backupPointId = backupPointId;
@@ -75,7 +226,25 @@ public class BackupForDescribeBackupsOutput {
     this.backupPointId = backupPointId;
   }
 
-  public BackupForDescribeBackupsOutput backupStrategy(String backupStrategy) {
+  public BackupForDescribeBackupsOutput backupPointName(String backupPointName) {
+    this.backupPointName = backupPointName;
+    return this;
+  }
+
+   /**
+   * Get backupPointName
+   * @return backupPointName
+  **/
+  @Schema(description = "")
+  public String getBackupPointName() {
+    return backupPointName;
+  }
+
+  public void setBackupPointName(String backupPointName) {
+    this.backupPointName = backupPointName;
+  }
+
+  public BackupForDescribeBackupsOutput backupStrategy(BackupStrategyEnum backupStrategy) {
     this.backupStrategy = backupStrategy;
     return this;
   }
@@ -85,15 +254,15 @@ public class BackupForDescribeBackupsOutput {
    * @return backupStrategy
   **/
   @Schema(description = "")
-  public String getBackupStrategy() {
+  public BackupStrategyEnum getBackupStrategy() {
     return backupStrategy;
   }
 
-  public void setBackupStrategy(String backupStrategy) {
+  public void setBackupStrategy(BackupStrategyEnum backupStrategy) {
     this.backupStrategy = backupStrategy;
   }
 
-  public BackupForDescribeBackupsOutput backupType(String backupType) {
+  public BackupForDescribeBackupsOutput backupType(BackupTypeEnum backupType) {
     this.backupType = backupType;
     return this;
   }
@@ -103,11 +272,11 @@ public class BackupForDescribeBackupsOutput {
    * @return backupType
   **/
   @Schema(description = "")
-  public String getBackupType() {
+  public BackupTypeEnum getBackupType() {
     return backupType;
   }
 
-  public void setBackupType(String backupType) {
+  public void setBackupType(BackupTypeEnum backupType) {
     this.backupType = backupType;
   }
 
@@ -129,25 +298,6 @@ public class BackupForDescribeBackupsOutput {
     this.endTime = endTime;
   }
 
-  public BackupForDescribeBackupsOutput instanceDetail(InstanceDetailForDescribeBackupsOutput instanceDetail) {
-    this.instanceDetail = instanceDetail;
-    return this;
-  }
-
-   /**
-   * Get instanceDetail
-   * @return instanceDetail
-  **/
-  @Valid
-  @Schema(description = "")
-  public InstanceDetailForDescribeBackupsOutput getInstanceDetail() {
-    return instanceDetail;
-  }
-
-  public void setInstanceDetail(InstanceDetailForDescribeBackupsOutput instanceDetail) {
-    this.instanceDetail = instanceDetail;
-  }
-
   public BackupForDescribeBackupsOutput instanceId(String instanceId) {
     this.instanceId = instanceId;
     return this;
@@ -164,6 +314,43 @@ public class BackupForDescribeBackupsOutput {
 
   public void setInstanceId(String instanceId) {
     this.instanceId = instanceId;
+  }
+
+  public BackupForDescribeBackupsOutput instanceInfo(InstanceInfoForDescribeBackupsOutput instanceInfo) {
+    this.instanceInfo = instanceInfo;
+    return this;
+  }
+
+   /**
+   * Get instanceInfo
+   * @return instanceInfo
+  **/
+  @Valid
+  @Schema(description = "")
+  public InstanceInfoForDescribeBackupsOutput getInstanceInfo() {
+    return instanceInfo;
+  }
+
+  public void setInstanceInfo(InstanceInfoForDescribeBackupsOutput instanceInfo) {
+    this.instanceInfo = instanceInfo;
+  }
+
+  public BackupForDescribeBackupsOutput projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
   }
 
   public BackupForDescribeBackupsOutput size(Long size) {
@@ -202,7 +389,7 @@ public class BackupForDescribeBackupsOutput {
     this.startTime = startTime;
   }
 
-  public BackupForDescribeBackupsOutput status(String status) {
+  public BackupForDescribeBackupsOutput status(StatusEnum status) {
     this.status = status;
     return this;
   }
@@ -212,12 +399,30 @@ public class BackupForDescribeBackupsOutput {
    * @return status
   **/
   @Schema(description = "")
-  public String getStatus() {
+  public StatusEnum getStatus() {
     return status;
   }
 
-  public void setStatus(String status) {
+  public void setStatus(StatusEnum status) {
     this.status = status;
+  }
+
+  public BackupForDescribeBackupsOutput TTL(Integer TTL) {
+    this.TTL = TTL;
+    return this;
+  }
+
+   /**
+   * Get TTL
+   * @return TTL
+  **/
+  @Schema(description = "")
+  public Integer getTTL() {
+    return TTL;
+  }
+
+  public void setTTL(Integer TTL) {
+    this.TTL = TTL;
   }
 
 
@@ -231,19 +436,22 @@ public class BackupForDescribeBackupsOutput {
     }
     BackupForDescribeBackupsOutput backupForDescribeBackupsOutput = (BackupForDescribeBackupsOutput) o;
     return Objects.equals(this.backupPointId, backupForDescribeBackupsOutput.backupPointId) &&
+        Objects.equals(this.backupPointName, backupForDescribeBackupsOutput.backupPointName) &&
         Objects.equals(this.backupStrategy, backupForDescribeBackupsOutput.backupStrategy) &&
         Objects.equals(this.backupType, backupForDescribeBackupsOutput.backupType) &&
         Objects.equals(this.endTime, backupForDescribeBackupsOutput.endTime) &&
-        Objects.equals(this.instanceDetail, backupForDescribeBackupsOutput.instanceDetail) &&
         Objects.equals(this.instanceId, backupForDescribeBackupsOutput.instanceId) &&
+        Objects.equals(this.instanceInfo, backupForDescribeBackupsOutput.instanceInfo) &&
+        Objects.equals(this.projectName, backupForDescribeBackupsOutput.projectName) &&
         Objects.equals(this.size, backupForDescribeBackupsOutput.size) &&
         Objects.equals(this.startTime, backupForDescribeBackupsOutput.startTime) &&
-        Objects.equals(this.status, backupForDescribeBackupsOutput.status);
+        Objects.equals(this.status, backupForDescribeBackupsOutput.status) &&
+        Objects.equals(this.TTL, backupForDescribeBackupsOutput.TTL);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(backupPointId, backupStrategy, backupType, endTime, instanceDetail, instanceId, size, startTime, status);
+    return Objects.hash(backupPointId, backupPointName, backupStrategy, backupType, endTime, instanceId, instanceInfo, projectName, size, startTime, status, TTL);
   }
 
 
@@ -253,14 +461,17 @@ public class BackupForDescribeBackupsOutput {
     sb.append("class BackupForDescribeBackupsOutput {\n");
     
     sb.append("    backupPointId: ").append(toIndentedString(backupPointId)).append("\n");
+    sb.append("    backupPointName: ").append(toIndentedString(backupPointName)).append("\n");
     sb.append("    backupStrategy: ").append(toIndentedString(backupStrategy)).append("\n");
     sb.append("    backupType: ").append(toIndentedString(backupType)).append("\n");
     sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
-    sb.append("    instanceDetail: ").append(toIndentedString(instanceDetail)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    instanceInfo: ").append(toIndentedString(instanceInfo)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    TTL: ").append(toIndentedString(TTL)).append("\n");
     sb.append("}");
     return sb.toString();
   }
