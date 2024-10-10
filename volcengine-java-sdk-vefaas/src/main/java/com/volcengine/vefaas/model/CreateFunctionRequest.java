@@ -38,6 +38,12 @@ import javax.validation.Valid;
 
 
 public class CreateFunctionRequest {
+  @SerializedName("Command")
+  private String command = null;
+
+  @SerializedName("CpuStrategy")
+  private String cpuStrategy = null;
+
   @SerializedName("Description")
   private String description = null;
 
@@ -50,6 +56,9 @@ public class CreateFunctionRequest {
   @SerializedName("InitializerSec")
   private Integer initializerSec = null;
 
+  @SerializedName("InstanceType")
+  private String instanceType = null;
+
   @SerializedName("MaxConcurrency")
   private Integer maxConcurrency = null;
 
@@ -61,6 +70,9 @@ public class CreateFunctionRequest {
 
   @SerializedName("NasStorage")
   private NasStorageForCreateFunctionInput nasStorage = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
 
   @SerializedName("RequestTimeout")
   private Integer requestTimeout = null;
@@ -85,6 +97,42 @@ public class CreateFunctionRequest {
 
   @SerializedName("VpcConfig")
   private VpcConfigForCreateFunctionInput vpcConfig = null;
+
+  public CreateFunctionRequest command(String command) {
+    this.command = command;
+    return this;
+  }
+
+   /**
+   * Get command
+   * @return command
+  **/
+  @Schema(description = "")
+  public String getCommand() {
+    return command;
+  }
+
+  public void setCommand(String command) {
+    this.command = command;
+  }
+
+  public CreateFunctionRequest cpuStrategy(String cpuStrategy) {
+    this.cpuStrategy = cpuStrategy;
+    return this;
+  }
+
+   /**
+   * Get cpuStrategy
+   * @return cpuStrategy
+  **/
+  @Schema(description = "")
+  public String getCpuStrategy() {
+    return cpuStrategy;
+  }
+
+  public void setCpuStrategy(String cpuStrategy) {
+    this.cpuStrategy = cpuStrategy;
+  }
 
   public CreateFunctionRequest description(String description) {
     this.description = description;
@@ -167,6 +215,24 @@ public class CreateFunctionRequest {
     this.initializerSec = initializerSec;
   }
 
+  public CreateFunctionRequest instanceType(String instanceType) {
+    this.instanceType = instanceType;
+    return this;
+  }
+
+   /**
+   * Get instanceType
+   * @return instanceType
+  **/
+  @Schema(description = "")
+  public String getInstanceType() {
+    return instanceType;
+  }
+
+  public void setInstanceType(String instanceType) {
+    this.instanceType = instanceType;
+  }
+
   public CreateFunctionRequest maxConcurrency(Integer maxConcurrency) {
     this.maxConcurrency = maxConcurrency;
     return this;
@@ -239,6 +305,24 @@ public class CreateFunctionRequest {
 
   public void setNasStorage(NasStorageForCreateFunctionInput nasStorage) {
     this.nasStorage = nasStorage;
+  }
+
+  public CreateFunctionRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
   }
 
   public CreateFunctionRequest requestTimeout(Integer requestTimeout) {
@@ -400,14 +484,18 @@ public class CreateFunctionRequest {
       return false;
     }
     CreateFunctionRequest createFunctionRequest = (CreateFunctionRequest) o;
-    return Objects.equals(this.description, createFunctionRequest.description) &&
+    return Objects.equals(this.command, createFunctionRequest.command) &&
+        Objects.equals(this.cpuStrategy, createFunctionRequest.cpuStrategy) &&
+        Objects.equals(this.description, createFunctionRequest.description) &&
         Objects.equals(this.envs, createFunctionRequest.envs) &&
         Objects.equals(this.exclusiveMode, createFunctionRequest.exclusiveMode) &&
         Objects.equals(this.initializerSec, createFunctionRequest.initializerSec) &&
+        Objects.equals(this.instanceType, createFunctionRequest.instanceType) &&
         Objects.equals(this.maxConcurrency, createFunctionRequest.maxConcurrency) &&
         Objects.equals(this.memoryMB, createFunctionRequest.memoryMB) &&
         Objects.equals(this.name, createFunctionRequest.name) &&
         Objects.equals(this.nasStorage, createFunctionRequest.nasStorage) &&
+        Objects.equals(this.projectName, createFunctionRequest.projectName) &&
         Objects.equals(this.requestTimeout, createFunctionRequest.requestTimeout) &&
         Objects.equals(this.runtime, createFunctionRequest.runtime) &&
         Objects.equals(this.source, createFunctionRequest.source) &&
@@ -420,7 +508,7 @@ public class CreateFunctionRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, envs, exclusiveMode, initializerSec, maxConcurrency, memoryMB, name, nasStorage, requestTimeout, runtime, source, sourceAccessConfig, sourceType, tlsConfig, tosMountConfig, vpcConfig);
+    return Objects.hash(command, cpuStrategy, description, envs, exclusiveMode, initializerSec, instanceType, maxConcurrency, memoryMB, name, nasStorage, projectName, requestTimeout, runtime, source, sourceAccessConfig, sourceType, tlsConfig, tosMountConfig, vpcConfig);
   }
 
 
@@ -429,14 +517,18 @@ public class CreateFunctionRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateFunctionRequest {\n");
     
+    sb.append("    command: ").append(toIndentedString(command)).append("\n");
+    sb.append("    cpuStrategy: ").append(toIndentedString(cpuStrategy)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    envs: ").append(toIndentedString(envs)).append("\n");
     sb.append("    exclusiveMode: ").append(toIndentedString(exclusiveMode)).append("\n");
     sb.append("    initializerSec: ").append(toIndentedString(initializerSec)).append("\n");
+    sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("    maxConcurrency: ").append(toIndentedString(maxConcurrency)).append("\n");
     sb.append("    memoryMB: ").append(toIndentedString(memoryMB)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    nasStorage: ").append(toIndentedString(nasStorage)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    requestTimeout: ").append(toIndentedString(requestTimeout)).append("\n");
     sb.append("    runtime: ").append(toIndentedString(runtime)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");

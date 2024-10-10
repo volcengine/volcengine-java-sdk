@@ -43,6 +43,9 @@ public class UpdateFunctionResponse extends com.volcengine.model.AbstractRespons
   @SerializedName("CodeSizeLimit")
   private Integer codeSizeLimit = null;
 
+  @SerializedName("Command")
+  private String command = null;
+
   @SerializedName("CreationTime")
   private String creationTime = null;
 
@@ -81,6 +84,9 @@ public class UpdateFunctionResponse extends com.volcengine.model.AbstractRespons
 
   @SerializedName("Owner")
   private String owner = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
 
   @SerializedName("RequestTimeout")
   private Integer requestTimeout = null;
@@ -140,6 +146,24 @@ public class UpdateFunctionResponse extends com.volcengine.model.AbstractRespons
 
   public void setCodeSizeLimit(Integer codeSizeLimit) {
     this.codeSizeLimit = codeSizeLimit;
+  }
+
+  public UpdateFunctionResponse command(String command) {
+    this.command = command;
+    return this;
+  }
+
+   /**
+   * Get command
+   * @return command
+  **/
+  @Schema(description = "")
+  public String getCommand() {
+    return command;
+  }
+
+  public void setCommand(String command) {
+    this.command = command;
   }
 
   public UpdateFunctionResponse creationTime(String creationTime) {
@@ -386,6 +410,24 @@ public class UpdateFunctionResponse extends com.volcengine.model.AbstractRespons
     this.owner = owner;
   }
 
+  public UpdateFunctionResponse projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public UpdateFunctionResponse requestTimeout(Integer requestTimeout) {
     this.requestTimeout = requestTimeout;
     return this;
@@ -545,6 +587,7 @@ public class UpdateFunctionResponse extends com.volcengine.model.AbstractRespons
     UpdateFunctionResponse updateFunctionResponse = (UpdateFunctionResponse) o;
     return Objects.equals(this.codeSize, updateFunctionResponse.codeSize) &&
         Objects.equals(this.codeSizeLimit, updateFunctionResponse.codeSizeLimit) &&
+        Objects.equals(this.command, updateFunctionResponse.command) &&
         Objects.equals(this.creationTime, updateFunctionResponse.creationTime) &&
         Objects.equals(this.description, updateFunctionResponse.description) &&
         Objects.equals(this.envs, updateFunctionResponse.envs) &&
@@ -558,6 +601,7 @@ public class UpdateFunctionResponse extends com.volcengine.model.AbstractRespons
         Objects.equals(this.name, updateFunctionResponse.name) &&
         Objects.equals(this.nasStorage, updateFunctionResponse.nasStorage) &&
         Objects.equals(this.owner, updateFunctionResponse.owner) &&
+        Objects.equals(this.projectName, updateFunctionResponse.projectName) &&
         Objects.equals(this.requestTimeout, updateFunctionResponse.requestTimeout) &&
         Objects.equals(this.runtime, updateFunctionResponse.runtime) &&
         Objects.equals(this.sourceLocation, updateFunctionResponse.sourceLocation) &&
@@ -570,7 +614,7 @@ public class UpdateFunctionResponse extends com.volcengine.model.AbstractRespons
 
   @Override
   public int hashCode() {
-    return Objects.hash(codeSize, codeSizeLimit, creationTime, description, envs, exclusiveMode, id, initializerSec, instanceType, lastUpdateTime, maxConcurrency, memoryMB, name, nasStorage, owner, requestTimeout, runtime, sourceLocation, sourceType, tlsConfig, tosMountConfig, triggersCount, vpcConfig);
+    return Objects.hash(codeSize, codeSizeLimit, command, creationTime, description, envs, exclusiveMode, id, initializerSec, instanceType, lastUpdateTime, maxConcurrency, memoryMB, name, nasStorage, owner, projectName, requestTimeout, runtime, sourceLocation, sourceType, tlsConfig, tosMountConfig, triggersCount, vpcConfig);
   }
 
 
@@ -581,6 +625,7 @@ public class UpdateFunctionResponse extends com.volcengine.model.AbstractRespons
     
     sb.append("    codeSize: ").append(toIndentedString(codeSize)).append("\n");
     sb.append("    codeSizeLimit: ").append(toIndentedString(codeSizeLimit)).append("\n");
+    sb.append("    command: ").append(toIndentedString(command)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    envs: ").append(toIndentedString(envs)).append("\n");
@@ -594,6 +639,7 @@ public class UpdateFunctionResponse extends com.volcengine.model.AbstractRespons
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    nasStorage: ").append(toIndentedString(nasStorage)).append("\n");
     sb.append("    owner: ").append(toIndentedString(owner)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    requestTimeout: ").append(toIndentedString(requestTimeout)).append("\n");
     sb.append("    runtime: ").append(toIndentedString(runtime)).append("\n");
     sb.append("    sourceLocation: ").append(toIndentedString(sourceLocation)).append("\n");
