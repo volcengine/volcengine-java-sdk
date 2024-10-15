@@ -54,6 +54,9 @@ public class DescribeLoadBalancerAttributesResponse extends com.volcengine.model
   @SerializedName("BusinessStatus")
   private String businessStatus = null;
 
+  @SerializedName("BypassSecurityGroupEnabled")
+  private String bypassSecurityGroupEnabled = null;
+
   @SerializedName("CreateTime")
   private String createTime = null;
 
@@ -268,6 +271,24 @@ public class DescribeLoadBalancerAttributesResponse extends com.volcengine.model
 
   public void setBusinessStatus(String businessStatus) {
     this.businessStatus = businessStatus;
+  }
+
+  public DescribeLoadBalancerAttributesResponse bypassSecurityGroupEnabled(String bypassSecurityGroupEnabled) {
+    this.bypassSecurityGroupEnabled = bypassSecurityGroupEnabled;
+    return this;
+  }
+
+   /**
+   * Get bypassSecurityGroupEnabled
+   * @return bypassSecurityGroupEnabled
+  **/
+  @Schema(description = "")
+  public String getBypassSecurityGroupEnabled() {
+    return bypassSecurityGroupEnabled;
+  }
+
+  public void setBypassSecurityGroupEnabled(String bypassSecurityGroupEnabled) {
+    this.bypassSecurityGroupEnabled = bypassSecurityGroupEnabled;
   }
 
   public DescribeLoadBalancerAttributesResponse createTime(String createTime) {
@@ -1025,6 +1046,7 @@ public class DescribeLoadBalancerAttributesResponse extends com.volcengine.model
         Objects.equals(this.addressIpVersion, describeLoadBalancerAttributesResponse.addressIpVersion) &&
         Objects.equals(this.allowedPorts, describeLoadBalancerAttributesResponse.allowedPorts) &&
         Objects.equals(this.businessStatus, describeLoadBalancerAttributesResponse.businessStatus) &&
+        Objects.equals(this.bypassSecurityGroupEnabled, describeLoadBalancerAttributesResponse.bypassSecurityGroupEnabled) &&
         Objects.equals(this.createTime, describeLoadBalancerAttributesResponse.createTime) &&
         Objects.equals(this.deletedTime, describeLoadBalancerAttributesResponse.deletedTime) &&
         Objects.equals(this.description, describeLoadBalancerAttributesResponse.description) &&
@@ -1068,7 +1090,7 @@ public class DescribeLoadBalancerAttributesResponse extends com.volcengine.model
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessLog, accountId, addressIpVersion, allowedPorts, businessStatus, createTime, deletedTime, description, eip, eipAddress, eipID, enabled, eniAddress, eniAddressNum, eniAddresses, eniID, eniIpv6Address, exclusiveClusterId, expiredTime, ipv6AddressBandwidth, ipv6EipId, listeners, loadBalancerBillingType, loadBalancerId, loadBalancerName, loadBalancerSpec, lockReason, logTopicId, masterZoneId, modificationProtectionReason, modificationProtectionStatus, newArch, overdueTime, projectName, requestId, serverGroups, serviceManaged, slaveZoneId, status, subnetId, tags, type, updateTime, vpcId);
+    return Objects.hash(accessLog, accountId, addressIpVersion, allowedPorts, businessStatus, bypassSecurityGroupEnabled, createTime, deletedTime, description, eip, eipAddress, eipID, enabled, eniAddress, eniAddressNum, eniAddresses, eniID, eniIpv6Address, exclusiveClusterId, expiredTime, ipv6AddressBandwidth, ipv6EipId, listeners, loadBalancerBillingType, loadBalancerId, loadBalancerName, loadBalancerSpec, lockReason, logTopicId, masterZoneId, modificationProtectionReason, modificationProtectionStatus, newArch, overdueTime, projectName, requestId, serverGroups, serviceManaged, slaveZoneId, status, subnetId, tags, type, updateTime, vpcId);
   }
 
 
@@ -1082,6 +1104,7 @@ public class DescribeLoadBalancerAttributesResponse extends com.volcengine.model
     sb.append("    addressIpVersion: ").append(toIndentedString(addressIpVersion)).append("\n");
     sb.append("    allowedPorts: ").append(toIndentedString(allowedPorts)).append("\n");
     sb.append("    businessStatus: ").append(toIndentedString(businessStatus)).append("\n");
+    sb.append("    bypassSecurityGroupEnabled: ").append(toIndentedString(bypassSecurityGroupEnabled)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    deletedTime: ").append(toIndentedString(deletedTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");

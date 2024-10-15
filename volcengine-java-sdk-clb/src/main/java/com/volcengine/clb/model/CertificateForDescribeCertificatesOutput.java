@@ -60,6 +60,9 @@ public class CertificateForDescribeCertificatesOutput {
   @SerializedName("ServiceManaged")
   private Boolean serviceManaged = null;
 
+  @SerializedName("SubjectAlternativeNames")
+  private List<String> subjectAlternativeNames = null;
+
   @SerializedName("Tags")
   private List<TagForDescribeCertificatesOutput> tags = null;
 
@@ -233,6 +236,32 @@ public class CertificateForDescribeCertificatesOutput {
     this.serviceManaged = serviceManaged;
   }
 
+  public CertificateForDescribeCertificatesOutput subjectAlternativeNames(List<String> subjectAlternativeNames) {
+    this.subjectAlternativeNames = subjectAlternativeNames;
+    return this;
+  }
+
+  public CertificateForDescribeCertificatesOutput addSubjectAlternativeNamesItem(String subjectAlternativeNamesItem) {
+    if (this.subjectAlternativeNames == null) {
+      this.subjectAlternativeNames = new ArrayList<String>();
+    }
+    this.subjectAlternativeNames.add(subjectAlternativeNamesItem);
+    return this;
+  }
+
+   /**
+   * Get subjectAlternativeNames
+   * @return subjectAlternativeNames
+  **/
+  @Schema(description = "")
+  public List<String> getSubjectAlternativeNames() {
+    return subjectAlternativeNames;
+  }
+
+  public void setSubjectAlternativeNames(List<String> subjectAlternativeNames) {
+    this.subjectAlternativeNames = subjectAlternativeNames;
+  }
+
   public CertificateForDescribeCertificatesOutput tags(List<TagForDescribeCertificatesOutput> tags) {
     this.tags = tags;
     return this;
@@ -279,12 +308,13 @@ public class CertificateForDescribeCertificatesOutput {
         Objects.equals(this.listeners, certificateForDescribeCertificatesOutput.listeners) &&
         Objects.equals(this.projectName, certificateForDescribeCertificatesOutput.projectName) &&
         Objects.equals(this.serviceManaged, certificateForDescribeCertificatesOutput.serviceManaged) &&
+        Objects.equals(this.subjectAlternativeNames, certificateForDescribeCertificatesOutput.subjectAlternativeNames) &&
         Objects.equals(this.tags, certificateForDescribeCertificatesOutput.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(certificateId, certificateName, createTime, description, domainName, expiredAt, listeners, projectName, serviceManaged, tags);
+    return Objects.hash(certificateId, certificateName, createTime, description, domainName, expiredAt, listeners, projectName, serviceManaged, subjectAlternativeNames, tags);
   }
 
 
@@ -302,6 +332,7 @@ public class CertificateForDescribeCertificatesOutput {
     sb.append("    listeners: ").append(toIndentedString(listeners)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    serviceManaged: ").append(toIndentedString(serviceManaged)).append("\n");
+    sb.append("    subjectAlternativeNames: ").append(toIndentedString(subjectAlternativeNames)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
