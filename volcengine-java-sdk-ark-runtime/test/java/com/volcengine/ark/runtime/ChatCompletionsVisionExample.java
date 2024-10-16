@@ -48,7 +48,7 @@ public class ChatCompletionsVisionExample {
         ).build());
         multiParts.add(ChatCompletionContentPart.builder().type("image_url").imageUrl(
                 new ChatCompletionContentPart.ChatCompletionContentPartImageURL(
-                        "https://ark-project.tos-cn-beijing.volces.com/images/view.jpeg"
+                        "https://ark-project.tos-cn-beijing.ivolces.com/images/view.jpeg"
                 )
         ).build());
         final ChatMessage userMessage = ChatMessage.builder().role(ChatMessageRole.USER)
