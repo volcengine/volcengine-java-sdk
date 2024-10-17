@@ -40,6 +40,9 @@ public class CreateLoadBalancerRequest {
   @SerializedName("AllowedPorts")
   private List<String> allowedPorts = null;
 
+  @SerializedName("BypassSecurityGroupEnabled")
+  private String bypassSecurityGroupEnabled = null;
+
   @SerializedName("ClientToken")
   private String clientToken = null;
 
@@ -148,6 +151,24 @@ public class CreateLoadBalancerRequest {
 
   public void setAllowedPorts(List<String> allowedPorts) {
     this.allowedPorts = allowedPorts;
+  }
+
+  public CreateLoadBalancerRequest bypassSecurityGroupEnabled(String bypassSecurityGroupEnabled) {
+    this.bypassSecurityGroupEnabled = bypassSecurityGroupEnabled;
+    return this;
+  }
+
+   /**
+   * Get bypassSecurityGroupEnabled
+   * @return bypassSecurityGroupEnabled
+  **/
+  @Schema(description = "")
+  public String getBypassSecurityGroupEnabled() {
+    return bypassSecurityGroupEnabled;
+  }
+
+  public void setBypassSecurityGroupEnabled(String bypassSecurityGroupEnabled) {
+    this.bypassSecurityGroupEnabled = bypassSecurityGroupEnabled;
   }
 
   public CreateLoadBalancerRequest clientToken(String clientToken) {
@@ -571,6 +592,7 @@ public class CreateLoadBalancerRequest {
     CreateLoadBalancerRequest createLoadBalancerRequest = (CreateLoadBalancerRequest) o;
     return Objects.equals(this.addressIpVersion, createLoadBalancerRequest.addressIpVersion) &&
         Objects.equals(this.allowedPorts, createLoadBalancerRequest.allowedPorts) &&
+        Objects.equals(this.bypassSecurityGroupEnabled, createLoadBalancerRequest.bypassSecurityGroupEnabled) &&
         Objects.equals(this.clientToken, createLoadBalancerRequest.clientToken) &&
         Objects.equals(this.description, createLoadBalancerRequest.description) &&
         Objects.equals(this.eipBillingConfig, createLoadBalancerRequest.eipBillingConfig) &&
@@ -597,7 +619,7 @@ public class CreateLoadBalancerRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addressIpVersion, allowedPorts, clientToken, description, eipBillingConfig, eniAddress, eniAddressNum, eniIpv6Address, loadBalancerBillingType, loadBalancerName, loadBalancerSpec, masterZoneId, modificationProtectionReason, modificationProtectionStatus, period, periodUnit, projectName, regionId, slaveZoneId, subnetId, tags, type, vpcId, zoneType);
+    return Objects.hash(addressIpVersion, allowedPorts, bypassSecurityGroupEnabled, clientToken, description, eipBillingConfig, eniAddress, eniAddressNum, eniIpv6Address, loadBalancerBillingType, loadBalancerName, loadBalancerSpec, masterZoneId, modificationProtectionReason, modificationProtectionStatus, period, periodUnit, projectName, regionId, slaveZoneId, subnetId, tags, type, vpcId, zoneType);
   }
 
 
@@ -608,6 +630,7 @@ public class CreateLoadBalancerRequest {
     
     sb.append("    addressIpVersion: ").append(toIndentedString(addressIpVersion)).append("\n");
     sb.append("    allowedPorts: ").append(toIndentedString(allowedPorts)).append("\n");
+    sb.append("    bypassSecurityGroupEnabled: ").append(toIndentedString(bypassSecurityGroupEnabled)).append("\n");
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    eipBillingConfig: ").append(toIndentedString(eipBillingConfig)).append("\n");

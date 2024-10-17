@@ -38,6 +38,9 @@ public class ModifyLoadBalancerAttributesRequest {
   @SerializedName("AllowedPorts")
   private List<String> allowedPorts = null;
 
+  @SerializedName("BypassSecurityGroupEnabled")
+  private String bypassSecurityGroupEnabled = null;
+
   @SerializedName("Description")
   private String description = null;
 
@@ -104,6 +107,24 @@ public class ModifyLoadBalancerAttributesRequest {
 
   public void setAllowedPorts(List<String> allowedPorts) {
     this.allowedPorts = allowedPorts;
+  }
+
+  public ModifyLoadBalancerAttributesRequest bypassSecurityGroupEnabled(String bypassSecurityGroupEnabled) {
+    this.bypassSecurityGroupEnabled = bypassSecurityGroupEnabled;
+    return this;
+  }
+
+   /**
+   * Get bypassSecurityGroupEnabled
+   * @return bypassSecurityGroupEnabled
+  **/
+  @Schema(description = "")
+  public String getBypassSecurityGroupEnabled() {
+    return bypassSecurityGroupEnabled;
+  }
+
+  public void setBypassSecurityGroupEnabled(String bypassSecurityGroupEnabled) {
+    this.bypassSecurityGroupEnabled = bypassSecurityGroupEnabled;
   }
 
   public ModifyLoadBalancerAttributesRequest description(String description) {
@@ -263,6 +284,7 @@ public class ModifyLoadBalancerAttributesRequest {
     ModifyLoadBalancerAttributesRequest modifyLoadBalancerAttributesRequest = (ModifyLoadBalancerAttributesRequest) o;
     return Objects.equals(this.addressIpVersion, modifyLoadBalancerAttributesRequest.addressIpVersion) &&
         Objects.equals(this.allowedPorts, modifyLoadBalancerAttributesRequest.allowedPorts) &&
+        Objects.equals(this.bypassSecurityGroupEnabled, modifyLoadBalancerAttributesRequest.bypassSecurityGroupEnabled) &&
         Objects.equals(this.description, modifyLoadBalancerAttributesRequest.description) &&
         Objects.equals(this.eniIpv6Address, modifyLoadBalancerAttributesRequest.eniIpv6Address) &&
         Objects.equals(this.loadBalancerId, modifyLoadBalancerAttributesRequest.loadBalancerId) &&
@@ -275,7 +297,7 @@ public class ModifyLoadBalancerAttributesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addressIpVersion, allowedPorts, description, eniIpv6Address, loadBalancerId, loadBalancerName, loadBalancerSpec, modificationProtectionReason, modificationProtectionStatus, type);
+    return Objects.hash(addressIpVersion, allowedPorts, bypassSecurityGroupEnabled, description, eniIpv6Address, loadBalancerId, loadBalancerName, loadBalancerSpec, modificationProtectionReason, modificationProtectionStatus, type);
   }
 
 
@@ -286,6 +308,7 @@ public class ModifyLoadBalancerAttributesRequest {
     
     sb.append("    addressIpVersion: ").append(toIndentedString(addressIpVersion)).append("\n");
     sb.append("    allowedPorts: ").append(toIndentedString(allowedPorts)).append("\n");
+    sb.append("    bypassSecurityGroupEnabled: ").append(toIndentedString(bypassSecurityGroupEnabled)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    eniIpv6Address: ").append(toIndentedString(eniIpv6Address)).append("\n");
     sb.append("    loadBalancerId: ").append(toIndentedString(loadBalancerId)).append("\n");

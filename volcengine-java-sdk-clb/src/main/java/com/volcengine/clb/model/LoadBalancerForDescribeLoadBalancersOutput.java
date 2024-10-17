@@ -43,6 +43,9 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
   @SerializedName("BusinessStatus")
   private String businessStatus = null;
 
+  @SerializedName("BypassSecurityGroupEnabled")
+  private String bypassSecurityGroupEnabled = null;
+
   @SerializedName("CreateTime")
   private String createTime = null;
 
@@ -191,6 +194,24 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
 
   public void setBusinessStatus(String businessStatus) {
     this.businessStatus = businessStatus;
+  }
+
+  public LoadBalancerForDescribeLoadBalancersOutput bypassSecurityGroupEnabled(String bypassSecurityGroupEnabled) {
+    this.bypassSecurityGroupEnabled = bypassSecurityGroupEnabled;
+    return this;
+  }
+
+   /**
+   * Get bypassSecurityGroupEnabled
+   * @return bypassSecurityGroupEnabled
+  **/
+  @Schema(description = "")
+  public String getBypassSecurityGroupEnabled() {
+    return bypassSecurityGroupEnabled;
+  }
+
+  public void setBypassSecurityGroupEnabled(String bypassSecurityGroupEnabled) {
+    this.bypassSecurityGroupEnabled = bypassSecurityGroupEnabled;
   }
 
   public LoadBalancerForDescribeLoadBalancersOutput createTime(String createTime) {
@@ -800,6 +821,7 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
     return Objects.equals(this.accountId, loadBalancerForDescribeLoadBalancersOutput.accountId) &&
         Objects.equals(this.addressIpVersion, loadBalancerForDescribeLoadBalancersOutput.addressIpVersion) &&
         Objects.equals(this.businessStatus, loadBalancerForDescribeLoadBalancersOutput.businessStatus) &&
+        Objects.equals(this.bypassSecurityGroupEnabled, loadBalancerForDescribeLoadBalancersOutput.bypassSecurityGroupEnabled) &&
         Objects.equals(this.createTime, loadBalancerForDescribeLoadBalancersOutput.createTime) &&
         Objects.equals(this.deletedTime, loadBalancerForDescribeLoadBalancersOutput.deletedTime) &&
         Objects.equals(this.description, loadBalancerForDescribeLoadBalancersOutput.description) &&
@@ -836,7 +858,7 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, addressIpVersion, businessStatus, createTime, deletedTime, description, eipAddress, eipID, eniAddress, eniAddressNum, eniAddresses, eniID, eniIpv6Address, exclusiveClusterId, expiredTime, ipv6EipId, loadBalancerBillingType, loadBalancerId, loadBalancerName, loadBalancerSpec, lockReason, masterZoneId, modificationProtectionReason, modificationProtectionStatus, newArch, overdueTime, projectName, serviceManaged, slaveZoneId, status, subnetId, tags, type, updateTime, vpcId);
+    return Objects.hash(accountId, addressIpVersion, businessStatus, bypassSecurityGroupEnabled, createTime, deletedTime, description, eipAddress, eipID, eniAddress, eniAddressNum, eniAddresses, eniID, eniIpv6Address, exclusiveClusterId, expiredTime, ipv6EipId, loadBalancerBillingType, loadBalancerId, loadBalancerName, loadBalancerSpec, lockReason, masterZoneId, modificationProtectionReason, modificationProtectionStatus, newArch, overdueTime, projectName, serviceManaged, slaveZoneId, status, subnetId, tags, type, updateTime, vpcId);
   }
 
 
@@ -848,6 +870,7 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    addressIpVersion: ").append(toIndentedString(addressIpVersion)).append("\n");
     sb.append("    businessStatus: ").append(toIndentedString(businessStatus)).append("\n");
+    sb.append("    bypassSecurityGroupEnabled: ").append(toIndentedString(bypassSecurityGroupEnabled)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    deletedTime: ").append(toIndentedString(deletedTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
