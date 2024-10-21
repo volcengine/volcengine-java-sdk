@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.ecs.model.TagFilterForDescribeCommandsInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -45,8 +48,14 @@ public class DescribeCommandsRequest {
   @SerializedName("PageSize")
   private Integer pageSize = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("Provider")
   private String provider = null;
+
+  @SerializedName("TagFilters")
+  private List<TagFilterForDescribeCommandsInput> tagFilters = null;
 
   @SerializedName("Type")
   private String type = null;
@@ -141,6 +150,24 @@ public class DescribeCommandsRequest {
     this.pageSize = pageSize;
   }
 
+  public DescribeCommandsRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public DescribeCommandsRequest provider(String provider) {
     this.provider = provider;
     return this;
@@ -157,6 +184,33 @@ public class DescribeCommandsRequest {
 
   public void setProvider(String provider) {
     this.provider = provider;
+  }
+
+  public DescribeCommandsRequest tagFilters(List<TagFilterForDescribeCommandsInput> tagFilters) {
+    this.tagFilters = tagFilters;
+    return this;
+  }
+
+  public DescribeCommandsRequest addTagFiltersItem(TagFilterForDescribeCommandsInput tagFiltersItem) {
+    if (this.tagFilters == null) {
+      this.tagFilters = new ArrayList<TagFilterForDescribeCommandsInput>();
+    }
+    this.tagFilters.add(tagFiltersItem);
+    return this;
+  }
+
+   /**
+   * Get tagFilters
+   * @return tagFilters
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagFilterForDescribeCommandsInput> getTagFilters() {
+    return tagFilters;
+  }
+
+  public void setTagFilters(List<TagFilterForDescribeCommandsInput> tagFilters) {
+    this.tagFilters = tagFilters;
   }
 
   public DescribeCommandsRequest type(String type) {
@@ -192,13 +246,15 @@ public class DescribeCommandsRequest {
         Objects.equals(this.order, describeCommandsRequest.order) &&
         Objects.equals(this.pageNumber, describeCommandsRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeCommandsRequest.pageSize) &&
+        Objects.equals(this.projectName, describeCommandsRequest.projectName) &&
         Objects.equals(this.provider, describeCommandsRequest.provider) &&
+        Objects.equals(this.tagFilters, describeCommandsRequest.tagFilters) &&
         Objects.equals(this.type, describeCommandsRequest.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(commandId, name, order, pageNumber, pageSize, provider, type);
+    return Objects.hash(commandId, name, order, pageNumber, pageSize, projectName, provider, tagFilters, type);
   }
 
 
@@ -212,7 +268,9 @@ public class DescribeCommandsRequest {
     sb.append("    order: ").append(toIndentedString(order)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    provider: ").append(toIndentedString(provider)).append("\n");
+    sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

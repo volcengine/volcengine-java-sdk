@@ -59,11 +59,20 @@ public class ImageForDescribeImagesOutput {
   @SerializedName("ImageOwnerId")
   private String imageOwnerId = null;
 
+  @SerializedName("IsInstallRunCommandAgent")
+  private Boolean isInstallRunCommandAgent = null;
+
   @SerializedName("IsLTS")
   private Boolean isLTS = null;
 
   @SerializedName("IsSupportCloudInit")
   private Boolean isSupportCloudInit = null;
+
+  @SerializedName("Kernel")
+  private String kernel = null;
+
+  @SerializedName("LicenseType")
+  private String licenseType = null;
 
   @SerializedName("OsName")
   private String osName = null;
@@ -249,6 +258,24 @@ public class ImageForDescribeImagesOutput {
     this.imageOwnerId = imageOwnerId;
   }
 
+  public ImageForDescribeImagesOutput isInstallRunCommandAgent(Boolean isInstallRunCommandAgent) {
+    this.isInstallRunCommandAgent = isInstallRunCommandAgent;
+    return this;
+  }
+
+   /**
+   * Get isInstallRunCommandAgent
+   * @return isInstallRunCommandAgent
+  **/
+  @Schema(description = "")
+  public Boolean isIsInstallRunCommandAgent() {
+    return isInstallRunCommandAgent;
+  }
+
+  public void setIsInstallRunCommandAgent(Boolean isInstallRunCommandAgent) {
+    this.isInstallRunCommandAgent = isInstallRunCommandAgent;
+  }
+
   public ImageForDescribeImagesOutput isLTS(Boolean isLTS) {
     this.isLTS = isLTS;
     return this;
@@ -283,6 +310,42 @@ public class ImageForDescribeImagesOutput {
 
   public void setIsSupportCloudInit(Boolean isSupportCloudInit) {
     this.isSupportCloudInit = isSupportCloudInit;
+  }
+
+  public ImageForDescribeImagesOutput kernel(String kernel) {
+    this.kernel = kernel;
+    return this;
+  }
+
+   /**
+   * Get kernel
+   * @return kernel
+  **/
+  @Schema(description = "")
+  public String getKernel() {
+    return kernel;
+  }
+
+  public void setKernel(String kernel) {
+    this.kernel = kernel;
+  }
+
+  public ImageForDescribeImagesOutput licenseType(String licenseType) {
+    this.licenseType = licenseType;
+    return this;
+  }
+
+   /**
+   * Get licenseType
+   * @return licenseType
+  **/
+  @Schema(description = "")
+  public String getLicenseType() {
+    return licenseType;
+  }
+
+  public void setLicenseType(String licenseType) {
+    this.licenseType = licenseType;
   }
 
   public ImageForDescribeImagesOutput osName(String osName) {
@@ -555,8 +618,11 @@ public class ImageForDescribeImagesOutput {
         Objects.equals(this.imageId, imageForDescribeImagesOutput.imageId) &&
         Objects.equals(this.imageName, imageForDescribeImagesOutput.imageName) &&
         Objects.equals(this.imageOwnerId, imageForDescribeImagesOutput.imageOwnerId) &&
+        Objects.equals(this.isInstallRunCommandAgent, imageForDescribeImagesOutput.isInstallRunCommandAgent) &&
         Objects.equals(this.isLTS, imageForDescribeImagesOutput.isLTS) &&
         Objects.equals(this.isSupportCloudInit, imageForDescribeImagesOutput.isSupportCloudInit) &&
+        Objects.equals(this.kernel, imageForDescribeImagesOutput.kernel) &&
+        Objects.equals(this.licenseType, imageForDescribeImagesOutput.licenseType) &&
         Objects.equals(this.osName, imageForDescribeImagesOutput.osName) &&
         Objects.equals(this.osType, imageForDescribeImagesOutput.osType) &&
         Objects.equals(this.platform, imageForDescribeImagesOutput.platform) &&
@@ -574,7 +640,7 @@ public class ImageForDescribeImagesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(architecture, bootMode, createdAt, description, detectionResults, imageId, imageName, imageOwnerId, isLTS, isSupportCloudInit, osName, osType, platform, platformVersion, projectName, shareStatus, size, snapshots, status, tags, updatedAt, virtualSize, visibility);
+    return Objects.hash(architecture, bootMode, createdAt, description, detectionResults, imageId, imageName, imageOwnerId, isInstallRunCommandAgent, isLTS, isSupportCloudInit, kernel, licenseType, osName, osType, platform, platformVersion, projectName, shareStatus, size, snapshots, status, tags, updatedAt, virtualSize, visibility);
   }
 
 
@@ -591,8 +657,11 @@ public class ImageForDescribeImagesOutput {
     sb.append("    imageId: ").append(toIndentedString(imageId)).append("\n");
     sb.append("    imageName: ").append(toIndentedString(imageName)).append("\n");
     sb.append("    imageOwnerId: ").append(toIndentedString(imageOwnerId)).append("\n");
+    sb.append("    isInstallRunCommandAgent: ").append(toIndentedString(isInstallRunCommandAgent)).append("\n");
     sb.append("    isLTS: ").append(toIndentedString(isLTS)).append("\n");
     sb.append("    isSupportCloudInit: ").append(toIndentedString(isSupportCloudInit)).append("\n");
+    sb.append("    kernel: ").append(toIndentedString(kernel)).append("\n");
+    sb.append("    licenseType: ").append(toIndentedString(licenseType)).append("\n");
     sb.append("    osName: ").append(toIndentedString(osName)).append("\n");
     sb.append("    osType: ").append(toIndentedString(osType)).append("\n");
     sb.append("    platform: ").append(toIndentedString(platform)).append("\n");

@@ -48,7 +48,7 @@ public class EipAddressForDescribeScheduledInstancesOutput {
   private Boolean releaseWithInstance = null;
 
   @SerializedName("SecurityProtectionInstanceId")
-  private Long securityProtectionInstanceId = null;
+  private String securityProtectionInstanceId = null;
 
   @SerializedName("SecurityProtectionTypes")
   private List<String> securityProtectionTypes = null;
@@ -143,7 +143,7 @@ public class EipAddressForDescribeScheduledInstancesOutput {
     this.releaseWithInstance = releaseWithInstance;
   }
 
-  public EipAddressForDescribeScheduledInstancesOutput securityProtectionInstanceId(Long securityProtectionInstanceId) {
+  public EipAddressForDescribeScheduledInstancesOutput securityProtectionInstanceId(String securityProtectionInstanceId) {
     this.securityProtectionInstanceId = securityProtectionInstanceId;
     return this;
   }
@@ -153,11 +153,11 @@ public class EipAddressForDescribeScheduledInstancesOutput {
    * @return securityProtectionInstanceId
   **/
   @Schema(description = "")
-  public Long getSecurityProtectionInstanceId() {
+  public String getSecurityProtectionInstanceId() {
     return securityProtectionInstanceId;
   }
 
-  public void setSecurityProtectionInstanceId(Long securityProtectionInstanceId) {
+  public void setSecurityProtectionInstanceId(String securityProtectionInstanceId) {
     this.securityProtectionInstanceId = securityProtectionInstanceId;
   }
 

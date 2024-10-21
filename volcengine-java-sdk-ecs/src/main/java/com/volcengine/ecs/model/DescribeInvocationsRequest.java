@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.ecs.model.TagFilterForDescribeInvocationsInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -54,8 +57,14 @@ public class DescribeInvocationsRequest {
   @SerializedName("PageSize")
   private Integer pageSize = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("RepeatMode")
   private String repeatMode = null;
+
+  @SerializedName("TagFilters")
+  private List<TagFilterForDescribeInvocationsInput> tagFilters = null;
 
   public DescribeInvocationsRequest commandId(String commandId) {
     this.commandId = commandId;
@@ -201,6 +210,24 @@ public class DescribeInvocationsRequest {
     this.pageSize = pageSize;
   }
 
+  public DescribeInvocationsRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public DescribeInvocationsRequest repeatMode(String repeatMode) {
     this.repeatMode = repeatMode;
     return this;
@@ -217,6 +244,33 @@ public class DescribeInvocationsRequest {
 
   public void setRepeatMode(String repeatMode) {
     this.repeatMode = repeatMode;
+  }
+
+  public DescribeInvocationsRequest tagFilters(List<TagFilterForDescribeInvocationsInput> tagFilters) {
+    this.tagFilters = tagFilters;
+    return this;
+  }
+
+  public DescribeInvocationsRequest addTagFiltersItem(TagFilterForDescribeInvocationsInput tagFiltersItem) {
+    if (this.tagFilters == null) {
+      this.tagFilters = new ArrayList<TagFilterForDescribeInvocationsInput>();
+    }
+    this.tagFilters.add(tagFiltersItem);
+    return this;
+  }
+
+   /**
+   * Get tagFilters
+   * @return tagFilters
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagFilterForDescribeInvocationsInput> getTagFilters() {
+    return tagFilters;
+  }
+
+  public void setTagFilters(List<TagFilterForDescribeInvocationsInput> tagFilters) {
+    this.tagFilters = tagFilters;
   }
 
 
@@ -237,12 +291,14 @@ public class DescribeInvocationsRequest {
         Objects.equals(this.invocationStatus, describeInvocationsRequest.invocationStatus) &&
         Objects.equals(this.pageNumber, describeInvocationsRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeInvocationsRequest.pageSize) &&
-        Objects.equals(this.repeatMode, describeInvocationsRequest.repeatMode);
+        Objects.equals(this.projectName, describeInvocationsRequest.projectName) &&
+        Objects.equals(this.repeatMode, describeInvocationsRequest.repeatMode) &&
+        Objects.equals(this.tagFilters, describeInvocationsRequest.tagFilters);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(commandId, commandName, commandType, invocationId, invocationName, invocationStatus, pageNumber, pageSize, repeatMode);
+    return Objects.hash(commandId, commandName, commandType, invocationId, invocationName, invocationStatus, pageNumber, pageSize, projectName, repeatMode, tagFilters);
   }
 
 
@@ -259,7 +315,9 @@ public class DescribeInvocationsRequest {
     sb.append("    invocationStatus: ").append(toIndentedString(invocationStatus)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    repeatMode: ").append(toIndentedString(repeatMode)).append("\n");
+    sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("}");
     return sb.toString();
   }

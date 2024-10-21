@@ -32,6 +32,9 @@ import javax.validation.Valid;
 
 
 public class DescribeInstanceTypesRequest {
+  @SerializedName("ImageId")
+  private String imageId = null;
+
   @SerializedName("InstanceTypeIds")
   private List<String> instanceTypeIds = null;
 
@@ -43,6 +46,24 @@ public class DescribeInstanceTypesRequest {
 
   @SerializedName("NextToken")
   private String nextToken = null;
+
+  public DescribeInstanceTypesRequest imageId(String imageId) {
+    this.imageId = imageId;
+    return this;
+  }
+
+   /**
+   * Get imageId
+   * @return imageId
+  **/
+  @Schema(description = "")
+  public String getImageId() {
+    return imageId;
+  }
+
+  public void setImageId(String imageId) {
+    this.imageId = imageId;
+  }
 
   public DescribeInstanceTypesRequest instanceTypeIds(List<String> instanceTypeIds) {
     this.instanceTypeIds = instanceTypeIds;
@@ -142,7 +163,8 @@ public class DescribeInstanceTypesRequest {
       return false;
     }
     DescribeInstanceTypesRequest describeInstanceTypesRequest = (DescribeInstanceTypesRequest) o;
-    return Objects.equals(this.instanceTypeIds, describeInstanceTypesRequest.instanceTypeIds) &&
+    return Objects.equals(this.imageId, describeInstanceTypesRequest.imageId) &&
+        Objects.equals(this.instanceTypeIds, describeInstanceTypesRequest.instanceTypeIds) &&
         Objects.equals(this.instanceTypes, describeInstanceTypesRequest.instanceTypes) &&
         Objects.equals(this.maxResults, describeInstanceTypesRequest.maxResults) &&
         Objects.equals(this.nextToken, describeInstanceTypesRequest.nextToken);
@@ -150,7 +172,7 @@ public class DescribeInstanceTypesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceTypeIds, instanceTypes, maxResults, nextToken);
+    return Objects.hash(imageId, instanceTypeIds, instanceTypes, maxResults, nextToken);
   }
 
 
@@ -159,6 +181,7 @@ public class DescribeInstanceTypesRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeInstanceTypesRequest {\n");
     
+    sb.append("    imageId: ").append(toIndentedString(imageId)).append("\n");
     sb.append("    instanceTypeIds: ").append(toIndentedString(instanceTypeIds)).append("\n");
     sb.append("    instanceTypes: ").append(toIndentedString(instanceTypes)).append("\n");
     sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");

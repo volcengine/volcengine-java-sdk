@@ -20,7 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.ecs.model.EipAddressForDescribeScheduledInstancesOutput;
-import com.volcengine.ecs.model.ScheduledNetworkInterfacesOpenResForDescribeScheduledInstancesOutput;
+import com.volcengine.ecs.model.NetworkInterfacesReForDescribeScheduledInstancesOutput;
 import com.volcengine.ecs.model.TagForDescribeScheduledInstancesOutput;
 import com.volcengine.ecs.model.VolumeForDescribeScheduledInstancesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -57,11 +57,11 @@ public class InstanceConfigForDescribeScheduledInstancesOutput {
   @SerializedName("KeyPairName")
   private String keyPairName = null;
 
+  @SerializedName("NetworkInterfacesRes")
+  private List<NetworkInterfacesReForDescribeScheduledInstancesOutput> networkInterfacesRes = null;
+
   @SerializedName("ProjectName")
   private String projectName = null;
-
-  @SerializedName("ScheduledNetworkInterfacesOpenRes")
-  private ScheduledNetworkInterfacesOpenResForDescribeScheduledInstancesOutput scheduledNetworkInterfacesOpenRes = null;
 
   @SerializedName("Tags")
   private List<TagForDescribeScheduledInstancesOutput> tags = null;
@@ -199,6 +199,33 @@ public class InstanceConfigForDescribeScheduledInstancesOutput {
     this.keyPairName = keyPairName;
   }
 
+  public InstanceConfigForDescribeScheduledInstancesOutput networkInterfacesRes(List<NetworkInterfacesReForDescribeScheduledInstancesOutput> networkInterfacesRes) {
+    this.networkInterfacesRes = networkInterfacesRes;
+    return this;
+  }
+
+  public InstanceConfigForDescribeScheduledInstancesOutput addNetworkInterfacesResItem(NetworkInterfacesReForDescribeScheduledInstancesOutput networkInterfacesResItem) {
+    if (this.networkInterfacesRes == null) {
+      this.networkInterfacesRes = new ArrayList<NetworkInterfacesReForDescribeScheduledInstancesOutput>();
+    }
+    this.networkInterfacesRes.add(networkInterfacesResItem);
+    return this;
+  }
+
+   /**
+   * Get networkInterfacesRes
+   * @return networkInterfacesRes
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<NetworkInterfacesReForDescribeScheduledInstancesOutput> getNetworkInterfacesRes() {
+    return networkInterfacesRes;
+  }
+
+  public void setNetworkInterfacesRes(List<NetworkInterfacesReForDescribeScheduledInstancesOutput> networkInterfacesRes) {
+    this.networkInterfacesRes = networkInterfacesRes;
+  }
+
   public InstanceConfigForDescribeScheduledInstancesOutput projectName(String projectName) {
     this.projectName = projectName;
     return this;
@@ -215,25 +242,6 @@ public class InstanceConfigForDescribeScheduledInstancesOutput {
 
   public void setProjectName(String projectName) {
     this.projectName = projectName;
-  }
-
-  public InstanceConfigForDescribeScheduledInstancesOutput scheduledNetworkInterfacesOpenRes(ScheduledNetworkInterfacesOpenResForDescribeScheduledInstancesOutput scheduledNetworkInterfacesOpenRes) {
-    this.scheduledNetworkInterfacesOpenRes = scheduledNetworkInterfacesOpenRes;
-    return this;
-  }
-
-   /**
-   * Get scheduledNetworkInterfacesOpenRes
-   * @return scheduledNetworkInterfacesOpenRes
-  **/
-  @Valid
-  @Schema(description = "")
-  public ScheduledNetworkInterfacesOpenResForDescribeScheduledInstancesOutput getScheduledNetworkInterfacesOpenRes() {
-    return scheduledNetworkInterfacesOpenRes;
-  }
-
-  public void setScheduledNetworkInterfacesOpenRes(ScheduledNetworkInterfacesOpenResForDescribeScheduledInstancesOutput scheduledNetworkInterfacesOpenRes) {
-    this.scheduledNetworkInterfacesOpenRes = scheduledNetworkInterfacesOpenRes;
   }
 
   public InstanceConfigForDescribeScheduledInstancesOutput tags(List<TagForDescribeScheduledInstancesOutput> tags) {
@@ -325,8 +333,8 @@ public class InstanceConfigForDescribeScheduledInstancesOutput {
         Objects.equals(this.instanceName, instanceConfigForDescribeScheduledInstancesOutput.instanceName) &&
         Objects.equals(this.instanceTypeId, instanceConfigForDescribeScheduledInstancesOutput.instanceTypeId) &&
         Objects.equals(this.keyPairName, instanceConfigForDescribeScheduledInstancesOutput.keyPairName) &&
+        Objects.equals(this.networkInterfacesRes, instanceConfigForDescribeScheduledInstancesOutput.networkInterfacesRes) &&
         Objects.equals(this.projectName, instanceConfigForDescribeScheduledInstancesOutput.projectName) &&
-        Objects.equals(this.scheduledNetworkInterfacesOpenRes, instanceConfigForDescribeScheduledInstancesOutput.scheduledNetworkInterfacesOpenRes) &&
         Objects.equals(this.tags, instanceConfigForDescribeScheduledInstancesOutput.tags) &&
         Objects.equals(this.volumes, instanceConfigForDescribeScheduledInstancesOutput.volumes) &&
         Objects.equals(this.zoneId, instanceConfigForDescribeScheduledInstancesOutput.zoneId);
@@ -334,7 +342,7 @@ public class InstanceConfigForDescribeScheduledInstancesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, eipAddress, hostName, imageId, instanceName, instanceTypeId, keyPairName, projectName, scheduledNetworkInterfacesOpenRes, tags, volumes, zoneId);
+    return Objects.hash(description, eipAddress, hostName, imageId, instanceName, instanceTypeId, keyPairName, networkInterfacesRes, projectName, tags, volumes, zoneId);
   }
 
 
@@ -350,8 +358,8 @@ public class InstanceConfigForDescribeScheduledInstancesOutput {
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    instanceTypeId: ").append(toIndentedString(instanceTypeId)).append("\n");
     sb.append("    keyPairName: ").append(toIndentedString(keyPairName)).append("\n");
+    sb.append("    networkInterfacesRes: ").append(toIndentedString(networkInterfacesRes)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
-    sb.append("    scheduledNetworkInterfacesOpenRes: ").append(toIndentedString(scheduledNetworkInterfacesOpenRes)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    volumes: ").append(toIndentedString(volumes)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");

@@ -69,6 +69,9 @@ public class DescribeInstancesRequest {
   @SerializedName("InstanceTypes")
   private List<String> instanceTypes = null;
 
+  @SerializedName("Ipv6Addresses")
+  private List<String> ipv6Addresses = null;
+
   @SerializedName("KeyPairName")
   private String keyPairName = null;
 
@@ -371,6 +374,32 @@ public class DescribeInstancesRequest {
     this.instanceTypes = instanceTypes;
   }
 
+  public DescribeInstancesRequest ipv6Addresses(List<String> ipv6Addresses) {
+    this.ipv6Addresses = ipv6Addresses;
+    return this;
+  }
+
+  public DescribeInstancesRequest addIpv6AddressesItem(String ipv6AddressesItem) {
+    if (this.ipv6Addresses == null) {
+      this.ipv6Addresses = new ArrayList<String>();
+    }
+    this.ipv6Addresses.add(ipv6AddressesItem);
+    return this;
+  }
+
+   /**
+   * Get ipv6Addresses
+   * @return ipv6Addresses
+  **/
+  @Schema(description = "")
+  public List<String> getIpv6Addresses() {
+    return ipv6Addresses;
+  }
+
+  public void setIpv6Addresses(List<String> ipv6Addresses) {
+    this.ipv6Addresses = ipv6Addresses;
+  }
+
   public DescribeInstancesRequest keyPairName(String keyPairName) {
     this.keyPairName = keyPairName;
     return this;
@@ -582,6 +611,7 @@ public class DescribeInstancesRequest {
         Objects.equals(this.instanceTypeFamilies, describeInstancesRequest.instanceTypeFamilies) &&
         Objects.equals(this.instanceTypeIds, describeInstancesRequest.instanceTypeIds) &&
         Objects.equals(this.instanceTypes, describeInstancesRequest.instanceTypes) &&
+        Objects.equals(this.ipv6Addresses, describeInstancesRequest.ipv6Addresses) &&
         Objects.equals(this.keyPairName, describeInstancesRequest.keyPairName) &&
         Objects.equals(this.maxResults, describeInstancesRequest.maxResults) &&
         Objects.equals(this.nextToken, describeInstancesRequest.nextToken) &&
@@ -596,7 +626,7 @@ public class DescribeInstancesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dedicatedHostClusterId, dedicatedHostId, deploymentSetGroupNumbers, deploymentSetIds, eipAddresses, hpcClusterId, instanceChargeType, instanceIds, instanceName, instanceTypeFamilies, instanceTypeIds, instanceTypes, keyPairName, maxResults, nextToken, primaryIpAddress, projectName, scheduledInstanceId, status, tagFilters, vpcId, zoneId);
+    return Objects.hash(dedicatedHostClusterId, dedicatedHostId, deploymentSetGroupNumbers, deploymentSetIds, eipAddresses, hpcClusterId, instanceChargeType, instanceIds, instanceName, instanceTypeFamilies, instanceTypeIds, instanceTypes, ipv6Addresses, keyPairName, maxResults, nextToken, primaryIpAddress, projectName, scheduledInstanceId, status, tagFilters, vpcId, zoneId);
   }
 
 
@@ -617,6 +647,7 @@ public class DescribeInstancesRequest {
     sb.append("    instanceTypeFamilies: ").append(toIndentedString(instanceTypeFamilies)).append("\n");
     sb.append("    instanceTypeIds: ").append(toIndentedString(instanceTypeIds)).append("\n");
     sb.append("    instanceTypes: ").append(toIndentedString(instanceTypes)).append("\n");
+    sb.append("    ipv6Addresses: ").append(toIndentedString(ipv6Addresses)).append("\n");
     sb.append("    keyPairName: ").append(toIndentedString(keyPairName)).append("\n");
     sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
     sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
