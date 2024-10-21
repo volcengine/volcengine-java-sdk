@@ -32,6 +32,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class SnapshotGroupForDescribeSnapshotGroupsOutput {
   @SerializedName("CreationTime")
   private String creationTime = null;

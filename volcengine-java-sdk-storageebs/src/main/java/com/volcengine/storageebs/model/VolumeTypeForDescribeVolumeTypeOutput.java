@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class VolumeTypeForDescribeVolumeTypeOutput {
   @SerializedName("CreatedAt")
   private String createdAt = null;

@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class SnapshotForDescribeSnapshotsOutput {
   @SerializedName("CreationTime")
   private String creationTime = null;

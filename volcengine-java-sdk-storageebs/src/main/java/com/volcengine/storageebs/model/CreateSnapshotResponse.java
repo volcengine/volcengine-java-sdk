@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateSnapshotResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("SnapshotId")
   private String snapshotId = null;

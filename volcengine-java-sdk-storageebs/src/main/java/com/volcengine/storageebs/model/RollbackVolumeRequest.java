@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class RollbackVolumeRequest {
   @SerializedName("SnapshotId")
   private String snapshotId = null;

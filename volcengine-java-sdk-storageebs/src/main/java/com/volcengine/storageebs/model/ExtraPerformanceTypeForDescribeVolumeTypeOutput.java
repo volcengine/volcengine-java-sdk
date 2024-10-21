@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ExtraPerformanceTypeForDescribeVolumeTypeOutput {
   @SerializedName("BaseQosType")
   private String baseQosType = null;

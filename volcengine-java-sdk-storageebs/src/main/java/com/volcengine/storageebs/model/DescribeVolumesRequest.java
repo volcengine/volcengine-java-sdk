@@ -31,7 +31,11 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeVolumesRequest {
+  @SerializedName("BillingType")
+  private Integer billingType = null;
+
   @SerializedName("InstanceId")
   private String instanceId = null;
 
@@ -64,6 +68,24 @@ public class DescribeVolumesRequest {
 
   @SerializedName("ZoneId")
   private String zoneId = null;
+
+  public DescribeVolumesRequest billingType(Integer billingType) {
+    this.billingType = billingType;
+    return this;
+  }
+
+   /**
+   * Get billingType
+   * @return billingType
+  **/
+  @Schema(description = "")
+  public Integer getBillingType() {
+    return billingType;
+  }
+
+  public void setBillingType(Integer billingType) {
+    this.billingType = billingType;
+  }
 
   public DescribeVolumesRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
@@ -290,7 +312,8 @@ public class DescribeVolumesRequest {
       return false;
     }
     DescribeVolumesRequest describeVolumesRequest = (DescribeVolumesRequest) o;
-    return Objects.equals(this.instanceId, describeVolumesRequest.instanceId) &&
+    return Objects.equals(this.billingType, describeVolumesRequest.billingType) &&
+        Objects.equals(this.instanceId, describeVolumesRequest.instanceId) &&
         Objects.equals(this.kind, describeVolumesRequest.kind) &&
         Objects.equals(this.pageNumber, describeVolumesRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeVolumesRequest.pageSize) &&
@@ -305,7 +328,7 @@ public class DescribeVolumesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, kind, pageNumber, pageSize, projectName, tagFilters, volumeIds, volumeName, volumeStatus, volumeType, zoneId);
+    return Objects.hash(billingType, instanceId, kind, pageNumber, pageSize, projectName, tagFilters, volumeIds, volumeName, volumeStatus, volumeType, zoneId);
   }
 
 
@@ -314,6 +337,7 @@ public class DescribeVolumesRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeVolumesRequest {\n");
     
+    sb.append("    billingType: ").append(toIndentedString(billingType)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    kind: ").append(toIndentedString(kind)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
