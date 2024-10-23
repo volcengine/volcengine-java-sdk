@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ListDomainsResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Items")
   private List<ItemForListDomainsOutput> items = null;

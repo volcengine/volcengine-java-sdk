@@ -21,6 +21,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class UpdatePublicEndpointResponse extends com.volcengine.model.AbstractResponse {
 
   @Override

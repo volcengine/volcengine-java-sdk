@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateEndpointAclPoliciesRequest {
   @SerializedName("Description")
   private String description = null;
@@ -97,7 +98,7 @@ public class CreateEndpointAclPoliciesRequest {
    * @return registry
   **/
   @NotNull
-  @Schema(required = true, description = "")
+ @Size(min=3,max=30)  @Schema(required = true, description = "")
   public String getRegistry() {
     return registry;
   }

@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DeleteEndpointAclPoliciesRequest {
   @SerializedName("Entries")
   private List<String> entries = null;
@@ -76,7 +77,7 @@ public class DeleteEndpointAclPoliciesRequest {
    * @return registry
   **/
   @NotNull
-  @Schema(required = true, description = "")
+ @Size(min=3,max=30)  @Schema(required = true, description = "")
   public String getRegistry() {
     return registry;
   }

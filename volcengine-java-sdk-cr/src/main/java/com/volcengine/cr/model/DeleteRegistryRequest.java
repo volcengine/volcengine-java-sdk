@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DeleteRegistryRequest {
   @SerializedName("DeleteImmediately")
   private Boolean deleteImmediately = null;

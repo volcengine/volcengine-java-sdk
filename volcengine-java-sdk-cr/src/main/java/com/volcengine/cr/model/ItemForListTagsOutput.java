@@ -32,6 +32,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ItemForListTagsOutput {
   @SerializedName("ChartAttribute")
   private ChartAttributeForListTagsOutput chartAttribute = null;

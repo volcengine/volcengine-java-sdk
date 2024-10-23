@@ -20,13 +20,17 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.cr.model.FilterForListRegistriesInput;
+import com.volcengine.cr.model.ResourceTagFilterForListRegistriesInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
  * ListRegistriesRequest
  */
+
 
 
 public class ListRegistriesRequest {
@@ -38,6 +42,9 @@ public class ListRegistriesRequest {
 
   @SerializedName("PageSize")
   private Long pageSize = null;
+
+  @SerializedName("ResourceTagFilters")
+  private List<ResourceTagFilterForListRegistriesInput> resourceTagFilters = null;
 
   public ListRegistriesRequest filter(FilterForListRegistriesInput filter) {
     this.filter = filter;
@@ -83,15 +90,44 @@ public class ListRegistriesRequest {
 
    /**
    * Get pageSize
+   * minimum: 1
+   * maximum: 100
    * @return pageSize
   **/
-  @Schema(description = "")
+ @Min(1) @Max(100)  @Schema(description = "")
   public Long getPageSize() {
     return pageSize;
   }
 
   public void setPageSize(Long pageSize) {
     this.pageSize = pageSize;
+  }
+
+  public ListRegistriesRequest resourceTagFilters(List<ResourceTagFilterForListRegistriesInput> resourceTagFilters) {
+    this.resourceTagFilters = resourceTagFilters;
+    return this;
+  }
+
+  public ListRegistriesRequest addResourceTagFiltersItem(ResourceTagFilterForListRegistriesInput resourceTagFiltersItem) {
+    if (this.resourceTagFilters == null) {
+      this.resourceTagFilters = new ArrayList<ResourceTagFilterForListRegistriesInput>();
+    }
+    this.resourceTagFilters.add(resourceTagFiltersItem);
+    return this;
+  }
+
+   /**
+   * Get resourceTagFilters
+   * @return resourceTagFilters
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<ResourceTagFilterForListRegistriesInput> getResourceTagFilters() {
+    return resourceTagFilters;
+  }
+
+  public void setResourceTagFilters(List<ResourceTagFilterForListRegistriesInput> resourceTagFilters) {
+    this.resourceTagFilters = resourceTagFilters;
   }
 
 
@@ -106,12 +142,13 @@ public class ListRegistriesRequest {
     ListRegistriesRequest listRegistriesRequest = (ListRegistriesRequest) o;
     return Objects.equals(this.filter, listRegistriesRequest.filter) &&
         Objects.equals(this.pageNumber, listRegistriesRequest.pageNumber) &&
-        Objects.equals(this.pageSize, listRegistriesRequest.pageSize);
+        Objects.equals(this.pageSize, listRegistriesRequest.pageSize) &&
+        Objects.equals(this.resourceTagFilters, listRegistriesRequest.resourceTagFilters);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(filter, pageNumber, pageSize);
+    return Objects.hash(filter, pageNumber, pageSize, resourceTagFilters);
   }
 
 
@@ -123,6 +160,7 @@ public class ListRegistriesRequest {
     sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    resourceTagFilters: ").append(toIndentedString(resourceTagFilters)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -24,54 +24,31 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * SetUserRequest
+ * ProxyCacheForListRegistriesOutput
  */
 
 
 
-public class SetUserRequest {
-  @SerializedName("Password")
-  private String password = null;
+public class ProxyCacheForListRegistriesOutput {
+  @SerializedName("Type")
+  private String type = null;
 
-  @SerializedName("Registry")
-  private String registry = null;
-
-  public SetUserRequest password(String password) {
-    this.password = password;
+  public ProxyCacheForListRegistriesOutput type(String type) {
+    this.type = type;
     return this;
   }
 
    /**
-   * Get password
-   * @return password
+   * Get type
+   * @return type
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getPassword() {
-    return password;
+  @Schema(description = "")
+  public String getType() {
+    return type;
   }
 
-  public void setPassword(String password) {
-    this.password = password;
-  }
-
-  public SetUserRequest registry(String registry) {
-    this.registry = registry;
-    return this;
-  }
-
-   /**
-   * Get registry
-   * @return registry
-  **/
-  @NotNull
- @Size(min=3,max=30)  @Schema(required = true, description = "")
-  public String getRegistry() {
-    return registry;
-  }
-
-  public void setRegistry(String registry) {
-    this.registry = registry;
+  public void setType(String type) {
+    this.type = type;
   }
 
 
@@ -83,24 +60,22 @@ public class SetUserRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SetUserRequest setUserRequest = (SetUserRequest) o;
-    return Objects.equals(this.password, setUserRequest.password) &&
-        Objects.equals(this.registry, setUserRequest.registry);
+    ProxyCacheForListRegistriesOutput proxyCacheForListRegistriesOutput = (ProxyCacheForListRegistriesOutput) o;
+    return Objects.equals(this.type, proxyCacheForListRegistriesOutput.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(password, registry);
+    return Objects.hash(type);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SetUserRequest {\n");
+    sb.append("class ProxyCacheForListRegistriesOutput {\n");
     
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
-    sb.append("    registry: ").append(toIndentedString(registry)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }

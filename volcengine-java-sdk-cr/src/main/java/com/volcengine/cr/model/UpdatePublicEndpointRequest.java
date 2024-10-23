@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class UpdatePublicEndpointRequest {
   @SerializedName("Enabled")
   private Boolean enabled = null;
@@ -63,7 +64,7 @@ public class UpdatePublicEndpointRequest {
    * @return registry
   **/
   @NotNull
-  @Schema(required = true, description = "")
+ @Size(min=3,max=30)  @Schema(required = true, description = "")
   public String getRegistry() {
     return registry;
   }

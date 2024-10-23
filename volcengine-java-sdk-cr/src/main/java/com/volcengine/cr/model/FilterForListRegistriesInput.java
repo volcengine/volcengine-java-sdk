@@ -31,9 +31,13 @@ import javax.validation.Valid;
  */
 
 
+
 public class FilterForListRegistriesInput {
   @SerializedName("Names")
   private List<String> names = null;
+
+  @SerializedName("Projects")
+  private List<String> projects = null;
 
   @SerializedName("Statuses")
   private List<StatusForListRegistriesInput> statuses = null;
@@ -65,6 +69,32 @@ public class FilterForListRegistriesInput {
 
   public void setNames(List<String> names) {
     this.names = names;
+  }
+
+  public FilterForListRegistriesInput projects(List<String> projects) {
+    this.projects = projects;
+    return this;
+  }
+
+  public FilterForListRegistriesInput addProjectsItem(String projectsItem) {
+    if (this.projects == null) {
+      this.projects = new ArrayList<String>();
+    }
+    this.projects.add(projectsItem);
+    return this;
+  }
+
+   /**
+   * Get projects
+   * @return projects
+  **/
+  @Schema(description = "")
+  public List<String> getProjects() {
+    return projects;
+  }
+
+  public void setProjects(List<String> projects) {
+    this.projects = projects;
   }
 
   public FilterForListRegistriesInput statuses(List<StatusForListRegistriesInput> statuses) {
@@ -131,13 +161,14 @@ public class FilterForListRegistriesInput {
     }
     FilterForListRegistriesInput filterForListRegistriesInput = (FilterForListRegistriesInput) o;
     return Objects.equals(this.names, filterForListRegistriesInput.names) &&
+        Objects.equals(this.projects, filterForListRegistriesInput.projects) &&
         Objects.equals(this.statuses, filterForListRegistriesInput.statuses) &&
         Objects.equals(this.types, filterForListRegistriesInput.types);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(names, statuses, types);
+    return Objects.hash(names, projects, statuses, types);
   }
 
 
@@ -147,6 +178,7 @@ public class FilterForListRegistriesInput {
     sb.append("class FilterForListRegistriesInput {\n");
     
     sb.append("    names: ").append(toIndentedString(names)).append("\n");
+    sb.append("    projects: ").append(toIndentedString(projects)).append("\n");
     sb.append("    statuses: ").append(toIndentedString(statuses)).append("\n");
     sb.append("    types: ").append(toIndentedString(types)).append("\n");
     sb.append("}");

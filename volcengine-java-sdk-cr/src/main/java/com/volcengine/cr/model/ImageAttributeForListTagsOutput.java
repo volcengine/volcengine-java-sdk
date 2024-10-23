@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ImageAttributeForListTagsOutput {
   @SerializedName("Architecture")
   private String architecture = null;

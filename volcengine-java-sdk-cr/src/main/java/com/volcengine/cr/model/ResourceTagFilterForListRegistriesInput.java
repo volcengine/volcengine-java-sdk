@@ -21,55 +21,65 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * StatusForListRegistriesInput
+ * ResourceTagFilterForListRegistriesInput
  */
 
 
 
-public class StatusForListRegistriesInput {
-  @SerializedName("Condition")
-  private String condition = null;
+public class ResourceTagFilterForListRegistriesInput {
+  @SerializedName("Key")
+  private String key = null;
 
-  @SerializedName("Phase")
-  private String phase = null;
+  @SerializedName("Values")
+  private List<String> values = null;
 
-  public StatusForListRegistriesInput condition(String condition) {
-    this.condition = condition;
+  public ResourceTagFilterForListRegistriesInput key(String key) {
+    this.key = key;
     return this;
   }
 
    /**
-   * Get condition
-   * @return condition
+   * Get key
+   * @return key
   **/
   @Schema(description = "")
-  public String getCondition() {
-    return condition;
+  public String getKey() {
+    return key;
   }
 
-  public void setCondition(String condition) {
-    this.condition = condition;
+  public void setKey(String key) {
+    this.key = key;
   }
 
-  public StatusForListRegistriesInput phase(String phase) {
-    this.phase = phase;
+  public ResourceTagFilterForListRegistriesInput values(List<String> values) {
+    this.values = values;
+    return this;
+  }
+
+  public ResourceTagFilterForListRegistriesInput addValuesItem(String valuesItem) {
+    if (this.values == null) {
+      this.values = new ArrayList<String>();
+    }
+    this.values.add(valuesItem);
     return this;
   }
 
    /**
-   * Get phase
-   * @return phase
+   * Get values
+   * @return values
   **/
   @Schema(description = "")
-  public String getPhase() {
-    return phase;
+  public List<String> getValues() {
+    return values;
   }
 
-  public void setPhase(String phase) {
-    this.phase = phase;
+  public void setValues(List<String> values) {
+    this.values = values;
   }
 
 
@@ -81,24 +91,24 @@ public class StatusForListRegistriesInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    StatusForListRegistriesInput statusForListRegistriesInput = (StatusForListRegistriesInput) o;
-    return Objects.equals(this.condition, statusForListRegistriesInput.condition) &&
-        Objects.equals(this.phase, statusForListRegistriesInput.phase);
+    ResourceTagFilterForListRegistriesInput resourceTagFilterForListRegistriesInput = (ResourceTagFilterForListRegistriesInput) o;
+    return Objects.equals(this.key, resourceTagFilterForListRegistriesInput.key) &&
+        Objects.equals(this.values, resourceTagFilterForListRegistriesInput.values);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(condition, phase);
+    return Objects.hash(key, values);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class StatusForListRegistriesInput {\n");
+    sb.append("class ResourceTagFilterForListRegistriesInput {\n");
     
-    sb.append("    condition: ").append(toIndentedString(condition)).append("\n");
-    sb.append("    phase: ").append(toIndentedString(phase)).append("\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    values: ").append(toIndentedString(values)).append("\n");
     sb.append("}");
     return sb.toString();
   }

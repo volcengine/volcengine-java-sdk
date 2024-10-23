@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DeleteTagsRequest {
   @SerializedName("Names")
   private List<String> names = null;
@@ -79,7 +80,7 @@ public class DeleteTagsRequest {
    * @return namespace
   **/
   @NotNull
-  @Schema(required = true, description = "")
+ @Size(min=2,max=90)  @Schema(required = true, description = "")
   public String getNamespace() {
     return namespace;
   }
@@ -98,7 +99,7 @@ public class DeleteTagsRequest {
    * @return registry
   **/
   @NotNull
-  @Schema(required = true, description = "")
+ @Size(min=3,max=30)  @Schema(required = true, description = "")
   public String getRegistry() {
     return registry;
   }

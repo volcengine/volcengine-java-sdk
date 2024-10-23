@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class FilterForGetVpcEndpointInput {
   @SerializedName("Statuses")
   private List<String> statuses = null;
