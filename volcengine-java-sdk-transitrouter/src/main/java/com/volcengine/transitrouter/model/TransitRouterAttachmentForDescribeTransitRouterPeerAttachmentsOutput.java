@@ -75,6 +75,12 @@ public class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutpu
   @SerializedName("TransitRouterRouteTableId")
   private String transitRouterRouteTableId = null;
 
+  @SerializedName("TransitRouterTrafficQosMarkingPolicyId")
+  private String transitRouterTrafficQosMarkingPolicyId = null;
+
+  @SerializedName("TransitRouterTrafficQosQueuePolicyId")
+  private String transitRouterTrafficQosQueuePolicyId = null;
+
   @SerializedName("UpdateTime")
   private String updateTime = null;
 
@@ -339,6 +345,42 @@ public class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutpu
     this.transitRouterRouteTableId = transitRouterRouteTableId;
   }
 
+  public TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput transitRouterTrafficQosMarkingPolicyId(String transitRouterTrafficQosMarkingPolicyId) {
+    this.transitRouterTrafficQosMarkingPolicyId = transitRouterTrafficQosMarkingPolicyId;
+    return this;
+  }
+
+   /**
+   * Get transitRouterTrafficQosMarkingPolicyId
+   * @return transitRouterTrafficQosMarkingPolicyId
+  **/
+  @Schema(description = "")
+  public String getTransitRouterTrafficQosMarkingPolicyId() {
+    return transitRouterTrafficQosMarkingPolicyId;
+  }
+
+  public void setTransitRouterTrafficQosMarkingPolicyId(String transitRouterTrafficQosMarkingPolicyId) {
+    this.transitRouterTrafficQosMarkingPolicyId = transitRouterTrafficQosMarkingPolicyId;
+  }
+
+  public TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput transitRouterTrafficQosQueuePolicyId(String transitRouterTrafficQosQueuePolicyId) {
+    this.transitRouterTrafficQosQueuePolicyId = transitRouterTrafficQosQueuePolicyId;
+    return this;
+  }
+
+   /**
+   * Get transitRouterTrafficQosQueuePolicyId
+   * @return transitRouterTrafficQosQueuePolicyId
+  **/
+  @Schema(description = "")
+  public String getTransitRouterTrafficQosQueuePolicyId() {
+    return transitRouterTrafficQosQueuePolicyId;
+  }
+
+  public void setTransitRouterTrafficQosQueuePolicyId(String transitRouterTrafficQosQueuePolicyId) {
+    this.transitRouterTrafficQosQueuePolicyId = transitRouterTrafficQosQueuePolicyId;
+  }
+
   public TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput updateTime(String updateTime) {
     this.updateTime = updateTime;
     return this;
@@ -381,12 +423,14 @@ public class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutpu
         Objects.equals(this.transitRouterForwardPolicyTableId, transitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.transitRouterForwardPolicyTableId) &&
         Objects.equals(this.transitRouterId, transitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.transitRouterId) &&
         Objects.equals(this.transitRouterRouteTableId, transitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.transitRouterRouteTableId) &&
+        Objects.equals(this.transitRouterTrafficQosMarkingPolicyId, transitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.transitRouterTrafficQosMarkingPolicyId) &&
+        Objects.equals(this.transitRouterTrafficQosQueuePolicyId, transitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.transitRouterTrafficQosQueuePolicyId) &&
         Objects.equals(this.updateTime, transitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutput.updateTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoPublishRouteEnabled, bandwidth, creationTime, description, peerTransitRouterId, peerTransitRouterRegionId, status, tags, transitRouterAttachmentId, transitRouterAttachmentName, transitRouterBandwidthPackageId, transitRouterForwardPolicyTableId, transitRouterId, transitRouterRouteTableId, updateTime);
+    return Objects.hash(autoPublishRouteEnabled, bandwidth, creationTime, description, peerTransitRouterId, peerTransitRouterRegionId, status, tags, transitRouterAttachmentId, transitRouterAttachmentName, transitRouterBandwidthPackageId, transitRouterForwardPolicyTableId, transitRouterId, transitRouterRouteTableId, transitRouterTrafficQosMarkingPolicyId, transitRouterTrafficQosQueuePolicyId, updateTime);
   }
 
 
@@ -409,6 +453,8 @@ public class TransitRouterAttachmentForDescribeTransitRouterPeerAttachmentsOutpu
     sb.append("    transitRouterForwardPolicyTableId: ").append(toIndentedString(transitRouterForwardPolicyTableId)).append("\n");
     sb.append("    transitRouterId: ").append(toIndentedString(transitRouterId)).append("\n");
     sb.append("    transitRouterRouteTableId: ").append(toIndentedString(transitRouterRouteTableId)).append("\n");
+    sb.append("    transitRouterTrafficQosMarkingPolicyId: ").append(toIndentedString(transitRouterTrafficQosMarkingPolicyId)).append("\n");
+    sb.append("    transitRouterTrafficQosQueuePolicyId: ").append(toIndentedString(transitRouterTrafficQosQueuePolicyId)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("}");
     return sb.toString();

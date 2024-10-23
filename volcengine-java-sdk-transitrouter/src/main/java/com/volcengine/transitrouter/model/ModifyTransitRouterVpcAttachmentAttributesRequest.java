@@ -42,6 +42,9 @@ public class ModifyTransitRouterVpcAttachmentAttributesRequest {
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("Ipv6Enabled")
+  private Boolean ipv6Enabled = null;
+
   @SerializedName("TransitRouterAttachmentId")
   private String transitRouterAttachmentId = null;
 
@@ -111,6 +114,24 @@ public class ModifyTransitRouterVpcAttachmentAttributesRequest {
     this.description = description;
   }
 
+  public ModifyTransitRouterVpcAttachmentAttributesRequest ipv6Enabled(Boolean ipv6Enabled) {
+    this.ipv6Enabled = ipv6Enabled;
+    return this;
+  }
+
+   /**
+   * Get ipv6Enabled
+   * @return ipv6Enabled
+  **/
+  @Schema(description = "")
+  public Boolean isIpv6Enabled() {
+    return ipv6Enabled;
+  }
+
+  public void setIpv6Enabled(Boolean ipv6Enabled) {
+    this.ipv6Enabled = ipv6Enabled;
+  }
+
   public ModifyTransitRouterVpcAttachmentAttributesRequest transitRouterAttachmentId(String transitRouterAttachmentId) {
     this.transitRouterAttachmentId = transitRouterAttachmentId;
     return this;
@@ -161,13 +182,14 @@ public class ModifyTransitRouterVpcAttachmentAttributesRequest {
     return Objects.equals(this.attachPoints, modifyTransitRouterVpcAttachmentAttributesRequest.attachPoints) &&
         Objects.equals(this.autoPublishRouteEnabled, modifyTransitRouterVpcAttachmentAttributesRequest.autoPublishRouteEnabled) &&
         Objects.equals(this.description, modifyTransitRouterVpcAttachmentAttributesRequest.description) &&
+        Objects.equals(this.ipv6Enabled, modifyTransitRouterVpcAttachmentAttributesRequest.ipv6Enabled) &&
         Objects.equals(this.transitRouterAttachmentId, modifyTransitRouterVpcAttachmentAttributesRequest.transitRouterAttachmentId) &&
         Objects.equals(this.transitRouterAttachmentName, modifyTransitRouterVpcAttachmentAttributesRequest.transitRouterAttachmentName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attachPoints, autoPublishRouteEnabled, description, transitRouterAttachmentId, transitRouterAttachmentName);
+    return Objects.hash(attachPoints, autoPublishRouteEnabled, description, ipv6Enabled, transitRouterAttachmentId, transitRouterAttachmentName);
   }
 
 
@@ -179,6 +201,7 @@ public class ModifyTransitRouterVpcAttachmentAttributesRequest {
     sb.append("    attachPoints: ").append(toIndentedString(attachPoints)).append("\n");
     sb.append("    autoPublishRouteEnabled: ").append(toIndentedString(autoPublishRouteEnabled)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    ipv6Enabled: ").append(toIndentedString(ipv6Enabled)).append("\n");
     sb.append("    transitRouterAttachmentId: ").append(toIndentedString(transitRouterAttachmentId)).append("\n");
     sb.append("    transitRouterAttachmentName: ").append(toIndentedString(transitRouterAttachmentName)).append("\n");
     sb.append("}");

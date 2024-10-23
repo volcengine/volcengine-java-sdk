@@ -48,6 +48,9 @@ public class CreateTransitRouterVpnAttachmentRequest {
   @SerializedName("TransitRouterId")
   private String transitRouterId = null;
 
+  @SerializedName("TransitRouterRouteTableId")
+  private String transitRouterRouteTableId = null;
+
   @SerializedName("VpnConnectionId")
   private String vpnConnectionId = null;
 
@@ -154,6 +157,24 @@ public class CreateTransitRouterVpnAttachmentRequest {
     this.transitRouterId = transitRouterId;
   }
 
+  public CreateTransitRouterVpnAttachmentRequest transitRouterRouteTableId(String transitRouterRouteTableId) {
+    this.transitRouterRouteTableId = transitRouterRouteTableId;
+    return this;
+  }
+
+   /**
+   * Get transitRouterRouteTableId
+   * @return transitRouterRouteTableId
+  **/
+  @Schema(description = "")
+  public String getTransitRouterRouteTableId() {
+    return transitRouterRouteTableId;
+  }
+
+  public void setTransitRouterRouteTableId(String transitRouterRouteTableId) {
+    this.transitRouterRouteTableId = transitRouterRouteTableId;
+  }
+
   public CreateTransitRouterVpnAttachmentRequest vpnConnectionId(String vpnConnectionId) {
     this.vpnConnectionId = vpnConnectionId;
     return this;
@@ -207,13 +228,14 @@ public class CreateTransitRouterVpnAttachmentRequest {
         Objects.equals(this.tags, createTransitRouterVpnAttachmentRequest.tags) &&
         Objects.equals(this.transitRouterAttachmentName, createTransitRouterVpnAttachmentRequest.transitRouterAttachmentName) &&
         Objects.equals(this.transitRouterId, createTransitRouterVpnAttachmentRequest.transitRouterId) &&
+        Objects.equals(this.transitRouterRouteTableId, createTransitRouterVpnAttachmentRequest.transitRouterRouteTableId) &&
         Objects.equals(this.vpnConnectionId, createTransitRouterVpnAttachmentRequest.vpnConnectionId) &&
         Objects.equals(this.zoneId, createTransitRouterVpnAttachmentRequest.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, description, tags, transitRouterAttachmentName, transitRouterId, vpnConnectionId, zoneId);
+    return Objects.hash(clientToken, description, tags, transitRouterAttachmentName, transitRouterId, transitRouterRouteTableId, vpnConnectionId, zoneId);
   }
 
 
@@ -227,6 +249,7 @@ public class CreateTransitRouterVpnAttachmentRequest {
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    transitRouterAttachmentName: ").append(toIndentedString(transitRouterAttachmentName)).append("\n");
     sb.append("    transitRouterId: ").append(toIndentedString(transitRouterId)).append("\n");
+    sb.append("    transitRouterRouteTableId: ").append(toIndentedString(transitRouterRouteTableId)).append("\n");
     sb.append("    vpnConnectionId: ").append(toIndentedString(vpnConnectionId)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");

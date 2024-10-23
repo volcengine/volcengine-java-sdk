@@ -35,6 +35,10 @@ import com.volcengine.transitrouter.model.AssociateTransitRouterForwardPolicyTab
 import com.volcengine.transitrouter.model.AssociateTransitRouterForwardPolicyTableToAttachmentResponse;
 import com.volcengine.transitrouter.model.AssociateTransitRouterRoutePolicyToRouteTableRequest;
 import com.volcengine.transitrouter.model.AssociateTransitRouterRoutePolicyToRouteTableResponse;
+import com.volcengine.transitrouter.model.AssociateTransitRouterTrafficQosMarkingPolicyToAttachmentRequest;
+import com.volcengine.transitrouter.model.AssociateTransitRouterTrafficQosMarkingPolicyToAttachmentResponse;
+import com.volcengine.transitrouter.model.AssociateTransitRouterTrafficQosQueuePolicyToAttachmentRequest;
+import com.volcengine.transitrouter.model.AssociateTransitRouterTrafficQosQueuePolicyToAttachmentResponse;
 import com.volcengine.transitrouter.model.CreateTransitRouterBandwidthPackageRequest;
 import com.volcengine.transitrouter.model.CreateTransitRouterBandwidthPackageResponse;
 import com.volcengine.transitrouter.model.CreateTransitRouterDirectConnectGatewayAttachmentRequest;
@@ -57,6 +61,14 @@ import com.volcengine.transitrouter.model.CreateTransitRouterRoutePolicyTableReq
 import com.volcengine.transitrouter.model.CreateTransitRouterRoutePolicyTableResponse;
 import com.volcengine.transitrouter.model.CreateTransitRouterRouteTableRequest;
 import com.volcengine.transitrouter.model.CreateTransitRouterRouteTableResponse;
+import com.volcengine.transitrouter.model.CreateTransitRouterTrafficQosMarkingEntryRequest;
+import com.volcengine.transitrouter.model.CreateTransitRouterTrafficQosMarkingEntryResponse;
+import com.volcengine.transitrouter.model.CreateTransitRouterTrafficQosMarkingPolicyRequest;
+import com.volcengine.transitrouter.model.CreateTransitRouterTrafficQosMarkingPolicyResponse;
+import com.volcengine.transitrouter.model.CreateTransitRouterTrafficQosQueueEntryRequest;
+import com.volcengine.transitrouter.model.CreateTransitRouterTrafficQosQueueEntryResponse;
+import com.volcengine.transitrouter.model.CreateTransitRouterTrafficQosQueuePolicyRequest;
+import com.volcengine.transitrouter.model.CreateTransitRouterTrafficQosQueuePolicyResponse;
 import com.volcengine.transitrouter.model.CreateTransitRouterVpcAttachmentRequest;
 import com.volcengine.transitrouter.model.CreateTransitRouterVpcAttachmentResponse;
 import com.volcengine.transitrouter.model.CreateTransitRouterVpnAttachmentRequest;
@@ -83,6 +95,14 @@ import com.volcengine.transitrouter.model.DeleteTransitRouterRoutePolicyTableReq
 import com.volcengine.transitrouter.model.DeleteTransitRouterRoutePolicyTableResponse;
 import com.volcengine.transitrouter.model.DeleteTransitRouterRouteTableRequest;
 import com.volcengine.transitrouter.model.DeleteTransitRouterRouteTableResponse;
+import com.volcengine.transitrouter.model.DeleteTransitRouterTrafficQosMarkingEntryRequest;
+import com.volcengine.transitrouter.model.DeleteTransitRouterTrafficQosMarkingEntryResponse;
+import com.volcengine.transitrouter.model.DeleteTransitRouterTrafficQosMarkingPolicyRequest;
+import com.volcengine.transitrouter.model.DeleteTransitRouterTrafficQosMarkingPolicyResponse;
+import com.volcengine.transitrouter.model.DeleteTransitRouterTrafficQosQueueEntryRequest;
+import com.volcengine.transitrouter.model.DeleteTransitRouterTrafficQosQueueEntryResponse;
+import com.volcengine.transitrouter.model.DeleteTransitRouterTrafficQosQueuePolicyRequest;
+import com.volcengine.transitrouter.model.DeleteTransitRouterTrafficQosQueuePolicyResponse;
 import com.volcengine.transitrouter.model.DeleteTransitRouterVpcAttachmentRequest;
 import com.volcengine.transitrouter.model.DeleteTransitRouterVpcAttachmentResponse;
 import com.volcengine.transitrouter.model.DeleteTransitRouterVpnAttachmentRequest;
@@ -117,6 +137,14 @@ import com.volcengine.transitrouter.model.DescribeTransitRouterRouteTablePropaga
 import com.volcengine.transitrouter.model.DescribeTransitRouterRouteTablePropagationsResponse;
 import com.volcengine.transitrouter.model.DescribeTransitRouterRouteTablesRequest;
 import com.volcengine.transitrouter.model.DescribeTransitRouterRouteTablesResponse;
+import com.volcengine.transitrouter.model.DescribeTransitRouterTrafficQosMarkingEntriesRequest;
+import com.volcengine.transitrouter.model.DescribeTransitRouterTrafficQosMarkingEntriesResponse;
+import com.volcengine.transitrouter.model.DescribeTransitRouterTrafficQosMarkingPoliciesRequest;
+import com.volcengine.transitrouter.model.DescribeTransitRouterTrafficQosMarkingPoliciesResponse;
+import com.volcengine.transitrouter.model.DescribeTransitRouterTrafficQosQueueEntriesRequest;
+import com.volcengine.transitrouter.model.DescribeTransitRouterTrafficQosQueueEntriesResponse;
+import com.volcengine.transitrouter.model.DescribeTransitRouterTrafficQosQueuePoliciesRequest;
+import com.volcengine.transitrouter.model.DescribeTransitRouterTrafficQosQueuePoliciesResponse;
 import com.volcengine.transitrouter.model.DescribeTransitRouterVpcAttachmentsRequest;
 import com.volcengine.transitrouter.model.DescribeTransitRouterVpcAttachmentsResponse;
 import com.volcengine.transitrouter.model.DescribeTransitRouterVpnAttachmentsRequest;
@@ -131,6 +159,10 @@ import com.volcengine.transitrouter.model.DissociateTransitRouterForwardPolicyTa
 import com.volcengine.transitrouter.model.DissociateTransitRouterForwardPolicyTableFromAttachmentResponse;
 import com.volcengine.transitrouter.model.DissociateTransitRouterRoutePolicyFromRouteTableRequest;
 import com.volcengine.transitrouter.model.DissociateTransitRouterRoutePolicyFromRouteTableResponse;
+import com.volcengine.transitrouter.model.DissociateTransitRouterTrafficQosMarkingPolicyFromAttachmentRequest;
+import com.volcengine.transitrouter.model.DissociateTransitRouterTrafficQosMarkingPolicyFromAttachmentResponse;
+import com.volcengine.transitrouter.model.DissociateTransitRouterTrafficQosQueuePolicyFromAttachmentRequest;
+import com.volcengine.transitrouter.model.DissociateTransitRouterTrafficQosQueuePolicyFromAttachmentResponse;
 import com.volcengine.transitrouter.model.EnableTransitRouterRouteTablePropagationRequest;
 import com.volcengine.transitrouter.model.EnableTransitRouterRouteTablePropagationResponse;
 import com.volcengine.transitrouter.model.ListTagsForResourcesRequest;
@@ -163,6 +195,14 @@ import com.volcengine.transitrouter.model.ModifyTransitRouterRouteTableAssociati
 import com.volcengine.transitrouter.model.ModifyTransitRouterRouteTableAssociationAttributesResponse;
 import com.volcengine.transitrouter.model.ModifyTransitRouterRouteTableAttributesRequest;
 import com.volcengine.transitrouter.model.ModifyTransitRouterRouteTableAttributesResponse;
+import com.volcengine.transitrouter.model.ModifyTransitRouterTrafficQosMarkingPolicyAssociationRequest;
+import com.volcengine.transitrouter.model.ModifyTransitRouterTrafficQosMarkingPolicyAssociationResponse;
+import com.volcengine.transitrouter.model.ModifyTransitRouterTrafficQosMarkingPolicyAttributesRequest;
+import com.volcengine.transitrouter.model.ModifyTransitRouterTrafficQosMarkingPolicyAttributesResponse;
+import com.volcengine.transitrouter.model.ModifyTransitRouterTrafficQosQueuePolicyAssociationRequest;
+import com.volcengine.transitrouter.model.ModifyTransitRouterTrafficQosQueuePolicyAssociationResponse;
+import com.volcengine.transitrouter.model.ModifyTransitRouterTrafficQosQueuePolicyAttributesRequest;
+import com.volcengine.transitrouter.model.ModifyTransitRouterTrafficQosQueuePolicyAttributesResponse;
 import com.volcengine.transitrouter.model.ModifyTransitRouterVpcAttachmentAttributesRequest;
 import com.volcengine.transitrouter.model.ModifyTransitRouterVpcAttachmentAttributesResponse;
 import com.volcengine.transitrouter.model.ModifyTransitRouterVpnAttachmentAttributesRequest;
@@ -696,6 +736,254 @@ public class TransitrouterApi {
 
         com.squareup.okhttp.Call call = associateTransitRouterRoutePolicyToRouteTableValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<AssociateTransitRouterRoutePolicyToRouteTableResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for associateTransitRouterTrafficQosMarkingPolicyToAttachment
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call associateTransitRouterTrafficQosMarkingPolicyToAttachmentCall(AssociateTransitRouterTrafficQosMarkingPolicyToAttachmentRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/AssociateTransitRouterTrafficQosMarkingPolicyToAttachment/2020-04-01/transitrouter/get/text_plain/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call associateTransitRouterTrafficQosMarkingPolicyToAttachmentValidateBeforeCall(AssociateTransitRouterTrafficQosMarkingPolicyToAttachmentRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling associateTransitRouterTrafficQosMarkingPolicyToAttachment(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = associateTransitRouterTrafficQosMarkingPolicyToAttachmentCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return AssociateTransitRouterTrafficQosMarkingPolicyToAttachmentResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public AssociateTransitRouterTrafficQosMarkingPolicyToAttachmentResponse associateTransitRouterTrafficQosMarkingPolicyToAttachment(AssociateTransitRouterTrafficQosMarkingPolicyToAttachmentRequest body) throws ApiException {
+        ApiResponse<AssociateTransitRouterTrafficQosMarkingPolicyToAttachmentResponse> resp = associateTransitRouterTrafficQosMarkingPolicyToAttachmentWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;AssociateTransitRouterTrafficQosMarkingPolicyToAttachmentResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<AssociateTransitRouterTrafficQosMarkingPolicyToAttachmentResponse> associateTransitRouterTrafficQosMarkingPolicyToAttachmentWithHttpInfo( @NotNull AssociateTransitRouterTrafficQosMarkingPolicyToAttachmentRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = associateTransitRouterTrafficQosMarkingPolicyToAttachmentValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<AssociateTransitRouterTrafficQosMarkingPolicyToAttachmentResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call associateTransitRouterTrafficQosMarkingPolicyToAttachmentAsync(AssociateTransitRouterTrafficQosMarkingPolicyToAttachmentRequest body, final ApiCallback<AssociateTransitRouterTrafficQosMarkingPolicyToAttachmentResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = associateTransitRouterTrafficQosMarkingPolicyToAttachmentValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<AssociateTransitRouterTrafficQosMarkingPolicyToAttachmentResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for associateTransitRouterTrafficQosQueuePolicyToAttachment
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call associateTransitRouterTrafficQosQueuePolicyToAttachmentCall(AssociateTransitRouterTrafficQosQueuePolicyToAttachmentRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/AssociateTransitRouterTrafficQosQueuePolicyToAttachment/2020-04-01/transitrouter/get/text_plain/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call associateTransitRouterTrafficQosQueuePolicyToAttachmentValidateBeforeCall(AssociateTransitRouterTrafficQosQueuePolicyToAttachmentRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling associateTransitRouterTrafficQosQueuePolicyToAttachment(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = associateTransitRouterTrafficQosQueuePolicyToAttachmentCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return AssociateTransitRouterTrafficQosQueuePolicyToAttachmentResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public AssociateTransitRouterTrafficQosQueuePolicyToAttachmentResponse associateTransitRouterTrafficQosQueuePolicyToAttachment(AssociateTransitRouterTrafficQosQueuePolicyToAttachmentRequest body) throws ApiException {
+        ApiResponse<AssociateTransitRouterTrafficQosQueuePolicyToAttachmentResponse> resp = associateTransitRouterTrafficQosQueuePolicyToAttachmentWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;AssociateTransitRouterTrafficQosQueuePolicyToAttachmentResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<AssociateTransitRouterTrafficQosQueuePolicyToAttachmentResponse> associateTransitRouterTrafficQosQueuePolicyToAttachmentWithHttpInfo( @NotNull AssociateTransitRouterTrafficQosQueuePolicyToAttachmentRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = associateTransitRouterTrafficQosQueuePolicyToAttachmentValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<AssociateTransitRouterTrafficQosQueuePolicyToAttachmentResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call associateTransitRouterTrafficQosQueuePolicyToAttachmentAsync(AssociateTransitRouterTrafficQosQueuePolicyToAttachmentRequest body, final ApiCallback<AssociateTransitRouterTrafficQosQueuePolicyToAttachmentResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = associateTransitRouterTrafficQosQueuePolicyToAttachmentValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<AssociateTransitRouterTrafficQosQueuePolicyToAttachmentResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -2060,6 +2348,502 @@ public class TransitrouterApi {
 
         com.squareup.okhttp.Call call = createTransitRouterRouteTableValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<CreateTransitRouterRouteTableResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for createTransitRouterTrafficQosMarkingEntry
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call createTransitRouterTrafficQosMarkingEntryCall(CreateTransitRouterTrafficQosMarkingEntryRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/CreateTransitRouterTrafficQosMarkingEntry/2020-04-01/transitrouter/get/text_plain/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call createTransitRouterTrafficQosMarkingEntryValidateBeforeCall(CreateTransitRouterTrafficQosMarkingEntryRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling createTransitRouterTrafficQosMarkingEntry(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = createTransitRouterTrafficQosMarkingEntryCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return CreateTransitRouterTrafficQosMarkingEntryResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public CreateTransitRouterTrafficQosMarkingEntryResponse createTransitRouterTrafficQosMarkingEntry(CreateTransitRouterTrafficQosMarkingEntryRequest body) throws ApiException {
+        ApiResponse<CreateTransitRouterTrafficQosMarkingEntryResponse> resp = createTransitRouterTrafficQosMarkingEntryWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;CreateTransitRouterTrafficQosMarkingEntryResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<CreateTransitRouterTrafficQosMarkingEntryResponse> createTransitRouterTrafficQosMarkingEntryWithHttpInfo( @NotNull CreateTransitRouterTrafficQosMarkingEntryRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = createTransitRouterTrafficQosMarkingEntryValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<CreateTransitRouterTrafficQosMarkingEntryResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call createTransitRouterTrafficQosMarkingEntryAsync(CreateTransitRouterTrafficQosMarkingEntryRequest body, final ApiCallback<CreateTransitRouterTrafficQosMarkingEntryResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = createTransitRouterTrafficQosMarkingEntryValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CreateTransitRouterTrafficQosMarkingEntryResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for createTransitRouterTrafficQosMarkingPolicy
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call createTransitRouterTrafficQosMarkingPolicyCall(CreateTransitRouterTrafficQosMarkingPolicyRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/CreateTransitRouterTrafficQosMarkingPolicy/2020-04-01/transitrouter/get/text_plain/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call createTransitRouterTrafficQosMarkingPolicyValidateBeforeCall(CreateTransitRouterTrafficQosMarkingPolicyRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling createTransitRouterTrafficQosMarkingPolicy(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = createTransitRouterTrafficQosMarkingPolicyCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return CreateTransitRouterTrafficQosMarkingPolicyResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public CreateTransitRouterTrafficQosMarkingPolicyResponse createTransitRouterTrafficQosMarkingPolicy(CreateTransitRouterTrafficQosMarkingPolicyRequest body) throws ApiException {
+        ApiResponse<CreateTransitRouterTrafficQosMarkingPolicyResponse> resp = createTransitRouterTrafficQosMarkingPolicyWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;CreateTransitRouterTrafficQosMarkingPolicyResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<CreateTransitRouterTrafficQosMarkingPolicyResponse> createTransitRouterTrafficQosMarkingPolicyWithHttpInfo( @NotNull CreateTransitRouterTrafficQosMarkingPolicyRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = createTransitRouterTrafficQosMarkingPolicyValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<CreateTransitRouterTrafficQosMarkingPolicyResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call createTransitRouterTrafficQosMarkingPolicyAsync(CreateTransitRouterTrafficQosMarkingPolicyRequest body, final ApiCallback<CreateTransitRouterTrafficQosMarkingPolicyResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = createTransitRouterTrafficQosMarkingPolicyValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CreateTransitRouterTrafficQosMarkingPolicyResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for createTransitRouterTrafficQosQueueEntry
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call createTransitRouterTrafficQosQueueEntryCall(CreateTransitRouterTrafficQosQueueEntryRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/CreateTransitRouterTrafficQosQueueEntry/2020-04-01/transitrouter/get/text_plain/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call createTransitRouterTrafficQosQueueEntryValidateBeforeCall(CreateTransitRouterTrafficQosQueueEntryRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling createTransitRouterTrafficQosQueueEntry(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = createTransitRouterTrafficQosQueueEntryCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return CreateTransitRouterTrafficQosQueueEntryResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public CreateTransitRouterTrafficQosQueueEntryResponse createTransitRouterTrafficQosQueueEntry(CreateTransitRouterTrafficQosQueueEntryRequest body) throws ApiException {
+        ApiResponse<CreateTransitRouterTrafficQosQueueEntryResponse> resp = createTransitRouterTrafficQosQueueEntryWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;CreateTransitRouterTrafficQosQueueEntryResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<CreateTransitRouterTrafficQosQueueEntryResponse> createTransitRouterTrafficQosQueueEntryWithHttpInfo( @NotNull CreateTransitRouterTrafficQosQueueEntryRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = createTransitRouterTrafficQosQueueEntryValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<CreateTransitRouterTrafficQosQueueEntryResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call createTransitRouterTrafficQosQueueEntryAsync(CreateTransitRouterTrafficQosQueueEntryRequest body, final ApiCallback<CreateTransitRouterTrafficQosQueueEntryResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = createTransitRouterTrafficQosQueueEntryValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CreateTransitRouterTrafficQosQueueEntryResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for createTransitRouterTrafficQosQueuePolicy
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call createTransitRouterTrafficQosQueuePolicyCall(CreateTransitRouterTrafficQosQueuePolicyRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/CreateTransitRouterTrafficQosQueuePolicy/2020-04-01/transitrouter/get/text_plain/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call createTransitRouterTrafficQosQueuePolicyValidateBeforeCall(CreateTransitRouterTrafficQosQueuePolicyRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling createTransitRouterTrafficQosQueuePolicy(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = createTransitRouterTrafficQosQueuePolicyCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return CreateTransitRouterTrafficQosQueuePolicyResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public CreateTransitRouterTrafficQosQueuePolicyResponse createTransitRouterTrafficQosQueuePolicy(CreateTransitRouterTrafficQosQueuePolicyRequest body) throws ApiException {
+        ApiResponse<CreateTransitRouterTrafficQosQueuePolicyResponse> resp = createTransitRouterTrafficQosQueuePolicyWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;CreateTransitRouterTrafficQosQueuePolicyResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<CreateTransitRouterTrafficQosQueuePolicyResponse> createTransitRouterTrafficQosQueuePolicyWithHttpInfo( @NotNull CreateTransitRouterTrafficQosQueuePolicyRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = createTransitRouterTrafficQosQueuePolicyValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<CreateTransitRouterTrafficQosQueuePolicyResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call createTransitRouterTrafficQosQueuePolicyAsync(CreateTransitRouterTrafficQosQueuePolicyRequest body, final ApiCallback<CreateTransitRouterTrafficQosQueuePolicyResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = createTransitRouterTrafficQosQueuePolicyValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CreateTransitRouterTrafficQosQueuePolicyResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -3672,6 +4456,502 @@ public class TransitrouterApi {
 
         com.squareup.okhttp.Call call = deleteTransitRouterRouteTableValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<DeleteTransitRouterRouteTableResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for deleteTransitRouterTrafficQosMarkingEntry
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteTransitRouterTrafficQosMarkingEntryCall(DeleteTransitRouterTrafficQosMarkingEntryRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/DeleteTransitRouterTrafficQosMarkingEntry/2020-04-01/transitrouter/get/text_plain/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteTransitRouterTrafficQosMarkingEntryValidateBeforeCall(DeleteTransitRouterTrafficQosMarkingEntryRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling deleteTransitRouterTrafficQosMarkingEntry(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = deleteTransitRouterTrafficQosMarkingEntryCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return DeleteTransitRouterTrafficQosMarkingEntryResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public DeleteTransitRouterTrafficQosMarkingEntryResponse deleteTransitRouterTrafficQosMarkingEntry(DeleteTransitRouterTrafficQosMarkingEntryRequest body) throws ApiException {
+        ApiResponse<DeleteTransitRouterTrafficQosMarkingEntryResponse> resp = deleteTransitRouterTrafficQosMarkingEntryWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;DeleteTransitRouterTrafficQosMarkingEntryResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<DeleteTransitRouterTrafficQosMarkingEntryResponse> deleteTransitRouterTrafficQosMarkingEntryWithHttpInfo( @NotNull DeleteTransitRouterTrafficQosMarkingEntryRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = deleteTransitRouterTrafficQosMarkingEntryValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<DeleteTransitRouterTrafficQosMarkingEntryResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call deleteTransitRouterTrafficQosMarkingEntryAsync(DeleteTransitRouterTrafficQosMarkingEntryRequest body, final ApiCallback<DeleteTransitRouterTrafficQosMarkingEntryResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteTransitRouterTrafficQosMarkingEntryValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<DeleteTransitRouterTrafficQosMarkingEntryResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for deleteTransitRouterTrafficQosMarkingPolicy
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteTransitRouterTrafficQosMarkingPolicyCall(DeleteTransitRouterTrafficQosMarkingPolicyRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/DeleteTransitRouterTrafficQosMarkingPolicy/2020-04-01/transitrouter/get/text_plain/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteTransitRouterTrafficQosMarkingPolicyValidateBeforeCall(DeleteTransitRouterTrafficQosMarkingPolicyRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling deleteTransitRouterTrafficQosMarkingPolicy(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = deleteTransitRouterTrafficQosMarkingPolicyCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return DeleteTransitRouterTrafficQosMarkingPolicyResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public DeleteTransitRouterTrafficQosMarkingPolicyResponse deleteTransitRouterTrafficQosMarkingPolicy(DeleteTransitRouterTrafficQosMarkingPolicyRequest body) throws ApiException {
+        ApiResponse<DeleteTransitRouterTrafficQosMarkingPolicyResponse> resp = deleteTransitRouterTrafficQosMarkingPolicyWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;DeleteTransitRouterTrafficQosMarkingPolicyResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<DeleteTransitRouterTrafficQosMarkingPolicyResponse> deleteTransitRouterTrafficQosMarkingPolicyWithHttpInfo( @NotNull DeleteTransitRouterTrafficQosMarkingPolicyRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = deleteTransitRouterTrafficQosMarkingPolicyValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<DeleteTransitRouterTrafficQosMarkingPolicyResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call deleteTransitRouterTrafficQosMarkingPolicyAsync(DeleteTransitRouterTrafficQosMarkingPolicyRequest body, final ApiCallback<DeleteTransitRouterTrafficQosMarkingPolicyResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteTransitRouterTrafficQosMarkingPolicyValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<DeleteTransitRouterTrafficQosMarkingPolicyResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for deleteTransitRouterTrafficQosQueueEntry
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteTransitRouterTrafficQosQueueEntryCall(DeleteTransitRouterTrafficQosQueueEntryRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/DeleteTransitRouterTrafficQosQueueEntry/2020-04-01/transitrouter/get/text_plain/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteTransitRouterTrafficQosQueueEntryValidateBeforeCall(DeleteTransitRouterTrafficQosQueueEntryRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling deleteTransitRouterTrafficQosQueueEntry(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = deleteTransitRouterTrafficQosQueueEntryCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return DeleteTransitRouterTrafficQosQueueEntryResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public DeleteTransitRouterTrafficQosQueueEntryResponse deleteTransitRouterTrafficQosQueueEntry(DeleteTransitRouterTrafficQosQueueEntryRequest body) throws ApiException {
+        ApiResponse<DeleteTransitRouterTrafficQosQueueEntryResponse> resp = deleteTransitRouterTrafficQosQueueEntryWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;DeleteTransitRouterTrafficQosQueueEntryResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<DeleteTransitRouterTrafficQosQueueEntryResponse> deleteTransitRouterTrafficQosQueueEntryWithHttpInfo( @NotNull DeleteTransitRouterTrafficQosQueueEntryRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = deleteTransitRouterTrafficQosQueueEntryValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<DeleteTransitRouterTrafficQosQueueEntryResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call deleteTransitRouterTrafficQosQueueEntryAsync(DeleteTransitRouterTrafficQosQueueEntryRequest body, final ApiCallback<DeleteTransitRouterTrafficQosQueueEntryResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteTransitRouterTrafficQosQueueEntryValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<DeleteTransitRouterTrafficQosQueueEntryResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for deleteTransitRouterTrafficQosQueuePolicy
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteTransitRouterTrafficQosQueuePolicyCall(DeleteTransitRouterTrafficQosQueuePolicyRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/DeleteTransitRouterTrafficQosQueuePolicy/2020-04-01/transitrouter/get/text_plain/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteTransitRouterTrafficQosQueuePolicyValidateBeforeCall(DeleteTransitRouterTrafficQosQueuePolicyRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling deleteTransitRouterTrafficQosQueuePolicy(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = deleteTransitRouterTrafficQosQueuePolicyCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return DeleteTransitRouterTrafficQosQueuePolicyResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public DeleteTransitRouterTrafficQosQueuePolicyResponse deleteTransitRouterTrafficQosQueuePolicy(DeleteTransitRouterTrafficQosQueuePolicyRequest body) throws ApiException {
+        ApiResponse<DeleteTransitRouterTrafficQosQueuePolicyResponse> resp = deleteTransitRouterTrafficQosQueuePolicyWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;DeleteTransitRouterTrafficQosQueuePolicyResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<DeleteTransitRouterTrafficQosQueuePolicyResponse> deleteTransitRouterTrafficQosQueuePolicyWithHttpInfo( @NotNull DeleteTransitRouterTrafficQosQueuePolicyRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = deleteTransitRouterTrafficQosQueuePolicyValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<DeleteTransitRouterTrafficQosQueuePolicyResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call deleteTransitRouterTrafficQosQueuePolicyAsync(DeleteTransitRouterTrafficQosQueuePolicyRequest body, final ApiCallback<DeleteTransitRouterTrafficQosQueuePolicyResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteTransitRouterTrafficQosQueuePolicyValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<DeleteTransitRouterTrafficQosQueuePolicyResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -5784,6 +7064,502 @@ public class TransitrouterApi {
         return call;
     }
     /**
+     * Build call for describeTransitRouterTrafficQosMarkingEntries
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call describeTransitRouterTrafficQosMarkingEntriesCall(DescribeTransitRouterTrafficQosMarkingEntriesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/DescribeTransitRouterTrafficQosMarkingEntries/2020-04-01/transitrouter/get/text_plain/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call describeTransitRouterTrafficQosMarkingEntriesValidateBeforeCall(DescribeTransitRouterTrafficQosMarkingEntriesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling describeTransitRouterTrafficQosMarkingEntries(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = describeTransitRouterTrafficQosMarkingEntriesCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return DescribeTransitRouterTrafficQosMarkingEntriesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public DescribeTransitRouterTrafficQosMarkingEntriesResponse describeTransitRouterTrafficQosMarkingEntries(DescribeTransitRouterTrafficQosMarkingEntriesRequest body) throws ApiException {
+        ApiResponse<DescribeTransitRouterTrafficQosMarkingEntriesResponse> resp = describeTransitRouterTrafficQosMarkingEntriesWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;DescribeTransitRouterTrafficQosMarkingEntriesResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<DescribeTransitRouterTrafficQosMarkingEntriesResponse> describeTransitRouterTrafficQosMarkingEntriesWithHttpInfo( @NotNull DescribeTransitRouterTrafficQosMarkingEntriesRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = describeTransitRouterTrafficQosMarkingEntriesValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<DescribeTransitRouterTrafficQosMarkingEntriesResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call describeTransitRouterTrafficQosMarkingEntriesAsync(DescribeTransitRouterTrafficQosMarkingEntriesRequest body, final ApiCallback<DescribeTransitRouterTrafficQosMarkingEntriesResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = describeTransitRouterTrafficQosMarkingEntriesValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<DescribeTransitRouterTrafficQosMarkingEntriesResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for describeTransitRouterTrafficQosMarkingPolicies
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call describeTransitRouterTrafficQosMarkingPoliciesCall(DescribeTransitRouterTrafficQosMarkingPoliciesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/DescribeTransitRouterTrafficQosMarkingPolicies/2020-04-01/transitrouter/get/text_plain/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call describeTransitRouterTrafficQosMarkingPoliciesValidateBeforeCall(DescribeTransitRouterTrafficQosMarkingPoliciesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling describeTransitRouterTrafficQosMarkingPolicies(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = describeTransitRouterTrafficQosMarkingPoliciesCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return DescribeTransitRouterTrafficQosMarkingPoliciesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public DescribeTransitRouterTrafficQosMarkingPoliciesResponse describeTransitRouterTrafficQosMarkingPolicies(DescribeTransitRouterTrafficQosMarkingPoliciesRequest body) throws ApiException {
+        ApiResponse<DescribeTransitRouterTrafficQosMarkingPoliciesResponse> resp = describeTransitRouterTrafficQosMarkingPoliciesWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;DescribeTransitRouterTrafficQosMarkingPoliciesResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<DescribeTransitRouterTrafficQosMarkingPoliciesResponse> describeTransitRouterTrafficQosMarkingPoliciesWithHttpInfo( @NotNull DescribeTransitRouterTrafficQosMarkingPoliciesRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = describeTransitRouterTrafficQosMarkingPoliciesValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<DescribeTransitRouterTrafficQosMarkingPoliciesResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call describeTransitRouterTrafficQosMarkingPoliciesAsync(DescribeTransitRouterTrafficQosMarkingPoliciesRequest body, final ApiCallback<DescribeTransitRouterTrafficQosMarkingPoliciesResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = describeTransitRouterTrafficQosMarkingPoliciesValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<DescribeTransitRouterTrafficQosMarkingPoliciesResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for describeTransitRouterTrafficQosQueueEntries
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call describeTransitRouterTrafficQosQueueEntriesCall(DescribeTransitRouterTrafficQosQueueEntriesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/DescribeTransitRouterTrafficQosQueueEntries/2020-04-01/transitrouter/get/text_plain/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call describeTransitRouterTrafficQosQueueEntriesValidateBeforeCall(DescribeTransitRouterTrafficQosQueueEntriesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling describeTransitRouterTrafficQosQueueEntries(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = describeTransitRouterTrafficQosQueueEntriesCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return DescribeTransitRouterTrafficQosQueueEntriesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public DescribeTransitRouterTrafficQosQueueEntriesResponse describeTransitRouterTrafficQosQueueEntries(DescribeTransitRouterTrafficQosQueueEntriesRequest body) throws ApiException {
+        ApiResponse<DescribeTransitRouterTrafficQosQueueEntriesResponse> resp = describeTransitRouterTrafficQosQueueEntriesWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;DescribeTransitRouterTrafficQosQueueEntriesResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<DescribeTransitRouterTrafficQosQueueEntriesResponse> describeTransitRouterTrafficQosQueueEntriesWithHttpInfo( @NotNull DescribeTransitRouterTrafficQosQueueEntriesRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = describeTransitRouterTrafficQosQueueEntriesValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<DescribeTransitRouterTrafficQosQueueEntriesResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call describeTransitRouterTrafficQosQueueEntriesAsync(DescribeTransitRouterTrafficQosQueueEntriesRequest body, final ApiCallback<DescribeTransitRouterTrafficQosQueueEntriesResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = describeTransitRouterTrafficQosQueueEntriesValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<DescribeTransitRouterTrafficQosQueueEntriesResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for describeTransitRouterTrafficQosQueuePolicies
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call describeTransitRouterTrafficQosQueuePoliciesCall(DescribeTransitRouterTrafficQosQueuePoliciesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/DescribeTransitRouterTrafficQosQueuePolicies/2020-04-01/transitrouter/get/text_plain/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call describeTransitRouterTrafficQosQueuePoliciesValidateBeforeCall(DescribeTransitRouterTrafficQosQueuePoliciesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling describeTransitRouterTrafficQosQueuePolicies(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = describeTransitRouterTrafficQosQueuePoliciesCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return DescribeTransitRouterTrafficQosQueuePoliciesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public DescribeTransitRouterTrafficQosQueuePoliciesResponse describeTransitRouterTrafficQosQueuePolicies(DescribeTransitRouterTrafficQosQueuePoliciesRequest body) throws ApiException {
+        ApiResponse<DescribeTransitRouterTrafficQosQueuePoliciesResponse> resp = describeTransitRouterTrafficQosQueuePoliciesWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;DescribeTransitRouterTrafficQosQueuePoliciesResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<DescribeTransitRouterTrafficQosQueuePoliciesResponse> describeTransitRouterTrafficQosQueuePoliciesWithHttpInfo( @NotNull DescribeTransitRouterTrafficQosQueuePoliciesRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = describeTransitRouterTrafficQosQueuePoliciesValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<DescribeTransitRouterTrafficQosQueuePoliciesResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call describeTransitRouterTrafficQosQueuePoliciesAsync(DescribeTransitRouterTrafficQosQueuePoliciesRequest body, final ApiCallback<DescribeTransitRouterTrafficQosQueuePoliciesResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = describeTransitRouterTrafficQosQueuePoliciesValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<DescribeTransitRouterTrafficQosQueuePoliciesResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for describeTransitRouterVpcAttachments
      * @param body  (required)
      * @param progressListener Progress listener
@@ -6648,6 +8424,254 @@ public class TransitrouterApi {
 
         com.squareup.okhttp.Call call = dissociateTransitRouterRoutePolicyFromRouteTableValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<DissociateTransitRouterRoutePolicyFromRouteTableResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for dissociateTransitRouterTrafficQosMarkingPolicyFromAttachment
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call dissociateTransitRouterTrafficQosMarkingPolicyFromAttachmentCall(DissociateTransitRouterTrafficQosMarkingPolicyFromAttachmentRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/DissociateTransitRouterTrafficQosMarkingPolicyFromAttachment/2020-04-01/transitrouter/get/text_plain/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call dissociateTransitRouterTrafficQosMarkingPolicyFromAttachmentValidateBeforeCall(DissociateTransitRouterTrafficQosMarkingPolicyFromAttachmentRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling dissociateTransitRouterTrafficQosMarkingPolicyFromAttachment(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = dissociateTransitRouterTrafficQosMarkingPolicyFromAttachmentCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return DissociateTransitRouterTrafficQosMarkingPolicyFromAttachmentResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public DissociateTransitRouterTrafficQosMarkingPolicyFromAttachmentResponse dissociateTransitRouterTrafficQosMarkingPolicyFromAttachment(DissociateTransitRouterTrafficQosMarkingPolicyFromAttachmentRequest body) throws ApiException {
+        ApiResponse<DissociateTransitRouterTrafficQosMarkingPolicyFromAttachmentResponse> resp = dissociateTransitRouterTrafficQosMarkingPolicyFromAttachmentWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;DissociateTransitRouterTrafficQosMarkingPolicyFromAttachmentResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<DissociateTransitRouterTrafficQosMarkingPolicyFromAttachmentResponse> dissociateTransitRouterTrafficQosMarkingPolicyFromAttachmentWithHttpInfo( @NotNull DissociateTransitRouterTrafficQosMarkingPolicyFromAttachmentRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = dissociateTransitRouterTrafficQosMarkingPolicyFromAttachmentValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<DissociateTransitRouterTrafficQosMarkingPolicyFromAttachmentResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call dissociateTransitRouterTrafficQosMarkingPolicyFromAttachmentAsync(DissociateTransitRouterTrafficQosMarkingPolicyFromAttachmentRequest body, final ApiCallback<DissociateTransitRouterTrafficQosMarkingPolicyFromAttachmentResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = dissociateTransitRouterTrafficQosMarkingPolicyFromAttachmentValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<DissociateTransitRouterTrafficQosMarkingPolicyFromAttachmentResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for dissociateTransitRouterTrafficQosQueuePolicyFromAttachment
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call dissociateTransitRouterTrafficQosQueuePolicyFromAttachmentCall(DissociateTransitRouterTrafficQosQueuePolicyFromAttachmentRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/DissociateTransitRouterTrafficQosQueuePolicyFromAttachment/2020-04-01/transitrouter/get/text_plain/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call dissociateTransitRouterTrafficQosQueuePolicyFromAttachmentValidateBeforeCall(DissociateTransitRouterTrafficQosQueuePolicyFromAttachmentRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling dissociateTransitRouterTrafficQosQueuePolicyFromAttachment(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = dissociateTransitRouterTrafficQosQueuePolicyFromAttachmentCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return DissociateTransitRouterTrafficQosQueuePolicyFromAttachmentResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public DissociateTransitRouterTrafficQosQueuePolicyFromAttachmentResponse dissociateTransitRouterTrafficQosQueuePolicyFromAttachment(DissociateTransitRouterTrafficQosQueuePolicyFromAttachmentRequest body) throws ApiException {
+        ApiResponse<DissociateTransitRouterTrafficQosQueuePolicyFromAttachmentResponse> resp = dissociateTransitRouterTrafficQosQueuePolicyFromAttachmentWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;DissociateTransitRouterTrafficQosQueuePolicyFromAttachmentResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<DissociateTransitRouterTrafficQosQueuePolicyFromAttachmentResponse> dissociateTransitRouterTrafficQosQueuePolicyFromAttachmentWithHttpInfo( @NotNull DissociateTransitRouterTrafficQosQueuePolicyFromAttachmentRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = dissociateTransitRouterTrafficQosQueuePolicyFromAttachmentValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<DissociateTransitRouterTrafficQosQueuePolicyFromAttachmentResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call dissociateTransitRouterTrafficQosQueuePolicyFromAttachmentAsync(DissociateTransitRouterTrafficQosQueuePolicyFromAttachmentRequest body, final ApiCallback<DissociateTransitRouterTrafficQosQueuePolicyFromAttachmentResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = dissociateTransitRouterTrafficQosQueuePolicyFromAttachmentValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<DissociateTransitRouterTrafficQosQueuePolicyFromAttachmentResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -8632,6 +10656,502 @@ public class TransitrouterApi {
 
         com.squareup.okhttp.Call call = modifyTransitRouterRouteTableAttributesValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ModifyTransitRouterRouteTableAttributesResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for modifyTransitRouterTrafficQosMarkingPolicyAssociation
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call modifyTransitRouterTrafficQosMarkingPolicyAssociationCall(ModifyTransitRouterTrafficQosMarkingPolicyAssociationRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/ModifyTransitRouterTrafficQosMarkingPolicyAssociation/2020-04-01/transitrouter/get/text_plain/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call modifyTransitRouterTrafficQosMarkingPolicyAssociationValidateBeforeCall(ModifyTransitRouterTrafficQosMarkingPolicyAssociationRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling modifyTransitRouterTrafficQosMarkingPolicyAssociation(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = modifyTransitRouterTrafficQosMarkingPolicyAssociationCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ModifyTransitRouterTrafficQosMarkingPolicyAssociationResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ModifyTransitRouterTrafficQosMarkingPolicyAssociationResponse modifyTransitRouterTrafficQosMarkingPolicyAssociation(ModifyTransitRouterTrafficQosMarkingPolicyAssociationRequest body) throws ApiException {
+        ApiResponse<ModifyTransitRouterTrafficQosMarkingPolicyAssociationResponse> resp = modifyTransitRouterTrafficQosMarkingPolicyAssociationWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;ModifyTransitRouterTrafficQosMarkingPolicyAssociationResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ModifyTransitRouterTrafficQosMarkingPolicyAssociationResponse> modifyTransitRouterTrafficQosMarkingPolicyAssociationWithHttpInfo( @NotNull ModifyTransitRouterTrafficQosMarkingPolicyAssociationRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = modifyTransitRouterTrafficQosMarkingPolicyAssociationValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<ModifyTransitRouterTrafficQosMarkingPolicyAssociationResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call modifyTransitRouterTrafficQosMarkingPolicyAssociationAsync(ModifyTransitRouterTrafficQosMarkingPolicyAssociationRequest body, final ApiCallback<ModifyTransitRouterTrafficQosMarkingPolicyAssociationResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = modifyTransitRouterTrafficQosMarkingPolicyAssociationValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ModifyTransitRouterTrafficQosMarkingPolicyAssociationResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for modifyTransitRouterTrafficQosMarkingPolicyAttributes
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call modifyTransitRouterTrafficQosMarkingPolicyAttributesCall(ModifyTransitRouterTrafficQosMarkingPolicyAttributesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/ModifyTransitRouterTrafficQosMarkingPolicyAttributes/2020-04-01/transitrouter/get/text_plain/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call modifyTransitRouterTrafficQosMarkingPolicyAttributesValidateBeforeCall(ModifyTransitRouterTrafficQosMarkingPolicyAttributesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling modifyTransitRouterTrafficQosMarkingPolicyAttributes(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = modifyTransitRouterTrafficQosMarkingPolicyAttributesCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ModifyTransitRouterTrafficQosMarkingPolicyAttributesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ModifyTransitRouterTrafficQosMarkingPolicyAttributesResponse modifyTransitRouterTrafficQosMarkingPolicyAttributes(ModifyTransitRouterTrafficQosMarkingPolicyAttributesRequest body) throws ApiException {
+        ApiResponse<ModifyTransitRouterTrafficQosMarkingPolicyAttributesResponse> resp = modifyTransitRouterTrafficQosMarkingPolicyAttributesWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;ModifyTransitRouterTrafficQosMarkingPolicyAttributesResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ModifyTransitRouterTrafficQosMarkingPolicyAttributesResponse> modifyTransitRouterTrafficQosMarkingPolicyAttributesWithHttpInfo( @NotNull ModifyTransitRouterTrafficQosMarkingPolicyAttributesRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = modifyTransitRouterTrafficQosMarkingPolicyAttributesValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<ModifyTransitRouterTrafficQosMarkingPolicyAttributesResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call modifyTransitRouterTrafficQosMarkingPolicyAttributesAsync(ModifyTransitRouterTrafficQosMarkingPolicyAttributesRequest body, final ApiCallback<ModifyTransitRouterTrafficQosMarkingPolicyAttributesResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = modifyTransitRouterTrafficQosMarkingPolicyAttributesValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ModifyTransitRouterTrafficQosMarkingPolicyAttributesResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for modifyTransitRouterTrafficQosQueuePolicyAssociation
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call modifyTransitRouterTrafficQosQueuePolicyAssociationCall(ModifyTransitRouterTrafficQosQueuePolicyAssociationRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/ModifyTransitRouterTrafficQosQueuePolicyAssociation/2020-04-01/transitrouter/get/text_plain/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call modifyTransitRouterTrafficQosQueuePolicyAssociationValidateBeforeCall(ModifyTransitRouterTrafficQosQueuePolicyAssociationRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling modifyTransitRouterTrafficQosQueuePolicyAssociation(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = modifyTransitRouterTrafficQosQueuePolicyAssociationCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ModifyTransitRouterTrafficQosQueuePolicyAssociationResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ModifyTransitRouterTrafficQosQueuePolicyAssociationResponse modifyTransitRouterTrafficQosQueuePolicyAssociation(ModifyTransitRouterTrafficQosQueuePolicyAssociationRequest body) throws ApiException {
+        ApiResponse<ModifyTransitRouterTrafficQosQueuePolicyAssociationResponse> resp = modifyTransitRouterTrafficQosQueuePolicyAssociationWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;ModifyTransitRouterTrafficQosQueuePolicyAssociationResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ModifyTransitRouterTrafficQosQueuePolicyAssociationResponse> modifyTransitRouterTrafficQosQueuePolicyAssociationWithHttpInfo( @NotNull ModifyTransitRouterTrafficQosQueuePolicyAssociationRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = modifyTransitRouterTrafficQosQueuePolicyAssociationValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<ModifyTransitRouterTrafficQosQueuePolicyAssociationResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call modifyTransitRouterTrafficQosQueuePolicyAssociationAsync(ModifyTransitRouterTrafficQosQueuePolicyAssociationRequest body, final ApiCallback<ModifyTransitRouterTrafficQosQueuePolicyAssociationResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = modifyTransitRouterTrafficQosQueuePolicyAssociationValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ModifyTransitRouterTrafficQosQueuePolicyAssociationResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for modifyTransitRouterTrafficQosQueuePolicyAttributes
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call modifyTransitRouterTrafficQosQueuePolicyAttributesCall(ModifyTransitRouterTrafficQosQueuePolicyAttributesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/ModifyTransitRouterTrafficQosQueuePolicyAttributes/2020-04-01/transitrouter/get/text_plain/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call modifyTransitRouterTrafficQosQueuePolicyAttributesValidateBeforeCall(ModifyTransitRouterTrafficQosQueuePolicyAttributesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling modifyTransitRouterTrafficQosQueuePolicyAttributes(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = modifyTransitRouterTrafficQosQueuePolicyAttributesCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ModifyTransitRouterTrafficQosQueuePolicyAttributesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ModifyTransitRouterTrafficQosQueuePolicyAttributesResponse modifyTransitRouterTrafficQosQueuePolicyAttributes(ModifyTransitRouterTrafficQosQueuePolicyAttributesRequest body) throws ApiException {
+        ApiResponse<ModifyTransitRouterTrafficQosQueuePolicyAttributesResponse> resp = modifyTransitRouterTrafficQosQueuePolicyAttributesWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;ModifyTransitRouterTrafficQosQueuePolicyAttributesResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ModifyTransitRouterTrafficQosQueuePolicyAttributesResponse> modifyTransitRouterTrafficQosQueuePolicyAttributesWithHttpInfo( @NotNull ModifyTransitRouterTrafficQosQueuePolicyAttributesRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = modifyTransitRouterTrafficQosQueuePolicyAttributesValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<ModifyTransitRouterTrafficQosQueuePolicyAttributesResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call modifyTransitRouterTrafficQosQueuePolicyAttributesAsync(ModifyTransitRouterTrafficQosQueuePolicyAttributesRequest body, final ApiCallback<ModifyTransitRouterTrafficQosQueuePolicyAttributesResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = modifyTransitRouterTrafficQosQueuePolicyAttributesValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ModifyTransitRouterTrafficQosQueuePolicyAttributesResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
