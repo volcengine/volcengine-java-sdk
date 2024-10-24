@@ -32,6 +32,9 @@ import javax.validation.Valid;
 
 
 public class NetworkInterfaceForRunInstancesInput {
+  @SerializedName("Ipv6AddressCount")
+  private Integer ipv6AddressCount = null;
+
   @SerializedName("PrimaryIpAddress")
   private String primaryIpAddress = null;
 
@@ -43,6 +46,24 @@ public class NetworkInterfaceForRunInstancesInput {
 
   @SerializedName("SubnetId")
   private String subnetId = null;
+
+  public NetworkInterfaceForRunInstancesInput ipv6AddressCount(Integer ipv6AddressCount) {
+    this.ipv6AddressCount = ipv6AddressCount;
+    return this;
+  }
+
+   /**
+   * Get ipv6AddressCount
+   * @return ipv6AddressCount
+  **/
+  @Schema(description = "")
+  public Integer getIpv6AddressCount() {
+    return ipv6AddressCount;
+  }
+
+  public void setIpv6AddressCount(Integer ipv6AddressCount) {
+    this.ipv6AddressCount = ipv6AddressCount;
+  }
 
   public NetworkInterfaceForRunInstancesInput primaryIpAddress(String primaryIpAddress) {
     this.primaryIpAddress = primaryIpAddress;
@@ -143,7 +164,8 @@ public class NetworkInterfaceForRunInstancesInput {
       return false;
     }
     NetworkInterfaceForRunInstancesInput networkInterfaceForRunInstancesInput = (NetworkInterfaceForRunInstancesInput) o;
-    return Objects.equals(this.primaryIpAddress, networkInterfaceForRunInstancesInput.primaryIpAddress) &&
+    return Objects.equals(this.ipv6AddressCount, networkInterfaceForRunInstancesInput.ipv6AddressCount) &&
+        Objects.equals(this.primaryIpAddress, networkInterfaceForRunInstancesInput.primaryIpAddress) &&
         Objects.equals(this.privateIpAddresses, networkInterfaceForRunInstancesInput.privateIpAddresses) &&
         Objects.equals(this.securityGroupIds, networkInterfaceForRunInstancesInput.securityGroupIds) &&
         Objects.equals(this.subnetId, networkInterfaceForRunInstancesInput.subnetId);
@@ -151,7 +173,7 @@ public class NetworkInterfaceForRunInstancesInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(primaryIpAddress, privateIpAddresses, securityGroupIds, subnetId);
+    return Objects.hash(ipv6AddressCount, primaryIpAddress, privateIpAddresses, securityGroupIds, subnetId);
   }
 
 
@@ -160,6 +182,7 @@ public class NetworkInterfaceForRunInstancesInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class NetworkInterfaceForRunInstancesInput {\n");
     
+    sb.append("    ipv6AddressCount: ").append(toIndentedString(ipv6AddressCount)).append("\n");
     sb.append("    primaryIpAddress: ").append(toIndentedString(primaryIpAddress)).append("\n");
     sb.append("    privateIpAddresses: ").append(toIndentedString(privateIpAddresses)).append("\n");
     sb.append("    securityGroupIds: ").append(toIndentedString(securityGroupIds)).append("\n");

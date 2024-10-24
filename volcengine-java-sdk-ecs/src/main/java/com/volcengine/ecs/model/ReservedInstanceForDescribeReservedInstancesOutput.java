@@ -36,6 +36,9 @@ public class ReservedInstanceForDescribeReservedInstancesOutput {
   @SerializedName("CreatedAt")
   private String createdAt = null;
 
+  @SerializedName("Description")
+  private String description = null;
+
   @SerializedName("ExpiredAt")
   private String expiredAt = null;
 
@@ -97,6 +100,24 @@ public class ReservedInstanceForDescribeReservedInstancesOutput {
 
   public void setCreatedAt(String createdAt) {
     this.createdAt = createdAt;
+  }
+
+  public ReservedInstanceForDescribeReservedInstancesOutput description(String description) {
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Get description
+   * @return description
+  **/
+  @Schema(description = "")
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   public ReservedInstanceForDescribeReservedInstancesOutput expiredAt(String expiredAt) {
@@ -389,6 +410,7 @@ public class ReservedInstanceForDescribeReservedInstancesOutput {
     }
     ReservedInstanceForDescribeReservedInstancesOutput reservedInstanceForDescribeReservedInstancesOutput = (ReservedInstanceForDescribeReservedInstancesOutput) o;
     return Objects.equals(this.createdAt, reservedInstanceForDescribeReservedInstancesOutput.createdAt) &&
+        Objects.equals(this.description, reservedInstanceForDescribeReservedInstancesOutput.description) &&
         Objects.equals(this.expiredAt, reservedInstanceForDescribeReservedInstancesOutput.expiredAt) &&
         Objects.equals(this.hpcClusterId, reservedInstanceForDescribeReservedInstancesOutput.hpcClusterId) &&
         Objects.equals(this.instanceCount, reservedInstanceForDescribeReservedInstancesOutput.instanceCount) &&
@@ -408,7 +430,7 @@ public class ReservedInstanceForDescribeReservedInstancesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, expiredAt, hpcClusterId, instanceCount, instanceTypeId, offeringType, projectName, regionId, reservedInstanceId, reservedInstanceName, scope, startAt, status, supportModify, tags, zoneId);
+    return Objects.hash(createdAt, description, expiredAt, hpcClusterId, instanceCount, instanceTypeId, offeringType, projectName, regionId, reservedInstanceId, reservedInstanceName, scope, startAt, status, supportModify, tags, zoneId);
   }
 
 
@@ -418,6 +440,7 @@ public class ReservedInstanceForDescribeReservedInstancesOutput {
     sb.append("class ReservedInstanceForDescribeReservedInstancesOutput {\n");
     
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    expiredAt: ").append(toIndentedString(expiredAt)).append("\n");
     sb.append("    hpcClusterId: ").append(toIndentedString(hpcClusterId)).append("\n");
     sb.append("    instanceCount: ").append(toIndentedString(instanceCount)).append("\n");

@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.ecs.model.TagForInvokeCommandInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -53,11 +54,17 @@ public class InvokeCommandRequest {
   @SerializedName("Parameters")
   private String parameters = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("RecurrenceEndTime")
   private String recurrenceEndTime = null;
 
   @SerializedName("RepeatMode")
   private String repeatMode = null;
+
+  @SerializedName("Tags")
+  private List<TagForInvokeCommandInput> tags = null;
 
   @SerializedName("Timeout")
   private Integer timeout = null;
@@ -203,6 +210,24 @@ public class InvokeCommandRequest {
     this.parameters = parameters;
   }
 
+  public InvokeCommandRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public InvokeCommandRequest recurrenceEndTime(String recurrenceEndTime) {
     this.recurrenceEndTime = recurrenceEndTime;
     return this;
@@ -237,6 +262,33 @@ public class InvokeCommandRequest {
 
   public void setRepeatMode(String repeatMode) {
     this.repeatMode = repeatMode;
+  }
+
+  public InvokeCommandRequest tags(List<TagForInvokeCommandInput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public InvokeCommandRequest addTagsItem(TagForInvokeCommandInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForInvokeCommandInput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForInvokeCommandInput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForInvokeCommandInput> tags) {
+    this.tags = tags;
   }
 
   public InvokeCommandRequest timeout(Integer timeout) {
@@ -310,8 +362,10 @@ public class InvokeCommandRequest {
         Objects.equals(this.invocationName, invokeCommandRequest.invocationName) &&
         Objects.equals(this.launchTime, invokeCommandRequest.launchTime) &&
         Objects.equals(this.parameters, invokeCommandRequest.parameters) &&
+        Objects.equals(this.projectName, invokeCommandRequest.projectName) &&
         Objects.equals(this.recurrenceEndTime, invokeCommandRequest.recurrenceEndTime) &&
         Objects.equals(this.repeatMode, invokeCommandRequest.repeatMode) &&
+        Objects.equals(this.tags, invokeCommandRequest.tags) &&
         Objects.equals(this.timeout, invokeCommandRequest.timeout) &&
         Objects.equals(this.username, invokeCommandRequest.username) &&
         Objects.equals(this.workingDir, invokeCommandRequest.workingDir);
@@ -319,7 +373,7 @@ public class InvokeCommandRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(commandId, frequency, instanceIds, invocationDescription, invocationName, launchTime, parameters, recurrenceEndTime, repeatMode, timeout, username, workingDir);
+    return Objects.hash(commandId, frequency, instanceIds, invocationDescription, invocationName, launchTime, parameters, projectName, recurrenceEndTime, repeatMode, tags, timeout, username, workingDir);
   }
 
 
@@ -335,8 +389,10 @@ public class InvokeCommandRequest {
     sb.append("    invocationName: ").append(toIndentedString(invocationName)).append("\n");
     sb.append("    launchTime: ").append(toIndentedString(launchTime)).append("\n");
     sb.append("    parameters: ").append(toIndentedString(parameters)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    recurrenceEndTime: ").append(toIndentedString(recurrenceEndTime)).append("\n");
     sb.append("    repeatMode: ").append(toIndentedString(repeatMode)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("    workingDir: ").append(toIndentedString(workingDir)).append("\n");

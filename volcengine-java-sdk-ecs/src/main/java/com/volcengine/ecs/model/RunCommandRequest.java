@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.ecs.model.TagForRunCommandInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -50,11 +51,17 @@ public class RunCommandRequest {
   @SerializedName("LaunchTime")
   private String launchTime = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("RecurrenceEndTime")
   private String recurrenceEndTime = null;
 
   @SerializedName("RepeatMode")
   private String repeatMode = null;
+
+  @SerializedName("Tags")
+  private List<TagForRunCommandInput> tags = null;
 
   @SerializedName("Timeout")
   private Integer timeout = null;
@@ -186,6 +193,24 @@ public class RunCommandRequest {
     this.launchTime = launchTime;
   }
 
+  public RunCommandRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public RunCommandRequest recurrenceEndTime(String recurrenceEndTime) {
     this.recurrenceEndTime = recurrenceEndTime;
     return this;
@@ -220,6 +245,33 @@ public class RunCommandRequest {
 
   public void setRepeatMode(String repeatMode) {
     this.repeatMode = repeatMode;
+  }
+
+  public RunCommandRequest tags(List<TagForRunCommandInput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public RunCommandRequest addTagsItem(TagForRunCommandInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForRunCommandInput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForRunCommandInput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForRunCommandInput> tags) {
+    this.tags = tags;
   }
 
   public RunCommandRequest timeout(Integer timeout) {
@@ -311,8 +363,10 @@ public class RunCommandRequest {
         Objects.equals(this.invocationDescription, runCommandRequest.invocationDescription) &&
         Objects.equals(this.invocationName, runCommandRequest.invocationName) &&
         Objects.equals(this.launchTime, runCommandRequest.launchTime) &&
+        Objects.equals(this.projectName, runCommandRequest.projectName) &&
         Objects.equals(this.recurrenceEndTime, runCommandRequest.recurrenceEndTime) &&
         Objects.equals(this.repeatMode, runCommandRequest.repeatMode) &&
+        Objects.equals(this.tags, runCommandRequest.tags) &&
         Objects.equals(this.timeout, runCommandRequest.timeout) &&
         Objects.equals(this.type, runCommandRequest.type) &&
         Objects.equals(this.username, runCommandRequest.username) &&
@@ -321,7 +375,7 @@ public class RunCommandRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(commandContent, frequency, instanceIds, invocationDescription, invocationName, launchTime, recurrenceEndTime, repeatMode, timeout, type, username, workingDir);
+    return Objects.hash(commandContent, frequency, instanceIds, invocationDescription, invocationName, launchTime, projectName, recurrenceEndTime, repeatMode, tags, timeout, type, username, workingDir);
   }
 
 
@@ -336,8 +390,10 @@ public class RunCommandRequest {
     sb.append("    invocationDescription: ").append(toIndentedString(invocationDescription)).append("\n");
     sb.append("    invocationName: ").append(toIndentedString(invocationName)).append("\n");
     sb.append("    launchTime: ").append(toIndentedString(launchTime)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    recurrenceEndTime: ").append(toIndentedString(recurrenceEndTime)).append("\n");
     sb.append("    repeatMode: ").append(toIndentedString(repeatMode)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");
