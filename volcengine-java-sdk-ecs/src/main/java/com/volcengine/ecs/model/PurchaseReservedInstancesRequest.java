@@ -42,6 +42,9 @@ public class PurchaseReservedInstancesRequest {
   @SerializedName("ClientToken")
   private String clientToken = null;
 
+  @SerializedName("Description")
+  private String description = null;
+
   @SerializedName("HpcClusterId")
   private String hpcClusterId = null;
 
@@ -127,6 +130,24 @@ public class PurchaseReservedInstancesRequest {
 
   public void setClientToken(String clientToken) {
     this.clientToken = clientToken;
+  }
+
+  public PurchaseReservedInstancesRequest description(String description) {
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Get description
+   * @return description
+  **/
+  @Schema(description = "")
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   public PurchaseReservedInstancesRequest hpcClusterId(String hpcClusterId) {
@@ -351,6 +372,7 @@ public class PurchaseReservedInstancesRequest {
     return Objects.equals(this.autoRenew, purchaseReservedInstancesRequest.autoRenew) &&
         Objects.equals(this.autoRenewPeriod, purchaseReservedInstancesRequest.autoRenewPeriod) &&
         Objects.equals(this.clientToken, purchaseReservedInstancesRequest.clientToken) &&
+        Objects.equals(this.description, purchaseReservedInstancesRequest.description) &&
         Objects.equals(this.hpcClusterId, purchaseReservedInstancesRequest.hpcClusterId) &&
         Objects.equals(this.instanceCount, purchaseReservedInstancesRequest.instanceCount) &&
         Objects.equals(this.instanceTypeId, purchaseReservedInstancesRequest.instanceTypeId) &&
@@ -366,7 +388,7 @@ public class PurchaseReservedInstancesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoRenew, autoRenewPeriod, clientToken, hpcClusterId, instanceCount, instanceTypeId, period, periodUnit, projectName, regionId, reservedInstanceName, scope, tags, zoneId);
+    return Objects.hash(autoRenew, autoRenewPeriod, clientToken, description, hpcClusterId, instanceCount, instanceTypeId, period, periodUnit, projectName, regionId, reservedInstanceName, scope, tags, zoneId);
   }
 
 
@@ -378,6 +400,7 @@ public class PurchaseReservedInstancesRequest {
     sb.append("    autoRenew: ").append(toIndentedString(autoRenew)).append("\n");
     sb.append("    autoRenewPeriod: ").append(toIndentedString(autoRenewPeriod)).append("\n");
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    hpcClusterId: ").append(toIndentedString(hpcClusterId)).append("\n");
     sb.append("    instanceCount: ").append(toIndentedString(instanceCount)).append("\n");
     sb.append("    instanceTypeId: ").append(toIndentedString(instanceTypeId)).append("\n");

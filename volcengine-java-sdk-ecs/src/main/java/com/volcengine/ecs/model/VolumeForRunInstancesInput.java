@@ -33,6 +33,15 @@ public class VolumeForRunInstancesInput {
   @SerializedName("DeleteWithInstance")
   private String deleteWithInstance = null;
 
+  @SerializedName("ExtraPerformanceIOPS")
+  private Integer extraPerformanceIOPS = null;
+
+  @SerializedName("ExtraPerformanceThroughputMB")
+  private Integer extraPerformanceThroughputMB = null;
+
+  @SerializedName("ExtraPerformanceTypeId")
+  private String extraPerformanceTypeId = null;
+
   @SerializedName("Size")
   private Integer size = null;
 
@@ -58,6 +67,60 @@ public class VolumeForRunInstancesInput {
 
   public void setDeleteWithInstance(String deleteWithInstance) {
     this.deleteWithInstance = deleteWithInstance;
+  }
+
+  public VolumeForRunInstancesInput extraPerformanceIOPS(Integer extraPerformanceIOPS) {
+    this.extraPerformanceIOPS = extraPerformanceIOPS;
+    return this;
+  }
+
+   /**
+   * Get extraPerformanceIOPS
+   * @return extraPerformanceIOPS
+  **/
+  @Schema(description = "")
+  public Integer getExtraPerformanceIOPS() {
+    return extraPerformanceIOPS;
+  }
+
+  public void setExtraPerformanceIOPS(Integer extraPerformanceIOPS) {
+    this.extraPerformanceIOPS = extraPerformanceIOPS;
+  }
+
+  public VolumeForRunInstancesInput extraPerformanceThroughputMB(Integer extraPerformanceThroughputMB) {
+    this.extraPerformanceThroughputMB = extraPerformanceThroughputMB;
+    return this;
+  }
+
+   /**
+   * Get extraPerformanceThroughputMB
+   * @return extraPerformanceThroughputMB
+  **/
+  @Schema(description = "")
+  public Integer getExtraPerformanceThroughputMB() {
+    return extraPerformanceThroughputMB;
+  }
+
+  public void setExtraPerformanceThroughputMB(Integer extraPerformanceThroughputMB) {
+    this.extraPerformanceThroughputMB = extraPerformanceThroughputMB;
+  }
+
+  public VolumeForRunInstancesInput extraPerformanceTypeId(String extraPerformanceTypeId) {
+    this.extraPerformanceTypeId = extraPerformanceTypeId;
+    return this;
+  }
+
+   /**
+   * Get extraPerformanceTypeId
+   * @return extraPerformanceTypeId
+  **/
+  @Schema(description = "")
+  public String getExtraPerformanceTypeId() {
+    return extraPerformanceTypeId;
+  }
+
+  public void setExtraPerformanceTypeId(String extraPerformanceTypeId) {
+    this.extraPerformanceTypeId = extraPerformanceTypeId;
   }
 
   public VolumeForRunInstancesInput size(Integer size) {
@@ -126,6 +189,9 @@ public class VolumeForRunInstancesInput {
     }
     VolumeForRunInstancesInput volumeForRunInstancesInput = (VolumeForRunInstancesInput) o;
     return Objects.equals(this.deleteWithInstance, volumeForRunInstancesInput.deleteWithInstance) &&
+        Objects.equals(this.extraPerformanceIOPS, volumeForRunInstancesInput.extraPerformanceIOPS) &&
+        Objects.equals(this.extraPerformanceThroughputMB, volumeForRunInstancesInput.extraPerformanceThroughputMB) &&
+        Objects.equals(this.extraPerformanceTypeId, volumeForRunInstancesInput.extraPerformanceTypeId) &&
         Objects.equals(this.size, volumeForRunInstancesInput.size) &&
         Objects.equals(this.snapshotId, volumeForRunInstancesInput.snapshotId) &&
         Objects.equals(this.volumeType, volumeForRunInstancesInput.volumeType);
@@ -133,7 +199,7 @@ public class VolumeForRunInstancesInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleteWithInstance, size, snapshotId, volumeType);
+    return Objects.hash(deleteWithInstance, extraPerformanceIOPS, extraPerformanceThroughputMB, extraPerformanceTypeId, size, snapshotId, volumeType);
   }
 
 
@@ -143,6 +209,9 @@ public class VolumeForRunInstancesInput {
     sb.append("class VolumeForRunInstancesInput {\n");
     
     sb.append("    deleteWithInstance: ").append(toIndentedString(deleteWithInstance)).append("\n");
+    sb.append("    extraPerformanceIOPS: ").append(toIndentedString(extraPerformanceIOPS)).append("\n");
+    sb.append("    extraPerformanceThroughputMB: ").append(toIndentedString(extraPerformanceThroughputMB)).append("\n");
+    sb.append("    extraPerformanceTypeId: ").append(toIndentedString(extraPerformanceTypeId)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    snapshotId: ").append(toIndentedString(snapshotId)).append("\n");
     sb.append("    volumeType: ").append(toIndentedString(volumeType)).append("\n");

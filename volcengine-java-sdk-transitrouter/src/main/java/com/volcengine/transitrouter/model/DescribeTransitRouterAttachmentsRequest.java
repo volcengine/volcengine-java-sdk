@@ -57,6 +57,12 @@ public class DescribeTransitRouterAttachmentsRequest {
   @SerializedName("TransitRouterId")
   private String transitRouterId = null;
 
+  @SerializedName("TransitRouterTrafficQosMarkingPolicyId")
+  private String transitRouterTrafficQosMarkingPolicyId = null;
+
+  @SerializedName("TransitRouterTrafficQosQueuePolicyId")
+  private String transitRouterTrafficQosQueuePolicyId = null;
+
   public DescribeTransitRouterAttachmentsRequest pageNumber(Integer pageNumber) {
     this.pageNumber = pageNumber;
     return this;
@@ -218,6 +224,42 @@ public class DescribeTransitRouterAttachmentsRequest {
     this.transitRouterId = transitRouterId;
   }
 
+  public DescribeTransitRouterAttachmentsRequest transitRouterTrafficQosMarkingPolicyId(String transitRouterTrafficQosMarkingPolicyId) {
+    this.transitRouterTrafficQosMarkingPolicyId = transitRouterTrafficQosMarkingPolicyId;
+    return this;
+  }
+
+   /**
+   * Get transitRouterTrafficQosMarkingPolicyId
+   * @return transitRouterTrafficQosMarkingPolicyId
+  **/
+  @Schema(description = "")
+  public String getTransitRouterTrafficQosMarkingPolicyId() {
+    return transitRouterTrafficQosMarkingPolicyId;
+  }
+
+  public void setTransitRouterTrafficQosMarkingPolicyId(String transitRouterTrafficQosMarkingPolicyId) {
+    this.transitRouterTrafficQosMarkingPolicyId = transitRouterTrafficQosMarkingPolicyId;
+  }
+
+  public DescribeTransitRouterAttachmentsRequest transitRouterTrafficQosQueuePolicyId(String transitRouterTrafficQosQueuePolicyId) {
+    this.transitRouterTrafficQosQueuePolicyId = transitRouterTrafficQosQueuePolicyId;
+    return this;
+  }
+
+   /**
+   * Get transitRouterTrafficQosQueuePolicyId
+   * @return transitRouterTrafficQosQueuePolicyId
+  **/
+  @Schema(description = "")
+  public String getTransitRouterTrafficQosQueuePolicyId() {
+    return transitRouterTrafficQosQueuePolicyId;
+  }
+
+  public void setTransitRouterTrafficQosQueuePolicyId(String transitRouterTrafficQosQueuePolicyId) {
+    this.transitRouterTrafficQosQueuePolicyId = transitRouterTrafficQosQueuePolicyId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -235,12 +277,14 @@ public class DescribeTransitRouterAttachmentsRequest {
         Objects.equals(this.tagFilters, describeTransitRouterAttachmentsRequest.tagFilters) &&
         Objects.equals(this.transitRouterAttachmentIds, describeTransitRouterAttachmentsRequest.transitRouterAttachmentIds) &&
         Objects.equals(this.transitRouterForwardPolicyTableId, describeTransitRouterAttachmentsRequest.transitRouterForwardPolicyTableId) &&
-        Objects.equals(this.transitRouterId, describeTransitRouterAttachmentsRequest.transitRouterId);
+        Objects.equals(this.transitRouterId, describeTransitRouterAttachmentsRequest.transitRouterId) &&
+        Objects.equals(this.transitRouterTrafficQosMarkingPolicyId, describeTransitRouterAttachmentsRequest.transitRouterTrafficQosMarkingPolicyId) &&
+        Objects.equals(this.transitRouterTrafficQosQueuePolicyId, describeTransitRouterAttachmentsRequest.transitRouterTrafficQosQueuePolicyId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pageNumber, pageSize, resourceId, resourceType, tagFilters, transitRouterAttachmentIds, transitRouterForwardPolicyTableId, transitRouterId);
+    return Objects.hash(pageNumber, pageSize, resourceId, resourceType, tagFilters, transitRouterAttachmentIds, transitRouterForwardPolicyTableId, transitRouterId, transitRouterTrafficQosMarkingPolicyId, transitRouterTrafficQosQueuePolicyId);
   }
 
 
@@ -257,6 +301,8 @@ public class DescribeTransitRouterAttachmentsRequest {
     sb.append("    transitRouterAttachmentIds: ").append(toIndentedString(transitRouterAttachmentIds)).append("\n");
     sb.append("    transitRouterForwardPolicyTableId: ").append(toIndentedString(transitRouterForwardPolicyTableId)).append("\n");
     sb.append("    transitRouterId: ").append(toIndentedString(transitRouterId)).append("\n");
+    sb.append("    transitRouterTrafficQosMarkingPolicyId: ").append(toIndentedString(transitRouterTrafficQosMarkingPolicyId)).append("\n");
+    sb.append("    transitRouterTrafficQosQueuePolicyId: ").append(toIndentedString(transitRouterTrafficQosQueuePolicyId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

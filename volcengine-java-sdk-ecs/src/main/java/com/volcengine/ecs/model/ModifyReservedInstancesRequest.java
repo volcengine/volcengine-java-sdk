@@ -46,6 +46,9 @@ public class ModifyReservedInstancesRequest {
   @SerializedName("Configurations")
   private List<ConfigurationForModifyReservedInstancesInput> configurations = null;
 
+  @SerializedName("Description")
+  private String description = null;
+
   @SerializedName("ProjectName")
   private String projectName = null;
 
@@ -137,6 +140,24 @@ public class ModifyReservedInstancesRequest {
 
   public void setConfigurations(List<ConfigurationForModifyReservedInstancesInput> configurations) {
     this.configurations = configurations;
+  }
+
+  public ModifyReservedInstancesRequest description(String description) {
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Get description
+   * @return description
+  **/
+  @Schema(description = "")
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   public ModifyReservedInstancesRequest projectName(String projectName) {
@@ -242,6 +263,7 @@ public class ModifyReservedInstancesRequest {
         Objects.equals(this.autoRenewPeriod, modifyReservedInstancesRequest.autoRenewPeriod) &&
         Objects.equals(this.clientToken, modifyReservedInstancesRequest.clientToken) &&
         Objects.equals(this.configurations, modifyReservedInstancesRequest.configurations) &&
+        Objects.equals(this.description, modifyReservedInstancesRequest.description) &&
         Objects.equals(this.projectName, modifyReservedInstancesRequest.projectName) &&
         Objects.equals(this.regionId, modifyReservedInstancesRequest.regionId) &&
         Objects.equals(this.reservedInstanceIds, modifyReservedInstancesRequest.reservedInstanceIds) &&
@@ -250,7 +272,7 @@ public class ModifyReservedInstancesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoRenew, autoRenewPeriod, clientToken, configurations, projectName, regionId, reservedInstanceIds, tags);
+    return Objects.hash(autoRenew, autoRenewPeriod, clientToken, configurations, description, projectName, regionId, reservedInstanceIds, tags);
   }
 
 
@@ -263,6 +285,7 @@ public class ModifyReservedInstancesRequest {
     sb.append("    autoRenewPeriod: ").append(toIndentedString(autoRenewPeriod)).append("\n");
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    configurations: ").append(toIndentedString(configurations)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    regionId: ").append(toIndentedString(regionId)).append("\n");
     sb.append("    reservedInstanceIds: ").append(toIndentedString(reservedInstanceIds)).append("\n");

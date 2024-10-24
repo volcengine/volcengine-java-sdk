@@ -4,7 +4,7 @@
     <groupId>com.volcengine</groupId>
     <artifactId>volcengine-java-sdk</artifactId>
     <packaging>pom</packaging>
-    <version>0.1.132</version>
+    <version>0.1.133</version>
     <name>volcengine-java-sdk</name>
     <url>https://open.volcengineapi.com</url>
     <description>The Java SDK For Volcengine</description>
@@ -248,5 +248,6 @@
         <module>volcengine-java-sdk-sts</module>
         <module>volcengine-java-sdk-kms</module>
         <module>volcengine-java-sdk-nta</module>
+        <module>volcengine-java-sdk-rocketmq</module>
     </modules>
 </project>

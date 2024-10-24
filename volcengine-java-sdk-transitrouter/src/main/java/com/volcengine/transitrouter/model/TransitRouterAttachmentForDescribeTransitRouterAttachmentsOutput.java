@@ -51,6 +51,9 @@ public class TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput {
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("Ipv6Enabled")
+  private Boolean ipv6Enabled = null;
+
   @SerializedName("OverdueTime")
   private String overdueTime = null;
 
@@ -80,6 +83,12 @@ public class TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput {
 
   @SerializedName("TransitRouterRouteTableId")
   private String transitRouterRouteTableId = null;
+
+  @SerializedName("TransitRouterTrafficQosMarkingPolicyId")
+  private String transitRouterTrafficQosMarkingPolicyId = null;
+
+  @SerializedName("TransitRouterTrafficQosQueuePolicyId")
+  private String transitRouterTrafficQosQueuePolicyId = null;
 
   @SerializedName("UpdateTime")
   private String updateTime = null;
@@ -190,6 +199,24 @@ public class TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput ipv6Enabled(Boolean ipv6Enabled) {
+    this.ipv6Enabled = ipv6Enabled;
+    return this;
+  }
+
+   /**
+   * Get ipv6Enabled
+   * @return ipv6Enabled
+  **/
+  @Schema(description = "")
+  public Boolean isIpv6Enabled() {
+    return ipv6Enabled;
+  }
+
+  public void setIpv6Enabled(Boolean ipv6Enabled) {
+    this.ipv6Enabled = ipv6Enabled;
   }
 
   public TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput overdueTime(String overdueTime) {
@@ -381,6 +408,42 @@ public class TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput {
     this.transitRouterRouteTableId = transitRouterRouteTableId;
   }
 
+  public TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput transitRouterTrafficQosMarkingPolicyId(String transitRouterTrafficQosMarkingPolicyId) {
+    this.transitRouterTrafficQosMarkingPolicyId = transitRouterTrafficQosMarkingPolicyId;
+    return this;
+  }
+
+   /**
+   * Get transitRouterTrafficQosMarkingPolicyId
+   * @return transitRouterTrafficQosMarkingPolicyId
+  **/
+  @Schema(description = "")
+  public String getTransitRouterTrafficQosMarkingPolicyId() {
+    return transitRouterTrafficQosMarkingPolicyId;
+  }
+
+  public void setTransitRouterTrafficQosMarkingPolicyId(String transitRouterTrafficQosMarkingPolicyId) {
+    this.transitRouterTrafficQosMarkingPolicyId = transitRouterTrafficQosMarkingPolicyId;
+  }
+
+  public TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput transitRouterTrafficQosQueuePolicyId(String transitRouterTrafficQosQueuePolicyId) {
+    this.transitRouterTrafficQosQueuePolicyId = transitRouterTrafficQosQueuePolicyId;
+    return this;
+  }
+
+   /**
+   * Get transitRouterTrafficQosQueuePolicyId
+   * @return transitRouterTrafficQosQueuePolicyId
+  **/
+  @Schema(description = "")
+  public String getTransitRouterTrafficQosQueuePolicyId() {
+    return transitRouterTrafficQosQueuePolicyId;
+  }
+
+  public void setTransitRouterTrafficQosQueuePolicyId(String transitRouterTrafficQosQueuePolicyId) {
+    this.transitRouterTrafficQosQueuePolicyId = transitRouterTrafficQosQueuePolicyId;
+  }
+
   public TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput updateTime(String updateTime) {
     this.updateTime = updateTime;
     return this;
@@ -415,6 +478,7 @@ public class TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput {
         Objects.equals(this.creationTime, transitRouterAttachmentForDescribeTransitRouterAttachmentsOutput.creationTime) &&
         Objects.equals(this.deletedTime, transitRouterAttachmentForDescribeTransitRouterAttachmentsOutput.deletedTime) &&
         Objects.equals(this.description, transitRouterAttachmentForDescribeTransitRouterAttachmentsOutput.description) &&
+        Objects.equals(this.ipv6Enabled, transitRouterAttachmentForDescribeTransitRouterAttachmentsOutput.ipv6Enabled) &&
         Objects.equals(this.overdueTime, transitRouterAttachmentForDescribeTransitRouterAttachmentsOutput.overdueTime) &&
         Objects.equals(this.resourceId, transitRouterAttachmentForDescribeTransitRouterAttachmentsOutput.resourceId) &&
         Objects.equals(this.resourceType, transitRouterAttachmentForDescribeTransitRouterAttachmentsOutput.resourceType) &&
@@ -425,12 +489,14 @@ public class TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput {
         Objects.equals(this.transitRouterForwardPolicyTableId, transitRouterAttachmentForDescribeTransitRouterAttachmentsOutput.transitRouterForwardPolicyTableId) &&
         Objects.equals(this.transitRouterId, transitRouterAttachmentForDescribeTransitRouterAttachmentsOutput.transitRouterId) &&
         Objects.equals(this.transitRouterRouteTableId, transitRouterAttachmentForDescribeTransitRouterAttachmentsOutput.transitRouterRouteTableId) &&
+        Objects.equals(this.transitRouterTrafficQosMarkingPolicyId, transitRouterAttachmentForDescribeTransitRouterAttachmentsOutput.transitRouterTrafficQosMarkingPolicyId) &&
+        Objects.equals(this.transitRouterTrafficQosQueuePolicyId, transitRouterAttachmentForDescribeTransitRouterAttachmentsOutput.transitRouterTrafficQosQueuePolicyId) &&
         Objects.equals(this.updateTime, transitRouterAttachmentForDescribeTransitRouterAttachmentsOutput.updateTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, autoPublishRouteEnabled, businessStatus, creationTime, deletedTime, description, overdueTime, resourceId, resourceType, status, tags, transitRouterAttachmentId, transitRouterAttachmentName, transitRouterForwardPolicyTableId, transitRouterId, transitRouterRouteTableId, updateTime);
+    return Objects.hash(accountId, autoPublishRouteEnabled, businessStatus, creationTime, deletedTime, description, ipv6Enabled, overdueTime, resourceId, resourceType, status, tags, transitRouterAttachmentId, transitRouterAttachmentName, transitRouterForwardPolicyTableId, transitRouterId, transitRouterRouteTableId, transitRouterTrafficQosMarkingPolicyId, transitRouterTrafficQosQueuePolicyId, updateTime);
   }
 
 
@@ -445,6 +511,7 @@ public class TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput {
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    deletedTime: ").append(toIndentedString(deletedTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    ipv6Enabled: ").append(toIndentedString(ipv6Enabled)).append("\n");
     sb.append("    overdueTime: ").append(toIndentedString(overdueTime)).append("\n");
     sb.append("    resourceId: ").append(toIndentedString(resourceId)).append("\n");
     sb.append("    resourceType: ").append(toIndentedString(resourceType)).append("\n");
@@ -455,6 +522,8 @@ public class TransitRouterAttachmentForDescribeTransitRouterAttachmentsOutput {
     sb.append("    transitRouterForwardPolicyTableId: ").append(toIndentedString(transitRouterForwardPolicyTableId)).append("\n");
     sb.append("    transitRouterId: ").append(toIndentedString(transitRouterId)).append("\n");
     sb.append("    transitRouterRouteTableId: ").append(toIndentedString(transitRouterRouteTableId)).append("\n");
+    sb.append("    transitRouterTrafficQosMarkingPolicyId: ").append(toIndentedString(transitRouterTrafficQosMarkingPolicyId)).append("\n");
+    sb.append("    transitRouterTrafficQosQueuePolicyId: ").append(toIndentedString(transitRouterTrafficQosQueuePolicyId)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("}");
     return sb.toString();

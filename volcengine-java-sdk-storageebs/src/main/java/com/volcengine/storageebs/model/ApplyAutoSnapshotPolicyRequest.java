@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ApplyAutoSnapshotPolicyRequest {
   @SerializedName("AutoSnapshotPolicyId")
   private String autoSnapshotPolicyId = null;

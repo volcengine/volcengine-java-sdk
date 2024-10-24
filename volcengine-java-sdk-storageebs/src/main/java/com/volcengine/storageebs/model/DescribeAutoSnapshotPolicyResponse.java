@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeAutoSnapshotPolicyResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("AutoSnapshotPolicies")
   private List<AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput> autoSnapshotPolicies = null;

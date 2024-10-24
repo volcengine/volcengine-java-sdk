@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.storageebs.model.TagForCreateAutoSnapshotPolicyInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -28,6 +29,7 @@ import javax.validation.Valid;
 /**
  * CreateAutoSnapshotPolicyRequest
  */
+
 
 
 public class CreateAutoSnapshotPolicyRequest {
@@ -45,6 +47,9 @@ public class CreateAutoSnapshotPolicyRequest {
 
   @SerializedName("RetentionDays")
   private Integer retentionDays = null;
+
+  @SerializedName("Tags")
+  private List<TagForCreateAutoSnapshotPolicyInput> tags = null;
 
   @SerializedName("TimePoints")
   private List<String> timePoints = null;
@@ -149,6 +154,33 @@ public class CreateAutoSnapshotPolicyRequest {
     this.retentionDays = retentionDays;
   }
 
+  public CreateAutoSnapshotPolicyRequest tags(List<TagForCreateAutoSnapshotPolicyInput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public CreateAutoSnapshotPolicyRequest addTagsItem(TagForCreateAutoSnapshotPolicyInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForCreateAutoSnapshotPolicyInput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForCreateAutoSnapshotPolicyInput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForCreateAutoSnapshotPolicyInput> tags) {
+    this.tags = tags;
+  }
+
   public CreateAutoSnapshotPolicyRequest timePoints(List<String> timePoints) {
     this.timePoints = timePoints;
     return this;
@@ -190,12 +222,13 @@ public class CreateAutoSnapshotPolicyRequest {
         Objects.equals(this.repeatDays, createAutoSnapshotPolicyRequest.repeatDays) &&
         Objects.equals(this.repeatWeekdays, createAutoSnapshotPolicyRequest.repeatWeekdays) &&
         Objects.equals(this.retentionDays, createAutoSnapshotPolicyRequest.retentionDays) &&
+        Objects.equals(this.tags, createAutoSnapshotPolicyRequest.tags) &&
         Objects.equals(this.timePoints, createAutoSnapshotPolicyRequest.timePoints);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoSnapshotPolicyName, projectName, repeatDays, repeatWeekdays, retentionDays, timePoints);
+    return Objects.hash(autoSnapshotPolicyName, projectName, repeatDays, repeatWeekdays, retentionDays, tags, timePoints);
   }
 
 
@@ -209,6 +242,7 @@ public class CreateAutoSnapshotPolicyRequest {
     sb.append("    repeatDays: ").append(toIndentedString(repeatDays)).append("\n");
     sb.append("    repeatWeekdays: ").append(toIndentedString(repeatWeekdays)).append("\n");
     sb.append("    retentionDays: ").append(toIndentedString(retentionDays)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    timePoints: ").append(toIndentedString(timePoints)).append("\n");
     sb.append("}");
     return sb.toString();

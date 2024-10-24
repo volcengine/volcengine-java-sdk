@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.ecs.model.ParameterDefinitionForCreateCommandInput;
+import com.volcengine.ecs.model.TagForCreateCommandInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -47,6 +48,12 @@ public class CreateCommandRequest {
 
   @SerializedName("ParameterDefinitions")
   private List<ParameterDefinitionForCreateCommandInput> parameterDefinitions = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
+  @SerializedName("Tags")
+  private List<TagForCreateCommandInput> tags = null;
 
   @SerializedName("Timeout")
   private Integer timeout = null;
@@ -161,6 +168,51 @@ public class CreateCommandRequest {
     this.parameterDefinitions = parameterDefinitions;
   }
 
+  public CreateCommandRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
+  public CreateCommandRequest tags(List<TagForCreateCommandInput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public CreateCommandRequest addTagsItem(TagForCreateCommandInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForCreateCommandInput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForCreateCommandInput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForCreateCommandInput> tags) {
+    this.tags = tags;
+  }
+
   public CreateCommandRequest timeout(Integer timeout) {
     this.timeout = timeout;
     return this;
@@ -249,6 +301,8 @@ public class CreateCommandRequest {
         Objects.equals(this.enableParameter, createCommandRequest.enableParameter) &&
         Objects.equals(this.name, createCommandRequest.name) &&
         Objects.equals(this.parameterDefinitions, createCommandRequest.parameterDefinitions) &&
+        Objects.equals(this.projectName, createCommandRequest.projectName) &&
+        Objects.equals(this.tags, createCommandRequest.tags) &&
         Objects.equals(this.timeout, createCommandRequest.timeout) &&
         Objects.equals(this.type, createCommandRequest.type) &&
         Objects.equals(this.username, createCommandRequest.username) &&
@@ -257,7 +311,7 @@ public class CreateCommandRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(commandContent, description, enableParameter, name, parameterDefinitions, timeout, type, username, workingDir);
+    return Objects.hash(commandContent, description, enableParameter, name, parameterDefinitions, projectName, tags, timeout, type, username, workingDir);
   }
 
 
@@ -271,6 +325,8 @@ public class CreateCommandRequest {
     sb.append("    enableParameter: ").append(toIndentedString(enableParameter)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    parameterDefinitions: ").append(toIndentedString(parameterDefinitions)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");

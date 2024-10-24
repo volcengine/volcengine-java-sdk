@@ -31,12 +31,22 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateVolumeRequest {
   @SerializedName("ClientToken")
   private String clientToken = null;
 
   @SerializedName("Description")
   private String description = null;
+
+  @SerializedName("ExtraPerformanceIOPS")
+  private Integer extraPerformanceIOPS = null;
+
+  @SerializedName("ExtraPerformanceThroughputMB")
+  private Integer extraPerformanceThroughputMB = null;
+
+  @SerializedName("ExtraPerformanceTypeId")
+  private String extraPerformanceTypeId = null;
 
   @SerializedName("InstanceId")
   private String instanceId = null;
@@ -102,6 +112,60 @@ public class CreateVolumeRequest {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public CreateVolumeRequest extraPerformanceIOPS(Integer extraPerformanceIOPS) {
+    this.extraPerformanceIOPS = extraPerformanceIOPS;
+    return this;
+  }
+
+   /**
+   * Get extraPerformanceIOPS
+   * @return extraPerformanceIOPS
+  **/
+  @Schema(description = "")
+  public Integer getExtraPerformanceIOPS() {
+    return extraPerformanceIOPS;
+  }
+
+  public void setExtraPerformanceIOPS(Integer extraPerformanceIOPS) {
+    this.extraPerformanceIOPS = extraPerformanceIOPS;
+  }
+
+  public CreateVolumeRequest extraPerformanceThroughputMB(Integer extraPerformanceThroughputMB) {
+    this.extraPerformanceThroughputMB = extraPerformanceThroughputMB;
+    return this;
+  }
+
+   /**
+   * Get extraPerformanceThroughputMB
+   * @return extraPerformanceThroughputMB
+  **/
+  @Schema(description = "")
+  public Integer getExtraPerformanceThroughputMB() {
+    return extraPerformanceThroughputMB;
+  }
+
+  public void setExtraPerformanceThroughputMB(Integer extraPerformanceThroughputMB) {
+    this.extraPerformanceThroughputMB = extraPerformanceThroughputMB;
+  }
+
+  public CreateVolumeRequest extraPerformanceTypeId(String extraPerformanceTypeId) {
+    this.extraPerformanceTypeId = extraPerformanceTypeId;
+    return this;
+  }
+
+   /**
+   * Get extraPerformanceTypeId
+   * @return extraPerformanceTypeId
+  **/
+  @Schema(description = "")
+  public String getExtraPerformanceTypeId() {
+    return extraPerformanceTypeId;
+  }
+
+  public void setExtraPerformanceTypeId(String extraPerformanceTypeId) {
+    this.extraPerformanceTypeId = extraPerformanceTypeId;
   }
 
   public CreateVolumeRequest instanceId(String instanceId) {
@@ -308,6 +372,9 @@ public class CreateVolumeRequest {
     CreateVolumeRequest createVolumeRequest = (CreateVolumeRequest) o;
     return Objects.equals(this.clientToken, createVolumeRequest.clientToken) &&
         Objects.equals(this.description, createVolumeRequest.description) &&
+        Objects.equals(this.extraPerformanceIOPS, createVolumeRequest.extraPerformanceIOPS) &&
+        Objects.equals(this.extraPerformanceThroughputMB, createVolumeRequest.extraPerformanceThroughputMB) &&
+        Objects.equals(this.extraPerformanceTypeId, createVolumeRequest.extraPerformanceTypeId) &&
         Objects.equals(this.instanceId, createVolumeRequest.instanceId) &&
         Objects.equals(this.kind, createVolumeRequest.kind) &&
         Objects.equals(this.projectName, createVolumeRequest.projectName) &&
@@ -322,7 +389,7 @@ public class CreateVolumeRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, description, instanceId, kind, projectName, size, snapshotId, tags, volumeChargeType, volumeName, volumeType, zoneId);
+    return Objects.hash(clientToken, description, extraPerformanceIOPS, extraPerformanceThroughputMB, extraPerformanceTypeId, instanceId, kind, projectName, size, snapshotId, tags, volumeChargeType, volumeName, volumeType, zoneId);
   }
 
 
@@ -333,6 +400,9 @@ public class CreateVolumeRequest {
     
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    extraPerformanceIOPS: ").append(toIndentedString(extraPerformanceIOPS)).append("\n");
+    sb.append("    extraPerformanceThroughputMB: ").append(toIndentedString(extraPerformanceThroughputMB)).append("\n");
+    sb.append("    extraPerformanceTypeId: ").append(toIndentedString(extraPerformanceTypeId)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    kind: ").append(toIndentedString(kind)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
