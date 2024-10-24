@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DeleteSnapshotGroupRequest {
   @SerializedName("SnapshotGroupId")
   private String snapshotGroupId = null;

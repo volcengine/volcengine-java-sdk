@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateSnapshotGroupResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("SnapshotGroupId")
   private String snapshotGroupId = null;

@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class VolumeForDescribeVolumesOutput {
   @SerializedName("AutoSnapshotPolicyId")
   private String autoSnapshotPolicyId = null;
@@ -58,6 +59,15 @@ public class VolumeForDescribeVolumesOutput {
 
   @SerializedName("ExpiredTime")
   private String expiredTime = null;
+
+  @SerializedName("ExtraPerformanceIOPS")
+  private Integer extraPerformanceIOPS = null;
+
+  @SerializedName("ExtraPerformanceThroughputMB")
+  private Integer extraPerformanceThroughputMB = null;
+
+  @SerializedName("ExtraPerformanceTypeId")
+  private String extraPerformanceTypeId = null;
 
   @SerializedName("ImageId")
   private String imageId = null;
@@ -276,6 +286,60 @@ public class VolumeForDescribeVolumesOutput {
 
   public void setExpiredTime(String expiredTime) {
     this.expiredTime = expiredTime;
+  }
+
+  public VolumeForDescribeVolumesOutput extraPerformanceIOPS(Integer extraPerformanceIOPS) {
+    this.extraPerformanceIOPS = extraPerformanceIOPS;
+    return this;
+  }
+
+   /**
+   * Get extraPerformanceIOPS
+   * @return extraPerformanceIOPS
+  **/
+  @Schema(description = "")
+  public Integer getExtraPerformanceIOPS() {
+    return extraPerformanceIOPS;
+  }
+
+  public void setExtraPerformanceIOPS(Integer extraPerformanceIOPS) {
+    this.extraPerformanceIOPS = extraPerformanceIOPS;
+  }
+
+  public VolumeForDescribeVolumesOutput extraPerformanceThroughputMB(Integer extraPerformanceThroughputMB) {
+    this.extraPerformanceThroughputMB = extraPerformanceThroughputMB;
+    return this;
+  }
+
+   /**
+   * Get extraPerformanceThroughputMB
+   * @return extraPerformanceThroughputMB
+  **/
+  @Schema(description = "")
+  public Integer getExtraPerformanceThroughputMB() {
+    return extraPerformanceThroughputMB;
+  }
+
+  public void setExtraPerformanceThroughputMB(Integer extraPerformanceThroughputMB) {
+    this.extraPerformanceThroughputMB = extraPerformanceThroughputMB;
+  }
+
+  public VolumeForDescribeVolumesOutput extraPerformanceTypeId(String extraPerformanceTypeId) {
+    this.extraPerformanceTypeId = extraPerformanceTypeId;
+    return this;
+  }
+
+   /**
+   * Get extraPerformanceTypeId
+   * @return extraPerformanceTypeId
+  **/
+  @Schema(description = "")
+  public String getExtraPerformanceTypeId() {
+    return extraPerformanceTypeId;
+  }
+
+  public void setExtraPerformanceTypeId(String extraPerformanceTypeId) {
+    this.extraPerformanceTypeId = extraPerformanceTypeId;
   }
 
   public VolumeForDescribeVolumesOutput imageId(String imageId) {
@@ -648,6 +712,9 @@ public class VolumeForDescribeVolumesOutput {
         Objects.equals(this.deviceName, volumeForDescribeVolumesOutput.deviceName) &&
         Objects.equals(this.errorDetail, volumeForDescribeVolumesOutput.errorDetail) &&
         Objects.equals(this.expiredTime, volumeForDescribeVolumesOutput.expiredTime) &&
+        Objects.equals(this.extraPerformanceIOPS, volumeForDescribeVolumesOutput.extraPerformanceIOPS) &&
+        Objects.equals(this.extraPerformanceThroughputMB, volumeForDescribeVolumesOutput.extraPerformanceThroughputMB) &&
+        Objects.equals(this.extraPerformanceTypeId, volumeForDescribeVolumesOutput.extraPerformanceTypeId) &&
         Objects.equals(this.imageId, volumeForDescribeVolumesOutput.imageId) &&
         Objects.equals(this.instanceId, volumeForDescribeVolumesOutput.instanceId) &&
         Objects.equals(this.kind, volumeForDescribeVolumesOutput.kind) &&
@@ -671,7 +738,7 @@ public class VolumeForDescribeVolumesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoSnapshotPolicyId, autoSnapshotPolicyName, billingType, createdAt, deleteWithInstance, description, deviceName, errorDetail, expiredTime, imageId, instanceId, kind, overdueReclaimTime, overdueTime, payType, projectName, renewType, size, snapshotCount, sourceSnapshotId, status, tags, tradeStatus, updatedAt, volumeId, volumeName, volumeType, zoneId);
+    return Objects.hash(autoSnapshotPolicyId, autoSnapshotPolicyName, billingType, createdAt, deleteWithInstance, description, deviceName, errorDetail, expiredTime, extraPerformanceIOPS, extraPerformanceThroughputMB, extraPerformanceTypeId, imageId, instanceId, kind, overdueReclaimTime, overdueTime, payType, projectName, renewType, size, snapshotCount, sourceSnapshotId, status, tags, tradeStatus, updatedAt, volumeId, volumeName, volumeType, zoneId);
   }
 
 
@@ -689,6 +756,9 @@ public class VolumeForDescribeVolumesOutput {
     sb.append("    deviceName: ").append(toIndentedString(deviceName)).append("\n");
     sb.append("    errorDetail: ").append(toIndentedString(errorDetail)).append("\n");
     sb.append("    expiredTime: ").append(toIndentedString(expiredTime)).append("\n");
+    sb.append("    extraPerformanceIOPS: ").append(toIndentedString(extraPerformanceIOPS)).append("\n");
+    sb.append("    extraPerformanceThroughputMB: ").append(toIndentedString(extraPerformanceThroughputMB)).append("\n");
+    sb.append("    extraPerformanceTypeId: ").append(toIndentedString(extraPerformanceTypeId)).append("\n");
     sb.append("    imageId: ").append(toIndentedString(imageId)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    kind: ").append(toIndentedString(kind)).append("\n");

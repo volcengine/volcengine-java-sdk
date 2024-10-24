@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateVolumeResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("VolumeId")
   private String volumeId = null;

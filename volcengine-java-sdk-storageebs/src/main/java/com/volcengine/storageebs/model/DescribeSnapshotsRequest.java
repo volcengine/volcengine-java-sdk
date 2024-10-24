@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeSnapshotsRequest {
   @SerializedName("Filter")
   private List<FilterForDescribeSnapshotsInput> filter = null;

@@ -28,9 +28,13 @@ import javax.validation.Valid;
  */
 
 
+
 public class ModifySnapshotAttributeRequest {
   @SerializedName("Description")
   private String description = null;
+
+  @SerializedName("RetentionDays")
+  private Integer retentionDays = null;
 
   @SerializedName("SnapshotId")
   private String snapshotId = null;
@@ -54,6 +58,26 @@ public class ModifySnapshotAttributeRequest {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public ModifySnapshotAttributeRequest retentionDays(Integer retentionDays) {
+    this.retentionDays = retentionDays;
+    return this;
+  }
+
+   /**
+   * Get retentionDays
+   * minimum: 1
+   * maximum: 65536
+   * @return retentionDays
+  **/
+ @Min(1) @Max(65536)  @Schema(description = "")
+  public Integer getRetentionDays() {
+    return retentionDays;
+  }
+
+  public void setRetentionDays(Integer retentionDays) {
+    this.retentionDays = retentionDays;
   }
 
   public ModifySnapshotAttributeRequest snapshotId(String snapshotId) {
@@ -104,13 +128,14 @@ public class ModifySnapshotAttributeRequest {
     }
     ModifySnapshotAttributeRequest modifySnapshotAttributeRequest = (ModifySnapshotAttributeRequest) o;
     return Objects.equals(this.description, modifySnapshotAttributeRequest.description) &&
+        Objects.equals(this.retentionDays, modifySnapshotAttributeRequest.retentionDays) &&
         Objects.equals(this.snapshotId, modifySnapshotAttributeRequest.snapshotId) &&
         Objects.equals(this.snapshotName, modifySnapshotAttributeRequest.snapshotName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, snapshotId, snapshotName);
+    return Objects.hash(description, retentionDays, snapshotId, snapshotName);
   }
 
 
@@ -120,6 +145,7 @@ public class ModifySnapshotAttributeRequest {
     sb.append("class ModifySnapshotAttributeRequest {\n");
     
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    retentionDays: ").append(toIndentedString(retentionDays)).append("\n");
     sb.append("    snapshotId: ").append(toIndentedString(snapshotId)).append("\n");
     sb.append("    snapshotName: ").append(toIndentedString(snapshotName)).append("\n");
     sb.append("}");
