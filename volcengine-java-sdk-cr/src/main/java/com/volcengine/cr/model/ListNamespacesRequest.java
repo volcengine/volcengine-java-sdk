@@ -29,6 +29,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ListNamespacesRequest {
   @SerializedName("Filter")
   private FilterForListNamespacesInput filter = null;
@@ -86,9 +87,11 @@ public class ListNamespacesRequest {
 
    /**
    * Get pageSize
+   * minimum: 1
+   * maximum: 100
    * @return pageSize
   **/
-  @Schema(description = "")
+ @Min(1) @Max(100)  @Schema(description = "")
   public Long getPageSize() {
     return pageSize;
   }
@@ -107,7 +110,7 @@ public class ListNamespacesRequest {
    * @return registry
   **/
   @NotNull
-  @Schema(required = true, description = "")
+ @Size(min=3,max=30)  @Schema(required = true, description = "")
   public String getRegistry() {
     return registry;
   }

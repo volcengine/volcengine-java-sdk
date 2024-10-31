@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ListDomainsRequest {
   @SerializedName("PageNumber")
   private Long pageNumber = null;
@@ -63,9 +64,11 @@ public class ListDomainsRequest {
 
    /**
    * Get pageSize
+   * minimum: 1
+   * maximum: 100
    * @return pageSize
   **/
-  @Schema(description = "")
+ @Min(1) @Max(100)  @Schema(description = "")
   public Long getPageSize() {
     return pageSize;
   }
@@ -84,7 +87,7 @@ public class ListDomainsRequest {
    * @return registry
   **/
   @NotNull
-  @Schema(required = true, description = "")
+ @Size(min=3,max=30)  @Schema(required = true, description = "")
   public String getRegistry() {
     return registry;
   }

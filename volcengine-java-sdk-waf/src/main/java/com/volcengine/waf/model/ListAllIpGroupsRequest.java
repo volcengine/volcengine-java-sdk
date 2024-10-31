@@ -39,6 +39,9 @@ public class ListAllIpGroupsRequest {
   @SerializedName("PageSize")
   private Integer pageSize = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("RuleTag")
   private String ruleTag = null;
 
@@ -142,6 +145,24 @@ public class ListAllIpGroupsRequest {
     this.pageSize = pageSize;
   }
 
+  public ListAllIpGroupsRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public ListAllIpGroupsRequest ruleTag(String ruleTag) {
     this.ruleTag = ruleTag;
     return this;
@@ -192,13 +213,14 @@ public class ListAllIpGroupsRequest {
     return Objects.equals(this.ip, listAllIpGroupsRequest.ip) &&
         Objects.equals(this.page, listAllIpGroupsRequest.page) &&
         Objects.equals(this.pageSize, listAllIpGroupsRequest.pageSize) &&
+        Objects.equals(this.projectName, listAllIpGroupsRequest.projectName) &&
         Objects.equals(this.ruleTag, listAllIpGroupsRequest.ruleTag) &&
         Objects.equals(this.timeOrderBy, listAllIpGroupsRequest.timeOrderBy);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ip, page, pageSize, ruleTag, timeOrderBy);
+    return Objects.hash(ip, page, pageSize, projectName, ruleTag, timeOrderBy);
   }
 
 
@@ -210,6 +232,7 @@ public class ListAllIpGroupsRequest {
     sb.append("    ip: ").append(toIndentedString(ip)).append("\n");
     sb.append("    page: ").append(toIndentedString(page)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    ruleTag: ").append(toIndentedString(ruleTag)).append("\n");
     sb.append("    timeOrderBy: ").append(toIndentedString(timeOrderBy)).append("\n");
     sb.append("}");

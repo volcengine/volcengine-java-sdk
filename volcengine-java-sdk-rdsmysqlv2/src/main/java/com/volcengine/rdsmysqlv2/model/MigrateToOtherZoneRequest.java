@@ -39,8 +39,53 @@ public class MigrateToOtherZoneRequest {
   @SerializedName("NodeInfo")
   private List<NodeInfoForMigrateToOtherZoneInput> nodeInfo = null;
 
-  @SerializedName("SwitchType")
-  private String switchType = null;
+  /**
+   * Gets or Sets switchType
+   */
+  @JsonAdapter(SwitchTypeEnum.Adapter.class)
+  public enum SwitchTypeEnum {
+    @SerializedName("Immediate")
+    IMMEDIATE("Immediate"),
+    @SerializedName("MaintainTime")
+    MAINTAINTIME("MaintainTime"),
+    @SerializedName("SpecifiedTime")
+    SPECIFIEDTIME("SpecifiedTime");
+
+    private String value;
+
+    SwitchTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static SwitchTypeEnum fromValue(String input) {
+      for (SwitchTypeEnum b : SwitchTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<SwitchTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final SwitchTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public SwitchTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return SwitchTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("SwitchType")
+  private SwitchTypeEnum switchType = null;
 
   public MigrateToOtherZoneRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
@@ -88,7 +133,7 @@ public class MigrateToOtherZoneRequest {
     this.nodeInfo = nodeInfo;
   }
 
-  public MigrateToOtherZoneRequest switchType(String switchType) {
+  public MigrateToOtherZoneRequest switchType(SwitchTypeEnum switchType) {
     this.switchType = switchType;
     return this;
   }
@@ -98,11 +143,11 @@ public class MigrateToOtherZoneRequest {
    * @return switchType
   **/
   @Schema(description = "")
-  public String getSwitchType() {
+  public SwitchTypeEnum getSwitchType() {
     return switchType;
   }
 
-  public void setSwitchType(String switchType) {
+  public void setSwitchType(SwitchTypeEnum switchType) {
     this.switchType = switchType;
   }
 

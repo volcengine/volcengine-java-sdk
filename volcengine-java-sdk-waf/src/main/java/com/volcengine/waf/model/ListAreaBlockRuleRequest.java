@@ -33,6 +33,9 @@ public class ListAreaBlockRuleRequest {
   @SerializedName("Host")
   private String host = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   public ListAreaBlockRuleRequest host(String host) {
     this.host = host;
     return this;
@@ -52,6 +55,24 @@ public class ListAreaBlockRuleRequest {
     this.host = host;
   }
 
+  public ListAreaBlockRuleRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -62,12 +83,13 @@ public class ListAreaBlockRuleRequest {
       return false;
     }
     ListAreaBlockRuleRequest listAreaBlockRuleRequest = (ListAreaBlockRuleRequest) o;
-    return Objects.equals(this.host, listAreaBlockRuleRequest.host);
+    return Objects.equals(this.host, listAreaBlockRuleRequest.host) &&
+        Objects.equals(this.projectName, listAreaBlockRuleRequest.projectName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(host);
+    return Objects.hash(host, projectName);
   }
 
 
@@ -77,6 +99,7 @@ public class ListAreaBlockRuleRequest {
     sb.append("class ListAreaBlockRuleRequest {\n");
     
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -39,14 +39,8 @@ public class DescribeIpAddressPoolsResponse extends com.volcengine.model.Abstrac
   @SerializedName("NextToken")
   private String nextToken = null;
 
-  @SerializedName("PageNumber")
-  private Integer pageNumber = null;
-
   @SerializedName("RequestId")
   private String requestId = null;
-
-  @SerializedName("TotalCount")
-  private Integer totalCount = null;
 
   public DescribeIpAddressPoolsResponse ipAddressPools(List<IpAddressPoolForDescribeIpAddressPoolsOutput> ipAddressPools) {
     this.ipAddressPools = ipAddressPools;
@@ -93,24 +87,6 @@ public class DescribeIpAddressPoolsResponse extends com.volcengine.model.Abstrac
     this.nextToken = nextToken;
   }
 
-  public DescribeIpAddressPoolsResponse pageNumber(Integer pageNumber) {
-    this.pageNumber = pageNumber;
-    return this;
-  }
-
-   /**
-   * Get pageNumber
-   * @return pageNumber
-  **/
-  @Schema(description = "")
-  public Integer getPageNumber() {
-    return pageNumber;
-  }
-
-  public void setPageNumber(Integer pageNumber) {
-    this.pageNumber = pageNumber;
-  }
-
   public DescribeIpAddressPoolsResponse requestId(String requestId) {
     this.requestId = requestId;
     return this;
@@ -129,24 +105,6 @@ public class DescribeIpAddressPoolsResponse extends com.volcengine.model.Abstrac
     this.requestId = requestId;
   }
 
-  public DescribeIpAddressPoolsResponse totalCount(Integer totalCount) {
-    this.totalCount = totalCount;
-    return this;
-  }
-
-   /**
-   * Get totalCount
-   * @return totalCount
-  **/
-  @Schema(description = "")
-  public Integer getTotalCount() {
-    return totalCount;
-  }
-
-  public void setTotalCount(Integer totalCount) {
-    this.totalCount = totalCount;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -159,14 +117,12 @@ public class DescribeIpAddressPoolsResponse extends com.volcengine.model.Abstrac
     DescribeIpAddressPoolsResponse describeIpAddressPoolsResponse = (DescribeIpAddressPoolsResponse) o;
     return Objects.equals(this.ipAddressPools, describeIpAddressPoolsResponse.ipAddressPools) &&
         Objects.equals(this.nextToken, describeIpAddressPoolsResponse.nextToken) &&
-        Objects.equals(this.pageNumber, describeIpAddressPoolsResponse.pageNumber) &&
-        Objects.equals(this.requestId, describeIpAddressPoolsResponse.requestId) &&
-        Objects.equals(this.totalCount, describeIpAddressPoolsResponse.totalCount);
+        Objects.equals(this.requestId, describeIpAddressPoolsResponse.requestId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ipAddressPools, nextToken, pageNumber, requestId, totalCount);
+    return Objects.hash(ipAddressPools, nextToken, requestId);
   }
 
 
@@ -177,9 +133,7 @@ public class DescribeIpAddressPoolsResponse extends com.volcengine.model.Abstrac
     
     sb.append("    ipAddressPools: ").append(toIndentedString(ipAddressPools)).append("\n");
     sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
-    sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
-    sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("}");
     return sb.toString();
   }

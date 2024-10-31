@@ -67,6 +67,9 @@ public class CreateCustomPageRequest {
   @SerializedName("Policy")
   private Integer policy = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("RedirectUrl")
   private String redirectUrl = null;
 
@@ -297,6 +300,24 @@ public class CreateCustomPageRequest {
     this.policy = policy;
   }
 
+  public CreateCustomPageRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public CreateCustomPageRequest redirectUrl(String redirectUrl) {
     this.redirectUrl = redirectUrl;
     return this;
@@ -356,13 +377,14 @@ public class CreateCustomPageRequest {
         Objects.equals(this.name, createCustomPageRequest.name) &&
         Objects.equals(this.pageMode, createCustomPageRequest.pageMode) &&
         Objects.equals(this.policy, createCustomPageRequest.policy) &&
+        Objects.equals(this.projectName, createCustomPageRequest.projectName) &&
         Objects.equals(this.redirectUrl, createCustomPageRequest.redirectUrl) &&
         Objects.equals(this.url, createCustomPageRequest.url);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accurate, advanced, body, clientIp, code, contentType, description, enable, host, name, pageMode, policy, redirectUrl, url);
+    return Objects.hash(accurate, advanced, body, clientIp, code, contentType, description, enable, host, name, pageMode, policy, projectName, redirectUrl, url);
   }
 
 
@@ -383,6 +405,7 @@ public class CreateCustomPageRequest {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    pageMode: ").append(toIndentedString(pageMode)).append("\n");
     sb.append("    policy: ").append(toIndentedString(policy)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    redirectUrl: ").append(toIndentedString(redirectUrl)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("}");

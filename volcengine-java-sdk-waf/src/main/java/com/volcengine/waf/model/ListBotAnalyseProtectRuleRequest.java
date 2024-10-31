@@ -48,6 +48,9 @@ public class ListBotAnalyseProtectRuleRequest {
   @SerializedName("Path")
   private String path = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("Region")
   private String region = null;
 
@@ -164,6 +167,24 @@ public class ListBotAnalyseProtectRuleRequest {
     this.path = path;
   }
 
+  public ListBotAnalyseProtectRuleRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public ListBotAnalyseProtectRuleRequest region(String region) {
     this.region = region;
     return this;
@@ -217,13 +238,14 @@ public class ListBotAnalyseProtectRuleRequest {
         Objects.equals(this.page, listBotAnalyseProtectRuleRequest.page) &&
         Objects.equals(this.pageSize, listBotAnalyseProtectRuleRequest.pageSize) &&
         Objects.equals(this.path, listBotAnalyseProtectRuleRequest.path) &&
+        Objects.equals(this.projectName, listBotAnalyseProtectRuleRequest.projectName) &&
         Objects.equals(this.region, listBotAnalyseProtectRuleRequest.region) &&
         Objects.equals(this.ruleTag, listBotAnalyseProtectRuleRequest.ruleTag);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(botSpace, host, name, page, pageSize, path, region, ruleTag);
+    return Objects.hash(botSpace, host, name, page, pageSize, path, projectName, region, ruleTag);
   }
 
 
@@ -238,6 +260,7 @@ public class ListBotAnalyseProtectRuleRequest {
     sb.append("    page: ").append(toIndentedString(page)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    ruleTag: ").append(toIndentedString(ruleTag)).append("\n");
     sb.append("}");

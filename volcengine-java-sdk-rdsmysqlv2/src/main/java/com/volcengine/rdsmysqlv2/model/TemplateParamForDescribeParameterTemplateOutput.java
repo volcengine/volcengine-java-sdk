@@ -36,6 +36,12 @@ public class TemplateParamForDescribeParameterTemplateOutput {
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("ExpectValue")
+  private String expectValue = null;
+
+  @SerializedName("Expression")
+  private String expression = null;
+
   @SerializedName("Name")
   private String name = null;
 
@@ -82,6 +88,42 @@ public class TemplateParamForDescribeParameterTemplateOutput {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public TemplateParamForDescribeParameterTemplateOutput expectValue(String expectValue) {
+    this.expectValue = expectValue;
+    return this;
+  }
+
+   /**
+   * Get expectValue
+   * @return expectValue
+  **/
+  @Schema(description = "")
+  public String getExpectValue() {
+    return expectValue;
+  }
+
+  public void setExpectValue(String expectValue) {
+    this.expectValue = expectValue;
+  }
+
+  public TemplateParamForDescribeParameterTemplateOutput expression(String expression) {
+    this.expression = expression;
+    return this;
+  }
+
+   /**
+   * Get expression
+   * @return expression
+  **/
+  @Schema(description = "")
+  public String getExpression() {
+    return expression;
+  }
+
+  public void setExpression(String expression) {
+    this.expression = expression;
   }
 
   public TemplateParamForDescribeParameterTemplateOutput name(String name) {
@@ -168,6 +210,8 @@ public class TemplateParamForDescribeParameterTemplateOutput {
     TemplateParamForDescribeParameterTemplateOutput templateParamForDescribeParameterTemplateOutput = (TemplateParamForDescribeParameterTemplateOutput) o;
     return Objects.equals(this.defaultValue, templateParamForDescribeParameterTemplateOutput.defaultValue) &&
         Objects.equals(this.description, templateParamForDescribeParameterTemplateOutput.description) &&
+        Objects.equals(this.expectValue, templateParamForDescribeParameterTemplateOutput.expectValue) &&
+        Objects.equals(this.expression, templateParamForDescribeParameterTemplateOutput.expression) &&
         Objects.equals(this.name, templateParamForDescribeParameterTemplateOutput.name) &&
         Objects.equals(this.restart, templateParamForDescribeParameterTemplateOutput.restart) &&
         Objects.equals(this.runningValue, templateParamForDescribeParameterTemplateOutput.runningValue) &&
@@ -176,7 +220,7 @@ public class TemplateParamForDescribeParameterTemplateOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(defaultValue, description, name, restart, runningValue, valueRange);
+    return Objects.hash(defaultValue, description, expectValue, expression, name, restart, runningValue, valueRange);
   }
 
 
@@ -187,6 +231,8 @@ public class TemplateParamForDescribeParameterTemplateOutput {
     
     sb.append("    defaultValue: ").append(toIndentedString(defaultValue)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    expectValue: ").append(toIndentedString(expectValue)).append("\n");
+    sb.append("    expression: ").append(toIndentedString(expression)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    restart: ").append(toIndentedString(restart)).append("\n");
     sb.append("    runningValue: ").append(toIndentedString(runningValue)).append("\n");

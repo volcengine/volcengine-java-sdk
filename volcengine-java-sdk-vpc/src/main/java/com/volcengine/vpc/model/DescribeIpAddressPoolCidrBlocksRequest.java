@@ -42,12 +42,6 @@ public class DescribeIpAddressPoolCidrBlocksRequest {
   @SerializedName("NextToken")
   private String nextToken = null;
 
-  @SerializedName("PageNumber")
-  private Integer pageNumber = null;
-
-  @SerializedName("PageSize")
-  private Integer pageSize = null;
-
   public DescribeIpAddressPoolCidrBlocksRequest cidrBlock(String cidrBlock) {
     this.cidrBlock = cidrBlock;
     return this;
@@ -121,43 +115,6 @@ public class DescribeIpAddressPoolCidrBlocksRequest {
     this.nextToken = nextToken;
   }
 
-  public DescribeIpAddressPoolCidrBlocksRequest pageNumber(Integer pageNumber) {
-    this.pageNumber = pageNumber;
-    return this;
-  }
-
-   /**
-   * Get pageNumber
-   * @return pageNumber
-  **/
-  @Schema(description = "")
-  public Integer getPageNumber() {
-    return pageNumber;
-  }
-
-  public void setPageNumber(Integer pageNumber) {
-    this.pageNumber = pageNumber;
-  }
-
-  public DescribeIpAddressPoolCidrBlocksRequest pageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-    return this;
-  }
-
-   /**
-   * Get pageSize
-   * maximum: 100
-   * @return pageSize
-  **/
- @Max(100)  @Schema(description = "")
-  public Integer getPageSize() {
-    return pageSize;
-  }
-
-  public void setPageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -171,14 +128,12 @@ public class DescribeIpAddressPoolCidrBlocksRequest {
     return Objects.equals(this.cidrBlock, describeIpAddressPoolCidrBlocksRequest.cidrBlock) &&
         Objects.equals(this.ipAddressPoolId, describeIpAddressPoolCidrBlocksRequest.ipAddressPoolId) &&
         Objects.equals(this.maxResults, describeIpAddressPoolCidrBlocksRequest.maxResults) &&
-        Objects.equals(this.nextToken, describeIpAddressPoolCidrBlocksRequest.nextToken) &&
-        Objects.equals(this.pageNumber, describeIpAddressPoolCidrBlocksRequest.pageNumber) &&
-        Objects.equals(this.pageSize, describeIpAddressPoolCidrBlocksRequest.pageSize);
+        Objects.equals(this.nextToken, describeIpAddressPoolCidrBlocksRequest.nextToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cidrBlock, ipAddressPoolId, maxResults, nextToken, pageNumber, pageSize);
+    return Objects.hash(cidrBlock, ipAddressPoolId, maxResults, nextToken);
   }
 
 
@@ -191,8 +146,6 @@ public class DescribeIpAddressPoolCidrBlocksRequest {
     sb.append("    ipAddressPoolId: ").append(toIndentedString(ipAddressPoolId)).append("\n");
     sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
     sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
-    sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
-    sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("}");
     return sb.toString();
   }

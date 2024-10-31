@@ -36,6 +36,9 @@ public class DescribeAllowListDetailResponse extends com.volcengine.model.Abstra
   @SerializedName("AllowList")
   private String allowList = null;
 
+  @SerializedName("AllowListCategory")
+  private String allowListCategory = null;
+
   @SerializedName("AllowListDesc")
   private String allowListDesc = null;
 
@@ -67,6 +70,24 @@ public class DescribeAllowListDetailResponse extends com.volcengine.model.Abstra
 
   public void setAllowList(String allowList) {
     this.allowList = allowList;
+  }
+
+  public DescribeAllowListDetailResponse allowListCategory(String allowListCategory) {
+    this.allowListCategory = allowListCategory;
+    return this;
+  }
+
+   /**
+   * Get allowListCategory
+   * @return allowListCategory
+  **/
+  @Schema(description = "")
+  public String getAllowListCategory() {
+    return allowListCategory;
+  }
+
+  public void setAllowListCategory(String allowListCategory) {
+    this.allowListCategory = allowListCategory;
   }
 
   public DescribeAllowListDetailResponse allowListDesc(String allowListDesc) {
@@ -179,6 +200,7 @@ public class DescribeAllowListDetailResponse extends com.volcengine.model.Abstra
     }
     DescribeAllowListDetailResponse describeAllowListDetailResponse = (DescribeAllowListDetailResponse) o;
     return Objects.equals(this.allowList, describeAllowListDetailResponse.allowList) &&
+        Objects.equals(this.allowListCategory, describeAllowListDetailResponse.allowListCategory) &&
         Objects.equals(this.allowListDesc, describeAllowListDetailResponse.allowListDesc) &&
         Objects.equals(this.allowListId, describeAllowListDetailResponse.allowListId) &&
         Objects.equals(this.allowListName, describeAllowListDetailResponse.allowListName) &&
@@ -188,7 +210,7 @@ public class DescribeAllowListDetailResponse extends com.volcengine.model.Abstra
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowList, allowListDesc, allowListId, allowListName, allowListType, associatedInstances);
+    return Objects.hash(allowList, allowListCategory, allowListDesc, allowListId, allowListName, allowListType, associatedInstances);
   }
 
 
@@ -198,6 +220,7 @@ public class DescribeAllowListDetailResponse extends com.volcengine.model.Abstra
     sb.append("class DescribeAllowListDetailResponse {\n");
     
     sb.append("    allowList: ").append(toIndentedString(allowList)).append("\n");
+    sb.append("    allowListCategory: ").append(toIndentedString(allowListCategory)).append("\n");
     sb.append("    allowListDesc: ").append(toIndentedString(allowListDesc)).append("\n");
     sb.append("    allowListId: ").append(toIndentedString(allowListId)).append("\n");
     sb.append("    allowListName: ").append(toIndentedString(allowListName)).append("\n");

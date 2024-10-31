@@ -60,6 +60,9 @@ public class CreateAllowRuleRequest {
   @SerializedName("Name")
   private String name = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("Url")
   private String url = null;
 
@@ -236,6 +239,24 @@ public class CreateAllowRuleRequest {
     this.name = name;
   }
 
+  public CreateAllowRuleRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public CreateAllowRuleRequest url(String url) {
     this.url = url;
     return this;
@@ -274,12 +295,13 @@ public class CreateAllowRuleRequest {
         Objects.equals(this.ipAddType, createAllowRuleRequest.ipAddType) &&
         Objects.equals(this.ipGroupId, createAllowRuleRequest.ipGroupId) &&
         Objects.equals(this.name, createAllowRuleRequest.name) &&
+        Objects.equals(this.projectName, createAllowRuleRequest.projectName) &&
         Objects.equals(this.url, createAllowRuleRequest.url);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accurate, advanced, clientIp, description, enable, host, ipAddType, ipGroupId, name, url);
+    return Objects.hash(accurate, advanced, clientIp, description, enable, host, ipAddType, ipGroupId, name, projectName, url);
   }
 
 
@@ -297,6 +319,7 @@ public class CreateAllowRuleRequest {
     sb.append("    ipAddType: ").append(toIndentedString(ipAddType)).append("\n");
     sb.append("    ipGroupId: ").append(toIndentedString(ipGroupId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("}");
     return sb.toString();

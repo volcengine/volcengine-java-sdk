@@ -19,13 +19,17 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.cr.model.ResourceTagForCreateRegistryInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
  * CreateRegistryRequest
  */
+
 
 
 public class CreateRegistryRequest {
@@ -34,6 +38,15 @@ public class CreateRegistryRequest {
 
   @SerializedName("Name")
   private String name = null;
+
+  @SerializedName("Project")
+  private String project = null;
+
+  @SerializedName("ResourceTags")
+  private List<ResourceTagForCreateRegistryInput> resourceTags = null;
+
+  @SerializedName("Type")
+  private String type = null;
 
   public CreateRegistryRequest clientToken(String clientToken) {
     this.clientToken = clientToken;
@@ -72,6 +85,69 @@ public class CreateRegistryRequest {
     this.name = name;
   }
 
+  public CreateRegistryRequest project(String project) {
+    this.project = project;
+    return this;
+  }
+
+   /**
+   * Get project
+   * @return project
+  **/
+  @Schema(description = "")
+  public String getProject() {
+    return project;
+  }
+
+  public void setProject(String project) {
+    this.project = project;
+  }
+
+  public CreateRegistryRequest resourceTags(List<ResourceTagForCreateRegistryInput> resourceTags) {
+    this.resourceTags = resourceTags;
+    return this;
+  }
+
+  public CreateRegistryRequest addResourceTagsItem(ResourceTagForCreateRegistryInput resourceTagsItem) {
+    if (this.resourceTags == null) {
+      this.resourceTags = new ArrayList<ResourceTagForCreateRegistryInput>();
+    }
+    this.resourceTags.add(resourceTagsItem);
+    return this;
+  }
+
+   /**
+   * Get resourceTags
+   * @return resourceTags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<ResourceTagForCreateRegistryInput> getResourceTags() {
+    return resourceTags;
+  }
+
+  public void setResourceTags(List<ResourceTagForCreateRegistryInput> resourceTags) {
+    this.resourceTags = resourceTags;
+  }
+
+  public CreateRegistryRequest type(String type) {
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @Schema(description = "")
+  public String getType() {
+    return type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -83,12 +159,15 @@ public class CreateRegistryRequest {
     }
     CreateRegistryRequest createRegistryRequest = (CreateRegistryRequest) o;
     return Objects.equals(this.clientToken, createRegistryRequest.clientToken) &&
-        Objects.equals(this.name, createRegistryRequest.name);
+        Objects.equals(this.name, createRegistryRequest.name) &&
+        Objects.equals(this.project, createRegistryRequest.project) &&
+        Objects.equals(this.resourceTags, createRegistryRequest.resourceTags) &&
+        Objects.equals(this.type, createRegistryRequest.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, name);
+    return Objects.hash(clientToken, name, project, resourceTags, type);
   }
 
 
@@ -99,6 +178,9 @@ public class CreateRegistryRequest {
     
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    project: ").append(toIndentedString(project)).append("\n");
+    sb.append("    resourceTags: ").append(toIndentedString(resourceTags)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }

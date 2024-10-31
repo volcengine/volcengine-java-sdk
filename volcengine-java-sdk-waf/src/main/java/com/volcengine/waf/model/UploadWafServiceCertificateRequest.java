@@ -39,6 +39,9 @@ public class UploadWafServiceCertificateRequest {
   @SerializedName("PrivateKey")
   private String privateKey = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("PublicKey")
   private String publicKey = null;
 
@@ -99,6 +102,24 @@ public class UploadWafServiceCertificateRequest {
     this.privateKey = privateKey;
   }
 
+  public UploadWafServiceCertificateRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public UploadWafServiceCertificateRequest publicKey(String publicKey) {
     this.publicKey = publicKey;
     return this;
@@ -131,12 +152,13 @@ public class UploadWafServiceCertificateRequest {
     return Objects.equals(this.description, uploadWafServiceCertificateRequest.description) &&
         Objects.equals(this.name, uploadWafServiceCertificateRequest.name) &&
         Objects.equals(this.privateKey, uploadWafServiceCertificateRequest.privateKey) &&
+        Objects.equals(this.projectName, uploadWafServiceCertificateRequest.projectName) &&
         Objects.equals(this.publicKey, uploadWafServiceCertificateRequest.publicKey);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, name, privateKey, publicKey);
+    return Objects.hash(description, name, privateKey, projectName, publicKey);
   }
 
 
@@ -148,6 +170,7 @@ public class UploadWafServiceCertificateRequest {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    privateKey: ").append(toIndentedString(privateKey)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    publicKey: ").append(toIndentedString(publicKey)).append("\n");
     sb.append("}");
     return sb.toString();

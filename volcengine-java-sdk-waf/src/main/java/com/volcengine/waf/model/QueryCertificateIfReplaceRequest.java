@@ -36,6 +36,9 @@ public class QueryCertificateIfReplaceRequest {
   @SerializedName("Domain")
   private String domain = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("PublicRealServer")
   private Integer publicRealServer = null;
 
@@ -77,6 +80,24 @@ public class QueryCertificateIfReplaceRequest {
     this.domain = domain;
   }
 
+  public QueryCertificateIfReplaceRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public QueryCertificateIfReplaceRequest publicRealServer(Integer publicRealServer) {
     this.publicRealServer = publicRealServer;
     return this;
@@ -107,12 +128,13 @@ public class QueryCertificateIfReplaceRequest {
     QueryCertificateIfReplaceRequest queryCertificateIfReplaceRequest = (QueryCertificateIfReplaceRequest) o;
     return Objects.equals(this.certificateID, queryCertificateIfReplaceRequest.certificateID) &&
         Objects.equals(this.domain, queryCertificateIfReplaceRequest.domain) &&
+        Objects.equals(this.projectName, queryCertificateIfReplaceRequest.projectName) &&
         Objects.equals(this.publicRealServer, queryCertificateIfReplaceRequest.publicRealServer);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(certificateID, domain, publicRealServer);
+    return Objects.hash(certificateID, domain, projectName, publicRealServer);
   }
 
 
@@ -123,6 +145,7 @@ public class QueryCertificateIfReplaceRequest {
     
     sb.append("    certificateID: ").append(toIndentedString(certificateID)).append("\n");
     sb.append("    domain: ").append(toIndentedString(domain)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    publicRealServer: ").append(toIndentedString(publicRealServer)).append("\n");
     sb.append("}");
     return sb.toString();

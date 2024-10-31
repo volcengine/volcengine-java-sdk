@@ -33,6 +33,52 @@ public class CreateAllowListRequest {
   @SerializedName("AllowList")
   private String allowList = null;
 
+  /**
+   * Gets or Sets allowListCategory
+   */
+  @JsonAdapter(AllowListCategoryEnum.Adapter.class)
+  public enum AllowListCategoryEnum {
+    @SerializedName("Ordinary")
+    ORDINARY("Ordinary"),
+    @SerializedName("Default")
+    DEFAULT("Default");
+
+    private String value;
+
+    AllowListCategoryEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static AllowListCategoryEnum fromValue(String input) {
+      for (AllowListCategoryEnum b : AllowListCategoryEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<AllowListCategoryEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final AllowListCategoryEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public AllowListCategoryEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return AllowListCategoryEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("AllowListCategory")
+  private AllowListCategoryEnum allowListCategory = null;
+
   @SerializedName("AllowListDesc")
   private String allowListDesc = null;
 
@@ -62,6 +108,24 @@ public class CreateAllowListRequest {
 
   public void setAllowList(String allowList) {
     this.allowList = allowList;
+  }
+
+  public CreateAllowListRequest allowListCategory(AllowListCategoryEnum allowListCategory) {
+    this.allowListCategory = allowListCategory;
+    return this;
+  }
+
+   /**
+   * Get allowListCategory
+   * @return allowListCategory
+  **/
+  @Schema(description = "")
+  public AllowListCategoryEnum getAllowListCategory() {
+    return allowListCategory;
+  }
+
+  public void setAllowListCategory(AllowListCategoryEnum allowListCategory) {
+    this.allowListCategory = allowListCategory;
   }
 
   public CreateAllowListRequest allowListDesc(String allowListDesc) {
@@ -148,6 +212,7 @@ public class CreateAllowListRequest {
     }
     CreateAllowListRequest createAllowListRequest = (CreateAllowListRequest) o;
     return Objects.equals(this.allowList, createAllowListRequest.allowList) &&
+        Objects.equals(this.allowListCategory, createAllowListRequest.allowListCategory) &&
         Objects.equals(this.allowListDesc, createAllowListRequest.allowListDesc) &&
         Objects.equals(this.allowListName, createAllowListRequest.allowListName) &&
         Objects.equals(this.allowListType, createAllowListRequest.allowListType) &&
@@ -156,7 +221,7 @@ public class CreateAllowListRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowList, allowListDesc, allowListName, allowListType, clientToken);
+    return Objects.hash(allowList, allowListCategory, allowListDesc, allowListName, allowListType, clientToken);
   }
 
 
@@ -166,6 +231,7 @@ public class CreateAllowListRequest {
     sb.append("class CreateAllowListRequest {\n");
     
     sb.append("    allowList: ").append(toIndentedString(allowList)).append("\n");
+    sb.append("    allowListCategory: ").append(toIndentedString(allowListCategory)).append("\n");
     sb.append("    allowListDesc: ").append(toIndentedString(allowListDesc)).append("\n");
     sb.append("    allowListName: ").append(toIndentedString(allowListName)).append("\n");
     sb.append("    allowListType: ").append(toIndentedString(allowListType)).append("\n");

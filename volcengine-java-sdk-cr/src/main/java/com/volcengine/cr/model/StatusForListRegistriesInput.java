@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class StatusForListRegistriesInput {
   @SerializedName("Condition")
   private String condition = null;

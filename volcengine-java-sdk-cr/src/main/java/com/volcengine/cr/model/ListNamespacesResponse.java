@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ListNamespacesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Items")
   private List<ItemForListNamespacesOutput> items = null;

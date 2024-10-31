@@ -69,6 +69,9 @@ public class UpdateBotAnalyseProtectRuleRequest {
   @SerializedName("PathThreshold")
   private Integer pathThreshold = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("RulePriority")
   private Integer rulePriority = null;
 
@@ -317,6 +320,24 @@ public class UpdateBotAnalyseProtectRuleRequest {
     this.pathThreshold = pathThreshold;
   }
 
+  public UpdateBotAnalyseProtectRuleRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public UpdateBotAnalyseProtectRuleRequest rulePriority(Integer rulePriority) {
     this.rulePriority = rulePriority;
     return this;
@@ -433,6 +454,7 @@ public class UpdateBotAnalyseProtectRuleRequest {
         Objects.equals(this.name, updateBotAnalyseProtectRuleRequest.name) &&
         Objects.equals(this.path, updateBotAnalyseProtectRuleRequest.path) &&
         Objects.equals(this.pathThreshold, updateBotAnalyseProtectRuleRequest.pathThreshold) &&
+        Objects.equals(this.projectName, updateBotAnalyseProtectRuleRequest.projectName) &&
         Objects.equals(this.rulePriority, updateBotAnalyseProtectRuleRequest.rulePriority) &&
         Objects.equals(this.singleProportion, updateBotAnalyseProtectRuleRequest.singleProportion) &&
         Objects.equals(this.singleThreshold, updateBotAnalyseProtectRuleRequest.singleThreshold) &&
@@ -442,7 +464,7 @@ public class UpdateBotAnalyseProtectRuleRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accurateGroup, actionAfterVerification, actionType, effectTime, enable, exemptionTime, field, host, id, name, path, pathThreshold, rulePriority, singleProportion, singleThreshold, statisticalDuration, statisticalType);
+    return Objects.hash(accurateGroup, actionAfterVerification, actionType, effectTime, enable, exemptionTime, field, host, id, name, path, pathThreshold, projectName, rulePriority, singleProportion, singleThreshold, statisticalDuration, statisticalType);
   }
 
 
@@ -463,6 +485,7 @@ public class UpdateBotAnalyseProtectRuleRequest {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
     sb.append("    pathThreshold: ").append(toIndentedString(pathThreshold)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    rulePriority: ").append(toIndentedString(rulePriority)).append("\n");
     sb.append("    singleProportion: ").append(toIndentedString(singleProportion)).append("\n");
     sb.append("    singleThreshold: ").append(toIndentedString(singleThreshold)).append("\n");

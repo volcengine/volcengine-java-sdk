@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DeleteRepositoryRequest {
   @SerializedName("Name")
   private String name = null;
@@ -67,7 +68,7 @@ public class DeleteRepositoryRequest {
    * @return namespace
   **/
   @NotNull
-  @Schema(required = true, description = "")
+ @Size(min=2,max=90)  @Schema(required = true, description = "")
   public String getNamespace() {
     return namespace;
   }
@@ -86,7 +87,7 @@ public class DeleteRepositoryRequest {
    * @return registry
   **/
   @NotNull
-  @Schema(required = true, description = "")
+ @Size(min=3,max=30)  @Schema(required = true, description = "")
   public String getRegistry() {
     return registry;
   }

@@ -49,6 +49,9 @@ public class CreateCustomBotConfigRequest {
   @SerializedName("Host")
   private String host = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   public CreateCustomBotConfigRequest accurate(AccurateForCreateCustomBotConfigInput accurate) {
     this.accurate = accurate;
     return this;
@@ -162,6 +165,24 @@ public class CreateCustomBotConfigRequest {
     this.host = host;
   }
 
+  public CreateCustomBotConfigRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -177,12 +198,13 @@ public class CreateCustomBotConfigRequest {
         Objects.equals(this.botType, createCustomBotConfigRequest.botType) &&
         Objects.equals(this.description, createCustomBotConfigRequest.description) &&
         Objects.equals(this.enable, createCustomBotConfigRequest.enable) &&
-        Objects.equals(this.host, createCustomBotConfigRequest.host);
+        Objects.equals(this.host, createCustomBotConfigRequest.host) &&
+        Objects.equals(this.projectName, createCustomBotConfigRequest.projectName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accurate, action, botType, description, enable, host);
+    return Objects.hash(accurate, action, botType, description, enable, host, projectName);
   }
 
 
@@ -197,6 +219,7 @@ public class CreateCustomBotConfigRequest {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    enable: ").append(toIndentedString(enable)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

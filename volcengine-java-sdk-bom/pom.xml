@@ -261,6 +261,12 @@
             </dependency>
             <dependency>
                 <groupId>com.volcengine</groupId>
+                <artifactId>volcengine-java-sdk-rabbitmq</artifactId>
+                <optional>false</optional>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.volcengine</groupId>
                 <artifactId>volcengine-java-sdk-dms</artifactId>
                 <optional>false</optional>
                 <version>${project.version}</version>

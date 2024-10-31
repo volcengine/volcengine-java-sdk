@@ -36,6 +36,9 @@ public class ListCertificateServicesRequest {
   @SerializedName("Id")
   private Integer id = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   public ListCertificateServicesRequest clbCertificateId(String clbCertificateId) {
     this.clbCertificateId = clbCertificateId;
     return this;
@@ -73,6 +76,24 @@ public class ListCertificateServicesRequest {
     this.id = id;
   }
 
+  public ListCertificateServicesRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -84,12 +105,13 @@ public class ListCertificateServicesRequest {
     }
     ListCertificateServicesRequest listCertificateServicesRequest = (ListCertificateServicesRequest) o;
     return Objects.equals(this.clbCertificateId, listCertificateServicesRequest.clbCertificateId) &&
-        Objects.equals(this.id, listCertificateServicesRequest.id);
+        Objects.equals(this.id, listCertificateServicesRequest.id) &&
+        Objects.equals(this.projectName, listCertificateServicesRequest.projectName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clbCertificateId, id);
+    return Objects.hash(clbCertificateId, id, projectName);
   }
 
 
@@ -100,6 +122,7 @@ public class ListCertificateServicesRequest {
     
     sb.append("    clbCertificateId: ").append(toIndentedString(clbCertificateId)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");
     return sb.toString();
   }
