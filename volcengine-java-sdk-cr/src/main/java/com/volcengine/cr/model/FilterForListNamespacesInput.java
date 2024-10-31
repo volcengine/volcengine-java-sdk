@@ -30,9 +30,34 @@ import javax.validation.Valid;
  */
 
 
+
 public class FilterForListNamespacesInput {
+  @SerializedName("InProject")
+  private Boolean inProject = null;
+
   @SerializedName("Names")
   private List<String> names = null;
+
+  @SerializedName("Projects")
+  private List<String> projects = null;
+
+  public FilterForListNamespacesInput inProject(Boolean inProject) {
+    this.inProject = inProject;
+    return this;
+  }
+
+   /**
+   * Get inProject
+   * @return inProject
+  **/
+  @Schema(description = "")
+  public Boolean isInProject() {
+    return inProject;
+  }
+
+  public void setInProject(Boolean inProject) {
+    this.inProject = inProject;
+  }
 
   public FilterForListNamespacesInput names(List<String> names) {
     this.names = names;
@@ -60,6 +85,32 @@ public class FilterForListNamespacesInput {
     this.names = names;
   }
 
+  public FilterForListNamespacesInput projects(List<String> projects) {
+    this.projects = projects;
+    return this;
+  }
+
+  public FilterForListNamespacesInput addProjectsItem(String projectsItem) {
+    if (this.projects == null) {
+      this.projects = new ArrayList<String>();
+    }
+    this.projects.add(projectsItem);
+    return this;
+  }
+
+   /**
+   * Get projects
+   * @return projects
+  **/
+  @Schema(description = "")
+  public List<String> getProjects() {
+    return projects;
+  }
+
+  public void setProjects(List<String> projects) {
+    this.projects = projects;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -70,12 +121,14 @@ public class FilterForListNamespacesInput {
       return false;
     }
     FilterForListNamespacesInput filterForListNamespacesInput = (FilterForListNamespacesInput) o;
-    return Objects.equals(this.names, filterForListNamespacesInput.names);
+    return Objects.equals(this.inProject, filterForListNamespacesInput.inProject) &&
+        Objects.equals(this.names, filterForListNamespacesInput.names) &&
+        Objects.equals(this.projects, filterForListNamespacesInput.projects);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(names);
+    return Objects.hash(inProject, names, projects);
   }
 
 
@@ -84,7 +137,9 @@ public class FilterForListNamespacesInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class FilterForListNamespacesInput {\n");
     
+    sb.append("    inProject: ").append(toIndentedString(inProject)).append("\n");
     sb.append("    names: ").append(toIndentedString(names)).append("\n");
+    sb.append("    projects: ").append(toIndentedString(projects)).append("\n");
     sb.append("}");
     return sb.toString();
   }

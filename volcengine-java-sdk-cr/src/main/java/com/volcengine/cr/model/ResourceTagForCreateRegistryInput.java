@@ -24,54 +24,52 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * SetUserRequest
+ * ResourceTagForCreateRegistryInput
  */
 
 
 
-public class SetUserRequest {
-  @SerializedName("Password")
-  private String password = null;
+public class ResourceTagForCreateRegistryInput {
+  @SerializedName("Key")
+  private String key = null;
 
-  @SerializedName("Registry")
-  private String registry = null;
+  @SerializedName("Value")
+  private String value = null;
 
-  public SetUserRequest password(String password) {
-    this.password = password;
+  public ResourceTagForCreateRegistryInput key(String key) {
+    this.key = key;
     return this;
   }
 
    /**
-   * Get password
-   * @return password
+   * Get key
+   * @return key
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getPassword() {
-    return password;
+  @Schema(description = "")
+  public String getKey() {
+    return key;
   }
 
-  public void setPassword(String password) {
-    this.password = password;
+  public void setKey(String key) {
+    this.key = key;
   }
 
-  public SetUserRequest registry(String registry) {
-    this.registry = registry;
+  public ResourceTagForCreateRegistryInput value(String value) {
+    this.value = value;
     return this;
   }
 
    /**
-   * Get registry
-   * @return registry
+   * Get value
+   * @return value
   **/
-  @NotNull
- @Size(min=3,max=30)  @Schema(required = true, description = "")
-  public String getRegistry() {
-    return registry;
+  @Schema(description = "")
+  public String getValue() {
+    return value;
   }
 
-  public void setRegistry(String registry) {
-    this.registry = registry;
+  public void setValue(String value) {
+    this.value = value;
   }
 
 
@@ -83,24 +81,24 @@ public class SetUserRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SetUserRequest setUserRequest = (SetUserRequest) o;
-    return Objects.equals(this.password, setUserRequest.password) &&
-        Objects.equals(this.registry, setUserRequest.registry);
+    ResourceTagForCreateRegistryInput resourceTagForCreateRegistryInput = (ResourceTagForCreateRegistryInput) o;
+    return Objects.equals(this.key, resourceTagForCreateRegistryInput.key) &&
+        Objects.equals(this.value, resourceTagForCreateRegistryInput.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(password, registry);
+    return Objects.hash(key, value);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SetUserRequest {\n");
+    sb.append("class ResourceTagForCreateRegistryInput {\n");
     
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
-    sb.append("    registry: ").append(toIndentedString(registry)).append("\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
   }

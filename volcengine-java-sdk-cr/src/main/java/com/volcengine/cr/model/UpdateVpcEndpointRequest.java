@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class UpdateVpcEndpointRequest {
   @SerializedName("Registry")
   private String registry = null;
@@ -48,7 +49,7 @@ public class UpdateVpcEndpointRequest {
    * @return registry
   **/
   @NotNull
-  @Schema(required = true, description = "")
+ @Size(min=3,max=30)  @Schema(required = true, description = "")
   public String getRegistry() {
     return registry;
   }

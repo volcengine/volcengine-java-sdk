@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class StatusForListRegistriesOutput {
   @SerializedName("Conditions")
   private List<String> conditions = null;

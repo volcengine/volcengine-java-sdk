@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class GetPublicEndpointResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("AclPolicies")
   private List<AclPolicyForGetPublicEndpointOutput> aclPolicies = null;

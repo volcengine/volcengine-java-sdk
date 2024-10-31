@@ -29,6 +29,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class GetVpcEndpointRequest {
   @SerializedName("Filter")
   private FilterForGetVpcEndpointInput filter = null;
@@ -65,7 +66,7 @@ public class GetVpcEndpointRequest {
    * @return registry
   **/
   @NotNull
-  @Schema(required = true, description = "")
+ @Size(min=3,max=30)  @Schema(required = true, description = "")
   public String getRegistry() {
     return registry;
   }

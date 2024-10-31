@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class UpdateRepositoryRequest {
   @SerializedName("AccessLevel")
   private String accessLevel = null;
@@ -130,7 +131,7 @@ public class UpdateRepositoryRequest {
    * @return namespace
   **/
   @NotNull
-  @Schema(required = true, description = "")
+ @Size(min=2,max=90)  @Schema(required = true, description = "")
   public String getNamespace() {
     return namespace;
   }
@@ -149,7 +150,7 @@ public class UpdateRepositoryRequest {
    * @return registry
   **/
   @NotNull
-  @Schema(required = true, description = "")
+ @Size(min=3,max=30)  @Schema(required = true, description = "")
   public String getRegistry() {
     return registry;
   }
