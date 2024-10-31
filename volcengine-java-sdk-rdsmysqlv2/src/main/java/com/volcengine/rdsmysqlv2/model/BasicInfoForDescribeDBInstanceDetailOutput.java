@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.rdsmysqlv2.model.MaintenanceWindowForDescribeDBInstanceDetailOutput;
 import com.volcengine.rdsmysqlv2.model.TagForDescribeDBInstanceDetailOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -38,6 +39,12 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
 
   @SerializedName("BackupUse")
   private Double backupUse = null;
+
+  @SerializedName("BasicBackupBinlogSize")
+  private Long basicBackupBinlogSize = null;
+
+  @SerializedName("BasicBackupDataSize")
+  private Long basicBackupDataSize = null;
 
   @SerializedName("CreateTime")
   private String createTime = null;
@@ -62,6 +69,9 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
 
   @SerializedName("LowerCaseTableNames")
   private String lowerCaseTableNames = null;
+
+  @SerializedName("MaintenanceWindow")
+  private MaintenanceWindowForDescribeDBInstanceDetailOutput maintenanceWindow = null;
 
   @SerializedName("Memory")
   private Integer memory = null;
@@ -142,6 +152,42 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
 
   public void setBackupUse(Double backupUse) {
     this.backupUse = backupUse;
+  }
+
+  public BasicInfoForDescribeDBInstanceDetailOutput basicBackupBinlogSize(Long basicBackupBinlogSize) {
+    this.basicBackupBinlogSize = basicBackupBinlogSize;
+    return this;
+  }
+
+   /**
+   * Get basicBackupBinlogSize
+   * @return basicBackupBinlogSize
+  **/
+  @Schema(description = "")
+  public Long getBasicBackupBinlogSize() {
+    return basicBackupBinlogSize;
+  }
+
+  public void setBasicBackupBinlogSize(Long basicBackupBinlogSize) {
+    this.basicBackupBinlogSize = basicBackupBinlogSize;
+  }
+
+  public BasicInfoForDescribeDBInstanceDetailOutput basicBackupDataSize(Long basicBackupDataSize) {
+    this.basicBackupDataSize = basicBackupDataSize;
+    return this;
+  }
+
+   /**
+   * Get basicBackupDataSize
+   * @return basicBackupDataSize
+  **/
+  @Schema(description = "")
+  public Long getBasicBackupDataSize() {
+    return basicBackupDataSize;
+  }
+
+  public void setBasicBackupDataSize(Long basicBackupDataSize) {
+    this.basicBackupDataSize = basicBackupDataSize;
   }
 
   public BasicInfoForDescribeDBInstanceDetailOutput createTime(String createTime) {
@@ -286,6 +332,25 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
 
   public void setLowerCaseTableNames(String lowerCaseTableNames) {
     this.lowerCaseTableNames = lowerCaseTableNames;
+  }
+
+  public BasicInfoForDescribeDBInstanceDetailOutput maintenanceWindow(MaintenanceWindowForDescribeDBInstanceDetailOutput maintenanceWindow) {
+    this.maintenanceWindow = maintenanceWindow;
+    return this;
+  }
+
+   /**
+   * Get maintenanceWindow
+   * @return maintenanceWindow
+  **/
+  @Valid
+  @Schema(description = "")
+  public MaintenanceWindowForDescribeDBInstanceDetailOutput getMaintenanceWindow() {
+    return maintenanceWindow;
+  }
+
+  public void setMaintenanceWindow(MaintenanceWindowForDescribeDBInstanceDetailOutput maintenanceWindow) {
+    this.maintenanceWindow = maintenanceWindow;
   }
 
   public BasicInfoForDescribeDBInstanceDetailOutput memory(Integer memory) {
@@ -579,6 +644,8 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
     BasicInfoForDescribeDBInstanceDetailOutput basicInfoForDescribeDBInstanceDetailOutput = (BasicInfoForDescribeDBInstanceDetailOutput) o;
     return Objects.equals(this.allowListVersion, basicInfoForDescribeDBInstanceDetailOutput.allowListVersion) &&
         Objects.equals(this.backupUse, basicInfoForDescribeDBInstanceDetailOutput.backupUse) &&
+        Objects.equals(this.basicBackupBinlogSize, basicInfoForDescribeDBInstanceDetailOutput.basicBackupBinlogSize) &&
+        Objects.equals(this.basicBackupDataSize, basicInfoForDescribeDBInstanceDetailOutput.basicBackupDataSize) &&
         Objects.equals(this.createTime, basicInfoForDescribeDBInstanceDetailOutput.createTime) &&
         Objects.equals(this.dbEngineVersion, basicInfoForDescribeDBInstanceDetailOutput.dbEngineVersion) &&
         Objects.equals(this.dataSyncMode, basicInfoForDescribeDBInstanceDetailOutput.dataSyncMode) &&
@@ -587,6 +654,7 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
         Objects.equals(this.instanceStatus, basicInfoForDescribeDBInstanceDetailOutput.instanceStatus) &&
         Objects.equals(this.instanceType, basicInfoForDescribeDBInstanceDetailOutput.instanceType) &&
         Objects.equals(this.lowerCaseTableNames, basicInfoForDescribeDBInstanceDetailOutput.lowerCaseTableNames) &&
+        Objects.equals(this.maintenanceWindow, basicInfoForDescribeDBInstanceDetailOutput.maintenanceWindow) &&
         Objects.equals(this.memory, basicInfoForDescribeDBInstanceDetailOutput.memory) &&
         Objects.equals(this.nodeNumber, basicInfoForDescribeDBInstanceDetailOutput.nodeNumber) &&
         Objects.equals(this.nodeSpec, basicInfoForDescribeDBInstanceDetailOutput.nodeSpec) &&
@@ -606,7 +674,7 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowListVersion, backupUse, createTime, dbEngineVersion, dataSyncMode, instanceId, instanceName, instanceStatus, instanceType, lowerCaseTableNames, memory, nodeNumber, nodeSpec, projectName, regionId, storageSpace, storageType, storageUse, subnetId, tags, timeZone, updateTime, VCPU, vpcId, zoneId);
+    return Objects.hash(allowListVersion, backupUse, basicBackupBinlogSize, basicBackupDataSize, createTime, dbEngineVersion, dataSyncMode, instanceId, instanceName, instanceStatus, instanceType, lowerCaseTableNames, maintenanceWindow, memory, nodeNumber, nodeSpec, projectName, regionId, storageSpace, storageType, storageUse, subnetId, tags, timeZone, updateTime, VCPU, vpcId, zoneId);
   }
 
 
@@ -617,6 +685,8 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
     
     sb.append("    allowListVersion: ").append(toIndentedString(allowListVersion)).append("\n");
     sb.append("    backupUse: ").append(toIndentedString(backupUse)).append("\n");
+    sb.append("    basicBackupBinlogSize: ").append(toIndentedString(basicBackupBinlogSize)).append("\n");
+    sb.append("    basicBackupDataSize: ").append(toIndentedString(basicBackupDataSize)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    dbEngineVersion: ").append(toIndentedString(dbEngineVersion)).append("\n");
     sb.append("    dataSyncMode: ").append(toIndentedString(dataSyncMode)).append("\n");
@@ -625,6 +695,7 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
     sb.append("    instanceStatus: ").append(toIndentedString(instanceStatus)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("    lowerCaseTableNames: ").append(toIndentedString(lowerCaseTableNames)).append("\n");
+    sb.append("    maintenanceWindow: ").append(toIndentedString(maintenanceWindow)).append("\n");
     sb.append("    memory: ").append(toIndentedString(memory)).append("\n");
     sb.append("    nodeNumber: ").append(toIndentedString(nodeNumber)).append("\n");
     sb.append("    nodeSpec: ").append(toIndentedString(nodeSpec)).append("\n");

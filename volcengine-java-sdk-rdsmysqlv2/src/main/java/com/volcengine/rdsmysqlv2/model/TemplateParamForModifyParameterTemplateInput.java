@@ -36,6 +36,12 @@ public class TemplateParamForModifyParameterTemplateInput {
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("ExpectValue")
+  private String expectValue = null;
+
+  @SerializedName("Expression")
+  private String expression = null;
+
   @SerializedName("Name")
   private String name = null;
 
@@ -82,6 +88,42 @@ public class TemplateParamForModifyParameterTemplateInput {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public TemplateParamForModifyParameterTemplateInput expectValue(String expectValue) {
+    this.expectValue = expectValue;
+    return this;
+  }
+
+   /**
+   * Get expectValue
+   * @return expectValue
+  **/
+  @Schema(description = "")
+  public String getExpectValue() {
+    return expectValue;
+  }
+
+  public void setExpectValue(String expectValue) {
+    this.expectValue = expectValue;
+  }
+
+  public TemplateParamForModifyParameterTemplateInput expression(String expression) {
+    this.expression = expression;
+    return this;
+  }
+
+   /**
+   * Get expression
+   * @return expression
+  **/
+  @Schema(description = "")
+  public String getExpression() {
+    return expression;
+  }
+
+  public void setExpression(String expression) {
+    this.expression = expression;
   }
 
   public TemplateParamForModifyParameterTemplateInput name(String name) {
@@ -168,6 +210,8 @@ public class TemplateParamForModifyParameterTemplateInput {
     TemplateParamForModifyParameterTemplateInput templateParamForModifyParameterTemplateInput = (TemplateParamForModifyParameterTemplateInput) o;
     return Objects.equals(this.defaultValue, templateParamForModifyParameterTemplateInput.defaultValue) &&
         Objects.equals(this.description, templateParamForModifyParameterTemplateInput.description) &&
+        Objects.equals(this.expectValue, templateParamForModifyParameterTemplateInput.expectValue) &&
+        Objects.equals(this.expression, templateParamForModifyParameterTemplateInput.expression) &&
         Objects.equals(this.name, templateParamForModifyParameterTemplateInput.name) &&
         Objects.equals(this.restart, templateParamForModifyParameterTemplateInput.restart) &&
         Objects.equals(this.runningValue, templateParamForModifyParameterTemplateInput.runningValue) &&
@@ -176,7 +220,7 @@ public class TemplateParamForModifyParameterTemplateInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(defaultValue, description, name, restart, runningValue, valueRange);
+    return Objects.hash(defaultValue, description, expectValue, expression, name, restart, runningValue, valueRange);
   }
 
 
@@ -187,6 +231,8 @@ public class TemplateParamForModifyParameterTemplateInput {
     
     sb.append("    defaultValue: ").append(toIndentedString(defaultValue)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    expectValue: ").append(toIndentedString(expectValue)).append("\n");
+    sb.append("    expression: ").append(toIndentedString(expression)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    restart: ").append(toIndentedString(restart)).append("\n");
     sb.append("    runningValue: ").append(toIndentedString(runningValue)).append("\n");

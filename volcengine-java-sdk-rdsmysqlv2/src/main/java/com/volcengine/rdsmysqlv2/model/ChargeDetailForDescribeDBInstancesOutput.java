@@ -39,11 +39,101 @@ public class ChargeDetailForDescribeDBInstancesOutput {
   @SerializedName("ChargeStartTime")
   private String chargeStartTime = null;
 
-  @SerializedName("ChargeStatus")
-  private String chargeStatus = null;
+  /**
+   * Gets or Sets chargeStatus
+   */
+  @JsonAdapter(ChargeStatusEnum.Adapter.class)
+  public enum ChargeStatusEnum {
+    @SerializedName("Normal")
+    NORMAL("Normal"),
+    @SerializedName("Overdue")
+    OVERDUE("Overdue"),
+    @SerializedName("Unpaid")
+    UNPAID("Unpaid");
 
-  @SerializedName("ChargeType")
-  private String chargeType = null;
+    private String value;
+
+    ChargeStatusEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ChargeStatusEnum fromValue(String input) {
+      for (ChargeStatusEnum b : ChargeStatusEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ChargeStatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ChargeStatusEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ChargeStatusEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ChargeStatusEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("ChargeStatus")
+  private ChargeStatusEnum chargeStatus = null;
+
+  /**
+   * Gets or Sets chargeType
+   */
+  @JsonAdapter(ChargeTypeEnum.Adapter.class)
+  public enum ChargeTypeEnum {
+    @SerializedName("NotEnabled")
+    NOTENABLED("NotEnabled"),
+    @SerializedName("PostPaid")
+    POSTPAID("PostPaid"),
+    @SerializedName("PrePaid")
+    PREPAID("PrePaid");
+
+    private String value;
+
+    ChargeTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ChargeTypeEnum fromValue(String input) {
+      for (ChargeTypeEnum b : ChargeTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ChargeTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ChargeTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ChargeTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ChargeTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("ChargeType")
+  private ChargeTypeEnum chargeType = null;
 
   @SerializedName("OverdueReclaimTime")
   private String overdueReclaimTime = null;
@@ -54,8 +144,51 @@ public class ChargeDetailForDescribeDBInstancesOutput {
   @SerializedName("Period")
   private Integer period = null;
 
-  @SerializedName("PeriodUnit")
-  private String periodUnit = null;
+  /**
+   * Gets or Sets periodUnit
+   */
+  @JsonAdapter(PeriodUnitEnum.Adapter.class)
+  public enum PeriodUnitEnum {
+    @SerializedName("Month")
+    MONTH("Month"),
+    @SerializedName("Year")
+    YEAR("Year");
+
+    private String value;
+
+    PeriodUnitEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static PeriodUnitEnum fromValue(String input) {
+      for (PeriodUnitEnum b : PeriodUnitEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<PeriodUnitEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final PeriodUnitEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public PeriodUnitEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return PeriodUnitEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("PeriodUnit")
+  private PeriodUnitEnum periodUnit = null;
 
   @SerializedName("TempModifyEndTime")
   private String tempModifyEndTime = null;
@@ -117,7 +250,7 @@ public class ChargeDetailForDescribeDBInstancesOutput {
     this.chargeStartTime = chargeStartTime;
   }
 
-  public ChargeDetailForDescribeDBInstancesOutput chargeStatus(String chargeStatus) {
+  public ChargeDetailForDescribeDBInstancesOutput chargeStatus(ChargeStatusEnum chargeStatus) {
     this.chargeStatus = chargeStatus;
     return this;
   }
@@ -127,15 +260,15 @@ public class ChargeDetailForDescribeDBInstancesOutput {
    * @return chargeStatus
   **/
   @Schema(description = "")
-  public String getChargeStatus() {
+  public ChargeStatusEnum getChargeStatus() {
     return chargeStatus;
   }
 
-  public void setChargeStatus(String chargeStatus) {
+  public void setChargeStatus(ChargeStatusEnum chargeStatus) {
     this.chargeStatus = chargeStatus;
   }
 
-  public ChargeDetailForDescribeDBInstancesOutput chargeType(String chargeType) {
+  public ChargeDetailForDescribeDBInstancesOutput chargeType(ChargeTypeEnum chargeType) {
     this.chargeType = chargeType;
     return this;
   }
@@ -145,11 +278,11 @@ public class ChargeDetailForDescribeDBInstancesOutput {
    * @return chargeType
   **/
   @Schema(description = "")
-  public String getChargeType() {
+  public ChargeTypeEnum getChargeType() {
     return chargeType;
   }
 
-  public void setChargeType(String chargeType) {
+  public void setChargeType(ChargeTypeEnum chargeType) {
     this.chargeType = chargeType;
   }
 
@@ -207,7 +340,7 @@ public class ChargeDetailForDescribeDBInstancesOutput {
     this.period = period;
   }
 
-  public ChargeDetailForDescribeDBInstancesOutput periodUnit(String periodUnit) {
+  public ChargeDetailForDescribeDBInstancesOutput periodUnit(PeriodUnitEnum periodUnit) {
     this.periodUnit = periodUnit;
     return this;
   }
@@ -217,11 +350,11 @@ public class ChargeDetailForDescribeDBInstancesOutput {
    * @return periodUnit
   **/
   @Schema(description = "")
-  public String getPeriodUnit() {
+  public PeriodUnitEnum getPeriodUnit() {
     return periodUnit;
   }
 
-  public void setPeriodUnit(String periodUnit) {
+  public void setPeriodUnit(PeriodUnitEnum periodUnit) {
     this.periodUnit = periodUnit;
   }
 

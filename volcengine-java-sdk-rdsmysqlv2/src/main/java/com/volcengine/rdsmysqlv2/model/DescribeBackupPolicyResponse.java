@@ -62,8 +62,8 @@ public class DescribeBackupPolicyResponse extends com.volcengine.model.AbstractR
   @SerializedName("InstanceId")
   private String instanceId = null;
 
-  @SerializedName("LockDdlTime")
-  private Integer lockDdlTime = null;
+  @SerializedName("LockDDLTime")
+  private Integer lockDDLTime = null;
 
   @SerializedName("LogBackupRetentionDay")
   private Integer logBackupRetentionDay = null;
@@ -264,22 +264,22 @@ public class DescribeBackupPolicyResponse extends com.volcengine.model.AbstractR
     this.instanceId = instanceId;
   }
 
-  public DescribeBackupPolicyResponse lockDdlTime(Integer lockDdlTime) {
-    this.lockDdlTime = lockDdlTime;
+  public DescribeBackupPolicyResponse lockDDLTime(Integer lockDDLTime) {
+    this.lockDDLTime = lockDDLTime;
     return this;
   }
 
    /**
-   * Get lockDdlTime
-   * @return lockDdlTime
+   * Get lockDDLTime
+   * @return lockDDLTime
   **/
   @Schema(description = "")
-  public Integer getLockDdlTime() {
-    return lockDdlTime;
+  public Integer getLockDDLTime() {
+    return lockDDLTime;
   }
 
-  public void setLockDdlTime(Integer lockDdlTime) {
-    this.lockDdlTime = lockDdlTime;
+  public void setLockDDLTime(Integer lockDDLTime) {
+    this.lockDDLTime = lockDDLTime;
   }
 
   public DescribeBackupPolicyResponse logBackupRetentionDay(Integer logBackupRetentionDay) {
@@ -320,13 +320,13 @@ public class DescribeBackupPolicyResponse extends com.volcengine.model.AbstractR
         Objects.equals(this.dataFullBackupTime, describeBackupPolicyResponse.dataFullBackupTime) &&
         Objects.equals(this.dataIncrBackupPeriods, describeBackupPolicyResponse.dataIncrBackupPeriods) &&
         Objects.equals(this.instanceId, describeBackupPolicyResponse.instanceId) &&
-        Objects.equals(this.lockDdlTime, describeBackupPolicyResponse.lockDdlTime) &&
+        Objects.equals(this.lockDDLTime, describeBackupPolicyResponse.lockDDLTime) &&
         Objects.equals(this.logBackupRetentionDay, describeBackupPolicyResponse.logBackupRetentionDay);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(binlogFileCountsEnable, binlogLimitCount, binlogLocalRetentionHour, binlogSpaceLimitEnable, binlogStoragePercentage, dataBackupRetentionDay, dataFullBackupPeriods, dataFullBackupTime, dataIncrBackupPeriods, instanceId, lockDdlTime, logBackupRetentionDay);
+    return Objects.hash(binlogFileCountsEnable, binlogLimitCount, binlogLocalRetentionHour, binlogSpaceLimitEnable, binlogStoragePercentage, dataBackupRetentionDay, dataFullBackupPeriods, dataFullBackupTime, dataIncrBackupPeriods, instanceId, lockDDLTime, logBackupRetentionDay);
   }
 
 
@@ -345,7 +345,7 @@ public class DescribeBackupPolicyResponse extends com.volcengine.model.AbstractR
     sb.append("    dataFullBackupTime: ").append(toIndentedString(dataFullBackupTime)).append("\n");
     sb.append("    dataIncrBackupPeriods: ").append(toIndentedString(dataIncrBackupPeriods)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
-    sb.append("    lockDdlTime: ").append(toIndentedString(lockDdlTime)).append("\n");
+    sb.append("    lockDDLTime: ").append(toIndentedString(lockDDLTime)).append("\n");
     sb.append("    logBackupRetentionDay: ").append(toIndentedString(logBackupRetentionDay)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -39,8 +39,55 @@ public class ModifyDBInstanceParametersRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;
 
-  @SerializedName("ParamApplyScope")
-  private String paramApplyScope = null;
+  /**
+   * Gets or Sets paramApplyScope
+   */
+  @JsonAdapter(ParamApplyScopeEnum.Adapter.class)
+  public enum ParamApplyScopeEnum {
+    @SerializedName("AllNode")
+    ALLNODE("AllNode"),
+    @SerializedName("OnlyMasterSlaveNode")
+    ONLYMASTERSLAVENODE("OnlyMasterSlaveNode"),
+    @SerializedName("OnlyReadOnlyNode")
+    ONLYREADONLYNODE("OnlyReadOnlyNode"),
+    @SerializedName("CustomNode")
+    CUSTOMNODE("CustomNode");
+
+    private String value;
+
+    ParamApplyScopeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ParamApplyScopeEnum fromValue(String input) {
+      for (ParamApplyScopeEnum b : ParamApplyScopeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ParamApplyScopeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ParamApplyScopeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ParamApplyScopeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ParamApplyScopeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("ParamApplyScope")
+  private ParamApplyScopeEnum paramApplyScope = null;
 
   @SerializedName("Parameters")
   private List<ParameterForModifyDBInstanceParametersInput> parameters = null;
@@ -90,7 +137,7 @@ public class ModifyDBInstanceParametersRequest {
     this.instanceId = instanceId;
   }
 
-  public ModifyDBInstanceParametersRequest paramApplyScope(String paramApplyScope) {
+  public ModifyDBInstanceParametersRequest paramApplyScope(ParamApplyScopeEnum paramApplyScope) {
     this.paramApplyScope = paramApplyScope;
     return this;
   }
@@ -100,11 +147,11 @@ public class ModifyDBInstanceParametersRequest {
    * @return paramApplyScope
   **/
   @Schema(description = "")
-  public String getParamApplyScope() {
+  public ParamApplyScopeEnum getParamApplyScope() {
     return paramApplyScope;
   }
 
-  public void setParamApplyScope(String paramApplyScope) {
+  public void setParamApplyScope(ParamApplyScopeEnum paramApplyScope) {
     this.paramApplyScope = paramApplyScope;
   }
 
