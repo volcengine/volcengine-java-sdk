@@ -39,14 +39,8 @@ public class DescribeIpAddressPoolCidrBlocksResponse extends com.volcengine.mode
   @SerializedName("NextToken")
   private String nextToken = null;
 
-  @SerializedName("PageNumber")
-  private Integer pageNumber = null;
-
   @SerializedName("RequestId")
   private String requestId = null;
-
-  @SerializedName("TotalCount")
-  private Integer totalCount = null;
 
   public DescribeIpAddressPoolCidrBlocksResponse ipAddressPooCidrBlocks(List<IpAddressPooCidrBlockForDescribeIpAddressPoolCidrBlocksOutput> ipAddressPooCidrBlocks) {
     this.ipAddressPooCidrBlocks = ipAddressPooCidrBlocks;
@@ -93,24 +87,6 @@ public class DescribeIpAddressPoolCidrBlocksResponse extends com.volcengine.mode
     this.nextToken = nextToken;
   }
 
-  public DescribeIpAddressPoolCidrBlocksResponse pageNumber(Integer pageNumber) {
-    this.pageNumber = pageNumber;
-    return this;
-  }
-
-   /**
-   * Get pageNumber
-   * @return pageNumber
-  **/
-  @Schema(description = "")
-  public Integer getPageNumber() {
-    return pageNumber;
-  }
-
-  public void setPageNumber(Integer pageNumber) {
-    this.pageNumber = pageNumber;
-  }
-
   public DescribeIpAddressPoolCidrBlocksResponse requestId(String requestId) {
     this.requestId = requestId;
     return this;
@@ -129,24 +105,6 @@ public class DescribeIpAddressPoolCidrBlocksResponse extends com.volcengine.mode
     this.requestId = requestId;
   }
 
-  public DescribeIpAddressPoolCidrBlocksResponse totalCount(Integer totalCount) {
-    this.totalCount = totalCount;
-    return this;
-  }
-
-   /**
-   * Get totalCount
-   * @return totalCount
-  **/
-  @Schema(description = "")
-  public Integer getTotalCount() {
-    return totalCount;
-  }
-
-  public void setTotalCount(Integer totalCount) {
-    this.totalCount = totalCount;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -159,14 +117,12 @@ public class DescribeIpAddressPoolCidrBlocksResponse extends com.volcengine.mode
     DescribeIpAddressPoolCidrBlocksResponse describeIpAddressPoolCidrBlocksResponse = (DescribeIpAddressPoolCidrBlocksResponse) o;
     return Objects.equals(this.ipAddressPooCidrBlocks, describeIpAddressPoolCidrBlocksResponse.ipAddressPooCidrBlocks) &&
         Objects.equals(this.nextToken, describeIpAddressPoolCidrBlocksResponse.nextToken) &&
-        Objects.equals(this.pageNumber, describeIpAddressPoolCidrBlocksResponse.pageNumber) &&
-        Objects.equals(this.requestId, describeIpAddressPoolCidrBlocksResponse.requestId) &&
-        Objects.equals(this.totalCount, describeIpAddressPoolCidrBlocksResponse.totalCount);
+        Objects.equals(this.requestId, describeIpAddressPoolCidrBlocksResponse.requestId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ipAddressPooCidrBlocks, nextToken, pageNumber, requestId, totalCount);
+    return Objects.hash(ipAddressPooCidrBlocks, nextToken, requestId);
   }
 
 
@@ -177,9 +133,7 @@ public class DescribeIpAddressPoolCidrBlocksResponse extends com.volcengine.mode
     
     sb.append("    ipAddressPooCidrBlocks: ").append(toIndentedString(ipAddressPooCidrBlocks)).append("\n");
     sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
-    sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
-    sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("}");
     return sb.toString();
   }

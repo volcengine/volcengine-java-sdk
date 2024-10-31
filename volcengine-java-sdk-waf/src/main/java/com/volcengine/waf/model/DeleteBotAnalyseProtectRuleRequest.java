@@ -33,6 +33,9 @@ public class DeleteBotAnalyseProtectRuleRequest {
   @SerializedName("Id")
   private Integer id = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   public DeleteBotAnalyseProtectRuleRequest id(Integer id) {
     this.id = id;
     return this;
@@ -52,6 +55,24 @@ public class DeleteBotAnalyseProtectRuleRequest {
     this.id = id;
   }
 
+  public DeleteBotAnalyseProtectRuleRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -62,12 +83,13 @@ public class DeleteBotAnalyseProtectRuleRequest {
       return false;
     }
     DeleteBotAnalyseProtectRuleRequest deleteBotAnalyseProtectRuleRequest = (DeleteBotAnalyseProtectRuleRequest) o;
-    return Objects.equals(this.id, deleteBotAnalyseProtectRuleRequest.id);
+    return Objects.equals(this.id, deleteBotAnalyseProtectRuleRequest.id) &&
+        Objects.equals(this.projectName, deleteBotAnalyseProtectRuleRequest.projectName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id);
+    return Objects.hash(id, projectName);
   }
 
 
@@ -77,6 +99,7 @@ public class DeleteBotAnalyseProtectRuleRequest {
     sb.append("class DeleteBotAnalyseProtectRuleRequest {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class VpcForGetVpcEndpointOutput {
   @SerializedName("AccountId")
   private Long accountId = null;

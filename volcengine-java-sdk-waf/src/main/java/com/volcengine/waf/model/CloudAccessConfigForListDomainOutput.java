@@ -33,11 +33,20 @@ public class CloudAccessConfigForListDomainOutput {
   @SerializedName("AccessProtocol")
   private String accessProtocol = null;
 
+  @SerializedName("DefenceMode")
+  private Integer defenceMode = null;
+
   @SerializedName("InstanceID")
   private String instanceID = null;
 
+  @SerializedName("InstanceName")
+  private String instanceName = null;
+
   @SerializedName("ListenerID")
   private String listenerID = null;
+
+  @SerializedName("LostAssociationFromALB")
+  private Integer lostAssociationFromALB = null;
 
   @SerializedName("Port")
   private String port = null;
@@ -63,6 +72,24 @@ public class CloudAccessConfigForListDomainOutput {
     this.accessProtocol = accessProtocol;
   }
 
+  public CloudAccessConfigForListDomainOutput defenceMode(Integer defenceMode) {
+    this.defenceMode = defenceMode;
+    return this;
+  }
+
+   /**
+   * Get defenceMode
+   * @return defenceMode
+  **/
+  @Schema(description = "")
+  public Integer getDefenceMode() {
+    return defenceMode;
+  }
+
+  public void setDefenceMode(Integer defenceMode) {
+    this.defenceMode = defenceMode;
+  }
+
   public CloudAccessConfigForListDomainOutput instanceID(String instanceID) {
     this.instanceID = instanceID;
     return this;
@@ -81,6 +108,24 @@ public class CloudAccessConfigForListDomainOutput {
     this.instanceID = instanceID;
   }
 
+  public CloudAccessConfigForListDomainOutput instanceName(String instanceName) {
+    this.instanceName = instanceName;
+    return this;
+  }
+
+   /**
+   * Get instanceName
+   * @return instanceName
+  **/
+  @Schema(description = "")
+  public String getInstanceName() {
+    return instanceName;
+  }
+
+  public void setInstanceName(String instanceName) {
+    this.instanceName = instanceName;
+  }
+
   public CloudAccessConfigForListDomainOutput listenerID(String listenerID) {
     this.listenerID = listenerID;
     return this;
@@ -97,6 +142,24 @@ public class CloudAccessConfigForListDomainOutput {
 
   public void setListenerID(String listenerID) {
     this.listenerID = listenerID;
+  }
+
+  public CloudAccessConfigForListDomainOutput lostAssociationFromALB(Integer lostAssociationFromALB) {
+    this.lostAssociationFromALB = lostAssociationFromALB;
+    return this;
+  }
+
+   /**
+   * Get lostAssociationFromALB
+   * @return lostAssociationFromALB
+  **/
+  @Schema(description = "")
+  public Integer getLostAssociationFromALB() {
+    return lostAssociationFromALB;
+  }
+
+  public void setLostAssociationFromALB(Integer lostAssociationFromALB) {
+    this.lostAssociationFromALB = lostAssociationFromALB;
   }
 
   public CloudAccessConfigForListDomainOutput port(String port) {
@@ -146,15 +209,18 @@ public class CloudAccessConfigForListDomainOutput {
     }
     CloudAccessConfigForListDomainOutput cloudAccessConfigForListDomainOutput = (CloudAccessConfigForListDomainOutput) o;
     return Objects.equals(this.accessProtocol, cloudAccessConfigForListDomainOutput.accessProtocol) &&
+        Objects.equals(this.defenceMode, cloudAccessConfigForListDomainOutput.defenceMode) &&
         Objects.equals(this.instanceID, cloudAccessConfigForListDomainOutput.instanceID) &&
+        Objects.equals(this.instanceName, cloudAccessConfigForListDomainOutput.instanceName) &&
         Objects.equals(this.listenerID, cloudAccessConfigForListDomainOutput.listenerID) &&
+        Objects.equals(this.lostAssociationFromALB, cloudAccessConfigForListDomainOutput.lostAssociationFromALB) &&
         Objects.equals(this.port, cloudAccessConfigForListDomainOutput.port) &&
         Objects.equals(this.protocol, cloudAccessConfigForListDomainOutput.protocol);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessProtocol, instanceID, listenerID, port, protocol);
+    return Objects.hash(accessProtocol, defenceMode, instanceID, instanceName, listenerID, lostAssociationFromALB, port, protocol);
   }
 
 
@@ -164,8 +230,11 @@ public class CloudAccessConfigForListDomainOutput {
     sb.append("class CloudAccessConfigForListDomainOutput {\n");
     
     sb.append("    accessProtocol: ").append(toIndentedString(accessProtocol)).append("\n");
+    sb.append("    defenceMode: ").append(toIndentedString(defenceMode)).append("\n");
     sb.append("    instanceID: ").append(toIndentedString(instanceID)).append("\n");
+    sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    listenerID: ").append(toIndentedString(listenerID)).append("\n");
+    sb.append("    lostAssociationFromALB: ").append(toIndentedString(lostAssociationFromALB)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
     sb.append("}");

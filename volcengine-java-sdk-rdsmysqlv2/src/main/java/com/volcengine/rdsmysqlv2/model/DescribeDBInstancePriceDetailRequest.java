@@ -33,8 +33,53 @@ import javax.validation.Valid;
 
 
 public class DescribeDBInstancePriceDetailRequest {
-  @SerializedName("ChargeType")
-  private String chargeType = null;
+  /**
+   * Gets or Sets chargeType
+   */
+  @JsonAdapter(ChargeTypeEnum.Adapter.class)
+  public enum ChargeTypeEnum {
+    @SerializedName("NotEnabled")
+    NOTENABLED("NotEnabled"),
+    @SerializedName("PostPaid")
+    POSTPAID("PostPaid"),
+    @SerializedName("PrePaid")
+    PREPAID("PrePaid");
+
+    private String value;
+
+    ChargeTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ChargeTypeEnum fromValue(String input) {
+      for (ChargeTypeEnum b : ChargeTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ChargeTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ChargeTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ChargeTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ChargeTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("ChargeType")
+  private ChargeTypeEnum chargeType = null;
 
   @SerializedName("NodeInfo")
   private List<NodeInfoForDescribeDBInstancePriceDetailInput> nodeInfo = null;
@@ -45,16 +90,106 @@ public class DescribeDBInstancePriceDetailRequest {
   @SerializedName("Period")
   private Integer period = null;
 
-  @SerializedName("PeriodUnit")
-  private String periodUnit = null;
+  /**
+   * Gets or Sets periodUnit
+   */
+  @JsonAdapter(PeriodUnitEnum.Adapter.class)
+  public enum PeriodUnitEnum {
+    @SerializedName("Month")
+    MONTH("Month"),
+    @SerializedName("Year")
+    YEAR("Year");
+
+    private String value;
+
+    PeriodUnitEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static PeriodUnitEnum fromValue(String input) {
+      for (PeriodUnitEnum b : PeriodUnitEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<PeriodUnitEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final PeriodUnitEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public PeriodUnitEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return PeriodUnitEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("PeriodUnit")
+  private PeriodUnitEnum periodUnit = null;
 
   @SerializedName("StorageSpace")
   private Integer storageSpace = null;
 
-  @SerializedName("StorageType")
-  private String storageType = null;
+  /**
+   * Gets or Sets storageType
+   */
+  @JsonAdapter(StorageTypeEnum.Adapter.class)
+  public enum StorageTypeEnum {
+    @SerializedName("LocalSSD")
+    LOCALSSD("LocalSSD"),
+    @SerializedName("CloudStorage")
+    CLOUDSTORAGE("CloudStorage"),
+    @SerializedName("ESSDPL1")
+    ESSDPL1("ESSDPL1"),
+    @SerializedName("ESSDPL2")
+    ESSDPL2("ESSDPL2");
 
-  public DescribeDBInstancePriceDetailRequest chargeType(String chargeType) {
+    private String value;
+
+    StorageTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static StorageTypeEnum fromValue(String input) {
+      for (StorageTypeEnum b : StorageTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<StorageTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final StorageTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public StorageTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return StorageTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("StorageType")
+  private StorageTypeEnum storageType = null;
+
+  public DescribeDBInstancePriceDetailRequest chargeType(ChargeTypeEnum chargeType) {
     this.chargeType = chargeType;
     return this;
   }
@@ -65,11 +200,11 @@ public class DescribeDBInstancePriceDetailRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getChargeType() {
+  public ChargeTypeEnum getChargeType() {
     return chargeType;
   }
 
-  public void setChargeType(String chargeType) {
+  public void setChargeType(ChargeTypeEnum chargeType) {
     this.chargeType = chargeType;
   }
 
@@ -136,7 +271,7 @@ public class DescribeDBInstancePriceDetailRequest {
     this.period = period;
   }
 
-  public DescribeDBInstancePriceDetailRequest periodUnit(String periodUnit) {
+  public DescribeDBInstancePriceDetailRequest periodUnit(PeriodUnitEnum periodUnit) {
     this.periodUnit = periodUnit;
     return this;
   }
@@ -146,11 +281,11 @@ public class DescribeDBInstancePriceDetailRequest {
    * @return periodUnit
   **/
   @Schema(description = "")
-  public String getPeriodUnit() {
+  public PeriodUnitEnum getPeriodUnit() {
     return periodUnit;
   }
 
-  public void setPeriodUnit(String periodUnit) {
+  public void setPeriodUnit(PeriodUnitEnum periodUnit) {
     this.periodUnit = periodUnit;
   }
 
@@ -173,7 +308,7 @@ public class DescribeDBInstancePriceDetailRequest {
     this.storageSpace = storageSpace;
   }
 
-  public DescribeDBInstancePriceDetailRequest storageType(String storageType) {
+  public DescribeDBInstancePriceDetailRequest storageType(StorageTypeEnum storageType) {
     this.storageType = storageType;
     return this;
   }
@@ -184,11 +319,11 @@ public class DescribeDBInstancePriceDetailRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getStorageType() {
+  public StorageTypeEnum getStorageType() {
     return storageType;
   }
 
-  public void setStorageType(String storageType) {
+  public void setStorageType(StorageTypeEnum storageType) {
     this.storageType = storageType;
   }
 

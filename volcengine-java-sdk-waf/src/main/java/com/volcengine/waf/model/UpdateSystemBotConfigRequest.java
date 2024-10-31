@@ -42,6 +42,9 @@ public class UpdateSystemBotConfigRequest {
   @SerializedName("Host")
   private String host = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   public UpdateSystemBotConfigRequest action(String action) {
     this.action = action;
     return this;
@@ -116,6 +119,24 @@ public class UpdateSystemBotConfigRequest {
     this.host = host;
   }
 
+  public UpdateSystemBotConfigRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -129,12 +150,13 @@ public class UpdateSystemBotConfigRequest {
     return Objects.equals(this.action, updateSystemBotConfigRequest.action) &&
         Objects.equals(this.botType, updateSystemBotConfigRequest.botType) &&
         Objects.equals(this.enable, updateSystemBotConfigRequest.enable) &&
-        Objects.equals(this.host, updateSystemBotConfigRequest.host);
+        Objects.equals(this.host, updateSystemBotConfigRequest.host) &&
+        Objects.equals(this.projectName, updateSystemBotConfigRequest.projectName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, botType, enable, host);
+    return Objects.hash(action, botType, enable, host, projectName);
   }
 
 
@@ -147,6 +169,7 @@ public class UpdateSystemBotConfigRequest {
     sb.append("    botType: ").append(toIndentedString(botType)).append("\n");
     sb.append("    enable: ").append(toIndentedString(enable)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

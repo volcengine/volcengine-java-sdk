@@ -19,14 +19,19 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.cr.model.ProxyCacheForListRegistriesOutput;
+import com.volcengine.cr.model.ResourceTagForListRegistriesOutput;
 import com.volcengine.cr.model.StatusForListRegistriesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
  * ItemForListRegistriesOutput
  */
+
 
 
 public class ItemForListRegistriesOutput {
@@ -36,8 +41,26 @@ public class ItemForListRegistriesOutput {
   @SerializedName("CreateTime")
   private String createTime = null;
 
+  @SerializedName("ExpireTime")
+  private String expireTime = null;
+
   @SerializedName("Name")
   private String name = null;
+
+  @SerializedName("Project")
+  private String project = null;
+
+  @SerializedName("ProxyCache")
+  private ProxyCacheForListRegistriesOutput proxyCache = null;
+
+  @SerializedName("ProxyCacheEnabled")
+  private Boolean proxyCacheEnabled = null;
+
+  @SerializedName("RenewType")
+  private String renewType = null;
+
+  @SerializedName("ResourceTags")
+  private List<ResourceTagForListRegistriesOutput> resourceTags = null;
 
   @SerializedName("Status")
   private StatusForListRegistriesOutput status = null;
@@ -81,6 +104,24 @@ public class ItemForListRegistriesOutput {
     this.createTime = createTime;
   }
 
+  public ItemForListRegistriesOutput expireTime(String expireTime) {
+    this.expireTime = expireTime;
+    return this;
+  }
+
+   /**
+   * Get expireTime
+   * @return expireTime
+  **/
+  @Schema(description = "")
+  public String getExpireTime() {
+    return expireTime;
+  }
+
+  public void setExpireTime(String expireTime) {
+    this.expireTime = expireTime;
+  }
+
   public ItemForListRegistriesOutput name(String name) {
     this.name = name;
     return this;
@@ -97,6 +138,106 @@ public class ItemForListRegistriesOutput {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public ItemForListRegistriesOutput project(String project) {
+    this.project = project;
+    return this;
+  }
+
+   /**
+   * Get project
+   * @return project
+  **/
+  @Schema(description = "")
+  public String getProject() {
+    return project;
+  }
+
+  public void setProject(String project) {
+    this.project = project;
+  }
+
+  public ItemForListRegistriesOutput proxyCache(ProxyCacheForListRegistriesOutput proxyCache) {
+    this.proxyCache = proxyCache;
+    return this;
+  }
+
+   /**
+   * Get proxyCache
+   * @return proxyCache
+  **/
+  @Valid
+  @Schema(description = "")
+  public ProxyCacheForListRegistriesOutput getProxyCache() {
+    return proxyCache;
+  }
+
+  public void setProxyCache(ProxyCacheForListRegistriesOutput proxyCache) {
+    this.proxyCache = proxyCache;
+  }
+
+  public ItemForListRegistriesOutput proxyCacheEnabled(Boolean proxyCacheEnabled) {
+    this.proxyCacheEnabled = proxyCacheEnabled;
+    return this;
+  }
+
+   /**
+   * Get proxyCacheEnabled
+   * @return proxyCacheEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isProxyCacheEnabled() {
+    return proxyCacheEnabled;
+  }
+
+  public void setProxyCacheEnabled(Boolean proxyCacheEnabled) {
+    this.proxyCacheEnabled = proxyCacheEnabled;
+  }
+
+  public ItemForListRegistriesOutput renewType(String renewType) {
+    this.renewType = renewType;
+    return this;
+  }
+
+   /**
+   * Get renewType
+   * @return renewType
+  **/
+  @Schema(description = "")
+  public String getRenewType() {
+    return renewType;
+  }
+
+  public void setRenewType(String renewType) {
+    this.renewType = renewType;
+  }
+
+  public ItemForListRegistriesOutput resourceTags(List<ResourceTagForListRegistriesOutput> resourceTags) {
+    this.resourceTags = resourceTags;
+    return this;
+  }
+
+  public ItemForListRegistriesOutput addResourceTagsItem(ResourceTagForListRegistriesOutput resourceTagsItem) {
+    if (this.resourceTags == null) {
+      this.resourceTags = new ArrayList<ResourceTagForListRegistriesOutput>();
+    }
+    this.resourceTags.add(resourceTagsItem);
+    return this;
+  }
+
+   /**
+   * Get resourceTags
+   * @return resourceTags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<ResourceTagForListRegistriesOutput> getResourceTags() {
+    return resourceTags;
+  }
+
+  public void setResourceTags(List<ResourceTagForListRegistriesOutput> resourceTags) {
+    this.resourceTags = resourceTags;
   }
 
   public ItemForListRegistriesOutput status(StatusForListRegistriesOutput status) {
@@ -148,14 +289,20 @@ public class ItemForListRegistriesOutput {
     ItemForListRegistriesOutput itemForListRegistriesOutput = (ItemForListRegistriesOutput) o;
     return Objects.equals(this.chargeType, itemForListRegistriesOutput.chargeType) &&
         Objects.equals(this.createTime, itemForListRegistriesOutput.createTime) &&
+        Objects.equals(this.expireTime, itemForListRegistriesOutput.expireTime) &&
         Objects.equals(this.name, itemForListRegistriesOutput.name) &&
+        Objects.equals(this.project, itemForListRegistriesOutput.project) &&
+        Objects.equals(this.proxyCache, itemForListRegistriesOutput.proxyCache) &&
+        Objects.equals(this.proxyCacheEnabled, itemForListRegistriesOutput.proxyCacheEnabled) &&
+        Objects.equals(this.renewType, itemForListRegistriesOutput.renewType) &&
+        Objects.equals(this.resourceTags, itemForListRegistriesOutput.resourceTags) &&
         Objects.equals(this.status, itemForListRegistriesOutput.status) &&
         Objects.equals(this.type, itemForListRegistriesOutput.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(chargeType, createTime, name, status, type);
+    return Objects.hash(chargeType, createTime, expireTime, name, project, proxyCache, proxyCacheEnabled, renewType, resourceTags, status, type);
   }
 
 
@@ -166,7 +313,13 @@ public class ItemForListRegistriesOutput {
     
     sb.append("    chargeType: ").append(toIndentedString(chargeType)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
+    sb.append("    expireTime: ").append(toIndentedString(expireTime)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    project: ").append(toIndentedString(project)).append("\n");
+    sb.append("    proxyCache: ").append(toIndentedString(proxyCache)).append("\n");
+    sb.append("    proxyCacheEnabled: ").append(toIndentedString(proxyCacheEnabled)).append("\n");
+    sb.append("    renewType: ").append(toIndentedString(renewType)).append("\n");
+    sb.append("    resourceTags: ").append(toIndentedString(resourceTags)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");

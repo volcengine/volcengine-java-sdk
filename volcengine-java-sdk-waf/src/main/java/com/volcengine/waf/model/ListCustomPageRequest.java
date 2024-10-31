@@ -39,6 +39,9 @@ public class ListCustomPageRequest {
   @SerializedName("PageSize")
   private Integer pageSize = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   public ListCustomPageRequest host(String host) {
     this.host = host;
     return this;
@@ -94,6 +97,24 @@ public class ListCustomPageRequest {
     this.pageSize = pageSize;
   }
 
+  public ListCustomPageRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -106,12 +127,13 @@ public class ListCustomPageRequest {
     ListCustomPageRequest listCustomPageRequest = (ListCustomPageRequest) o;
     return Objects.equals(this.host, listCustomPageRequest.host) &&
         Objects.equals(this.page, listCustomPageRequest.page) &&
-        Objects.equals(this.pageSize, listCustomPageRequest.pageSize);
+        Objects.equals(this.pageSize, listCustomPageRequest.pageSize) &&
+        Objects.equals(this.projectName, listCustomPageRequest.projectName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(host, page, pageSize);
+    return Objects.hash(host, page, pageSize, projectName);
   }
 
 
@@ -123,6 +145,7 @@ public class ListCustomPageRequest {
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    page: ").append(toIndentedString(page)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

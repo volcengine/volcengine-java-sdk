@@ -33,6 +33,9 @@ public class DescribeAllowListsRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;
 
+  @SerializedName("QueryDefault")
+  private Boolean queryDefault = null;
+
   @SerializedName("RegionId")
   private String regionId = null;
 
@@ -52,6 +55,24 @@ public class DescribeAllowListsRequest {
 
   public void setInstanceId(String instanceId) {
     this.instanceId = instanceId;
+  }
+
+  public DescribeAllowListsRequest queryDefault(Boolean queryDefault) {
+    this.queryDefault = queryDefault;
+    return this;
+  }
+
+   /**
+   * Get queryDefault
+   * @return queryDefault
+  **/
+  @Schema(description = "")
+  public Boolean isQueryDefault() {
+    return queryDefault;
+  }
+
+  public void setQueryDefault(Boolean queryDefault) {
+    this.queryDefault = queryDefault;
   }
 
   public DescribeAllowListsRequest regionId(String regionId) {
@@ -84,12 +105,13 @@ public class DescribeAllowListsRequest {
     }
     DescribeAllowListsRequest describeAllowListsRequest = (DescribeAllowListsRequest) o;
     return Objects.equals(this.instanceId, describeAllowListsRequest.instanceId) &&
+        Objects.equals(this.queryDefault, describeAllowListsRequest.queryDefault) &&
         Objects.equals(this.regionId, describeAllowListsRequest.regionId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, regionId);
+    return Objects.hash(instanceId, queryDefault, regionId);
   }
 
 
@@ -99,6 +121,7 @@ public class DescribeAllowListsRequest {
     sb.append("class DescribeAllowListsRequest {\n");
     
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    queryDefault: ").append(toIndentedString(queryDefault)).append("\n");
     sb.append("    regionId: ").append(toIndentedString(regionId)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -36,11 +36,17 @@ public class ListIpGroupRequest {
   @SerializedName("IpGroupId")
   private Integer ipGroupId = null;
 
+  @SerializedName("ListAll")
+  private String listAll = null;
+
   @SerializedName("Page")
   private Integer page = null;
 
   @SerializedName("PageSize")
   private Integer pageSize = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
 
   public ListIpGroupRequest ip(String ip) {
     this.ip = ip;
@@ -77,6 +83,24 @@ public class ListIpGroupRequest {
 
   public void setIpGroupId(Integer ipGroupId) {
     this.ipGroupId = ipGroupId;
+  }
+
+  public ListIpGroupRequest listAll(String listAll) {
+    this.listAll = listAll;
+    return this;
+  }
+
+   /**
+   * Get listAll
+   * @return listAll
+  **/
+  @Schema(description = "")
+  public String getListAll() {
+    return listAll;
+  }
+
+  public void setListAll(String listAll) {
+    this.listAll = listAll;
   }
 
   public ListIpGroupRequest page(Integer page) {
@@ -117,6 +141,24 @@ public class ListIpGroupRequest {
     this.pageSize = pageSize;
   }
 
+  public ListIpGroupRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -129,13 +171,15 @@ public class ListIpGroupRequest {
     ListIpGroupRequest listIpGroupRequest = (ListIpGroupRequest) o;
     return Objects.equals(this.ip, listIpGroupRequest.ip) &&
         Objects.equals(this.ipGroupId, listIpGroupRequest.ipGroupId) &&
+        Objects.equals(this.listAll, listIpGroupRequest.listAll) &&
         Objects.equals(this.page, listIpGroupRequest.page) &&
-        Objects.equals(this.pageSize, listIpGroupRequest.pageSize);
+        Objects.equals(this.pageSize, listIpGroupRequest.pageSize) &&
+        Objects.equals(this.projectName, listIpGroupRequest.projectName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ip, ipGroupId, page, pageSize);
+    return Objects.hash(ip, ipGroupId, listAll, page, pageSize, projectName);
   }
 
 
@@ -146,8 +190,10 @@ public class ListIpGroupRequest {
     
     sb.append("    ip: ").append(toIndentedString(ip)).append("\n");
     sb.append("    ipGroupId: ").append(toIndentedString(ipGroupId)).append("\n");
+    sb.append("    listAll: ").append(toIndentedString(listAll)).append("\n");
     sb.append("    page: ").append(toIndentedString(page)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

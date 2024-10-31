@@ -33,6 +33,9 @@ public class DeleteWafServiceCertificateRequest {
   @SerializedName("Id")
   private String id = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   public DeleteWafServiceCertificateRequest id(String id) {
     this.id = id;
     return this;
@@ -52,6 +55,24 @@ public class DeleteWafServiceCertificateRequest {
     this.id = id;
   }
 
+  public DeleteWafServiceCertificateRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -62,12 +83,13 @@ public class DeleteWafServiceCertificateRequest {
       return false;
     }
     DeleteWafServiceCertificateRequest deleteWafServiceCertificateRequest = (DeleteWafServiceCertificateRequest) o;
-    return Objects.equals(this.id, deleteWafServiceCertificateRequest.id);
+    return Objects.equals(this.id, deleteWafServiceCertificateRequest.id) &&
+        Objects.equals(this.projectName, deleteWafServiceCertificateRequest.projectName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id);
+    return Objects.hash(id, projectName);
   }
 
 
@@ -77,6 +99,7 @@ public class DeleteWafServiceCertificateRequest {
     sb.append("class DeleteWafServiceCertificateRequest {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

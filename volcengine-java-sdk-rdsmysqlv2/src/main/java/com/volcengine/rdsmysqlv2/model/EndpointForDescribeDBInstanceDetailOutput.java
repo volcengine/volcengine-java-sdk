@@ -58,6 +58,9 @@ public class EndpointForDescribeDBInstanceDetailOutput {
   @SerializedName("EndpointType")
   private String endpointType = null;
 
+  @SerializedName("IdleConnectionReclaim")
+  private Boolean idleConnectionReclaim = null;
+
   @SerializedName("ReadOnlyNodeWeight")
   private List<ReadOnlyNodeWeightForDescribeDBInstanceDetailOutput> readOnlyNodeWeight = null;
 
@@ -217,6 +220,24 @@ public class EndpointForDescribeDBInstanceDetailOutput {
     this.endpointType = endpointType;
   }
 
+  public EndpointForDescribeDBInstanceDetailOutput idleConnectionReclaim(Boolean idleConnectionReclaim) {
+    this.idleConnectionReclaim = idleConnectionReclaim;
+    return this;
+  }
+
+   /**
+   * Get idleConnectionReclaim
+   * @return idleConnectionReclaim
+  **/
+  @Schema(description = "")
+  public Boolean isIdleConnectionReclaim() {
+    return idleConnectionReclaim;
+  }
+
+  public void setIdleConnectionReclaim(Boolean idleConnectionReclaim) {
+    this.idleConnectionReclaim = idleConnectionReclaim;
+  }
+
   public EndpointForDescribeDBInstanceDetailOutput readOnlyNodeWeight(List<ReadOnlyNodeWeightForDescribeDBInstanceDetailOutput> readOnlyNodeWeight) {
     this.readOnlyNodeWeight = readOnlyNodeWeight;
     return this;
@@ -280,13 +301,14 @@ public class EndpointForDescribeDBInstanceDetailOutput {
         Objects.equals(this.endpointId, endpointForDescribeDBInstanceDetailOutput.endpointId) &&
         Objects.equals(this.endpointName, endpointForDescribeDBInstanceDetailOutput.endpointName) &&
         Objects.equals(this.endpointType, endpointForDescribeDBInstanceDetailOutput.endpointType) &&
+        Objects.equals(this.idleConnectionReclaim, endpointForDescribeDBInstanceDetailOutput.idleConnectionReclaim) &&
         Objects.equals(this.readOnlyNodeWeight, endpointForDescribeDBInstanceDetailOutput.readOnlyNodeWeight) &&
         Objects.equals(this.readWriteMode, endpointForDescribeDBInstanceDetailOutput.readWriteMode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(addresses, autoAddNewNodes, description, enableReadOnly, enableReadWriteSplitting, endpointId, endpointName, endpointType, readOnlyNodeWeight, readWriteMode);
+    return Objects.hash(addresses, autoAddNewNodes, description, enableReadOnly, enableReadWriteSplitting, endpointId, endpointName, endpointType, idleConnectionReclaim, readOnlyNodeWeight, readWriteMode);
   }
 
 
@@ -303,6 +325,7 @@ public class EndpointForDescribeDBInstanceDetailOutput {
     sb.append("    endpointId: ").append(toIndentedString(endpointId)).append("\n");
     sb.append("    endpointName: ").append(toIndentedString(endpointName)).append("\n");
     sb.append("    endpointType: ").append(toIndentedString(endpointType)).append("\n");
+    sb.append("    idleConnectionReclaim: ").append(toIndentedString(idleConnectionReclaim)).append("\n");
     sb.append("    readOnlyNodeWeight: ").append(toIndentedString(readOnlyNodeWeight)).append("\n");
     sb.append("    readWriteMode: ").append(toIndentedString(readWriteMode)).append("\n");
     sb.append("}");

@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.waf.model.DefaultModuleQuickConfForCreateDomainOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -33,11 +34,17 @@ public class CreateDomainResponse extends com.volcengine.model.AbstractResponse 
   @SerializedName("Cname")
   private String cname = null;
 
+  @SerializedName("DefaultModuleQuickConf")
+  private DefaultModuleQuickConfForCreateDomainOutput defaultModuleQuickConf = null;
+
   @SerializedName("Domain")
   private String domain = null;
 
   @SerializedName("ServerIps")
   private String serverIps = null;
+
+  @SerializedName("SrcIps")
+  private String srcIps = null;
 
   public CreateDomainResponse cname(String cname) {
     this.cname = cname;
@@ -55,6 +62,25 @@ public class CreateDomainResponse extends com.volcengine.model.AbstractResponse 
 
   public void setCname(String cname) {
     this.cname = cname;
+  }
+
+  public CreateDomainResponse defaultModuleQuickConf(DefaultModuleQuickConfForCreateDomainOutput defaultModuleQuickConf) {
+    this.defaultModuleQuickConf = defaultModuleQuickConf;
+    return this;
+  }
+
+   /**
+   * Get defaultModuleQuickConf
+   * @return defaultModuleQuickConf
+  **/
+  @Valid
+  @Schema(description = "")
+  public DefaultModuleQuickConfForCreateDomainOutput getDefaultModuleQuickConf() {
+    return defaultModuleQuickConf;
+  }
+
+  public void setDefaultModuleQuickConf(DefaultModuleQuickConfForCreateDomainOutput defaultModuleQuickConf) {
+    this.defaultModuleQuickConf = defaultModuleQuickConf;
   }
 
   public CreateDomainResponse domain(String domain) {
@@ -93,6 +119,24 @@ public class CreateDomainResponse extends com.volcengine.model.AbstractResponse 
     this.serverIps = serverIps;
   }
 
+  public CreateDomainResponse srcIps(String srcIps) {
+    this.srcIps = srcIps;
+    return this;
+  }
+
+   /**
+   * Get srcIps
+   * @return srcIps
+  **/
+  @Schema(description = "")
+  public String getSrcIps() {
+    return srcIps;
+  }
+
+  public void setSrcIps(String srcIps) {
+    this.srcIps = srcIps;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -104,13 +148,15 @@ public class CreateDomainResponse extends com.volcengine.model.AbstractResponse 
     }
     CreateDomainResponse createDomainResponse = (CreateDomainResponse) o;
     return Objects.equals(this.cname, createDomainResponse.cname) &&
+        Objects.equals(this.defaultModuleQuickConf, createDomainResponse.defaultModuleQuickConf) &&
         Objects.equals(this.domain, createDomainResponse.domain) &&
-        Objects.equals(this.serverIps, createDomainResponse.serverIps);
+        Objects.equals(this.serverIps, createDomainResponse.serverIps) &&
+        Objects.equals(this.srcIps, createDomainResponse.srcIps);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cname, domain, serverIps);
+    return Objects.hash(cname, defaultModuleQuickConf, domain, serverIps, srcIps);
   }
 
 
@@ -120,8 +166,10 @@ public class CreateDomainResponse extends com.volcengine.model.AbstractResponse 
     sb.append("class CreateDomainResponse {\n");
     
     sb.append("    cname: ").append(toIndentedString(cname)).append("\n");
+    sb.append("    defaultModuleQuickConf: ").append(toIndentedString(defaultModuleQuickConf)).append("\n");
     sb.append("    domain: ").append(toIndentedString(domain)).append("\n");
     sb.append("    serverIps: ").append(toIndentedString(serverIps)).append("\n");
+    sb.append("    srcIps: ").append(toIndentedString(srcIps)).append("\n");
     sb.append("}");
     return sb.toString();
   }

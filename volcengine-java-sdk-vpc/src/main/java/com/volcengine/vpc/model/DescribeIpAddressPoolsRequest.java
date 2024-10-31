@@ -45,12 +45,6 @@ public class DescribeIpAddressPoolsRequest {
   @SerializedName("NextToken")
   private String nextToken = null;
 
-  @SerializedName("PageNumber")
-  private Integer pageNumber = null;
-
-  @SerializedName("PageSize")
-  private Integer pageSize = null;
-
   @SerializedName("ProjectName")
   private String projectName = null;
 
@@ -140,43 +134,6 @@ public class DescribeIpAddressPoolsRequest {
     this.nextToken = nextToken;
   }
 
-  public DescribeIpAddressPoolsRequest pageNumber(Integer pageNumber) {
-    this.pageNumber = pageNumber;
-    return this;
-  }
-
-   /**
-   * Get pageNumber
-   * @return pageNumber
-  **/
-  @Schema(description = "")
-  public Integer getPageNumber() {
-    return pageNumber;
-  }
-
-  public void setPageNumber(Integer pageNumber) {
-    this.pageNumber = pageNumber;
-  }
-
-  public DescribeIpAddressPoolsRequest pageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-    return this;
-  }
-
-   /**
-   * Get pageSize
-   * maximum: 100
-   * @return pageSize
-  **/
- @Max(100)  @Schema(description = "")
-  public Integer getPageSize() {
-    return pageSize;
-  }
-
-  public void setPageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-  }
-
   public DescribeIpAddressPoolsRequest projectName(String projectName) {
     this.projectName = projectName;
     return this;
@@ -254,8 +211,6 @@ public class DescribeIpAddressPoolsRequest {
         Objects.equals(this.ipAddressPoolIds, describeIpAddressPoolsRequest.ipAddressPoolIds) &&
         Objects.equals(this.maxResults, describeIpAddressPoolsRequest.maxResults) &&
         Objects.equals(this.nextToken, describeIpAddressPoolsRequest.nextToken) &&
-        Objects.equals(this.pageNumber, describeIpAddressPoolsRequest.pageNumber) &&
-        Objects.equals(this.pageSize, describeIpAddressPoolsRequest.pageSize) &&
         Objects.equals(this.projectName, describeIpAddressPoolsRequest.projectName) &&
         Objects.equals(this.status, describeIpAddressPoolsRequest.status) &&
         Objects.equals(this.tagFilters, describeIpAddressPoolsRequest.tagFilters);
@@ -263,7 +218,7 @@ public class DescribeIpAddressPoolsRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(ISP, ipAddressPoolIds, maxResults, nextToken, pageNumber, pageSize, projectName, status, tagFilters);
+    return Objects.hash(ISP, ipAddressPoolIds, maxResults, nextToken, projectName, status, tagFilters);
   }
 
 
@@ -276,8 +231,6 @@ public class DescribeIpAddressPoolsRequest {
     sb.append("    ipAddressPoolIds: ").append(toIndentedString(ipAddressPoolIds)).append("\n");
     sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
     sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
-    sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
-    sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");

@@ -36,8 +36,51 @@ public class ModifyDBInstanceSpecRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;
 
-  @SerializedName("ModifyType")
-  private String modifyType = null;
+  /**
+   * Gets or Sets modifyType
+   */
+  @JsonAdapter(ModifyTypeEnum.Adapter.class)
+  public enum ModifyTypeEnum {
+    @SerializedName("Usually")
+    USUALLY("Usually"),
+    @SerializedName("Temporary")
+    TEMPORARY("Temporary");
+
+    private String value;
+
+    ModifyTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ModifyTypeEnum fromValue(String input) {
+      for (ModifyTypeEnum b : ModifyTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ModifyTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ModifyTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ModifyTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ModifyTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("ModifyType")
+  private ModifyTypeEnum modifyType = null;
 
   @SerializedName("NodeInfo")
   private List<NodeInfoForModifyDBInstanceSpecInput> nodeInfo = null;
@@ -45,11 +88,103 @@ public class ModifyDBInstanceSpecRequest {
   @SerializedName("StorageSpace")
   private Integer storageSpace = null;
 
-  @SerializedName("StorageType")
-  private String storageType = null;
+  /**
+   * Gets or Sets storageType
+   */
+  @JsonAdapter(StorageTypeEnum.Adapter.class)
+  public enum StorageTypeEnum {
+    @SerializedName("LocalSSD")
+    LOCALSSD("LocalSSD"),
+    @SerializedName("CloudStorage")
+    CLOUDSTORAGE("CloudStorage"),
+    @SerializedName("ESSDPL1")
+    ESSDPL1("ESSDPL1"),
+    @SerializedName("ESSDPL2")
+    ESSDPL2("ESSDPL2");
 
-  @SerializedName("SwitchType")
-  private String switchType = null;
+    private String value;
+
+    StorageTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static StorageTypeEnum fromValue(String input) {
+      for (StorageTypeEnum b : StorageTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<StorageTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final StorageTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public StorageTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return StorageTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("StorageType")
+  private StorageTypeEnum storageType = null;
+
+  /**
+   * Gets or Sets switchType
+   */
+  @JsonAdapter(SwitchTypeEnum.Adapter.class)
+  public enum SwitchTypeEnum {
+    @SerializedName("Immediate")
+    IMMEDIATE("Immediate"),
+    @SerializedName("MaintainTime")
+    MAINTAINTIME("MaintainTime"),
+    @SerializedName("SpecifiedTime")
+    SPECIFIEDTIME("SpecifiedTime");
+
+    private String value;
+
+    SwitchTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static SwitchTypeEnum fromValue(String input) {
+      for (SwitchTypeEnum b : SwitchTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<SwitchTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final SwitchTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public SwitchTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return SwitchTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("SwitchType")
+  private SwitchTypeEnum switchType = null;
 
   public ModifyDBInstanceSpecRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
@@ -70,7 +205,7 @@ public class ModifyDBInstanceSpecRequest {
     this.instanceId = instanceId;
   }
 
-  public ModifyDBInstanceSpecRequest modifyType(String modifyType) {
+  public ModifyDBInstanceSpecRequest modifyType(ModifyTypeEnum modifyType) {
     this.modifyType = modifyType;
     return this;
   }
@@ -80,11 +215,11 @@ public class ModifyDBInstanceSpecRequest {
    * @return modifyType
   **/
   @Schema(description = "")
-  public String getModifyType() {
+  public ModifyTypeEnum getModifyType() {
     return modifyType;
   }
 
-  public void setModifyType(String modifyType) {
+  public void setModifyType(ModifyTypeEnum modifyType) {
     this.modifyType = modifyType;
   }
 
@@ -133,7 +268,7 @@ public class ModifyDBInstanceSpecRequest {
     this.storageSpace = storageSpace;
   }
 
-  public ModifyDBInstanceSpecRequest storageType(String storageType) {
+  public ModifyDBInstanceSpecRequest storageType(StorageTypeEnum storageType) {
     this.storageType = storageType;
     return this;
   }
@@ -142,16 +277,17 @@ public class ModifyDBInstanceSpecRequest {
    * Get storageType
    * @return storageType
   **/
-  @Schema(description = "")
-  public String getStorageType() {
+  @NotNull
+  @Schema(required = true, description = "")
+  public StorageTypeEnum getStorageType() {
     return storageType;
   }
 
-  public void setStorageType(String storageType) {
+  public void setStorageType(StorageTypeEnum storageType) {
     this.storageType = storageType;
   }
 
-  public ModifyDBInstanceSpecRequest switchType(String switchType) {
+  public ModifyDBInstanceSpecRequest switchType(SwitchTypeEnum switchType) {
     this.switchType = switchType;
     return this;
   }
@@ -161,11 +297,11 @@ public class ModifyDBInstanceSpecRequest {
    * @return switchType
   **/
   @Schema(description = "")
-  public String getSwitchType() {
+  public SwitchTypeEnum getSwitchType() {
     return switchType;
   }
 
-  public void setSwitchType(String switchType) {
+  public void setSwitchType(SwitchTypeEnum switchType) {
     this.switchType = switchType;
   }
 

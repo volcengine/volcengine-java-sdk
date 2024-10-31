@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import com.volcengine.waf.model.BackendGroupForCreateDomainInput;
 import com.volcengine.waf.model.CloudAccessConfigForCreateDomainInput;
 import com.volcengine.waf.model.ProtocolPortsForCreateDomainInput;
+import com.volcengine.waf.model.TLSFieldsConfigForCreateDomainInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -74,14 +75,23 @@ public class CreateDomainRequest {
   @SerializedName("CustomHeader")
   private List<String> customHeader = null;
 
+  @SerializedName("CustomSNI")
+  private String customSNI = null;
+
   @SerializedName("Domain")
   private String domain = null;
+
+  @SerializedName("EnableCustomRedirect")
+  private Integer enableCustomRedirect = null;
 
   @SerializedName("EnableHTTP2")
   private Integer enableHTTP2 = null;
 
   @SerializedName("EnableIPv6")
   private Integer enableIPv6 = null;
+
+  @SerializedName("EnableSNI")
+  private Integer enableSNI = null;
 
   @SerializedName("KeepAliveRequest")
   private Integer keepAliveRequest = null;
@@ -91,6 +101,9 @@ public class CreateDomainRequest {
 
   @SerializedName("LBAlgorithm")
   private String lbAlgorithm = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
 
   @SerializedName("ProtocolFollow")
   private Integer protocolFollow = null;
@@ -139,6 +152,9 @@ public class CreateDomainRequest {
 
   @SerializedName("TLSEnable")
   private Integer tlSEnable = null;
+
+  @SerializedName("TLSFieldsConfig")
+  private TLSFieldsConfigForCreateDomainInput tlSFieldsConfig = null;
 
   @SerializedName("VolcCertificateID")
   private String volcCertificateID = null;
@@ -407,6 +423,24 @@ public class CreateDomainRequest {
     this.customHeader = customHeader;
   }
 
+  public CreateDomainRequest customSNI(String customSNI) {
+    this.customSNI = customSNI;
+    return this;
+  }
+
+   /**
+   * Get customSNI
+   * @return customSNI
+  **/
+  @Schema(description = "")
+  public String getCustomSNI() {
+    return customSNI;
+  }
+
+  public void setCustomSNI(String customSNI) {
+    this.customSNI = customSNI;
+  }
+
   public CreateDomainRequest domain(String domain) {
     this.domain = domain;
     return this;
@@ -424,6 +458,24 @@ public class CreateDomainRequest {
 
   public void setDomain(String domain) {
     this.domain = domain;
+  }
+
+  public CreateDomainRequest enableCustomRedirect(Integer enableCustomRedirect) {
+    this.enableCustomRedirect = enableCustomRedirect;
+    return this;
+  }
+
+   /**
+   * Get enableCustomRedirect
+   * @return enableCustomRedirect
+  **/
+  @Schema(description = "")
+  public Integer getEnableCustomRedirect() {
+    return enableCustomRedirect;
+  }
+
+  public void setEnableCustomRedirect(Integer enableCustomRedirect) {
+    this.enableCustomRedirect = enableCustomRedirect;
   }
 
   public CreateDomainRequest enableHTTP2(Integer enableHTTP2) {
@@ -460,6 +512,24 @@ public class CreateDomainRequest {
 
   public void setEnableIPv6(Integer enableIPv6) {
     this.enableIPv6 = enableIPv6;
+  }
+
+  public CreateDomainRequest enableSNI(Integer enableSNI) {
+    this.enableSNI = enableSNI;
+    return this;
+  }
+
+   /**
+   * Get enableSNI
+   * @return enableSNI
+  **/
+  @Schema(description = "")
+  public Integer getEnableSNI() {
+    return enableSNI;
+  }
+
+  public void setEnableSNI(Integer enableSNI) {
+    this.enableSNI = enableSNI;
   }
 
   public CreateDomainRequest keepAliveRequest(Integer keepAliveRequest) {
@@ -514,6 +584,24 @@ public class CreateDomainRequest {
 
   public void setLbAlgorithm(String lbAlgorithm) {
     this.lbAlgorithm = lbAlgorithm;
+  }
+
+  public CreateDomainRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
   }
 
   public CreateDomainRequest protocolFollow(Integer protocolFollow) {
@@ -830,6 +918,25 @@ public class CreateDomainRequest {
     this.tlSEnable = tlSEnable;
   }
 
+  public CreateDomainRequest tlSFieldsConfig(TLSFieldsConfigForCreateDomainInput tlSFieldsConfig) {
+    this.tlSFieldsConfig = tlSFieldsConfig;
+    return this;
+  }
+
+   /**
+   * Get tlSFieldsConfig
+   * @return tlSFieldsConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public TLSFieldsConfigForCreateDomainInput getTlSFieldsConfig() {
+    return tlSFieldsConfig;
+  }
+
+  public void setTlSFieldsConfig(TLSFieldsConfigForCreateDomainInput tlSFieldsConfig) {
+    this.tlSFieldsConfig = tlSFieldsConfig;
+  }
+
   public CreateDomainRequest volcCertificateID(String volcCertificateID) {
     this.volcCertificateID = volcCertificateID;
     return this;
@@ -889,12 +996,16 @@ public class CreateDomainRequest {
         Objects.equals(this.clientMaxBodySize, createDomainRequest.clientMaxBodySize) &&
         Objects.equals(this.cloudAccessConfig, createDomainRequest.cloudAccessConfig) &&
         Objects.equals(this.customHeader, createDomainRequest.customHeader) &&
+        Objects.equals(this.customSNI, createDomainRequest.customSNI) &&
         Objects.equals(this.domain, createDomainRequest.domain) &&
+        Objects.equals(this.enableCustomRedirect, createDomainRequest.enableCustomRedirect) &&
         Objects.equals(this.enableHTTP2, createDomainRequest.enableHTTP2) &&
         Objects.equals(this.enableIPv6, createDomainRequest.enableIPv6) &&
+        Objects.equals(this.enableSNI, createDomainRequest.enableSNI) &&
         Objects.equals(this.keepAliveRequest, createDomainRequest.keepAliveRequest) &&
         Objects.equals(this.keepAliveTimeOut, createDomainRequest.keepAliveTimeOut) &&
         Objects.equals(this.lbAlgorithm, createDomainRequest.lbAlgorithm) &&
+        Objects.equals(this.projectName, createDomainRequest.projectName) &&
         Objects.equals(this.protocolFollow, createDomainRequest.protocolFollow) &&
         Objects.equals(this.protocolPorts, createDomainRequest.protocolPorts) &&
         Objects.equals(this.protocols, createDomainRequest.protocols) &&
@@ -911,13 +1022,14 @@ public class CreateDomainRequest {
         Objects.equals(this.ssLCiphers, createDomainRequest.ssLCiphers) &&
         Objects.equals(this.ssLProtocols, createDomainRequest.ssLProtocols) &&
         Objects.equals(this.tlSEnable, createDomainRequest.tlSEnable) &&
+        Objects.equals(this.tlSFieldsConfig, createDomainRequest.tlSFieldsConfig) &&
         Objects.equals(this.volcCertificateID, createDomainRequest.volcCertificateID) &&
         Objects.equals(this.vpcID, createDomainRequest.vpcID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessMode, backendGroups, botDytokenEnable, botFrequencyEnable, botRepeatEnable, botSequenceDefaultAction, botSequenceEnable, certificateID, certificatePlatform, clientIPLocation, clientMaxBodySize, cloudAccessConfig, customHeader, domain, enableHTTP2, enableIPv6, keepAliveRequest, keepAliveTimeOut, lbAlgorithm, protocolFollow, protocolPorts, protocols, proxyConfig, proxyConnectTimeOut, proxyKeepAlive, proxyKeepAliveTimeOut, proxyReadTimeOut, proxyRetry, proxyWriteTimeOut, publicRealServer, redirectHTTPS, region, ssLCiphers, ssLProtocols, tlSEnable, volcCertificateID, vpcID);
+    return Objects.hash(accessMode, backendGroups, botDytokenEnable, botFrequencyEnable, botRepeatEnable, botSequenceDefaultAction, botSequenceEnable, certificateID, certificatePlatform, clientIPLocation, clientMaxBodySize, cloudAccessConfig, customHeader, customSNI, domain, enableCustomRedirect, enableHTTP2, enableIPv6, enableSNI, keepAliveRequest, keepAliveTimeOut, lbAlgorithm, projectName, protocolFollow, protocolPorts, protocols, proxyConfig, proxyConnectTimeOut, proxyKeepAlive, proxyKeepAliveTimeOut, proxyReadTimeOut, proxyRetry, proxyWriteTimeOut, publicRealServer, redirectHTTPS, region, ssLCiphers, ssLProtocols, tlSEnable, tlSFieldsConfig, volcCertificateID, vpcID);
   }
 
 
@@ -939,12 +1051,16 @@ public class CreateDomainRequest {
     sb.append("    clientMaxBodySize: ").append(toIndentedString(clientMaxBodySize)).append("\n");
     sb.append("    cloudAccessConfig: ").append(toIndentedString(cloudAccessConfig)).append("\n");
     sb.append("    customHeader: ").append(toIndentedString(customHeader)).append("\n");
+    sb.append("    customSNI: ").append(toIndentedString(customSNI)).append("\n");
     sb.append("    domain: ").append(toIndentedString(domain)).append("\n");
+    sb.append("    enableCustomRedirect: ").append(toIndentedString(enableCustomRedirect)).append("\n");
     sb.append("    enableHTTP2: ").append(toIndentedString(enableHTTP2)).append("\n");
     sb.append("    enableIPv6: ").append(toIndentedString(enableIPv6)).append("\n");
+    sb.append("    enableSNI: ").append(toIndentedString(enableSNI)).append("\n");
     sb.append("    keepAliveRequest: ").append(toIndentedString(keepAliveRequest)).append("\n");
     sb.append("    keepAliveTimeOut: ").append(toIndentedString(keepAliveTimeOut)).append("\n");
     sb.append("    lbAlgorithm: ").append(toIndentedString(lbAlgorithm)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    protocolFollow: ").append(toIndentedString(protocolFollow)).append("\n");
     sb.append("    protocolPorts: ").append(toIndentedString(protocolPorts)).append("\n");
     sb.append("    protocols: ").append(toIndentedString(protocols)).append("\n");
@@ -961,6 +1077,7 @@ public class CreateDomainRequest {
     sb.append("    ssLCiphers: ").append(toIndentedString(ssLCiphers)).append("\n");
     sb.append("    ssLProtocols: ").append(toIndentedString(ssLProtocols)).append("\n");
     sb.append("    tlSEnable: ").append(toIndentedString(tlSEnable)).append("\n");
+    sb.append("    tlSFieldsConfig: ").append(toIndentedString(tlSFieldsConfig)).append("\n");
     sb.append("    volcCertificateID: ").append(toIndentedString(volcCertificateID)).append("\n");
     sb.append("    vpcID: ").append(toIndentedString(vpcID)).append("\n");
     sb.append("}");

@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ChartAttributeForListTagsOutput {
   @SerializedName("ApiVersion")
   private String apiVersion = null;

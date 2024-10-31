@@ -72,6 +72,9 @@ public class UpdateWafServiceControlRequest {
   @SerializedName("Host")
   private String host = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("SystemBotEnable")
   private Integer systemBotEnable = null;
 
@@ -346,6 +349,24 @@ public class UpdateWafServiceControlRequest {
     this.host = host;
   }
 
+  public UpdateWafServiceControlRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public UpdateWafServiceControlRequest systemBotEnable(Integer systemBotEnable) {
     this.systemBotEnable = systemBotEnable;
     return this;
@@ -496,6 +517,7 @@ public class UpdateWafServiceControlRequest {
         Objects.equals(this.customRspEnable, updateWafServiceControlRequest.customRspEnable) &&
         Objects.equals(this.dlpEnable, updateWafServiceControlRequest.dlpEnable) &&
         Objects.equals(this.host, updateWafServiceControlRequest.host) &&
+        Objects.equals(this.projectName, updateWafServiceControlRequest.projectName) &&
         Objects.equals(this.systemBotEnable, updateWafServiceControlRequest.systemBotEnable) &&
         Objects.equals(this.tlSEnable, updateWafServiceControlRequest.tlSEnable) &&
         Objects.equals(this.tamperProofEnable, updateWafServiceControlRequest.tamperProofEnable) &&
@@ -507,7 +529,7 @@ public class UpdateWafServiceControlRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiEnable, autoCCEnable, blackIpEnable, blackLctEnable, botDytokenEnable, botFrequencyEnable, botRepeatEnable, botSequenceDefaultAction, botSequenceEnable, ccEnable, customBotEnable, customRspEnable, dlpEnable, host, systemBotEnable, tlSEnable, tamperProofEnable, wafEnable, wafWhiteReqEnable, whiteEnable, whiteFieldEnable);
+    return Objects.hash(apiEnable, autoCCEnable, blackIpEnable, blackLctEnable, botDytokenEnable, botFrequencyEnable, botRepeatEnable, botSequenceDefaultAction, botSequenceEnable, ccEnable, customBotEnable, customRspEnable, dlpEnable, host, projectName, systemBotEnable, tlSEnable, tamperProofEnable, wafEnable, wafWhiteReqEnable, whiteEnable, whiteFieldEnable);
   }
 
 
@@ -530,6 +552,7 @@ public class UpdateWafServiceControlRequest {
     sb.append("    customRspEnable: ").append(toIndentedString(customRspEnable)).append("\n");
     sb.append("    dlpEnable: ").append(toIndentedString(dlpEnable)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    systemBotEnable: ").append(toIndentedString(systemBotEnable)).append("\n");
     sb.append("    tlSEnable: ").append(toIndentedString(tlSEnable)).append("\n");
     sb.append("    tamperProofEnable: ").append(toIndentedString(tamperProofEnable)).append("\n");

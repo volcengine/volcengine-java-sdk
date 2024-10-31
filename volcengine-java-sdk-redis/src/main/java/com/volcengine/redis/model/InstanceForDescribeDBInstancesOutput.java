@@ -70,6 +70,9 @@ public class InstanceForDescribeDBInstancesOutput {
   @SerializedName("NodeNumber")
   private Integer nodeNumber = null;
 
+  @SerializedName("PrivateAddress")
+  private String privateAddress = null;
+
   @SerializedName("ProjectName")
   private String projectName = null;
 
@@ -93,6 +96,12 @@ public class InstanceForDescribeDBInstancesOutput {
 
   @SerializedName("Tags")
   private List<TagForDescribeDBInstancesOutput> tags = null;
+
+  @SerializedName("VIP")
+  private String VIP = null;
+
+  @SerializedName("VIPv6")
+  private String viPv6 = null;
 
   @SerializedName("VpcId")
   private String vpcId = null;
@@ -317,6 +326,24 @@ public class InstanceForDescribeDBInstancesOutput {
     this.nodeNumber = nodeNumber;
   }
 
+  public InstanceForDescribeDBInstancesOutput privateAddress(String privateAddress) {
+    this.privateAddress = privateAddress;
+    return this;
+  }
+
+   /**
+   * Get privateAddress
+   * @return privateAddress
+  **/
+  @Schema(description = "")
+  public String getPrivateAddress() {
+    return privateAddress;
+  }
+
+  public void setPrivateAddress(String privateAddress) {
+    this.privateAddress = privateAddress;
+  }
+
   public InstanceForDescribeDBInstancesOutput projectName(String projectName) {
     this.projectName = projectName;
     return this;
@@ -470,6 +497,42 @@ public class InstanceForDescribeDBInstancesOutput {
     this.tags = tags;
   }
 
+  public InstanceForDescribeDBInstancesOutput VIP(String VIP) {
+    this.VIP = VIP;
+    return this;
+  }
+
+   /**
+   * Get VIP
+   * @return VIP
+  **/
+  @Schema(description = "")
+  public String getVIP() {
+    return VIP;
+  }
+
+  public void setVIP(String VIP) {
+    this.VIP = VIP;
+  }
+
+  public InstanceForDescribeDBInstancesOutput viPv6(String viPv6) {
+    this.viPv6 = viPv6;
+    return this;
+  }
+
+   /**
+   * Get viPv6
+   * @return viPv6
+  **/
+  @Schema(description = "")
+  public String getViPv6() {
+    return viPv6;
+  }
+
+  public void setViPv6(String viPv6) {
+    this.viPv6 = viPv6;
+  }
+
   public InstanceForDescribeDBInstancesOutput vpcId(String vpcId) {
     this.vpcId = vpcId;
     return this;
@@ -536,6 +599,7 @@ public class InstanceForDescribeDBInstancesOutput {
         Objects.equals(this.instanceName, instanceForDescribeDBInstancesOutput.instanceName) &&
         Objects.equals(this.multiAZ, instanceForDescribeDBInstancesOutput.multiAZ) &&
         Objects.equals(this.nodeNumber, instanceForDescribeDBInstancesOutput.nodeNumber) &&
+        Objects.equals(this.privateAddress, instanceForDescribeDBInstancesOutput.privateAddress) &&
         Objects.equals(this.projectName, instanceForDescribeDBInstancesOutput.projectName) &&
         Objects.equals(this.regionId, instanceForDescribeDBInstancesOutput.regionId) &&
         Objects.equals(this.serviceType, instanceForDescribeDBInstancesOutput.serviceType) &&
@@ -544,13 +608,15 @@ public class InstanceForDescribeDBInstancesOutput {
         Objects.equals(this.shardedCluster, instanceForDescribeDBInstancesOutput.shardedCluster) &&
         Objects.equals(this.status, instanceForDescribeDBInstancesOutput.status) &&
         Objects.equals(this.tags, instanceForDescribeDBInstancesOutput.tags) &&
+        Objects.equals(this.VIP, instanceForDescribeDBInstancesOutput.VIP) &&
+        Objects.equals(this.viPv6, instanceForDescribeDBInstancesOutput.viPv6) &&
         Objects.equals(this.vpcId, instanceForDescribeDBInstancesOutput.vpcId) &&
         Objects.equals(this.zoneIds, instanceForDescribeDBInstancesOutput.zoneIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(capacity, chargeType, createTime, dataLayout, deletionProtection, engineVersion, expiredTime, instanceClass, instanceId, instanceName, multiAZ, nodeNumber, projectName, regionId, serviceType, shardCapacity, shardNumber, shardedCluster, status, tags, vpcId, zoneIds);
+    return Objects.hash(capacity, chargeType, createTime, dataLayout, deletionProtection, engineVersion, expiredTime, instanceClass, instanceId, instanceName, multiAZ, nodeNumber, privateAddress, projectName, regionId, serviceType, shardCapacity, shardNumber, shardedCluster, status, tags, VIP, viPv6, vpcId, zoneIds);
   }
 
 
@@ -571,6 +637,7 @@ public class InstanceForDescribeDBInstancesOutput {
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    multiAZ: ").append(toIndentedString(multiAZ)).append("\n");
     sb.append("    nodeNumber: ").append(toIndentedString(nodeNumber)).append("\n");
+    sb.append("    privateAddress: ").append(toIndentedString(privateAddress)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    regionId: ").append(toIndentedString(regionId)).append("\n");
     sb.append("    serviceType: ").append(toIndentedString(serviceType)).append("\n");
@@ -579,6 +646,8 @@ public class InstanceForDescribeDBInstancesOutput {
     sb.append("    shardedCluster: ").append(toIndentedString(shardedCluster)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    VIP: ").append(toIndentedString(VIP)).append("\n");
+    sb.append("    viPv6: ").append(toIndentedString(viPv6)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("    zoneIds: ").append(toIndentedString(zoneIds)).append("\n");
     sb.append("}");

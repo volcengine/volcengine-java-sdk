@@ -21,7 +21,9 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.waf.model.BackendGroupForUpdateDomainInput;
 import com.volcengine.waf.model.CloudAccessConfigForUpdateDomainInput;
+import com.volcengine.waf.model.LLMPathInfoForUpdateDomainInput;
 import com.volcengine.waf.model.ProtocolPortsForUpdateDomainInput;
+import com.volcengine.waf.model.TLSFieldsConfigForUpdateDomainInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -74,14 +76,23 @@ public class UpdateDomainRequest {
   @SerializedName("CustomHeader")
   private List<String> customHeader = null;
 
+  @SerializedName("CustomSNI")
+  private String customSNI = null;
+
   @SerializedName("Domain")
   private String domain = null;
+
+  @SerializedName("EnableCustomRedirect")
+  private Integer enableCustomRedirect = null;
 
   @SerializedName("EnableHTTP2")
   private Integer enableHTTP2 = null;
 
   @SerializedName("EnableIPv6")
   private Integer enableIPv6 = null;
+
+  @SerializedName("EnableSNI")
+  private Integer enableSNI = null;
 
   @SerializedName("KeepAliveRequest")
   private Integer keepAliveRequest = null;
@@ -91,6 +102,15 @@ public class UpdateDomainRequest {
 
   @SerializedName("LBAlgorithm")
   private String lbAlgorithm = null;
+
+  @SerializedName("LLMAvailable")
+  private Boolean llMAvailable = null;
+
+  @SerializedName("LLMPathInfo")
+  private List<LLMPathInfoForUpdateDomainInput> llMPathInfo = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
 
   @SerializedName("ProtocolFollow")
   private Integer protocolFollow = null;
@@ -139,6 +159,9 @@ public class UpdateDomainRequest {
 
   @SerializedName("TLSEnable")
   private Integer tlSEnable = null;
+
+  @SerializedName("TLSFieldsConfig")
+  private TLSFieldsConfigForUpdateDomainInput tlSFieldsConfig = null;
 
   @SerializedName("VolcCertificateID")
   private String volcCertificateID = null;
@@ -407,6 +430,24 @@ public class UpdateDomainRequest {
     this.customHeader = customHeader;
   }
 
+  public UpdateDomainRequest customSNI(String customSNI) {
+    this.customSNI = customSNI;
+    return this;
+  }
+
+   /**
+   * Get customSNI
+   * @return customSNI
+  **/
+  @Schema(description = "")
+  public String getCustomSNI() {
+    return customSNI;
+  }
+
+  public void setCustomSNI(String customSNI) {
+    this.customSNI = customSNI;
+  }
+
   public UpdateDomainRequest domain(String domain) {
     this.domain = domain;
     return this;
@@ -424,6 +465,24 @@ public class UpdateDomainRequest {
 
   public void setDomain(String domain) {
     this.domain = domain;
+  }
+
+  public UpdateDomainRequest enableCustomRedirect(Integer enableCustomRedirect) {
+    this.enableCustomRedirect = enableCustomRedirect;
+    return this;
+  }
+
+   /**
+   * Get enableCustomRedirect
+   * @return enableCustomRedirect
+  **/
+  @Schema(description = "")
+  public Integer getEnableCustomRedirect() {
+    return enableCustomRedirect;
+  }
+
+  public void setEnableCustomRedirect(Integer enableCustomRedirect) {
+    this.enableCustomRedirect = enableCustomRedirect;
   }
 
   public UpdateDomainRequest enableHTTP2(Integer enableHTTP2) {
@@ -460,6 +519,24 @@ public class UpdateDomainRequest {
 
   public void setEnableIPv6(Integer enableIPv6) {
     this.enableIPv6 = enableIPv6;
+  }
+
+  public UpdateDomainRequest enableSNI(Integer enableSNI) {
+    this.enableSNI = enableSNI;
+    return this;
+  }
+
+   /**
+   * Get enableSNI
+   * @return enableSNI
+  **/
+  @Schema(description = "")
+  public Integer getEnableSNI() {
+    return enableSNI;
+  }
+
+  public void setEnableSNI(Integer enableSNI) {
+    this.enableSNI = enableSNI;
   }
 
   public UpdateDomainRequest keepAliveRequest(Integer keepAliveRequest) {
@@ -514,6 +591,69 @@ public class UpdateDomainRequest {
 
   public void setLbAlgorithm(String lbAlgorithm) {
     this.lbAlgorithm = lbAlgorithm;
+  }
+
+  public UpdateDomainRequest llMAvailable(Boolean llMAvailable) {
+    this.llMAvailable = llMAvailable;
+    return this;
+  }
+
+   /**
+   * Get llMAvailable
+   * @return llMAvailable
+  **/
+  @Schema(description = "")
+  public Boolean isLlMAvailable() {
+    return llMAvailable;
+  }
+
+  public void setLlMAvailable(Boolean llMAvailable) {
+    this.llMAvailable = llMAvailable;
+  }
+
+  public UpdateDomainRequest llMPathInfo(List<LLMPathInfoForUpdateDomainInput> llMPathInfo) {
+    this.llMPathInfo = llMPathInfo;
+    return this;
+  }
+
+  public UpdateDomainRequest addLlMPathInfoItem(LLMPathInfoForUpdateDomainInput llMPathInfoItem) {
+    if (this.llMPathInfo == null) {
+      this.llMPathInfo = new ArrayList<LLMPathInfoForUpdateDomainInput>();
+    }
+    this.llMPathInfo.add(llMPathInfoItem);
+    return this;
+  }
+
+   /**
+   * Get llMPathInfo
+   * @return llMPathInfo
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<LLMPathInfoForUpdateDomainInput> getLlMPathInfo() {
+    return llMPathInfo;
+  }
+
+  public void setLlMPathInfo(List<LLMPathInfoForUpdateDomainInput> llMPathInfo) {
+    this.llMPathInfo = llMPathInfo;
+  }
+
+  public UpdateDomainRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
   }
 
   public UpdateDomainRequest protocolFollow(Integer protocolFollow) {
@@ -830,6 +970,25 @@ public class UpdateDomainRequest {
     this.tlSEnable = tlSEnable;
   }
 
+  public UpdateDomainRequest tlSFieldsConfig(TLSFieldsConfigForUpdateDomainInput tlSFieldsConfig) {
+    this.tlSFieldsConfig = tlSFieldsConfig;
+    return this;
+  }
+
+   /**
+   * Get tlSFieldsConfig
+   * @return tlSFieldsConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public TLSFieldsConfigForUpdateDomainInput getTlSFieldsConfig() {
+    return tlSFieldsConfig;
+  }
+
+  public void setTlSFieldsConfig(TLSFieldsConfigForUpdateDomainInput tlSFieldsConfig) {
+    this.tlSFieldsConfig = tlSFieldsConfig;
+  }
+
   public UpdateDomainRequest volcCertificateID(String volcCertificateID) {
     this.volcCertificateID = volcCertificateID;
     return this;
@@ -889,12 +1048,18 @@ public class UpdateDomainRequest {
         Objects.equals(this.clientMaxBodySize, updateDomainRequest.clientMaxBodySize) &&
         Objects.equals(this.cloudAccessConfig, updateDomainRequest.cloudAccessConfig) &&
         Objects.equals(this.customHeader, updateDomainRequest.customHeader) &&
+        Objects.equals(this.customSNI, updateDomainRequest.customSNI) &&
         Objects.equals(this.domain, updateDomainRequest.domain) &&
+        Objects.equals(this.enableCustomRedirect, updateDomainRequest.enableCustomRedirect) &&
         Objects.equals(this.enableHTTP2, updateDomainRequest.enableHTTP2) &&
         Objects.equals(this.enableIPv6, updateDomainRequest.enableIPv6) &&
+        Objects.equals(this.enableSNI, updateDomainRequest.enableSNI) &&
         Objects.equals(this.keepAliveRequest, updateDomainRequest.keepAliveRequest) &&
         Objects.equals(this.keepAliveTimeOut, updateDomainRequest.keepAliveTimeOut) &&
         Objects.equals(this.lbAlgorithm, updateDomainRequest.lbAlgorithm) &&
+        Objects.equals(this.llMAvailable, updateDomainRequest.llMAvailable) &&
+        Objects.equals(this.llMPathInfo, updateDomainRequest.llMPathInfo) &&
+        Objects.equals(this.projectName, updateDomainRequest.projectName) &&
         Objects.equals(this.protocolFollow, updateDomainRequest.protocolFollow) &&
         Objects.equals(this.protocolPorts, updateDomainRequest.protocolPorts) &&
         Objects.equals(this.protocols, updateDomainRequest.protocols) &&
@@ -911,13 +1076,14 @@ public class UpdateDomainRequest {
         Objects.equals(this.ssLCiphers, updateDomainRequest.ssLCiphers) &&
         Objects.equals(this.ssLProtocols, updateDomainRequest.ssLProtocols) &&
         Objects.equals(this.tlSEnable, updateDomainRequest.tlSEnable) &&
+        Objects.equals(this.tlSFieldsConfig, updateDomainRequest.tlSFieldsConfig) &&
         Objects.equals(this.volcCertificateID, updateDomainRequest.volcCertificateID) &&
         Objects.equals(this.vpcID, updateDomainRequest.vpcID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessMode, backendGroups, botDytokenEnable, botFrequencyEnable, botRepeatEnable, botSequenceDefaultAction, botSequenceEnable, certificateID, certificatePlatform, clientIPLocation, clientMaxBodySize, cloudAccessConfig, customHeader, domain, enableHTTP2, enableIPv6, keepAliveRequest, keepAliveTimeOut, lbAlgorithm, protocolFollow, protocolPorts, protocols, proxyConfig, proxyConnectTimeOut, proxyKeepAlive, proxyKeepAliveTimeOut, proxyReadTimeOut, proxyRetry, proxyWriteTimeOut, publicRealServer, redirectHTTPS, region, ssLCiphers, ssLProtocols, tlSEnable, volcCertificateID, vpcID);
+    return Objects.hash(accessMode, backendGroups, botDytokenEnable, botFrequencyEnable, botRepeatEnable, botSequenceDefaultAction, botSequenceEnable, certificateID, certificatePlatform, clientIPLocation, clientMaxBodySize, cloudAccessConfig, customHeader, customSNI, domain, enableCustomRedirect, enableHTTP2, enableIPv6, enableSNI, keepAliveRequest, keepAliveTimeOut, lbAlgorithm, llMAvailable, llMPathInfo, projectName, protocolFollow, protocolPorts, protocols, proxyConfig, proxyConnectTimeOut, proxyKeepAlive, proxyKeepAliveTimeOut, proxyReadTimeOut, proxyRetry, proxyWriteTimeOut, publicRealServer, redirectHTTPS, region, ssLCiphers, ssLProtocols, tlSEnable, tlSFieldsConfig, volcCertificateID, vpcID);
   }
 
 
@@ -939,12 +1105,18 @@ public class UpdateDomainRequest {
     sb.append("    clientMaxBodySize: ").append(toIndentedString(clientMaxBodySize)).append("\n");
     sb.append("    cloudAccessConfig: ").append(toIndentedString(cloudAccessConfig)).append("\n");
     sb.append("    customHeader: ").append(toIndentedString(customHeader)).append("\n");
+    sb.append("    customSNI: ").append(toIndentedString(customSNI)).append("\n");
     sb.append("    domain: ").append(toIndentedString(domain)).append("\n");
+    sb.append("    enableCustomRedirect: ").append(toIndentedString(enableCustomRedirect)).append("\n");
     sb.append("    enableHTTP2: ").append(toIndentedString(enableHTTP2)).append("\n");
     sb.append("    enableIPv6: ").append(toIndentedString(enableIPv6)).append("\n");
+    sb.append("    enableSNI: ").append(toIndentedString(enableSNI)).append("\n");
     sb.append("    keepAliveRequest: ").append(toIndentedString(keepAliveRequest)).append("\n");
     sb.append("    keepAliveTimeOut: ").append(toIndentedString(keepAliveTimeOut)).append("\n");
     sb.append("    lbAlgorithm: ").append(toIndentedString(lbAlgorithm)).append("\n");
+    sb.append("    llMAvailable: ").append(toIndentedString(llMAvailable)).append("\n");
+    sb.append("    llMPathInfo: ").append(toIndentedString(llMPathInfo)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    protocolFollow: ").append(toIndentedString(protocolFollow)).append("\n");
     sb.append("    protocolPorts: ").append(toIndentedString(protocolPorts)).append("\n");
     sb.append("    protocols: ").append(toIndentedString(protocols)).append("\n");
@@ -961,6 +1133,7 @@ public class UpdateDomainRequest {
     sb.append("    ssLCiphers: ").append(toIndentedString(ssLCiphers)).append("\n");
     sb.append("    ssLProtocols: ").append(toIndentedString(ssLProtocols)).append("\n");
     sb.append("    tlSEnable: ").append(toIndentedString(tlSEnable)).append("\n");
+    sb.append("    tlSFieldsConfig: ").append(toIndentedString(tlSFieldsConfig)).append("\n");
     sb.append("    volcCertificateID: ").append(toIndentedString(volcCertificateID)).append("\n");
     sb.append("    vpcID: ").append(toIndentedString(vpcID)).append("\n");
     sb.append("}");

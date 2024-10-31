@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ItemForListDomainsOutput {
   @SerializedName("CreateTime")
   private String createTime = null;

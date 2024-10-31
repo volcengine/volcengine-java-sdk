@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class StartRegistryRequest {
   @SerializedName("Name")
   private String name = null;

@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.waf.model.LBInfoForListDomainInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -30,14 +33,29 @@ import javax.validation.Valid;
 
 
 public class ListDomainRequest {
-  @SerializedName("ALBInstanceID")
-  private String alBInstanceID = null;
+  @SerializedName("AccessMode")
+  private List<Integer> accessMode = null;
 
   @SerializedName("AccurateQuery")
   private Integer accurateQuery = null;
 
+  @SerializedName("AttackStatus")
+  private List<Integer> attackStatus = null;
+
+  @SerializedName("ClientIp")
+  private String clientIp = null;
+
+  @SerializedName("DefenceMode")
+  private List<Integer> defenceMode = null;
+
   @SerializedName("Domain")
   private String domain = null;
+
+  @SerializedName("DomainOrPath")
+  private String domainOrPath = null;
+
+  @SerializedName("LBInfo")
+  private List<LBInfoForListDomainInput> lbInfo = null;
 
   @SerializedName("Page")
   private Integer page = null;
@@ -45,25 +63,63 @@ public class ListDomainRequest {
   @SerializedName("PageSize")
   private Integer pageSize = null;
 
+  @SerializedName("PublicRealServer")
+  private List<Integer> publicRealServer = null;
+
   @SerializedName("Region")
   private String region = null;
 
-  public ListDomainRequest alBInstanceID(String alBInstanceID) {
-    this.alBInstanceID = alBInstanceID;
+  @SerializedName("SortByCreateTime")
+  private String sortByCreateTime = null;
+
+  @SerializedName("SortByDomainName")
+  private String sortByDomainName = null;
+
+  @SerializedName("SortByUpdateTime")
+  private String sortByUpdateTime = null;
+
+  @SerializedName("Status")
+  private List<Integer> status = null;
+
+  @SerializedName("TLSEnable")
+  private List<Integer> tlSEnable = null;
+
+  @SerializedName("VpcId")
+  private String vpcId = null;
+
+  @SerializedName("VpcName")
+  private String vpcName = null;
+
+  @SerializedName("VpcOwnerId")
+  private String vpcOwnerId = null;
+
+  @SerializedName("VpcOwnerName")
+  private String vpcOwnerName = null;
+
+  public ListDomainRequest accessMode(List<Integer> accessMode) {
+    this.accessMode = accessMode;
+    return this;
+  }
+
+  public ListDomainRequest addAccessModeItem(Integer accessModeItem) {
+    if (this.accessMode == null) {
+      this.accessMode = new ArrayList<Integer>();
+    }
+    this.accessMode.add(accessModeItem);
     return this;
   }
 
    /**
-   * Get alBInstanceID
-   * @return alBInstanceID
+   * Get accessMode
+   * @return accessMode
   **/
   @Schema(description = "")
-  public String getAlBInstanceID() {
-    return alBInstanceID;
+  public List<Integer> getAccessMode() {
+    return accessMode;
   }
 
-  public void setAlBInstanceID(String alBInstanceID) {
-    this.alBInstanceID = alBInstanceID;
+  public void setAccessMode(List<Integer> accessMode) {
+    this.accessMode = accessMode;
   }
 
   public ListDomainRequest accurateQuery(Integer accurateQuery) {
@@ -85,6 +141,76 @@ public class ListDomainRequest {
     this.accurateQuery = accurateQuery;
   }
 
+  public ListDomainRequest attackStatus(List<Integer> attackStatus) {
+    this.attackStatus = attackStatus;
+    return this;
+  }
+
+  public ListDomainRequest addAttackStatusItem(Integer attackStatusItem) {
+    if (this.attackStatus == null) {
+      this.attackStatus = new ArrayList<Integer>();
+    }
+    this.attackStatus.add(attackStatusItem);
+    return this;
+  }
+
+   /**
+   * Get attackStatus
+   * @return attackStatus
+  **/
+  @Schema(description = "")
+  public List<Integer> getAttackStatus() {
+    return attackStatus;
+  }
+
+  public void setAttackStatus(List<Integer> attackStatus) {
+    this.attackStatus = attackStatus;
+  }
+
+  public ListDomainRequest clientIp(String clientIp) {
+    this.clientIp = clientIp;
+    return this;
+  }
+
+   /**
+   * Get clientIp
+   * @return clientIp
+  **/
+  @Schema(description = "")
+  public String getClientIp() {
+    return clientIp;
+  }
+
+  public void setClientIp(String clientIp) {
+    this.clientIp = clientIp;
+  }
+
+  public ListDomainRequest defenceMode(List<Integer> defenceMode) {
+    this.defenceMode = defenceMode;
+    return this;
+  }
+
+  public ListDomainRequest addDefenceModeItem(Integer defenceModeItem) {
+    if (this.defenceMode == null) {
+      this.defenceMode = new ArrayList<Integer>();
+    }
+    this.defenceMode.add(defenceModeItem);
+    return this;
+  }
+
+   /**
+   * Get defenceMode
+   * @return defenceMode
+  **/
+  @Schema(description = "")
+  public List<Integer> getDefenceMode() {
+    return defenceMode;
+  }
+
+  public void setDefenceMode(List<Integer> defenceMode) {
+    this.defenceMode = defenceMode;
+  }
+
   public ListDomainRequest domain(String domain) {
     this.domain = domain;
     return this;
@@ -101,6 +227,51 @@ public class ListDomainRequest {
 
   public void setDomain(String domain) {
     this.domain = domain;
+  }
+
+  public ListDomainRequest domainOrPath(String domainOrPath) {
+    this.domainOrPath = domainOrPath;
+    return this;
+  }
+
+   /**
+   * Get domainOrPath
+   * @return domainOrPath
+  **/
+  @Schema(description = "")
+  public String getDomainOrPath() {
+    return domainOrPath;
+  }
+
+  public void setDomainOrPath(String domainOrPath) {
+    this.domainOrPath = domainOrPath;
+  }
+
+  public ListDomainRequest lbInfo(List<LBInfoForListDomainInput> lbInfo) {
+    this.lbInfo = lbInfo;
+    return this;
+  }
+
+  public ListDomainRequest addLbInfoItem(LBInfoForListDomainInput lbInfoItem) {
+    if (this.lbInfo == null) {
+      this.lbInfo = new ArrayList<LBInfoForListDomainInput>();
+    }
+    this.lbInfo.add(lbInfoItem);
+    return this;
+  }
+
+   /**
+   * Get lbInfo
+   * @return lbInfo
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<LBInfoForListDomainInput> getLbInfo() {
+    return lbInfo;
+  }
+
+  public void setLbInfo(List<LBInfoForListDomainInput> lbInfo) {
+    this.lbInfo = lbInfo;
   }
 
   public ListDomainRequest page(Integer page) {
@@ -141,6 +312,32 @@ public class ListDomainRequest {
     this.pageSize = pageSize;
   }
 
+  public ListDomainRequest publicRealServer(List<Integer> publicRealServer) {
+    this.publicRealServer = publicRealServer;
+    return this;
+  }
+
+  public ListDomainRequest addPublicRealServerItem(Integer publicRealServerItem) {
+    if (this.publicRealServer == null) {
+      this.publicRealServer = new ArrayList<Integer>();
+    }
+    this.publicRealServer.add(publicRealServerItem);
+    return this;
+  }
+
+   /**
+   * Get publicRealServer
+   * @return publicRealServer
+  **/
+  @Schema(description = "")
+  public List<Integer> getPublicRealServer() {
+    return publicRealServer;
+  }
+
+  public void setPublicRealServer(List<Integer> publicRealServer) {
+    this.publicRealServer = publicRealServer;
+  }
+
   public ListDomainRequest region(String region) {
     this.region = region;
     return this;
@@ -160,6 +357,184 @@ public class ListDomainRequest {
     this.region = region;
   }
 
+  public ListDomainRequest sortByCreateTime(String sortByCreateTime) {
+    this.sortByCreateTime = sortByCreateTime;
+    return this;
+  }
+
+   /**
+   * Get sortByCreateTime
+   * @return sortByCreateTime
+  **/
+  @Schema(description = "")
+  public String getSortByCreateTime() {
+    return sortByCreateTime;
+  }
+
+  public void setSortByCreateTime(String sortByCreateTime) {
+    this.sortByCreateTime = sortByCreateTime;
+  }
+
+  public ListDomainRequest sortByDomainName(String sortByDomainName) {
+    this.sortByDomainName = sortByDomainName;
+    return this;
+  }
+
+   /**
+   * Get sortByDomainName
+   * @return sortByDomainName
+  **/
+  @Schema(description = "")
+  public String getSortByDomainName() {
+    return sortByDomainName;
+  }
+
+  public void setSortByDomainName(String sortByDomainName) {
+    this.sortByDomainName = sortByDomainName;
+  }
+
+  public ListDomainRequest sortByUpdateTime(String sortByUpdateTime) {
+    this.sortByUpdateTime = sortByUpdateTime;
+    return this;
+  }
+
+   /**
+   * Get sortByUpdateTime
+   * @return sortByUpdateTime
+  **/
+  @Schema(description = "")
+  public String getSortByUpdateTime() {
+    return sortByUpdateTime;
+  }
+
+  public void setSortByUpdateTime(String sortByUpdateTime) {
+    this.sortByUpdateTime = sortByUpdateTime;
+  }
+
+  public ListDomainRequest status(List<Integer> status) {
+    this.status = status;
+    return this;
+  }
+
+  public ListDomainRequest addStatusItem(Integer statusItem) {
+    if (this.status == null) {
+      this.status = new ArrayList<Integer>();
+    }
+    this.status.add(statusItem);
+    return this;
+  }
+
+   /**
+   * Get status
+   * @return status
+  **/
+  @Schema(description = "")
+  public List<Integer> getStatus() {
+    return status;
+  }
+
+  public void setStatus(List<Integer> status) {
+    this.status = status;
+  }
+
+  public ListDomainRequest tlSEnable(List<Integer> tlSEnable) {
+    this.tlSEnable = tlSEnable;
+    return this;
+  }
+
+  public ListDomainRequest addTlSEnableItem(Integer tlSEnableItem) {
+    if (this.tlSEnable == null) {
+      this.tlSEnable = new ArrayList<Integer>();
+    }
+    this.tlSEnable.add(tlSEnableItem);
+    return this;
+  }
+
+   /**
+   * Get tlSEnable
+   * @return tlSEnable
+  **/
+  @Schema(description = "")
+  public List<Integer> getTlSEnable() {
+    return tlSEnable;
+  }
+
+  public void setTlSEnable(List<Integer> tlSEnable) {
+    this.tlSEnable = tlSEnable;
+  }
+
+  public ListDomainRequest vpcId(String vpcId) {
+    this.vpcId = vpcId;
+    return this;
+  }
+
+   /**
+   * Get vpcId
+   * @return vpcId
+  **/
+  @Schema(description = "")
+  public String getVpcId() {
+    return vpcId;
+  }
+
+  public void setVpcId(String vpcId) {
+    this.vpcId = vpcId;
+  }
+
+  public ListDomainRequest vpcName(String vpcName) {
+    this.vpcName = vpcName;
+    return this;
+  }
+
+   /**
+   * Get vpcName
+   * @return vpcName
+  **/
+  @Schema(description = "")
+  public String getVpcName() {
+    return vpcName;
+  }
+
+  public void setVpcName(String vpcName) {
+    this.vpcName = vpcName;
+  }
+
+  public ListDomainRequest vpcOwnerId(String vpcOwnerId) {
+    this.vpcOwnerId = vpcOwnerId;
+    return this;
+  }
+
+   /**
+   * Get vpcOwnerId
+   * @return vpcOwnerId
+  **/
+  @Schema(description = "")
+  public String getVpcOwnerId() {
+    return vpcOwnerId;
+  }
+
+  public void setVpcOwnerId(String vpcOwnerId) {
+    this.vpcOwnerId = vpcOwnerId;
+  }
+
+  public ListDomainRequest vpcOwnerName(String vpcOwnerName) {
+    this.vpcOwnerName = vpcOwnerName;
+    return this;
+  }
+
+   /**
+   * Get vpcOwnerName
+   * @return vpcOwnerName
+  **/
+  @Schema(description = "")
+  public String getVpcOwnerName() {
+    return vpcOwnerName;
+  }
+
+  public void setVpcOwnerName(String vpcOwnerName) {
+    this.vpcOwnerName = vpcOwnerName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -170,17 +545,32 @@ public class ListDomainRequest {
       return false;
     }
     ListDomainRequest listDomainRequest = (ListDomainRequest) o;
-    return Objects.equals(this.alBInstanceID, listDomainRequest.alBInstanceID) &&
+    return Objects.equals(this.accessMode, listDomainRequest.accessMode) &&
         Objects.equals(this.accurateQuery, listDomainRequest.accurateQuery) &&
+        Objects.equals(this.attackStatus, listDomainRequest.attackStatus) &&
+        Objects.equals(this.clientIp, listDomainRequest.clientIp) &&
+        Objects.equals(this.defenceMode, listDomainRequest.defenceMode) &&
         Objects.equals(this.domain, listDomainRequest.domain) &&
+        Objects.equals(this.domainOrPath, listDomainRequest.domainOrPath) &&
+        Objects.equals(this.lbInfo, listDomainRequest.lbInfo) &&
         Objects.equals(this.page, listDomainRequest.page) &&
         Objects.equals(this.pageSize, listDomainRequest.pageSize) &&
-        Objects.equals(this.region, listDomainRequest.region);
+        Objects.equals(this.publicRealServer, listDomainRequest.publicRealServer) &&
+        Objects.equals(this.region, listDomainRequest.region) &&
+        Objects.equals(this.sortByCreateTime, listDomainRequest.sortByCreateTime) &&
+        Objects.equals(this.sortByDomainName, listDomainRequest.sortByDomainName) &&
+        Objects.equals(this.sortByUpdateTime, listDomainRequest.sortByUpdateTime) &&
+        Objects.equals(this.status, listDomainRequest.status) &&
+        Objects.equals(this.tlSEnable, listDomainRequest.tlSEnable) &&
+        Objects.equals(this.vpcId, listDomainRequest.vpcId) &&
+        Objects.equals(this.vpcName, listDomainRequest.vpcName) &&
+        Objects.equals(this.vpcOwnerId, listDomainRequest.vpcOwnerId) &&
+        Objects.equals(this.vpcOwnerName, listDomainRequest.vpcOwnerName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(alBInstanceID, accurateQuery, domain, page, pageSize, region);
+    return Objects.hash(accessMode, accurateQuery, attackStatus, clientIp, defenceMode, domain, domainOrPath, lbInfo, page, pageSize, publicRealServer, region, sortByCreateTime, sortByDomainName, sortByUpdateTime, status, tlSEnable, vpcId, vpcName, vpcOwnerId, vpcOwnerName);
   }
 
 
@@ -189,12 +579,27 @@ public class ListDomainRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListDomainRequest {\n");
     
-    sb.append("    alBInstanceID: ").append(toIndentedString(alBInstanceID)).append("\n");
+    sb.append("    accessMode: ").append(toIndentedString(accessMode)).append("\n");
     sb.append("    accurateQuery: ").append(toIndentedString(accurateQuery)).append("\n");
+    sb.append("    attackStatus: ").append(toIndentedString(attackStatus)).append("\n");
+    sb.append("    clientIp: ").append(toIndentedString(clientIp)).append("\n");
+    sb.append("    defenceMode: ").append(toIndentedString(defenceMode)).append("\n");
     sb.append("    domain: ").append(toIndentedString(domain)).append("\n");
+    sb.append("    domainOrPath: ").append(toIndentedString(domainOrPath)).append("\n");
+    sb.append("    lbInfo: ").append(toIndentedString(lbInfo)).append("\n");
     sb.append("    page: ").append(toIndentedString(page)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    publicRealServer: ").append(toIndentedString(publicRealServer)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
+    sb.append("    sortByCreateTime: ").append(toIndentedString(sortByCreateTime)).append("\n");
+    sb.append("    sortByDomainName: ").append(toIndentedString(sortByDomainName)).append("\n");
+    sb.append("    sortByUpdateTime: ").append(toIndentedString(sortByUpdateTime)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    tlSEnable: ").append(toIndentedString(tlSEnable)).append("\n");
+    sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
+    sb.append("    vpcName: ").append(toIndentedString(vpcName)).append("\n");
+    sb.append("    vpcOwnerId: ").append(toIndentedString(vpcOwnerId)).append("\n");
+    sb.append("    vpcOwnerName: ").append(toIndentedString(vpcOwnerName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

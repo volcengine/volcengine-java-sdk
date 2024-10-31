@@ -39,6 +39,9 @@ public class ListCustomBotConfigRequest {
   @SerializedName("PageSize")
   private Integer pageSize = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   public ListCustomBotConfigRequest host(String host) {
     this.host = host;
     return this;
@@ -94,6 +97,24 @@ public class ListCustomBotConfigRequest {
     this.pageSize = pageSize;
   }
 
+  public ListCustomBotConfigRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -106,12 +127,13 @@ public class ListCustomBotConfigRequest {
     ListCustomBotConfigRequest listCustomBotConfigRequest = (ListCustomBotConfigRequest) o;
     return Objects.equals(this.host, listCustomBotConfigRequest.host) &&
         Objects.equals(this.page, listCustomBotConfigRequest.page) &&
-        Objects.equals(this.pageSize, listCustomBotConfigRequest.pageSize);
+        Objects.equals(this.pageSize, listCustomBotConfigRequest.pageSize) &&
+        Objects.equals(this.projectName, listCustomBotConfigRequest.projectName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(host, page, pageSize);
+    return Objects.hash(host, page, pageSize, projectName);
   }
 
 
@@ -123,6 +145,7 @@ public class ListCustomBotConfigRequest {
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    page: ").append(toIndentedString(page)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

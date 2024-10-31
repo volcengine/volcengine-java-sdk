@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ItemForListRepositoriesOutput {
   @SerializedName("AccessLevel")
   private String accessLevel = null;
@@ -128,7 +129,7 @@ public class ItemForListRepositoriesOutput {
    * Get namespace
    * @return namespace
   **/
-  @Schema(description = "")
+ @Size(min=2,max=90)  @Schema(description = "")
   public String getNamespace() {
     return namespace;
   }
