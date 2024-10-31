@@ -49,7 +49,7 @@ public class PrefixListForDescribePrefixListsOutput {
   private String ipVersion = null;
 
   @SerializedName("MaxEntries")
-  private String maxEntries = null;
+  private Integer maxEntries = null;
 
   @SerializedName("PrefixListId")
   private String prefixListId = null;
@@ -167,7 +167,7 @@ public class PrefixListForDescribePrefixListsOutput {
     this.ipVersion = ipVersion;
   }
 
-  public PrefixListForDescribePrefixListsOutput maxEntries(String maxEntries) {
+  public PrefixListForDescribePrefixListsOutput maxEntries(Integer maxEntries) {
     this.maxEntries = maxEntries;
     return this;
   }
@@ -177,11 +177,11 @@ public class PrefixListForDescribePrefixListsOutput {
    * @return maxEntries
   **/
   @Schema(description = "")
-  public String getMaxEntries() {
+  public Integer getMaxEntries() {
     return maxEntries;
   }
 
-  public void setMaxEntries(String maxEntries) {
+  public void setMaxEntries(Integer maxEntries) {
     this.maxEntries = maxEntries;
   }
 
