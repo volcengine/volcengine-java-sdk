@@ -42,11 +42,105 @@ public class AddressForDescribeDBInstanceDetailOutput {
   @SerializedName("IPAddress")
   private String ipAddress = null;
 
-  @SerializedName("InternetProtocol")
-  private String internetProtocol = null;
+  /**
+   * Gets or Sets internetProtocol
+   */
+  @JsonAdapter(InternetProtocolEnum.Adapter.class)
+  public enum InternetProtocolEnum {
+    @SerializedName("IPv4")
+    IPV4("IPv4"),
+    @SerializedName("IPv6")
+    IPV6("IPv6"),
+    @SerializedName("DualStack")
+    DUALSTACK("DualStack");
 
-  @SerializedName("NetworkType")
-  private String networkType = null;
+    private String value;
+
+    InternetProtocolEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static InternetProtocolEnum fromValue(String input) {
+      for (InternetProtocolEnum b : InternetProtocolEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<InternetProtocolEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final InternetProtocolEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public InternetProtocolEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return InternetProtocolEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("InternetProtocol")
+  private InternetProtocolEnum internetProtocol = null;
+
+  /**
+   * Gets or Sets networkType
+   */
+  @JsonAdapter(NetworkTypeEnum.Adapter.class)
+  public enum NetworkTypeEnum {
+    @SerializedName("Private")
+    PRIVATE("Private"),
+    @SerializedName("Public")
+    PUBLIC("Public"),
+    @SerializedName("Inner")
+    INNER("Inner"),
+    @SerializedName("Ingress")
+    INGRESS("Ingress"),
+    @SerializedName("Carma")
+    CARMA("Carma");
+
+    private String value;
+
+    NetworkTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static NetworkTypeEnum fromValue(String input) {
+      for (NetworkTypeEnum b : NetworkTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<NetworkTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final NetworkTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public NetworkTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return NetworkTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("NetworkType")
+  private NetworkTypeEnum networkType = null;
 
   @SerializedName("Port")
   private String port = null;
@@ -126,7 +220,7 @@ public class AddressForDescribeDBInstanceDetailOutput {
     this.ipAddress = ipAddress;
   }
 
-  public AddressForDescribeDBInstanceDetailOutput internetProtocol(String internetProtocol) {
+  public AddressForDescribeDBInstanceDetailOutput internetProtocol(InternetProtocolEnum internetProtocol) {
     this.internetProtocol = internetProtocol;
     return this;
   }
@@ -136,15 +230,15 @@ public class AddressForDescribeDBInstanceDetailOutput {
    * @return internetProtocol
   **/
   @Schema(description = "")
-  public String getInternetProtocol() {
+  public InternetProtocolEnum getInternetProtocol() {
     return internetProtocol;
   }
 
-  public void setInternetProtocol(String internetProtocol) {
+  public void setInternetProtocol(InternetProtocolEnum internetProtocol) {
     this.internetProtocol = internetProtocol;
   }
 
-  public AddressForDescribeDBInstanceDetailOutput networkType(String networkType) {
+  public AddressForDescribeDBInstanceDetailOutput networkType(NetworkTypeEnum networkType) {
     this.networkType = networkType;
     return this;
   }
@@ -154,11 +248,11 @@ public class AddressForDescribeDBInstanceDetailOutput {
    * @return networkType
   **/
   @Schema(description = "")
-  public String getNetworkType() {
+  public NetworkTypeEnum getNetworkType() {
     return networkType;
   }
 
-  public void setNetworkType(String networkType) {
+  public void setNetworkType(NetworkTypeEnum networkType) {
     this.networkType = networkType;
   }
 
