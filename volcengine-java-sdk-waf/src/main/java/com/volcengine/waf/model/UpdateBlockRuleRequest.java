@@ -109,6 +109,9 @@ public class UpdateBlockRuleRequest {
   @SerializedName("Name")
   private String name = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("Url")
   private String url = null;
 
@@ -324,6 +327,24 @@ public class UpdateBlockRuleRequest {
     this.name = name;
   }
 
+  public UpdateBlockRuleRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public UpdateBlockRuleRequest url(String url) {
     this.url = url;
     return this;
@@ -364,12 +385,13 @@ public class UpdateBlockRuleRequest {
         Objects.equals(this.ipAddType, updateBlockRuleRequest.ipAddType) &&
         Objects.equals(this.ipGroupId, updateBlockRuleRequest.ipGroupId) &&
         Objects.equals(this.name, updateBlockRuleRequest.name) &&
+        Objects.equals(this.projectName, updateBlockRuleRequest.projectName) &&
         Objects.equals(this.url, updateBlockRuleRequest.url);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accurate, action, advanced, clientIp, description, enable, host, id, ipAddType, ipGroupId, name, url);
+    return Objects.hash(accurate, action, advanced, clientIp, description, enable, host, id, ipAddType, ipGroupId, name, projectName, url);
   }
 
 
@@ -389,6 +411,7 @@ public class UpdateBlockRuleRequest {
     sb.append("    ipAddType: ").append(toIndentedString(ipAddType)).append("\n");
     sb.append("    ipGroupId: ").append(toIndentedString(ipGroupId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("}");
     return sb.toString();

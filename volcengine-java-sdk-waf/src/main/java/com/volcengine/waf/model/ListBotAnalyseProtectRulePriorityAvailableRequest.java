@@ -45,6 +45,9 @@ public class ListBotAnalyseProtectRulePriorityAvailableRequest {
   @SerializedName("Path")
   private String path = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   public ListBotAnalyseProtectRulePriorityAvailableRequest botSpace(String botSpace) {
     this.botSpace = botSpace;
     return this;
@@ -138,6 +141,24 @@ public class ListBotAnalyseProtectRulePriorityAvailableRequest {
     this.path = path;
   }
 
+  public ListBotAnalyseProtectRulePriorityAvailableRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -152,12 +173,13 @@ public class ListBotAnalyseProtectRulePriorityAvailableRequest {
         Objects.equals(this.host, listBotAnalyseProtectRulePriorityAvailableRequest.host) &&
         Objects.equals(this.page, listBotAnalyseProtectRulePriorityAvailableRequest.page) &&
         Objects.equals(this.pageSize, listBotAnalyseProtectRulePriorityAvailableRequest.pageSize) &&
-        Objects.equals(this.path, listBotAnalyseProtectRulePriorityAvailableRequest.path);
+        Objects.equals(this.path, listBotAnalyseProtectRulePriorityAvailableRequest.path) &&
+        Objects.equals(this.projectName, listBotAnalyseProtectRulePriorityAvailableRequest.projectName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(botSpace, host, page, pageSize, path);
+    return Objects.hash(botSpace, host, page, pageSize, path, projectName);
   }
 
 
@@ -171,6 +193,7 @@ public class ListBotAnalyseProtectRulePriorityAvailableRequest {
     sb.append("    page: ").append(toIndentedString(page)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

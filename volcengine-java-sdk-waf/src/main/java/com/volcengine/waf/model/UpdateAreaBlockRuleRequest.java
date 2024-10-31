@@ -41,6 +41,9 @@ public class UpdateAreaBlockRuleRequest {
   @SerializedName("Host")
   private String host = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("SubRegion")
   private List<String> subRegion = null;
 
@@ -108,6 +111,24 @@ public class UpdateAreaBlockRuleRequest {
     this.host = host;
   }
 
+  public UpdateAreaBlockRuleRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public UpdateAreaBlockRuleRequest subRegion(List<String> subRegion) {
     this.subRegion = subRegion;
     return this;
@@ -147,12 +168,13 @@ public class UpdateAreaBlockRuleRequest {
     return Objects.equals(this.action, updateAreaBlockRuleRequest.action) &&
         Objects.equals(this.country, updateAreaBlockRuleRequest.country) &&
         Objects.equals(this.host, updateAreaBlockRuleRequest.host) &&
+        Objects.equals(this.projectName, updateAreaBlockRuleRequest.projectName) &&
         Objects.equals(this.subRegion, updateAreaBlockRuleRequest.subRegion);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, country, host, subRegion);
+    return Objects.hash(action, country, host, projectName, subRegion);
   }
 
 
@@ -164,6 +186,7 @@ public class UpdateAreaBlockRuleRequest {
     sb.append("    action: ").append(toIndentedString(action)).append("\n");
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    subRegion: ").append(toIndentedString(subRegion)).append("\n");
     sb.append("}");
     return sb.toString();
