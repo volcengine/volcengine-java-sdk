@@ -49,6 +49,9 @@ public class CreateEnterpriseDBInstanceRequest {
   @SerializedName("ConfigureNodes")
   private List<ConfigureNodeForCreateEnterpriseDBInstanceInput> configureNodes = null;
 
+  @SerializedName("DataLayout")
+  private String dataLayout = null;
+
   @SerializedName("DeletionProtection")
   private String deletionProtection = null;
 
@@ -126,8 +129,7 @@ public class CreateEnterpriseDBInstanceRequest {
    * Get autoRenew
    * @return autoRenew
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public Boolean isAutoRenew() {
     return autoRenew;
   }
@@ -198,6 +200,25 @@ public class CreateEnterpriseDBInstanceRequest {
 
   public void setConfigureNodes(List<ConfigureNodeForCreateEnterpriseDBInstanceInput> configureNodes) {
     this.configureNodes = configureNodes;
+  }
+
+  public CreateEnterpriseDBInstanceRequest dataLayout(String dataLayout) {
+    this.dataLayout = dataLayout;
+    return this;
+  }
+
+   /**
+   * Get dataLayout
+   * @return dataLayout
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getDataLayout() {
+    return dataLayout;
+  }
+
+  public void setDataLayout(String dataLayout) {
+    this.dataLayout = dataLayout;
   }
 
   public CreateEnterpriseDBInstanceRequest deletionProtection(String deletionProtection) {
@@ -344,8 +365,7 @@ public class CreateEnterpriseDBInstanceRequest {
    * Get purchaseMonths
    * @return purchaseMonths
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public Integer getPurchaseMonths() {
     return purchaseMonths;
   }
@@ -491,6 +511,7 @@ public class CreateEnterpriseDBInstanceRequest {
         Objects.equals(this.chargeType, createEnterpriseDBInstanceRequest.chargeType) &&
         Objects.equals(this.clientToken, createEnterpriseDBInstanceRequest.clientToken) &&
         Objects.equals(this.configureNodes, createEnterpriseDBInstanceRequest.configureNodes) &&
+        Objects.equals(this.dataLayout, createEnterpriseDBInstanceRequest.dataLayout) &&
         Objects.equals(this.deletionProtection, createEnterpriseDBInstanceRequest.deletionProtection) &&
         Objects.equals(this.flashPerShard, createEnterpriseDBInstanceRequest.flashPerShard) &&
         Objects.equals(this.instanceName, createEnterpriseDBInstanceRequest.instanceName) &&
@@ -509,7 +530,7 @@ public class CreateEnterpriseDBInstanceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowListIds, autoRenew, chargeType, clientToken, configureNodes, deletionProtection, flashPerShard, instanceName, modules, multiAZ, password, projectName, purchaseMonths, ramPerShard, regionId, shardNumber, subnetId, tags, vpcId);
+    return Objects.hash(allowListIds, autoRenew, chargeType, clientToken, configureNodes, dataLayout, deletionProtection, flashPerShard, instanceName, modules, multiAZ, password, projectName, purchaseMonths, ramPerShard, regionId, shardNumber, subnetId, tags, vpcId);
   }
 
 
@@ -523,6 +544,7 @@ public class CreateEnterpriseDBInstanceRequest {
     sb.append("    chargeType: ").append(toIndentedString(chargeType)).append("\n");
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    configureNodes: ").append(toIndentedString(configureNodes)).append("\n");
+    sb.append("    dataLayout: ").append(toIndentedString(dataLayout)).append("\n");
     sb.append("    deletionProtection: ").append(toIndentedString(deletionProtection)).append("\n");
     sb.append("    flashPerShard: ").append(toIndentedString(flashPerShard)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");

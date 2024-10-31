@@ -177,8 +177,7 @@ public class DescribeDBInstancesRequest {
    * Get pageNumber
    * @return pageNumber
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public Integer getPageNumber() {
     return pageNumber;
   }
@@ -196,8 +195,7 @@ public class DescribeDBInstancesRequest {
    * Get pageSize
    * @return pageSize
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public Integer getPageSize() {
     return pageSize;
   }
@@ -233,8 +231,7 @@ public class DescribeDBInstancesRequest {
    * Get regionId
    * @return regionId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getRegionId() {
     return regionId;
   }
