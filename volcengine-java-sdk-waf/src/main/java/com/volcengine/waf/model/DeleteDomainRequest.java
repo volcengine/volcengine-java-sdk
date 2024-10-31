@@ -33,6 +33,9 @@ public class DeleteDomainRequest {
   @SerializedName("Domain")
   private String domain = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("Region")
   private String region = null;
 
@@ -53,6 +56,24 @@ public class DeleteDomainRequest {
 
   public void setDomain(String domain) {
     this.domain = domain;
+  }
+
+  public DeleteDomainRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
   }
 
   public DeleteDomainRequest region(String region) {
@@ -85,12 +106,13 @@ public class DeleteDomainRequest {
     }
     DeleteDomainRequest deleteDomainRequest = (DeleteDomainRequest) o;
     return Objects.equals(this.domain, deleteDomainRequest.domain) &&
+        Objects.equals(this.projectName, deleteDomainRequest.projectName) &&
         Objects.equals(this.region, deleteDomainRequest.region);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(domain, region);
+    return Objects.hash(domain, projectName, region);
   }
 
 
@@ -100,6 +122,7 @@ public class DeleteDomainRequest {
     sb.append("class DeleteDomainRequest {\n");
     
     sb.append("    domain: ").append(toIndentedString(domain)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("}");
     return sb.toString();

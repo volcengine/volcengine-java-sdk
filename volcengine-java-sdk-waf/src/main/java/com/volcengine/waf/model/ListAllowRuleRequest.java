@@ -39,6 +39,9 @@ public class ListAllowRuleRequest {
   @SerializedName("Host")
   private String host = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("Url")
   private String url = null;
 
@@ -97,6 +100,24 @@ public class ListAllowRuleRequest {
     this.host = host;
   }
 
+  public ListAllowRuleRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public ListAllowRuleRequest url(String url) {
     this.url = url;
     return this;
@@ -128,12 +149,13 @@ public class ListAllowRuleRequest {
     return Objects.equals(this.clientIP, listAllowRuleRequest.clientIP) &&
         Objects.equals(this.groupID, listAllowRuleRequest.groupID) &&
         Objects.equals(this.host, listAllowRuleRequest.host) &&
+        Objects.equals(this.projectName, listAllowRuleRequest.projectName) &&
         Objects.equals(this.url, listAllowRuleRequest.url);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientIP, groupID, host, url);
+    return Objects.hash(clientIP, groupID, host, projectName, url);
   }
 
 
@@ -145,6 +167,7 @@ public class ListAllowRuleRequest {
     sb.append("    clientIP: ").append(toIndentedString(clientIP)).append("\n");
     sb.append("    groupID: ").append(toIndentedString(groupID)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("}");
     return sb.toString();

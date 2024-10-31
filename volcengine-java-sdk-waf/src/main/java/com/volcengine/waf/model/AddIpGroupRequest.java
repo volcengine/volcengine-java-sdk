@@ -41,6 +41,9 @@ public class AddIpGroupRequest {
   @SerializedName("Name")
   private String name = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   public AddIpGroupRequest addType(String addType) {
     this.addType = addType;
     return this;
@@ -105,6 +108,24 @@ public class AddIpGroupRequest {
     this.name = name;
   }
 
+  public AddIpGroupRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -117,12 +138,13 @@ public class AddIpGroupRequest {
     AddIpGroupRequest addIpGroupRequest = (AddIpGroupRequest) o;
     return Objects.equals(this.addType, addIpGroupRequest.addType) &&
         Objects.equals(this.ipList, addIpGroupRequest.ipList) &&
-        Objects.equals(this.name, addIpGroupRequest.name);
+        Objects.equals(this.name, addIpGroupRequest.name) &&
+        Objects.equals(this.projectName, addIpGroupRequest.projectName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(addType, ipList, name);
+    return Objects.hash(addType, ipList, name, projectName);
   }
 
 
@@ -134,6 +156,7 @@ public class AddIpGroupRequest {
     sb.append("    addType: ").append(toIndentedString(addType)).append("\n");
     sb.append("    ipList: ").append(toIndentedString(ipList)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

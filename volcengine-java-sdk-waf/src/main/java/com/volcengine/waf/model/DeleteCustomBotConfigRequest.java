@@ -36,6 +36,9 @@ public class DeleteCustomBotConfigRequest {
   @SerializedName("Host")
   private String host = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   public DeleteCustomBotConfigRequest botID(Integer botID) {
     this.botID = botID;
     return this;
@@ -74,6 +77,24 @@ public class DeleteCustomBotConfigRequest {
     this.host = host;
   }
 
+  public DeleteCustomBotConfigRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -85,12 +106,13 @@ public class DeleteCustomBotConfigRequest {
     }
     DeleteCustomBotConfigRequest deleteCustomBotConfigRequest = (DeleteCustomBotConfigRequest) o;
     return Objects.equals(this.botID, deleteCustomBotConfigRequest.botID) &&
-        Objects.equals(this.host, deleteCustomBotConfigRequest.host);
+        Objects.equals(this.host, deleteCustomBotConfigRequest.host) &&
+        Objects.equals(this.projectName, deleteCustomBotConfigRequest.projectName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(botID, host);
+    return Objects.hash(botID, host, projectName);
   }
 
 
@@ -101,6 +123,7 @@ public class DeleteCustomBotConfigRequest {
     
     sb.append("    botID: ").append(toIndentedString(botID)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

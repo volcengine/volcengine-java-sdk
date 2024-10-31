@@ -36,6 +36,9 @@ public class UpdateCustomSystemVulRuleRequest {
   @SerializedName("Host")
   private String host = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("SystemRuleSwitch")
   private List<SystemRuleSwitchForUpdateCustomSystemVulRuleInput> systemRuleSwitch = null;
 
@@ -56,6 +59,24 @@ public class UpdateCustomSystemVulRuleRequest {
 
   public void setHost(String host) {
     this.host = host;
+  }
+
+  public UpdateCustomSystemVulRuleRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
   }
 
   public UpdateCustomSystemVulRuleRequest systemRuleSwitch(List<SystemRuleSwitchForUpdateCustomSystemVulRuleInput> systemRuleSwitch) {
@@ -96,12 +117,13 @@ public class UpdateCustomSystemVulRuleRequest {
     }
     UpdateCustomSystemVulRuleRequest updateCustomSystemVulRuleRequest = (UpdateCustomSystemVulRuleRequest) o;
     return Objects.equals(this.host, updateCustomSystemVulRuleRequest.host) &&
+        Objects.equals(this.projectName, updateCustomSystemVulRuleRequest.projectName) &&
         Objects.equals(this.systemRuleSwitch, updateCustomSystemVulRuleRequest.systemRuleSwitch);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(host, systemRuleSwitch);
+    return Objects.hash(host, projectName, systemRuleSwitch);
   }
 
 
@@ -111,6 +133,7 @@ public class UpdateCustomSystemVulRuleRequest {
     sb.append("class UpdateCustomSystemVulRuleRequest {\n");
     
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    systemRuleSwitch: ").append(toIndentedString(systemRuleSwitch)).append("\n");
     sb.append("}");
     return sb.toString();

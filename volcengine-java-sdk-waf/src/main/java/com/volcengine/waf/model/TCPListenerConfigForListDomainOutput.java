@@ -33,11 +33,20 @@ public class TCPListenerConfigForListDomainOutput {
   @SerializedName("AccessProtocol")
   private String accessProtocol = null;
 
+  @SerializedName("DefenceMode")
+  private Integer defenceMode = null;
+
   @SerializedName("InstanceID")
   private String instanceID = null;
 
+  @SerializedName("InstanceName")
+  private String instanceName = null;
+
   @SerializedName("ListenerID")
   private String listenerID = null;
+
+  @SerializedName("LostAssociationFromALB")
+  private Integer lostAssociationFromALB = null;
 
   @SerializedName("Port")
   private String port = null;
@@ -63,6 +72,24 @@ public class TCPListenerConfigForListDomainOutput {
     this.accessProtocol = accessProtocol;
   }
 
+  public TCPListenerConfigForListDomainOutput defenceMode(Integer defenceMode) {
+    this.defenceMode = defenceMode;
+    return this;
+  }
+
+   /**
+   * Get defenceMode
+   * @return defenceMode
+  **/
+  @Schema(description = "")
+  public Integer getDefenceMode() {
+    return defenceMode;
+  }
+
+  public void setDefenceMode(Integer defenceMode) {
+    this.defenceMode = defenceMode;
+  }
+
   public TCPListenerConfigForListDomainOutput instanceID(String instanceID) {
     this.instanceID = instanceID;
     return this;
@@ -81,6 +108,24 @@ public class TCPListenerConfigForListDomainOutput {
     this.instanceID = instanceID;
   }
 
+  public TCPListenerConfigForListDomainOutput instanceName(String instanceName) {
+    this.instanceName = instanceName;
+    return this;
+  }
+
+   /**
+   * Get instanceName
+   * @return instanceName
+  **/
+  @Schema(description = "")
+  public String getInstanceName() {
+    return instanceName;
+  }
+
+  public void setInstanceName(String instanceName) {
+    this.instanceName = instanceName;
+  }
+
   public TCPListenerConfigForListDomainOutput listenerID(String listenerID) {
     this.listenerID = listenerID;
     return this;
@@ -97,6 +142,24 @@ public class TCPListenerConfigForListDomainOutput {
 
   public void setListenerID(String listenerID) {
     this.listenerID = listenerID;
+  }
+
+  public TCPListenerConfigForListDomainOutput lostAssociationFromALB(Integer lostAssociationFromALB) {
+    this.lostAssociationFromALB = lostAssociationFromALB;
+    return this;
+  }
+
+   /**
+   * Get lostAssociationFromALB
+   * @return lostAssociationFromALB
+  **/
+  @Schema(description = "")
+  public Integer getLostAssociationFromALB() {
+    return lostAssociationFromALB;
+  }
+
+  public void setLostAssociationFromALB(Integer lostAssociationFromALB) {
+    this.lostAssociationFromALB = lostAssociationFromALB;
   }
 
   public TCPListenerConfigForListDomainOutput port(String port) {
@@ -146,15 +209,18 @@ public class TCPListenerConfigForListDomainOutput {
     }
     TCPListenerConfigForListDomainOutput tcPListenerConfigForListDomainOutput = (TCPListenerConfigForListDomainOutput) o;
     return Objects.equals(this.accessProtocol, tcPListenerConfigForListDomainOutput.accessProtocol) &&
+        Objects.equals(this.defenceMode, tcPListenerConfigForListDomainOutput.defenceMode) &&
         Objects.equals(this.instanceID, tcPListenerConfigForListDomainOutput.instanceID) &&
+        Objects.equals(this.instanceName, tcPListenerConfigForListDomainOutput.instanceName) &&
         Objects.equals(this.listenerID, tcPListenerConfigForListDomainOutput.listenerID) &&
+        Objects.equals(this.lostAssociationFromALB, tcPListenerConfigForListDomainOutput.lostAssociationFromALB) &&
         Objects.equals(this.port, tcPListenerConfigForListDomainOutput.port) &&
         Objects.equals(this.protocol, tcPListenerConfigForListDomainOutput.protocol);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessProtocol, instanceID, listenerID, port, protocol);
+    return Objects.hash(accessProtocol, defenceMode, instanceID, instanceName, listenerID, lostAssociationFromALB, port, protocol);
   }
 
 
@@ -164,8 +230,11 @@ public class TCPListenerConfigForListDomainOutput {
     sb.append("class TCPListenerConfigForListDomainOutput {\n");
     
     sb.append("    accessProtocol: ").append(toIndentedString(accessProtocol)).append("\n");
+    sb.append("    defenceMode: ").append(toIndentedString(defenceMode)).append("\n");
     sb.append("    instanceID: ").append(toIndentedString(instanceID)).append("\n");
+    sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    listenerID: ").append(toIndentedString(listenerID)).append("\n");
+    sb.append("    lostAssociationFromALB: ").append(toIndentedString(lostAssociationFromALB)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
     sb.append("}");

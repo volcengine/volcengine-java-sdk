@@ -52,6 +52,9 @@ public class UpdateCustomBotConfigRequest {
   @SerializedName("Id")
   private Integer id = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   public UpdateCustomBotConfigRequest accurate(AccurateForUpdateCustomBotConfigInput accurate) {
     this.accurate = accurate;
     return this;
@@ -184,6 +187,24 @@ public class UpdateCustomBotConfigRequest {
     this.id = id;
   }
 
+  public UpdateCustomBotConfigRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -200,12 +221,13 @@ public class UpdateCustomBotConfigRequest {
         Objects.equals(this.description, updateCustomBotConfigRequest.description) &&
         Objects.equals(this.enable, updateCustomBotConfigRequest.enable) &&
         Objects.equals(this.host, updateCustomBotConfigRequest.host) &&
-        Objects.equals(this.id, updateCustomBotConfigRequest.id);
+        Objects.equals(this.id, updateCustomBotConfigRequest.id) &&
+        Objects.equals(this.projectName, updateCustomBotConfigRequest.projectName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accurate, action, botType, description, enable, host, id);
+    return Objects.hash(accurate, action, botType, description, enable, host, id, projectName);
   }
 
 
@@ -221,6 +243,7 @@ public class UpdateCustomBotConfigRequest {
     sb.append("    enable: ").append(toIndentedString(enable)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

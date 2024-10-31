@@ -63,6 +63,9 @@ public class UpdateAllowRuleRequest {
   @SerializedName("Name")
   private String name = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("Url")
   private String url = null;
 
@@ -258,6 +261,24 @@ public class UpdateAllowRuleRequest {
     this.name = name;
   }
 
+  public UpdateAllowRuleRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public UpdateAllowRuleRequest url(String url) {
     this.url = url;
     return this;
@@ -297,12 +318,13 @@ public class UpdateAllowRuleRequest {
         Objects.equals(this.ipAddType, updateAllowRuleRequest.ipAddType) &&
         Objects.equals(this.ipGroupId, updateAllowRuleRequest.ipGroupId) &&
         Objects.equals(this.name, updateAllowRuleRequest.name) &&
+        Objects.equals(this.projectName, updateAllowRuleRequest.projectName) &&
         Objects.equals(this.url, updateAllowRuleRequest.url);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accurate, advanced, clientIp, description, enable, host, id, ipAddType, ipGroupId, name, url);
+    return Objects.hash(accurate, advanced, clientIp, description, enable, host, id, ipAddType, ipGroupId, name, projectName, url);
   }
 
 
@@ -321,6 +343,7 @@ public class UpdateAllowRuleRequest {
     sb.append("    ipAddType: ").append(toIndentedString(ipAddType)).append("\n");
     sb.append("    ipGroupId: ").append(toIndentedString(ipGroupId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("}");
     return sb.toString();

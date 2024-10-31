@@ -35,6 +35,9 @@ public class DeleteIpGroupRequest {
   @SerializedName("IpGroupIds")
   private List<Integer> ipGroupIds = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   public DeleteIpGroupRequest ipGroupIds(List<Integer> ipGroupIds) {
     this.ipGroupIds = ipGroupIds;
     return this;
@@ -61,6 +64,24 @@ public class DeleteIpGroupRequest {
     this.ipGroupIds = ipGroupIds;
   }
 
+  public DeleteIpGroupRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -71,12 +92,13 @@ public class DeleteIpGroupRequest {
       return false;
     }
     DeleteIpGroupRequest deleteIpGroupRequest = (DeleteIpGroupRequest) o;
-    return Objects.equals(this.ipGroupIds, deleteIpGroupRequest.ipGroupIds);
+    return Objects.equals(this.ipGroupIds, deleteIpGroupRequest.ipGroupIds) &&
+        Objects.equals(this.projectName, deleteIpGroupRequest.projectName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ipGroupIds);
+    return Objects.hash(ipGroupIds, projectName);
   }
 
 
@@ -86,6 +108,7 @@ public class DeleteIpGroupRequest {
     sb.append("class DeleteIpGroupRequest {\n");
     
     sb.append("    ipGroupIds: ").append(toIndentedString(ipGroupIds)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

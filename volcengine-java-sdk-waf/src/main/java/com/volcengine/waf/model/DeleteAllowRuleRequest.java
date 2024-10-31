@@ -36,6 +36,9 @@ public class DeleteAllowRuleRequest {
   @SerializedName("Id")
   private Integer id = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   public DeleteAllowRuleRequest host(String host) {
     this.host = host;
     return this;
@@ -74,6 +77,24 @@ public class DeleteAllowRuleRequest {
     this.id = id;
   }
 
+  public DeleteAllowRuleRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -85,12 +106,13 @@ public class DeleteAllowRuleRequest {
     }
     DeleteAllowRuleRequest deleteAllowRuleRequest = (DeleteAllowRuleRequest) o;
     return Objects.equals(this.host, deleteAllowRuleRequest.host) &&
-        Objects.equals(this.id, deleteAllowRuleRequest.id);
+        Objects.equals(this.id, deleteAllowRuleRequest.id) &&
+        Objects.equals(this.projectName, deleteAllowRuleRequest.projectName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(host, id);
+    return Objects.hash(host, id, projectName);
   }
 
 
@@ -101,6 +123,7 @@ public class DeleteAllowRuleRequest {
     
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

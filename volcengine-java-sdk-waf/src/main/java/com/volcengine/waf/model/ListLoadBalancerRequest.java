@@ -33,6 +33,9 @@ public class ListLoadBalancerRequest {
   @SerializedName("Host")
   private String host = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   /**
    * Gets or Sets type
    */
@@ -98,6 +101,24 @@ public class ListLoadBalancerRequest {
     this.host = host;
   }
 
+  public ListLoadBalancerRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public ListLoadBalancerRequest type(TypeEnum type) {
     this.type = type;
     return this;
@@ -127,12 +148,13 @@ public class ListLoadBalancerRequest {
     }
     ListLoadBalancerRequest listLoadBalancerRequest = (ListLoadBalancerRequest) o;
     return Objects.equals(this.host, listLoadBalancerRequest.host) &&
+        Objects.equals(this.projectName, listLoadBalancerRequest.projectName) &&
         Objects.equals(this.type, listLoadBalancerRequest.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(host, type);
+    return Objects.hash(host, projectName, type);
   }
 
 
@@ -142,6 +164,7 @@ public class ListLoadBalancerRequest {
     sb.append("class ListLoadBalancerRequest {\n");
     
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
