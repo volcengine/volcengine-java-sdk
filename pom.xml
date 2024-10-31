@@ -249,5 +249,6 @@
         <module>volcengine-java-sdk-kms</module>
         <module>volcengine-java-sdk-nta</module>
         <module>volcengine-java-sdk-rocketmq</module>
+        <module>volcengine-java-sdk-rabbitmq</module>
     </modules>
 </project>
