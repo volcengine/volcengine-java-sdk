@@ -19,7 +19,10 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.storageebs.model.BaselinePerformanceForDescribeVolumesOutput;
+import com.volcengine.storageebs.model.ExtraPerformanceForDescribeVolumesOutput;
 import com.volcengine.storageebs.model.TagForDescribeVolumesOutput;
+import com.volcengine.storageebs.model.TotalPerformanceForDescribeVolumesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -38,6 +41,9 @@ public class VolumeForDescribeVolumesOutput {
 
   @SerializedName("AutoSnapshotPolicyName")
   private String autoSnapshotPolicyName = null;
+
+  @SerializedName("BaselinePerformance")
+  private BaselinePerformanceForDescribeVolumesOutput baselinePerformance = null;
 
   @SerializedName("BillingType")
   private Integer billingType = null;
@@ -59,6 +65,9 @@ public class VolumeForDescribeVolumesOutput {
 
   @SerializedName("ExpiredTime")
   private String expiredTime = null;
+
+  @SerializedName("ExtraPerformance")
+  private ExtraPerformanceForDescribeVolumesOutput extraPerformance = null;
 
   @SerializedName("ExtraPerformanceIOPS")
   private Integer extraPerformanceIOPS = null;
@@ -107,6 +116,9 @@ public class VolumeForDescribeVolumesOutput {
 
   @SerializedName("Tags")
   private List<TagForDescribeVolumesOutput> tags = null;
+
+  @SerializedName("TotalPerformance")
+  private TotalPerformanceForDescribeVolumesOutput totalPerformance = null;
 
   @SerializedName("TradeStatus")
   private Integer tradeStatus = null;
@@ -160,6 +172,25 @@ public class VolumeForDescribeVolumesOutput {
 
   public void setAutoSnapshotPolicyName(String autoSnapshotPolicyName) {
     this.autoSnapshotPolicyName = autoSnapshotPolicyName;
+  }
+
+  public VolumeForDescribeVolumesOutput baselinePerformance(BaselinePerformanceForDescribeVolumesOutput baselinePerformance) {
+    this.baselinePerformance = baselinePerformance;
+    return this;
+  }
+
+   /**
+   * Get baselinePerformance
+   * @return baselinePerformance
+  **/
+  @Valid
+  @Schema(description = "")
+  public BaselinePerformanceForDescribeVolumesOutput getBaselinePerformance() {
+    return baselinePerformance;
+  }
+
+  public void setBaselinePerformance(BaselinePerformanceForDescribeVolumesOutput baselinePerformance) {
+    this.baselinePerformance = baselinePerformance;
   }
 
   public VolumeForDescribeVolumesOutput billingType(Integer billingType) {
@@ -286,6 +317,25 @@ public class VolumeForDescribeVolumesOutput {
 
   public void setExpiredTime(String expiredTime) {
     this.expiredTime = expiredTime;
+  }
+
+  public VolumeForDescribeVolumesOutput extraPerformance(ExtraPerformanceForDescribeVolumesOutput extraPerformance) {
+    this.extraPerformance = extraPerformance;
+    return this;
+  }
+
+   /**
+   * Get extraPerformance
+   * @return extraPerformance
+  **/
+  @Valid
+  @Schema(description = "")
+  public ExtraPerformanceForDescribeVolumesOutput getExtraPerformance() {
+    return extraPerformance;
+  }
+
+  public void setExtraPerformance(ExtraPerformanceForDescribeVolumesOutput extraPerformance) {
+    this.extraPerformance = extraPerformance;
   }
 
   public VolumeForDescribeVolumesOutput extraPerformanceIOPS(Integer extraPerformanceIOPS) {
@@ -585,6 +635,25 @@ public class VolumeForDescribeVolumesOutput {
     this.tags = tags;
   }
 
+  public VolumeForDescribeVolumesOutput totalPerformance(TotalPerformanceForDescribeVolumesOutput totalPerformance) {
+    this.totalPerformance = totalPerformance;
+    return this;
+  }
+
+   /**
+   * Get totalPerformance
+   * @return totalPerformance
+  **/
+  @Valid
+  @Schema(description = "")
+  public TotalPerformanceForDescribeVolumesOutput getTotalPerformance() {
+    return totalPerformance;
+  }
+
+  public void setTotalPerformance(TotalPerformanceForDescribeVolumesOutput totalPerformance) {
+    this.totalPerformance = totalPerformance;
+  }
+
   public VolumeForDescribeVolumesOutput tradeStatus(Integer tradeStatus) {
     this.tradeStatus = tradeStatus;
     return this;
@@ -705,6 +774,7 @@ public class VolumeForDescribeVolumesOutput {
     VolumeForDescribeVolumesOutput volumeForDescribeVolumesOutput = (VolumeForDescribeVolumesOutput) o;
     return Objects.equals(this.autoSnapshotPolicyId, volumeForDescribeVolumesOutput.autoSnapshotPolicyId) &&
         Objects.equals(this.autoSnapshotPolicyName, volumeForDescribeVolumesOutput.autoSnapshotPolicyName) &&
+        Objects.equals(this.baselinePerformance, volumeForDescribeVolumesOutput.baselinePerformance) &&
         Objects.equals(this.billingType, volumeForDescribeVolumesOutput.billingType) &&
         Objects.equals(this.createdAt, volumeForDescribeVolumesOutput.createdAt) &&
         Objects.equals(this.deleteWithInstance, volumeForDescribeVolumesOutput.deleteWithInstance) &&
@@ -712,6 +782,7 @@ public class VolumeForDescribeVolumesOutput {
         Objects.equals(this.deviceName, volumeForDescribeVolumesOutput.deviceName) &&
         Objects.equals(this.errorDetail, volumeForDescribeVolumesOutput.errorDetail) &&
         Objects.equals(this.expiredTime, volumeForDescribeVolumesOutput.expiredTime) &&
+        Objects.equals(this.extraPerformance, volumeForDescribeVolumesOutput.extraPerformance) &&
         Objects.equals(this.extraPerformanceIOPS, volumeForDescribeVolumesOutput.extraPerformanceIOPS) &&
         Objects.equals(this.extraPerformanceThroughputMB, volumeForDescribeVolumesOutput.extraPerformanceThroughputMB) &&
         Objects.equals(this.extraPerformanceTypeId, volumeForDescribeVolumesOutput.extraPerformanceTypeId) &&
@@ -728,6 +799,7 @@ public class VolumeForDescribeVolumesOutput {
         Objects.equals(this.sourceSnapshotId, volumeForDescribeVolumesOutput.sourceSnapshotId) &&
         Objects.equals(this.status, volumeForDescribeVolumesOutput.status) &&
         Objects.equals(this.tags, volumeForDescribeVolumesOutput.tags) &&
+        Objects.equals(this.totalPerformance, volumeForDescribeVolumesOutput.totalPerformance) &&
         Objects.equals(this.tradeStatus, volumeForDescribeVolumesOutput.tradeStatus) &&
         Objects.equals(this.updatedAt, volumeForDescribeVolumesOutput.updatedAt) &&
         Objects.equals(this.volumeId, volumeForDescribeVolumesOutput.volumeId) &&
@@ -738,7 +810,7 @@ public class VolumeForDescribeVolumesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoSnapshotPolicyId, autoSnapshotPolicyName, billingType, createdAt, deleteWithInstance, description, deviceName, errorDetail, expiredTime, extraPerformanceIOPS, extraPerformanceThroughputMB, extraPerformanceTypeId, imageId, instanceId, kind, overdueReclaimTime, overdueTime, payType, projectName, renewType, size, snapshotCount, sourceSnapshotId, status, tags, tradeStatus, updatedAt, volumeId, volumeName, volumeType, zoneId);
+    return Objects.hash(autoSnapshotPolicyId, autoSnapshotPolicyName, baselinePerformance, billingType, createdAt, deleteWithInstance, description, deviceName, errorDetail, expiredTime, extraPerformance, extraPerformanceIOPS, extraPerformanceThroughputMB, extraPerformanceTypeId, imageId, instanceId, kind, overdueReclaimTime, overdueTime, payType, projectName, renewType, size, snapshotCount, sourceSnapshotId, status, tags, totalPerformance, tradeStatus, updatedAt, volumeId, volumeName, volumeType, zoneId);
   }
 
 
@@ -749,6 +821,7 @@ public class VolumeForDescribeVolumesOutput {
     
     sb.append("    autoSnapshotPolicyId: ").append(toIndentedString(autoSnapshotPolicyId)).append("\n");
     sb.append("    autoSnapshotPolicyName: ").append(toIndentedString(autoSnapshotPolicyName)).append("\n");
+    sb.append("    baselinePerformance: ").append(toIndentedString(baselinePerformance)).append("\n");
     sb.append("    billingType: ").append(toIndentedString(billingType)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    deleteWithInstance: ").append(toIndentedString(deleteWithInstance)).append("\n");
@@ -756,6 +829,7 @@ public class VolumeForDescribeVolumesOutput {
     sb.append("    deviceName: ").append(toIndentedString(deviceName)).append("\n");
     sb.append("    errorDetail: ").append(toIndentedString(errorDetail)).append("\n");
     sb.append("    expiredTime: ").append(toIndentedString(expiredTime)).append("\n");
+    sb.append("    extraPerformance: ").append(toIndentedString(extraPerformance)).append("\n");
     sb.append("    extraPerformanceIOPS: ").append(toIndentedString(extraPerformanceIOPS)).append("\n");
     sb.append("    extraPerformanceThroughputMB: ").append(toIndentedString(extraPerformanceThroughputMB)).append("\n");
     sb.append("    extraPerformanceTypeId: ").append(toIndentedString(extraPerformanceTypeId)).append("\n");
@@ -772,6 +846,7 @@ public class VolumeForDescribeVolumesOutput {
     sb.append("    sourceSnapshotId: ").append(toIndentedString(sourceSnapshotId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    totalPerformance: ").append(toIndentedString(totalPerformance)).append("\n");
     sb.append("    tradeStatus: ").append(toIndentedString(tradeStatus)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    volumeId: ").append(toIndentedString(volumeId)).append("\n");
