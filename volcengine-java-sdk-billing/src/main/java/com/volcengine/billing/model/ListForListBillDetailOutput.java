@@ -123,6 +123,9 @@ public class ListForListBillDetailOutput {
   @SerializedName("FactorCode")
   private String factorCode = null;
 
+  @SerializedName("Formula")
+  private String formula = null;
+
   @SerializedName("InstanceName")
   private String instanceName = null;
 
@@ -799,6 +802,24 @@ public class ListForListBillDetailOutput {
 
   public void setFactorCode(String factorCode) {
     this.factorCode = factorCode;
+  }
+
+  public ListForListBillDetailOutput formula(String formula) {
+    this.formula = formula;
+    return this;
+  }
+
+   /**
+   * Get formula
+   * @return formula
+  **/
+  @Schema(description = "")
+  public String getFormula() {
+    return formula;
+  }
+
+  public void setFormula(String formula) {
+    this.formula = formula;
   }
 
   public ListForListBillDetailOutput instanceName(String instanceName) {
@@ -1562,6 +1583,7 @@ public class ListForListBillDetailOutput {
         Objects.equals(this.expenseEndTime, listForListBillDetailOutput.expenseEndTime) &&
         Objects.equals(this.factor, listForListBillDetailOutput.factor) &&
         Objects.equals(this.factorCode, listForListBillDetailOutput.factorCode) &&
+        Objects.equals(this.formula, listForListBillDetailOutput.formula) &&
         Objects.equals(this.instanceName, listForListBillDetailOutput.instanceName) &&
         Objects.equals(this.instanceNo, listForListBillDetailOutput.instanceNo) &&
         Objects.equals(this.marketPrice, listForListBillDetailOutput.marketPrice) &&
@@ -1606,7 +1628,7 @@ public class ListForListBillDetailOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(billCategory, billDetailId, billID, billPeriod, billingFunction, billingMethodCode, billingMode, busiPeriod, businessMode, configName, configurationCode, count, couponAmount, creditCarriedAmount, currency, deductionCount, deductionUseDuration, discountBillAmount, discountBizBillingFunction, discountBizMeasureInterval, discountBizUnitPrice, discountBizUnitPriceInterval, effectiveFactor, element, elementCode, expandField, expenseBeginTime, expenseDate, expenseEndTime, factor, factorCode, instanceName, instanceNo, marketPrice, measureInterval, originalBillAmount, ownerCustomerName, ownerID, ownerUserName, paidAmount, payableAmount, payerCustomerName, payerID, payerUserName, preferentialBillAmount, price, priceInterval, priceUnit, product, productZh, project, projectDisplayName, region, regionCode, reservationInstance, roundAmount, sellerCustomerName, sellerID, sellerUserName, sellingMode, settlementType, solutionZh, subjectName, tag, tradeTime, unit, unpaidAmount, useDuration, useDurationUnit, zone, zoneCode);
+    return Objects.hash(billCategory, billDetailId, billID, billPeriod, billingFunction, billingMethodCode, billingMode, busiPeriod, businessMode, configName, configurationCode, count, couponAmount, creditCarriedAmount, currency, deductionCount, deductionUseDuration, discountBillAmount, discountBizBillingFunction, discountBizMeasureInterval, discountBizUnitPrice, discountBizUnitPriceInterval, effectiveFactor, element, elementCode, expandField, expenseBeginTime, expenseDate, expenseEndTime, factor, factorCode, formula, instanceName, instanceNo, marketPrice, measureInterval, originalBillAmount, ownerCustomerName, ownerID, ownerUserName, paidAmount, payableAmount, payerCustomerName, payerID, payerUserName, preferentialBillAmount, price, priceInterval, priceUnit, product, productZh, project, projectDisplayName, region, regionCode, reservationInstance, roundAmount, sellerCustomerName, sellerID, sellerUserName, sellingMode, settlementType, solutionZh, subjectName, tag, tradeTime, unit, unpaidAmount, useDuration, useDurationUnit, zone, zoneCode);
   }
 
 
@@ -1646,6 +1668,7 @@ public class ListForListBillDetailOutput {
     sb.append("    expenseEndTime: ").append(toIndentedString(expenseEndTime)).append("\n");
     sb.append("    factor: ").append(toIndentedString(factor)).append("\n");
     sb.append("    factorCode: ").append(toIndentedString(factorCode)).append("\n");
+    sb.append("    formula: ").append(toIndentedString(formula)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    instanceNo: ").append(toIndentedString(instanceNo)).append("\n");
     sb.append("    marketPrice: ").append(toIndentedString(marketPrice)).append("\n");
