@@ -40,7 +40,7 @@ public class KeyringForDescribeKeyringsOutput {
   private String ID = null;
 
   @SerializedName("KeyCount")
-  private String keyCount = null;
+  private Long keyCount = null;
 
   @SerializedName("KeyringName")
   private String keyringName = null;
@@ -111,7 +111,7 @@ public class KeyringForDescribeKeyringsOutput {
     this.ID = ID;
   }
 
-  public KeyringForDescribeKeyringsOutput keyCount(String keyCount) {
+  public KeyringForDescribeKeyringsOutput keyCount(Long keyCount) {
     this.keyCount = keyCount;
     return this;
   }
@@ -121,11 +121,11 @@ public class KeyringForDescribeKeyringsOutput {
    * @return keyCount
   **/
   @Schema(description = "")
-  public String getKeyCount() {
+  public Long getKeyCount() {
     return keyCount;
   }
 
-  public void setKeyCount(String keyCount) {
+  public void setKeyCount(Long keyCount) {
     this.keyCount = keyCount;
   }
 
