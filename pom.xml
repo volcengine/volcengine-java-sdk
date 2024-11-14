@@ -254,5 +254,6 @@
         <module>volcengine-java-sdk-tis</module>
         <module>volcengine-java-sdk-fwcenter</module>
         <module>volcengine-java-sdk-escloud</module>
+        <module>volcengine-java-sdk-mcs</module>
     </modules>
 </project>
