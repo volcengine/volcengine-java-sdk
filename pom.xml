@@ -253,5 +253,6 @@
         <module>volcengine-java-sdk-rabbitmq</module>
         <module>volcengine-java-sdk-tis</module>
         <module>volcengine-java-sdk-fwcenter</module>
+        <module>volcengine-java-sdk-escloud</module>
     </modules>
 </project>
