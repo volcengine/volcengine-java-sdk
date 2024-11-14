@@ -44,6 +44,9 @@ public class ItemForListFunctionsOutput {
   @SerializedName("CodeSizeLimit")
   private Integer codeSizeLimit = null;
 
+  @SerializedName("Command")
+  private String command = null;
+
   @SerializedName("CreationTime")
   private String creationTime = null;
 
@@ -147,6 +150,24 @@ public class ItemForListFunctionsOutput {
 
   public void setCodeSizeLimit(Integer codeSizeLimit) {
     this.codeSizeLimit = codeSizeLimit;
+  }
+
+  public ItemForListFunctionsOutput command(String command) {
+    this.command = command;
+    return this;
+  }
+
+   /**
+   * Get command
+   * @return command
+  **/
+  @Schema(description = "")
+  public String getCommand() {
+    return command;
+  }
+
+  public void setCommand(String command) {
+    this.command = command;
   }
 
   public ItemForListFunctionsOutput creationTime(String creationTime) {
@@ -597,6 +618,7 @@ public class ItemForListFunctionsOutput {
     ItemForListFunctionsOutput itemForListFunctionsOutput = (ItemForListFunctionsOutput) o;
     return Objects.equals(this.codeSize, itemForListFunctionsOutput.codeSize) &&
         Objects.equals(this.codeSizeLimit, itemForListFunctionsOutput.codeSizeLimit) &&
+        Objects.equals(this.command, itemForListFunctionsOutput.command) &&
         Objects.equals(this.creationTime, itemForListFunctionsOutput.creationTime) &&
         Objects.equals(this.description, itemForListFunctionsOutput.description) &&
         Objects.equals(this.envs, itemForListFunctionsOutput.envs) &&
@@ -624,7 +646,7 @@ public class ItemForListFunctionsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(codeSize, codeSizeLimit, creationTime, description, envs, exclusiveMode, id, initializerSec, instanceType, lastUpdateTime, maxConcurrency, memoryMB, name, nasStorage, owner, projectName, requestTimeout, runtime, sourceLocation, sourceType, tags, tlsConfig, tosMountConfig, triggersCount, vpcConfig);
+    return Objects.hash(codeSize, codeSizeLimit, command, creationTime, description, envs, exclusiveMode, id, initializerSec, instanceType, lastUpdateTime, maxConcurrency, memoryMB, name, nasStorage, owner, projectName, requestTimeout, runtime, sourceLocation, sourceType, tags, tlsConfig, tosMountConfig, triggersCount, vpcConfig);
   }
 
 
@@ -635,6 +657,7 @@ public class ItemForListFunctionsOutput {
     
     sb.append("    codeSize: ").append(toIndentedString(codeSize)).append("\n");
     sb.append("    codeSizeLimit: ").append(toIndentedString(codeSizeLimit)).append("\n");
+    sb.append("    command: ").append(toIndentedString(command)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    envs: ").append(toIndentedString(envs)).append("\n");
