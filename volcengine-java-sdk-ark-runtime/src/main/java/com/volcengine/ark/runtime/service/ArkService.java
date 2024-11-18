@@ -18,6 +18,9 @@ import com.volcengine.ark.runtime.model.bot.completion.chat.BotChatCompletionChu
 import com.volcengine.ark.runtime.model.bot.completion.chat.BotChatCompletionRequest;
 import com.volcengine.ark.runtime.model.bot.completion.chat.BotChatCompletionResult;
 import com.volcengine.ark.runtime.model.completion.chat.*;
+import com.volcengine.ark.runtime.model.context.CreateContextRequest;
+import com.volcengine.ark.runtime.model.context.CreateContextResult;
+import com.volcengine.ark.runtime.model.context.chat.ContextChatCompletionRequest;
 import com.volcengine.ark.runtime.model.embeddings.EmbeddingRequest;
 import com.volcengine.ark.runtime.model.embeddings.EmbeddingResult;
 import com.volcengine.ark.runtime.model.tokenization.TokenizationRequest;
@@ -206,6 +209,35 @@ public class ArkService extends ArkBaseService implements ArkBaseServiceImpl {
     public Flowable<BotChatCompletionChunk> streamBotChatCompletion(BotChatCompletionRequest request, Map<String, String> customHeaders) {
         request.setStream(true);
         return stream(api.createBotChatCompletionStream(request, request.getModel(), customHeaders), BotChatCompletionChunk.class);
+    }
+
+    @Override
+    public CreateContextResult createContext(CreateContextRequest request) {
+        return execute(api.createContext(request, request.getModel(), new HashMap<>()));
+    }
+
+    public CreateContextResult createContext(CreateContextRequest request, Map<String, String> customHeaders) {
+        return execute(api.createContext(request, request.getModel(), customHeaders));
+    }
+
+    @Override
+    public ChatCompletionResult createContextChatCompletion(ContextChatCompletionRequest request) {
+        return execute(api.createContextChatCompletion(request, request.getModel(), new HashMap<>()));
+    }
+
+    public ChatCompletionResult createContextChatCompletion(ContextChatCompletionRequest request, Map<String, String> customHeaders) {
+        return execute(api.createContextChatCompletion(request, request.getModel(), customHeaders));
+    }
+
+    @Override
+    public Flowable<ChatCompletionChunk> streamContextChatCompletion(ContextChatCompletionRequest request) {
+        request.setStream(true);
+        return stream(api.createContextChatCompletionStream(request, request.getModel(), new HashMap<>()), ChatCompletionChunk.class);
+    }
+
+    public Flowable<ChatCompletionChunk> streamContextChatCompletion(ContextChatCompletionRequest request, Map<String, String> customHeaders) {
+        request.setStream(true);
+        return stream(api.createContextChatCompletionStream(request, request.getModel(), customHeaders), ChatCompletionChunk.class);
     }
 
     public TokenizationResult createTokenization(TokenizationRequest request) {

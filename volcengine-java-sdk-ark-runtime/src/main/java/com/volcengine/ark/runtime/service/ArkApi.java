@@ -5,6 +5,9 @@ import com.volcengine.ark.runtime.model.bot.completion.chat.BotChatCompletionReq
 import com.volcengine.ark.runtime.model.bot.completion.chat.BotChatCompletionResult;
 import com.volcengine.ark.runtime.model.completion.chat.ChatCompletionRequest;
 import com.volcengine.ark.runtime.model.completion.chat.ChatCompletionResult;
+import com.volcengine.ark.runtime.model.context.CreateContextRequest;
+import com.volcengine.ark.runtime.model.context.CreateContextResult;
+import com.volcengine.ark.runtime.model.context.chat.ContextChatCompletionRequest;
 import com.volcengine.ark.runtime.model.embeddings.EmbeddingRequest;
 import com.volcengine.ark.runtime.model.embeddings.EmbeddingResult;
 import com.volcengine.ark.runtime.model.tokenization.TokenizationRequest;
@@ -31,6 +34,16 @@ public interface ArkApi {
     @Streaming
     @POST("/api/v3/bots/chat/completions")
     Call<ResponseBody> createBotChatCompletionStream(@Body BotChatCompletionRequest request, @Header(Const.REQUEST_BOT) String botId, @HeaderMap Map<String, String> customHeaders);
+
+    @POST("/api/v3/context/create")
+    Single<CreateContextResult> createContext(@Body CreateContextRequest request, @Header(Const.REQUEST_MODEL) String model, @HeaderMap Map<String, String> customHeaders);
+
+    @POST("/api/v3/context/chat/completions")
+    Single<ChatCompletionResult> createContextChatCompletion(@Body ContextChatCompletionRequest request, @Header(Const.REQUEST_MODEL) String model, @HeaderMap Map<String, String> customHeaders);
+
+    @Streaming
+    @POST("/api/v3/context/chat/completions")
+    Call<ResponseBody> createContextChatCompletionStream(@Body ContextChatCompletionRequest request, @Header(Const.REQUEST_MODEL) String model, @HeaderMap Map<String, String> customHeaders);
 
     @POST("/api/v3/embeddings")
     Single<EmbeddingResult> createEmbeddings(@Body EmbeddingRequest request, @Header(Const.REQUEST_MODEL) String model, @HeaderMap Map<String, String> customHeaders);
