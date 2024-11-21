@@ -21,6 +21,9 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -34,7 +37,7 @@ public class ReEncryptRequest {
   private String ciphertextBlob = null;
 
   @SerializedName("NewEncryptionContext")
-  private String newEncryptionContext = null;
+  private Map<String, String> newEncryptionContext = null;
 
   @SerializedName("NewKeyName")
   private String newKeyName = null;
@@ -43,7 +46,7 @@ public class ReEncryptRequest {
   private String newKeyringName = null;
 
   @SerializedName("OldEncryptionContext")
-  private String oldEncryptionContext = null;
+  private Map<String, String> oldEncryptionContext = null;
 
   public ReEncryptRequest ciphertextBlob(String ciphertextBlob) {
     this.ciphertextBlob = ciphertextBlob;
@@ -64,8 +67,16 @@ public class ReEncryptRequest {
     this.ciphertextBlob = ciphertextBlob;
   }
 
-  public ReEncryptRequest newEncryptionContext(String newEncryptionContext) {
+  public ReEncryptRequest newEncryptionContext(Map<String, String> newEncryptionContext) {
     this.newEncryptionContext = newEncryptionContext;
+    return this;
+  }
+
+  public ReEncryptRequest putNewEncryptionContextItem(String key, String newEncryptionContextItem) {
+    if (this.newEncryptionContext == null) {
+      this.newEncryptionContext = new HashMap<String, String>();
+    }
+    this.newEncryptionContext.put(key, newEncryptionContextItem);
     return this;
   }
 
@@ -74,11 +85,11 @@ public class ReEncryptRequest {
    * @return newEncryptionContext
   **/
   @Schema(description = "")
-  public String getNewEncryptionContext() {
+  public Map<String, String> getNewEncryptionContext() {
     return newEncryptionContext;
   }
 
-  public void setNewEncryptionContext(String newEncryptionContext) {
+  public void setNewEncryptionContext(Map<String, String> newEncryptionContext) {
     this.newEncryptionContext = newEncryptionContext;
   }
 
@@ -120,8 +131,16 @@ public class ReEncryptRequest {
     this.newKeyringName = newKeyringName;
   }
 
-  public ReEncryptRequest oldEncryptionContext(String oldEncryptionContext) {
+  public ReEncryptRequest oldEncryptionContext(Map<String, String> oldEncryptionContext) {
     this.oldEncryptionContext = oldEncryptionContext;
+    return this;
+  }
+
+  public ReEncryptRequest putOldEncryptionContextItem(String key, String oldEncryptionContextItem) {
+    if (this.oldEncryptionContext == null) {
+      this.oldEncryptionContext = new HashMap<String, String>();
+    }
+    this.oldEncryptionContext.put(key, oldEncryptionContextItem);
     return this;
   }
 
@@ -130,11 +149,11 @@ public class ReEncryptRequest {
    * @return oldEncryptionContext
   **/
   @Schema(description = "")
-  public String getOldEncryptionContext() {
+  public Map<String, String> getOldEncryptionContext() {
     return oldEncryptionContext;
   }
 
-  public void setOldEncryptionContext(String oldEncryptionContext) {
+  public void setOldEncryptionContext(Map<String, String> oldEncryptionContext) {
     this.oldEncryptionContext = oldEncryptionContext;
   }
 
