@@ -21,6 +21,9 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -34,7 +37,7 @@ public class DecryptRequest {
   private String ciphertextBlob = null;
 
   @SerializedName("EncryptionContext")
-  private String encryptionContext = null;
+  private Map<String, String> encryptionContext = null;
 
   public DecryptRequest ciphertextBlob(String ciphertextBlob) {
     this.ciphertextBlob = ciphertextBlob;
@@ -55,8 +58,16 @@ public class DecryptRequest {
     this.ciphertextBlob = ciphertextBlob;
   }
 
-  public DecryptRequest encryptionContext(String encryptionContext) {
+  public DecryptRequest encryptionContext(Map<String, String> encryptionContext) {
     this.encryptionContext = encryptionContext;
+    return this;
+  }
+
+  public DecryptRequest putEncryptionContextItem(String key, String encryptionContextItem) {
+    if (this.encryptionContext == null) {
+      this.encryptionContext = new HashMap<String, String>();
+    }
+    this.encryptionContext.put(key, encryptionContextItem);
     return this;
   }
 
@@ -65,11 +76,11 @@ public class DecryptRequest {
    * @return encryptionContext
   **/
   @Schema(description = "")
-  public String getEncryptionContext() {
+  public Map<String, String> getEncryptionContext() {
     return encryptionContext;
   }
 
-  public void setEncryptionContext(String encryptionContext) {
+  public void setEncryptionContext(Map<String, String> encryptionContext) {
     this.encryptionContext = encryptionContext;
   }
 

@@ -33,6 +33,9 @@ public class DescribeKeysRequest {
   @SerializedName("CurrentPage")
   private Integer currentPage = null;
 
+  @SerializedName("Filters")
+  private String filters = null;
+
   @SerializedName("KeyringName")
   private String keyringName = null;
 
@@ -56,6 +59,24 @@ public class DescribeKeysRequest {
 
   public void setCurrentPage(Integer currentPage) {
     this.currentPage = currentPage;
+  }
+
+  public DescribeKeysRequest filters(String filters) {
+    this.filters = filters;
+    return this;
+  }
+
+   /**
+   * Get filters
+   * @return filters
+  **/
+ @Size(max=2048)  @Schema(description = "")
+  public String getFilters() {
+    return filters;
+  }
+
+  public void setFilters(String filters) {
+    this.filters = filters;
   }
 
   public DescribeKeysRequest keyringName(String keyringName) {
@@ -108,13 +129,14 @@ public class DescribeKeysRequest {
     }
     DescribeKeysRequest describeKeysRequest = (DescribeKeysRequest) o;
     return Objects.equals(this.currentPage, describeKeysRequest.currentPage) &&
+        Objects.equals(this.filters, describeKeysRequest.filters) &&
         Objects.equals(this.keyringName, describeKeysRequest.keyringName) &&
         Objects.equals(this.pageSize, describeKeysRequest.pageSize);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(currentPage, keyringName, pageSize);
+    return Objects.hash(currentPage, filters, keyringName, pageSize);
   }
 
 
@@ -124,6 +146,7 @@ public class DescribeKeysRequest {
     sb.append("class DescribeKeysRequest {\n");
     
     sb.append("    currentPage: ").append(toIndentedString(currentPage)).append("\n");
+    sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
     sb.append("    keyringName: ").append(toIndentedString(keyringName)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("}");
