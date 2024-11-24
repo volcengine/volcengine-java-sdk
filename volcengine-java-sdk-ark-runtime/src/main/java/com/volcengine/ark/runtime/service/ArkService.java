@@ -27,15 +27,12 @@ import com.volcengine.ark.runtime.utils.SSE;
 import io.reactivex.BackpressureStrategy;
 import io.reactivex.Flowable;
 import io.reactivex.Single;
-import okhttp3.Headers;
-import okhttp3.ResponseBody;
+import okhttp3.*;
 import org.apache.commons.lang.StringUtils;
 import retrofit2.Call;
 import retrofit2.HttpException;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.jackson.JacksonConverterFactory;
-import okhttp3.ConnectionPool;
-import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.http.HeaderMap;
 
@@ -238,6 +235,8 @@ public class ArkService extends ArkBaseService implements ArkBaseServiceImpl {
         private Duration connectTimeout = DEFAULT_CONNECT_TIMEOUT;
         private int retryTimes = 0;
         private Proxy proxy;
+        private ConnectionPool connectionPool;
+        private Dispatcher dispatcher;
 
         public ArkService.Builder ak(String ak) {
             this.ak = ak;
@@ -287,6 +286,16 @@ public class ArkService extends ArkBaseService implements ArkBaseServiceImpl {
             return this;
         }
 
+        public ArkService.Builder connectionPool(ConnectionPool connectionPool) {
+            this.connectionPool = connectionPool;
+            return this;
+        }
+
+        public ArkService.Builder dispatcher(Dispatcher dispatcher) {
+            this.dispatcher = dispatcher;
+            return this;
+        }
+
         public ArkService build() {
             ObjectMapper mapper = defaultObjectMapper();
             OkHttpClient.Builder clientBuilder = new OkHttpClient.Builder();
@@ -302,10 +311,19 @@ public class ArkService extends ArkBaseService implements ArkBaseServiceImpl {
                 clientBuilder.proxy(proxy);
             }
 
+            if (connectionPool != null) {
+                clientBuilder.connectionPool(connectionPool);
+            } else {
+                clientBuilder.connectionPool(new ConnectionPool(5, 1, TimeUnit.SECONDS));
+            }
+
+            if (dispatcher != null) {
+                clientBuilder.dispatcher(dispatcher);
+            }
+
             OkHttpClient client = clientBuilder
                     .addInterceptor(new RequestIdInterceptor())
                     .addInterceptor(new RetryInterceptor(retryTimes))
-                    .connectionPool(new ConnectionPool(5, 1, TimeUnit.SECONDS))
                     .readTimeout(timeout.toMillis(), TimeUnit.MILLISECONDS)
                     .connectTimeout(connectTimeout)
                     .build();
