@@ -42,6 +42,9 @@ public class DescribeCdnEdgeIpRequest {
   @SerializedName("Region")
   private String region = null;
 
+  @SerializedName("RsIp")
+  private Boolean rsIp = null;
+
   @SerializedName("Status")
   private String status = null;
 
@@ -118,6 +121,24 @@ public class DescribeCdnEdgeIpRequest {
     this.region = region;
   }
 
+  public DescribeCdnEdgeIpRequest rsIp(Boolean rsIp) {
+    this.rsIp = rsIp;
+    return this;
+  }
+
+   /**
+   * Get rsIp
+   * @return rsIp
+  **/
+  @Schema(description = "")
+  public Boolean isRsIp() {
+    return rsIp;
+  }
+
+  public void setRsIp(Boolean rsIp) {
+    this.rsIp = rsIp;
+  }
+
   public DescribeCdnEdgeIpRequest status(String status) {
     this.status = status;
     return this;
@@ -150,12 +171,13 @@ public class DescribeCdnEdgeIpRequest {
         Objects.equals(this.ipVersion, describeCdnEdgeIpRequest.ipVersion) &&
         Objects.equals(this.isp, describeCdnEdgeIpRequest.isp) &&
         Objects.equals(this.region, describeCdnEdgeIpRequest.region) &&
+        Objects.equals(this.rsIp, describeCdnEdgeIpRequest.rsIp) &&
         Objects.equals(this.status, describeCdnEdgeIpRequest.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(domain, ipVersion, isp, region, status);
+    return Objects.hash(domain, ipVersion, isp, region, rsIp, status);
   }
 
 
@@ -168,6 +190,7 @@ public class DescribeCdnEdgeIpRequest {
     sb.append("    ipVersion: ").append(toIndentedString(ipVersion)).append("\n");
     sb.append("    isp: ").append(toIndentedString(isp)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
+    sb.append("    rsIp: ").append(toIndentedString(rsIp)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
     return sb.toString();

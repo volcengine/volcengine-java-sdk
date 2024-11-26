@@ -30,11 +30,32 @@ import javax.validation.Valid;
 
 
 public class ValueForDescribeDistrictDataOutput {
+  @SerializedName("Item")
+  private String item = null;
+
   @SerializedName("TimeStamp")
   private Long timeStamp = null;
 
   @SerializedName("Value")
   private Double value = null;
+
+  public ValueForDescribeDistrictDataOutput item(String item) {
+    this.item = item;
+    return this;
+  }
+
+   /**
+   * Get item
+   * @return item
+  **/
+  @Schema(description = "")
+  public String getItem() {
+    return item;
+  }
+
+  public void setItem(String item) {
+    this.item = item;
+  }
 
   public ValueForDescribeDistrictDataOutput timeStamp(Long timeStamp) {
     this.timeStamp = timeStamp;
@@ -82,13 +103,14 @@ public class ValueForDescribeDistrictDataOutput {
       return false;
     }
     ValueForDescribeDistrictDataOutput valueForDescribeDistrictDataOutput = (ValueForDescribeDistrictDataOutput) o;
-    return Objects.equals(this.timeStamp, valueForDescribeDistrictDataOutput.timeStamp) &&
+    return Objects.equals(this.item, valueForDescribeDistrictDataOutput.item) &&
+        Objects.equals(this.timeStamp, valueForDescribeDistrictDataOutput.timeStamp) &&
         Objects.equals(this.value, valueForDescribeDistrictDataOutput.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(timeStamp, value);
+    return Objects.hash(item, timeStamp, value);
   }
 
 
@@ -97,6 +119,7 @@ public class ValueForDescribeDistrictDataOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ValueForDescribeDistrictDataOutput {\n");
     
+    sb.append("    item: ").append(toIndentedString(item)).append("\n");
     sb.append("    timeStamp: ").append(toIndentedString(timeStamp)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");

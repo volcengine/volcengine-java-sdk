@@ -30,11 +30,32 @@ import javax.validation.Valid;
 
 
 public class MetricDataListForDescribeUserDataOutput {
+  @SerializedName("Item")
+  private String item = null;
+
   @SerializedName("TimeStamp")
   private Long timeStamp = null;
 
   @SerializedName("Value")
   private Double value = null;
+
+  public MetricDataListForDescribeUserDataOutput item(String item) {
+    this.item = item;
+    return this;
+  }
+
+   /**
+   * Get item
+   * @return item
+  **/
+  @Schema(description = "")
+  public String getItem() {
+    return item;
+  }
+
+  public void setItem(String item) {
+    this.item = item;
+  }
 
   public MetricDataListForDescribeUserDataOutput timeStamp(Long timeStamp) {
     this.timeStamp = timeStamp;
@@ -82,13 +103,14 @@ public class MetricDataListForDescribeUserDataOutput {
       return false;
     }
     MetricDataListForDescribeUserDataOutput metricDataListForDescribeUserDataOutput = (MetricDataListForDescribeUserDataOutput) o;
-    return Objects.equals(this.timeStamp, metricDataListForDescribeUserDataOutput.timeStamp) &&
+    return Objects.equals(this.item, metricDataListForDescribeUserDataOutput.item) &&
+        Objects.equals(this.timeStamp, metricDataListForDescribeUserDataOutput.timeStamp) &&
         Objects.equals(this.value, metricDataListForDescribeUserDataOutput.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(timeStamp, value);
+    return Objects.hash(item, timeStamp, value);
   }
 
 
@@ -97,6 +119,7 @@ public class MetricDataListForDescribeUserDataOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class MetricDataListForDescribeUserDataOutput {\n");
     
+    sb.append("    item: ").append(toIndentedString(item)).append("\n");
     sb.append("    timeStamp: ").append(toIndentedString(timeStamp)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
