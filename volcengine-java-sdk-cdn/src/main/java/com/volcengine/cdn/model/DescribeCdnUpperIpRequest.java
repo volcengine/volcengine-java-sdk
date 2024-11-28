@@ -36,6 +36,9 @@ public class DescribeCdnUpperIpRequest {
   @SerializedName("IpVersion")
   private String ipVersion = null;
 
+  @SerializedName("RsIp")
+  private Boolean rsIp = null;
+
   public DescribeCdnUpperIpRequest domain(String domain) {
     this.domain = domain;
     return this;
@@ -73,6 +76,24 @@ public class DescribeCdnUpperIpRequest {
     this.ipVersion = ipVersion;
   }
 
+  public DescribeCdnUpperIpRequest rsIp(Boolean rsIp) {
+    this.rsIp = rsIp;
+    return this;
+  }
+
+   /**
+   * Get rsIp
+   * @return rsIp
+  **/
+  @Schema(description = "")
+  public Boolean isRsIp() {
+    return rsIp;
+  }
+
+  public void setRsIp(Boolean rsIp) {
+    this.rsIp = rsIp;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -84,12 +105,13 @@ public class DescribeCdnUpperIpRequest {
     }
     DescribeCdnUpperIpRequest describeCdnUpperIpRequest = (DescribeCdnUpperIpRequest) o;
     return Objects.equals(this.domain, describeCdnUpperIpRequest.domain) &&
-        Objects.equals(this.ipVersion, describeCdnUpperIpRequest.ipVersion);
+        Objects.equals(this.ipVersion, describeCdnUpperIpRequest.ipVersion) &&
+        Objects.equals(this.rsIp, describeCdnUpperIpRequest.rsIp);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(domain, ipVersion);
+    return Objects.hash(domain, ipVersion, rsIp);
   }
 
 
@@ -100,6 +122,7 @@ public class DescribeCdnUpperIpRequest {
     
     sb.append("    domain: ").append(toIndentedString(domain)).append("\n");
     sb.append("    ipVersion: ").append(toIndentedString(ipVersion)).append("\n");
+    sb.append("    rsIp: ").append(toIndentedString(rsIp)).append("\n");
     sb.append("}");
     return sb.toString();
   }

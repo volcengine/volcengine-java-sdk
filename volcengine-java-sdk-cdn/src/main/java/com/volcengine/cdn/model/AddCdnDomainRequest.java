@@ -36,7 +36,9 @@ import com.volcengine.cdn.model.IPv6ForAddCdnDomainInput;
 import com.volcengine.cdn.model.IpAccessRuleForAddCdnDomainInput;
 import com.volcengine.cdn.model.IpFreqLimitForAddCdnDomainInput;
 import com.volcengine.cdn.model.MethodDeniedRuleForAddCdnDomainInput;
+import com.volcengine.cdn.model.MultiRangeForAddCdnDomainInput;
 import com.volcengine.cdn.model.NegativeCacheForAddCdnDomainInput;
+import com.volcengine.cdn.model.OfflineCacheForAddCdnDomainInput;
 import com.volcengine.cdn.model.OriginAccessRuleForAddCdnDomainInput;
 import com.volcengine.cdn.model.OriginArgForAddCdnDomainInput;
 import com.volcengine.cdn.model.OriginCertCheckForAddCdnDomainInput;
@@ -53,6 +55,7 @@ import com.volcengine.cdn.model.RequestBlockRuleForAddCdnDomainInput;
 import com.volcengine.cdn.model.RequestHeaderForAddCdnDomainInput;
 import com.volcengine.cdn.model.ResourceTagForAddCdnDomainInput;
 import com.volcengine.cdn.model.ResponseHeaderForAddCdnDomainInput;
+import com.volcengine.cdn.model.RewriteHLSForAddCdnDomainInput;
 import com.volcengine.cdn.model.SignedUrlAuthForAddCdnDomainInput;
 import com.volcengine.cdn.model.TimeoutForAddCdnDomainInput;
 import com.volcengine.cdn.model.UaAccessRuleForAddCdnDomainInput;
@@ -128,8 +131,14 @@ public class AddCdnDomainRequest {
   @SerializedName("MethodDeniedRule")
   private MethodDeniedRuleForAddCdnDomainInput methodDeniedRule = null;
 
+  @SerializedName("MultiRange")
+  private MultiRangeForAddCdnDomainInput multiRange = null;
+
   @SerializedName("NegativeCache")
   private List<NegativeCacheForAddCdnDomainInput> negativeCache = null;
+
+  @SerializedName("OfflineCache")
+  private OfflineCacheForAddCdnDomainInput offlineCache = null;
 
   @SerializedName("Origin")
   private List<OriginForAddCdnDomainInput> origin = null;
@@ -193,6 +202,9 @@ public class AddCdnDomainRequest {
 
   @SerializedName("ResponseHeader")
   private List<ResponseHeaderForAddCdnDomainInput> responseHeader = null;
+
+  @SerializedName("RewriteHLS")
+  private RewriteHLSForAddCdnDomainInput rewriteHLS = null;
 
   @SerializedName("ServiceRegion")
   private String serviceRegion = null;
@@ -599,6 +611,25 @@ public class AddCdnDomainRequest {
     this.methodDeniedRule = methodDeniedRule;
   }
 
+  public AddCdnDomainRequest multiRange(MultiRangeForAddCdnDomainInput multiRange) {
+    this.multiRange = multiRange;
+    return this;
+  }
+
+   /**
+   * Get multiRange
+   * @return multiRange
+  **/
+  @Valid
+  @Schema(description = "")
+  public MultiRangeForAddCdnDomainInput getMultiRange() {
+    return multiRange;
+  }
+
+  public void setMultiRange(MultiRangeForAddCdnDomainInput multiRange) {
+    this.multiRange = multiRange;
+  }
+
   public AddCdnDomainRequest negativeCache(List<NegativeCacheForAddCdnDomainInput> negativeCache) {
     this.negativeCache = negativeCache;
     return this;
@@ -624,6 +655,25 @@ public class AddCdnDomainRequest {
 
   public void setNegativeCache(List<NegativeCacheForAddCdnDomainInput> negativeCache) {
     this.negativeCache = negativeCache;
+  }
+
+  public AddCdnDomainRequest offlineCache(OfflineCacheForAddCdnDomainInput offlineCache) {
+    this.offlineCache = offlineCache;
+    return this;
+  }
+
+   /**
+   * Get offlineCache
+   * @return offlineCache
+  **/
+  @Valid
+  @Schema(description = "")
+  public OfflineCacheForAddCdnDomainInput getOfflineCache() {
+    return offlineCache;
+  }
+
+  public void setOfflineCache(OfflineCacheForAddCdnDomainInput offlineCache) {
+    this.offlineCache = offlineCache;
   }
 
   public AddCdnDomainRequest origin(List<OriginForAddCdnDomainInput> origin) {
@@ -1060,6 +1110,25 @@ public class AddCdnDomainRequest {
     this.responseHeader = responseHeader;
   }
 
+  public AddCdnDomainRequest rewriteHLS(RewriteHLSForAddCdnDomainInput rewriteHLS) {
+    this.rewriteHLS = rewriteHLS;
+    return this;
+  }
+
+   /**
+   * Get rewriteHLS
+   * @return rewriteHLS
+  **/
+  @Valid
+  @Schema(description = "")
+  public RewriteHLSForAddCdnDomainInput getRewriteHLS() {
+    return rewriteHLS;
+  }
+
+  public void setRewriteHLS(RewriteHLSForAddCdnDomainInput rewriteHLS) {
+    this.rewriteHLS = rewriteHLS;
+  }
+
   public AddCdnDomainRequest serviceRegion(String serviceRegion) {
     this.serviceRegion = serviceRegion;
     return this;
@@ -1221,7 +1290,9 @@ public class AddCdnDomainRequest {
         Objects.equals(this.ipAccessRule, addCdnDomainRequest.ipAccessRule) &&
         Objects.equals(this.ipFreqLimit, addCdnDomainRequest.ipFreqLimit) &&
         Objects.equals(this.methodDeniedRule, addCdnDomainRequest.methodDeniedRule) &&
+        Objects.equals(this.multiRange, addCdnDomainRequest.multiRange) &&
         Objects.equals(this.negativeCache, addCdnDomainRequest.negativeCache) &&
+        Objects.equals(this.offlineCache, addCdnDomainRequest.offlineCache) &&
         Objects.equals(this.origin, addCdnDomainRequest.origin) &&
         Objects.equals(this.originAccessRule, addCdnDomainRequest.originAccessRule) &&
         Objects.equals(this.originArg, addCdnDomainRequest.originArg) &&
@@ -1243,6 +1314,7 @@ public class AddCdnDomainRequest {
         Objects.equals(this.requestHeader, addCdnDomainRequest.requestHeader) &&
         Objects.equals(this.resourceTags, addCdnDomainRequest.resourceTags) &&
         Objects.equals(this.responseHeader, addCdnDomainRequest.responseHeader) &&
+        Objects.equals(this.rewriteHLS, addCdnDomainRequest.rewriteHLS) &&
         Objects.equals(this.serviceRegion, addCdnDomainRequest.serviceRegion) &&
         Objects.equals(this.serviceType, addCdnDomainRequest.serviceType) &&
         Objects.equals(this.signedUrlAuth, addCdnDomainRequest.signedUrlAuth) &&
@@ -1254,7 +1326,7 @@ public class AddCdnDomainRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(areaAccessRule, bandwidthLimit, browserCache, cache, cacheHost, cacheKey, compression, conditionalOrigin, customErrorPage, customizeAccessRule, domain, downloadSpeedLimit, followRedirect, HTTPS, httpForcedRedirect, ipv6, ipAccessRule, ipFreqLimit, methodDeniedRule, negativeCache, origin, originAccessRule, originArg, originCertCheck, originHost, originIPv6, originProtocol, originRange, originRetry, originRewrite, originSni, pageOptimization, project, quic, redirectionRewrite, refererAccessRule, remoteAuth, requestBlockRule, requestHeader, resourceTags, responseHeader, serviceRegion, serviceType, signedUrlAuth, timeout, uaAccessRule, urlNormalize, videoDrag);
+    return Objects.hash(areaAccessRule, bandwidthLimit, browserCache, cache, cacheHost, cacheKey, compression, conditionalOrigin, customErrorPage, customizeAccessRule, domain, downloadSpeedLimit, followRedirect, HTTPS, httpForcedRedirect, ipv6, ipAccessRule, ipFreqLimit, methodDeniedRule, multiRange, negativeCache, offlineCache, origin, originAccessRule, originArg, originCertCheck, originHost, originIPv6, originProtocol, originRange, originRetry, originRewrite, originSni, pageOptimization, project, quic, redirectionRewrite, refererAccessRule, remoteAuth, requestBlockRule, requestHeader, resourceTags, responseHeader, rewriteHLS, serviceRegion, serviceType, signedUrlAuth, timeout, uaAccessRule, urlNormalize, videoDrag);
   }
 
 
@@ -1282,7 +1354,9 @@ public class AddCdnDomainRequest {
     sb.append("    ipAccessRule: ").append(toIndentedString(ipAccessRule)).append("\n");
     sb.append("    ipFreqLimit: ").append(toIndentedString(ipFreqLimit)).append("\n");
     sb.append("    methodDeniedRule: ").append(toIndentedString(methodDeniedRule)).append("\n");
+    sb.append("    multiRange: ").append(toIndentedString(multiRange)).append("\n");
     sb.append("    negativeCache: ").append(toIndentedString(negativeCache)).append("\n");
+    sb.append("    offlineCache: ").append(toIndentedString(offlineCache)).append("\n");
     sb.append("    origin: ").append(toIndentedString(origin)).append("\n");
     sb.append("    originAccessRule: ").append(toIndentedString(originAccessRule)).append("\n");
     sb.append("    originArg: ").append(toIndentedString(originArg)).append("\n");
@@ -1304,6 +1378,7 @@ public class AddCdnDomainRequest {
     sb.append("    requestHeader: ").append(toIndentedString(requestHeader)).append("\n");
     sb.append("    resourceTags: ").append(toIndentedString(resourceTags)).append("\n");
     sb.append("    responseHeader: ").append(toIndentedString(responseHeader)).append("\n");
+    sb.append("    rewriteHLS: ").append(toIndentedString(rewriteHLS)).append("\n");
     sb.append("    serviceRegion: ").append(toIndentedString(serviceRegion)).append("\n");
     sb.append("    serviceType: ").append(toIndentedString(serviceType)).append("\n");
     sb.append("    signedUrlAuth: ").append(toIndentedString(signedUrlAuth)).append("\n");
