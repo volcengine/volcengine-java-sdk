@@ -259,5 +259,6 @@
         <module>volcengine-java-sdk-vmp</module>
         <module>volcengine-java-sdk-advdefence</module>
         <module>volcengine-java-sdk-advdefence20230308</module>
+        <module>volcengine-java-sdk-cv20240606</module>
     </modules>
 </project>
