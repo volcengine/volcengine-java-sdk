@@ -37,7 +37,9 @@ import com.volcengine.cdn.model.IpAccessRuleForDescribeCdnConfigOutput;
 import com.volcengine.cdn.model.IpFreqLimitForDescribeCdnConfigOutput;
 import com.volcengine.cdn.model.IpSpeedLimitForDescribeCdnConfigOutput;
 import com.volcengine.cdn.model.MethodDeniedRuleForDescribeCdnConfigOutput;
+import com.volcengine.cdn.model.MultiRangeForDescribeCdnConfigOutput;
 import com.volcengine.cdn.model.NegativeCacheForDescribeCdnConfigOutput;
+import com.volcengine.cdn.model.OfflineCacheForDescribeCdnConfigOutput;
 import com.volcengine.cdn.model.OriginAccessRuleForDescribeCdnConfigOutput;
 import com.volcengine.cdn.model.OriginArgForDescribeCdnConfigOutput;
 import com.volcengine.cdn.model.OriginCertCheckForDescribeCdnConfigOutput;
@@ -53,6 +55,7 @@ import com.volcengine.cdn.model.RemoteAuthForDescribeCdnConfigOutput;
 import com.volcengine.cdn.model.RequestBlockRuleForDescribeCdnConfigOutput;
 import com.volcengine.cdn.model.RequestHeaderForDescribeCdnConfigOutput;
 import com.volcengine.cdn.model.ResponseHeaderForDescribeCdnConfigOutput;
+import com.volcengine.cdn.model.RewriteHLSForDescribeCdnConfigOutput;
 import com.volcengine.cdn.model.SignedUrlAuthForDescribeCdnConfigOutput;
 import com.volcengine.cdn.model.TimeoutForDescribeCdnConfigOutput;
 import com.volcengine.cdn.model.UaAccessRuleForDescribeCdnConfigOutput;
@@ -143,8 +146,14 @@ public class DomainConfigForDescribeCdnConfigOutput {
   @SerializedName("MethodDeniedRule")
   private MethodDeniedRuleForDescribeCdnConfigOutput methodDeniedRule = null;
 
+  @SerializedName("MultiRange")
+  private MultiRangeForDescribeCdnConfigOutput multiRange = null;
+
   @SerializedName("NegativeCache")
   private List<NegativeCacheForDescribeCdnConfigOutput> negativeCache = null;
+
+  @SerializedName("OfflineCache")
+  private OfflineCacheForDescribeCdnConfigOutput offlineCache = null;
 
   @SerializedName("Origin")
   private List<OriginForDescribeCdnConfigOutput> origin = null;
@@ -205,6 +214,9 @@ public class DomainConfigForDescribeCdnConfigOutput {
 
   @SerializedName("ResponseHeader")
   private List<ResponseHeaderForDescribeCdnConfigOutput> responseHeader = null;
+
+  @SerializedName("RewriteHLS")
+  private RewriteHLSForDescribeCdnConfigOutput rewriteHLS = null;
 
   @SerializedName("ServiceRegion")
   private String serviceRegion = null;
@@ -707,6 +719,25 @@ public class DomainConfigForDescribeCdnConfigOutput {
     this.methodDeniedRule = methodDeniedRule;
   }
 
+  public DomainConfigForDescribeCdnConfigOutput multiRange(MultiRangeForDescribeCdnConfigOutput multiRange) {
+    this.multiRange = multiRange;
+    return this;
+  }
+
+   /**
+   * Get multiRange
+   * @return multiRange
+  **/
+  @Valid
+  @Schema(description = "")
+  public MultiRangeForDescribeCdnConfigOutput getMultiRange() {
+    return multiRange;
+  }
+
+  public void setMultiRange(MultiRangeForDescribeCdnConfigOutput multiRange) {
+    this.multiRange = multiRange;
+  }
+
   public DomainConfigForDescribeCdnConfigOutput negativeCache(List<NegativeCacheForDescribeCdnConfigOutput> negativeCache) {
     this.negativeCache = negativeCache;
     return this;
@@ -732,6 +763,25 @@ public class DomainConfigForDescribeCdnConfigOutput {
 
   public void setNegativeCache(List<NegativeCacheForDescribeCdnConfigOutput> negativeCache) {
     this.negativeCache = negativeCache;
+  }
+
+  public DomainConfigForDescribeCdnConfigOutput offlineCache(OfflineCacheForDescribeCdnConfigOutput offlineCache) {
+    this.offlineCache = offlineCache;
+    return this;
+  }
+
+   /**
+   * Get offlineCache
+   * @return offlineCache
+  **/
+  @Valid
+  @Schema(description = "")
+  public OfflineCacheForDescribeCdnConfigOutput getOfflineCache() {
+    return offlineCache;
+  }
+
+  public void setOfflineCache(OfflineCacheForDescribeCdnConfigOutput offlineCache) {
+    this.offlineCache = offlineCache;
   }
 
   public DomainConfigForDescribeCdnConfigOutput origin(List<OriginForDescribeCdnConfigOutput> origin) {
@@ -1141,6 +1191,25 @@ public class DomainConfigForDescribeCdnConfigOutput {
     this.responseHeader = responseHeader;
   }
 
+  public DomainConfigForDescribeCdnConfigOutput rewriteHLS(RewriteHLSForDescribeCdnConfigOutput rewriteHLS) {
+    this.rewriteHLS = rewriteHLS;
+    return this;
+  }
+
+   /**
+   * Get rewriteHLS
+   * @return rewriteHLS
+  **/
+  @Valid
+  @Schema(description = "")
+  public RewriteHLSForDescribeCdnConfigOutput getRewriteHLS() {
+    return rewriteHLS;
+  }
+
+  public void setRewriteHLS(RewriteHLSForDescribeCdnConfigOutput rewriteHLS) {
+    this.rewriteHLS = rewriteHLS;
+  }
+
   public DomainConfigForDescribeCdnConfigOutput serviceRegion(String serviceRegion) {
     this.serviceRegion = serviceRegion;
     return this;
@@ -1342,7 +1411,9 @@ public class DomainConfigForDescribeCdnConfigOutput {
         Objects.equals(this.ipSpeedLimit, domainConfigForDescribeCdnConfigOutput.ipSpeedLimit) &&
         Objects.equals(this.lockStatus, domainConfigForDescribeCdnConfigOutput.lockStatus) &&
         Objects.equals(this.methodDeniedRule, domainConfigForDescribeCdnConfigOutput.methodDeniedRule) &&
+        Objects.equals(this.multiRange, domainConfigForDescribeCdnConfigOutput.multiRange) &&
         Objects.equals(this.negativeCache, domainConfigForDescribeCdnConfigOutput.negativeCache) &&
+        Objects.equals(this.offlineCache, domainConfigForDescribeCdnConfigOutput.offlineCache) &&
         Objects.equals(this.origin, domainConfigForDescribeCdnConfigOutput.origin) &&
         Objects.equals(this.originAccessRule, domainConfigForDescribeCdnConfigOutput.originAccessRule) &&
         Objects.equals(this.originArg, domainConfigForDescribeCdnConfigOutput.originArg) &&
@@ -1363,6 +1434,7 @@ public class DomainConfigForDescribeCdnConfigOutput {
         Objects.equals(this.requestBlockRule, domainConfigForDescribeCdnConfigOutput.requestBlockRule) &&
         Objects.equals(this.requestHeader, domainConfigForDescribeCdnConfigOutput.requestHeader) &&
         Objects.equals(this.responseHeader, domainConfigForDescribeCdnConfigOutput.responseHeader) &&
+        Objects.equals(this.rewriteHLS, domainConfigForDescribeCdnConfigOutput.rewriteHLS) &&
         Objects.equals(this.serviceRegion, domainConfigForDescribeCdnConfigOutput.serviceRegion) &&
         Objects.equals(this.serviceType, domainConfigForDescribeCdnConfigOutput.serviceType) &&
         Objects.equals(this.signedUrlAuth, domainConfigForDescribeCdnConfigOutput.signedUrlAuth) &&
@@ -1376,7 +1448,7 @@ public class DomainConfigForDescribeCdnConfigOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(areaAccessRule, backupCname, bandwidthLimit, browserCache, cache, cacheHost, cacheKey, cname, compression, conditionalOrigin, createTime, customErrorPage, customizeAccessRule, domain, downloadSpeedLimit, followRedirect, HTTPS, httpForcedRedirect, ipv6, ipAccessRule, ipFreqLimit, ipSpeedLimit, lockStatus, methodDeniedRule, negativeCache, origin, originAccessRule, originArg, originCertCheck, originHost, originIPv6, originProtocol, originRange, originRetry, originRewrite, originSni, pageOptimization, project, quic, redirectionRewrite, refererAccessRule, remoteAuth, requestBlockRule, requestHeader, responseHeader, serviceRegion, serviceType, signedUrlAuth, status, timeout, uaAccessRule, updateTime, urlNormalize, videoDrag);
+    return Objects.hash(areaAccessRule, backupCname, bandwidthLimit, browserCache, cache, cacheHost, cacheKey, cname, compression, conditionalOrigin, createTime, customErrorPage, customizeAccessRule, domain, downloadSpeedLimit, followRedirect, HTTPS, httpForcedRedirect, ipv6, ipAccessRule, ipFreqLimit, ipSpeedLimit, lockStatus, methodDeniedRule, multiRange, negativeCache, offlineCache, origin, originAccessRule, originArg, originCertCheck, originHost, originIPv6, originProtocol, originRange, originRetry, originRewrite, originSni, pageOptimization, project, quic, redirectionRewrite, refererAccessRule, remoteAuth, requestBlockRule, requestHeader, responseHeader, rewriteHLS, serviceRegion, serviceType, signedUrlAuth, status, timeout, uaAccessRule, updateTime, urlNormalize, videoDrag);
   }
 
 
@@ -1409,7 +1481,9 @@ public class DomainConfigForDescribeCdnConfigOutput {
     sb.append("    ipSpeedLimit: ").append(toIndentedString(ipSpeedLimit)).append("\n");
     sb.append("    lockStatus: ").append(toIndentedString(lockStatus)).append("\n");
     sb.append("    methodDeniedRule: ").append(toIndentedString(methodDeniedRule)).append("\n");
+    sb.append("    multiRange: ").append(toIndentedString(multiRange)).append("\n");
     sb.append("    negativeCache: ").append(toIndentedString(negativeCache)).append("\n");
+    sb.append("    offlineCache: ").append(toIndentedString(offlineCache)).append("\n");
     sb.append("    origin: ").append(toIndentedString(origin)).append("\n");
     sb.append("    originAccessRule: ").append(toIndentedString(originAccessRule)).append("\n");
     sb.append("    originArg: ").append(toIndentedString(originArg)).append("\n");
@@ -1430,6 +1504,7 @@ public class DomainConfigForDescribeCdnConfigOutput {
     sb.append("    requestBlockRule: ").append(toIndentedString(requestBlockRule)).append("\n");
     sb.append("    requestHeader: ").append(toIndentedString(requestHeader)).append("\n");
     sb.append("    responseHeader: ").append(toIndentedString(responseHeader)).append("\n");
+    sb.append("    rewriteHLS: ").append(toIndentedString(rewriteHLS)).append("\n");
     sb.append("    serviceRegion: ").append(toIndentedString(serviceRegion)).append("\n");
     sb.append("    serviceType: ").append(toIndentedString(serviceType)).append("\n");
     sb.append("    signedUrlAuth: ").append(toIndentedString(signedUrlAuth)).append("\n");

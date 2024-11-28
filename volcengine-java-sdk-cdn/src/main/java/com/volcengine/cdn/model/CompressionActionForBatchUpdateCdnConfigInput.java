@@ -41,6 +41,9 @@ public class CompressionActionForBatchUpdateCdnConfigInput {
   @SerializedName("CompressionType")
   private List<String> compressionType = null;
 
+  @SerializedName("MaxFileSizeKB")
+  private Long maxFileSizeKB = null;
+
   @SerializedName("MinFileSizeKB")
   private Long minFileSizeKB = null;
 
@@ -106,6 +109,24 @@ public class CompressionActionForBatchUpdateCdnConfigInput {
     this.compressionType = compressionType;
   }
 
+  public CompressionActionForBatchUpdateCdnConfigInput maxFileSizeKB(Long maxFileSizeKB) {
+    this.maxFileSizeKB = maxFileSizeKB;
+    return this;
+  }
+
+   /**
+   * Get maxFileSizeKB
+   * @return maxFileSizeKB
+  **/
+  @Schema(description = "")
+  public Long getMaxFileSizeKB() {
+    return maxFileSizeKB;
+  }
+
+  public void setMaxFileSizeKB(Long maxFileSizeKB) {
+    this.maxFileSizeKB = maxFileSizeKB;
+  }
+
   public CompressionActionForBatchUpdateCdnConfigInput minFileSizeKB(Long minFileSizeKB) {
     this.minFileSizeKB = minFileSizeKB;
     return this;
@@ -137,12 +158,13 @@ public class CompressionActionForBatchUpdateCdnConfigInput {
     return Objects.equals(this.compressionFormat, compressionActionForBatchUpdateCdnConfigInput.compressionFormat) &&
         Objects.equals(this.compressionTarget, compressionActionForBatchUpdateCdnConfigInput.compressionTarget) &&
         Objects.equals(this.compressionType, compressionActionForBatchUpdateCdnConfigInput.compressionType) &&
+        Objects.equals(this.maxFileSizeKB, compressionActionForBatchUpdateCdnConfigInput.maxFileSizeKB) &&
         Objects.equals(this.minFileSizeKB, compressionActionForBatchUpdateCdnConfigInput.minFileSizeKB);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(compressionFormat, compressionTarget, compressionType, minFileSizeKB);
+    return Objects.hash(compressionFormat, compressionTarget, compressionType, maxFileSizeKB, minFileSizeKB);
   }
 
 
@@ -154,6 +176,7 @@ public class CompressionActionForBatchUpdateCdnConfigInput {
     sb.append("    compressionFormat: ").append(toIndentedString(compressionFormat)).append("\n");
     sb.append("    compressionTarget: ").append(toIndentedString(compressionTarget)).append("\n");
     sb.append("    compressionType: ").append(toIndentedString(compressionType)).append("\n");
+    sb.append("    maxFileSizeKB: ").append(toIndentedString(maxFileSizeKB)).append("\n");
     sb.append("    minFileSizeKB: ").append(toIndentedString(minFileSizeKB)).append("\n");
     sb.append("}");
     return sb.toString();

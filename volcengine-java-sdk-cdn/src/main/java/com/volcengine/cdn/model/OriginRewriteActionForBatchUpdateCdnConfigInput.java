@@ -30,11 +30,32 @@ import javax.validation.Valid;
 
 
 public class OriginRewriteActionForBatchUpdateCdnConfigInput {
+  @SerializedName("RewriteType")
+  private String rewriteType = null;
+
   @SerializedName("SourcePath")
   private String sourcePath = null;
 
   @SerializedName("TargetPath")
   private String targetPath = null;
+
+  public OriginRewriteActionForBatchUpdateCdnConfigInput rewriteType(String rewriteType) {
+    this.rewriteType = rewriteType;
+    return this;
+  }
+
+   /**
+   * Get rewriteType
+   * @return rewriteType
+  **/
+  @Schema(description = "")
+  public String getRewriteType() {
+    return rewriteType;
+  }
+
+  public void setRewriteType(String rewriteType) {
+    this.rewriteType = rewriteType;
+  }
 
   public OriginRewriteActionForBatchUpdateCdnConfigInput sourcePath(String sourcePath) {
     this.sourcePath = sourcePath;
@@ -82,13 +103,14 @@ public class OriginRewriteActionForBatchUpdateCdnConfigInput {
       return false;
     }
     OriginRewriteActionForBatchUpdateCdnConfigInput originRewriteActionForBatchUpdateCdnConfigInput = (OriginRewriteActionForBatchUpdateCdnConfigInput) o;
-    return Objects.equals(this.sourcePath, originRewriteActionForBatchUpdateCdnConfigInput.sourcePath) &&
+    return Objects.equals(this.rewriteType, originRewriteActionForBatchUpdateCdnConfigInput.rewriteType) &&
+        Objects.equals(this.sourcePath, originRewriteActionForBatchUpdateCdnConfigInput.sourcePath) &&
         Objects.equals(this.targetPath, originRewriteActionForBatchUpdateCdnConfigInput.targetPath);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(sourcePath, targetPath);
+    return Objects.hash(rewriteType, sourcePath, targetPath);
   }
 
 
@@ -97,6 +119,7 @@ public class OriginRewriteActionForBatchUpdateCdnConfigInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class OriginRewriteActionForBatchUpdateCdnConfigInput {\n");
     
+    sb.append("    rewriteType: ").append(toIndentedString(rewriteType)).append("\n");
     sb.append("    sourcePath: ").append(toIndentedString(sourcePath)).append("\n");
     sb.append("    targetPath: ").append(toIndentedString(targetPath)).append("\n");
     sb.append("}");

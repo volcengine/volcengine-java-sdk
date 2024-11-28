@@ -60,8 +60,14 @@ public class ModuleLockConfigForDescribeCdnConfigOutput {
   @SerializedName("OriginAccessRuleLocked")
   private Boolean originAccessRuleLocked = null;
 
+  @SerializedName("OriginArgLocked")
+  private Boolean originArgLocked = null;
+
   @SerializedName("OriginLocked")
   private Boolean originLocked = null;
+
+  @SerializedName("OriginResponseHeaderLocked")
+  private Boolean originResponseHeaderLocked = null;
 
   @SerializedName("OriginRewriteLocked")
   private Boolean originRewriteLocked = null;
@@ -86,6 +92,9 @@ public class ModuleLockConfigForDescribeCdnConfigOutput {
 
   @SerializedName("ResponseHeaderLocked")
   private Boolean responseHeaderLocked = null;
+
+  @SerializedName("RuleEngineLocked")
+  private Boolean ruleEngineLocked = null;
 
   @SerializedName("ShareCacheLocked")
   private Boolean shareCacheLocked = null;
@@ -276,6 +285,24 @@ public class ModuleLockConfigForDescribeCdnConfigOutput {
     this.originAccessRuleLocked = originAccessRuleLocked;
   }
 
+  public ModuleLockConfigForDescribeCdnConfigOutput originArgLocked(Boolean originArgLocked) {
+    this.originArgLocked = originArgLocked;
+    return this;
+  }
+
+   /**
+   * Get originArgLocked
+   * @return originArgLocked
+  **/
+  @Schema(description = "")
+  public Boolean isOriginArgLocked() {
+    return originArgLocked;
+  }
+
+  public void setOriginArgLocked(Boolean originArgLocked) {
+    this.originArgLocked = originArgLocked;
+  }
+
   public ModuleLockConfigForDescribeCdnConfigOutput originLocked(Boolean originLocked) {
     this.originLocked = originLocked;
     return this;
@@ -292,6 +319,24 @@ public class ModuleLockConfigForDescribeCdnConfigOutput {
 
   public void setOriginLocked(Boolean originLocked) {
     this.originLocked = originLocked;
+  }
+
+  public ModuleLockConfigForDescribeCdnConfigOutput originResponseHeaderLocked(Boolean originResponseHeaderLocked) {
+    this.originResponseHeaderLocked = originResponseHeaderLocked;
+    return this;
+  }
+
+   /**
+   * Get originResponseHeaderLocked
+   * @return originResponseHeaderLocked
+  **/
+  @Schema(description = "")
+  public Boolean isOriginResponseHeaderLocked() {
+    return originResponseHeaderLocked;
+  }
+
+  public void setOriginResponseHeaderLocked(Boolean originResponseHeaderLocked) {
+    this.originResponseHeaderLocked = originResponseHeaderLocked;
   }
 
   public ModuleLockConfigForDescribeCdnConfigOutput originRewriteLocked(Boolean originRewriteLocked) {
@@ -438,6 +483,24 @@ public class ModuleLockConfigForDescribeCdnConfigOutput {
     this.responseHeaderLocked = responseHeaderLocked;
   }
 
+  public ModuleLockConfigForDescribeCdnConfigOutput ruleEngineLocked(Boolean ruleEngineLocked) {
+    this.ruleEngineLocked = ruleEngineLocked;
+    return this;
+  }
+
+   /**
+   * Get ruleEngineLocked
+   * @return ruleEngineLocked
+  **/
+  @Schema(description = "")
+  public Boolean isRuleEngineLocked() {
+    return ruleEngineLocked;
+  }
+
+  public void setRuleEngineLocked(Boolean ruleEngineLocked) {
+    this.ruleEngineLocked = ruleEngineLocked;
+  }
+
   public ModuleLockConfigForDescribeCdnConfigOutput shareCacheLocked(Boolean shareCacheLocked) {
     this.shareCacheLocked = shareCacheLocked;
     return this;
@@ -512,7 +575,9 @@ public class ModuleLockConfigForDescribeCdnConfigOutput {
         Objects.equals(this.ipAccessRuleLocked, moduleLockConfigForDescribeCdnConfigOutput.ipAccessRuleLocked) &&
         Objects.equals(this.negativeCacheLocked, moduleLockConfigForDescribeCdnConfigOutput.negativeCacheLocked) &&
         Objects.equals(this.originAccessRuleLocked, moduleLockConfigForDescribeCdnConfigOutput.originAccessRuleLocked) &&
+        Objects.equals(this.originArgLocked, moduleLockConfigForDescribeCdnConfigOutput.originArgLocked) &&
         Objects.equals(this.originLocked, moduleLockConfigForDescribeCdnConfigOutput.originLocked) &&
+        Objects.equals(this.originResponseHeaderLocked, moduleLockConfigForDescribeCdnConfigOutput.originResponseHeaderLocked) &&
         Objects.equals(this.originRewriteLocked, moduleLockConfigForDescribeCdnConfigOutput.originRewriteLocked) &&
         Objects.equals(this.quicLocked, moduleLockConfigForDescribeCdnConfigOutput.quicLocked) &&
         Objects.equals(this.redirectionRewriteLocked, moduleLockConfigForDescribeCdnConfigOutput.redirectionRewriteLocked) &&
@@ -521,6 +586,7 @@ public class ModuleLockConfigForDescribeCdnConfigOutput {
         Objects.equals(this.requestBlockRuleLocked, moduleLockConfigForDescribeCdnConfigOutput.requestBlockRuleLocked) &&
         Objects.equals(this.requestHeaderLocked, moduleLockConfigForDescribeCdnConfigOutput.requestHeaderLocked) &&
         Objects.equals(this.responseHeaderLocked, moduleLockConfigForDescribeCdnConfigOutput.responseHeaderLocked) &&
+        Objects.equals(this.ruleEngineLocked, moduleLockConfigForDescribeCdnConfigOutput.ruleEngineLocked) &&
         Objects.equals(this.shareCacheLocked, moduleLockConfigForDescribeCdnConfigOutput.shareCacheLocked) &&
         Objects.equals(this.signUrlAuthLocked, moduleLockConfigForDescribeCdnConfigOutput.signUrlAuthLocked) &&
         Objects.equals(this.uaAccessRuleLocked, moduleLockConfigForDescribeCdnConfigOutput.uaAccessRuleLocked);
@@ -528,7 +594,7 @@ public class ModuleLockConfigForDescribeCdnConfigOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(browserCacheLocked, cacheKeyLocked, cacheLocked, compressionLocked, customizeAccessRuleLocked, downloadSpeedLimitLocked, errorPageLocked, ipAccessRuleLocked, negativeCacheLocked, originAccessRuleLocked, originLocked, originRewriteLocked, quicLocked, redirectionRewriteLocked, refererAccessRuleLocked, remoteAuthLocked, requestBlockRuleLocked, requestHeaderLocked, responseHeaderLocked, shareCacheLocked, signUrlAuthLocked, uaAccessRuleLocked);
+    return Objects.hash(browserCacheLocked, cacheKeyLocked, cacheLocked, compressionLocked, customizeAccessRuleLocked, downloadSpeedLimitLocked, errorPageLocked, ipAccessRuleLocked, negativeCacheLocked, originAccessRuleLocked, originArgLocked, originLocked, originResponseHeaderLocked, originRewriteLocked, quicLocked, redirectionRewriteLocked, refererAccessRuleLocked, remoteAuthLocked, requestBlockRuleLocked, requestHeaderLocked, responseHeaderLocked, ruleEngineLocked, shareCacheLocked, signUrlAuthLocked, uaAccessRuleLocked);
   }
 
 
@@ -547,7 +613,9 @@ public class ModuleLockConfigForDescribeCdnConfigOutput {
     sb.append("    ipAccessRuleLocked: ").append(toIndentedString(ipAccessRuleLocked)).append("\n");
     sb.append("    negativeCacheLocked: ").append(toIndentedString(negativeCacheLocked)).append("\n");
     sb.append("    originAccessRuleLocked: ").append(toIndentedString(originAccessRuleLocked)).append("\n");
+    sb.append("    originArgLocked: ").append(toIndentedString(originArgLocked)).append("\n");
     sb.append("    originLocked: ").append(toIndentedString(originLocked)).append("\n");
+    sb.append("    originResponseHeaderLocked: ").append(toIndentedString(originResponseHeaderLocked)).append("\n");
     sb.append("    originRewriteLocked: ").append(toIndentedString(originRewriteLocked)).append("\n");
     sb.append("    quicLocked: ").append(toIndentedString(quicLocked)).append("\n");
     sb.append("    redirectionRewriteLocked: ").append(toIndentedString(redirectionRewriteLocked)).append("\n");
@@ -556,6 +624,7 @@ public class ModuleLockConfigForDescribeCdnConfigOutput {
     sb.append("    requestBlockRuleLocked: ").append(toIndentedString(requestBlockRuleLocked)).append("\n");
     sb.append("    requestHeaderLocked: ").append(toIndentedString(requestHeaderLocked)).append("\n");
     sb.append("    responseHeaderLocked: ").append(toIndentedString(responseHeaderLocked)).append("\n");
+    sb.append("    ruleEngineLocked: ").append(toIndentedString(ruleEngineLocked)).append("\n");
     sb.append("    shareCacheLocked: ").append(toIndentedString(shareCacheLocked)).append("\n");
     sb.append("    signUrlAuthLocked: ").append(toIndentedString(signUrlAuthLocked)).append("\n");
     sb.append("    uaAccessRuleLocked: ").append(toIndentedString(uaAccessRuleLocked)).append("\n");

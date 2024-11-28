@@ -36,7 +36,9 @@ import com.volcengine.cdn.model.IPv6ForBatchUpdateCdnConfigInput;
 import com.volcengine.cdn.model.IpAccessRuleForBatchUpdateCdnConfigInput;
 import com.volcengine.cdn.model.IpFreqLimitForBatchUpdateCdnConfigInput;
 import com.volcengine.cdn.model.MethodDeniedRuleForBatchUpdateCdnConfigInput;
+import com.volcengine.cdn.model.MultiRangeForBatchUpdateCdnConfigInput;
 import com.volcengine.cdn.model.NegativeCacheForBatchUpdateCdnConfigInput;
+import com.volcengine.cdn.model.OfflineCacheForBatchUpdateCdnConfigInput;
 import com.volcengine.cdn.model.OriginAccessRuleForBatchUpdateCdnConfigInput;
 import com.volcengine.cdn.model.OriginArgForBatchUpdateCdnConfigInput;
 import com.volcengine.cdn.model.OriginCertCheckForBatchUpdateCdnConfigInput;
@@ -52,6 +54,7 @@ import com.volcengine.cdn.model.RemoteAuthForBatchUpdateCdnConfigInput;
 import com.volcengine.cdn.model.RequestBlockRuleForBatchUpdateCdnConfigInput;
 import com.volcengine.cdn.model.RequestHeaderForBatchUpdateCdnConfigInput;
 import com.volcengine.cdn.model.ResponseHeaderForBatchUpdateCdnConfigInput;
+import com.volcengine.cdn.model.RewriteHLSForBatchUpdateCdnConfigInput;
 import com.volcengine.cdn.model.SignedUrlAuthForBatchUpdateCdnConfigInput;
 import com.volcengine.cdn.model.TimeoutForBatchUpdateCdnConfigInput;
 import com.volcengine.cdn.model.UaAccessRuleForBatchUpdateCdnConfigInput;
@@ -130,8 +133,14 @@ public class BatchUpdateCdnConfigRequest {
   @SerializedName("MethodDeniedRule")
   private MethodDeniedRuleForBatchUpdateCdnConfigInput methodDeniedRule = null;
 
+  @SerializedName("MultiRange")
+  private MultiRangeForBatchUpdateCdnConfigInput multiRange = null;
+
   @SerializedName("NegativeCache")
   private List<NegativeCacheForBatchUpdateCdnConfigInput> negativeCache = null;
+
+  @SerializedName("OfflineCache")
+  private OfflineCacheForBatchUpdateCdnConfigInput offlineCache = null;
 
   @SerializedName("Origin")
   private List<OriginForBatchUpdateCdnConfigInput> origin = null;
@@ -189,6 +198,9 @@ public class BatchUpdateCdnConfigRequest {
 
   @SerializedName("ResponseHeader")
   private List<ResponseHeaderForBatchUpdateCdnConfigInput> responseHeader = null;
+
+  @SerializedName("RewriteHLS")
+  private RewriteHLSForBatchUpdateCdnConfigInput rewriteHLS = null;
 
   @SerializedName("ServiceRegion")
   private String serviceRegion = null;
@@ -617,6 +629,25 @@ public class BatchUpdateCdnConfigRequest {
     this.methodDeniedRule = methodDeniedRule;
   }
 
+  public BatchUpdateCdnConfigRequest multiRange(MultiRangeForBatchUpdateCdnConfigInput multiRange) {
+    this.multiRange = multiRange;
+    return this;
+  }
+
+   /**
+   * Get multiRange
+   * @return multiRange
+  **/
+  @Valid
+  @Schema(description = "")
+  public MultiRangeForBatchUpdateCdnConfigInput getMultiRange() {
+    return multiRange;
+  }
+
+  public void setMultiRange(MultiRangeForBatchUpdateCdnConfigInput multiRange) {
+    this.multiRange = multiRange;
+  }
+
   public BatchUpdateCdnConfigRequest negativeCache(List<NegativeCacheForBatchUpdateCdnConfigInput> negativeCache) {
     this.negativeCache = negativeCache;
     return this;
@@ -642,6 +673,25 @@ public class BatchUpdateCdnConfigRequest {
 
   public void setNegativeCache(List<NegativeCacheForBatchUpdateCdnConfigInput> negativeCache) {
     this.negativeCache = negativeCache;
+  }
+
+  public BatchUpdateCdnConfigRequest offlineCache(OfflineCacheForBatchUpdateCdnConfigInput offlineCache) {
+    this.offlineCache = offlineCache;
+    return this;
+  }
+
+   /**
+   * Get offlineCache
+   * @return offlineCache
+  **/
+  @Valid
+  @Schema(description = "")
+  public OfflineCacheForBatchUpdateCdnConfigInput getOfflineCache() {
+    return offlineCache;
+  }
+
+  public void setOfflineCache(OfflineCacheForBatchUpdateCdnConfigInput offlineCache) {
+    this.offlineCache = offlineCache;
   }
 
   public BatchUpdateCdnConfigRequest origin(List<OriginForBatchUpdateCdnConfigInput> origin) {
@@ -1033,6 +1083,25 @@ public class BatchUpdateCdnConfigRequest {
     this.responseHeader = responseHeader;
   }
 
+  public BatchUpdateCdnConfigRequest rewriteHLS(RewriteHLSForBatchUpdateCdnConfigInput rewriteHLS) {
+    this.rewriteHLS = rewriteHLS;
+    return this;
+  }
+
+   /**
+   * Get rewriteHLS
+   * @return rewriteHLS
+  **/
+  @Valid
+  @Schema(description = "")
+  public RewriteHLSForBatchUpdateCdnConfigInput getRewriteHLS() {
+    return rewriteHLS;
+  }
+
+  public void setRewriteHLS(RewriteHLSForBatchUpdateCdnConfigInput rewriteHLS) {
+    this.rewriteHLS = rewriteHLS;
+  }
+
   public BatchUpdateCdnConfigRequest serviceRegion(String serviceRegion) {
     this.serviceRegion = serviceRegion;
     return this;
@@ -1176,7 +1245,9 @@ public class BatchUpdateCdnConfigRequest {
         Objects.equals(this.ipAccessRule, batchUpdateCdnConfigRequest.ipAccessRule) &&
         Objects.equals(this.ipFreqLimit, batchUpdateCdnConfigRequest.ipFreqLimit) &&
         Objects.equals(this.methodDeniedRule, batchUpdateCdnConfigRequest.methodDeniedRule) &&
+        Objects.equals(this.multiRange, batchUpdateCdnConfigRequest.multiRange) &&
         Objects.equals(this.negativeCache, batchUpdateCdnConfigRequest.negativeCache) &&
+        Objects.equals(this.offlineCache, batchUpdateCdnConfigRequest.offlineCache) &&
         Objects.equals(this.origin, batchUpdateCdnConfigRequest.origin) &&
         Objects.equals(this.originAccessRule, batchUpdateCdnConfigRequest.originAccessRule) &&
         Objects.equals(this.originArg, batchUpdateCdnConfigRequest.originArg) &&
@@ -1196,6 +1267,7 @@ public class BatchUpdateCdnConfigRequest {
         Objects.equals(this.requestBlockRule, batchUpdateCdnConfigRequest.requestBlockRule) &&
         Objects.equals(this.requestHeader, batchUpdateCdnConfigRequest.requestHeader) &&
         Objects.equals(this.responseHeader, batchUpdateCdnConfigRequest.responseHeader) &&
+        Objects.equals(this.rewriteHLS, batchUpdateCdnConfigRequest.rewriteHLS) &&
         Objects.equals(this.serviceRegion, batchUpdateCdnConfigRequest.serviceRegion) &&
         Objects.equals(this.signedUrlAuth, batchUpdateCdnConfigRequest.signedUrlAuth) &&
         Objects.equals(this.timeout, batchUpdateCdnConfigRequest.timeout) &&
@@ -1206,7 +1278,7 @@ public class BatchUpdateCdnConfigRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aggregate, areaAccessRule, bandwidthLimit, browserCache, cache, cacheHost, cacheKey, compression, conditionalOrigin, customErrorPage, customizeAccessRule, domains, downloadSpeedLimit, followRedirect, HTTPS, httpForcedRedirect, ipv6, ipAccessRule, ipFreqLimit, methodDeniedRule, negativeCache, origin, originAccessRule, originArg, originCertCheck, originHost, originIPv6, originProtocol, originRange, originRetry, originRewrite, originSni, pageOptimization, quic, redirectionRewrite, refererAccessRule, remoteAuth, requestBlockRule, requestHeader, responseHeader, serviceRegion, signedUrlAuth, timeout, uaAccessRule, urlNormalize, videoDrag);
+    return Objects.hash(aggregate, areaAccessRule, bandwidthLimit, browserCache, cache, cacheHost, cacheKey, compression, conditionalOrigin, customErrorPage, customizeAccessRule, domains, downloadSpeedLimit, followRedirect, HTTPS, httpForcedRedirect, ipv6, ipAccessRule, ipFreqLimit, methodDeniedRule, multiRange, negativeCache, offlineCache, origin, originAccessRule, originArg, originCertCheck, originHost, originIPv6, originProtocol, originRange, originRetry, originRewrite, originSni, pageOptimization, quic, redirectionRewrite, refererAccessRule, remoteAuth, requestBlockRule, requestHeader, responseHeader, rewriteHLS, serviceRegion, signedUrlAuth, timeout, uaAccessRule, urlNormalize, videoDrag);
   }
 
 
@@ -1235,7 +1307,9 @@ public class BatchUpdateCdnConfigRequest {
     sb.append("    ipAccessRule: ").append(toIndentedString(ipAccessRule)).append("\n");
     sb.append("    ipFreqLimit: ").append(toIndentedString(ipFreqLimit)).append("\n");
     sb.append("    methodDeniedRule: ").append(toIndentedString(methodDeniedRule)).append("\n");
+    sb.append("    multiRange: ").append(toIndentedString(multiRange)).append("\n");
     sb.append("    negativeCache: ").append(toIndentedString(negativeCache)).append("\n");
+    sb.append("    offlineCache: ").append(toIndentedString(offlineCache)).append("\n");
     sb.append("    origin: ").append(toIndentedString(origin)).append("\n");
     sb.append("    originAccessRule: ").append(toIndentedString(originAccessRule)).append("\n");
     sb.append("    originArg: ").append(toIndentedString(originArg)).append("\n");
@@ -1255,6 +1329,7 @@ public class BatchUpdateCdnConfigRequest {
     sb.append("    requestBlockRule: ").append(toIndentedString(requestBlockRule)).append("\n");
     sb.append("    requestHeader: ").append(toIndentedString(requestHeader)).append("\n");
     sb.append("    responseHeader: ").append(toIndentedString(responseHeader)).append("\n");
+    sb.append("    rewriteHLS: ").append(toIndentedString(rewriteHLS)).append("\n");
     sb.append("    serviceRegion: ").append(toIndentedString(serviceRegion)).append("\n");
     sb.append("    signedUrlAuth: ").append(toIndentedString(signedUrlAuth)).append("\n");
     sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");

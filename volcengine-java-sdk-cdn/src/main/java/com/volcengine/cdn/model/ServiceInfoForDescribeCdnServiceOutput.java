@@ -51,6 +51,9 @@ public class ServiceInfoForDescribeCdnServiceOutput {
   @SerializedName("InstanceCategory")
   private String instanceCategory = null;
 
+  @SerializedName("InstanceNo")
+  private String instanceNo = null;
+
   @SerializedName("InstanceType")
   private String instanceType = null;
 
@@ -192,6 +195,24 @@ public class ServiceInfoForDescribeCdnServiceOutput {
     this.instanceCategory = instanceCategory;
   }
 
+  public ServiceInfoForDescribeCdnServiceOutput instanceNo(String instanceNo) {
+    this.instanceNo = instanceNo;
+    return this;
+  }
+
+   /**
+   * Get instanceNo
+   * @return instanceNo
+  **/
+  @Schema(description = "")
+  public String getInstanceNo() {
+    return instanceNo;
+  }
+
+  public void setInstanceNo(String instanceNo) {
+    this.instanceNo = instanceNo;
+  }
+
   public ServiceInfoForDescribeCdnServiceOutput instanceType(String instanceType) {
     this.instanceType = instanceType;
     return this;
@@ -299,6 +320,7 @@ public class ServiceInfoForDescribeCdnServiceOutput {
         Objects.equals(this.billingDesc, serviceInfoForDescribeCdnServiceOutput.billingDesc) &&
         Objects.equals(this.createTime, serviceInfoForDescribeCdnServiceOutput.createTime) &&
         Objects.equals(this.instanceCategory, serviceInfoForDescribeCdnServiceOutput.instanceCategory) &&
+        Objects.equals(this.instanceNo, serviceInfoForDescribeCdnServiceOutput.instanceNo) &&
         Objects.equals(this.instanceType, serviceInfoForDescribeCdnServiceOutput.instanceType) &&
         Objects.equals(this.metricType, serviceInfoForDescribeCdnServiceOutput.metricType) &&
         Objects.equals(this.serviceRegion, serviceInfoForDescribeCdnServiceOutput.serviceRegion) &&
@@ -308,7 +330,7 @@ public class ServiceInfoForDescribeCdnServiceOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(beginTime, billingCode, billingCycle, billingData, billingDesc, createTime, instanceCategory, instanceType, metricType, serviceRegion, startTime, status);
+    return Objects.hash(beginTime, billingCode, billingCycle, billingData, billingDesc, createTime, instanceCategory, instanceNo, instanceType, metricType, serviceRegion, startTime, status);
   }
 
 
@@ -324,6 +346,7 @@ public class ServiceInfoForDescribeCdnServiceOutput {
     sb.append("    billingDesc: ").append(toIndentedString(billingDesc)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    instanceCategory: ").append(toIndentedString(instanceCategory)).append("\n");
+    sb.append("    instanceNo: ").append(toIndentedString(instanceNo)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("    metricType: ").append(toIndentedString(metricType)).append("\n");
     sb.append("    serviceRegion: ").append(toIndentedString(serviceRegion)).append("\n");
