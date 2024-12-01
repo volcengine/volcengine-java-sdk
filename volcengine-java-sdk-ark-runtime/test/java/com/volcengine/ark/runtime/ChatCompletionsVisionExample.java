@@ -9,6 +9,9 @@ import com.volcengine.ark.runtime.service.ArkService;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.volcengine.ark.runtime.service.ArkBaseService.DEFAULT_CONNECTION_POOL;
+import static com.volcengine.ark.runtime.service.ArkBaseService.DEFAULT_DISPATCHER;
+
 /*
 # pom.xml
 <dependency>
@@ -35,11 +38,11 @@ public class ChatCompletionsVisionExample {
      * To get your ak&sk, please refer to this document(https://www.volcengine.com/docs/6291/65568)
      * For more information，please check this document（https://www.volcengine.com/docs/82379/1263279）
      */
+
+    static String apiKey = System.getenv("ARK_API_KEY");
+    static ArkService service = ArkService.builder().dispatcher(DEFAULT_DISPATCHER).connectionPool(DEFAULT_CONNECTION_POOL).apiKey(apiKey).build();
+
     public static void main(String[] args) {
-
-        String apiKey = System.getenv("ARK_API_KEY");
-        ArkService service = new ArkService(apiKey);
-
         System.out.println("----- image input -----");
         final List<ChatMessage> messages = new ArrayList<>();
         final List<ChatCompletionContentPart> multiParts = new ArrayList<>();
@@ -62,7 +65,7 @@ public class ChatCompletionsVisionExample {
 
         service.createChatCompletion(chatCompletionRequest).getChoices().forEach(choice -> System.out.println(choice.getMessage().getContent()));
 
-        // shutdown service
+        // shutdown service after all requests is finished
         service.shutdownExecutor();
     }
 

@@ -1,7 +1,11 @@
 package com.volcengine.ark.runtime.service;
 
 
+import okhttp3.ConnectionPool;
+import okhttp3.Dispatcher;
+
 import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
 
 /**
@@ -9,12 +13,10 @@ import java.time.Duration;
  */
 public abstract class ArkBaseService {
 
-    static final String BASE_URL = "https://ark.cn-beijing.volces.com";
-    static final String BASE_REGION = "cn-beijing";
-    static final Duration DEFAULT_TIMEOUT = Duration.ofMinutes(10);
-    static final Duration DEFAULT_CONNECT_TIMEOUT = Duration.ofMinutes(1);
-    String apiKey = "";
-    String ak = "";
-    String sk = "";
-
+    public static final String BASE_URL = "https://ark.cn-beijing.volces.com";
+    public static final String BASE_REGION = "cn-beijing";
+    public static final Duration DEFAULT_TIMEOUT = Duration.ofMinutes(10);
+    public static final Duration DEFAULT_CONNECT_TIMEOUT = Duration.ofMinutes(1);
+    public static final ConnectionPool DEFAULT_CONNECTION_POOL = new ConnectionPool(5, 1, TimeUnit.SECONDS);
+    public static final Dispatcher DEFAULT_DISPATCHER = new Dispatcher();
 }
