@@ -59,7 +59,9 @@ public class BotChatCompletionsExample {
         BotChatCompletionResult chatCompletionResult =  service.createBotChatCompletion(chatCompletionRequest);
         chatCompletionResult.getChoices().forEach(choice -> System.out.println(choice.getMessage().getContent()));
         // the references example
-        chatCompletionResult.getReferences().forEach(ref -> System.out.println(ref.getUrl()));
+        if (chatCompletionResult.getReferences() != null) {
+            chatCompletionResult.getReferences().forEach(ref -> System.out.println(ref.getUrl()));
+        }
 
         System.out.println("\n----- streaming request -----");
         final List<ChatMessage> streamMessages = new ArrayList<>();
