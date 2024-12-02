@@ -36,12 +36,6 @@ public class ListWebhooksByIdsResponse extends com.volcengine.model.AbstractResp
   @SerializedName("Data")
   private List<DataForListWebhooksByIdsOutput> data = null;
 
-  @SerializedName("PageNumber")
-  private Integer pageNumber = null;
-
-  @SerializedName("PageSize")
-  private Integer pageSize = null;
-
   public ListWebhooksByIdsResponse data(List<DataForListWebhooksByIdsOutput> data) {
     this.data = data;
     return this;
@@ -69,42 +63,6 @@ public class ListWebhooksByIdsResponse extends com.volcengine.model.AbstractResp
     this.data = data;
   }
 
-  public ListWebhooksByIdsResponse pageNumber(Integer pageNumber) {
-    this.pageNumber = pageNumber;
-    return this;
-  }
-
-   /**
-   * Get pageNumber
-   * @return pageNumber
-  **/
-  @Schema(description = "")
-  public Integer getPageNumber() {
-    return pageNumber;
-  }
-
-  public void setPageNumber(Integer pageNumber) {
-    this.pageNumber = pageNumber;
-  }
-
-  public ListWebhooksByIdsResponse pageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-    return this;
-  }
-
-   /**
-   * Get pageSize
-   * @return pageSize
-  **/
-  @Schema(description = "")
-  public Integer getPageSize() {
-    return pageSize;
-  }
-
-  public void setPageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -115,14 +73,12 @@ public class ListWebhooksByIdsResponse extends com.volcengine.model.AbstractResp
       return false;
     }
     ListWebhooksByIdsResponse listWebhooksByIdsResponse = (ListWebhooksByIdsResponse) o;
-    return Objects.equals(this.data, listWebhooksByIdsResponse.data) &&
-        Objects.equals(this.pageNumber, listWebhooksByIdsResponse.pageNumber) &&
-        Objects.equals(this.pageSize, listWebhooksByIdsResponse.pageSize);
+    return Objects.equals(this.data, listWebhooksByIdsResponse.data);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, pageNumber, pageSize);
+    return Objects.hash(data);
   }
 
 
@@ -132,8 +88,6 @@ public class ListWebhooksByIdsResponse extends com.volcengine.model.AbstractResp
     sb.append("class ListWebhooksByIdsResponse {\n");
     
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
-    sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("}");
     return sb.toString();
   }

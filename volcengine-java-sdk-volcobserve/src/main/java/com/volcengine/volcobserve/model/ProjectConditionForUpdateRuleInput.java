@@ -21,55 +21,44 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ResourceTagForListAlertGroupOutput
+ * ProjectConditionForUpdateRuleInput
  */
 
 
 
-public class ResourceTagForListAlertGroupOutput {
-  @SerializedName("Name")
-  private String name = null;
+public class ProjectConditionForUpdateRuleInput {
+  @SerializedName("Projects")
+  private List<String> projects = null;
 
-  @SerializedName("Value")
-  private String value = null;
+  public ProjectConditionForUpdateRuleInput projects(List<String> projects) {
+    this.projects = projects;
+    return this;
+  }
 
-  public ResourceTagForListAlertGroupOutput name(String name) {
-    this.name = name;
+  public ProjectConditionForUpdateRuleInput addProjectsItem(String projectsItem) {
+    if (this.projects == null) {
+      this.projects = new ArrayList<String>();
+    }
+    this.projects.add(projectsItem);
     return this;
   }
 
    /**
-   * Get name
-   * @return name
+   * Get projects
+   * @return projects
   **/
   @Schema(description = "")
-  public String getName() {
-    return name;
+  public List<String> getProjects() {
+    return projects;
   }
 
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public ResourceTagForListAlertGroupOutput value(String value) {
-    this.value = value;
-    return this;
-  }
-
-   /**
-   * Get value
-   * @return value
-  **/
-  @Schema(description = "")
-  public String getValue() {
-    return value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
+  public void setProjects(List<String> projects) {
+    this.projects = projects;
   }
 
 
@@ -81,24 +70,22 @@ public class ResourceTagForListAlertGroupOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ResourceTagForListAlertGroupOutput resourceTagForListAlertGroupOutput = (ResourceTagForListAlertGroupOutput) o;
-    return Objects.equals(this.name, resourceTagForListAlertGroupOutput.name) &&
-        Objects.equals(this.value, resourceTagForListAlertGroupOutput.value);
+    ProjectConditionForUpdateRuleInput projectConditionForUpdateRuleInput = (ProjectConditionForUpdateRuleInput) o;
+    return Objects.equals(this.projects, projectConditionForUpdateRuleInput.projects);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, value);
+    return Objects.hash(projects);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ResourceTagForListAlertGroupOutput {\n");
+    sb.append("class ProjectConditionForUpdateRuleInput {\n");
     
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    projects: ").append(toIndentedString(projects)).append("\n");
     sb.append("}");
     return sb.toString();
   }
