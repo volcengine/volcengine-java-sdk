@@ -40,9 +40,9 @@ public class ChatCompletionsVisionExample {
      */
 
     static String apiKey = System.getenv("ARK_API_KEY");
-    static ConnectionPool DEFAULT_CONNECTION_POOL = new ConnectionPool(5, 1, TimeUnit.SECONDS);
-    static Dispatcher DEFAULT_DISPATCHER = new Dispatcher();
-    static ArkService service = ArkService.builder().dispatcher(DEFAULT_DISPATCHER).connectionPool(DEFAULT_CONNECTION_POOL).apiKey(apiKey).build();
+    static ConnectionPool connectionPool = new ConnectionPool(5, 1, TimeUnit.SECONDS);
+    static Dispatcher dispatcher = new Dispatcher();
+    static ArkService service = ArkService.builder().dispatcher(dispatcher).connectionPool(connectionPool).apiKey(apiKey).build();
 
     public static void main(String[] args) {
         System.out.println("----- image input -----");
