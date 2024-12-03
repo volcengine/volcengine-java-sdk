@@ -4,12 +4,12 @@ package com.volcengine.ark.runtime;
 import com.volcengine.ark.runtime.model.embeddings.EmbeddingRequest;
 import com.volcengine.ark.runtime.model.embeddings.EmbeddingResult;
 import com.volcengine.ark.runtime.service.ArkService;
+import okhttp3.ConnectionPool;
+import okhttp3.Dispatcher;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.volcengine.ark.runtime.service.ArkBaseService.DEFAULT_CONNECTION_POOL;
-import static com.volcengine.ark.runtime.service.ArkBaseService.DEFAULT_DISPATCHER;
+import java.util.concurrent.TimeUnit;
 
 public class EmbeddingsExample {
 
@@ -30,6 +30,8 @@ public class EmbeddingsExample {
      */
 
     static String apiKey = System.getenv("ARK_API_KEY");
+    static ConnectionPool DEFAULT_CONNECTION_POOL = new ConnectionPool(5, 1, TimeUnit.SECONDS);
+    static Dispatcher DEFAULT_DISPATCHER = new Dispatcher();
     static ArkService service = ArkService.builder().dispatcher(DEFAULT_DISPATCHER).connectionPool(DEFAULT_CONNECTION_POOL).apiKey(apiKey).build();
 
     public static void main(String[] args) {

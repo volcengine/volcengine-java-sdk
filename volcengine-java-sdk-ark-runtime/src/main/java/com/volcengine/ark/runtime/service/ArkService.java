@@ -314,13 +314,11 @@ public class ArkService extends ArkBaseService implements ArkBaseServiceImpl {
             if (connectionPool != null) {
                 clientBuilder.connectionPool(connectionPool);
             } else {
-                clientBuilder.connectionPool(DEFAULT_CONNECTION_POOL);
+                clientBuilder.connectionPool(new ConnectionPool(5, 1, TimeUnit.SECONDS));
             }
 
             if (dispatcher != null) {
                 clientBuilder.dispatcher(dispatcher);
-            } else {
-                clientBuilder.dispatcher(DEFAULT_DISPATCHER);
             }
 
             OkHttpClient client = clientBuilder
