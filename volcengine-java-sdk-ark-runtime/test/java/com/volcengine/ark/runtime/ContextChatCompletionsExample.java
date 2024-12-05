@@ -41,9 +41,9 @@ public class ContextChatCompletionsExample {
         System.out.println("\n----- create context -----");
         CreateContextRequest createContextRequest = CreateContextRequest.builder()
                 .model("${YOUR_ENDPOINT_ID}")
+                .mode(Const.CONTEXT_MODE_SESSION)
                 .messages(Collections.singletonList(ChatMessage.builder().role(ChatMessageRole.SYSTEM).content("你是豆包，是由字节跳动开发的 AI 人工智能助手").build()))
                 .ttl(3600)
-                .truncationStrategy(TruncationStrategy.builder().Type(TruncationStrategy.TRUNCATION_STRATEGY_TYPE_LAST_HISTORY_TOKENS).LastHistoryTokens(4096).build())
                 .build();
 
         CreateContextResult createContextResult = service.createContext(createContextRequest);

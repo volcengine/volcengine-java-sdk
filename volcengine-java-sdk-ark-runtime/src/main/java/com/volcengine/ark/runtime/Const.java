@@ -15,4 +15,8 @@ public class Const {
 
     public static final String RESOURCE_TYPE_BOT = "bot";
     public static final String RESOURCE_TYPE_ENDPOINT = "endpoint";
+
+    public static final String CONTEXT_MODE_SESSION = "session";
+    public static final String TRUNCATION_STRATEGY_TYPE_LAST_HISTORY_TOKENS = "last_history_tokens";
+    public static final String TRUNCATION_STRATEGY_TYPE_ROLLING_TOKENS = "rolling_tokens";
 }

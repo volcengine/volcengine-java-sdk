@@ -6,43 +6,53 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TruncationStrategy {
 
-    public static final String TRUNCATION_STRATEGY_TYPE_LAST_HISTORY_TOKENS = "last_history_tokens";
-
     @JsonProperty("type")
-    private String Type;
+    private String type;
 
     @JsonProperty("last_history_tokens")
-    private Integer LastHistoryTokens;
+    private Integer lastHistoryTokens;
+
+    @JsonProperty("rolling_tokens")
+    private Boolean rollingTokens;
 
     public TruncationStrategy() {
     }
 
     public TruncationStrategy(String type, Integer lastHistoryTokens) {
-        Type = type;
-        LastHistoryTokens = lastHistoryTokens;
+        this.type = type;
+        this.lastHistoryTokens = lastHistoryTokens;
     }
 
     public String getType() {
-        return Type;
+        return type;
     }
 
     public void setType(String type) {
-        Type = type;
+        this.type = type;
     }
 
     public Integer getLastHistoryTokens() {
-        return LastHistoryTokens;
+        return lastHistoryTokens;
     }
 
     public void setLastHistoryTokens(Integer lastHistoryTokens) {
-        LastHistoryTokens = lastHistoryTokens;
+        this.lastHistoryTokens = lastHistoryTokens;
+    }
+
+    public Boolean getRollingTokens() {
+        return rollingTokens;
+    }
+
+    public void setRollingTokens(Boolean rollingTokens) {
+        this.rollingTokens = rollingTokens;
     }
 
     @Override
     public String toString() {
         return "TruncationStrategy{" +
-                "Type='" + Type + '\'' +
-                ", LastHistoryTokens=" + LastHistoryTokens +
+                "type='" + type + '\'' +
+                ", lastHistoryTokens=" + lastHistoryTokens +
+                ", rollingTokens=" + rollingTokens +
                 '}';
     }
 
@@ -51,26 +61,33 @@ public class TruncationStrategy {
     }
 
     public static class Builder {
-        private Integer LastHistoryTokens;
-        private String Type;
+        private Integer lastHistoryTokens;
+        private String type;
+        private Boolean rollingTokens;
 
         private Builder() {
         }
 
-        public Builder LastHistoryTokens(Integer LastHistoryTokens) {
-            this.LastHistoryTokens = LastHistoryTokens;
+        public Builder lastHistoryTokens(Integer LastHistoryTokens) {
+            this.lastHistoryTokens = LastHistoryTokens;
             return this;
         }
 
-        public Builder Type(String Type) {
-            this.Type = Type;
+        public Builder type(String Type) {
+            this.type = Type;
+            return this;
+        }
+
+        public Builder rollingTokens(Boolean RollingTokens) {
+            this.rollingTokens = RollingTokens;
             return this;
         }
 
         public TruncationStrategy build() {
             TruncationStrategy truncationStrategy = new TruncationStrategy();
-            truncationStrategy.setLastHistoryTokens(LastHistoryTokens);
-            truncationStrategy.setType(Type);
+            truncationStrategy.setLastHistoryTokens(lastHistoryTokens);
+            truncationStrategy.setType(type);
+            truncationStrategy.setRollingTokens(rollingTokens);
             return truncationStrategy;
         }
     }
