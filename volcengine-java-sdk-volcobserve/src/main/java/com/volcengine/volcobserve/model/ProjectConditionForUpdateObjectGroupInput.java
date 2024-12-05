@@ -19,7 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.volcobserve.model.DataForListWebhooksByIdsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -27,40 +26,39 @@ import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ListWebhooksByIdsResponse
+ * ProjectConditionForUpdateObjectGroupInput
  */
 
 
 
-public class ListWebhooksByIdsResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("Data")
-  private List<DataForListWebhooksByIdsOutput> data = null;
+public class ProjectConditionForUpdateObjectGroupInput {
+  @SerializedName("Projects")
+  private List<String> projects = null;
 
-  public ListWebhooksByIdsResponse data(List<DataForListWebhooksByIdsOutput> data) {
-    this.data = data;
+  public ProjectConditionForUpdateObjectGroupInput projects(List<String> projects) {
+    this.projects = projects;
     return this;
   }
 
-  public ListWebhooksByIdsResponse addDataItem(DataForListWebhooksByIdsOutput dataItem) {
-    if (this.data == null) {
-      this.data = new ArrayList<DataForListWebhooksByIdsOutput>();
+  public ProjectConditionForUpdateObjectGroupInput addProjectsItem(String projectsItem) {
+    if (this.projects == null) {
+      this.projects = new ArrayList<String>();
     }
-    this.data.add(dataItem);
+    this.projects.add(projectsItem);
     return this;
   }
 
    /**
-   * Get data
-   * @return data
+   * Get projects
+   * @return projects
   **/
-  @Valid
   @Schema(description = "")
-  public List<DataForListWebhooksByIdsOutput> getData() {
-    return data;
+  public List<String> getProjects() {
+    return projects;
   }
 
-  public void setData(List<DataForListWebhooksByIdsOutput> data) {
-    this.data = data;
+  public void setProjects(List<String> projects) {
+    this.projects = projects;
   }
 
 
@@ -72,22 +70,22 @@ public class ListWebhooksByIdsResponse extends com.volcengine.model.AbstractResp
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ListWebhooksByIdsResponse listWebhooksByIdsResponse = (ListWebhooksByIdsResponse) o;
-    return Objects.equals(this.data, listWebhooksByIdsResponse.data);
+    ProjectConditionForUpdateObjectGroupInput projectConditionForUpdateObjectGroupInput = (ProjectConditionForUpdateObjectGroupInput) o;
+    return Objects.equals(this.projects, projectConditionForUpdateObjectGroupInput.projects);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data);
+    return Objects.hash(projects);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ListWebhooksByIdsResponse {\n");
+    sb.append("class ProjectConditionForUpdateObjectGroupInput {\n");
     
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    projects: ").append(toIndentedString(projects)).append("\n");
     sb.append("}");
     return sb.toString();
   }

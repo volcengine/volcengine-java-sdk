@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.volcobserve.model.ConditionForUpdateRuleInput;
+import com.volcengine.volcobserve.model.DimensionConditionsForUpdateRuleInput;
 import com.volcengine.volcobserve.model.NoDataForUpdateRuleInput;
 import com.volcengine.volcobserve.model.RecoveryNotifyForUpdateRuleInput;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -99,6 +100,9 @@ public class UpdateRuleRequest {
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("DimensionConditions")
+  private DimensionConditionsForUpdateRuleInput dimensionConditions = null;
+
   @SerializedName("EffectEndAt")
   private String effectEndAt = null;
 
@@ -144,7 +148,9 @@ public class UpdateRuleRequest {
   @JsonAdapter(RuleTypeEnum.Adapter.class)
   public enum RuleTypeEnum {
     @SerializedName("static")
-    STATIC("static");
+    STATIC("static"),
+    @SerializedName("dynamic")
+    DYNAMIC("dynamic");
 
     private String value;
 
@@ -307,6 +313,25 @@ public class UpdateRuleRequest {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public UpdateRuleRequest dimensionConditions(DimensionConditionsForUpdateRuleInput dimensionConditions) {
+    this.dimensionConditions = dimensionConditions;
+    return this;
+  }
+
+   /**
+   * Get dimensionConditions
+   * @return dimensionConditions
+  **/
+  @Valid
+  @Schema(description = "")
+  public DimensionConditionsForUpdateRuleInput getDimensionConditions() {
+    return dimensionConditions;
+  }
+
+  public void setDimensionConditions(DimensionConditionsForUpdateRuleInput dimensionConditions) {
+    this.dimensionConditions = dimensionConditions;
   }
 
   public UpdateRuleRequest effectEndAt(String effectEndAt) {
@@ -686,6 +711,7 @@ public class UpdateRuleRequest {
         Objects.equals(this.conditions, updateRuleRequest.conditions) &&
         Objects.equals(this.contactGroupIds, updateRuleRequest.contactGroupIds) &&
         Objects.equals(this.description, updateRuleRequest.description) &&
+        Objects.equals(this.dimensionConditions, updateRuleRequest.dimensionConditions) &&
         Objects.equals(this.effectEndAt, updateRuleRequest.effectEndAt) &&
         Objects.equals(this.effectStartAt, updateRuleRequest.effectStartAt) &&
         Objects.equals(this.enableState, updateRuleRequest.enableState) &&
@@ -708,7 +734,7 @@ public class UpdateRuleRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(alertMethods, conditionOperator, conditions, contactGroupIds, description, effectEndAt, effectStartAt, enableState, evaluationCount, id, level, multipleConditions, namespace, noData, originalDimensions, recoveryNotify, regions, ruleName, ruleType, silenceTime, subNamespace, webhook, webhookIds);
+    return Objects.hash(alertMethods, conditionOperator, conditions, contactGroupIds, description, dimensionConditions, effectEndAt, effectStartAt, enableState, evaluationCount, id, level, multipleConditions, namespace, noData, originalDimensions, recoveryNotify, regions, ruleName, ruleType, silenceTime, subNamespace, webhook, webhookIds);
   }
 
 
@@ -722,6 +748,7 @@ public class UpdateRuleRequest {
     sb.append("    conditions: ").append(toIndentedString(conditions)).append("\n");
     sb.append("    contactGroupIds: ").append(toIndentedString(contactGroupIds)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    dimensionConditions: ").append(toIndentedString(dimensionConditions)).append("\n");
     sb.append("    effectEndAt: ").append(toIndentedString(effectEndAt)).append("\n");
     sb.append("    effectStartAt: ").append(toIndentedString(effectStartAt)).append("\n");
     sb.append("    enableState: ").append(toIndentedString(enableState)).append("\n");

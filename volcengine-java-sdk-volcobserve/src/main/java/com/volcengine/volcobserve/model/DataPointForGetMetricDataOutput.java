@@ -34,7 +34,7 @@ public class DataPointForGetMetricDataOutput {
   private Integer timestamp = null;
 
   @SerializedName("Value")
-  private Double value = null;
+  private Float value = null;
 
   public DataPointForGetMetricDataOutput timestamp(Integer timestamp) {
     this.timestamp = timestamp;
@@ -54,7 +54,7 @@ public class DataPointForGetMetricDataOutput {
     this.timestamp = timestamp;
   }
 
-  public DataPointForGetMetricDataOutput value(Double value) {
+  public DataPointForGetMetricDataOutput value(Float value) {
     this.value = value;
     return this;
   }
@@ -64,11 +64,11 @@ public class DataPointForGetMetricDataOutput {
    * @return value
   **/
   @Schema(description = "")
-  public Double getValue() {
+  public Float getValue() {
     return value;
   }
 
-  public void setValue(Double value) {
+  public void setValue(Float value) {
     this.value = value;
   }
 

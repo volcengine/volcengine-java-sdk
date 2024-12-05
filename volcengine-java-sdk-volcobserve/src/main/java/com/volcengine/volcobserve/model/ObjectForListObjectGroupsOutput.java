@@ -33,6 +33,9 @@ import javax.validation.Valid;
 
 
 public class ObjectForListObjectGroupsOutput {
+  @SerializedName("DimensionConditions")
+  private String dimensionConditions = null;
+
   @SerializedName("Dimensions")
   private Map<String, List<String>> dimensions = null;
 
@@ -47,6 +50,24 @@ public class ObjectForListObjectGroupsOutput {
 
   @SerializedName("Type")
   private String type = null;
+
+  public ObjectForListObjectGroupsOutput dimensionConditions(String dimensionConditions) {
+    this.dimensionConditions = dimensionConditions;
+    return this;
+  }
+
+   /**
+   * Get dimensionConditions
+   * @return dimensionConditions
+  **/
+  @Schema(description = "")
+  public String getDimensionConditions() {
+    return dimensionConditions;
+  }
+
+  public void setDimensionConditions(String dimensionConditions) {
+    this.dimensionConditions = dimensionConditions;
+  }
 
   public ObjectForListObjectGroupsOutput dimensions(Map<String, List<String>> dimensions) {
     this.dimensions = dimensions;
@@ -157,7 +178,8 @@ public class ObjectForListObjectGroupsOutput {
       return false;
     }
     ObjectForListObjectGroupsOutput objectForListObjectGroupsOutput = (ObjectForListObjectGroupsOutput) o;
-    return Objects.equals(this.dimensions, objectForListObjectGroupsOutput.dimensions) &&
+    return Objects.equals(this.dimensionConditions, objectForListObjectGroupsOutput.dimensionConditions) &&
+        Objects.equals(this.dimensions, objectForListObjectGroupsOutput.dimensions) &&
         Objects.equals(this.id, objectForListObjectGroupsOutput.id) &&
         Objects.equals(this.namespace, objectForListObjectGroupsOutput.namespace) &&
         Objects.equals(this.region, objectForListObjectGroupsOutput.region) &&
@@ -166,7 +188,7 @@ public class ObjectForListObjectGroupsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dimensions, id, namespace, region, type);
+    return Objects.hash(dimensionConditions, dimensions, id, namespace, region, type);
   }
 
 
@@ -175,6 +197,7 @@ public class ObjectForListObjectGroupsOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObjectForListObjectGroupsOutput {\n");
     
+    sb.append("    dimensionConditions: ").append(toIndentedString(dimensionConditions)).append("\n");
     sb.append("    dimensions: ").append(toIndentedString(dimensions)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
