@@ -5,9 +5,12 @@ import com.volcengine.ark.runtime.model.completion.chat.ChatCompletionRequest;
 import com.volcengine.ark.runtime.model.completion.chat.ChatMessage;
 import com.volcengine.ark.runtime.model.completion.chat.ChatMessageRole;
 import com.volcengine.ark.runtime.service.ArkService;
+import okhttp3.ConnectionPool;
+import okhttp3.Dispatcher;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /*
 # pom.xml
@@ -35,11 +38,13 @@ public class ChatCompletionsExample {
      * To get your ak&sk, please refer to this document(https://www.volcengine.com/docs/6291/65568)
      * For more information，please check this document（https://www.volcengine.com/docs/82379/1263279）
      */
+
+    static String apiKey = System.getenv("ARK_API_KEY");
+    static ConnectionPool connectionPool = new ConnectionPool(5, 1, TimeUnit.SECONDS);
+    static Dispatcher dispatcher = new Dispatcher();
+    static ArkService service = ArkService.builder().dispatcher(dispatcher).connectionPool(connectionPool).apiKey(apiKey).build();
+
     public static void main(String[] args) {
-
-        String apiKey = System.getenv("ARK_API_KEY");
-        ArkService service = new ArkService(apiKey);
-
         System.out.println("\n----- standard request -----");
         final List<ChatMessage> messages = new ArrayList<>();
         final ChatMessage systemMessage = ChatMessage.builder().role(ChatMessageRole.SYSTEM).content("你是豆包，是由字节跳动开发的 AI 人工智能助手").build();
@@ -76,7 +81,7 @@ public class ChatCompletionsExample {
                         }
                 );
 
-        // shutdown service
+        // shutdown service after all requests is finished
         service.shutdownExecutor();
     }
 
