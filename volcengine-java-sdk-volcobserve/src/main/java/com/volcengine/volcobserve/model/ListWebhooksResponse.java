@@ -33,14 +33,41 @@ import javax.validation.Valid;
 
 
 public class ListWebhooksResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("Asc")
+  private Boolean asc = null;
+
   @SerializedName("Data")
   private List<DataForListWebhooksOutput> data = null;
+
+  @SerializedName("OrderBy")
+  private String orderBy = null;
 
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
 
   @SerializedName("PageSize")
   private Integer pageSize = null;
+
+  @SerializedName("TotalCount")
+  private Integer totalCount = null;
+
+  public ListWebhooksResponse asc(Boolean asc) {
+    this.asc = asc;
+    return this;
+  }
+
+   /**
+   * Get asc
+   * @return asc
+  **/
+  @Schema(description = "")
+  public Boolean isAsc() {
+    return asc;
+  }
+
+  public void setAsc(Boolean asc) {
+    this.asc = asc;
+  }
 
   public ListWebhooksResponse data(List<DataForListWebhooksOutput> data) {
     this.data = data;
@@ -67,6 +94,24 @@ public class ListWebhooksResponse extends com.volcengine.model.AbstractResponse 
 
   public void setData(List<DataForListWebhooksOutput> data) {
     this.data = data;
+  }
+
+  public ListWebhooksResponse orderBy(String orderBy) {
+    this.orderBy = orderBy;
+    return this;
+  }
+
+   /**
+   * Get orderBy
+   * @return orderBy
+  **/
+  @Schema(description = "")
+  public String getOrderBy() {
+    return orderBy;
+  }
+
+  public void setOrderBy(String orderBy) {
+    this.orderBy = orderBy;
   }
 
   public ListWebhooksResponse pageNumber(Integer pageNumber) {
@@ -105,6 +150,24 @@ public class ListWebhooksResponse extends com.volcengine.model.AbstractResponse 
     this.pageSize = pageSize;
   }
 
+  public ListWebhooksResponse totalCount(Integer totalCount) {
+    this.totalCount = totalCount;
+    return this;
+  }
+
+   /**
+   * Get totalCount
+   * @return totalCount
+  **/
+  @Schema(description = "")
+  public Integer getTotalCount() {
+    return totalCount;
+  }
+
+  public void setTotalCount(Integer totalCount) {
+    this.totalCount = totalCount;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -115,14 +178,17 @@ public class ListWebhooksResponse extends com.volcengine.model.AbstractResponse 
       return false;
     }
     ListWebhooksResponse listWebhooksResponse = (ListWebhooksResponse) o;
-    return Objects.equals(this.data, listWebhooksResponse.data) &&
+    return Objects.equals(this.asc, listWebhooksResponse.asc) &&
+        Objects.equals(this.data, listWebhooksResponse.data) &&
+        Objects.equals(this.orderBy, listWebhooksResponse.orderBy) &&
         Objects.equals(this.pageNumber, listWebhooksResponse.pageNumber) &&
-        Objects.equals(this.pageSize, listWebhooksResponse.pageSize);
+        Objects.equals(this.pageSize, listWebhooksResponse.pageSize) &&
+        Objects.equals(this.totalCount, listWebhooksResponse.totalCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, pageNumber, pageSize);
+    return Objects.hash(asc, data, orderBy, pageNumber, pageSize, totalCount);
   }
 
 
@@ -131,9 +197,12 @@ public class ListWebhooksResponse extends com.volcengine.model.AbstractResponse 
     StringBuilder sb = new StringBuilder();
     sb.append("class ListWebhooksResponse {\n");
     
+    sb.append("    asc: ").append(toIndentedString(asc)).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    orderBy: ").append(toIndentedString(orderBy)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -19,11 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.volcobserve.model.ResourceTagForListAlertGroupOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -33,11 +30,11 @@ import javax.validation.Valid;
 
 
 public class DataForListAlertGroupOutput {
-  @SerializedName("AlertCount")
-  private Integer alertCount = null;
-
   @SerializedName("AlertState")
   private String alertState = null;
+
+  @SerializedName("AlertType")
+  private String alertType = null;
 
   @SerializedName("Dimension")
   private String dimension = null;
@@ -47,9 +44,6 @@ public class DataForListAlertGroupOutput {
 
   @SerializedName("EndAt")
   private String endAt = null;
-
-  @SerializedName("Id")
-  private String id = null;
 
   @SerializedName("Level")
   private String level = null;
@@ -66,15 +60,6 @@ public class DataForListAlertGroupOutput {
   @SerializedName("ResourceName")
   private String resourceName = null;
 
-  @SerializedName("ResourceStatus")
-  private String resourceStatus = null;
-
-  @SerializedName("ResourceStatusCN")
-  private String resourceStatusCN = null;
-
-  @SerializedName("ResourceTags")
-  private List<ResourceTagForListAlertGroupOutput> resourceTags = null;
-
   @SerializedName("ResourceType")
   private String resourceType = null;
 
@@ -84,38 +69,11 @@ public class DataForListAlertGroupOutput {
   @SerializedName("RuleName")
   private String ruleName = null;
 
-  @SerializedName("RuleStatus")
-  private String ruleStatus = null;
-
-  @SerializedName("RuleTriggerCondition")
-  private String ruleTriggerCondition = null;
-
-  @SerializedName("SendAlertCount")
-  private Integer sendAlertCount = null;
-
   @SerializedName("StartAt")
   private String startAt = null;
 
   @SerializedName("SubNamespace")
   private String subNamespace = null;
-
-  public DataForListAlertGroupOutput alertCount(Integer alertCount) {
-    this.alertCount = alertCount;
-    return this;
-  }
-
-   /**
-   * Get alertCount
-   * @return alertCount
-  **/
-  @Schema(description = "")
-  public Integer getAlertCount() {
-    return alertCount;
-  }
-
-  public void setAlertCount(Integer alertCount) {
-    this.alertCount = alertCount;
-  }
 
   public DataForListAlertGroupOutput alertState(String alertState) {
     this.alertState = alertState;
@@ -133,6 +91,24 @@ public class DataForListAlertGroupOutput {
 
   public void setAlertState(String alertState) {
     this.alertState = alertState;
+  }
+
+  public DataForListAlertGroupOutput alertType(String alertType) {
+    this.alertType = alertType;
+    return this;
+  }
+
+   /**
+   * Get alertType
+   * @return alertType
+  **/
+  @Schema(description = "")
+  public String getAlertType() {
+    return alertType;
+  }
+
+  public void setAlertType(String alertType) {
+    this.alertType = alertType;
   }
 
   public DataForListAlertGroupOutput dimension(String dimension) {
@@ -187,24 +163,6 @@ public class DataForListAlertGroupOutput {
 
   public void setEndAt(String endAt) {
     this.endAt = endAt;
-  }
-
-  public DataForListAlertGroupOutput id(String id) {
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * Get id
-   * @return id
-  **/
-  @Schema(description = "")
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
   }
 
   public DataForListAlertGroupOutput level(String level) {
@@ -297,69 +255,6 @@ public class DataForListAlertGroupOutput {
     this.resourceName = resourceName;
   }
 
-  public DataForListAlertGroupOutput resourceStatus(String resourceStatus) {
-    this.resourceStatus = resourceStatus;
-    return this;
-  }
-
-   /**
-   * Get resourceStatus
-   * @return resourceStatus
-  **/
-  @Schema(description = "")
-  public String getResourceStatus() {
-    return resourceStatus;
-  }
-
-  public void setResourceStatus(String resourceStatus) {
-    this.resourceStatus = resourceStatus;
-  }
-
-  public DataForListAlertGroupOutput resourceStatusCN(String resourceStatusCN) {
-    this.resourceStatusCN = resourceStatusCN;
-    return this;
-  }
-
-   /**
-   * Get resourceStatusCN
-   * @return resourceStatusCN
-  **/
-  @Schema(description = "")
-  public String getResourceStatusCN() {
-    return resourceStatusCN;
-  }
-
-  public void setResourceStatusCN(String resourceStatusCN) {
-    this.resourceStatusCN = resourceStatusCN;
-  }
-
-  public DataForListAlertGroupOutput resourceTags(List<ResourceTagForListAlertGroupOutput> resourceTags) {
-    this.resourceTags = resourceTags;
-    return this;
-  }
-
-  public DataForListAlertGroupOutput addResourceTagsItem(ResourceTagForListAlertGroupOutput resourceTagsItem) {
-    if (this.resourceTags == null) {
-      this.resourceTags = new ArrayList<ResourceTagForListAlertGroupOutput>();
-    }
-    this.resourceTags.add(resourceTagsItem);
-    return this;
-  }
-
-   /**
-   * Get resourceTags
-   * @return resourceTags
-  **/
-  @Valid
-  @Schema(description = "")
-  public List<ResourceTagForListAlertGroupOutput> getResourceTags() {
-    return resourceTags;
-  }
-
-  public void setResourceTags(List<ResourceTagForListAlertGroupOutput> resourceTags) {
-    this.resourceTags = resourceTags;
-  }
-
   public DataForListAlertGroupOutput resourceType(String resourceType) {
     this.resourceType = resourceType;
     return this;
@@ -414,60 +309,6 @@ public class DataForListAlertGroupOutput {
     this.ruleName = ruleName;
   }
 
-  public DataForListAlertGroupOutput ruleStatus(String ruleStatus) {
-    this.ruleStatus = ruleStatus;
-    return this;
-  }
-
-   /**
-   * Get ruleStatus
-   * @return ruleStatus
-  **/
-  @Schema(description = "")
-  public String getRuleStatus() {
-    return ruleStatus;
-  }
-
-  public void setRuleStatus(String ruleStatus) {
-    this.ruleStatus = ruleStatus;
-  }
-
-  public DataForListAlertGroupOutput ruleTriggerCondition(String ruleTriggerCondition) {
-    this.ruleTriggerCondition = ruleTriggerCondition;
-    return this;
-  }
-
-   /**
-   * Get ruleTriggerCondition
-   * @return ruleTriggerCondition
-  **/
-  @Schema(description = "")
-  public String getRuleTriggerCondition() {
-    return ruleTriggerCondition;
-  }
-
-  public void setRuleTriggerCondition(String ruleTriggerCondition) {
-    this.ruleTriggerCondition = ruleTriggerCondition;
-  }
-
-  public DataForListAlertGroupOutput sendAlertCount(Integer sendAlertCount) {
-    this.sendAlertCount = sendAlertCount;
-    return this;
-  }
-
-   /**
-   * Get sendAlertCount
-   * @return sendAlertCount
-  **/
-  @Schema(description = "")
-  public Integer getSendAlertCount() {
-    return sendAlertCount;
-  }
-
-  public void setSendAlertCount(Integer sendAlertCount) {
-    this.sendAlertCount = sendAlertCount;
-  }
-
   public DataForListAlertGroupOutput startAt(String startAt) {
     this.startAt = startAt;
     return this;
@@ -514,33 +355,26 @@ public class DataForListAlertGroupOutput {
       return false;
     }
     DataForListAlertGroupOutput dataForListAlertGroupOutput = (DataForListAlertGroupOutput) o;
-    return Objects.equals(this.alertCount, dataForListAlertGroupOutput.alertCount) &&
-        Objects.equals(this.alertState, dataForListAlertGroupOutput.alertState) &&
+    return Objects.equals(this.alertState, dataForListAlertGroupOutput.alertState) &&
+        Objects.equals(this.alertType, dataForListAlertGroupOutput.alertType) &&
         Objects.equals(this.dimension, dataForListAlertGroupOutput.dimension) &&
         Objects.equals(this.duration, dataForListAlertGroupOutput.duration) &&
         Objects.equals(this.endAt, dataForListAlertGroupOutput.endAt) &&
-        Objects.equals(this.id, dataForListAlertGroupOutput.id) &&
         Objects.equals(this.level, dataForListAlertGroupOutput.level) &&
         Objects.equals(this.namespace, dataForListAlertGroupOutput.namespace) &&
         Objects.equals(this.region, dataForListAlertGroupOutput.region) &&
         Objects.equals(this.resourceId, dataForListAlertGroupOutput.resourceId) &&
         Objects.equals(this.resourceName, dataForListAlertGroupOutput.resourceName) &&
-        Objects.equals(this.resourceStatus, dataForListAlertGroupOutput.resourceStatus) &&
-        Objects.equals(this.resourceStatusCN, dataForListAlertGroupOutput.resourceStatusCN) &&
-        Objects.equals(this.resourceTags, dataForListAlertGroupOutput.resourceTags) &&
         Objects.equals(this.resourceType, dataForListAlertGroupOutput.resourceType) &&
         Objects.equals(this.ruleId, dataForListAlertGroupOutput.ruleId) &&
         Objects.equals(this.ruleName, dataForListAlertGroupOutput.ruleName) &&
-        Objects.equals(this.ruleStatus, dataForListAlertGroupOutput.ruleStatus) &&
-        Objects.equals(this.ruleTriggerCondition, dataForListAlertGroupOutput.ruleTriggerCondition) &&
-        Objects.equals(this.sendAlertCount, dataForListAlertGroupOutput.sendAlertCount) &&
         Objects.equals(this.startAt, dataForListAlertGroupOutput.startAt) &&
         Objects.equals(this.subNamespace, dataForListAlertGroupOutput.subNamespace);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(alertCount, alertState, dimension, duration, endAt, id, level, namespace, region, resourceId, resourceName, resourceStatus, resourceStatusCN, resourceTags, resourceType, ruleId, ruleName, ruleStatus, ruleTriggerCondition, sendAlertCount, startAt, subNamespace);
+    return Objects.hash(alertState, alertType, dimension, duration, endAt, level, namespace, region, resourceId, resourceName, resourceType, ruleId, ruleName, startAt, subNamespace);
   }
 
 
@@ -549,26 +383,19 @@ public class DataForListAlertGroupOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class DataForListAlertGroupOutput {\n");
     
-    sb.append("    alertCount: ").append(toIndentedString(alertCount)).append("\n");
     sb.append("    alertState: ").append(toIndentedString(alertState)).append("\n");
+    sb.append("    alertType: ").append(toIndentedString(alertType)).append("\n");
     sb.append("    dimension: ").append(toIndentedString(dimension)).append("\n");
     sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
     sb.append("    endAt: ").append(toIndentedString(endAt)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    level: ").append(toIndentedString(level)).append("\n");
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    resourceId: ").append(toIndentedString(resourceId)).append("\n");
     sb.append("    resourceName: ").append(toIndentedString(resourceName)).append("\n");
-    sb.append("    resourceStatus: ").append(toIndentedString(resourceStatus)).append("\n");
-    sb.append("    resourceStatusCN: ").append(toIndentedString(resourceStatusCN)).append("\n");
-    sb.append("    resourceTags: ").append(toIndentedString(resourceTags)).append("\n");
     sb.append("    resourceType: ").append(toIndentedString(resourceType)).append("\n");
     sb.append("    ruleId: ").append(toIndentedString(ruleId)).append("\n");
     sb.append("    ruleName: ").append(toIndentedString(ruleName)).append("\n");
-    sb.append("    ruleStatus: ").append(toIndentedString(ruleStatus)).append("\n");
-    sb.append("    ruleTriggerCondition: ").append(toIndentedString(ruleTriggerCondition)).append("\n");
-    sb.append("    sendAlertCount: ").append(toIndentedString(sendAlertCount)).append("\n");
     sb.append("    startAt: ").append(toIndentedString(startAt)).append("\n");
     sb.append("    subNamespace: ").append(toIndentedString(subNamespace)).append("\n");
     sb.append("}");

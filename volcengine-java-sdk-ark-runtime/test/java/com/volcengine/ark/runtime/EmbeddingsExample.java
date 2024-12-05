@@ -4,9 +4,12 @@ package com.volcengine.ark.runtime;
 import com.volcengine.ark.runtime.model.embeddings.EmbeddingRequest;
 import com.volcengine.ark.runtime.model.embeddings.EmbeddingResult;
 import com.volcengine.ark.runtime.service.ArkService;
+import okhttp3.ConnectionPool;
+import okhttp3.Dispatcher;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class EmbeddingsExample {
 
@@ -25,11 +28,13 @@ public class EmbeddingsExample {
      * To get your ak&sk, please refer to this document(https://www.volcengine.com/docs/6291/65568)
      * For more information，please check this document（https://www.volcengine.com/docs/82379/1263279）
      */
+
+    static String apiKey = System.getenv("ARK_API_KEY");
+    static ConnectionPool connectionPool = new ConnectionPool(5, 1, TimeUnit.SECONDS);
+    static Dispatcher dispatcher = new Dispatcher();
+    static ArkService service = ArkService.builder().dispatcher(dispatcher).connectionPool(connectionPool).apiKey(apiKey).build();
+
     public static void main(String[] args) {
-
-        String apiKey = System.getenv("ARK_API_KEY");
-        ArkService service = new ArkService(apiKey);
-
         System.out.println("\n----- embeddings request -----");
 
         List<String> inputs = new ArrayList<>();
@@ -42,7 +47,7 @@ public class EmbeddingsExample {
         EmbeddingResult res = service.createEmbeddings(chatCompletionRequest);
         System.out.println(res);
 
-        // shutdown service
+        // shutdown service after all requests is finished
         service.shutdownExecutor();
     }
 

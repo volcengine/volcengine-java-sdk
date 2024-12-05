@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.volcobserve.model.ConditionForCreateRuleInput;
+import com.volcengine.volcobserve.model.DimensionConditionsForCreateRuleInput;
 import com.volcengine.volcobserve.model.NoDataForCreateRuleInput;
 import com.volcengine.volcobserve.model.RecoveryNotifyForCreateRuleInput;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -99,6 +100,9 @@ public class CreateRuleRequest {
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("DimensionConditions")
+  private DimensionConditionsForCreateRuleInput dimensionConditions = null;
+
   @SerializedName("EffectEndAt")
   private String effectEndAt = null;
 
@@ -141,7 +145,9 @@ public class CreateRuleRequest {
   @JsonAdapter(RuleTypeEnum.Adapter.class)
   public enum RuleTypeEnum {
     @SerializedName("static")
-    STATIC("static");
+    STATIC("static"),
+    @SerializedName("dynamic")
+    DYNAMIC("dynamic");
 
     private String value;
 
@@ -304,6 +310,25 @@ public class CreateRuleRequest {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public CreateRuleRequest dimensionConditions(DimensionConditionsForCreateRuleInput dimensionConditions) {
+    this.dimensionConditions = dimensionConditions;
+    return this;
+  }
+
+   /**
+   * Get dimensionConditions
+   * @return dimensionConditions
+  **/
+  @Valid
+  @Schema(description = "")
+  public DimensionConditionsForCreateRuleInput getDimensionConditions() {
+    return dimensionConditions;
+  }
+
+  public void setDimensionConditions(DimensionConditionsForCreateRuleInput dimensionConditions) {
+    this.dimensionConditions = dimensionConditions;
   }
 
   public CreateRuleRequest effectEndAt(String effectEndAt) {
@@ -664,6 +689,7 @@ public class CreateRuleRequest {
         Objects.equals(this.conditions, createRuleRequest.conditions) &&
         Objects.equals(this.contactGroupIds, createRuleRequest.contactGroupIds) &&
         Objects.equals(this.description, createRuleRequest.description) &&
+        Objects.equals(this.dimensionConditions, createRuleRequest.dimensionConditions) &&
         Objects.equals(this.effectEndAt, createRuleRequest.effectEndAt) &&
         Objects.equals(this.effectStartAt, createRuleRequest.effectStartAt) &&
         Objects.equals(this.enableState, createRuleRequest.enableState) &&
@@ -685,7 +711,7 @@ public class CreateRuleRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(alertMethods, conditionOperator, conditions, contactGroupIds, description, effectEndAt, effectStartAt, enableState, evaluationCount, level, multipleConditions, namespace, noData, originalDimensions, recoveryNotify, regions, ruleName, ruleType, silenceTime, subNamespace, webhook, webhookIds);
+    return Objects.hash(alertMethods, conditionOperator, conditions, contactGroupIds, description, dimensionConditions, effectEndAt, effectStartAt, enableState, evaluationCount, level, multipleConditions, namespace, noData, originalDimensions, recoveryNotify, regions, ruleName, ruleType, silenceTime, subNamespace, webhook, webhookIds);
   }
 
 
@@ -699,6 +725,7 @@ public class CreateRuleRequest {
     sb.append("    conditions: ").append(toIndentedString(conditions)).append("\n");
     sb.append("    contactGroupIds: ").append(toIndentedString(contactGroupIds)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    dimensionConditions: ").append(toIndentedString(dimensionConditions)).append("\n");
     sb.append("    effectEndAt: ").append(toIndentedString(effectEndAt)).append("\n");
     sb.append("    effectStartAt: ").append(toIndentedString(effectStartAt)).append("\n");
     sb.append("    enableState: ").append(toIndentedString(enableState)).append("\n");

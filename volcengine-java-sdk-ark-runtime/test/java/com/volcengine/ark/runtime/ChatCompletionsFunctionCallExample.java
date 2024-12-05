@@ -3,8 +3,11 @@ package com.volcengine.ark.runtime;
 
 import com.volcengine.ark.runtime.model.completion.chat.*;
 import com.volcengine.ark.runtime.service.ArkService;
+import okhttp3.ConnectionPool;
+import okhttp3.Dispatcher;
 
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 public class ChatCompletionsFunctionCallExample {
 
@@ -23,12 +26,14 @@ public class ChatCompletionsFunctionCallExample {
      * To get your ak&sk, please refer to this document(https://www.volcengine.com/docs/6291/65568)
      * For more information，please check this document（https://www.volcengine.com/docs/82379/1263279）
      */
-    public static void main(String[] args) {
-        String ak = System.getenv("VOLC_ACCESSKEY");
-        String sk = System.getenv("VOLC_SECRETKEY");
-        ArkService service = new ArkService(ak, sk);
 
-        System.out.println("\nCreating completion...");
+    static String apiKey = System.getenv("ARK_API_KEY");
+    static ConnectionPool connectionPool = new ConnectionPool(5, 1, TimeUnit.SECONDS);
+    static Dispatcher dispatcher = new Dispatcher();
+    static ArkService service = ArkService.builder().dispatcher(dispatcher).connectionPool(connectionPool).apiKey(apiKey).build();
+
+    public static void main(String[] args) {
+        System.out.println("\n----- function call request -----");
         final List<ChatMessage> messages = new ArrayList<>();
         final ChatMessage userMessage = ChatMessage.builder().role(ChatMessageRole.USER).content("What's the weather like in Boston today?").build();
         messages.add(userMessage);
@@ -66,7 +71,7 @@ public class ChatCompletionsFunctionCallExample {
                 .doOnError(Throwable::printStackTrace)
                 .blockingForEach(System.out::println);
 
-        // shutdown service
+        // shutdown service after all requests is finished
         service.shutdownExecutor();
     }
 

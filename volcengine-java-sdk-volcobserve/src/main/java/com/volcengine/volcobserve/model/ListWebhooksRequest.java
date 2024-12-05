@@ -51,9 +51,6 @@ public class ListWebhooksRequest {
   @SerializedName("RuleId")
   private String ruleId = null;
 
-  @SerializedName("TotalCount")
-  private Integer totalCount = null;
-
   @SerializedName("Type")
   private String type = null;
 
@@ -186,24 +183,6 @@ public class ListWebhooksRequest {
     this.ruleId = ruleId;
   }
 
-  public ListWebhooksRequest totalCount(Integer totalCount) {
-    this.totalCount = totalCount;
-    return this;
-  }
-
-   /**
-   * Get totalCount
-   * @return totalCount
-  **/
-  @Schema(description = "")
-  public Integer getTotalCount() {
-    return totalCount;
-  }
-
-  public void setTotalCount(Integer totalCount) {
-    this.totalCount = totalCount;
-  }
-
   public ListWebhooksRequest type(String type) {
     this.type = type;
     return this;
@@ -257,14 +236,13 @@ public class ListWebhooksRequest {
         Objects.equals(this.pageNumber, listWebhooksRequest.pageNumber) &&
         Objects.equals(this.pageSize, listWebhooksRequest.pageSize) &&
         Objects.equals(this.ruleId, listWebhooksRequest.ruleId) &&
-        Objects.equals(this.totalCount, listWebhooksRequest.totalCount) &&
         Objects.equals(this.type, listWebhooksRequest.type) &&
         Objects.equals(this.url, listWebhooksRequest.url);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(asc, eventRuleId, name, orderBy, pageNumber, pageSize, ruleId, totalCount, type, url);
+    return Objects.hash(asc, eventRuleId, name, orderBy, pageNumber, pageSize, ruleId, type, url);
   }
 
 
@@ -280,7 +258,6 @@ public class ListWebhooksRequest {
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    ruleId: ").append(toIndentedString(ruleId)).append("\n");
-    sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("}");

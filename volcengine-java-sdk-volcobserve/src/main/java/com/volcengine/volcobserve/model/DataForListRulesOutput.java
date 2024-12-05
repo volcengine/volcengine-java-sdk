@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.volcobserve.model.ConditionForListRulesOutput;
+import com.volcengine.volcobserve.model.DimensionConditionsForListRulesOutput;
 import com.volcengine.volcobserve.model.RecoveryNotifyForListRulesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -57,6 +58,9 @@ public class DataForListRulesOutput {
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("DimensionConditions")
+  private DimensionConditionsForListRulesOutput dimensionConditions = null;
+
   @SerializedName("EffectEndAt")
   private String effectEndAt = null;
 
@@ -92,6 +96,9 @@ public class DataForListRulesOutput {
 
   @SerializedName("RuleName")
   private String ruleName = null;
+
+  @SerializedName("RuleType")
+  private String ruleType = null;
 
   @SerializedName("SilenceTime")
   private Integer silenceTime = null;
@@ -257,6 +264,25 @@ public class DataForListRulesOutput {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public DataForListRulesOutput dimensionConditions(DimensionConditionsForListRulesOutput dimensionConditions) {
+    this.dimensionConditions = dimensionConditions;
+    return this;
+  }
+
+   /**
+   * Get dimensionConditions
+   * @return dimensionConditions
+  **/
+  @Valid
+  @Schema(description = "")
+  public DimensionConditionsForListRulesOutput getDimensionConditions() {
+    return dimensionConditions;
+  }
+
+  public void setDimensionConditions(DimensionConditionsForListRulesOutput dimensionConditions) {
+    this.dimensionConditions = dimensionConditions;
   }
 
   public DataForListRulesOutput effectEndAt(String effectEndAt) {
@@ -493,6 +519,24 @@ public class DataForListRulesOutput {
     this.ruleName = ruleName;
   }
 
+  public DataForListRulesOutput ruleType(String ruleType) {
+    this.ruleType = ruleType;
+    return this;
+  }
+
+   /**
+   * Get ruleType
+   * @return ruleType
+  **/
+  @Schema(description = "")
+  public String getRuleType() {
+    return ruleType;
+  }
+
+  public void setRuleType(String ruleType) {
+    this.ruleType = ruleType;
+  }
+
   public DataForListRulesOutput silenceTime(Integer silenceTime) {
     this.silenceTime = silenceTime;
     return this;
@@ -608,6 +652,7 @@ public class DataForListRulesOutput {
         Objects.equals(this.contactGroupIds, dataForListRulesOutput.contactGroupIds) &&
         Objects.equals(this.createdAt, dataForListRulesOutput.createdAt) &&
         Objects.equals(this.description, dataForListRulesOutput.description) &&
+        Objects.equals(this.dimensionConditions, dataForListRulesOutput.dimensionConditions) &&
         Objects.equals(this.effectEndAt, dataForListRulesOutput.effectEndAt) &&
         Objects.equals(this.effectStartAt, dataForListRulesOutput.effectStartAt) &&
         Objects.equals(this.enableState, dataForListRulesOutput.enableState) &&
@@ -620,6 +665,7 @@ public class DataForListRulesOutput {
         Objects.equals(this.recoveryNotify, dataForListRulesOutput.recoveryNotify) &&
         Objects.equals(this.regions, dataForListRulesOutput.regions) &&
         Objects.equals(this.ruleName, dataForListRulesOutput.ruleName) &&
+        Objects.equals(this.ruleType, dataForListRulesOutput.ruleType) &&
         Objects.equals(this.silenceTime, dataForListRulesOutput.silenceTime) &&
         Objects.equals(this.subNamespace, dataForListRulesOutput.subNamespace) &&
         Objects.equals(this.updatedAt, dataForListRulesOutput.updatedAt) &&
@@ -629,7 +675,7 @@ public class DataForListRulesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(alertMethods, alertState, conditionOperator, conditions, contactGroupIds, createdAt, description, effectEndAt, effectStartAt, enableState, evaluationCount, id, level, multipleConditions, namespace, originalDimensions, recoveryNotify, regions, ruleName, silenceTime, subNamespace, updatedAt, webHook, webhookIds);
+    return Objects.hash(alertMethods, alertState, conditionOperator, conditions, contactGroupIds, createdAt, description, dimensionConditions, effectEndAt, effectStartAt, enableState, evaluationCount, id, level, multipleConditions, namespace, originalDimensions, recoveryNotify, regions, ruleName, ruleType, silenceTime, subNamespace, updatedAt, webHook, webhookIds);
   }
 
 
@@ -645,6 +691,7 @@ public class DataForListRulesOutput {
     sb.append("    contactGroupIds: ").append(toIndentedString(contactGroupIds)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    dimensionConditions: ").append(toIndentedString(dimensionConditions)).append("\n");
     sb.append("    effectEndAt: ").append(toIndentedString(effectEndAt)).append("\n");
     sb.append("    effectStartAt: ").append(toIndentedString(effectStartAt)).append("\n");
     sb.append("    enableState: ").append(toIndentedString(enableState)).append("\n");
@@ -657,6 +704,7 @@ public class DataForListRulesOutput {
     sb.append("    recoveryNotify: ").append(toIndentedString(recoveryNotify)).append("\n");
     sb.append("    regions: ").append(toIndentedString(regions)).append("\n");
     sb.append("    ruleName: ").append(toIndentedString(ruleName)).append("\n");
+    sb.append("    ruleType: ").append(toIndentedString(ruleType)).append("\n");
     sb.append("    silenceTime: ").append(toIndentedString(silenceTime)).append("\n");
     sb.append("    subNamespace: ").append(toIndentedString(subNamespace)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");

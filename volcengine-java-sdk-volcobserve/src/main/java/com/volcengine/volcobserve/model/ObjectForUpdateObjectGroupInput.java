@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.volcobserve.model.DimensionConditionsForUpdateObjectGroupInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.HashMap;
@@ -33,6 +34,9 @@ import javax.validation.Valid;
 
 
 public class ObjectForUpdateObjectGroupInput {
+  @SerializedName("DimensionConditions")
+  private DimensionConditionsForUpdateObjectGroupInput dimensionConditions = null;
+
   @SerializedName("Dimensions")
   private Map<String, List<String>> dimensions = null;
 
@@ -41,6 +45,28 @@ public class ObjectForUpdateObjectGroupInput {
 
   @SerializedName("Region")
   private String region = null;
+
+  @SerializedName("Type")
+  private String type = null;
+
+  public ObjectForUpdateObjectGroupInput dimensionConditions(DimensionConditionsForUpdateObjectGroupInput dimensionConditions) {
+    this.dimensionConditions = dimensionConditions;
+    return this;
+  }
+
+   /**
+   * Get dimensionConditions
+   * @return dimensionConditions
+  **/
+  @Valid
+  @Schema(description = "")
+  public DimensionConditionsForUpdateObjectGroupInput getDimensionConditions() {
+    return dimensionConditions;
+  }
+
+  public void setDimensionConditions(DimensionConditionsForUpdateObjectGroupInput dimensionConditions) {
+    this.dimensionConditions = dimensionConditions;
+  }
 
   public ObjectForUpdateObjectGroupInput dimensions(Map<String, List<String>> dimensions) {
     this.dimensions = dimensions;
@@ -105,6 +131,24 @@ public class ObjectForUpdateObjectGroupInput {
     this.region = region;
   }
 
+  public ObjectForUpdateObjectGroupInput type(String type) {
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @Schema(description = "")
+  public String getType() {
+    return type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -115,14 +159,16 @@ public class ObjectForUpdateObjectGroupInput {
       return false;
     }
     ObjectForUpdateObjectGroupInput objectForUpdateObjectGroupInput = (ObjectForUpdateObjectGroupInput) o;
-    return Objects.equals(this.dimensions, objectForUpdateObjectGroupInput.dimensions) &&
+    return Objects.equals(this.dimensionConditions, objectForUpdateObjectGroupInput.dimensionConditions) &&
+        Objects.equals(this.dimensions, objectForUpdateObjectGroupInput.dimensions) &&
         Objects.equals(this.namespace, objectForUpdateObjectGroupInput.namespace) &&
-        Objects.equals(this.region, objectForUpdateObjectGroupInput.region);
+        Objects.equals(this.region, objectForUpdateObjectGroupInput.region) &&
+        Objects.equals(this.type, objectForUpdateObjectGroupInput.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dimensions, namespace, region);
+    return Objects.hash(dimensionConditions, dimensions, namespace, region, type);
   }
 
 
@@ -131,9 +177,11 @@ public class ObjectForUpdateObjectGroupInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ObjectForUpdateObjectGroupInput {\n");
     
+    sb.append("    dimensionConditions: ").append(toIndentedString(dimensionConditions)).append("\n");
     sb.append("    dimensions: ").append(toIndentedString(dimensions)).append("\n");
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }

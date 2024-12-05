@@ -137,7 +137,8 @@ public class GetMetricDataRequest {
    * Get metricName
    * @return metricName
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getMetricName() {
     return metricName;
   }
@@ -155,7 +156,8 @@ public class GetMetricDataRequest {
    * Get namespace
    * @return namespace
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getNamespace() {
     return namespace;
   }
@@ -209,7 +211,8 @@ public class GetMetricDataRequest {
    * Get subNamespace
    * @return subNamespace
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getSubNamespace() {
     return subNamespace;
   }
