@@ -45,8 +45,17 @@ public class ItemForListFunctionInstancesOutput {
   @SerializedName("InstanceStatus")
   private String instanceStatus = null;
 
+  @SerializedName("InstanceType")
+  private String instanceType = null;
+
   @SerializedName("RevisionNumber")
   private Integer revisionNumber = null;
+
+  @SerializedName("UserVpcIP")
+  private String userVpcIP = null;
+
+  @SerializedName("UserVpcIPv6")
+  private String userVpcIPv6 = null;
 
   public ItemForListFunctionInstancesOutput availabilityZone(String availabilityZone) {
     this.availabilityZone = availabilityZone;
@@ -138,6 +147,24 @@ public class ItemForListFunctionInstancesOutput {
     this.instanceStatus = instanceStatus;
   }
 
+  public ItemForListFunctionInstancesOutput instanceType(String instanceType) {
+    this.instanceType = instanceType;
+    return this;
+  }
+
+   /**
+   * Get instanceType
+   * @return instanceType
+  **/
+  @Schema(description = "")
+  public String getInstanceType() {
+    return instanceType;
+  }
+
+  public void setInstanceType(String instanceType) {
+    this.instanceType = instanceType;
+  }
+
   public ItemForListFunctionInstancesOutput revisionNumber(Integer revisionNumber) {
     this.revisionNumber = revisionNumber;
     return this;
@@ -156,6 +183,42 @@ public class ItemForListFunctionInstancesOutput {
     this.revisionNumber = revisionNumber;
   }
 
+  public ItemForListFunctionInstancesOutput userVpcIP(String userVpcIP) {
+    this.userVpcIP = userVpcIP;
+    return this;
+  }
+
+   /**
+   * Get userVpcIP
+   * @return userVpcIP
+  **/
+  @Schema(description = "")
+  public String getUserVpcIP() {
+    return userVpcIP;
+  }
+
+  public void setUserVpcIP(String userVpcIP) {
+    this.userVpcIP = userVpcIP;
+  }
+
+  public ItemForListFunctionInstancesOutput userVpcIPv6(String userVpcIPv6) {
+    this.userVpcIPv6 = userVpcIPv6;
+    return this;
+  }
+
+   /**
+   * Get userVpcIPv6
+   * @return userVpcIPv6
+  **/
+  @Schema(description = "")
+  public String getUserVpcIPv6() {
+    return userVpcIPv6;
+  }
+
+  public void setUserVpcIPv6(String userVpcIPv6) {
+    this.userVpcIPv6 = userVpcIPv6;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -171,12 +234,15 @@ public class ItemForListFunctionInstancesOutput {
         Objects.equals(this.id, itemForListFunctionInstancesOutput.id) &&
         Objects.equals(this.instanceName, itemForListFunctionInstancesOutput.instanceName) &&
         Objects.equals(this.instanceStatus, itemForListFunctionInstancesOutput.instanceStatus) &&
-        Objects.equals(this.revisionNumber, itemForListFunctionInstancesOutput.revisionNumber);
+        Objects.equals(this.instanceType, itemForListFunctionInstancesOutput.instanceType) &&
+        Objects.equals(this.revisionNumber, itemForListFunctionInstancesOutput.revisionNumber) &&
+        Objects.equals(this.userVpcIP, itemForListFunctionInstancesOutput.userVpcIP) &&
+        Objects.equals(this.userVpcIPv6, itemForListFunctionInstancesOutput.userVpcIPv6);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(availabilityZone, creationTime, id, instanceName, instanceStatus, revisionNumber);
+    return Objects.hash(availabilityZone, creationTime, id, instanceName, instanceStatus, instanceType, revisionNumber, userVpcIP, userVpcIPv6);
   }
 
 
@@ -190,7 +256,10 @@ public class ItemForListFunctionInstancesOutput {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    instanceStatus: ").append(toIndentedString(instanceStatus)).append("\n");
+    sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("    revisionNumber: ").append(toIndentedString(revisionNumber)).append("\n");
+    sb.append("    userVpcIP: ").append(toIndentedString(userVpcIP)).append("\n");
+    sb.append("    userVpcIPv6: ").append(toIndentedString(userVpcIPv6)).append("\n");
     sb.append("}");
     return sb.toString();
   }
