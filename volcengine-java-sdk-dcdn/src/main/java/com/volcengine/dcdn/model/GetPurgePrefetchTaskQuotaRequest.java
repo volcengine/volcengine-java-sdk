@@ -14,6 +14,15 @@ package com.volcengine.dcdn.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -21,7 +30,37 @@ import javax.validation.Valid;
  */
 
 
+
 public class GetPurgePrefetchTaskQuotaRequest {
+  @SerializedName("ProjectName")
+  private List<String> projectName = null;
+
+  public GetPurgePrefetchTaskQuotaRequest projectName(List<String> projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+  public GetPurgePrefetchTaskQuotaRequest addProjectNameItem(String projectNameItem) {
+    if (this.projectName == null) {
+      this.projectName = new ArrayList<String>();
+    }
+    this.projectName.add(projectNameItem);
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public List<String> getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(List<String> projectName) {
+    this.projectName = projectName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -31,12 +70,13 @@ public class GetPurgePrefetchTaskQuotaRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return true;
+    GetPurgePrefetchTaskQuotaRequest getPurgePrefetchTaskQuotaRequest = (GetPurgePrefetchTaskQuotaRequest) o;
+    return Objects.equals(this.projectName, getPurgePrefetchTaskQuotaRequest.projectName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash();
+    return Objects.hash(projectName);
   }
 
 
@@ -45,6 +85,7 @@ public class GetPurgePrefetchTaskQuotaRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetPurgePrefetchTaskQuotaRequest {\n");
     
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

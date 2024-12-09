@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CheckPurgePrefetchTaskResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("TaskList")
   private List<TaskListForCheckPurgePrefetchTaskOutput> taskList = null;

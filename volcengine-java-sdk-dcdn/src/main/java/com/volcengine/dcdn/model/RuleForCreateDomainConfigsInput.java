@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class RuleForCreateDomainConfigsInput {
   @SerializedName("CacheTime")
   private Integer cacheTime = null;

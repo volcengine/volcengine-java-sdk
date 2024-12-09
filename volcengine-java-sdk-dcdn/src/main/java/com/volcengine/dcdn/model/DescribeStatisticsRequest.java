@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeStatisticsRequest {
   @SerializedName("AcceleratingRegion")
   private String acceleratingRegion = null;

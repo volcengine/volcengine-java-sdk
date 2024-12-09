@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ResourceTagForListDomainConfigInput {
   @SerializedName("Key")
   private String key = null;

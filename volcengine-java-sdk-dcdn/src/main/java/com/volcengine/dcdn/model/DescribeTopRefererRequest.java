@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeTopRefererRequest {
   @SerializedName("EndTime")
   private String endTime = null;

@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeDomainUVDataRequest {
   @SerializedName("Domain")
   private String domain = null;

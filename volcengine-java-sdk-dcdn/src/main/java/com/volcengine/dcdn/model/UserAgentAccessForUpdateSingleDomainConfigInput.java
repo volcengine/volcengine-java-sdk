@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class UserAgentAccessForUpdateSingleDomainConfigInput {
   @SerializedName("Enable")
   private Boolean enable = null;

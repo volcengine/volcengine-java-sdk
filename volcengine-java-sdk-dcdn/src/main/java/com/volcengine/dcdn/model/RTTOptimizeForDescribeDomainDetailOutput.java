@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class RTTOptimizeForDescribeDomainDetailOutput {
   @SerializedName("Enable")
   private Boolean enable = null;

@@ -33,6 +33,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CacheForDescribeDomainDetailOutput {
   @SerializedName("AdaptCache")
   private Boolean adaptCache = null;

@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeRealTimeDataResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("DomainCount")
   private Integer domainCount = null;

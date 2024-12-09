@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ProbeSettingForDescribeDomainProbeSettingsOutput {
   @SerializedName("Host")
   private String host = null;

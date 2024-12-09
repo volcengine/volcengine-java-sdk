@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeDomainRegionDataRequest {
   @SerializedName("Domain")
   private String domain = null;

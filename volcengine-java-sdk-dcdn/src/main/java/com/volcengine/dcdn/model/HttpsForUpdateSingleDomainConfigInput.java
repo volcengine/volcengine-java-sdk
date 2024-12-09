@@ -32,6 +32,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class HttpsForUpdateSingleDomainConfigInput {
   @SerializedName("CertBind")
   private CertBindForUpdateSingleDomainConfigInput certBind = null;

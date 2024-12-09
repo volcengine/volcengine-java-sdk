@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class HeaderInfoForListDomainConfigOutput {
   @SerializedName("HeaderMode")
   private Integer headerMode = null;

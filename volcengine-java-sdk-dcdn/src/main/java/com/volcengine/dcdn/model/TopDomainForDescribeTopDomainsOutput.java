@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class TopDomainForDescribeTopDomainsOutput {
   @SerializedName("Bandwidth")
   private Float bandwidth = null;

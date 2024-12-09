@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeDomainOverviewRequest {
   @SerializedName("PageNum")
   private Integer pageNum = null;

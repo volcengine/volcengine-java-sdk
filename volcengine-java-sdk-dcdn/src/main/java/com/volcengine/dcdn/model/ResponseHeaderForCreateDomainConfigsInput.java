@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ResponseHeaderForCreateDomainConfigsInput {
   @SerializedName("Enable")
   private Boolean enable = null;

@@ -32,6 +32,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class HttpsForListDomainConfigOutput {
   @SerializedName("CertBind")
   private CertBindForListDomainConfigOutput certBind = null;

@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class IpAccessForCreateDomainConfigsInput {
   @SerializedName("Enable")
   private Boolean enable = null;

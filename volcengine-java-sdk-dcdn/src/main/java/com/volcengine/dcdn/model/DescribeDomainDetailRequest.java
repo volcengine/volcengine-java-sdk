@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeDomainDetailRequest {
   @SerializedName("Domain")
   private String domain = null;

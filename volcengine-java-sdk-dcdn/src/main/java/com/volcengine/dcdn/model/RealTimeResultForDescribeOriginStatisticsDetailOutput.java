@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class RealTimeResultForDescribeOriginStatisticsDetailOutput {
   @SerializedName("DetailInfo")
   private List<DetailInfoForDescribeOriginStatisticsDetailOutput> detailInfo = null;

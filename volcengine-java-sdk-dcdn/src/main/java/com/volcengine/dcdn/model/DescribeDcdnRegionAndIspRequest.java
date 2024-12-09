@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeDcdnRegionAndIspRequest {
   @SerializedName("Area")
   private String area = null;

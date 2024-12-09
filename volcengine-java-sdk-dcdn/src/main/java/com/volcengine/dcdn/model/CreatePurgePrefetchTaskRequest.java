@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreatePurgePrefetchTaskRequest {
   @SerializedName("TaskType")
   private String taskType = null;
