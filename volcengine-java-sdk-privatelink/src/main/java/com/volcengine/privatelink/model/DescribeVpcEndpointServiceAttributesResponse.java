@@ -82,6 +82,9 @@ public class DescribeVpcEndpointServiceAttributesResponse extends com.volcengine
   @SerializedName("ServiceName")
   private String serviceName = null;
 
+  @SerializedName("ServiceNameManaged")
+  private String serviceNameManaged = null;
+
   @SerializedName("ServiceOwner")
   private String serviceOwner = null;
 
@@ -406,6 +409,24 @@ public class DescribeVpcEndpointServiceAttributesResponse extends com.volcengine
     this.serviceName = serviceName;
   }
 
+  public DescribeVpcEndpointServiceAttributesResponse serviceNameManaged(String serviceNameManaged) {
+    this.serviceNameManaged = serviceNameManaged;
+    return this;
+  }
+
+   /**
+   * Get serviceNameManaged
+   * @return serviceNameManaged
+  **/
+  @Schema(description = "")
+  public String getServiceNameManaged() {
+    return serviceNameManaged;
+  }
+
+  public void setServiceNameManaged(String serviceNameManaged) {
+    this.serviceNameManaged = serviceNameManaged;
+  }
+
   public DescribeVpcEndpointServiceAttributesResponse serviceOwner(String serviceOwner) {
     this.serviceOwner = serviceOwner;
     return this;
@@ -619,6 +640,7 @@ public class DescribeVpcEndpointServiceAttributesResponse extends com.volcengine
         Objects.equals(this.serviceDomain, describeVpcEndpointServiceAttributesResponse.serviceDomain) &&
         Objects.equals(this.serviceId, describeVpcEndpointServiceAttributesResponse.serviceId) &&
         Objects.equals(this.serviceName, describeVpcEndpointServiceAttributesResponse.serviceName) &&
+        Objects.equals(this.serviceNameManaged, describeVpcEndpointServiceAttributesResponse.serviceNameManaged) &&
         Objects.equals(this.serviceOwner, describeVpcEndpointServiceAttributesResponse.serviceOwner) &&
         Objects.equals(this.serviceResourceType, describeVpcEndpointServiceAttributesResponse.serviceResourceType) &&
         Objects.equals(this.serviceType, describeVpcEndpointServiceAttributesResponse.serviceType) &&
@@ -632,7 +654,7 @@ public class DescribeVpcEndpointServiceAttributesResponse extends com.volcengine
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoAcceptEnabled, billingType, businessStatus, creationTime, description, ipAddressVersions, payer, privateDNSEnabled, privateDNSName, privateDNSNameConfiguration, privateDNSType, projectName, requestId, serviceDomain, serviceId, serviceName, serviceOwner, serviceResourceType, serviceType, status, tags, updateTime, wildcardDomainEnabled, zoneIds, zoneIdsN);
+    return Objects.hash(autoAcceptEnabled, billingType, businessStatus, creationTime, description, ipAddressVersions, payer, privateDNSEnabled, privateDNSName, privateDNSNameConfiguration, privateDNSType, projectName, requestId, serviceDomain, serviceId, serviceName, serviceNameManaged, serviceOwner, serviceResourceType, serviceType, status, tags, updateTime, wildcardDomainEnabled, zoneIds, zoneIdsN);
   }
 
 
@@ -657,6 +679,7 @@ public class DescribeVpcEndpointServiceAttributesResponse extends com.volcengine
     sb.append("    serviceDomain: ").append(toIndentedString(serviceDomain)).append("\n");
     sb.append("    serviceId: ").append(toIndentedString(serviceId)).append("\n");
     sb.append("    serviceName: ").append(toIndentedString(serviceName)).append("\n");
+    sb.append("    serviceNameManaged: ").append(toIndentedString(serviceNameManaged)).append("\n");
     sb.append("    serviceOwner: ").append(toIndentedString(serviceOwner)).append("\n");
     sb.append("    serviceResourceType: ").append(toIndentedString(serviceResourceType)).append("\n");
     sb.append("    serviceType: ").append(toIndentedString(serviceType)).append("\n");
