@@ -81,6 +81,9 @@ public class EndpointForDescribeVpcEndpointsOutput {
   @SerializedName("ServiceId")
   private String serviceId = null;
 
+  @SerializedName("ServiceManaged")
+  private Boolean serviceManaged = null;
+
   @SerializedName("ServiceName")
   private String serviceName = null;
 
@@ -392,6 +395,24 @@ public class EndpointForDescribeVpcEndpointsOutput {
     this.serviceId = serviceId;
   }
 
+  public EndpointForDescribeVpcEndpointsOutput serviceManaged(Boolean serviceManaged) {
+    this.serviceManaged = serviceManaged;
+    return this;
+  }
+
+   /**
+   * Get serviceManaged
+   * @return serviceManaged
+  **/
+  @Schema(description = "")
+  public Boolean isServiceManaged() {
+    return serviceManaged;
+  }
+
+  public void setServiceManaged(Boolean serviceManaged) {
+    this.serviceManaged = serviceManaged;
+  }
+
   public EndpointForDescribeVpcEndpointsOutput serviceName(String serviceName) {
     this.serviceName = serviceName;
     return this;
@@ -517,6 +538,7 @@ public class EndpointForDescribeVpcEndpointsOutput {
         Objects.equals(this.privateDNSName, endpointForDescribeVpcEndpointsOutput.privateDNSName) &&
         Objects.equals(this.projectName, endpointForDescribeVpcEndpointsOutput.projectName) &&
         Objects.equals(this.serviceId, endpointForDescribeVpcEndpointsOutput.serviceId) &&
+        Objects.equals(this.serviceManaged, endpointForDescribeVpcEndpointsOutput.serviceManaged) &&
         Objects.equals(this.serviceName, endpointForDescribeVpcEndpointsOutput.serviceName) &&
         Objects.equals(this.status, endpointForDescribeVpcEndpointsOutput.status) &&
         Objects.equals(this.tags, endpointForDescribeVpcEndpointsOutput.tags) &&
@@ -526,7 +548,7 @@ public class EndpointForDescribeVpcEndpointsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(businessStatus, connectionStatus, creationTime, deletedTime, description, endpointDomain, endpointId, endpointIndex, endpointName, endpointType, ipAddressVersions, payer, privateDNSEnabled, privateDNSName, projectName, serviceId, serviceName, status, tags, updateTime, vpcId);
+    return Objects.hash(businessStatus, connectionStatus, creationTime, deletedTime, description, endpointDomain, endpointId, endpointIndex, endpointName, endpointType, ipAddressVersions, payer, privateDNSEnabled, privateDNSName, projectName, serviceId, serviceManaged, serviceName, status, tags, updateTime, vpcId);
   }
 
 
@@ -551,6 +573,7 @@ public class EndpointForDescribeVpcEndpointsOutput {
     sb.append("    privateDNSName: ").append(toIndentedString(privateDNSName)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    serviceId: ").append(toIndentedString(serviceId)).append("\n");
+    sb.append("    serviceManaged: ").append(toIndentedString(serviceManaged)).append("\n");
     sb.append("    serviceName: ").append(toIndentedString(serviceName)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");

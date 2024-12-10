@@ -64,6 +64,9 @@ public class CreateVpcEndpointServiceRequest {
   @SerializedName("Resources")
   private List<ResourceForCreateVpcEndpointServiceInput> resources = null;
 
+  @SerializedName("ServiceNameManaged")
+  private String serviceNameManaged = null;
+
   @SerializedName("ServiceNameSuffix")
   private String serviceNameSuffix = null;
 
@@ -279,6 +282,24 @@ public class CreateVpcEndpointServiceRequest {
     this.resources = resources;
   }
 
+  public CreateVpcEndpointServiceRequest serviceNameManaged(String serviceNameManaged) {
+    this.serviceNameManaged = serviceNameManaged;
+    return this;
+  }
+
+   /**
+   * Get serviceNameManaged
+   * @return serviceNameManaged
+  **/
+  @Schema(description = "")
+  public String getServiceNameManaged() {
+    return serviceNameManaged;
+  }
+
+  public void setServiceNameManaged(String serviceNameManaged) {
+    this.serviceNameManaged = serviceNameManaged;
+  }
+
   public CreateVpcEndpointServiceRequest serviceNameSuffix(String serviceNameSuffix) {
     this.serviceNameSuffix = serviceNameSuffix;
     return this;
@@ -416,6 +437,7 @@ public class CreateVpcEndpointServiceRequest {
         Objects.equals(this.privateDNSType, createVpcEndpointServiceRequest.privateDNSType) &&
         Objects.equals(this.projectName, createVpcEndpointServiceRequest.projectName) &&
         Objects.equals(this.resources, createVpcEndpointServiceRequest.resources) &&
+        Objects.equals(this.serviceNameManaged, createVpcEndpointServiceRequest.serviceNameManaged) &&
         Objects.equals(this.serviceNameSuffix, createVpcEndpointServiceRequest.serviceNameSuffix) &&
         Objects.equals(this.serviceOwner, createVpcEndpointServiceRequest.serviceOwner) &&
         Objects.equals(this.serviceResourceType, createVpcEndpointServiceRequest.serviceResourceType) &&
@@ -426,7 +448,7 @@ public class CreateVpcEndpointServiceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoAcceptEnabled, clientToken, description, ipAddressVersions, payer, privateDNSEnabled, privateDNSName, privateDNSType, projectName, resources, serviceNameSuffix, serviceOwner, serviceResourceType, serviceType, tags, wildcardDomainEnabled);
+    return Objects.hash(autoAcceptEnabled, clientToken, description, ipAddressVersions, payer, privateDNSEnabled, privateDNSName, privateDNSType, projectName, resources, serviceNameManaged, serviceNameSuffix, serviceOwner, serviceResourceType, serviceType, tags, wildcardDomainEnabled);
   }
 
 
@@ -445,6 +467,7 @@ public class CreateVpcEndpointServiceRequest {
     sb.append("    privateDNSType: ").append(toIndentedString(privateDNSType)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    resources: ").append(toIndentedString(resources)).append("\n");
+    sb.append("    serviceNameManaged: ").append(toIndentedString(serviceNameManaged)).append("\n");
     sb.append("    serviceNameSuffix: ").append(toIndentedString(serviceNameSuffix)).append("\n");
     sb.append("    serviceOwner: ").append(toIndentedString(serviceOwner)).append("\n");
     sb.append("    serviceResourceType: ").append(toIndentedString(serviceResourceType)).append("\n");

@@ -91,6 +91,9 @@ public class DescribeVpcEndpointAttributesResponse extends com.volcengine.model.
   @SerializedName("ServiceId")
   private String serviceId = null;
 
+  @SerializedName("ServiceManaged")
+  private Boolean serviceManaged = null;
+
   @SerializedName("ServiceName")
   private String serviceName = null;
 
@@ -465,6 +468,24 @@ public class DescribeVpcEndpointAttributesResponse extends com.volcengine.model.
     this.serviceId = serviceId;
   }
 
+  public DescribeVpcEndpointAttributesResponse serviceManaged(Boolean serviceManaged) {
+    this.serviceManaged = serviceManaged;
+    return this;
+  }
+
+   /**
+   * Get serviceManaged
+   * @return serviceManaged
+  **/
+  @Schema(description = "")
+  public Boolean isServiceManaged() {
+    return serviceManaged;
+  }
+
+  public void setServiceManaged(Boolean serviceManaged) {
+    this.serviceManaged = serviceManaged;
+  }
+
   public DescribeVpcEndpointAttributesResponse serviceName(String serviceName) {
     this.serviceName = serviceName;
     return this;
@@ -593,6 +614,7 @@ public class DescribeVpcEndpointAttributesResponse extends com.volcengine.model.
         Objects.equals(this.projectName, describeVpcEndpointAttributesResponse.projectName) &&
         Objects.equals(this.requestId, describeVpcEndpointAttributesResponse.requestId) &&
         Objects.equals(this.serviceId, describeVpcEndpointAttributesResponse.serviceId) &&
+        Objects.equals(this.serviceManaged, describeVpcEndpointAttributesResponse.serviceManaged) &&
         Objects.equals(this.serviceName, describeVpcEndpointAttributesResponse.serviceName) &&
         Objects.equals(this.status, describeVpcEndpointAttributesResponse.status) &&
         Objects.equals(this.tags, describeVpcEndpointAttributesResponse.tags) &&
@@ -602,7 +624,7 @@ public class DescribeVpcEndpointAttributesResponse extends com.volcengine.model.
 
   @Override
   public int hashCode() {
-    return Objects.hash(businessStatus, connectionStatus, creationTime, deletedTime, description, endpoint, endpointDomain, endpointId, endpointIndex, endpointName, endpointType, ipAddressVersions, ipAddressVersionsN, payer, privateDNSEnabled, privateDNSName, projectName, requestId, serviceId, serviceName, status, tags, updateTime, vpcId);
+    return Objects.hash(businessStatus, connectionStatus, creationTime, deletedTime, description, endpoint, endpointDomain, endpointId, endpointIndex, endpointName, endpointType, ipAddressVersions, ipAddressVersionsN, payer, privateDNSEnabled, privateDNSName, projectName, requestId, serviceId, serviceManaged, serviceName, status, tags, updateTime, vpcId);
   }
 
 
@@ -630,6 +652,7 @@ public class DescribeVpcEndpointAttributesResponse extends com.volcengine.model.
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    serviceId: ").append(toIndentedString(serviceId)).append("\n");
+    sb.append("    serviceManaged: ").append(toIndentedString(serviceManaged)).append("\n");
     sb.append("    serviceName: ").append(toIndentedString(serviceName)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
