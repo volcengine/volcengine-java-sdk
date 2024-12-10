@@ -39,6 +39,9 @@ public class ModifyCommandRequest {
   @SerializedName("CommandId")
   private String commandId = null;
 
+  @SerializedName("ContentEncoding")
+  private String contentEncoding = null;
+
   @SerializedName("Description")
   private String description = null;
 
@@ -98,6 +101,24 @@ public class ModifyCommandRequest {
 
   public void setCommandId(String commandId) {
     this.commandId = commandId;
+  }
+
+  public ModifyCommandRequest contentEncoding(String contentEncoding) {
+    this.contentEncoding = contentEncoding;
+    return this;
+  }
+
+   /**
+   * Get contentEncoding
+   * @return contentEncoding
+  **/
+  @Schema(description = "")
+  public String getContentEncoding() {
+    return contentEncoding;
+  }
+
+  public void setContentEncoding(String contentEncoding) {
+    this.contentEncoding = contentEncoding;
   }
 
   public ModifyCommandRequest description(String description) {
@@ -265,6 +286,7 @@ public class ModifyCommandRequest {
     ModifyCommandRequest modifyCommandRequest = (ModifyCommandRequest) o;
     return Objects.equals(this.commandContent, modifyCommandRequest.commandContent) &&
         Objects.equals(this.commandId, modifyCommandRequest.commandId) &&
+        Objects.equals(this.contentEncoding, modifyCommandRequest.contentEncoding) &&
         Objects.equals(this.description, modifyCommandRequest.description) &&
         Objects.equals(this.enableParameter, modifyCommandRequest.enableParameter) &&
         Objects.equals(this.name, modifyCommandRequest.name) &&
@@ -277,7 +299,7 @@ public class ModifyCommandRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(commandContent, commandId, description, enableParameter, name, parameterDefinitions, timeout, type, username, workingDir);
+    return Objects.hash(commandContent, commandId, contentEncoding, description, enableParameter, name, parameterDefinitions, timeout, type, username, workingDir);
   }
 
 
@@ -288,6 +310,7 @@ public class ModifyCommandRequest {
     
     sb.append("    commandContent: ").append(toIndentedString(commandContent)).append("\n");
     sb.append("    commandId: ").append(toIndentedString(commandId)).append("\n");
+    sb.append("    contentEncoding: ").append(toIndentedString(contentEncoding)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    enableParameter: ").append(toIndentedString(enableParameter)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

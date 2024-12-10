@@ -39,6 +39,9 @@ public class ReplaceSystemVolumeRequest {
   @SerializedName("ImageId")
   private String imageId = null;
 
+  @SerializedName("ImageReleaseVersion")
+  private String imageReleaseVersion = null;
+
   @SerializedName("InstanceId")
   private String instanceId = null;
 
@@ -110,6 +113,24 @@ public class ReplaceSystemVolumeRequest {
 
   public void setImageId(String imageId) {
     this.imageId = imageId;
+  }
+
+  public ReplaceSystemVolumeRequest imageReleaseVersion(String imageReleaseVersion) {
+    this.imageReleaseVersion = imageReleaseVersion;
+    return this;
+  }
+
+   /**
+   * Get imageReleaseVersion
+   * @return imageReleaseVersion
+  **/
+  @Schema(description = "")
+  public String getImageReleaseVersion() {
+    return imageReleaseVersion;
+  }
+
+  public void setImageReleaseVersion(String imageReleaseVersion) {
+    this.imageReleaseVersion = imageReleaseVersion;
   }
 
   public ReplaceSystemVolumeRequest instanceId(String instanceId) {
@@ -234,6 +255,7 @@ public class ReplaceSystemVolumeRequest {
     return Objects.equals(this.clientToken, replaceSystemVolumeRequest.clientToken) &&
         Objects.equals(this.dryRun, replaceSystemVolumeRequest.dryRun) &&
         Objects.equals(this.imageId, replaceSystemVolumeRequest.imageId) &&
+        Objects.equals(this.imageReleaseVersion, replaceSystemVolumeRequest.imageReleaseVersion) &&
         Objects.equals(this.instanceId, replaceSystemVolumeRequest.instanceId) &&
         Objects.equals(this.keepImageCredential, replaceSystemVolumeRequest.keepImageCredential) &&
         Objects.equals(this.keyPairName, replaceSystemVolumeRequest.keyPairName) &&
@@ -244,7 +266,7 @@ public class ReplaceSystemVolumeRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, dryRun, imageId, instanceId, keepImageCredential, keyPairName, password, size, userData);
+    return Objects.hash(clientToken, dryRun, imageId, imageReleaseVersion, instanceId, keepImageCredential, keyPairName, password, size, userData);
   }
 
 
@@ -256,6 +278,7 @@ public class ReplaceSystemVolumeRequest {
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    dryRun: ").append(toIndentedString(dryRun)).append("\n");
     sb.append("    imageId: ").append(toIndentedString(imageId)).append("\n");
+    sb.append("    imageReleaseVersion: ").append(toIndentedString(imageReleaseVersion)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    keepImageCredential: ").append(toIndentedString(keepImageCredential)).append("\n");
     sb.append("    keyPairName: ").append(toIndentedString(keyPairName)).append("\n");

@@ -42,6 +42,9 @@ public class DescribeInvocationsRequest {
   @SerializedName("CommandType")
   private String commandType = null;
 
+  @SerializedName("ContentEncoding")
+  private String contentEncoding = null;
+
   @SerializedName("InvocationId")
   private String invocationId = null;
 
@@ -118,6 +121,24 @@ public class DescribeInvocationsRequest {
 
   public void setCommandType(String commandType) {
     this.commandType = commandType;
+  }
+
+  public DescribeInvocationsRequest contentEncoding(String contentEncoding) {
+    this.contentEncoding = contentEncoding;
+    return this;
+  }
+
+   /**
+   * Get contentEncoding
+   * @return contentEncoding
+  **/
+  @Schema(description = "")
+  public String getContentEncoding() {
+    return contentEncoding;
+  }
+
+  public void setContentEncoding(String contentEncoding) {
+    this.contentEncoding = contentEncoding;
   }
 
   public DescribeInvocationsRequest invocationId(String invocationId) {
@@ -286,6 +307,7 @@ public class DescribeInvocationsRequest {
     return Objects.equals(this.commandId, describeInvocationsRequest.commandId) &&
         Objects.equals(this.commandName, describeInvocationsRequest.commandName) &&
         Objects.equals(this.commandType, describeInvocationsRequest.commandType) &&
+        Objects.equals(this.contentEncoding, describeInvocationsRequest.contentEncoding) &&
         Objects.equals(this.invocationId, describeInvocationsRequest.invocationId) &&
         Objects.equals(this.invocationName, describeInvocationsRequest.invocationName) &&
         Objects.equals(this.invocationStatus, describeInvocationsRequest.invocationStatus) &&
@@ -298,7 +320,7 @@ public class DescribeInvocationsRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(commandId, commandName, commandType, invocationId, invocationName, invocationStatus, pageNumber, pageSize, projectName, repeatMode, tagFilters);
+    return Objects.hash(commandId, commandName, commandType, contentEncoding, invocationId, invocationName, invocationStatus, pageNumber, pageSize, projectName, repeatMode, tagFilters);
   }
 
 
@@ -310,6 +332,7 @@ public class DescribeInvocationsRequest {
     sb.append("    commandId: ").append(toIndentedString(commandId)).append("\n");
     sb.append("    commandName: ").append(toIndentedString(commandName)).append("\n");
     sb.append("    commandType: ").append(toIndentedString(commandType)).append("\n");
+    sb.append("    contentEncoding: ").append(toIndentedString(contentEncoding)).append("\n");
     sb.append("    invocationId: ").append(toIndentedString(invocationId)).append("\n");
     sb.append("    invocationName: ").append(toIndentedString(invocationName)).append("\n");
     sb.append("    invocationStatus: ").append(toIndentedString(invocationStatus)).append("\n");

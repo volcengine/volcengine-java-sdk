@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.ecs.model.TagForImportKeyPairInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -44,6 +47,9 @@ public class ImportKeyPairRequest {
 
   @SerializedName("PublicKey")
   private String publicKey = null;
+
+  @SerializedName("Tags")
+  private List<TagForImportKeyPairInput> tags = null;
 
   public ImportKeyPairRequest clientToken(String clientToken) {
     this.clientToken = clientToken;
@@ -137,6 +143,33 @@ public class ImportKeyPairRequest {
     this.publicKey = publicKey;
   }
 
+  public ImportKeyPairRequest tags(List<TagForImportKeyPairInput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public ImportKeyPairRequest addTagsItem(TagForImportKeyPairInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForImportKeyPairInput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForImportKeyPairInput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForImportKeyPairInput> tags) {
+    this.tags = tags;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -151,12 +184,13 @@ public class ImportKeyPairRequest {
         Objects.equals(this.description, importKeyPairRequest.description) &&
         Objects.equals(this.keyPairName, importKeyPairRequest.keyPairName) &&
         Objects.equals(this.projectName, importKeyPairRequest.projectName) &&
-        Objects.equals(this.publicKey, importKeyPairRequest.publicKey);
+        Objects.equals(this.publicKey, importKeyPairRequest.publicKey) &&
+        Objects.equals(this.tags, importKeyPairRequest.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, description, keyPairName, projectName, publicKey);
+    return Objects.hash(clientToken, description, keyPairName, projectName, publicKey, tags);
   }
 
 
@@ -170,6 +204,7 @@ public class ImportKeyPairRequest {
     sb.append("    keyPairName: ").append(toIndentedString(keyPairName)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    publicKey: ").append(toIndentedString(publicKey)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.ecs.model.TagFilterForDescribeKeyPairsInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -52,6 +53,9 @@ public class DescribeKeyPairsRequest {
 
   @SerializedName("ProjectName")
   private String projectName = null;
+
+  @SerializedName("TagFilters")
+  private List<TagFilterForDescribeKeyPairsInput> tagFilters = null;
 
   public DescribeKeyPairsRequest fingerPrint(String fingerPrint) {
     this.fingerPrint = fingerPrint;
@@ -195,6 +199,33 @@ public class DescribeKeyPairsRequest {
     this.projectName = projectName;
   }
 
+  public DescribeKeyPairsRequest tagFilters(List<TagFilterForDescribeKeyPairsInput> tagFilters) {
+    this.tagFilters = tagFilters;
+    return this;
+  }
+
+  public DescribeKeyPairsRequest addTagFiltersItem(TagFilterForDescribeKeyPairsInput tagFiltersItem) {
+    if (this.tagFilters == null) {
+      this.tagFilters = new ArrayList<TagFilterForDescribeKeyPairsInput>();
+    }
+    this.tagFilters.add(tagFiltersItem);
+    return this;
+  }
+
+   /**
+   * Get tagFilters
+   * @return tagFilters
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagFilterForDescribeKeyPairsInput> getTagFilters() {
+    return tagFilters;
+  }
+
+  public void setTagFilters(List<TagFilterForDescribeKeyPairsInput> tagFilters) {
+    this.tagFilters = tagFilters;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -211,12 +242,13 @@ public class DescribeKeyPairsRequest {
         Objects.equals(this.keyPairNames, describeKeyPairsRequest.keyPairNames) &&
         Objects.equals(this.maxResults, describeKeyPairsRequest.maxResults) &&
         Objects.equals(this.nextToken, describeKeyPairsRequest.nextToken) &&
-        Objects.equals(this.projectName, describeKeyPairsRequest.projectName);
+        Objects.equals(this.projectName, describeKeyPairsRequest.projectName) &&
+        Objects.equals(this.tagFilters, describeKeyPairsRequest.tagFilters);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fingerPrint, keyPairIds, keyPairName, keyPairNames, maxResults, nextToken, projectName);
+    return Objects.hash(fingerPrint, keyPairIds, keyPairName, keyPairNames, maxResults, nextToken, projectName, tagFilters);
   }
 
 
@@ -232,6 +264,7 @@ public class DescribeKeyPairsRequest {
     sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
     sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("}");
     return sb.toString();
   }

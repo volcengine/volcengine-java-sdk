@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.ecs.model.ParameterDefinitionForRunCommandInput;
 import com.volcengine.ecs.model.TagForRunCommandInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -36,6 +37,12 @@ public class RunCommandRequest {
   @SerializedName("CommandContent")
   private String commandContent = null;
 
+  @SerializedName("ContentEncoding")
+  private String contentEncoding = null;
+
+  @SerializedName("EnableParameter")
+  private Boolean enableParameter = null;
+
   @SerializedName("Frequency")
   private String frequency = null;
 
@@ -50,6 +57,12 @@ public class RunCommandRequest {
 
   @SerializedName("LaunchTime")
   private String launchTime = null;
+
+  @SerializedName("ParameterDefinitions")
+  private List<ParameterDefinitionForRunCommandInput> parameterDefinitions = null;
+
+  @SerializedName("Parameters")
+  private String parameters = null;
 
   @SerializedName("ProjectName")
   private String projectName = null;
@@ -92,6 +105,42 @@ public class RunCommandRequest {
 
   public void setCommandContent(String commandContent) {
     this.commandContent = commandContent;
+  }
+
+  public RunCommandRequest contentEncoding(String contentEncoding) {
+    this.contentEncoding = contentEncoding;
+    return this;
+  }
+
+   /**
+   * Get contentEncoding
+   * @return contentEncoding
+  **/
+  @Schema(description = "")
+  public String getContentEncoding() {
+    return contentEncoding;
+  }
+
+  public void setContentEncoding(String contentEncoding) {
+    this.contentEncoding = contentEncoding;
+  }
+
+  public RunCommandRequest enableParameter(Boolean enableParameter) {
+    this.enableParameter = enableParameter;
+    return this;
+  }
+
+   /**
+   * Get enableParameter
+   * @return enableParameter
+  **/
+  @Schema(description = "")
+  public Boolean isEnableParameter() {
+    return enableParameter;
+  }
+
+  public void setEnableParameter(Boolean enableParameter) {
+    this.enableParameter = enableParameter;
   }
 
   public RunCommandRequest frequency(String frequency) {
@@ -191,6 +240,51 @@ public class RunCommandRequest {
 
   public void setLaunchTime(String launchTime) {
     this.launchTime = launchTime;
+  }
+
+  public RunCommandRequest parameterDefinitions(List<ParameterDefinitionForRunCommandInput> parameterDefinitions) {
+    this.parameterDefinitions = parameterDefinitions;
+    return this;
+  }
+
+  public RunCommandRequest addParameterDefinitionsItem(ParameterDefinitionForRunCommandInput parameterDefinitionsItem) {
+    if (this.parameterDefinitions == null) {
+      this.parameterDefinitions = new ArrayList<ParameterDefinitionForRunCommandInput>();
+    }
+    this.parameterDefinitions.add(parameterDefinitionsItem);
+    return this;
+  }
+
+   /**
+   * Get parameterDefinitions
+   * @return parameterDefinitions
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<ParameterDefinitionForRunCommandInput> getParameterDefinitions() {
+    return parameterDefinitions;
+  }
+
+  public void setParameterDefinitions(List<ParameterDefinitionForRunCommandInput> parameterDefinitions) {
+    this.parameterDefinitions = parameterDefinitions;
+  }
+
+  public RunCommandRequest parameters(String parameters) {
+    this.parameters = parameters;
+    return this;
+  }
+
+   /**
+   * Get parameters
+   * @return parameters
+  **/
+  @Schema(description = "")
+  public String getParameters() {
+    return parameters;
+  }
+
+  public void setParameters(String parameters) {
+    this.parameters = parameters;
   }
 
   public RunCommandRequest projectName(String projectName) {
@@ -358,11 +452,15 @@ public class RunCommandRequest {
     }
     RunCommandRequest runCommandRequest = (RunCommandRequest) o;
     return Objects.equals(this.commandContent, runCommandRequest.commandContent) &&
+        Objects.equals(this.contentEncoding, runCommandRequest.contentEncoding) &&
+        Objects.equals(this.enableParameter, runCommandRequest.enableParameter) &&
         Objects.equals(this.frequency, runCommandRequest.frequency) &&
         Objects.equals(this.instanceIds, runCommandRequest.instanceIds) &&
         Objects.equals(this.invocationDescription, runCommandRequest.invocationDescription) &&
         Objects.equals(this.invocationName, runCommandRequest.invocationName) &&
         Objects.equals(this.launchTime, runCommandRequest.launchTime) &&
+        Objects.equals(this.parameterDefinitions, runCommandRequest.parameterDefinitions) &&
+        Objects.equals(this.parameters, runCommandRequest.parameters) &&
         Objects.equals(this.projectName, runCommandRequest.projectName) &&
         Objects.equals(this.recurrenceEndTime, runCommandRequest.recurrenceEndTime) &&
         Objects.equals(this.repeatMode, runCommandRequest.repeatMode) &&
@@ -375,7 +473,7 @@ public class RunCommandRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(commandContent, frequency, instanceIds, invocationDescription, invocationName, launchTime, projectName, recurrenceEndTime, repeatMode, tags, timeout, type, username, workingDir);
+    return Objects.hash(commandContent, contentEncoding, enableParameter, frequency, instanceIds, invocationDescription, invocationName, launchTime, parameterDefinitions, parameters, projectName, recurrenceEndTime, repeatMode, tags, timeout, type, username, workingDir);
   }
 
 
@@ -385,11 +483,15 @@ public class RunCommandRequest {
     sb.append("class RunCommandRequest {\n");
     
     sb.append("    commandContent: ").append(toIndentedString(commandContent)).append("\n");
+    sb.append("    contentEncoding: ").append(toIndentedString(contentEncoding)).append("\n");
+    sb.append("    enableParameter: ").append(toIndentedString(enableParameter)).append("\n");
     sb.append("    frequency: ").append(toIndentedString(frequency)).append("\n");
     sb.append("    instanceIds: ").append(toIndentedString(instanceIds)).append("\n");
     sb.append("    invocationDescription: ").append(toIndentedString(invocationDescription)).append("\n");
     sb.append("    invocationName: ").append(toIndentedString(invocationName)).append("\n");
     sb.append("    launchTime: ").append(toIndentedString(launchTime)).append("\n");
+    sb.append("    parameterDefinitions: ").append(toIndentedString(parameterDefinitions)).append("\n");
+    sb.append("    parameters: ").append(toIndentedString(parameters)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    recurrenceEndTime: ").append(toIndentedString(recurrenceEndTime)).append("\n");
     sb.append("    repeatMode: ").append(toIndentedString(repeatMode)).append("\n");
