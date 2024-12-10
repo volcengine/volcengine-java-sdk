@@ -58,6 +58,9 @@ public class CreateVpcEndpointRequest {
   @SerializedName("ServiceId")
   private String serviceId = null;
 
+  @SerializedName("ServiceManaged")
+  private Boolean serviceManaged = null;
+
   @SerializedName("ServiceName")
   private String serviceName = null;
 
@@ -231,6 +234,24 @@ public class CreateVpcEndpointRequest {
     this.serviceId = serviceId;
   }
 
+  public CreateVpcEndpointRequest serviceManaged(Boolean serviceManaged) {
+    this.serviceManaged = serviceManaged;
+    return this;
+  }
+
+   /**
+   * Get serviceManaged
+   * @return serviceManaged
+  **/
+  @Schema(description = "")
+  public Boolean isServiceManaged() {
+    return serviceManaged;
+  }
+
+  public void setServiceManaged(Boolean serviceManaged) {
+    this.serviceManaged = serviceManaged;
+  }
+
   public CreateVpcEndpointRequest serviceName(String serviceName) {
     this.serviceName = serviceName;
     return this;
@@ -340,6 +361,7 @@ public class CreateVpcEndpointRequest {
         Objects.equals(this.projectName, createVpcEndpointRequest.projectName) &&
         Objects.equals(this.securityGroupIds, createVpcEndpointRequest.securityGroupIds) &&
         Objects.equals(this.serviceId, createVpcEndpointRequest.serviceId) &&
+        Objects.equals(this.serviceManaged, createVpcEndpointRequest.serviceManaged) &&
         Objects.equals(this.serviceName, createVpcEndpointRequest.serviceName) &&
         Objects.equals(this.tags, createVpcEndpointRequest.tags) &&
         Objects.equals(this.vpcId, createVpcEndpointRequest.vpcId) &&
@@ -348,7 +370,7 @@ public class CreateVpcEndpointRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, description, endpointName, ipAddressVersions, privateDNSEnabled, projectName, securityGroupIds, serviceId, serviceName, tags, vpcId, zones);
+    return Objects.hash(clientToken, description, endpointName, ipAddressVersions, privateDNSEnabled, projectName, securityGroupIds, serviceId, serviceManaged, serviceName, tags, vpcId, zones);
   }
 
 
@@ -365,6 +387,7 @@ public class CreateVpcEndpointRequest {
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    securityGroupIds: ").append(toIndentedString(securityGroupIds)).append("\n");
     sb.append("    serviceId: ").append(toIndentedString(serviceId)).append("\n");
+    sb.append("    serviceManaged: ").append(toIndentedString(serviceManaged)).append("\n");
     sb.append("    serviceName: ").append(toIndentedString(serviceName)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");

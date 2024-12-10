@@ -79,6 +79,9 @@ public class VpcEndpointServiceForDescribeVpcEndpointServicesByEndUserOutput {
   @SerializedName("ServiceName")
   private String serviceName = null;
 
+  @SerializedName("ServiceNameManaged")
+  private String serviceNameManaged = null;
+
   @SerializedName("ServiceOwner")
   private String serviceOwner = null;
 
@@ -382,6 +385,24 @@ public class VpcEndpointServiceForDescribeVpcEndpointServicesByEndUserOutput {
     this.serviceName = serviceName;
   }
 
+  public VpcEndpointServiceForDescribeVpcEndpointServicesByEndUserOutput serviceNameManaged(String serviceNameManaged) {
+    this.serviceNameManaged = serviceNameManaged;
+    return this;
+  }
+
+   /**
+   * Get serviceNameManaged
+   * @return serviceNameManaged
+  **/
+  @Schema(description = "")
+  public String getServiceNameManaged() {
+    return serviceNameManaged;
+  }
+
+  public void setServiceNameManaged(String serviceNameManaged) {
+    this.serviceNameManaged = serviceNameManaged;
+  }
+
   public VpcEndpointServiceForDescribeVpcEndpointServicesByEndUserOutput serviceOwner(String serviceOwner) {
     this.serviceOwner = serviceOwner;
     return this;
@@ -568,6 +589,7 @@ public class VpcEndpointServiceForDescribeVpcEndpointServicesByEndUserOutput {
         Objects.equals(this.serviceDomain, vpcEndpointServiceForDescribeVpcEndpointServicesByEndUserOutput.serviceDomain) &&
         Objects.equals(this.serviceId, vpcEndpointServiceForDescribeVpcEndpointServicesByEndUserOutput.serviceId) &&
         Objects.equals(this.serviceName, vpcEndpointServiceForDescribeVpcEndpointServicesByEndUserOutput.serviceName) &&
+        Objects.equals(this.serviceNameManaged, vpcEndpointServiceForDescribeVpcEndpointServicesByEndUserOutput.serviceNameManaged) &&
         Objects.equals(this.serviceOwner, vpcEndpointServiceForDescribeVpcEndpointServicesByEndUserOutput.serviceOwner) &&
         Objects.equals(this.serviceResourceType, vpcEndpointServiceForDescribeVpcEndpointServicesByEndUserOutput.serviceResourceType) &&
         Objects.equals(this.serviceType, vpcEndpointServiceForDescribeVpcEndpointServicesByEndUserOutput.serviceType) &&
@@ -580,7 +602,7 @@ public class VpcEndpointServiceForDescribeVpcEndpointServicesByEndUserOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoAcceptEnabled, billingType, businessStatus, creationTime, description, ipAddressVersions, payer, privateDNSEnabled, privateDNSName, privateDNSNameConfiguration, privateDNSType, projectName, serviceDomain, serviceId, serviceName, serviceOwner, serviceResourceType, serviceType, status, tags, updateTime, wildcardDomainEnabled, zoneIds);
+    return Objects.hash(autoAcceptEnabled, billingType, businessStatus, creationTime, description, ipAddressVersions, payer, privateDNSEnabled, privateDNSName, privateDNSNameConfiguration, privateDNSType, projectName, serviceDomain, serviceId, serviceName, serviceNameManaged, serviceOwner, serviceResourceType, serviceType, status, tags, updateTime, wildcardDomainEnabled, zoneIds);
   }
 
 
@@ -604,6 +626,7 @@ public class VpcEndpointServiceForDescribeVpcEndpointServicesByEndUserOutput {
     sb.append("    serviceDomain: ").append(toIndentedString(serviceDomain)).append("\n");
     sb.append("    serviceId: ").append(toIndentedString(serviceId)).append("\n");
     sb.append("    serviceName: ").append(toIndentedString(serviceName)).append("\n");
+    sb.append("    serviceNameManaged: ").append(toIndentedString(serviceNameManaged)).append("\n");
     sb.append("    serviceOwner: ").append(toIndentedString(serviceOwner)).append("\n");
     sb.append("    serviceResourceType: ").append(toIndentedString(serviceResourceType)).append("\n");
     sb.append("    serviceType: ").append(toIndentedString(serviceType)).append("\n");

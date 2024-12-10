@@ -48,9 +48,6 @@ public class ModifyUniqueResourceTypeVpcEndpointServiceAttributesRequest {
   @SerializedName("ServiceId")
   private String serviceId = null;
 
-  @SerializedName("ZoneIDs")
-  private String zoneIDs = null;
-
   @SerializedName("ZoneIds")
   private List<String> zoneIds = null;
 
@@ -154,24 +151,6 @@ public class ModifyUniqueResourceTypeVpcEndpointServiceAttributesRequest {
     this.serviceId = serviceId;
   }
 
-  public ModifyUniqueResourceTypeVpcEndpointServiceAttributesRequest zoneIDs(String zoneIDs) {
-    this.zoneIDs = zoneIDs;
-    return this;
-  }
-
-   /**
-   * Get zoneIDs
-   * @return zoneIDs
-  **/
-  @Schema(description = "")
-  public String getZoneIDs() {
-    return zoneIDs;
-  }
-
-  public void setZoneIDs(String zoneIDs) {
-    this.zoneIDs = zoneIDs;
-  }
-
   public ModifyUniqueResourceTypeVpcEndpointServiceAttributesRequest zoneIds(List<String> zoneIds) {
     this.zoneIds = zoneIds;
     return this;
@@ -213,13 +192,12 @@ public class ModifyUniqueResourceTypeVpcEndpointServiceAttributesRequest {
         Objects.equals(this.ipAddressVersions, modifyUniqueResourceTypeVpcEndpointServiceAttributesRequest.ipAddressVersions) &&
         Objects.equals(this.resource, modifyUniqueResourceTypeVpcEndpointServiceAttributesRequest.resource) &&
         Objects.equals(this.serviceId, modifyUniqueResourceTypeVpcEndpointServiceAttributesRequest.serviceId) &&
-        Objects.equals(this.zoneIDs, modifyUniqueResourceTypeVpcEndpointServiceAttributesRequest.zoneIDs) &&
         Objects.equals(this.zoneIds, modifyUniqueResourceTypeVpcEndpointServiceAttributesRequest.zoneIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoAcceptEnabled, description, ipAddressVersions, resource, serviceId, zoneIDs, zoneIds);
+    return Objects.hash(autoAcceptEnabled, description, ipAddressVersions, resource, serviceId, zoneIds);
   }
 
 
@@ -233,7 +211,6 @@ public class ModifyUniqueResourceTypeVpcEndpointServiceAttributesRequest {
     sb.append("    ipAddressVersions: ").append(toIndentedString(ipAddressVersions)).append("\n");
     sb.append("    resource: ").append(toIndentedString(resource)).append("\n");
     sb.append("    serviceId: ").append(toIndentedString(serviceId)).append("\n");
-    sb.append("    zoneIDs: ").append(toIndentedString(zoneIDs)).append("\n");
     sb.append("    zoneIds: ").append(toIndentedString(zoneIds)).append("\n");
     sb.append("}");
     return sb.toString();
