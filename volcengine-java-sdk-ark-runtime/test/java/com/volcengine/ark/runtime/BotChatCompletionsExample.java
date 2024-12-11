@@ -75,6 +75,7 @@ public class BotChatCompletionsExample {
         BotChatCompletionRequest streamChatCompletionRequest = BotChatCompletionRequest.builder()
                 .botId("${YOUR_BOT_ID}")
                 .messages(streamMessages)
+                .n(2) // n sample, default: 1
                 .build();
 
         service.streamBotChatCompletion(streamChatCompletionRequest)

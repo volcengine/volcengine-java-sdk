@@ -85,6 +85,7 @@ public class BotChatCompletionRequest extends ChatCompletionRequest {
         private ChatCompletionRequestFunctionCall functionCall;
         private Boolean logprobs;
         private Integer topLogprobs;
+        private Integer n;
 
         private Builder() {
         }
@@ -191,6 +192,11 @@ public class BotChatCompletionRequest extends ChatCompletionRequest {
             return this;
         }
 
+        public Builder n(Integer n) {
+            this.n = n;
+            return this;
+        }
+
         public BotChatCompletionRequest build() {
             BotChatCompletionRequest botChatCompletionRequest = new BotChatCompletionRequest();
             botChatCompletionRequest.setMetadata(metadata);
@@ -211,6 +217,7 @@ public class BotChatCompletionRequest extends ChatCompletionRequest {
             botChatCompletionRequest.setFunctionCall(functionCall);
             botChatCompletionRequest.setLogprobs(logprobs);
             botChatCompletionRequest.setTopLogprobs(topLogprobs);
+            botChatCompletionRequest.setN(n);
             return botChatCompletionRequest;
         }
     }
