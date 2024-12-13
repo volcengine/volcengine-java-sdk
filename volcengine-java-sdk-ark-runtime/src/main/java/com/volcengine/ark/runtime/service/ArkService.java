@@ -100,6 +100,7 @@ public class ArkService extends ArkBaseService implements ArkBaseServiceImpl {
         return new OkHttpClient.Builder()
                 .addInterceptor(new AuthenticationInterceptor(apiKey))
                 .addInterceptor(new RequestIdInterceptor())
+                .addInterceptor(new RetryInterceptor(DEFAULT_RETRY_TIMES))
                 .connectionPool(new ConnectionPool(5, 1, TimeUnit.SECONDS))
                 .readTimeout(timeout.toMillis(), TimeUnit.MILLISECONDS)
                 .build();
@@ -109,6 +110,7 @@ public class ArkService extends ArkBaseService implements ArkBaseServiceImpl {
         return new OkHttpClient.Builder()
                 .addInterceptor(new ArkResourceStsAuthenticationInterceptor(ak, sk, region))
                 .addInterceptor(new RequestIdInterceptor())
+                .addInterceptor(new RetryInterceptor(DEFAULT_RETRY_TIMES))
                 .connectionPool(new ConnectionPool(5, 1, TimeUnit.SECONDS))
                 .readTimeout(timeout.toMillis(), TimeUnit.MILLISECONDS)
                 .build();
@@ -132,9 +134,7 @@ public class ArkService extends ArkBaseService implements ArkBaseServiceImpl {
             try {
                 Headers headers = e.response().raw().request().headers();
                 requestId = headers.get(Const.CLIENT_REQUEST_HEADER);
-            } catch (Exception ignored) {
-
-            }
+            } catch (Exception ignored) {}
 
             try {
                 if (e.response() == null || e.response().errorBody() == null) {
@@ -265,7 +265,7 @@ public class ArkService extends ArkBaseService implements ArkBaseServiceImpl {
         private String baseUrl = BASE_URL;
         private Duration timeout = DEFAULT_TIMEOUT;
         private Duration connectTimeout = DEFAULT_CONNECT_TIMEOUT;
-        private int retryTimes = 0;
+        private int retryTimes = DEFAULT_RETRY_TIMES;
         private Proxy proxy;
         private ConnectionPool connectionPool;
         private Dispatcher dispatcher;

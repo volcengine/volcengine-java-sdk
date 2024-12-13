@@ -17,4 +17,5 @@ public abstract class ArkBaseService {
     public static final String BASE_REGION = "cn-beijing";
     public static final Duration DEFAULT_TIMEOUT = Duration.ofMinutes(10);
     public static final Duration DEFAULT_CONNECT_TIMEOUT = Duration.ofMinutes(1);
+    public static final int DEFAULT_RETRY_TIMES = 2;
 }

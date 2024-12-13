@@ -1,6 +1,9 @@
 package com.volcengine.ark.runtime.interceptor;
 
 import com.volcengine.ark.runtime.Const;
+import com.volcengine.ark.runtime.exception.ArkAPIError;
+import com.volcengine.ark.runtime.exception.ArkException;
+import com.volcengine.ark.runtime.exception.ArkHttpException;
 import com.volcengine.version.Version;
 import okhttp3.Interceptor;
 import okhttp3.Request;
@@ -26,7 +29,14 @@ public class RequestIdInterceptor implements Interceptor {
         requestBuilder.header("User-Agent", getUserAgent());
 
         Request request = requestBuilder.build();
-        return chain.proceed(request);
+
+        try {
+            return chain.proceed(request);
+        } catch (Exception e) {
+            String requestId = request.header(Const.CLIENT_REQUEST_HEADER);
+            ArkAPIError arkAPIError = new ArkAPIError(new ArkAPIError.ArkErrorDetails(e.getMessage(), "", "", ""));
+            throw new ArkHttpException(arkAPIError, e, ArkHttpException.INTERNAL_SERVICE_CODE, requestId);
+        }
     }
 
     private String genRequestId() {
