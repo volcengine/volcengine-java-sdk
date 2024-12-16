@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.ecs.model.LocalVolumeForDescribeDedicatedHostTypesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -40,6 +41,9 @@ public class DedicatedHostTypeForDescribeDedicatedHostTypesOutput {
 
   @SerializedName("IsSupportedCpuOvercommitRatio")
   private Boolean isSupportedCpuOvercommitRatio = null;
+
+  @SerializedName("LocalVolumes")
+  private List<LocalVolumeForDescribeDedicatedHostTypesOutput> localVolumes = null;
 
   @SerializedName("MaxCpuOvercommitRatio")
   private Float maxCpuOvercommitRatio = null;
@@ -114,6 +118,33 @@ public class DedicatedHostTypeForDescribeDedicatedHostTypesOutput {
 
   public void setIsSupportedCpuOvercommitRatio(Boolean isSupportedCpuOvercommitRatio) {
     this.isSupportedCpuOvercommitRatio = isSupportedCpuOvercommitRatio;
+  }
+
+  public DedicatedHostTypeForDescribeDedicatedHostTypesOutput localVolumes(List<LocalVolumeForDescribeDedicatedHostTypesOutput> localVolumes) {
+    this.localVolumes = localVolumes;
+    return this;
+  }
+
+  public DedicatedHostTypeForDescribeDedicatedHostTypesOutput addLocalVolumesItem(LocalVolumeForDescribeDedicatedHostTypesOutput localVolumesItem) {
+    if (this.localVolumes == null) {
+      this.localVolumes = new ArrayList<LocalVolumeForDescribeDedicatedHostTypesOutput>();
+    }
+    this.localVolumes.add(localVolumesItem);
+    return this;
+  }
+
+   /**
+   * Get localVolumes
+   * @return localVolumes
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<LocalVolumeForDescribeDedicatedHostTypesOutput> getLocalVolumes() {
+    return localVolumes;
+  }
+
+  public void setLocalVolumes(List<LocalVolumeForDescribeDedicatedHostTypesOutput> localVolumes) {
+    this.localVolumes = localVolumes;
   }
 
   public DedicatedHostTypeForDescribeDedicatedHostTypesOutput maxCpuOvercommitRatio(Float maxCpuOvercommitRatio) {
@@ -271,6 +302,7 @@ public class DedicatedHostTypeForDescribeDedicatedHostTypesOutput {
     return Objects.equals(this.cores, dedicatedHostTypeForDescribeDedicatedHostTypesOutput.cores) &&
         Objects.equals(this.dedicatedHostTypeId, dedicatedHostTypeForDescribeDedicatedHostTypesOutput.dedicatedHostTypeId) &&
         Objects.equals(this.isSupportedCpuOvercommitRatio, dedicatedHostTypeForDescribeDedicatedHostTypesOutput.isSupportedCpuOvercommitRatio) &&
+        Objects.equals(this.localVolumes, dedicatedHostTypeForDescribeDedicatedHostTypesOutput.localVolumes) &&
         Objects.equals(this.maxCpuOvercommitRatio, dedicatedHostTypeForDescribeDedicatedHostTypesOutput.maxCpuOvercommitRatio) &&
         Objects.equals(this.processorModel, dedicatedHostTypeForDescribeDedicatedHostTypesOutput.processorModel) &&
         Objects.equals(this.sockets, dedicatedHostTypeForDescribeDedicatedHostTypesOutput.sockets) &&
@@ -282,7 +314,7 @@ public class DedicatedHostTypeForDescribeDedicatedHostTypesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cores, dedicatedHostTypeId, isSupportedCpuOvercommitRatio, maxCpuOvercommitRatio, processorModel, sockets, supportInstanceTypeFamilies, supportInstanceTypesList, totalMemory, totalVcpus);
+    return Objects.hash(cores, dedicatedHostTypeId, isSupportedCpuOvercommitRatio, localVolumes, maxCpuOvercommitRatio, processorModel, sockets, supportInstanceTypeFamilies, supportInstanceTypesList, totalMemory, totalVcpus);
   }
 
 
@@ -294,6 +326,7 @@ public class DedicatedHostTypeForDescribeDedicatedHostTypesOutput {
     sb.append("    cores: ").append(toIndentedString(cores)).append("\n");
     sb.append("    dedicatedHostTypeId: ").append(toIndentedString(dedicatedHostTypeId)).append("\n");
     sb.append("    isSupportedCpuOvercommitRatio: ").append(toIndentedString(isSupportedCpuOvercommitRatio)).append("\n");
+    sb.append("    localVolumes: ").append(toIndentedString(localVolumes)).append("\n");
     sb.append("    maxCpuOvercommitRatio: ").append(toIndentedString(maxCpuOvercommitRatio)).append("\n");
     sb.append("    processorModel: ").append(toIndentedString(processorModel)).append("\n");
     sb.append("    sockets: ").append(toIndentedString(sockets)).append("\n");

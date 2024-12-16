@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -33,8 +35,8 @@ public class TagFilterForDescribeInvocationsInput {
   @SerializedName("Key")
   private String key = null;
 
-  @SerializedName("Value")
-  private String value = null;
+  @SerializedName("Values")
+  private List<String> values = null;
 
   public TagFilterForDescribeInvocationsInput key(String key) {
     this.key = key;
@@ -54,22 +56,30 @@ public class TagFilterForDescribeInvocationsInput {
     this.key = key;
   }
 
-  public TagFilterForDescribeInvocationsInput value(String value) {
-    this.value = value;
+  public TagFilterForDescribeInvocationsInput values(List<String> values) {
+    this.values = values;
+    return this;
+  }
+
+  public TagFilterForDescribeInvocationsInput addValuesItem(String valuesItem) {
+    if (this.values == null) {
+      this.values = new ArrayList<String>();
+    }
+    this.values.add(valuesItem);
     return this;
   }
 
    /**
-   * Get value
-   * @return value
+   * Get values
+   * @return values
   **/
   @Schema(description = "")
-  public String getValue() {
-    return value;
+  public List<String> getValues() {
+    return values;
   }
 
-  public void setValue(String value) {
-    this.value = value;
+  public void setValues(List<String> values) {
+    this.values = values;
   }
 
 
@@ -83,12 +93,12 @@ public class TagFilterForDescribeInvocationsInput {
     }
     TagFilterForDescribeInvocationsInput tagFilterForDescribeInvocationsInput = (TagFilterForDescribeInvocationsInput) o;
     return Objects.equals(this.key, tagFilterForDescribeInvocationsInput.key) &&
-        Objects.equals(this.value, tagFilterForDescribeInvocationsInput.value);
+        Objects.equals(this.values, tagFilterForDescribeInvocationsInput.values);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(key, value);
+    return Objects.hash(key, values);
   }
 
 
@@ -98,7 +108,7 @@ public class TagFilterForDescribeInvocationsInput {
     sb.append("class TagFilterForDescribeInvocationsInput {\n");
     
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    values: ").append(toIndentedString(values)).append("\n");
     sb.append("}");
     return sb.toString();
   }

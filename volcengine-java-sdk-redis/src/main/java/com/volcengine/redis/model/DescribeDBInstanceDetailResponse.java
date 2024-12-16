@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.redis.model.CapacityForDescribeDBInstanceDetailOutput;
+import com.volcengine.redis.model.ConfigureNodeForDescribeDBInstanceDetailOutput;
 import com.volcengine.redis.model.TagForDescribeDBInstanceDetailOutput;
 import com.volcengine.redis.model.VisitAddrForDescribeDBInstanceDetailOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -43,6 +44,9 @@ public class DescribeDBInstanceDetailResponse extends com.volcengine.model.Abstr
 
   @SerializedName("ChargeType")
   private String chargeType = null;
+
+  @SerializedName("ConfigureNodes")
+  private List<ConfigureNodeForDescribeDBInstanceDetailOutput> configureNodes = null;
 
   @SerializedName("CreateTime")
   private String createTime = null;
@@ -90,7 +94,7 @@ public class DescribeDBInstanceDetailResponse extends com.volcengine.model.Abstr
   private Double shardCapacity = null;
 
   @SerializedName("ShardCapacityV2")
-  private Integer shardCapacityV2 = null;
+  private Long shardCapacityV2 = null;
 
   @SerializedName("ShardNumber")
   private Integer shardNumber = null;
@@ -172,6 +176,33 @@ public class DescribeDBInstanceDetailResponse extends com.volcengine.model.Abstr
 
   public void setChargeType(String chargeType) {
     this.chargeType = chargeType;
+  }
+
+  public DescribeDBInstanceDetailResponse configureNodes(List<ConfigureNodeForDescribeDBInstanceDetailOutput> configureNodes) {
+    this.configureNodes = configureNodes;
+    return this;
+  }
+
+  public DescribeDBInstanceDetailResponse addConfigureNodesItem(ConfigureNodeForDescribeDBInstanceDetailOutput configureNodesItem) {
+    if (this.configureNodes == null) {
+      this.configureNodes = new ArrayList<ConfigureNodeForDescribeDBInstanceDetailOutput>();
+    }
+    this.configureNodes.add(configureNodesItem);
+    return this;
+  }
+
+   /**
+   * Get configureNodes
+   * @return configureNodes
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<ConfigureNodeForDescribeDBInstanceDetailOutput> getConfigureNodes() {
+    return configureNodes;
+  }
+
+  public void setConfigureNodes(List<ConfigureNodeForDescribeDBInstanceDetailOutput> configureNodes) {
+    this.configureNodes = configureNodes;
   }
 
   public DescribeDBInstanceDetailResponse createTime(String createTime) {
@@ -444,7 +475,7 @@ public class DescribeDBInstanceDetailResponse extends com.volcengine.model.Abstr
     this.shardCapacity = shardCapacity;
   }
 
-  public DescribeDBInstanceDetailResponse shardCapacityV2(Integer shardCapacityV2) {
+  public DescribeDBInstanceDetailResponse shardCapacityV2(Long shardCapacityV2) {
     this.shardCapacityV2 = shardCapacityV2;
     return this;
   }
@@ -454,11 +485,11 @@ public class DescribeDBInstanceDetailResponse extends com.volcengine.model.Abstr
    * @return shardCapacityV2
   **/
   @Schema(description = "")
-  public Integer getShardCapacityV2() {
+  public Long getShardCapacityV2() {
     return shardCapacityV2;
   }
 
-  public void setShardCapacityV2(Integer shardCapacityV2) {
+  public void setShardCapacityV2(Long shardCapacityV2) {
     this.shardCapacityV2 = shardCapacityV2;
   }
 
@@ -663,6 +694,7 @@ public class DescribeDBInstanceDetailResponse extends com.volcengine.model.Abstr
     return Objects.equals(this.autoRenew, describeDBInstanceDetailResponse.autoRenew) &&
         Objects.equals(this.capacity, describeDBInstanceDetailResponse.capacity) &&
         Objects.equals(this.chargeType, describeDBInstanceDetailResponse.chargeType) &&
+        Objects.equals(this.configureNodes, describeDBInstanceDetailResponse.configureNodes) &&
         Objects.equals(this.createTime, describeDBInstanceDetailResponse.createTime) &&
         Objects.equals(this.dataLayout, describeDBInstanceDetailResponse.dataLayout) &&
         Objects.equals(this.deletionProtection, describeDBInstanceDetailResponse.deletionProtection) &&
@@ -692,7 +724,7 @@ public class DescribeDBInstanceDetailResponse extends com.volcengine.model.Abstr
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoRenew, capacity, chargeType, createTime, dataLayout, deletionProtection, engineVersion, expiredTime, instanceClass, instanceId, instanceName, maintenanceTime, maxConnections, multiAZ, nodeNumber, projectName, regionId, shardCapacity, shardCapacityV2, shardNumber, shardedCluster, status, subnetId, tags, visitAddrs, vpcAuthMode, vpcId, zoneIds);
+    return Objects.hash(autoRenew, capacity, chargeType, configureNodes, createTime, dataLayout, deletionProtection, engineVersion, expiredTime, instanceClass, instanceId, instanceName, maintenanceTime, maxConnections, multiAZ, nodeNumber, projectName, regionId, shardCapacity, shardCapacityV2, shardNumber, shardedCluster, status, subnetId, tags, visitAddrs, vpcAuthMode, vpcId, zoneIds);
   }
 
 
@@ -704,6 +736,7 @@ public class DescribeDBInstanceDetailResponse extends com.volcengine.model.Abstr
     sb.append("    autoRenew: ").append(toIndentedString(autoRenew)).append("\n");
     sb.append("    capacity: ").append(toIndentedString(capacity)).append("\n");
     sb.append("    chargeType: ").append(toIndentedString(chargeType)).append("\n");
+    sb.append("    configureNodes: ").append(toIndentedString(configureNodes)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    dataLayout: ").append(toIndentedString(dataLayout)).append("\n");
     sb.append("    deletionProtection: ").append(toIndentedString(deletionProtection)).append("\n");

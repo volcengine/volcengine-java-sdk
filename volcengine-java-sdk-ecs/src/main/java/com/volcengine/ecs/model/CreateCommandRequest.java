@@ -37,6 +37,9 @@ public class CreateCommandRequest {
   @SerializedName("CommandContent")
   private String commandContent = null;
 
+  @SerializedName("ContentEncoding")
+  private String contentEncoding = null;
+
   @SerializedName("Description")
   private String description = null;
 
@@ -84,6 +87,24 @@ public class CreateCommandRequest {
 
   public void setCommandContent(String commandContent) {
     this.commandContent = commandContent;
+  }
+
+  public CreateCommandRequest contentEncoding(String contentEncoding) {
+    this.contentEncoding = contentEncoding;
+    return this;
+  }
+
+   /**
+   * Get contentEncoding
+   * @return contentEncoding
+  **/
+  @Schema(description = "")
+  public String getContentEncoding() {
+    return contentEncoding;
+  }
+
+  public void setContentEncoding(String contentEncoding) {
+    this.contentEncoding = contentEncoding;
   }
 
   public CreateCommandRequest description(String description) {
@@ -297,6 +318,7 @@ public class CreateCommandRequest {
     }
     CreateCommandRequest createCommandRequest = (CreateCommandRequest) o;
     return Objects.equals(this.commandContent, createCommandRequest.commandContent) &&
+        Objects.equals(this.contentEncoding, createCommandRequest.contentEncoding) &&
         Objects.equals(this.description, createCommandRequest.description) &&
         Objects.equals(this.enableParameter, createCommandRequest.enableParameter) &&
         Objects.equals(this.name, createCommandRequest.name) &&
@@ -311,7 +333,7 @@ public class CreateCommandRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(commandContent, description, enableParameter, name, parameterDefinitions, projectName, tags, timeout, type, username, workingDir);
+    return Objects.hash(commandContent, contentEncoding, description, enableParameter, name, parameterDefinitions, projectName, tags, timeout, type, username, workingDir);
   }
 
 
@@ -321,6 +343,7 @@ public class CreateCommandRequest {
     sb.append("class CreateCommandRequest {\n");
     
     sb.append("    commandContent: ").append(toIndentedString(commandContent)).append("\n");
+    sb.append("    contentEncoding: ").append(toIndentedString(contentEncoding)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    enableParameter: ").append(toIndentedString(enableParameter)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

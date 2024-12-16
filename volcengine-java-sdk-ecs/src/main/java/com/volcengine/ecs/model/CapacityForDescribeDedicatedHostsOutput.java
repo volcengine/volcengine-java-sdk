@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.ecs.model.LocalVolumeCapacityForDescribeDedicatedHostsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -35,6 +38,9 @@ public class CapacityForDescribeDedicatedHostsOutput {
 
   @SerializedName("AvailableVcpus")
   private Integer availableVcpus = null;
+
+  @SerializedName("LocalVolumeCapacities")
+  private List<LocalVolumeCapacityForDescribeDedicatedHostsOutput> localVolumeCapacities = null;
 
   @SerializedName("TotalMemory")
   private Integer totalMemory = null;
@@ -76,6 +82,33 @@ public class CapacityForDescribeDedicatedHostsOutput {
 
   public void setAvailableVcpus(Integer availableVcpus) {
     this.availableVcpus = availableVcpus;
+  }
+
+  public CapacityForDescribeDedicatedHostsOutput localVolumeCapacities(List<LocalVolumeCapacityForDescribeDedicatedHostsOutput> localVolumeCapacities) {
+    this.localVolumeCapacities = localVolumeCapacities;
+    return this;
+  }
+
+  public CapacityForDescribeDedicatedHostsOutput addLocalVolumeCapacitiesItem(LocalVolumeCapacityForDescribeDedicatedHostsOutput localVolumeCapacitiesItem) {
+    if (this.localVolumeCapacities == null) {
+      this.localVolumeCapacities = new ArrayList<LocalVolumeCapacityForDescribeDedicatedHostsOutput>();
+    }
+    this.localVolumeCapacities.add(localVolumeCapacitiesItem);
+    return this;
+  }
+
+   /**
+   * Get localVolumeCapacities
+   * @return localVolumeCapacities
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<LocalVolumeCapacityForDescribeDedicatedHostsOutput> getLocalVolumeCapacities() {
+    return localVolumeCapacities;
+  }
+
+  public void setLocalVolumeCapacities(List<LocalVolumeCapacityForDescribeDedicatedHostsOutput> localVolumeCapacities) {
+    this.localVolumeCapacities = localVolumeCapacities;
   }
 
   public CapacityForDescribeDedicatedHostsOutput totalMemory(Integer totalMemory) {
@@ -126,13 +159,14 @@ public class CapacityForDescribeDedicatedHostsOutput {
     CapacityForDescribeDedicatedHostsOutput capacityForDescribeDedicatedHostsOutput = (CapacityForDescribeDedicatedHostsOutput) o;
     return Objects.equals(this.availableMemory, capacityForDescribeDedicatedHostsOutput.availableMemory) &&
         Objects.equals(this.availableVcpus, capacityForDescribeDedicatedHostsOutput.availableVcpus) &&
+        Objects.equals(this.localVolumeCapacities, capacityForDescribeDedicatedHostsOutput.localVolumeCapacities) &&
         Objects.equals(this.totalMemory, capacityForDescribeDedicatedHostsOutput.totalMemory) &&
         Objects.equals(this.totalVcpus, capacityForDescribeDedicatedHostsOutput.totalVcpus);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(availableMemory, availableVcpus, totalMemory, totalVcpus);
+    return Objects.hash(availableMemory, availableVcpus, localVolumeCapacities, totalMemory, totalVcpus);
   }
 
 
@@ -143,6 +177,7 @@ public class CapacityForDescribeDedicatedHostsOutput {
     
     sb.append("    availableMemory: ").append(toIndentedString(availableMemory)).append("\n");
     sb.append("    availableVcpus: ").append(toIndentedString(availableVcpus)).append("\n");
+    sb.append("    localVolumeCapacities: ").append(toIndentedString(localVolumeCapacities)).append("\n");
     sb.append("    totalMemory: ").append(toIndentedString(totalMemory)).append("\n");
     sb.append("    totalVcpus: ").append(toIndentedString(totalVcpus)).append("\n");
     sb.append("}");
