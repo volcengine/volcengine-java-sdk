@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.ecs.model.ParameterDefinitionForDescribeInvocationsOutput;
+import com.volcengine.ecs.model.TagForDescribeInvocationsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -84,6 +85,9 @@ public class InvocationForDescribeInvocationsOutput {
   @SerializedName("Parameters")
   private String parameters = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("RecurrenceEndTime")
   private String recurrenceEndTime = null;
 
@@ -92,6 +96,9 @@ public class InvocationForDescribeInvocationsOutput {
 
   @SerializedName("StartTime")
   private String startTime = null;
+
+  @SerializedName("Tags")
+  private List<TagForDescribeInvocationsOutput> tags = null;
 
   @SerializedName("Timeout")
   private Integer timeout = null;
@@ -417,6 +424,24 @@ public class InvocationForDescribeInvocationsOutput {
     this.parameters = parameters;
   }
 
+  public InvocationForDescribeInvocationsOutput projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public InvocationForDescribeInvocationsOutput recurrenceEndTime(String recurrenceEndTime) {
     this.recurrenceEndTime = recurrenceEndTime;
     return this;
@@ -469,6 +494,33 @@ public class InvocationForDescribeInvocationsOutput {
 
   public void setStartTime(String startTime) {
     this.startTime = startTime;
+  }
+
+  public InvocationForDescribeInvocationsOutput tags(List<TagForDescribeInvocationsOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public InvocationForDescribeInvocationsOutput addTagsItem(TagForDescribeInvocationsOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForDescribeInvocationsOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForDescribeInvocationsOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForDescribeInvocationsOutput> tags) {
+    this.tags = tags;
   }
 
   public InvocationForDescribeInvocationsOutput timeout(Integer timeout) {
@@ -552,9 +604,11 @@ public class InvocationForDescribeInvocationsOutput {
         Objects.equals(this.launchTime, invocationForDescribeInvocationsOutput.launchTime) &&
         Objects.equals(this.parameterDefinitions, invocationForDescribeInvocationsOutput.parameterDefinitions) &&
         Objects.equals(this.parameters, invocationForDescribeInvocationsOutput.parameters) &&
+        Objects.equals(this.projectName, invocationForDescribeInvocationsOutput.projectName) &&
         Objects.equals(this.recurrenceEndTime, invocationForDescribeInvocationsOutput.recurrenceEndTime) &&
         Objects.equals(this.repeatMode, invocationForDescribeInvocationsOutput.repeatMode) &&
         Objects.equals(this.startTime, invocationForDescribeInvocationsOutput.startTime) &&
+        Objects.equals(this.tags, invocationForDescribeInvocationsOutput.tags) &&
         Objects.equals(this.timeout, invocationForDescribeInvocationsOutput.timeout) &&
         Objects.equals(this.username, invocationForDescribeInvocationsOutput.username) &&
         Objects.equals(this.workingDir, invocationForDescribeInvocationsOutput.workingDir);
@@ -562,7 +616,7 @@ public class InvocationForDescribeInvocationsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(commandContent, commandDescription, commandId, commandName, commandProvider, commandType, enableParameter, endTime, frequency, instanceNumber, invocationDescription, invocationId, invocationName, invocationStatus, launchTime, parameterDefinitions, parameters, recurrenceEndTime, repeatMode, startTime, timeout, username, workingDir);
+    return Objects.hash(commandContent, commandDescription, commandId, commandName, commandProvider, commandType, enableParameter, endTime, frequency, instanceNumber, invocationDescription, invocationId, invocationName, invocationStatus, launchTime, parameterDefinitions, parameters, projectName, recurrenceEndTime, repeatMode, startTime, tags, timeout, username, workingDir);
   }
 
 
@@ -588,9 +642,11 @@ public class InvocationForDescribeInvocationsOutput {
     sb.append("    launchTime: ").append(toIndentedString(launchTime)).append("\n");
     sb.append("    parameterDefinitions: ").append(toIndentedString(parameterDefinitions)).append("\n");
     sb.append("    parameters: ").append(toIndentedString(parameters)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    recurrenceEndTime: ").append(toIndentedString(recurrenceEndTime)).append("\n");
     sb.append("    repeatMode: ").append(toIndentedString(repeatMode)).append("\n");
     sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("    workingDir: ").append(toIndentedString(workingDir)).append("\n");

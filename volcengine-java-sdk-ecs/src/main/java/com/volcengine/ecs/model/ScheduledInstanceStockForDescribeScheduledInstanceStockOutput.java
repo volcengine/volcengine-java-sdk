@@ -33,6 +33,9 @@ public class ScheduledInstanceStockForDescribeScheduledInstanceStockOutput {
   @SerializedName("EndDeliveryAt")
   private String endDeliveryAt = null;
 
+  @SerializedName("ReleaseStatus")
+  private String releaseStatus = null;
+
   @SerializedName("StartDeliveryAt")
   private String startDeliveryAt = null;
 
@@ -55,6 +58,24 @@ public class ScheduledInstanceStockForDescribeScheduledInstanceStockOutput {
 
   public void setEndDeliveryAt(String endDeliveryAt) {
     this.endDeliveryAt = endDeliveryAt;
+  }
+
+  public ScheduledInstanceStockForDescribeScheduledInstanceStockOutput releaseStatus(String releaseStatus) {
+    this.releaseStatus = releaseStatus;
+    return this;
+  }
+
+   /**
+   * Get releaseStatus
+   * @return releaseStatus
+  **/
+  @Schema(description = "")
+  public String getReleaseStatus() {
+    return releaseStatus;
+  }
+
+  public void setReleaseStatus(String releaseStatus) {
+    this.releaseStatus = releaseStatus;
   }
 
   public ScheduledInstanceStockForDescribeScheduledInstanceStockOutput startDeliveryAt(String startDeliveryAt) {
@@ -104,13 +125,14 @@ public class ScheduledInstanceStockForDescribeScheduledInstanceStockOutput {
     }
     ScheduledInstanceStockForDescribeScheduledInstanceStockOutput scheduledInstanceStockForDescribeScheduledInstanceStockOutput = (ScheduledInstanceStockForDescribeScheduledInstanceStockOutput) o;
     return Objects.equals(this.endDeliveryAt, scheduledInstanceStockForDescribeScheduledInstanceStockOutput.endDeliveryAt) &&
+        Objects.equals(this.releaseStatus, scheduledInstanceStockForDescribeScheduledInstanceStockOutput.releaseStatus) &&
         Objects.equals(this.startDeliveryAt, scheduledInstanceStockForDescribeScheduledInstanceStockOutput.startDeliveryAt) &&
         Objects.equals(this.status, scheduledInstanceStockForDescribeScheduledInstanceStockOutput.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(endDeliveryAt, startDeliveryAt, status);
+    return Objects.hash(endDeliveryAt, releaseStatus, startDeliveryAt, status);
   }
 
 
@@ -120,6 +142,7 @@ public class ScheduledInstanceStockForDescribeScheduledInstanceStockOutput {
     sb.append("class ScheduledInstanceStockForDescribeScheduledInstanceStockOutput {\n");
     
     sb.append("    endDeliveryAt: ").append(toIndentedString(endDeliveryAt)).append("\n");
+    sb.append("    releaseStatus: ").append(toIndentedString(releaseStatus)).append("\n");
     sb.append("    startDeliveryAt: ").append(toIndentedString(startDeliveryAt)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");

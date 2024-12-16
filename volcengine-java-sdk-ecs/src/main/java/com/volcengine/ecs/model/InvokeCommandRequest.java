@@ -165,7 +165,8 @@ public class InvokeCommandRequest {
    * Get invocationName
    * @return invocationName
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getInvocationName() {
     return invocationName;
   }

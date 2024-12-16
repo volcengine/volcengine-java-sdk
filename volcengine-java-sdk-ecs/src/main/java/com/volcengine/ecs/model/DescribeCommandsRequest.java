@@ -36,6 +36,9 @@ public class DescribeCommandsRequest {
   @SerializedName("CommandId")
   private String commandId = null;
 
+  @SerializedName("ContentEncoding")
+  private String contentEncoding = null;
+
   @SerializedName("Name")
   private String name = null;
 
@@ -76,6 +79,24 @@ public class DescribeCommandsRequest {
 
   public void setCommandId(String commandId) {
     this.commandId = commandId;
+  }
+
+  public DescribeCommandsRequest contentEncoding(String contentEncoding) {
+    this.contentEncoding = contentEncoding;
+    return this;
+  }
+
+   /**
+   * Get contentEncoding
+   * @return contentEncoding
+  **/
+  @Schema(description = "")
+  public String getContentEncoding() {
+    return contentEncoding;
+  }
+
+  public void setContentEncoding(String contentEncoding) {
+    this.contentEncoding = contentEncoding;
   }
 
   public DescribeCommandsRequest name(String name) {
@@ -242,6 +263,7 @@ public class DescribeCommandsRequest {
     }
     DescribeCommandsRequest describeCommandsRequest = (DescribeCommandsRequest) o;
     return Objects.equals(this.commandId, describeCommandsRequest.commandId) &&
+        Objects.equals(this.contentEncoding, describeCommandsRequest.contentEncoding) &&
         Objects.equals(this.name, describeCommandsRequest.name) &&
         Objects.equals(this.order, describeCommandsRequest.order) &&
         Objects.equals(this.pageNumber, describeCommandsRequest.pageNumber) &&
@@ -254,7 +276,7 @@ public class DescribeCommandsRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(commandId, name, order, pageNumber, pageSize, projectName, provider, tagFilters, type);
+    return Objects.hash(commandId, contentEncoding, name, order, pageNumber, pageSize, projectName, provider, tagFilters, type);
   }
 
 
@@ -264,6 +286,7 @@ public class DescribeCommandsRequest {
     sb.append("class DescribeCommandsRequest {\n");
     
     sb.append("    commandId: ").append(toIndentedString(commandId)).append("\n");
+    sb.append("    contentEncoding: ").append(toIndentedString(contentEncoding)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    order: ").append(toIndentedString(order)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");

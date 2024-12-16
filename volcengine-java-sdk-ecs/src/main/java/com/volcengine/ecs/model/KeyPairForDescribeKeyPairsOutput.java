@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.ecs.model.TagForDescribeKeyPairsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -47,6 +50,9 @@ public class KeyPairForDescribeKeyPairsOutput {
 
   @SerializedName("ProjectName")
   private String projectName = null;
+
+  @SerializedName("Tags")
+  private List<TagForDescribeKeyPairsOutput> tags = null;
 
   @SerializedName("UpdatedAt")
   private String updatedAt = null;
@@ -159,6 +165,33 @@ public class KeyPairForDescribeKeyPairsOutput {
     this.projectName = projectName;
   }
 
+  public KeyPairForDescribeKeyPairsOutput tags(List<TagForDescribeKeyPairsOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public KeyPairForDescribeKeyPairsOutput addTagsItem(TagForDescribeKeyPairsOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForDescribeKeyPairsOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForDescribeKeyPairsOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForDescribeKeyPairsOutput> tags) {
+    this.tags = tags;
+  }
+
   public KeyPairForDescribeKeyPairsOutput updatedAt(String updatedAt) {
     this.updatedAt = updatedAt;
     return this;
@@ -193,12 +226,13 @@ public class KeyPairForDescribeKeyPairsOutput {
         Objects.equals(this.keyPairId, keyPairForDescribeKeyPairsOutput.keyPairId) &&
         Objects.equals(this.keyPairName, keyPairForDescribeKeyPairsOutput.keyPairName) &&
         Objects.equals(this.projectName, keyPairForDescribeKeyPairsOutput.projectName) &&
+        Objects.equals(this.tags, keyPairForDescribeKeyPairsOutput.tags) &&
         Objects.equals(this.updatedAt, keyPairForDescribeKeyPairsOutput.updatedAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, description, fingerPrint, keyPairId, keyPairName, projectName, updatedAt);
+    return Objects.hash(createdAt, description, fingerPrint, keyPairId, keyPairName, projectName, tags, updatedAt);
   }
 
 
@@ -213,6 +247,7 @@ public class KeyPairForDescribeKeyPairsOutput {
     sb.append("    keyPairId: ").append(toIndentedString(keyPairId)).append("\n");
     sb.append("    keyPairName: ").append(toIndentedString(keyPairName)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("}");
     return sb.toString();

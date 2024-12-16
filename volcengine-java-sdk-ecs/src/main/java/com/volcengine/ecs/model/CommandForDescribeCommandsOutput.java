@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.ecs.model.ParameterDefinitionForDescribeCommandsOutput;
+import com.volcengine.ecs.model.TagForDescribeCommandsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -57,8 +58,14 @@ public class CommandForDescribeCommandsOutput {
   @SerializedName("ParameterDefinitions")
   private List<ParameterDefinitionForDescribeCommandsOutput> parameterDefinitions = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("Provider")
   private String provider = null;
+
+  @SerializedName("Tags")
+  private List<TagForDescribeCommandsOutput> tags = null;
 
   @SerializedName("Timeout")
   private Integer timeout = null;
@@ -228,6 +235,24 @@ public class CommandForDescribeCommandsOutput {
     this.parameterDefinitions = parameterDefinitions;
   }
 
+  public CommandForDescribeCommandsOutput projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public CommandForDescribeCommandsOutput provider(String provider) {
     this.provider = provider;
     return this;
@@ -244,6 +269,33 @@ public class CommandForDescribeCommandsOutput {
 
   public void setProvider(String provider) {
     this.provider = provider;
+  }
+
+  public CommandForDescribeCommandsOutput tags(List<TagForDescribeCommandsOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public CommandForDescribeCommandsOutput addTagsItem(TagForDescribeCommandsOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForDescribeCommandsOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForDescribeCommandsOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForDescribeCommandsOutput> tags) {
+    this.tags = tags;
   }
 
   public CommandForDescribeCommandsOutput timeout(Integer timeout) {
@@ -354,7 +406,9 @@ public class CommandForDescribeCommandsOutput {
         Objects.equals(this.invocationTimes, commandForDescribeCommandsOutput.invocationTimes) &&
         Objects.equals(this.name, commandForDescribeCommandsOutput.name) &&
         Objects.equals(this.parameterDefinitions, commandForDescribeCommandsOutput.parameterDefinitions) &&
+        Objects.equals(this.projectName, commandForDescribeCommandsOutput.projectName) &&
         Objects.equals(this.provider, commandForDescribeCommandsOutput.provider) &&
+        Objects.equals(this.tags, commandForDescribeCommandsOutput.tags) &&
         Objects.equals(this.timeout, commandForDescribeCommandsOutput.timeout) &&
         Objects.equals(this.type, commandForDescribeCommandsOutput.type) &&
         Objects.equals(this.updatedAt, commandForDescribeCommandsOutput.updatedAt) &&
@@ -364,7 +418,7 @@ public class CommandForDescribeCommandsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(commandContent, commandId, createdAt, description, enableParameter, invocationTimes, name, parameterDefinitions, provider, timeout, type, updatedAt, username, workingDir);
+    return Objects.hash(commandContent, commandId, createdAt, description, enableParameter, invocationTimes, name, parameterDefinitions, projectName, provider, tags, timeout, type, updatedAt, username, workingDir);
   }
 
 
@@ -381,7 +435,9 @@ public class CommandForDescribeCommandsOutput {
     sb.append("    invocationTimes: ").append(toIndentedString(invocationTimes)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    parameterDefinitions: ").append(toIndentedString(parameterDefinitions)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    provider: ").append(toIndentedString(provider)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");

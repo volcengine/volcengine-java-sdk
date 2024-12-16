@@ -21,24 +21,22 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * TagFilterForDescribeInvocationsInput
+ * TagForCreateKeyPairInput
  */
 
 
 
-public class TagFilterForDescribeInvocationsInput {
+public class TagForCreateKeyPairInput {
   @SerializedName("Key")
   private String key = null;
 
-  @SerializedName("Values")
-  private List<String> values = null;
+  @SerializedName("Value")
+  private String value = null;
 
-  public TagFilterForDescribeInvocationsInput key(String key) {
+  public TagForCreateKeyPairInput key(String key) {
     this.key = key;
     return this;
   }
@@ -47,7 +45,8 @@ public class TagFilterForDescribeInvocationsInput {
    * Get key
    * @return key
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getKey() {
     return key;
   }
@@ -56,30 +55,22 @@ public class TagFilterForDescribeInvocationsInput {
     this.key = key;
   }
 
-  public TagFilterForDescribeInvocationsInput values(List<String> values) {
-    this.values = values;
-    return this;
-  }
-
-  public TagFilterForDescribeInvocationsInput addValuesItem(String valuesItem) {
-    if (this.values == null) {
-      this.values = new ArrayList<String>();
-    }
-    this.values.add(valuesItem);
+  public TagForCreateKeyPairInput value(String value) {
+    this.value = value;
     return this;
   }
 
    /**
-   * Get values
-   * @return values
+   * Get value
+   * @return value
   **/
   @Schema(description = "")
-  public List<String> getValues() {
-    return values;
+  public String getValue() {
+    return value;
   }
 
-  public void setValues(List<String> values) {
-    this.values = values;
+  public void setValue(String value) {
+    this.value = value;
   }
 
 
@@ -91,24 +82,24 @@ public class TagFilterForDescribeInvocationsInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TagFilterForDescribeInvocationsInput tagFilterForDescribeInvocationsInput = (TagFilterForDescribeInvocationsInput) o;
-    return Objects.equals(this.key, tagFilterForDescribeInvocationsInput.key) &&
-        Objects.equals(this.values, tagFilterForDescribeInvocationsInput.values);
+    TagForCreateKeyPairInput tagForCreateKeyPairInput = (TagForCreateKeyPairInput) o;
+    return Objects.equals(this.key, tagForCreateKeyPairInput.key) &&
+        Objects.equals(this.value, tagForCreateKeyPairInput.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(key, values);
+    return Objects.hash(key, value);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TagFilterForDescribeInvocationsInput {\n");
+    sb.append("class TagForCreateKeyPairInput {\n");
     
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
-    sb.append("    values: ").append(toIndentedString(values)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
   }
