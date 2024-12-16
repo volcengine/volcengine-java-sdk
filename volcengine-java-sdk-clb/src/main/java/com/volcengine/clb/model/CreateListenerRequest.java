@@ -46,8 +46,14 @@ public class CreateListenerRequest {
   @SerializedName("Bandwidth")
   private Integer bandwidth = null;
 
+  @SerializedName("CertCenterCertificateId")
+  private String certCenterCertificateId = null;
+
   @SerializedName("CertificateId")
   private String certificateId = null;
+
+  @SerializedName("CertificateSource")
+  private String certificateSource = null;
 
   @SerializedName("ClientBodyTimeout")
   private Integer clientBodyTimeout = null;
@@ -213,6 +219,24 @@ public class CreateListenerRequest {
     this.bandwidth = bandwidth;
   }
 
+  public CreateListenerRequest certCenterCertificateId(String certCenterCertificateId) {
+    this.certCenterCertificateId = certCenterCertificateId;
+    return this;
+  }
+
+   /**
+   * Get certCenterCertificateId
+   * @return certCenterCertificateId
+  **/
+  @Schema(description = "")
+  public String getCertCenterCertificateId() {
+    return certCenterCertificateId;
+  }
+
+  public void setCertCenterCertificateId(String certCenterCertificateId) {
+    this.certCenterCertificateId = certCenterCertificateId;
+  }
+
   public CreateListenerRequest certificateId(String certificateId) {
     this.certificateId = certificateId;
     return this;
@@ -229,6 +253,24 @@ public class CreateListenerRequest {
 
   public void setCertificateId(String certificateId) {
     this.certificateId = certificateId;
+  }
+
+  public CreateListenerRequest certificateSource(String certificateSource) {
+    this.certificateSource = certificateSource;
+    return this;
+  }
+
+   /**
+   * Get certificateSource
+   * @return certificateSource
+  **/
+  @Schema(description = "")
+  public String getCertificateSource() {
+    return certificateSource;
+  }
+
+  public void setCertificateSource(String certificateSource) {
+    this.certificateSource = certificateSource;
   }
 
   public CreateListenerRequest clientBodyTimeout(Integer clientBodyTimeout) {
@@ -763,7 +805,9 @@ public class CreateListenerRequest {
         Objects.equals(this.aclStatus, createListenerRequest.aclStatus) &&
         Objects.equals(this.aclType, createListenerRequest.aclType) &&
         Objects.equals(this.bandwidth, createListenerRequest.bandwidth) &&
+        Objects.equals(this.certCenterCertificateId, createListenerRequest.certCenterCertificateId) &&
         Objects.equals(this.certificateId, createListenerRequest.certificateId) &&
+        Objects.equals(this.certificateSource, createListenerRequest.certificateSource) &&
         Objects.equals(this.clientBodyTimeout, createListenerRequest.clientBodyTimeout) &&
         Objects.equals(this.clientHeaderTimeout, createListenerRequest.clientHeaderTimeout) &&
         Objects.equals(this.connectionDrainEnabled, createListenerRequest.connectionDrainEnabled) &&
@@ -796,7 +840,7 @@ public class CreateListenerRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclIds, aclStatus, aclType, bandwidth, certificateId, clientBodyTimeout, clientHeaderTimeout, connectionDrainEnabled, connectionDrainTimeout, cookie, description, enabled, endPort, establishedTimeout, healthCheck, http2Enabled, keepaliveTimeout, listenerName, loadBalancerId, persistenceTimeout, persistenceType, port, protocol, proxyConnectTimeout, proxyProtocolType, proxyReadTimeout, proxySendTimeout, scheduler, securityPolicyId, sendTimeout, serverGroupId, startPort, tags);
+    return Objects.hash(aclIds, aclStatus, aclType, bandwidth, certCenterCertificateId, certificateId, certificateSource, clientBodyTimeout, clientHeaderTimeout, connectionDrainEnabled, connectionDrainTimeout, cookie, description, enabled, endPort, establishedTimeout, healthCheck, http2Enabled, keepaliveTimeout, listenerName, loadBalancerId, persistenceTimeout, persistenceType, port, protocol, proxyConnectTimeout, proxyProtocolType, proxyReadTimeout, proxySendTimeout, scheduler, securityPolicyId, sendTimeout, serverGroupId, startPort, tags);
   }
 
 
@@ -809,7 +853,9 @@ public class CreateListenerRequest {
     sb.append("    aclStatus: ").append(toIndentedString(aclStatus)).append("\n");
     sb.append("    aclType: ").append(toIndentedString(aclType)).append("\n");
     sb.append("    bandwidth: ").append(toIndentedString(bandwidth)).append("\n");
+    sb.append("    certCenterCertificateId: ").append(toIndentedString(certCenterCertificateId)).append("\n");
     sb.append("    certificateId: ").append(toIndentedString(certificateId)).append("\n");
+    sb.append("    certificateSource: ").append(toIndentedString(certificateSource)).append("\n");
     sb.append("    clientBodyTimeout: ").append(toIndentedString(clientBodyTimeout)).append("\n");
     sb.append("    clientHeaderTimeout: ").append(toIndentedString(clientHeaderTimeout)).append("\n");
     sb.append("    connectionDrainEnabled: ").append(toIndentedString(connectionDrainEnabled)).append("\n");

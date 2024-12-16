@@ -46,8 +46,14 @@ public class ListenerForDescribeListenersOutput {
   @SerializedName("Bandwidth")
   private Integer bandwidth = null;
 
+  @SerializedName("CertCenterCertificateId")
+  private String certCenterCertificateId = null;
+
   @SerializedName("CertificateId")
   private String certificateId = null;
+
+  @SerializedName("CertificateSource")
+  private String certificateSource = null;
 
   @SerializedName("ClientBodyTimeout")
   private Integer clientBodyTimeout = null;
@@ -114,6 +120,9 @@ public class ListenerForDescribeListenersOutput {
 
   @SerializedName("ProxySendTimeout")
   private Integer proxySendTimeout = null;
+
+  @SerializedName("ResponseCheckEnabled")
+  private String responseCheckEnabled = null;
 
   @SerializedName("Scheduler")
   private String scheduler = null;
@@ -219,6 +228,24 @@ public class ListenerForDescribeListenersOutput {
     this.bandwidth = bandwidth;
   }
 
+  public ListenerForDescribeListenersOutput certCenterCertificateId(String certCenterCertificateId) {
+    this.certCenterCertificateId = certCenterCertificateId;
+    return this;
+  }
+
+   /**
+   * Get certCenterCertificateId
+   * @return certCenterCertificateId
+  **/
+  @Schema(description = "")
+  public String getCertCenterCertificateId() {
+    return certCenterCertificateId;
+  }
+
+  public void setCertCenterCertificateId(String certCenterCertificateId) {
+    this.certCenterCertificateId = certCenterCertificateId;
+  }
+
   public ListenerForDescribeListenersOutput certificateId(String certificateId) {
     this.certificateId = certificateId;
     return this;
@@ -235,6 +262,24 @@ public class ListenerForDescribeListenersOutput {
 
   public void setCertificateId(String certificateId) {
     this.certificateId = certificateId;
+  }
+
+  public ListenerForDescribeListenersOutput certificateSource(String certificateSource) {
+    this.certificateSource = certificateSource;
+    return this;
+  }
+
+   /**
+   * Get certificateSource
+   * @return certificateSource
+  **/
+  @Schema(description = "")
+  public String getCertificateSource() {
+    return certificateSource;
+  }
+
+  public void setCertificateSource(String certificateSource) {
+    this.certificateSource = certificateSource;
   }
 
   public ListenerForDescribeListenersOutput clientBodyTimeout(Integer clientBodyTimeout) {
@@ -634,6 +679,24 @@ public class ListenerForDescribeListenersOutput {
     this.proxySendTimeout = proxySendTimeout;
   }
 
+  public ListenerForDescribeListenersOutput responseCheckEnabled(String responseCheckEnabled) {
+    this.responseCheckEnabled = responseCheckEnabled;
+    return this;
+  }
+
+   /**
+   * Get responseCheckEnabled
+   * @return responseCheckEnabled
+  **/
+  @Schema(description = "")
+  public String getResponseCheckEnabled() {
+    return responseCheckEnabled;
+  }
+
+  public void setResponseCheckEnabled(String responseCheckEnabled) {
+    this.responseCheckEnabled = responseCheckEnabled;
+  }
+
   public ListenerForDescribeListenersOutput scheduler(String scheduler) {
     this.scheduler = scheduler;
     return this;
@@ -801,7 +864,9 @@ public class ListenerForDescribeListenersOutput {
         Objects.equals(this.aclStatus, listenerForDescribeListenersOutput.aclStatus) &&
         Objects.equals(this.aclType, listenerForDescribeListenersOutput.aclType) &&
         Objects.equals(this.bandwidth, listenerForDescribeListenersOutput.bandwidth) &&
+        Objects.equals(this.certCenterCertificateId, listenerForDescribeListenersOutput.certCenterCertificateId) &&
         Objects.equals(this.certificateId, listenerForDescribeListenersOutput.certificateId) &&
+        Objects.equals(this.certificateSource, listenerForDescribeListenersOutput.certificateSource) &&
         Objects.equals(this.clientBodyTimeout, listenerForDescribeListenersOutput.clientBodyTimeout) &&
         Objects.equals(this.clientHeaderTimeout, listenerForDescribeListenersOutput.clientHeaderTimeout) &&
         Objects.equals(this.connectionDrainEnabled, listenerForDescribeListenersOutput.connectionDrainEnabled) &&
@@ -824,6 +889,7 @@ public class ListenerForDescribeListenersOutput {
         Objects.equals(this.proxyProtocolType, listenerForDescribeListenersOutput.proxyProtocolType) &&
         Objects.equals(this.proxyReadTimeout, listenerForDescribeListenersOutput.proxyReadTimeout) &&
         Objects.equals(this.proxySendTimeout, listenerForDescribeListenersOutput.proxySendTimeout) &&
+        Objects.equals(this.responseCheckEnabled, listenerForDescribeListenersOutput.responseCheckEnabled) &&
         Objects.equals(this.scheduler, listenerForDescribeListenersOutput.scheduler) &&
         Objects.equals(this.securityPolicyId, listenerForDescribeListenersOutput.securityPolicyId) &&
         Objects.equals(this.sendTimeout, listenerForDescribeListenersOutput.sendTimeout) &&
@@ -836,7 +902,7 @@ public class ListenerForDescribeListenersOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclIds, aclStatus, aclType, bandwidth, certificateId, clientBodyTimeout, clientHeaderTimeout, connectionDrainEnabled, connectionDrainTimeout, cookie, createTime, description, enabled, endPort, healthCheck, http2Enabled, keepaliveTimeout, listenerId, listenerName, persistenceTimeout, persistenceType, port, protocol, proxyConnectTimeout, proxyProtocolType, proxyReadTimeout, proxySendTimeout, scheduler, securityPolicyId, sendTimeout, serverGroupId, startPort, status, tags, updateTime);
+    return Objects.hash(aclIds, aclStatus, aclType, bandwidth, certCenterCertificateId, certificateId, certificateSource, clientBodyTimeout, clientHeaderTimeout, connectionDrainEnabled, connectionDrainTimeout, cookie, createTime, description, enabled, endPort, healthCheck, http2Enabled, keepaliveTimeout, listenerId, listenerName, persistenceTimeout, persistenceType, port, protocol, proxyConnectTimeout, proxyProtocolType, proxyReadTimeout, proxySendTimeout, responseCheckEnabled, scheduler, securityPolicyId, sendTimeout, serverGroupId, startPort, status, tags, updateTime);
   }
 
 
@@ -849,7 +915,9 @@ public class ListenerForDescribeListenersOutput {
     sb.append("    aclStatus: ").append(toIndentedString(aclStatus)).append("\n");
     sb.append("    aclType: ").append(toIndentedString(aclType)).append("\n");
     sb.append("    bandwidth: ").append(toIndentedString(bandwidth)).append("\n");
+    sb.append("    certCenterCertificateId: ").append(toIndentedString(certCenterCertificateId)).append("\n");
     sb.append("    certificateId: ").append(toIndentedString(certificateId)).append("\n");
+    sb.append("    certificateSource: ").append(toIndentedString(certificateSource)).append("\n");
     sb.append("    clientBodyTimeout: ").append(toIndentedString(clientBodyTimeout)).append("\n");
     sb.append("    clientHeaderTimeout: ").append(toIndentedString(clientHeaderTimeout)).append("\n");
     sb.append("    connectionDrainEnabled: ").append(toIndentedString(connectionDrainEnabled)).append("\n");
@@ -872,6 +940,7 @@ public class ListenerForDescribeListenersOutput {
     sb.append("    proxyProtocolType: ").append(toIndentedString(proxyProtocolType)).append("\n");
     sb.append("    proxyReadTimeout: ").append(toIndentedString(proxyReadTimeout)).append("\n");
     sb.append("    proxySendTimeout: ").append(toIndentedString(proxySendTimeout)).append("\n");
+    sb.append("    responseCheckEnabled: ").append(toIndentedString(responseCheckEnabled)).append("\n");
     sb.append("    scheduler: ").append(toIndentedString(scheduler)).append("\n");
     sb.append("    securityPolicyId: ").append(toIndentedString(securityPolicyId)).append("\n");
     sb.append("    sendTimeout: ").append(toIndentedString(sendTimeout)).append("\n");
