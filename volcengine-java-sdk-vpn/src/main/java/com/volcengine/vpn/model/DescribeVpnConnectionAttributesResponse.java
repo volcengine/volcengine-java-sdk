@@ -19,8 +19,10 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vpn.model.BgpInfoForDescribeVpnConnectionAttributesOutput;
 import com.volcengine.vpn.model.IkeConfigForDescribeVpnConnectionAttributesOutput;
 import com.volcengine.vpn.model.IpsecConfigForDescribeVpnConnectionAttributesOutput;
+import com.volcengine.vpn.model.TagForDescribeVpnConnectionAttributesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -42,6 +44,9 @@ public class DescribeVpnConnectionAttributesResponse extends com.volcengine.mode
 
   @SerializedName("AttachType")
   private String attachType = null;
+
+  @SerializedName("BgpInfo")
+  private BgpInfoForDescribeVpnConnectionAttributesOutput bgpInfo = null;
 
   @SerializedName("BusinessStatus")
   private String businessStatus = null;
@@ -100,8 +105,17 @@ public class DescribeVpnConnectionAttributesResponse extends com.volcengine.mode
   @SerializedName("RequestId")
   private String requestId = null;
 
+  @SerializedName("Spec")
+  private String spec = null;
+
   @SerializedName("Status")
   private String status = null;
+
+  @SerializedName("Tags")
+  private List<TagForDescribeVpnConnectionAttributesOutput> tags = null;
+
+  @SerializedName("TransitRouterId")
+  private String transitRouterId = null;
 
   @SerializedName("UpdateTime")
   private String updateTime = null;
@@ -114,6 +128,9 @@ public class DescribeVpnConnectionAttributesResponse extends com.volcengine.mode
 
   @SerializedName("VpnGatewayId")
   private String vpnGatewayId = null;
+
+  @SerializedName("ZoneId")
+  private String zoneId = null;
 
   public DescribeVpnConnectionAttributesResponse accountId(String accountId) {
     this.accountId = accountId;
@@ -167,6 +184,25 @@ public class DescribeVpnConnectionAttributesResponse extends com.volcengine.mode
 
   public void setAttachType(String attachType) {
     this.attachType = attachType;
+  }
+
+  public DescribeVpnConnectionAttributesResponse bgpInfo(BgpInfoForDescribeVpnConnectionAttributesOutput bgpInfo) {
+    this.bgpInfo = bgpInfo;
+    return this;
+  }
+
+   /**
+   * Get bgpInfo
+   * @return bgpInfo
+  **/
+  @Valid
+  @Schema(description = "")
+  public BgpInfoForDescribeVpnConnectionAttributesOutput getBgpInfo() {
+    return bgpInfo;
+  }
+
+  public void setBgpInfo(BgpInfoForDescribeVpnConnectionAttributesOutput bgpInfo) {
+    this.bgpInfo = bgpInfo;
   }
 
   public DescribeVpnConnectionAttributesResponse businessStatus(String businessStatus) {
@@ -529,6 +565,24 @@ public class DescribeVpnConnectionAttributesResponse extends com.volcengine.mode
     this.requestId = requestId;
   }
 
+  public DescribeVpnConnectionAttributesResponse spec(String spec) {
+    this.spec = spec;
+    return this;
+  }
+
+   /**
+   * Get spec
+   * @return spec
+  **/
+  @Schema(description = "")
+  public String getSpec() {
+    return spec;
+  }
+
+  public void setSpec(String spec) {
+    this.spec = spec;
+  }
+
   public DescribeVpnConnectionAttributesResponse status(String status) {
     this.status = status;
     return this;
@@ -545,6 +599,51 @@ public class DescribeVpnConnectionAttributesResponse extends com.volcengine.mode
 
   public void setStatus(String status) {
     this.status = status;
+  }
+
+  public DescribeVpnConnectionAttributesResponse tags(List<TagForDescribeVpnConnectionAttributesOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public DescribeVpnConnectionAttributesResponse addTagsItem(TagForDescribeVpnConnectionAttributesOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForDescribeVpnConnectionAttributesOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForDescribeVpnConnectionAttributesOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForDescribeVpnConnectionAttributesOutput> tags) {
+    this.tags = tags;
+  }
+
+  public DescribeVpnConnectionAttributesResponse transitRouterId(String transitRouterId) {
+    this.transitRouterId = transitRouterId;
+    return this;
+  }
+
+   /**
+   * Get transitRouterId
+   * @return transitRouterId
+  **/
+  @Schema(description = "")
+  public String getTransitRouterId() {
+    return transitRouterId;
+  }
+
+  public void setTransitRouterId(String transitRouterId) {
+    this.transitRouterId = transitRouterId;
   }
 
   public DescribeVpnConnectionAttributesResponse updateTime(String updateTime) {
@@ -619,6 +718,24 @@ public class DescribeVpnConnectionAttributesResponse extends com.volcengine.mode
     this.vpnGatewayId = vpnGatewayId;
   }
 
+  public DescribeVpnConnectionAttributesResponse zoneId(String zoneId) {
+    this.zoneId = zoneId;
+    return this;
+  }
+
+   /**
+   * Get zoneId
+   * @return zoneId
+  **/
+  @Schema(description = "")
+  public String getZoneId() {
+    return zoneId;
+  }
+
+  public void setZoneId(String zoneId) {
+    this.zoneId = zoneId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -632,6 +749,7 @@ public class DescribeVpnConnectionAttributesResponse extends com.volcengine.mode
     return Objects.equals(this.accountId, describeVpnConnectionAttributesResponse.accountId) &&
         Objects.equals(this.attachStatus, describeVpnConnectionAttributesResponse.attachStatus) &&
         Objects.equals(this.attachType, describeVpnConnectionAttributesResponse.attachType) &&
+        Objects.equals(this.bgpInfo, describeVpnConnectionAttributesResponse.bgpInfo) &&
         Objects.equals(this.businessStatus, describeVpnConnectionAttributesResponse.businessStatus) &&
         Objects.equals(this.connectStatus, describeVpnConnectionAttributesResponse.connectStatus) &&
         Objects.equals(this.creationTime, describeVpnConnectionAttributesResponse.creationTime) &&
@@ -651,16 +769,20 @@ public class DescribeVpnConnectionAttributesResponse extends com.volcengine.mode
         Objects.equals(this.projectName, describeVpnConnectionAttributesResponse.projectName) &&
         Objects.equals(this.remoteSubnet, describeVpnConnectionAttributesResponse.remoteSubnet) &&
         Objects.equals(this.requestId, describeVpnConnectionAttributesResponse.requestId) &&
+        Objects.equals(this.spec, describeVpnConnectionAttributesResponse.spec) &&
         Objects.equals(this.status, describeVpnConnectionAttributesResponse.status) &&
+        Objects.equals(this.tags, describeVpnConnectionAttributesResponse.tags) &&
+        Objects.equals(this.transitRouterId, describeVpnConnectionAttributesResponse.transitRouterId) &&
         Objects.equals(this.updateTime, describeVpnConnectionAttributesResponse.updateTime) &&
         Objects.equals(this.vpnConnectionId, describeVpnConnectionAttributesResponse.vpnConnectionId) &&
         Objects.equals(this.vpnConnectionName, describeVpnConnectionAttributesResponse.vpnConnectionName) &&
-        Objects.equals(this.vpnGatewayId, describeVpnConnectionAttributesResponse.vpnGatewayId);
+        Objects.equals(this.vpnGatewayId, describeVpnConnectionAttributesResponse.vpnGatewayId) &&
+        Objects.equals(this.zoneId, describeVpnConnectionAttributesResponse.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, attachStatus, attachType, businessStatus, connectStatus, creationTime, customerGatewayId, deletedTime, description, dpdAction, ikeConfig, ipAddress, ipsecConfig, isBlocked, localSubnet, logEnabled, natTraversal, negotiateInstantly, overdueTime, projectName, remoteSubnet, requestId, status, updateTime, vpnConnectionId, vpnConnectionName, vpnGatewayId);
+    return Objects.hash(accountId, attachStatus, attachType, bgpInfo, businessStatus, connectStatus, creationTime, customerGatewayId, deletedTime, description, dpdAction, ikeConfig, ipAddress, ipsecConfig, isBlocked, localSubnet, logEnabled, natTraversal, negotiateInstantly, overdueTime, projectName, remoteSubnet, requestId, spec, status, tags, transitRouterId, updateTime, vpnConnectionId, vpnConnectionName, vpnGatewayId, zoneId);
   }
 
 
@@ -672,6 +794,7 @@ public class DescribeVpnConnectionAttributesResponse extends com.volcengine.mode
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    attachStatus: ").append(toIndentedString(attachStatus)).append("\n");
     sb.append("    attachType: ").append(toIndentedString(attachType)).append("\n");
+    sb.append("    bgpInfo: ").append(toIndentedString(bgpInfo)).append("\n");
     sb.append("    businessStatus: ").append(toIndentedString(businessStatus)).append("\n");
     sb.append("    connectStatus: ").append(toIndentedString(connectStatus)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
@@ -691,11 +814,15 @@ public class DescribeVpnConnectionAttributesResponse extends com.volcengine.mode
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    remoteSubnet: ").append(toIndentedString(remoteSubnet)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
+    sb.append("    spec: ").append(toIndentedString(spec)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    transitRouterId: ").append(toIndentedString(transitRouterId)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    vpnConnectionId: ").append(toIndentedString(vpnConnectionId)).append("\n");
     sb.append("    vpnConnectionName: ").append(toIndentedString(vpnConnectionName)).append("\n");
     sb.append("    vpnGatewayId: ").append(toIndentedString(vpnGatewayId)).append("\n");
+    sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -36,6 +36,9 @@ public class DeleteVpnConnectionHealthCheckerRequest {
   @SerializedName("ClientToken")
   private String clientToken = null;
 
+  @SerializedName("VpnConnectionId")
+  private String vpnConnectionId = null;
+
   public DeleteVpnConnectionHealthCheckerRequest checkerId(String checkerId) {
     this.checkerId = checkerId;
     return this;
@@ -73,6 +76,25 @@ public class DeleteVpnConnectionHealthCheckerRequest {
     this.clientToken = clientToken;
   }
 
+  public DeleteVpnConnectionHealthCheckerRequest vpnConnectionId(String vpnConnectionId) {
+    this.vpnConnectionId = vpnConnectionId;
+    return this;
+  }
+
+   /**
+   * Get vpnConnectionId
+   * @return vpnConnectionId
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getVpnConnectionId() {
+    return vpnConnectionId;
+  }
+
+  public void setVpnConnectionId(String vpnConnectionId) {
+    this.vpnConnectionId = vpnConnectionId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -84,12 +106,13 @@ public class DeleteVpnConnectionHealthCheckerRequest {
     }
     DeleteVpnConnectionHealthCheckerRequest deleteVpnConnectionHealthCheckerRequest = (DeleteVpnConnectionHealthCheckerRequest) o;
     return Objects.equals(this.checkerId, deleteVpnConnectionHealthCheckerRequest.checkerId) &&
-        Objects.equals(this.clientToken, deleteVpnConnectionHealthCheckerRequest.clientToken);
+        Objects.equals(this.clientToken, deleteVpnConnectionHealthCheckerRequest.clientToken) &&
+        Objects.equals(this.vpnConnectionId, deleteVpnConnectionHealthCheckerRequest.vpnConnectionId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(checkerId, clientToken);
+    return Objects.hash(checkerId, clientToken, vpnConnectionId);
   }
 
 
@@ -100,6 +123,7 @@ public class DeleteVpnConnectionHealthCheckerRequest {
     
     sb.append("    checkerId: ").append(toIndentedString(checkerId)).append("\n");
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
+    sb.append("    vpnConnectionId: ").append(toIndentedString(vpnConnectionId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

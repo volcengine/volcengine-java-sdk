@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vpn.model.BgpConfigForModifyVpnConnectionAttributesInput;
 import com.volcengine.vpn.model.IkeConfigForModifyVpnConnectionAttributesInput;
 import com.volcengine.vpn.model.IpsecConfigForModifyVpnConnectionAttributesInput;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -34,6 +35,12 @@ import javax.validation.Valid;
 
 
 public class ModifyVpnConnectionAttributesRequest {
+  @SerializedName("BgpConfig")
+  private BgpConfigForModifyVpnConnectionAttributesInput bgpConfig = null;
+
+  @SerializedName("CustomerGatewayId")
+  private String customerGatewayId = null;
+
   @SerializedName("Description")
   private String description = null;
 
@@ -66,6 +73,43 @@ public class ModifyVpnConnectionAttributesRequest {
 
   @SerializedName("VpnConnectionName")
   private String vpnConnectionName = null;
+
+  public ModifyVpnConnectionAttributesRequest bgpConfig(BgpConfigForModifyVpnConnectionAttributesInput bgpConfig) {
+    this.bgpConfig = bgpConfig;
+    return this;
+  }
+
+   /**
+   * Get bgpConfig
+   * @return bgpConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public BgpConfigForModifyVpnConnectionAttributesInput getBgpConfig() {
+    return bgpConfig;
+  }
+
+  public void setBgpConfig(BgpConfigForModifyVpnConnectionAttributesInput bgpConfig) {
+    this.bgpConfig = bgpConfig;
+  }
+
+  public ModifyVpnConnectionAttributesRequest customerGatewayId(String customerGatewayId) {
+    this.customerGatewayId = customerGatewayId;
+    return this;
+  }
+
+   /**
+   * Get customerGatewayId
+   * @return customerGatewayId
+  **/
+  @Schema(description = "")
+  public String getCustomerGatewayId() {
+    return customerGatewayId;
+  }
+
+  public void setCustomerGatewayId(String customerGatewayId) {
+    this.customerGatewayId = customerGatewayId;
+  }
 
   public ModifyVpnConnectionAttributesRequest description(String description) {
     this.description = description;
@@ -294,7 +338,9 @@ public class ModifyVpnConnectionAttributesRequest {
       return false;
     }
     ModifyVpnConnectionAttributesRequest modifyVpnConnectionAttributesRequest = (ModifyVpnConnectionAttributesRequest) o;
-    return Objects.equals(this.description, modifyVpnConnectionAttributesRequest.description) &&
+    return Objects.equals(this.bgpConfig, modifyVpnConnectionAttributesRequest.bgpConfig) &&
+        Objects.equals(this.customerGatewayId, modifyVpnConnectionAttributesRequest.customerGatewayId) &&
+        Objects.equals(this.description, modifyVpnConnectionAttributesRequest.description) &&
         Objects.equals(this.dpdAction, modifyVpnConnectionAttributesRequest.dpdAction) &&
         Objects.equals(this.ikeConfig, modifyVpnConnectionAttributesRequest.ikeConfig) &&
         Objects.equals(this.ipsecConfig, modifyVpnConnectionAttributesRequest.ipsecConfig) &&
@@ -309,7 +355,7 @@ public class ModifyVpnConnectionAttributesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, dpdAction, ikeConfig, ipsecConfig, localSubnet, logEnabled, natTraversal, negotiateInstantly, remoteSubnet, vpnConnectionId, vpnConnectionName);
+    return Objects.hash(bgpConfig, customerGatewayId, description, dpdAction, ikeConfig, ipsecConfig, localSubnet, logEnabled, natTraversal, negotiateInstantly, remoteSubnet, vpnConnectionId, vpnConnectionName);
   }
 
 
@@ -318,6 +364,8 @@ public class ModifyVpnConnectionAttributesRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ModifyVpnConnectionAttributesRequest {\n");
     
+    sb.append("    bgpConfig: ").append(toIndentedString(bgpConfig)).append("\n");
+    sb.append("    customerGatewayId: ").append(toIndentedString(customerGatewayId)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    dpdAction: ").append(toIndentedString(dpdAction)).append("\n");
     sb.append("    ikeConfig: ").append(toIndentedString(ikeConfig)).append("\n");

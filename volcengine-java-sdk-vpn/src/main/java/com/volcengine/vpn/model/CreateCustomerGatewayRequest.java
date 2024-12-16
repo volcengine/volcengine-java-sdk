@@ -30,6 +30,9 @@ import javax.validation.Valid;
 
 
 public class CreateCustomerGatewayRequest {
+  @SerializedName("Asn")
+  private Integer asn = null;
+
   @SerializedName("ClientToken")
   private String clientToken = null;
 
@@ -44,6 +47,24 @@ public class CreateCustomerGatewayRequest {
 
   @SerializedName("ProjectName")
   private String projectName = null;
+
+  public CreateCustomerGatewayRequest asn(Integer asn) {
+    this.asn = asn;
+    return this;
+  }
+
+   /**
+   * Get asn
+   * @return asn
+  **/
+  @Schema(description = "")
+  public Integer getAsn() {
+    return asn;
+  }
+
+  public void setAsn(Integer asn) {
+    this.asn = asn;
+  }
 
   public CreateCustomerGatewayRequest clientToken(String clientToken) {
     this.clientToken = clientToken;
@@ -146,7 +167,8 @@ public class CreateCustomerGatewayRequest {
       return false;
     }
     CreateCustomerGatewayRequest createCustomerGatewayRequest = (CreateCustomerGatewayRequest) o;
-    return Objects.equals(this.clientToken, createCustomerGatewayRequest.clientToken) &&
+    return Objects.equals(this.asn, createCustomerGatewayRequest.asn) &&
+        Objects.equals(this.clientToken, createCustomerGatewayRequest.clientToken) &&
         Objects.equals(this.customerGatewayName, createCustomerGatewayRequest.customerGatewayName) &&
         Objects.equals(this.description, createCustomerGatewayRequest.description) &&
         Objects.equals(this.ipAddress, createCustomerGatewayRequest.ipAddress) &&
@@ -155,7 +177,7 @@ public class CreateCustomerGatewayRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, customerGatewayName, description, ipAddress, projectName);
+    return Objects.hash(asn, clientToken, customerGatewayName, description, ipAddress, projectName);
   }
 
 
@@ -164,6 +186,7 @@ public class CreateCustomerGatewayRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateCustomerGatewayRequest {\n");
     
+    sb.append("    asn: ").append(toIndentedString(asn)).append("\n");
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    customerGatewayName: ").append(toIndentedString(customerGatewayName)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");

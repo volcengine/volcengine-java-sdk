@@ -48,6 +48,9 @@ public class SslVpnClientCertForDescribeSslVpnClientCertsOutput {
   @SerializedName("SslVpnClientCertName")
   private String sslVpnClientCertName = null;
 
+  @SerializedName("SslVpnServerId")
+  private String sslVpnServerId = null;
+
   @SerializedName("Status")
   private String status = null;
 
@@ -162,6 +165,24 @@ public class SslVpnClientCertForDescribeSslVpnClientCertsOutput {
     this.sslVpnClientCertName = sslVpnClientCertName;
   }
 
+  public SslVpnClientCertForDescribeSslVpnClientCertsOutput sslVpnServerId(String sslVpnServerId) {
+    this.sslVpnServerId = sslVpnServerId;
+    return this;
+  }
+
+   /**
+   * Get sslVpnServerId
+   * @return sslVpnServerId
+  **/
+  @Schema(description = "")
+  public String getSslVpnServerId() {
+    return sslVpnServerId;
+  }
+
+  public void setSslVpnServerId(String sslVpnServerId) {
+    this.sslVpnServerId = sslVpnServerId;
+  }
+
   public SslVpnClientCertForDescribeSslVpnClientCertsOutput status(String status) {
     this.status = status;
     return this;
@@ -214,13 +235,14 @@ public class SslVpnClientCertForDescribeSslVpnClientCertsOutput {
         Objects.equals(this.expiredTime, sslVpnClientCertForDescribeSslVpnClientCertsOutput.expiredTime) &&
         Objects.equals(this.sslVpnClientCertId, sslVpnClientCertForDescribeSslVpnClientCertsOutput.sslVpnClientCertId) &&
         Objects.equals(this.sslVpnClientCertName, sslVpnClientCertForDescribeSslVpnClientCertsOutput.sslVpnClientCertName) &&
+        Objects.equals(this.sslVpnServerId, sslVpnClientCertForDescribeSslVpnClientCertsOutput.sslVpnServerId) &&
         Objects.equals(this.status, sslVpnClientCertForDescribeSslVpnClientCertsOutput.status) &&
         Objects.equals(this.updateTime, sslVpnClientCertForDescribeSslVpnClientCertsOutput.updateTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(certificateStatus, creationTime, description, expiredTime, sslVpnClientCertId, sslVpnClientCertName, status, updateTime);
+    return Objects.hash(certificateStatus, creationTime, description, expiredTime, sslVpnClientCertId, sslVpnClientCertName, sslVpnServerId, status, updateTime);
   }
 
 
@@ -235,6 +257,7 @@ public class SslVpnClientCertForDescribeSslVpnClientCertsOutput {
     sb.append("    expiredTime: ").append(toIndentedString(expiredTime)).append("\n");
     sb.append("    sslVpnClientCertId: ").append(toIndentedString(sslVpnClientCertId)).append("\n");
     sb.append("    sslVpnClientCertName: ").append(toIndentedString(sslVpnClientCertName)).append("\n");
+    sb.append("    sslVpnServerId: ").append(toIndentedString(sslVpnServerId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("}");

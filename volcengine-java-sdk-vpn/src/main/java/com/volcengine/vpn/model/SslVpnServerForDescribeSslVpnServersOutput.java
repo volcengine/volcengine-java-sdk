@@ -51,13 +51,16 @@ public class SslVpnServerForDescribeSslVpnServersOutput {
   private String description = null;
 
   @SerializedName("IsBlocked")
-  private String isBlocked = null;
+  private Boolean isBlocked = null;
 
   @SerializedName("LocalSubnets")
   private List<String> localSubnets = null;
 
   @SerializedName("Port")
   private Integer port = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
 
   @SerializedName("Protocol")
   private String protocol = null;
@@ -185,7 +188,7 @@ public class SslVpnServerForDescribeSslVpnServersOutput {
     this.description = description;
   }
 
-  public SslVpnServerForDescribeSslVpnServersOutput isBlocked(String isBlocked) {
+  public SslVpnServerForDescribeSslVpnServersOutput isBlocked(Boolean isBlocked) {
     this.isBlocked = isBlocked;
     return this;
   }
@@ -195,11 +198,11 @@ public class SslVpnServerForDescribeSslVpnServersOutput {
    * @return isBlocked
   **/
   @Schema(description = "")
-  public String getIsBlocked() {
+  public Boolean isIsBlocked() {
     return isBlocked;
   }
 
-  public void setIsBlocked(String isBlocked) {
+  public void setIsBlocked(Boolean isBlocked) {
     this.isBlocked = isBlocked;
   }
 
@@ -245,6 +248,24 @@ public class SslVpnServerForDescribeSslVpnServersOutput {
 
   public void setPort(Integer port) {
     this.port = port;
+  }
+
+  public SslVpnServerForDescribeSslVpnServersOutput projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
   }
 
   public SslVpnServerForDescribeSslVpnServersOutput protocol(String protocol) {
@@ -374,6 +395,7 @@ public class SslVpnServerForDescribeSslVpnServersOutput {
         Objects.equals(this.isBlocked, sslVpnServerForDescribeSslVpnServersOutput.isBlocked) &&
         Objects.equals(this.localSubnets, sslVpnServerForDescribeSslVpnServersOutput.localSubnets) &&
         Objects.equals(this.port, sslVpnServerForDescribeSslVpnServersOutput.port) &&
+        Objects.equals(this.projectName, sslVpnServerForDescribeSslVpnServersOutput.projectName) &&
         Objects.equals(this.protocol, sslVpnServerForDescribeSslVpnServersOutput.protocol) &&
         Objects.equals(this.sslVpnServerId, sslVpnServerForDescribeSslVpnServersOutput.sslVpnServerId) &&
         Objects.equals(this.sslVpnServerName, sslVpnServerForDescribeSslVpnServersOutput.sslVpnServerName) &&
@@ -384,7 +406,7 @@ public class SslVpnServerForDescribeSslVpnServersOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(auth, cipher, clientIpPool, compress, creationTime, description, isBlocked, localSubnets, port, protocol, sslVpnServerId, sslVpnServerName, status, updateTime, vpnGatewayId);
+    return Objects.hash(auth, cipher, clientIpPool, compress, creationTime, description, isBlocked, localSubnets, port, projectName, protocol, sslVpnServerId, sslVpnServerName, status, updateTime, vpnGatewayId);
   }
 
 
@@ -402,6 +424,7 @@ public class SslVpnServerForDescribeSslVpnServersOutput {
     sb.append("    isBlocked: ").append(toIndentedString(isBlocked)).append("\n");
     sb.append("    localSubnets: ").append(toIndentedString(localSubnets)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
     sb.append("    sslVpnServerId: ").append(toIndentedString(sslVpnServerId)).append("\n");
     sb.append("    sslVpnServerName: ").append(toIndentedString(sslVpnServerName)).append("\n");

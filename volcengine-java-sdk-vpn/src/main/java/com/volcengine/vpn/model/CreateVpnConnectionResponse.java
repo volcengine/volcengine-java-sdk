@@ -30,11 +30,32 @@ import javax.validation.Valid;
 
 
 public class CreateVpnConnectionResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("OrderId")
+  private String orderId = null;
+
   @SerializedName("RequestId")
   private String requestId = null;
 
   @SerializedName("VpnConnectionId")
   private String vpnConnectionId = null;
+
+  public CreateVpnConnectionResponse orderId(String orderId) {
+    this.orderId = orderId;
+    return this;
+  }
+
+   /**
+   * Get orderId
+   * @return orderId
+  **/
+  @Schema(description = "")
+  public String getOrderId() {
+    return orderId;
+  }
+
+  public void setOrderId(String orderId) {
+    this.orderId = orderId;
+  }
 
   public CreateVpnConnectionResponse requestId(String requestId) {
     this.requestId = requestId;
@@ -82,13 +103,14 @@ public class CreateVpnConnectionResponse extends com.volcengine.model.AbstractRe
       return false;
     }
     CreateVpnConnectionResponse createVpnConnectionResponse = (CreateVpnConnectionResponse) o;
-    return Objects.equals(this.requestId, createVpnConnectionResponse.requestId) &&
+    return Objects.equals(this.orderId, createVpnConnectionResponse.orderId) &&
+        Objects.equals(this.requestId, createVpnConnectionResponse.requestId) &&
         Objects.equals(this.vpnConnectionId, createVpnConnectionResponse.vpnConnectionId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestId, vpnConnectionId);
+    return Objects.hash(orderId, requestId, vpnConnectionId);
   }
 
 
@@ -97,6 +119,7 @@ public class CreateVpnConnectionResponse extends com.volcengine.model.AbstractRe
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateVpnConnectionResponse {\n");
     
+    sb.append("    orderId: ").append(toIndentedString(orderId)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    vpnConnectionId: ").append(toIndentedString(vpnConnectionId)).append("\n");
     sb.append("}");

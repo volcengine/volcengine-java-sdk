@@ -36,6 +36,9 @@ public class ModifyVpnConnectionHealthCheckerRequest {
   @SerializedName("CheckerId")
   private String checkerId = null;
 
+  @SerializedName("ClientToken")
+  private String clientToken = null;
+
   @SerializedName("DownTime")
   private Integer downTime = null;
 
@@ -50,6 +53,9 @@ public class ModifyVpnConnectionHealthCheckerRequest {
 
   @SerializedName("UpTime")
   private Integer upTime = null;
+
+  @SerializedName("VpnConnectionId")
+  private String vpnConnectionId = null;
 
   public ModifyVpnConnectionHealthCheckerRequest checkInterval(Integer checkInterval) {
     this.checkInterval = checkInterval;
@@ -89,6 +95,24 @@ public class ModifyVpnConnectionHealthCheckerRequest {
 
   public void setCheckerId(String checkerId) {
     this.checkerId = checkerId;
+  }
+
+  public ModifyVpnConnectionHealthCheckerRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
   }
 
   public ModifyVpnConnectionHealthCheckerRequest downTime(Integer downTime) {
@@ -185,6 +209,25 @@ public class ModifyVpnConnectionHealthCheckerRequest {
     this.upTime = upTime;
   }
 
+  public ModifyVpnConnectionHealthCheckerRequest vpnConnectionId(String vpnConnectionId) {
+    this.vpnConnectionId = vpnConnectionId;
+    return this;
+  }
+
+   /**
+   * Get vpnConnectionId
+   * @return vpnConnectionId
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getVpnConnectionId() {
+    return vpnConnectionId;
+  }
+
+  public void setVpnConnectionId(String vpnConnectionId) {
+    this.vpnConnectionId = vpnConnectionId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -197,16 +240,18 @@ public class ModifyVpnConnectionHealthCheckerRequest {
     ModifyVpnConnectionHealthCheckerRequest modifyVpnConnectionHealthCheckerRequest = (ModifyVpnConnectionHealthCheckerRequest) o;
     return Objects.equals(this.checkInterval, modifyVpnConnectionHealthCheckerRequest.checkInterval) &&
         Objects.equals(this.checkerId, modifyVpnConnectionHealthCheckerRequest.checkerId) &&
+        Objects.equals(this.clientToken, modifyVpnConnectionHealthCheckerRequest.clientToken) &&
         Objects.equals(this.downTime, modifyVpnConnectionHealthCheckerRequest.downTime) &&
         Objects.equals(this.localIp, modifyVpnConnectionHealthCheckerRequest.localIp) &&
         Objects.equals(this.remoteIp, modifyVpnConnectionHealthCheckerRequest.remoteIp) &&
         Objects.equals(this.timeout, modifyVpnConnectionHealthCheckerRequest.timeout) &&
-        Objects.equals(this.upTime, modifyVpnConnectionHealthCheckerRequest.upTime);
+        Objects.equals(this.upTime, modifyVpnConnectionHealthCheckerRequest.upTime) &&
+        Objects.equals(this.vpnConnectionId, modifyVpnConnectionHealthCheckerRequest.vpnConnectionId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(checkInterval, checkerId, downTime, localIp, remoteIp, timeout, upTime);
+    return Objects.hash(checkInterval, checkerId, clientToken, downTime, localIp, remoteIp, timeout, upTime, vpnConnectionId);
   }
 
 
@@ -217,11 +262,13 @@ public class ModifyVpnConnectionHealthCheckerRequest {
     
     sb.append("    checkInterval: ").append(toIndentedString(checkInterval)).append("\n");
     sb.append("    checkerId: ").append(toIndentedString(checkerId)).append("\n");
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    downTime: ").append(toIndentedString(downTime)).append("\n");
     sb.append("    localIp: ").append(toIndentedString(localIp)).append("\n");
     sb.append("    remoteIp: ").append(toIndentedString(remoteIp)).append("\n");
     sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");
     sb.append("    upTime: ").append(toIndentedString(upTime)).append("\n");
+    sb.append("    vpnConnectionId: ").append(toIndentedString(vpnConnectionId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

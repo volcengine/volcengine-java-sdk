@@ -33,6 +33,9 @@ import javax.validation.Valid;
 
 
 public class CreateVpnGatewayRequest {
+  @SerializedName("Asn")
+  private Integer asn = null;
+
   @SerializedName("Bandwidth")
   private Integer bandwidth = null;
 
@@ -74,6 +77,24 @@ public class CreateVpnGatewayRequest {
 
   @SerializedName("VpnGatewayName")
   private String vpnGatewayName = null;
+
+  public CreateVpnGatewayRequest asn(Integer asn) {
+    this.asn = asn;
+    return this;
+  }
+
+   /**
+   * Get asn
+   * @return asn
+  **/
+  @Schema(description = "")
+  public Integer getAsn() {
+    return asn;
+  }
+
+  public void setAsn(Integer asn) {
+    this.asn = asn;
+  }
 
   public CreateVpnGatewayRequest bandwidth(Integer bandwidth) {
     this.bandwidth = bandwidth;
@@ -349,7 +370,8 @@ public class CreateVpnGatewayRequest {
       return false;
     }
     CreateVpnGatewayRequest createVpnGatewayRequest = (CreateVpnGatewayRequest) o;
-    return Objects.equals(this.bandwidth, createVpnGatewayRequest.bandwidth) &&
+    return Objects.equals(this.asn, createVpnGatewayRequest.asn) &&
+        Objects.equals(this.bandwidth, createVpnGatewayRequest.bandwidth) &&
         Objects.equals(this.billingType, createVpnGatewayRequest.billingType) &&
         Objects.equals(this.clientToken, createVpnGatewayRequest.clientToken) &&
         Objects.equals(this.description, createVpnGatewayRequest.description) &&
@@ -367,7 +389,7 @@ public class CreateVpnGatewayRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidth, billingType, clientToken, description, ipsecEnabled, period, periodUnit, projectName, sslEnabled, sslMaxConnections, subnetId, tags, vpcId, vpnGatewayName);
+    return Objects.hash(asn, bandwidth, billingType, clientToken, description, ipsecEnabled, period, periodUnit, projectName, sslEnabled, sslMaxConnections, subnetId, tags, vpcId, vpnGatewayName);
   }
 
 
@@ -376,6 +398,7 @@ public class CreateVpnGatewayRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateVpnGatewayRequest {\n");
     
+    sb.append("    asn: ").append(toIndentedString(asn)).append("\n");
     sb.append("    bandwidth: ").append(toIndentedString(bandwidth)).append("\n");
     sb.append("    billingType: ").append(toIndentedString(billingType)).append("\n");
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");

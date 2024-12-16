@@ -24,53 +24,52 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ResetVpnConnectionRequest
+ * TagForDescribeCustomerGatewayAttributesOutput
  */
 
 
 
-public class ResetVpnConnectionRequest {
-  @SerializedName("ClientToken")
-  private String clientToken = null;
+public class TagForDescribeCustomerGatewayAttributesOutput {
+  @SerializedName("Key")
+  private String key = null;
 
-  @SerializedName("VpnConnectionId")
-  private String vpnConnectionId = null;
+  @SerializedName("Value")
+  private String value = null;
 
-  public ResetVpnConnectionRequest clientToken(String clientToken) {
-    this.clientToken = clientToken;
+  public TagForDescribeCustomerGatewayAttributesOutput key(String key) {
+    this.key = key;
     return this;
   }
 
    /**
-   * Get clientToken
-   * @return clientToken
+   * Get key
+   * @return key
   **/
   @Schema(description = "")
-  public String getClientToken() {
-    return clientToken;
+  public String getKey() {
+    return key;
   }
 
-  public void setClientToken(String clientToken) {
-    this.clientToken = clientToken;
+  public void setKey(String key) {
+    this.key = key;
   }
 
-  public ResetVpnConnectionRequest vpnConnectionId(String vpnConnectionId) {
-    this.vpnConnectionId = vpnConnectionId;
+  public TagForDescribeCustomerGatewayAttributesOutput value(String value) {
+    this.value = value;
     return this;
   }
 
    /**
-   * Get vpnConnectionId
-   * @return vpnConnectionId
+   * Get value
+   * @return value
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getVpnConnectionId() {
-    return vpnConnectionId;
+  @Schema(description = "")
+  public String getValue() {
+    return value;
   }
 
-  public void setVpnConnectionId(String vpnConnectionId) {
-    this.vpnConnectionId = vpnConnectionId;
+  public void setValue(String value) {
+    this.value = value;
   }
 
 
@@ -82,24 +81,24 @@ public class ResetVpnConnectionRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ResetVpnConnectionRequest resetVpnConnectionRequest = (ResetVpnConnectionRequest) o;
-    return Objects.equals(this.clientToken, resetVpnConnectionRequest.clientToken) &&
-        Objects.equals(this.vpnConnectionId, resetVpnConnectionRequest.vpnConnectionId);
+    TagForDescribeCustomerGatewayAttributesOutput tagForDescribeCustomerGatewayAttributesOutput = (TagForDescribeCustomerGatewayAttributesOutput) o;
+    return Objects.equals(this.key, tagForDescribeCustomerGatewayAttributesOutput.key) &&
+        Objects.equals(this.value, tagForDescribeCustomerGatewayAttributesOutput.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, vpnConnectionId);
+    return Objects.hash(key, value);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ResetVpnConnectionRequest {\n");
+    sb.append("class TagForDescribeCustomerGatewayAttributesOutput {\n");
     
-    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
-    sb.append("    vpnConnectionId: ").append(toIndentedString(vpnConnectionId)).append("\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
   }

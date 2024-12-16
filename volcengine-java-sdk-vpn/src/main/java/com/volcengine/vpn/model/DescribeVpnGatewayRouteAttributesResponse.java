@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vpn.model.AsPathForDescribeVpnGatewayRouteAttributesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -30,6 +33,9 @@ import javax.validation.Valid;
 
 
 public class DescribeVpnGatewayRouteAttributesResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("AsPath")
+  private List<AsPathForDescribeVpnGatewayRouteAttributesOutput> asPath = null;
+
   @SerializedName("CreationTime")
   private String creationTime = null;
 
@@ -42,6 +48,9 @@ public class DescribeVpnGatewayRouteAttributesResponse extends com.volcengine.mo
   @SerializedName("RequestId")
   private String requestId = null;
 
+  @SerializedName("RouteType")
+  private String routeType = null;
+
   @SerializedName("Status")
   private String status = null;
 
@@ -53,6 +62,33 @@ public class DescribeVpnGatewayRouteAttributesResponse extends com.volcengine.mo
 
   @SerializedName("VpnGatewayRouteId")
   private String vpnGatewayRouteId = null;
+
+  public DescribeVpnGatewayRouteAttributesResponse asPath(List<AsPathForDescribeVpnGatewayRouteAttributesOutput> asPath) {
+    this.asPath = asPath;
+    return this;
+  }
+
+  public DescribeVpnGatewayRouteAttributesResponse addAsPathItem(AsPathForDescribeVpnGatewayRouteAttributesOutput asPathItem) {
+    if (this.asPath == null) {
+      this.asPath = new ArrayList<AsPathForDescribeVpnGatewayRouteAttributesOutput>();
+    }
+    this.asPath.add(asPathItem);
+    return this;
+  }
+
+   /**
+   * Get asPath
+   * @return asPath
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<AsPathForDescribeVpnGatewayRouteAttributesOutput> getAsPath() {
+    return asPath;
+  }
+
+  public void setAsPath(List<AsPathForDescribeVpnGatewayRouteAttributesOutput> asPath) {
+    this.asPath = asPath;
+  }
 
   public DescribeVpnGatewayRouteAttributesResponse creationTime(String creationTime) {
     this.creationTime = creationTime;
@@ -124,6 +160,24 @@ public class DescribeVpnGatewayRouteAttributesResponse extends com.volcengine.mo
 
   public void setRequestId(String requestId) {
     this.requestId = requestId;
+  }
+
+  public DescribeVpnGatewayRouteAttributesResponse routeType(String routeType) {
+    this.routeType = routeType;
+    return this;
+  }
+
+   /**
+   * Get routeType
+   * @return routeType
+  **/
+  @Schema(description = "")
+  public String getRouteType() {
+    return routeType;
+  }
+
+  public void setRouteType(String routeType) {
+    this.routeType = routeType;
   }
 
   public DescribeVpnGatewayRouteAttributesResponse status(String status) {
@@ -208,10 +262,12 @@ public class DescribeVpnGatewayRouteAttributesResponse extends com.volcengine.mo
       return false;
     }
     DescribeVpnGatewayRouteAttributesResponse describeVpnGatewayRouteAttributesResponse = (DescribeVpnGatewayRouteAttributesResponse) o;
-    return Objects.equals(this.creationTime, describeVpnGatewayRouteAttributesResponse.creationTime) &&
+    return Objects.equals(this.asPath, describeVpnGatewayRouteAttributesResponse.asPath) &&
+        Objects.equals(this.creationTime, describeVpnGatewayRouteAttributesResponse.creationTime) &&
         Objects.equals(this.destinationCidrBlock, describeVpnGatewayRouteAttributesResponse.destinationCidrBlock) &&
         Objects.equals(this.nextHopId, describeVpnGatewayRouteAttributesResponse.nextHopId) &&
         Objects.equals(this.requestId, describeVpnGatewayRouteAttributesResponse.requestId) &&
+        Objects.equals(this.routeType, describeVpnGatewayRouteAttributesResponse.routeType) &&
         Objects.equals(this.status, describeVpnGatewayRouteAttributesResponse.status) &&
         Objects.equals(this.updateTime, describeVpnGatewayRouteAttributesResponse.updateTime) &&
         Objects.equals(this.vpnGatewayId, describeVpnGatewayRouteAttributesResponse.vpnGatewayId) &&
@@ -220,7 +276,7 @@ public class DescribeVpnGatewayRouteAttributesResponse extends com.volcengine.mo
 
   @Override
   public int hashCode() {
-    return Objects.hash(creationTime, destinationCidrBlock, nextHopId, requestId, status, updateTime, vpnGatewayId, vpnGatewayRouteId);
+    return Objects.hash(asPath, creationTime, destinationCidrBlock, nextHopId, requestId, routeType, status, updateTime, vpnGatewayId, vpnGatewayRouteId);
   }
 
 
@@ -229,10 +285,12 @@ public class DescribeVpnGatewayRouteAttributesResponse extends com.volcengine.mo
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeVpnGatewayRouteAttributesResponse {\n");
     
+    sb.append("    asPath: ").append(toIndentedString(asPath)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    destinationCidrBlock: ").append(toIndentedString(destinationCidrBlock)).append("\n");
     sb.append("    nextHopId: ").append(toIndentedString(nextHopId)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
+    sb.append("    routeType: ").append(toIndentedString(routeType)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    vpnGatewayId: ").append(toIndentedString(vpnGatewayId)).append("\n");
