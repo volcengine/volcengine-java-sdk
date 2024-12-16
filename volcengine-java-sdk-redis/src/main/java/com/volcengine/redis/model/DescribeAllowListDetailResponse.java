@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.redis.model.AssociatedInstanceForDescribeAllowListDetailOutput;
+import com.volcengine.redis.model.SecurityGroupBindInfoForDescribeAllowListDetailOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -53,6 +54,9 @@ public class DescribeAllowListDetailResponse extends com.volcengine.model.Abstra
 
   @SerializedName("AssociatedInstances")
   private List<AssociatedInstanceForDescribeAllowListDetailOutput> associatedInstances = null;
+
+  @SerializedName("SecurityGroupBindInfos")
+  private List<SecurityGroupBindInfoForDescribeAllowListDetailOutput> securityGroupBindInfos = null;
 
   public DescribeAllowListDetailResponse allowList(String allowList) {
     this.allowList = allowList;
@@ -189,6 +193,33 @@ public class DescribeAllowListDetailResponse extends com.volcengine.model.Abstra
     this.associatedInstances = associatedInstances;
   }
 
+  public DescribeAllowListDetailResponse securityGroupBindInfos(List<SecurityGroupBindInfoForDescribeAllowListDetailOutput> securityGroupBindInfos) {
+    this.securityGroupBindInfos = securityGroupBindInfos;
+    return this;
+  }
+
+  public DescribeAllowListDetailResponse addSecurityGroupBindInfosItem(SecurityGroupBindInfoForDescribeAllowListDetailOutput securityGroupBindInfosItem) {
+    if (this.securityGroupBindInfos == null) {
+      this.securityGroupBindInfos = new ArrayList<SecurityGroupBindInfoForDescribeAllowListDetailOutput>();
+    }
+    this.securityGroupBindInfos.add(securityGroupBindInfosItem);
+    return this;
+  }
+
+   /**
+   * Get securityGroupBindInfos
+   * @return securityGroupBindInfos
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<SecurityGroupBindInfoForDescribeAllowListDetailOutput> getSecurityGroupBindInfos() {
+    return securityGroupBindInfos;
+  }
+
+  public void setSecurityGroupBindInfos(List<SecurityGroupBindInfoForDescribeAllowListDetailOutput> securityGroupBindInfos) {
+    this.securityGroupBindInfos = securityGroupBindInfos;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -205,12 +236,13 @@ public class DescribeAllowListDetailResponse extends com.volcengine.model.Abstra
         Objects.equals(this.allowListId, describeAllowListDetailResponse.allowListId) &&
         Objects.equals(this.allowListName, describeAllowListDetailResponse.allowListName) &&
         Objects.equals(this.allowListType, describeAllowListDetailResponse.allowListType) &&
-        Objects.equals(this.associatedInstances, describeAllowListDetailResponse.associatedInstances);
+        Objects.equals(this.associatedInstances, describeAllowListDetailResponse.associatedInstances) &&
+        Objects.equals(this.securityGroupBindInfos, describeAllowListDetailResponse.securityGroupBindInfos);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowList, allowListCategory, allowListDesc, allowListId, allowListName, allowListType, associatedInstances);
+    return Objects.hash(allowList, allowListCategory, allowListDesc, allowListId, allowListName, allowListType, associatedInstances, securityGroupBindInfos);
   }
 
 
@@ -226,6 +258,7 @@ public class DescribeAllowListDetailResponse extends com.volcengine.model.Abstra
     sb.append("    allowListName: ").append(toIndentedString(allowListName)).append("\n");
     sb.append("    allowListType: ").append(toIndentedString(allowListType)).append("\n");
     sb.append("    associatedInstances: ").append(toIndentedString(associatedInstances)).append("\n");
+    sb.append("    securityGroupBindInfos: ").append(toIndentedString(securityGroupBindInfos)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.redis.model.SecurityGroupBindInfoForModifyAllowListInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -96,6 +99,9 @@ public class ModifyAllowListRequest {
 
   @SerializedName("ModifyMode")
   private String modifyMode = null;
+
+  @SerializedName("SecurityGroupBindInfos")
+  private List<SecurityGroupBindInfoForModifyAllowListInput> securityGroupBindInfos = null;
 
   public ModifyAllowListRequest allowList(String allowList) {
     this.allowList = allowList;
@@ -179,8 +185,7 @@ public class ModifyAllowListRequest {
    * Get allowListName
    * @return allowListName
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getAllowListName() {
     return allowListName;
   }
@@ -243,6 +248,33 @@ public class ModifyAllowListRequest {
     this.modifyMode = modifyMode;
   }
 
+  public ModifyAllowListRequest securityGroupBindInfos(List<SecurityGroupBindInfoForModifyAllowListInput> securityGroupBindInfos) {
+    this.securityGroupBindInfos = securityGroupBindInfos;
+    return this;
+  }
+
+  public ModifyAllowListRequest addSecurityGroupBindInfosItem(SecurityGroupBindInfoForModifyAllowListInput securityGroupBindInfosItem) {
+    if (this.securityGroupBindInfos == null) {
+      this.securityGroupBindInfos = new ArrayList<SecurityGroupBindInfoForModifyAllowListInput>();
+    }
+    this.securityGroupBindInfos.add(securityGroupBindInfosItem);
+    return this;
+  }
+
+   /**
+   * Get securityGroupBindInfos
+   * @return securityGroupBindInfos
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<SecurityGroupBindInfoForModifyAllowListInput> getSecurityGroupBindInfos() {
+    return securityGroupBindInfos;
+  }
+
+  public void setSecurityGroupBindInfos(List<SecurityGroupBindInfoForModifyAllowListInput> securityGroupBindInfos) {
+    this.securityGroupBindInfos = securityGroupBindInfos;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -260,12 +292,13 @@ public class ModifyAllowListRequest {
         Objects.equals(this.allowListName, modifyAllowListRequest.allowListName) &&
         Objects.equals(this.applyInstanceNum, modifyAllowListRequest.applyInstanceNum) &&
         Objects.equals(this.clientToken, modifyAllowListRequest.clientToken) &&
-        Objects.equals(this.modifyMode, modifyAllowListRequest.modifyMode);
+        Objects.equals(this.modifyMode, modifyAllowListRequest.modifyMode) &&
+        Objects.equals(this.securityGroupBindInfos, modifyAllowListRequest.securityGroupBindInfos);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowList, allowListCategory, allowListDesc, allowListId, allowListName, applyInstanceNum, clientToken, modifyMode);
+    return Objects.hash(allowList, allowListCategory, allowListDesc, allowListId, allowListName, applyInstanceNum, clientToken, modifyMode, securityGroupBindInfos);
   }
 
 
@@ -282,6 +315,7 @@ public class ModifyAllowListRequest {
     sb.append("    applyInstanceNum: ").append(toIndentedString(applyInstanceNum)).append("\n");
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    modifyMode: ").append(toIndentedString(modifyMode)).append("\n");
+    sb.append("    securityGroupBindInfos: ").append(toIndentedString(securityGroupBindInfos)).append("\n");
     sb.append("}");
     return sb.toString();
   }
