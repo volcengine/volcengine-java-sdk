@@ -21,18 +21,31 @@ public class RetryInterceptor implements Interceptor {
     }
 
     @Override
-    public Response intercept(Chain chain) throws IOException {
+    public Response intercept(Chain chain) throws RuntimeException, InterruptedIOException {
         Request request = chain.request();
 
-        // try the request
-        Response response = chain.proceed(request);
-
+        Response response = null;
         int tryCount = 0;
-        while ((response.code() >= 500 || response.code() == 429) && tryCount < retryTimes) {
-            tryCount++;
+        boolean shouldRetry;
+        Exception exception;
+        do {
+            if (response != null) {
+                response.close();
+            }
+            exception = null;
 
-            // retry the request
-            response.close();
+            try {
+                response = chain.proceed(request);
+                shouldRetry = response.code() >= 500 || response.code() == 429;
+            } catch (Exception e) {
+                shouldRetry = true;
+                exception = e;
+            }
+
+            tryCount++;
+            if (!(shouldRetry && tryCount <= retryTimes)) {
+                break;
+            }
 
             try {
                 double interval = retryInterval(retryTimes, retryTimes - tryCount) * 1000;
@@ -41,10 +54,12 @@ public class RetryInterceptor implements Interceptor {
                 Thread.currentThread().interrupt();
                 throw new InterruptedIOException();
             }
-            response = chain.proceed(request);
-        }
+        } while (true);
 
-        return response;
+        if (response != null) {
+            return response;
+        }
+        throw new RuntimeException(exception);
     }
 
     public double retryInterval(int max, int remain) {

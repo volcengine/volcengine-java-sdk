@@ -3,6 +3,7 @@ package com.volcengine.ark.runtime.exception;
 import com.google.gson.Gson;
 
 public class ArkHttpException extends RuntimeException {
+    public static Integer INTERNAL_SERVICE_CODE = 500;
 
     public final int statusCode;
 
@@ -31,6 +32,7 @@ public class ArkHttpException extends RuntimeException {
     public String toString() {
         return "ArkHttpException{" +
                 "statusCode=" + statusCode +
+                ", message='" + super.getMessage() + '\'' +
                 ", code='" + code + '\'' +
                 ", param='" + param + '\'' +
                 ", type='" + type + '\'' +
