@@ -1,8 +1,8 @@
 package com.volcengine.ark.runtime;
 
-import com.volcengine.ark.runtime.model.contentgeneration.CreateContentGenerationTaskRequest;
-import com.volcengine.ark.runtime.model.contentgeneration.CreateContentGenerationTaskRequest.Content;
-import com.volcengine.ark.runtime.model.contentgeneration.CreateContentGenerationTaskResult;
+import com.volcengine.ark.runtime.model.content.generation.CreateContentGenerationTaskRequest;
+import com.volcengine.ark.runtime.model.content.generation.CreateContentGenerationTaskRequest.Content;
+import com.volcengine.ark.runtime.model.content.generation.CreateContentGenerationTaskResult;
 import com.volcengine.ark.runtime.service.ArkService;
 import okhttp3.ConnectionPool;
 import okhttp3.Dispatcher;

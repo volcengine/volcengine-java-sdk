@@ -1,4 +1,4 @@
-package com.volcengine.ark.runtime.model.contentgeneration;
+package com.volcengine.ark.runtime.model.content.generation;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
