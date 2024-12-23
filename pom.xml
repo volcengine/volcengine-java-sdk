@@ -263,5 +263,6 @@
         <module>volcengine-java-sdk-dns</module>
         <module>volcengine-java-sdk-mcdn</module>
         <module>volcengine-java-sdk-cloudtrail</module>
+        <module>volcengine-java-sdk-httpdns</module>
     </modules>
 </project>
