@@ -3,6 +3,8 @@ package com.volcengine.ark.runtime;
 import com.volcengine.ark.runtime.model.content.generation.CreateContentGenerationTaskRequest;
 import com.volcengine.ark.runtime.model.content.generation.CreateContentGenerationTaskRequest.Content;
 import com.volcengine.ark.runtime.model.content.generation.CreateContentGenerationTaskResult;
+import com.volcengine.ark.runtime.model.content.generation.GetContentGenerationTaskRequest;
+import com.volcengine.ark.runtime.model.content.generation.GetContentGenerationTaskResponse;
 import com.volcengine.ark.runtime.service.ArkService;
 import okhttp3.ConnectionPool;
 import okhttp3.Dispatcher;
@@ -34,7 +36,7 @@ public class ContentGenerationTaskExample {
     static ArkService service = ArkService.builder().dispatcher(dispatcher).connectionPool(connectionPool).apiKey(apiKey).build();
 
     public static void main(String[] args) {
-        System.out.println("\n----- Create Content Generation Task Request -----");
+        System.out.println("\n----- Create Task Request -----");
 
         List<Content> contents = new ArrayList<>();
 
@@ -52,14 +54,23 @@ public class ContentGenerationTaskExample {
                         .build())
                 .build());
 
-        CreateContentGenerationTaskRequest request = CreateContentGenerationTaskRequest.builder()
+        CreateContentGenerationTaskRequest createRequest = CreateContentGenerationTaskRequest.builder()
                 .model("${MODEL EP-ID HERE}")
                 .content(contents)
                 .build();
 
         // Send request
-        CreateContentGenerationTaskResult result = service.createContentGenerationTask(request);
-        System.out.println(result);
+        CreateContentGenerationTaskResult createResult = service.createContentGenerationTask(createRequest);
+        System.out.println(createResult);
+
+        System.out.println("\n----- Get Task Request -----");
+
+        GetContentGenerationTaskRequest getRequest = GetContentGenerationTaskRequest.builder()
+                .taskId(createResult.getId())
+                .build();
+
+        GetContentGenerationTaskResponse getResult = service.getContentGenerationTask(getRequest);
+        System.out.println(getResult);
 
         service.shutdownExecutor();
     }

@@ -17,6 +17,8 @@ import com.volcengine.ark.runtime.model.bot.completion.chat.BotChatCompletionChu
 import com.volcengine.ark.runtime.model.bot.completion.chat.BotChatCompletionRequest;
 import com.volcengine.ark.runtime.model.bot.completion.chat.BotChatCompletionResult;
 import com.volcengine.ark.runtime.model.completion.chat.*;
+import com.volcengine.ark.runtime.model.content.generation.GetContentGenerationTaskRequest;
+import com.volcengine.ark.runtime.model.content.generation.GetContentGenerationTaskResponse;
 import com.volcengine.ark.runtime.model.context.CreateContextRequest;
 import com.volcengine.ark.runtime.model.context.CreateContextResult;
 import com.volcengine.ark.runtime.model.content.generation.CreateContentGenerationTaskRequest;
@@ -253,6 +255,15 @@ public class ArkService extends ArkBaseService implements ArkBaseServiceImpl {
 
     public CreateContentGenerationTaskResult createContentGenerationTask(CreateContentGenerationTaskRequest request, Map<String, String> customHeaders) {
         return execute(api.createContentGenerationTask(request, request.getModel(), customHeaders));
+    }
+
+
+    public GetContentGenerationTaskResponse getContentGenerationTask(GetContentGenerationTaskRequest request) {
+        return execute(api.getContentGenerationTask(request.getTaskId(), new HashMap<>()));
+    }
+
+    public GetContentGenerationTaskResponse getContentGenerationTask(GetContentGenerationTaskRequest request, Map<String, String> customHeaders) {
+        return execute(api.getContentGenerationTask(request.getTaskId(), customHeaders));
     }
 
     public void shutdownExecutor() {

@@ -7,6 +7,10 @@ import com.volcengine.ark.runtime.model.bot.completion.chat.BotChatCompletionRes
 import com.volcengine.ark.runtime.model.completion.chat.ChatCompletionChunk;
 import com.volcengine.ark.runtime.model.completion.chat.ChatCompletionRequest;
 import com.volcengine.ark.runtime.model.completion.chat.ChatCompletionResult;
+import com.volcengine.ark.runtime.model.content.generation.CreateContentGenerationTaskRequest;
+import com.volcengine.ark.runtime.model.content.generation.CreateContentGenerationTaskResult;
+import com.volcengine.ark.runtime.model.content.generation.GetContentGenerationTaskRequest;
+import com.volcengine.ark.runtime.model.content.generation.GetContentGenerationTaskResponse;
 import com.volcengine.ark.runtime.model.context.CreateContextRequest;
 import com.volcengine.ark.runtime.model.context.CreateContextResult;
 import com.volcengine.ark.runtime.model.context.chat.ContextChatCompletionRequest;
@@ -36,4 +40,8 @@ public interface ArkBaseServiceImpl {
     TokenizationResult createTokenization(TokenizationRequest request);
 
     EmbeddingResult createEmbeddings(EmbeddingRequest request);
+
+    CreateContentGenerationTaskResult createContentGenerationTask(CreateContentGenerationTaskRequest request);
+
+    GetContentGenerationTaskResponse getContentGenerationTask(GetContentGenerationTaskRequest request);
 }

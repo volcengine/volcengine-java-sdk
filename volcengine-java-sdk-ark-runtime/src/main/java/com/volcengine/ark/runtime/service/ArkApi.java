@@ -5,6 +5,7 @@ import com.volcengine.ark.runtime.model.bot.completion.chat.BotChatCompletionReq
 import com.volcengine.ark.runtime.model.bot.completion.chat.BotChatCompletionResult;
 import com.volcengine.ark.runtime.model.completion.chat.ChatCompletionRequest;
 import com.volcengine.ark.runtime.model.completion.chat.ChatCompletionResult;
+import com.volcengine.ark.runtime.model.content.generation.GetContentGenerationTaskResponse;
 import com.volcengine.ark.runtime.model.context.CreateContextRequest;
 import com.volcengine.ark.runtime.model.context.CreateContextResult;
 import com.volcengine.ark.runtime.model.context.chat.ContextChatCompletionRequest;
@@ -55,4 +56,7 @@ public interface ArkApi {
 
     @POST("/api/v3/contents/generations/tasks")
     Single<CreateContentGenerationTaskResult> createContentGenerationTask(@Body CreateContentGenerationTaskRequest request, @Header(Const.REQUEST_MODEL) String model, @HeaderMap Map<String, String> customHeaders);
+
+    @GET("/api/v3/contents/generations/tasks/{taskId}")
+    Single<GetContentGenerationTaskResponse> getContentGenerationTask(@Path("taskId") String taskId, @HeaderMap Map<String, String> customHeaders);
 }
