@@ -2,7 +2,6 @@ package com.volcengine.ark.runtime;
 
 import com.volcengine.ark.runtime.model.contentgeneration.CreateContentGenerationTaskRequest;
 import com.volcengine.ark.runtime.model.contentgeneration.CreateContentGenerationTaskRequest.Content;
-import com.volcengine.ark.runtime.model.contentgeneration.CreateContentGenerationTaskRequest.Content.ImageUrl;
 import com.volcengine.ark.runtime.model.contentgeneration.CreateContentGenerationTaskResult;
 import com.volcengine.ark.runtime.service.ArkService;
 import okhttp3.ConnectionPool;
@@ -25,7 +24,8 @@ public class ContentGenerationTaskExample {
      *    String ak = System.getenv("VOLC_ACCESSKEY");
      *    String sk = System.getenv("VOLC_SECRETKEY");
      *    ArkService service = new ArkService(ak, sk);
-     *    For more details, refer to the Volcengine documentation.
+     *    To get your ak&sk, please refer to this document(https://www.volcengine.com/docs/6291/65568)
+     *    For more information，please check this document（https://www.volcengine.com/docs/82379/1263279）
      */
 
     static String apiKey = System.getenv("ARK_API_KEY");
@@ -41,19 +41,19 @@ public class ContentGenerationTaskExample {
         // Text content
         contents.add(Content.builder()
                 .type("text")
-                .text("龙与地下城女骑士背景是起伏的平原，目光从镜头转向平原 --ratio 1:1")
+                .text("制作一段展示美丽自然风光的视频，包括山川、河流、森林和天空，充满平和与宁静的氛围，适合用于冥想或放松场景。 --ratio 1:1")
                 .build());
 
         // Image URL content
         contents.add(Content.builder()
                 .type("image_url")
-                .imageUrl(ImageUrl.builder()
-                        .url("https://ark-project.tos-cn-beijing.ivolces.com/images/view.jpeg")
+                .imageUrl(CreateContentGenerationTaskRequest.ImageUrl.builder()
+                        .url("${IMAGE URL HERE}")
                         .build())
                 .build());
 
         CreateContentGenerationTaskRequest request = CreateContentGenerationTaskRequest.builder()
-                .model("${YOUR_ENDPOINT_ID}")
+                .model("${MODEL EP-ID HERE}")
                 .content(contents)
                 .build();
 
@@ -61,7 +61,6 @@ public class ContentGenerationTaskExample {
         CreateContentGenerationTaskResult result = service.createContentGenerationTask(request);
         System.out.println(result);
 
-        // Shutdown service after all requests are finished
         service.shutdownExecutor();
     }
 }
