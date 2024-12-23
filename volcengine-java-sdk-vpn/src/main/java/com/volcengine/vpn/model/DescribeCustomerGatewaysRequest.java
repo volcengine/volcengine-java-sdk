@@ -50,6 +50,9 @@ public class DescribeCustomerGatewaysRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
 
+  @SerializedName("Status")
+  private String status = null;
+
   public DescribeCustomerGatewaysRequest customerGatewayIds(List<String> customerGatewayIds) {
     this.customerGatewayIds = customerGatewayIds;
     return this;
@@ -166,6 +169,24 @@ public class DescribeCustomerGatewaysRequest {
     this.projectName = projectName;
   }
 
+  public DescribeCustomerGatewaysRequest status(String status) {
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * Get status
+   * @return status
+  **/
+  @Schema(description = "")
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -181,12 +202,13 @@ public class DescribeCustomerGatewaysRequest {
         Objects.equals(this.ipAddress, describeCustomerGatewaysRequest.ipAddress) &&
         Objects.equals(this.pageNumber, describeCustomerGatewaysRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeCustomerGatewaysRequest.pageSize) &&
-        Objects.equals(this.projectName, describeCustomerGatewaysRequest.projectName);
+        Objects.equals(this.projectName, describeCustomerGatewaysRequest.projectName) &&
+        Objects.equals(this.status, describeCustomerGatewaysRequest.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(customerGatewayIds, customerGatewayName, ipAddress, pageNumber, pageSize, projectName);
+    return Objects.hash(customerGatewayIds, customerGatewayName, ipAddress, pageNumber, pageSize, projectName, status);
   }
 
 
@@ -201,6 +223,7 @@ public class DescribeCustomerGatewaysRequest {
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
     return sb.toString();
   }

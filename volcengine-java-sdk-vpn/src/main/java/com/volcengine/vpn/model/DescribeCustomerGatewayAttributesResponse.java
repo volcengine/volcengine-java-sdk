@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vpn.model.TagForDescribeCustomerGatewayAttributesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -32,6 +35,9 @@ import javax.validation.Valid;
 public class DescribeCustomerGatewayAttributesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("AccountId")
   private String accountId = null;
+
+  @SerializedName("Asn")
+  private Integer asn = null;
 
   @SerializedName("ConnectionCount")
   private Integer connectionCount = null;
@@ -60,6 +66,9 @@ public class DescribeCustomerGatewayAttributesResponse extends com.volcengine.mo
   @SerializedName("Status")
   private String status = null;
 
+  @SerializedName("Tags")
+  private List<TagForDescribeCustomerGatewayAttributesOutput> tags = null;
+
   @SerializedName("UpdateTime")
   private String updateTime = null;
 
@@ -79,6 +88,24 @@ public class DescribeCustomerGatewayAttributesResponse extends com.volcengine.mo
 
   public void setAccountId(String accountId) {
     this.accountId = accountId;
+  }
+
+  public DescribeCustomerGatewayAttributesResponse asn(Integer asn) {
+    this.asn = asn;
+    return this;
+  }
+
+   /**
+   * Get asn
+   * @return asn
+  **/
+  @Schema(description = "")
+  public Integer getAsn() {
+    return asn;
+  }
+
+  public void setAsn(Integer asn) {
+    this.asn = asn;
   }
 
   public DescribeCustomerGatewayAttributesResponse connectionCount(Integer connectionCount) {
@@ -243,6 +270,33 @@ public class DescribeCustomerGatewayAttributesResponse extends com.volcengine.mo
     this.status = status;
   }
 
+  public DescribeCustomerGatewayAttributesResponse tags(List<TagForDescribeCustomerGatewayAttributesOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public DescribeCustomerGatewayAttributesResponse addTagsItem(TagForDescribeCustomerGatewayAttributesOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForDescribeCustomerGatewayAttributesOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForDescribeCustomerGatewayAttributesOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForDescribeCustomerGatewayAttributesOutput> tags) {
+    this.tags = tags;
+  }
+
   public DescribeCustomerGatewayAttributesResponse updateTime(String updateTime) {
     this.updateTime = updateTime;
     return this;
@@ -272,6 +326,7 @@ public class DescribeCustomerGatewayAttributesResponse extends com.volcengine.mo
     }
     DescribeCustomerGatewayAttributesResponse describeCustomerGatewayAttributesResponse = (DescribeCustomerGatewayAttributesResponse) o;
     return Objects.equals(this.accountId, describeCustomerGatewayAttributesResponse.accountId) &&
+        Objects.equals(this.asn, describeCustomerGatewayAttributesResponse.asn) &&
         Objects.equals(this.connectionCount, describeCustomerGatewayAttributesResponse.connectionCount) &&
         Objects.equals(this.creationTime, describeCustomerGatewayAttributesResponse.creationTime) &&
         Objects.equals(this.customerGatewayId, describeCustomerGatewayAttributesResponse.customerGatewayId) &&
@@ -281,12 +336,13 @@ public class DescribeCustomerGatewayAttributesResponse extends com.volcengine.mo
         Objects.equals(this.projectName, describeCustomerGatewayAttributesResponse.projectName) &&
         Objects.equals(this.requestId, describeCustomerGatewayAttributesResponse.requestId) &&
         Objects.equals(this.status, describeCustomerGatewayAttributesResponse.status) &&
+        Objects.equals(this.tags, describeCustomerGatewayAttributesResponse.tags) &&
         Objects.equals(this.updateTime, describeCustomerGatewayAttributesResponse.updateTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, connectionCount, creationTime, customerGatewayId, customerGatewayName, description, ipAddress, projectName, requestId, status, updateTime);
+    return Objects.hash(accountId, asn, connectionCount, creationTime, customerGatewayId, customerGatewayName, description, ipAddress, projectName, requestId, status, tags, updateTime);
   }
 
 
@@ -296,6 +352,7 @@ public class DescribeCustomerGatewayAttributesResponse extends com.volcengine.mo
     sb.append("class DescribeCustomerGatewayAttributesResponse {\n");
     
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
+    sb.append("    asn: ").append(toIndentedString(asn)).append("\n");
     sb.append("    connectionCount: ").append(toIndentedString(connectionCount)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    customerGatewayId: ").append(toIndentedString(customerGatewayId)).append("\n");
@@ -305,6 +362,7 @@ public class DescribeCustomerGatewayAttributesResponse extends com.volcengine.mo
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("}");
     return sb.toString();

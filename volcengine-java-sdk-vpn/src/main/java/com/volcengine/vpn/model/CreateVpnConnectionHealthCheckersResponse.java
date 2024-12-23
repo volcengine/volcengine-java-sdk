@@ -14,6 +14,15 @@ package com.volcengine.vpn.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -23,6 +32,56 @@ import javax.validation.Valid;
 
 
 public class CreateVpnConnectionHealthCheckersResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("CheckerIds")
+  private List<String> checkerIds = null;
+
+  @SerializedName("RequestId")
+  private String requestId = null;
+
+  public CreateVpnConnectionHealthCheckersResponse checkerIds(List<String> checkerIds) {
+    this.checkerIds = checkerIds;
+    return this;
+  }
+
+  public CreateVpnConnectionHealthCheckersResponse addCheckerIdsItem(String checkerIdsItem) {
+    if (this.checkerIds == null) {
+      this.checkerIds = new ArrayList<String>();
+    }
+    this.checkerIds.add(checkerIdsItem);
+    return this;
+  }
+
+   /**
+   * Get checkerIds
+   * @return checkerIds
+  **/
+  @Schema(description = "")
+  public List<String> getCheckerIds() {
+    return checkerIds;
+  }
+
+  public void setCheckerIds(List<String> checkerIds) {
+    this.checkerIds = checkerIds;
+  }
+
+  public CreateVpnConnectionHealthCheckersResponse requestId(String requestId) {
+    this.requestId = requestId;
+    return this;
+  }
+
+   /**
+   * Get requestId
+   * @return requestId
+  **/
+  @Schema(description = "")
+  public String getRequestId() {
+    return requestId;
+  }
+
+  public void setRequestId(String requestId) {
+    this.requestId = requestId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -32,12 +91,14 @@ public class CreateVpnConnectionHealthCheckersResponse extends com.volcengine.mo
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return true;
+    CreateVpnConnectionHealthCheckersResponse createVpnConnectionHealthCheckersResponse = (CreateVpnConnectionHealthCheckersResponse) o;
+    return Objects.equals(this.checkerIds, createVpnConnectionHealthCheckersResponse.checkerIds) &&
+        Objects.equals(this.requestId, createVpnConnectionHealthCheckersResponse.requestId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash();
+    return Objects.hash(checkerIds, requestId);
   }
 
 
@@ -46,6 +107,8 @@ public class CreateVpnConnectionHealthCheckersResponse extends com.volcengine.mo
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateVpnConnectionHealthCheckersResponse {\n");
     
+    sb.append("    checkerIds: ").append(toIndentedString(checkerIds)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

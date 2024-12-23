@@ -36,6 +36,9 @@ public class VpnGatewayForDescribeVpnGatewaysOutput {
   @SerializedName("AccountId")
   private String accountId = null;
 
+  @SerializedName("Asn")
+  private Integer asn = null;
+
   @SerializedName("Bandwidth")
   private Integer bandwidth = null;
 
@@ -63,17 +66,29 @@ public class VpnGatewayForDescribeVpnGatewaysOutput {
   @SerializedName("IpAddress")
   private String ipAddress = null;
 
+  @SerializedName("IpsecEnabled")
+  private Boolean ipsecEnabled = null;
+
   @SerializedName("IsBlocked")
   private Boolean isBlocked = null;
 
   @SerializedName("LockReason")
   private String lockReason = null;
 
+  @SerializedName("OverdueTime")
+  private String overdueTime = null;
+
   @SerializedName("ProjectName")
   private String projectName = null;
 
   @SerializedName("RouteCount")
   private Integer routeCount = null;
+
+  @SerializedName("SslEnabled")
+  private Boolean sslEnabled = null;
+
+  @SerializedName("SslMaxConnections")
+  private Integer sslMaxConnections = null;
 
   @SerializedName("Status")
   private String status = null;
@@ -112,6 +127,24 @@ public class VpnGatewayForDescribeVpnGatewaysOutput {
 
   public void setAccountId(String accountId) {
     this.accountId = accountId;
+  }
+
+  public VpnGatewayForDescribeVpnGatewaysOutput asn(Integer asn) {
+    this.asn = asn;
+    return this;
+  }
+
+   /**
+   * Get asn
+   * @return asn
+  **/
+  @Schema(description = "")
+  public Integer getAsn() {
+    return asn;
+  }
+
+  public void setAsn(Integer asn) {
+    this.asn = asn;
   }
 
   public VpnGatewayForDescribeVpnGatewaysOutput bandwidth(Integer bandwidth) {
@@ -276,6 +309,24 @@ public class VpnGatewayForDescribeVpnGatewaysOutput {
     this.ipAddress = ipAddress;
   }
 
+  public VpnGatewayForDescribeVpnGatewaysOutput ipsecEnabled(Boolean ipsecEnabled) {
+    this.ipsecEnabled = ipsecEnabled;
+    return this;
+  }
+
+   /**
+   * Get ipsecEnabled
+   * @return ipsecEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isIpsecEnabled() {
+    return ipsecEnabled;
+  }
+
+  public void setIpsecEnabled(Boolean ipsecEnabled) {
+    this.ipsecEnabled = ipsecEnabled;
+  }
+
   public VpnGatewayForDescribeVpnGatewaysOutput isBlocked(Boolean isBlocked) {
     this.isBlocked = isBlocked;
     return this;
@@ -312,6 +363,24 @@ public class VpnGatewayForDescribeVpnGatewaysOutput {
     this.lockReason = lockReason;
   }
 
+  public VpnGatewayForDescribeVpnGatewaysOutput overdueTime(String overdueTime) {
+    this.overdueTime = overdueTime;
+    return this;
+  }
+
+   /**
+   * Get overdueTime
+   * @return overdueTime
+  **/
+  @Schema(description = "")
+  public String getOverdueTime() {
+    return overdueTime;
+  }
+
+  public void setOverdueTime(String overdueTime) {
+    this.overdueTime = overdueTime;
+  }
+
   public VpnGatewayForDescribeVpnGatewaysOutput projectName(String projectName) {
     this.projectName = projectName;
     return this;
@@ -346,6 +415,42 @@ public class VpnGatewayForDescribeVpnGatewaysOutput {
 
   public void setRouteCount(Integer routeCount) {
     this.routeCount = routeCount;
+  }
+
+  public VpnGatewayForDescribeVpnGatewaysOutput sslEnabled(Boolean sslEnabled) {
+    this.sslEnabled = sslEnabled;
+    return this;
+  }
+
+   /**
+   * Get sslEnabled
+   * @return sslEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isSslEnabled() {
+    return sslEnabled;
+  }
+
+  public void setSslEnabled(Boolean sslEnabled) {
+    this.sslEnabled = sslEnabled;
+  }
+
+  public VpnGatewayForDescribeVpnGatewaysOutput sslMaxConnections(Integer sslMaxConnections) {
+    this.sslMaxConnections = sslMaxConnections;
+    return this;
+  }
+
+   /**
+   * Get sslMaxConnections
+   * @return sslMaxConnections
+  **/
+  @Schema(description = "")
+  public Integer getSslMaxConnections() {
+    return sslMaxConnections;
+  }
+
+  public void setSslMaxConnections(Integer sslMaxConnections) {
+    this.sslMaxConnections = sslMaxConnections;
   }
 
   public VpnGatewayForDescribeVpnGatewaysOutput status(String status) {
@@ -494,6 +599,7 @@ public class VpnGatewayForDescribeVpnGatewaysOutput {
     }
     VpnGatewayForDescribeVpnGatewaysOutput vpnGatewayForDescribeVpnGatewaysOutput = (VpnGatewayForDescribeVpnGatewaysOutput) o;
     return Objects.equals(this.accountId, vpnGatewayForDescribeVpnGatewaysOutput.accountId) &&
+        Objects.equals(this.asn, vpnGatewayForDescribeVpnGatewaysOutput.asn) &&
         Objects.equals(this.bandwidth, vpnGatewayForDescribeVpnGatewaysOutput.bandwidth) &&
         Objects.equals(this.billingType, vpnGatewayForDescribeVpnGatewaysOutput.billingType) &&
         Objects.equals(this.businessStatus, vpnGatewayForDescribeVpnGatewaysOutput.businessStatus) &&
@@ -503,10 +609,14 @@ public class VpnGatewayForDescribeVpnGatewaysOutput {
         Objects.equals(this.description, vpnGatewayForDescribeVpnGatewaysOutput.description) &&
         Objects.equals(this.expiredTime, vpnGatewayForDescribeVpnGatewaysOutput.expiredTime) &&
         Objects.equals(this.ipAddress, vpnGatewayForDescribeVpnGatewaysOutput.ipAddress) &&
+        Objects.equals(this.ipsecEnabled, vpnGatewayForDescribeVpnGatewaysOutput.ipsecEnabled) &&
         Objects.equals(this.isBlocked, vpnGatewayForDescribeVpnGatewaysOutput.isBlocked) &&
         Objects.equals(this.lockReason, vpnGatewayForDescribeVpnGatewaysOutput.lockReason) &&
+        Objects.equals(this.overdueTime, vpnGatewayForDescribeVpnGatewaysOutput.overdueTime) &&
         Objects.equals(this.projectName, vpnGatewayForDescribeVpnGatewaysOutput.projectName) &&
         Objects.equals(this.routeCount, vpnGatewayForDescribeVpnGatewaysOutput.routeCount) &&
+        Objects.equals(this.sslEnabled, vpnGatewayForDescribeVpnGatewaysOutput.sslEnabled) &&
+        Objects.equals(this.sslMaxConnections, vpnGatewayForDescribeVpnGatewaysOutput.sslMaxConnections) &&
         Objects.equals(this.status, vpnGatewayForDescribeVpnGatewaysOutput.status) &&
         Objects.equals(this.subnetId, vpnGatewayForDescribeVpnGatewaysOutput.subnetId) &&
         Objects.equals(this.tags, vpnGatewayForDescribeVpnGatewaysOutput.tags) &&
@@ -518,7 +628,7 @@ public class VpnGatewayForDescribeVpnGatewaysOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, bandwidth, billingType, businessStatus, connectionCount, creationTime, deletedTime, description, expiredTime, ipAddress, isBlocked, lockReason, projectName, routeCount, status, subnetId, tags, updateTime, vpcId, vpnGatewayId, vpnGatewayName);
+    return Objects.hash(accountId, asn, bandwidth, billingType, businessStatus, connectionCount, creationTime, deletedTime, description, expiredTime, ipAddress, ipsecEnabled, isBlocked, lockReason, overdueTime, projectName, routeCount, sslEnabled, sslMaxConnections, status, subnetId, tags, updateTime, vpcId, vpnGatewayId, vpnGatewayName);
   }
 
 
@@ -528,6 +638,7 @@ public class VpnGatewayForDescribeVpnGatewaysOutput {
     sb.append("class VpnGatewayForDescribeVpnGatewaysOutput {\n");
     
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
+    sb.append("    asn: ").append(toIndentedString(asn)).append("\n");
     sb.append("    bandwidth: ").append(toIndentedString(bandwidth)).append("\n");
     sb.append("    billingType: ").append(toIndentedString(billingType)).append("\n");
     sb.append("    businessStatus: ").append(toIndentedString(businessStatus)).append("\n");
@@ -537,10 +648,14 @@ public class VpnGatewayForDescribeVpnGatewaysOutput {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    expiredTime: ").append(toIndentedString(expiredTime)).append("\n");
     sb.append("    ipAddress: ").append(toIndentedString(ipAddress)).append("\n");
+    sb.append("    ipsecEnabled: ").append(toIndentedString(ipsecEnabled)).append("\n");
     sb.append("    isBlocked: ").append(toIndentedString(isBlocked)).append("\n");
     sb.append("    lockReason: ").append(toIndentedString(lockReason)).append("\n");
+    sb.append("    overdueTime: ").append(toIndentedString(overdueTime)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    routeCount: ").append(toIndentedString(routeCount)).append("\n");
+    sb.append("    sslEnabled: ").append(toIndentedString(sslEnabled)).append("\n");
+    sb.append("    sslMaxConnections: ").append(toIndentedString(sslMaxConnections)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");

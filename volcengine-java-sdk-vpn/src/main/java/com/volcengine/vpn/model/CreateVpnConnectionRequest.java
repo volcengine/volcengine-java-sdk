@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vpn.model.BgpConfigForCreateVpnConnectionInput;
 import com.volcengine.vpn.model.IkeConfigForCreateVpnConnectionInput;
 import com.volcengine.vpn.model.IpsecConfigForCreateVpnConnectionInput;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -36,6 +37,9 @@ import javax.validation.Valid;
 public class CreateVpnConnectionRequest {
   @SerializedName("AttachType")
   private String attachType = null;
+
+  @SerializedName("BgpConfig")
+  private BgpConfigForCreateVpnConnectionInput bgpConfig = null;
 
   @SerializedName("ClientToken")
   private String clientToken = null;
@@ -73,6 +77,9 @@ public class CreateVpnConnectionRequest {
   @SerializedName("RemoteSubnet")
   private List<String> remoteSubnet = null;
 
+  @SerializedName("Spec")
+  private String spec = null;
+
   @SerializedName("VpnConnectionName")
   private String vpnConnectionName = null;
 
@@ -95,6 +102,25 @@ public class CreateVpnConnectionRequest {
 
   public void setAttachType(String attachType) {
     this.attachType = attachType;
+  }
+
+  public CreateVpnConnectionRequest bgpConfig(BgpConfigForCreateVpnConnectionInput bgpConfig) {
+    this.bgpConfig = bgpConfig;
+    return this;
+  }
+
+   /**
+   * Get bgpConfig
+   * @return bgpConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public BgpConfigForCreateVpnConnectionInput getBgpConfig() {
+    return bgpConfig;
+  }
+
+  public void setBgpConfig(BgpConfigForCreateVpnConnectionInput bgpConfig) {
+    this.bgpConfig = bgpConfig;
   }
 
   public CreateVpnConnectionRequest clientToken(String clientToken) {
@@ -332,6 +358,24 @@ public class CreateVpnConnectionRequest {
     this.remoteSubnet = remoteSubnet;
   }
 
+  public CreateVpnConnectionRequest spec(String spec) {
+    this.spec = spec;
+    return this;
+  }
+
+   /**
+   * Get spec
+   * @return spec
+  **/
+  @Schema(description = "")
+  public String getSpec() {
+    return spec;
+  }
+
+  public void setSpec(String spec) {
+    this.spec = spec;
+  }
+
   public CreateVpnConnectionRequest vpnConnectionName(String vpnConnectionName) {
     this.vpnConnectionName = vpnConnectionName;
     return this;
@@ -380,6 +424,7 @@ public class CreateVpnConnectionRequest {
     }
     CreateVpnConnectionRequest createVpnConnectionRequest = (CreateVpnConnectionRequest) o;
     return Objects.equals(this.attachType, createVpnConnectionRequest.attachType) &&
+        Objects.equals(this.bgpConfig, createVpnConnectionRequest.bgpConfig) &&
         Objects.equals(this.clientToken, createVpnConnectionRequest.clientToken) &&
         Objects.equals(this.customerGatewayId, createVpnConnectionRequest.customerGatewayId) &&
         Objects.equals(this.description, createVpnConnectionRequest.description) &&
@@ -392,13 +437,14 @@ public class CreateVpnConnectionRequest {
         Objects.equals(this.negotiateInstantly, createVpnConnectionRequest.negotiateInstantly) &&
         Objects.equals(this.projectName, createVpnConnectionRequest.projectName) &&
         Objects.equals(this.remoteSubnet, createVpnConnectionRequest.remoteSubnet) &&
+        Objects.equals(this.spec, createVpnConnectionRequest.spec) &&
         Objects.equals(this.vpnConnectionName, createVpnConnectionRequest.vpnConnectionName) &&
         Objects.equals(this.vpnGatewayId, createVpnConnectionRequest.vpnGatewayId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attachType, clientToken, customerGatewayId, description, dpdAction, ikeConfig, ipsecConfig, localSubnet, logEnabled, natTraversal, negotiateInstantly, projectName, remoteSubnet, vpnConnectionName, vpnGatewayId);
+    return Objects.hash(attachType, bgpConfig, clientToken, customerGatewayId, description, dpdAction, ikeConfig, ipsecConfig, localSubnet, logEnabled, natTraversal, negotiateInstantly, projectName, remoteSubnet, spec, vpnConnectionName, vpnGatewayId);
   }
 
 
@@ -408,6 +454,7 @@ public class CreateVpnConnectionRequest {
     sb.append("class CreateVpnConnectionRequest {\n");
     
     sb.append("    attachType: ").append(toIndentedString(attachType)).append("\n");
+    sb.append("    bgpConfig: ").append(toIndentedString(bgpConfig)).append("\n");
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    customerGatewayId: ").append(toIndentedString(customerGatewayId)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
@@ -420,6 +467,7 @@ public class CreateVpnConnectionRequest {
     sb.append("    negotiateInstantly: ").append(toIndentedString(negotiateInstantly)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    remoteSubnet: ").append(toIndentedString(remoteSubnet)).append("\n");
+    sb.append("    spec: ").append(toIndentedString(spec)).append("\n");
     sb.append("    vpnConnectionName: ").append(toIndentedString(vpnConnectionName)).append("\n");
     sb.append("    vpnGatewayId: ").append(toIndentedString(vpnGatewayId)).append("\n");
     sb.append("}");

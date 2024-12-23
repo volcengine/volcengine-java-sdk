@@ -36,6 +36,9 @@ public class DescribeVpnGatewayAttributesResponse extends com.volcengine.model.A
   @SerializedName("AccountId")
   private String accountId = null;
 
+  @SerializedName("Asn")
+  private Integer asn = null;
+
   @SerializedName("Bandwidth")
   private Integer bandwidth = null;
 
@@ -60,17 +63,20 @@ public class DescribeVpnGatewayAttributesResponse extends com.volcengine.model.A
   @SerializedName("ExpiredTime")
   private String expiredTime = null;
 
-  @SerializedName("IPsecEnabled")
-  private Boolean ipsecEnabled = null;
-
   @SerializedName("IpAddress")
   private String ipAddress = null;
+
+  @SerializedName("IpsecEnabled")
+  private Boolean ipsecEnabled = null;
 
   @SerializedName("IsBlocked")
   private Boolean isBlocked = null;
 
   @SerializedName("LockReason")
   private String lockReason = null;
+
+  @SerializedName("OverdueTime")
+  private String overdueTime = null;
 
   @SerializedName("ProjectName")
   private String projectName = null;
@@ -86,6 +92,9 @@ public class DescribeVpnGatewayAttributesResponse extends com.volcengine.model.A
 
   @SerializedName("SslMaxConnection")
   private Integer sslMaxConnection = null;
+
+  @SerializedName("SslMaxConnections")
+  private Integer sslMaxConnections = null;
 
   @SerializedName("Status")
   private String status = null;
@@ -124,6 +133,24 @@ public class DescribeVpnGatewayAttributesResponse extends com.volcengine.model.A
 
   public void setAccountId(String accountId) {
     this.accountId = accountId;
+  }
+
+  public DescribeVpnGatewayAttributesResponse asn(Integer asn) {
+    this.asn = asn;
+    return this;
+  }
+
+   /**
+   * Get asn
+   * @return asn
+  **/
+  @Schema(description = "")
+  public Integer getAsn() {
+    return asn;
+  }
+
+  public void setAsn(Integer asn) {
+    this.asn = asn;
   }
 
   public DescribeVpnGatewayAttributesResponse bandwidth(Integer bandwidth) {
@@ -270,24 +297,6 @@ public class DescribeVpnGatewayAttributesResponse extends com.volcengine.model.A
     this.expiredTime = expiredTime;
   }
 
-  public DescribeVpnGatewayAttributesResponse ipsecEnabled(Boolean ipsecEnabled) {
-    this.ipsecEnabled = ipsecEnabled;
-    return this;
-  }
-
-   /**
-   * Get ipsecEnabled
-   * @return ipsecEnabled
-  **/
-  @Schema(description = "")
-  public Boolean isIpsecEnabled() {
-    return ipsecEnabled;
-  }
-
-  public void setIpsecEnabled(Boolean ipsecEnabled) {
-    this.ipsecEnabled = ipsecEnabled;
-  }
-
   public DescribeVpnGatewayAttributesResponse ipAddress(String ipAddress) {
     this.ipAddress = ipAddress;
     return this;
@@ -304,6 +313,24 @@ public class DescribeVpnGatewayAttributesResponse extends com.volcengine.model.A
 
   public void setIpAddress(String ipAddress) {
     this.ipAddress = ipAddress;
+  }
+
+  public DescribeVpnGatewayAttributesResponse ipsecEnabled(Boolean ipsecEnabled) {
+    this.ipsecEnabled = ipsecEnabled;
+    return this;
+  }
+
+   /**
+   * Get ipsecEnabled
+   * @return ipsecEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isIpsecEnabled() {
+    return ipsecEnabled;
+  }
+
+  public void setIpsecEnabled(Boolean ipsecEnabled) {
+    this.ipsecEnabled = ipsecEnabled;
   }
 
   public DescribeVpnGatewayAttributesResponse isBlocked(Boolean isBlocked) {
@@ -340,6 +367,24 @@ public class DescribeVpnGatewayAttributesResponse extends com.volcengine.model.A
 
   public void setLockReason(String lockReason) {
     this.lockReason = lockReason;
+  }
+
+  public DescribeVpnGatewayAttributesResponse overdueTime(String overdueTime) {
+    this.overdueTime = overdueTime;
+    return this;
+  }
+
+   /**
+   * Get overdueTime
+   * @return overdueTime
+  **/
+  @Schema(description = "")
+  public String getOverdueTime() {
+    return overdueTime;
+  }
+
+  public void setOverdueTime(String overdueTime) {
+    this.overdueTime = overdueTime;
   }
 
   public DescribeVpnGatewayAttributesResponse projectName(String projectName) {
@@ -430,6 +475,24 @@ public class DescribeVpnGatewayAttributesResponse extends com.volcengine.model.A
 
   public void setSslMaxConnection(Integer sslMaxConnection) {
     this.sslMaxConnection = sslMaxConnection;
+  }
+
+  public DescribeVpnGatewayAttributesResponse sslMaxConnections(Integer sslMaxConnections) {
+    this.sslMaxConnections = sslMaxConnections;
+    return this;
+  }
+
+   /**
+   * Get sslMaxConnections
+   * @return sslMaxConnections
+  **/
+  @Schema(description = "")
+  public Integer getSslMaxConnections() {
+    return sslMaxConnections;
+  }
+
+  public void setSslMaxConnections(Integer sslMaxConnections) {
+    this.sslMaxConnections = sslMaxConnections;
   }
 
   public DescribeVpnGatewayAttributesResponse status(String status) {
@@ -578,6 +641,7 @@ public class DescribeVpnGatewayAttributesResponse extends com.volcengine.model.A
     }
     DescribeVpnGatewayAttributesResponse describeVpnGatewayAttributesResponse = (DescribeVpnGatewayAttributesResponse) o;
     return Objects.equals(this.accountId, describeVpnGatewayAttributesResponse.accountId) &&
+        Objects.equals(this.asn, describeVpnGatewayAttributesResponse.asn) &&
         Objects.equals(this.bandwidth, describeVpnGatewayAttributesResponse.bandwidth) &&
         Objects.equals(this.billingType, describeVpnGatewayAttributesResponse.billingType) &&
         Objects.equals(this.businessStatus, describeVpnGatewayAttributesResponse.businessStatus) &&
@@ -586,15 +650,17 @@ public class DescribeVpnGatewayAttributesResponse extends com.volcengine.model.A
         Objects.equals(this.deletedTime, describeVpnGatewayAttributesResponse.deletedTime) &&
         Objects.equals(this.description, describeVpnGatewayAttributesResponse.description) &&
         Objects.equals(this.expiredTime, describeVpnGatewayAttributesResponse.expiredTime) &&
-        Objects.equals(this.ipsecEnabled, describeVpnGatewayAttributesResponse.ipsecEnabled) &&
         Objects.equals(this.ipAddress, describeVpnGatewayAttributesResponse.ipAddress) &&
+        Objects.equals(this.ipsecEnabled, describeVpnGatewayAttributesResponse.ipsecEnabled) &&
         Objects.equals(this.isBlocked, describeVpnGatewayAttributesResponse.isBlocked) &&
         Objects.equals(this.lockReason, describeVpnGatewayAttributesResponse.lockReason) &&
+        Objects.equals(this.overdueTime, describeVpnGatewayAttributesResponse.overdueTime) &&
         Objects.equals(this.projectName, describeVpnGatewayAttributesResponse.projectName) &&
         Objects.equals(this.requestId, describeVpnGatewayAttributesResponse.requestId) &&
         Objects.equals(this.routeCount, describeVpnGatewayAttributesResponse.routeCount) &&
         Objects.equals(this.sslEnabled, describeVpnGatewayAttributesResponse.sslEnabled) &&
         Objects.equals(this.sslMaxConnection, describeVpnGatewayAttributesResponse.sslMaxConnection) &&
+        Objects.equals(this.sslMaxConnections, describeVpnGatewayAttributesResponse.sslMaxConnections) &&
         Objects.equals(this.status, describeVpnGatewayAttributesResponse.status) &&
         Objects.equals(this.subnetId, describeVpnGatewayAttributesResponse.subnetId) &&
         Objects.equals(this.tags, describeVpnGatewayAttributesResponse.tags) &&
@@ -606,7 +672,7 @@ public class DescribeVpnGatewayAttributesResponse extends com.volcengine.model.A
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, bandwidth, billingType, businessStatus, connectionCount, creationTime, deletedTime, description, expiredTime, ipsecEnabled, ipAddress, isBlocked, lockReason, projectName, requestId, routeCount, sslEnabled, sslMaxConnection, status, subnetId, tags, updateTime, vpcId, vpnGatewayId, vpnGatewayName);
+    return Objects.hash(accountId, asn, bandwidth, billingType, businessStatus, connectionCount, creationTime, deletedTime, description, expiredTime, ipAddress, ipsecEnabled, isBlocked, lockReason, overdueTime, projectName, requestId, routeCount, sslEnabled, sslMaxConnection, sslMaxConnections, status, subnetId, tags, updateTime, vpcId, vpnGatewayId, vpnGatewayName);
   }
 
 
@@ -616,6 +682,7 @@ public class DescribeVpnGatewayAttributesResponse extends com.volcengine.model.A
     sb.append("class DescribeVpnGatewayAttributesResponse {\n");
     
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
+    sb.append("    asn: ").append(toIndentedString(asn)).append("\n");
     sb.append("    bandwidth: ").append(toIndentedString(bandwidth)).append("\n");
     sb.append("    billingType: ").append(toIndentedString(billingType)).append("\n");
     sb.append("    businessStatus: ").append(toIndentedString(businessStatus)).append("\n");
@@ -624,15 +691,17 @@ public class DescribeVpnGatewayAttributesResponse extends com.volcengine.model.A
     sb.append("    deletedTime: ").append(toIndentedString(deletedTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    expiredTime: ").append(toIndentedString(expiredTime)).append("\n");
-    sb.append("    ipsecEnabled: ").append(toIndentedString(ipsecEnabled)).append("\n");
     sb.append("    ipAddress: ").append(toIndentedString(ipAddress)).append("\n");
+    sb.append("    ipsecEnabled: ").append(toIndentedString(ipsecEnabled)).append("\n");
     sb.append("    isBlocked: ").append(toIndentedString(isBlocked)).append("\n");
     sb.append("    lockReason: ").append(toIndentedString(lockReason)).append("\n");
+    sb.append("    overdueTime: ").append(toIndentedString(overdueTime)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    routeCount: ").append(toIndentedString(routeCount)).append("\n");
     sb.append("    sslEnabled: ").append(toIndentedString(sslEnabled)).append("\n");
     sb.append("    sslMaxConnection: ").append(toIndentedString(sslMaxConnection)).append("\n");
+    sb.append("    sslMaxConnections: ").append(toIndentedString(sslMaxConnections)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
