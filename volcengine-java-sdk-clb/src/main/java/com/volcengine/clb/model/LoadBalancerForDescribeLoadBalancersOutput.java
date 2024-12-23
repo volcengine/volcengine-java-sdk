@@ -133,6 +133,9 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
   @SerializedName("Tags")
   private List<TagForDescribeLoadBalancersOutput> tags = null;
 
+  @SerializedName("TimestampRemoveEnabled")
+  private String timestampRemoveEnabled = null;
+
   @SerializedName("Type")
   private String type = null;
 
@@ -754,6 +757,24 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
     this.tags = tags;
   }
 
+  public LoadBalancerForDescribeLoadBalancersOutput timestampRemoveEnabled(String timestampRemoveEnabled) {
+    this.timestampRemoveEnabled = timestampRemoveEnabled;
+    return this;
+  }
+
+   /**
+   * Get timestampRemoveEnabled
+   * @return timestampRemoveEnabled
+  **/
+  @Schema(description = "")
+  public String getTimestampRemoveEnabled() {
+    return timestampRemoveEnabled;
+  }
+
+  public void setTimestampRemoveEnabled(String timestampRemoveEnabled) {
+    this.timestampRemoveEnabled = timestampRemoveEnabled;
+  }
+
   public LoadBalancerForDescribeLoadBalancersOutput type(String type) {
     this.type = type;
     return this;
@@ -851,6 +872,7 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
         Objects.equals(this.status, loadBalancerForDescribeLoadBalancersOutput.status) &&
         Objects.equals(this.subnetId, loadBalancerForDescribeLoadBalancersOutput.subnetId) &&
         Objects.equals(this.tags, loadBalancerForDescribeLoadBalancersOutput.tags) &&
+        Objects.equals(this.timestampRemoveEnabled, loadBalancerForDescribeLoadBalancersOutput.timestampRemoveEnabled) &&
         Objects.equals(this.type, loadBalancerForDescribeLoadBalancersOutput.type) &&
         Objects.equals(this.updateTime, loadBalancerForDescribeLoadBalancersOutput.updateTime) &&
         Objects.equals(this.vpcId, loadBalancerForDescribeLoadBalancersOutput.vpcId);
@@ -858,7 +880,7 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, addressIpVersion, businessStatus, bypassSecurityGroupEnabled, createTime, deletedTime, description, eipAddress, eipID, eniAddress, eniAddressNum, eniAddresses, eniID, eniIpv6Address, exclusiveClusterId, expiredTime, ipv6EipId, loadBalancerBillingType, loadBalancerId, loadBalancerName, loadBalancerSpec, lockReason, masterZoneId, modificationProtectionReason, modificationProtectionStatus, newArch, overdueTime, projectName, serviceManaged, slaveZoneId, status, subnetId, tags, type, updateTime, vpcId);
+    return Objects.hash(accountId, addressIpVersion, businessStatus, bypassSecurityGroupEnabled, createTime, deletedTime, description, eipAddress, eipID, eniAddress, eniAddressNum, eniAddresses, eniID, eniIpv6Address, exclusiveClusterId, expiredTime, ipv6EipId, loadBalancerBillingType, loadBalancerId, loadBalancerName, loadBalancerSpec, lockReason, masterZoneId, modificationProtectionReason, modificationProtectionStatus, newArch, overdueTime, projectName, serviceManaged, slaveZoneId, status, subnetId, tags, timestampRemoveEnabled, type, updateTime, vpcId);
   }
 
 
@@ -900,6 +922,7 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    timestampRemoveEnabled: ").append(toIndentedString(timestampRemoveEnabled)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
