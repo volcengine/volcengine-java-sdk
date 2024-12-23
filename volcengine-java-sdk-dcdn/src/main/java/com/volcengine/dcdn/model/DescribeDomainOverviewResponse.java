@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeDomainOverviewResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("AllDomainNum")
   private Integer allDomainNum = null;

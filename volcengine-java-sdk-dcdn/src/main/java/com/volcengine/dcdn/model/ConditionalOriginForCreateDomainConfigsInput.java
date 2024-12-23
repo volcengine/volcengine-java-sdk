@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ConditionalOriginForCreateDomainConfigsInput {
   @SerializedName("BackupOrigins")
   private List<BackupOriginForCreateDomainConfigsInput> backupOrigins = null;

@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CacheKeyRuleForDescribeDomainDetailOutput {
   @SerializedName("Contents")
   private String contents = null;

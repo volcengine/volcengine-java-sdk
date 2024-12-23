@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class GetPurgePrefetchTaskQuotaResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("DirQuota")
   private Integer dirQuota = null;

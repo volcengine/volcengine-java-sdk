@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ResourceTagFilterForListDomainConfigInput {
   @SerializedName("FilterType")
   private String filterType = null;

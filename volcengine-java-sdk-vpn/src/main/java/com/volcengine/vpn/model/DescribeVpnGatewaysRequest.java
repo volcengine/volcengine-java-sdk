@@ -33,11 +33,11 @@ import javax.validation.Valid;
 
 
 public class DescribeVpnGatewaysRequest {
-  @SerializedName("IPsecEnabled")
-  private Boolean ipsecEnabled = null;
-
   @SerializedName("IpAddress")
   private String ipAddress = null;
+
+  @SerializedName("IpsecEnabled")
+  private Boolean ipsecEnabled = null;
 
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
@@ -66,24 +66,6 @@ public class DescribeVpnGatewaysRequest {
   @SerializedName("VpnGatewayName")
   private String vpnGatewayName = null;
 
-  public DescribeVpnGatewaysRequest ipsecEnabled(Boolean ipsecEnabled) {
-    this.ipsecEnabled = ipsecEnabled;
-    return this;
-  }
-
-   /**
-   * Get ipsecEnabled
-   * @return ipsecEnabled
-  **/
-  @Schema(description = "")
-  public Boolean isIpsecEnabled() {
-    return ipsecEnabled;
-  }
-
-  public void setIpsecEnabled(Boolean ipsecEnabled) {
-    this.ipsecEnabled = ipsecEnabled;
-  }
-
   public DescribeVpnGatewaysRequest ipAddress(String ipAddress) {
     this.ipAddress = ipAddress;
     return this;
@@ -100,6 +82,24 @@ public class DescribeVpnGatewaysRequest {
 
   public void setIpAddress(String ipAddress) {
     this.ipAddress = ipAddress;
+  }
+
+  public DescribeVpnGatewaysRequest ipsecEnabled(Boolean ipsecEnabled) {
+    this.ipsecEnabled = ipsecEnabled;
+    return this;
+  }
+
+   /**
+   * Get ipsecEnabled
+   * @return ipsecEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isIpsecEnabled() {
+    return ipsecEnabled;
+  }
+
+  public void setIpsecEnabled(Boolean ipsecEnabled) {
+    this.ipsecEnabled = ipsecEnabled;
   }
 
   public DescribeVpnGatewaysRequest pageNumber(Integer pageNumber) {
@@ -291,8 +291,8 @@ public class DescribeVpnGatewaysRequest {
       return false;
     }
     DescribeVpnGatewaysRequest describeVpnGatewaysRequest = (DescribeVpnGatewaysRequest) o;
-    return Objects.equals(this.ipsecEnabled, describeVpnGatewaysRequest.ipsecEnabled) &&
-        Objects.equals(this.ipAddress, describeVpnGatewaysRequest.ipAddress) &&
+    return Objects.equals(this.ipAddress, describeVpnGatewaysRequest.ipAddress) &&
+        Objects.equals(this.ipsecEnabled, describeVpnGatewaysRequest.ipsecEnabled) &&
         Objects.equals(this.pageNumber, describeVpnGatewaysRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeVpnGatewaysRequest.pageSize) &&
         Objects.equals(this.projectName, describeVpnGatewaysRequest.projectName) &&
@@ -306,7 +306,7 @@ public class DescribeVpnGatewaysRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(ipsecEnabled, ipAddress, pageNumber, pageSize, projectName, sslEnabled, subnetId, tagFilters, vpcId, vpnGatewayIds, vpnGatewayName);
+    return Objects.hash(ipAddress, ipsecEnabled, pageNumber, pageSize, projectName, sslEnabled, subnetId, tagFilters, vpcId, vpnGatewayIds, vpnGatewayName);
   }
 
 
@@ -315,8 +315,8 @@ public class DescribeVpnGatewaysRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeVpnGatewaysRequest {\n");
     
-    sb.append("    ipsecEnabled: ").append(toIndentedString(ipsecEnabled)).append("\n");
     sb.append("    ipAddress: ").append(toIndentedString(ipAddress)).append("\n");
+    sb.append("    ipsecEnabled: ").append(toIndentedString(ipsecEnabled)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");

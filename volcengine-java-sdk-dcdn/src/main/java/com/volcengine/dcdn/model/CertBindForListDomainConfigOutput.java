@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CertBindForListDomainConfigOutput {
   @SerializedName("CertId")
   private String certId = null;

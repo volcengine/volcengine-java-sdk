@@ -48,6 +48,9 @@ public class DescribeListenersRequest {
   @SerializedName("PageSize")
   private Integer pageSize = null;
 
+  @SerializedName("Protocol")
+  private String protocol = null;
+
   @SerializedName("TagFilters")
   private List<TagFilterForDescribeListenersInput> tagFilters = null;
 
@@ -149,6 +152,24 @@ public class DescribeListenersRequest {
     this.pageSize = pageSize;
   }
 
+  public DescribeListenersRequest protocol(String protocol) {
+    this.protocol = protocol;
+    return this;
+  }
+
+   /**
+   * Get protocol
+   * @return protocol
+  **/
+  @Schema(description = "")
+  public String getProtocol() {
+    return protocol;
+  }
+
+  public void setProtocol(String protocol) {
+    this.protocol = protocol;
+  }
+
   public DescribeListenersRequest tagFilters(List<TagFilterForDescribeListenersInput> tagFilters) {
     this.tagFilters = tagFilters;
     return this;
@@ -191,12 +212,13 @@ public class DescribeListenersRequest {
         Objects.equals(this.loadBalancerId, describeListenersRequest.loadBalancerId) &&
         Objects.equals(this.pageNumber, describeListenersRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeListenersRequest.pageSize) &&
+        Objects.equals(this.protocol, describeListenersRequest.protocol) &&
         Objects.equals(this.tagFilters, describeListenersRequest.tagFilters);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(listenerIds, listenerName, loadBalancerId, pageNumber, pageSize, tagFilters);
+    return Objects.hash(listenerIds, listenerName, loadBalancerId, pageNumber, pageSize, protocol, tagFilters);
   }
 
 
@@ -210,6 +232,7 @@ public class DescribeListenersRequest {
     sb.append("    loadBalancerId: ").append(toIndentedString(loadBalancerId)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
     sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("}");
     return sb.toString();

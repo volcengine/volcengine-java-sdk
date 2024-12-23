@@ -33,11 +33,32 @@ import javax.validation.Valid;
 
 
 public class CreateVpnConnectionHealthCheckersRequest {
+  @SerializedName("ClientToken")
+  private String clientToken = null;
+
   @SerializedName("HealthCheckConfigs")
   private List<HealthCheckConfigForCreateVpnConnectionHealthCheckersInput> healthCheckConfigs = null;
 
   @SerializedName("VpnConnectionId")
   private String vpnConnectionId = null;
+
+  public CreateVpnConnectionHealthCheckersRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
 
   public CreateVpnConnectionHealthCheckersRequest healthCheckConfigs(List<HealthCheckConfigForCreateVpnConnectionHealthCheckersInput> healthCheckConfigs) {
     this.healthCheckConfigs = healthCheckConfigs;
@@ -95,13 +116,14 @@ public class CreateVpnConnectionHealthCheckersRequest {
       return false;
     }
     CreateVpnConnectionHealthCheckersRequest createVpnConnectionHealthCheckersRequest = (CreateVpnConnectionHealthCheckersRequest) o;
-    return Objects.equals(this.healthCheckConfigs, createVpnConnectionHealthCheckersRequest.healthCheckConfigs) &&
+    return Objects.equals(this.clientToken, createVpnConnectionHealthCheckersRequest.clientToken) &&
+        Objects.equals(this.healthCheckConfigs, createVpnConnectionHealthCheckersRequest.healthCheckConfigs) &&
         Objects.equals(this.vpnConnectionId, createVpnConnectionHealthCheckersRequest.vpnConnectionId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(healthCheckConfigs, vpnConnectionId);
+    return Objects.hash(clientToken, healthCheckConfigs, vpnConnectionId);
   }
 
 
@@ -110,6 +132,7 @@ public class CreateVpnConnectionHealthCheckersRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateVpnConnectionHealthCheckersRequest {\n");
     
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    healthCheckConfigs: ").append(toIndentedString(healthCheckConfigs)).append("\n");
     sb.append("    vpnConnectionId: ").append(toIndentedString(vpnConnectionId)).append("\n");
     sb.append("}");

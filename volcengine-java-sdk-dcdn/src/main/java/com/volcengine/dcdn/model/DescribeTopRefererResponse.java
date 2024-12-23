@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeTopRefererResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("TopReferers")
   private List<TopRefererForDescribeTopRefererOutput> topReferers = null;

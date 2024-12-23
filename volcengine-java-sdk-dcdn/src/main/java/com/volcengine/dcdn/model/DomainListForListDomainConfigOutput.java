@@ -46,6 +46,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DomainListForListDomainConfigOutput {
   @SerializedName("BrCompress")
   private BrCompressForListDomainConfigOutput brCompress = null;

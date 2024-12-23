@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class RuleForListDomainConfigOutput {
   @SerializedName("CacheTime")
   private Integer cacheTime = null;

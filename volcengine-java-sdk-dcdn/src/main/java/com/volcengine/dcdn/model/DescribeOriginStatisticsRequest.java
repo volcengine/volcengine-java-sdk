@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeOriginStatisticsRequest {
   @SerializedName("Domains")
   private List<String> domains = null;

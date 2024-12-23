@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ConvertRuleForListDomainConfigOutput {
   @SerializedName("Match")
   private String match = null;

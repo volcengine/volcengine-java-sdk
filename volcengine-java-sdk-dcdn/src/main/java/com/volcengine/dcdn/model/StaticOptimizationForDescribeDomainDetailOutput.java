@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class StaticOptimizationForDescribeDomainDetailOutput {
   @SerializedName("H2Priority")
   private Boolean h2Priority = null;

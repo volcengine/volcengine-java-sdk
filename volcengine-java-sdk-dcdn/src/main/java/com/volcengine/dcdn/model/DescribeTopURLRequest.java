@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeTopURLRequest {
   @SerializedName("Domain")
   private String domain = null;

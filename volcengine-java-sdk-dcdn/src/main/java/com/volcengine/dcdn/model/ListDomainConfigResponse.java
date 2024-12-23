@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ListDomainConfigResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("DomainList")
   private List<DomainListForListDomainConfigOutput> domainList = null;

@@ -30,6 +30,9 @@ import javax.validation.Valid;
 
 
 public class ModifyVpnGatewayAttributesRequest {
+  @SerializedName("Asn")
+  private Integer asn = null;
+
   @SerializedName("Bandwidth")
   private Integer bandwidth = null;
 
@@ -50,6 +53,24 @@ public class ModifyVpnGatewayAttributesRequest {
 
   @SerializedName("VpnGatewayName")
   private String vpnGatewayName = null;
+
+  public ModifyVpnGatewayAttributesRequest asn(Integer asn) {
+    this.asn = asn;
+    return this;
+  }
+
+   /**
+   * Get asn
+   * @return asn
+  **/
+  @Schema(description = "")
+  public Integer getAsn() {
+    return asn;
+  }
+
+  public void setAsn(Integer asn) {
+    this.asn = asn;
+  }
 
   public ModifyVpnGatewayAttributesRequest bandwidth(Integer bandwidth) {
     this.bandwidth = bandwidth;
@@ -188,7 +209,8 @@ public class ModifyVpnGatewayAttributesRequest {
       return false;
     }
     ModifyVpnGatewayAttributesRequest modifyVpnGatewayAttributesRequest = (ModifyVpnGatewayAttributesRequest) o;
-    return Objects.equals(this.bandwidth, modifyVpnGatewayAttributesRequest.bandwidth) &&
+    return Objects.equals(this.asn, modifyVpnGatewayAttributesRequest.asn) &&
+        Objects.equals(this.bandwidth, modifyVpnGatewayAttributesRequest.bandwidth) &&
         Objects.equals(this.description, modifyVpnGatewayAttributesRequest.description) &&
         Objects.equals(this.ipsecEnabled, modifyVpnGatewayAttributesRequest.ipsecEnabled) &&
         Objects.equals(this.sslEnabled, modifyVpnGatewayAttributesRequest.sslEnabled) &&
@@ -199,7 +221,7 @@ public class ModifyVpnGatewayAttributesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidth, description, ipsecEnabled, sslEnabled, sslMaxConnections, vpnGatewayId, vpnGatewayName);
+    return Objects.hash(asn, bandwidth, description, ipsecEnabled, sslEnabled, sslMaxConnections, vpnGatewayId, vpnGatewayName);
   }
 
 
@@ -208,6 +230,7 @@ public class ModifyVpnGatewayAttributesRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ModifyVpnGatewayAttributesRequest {\n");
     
+    sb.append("    asn: ").append(toIndentedString(asn)).append("\n");
     sb.append("    bandwidth: ").append(toIndentedString(bandwidth)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    ipsecEnabled: ").append(toIndentedString(ipsecEnabled)).append("\n");

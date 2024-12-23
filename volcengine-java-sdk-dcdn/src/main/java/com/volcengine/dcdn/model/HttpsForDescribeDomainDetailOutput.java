@@ -32,6 +32,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class HttpsForDescribeDomainDetailOutput {
   @SerializedName("CertBind")
   private CertBindForDescribeDomainDetailOutput certBind = null;

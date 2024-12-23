@@ -43,6 +43,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class UpdateSingleDomainConfigRequest {
   @SerializedName("BrCompress")
   private BrCompressForUpdateSingleDomainConfigInput brCompress = null;

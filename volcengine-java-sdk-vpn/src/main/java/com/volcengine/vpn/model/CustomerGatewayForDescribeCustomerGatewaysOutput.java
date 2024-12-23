@@ -33,6 +33,9 @@ public class CustomerGatewayForDescribeCustomerGatewaysOutput {
   @SerializedName("AccountId")
   private String accountId = null;
 
+  @SerializedName("Asn")
+  private Integer asn = null;
+
   @SerializedName("ConnectionCount")
   private Integer connectionCount = null;
 
@@ -76,6 +79,24 @@ public class CustomerGatewayForDescribeCustomerGatewaysOutput {
 
   public void setAccountId(String accountId) {
     this.accountId = accountId;
+  }
+
+  public CustomerGatewayForDescribeCustomerGatewaysOutput asn(Integer asn) {
+    this.asn = asn;
+    return this;
+  }
+
+   /**
+   * Get asn
+   * @return asn
+  **/
+  @Schema(description = "")
+  public Integer getAsn() {
+    return asn;
+  }
+
+  public void setAsn(Integer asn) {
+    this.asn = asn;
   }
 
   public CustomerGatewayForDescribeCustomerGatewaysOutput connectionCount(Integer connectionCount) {
@@ -251,6 +272,7 @@ public class CustomerGatewayForDescribeCustomerGatewaysOutput {
     }
     CustomerGatewayForDescribeCustomerGatewaysOutput customerGatewayForDescribeCustomerGatewaysOutput = (CustomerGatewayForDescribeCustomerGatewaysOutput) o;
     return Objects.equals(this.accountId, customerGatewayForDescribeCustomerGatewaysOutput.accountId) &&
+        Objects.equals(this.asn, customerGatewayForDescribeCustomerGatewaysOutput.asn) &&
         Objects.equals(this.connectionCount, customerGatewayForDescribeCustomerGatewaysOutput.connectionCount) &&
         Objects.equals(this.creationTime, customerGatewayForDescribeCustomerGatewaysOutput.creationTime) &&
         Objects.equals(this.customerGatewayId, customerGatewayForDescribeCustomerGatewaysOutput.customerGatewayId) &&
@@ -264,7 +286,7 @@ public class CustomerGatewayForDescribeCustomerGatewaysOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, connectionCount, creationTime, customerGatewayId, customerGatewayName, description, ipAddress, projectName, status, updateTime);
+    return Objects.hash(accountId, asn, connectionCount, creationTime, customerGatewayId, customerGatewayName, description, ipAddress, projectName, status, updateTime);
   }
 
 
@@ -274,6 +296,7 @@ public class CustomerGatewayForDescribeCustomerGatewaysOutput {
     sb.append("class CustomerGatewayForDescribeCustomerGatewaysOutput {\n");
     
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
+    sb.append("    asn: ").append(toIndentedString(asn)).append("\n");
     sb.append("    connectionCount: ").append(toIndentedString(connectionCount)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    customerGatewayId: ").append(toIndentedString(customerGatewayId)).append("\n");

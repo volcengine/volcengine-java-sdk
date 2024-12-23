@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ListCertBindResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("BindList")
   private List<BindListForListCertBindOutput> bindList = null;

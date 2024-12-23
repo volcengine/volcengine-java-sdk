@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class IpAccessForDescribeDomainDetailOutput {
   @SerializedName("Enable")
   private Boolean enable = null;

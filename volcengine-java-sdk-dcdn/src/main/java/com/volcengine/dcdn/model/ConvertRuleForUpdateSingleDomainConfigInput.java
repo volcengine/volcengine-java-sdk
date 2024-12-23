@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ConvertRuleForUpdateSingleDomainConfigInput {
   @SerializedName("Match")
   private String match = null;

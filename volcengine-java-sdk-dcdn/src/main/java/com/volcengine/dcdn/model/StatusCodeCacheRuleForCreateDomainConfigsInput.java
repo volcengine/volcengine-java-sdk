@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class StatusCodeCacheRuleForCreateDomainConfigsInput {
   @SerializedName("Enable")
   private Boolean enable = null;

@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class UrlRedirectForDescribeDomainDetailOutput {
   @SerializedName("Enable")
   private Boolean enable = null;

@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vpn.model.AsPathForDescribeVpnGatewayRoutesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -30,6 +33,9 @@ import javax.validation.Valid;
 
 
 public class VpnGatewayRouteForDescribeVpnGatewayRoutesOutput {
+  @SerializedName("AsPath")
+  private List<AsPathForDescribeVpnGatewayRoutesOutput> asPath = null;
+
   @SerializedName("CreationTime")
   private String creationTime = null;
 
@@ -38,6 +44,54 @@ public class VpnGatewayRouteForDescribeVpnGatewayRoutesOutput {
 
   @SerializedName("NextHopId")
   private String nextHopId = null;
+
+  /**
+   * Gets or Sets routeType
+   */
+  @JsonAdapter(RouteTypeEnum.Adapter.class)
+  public enum RouteTypeEnum {
+    @SerializedName("BGP")
+    BGP("BGP"),
+    @SerializedName(" Static")
+    _STATIC(" Static"),
+    @SerializedName(" Cloud")
+    _CLOUD(" Cloud");
+
+    private String value;
+
+    RouteTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static RouteTypeEnum fromValue(String input) {
+      for (RouteTypeEnum b : RouteTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<RouteTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final RouteTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public RouteTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return RouteTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("RouteType")
+  private RouteTypeEnum routeType = null;
 
   @SerializedName("Status")
   private String status = null;
@@ -50,6 +104,33 @@ public class VpnGatewayRouteForDescribeVpnGatewayRoutesOutput {
 
   @SerializedName("VpnGatewayRouteId")
   private String vpnGatewayRouteId = null;
+
+  public VpnGatewayRouteForDescribeVpnGatewayRoutesOutput asPath(List<AsPathForDescribeVpnGatewayRoutesOutput> asPath) {
+    this.asPath = asPath;
+    return this;
+  }
+
+  public VpnGatewayRouteForDescribeVpnGatewayRoutesOutput addAsPathItem(AsPathForDescribeVpnGatewayRoutesOutput asPathItem) {
+    if (this.asPath == null) {
+      this.asPath = new ArrayList<AsPathForDescribeVpnGatewayRoutesOutput>();
+    }
+    this.asPath.add(asPathItem);
+    return this;
+  }
+
+   /**
+   * Get asPath
+   * @return asPath
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<AsPathForDescribeVpnGatewayRoutesOutput> getAsPath() {
+    return asPath;
+  }
+
+  public void setAsPath(List<AsPathForDescribeVpnGatewayRoutesOutput> asPath) {
+    this.asPath = asPath;
+  }
 
   public VpnGatewayRouteForDescribeVpnGatewayRoutesOutput creationTime(String creationTime) {
     this.creationTime = creationTime;
@@ -103,6 +184,24 @@ public class VpnGatewayRouteForDescribeVpnGatewayRoutesOutput {
 
   public void setNextHopId(String nextHopId) {
     this.nextHopId = nextHopId;
+  }
+
+  public VpnGatewayRouteForDescribeVpnGatewayRoutesOutput routeType(RouteTypeEnum routeType) {
+    this.routeType = routeType;
+    return this;
+  }
+
+   /**
+   * Get routeType
+   * @return routeType
+  **/
+  @Schema(description = "")
+  public RouteTypeEnum getRouteType() {
+    return routeType;
+  }
+
+  public void setRouteType(RouteTypeEnum routeType) {
+    this.routeType = routeType;
   }
 
   public VpnGatewayRouteForDescribeVpnGatewayRoutesOutput status(String status) {
@@ -187,9 +286,11 @@ public class VpnGatewayRouteForDescribeVpnGatewayRoutesOutput {
       return false;
     }
     VpnGatewayRouteForDescribeVpnGatewayRoutesOutput vpnGatewayRouteForDescribeVpnGatewayRoutesOutput = (VpnGatewayRouteForDescribeVpnGatewayRoutesOutput) o;
-    return Objects.equals(this.creationTime, vpnGatewayRouteForDescribeVpnGatewayRoutesOutput.creationTime) &&
+    return Objects.equals(this.asPath, vpnGatewayRouteForDescribeVpnGatewayRoutesOutput.asPath) &&
+        Objects.equals(this.creationTime, vpnGatewayRouteForDescribeVpnGatewayRoutesOutput.creationTime) &&
         Objects.equals(this.destinationCidrBlock, vpnGatewayRouteForDescribeVpnGatewayRoutesOutput.destinationCidrBlock) &&
         Objects.equals(this.nextHopId, vpnGatewayRouteForDescribeVpnGatewayRoutesOutput.nextHopId) &&
+        Objects.equals(this.routeType, vpnGatewayRouteForDescribeVpnGatewayRoutesOutput.routeType) &&
         Objects.equals(this.status, vpnGatewayRouteForDescribeVpnGatewayRoutesOutput.status) &&
         Objects.equals(this.updateTime, vpnGatewayRouteForDescribeVpnGatewayRoutesOutput.updateTime) &&
         Objects.equals(this.vpnGatewayId, vpnGatewayRouteForDescribeVpnGatewayRoutesOutput.vpnGatewayId) &&
@@ -198,7 +299,7 @@ public class VpnGatewayRouteForDescribeVpnGatewayRoutesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(creationTime, destinationCidrBlock, nextHopId, status, updateTime, vpnGatewayId, vpnGatewayRouteId);
+    return Objects.hash(asPath, creationTime, destinationCidrBlock, nextHopId, routeType, status, updateTime, vpnGatewayId, vpnGatewayRouteId);
   }
 
 
@@ -207,9 +308,11 @@ public class VpnGatewayRouteForDescribeVpnGatewayRoutesOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class VpnGatewayRouteForDescribeVpnGatewayRoutesOutput {\n");
     
+    sb.append("    asPath: ").append(toIndentedString(asPath)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    destinationCidrBlock: ").append(toIndentedString(destinationCidrBlock)).append("\n");
     sb.append("    nextHopId: ").append(toIndentedString(nextHopId)).append("\n");
+    sb.append("    routeType: ").append(toIndentedString(routeType)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    vpnGatewayId: ").append(toIndentedString(vpnGatewayId)).append("\n");

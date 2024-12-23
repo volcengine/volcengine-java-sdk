@@ -29,6 +29,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ProbeSettingInfoForDescribeDomainProbeSettingsOutput {
   @SerializedName("Domain")
   private String domain = null;

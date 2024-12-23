@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class UpdateDomainProbeSettingsRequest {
   @SerializedName("ProbeSettingInfo")
   private List<ProbeSettingInfoForUpdateDomainProbeSettingsInput> probeSettingInfo = null;

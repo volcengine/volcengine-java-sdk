@@ -165,6 +165,9 @@ public class DescribeLoadBalancerAttributesResponse extends com.volcengine.model
   @SerializedName("Tags")
   private List<TagForDescribeLoadBalancerAttributesOutput> tags = null;
 
+  @SerializedName("TimestampRemoveEnabled")
+  private String timestampRemoveEnabled = null;
+
   @SerializedName("Type")
   private String type = null;
 
@@ -977,6 +980,24 @@ public class DescribeLoadBalancerAttributesResponse extends com.volcengine.model
     this.tags = tags;
   }
 
+  public DescribeLoadBalancerAttributesResponse timestampRemoveEnabled(String timestampRemoveEnabled) {
+    this.timestampRemoveEnabled = timestampRemoveEnabled;
+    return this;
+  }
+
+   /**
+   * Get timestampRemoveEnabled
+   * @return timestampRemoveEnabled
+  **/
+  @Schema(description = "")
+  public String getTimestampRemoveEnabled() {
+    return timestampRemoveEnabled;
+  }
+
+  public void setTimestampRemoveEnabled(String timestampRemoveEnabled) {
+    this.timestampRemoveEnabled = timestampRemoveEnabled;
+  }
+
   public DescribeLoadBalancerAttributesResponse type(String type) {
     this.type = type;
     return this;
@@ -1083,6 +1104,7 @@ public class DescribeLoadBalancerAttributesResponse extends com.volcengine.model
         Objects.equals(this.status, describeLoadBalancerAttributesResponse.status) &&
         Objects.equals(this.subnetId, describeLoadBalancerAttributesResponse.subnetId) &&
         Objects.equals(this.tags, describeLoadBalancerAttributesResponse.tags) &&
+        Objects.equals(this.timestampRemoveEnabled, describeLoadBalancerAttributesResponse.timestampRemoveEnabled) &&
         Objects.equals(this.type, describeLoadBalancerAttributesResponse.type) &&
         Objects.equals(this.updateTime, describeLoadBalancerAttributesResponse.updateTime) &&
         Objects.equals(this.vpcId, describeLoadBalancerAttributesResponse.vpcId);
@@ -1090,7 +1112,7 @@ public class DescribeLoadBalancerAttributesResponse extends com.volcengine.model
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessLog, accountId, addressIpVersion, allowedPorts, businessStatus, bypassSecurityGroupEnabled, createTime, deletedTime, description, eip, eipAddress, eipID, enabled, eniAddress, eniAddressNum, eniAddresses, eniID, eniIpv6Address, exclusiveClusterId, expiredTime, ipv6AddressBandwidth, ipv6EipId, listeners, loadBalancerBillingType, loadBalancerId, loadBalancerName, loadBalancerSpec, lockReason, logTopicId, masterZoneId, modificationProtectionReason, modificationProtectionStatus, newArch, overdueTime, projectName, requestId, serverGroups, serviceManaged, slaveZoneId, status, subnetId, tags, type, updateTime, vpcId);
+    return Objects.hash(accessLog, accountId, addressIpVersion, allowedPorts, businessStatus, bypassSecurityGroupEnabled, createTime, deletedTime, description, eip, eipAddress, eipID, enabled, eniAddress, eniAddressNum, eniAddresses, eniID, eniIpv6Address, exclusiveClusterId, expiredTime, ipv6AddressBandwidth, ipv6EipId, listeners, loadBalancerBillingType, loadBalancerId, loadBalancerName, loadBalancerSpec, lockReason, logTopicId, masterZoneId, modificationProtectionReason, modificationProtectionStatus, newArch, overdueTime, projectName, requestId, serverGroups, serviceManaged, slaveZoneId, status, subnetId, tags, timestampRemoveEnabled, type, updateTime, vpcId);
   }
 
 
@@ -1141,6 +1163,7 @@ public class DescribeLoadBalancerAttributesResponse extends com.volcengine.model
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    timestampRemoveEnabled: ").append(toIndentedString(timestampRemoveEnabled)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");

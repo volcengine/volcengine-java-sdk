@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class FileListForDescribeDomainLogsOutput {
   @SerializedName("DomainName")
   private String domainName = null;

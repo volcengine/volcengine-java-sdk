@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class UrlAccessForUpdateSingleDomainConfigInput {
   @SerializedName("Enable")
   private Boolean enable = null;

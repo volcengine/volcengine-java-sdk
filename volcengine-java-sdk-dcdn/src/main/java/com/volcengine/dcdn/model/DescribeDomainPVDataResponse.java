@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeDomainPVDataResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("DataInterval")
   private Integer dataInterval = null;

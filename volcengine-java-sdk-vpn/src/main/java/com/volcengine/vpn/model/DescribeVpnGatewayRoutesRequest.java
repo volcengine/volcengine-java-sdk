@@ -44,6 +44,57 @@ public class DescribeVpnGatewayRoutesRequest {
   @SerializedName("PageSize")
   private Integer pageSize = null;
 
+  /**
+   * Gets or Sets routeType
+   */
+  @JsonAdapter(RouteTypeEnum.Adapter.class)
+  public enum RouteTypeEnum {
+    @SerializedName("BGP")
+    BGP("BGP"),
+    @SerializedName(" Static")
+    _STATIC(" Static"),
+    @SerializedName(" Cloud")
+    _CLOUD(" Cloud");
+
+    private String value;
+
+    RouteTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static RouteTypeEnum fromValue(String input) {
+      for (RouteTypeEnum b : RouteTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<RouteTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final RouteTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public RouteTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return RouteTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("RouteType")
+  private RouteTypeEnum routeType = null;
+
+  @SerializedName("Status")
+  private String status = null;
+
   @SerializedName("VpnGatewayId")
   private String vpnGatewayId = null;
 
@@ -122,6 +173,42 @@ public class DescribeVpnGatewayRoutesRequest {
     this.pageSize = pageSize;
   }
 
+  public DescribeVpnGatewayRoutesRequest routeType(RouteTypeEnum routeType) {
+    this.routeType = routeType;
+    return this;
+  }
+
+   /**
+   * Get routeType
+   * @return routeType
+  **/
+  @Schema(description = "")
+  public RouteTypeEnum getRouteType() {
+    return routeType;
+  }
+
+  public void setRouteType(RouteTypeEnum routeType) {
+    this.routeType = routeType;
+  }
+
+  public DescribeVpnGatewayRoutesRequest status(String status) {
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * Get status
+   * @return status
+  **/
+  @Schema(description = "")
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
   public DescribeVpnGatewayRoutesRequest vpnGatewayId(String vpnGatewayId) {
     this.vpnGatewayId = vpnGatewayId;
     return this;
@@ -180,13 +267,15 @@ public class DescribeVpnGatewayRoutesRequest {
         Objects.equals(this.nextHopId, describeVpnGatewayRoutesRequest.nextHopId) &&
         Objects.equals(this.pageNumber, describeVpnGatewayRoutesRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeVpnGatewayRoutesRequest.pageSize) &&
+        Objects.equals(this.routeType, describeVpnGatewayRoutesRequest.routeType) &&
+        Objects.equals(this.status, describeVpnGatewayRoutesRequest.status) &&
         Objects.equals(this.vpnGatewayId, describeVpnGatewayRoutesRequest.vpnGatewayId) &&
         Objects.equals(this.vpnGatewayRouteIds, describeVpnGatewayRoutesRequest.vpnGatewayRouteIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(destinationCidrBlock, nextHopId, pageNumber, pageSize, vpnGatewayId, vpnGatewayRouteIds);
+    return Objects.hash(destinationCidrBlock, nextHopId, pageNumber, pageSize, routeType, status, vpnGatewayId, vpnGatewayRouteIds);
   }
 
 
@@ -199,6 +288,8 @@ public class DescribeVpnGatewayRoutesRequest {
     sb.append("    nextHopId: ").append(toIndentedString(nextHopId)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    routeType: ").append(toIndentedString(routeType)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    vpnGatewayId: ").append(toIndentedString(vpnGatewayId)).append("\n");
     sb.append("    vpnGatewayRouteIds: ").append(toIndentedString(vpnGatewayRouteIds)).append("\n");
     sb.append("}");

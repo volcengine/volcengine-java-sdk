@@ -30,8 +30,29 @@ import javax.validation.Valid;
 
 
 public class ResetVpnConnectionRequest {
+  @SerializedName("ClientToken")
+  private String clientToken = null;
+
   @SerializedName("VpnConnectionId")
   private String vpnConnectionId = null;
+
+  public ResetVpnConnectionRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
 
   public ResetVpnConnectionRequest vpnConnectionId(String vpnConnectionId) {
     this.vpnConnectionId = vpnConnectionId;
@@ -62,12 +83,13 @@ public class ResetVpnConnectionRequest {
       return false;
     }
     ResetVpnConnectionRequest resetVpnConnectionRequest = (ResetVpnConnectionRequest) o;
-    return Objects.equals(this.vpnConnectionId, resetVpnConnectionRequest.vpnConnectionId);
+    return Objects.equals(this.clientToken, resetVpnConnectionRequest.clientToken) &&
+        Objects.equals(this.vpnConnectionId, resetVpnConnectionRequest.vpnConnectionId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(vpnConnectionId);
+    return Objects.hash(clientToken, vpnConnectionId);
   }
 
 
@@ -76,6 +98,7 @@ public class ResetVpnConnectionRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ResetVpnConnectionRequest {\n");
     
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    vpnConnectionId: ").append(toIndentedString(vpnConnectionId)).append("\n");
     sb.append("}");
     return sb.toString();

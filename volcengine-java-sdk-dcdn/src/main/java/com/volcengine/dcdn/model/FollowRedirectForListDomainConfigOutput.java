@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class FollowRedirectForListDomainConfigOutput {
   @SerializedName("Enable")
   private Boolean enable = null;

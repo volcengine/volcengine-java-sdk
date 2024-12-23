@@ -54,6 +54,9 @@ public class DescribeSslVpnClientCertAttributesResponse extends com.volcengine.m
   @SerializedName("OpenVpnClientConfig")
   private String openVpnClientConfig = null;
 
+  @SerializedName("RequestId")
+  private String requestId = null;
+
   @SerializedName("SslVpnClientCertId")
   private String sslVpnClientCertId = null;
 
@@ -213,6 +216,24 @@ public class DescribeSslVpnClientCertAttributesResponse extends com.volcengine.m
     this.openVpnClientConfig = openVpnClientConfig;
   }
 
+  public DescribeSslVpnClientCertAttributesResponse requestId(String requestId) {
+    this.requestId = requestId;
+    return this;
+  }
+
+   /**
+   * Get requestId
+   * @return requestId
+  **/
+  @Schema(description = "")
+  public String getRequestId() {
+    return requestId;
+  }
+
+  public void setRequestId(String requestId) {
+    this.requestId = requestId;
+  }
+
   public DescribeSslVpnClientCertAttributesResponse sslVpnClientCertId(String sslVpnClientCertId) {
     this.sslVpnClientCertId = sslVpnClientCertId;
     return this;
@@ -321,6 +342,7 @@ public class DescribeSslVpnClientCertAttributesResponse extends com.volcengine.m
         Objects.equals(this.description, describeSslVpnClientCertAttributesResponse.description) &&
         Objects.equals(this.expiredTime, describeSslVpnClientCertAttributesResponse.expiredTime) &&
         Objects.equals(this.openVpnClientConfig, describeSslVpnClientCertAttributesResponse.openVpnClientConfig) &&
+        Objects.equals(this.requestId, describeSslVpnClientCertAttributesResponse.requestId) &&
         Objects.equals(this.sslVpnClientCertId, describeSslVpnClientCertAttributesResponse.sslVpnClientCertId) &&
         Objects.equals(this.sslVpnClientCertName, describeSslVpnClientCertAttributesResponse.sslVpnClientCertName) &&
         Objects.equals(this.sslVpnServerId, describeSslVpnClientCertAttributesResponse.sslVpnServerId) &&
@@ -330,7 +352,7 @@ public class DescribeSslVpnClientCertAttributesResponse extends com.volcengine.m
 
   @Override
   public int hashCode() {
-    return Objects.hash(caCertificate, certificateStatus, clientCertificate, clientKey, creationTime, description, expiredTime, openVpnClientConfig, sslVpnClientCertId, sslVpnClientCertName, sslVpnServerId, status, updateTime);
+    return Objects.hash(caCertificate, certificateStatus, clientCertificate, clientKey, creationTime, description, expiredTime, openVpnClientConfig, requestId, sslVpnClientCertId, sslVpnClientCertName, sslVpnServerId, status, updateTime);
   }
 
 
@@ -347,6 +369,7 @@ public class DescribeSslVpnClientCertAttributesResponse extends com.volcengine.m
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    expiredTime: ").append(toIndentedString(expiredTime)).append("\n");
     sb.append("    openVpnClientConfig: ").append(toIndentedString(openVpnClientConfig)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    sslVpnClientCertId: ").append(toIndentedString(sslVpnClientCertId)).append("\n");
     sb.append("    sslVpnClientCertName: ").append(toIndentedString(sslVpnClientCertName)).append("\n");
     sb.append("    sslVpnServerId: ").append(toIndentedString(sslVpnServerId)).append("\n");
