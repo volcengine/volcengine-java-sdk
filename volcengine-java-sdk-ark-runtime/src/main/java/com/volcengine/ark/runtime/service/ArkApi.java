@@ -12,6 +12,8 @@ import com.volcengine.ark.runtime.model.embeddings.EmbeddingRequest;
 import com.volcengine.ark.runtime.model.embeddings.EmbeddingResult;
 import com.volcengine.ark.runtime.model.tokenization.TokenizationRequest;
 import com.volcengine.ark.runtime.model.tokenization.TokenizationResult;
+import com.volcengine.ark.runtime.model.contentgeneration.CreateContentGenerationTaskRequest;
+import com.volcengine.ark.runtime.model.contentgeneration.CreateContentGenerationTaskResult;
 import okhttp3.ResponseBody;
 import retrofit2.http.*;
 import retrofit2.Call;
@@ -50,4 +52,7 @@ public interface ArkApi {
 
     @POST("/api/v3/tokenization")
     Single<TokenizationResult> createTokenization(@Body TokenizationRequest request, @Header(Const.REQUEST_MODEL) String model, @HeaderMap Map<String, String> customHeaders);
+
+    @POST("/api/v3/contents/generations/tasks")
+    Single<CreateContentGenerationTaskResult> createContentGenerationTask(@Body CreateContentGenerationTaskRequest request, @Header(Const.REQUEST_MODEL) String model, @HeaderMap Map<String, String> customHeaders);
 }

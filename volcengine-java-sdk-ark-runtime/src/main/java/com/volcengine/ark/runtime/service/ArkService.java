@@ -20,6 +20,8 @@ import com.volcengine.ark.runtime.model.bot.completion.chat.BotChatCompletionRes
 import com.volcengine.ark.runtime.model.completion.chat.*;
 import com.volcengine.ark.runtime.model.context.CreateContextRequest;
 import com.volcengine.ark.runtime.model.context.CreateContextResult;
+import com.volcengine.ark.runtime.model.contentgeneration.CreateContentGenerationTaskRequest;
+import com.volcengine.ark.runtime.model.contentgeneration.CreateContentGenerationTaskResult;
 import com.volcengine.ark.runtime.model.context.chat.ContextChatCompletionRequest;
 import com.volcengine.ark.runtime.model.embeddings.EmbeddingRequest;
 import com.volcengine.ark.runtime.model.embeddings.EmbeddingResult;
@@ -246,6 +248,14 @@ public class ArkService extends ArkBaseService implements ArkBaseServiceImpl {
 
     public TokenizationResult createTokenization(TokenizationRequest request, Map<String, String> customHeaders) {
         return execute(api.createTokenization(request, request.getModel(), customHeaders));
+    }
+
+    public CreateContentGenerationTaskResult createContentGenerationTask(CreateContentGenerationTaskRequest request) {
+        return execute(api.createContentGenerationTask(request, request.getModel(), new HashMap<>()));
+    }
+
+    public CreateContentGenerationTaskResult createContentGenerationTask(CreateContentGenerationTaskRequest request, Map<String, String> customHeaders) {
+        return execute(api.createContentGenerationTask(request, request.getModel(), customHeaders));
     }
 
     public void shutdownExecutor() {
