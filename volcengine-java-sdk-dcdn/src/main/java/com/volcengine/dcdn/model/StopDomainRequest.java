@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class StopDomainRequest {
   @SerializedName("Domains")
   private List<String> domains = null;

@@ -31,9 +31,13 @@ import javax.validation.Valid;
  */
 
 
+
 public class ListCertResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("CertList")
   private List<CertListForListCertOutput> certList = null;
+
+  @SerializedName("NeedAuth")
+  private Boolean needAuth = null;
 
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
@@ -69,6 +73,24 @@ public class ListCertResponse extends com.volcengine.model.AbstractResponse {
 
   public void setCertList(List<CertListForListCertOutput> certList) {
     this.certList = certList;
+  }
+
+  public ListCertResponse needAuth(Boolean needAuth) {
+    this.needAuth = needAuth;
+    return this;
+  }
+
+   /**
+   * Get needAuth
+   * @return needAuth
+  **/
+  @Schema(description = "")
+  public Boolean isNeedAuth() {
+    return needAuth;
+  }
+
+  public void setNeedAuth(Boolean needAuth) {
+    this.needAuth = needAuth;
   }
 
   public ListCertResponse pageNumber(Integer pageNumber) {
@@ -136,6 +158,7 @@ public class ListCertResponse extends com.volcengine.model.AbstractResponse {
     }
     ListCertResponse listCertResponse = (ListCertResponse) o;
     return Objects.equals(this.certList, listCertResponse.certList) &&
+        Objects.equals(this.needAuth, listCertResponse.needAuth) &&
         Objects.equals(this.pageNumber, listCertResponse.pageNumber) &&
         Objects.equals(this.pageSize, listCertResponse.pageSize) &&
         Objects.equals(this.total, listCertResponse.total);
@@ -143,7 +166,7 @@ public class ListCertResponse extends com.volcengine.model.AbstractResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(certList, pageNumber, pageSize, total);
+    return Objects.hash(certList, needAuth, pageNumber, pageSize, total);
   }
 
 
@@ -153,6 +176,7 @@ public class ListCertResponse extends com.volcengine.model.AbstractResponse {
     sb.append("class ListCertResponse {\n");
     
     sb.append("    certList: ").append(toIndentedString(certList)).append("\n");
+    sb.append("    needAuth: ").append(toIndentedString(needAuth)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    total: ").append(toIndentedString(total)).append("\n");

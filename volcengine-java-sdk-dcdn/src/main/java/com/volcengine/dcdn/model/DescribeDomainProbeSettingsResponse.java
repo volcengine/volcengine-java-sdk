@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeDomainProbeSettingsResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("ProbeSettingInfo")
   private List<ProbeSettingInfoForDescribeDomainProbeSettingsOutput> probeSettingInfo = null;

@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ConvertOriginForListDomainConfigOutput {
   @SerializedName("Name")
   private String name = null;

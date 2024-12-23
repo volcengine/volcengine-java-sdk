@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class HeaderInfoForUpdateSingleDomainConfigInput {
   @SerializedName("HeaderMode")
   private Integer headerMode = null;

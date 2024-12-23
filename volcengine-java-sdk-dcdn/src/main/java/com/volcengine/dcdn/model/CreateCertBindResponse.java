@@ -14,6 +14,13 @@ package com.volcengine.dcdn.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -21,7 +28,29 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateCertBindResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("Success")
+  private Boolean success = null;
+
+  public CreateCertBindResponse success(Boolean success) {
+    this.success = success;
+    return this;
+  }
+
+   /**
+   * Get success
+   * @return success
+  **/
+  @Schema(description = "")
+  public Boolean isSuccess() {
+    return success;
+  }
+
+  public void setSuccess(Boolean success) {
+    this.success = success;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -31,12 +60,13 @@ public class CreateCertBindResponse extends com.volcengine.model.AbstractRespons
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return true;
+    CreateCertBindResponse createCertBindResponse = (CreateCertBindResponse) o;
+    return Objects.equals(this.success, createCertBindResponse.success);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash();
+    return Objects.hash(success);
   }
 
 
@@ -45,6 +75,7 @@ public class CreateCertBindResponse extends com.volcengine.model.AbstractRespons
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateCertBindResponse {\n");
     
+    sb.append("    success: ").append(toIndentedString(success)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -39,6 +39,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ConvertConvertOriginForListDomainConfigOutput {
   @SerializedName("BackupOriginType")
   private String backupOriginType = null;

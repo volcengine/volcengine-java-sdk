@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CacheKeyRuleForUpdateSingleDomainConfigInput {
   @SerializedName("Contents")
   private String contents = null;

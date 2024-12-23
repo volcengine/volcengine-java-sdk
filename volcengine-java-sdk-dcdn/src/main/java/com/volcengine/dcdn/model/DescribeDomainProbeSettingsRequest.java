@@ -21,11 +21,14 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
  * DescribeDomainProbeSettingsRequest
  */
+
 
 
 public class DescribeDomainProbeSettingsRequest {
@@ -34,6 +37,9 @@ public class DescribeDomainProbeSettingsRequest {
 
   @SerializedName("Fuzzy")
   private Boolean fuzzy = null;
+
+  @SerializedName("ProejctName")
+  private List<String> proejctName = null;
 
   public DescribeDomainProbeSettingsRequest domain(String domain) {
     this.domain = domain;
@@ -71,6 +77,32 @@ public class DescribeDomainProbeSettingsRequest {
     this.fuzzy = fuzzy;
   }
 
+  public DescribeDomainProbeSettingsRequest proejctName(List<String> proejctName) {
+    this.proejctName = proejctName;
+    return this;
+  }
+
+  public DescribeDomainProbeSettingsRequest addProejctNameItem(String proejctNameItem) {
+    if (this.proejctName == null) {
+      this.proejctName = new ArrayList<String>();
+    }
+    this.proejctName.add(proejctNameItem);
+    return this;
+  }
+
+   /**
+   * Get proejctName
+   * @return proejctName
+  **/
+  @Schema(description = "")
+  public List<String> getProejctName() {
+    return proejctName;
+  }
+
+  public void setProejctName(List<String> proejctName) {
+    this.proejctName = proejctName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -82,12 +114,13 @@ public class DescribeDomainProbeSettingsRequest {
     }
     DescribeDomainProbeSettingsRequest describeDomainProbeSettingsRequest = (DescribeDomainProbeSettingsRequest) o;
     return Objects.equals(this.domain, describeDomainProbeSettingsRequest.domain) &&
-        Objects.equals(this.fuzzy, describeDomainProbeSettingsRequest.fuzzy);
+        Objects.equals(this.fuzzy, describeDomainProbeSettingsRequest.fuzzy) &&
+        Objects.equals(this.proejctName, describeDomainProbeSettingsRequest.proejctName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(domain, fuzzy);
+    return Objects.hash(domain, fuzzy, proejctName);
   }
 
 
@@ -98,6 +131,7 @@ public class DescribeDomainProbeSettingsRequest {
     
     sb.append("    domain: ").append(toIndentedString(domain)).append("\n");
     sb.append("    fuzzy: ").append(toIndentedString(fuzzy)).append("\n");
+    sb.append("    proejctName: ").append(toIndentedString(proejctName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -33,6 +33,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CacheForCreateDomainConfigsInput {
   @SerializedName("AdaptCache")
   private Boolean adaptCache = null;

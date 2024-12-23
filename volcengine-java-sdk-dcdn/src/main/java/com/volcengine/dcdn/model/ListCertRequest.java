@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ListCertRequest {
   @SerializedName("BindDomain")
   private String bindDomain = null;

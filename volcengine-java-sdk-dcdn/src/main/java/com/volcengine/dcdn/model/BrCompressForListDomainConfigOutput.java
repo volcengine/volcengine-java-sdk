@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class BrCompressForListDomainConfigOutput {
   @SerializedName("Enable")
   private Boolean enable = null;

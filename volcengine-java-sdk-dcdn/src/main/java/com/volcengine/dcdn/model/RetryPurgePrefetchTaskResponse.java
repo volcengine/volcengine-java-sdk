@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class RetryPurgePrefetchTaskResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("TaskId")
   private String taskId = null;

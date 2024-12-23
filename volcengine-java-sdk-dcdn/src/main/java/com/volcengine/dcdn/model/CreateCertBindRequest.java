@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateCertBindRequest {
   @SerializedName("CertId")
   private String certId = null;

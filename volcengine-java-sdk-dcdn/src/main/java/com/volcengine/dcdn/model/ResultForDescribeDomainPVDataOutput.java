@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ResultForDescribeDomainPVDataOutput {
   @SerializedName("Domain")
   private String domain = null;

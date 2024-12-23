@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class TopRefererForDescribeTopRefererOutput {
   @SerializedName("Bandwidth")
   private Float bandwidth = null;

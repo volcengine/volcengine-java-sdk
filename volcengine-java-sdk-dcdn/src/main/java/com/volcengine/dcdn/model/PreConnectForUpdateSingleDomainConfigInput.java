@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class PreConnectForUpdateSingleDomainConfigInput {
   @SerializedName("Enable")
   private Boolean enable = null;

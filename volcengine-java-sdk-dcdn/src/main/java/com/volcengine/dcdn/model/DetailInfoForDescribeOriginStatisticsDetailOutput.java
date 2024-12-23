@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DetailInfoForDescribeOriginStatisticsDetailOutput {
   @SerializedName("Name")
   private String name = null;

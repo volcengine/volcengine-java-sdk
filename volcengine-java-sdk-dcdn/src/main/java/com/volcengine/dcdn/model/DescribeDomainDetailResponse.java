@@ -42,6 +42,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeDomainDetailResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("BrCompress")
   private BrCompressForDescribeDomainDetailOutput brCompress = null;

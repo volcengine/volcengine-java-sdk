@@ -32,6 +32,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeOriginStatisticsResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("DomainCount")
   private Integer domainCount = null;

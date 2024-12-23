@@ -45,6 +45,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateDomainConfigsRequest {
   @SerializedName("BrCompress")
   private BrCompressForCreateDomainConfigsInput brCompress = null;

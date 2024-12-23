@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class OriginSniForDescribeDomainDetailOutput {
   @SerializedName("Enable")
   private Boolean enable = null;

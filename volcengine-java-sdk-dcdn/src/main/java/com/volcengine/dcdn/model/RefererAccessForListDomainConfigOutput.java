@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class RefererAccessForListDomainConfigOutput {
   @SerializedName("AllowNone")
   private Boolean allowNone = null;

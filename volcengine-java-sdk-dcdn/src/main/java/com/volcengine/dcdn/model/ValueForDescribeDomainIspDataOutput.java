@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ValueForDescribeDomainIspDataOutput {
   @SerializedName("AvgResponseTime")
   private Float avgResponseTime = null;

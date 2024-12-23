@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CheckPurgePrefetchTaskRequest {
   @SerializedName("EndTime")
   private String endTime = null;
@@ -45,6 +46,9 @@ public class CheckPurgePrefetchTaskRequest {
 
   @SerializedName("StartTime")
   private String startTime = null;
+
+  @SerializedName("TaskId")
+  private String taskId = null;
 
   @SerializedName("TaskStatus")
   private List<String> taskStatus = null;
@@ -145,6 +149,24 @@ public class CheckPurgePrefetchTaskRequest {
     this.startTime = startTime;
   }
 
+  public CheckPurgePrefetchTaskRequest taskId(String taskId) {
+    this.taskId = taskId;
+    return this;
+  }
+
+   /**
+   * Get taskId
+   * @return taskId
+  **/
+  @Schema(description = "")
+  public String getTaskId() {
+    return taskId;
+  }
+
+  public void setTaskId(String taskId) {
+    this.taskId = taskId;
+  }
+
   public CheckPurgePrefetchTaskRequest taskStatus(List<String> taskStatus) {
     this.taskStatus = taskStatus;
     return this;
@@ -230,6 +252,7 @@ public class CheckPurgePrefetchTaskRequest {
         Objects.equals(this.page, checkPurgePrefetchTaskRequest.page) &&
         Objects.equals(this.pageSize, checkPurgePrefetchTaskRequest.pageSize) &&
         Objects.equals(this.startTime, checkPurgePrefetchTaskRequest.startTime) &&
+        Objects.equals(this.taskId, checkPurgePrefetchTaskRequest.taskId) &&
         Objects.equals(this.taskStatus, checkPurgePrefetchTaskRequest.taskStatus) &&
         Objects.equals(this.taskType, checkPurgePrefetchTaskRequest.taskType) &&
         Objects.equals(this.url, checkPurgePrefetchTaskRequest.url);
@@ -237,7 +260,7 @@ public class CheckPurgePrefetchTaskRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(endTime, orderType, page, pageSize, startTime, taskStatus, taskType, url);
+    return Objects.hash(endTime, orderType, page, pageSize, startTime, taskId, taskStatus, taskType, url);
   }
 
 
@@ -251,6 +274,7 @@ public class CheckPurgePrefetchTaskRequest {
     sb.append("    page: ").append(toIndentedString(page)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
+    sb.append("    taskId: ").append(toIndentedString(taskId)).append("\n");
     sb.append("    taskStatus: ").append(toIndentedString(taskStatus)).append("\n");
     sb.append("    taskType: ").append(toIndentedString(taskType)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
