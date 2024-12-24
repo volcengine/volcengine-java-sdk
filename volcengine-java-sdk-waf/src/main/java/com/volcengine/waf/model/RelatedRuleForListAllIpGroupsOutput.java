@@ -30,9 +30,6 @@ import javax.validation.Valid;
 
 
 public class RelatedRuleForListAllIpGroupsOutput {
-  @SerializedName("Host")
-  private String host = null;
-
   @SerializedName("RuleName")
   private String ruleName = null;
 
@@ -41,24 +38,6 @@ public class RelatedRuleForListAllIpGroupsOutput {
 
   @SerializedName("RuleType")
   private String ruleType = null;
-
-  public RelatedRuleForListAllIpGroupsOutput host(String host) {
-    this.host = host;
-    return this;
-  }
-
-   /**
-   * Get host
-   * @return host
-  **/
-  @Schema(description = "")
-  public String getHost() {
-    return host;
-  }
-
-  public void setHost(String host) {
-    this.host = host;
-  }
 
   public RelatedRuleForListAllIpGroupsOutput ruleName(String ruleName) {
     this.ruleName = ruleName;
@@ -124,15 +103,14 @@ public class RelatedRuleForListAllIpGroupsOutput {
       return false;
     }
     RelatedRuleForListAllIpGroupsOutput relatedRuleForListAllIpGroupsOutput = (RelatedRuleForListAllIpGroupsOutput) o;
-    return Objects.equals(this.host, relatedRuleForListAllIpGroupsOutput.host) &&
-        Objects.equals(this.ruleName, relatedRuleForListAllIpGroupsOutput.ruleName) &&
+    return Objects.equals(this.ruleName, relatedRuleForListAllIpGroupsOutput.ruleName) &&
         Objects.equals(this.ruleTag, relatedRuleForListAllIpGroupsOutput.ruleTag) &&
         Objects.equals(this.ruleType, relatedRuleForListAllIpGroupsOutput.ruleType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(host, ruleName, ruleTag, ruleType);
+    return Objects.hash(ruleName, ruleTag, ruleType);
   }
 
 
@@ -141,7 +119,6 @@ public class RelatedRuleForListAllIpGroupsOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class RelatedRuleForListAllIpGroupsOutput {\n");
     
-    sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    ruleName: ").append(toIndentedString(ruleName)).append("\n");
     sb.append("    ruleTag: ").append(toIndentedString(ruleTag)).append("\n");
     sb.append("    ruleType: ").append(toIndentedString(ruleType)).append("\n");

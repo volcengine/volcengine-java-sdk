@@ -17,12 +17,12 @@ import java.util.Arrays;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DeleteHostGroupResponse
+ * DeleteCCRuleResponse
  */
 
 
 
-public class DeleteHostGroupResponse extends com.volcengine.model.AbstractResponse {
+public class DeleteCCRuleResponse extends com.volcengine.model.AbstractResponse {
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -44,7 +44,7 @@ public class DeleteHostGroupResponse extends com.volcengine.model.AbstractRespon
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeleteHostGroupResponse {\n");
+    sb.append("class DeleteCCRuleResponse {\n");
     
     sb.append("}");
     return sb.toString();
