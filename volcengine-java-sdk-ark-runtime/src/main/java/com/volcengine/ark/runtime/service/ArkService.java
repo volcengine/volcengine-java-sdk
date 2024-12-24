@@ -13,16 +13,14 @@ import com.volcengine.ark.runtime.interceptor.AuthenticationInterceptor;
 import com.volcengine.ark.runtime.interceptor.ArkResourceStsAuthenticationInterceptor;
 import com.volcengine.ark.runtime.interceptor.RequestIdInterceptor;
 import com.volcengine.ark.runtime.interceptor.RetryInterceptor;
+import com.volcengine.ark.runtime.model.content.generation.DeleteContentGenerationTaskResponse;
 import com.volcengine.ark.runtime.model.bot.completion.chat.BotChatCompletionChunk;
 import com.volcengine.ark.runtime.model.bot.completion.chat.BotChatCompletionRequest;
 import com.volcengine.ark.runtime.model.bot.completion.chat.BotChatCompletionResult;
 import com.volcengine.ark.runtime.model.completion.chat.*;
-import com.volcengine.ark.runtime.model.content.generation.GetContentGenerationTaskRequest;
-import com.volcengine.ark.runtime.model.content.generation.GetContentGenerationTaskResponse;
+import com.volcengine.ark.runtime.model.content.generation.*;
 import com.volcengine.ark.runtime.model.context.CreateContextRequest;
 import com.volcengine.ark.runtime.model.context.CreateContextResult;
-import com.volcengine.ark.runtime.model.content.generation.CreateContentGenerationTaskRequest;
-import com.volcengine.ark.runtime.model.content.generation.CreateContentGenerationTaskResult;
 import com.volcengine.ark.runtime.model.context.chat.ContextChatCompletionRequest;
 import com.volcengine.ark.runtime.model.embeddings.EmbeddingRequest;
 import com.volcengine.ark.runtime.model.embeddings.EmbeddingResult;
@@ -264,6 +262,44 @@ public class ArkService extends ArkBaseService implements ArkBaseServiceImpl {
 
     public GetContentGenerationTaskResponse getContentGenerationTask(GetContentGenerationTaskRequest request, Map<String, String> customHeaders) {
         return execute(api.getContentGenerationTask(request.getTaskId(), customHeaders));
+    }
+
+    @Override
+    public ListContentGenerationTasksResponse listContentGenerationTasks(ListContentGenerationTasksRequest request) {
+        Map<String, String> filters = request.getFilters() != null ? request.getFilters() : new HashMap<>();
+
+        return execute(
+                api.listContentGenerationTasks(
+                        request.getPageNum(),
+                        request.getPageSize(),
+                        filters,
+                        new HashMap<>()
+                )
+        );
+    }
+
+    public ListContentGenerationTasksResponse listContentGenerationTasks(
+            ListContentGenerationTasksRequest request,
+            Map<String, String> customHeaders
+    ) {
+        Map<String, String> filters = request.getFilters() != null ? request.getFilters() : new HashMap<>();
+
+        return execute(
+                api.listContentGenerationTasks(
+                        request.getPageNum(),
+                        request.getPageSize(),
+                        filters,
+                        customHeaders
+                )
+        );
+    }
+
+    public DeleteContentGenerationTaskResponse deleteContentGenerationTask(DeleteContentGenerationTaskRequest request) {
+        return execute(api.deleteContentGenerationTask(request.getTaskId(), new HashMap<>()));
+    }
+
+    public DeleteContentGenerationTaskResponse deleteContentGenerationTask(DeleteContentGenerationTaskRequest request, Map<String, String> customHeaders) {
+        return execute(api.deleteContentGenerationTask(request.getTaskId(), customHeaders));
     }
 
     public void shutdownExecutor() {

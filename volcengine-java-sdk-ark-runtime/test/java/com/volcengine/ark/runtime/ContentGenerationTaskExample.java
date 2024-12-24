@@ -1,10 +1,8 @@
 package com.volcengine.ark.runtime;
 
-import com.volcengine.ark.runtime.model.content.generation.CreateContentGenerationTaskRequest;
+import com.volcengine.ark.runtime.model.content.generation.DeleteContentGenerationTaskResponse;
+import com.volcengine.ark.runtime.model.content.generation.*;
 import com.volcengine.ark.runtime.model.content.generation.CreateContentGenerationTaskRequest.Content;
-import com.volcengine.ark.runtime.model.content.generation.CreateContentGenerationTaskResult;
-import com.volcengine.ark.runtime.model.content.generation.GetContentGenerationTaskRequest;
-import com.volcengine.ark.runtime.model.content.generation.GetContentGenerationTaskResponse;
 import com.volcengine.ark.runtime.service.ArkService;
 import okhttp3.ConnectionPool;
 import okhttp3.Dispatcher;
@@ -36,8 +34,9 @@ public class ContentGenerationTaskExample {
     static ArkService service = ArkService.builder().dispatcher(dispatcher).connectionPool(connectionPool).apiKey(apiKey).build();
 
     public static void main(String[] args) {
-        System.out.println("\n----- Create Task Request -----");
+        String model = "${MODEL EP_ID HERE}";
 
+        System.out.println("\n----- CREATE Task Request -----");
         List<Content> contents = new ArrayList<>();
 
         // Text content
@@ -55,7 +54,7 @@ public class ContentGenerationTaskExample {
                 .build());
 
         CreateContentGenerationTaskRequest createRequest = CreateContentGenerationTaskRequest.builder()
-                .model("${MODEL EP-ID HERE}")
+                .model(model)
                 .content(contents)
                 .build();
 
@@ -63,7 +62,7 @@ public class ContentGenerationTaskExample {
         CreateContentGenerationTaskResult createResult = service.createContentGenerationTask(createRequest);
         System.out.println(createResult);
 
-        System.out.println("\n----- Get Task Request -----");
+        System.out.println("\n----- GET Task Request -----");
 
         GetContentGenerationTaskRequest getRequest = GetContentGenerationTaskRequest.builder()
                 .taskId(createResult.getId())
@@ -71,6 +70,31 @@ public class ContentGenerationTaskExample {
 
         GetContentGenerationTaskResponse getResult = service.getContentGenerationTask(getRequest);
         System.out.println(getResult);
+
+        System.out.println("\n----- LIST Task Request -----");
+
+        ListContentGenerationTasksRequest listRequest = ListContentGenerationTasksRequest.builder()
+                .pageNum(1)
+                .pageSize(10)
+                .filter(ListContentGenerationTasksRequest.Filter.builder()
+                        .status(TaskStatus.QUEUED)
+                        .addTaskId(createResult.getId()) // add single task ID
+//                        .taskIds(Arrays.asList("test-id-1", "test-id-2")) // add multiple task IDs
+                        .model(model)
+                        .build())
+                .build();
+
+        ListContentGenerationTasksResponse listResponse = service.listContentGenerationTasks(listRequest);
+        System.out.println(listResponse);
+
+        System.out.println("\n----- DELETE Task Request -----");
+
+        DeleteContentGenerationTaskRequest deleteRequest = DeleteContentGenerationTaskRequest.builder()
+                .taskId(getResult.getId())
+                .build();
+
+        DeleteContentGenerationTaskResponse deleteResult = service.deleteContentGenerationTask(deleteRequest);
+        System.out.println(deleteResult);
 
         service.shutdownExecutor();
     }

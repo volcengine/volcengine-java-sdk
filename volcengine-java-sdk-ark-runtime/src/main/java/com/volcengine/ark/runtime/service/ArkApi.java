@@ -1,11 +1,13 @@
 package com.volcengine.ark.runtime.service;
 
 import com.volcengine.ark.runtime.Const;
+import com.volcengine.ark.runtime.model.content.generation.DeleteContentGenerationTaskResponse;
 import com.volcengine.ark.runtime.model.bot.completion.chat.BotChatCompletionRequest;
 import com.volcengine.ark.runtime.model.bot.completion.chat.BotChatCompletionResult;
 import com.volcengine.ark.runtime.model.completion.chat.ChatCompletionRequest;
 import com.volcengine.ark.runtime.model.completion.chat.ChatCompletionResult;
 import com.volcengine.ark.runtime.model.content.generation.GetContentGenerationTaskResponse;
+import com.volcengine.ark.runtime.model.content.generation.ListContentGenerationTasksResponse;
 import com.volcengine.ark.runtime.model.context.CreateContextRequest;
 import com.volcengine.ark.runtime.model.context.CreateContextResult;
 import com.volcengine.ark.runtime.model.context.chat.ContextChatCompletionRequest;
@@ -59,4 +61,10 @@ public interface ArkApi {
 
     @GET("/api/v3/contents/generations/tasks/{taskId}")
     Single<GetContentGenerationTaskResponse> getContentGenerationTask(@Path("taskId") String taskId, @HeaderMap Map<String, String> customHeaders);
+
+    @GET("/api/v3/contents/generations/tasks")
+    Single<ListContentGenerationTasksResponse> listContentGenerationTasks(@Query("page_num") int pageNum, @Query("page_size") int pageSize, @QueryMap Map<String, String> filters, @HeaderMap Map<String, String> customHeaders);
+
+    @DELETE("/api/v3/contents/generations/tasks/{taskId}")
+    Single<DeleteContentGenerationTaskResponse> deleteContentGenerationTask(@Path("taskId") String taskId, @HeaderMap Map<String, String> customHeaders);
 }
