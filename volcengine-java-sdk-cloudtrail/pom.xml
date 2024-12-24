@@ -7,7 +7,7 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>volcengine-java-sdk-transitrouter</artifactId>
+    <artifactId>volcengine-java-sdk-cloudtrail</artifactId>
     <dependencies>
         <dependency>
             <groupId>com.volcengine</groupId>
@@ -22,7 +22,7 @@
                 <artifactId>maven-source-plugin</artifactId>
                 <configuration>
                     <excludes>
-                        <exclude>com/volcengine/transitrouter/examples/**</exclude>
+                        <exclude>com/volcengine/cloudtrail/examples/**</exclude>
                     </excludes>
                 </configuration>
             </plugin>
@@ -31,7 +31,7 @@
                 <artifactId>maven-jar-plugin</artifactId>
                 <configuration>
                     <excludes>
-                        <exclude>com/volcengine/transitrouter/examples/**</exclude>
+                        <exclude>com/volcengine/cloudtrail/examples/**</exclude>
                     </excludes>
                 </configuration>
             </plugin>
