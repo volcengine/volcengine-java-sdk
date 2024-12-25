@@ -132,11 +132,11 @@ public class CreateDBInstanceRequest {
   @JsonAdapter(DbMinorVersionEnum.Adapter.class)
   public enum DbMinorVersionEnum {
     @SerializedName("3.0")
-    _0("3.0"),
+    _3_0("3.0"),
     @SerializedName("3.1")
-    _1("3.1"),
+    _3_1("3.1"),
     @SerializedName("3.2")
-    _2("3.2");
+    _3_2("3.2");
 
     private String value;
 
@@ -177,6 +177,52 @@ public class CreateDBInstanceRequest {
   @SerializedName("DBTimeZone")
   private String dbTimeZone = null;
 
+  /**
+   * Gets or Sets deletionProtection
+   */
+  @JsonAdapter(DeletionProtectionEnum.Adapter.class)
+  public enum DeletionProtectionEnum {
+    @SerializedName("disabled")
+    DISABLED("disabled"),
+    @SerializedName("enabled")
+    ENABLED("enabled");
+
+    private String value;
+
+    DeletionProtectionEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static DeletionProtectionEnum fromValue(String input) {
+      for (DeletionProtectionEnum b : DeletionProtectionEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<DeletionProtectionEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final DeletionProtectionEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public DeletionProtectionEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return DeletionProtectionEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("DeletionProtection")
+  private DeletionProtectionEnum deletionProtection = null;
+
   @SerializedName("InstanceName")
   private String instanceName = null;
 
@@ -192,37 +238,37 @@ public class CreateDBInstanceRequest {
   @JsonAdapter(NodeSpecEnum.Adapter.class)
   public enum NodeSpecEnum {
     @SerializedName("vedb.mysql.x4.large")
-    X4_LARGE("vedb.mysql.x4.large"),
+    VEDB_MYSQL_X4_LARGE("vedb.mysql.x4.large"),
     @SerializedName("vedb.mysql.x8.large")
-    X8_LARGE("vedb.mysql.x8.large"),
+    VEDB_MYSQL_X8_LARGE("vedb.mysql.x8.large"),
     @SerializedName("vedb.mysql.x4.xlarge")
-    X4_XLARGE("vedb.mysql.x4.xlarge"),
+    VEDB_MYSQL_X4_XLARGE("vedb.mysql.x4.xlarge"),
     @SerializedName("vedb.mysql.x8.xlarge")
-    X8_XLARGE("vedb.mysql.x8.xlarge"),
+    VEDB_MYSQL_X8_XLARGE("vedb.mysql.x8.xlarge"),
     @SerializedName("vedb.mysql.x4.2xlarge")
-    X4_2XLARGE("vedb.mysql.x4.2xlarge"),
+    VEDB_MYSQL_X4_2XLARGE("vedb.mysql.x4.2xlarge"),
     @SerializedName("vedb.mysql.x8.2xlarge")
-    X8_2XLARGE("vedb.mysql.x8.2xlarge"),
+    VEDB_MYSQL_X8_2XLARGE("vedb.mysql.x8.2xlarge"),
     @SerializedName("vedb.mysql.x4.4xlarge")
-    X4_4XLARGE("vedb.mysql.x4.4xlarge"),
+    VEDB_MYSQL_X4_4XLARGE("vedb.mysql.x4.4xlarge"),
     @SerializedName("vedb.mysql.x8.4xlarge")
-    X8_4XLARGE("vedb.mysql.x8.4xlarge"),
+    VEDB_MYSQL_X8_4XLARGE("vedb.mysql.x8.4xlarge"),
     @SerializedName("vedb.mysql.x8.6xlarge")
-    X8_6XLARGE("vedb.mysql.x8.6xlarge"),
+    VEDB_MYSQL_X8_6XLARGE("vedb.mysql.x8.6xlarge"),
     @SerializedName("vedb.mysql.x4.8xlarge")
-    X4_8XLARGE("vedb.mysql.x4.8xlarge"),
+    VEDB_MYSQL_X4_8XLARGE("vedb.mysql.x4.8xlarge"),
     @SerializedName("vedb.mysql.x8.8xlarge")
-    X8_8XLARGE("vedb.mysql.x8.8xlarge"),
+    VEDB_MYSQL_X8_8XLARGE("vedb.mysql.x8.8xlarge"),
     @SerializedName("vedb.mysql.g4.large")
-    G4_LARGE("vedb.mysql.g4.large"),
+    VEDB_MYSQL_G4_LARGE("vedb.mysql.g4.large"),
     @SerializedName("vedb.mysql.g4.xlarge")
-    G4_XLARGE("vedb.mysql.g4.xlarge"),
+    VEDB_MYSQL_G4_XLARGE("vedb.mysql.g4.xlarge"),
     @SerializedName("vedb.mysql.g4.2xlarge")
-    G4_2XLARGE("vedb.mysql.g4.2xlarge"),
+    VEDB_MYSQL_G4_2XLARGE("vedb.mysql.g4.2xlarge"),
     @SerializedName("vedb.mysql.g8.2xlarge")
-    G8_2XLARGE("vedb.mysql.g8.2xlarge"),
+    VEDB_MYSQL_G8_2XLARGE("vedb.mysql.g8.2xlarge"),
     @SerializedName("vedb.mysql.g4.4xlarge")
-    G4_4XLARGE("vedb.mysql.g4.4xlarge");
+    VEDB_MYSQL_G4_4XLARGE("vedb.mysql.g4.4xlarge");
 
     private String value;
 
@@ -475,6 +521,24 @@ public class CreateDBInstanceRequest {
 
   public void setDbTimeZone(String dbTimeZone) {
     this.dbTimeZone = dbTimeZone;
+  }
+
+  public CreateDBInstanceRequest deletionProtection(DeletionProtectionEnum deletionProtection) {
+    this.deletionProtection = deletionProtection;
+    return this;
+  }
+
+   /**
+   * Get deletionProtection
+   * @return deletionProtection
+  **/
+  @Schema(description = "")
+  public DeletionProtectionEnum getDeletionProtection() {
+    return deletionProtection;
+  }
+
+  public void setDeletionProtection(DeletionProtectionEnum deletionProtection) {
+    this.deletionProtection = deletionProtection;
   }
 
   public CreateDBInstanceRequest instanceName(String instanceName) {
@@ -812,6 +876,7 @@ public class CreateDBInstanceRequest {
         Objects.equals(this.dbEngineVersion, createDBInstanceRequest.dbEngineVersion) &&
         Objects.equals(this.dbMinorVersion, createDBInstanceRequest.dbMinorVersion) &&
         Objects.equals(this.dbTimeZone, createDBInstanceRequest.dbTimeZone) &&
+        Objects.equals(this.deletionProtection, createDBInstanceRequest.deletionProtection) &&
         Objects.equals(this.instanceName, createDBInstanceRequest.instanceName) &&
         Objects.equals(this.lowerCaseTableNames, createDBInstanceRequest.lowerCaseTableNames) &&
         Objects.equals(this.nodeNumber, createDBInstanceRequest.nodeNumber) &&
@@ -833,7 +898,7 @@ public class CreateDBInstanceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoRenew, chargeType, dbEngineVersion, dbMinorVersion, dbTimeZone, instanceName, lowerCaseTableNames, nodeNumber, nodeSpec, number, period, periodUnit, port, prePaidStorageInGB, projectName, storageChargeType, subnetId, superAccountName, superAccountPassword, tags, vpcId, zoneIds);
+    return Objects.hash(autoRenew, chargeType, dbEngineVersion, dbMinorVersion, dbTimeZone, deletionProtection, instanceName, lowerCaseTableNames, nodeNumber, nodeSpec, number, period, periodUnit, port, prePaidStorageInGB, projectName, storageChargeType, subnetId, superAccountName, superAccountPassword, tags, vpcId, zoneIds);
   }
 
 
@@ -847,6 +912,7 @@ public class CreateDBInstanceRequest {
     sb.append("    dbEngineVersion: ").append(toIndentedString(dbEngineVersion)).append("\n");
     sb.append("    dbMinorVersion: ").append(toIndentedString(dbMinorVersion)).append("\n");
     sb.append("    dbTimeZone: ").append(toIndentedString(dbTimeZone)).append("\n");
+    sb.append("    deletionProtection: ").append(toIndentedString(deletionProtection)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    lowerCaseTableNames: ").append(toIndentedString(lowerCaseTableNames)).append("\n");
     sb.append("    nodeNumber: ").append(toIndentedString(nodeNumber)).append("\n");

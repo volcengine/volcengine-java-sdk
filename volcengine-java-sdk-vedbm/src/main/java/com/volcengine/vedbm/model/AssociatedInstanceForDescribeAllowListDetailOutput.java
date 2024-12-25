@@ -36,6 +36,9 @@ public class AssociatedInstanceForDescribeAllowListDetailOutput {
   @SerializedName("InstanceName")
   private String instanceName = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("VPC")
   private String VPC = null;
 
@@ -75,6 +78,24 @@ public class AssociatedInstanceForDescribeAllowListDetailOutput {
     this.instanceName = instanceName;
   }
 
+  public AssociatedInstanceForDescribeAllowListDetailOutput projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public AssociatedInstanceForDescribeAllowListDetailOutput VPC(String VPC) {
     this.VPC = VPC;
     return this;
@@ -105,12 +126,13 @@ public class AssociatedInstanceForDescribeAllowListDetailOutput {
     AssociatedInstanceForDescribeAllowListDetailOutput associatedInstanceForDescribeAllowListDetailOutput = (AssociatedInstanceForDescribeAllowListDetailOutput) o;
     return Objects.equals(this.instanceId, associatedInstanceForDescribeAllowListDetailOutput.instanceId) &&
         Objects.equals(this.instanceName, associatedInstanceForDescribeAllowListDetailOutput.instanceName) &&
+        Objects.equals(this.projectName, associatedInstanceForDescribeAllowListDetailOutput.projectName) &&
         Objects.equals(this.VPC, associatedInstanceForDescribeAllowListDetailOutput.VPC);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, instanceName, VPC);
+    return Objects.hash(instanceId, instanceName, projectName, VPC);
   }
 
 
@@ -121,6 +143,7 @@ public class AssociatedInstanceForDescribeAllowListDetailOutput {
     
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    VPC: ").append(toIndentedString(VPC)).append("\n");
     sb.append("}");
     return sb.toString();
