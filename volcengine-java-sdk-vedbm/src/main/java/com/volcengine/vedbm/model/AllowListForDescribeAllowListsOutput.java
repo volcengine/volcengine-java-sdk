@@ -48,6 +48,9 @@ public class AllowListForDescribeAllowListsOutput {
   @SerializedName("AssociatedInstanceNum")
   private Integer associatedInstanceNum = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   public AllowListForDescribeAllowListsOutput allowListDesc(String allowListDesc) {
     this.allowListDesc = allowListDesc;
     return this;
@@ -156,6 +159,24 @@ public class AllowListForDescribeAllowListsOutput {
     this.associatedInstanceNum = associatedInstanceNum;
   }
 
+  public AllowListForDescribeAllowListsOutput projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -171,12 +192,13 @@ public class AllowListForDescribeAllowListsOutput {
         Objects.equals(this.allowListId, allowListForDescribeAllowListsOutput.allowListId) &&
         Objects.equals(this.allowListName, allowListForDescribeAllowListsOutput.allowListName) &&
         Objects.equals(this.allowListType, allowListForDescribeAllowListsOutput.allowListType) &&
-        Objects.equals(this.associatedInstanceNum, allowListForDescribeAllowListsOutput.associatedInstanceNum);
+        Objects.equals(this.associatedInstanceNum, allowListForDescribeAllowListsOutput.associatedInstanceNum) &&
+        Objects.equals(this.projectName, allowListForDescribeAllowListsOutput.projectName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowListDesc, allowListIPNum, allowListId, allowListName, allowListType, associatedInstanceNum);
+    return Objects.hash(allowListDesc, allowListIPNum, allowListId, allowListName, allowListType, associatedInstanceNum, projectName);
   }
 
 
@@ -191,6 +213,7 @@ public class AllowListForDescribeAllowListsOutput {
     sb.append("    allowListName: ").append(toIndentedString(allowListName)).append("\n");
     sb.append("    allowListType: ").append(toIndentedString(allowListType)).append("\n");
     sb.append("    associatedInstanceNum: ").append(toIndentedString(associatedInstanceNum)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -43,7 +43,9 @@ public class InstanceDetailForDescribeDBInstanceDetailOutput {
   @JsonAdapter(DbEngineVersionEnum.Adapter.class)
   public enum DbEngineVersionEnum {
     @SerializedName("MySQL_8_0")
-    MYSQL_8_0("MySQL_8_0");
+    MYSQL_8_0("MySQL_8_0"),
+    @SerializedName("MySQL_5_7")
+    MYSQL_5_7("MySQL_5_7");
 
     private String value;
 
@@ -80,6 +82,52 @@ public class InstanceDetailForDescribeDBInstanceDetailOutput {
     }
   }  @SerializedName("DBEngineVersion")
   private DbEngineVersionEnum dbEngineVersion = null;
+
+  /**
+   * Gets or Sets deletionProtection
+   */
+  @JsonAdapter(DeletionProtectionEnum.Adapter.class)
+  public enum DeletionProtectionEnum {
+    @SerializedName("disabled")
+    DISABLED("disabled"),
+    @SerializedName("enabled")
+    ENABLED("enabled");
+
+    private String value;
+
+    DeletionProtectionEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static DeletionProtectionEnum fromValue(String input) {
+      for (DeletionProtectionEnum b : DeletionProtectionEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<DeletionProtectionEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final DeletionProtectionEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public DeletionProtectionEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return DeletionProtectionEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("DeletionProtection")
+  private DeletionProtectionEnum deletionProtection = null;
 
   @SerializedName("InstanceId")
   private String instanceId = null;
@@ -322,6 +370,24 @@ public class InstanceDetailForDescribeDBInstanceDetailOutput {
 
   public void setDbEngineVersion(DbEngineVersionEnum dbEngineVersion) {
     this.dbEngineVersion = dbEngineVersion;
+  }
+
+  public InstanceDetailForDescribeDBInstanceDetailOutput deletionProtection(DeletionProtectionEnum deletionProtection) {
+    this.deletionProtection = deletionProtection;
+    return this;
+  }
+
+   /**
+   * Get deletionProtection
+   * @return deletionProtection
+  **/
+  @Schema(description = "")
+  public DeletionProtectionEnum getDeletionProtection() {
+    return deletionProtection;
+  }
+
+  public void setDeletionProtection(DeletionProtectionEnum deletionProtection) {
+    this.deletionProtection = deletionProtection;
   }
 
   public InstanceDetailForDescribeDBInstanceDetailOutput instanceId(String instanceId) {
@@ -634,6 +700,7 @@ public class InstanceDetailForDescribeDBInstanceDetailOutput {
     InstanceDetailForDescribeDBInstanceDetailOutput instanceDetailForDescribeDBInstanceDetailOutput = (InstanceDetailForDescribeDBInstanceDetailOutput) o;
     return Objects.equals(this.createTime, instanceDetailForDescribeDBInstanceDetailOutput.createTime) &&
         Objects.equals(this.dbEngineVersion, instanceDetailForDescribeDBInstanceDetailOutput.dbEngineVersion) &&
+        Objects.equals(this.deletionProtection, instanceDetailForDescribeDBInstanceDetailOutput.deletionProtection) &&
         Objects.equals(this.instanceId, instanceDetailForDescribeDBInstanceDetailOutput.instanceId) &&
         Objects.equals(this.instanceName, instanceDetailForDescribeDBInstanceDetailOutput.instanceName) &&
         Objects.equals(this.instanceStatus, instanceDetailForDescribeDBInstanceDetailOutput.instanceStatus) &&
@@ -654,7 +721,7 @@ public class InstanceDetailForDescribeDBInstanceDetailOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createTime, dbEngineVersion, instanceId, instanceName, instanceStatus, instanceStructures, lowerCaseTableNames, maintenanceWindow, prePaidStorageInGB, projectName, regionId, specFamily, storageChargeType, storageUsedGiB, subnetId, timeZone, vpcId, zoneIds);
+    return Objects.hash(createTime, dbEngineVersion, deletionProtection, instanceId, instanceName, instanceStatus, instanceStructures, lowerCaseTableNames, maintenanceWindow, prePaidStorageInGB, projectName, regionId, specFamily, storageChargeType, storageUsedGiB, subnetId, timeZone, vpcId, zoneIds);
   }
 
 
@@ -665,6 +732,7 @@ public class InstanceDetailForDescribeDBInstanceDetailOutput {
     
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    dbEngineVersion: ").append(toIndentedString(dbEngineVersion)).append("\n");
+    sb.append("    deletionProtection: ").append(toIndentedString(deletionProtection)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    instanceStatus: ").append(toIndentedString(instanceStatus)).append("\n");

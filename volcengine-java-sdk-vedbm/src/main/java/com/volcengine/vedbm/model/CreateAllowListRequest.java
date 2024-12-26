@@ -42,6 +42,9 @@ public class CreateAllowListRequest {
   @SerializedName("AllowListType")
   private String allowListType = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   public CreateAllowListRequest allowList(String allowList) {
     this.allowList = allowList;
     return this;
@@ -116,6 +119,24 @@ public class CreateAllowListRequest {
     this.allowListType = allowListType;
   }
 
+  public CreateAllowListRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -129,12 +150,13 @@ public class CreateAllowListRequest {
     return Objects.equals(this.allowList, createAllowListRequest.allowList) &&
         Objects.equals(this.allowListDesc, createAllowListRequest.allowListDesc) &&
         Objects.equals(this.allowListName, createAllowListRequest.allowListName) &&
-        Objects.equals(this.allowListType, createAllowListRequest.allowListType);
+        Objects.equals(this.allowListType, createAllowListRequest.allowListType) &&
+        Objects.equals(this.projectName, createAllowListRequest.projectName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowList, allowListDesc, allowListName, allowListType);
+    return Objects.hash(allowList, allowListDesc, allowListName, allowListType, projectName);
   }
 
 
@@ -147,6 +169,7 @@ public class CreateAllowListRequest {
     sb.append("    allowListDesc: ").append(toIndentedString(allowListDesc)).append("\n");
     sb.append("    allowListName: ").append(toIndentedString(allowListName)).append("\n");
     sb.append("    allowListType: ").append(toIndentedString(allowListType)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

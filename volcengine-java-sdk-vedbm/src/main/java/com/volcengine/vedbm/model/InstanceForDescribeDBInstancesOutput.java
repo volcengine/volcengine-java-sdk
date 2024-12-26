@@ -47,7 +47,9 @@ public class InstanceForDescribeDBInstancesOutput {
   @JsonAdapter(DbEngineVersionEnum.Adapter.class)
   public enum DbEngineVersionEnum {
     @SerializedName("MySQL_8_0")
-    MYSQL_8_0("MySQL_8_0");
+    MYSQL_8_0("MySQL_8_0"),
+    @SerializedName("MySQL_5_7")
+    MYSQL_5_7("MySQL_5_7");
 
     private String value;
 
@@ -84,6 +86,55 @@ public class InstanceForDescribeDBInstancesOutput {
     }
   }  @SerializedName("DBEngineVersion")
   private DbEngineVersionEnum dbEngineVersion = null;
+
+  @SerializedName("DBRevisionVersion")
+  private String dbRevisionVersion = null;
+
+  /**
+   * Gets or Sets deletionProtection
+   */
+  @JsonAdapter(DeletionProtectionEnum.Adapter.class)
+  public enum DeletionProtectionEnum {
+    @SerializedName("disabled")
+    DISABLED("disabled"),
+    @SerializedName("enabled")
+    ENABLED("enabled");
+
+    private String value;
+
+    DeletionProtectionEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static DeletionProtectionEnum fromValue(String input) {
+      for (DeletionProtectionEnum b : DeletionProtectionEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<DeletionProtectionEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final DeletionProtectionEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public DeletionProtectionEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return DeletionProtectionEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("DeletionProtection")
+  private DeletionProtectionEnum deletionProtection = null;
 
   @SerializedName("InstanceId")
   private String instanceId = null;
@@ -167,6 +218,9 @@ public class InstanceForDescribeDBInstancesOutput {
   }  @SerializedName("InstanceStatus")
   private InstanceStatusEnum instanceStatus = null;
 
+  @SerializedName("LowerCaseTableNames")
+  private String lowerCaseTableNames = null;
+
   @SerializedName("Nodes")
   private List<NodeForDescribeDBInstancesOutput> nodes = null;
 
@@ -178,6 +232,9 @@ public class InstanceForDescribeDBInstancesOutput {
 
   @SerializedName("RegionId")
   private String regionId = null;
+
+  @SerializedName("SpecFamily")
+  private String specFamily = null;
 
   /**
    * Gets or Sets storageChargeType
@@ -298,6 +355,42 @@ public class InstanceForDescribeDBInstancesOutput {
     this.dbEngineVersion = dbEngineVersion;
   }
 
+  public InstanceForDescribeDBInstancesOutput dbRevisionVersion(String dbRevisionVersion) {
+    this.dbRevisionVersion = dbRevisionVersion;
+    return this;
+  }
+
+   /**
+   * Get dbRevisionVersion
+   * @return dbRevisionVersion
+  **/
+  @Schema(description = "")
+  public String getDbRevisionVersion() {
+    return dbRevisionVersion;
+  }
+
+  public void setDbRevisionVersion(String dbRevisionVersion) {
+    this.dbRevisionVersion = dbRevisionVersion;
+  }
+
+  public InstanceForDescribeDBInstancesOutput deletionProtection(DeletionProtectionEnum deletionProtection) {
+    this.deletionProtection = deletionProtection;
+    return this;
+  }
+
+   /**
+   * Get deletionProtection
+   * @return deletionProtection
+  **/
+  @Schema(description = "")
+  public DeletionProtectionEnum getDeletionProtection() {
+    return deletionProtection;
+  }
+
+  public void setDeletionProtection(DeletionProtectionEnum deletionProtection) {
+    this.deletionProtection = deletionProtection;
+  }
+
   public InstanceForDescribeDBInstancesOutput instanceId(String instanceId) {
     this.instanceId = instanceId;
     return this;
@@ -350,6 +443,24 @@ public class InstanceForDescribeDBInstancesOutput {
 
   public void setInstanceStatus(InstanceStatusEnum instanceStatus) {
     this.instanceStatus = instanceStatus;
+  }
+
+  public InstanceForDescribeDBInstancesOutput lowerCaseTableNames(String lowerCaseTableNames) {
+    this.lowerCaseTableNames = lowerCaseTableNames;
+    return this;
+  }
+
+   /**
+   * Get lowerCaseTableNames
+   * @return lowerCaseTableNames
+  **/
+  @Schema(description = "")
+  public String getLowerCaseTableNames() {
+    return lowerCaseTableNames;
+  }
+
+  public void setLowerCaseTableNames(String lowerCaseTableNames) {
+    this.lowerCaseTableNames = lowerCaseTableNames;
   }
 
   public InstanceForDescribeDBInstancesOutput nodes(List<NodeForDescribeDBInstancesOutput> nodes) {
@@ -431,6 +542,24 @@ public class InstanceForDescribeDBInstancesOutput {
 
   public void setRegionId(String regionId) {
     this.regionId = regionId;
+  }
+
+  public InstanceForDescribeDBInstancesOutput specFamily(String specFamily) {
+    this.specFamily = specFamily;
+    return this;
+  }
+
+   /**
+   * Get specFamily
+   * @return specFamily
+  **/
+  @Schema(description = "")
+  public String getSpecFamily() {
+    return specFamily;
+  }
+
+  public void setSpecFamily(String specFamily) {
+    this.specFamily = specFamily;
   }
 
   public InstanceForDescribeDBInstancesOutput storageChargeType(StorageChargeTypeEnum storageChargeType) {
@@ -581,13 +710,17 @@ public class InstanceForDescribeDBInstancesOutput {
     return Objects.equals(this.chargeDetail, instanceForDescribeDBInstancesOutput.chargeDetail) &&
         Objects.equals(this.createTime, instanceForDescribeDBInstancesOutput.createTime) &&
         Objects.equals(this.dbEngineVersion, instanceForDescribeDBInstancesOutput.dbEngineVersion) &&
+        Objects.equals(this.dbRevisionVersion, instanceForDescribeDBInstancesOutput.dbRevisionVersion) &&
+        Objects.equals(this.deletionProtection, instanceForDescribeDBInstancesOutput.deletionProtection) &&
         Objects.equals(this.instanceId, instanceForDescribeDBInstancesOutput.instanceId) &&
         Objects.equals(this.instanceName, instanceForDescribeDBInstancesOutput.instanceName) &&
         Objects.equals(this.instanceStatus, instanceForDescribeDBInstancesOutput.instanceStatus) &&
+        Objects.equals(this.lowerCaseTableNames, instanceForDescribeDBInstancesOutput.lowerCaseTableNames) &&
         Objects.equals(this.nodes, instanceForDescribeDBInstancesOutput.nodes) &&
         Objects.equals(this.prePaidStorageInGB, instanceForDescribeDBInstancesOutput.prePaidStorageInGB) &&
         Objects.equals(this.projectName, instanceForDescribeDBInstancesOutput.projectName) &&
         Objects.equals(this.regionId, instanceForDescribeDBInstancesOutput.regionId) &&
+        Objects.equals(this.specFamily, instanceForDescribeDBInstancesOutput.specFamily) &&
         Objects.equals(this.storageChargeType, instanceForDescribeDBInstancesOutput.storageChargeType) &&
         Objects.equals(this.storageUsedGiB, instanceForDescribeDBInstancesOutput.storageUsedGiB) &&
         Objects.equals(this.subnetId, instanceForDescribeDBInstancesOutput.subnetId) &&
@@ -599,7 +732,7 @@ public class InstanceForDescribeDBInstancesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(chargeDetail, createTime, dbEngineVersion, instanceId, instanceName, instanceStatus, nodes, prePaidStorageInGB, projectName, regionId, storageChargeType, storageUsedGiB, subnetId, tags, timeZone, vpcId, zoneIds);
+    return Objects.hash(chargeDetail, createTime, dbEngineVersion, dbRevisionVersion, deletionProtection, instanceId, instanceName, instanceStatus, lowerCaseTableNames, nodes, prePaidStorageInGB, projectName, regionId, specFamily, storageChargeType, storageUsedGiB, subnetId, tags, timeZone, vpcId, zoneIds);
   }
 
 
@@ -611,13 +744,17 @@ public class InstanceForDescribeDBInstancesOutput {
     sb.append("    chargeDetail: ").append(toIndentedString(chargeDetail)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    dbEngineVersion: ").append(toIndentedString(dbEngineVersion)).append("\n");
+    sb.append("    dbRevisionVersion: ").append(toIndentedString(dbRevisionVersion)).append("\n");
+    sb.append("    deletionProtection: ").append(toIndentedString(deletionProtection)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    instanceStatus: ").append(toIndentedString(instanceStatus)).append("\n");
+    sb.append("    lowerCaseTableNames: ").append(toIndentedString(lowerCaseTableNames)).append("\n");
     sb.append("    nodes: ").append(toIndentedString(nodes)).append("\n");
     sb.append("    prePaidStorageInGB: ").append(toIndentedString(prePaidStorageInGB)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    regionId: ").append(toIndentedString(regionId)).append("\n");
+    sb.append("    specFamily: ").append(toIndentedString(specFamily)).append("\n");
     sb.append("    storageChargeType: ").append(toIndentedString(storageChargeType)).append("\n");
     sb.append("    storageUsedGiB: ").append(toIndentedString(storageUsedGiB)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");

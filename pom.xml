@@ -4,7 +4,7 @@
     <groupId>com.volcengine</groupId>
     <artifactId>volcengine-java-sdk</artifactId>
     <packaging>pom</packaging>
-    <version>0.1.144</version>
+    <version>0.1.145</version>
     <name>volcengine-java-sdk</name>
     <url>https://open.volcengineapi.com</url>
     <description>The Java SDK For Volcengine</description>
@@ -262,5 +262,8 @@
         <module>volcengine-java-sdk-cv20240606</module>
         <module>volcengine-java-sdk-dns</module>
         <module>volcengine-java-sdk-mcdn</module>
+        <module>volcengine-java-sdk-cloudtrail</module>
+        <module>volcengine-java-sdk-httpdns</module>
+        <module>volcengine-java-sdk-cloudtrail20180101</module>
     </modules>
 </project>
