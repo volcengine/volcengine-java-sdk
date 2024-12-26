@@ -22,7 +22,7 @@ public class GetContentGenerationTaskResponse {
     private String failureReason;
 
     @JsonProperty("content")
-    private List<Content> content;
+    private Content content;
 
     @JsonProperty("usage")
     private Usage usage;
@@ -65,11 +65,11 @@ public class GetContentGenerationTaskResponse {
         this.failureReason = failureReason;
     }
 
-    public List<Content> getContent() {
+    public Content getContent() {
         return content;
     }
 
-    public void setContent(List<Content> content) {
+    public void setContent(Content content) {
         this.content = content;
     }
 
@@ -148,7 +148,7 @@ public class GetContentGenerationTaskResponse {
                 ", model='" + model + '\'' +
                 ", status='" + status + '\'' +
                 ", failureReason='" + failureReason + '\'' +
-                ", content=" + (content != null ? content.stream().map(Content::toString).collect(Collectors.joining(", ")) : "null") +
+                ", content=" + (content != null ? content.toString() : "null") +
                 ", usage=" + usage +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +

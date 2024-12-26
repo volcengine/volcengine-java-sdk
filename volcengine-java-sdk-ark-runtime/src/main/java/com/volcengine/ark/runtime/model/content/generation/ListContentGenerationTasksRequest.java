@@ -103,7 +103,11 @@ public class ListContentGenerationTasksRequest {
             Map<String, String> filterMap = new HashMap<>();
             if (status != null) filterMap.put("filter.status", status);
             if (taskIds != null && !taskIds.isEmpty()) {
-                filterMap.put("filter.task_ids", String.join(",", taskIds)); // Join task IDs as a comma-separated string
+                List<String> taskIdsList = new ArrayList<>();
+                for (String taskId : taskIds) {
+                    taskIdsList.add("filter.task_ids=" + taskId);
+                }
+                filterMap.put("", String.join("&", taskIdsList));
             }
             if (model != null) filterMap.put("filter.model", model);
             return filterMap;
