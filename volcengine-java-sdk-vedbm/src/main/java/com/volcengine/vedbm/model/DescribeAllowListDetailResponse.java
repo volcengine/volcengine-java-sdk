@@ -48,8 +48,14 @@ public class DescribeAllowListDetailResponse extends com.volcengine.model.Abstra
   @SerializedName("AllowListType")
   private String allowListType = null;
 
+  @SerializedName("AssociatedInstanceNum")
+  private Integer associatedInstanceNum = null;
+
   @SerializedName("AssociatedInstances")
   private List<AssociatedInstanceForDescribeAllowListDetailOutput> associatedInstances = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
 
   public DescribeAllowListDetailResponse allowList(String allowList) {
     this.allowList = allowList;
@@ -141,6 +147,24 @@ public class DescribeAllowListDetailResponse extends com.volcengine.model.Abstra
     this.allowListType = allowListType;
   }
 
+  public DescribeAllowListDetailResponse associatedInstanceNum(Integer associatedInstanceNum) {
+    this.associatedInstanceNum = associatedInstanceNum;
+    return this;
+  }
+
+   /**
+   * Get associatedInstanceNum
+   * @return associatedInstanceNum
+  **/
+  @Schema(description = "")
+  public Integer getAssociatedInstanceNum() {
+    return associatedInstanceNum;
+  }
+
+  public void setAssociatedInstanceNum(Integer associatedInstanceNum) {
+    this.associatedInstanceNum = associatedInstanceNum;
+  }
+
   public DescribeAllowListDetailResponse associatedInstances(List<AssociatedInstanceForDescribeAllowListDetailOutput> associatedInstances) {
     this.associatedInstances = associatedInstances;
     return this;
@@ -168,6 +192,24 @@ public class DescribeAllowListDetailResponse extends com.volcengine.model.Abstra
     this.associatedInstances = associatedInstances;
   }
 
+  public DescribeAllowListDetailResponse projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -183,12 +225,14 @@ public class DescribeAllowListDetailResponse extends com.volcengine.model.Abstra
         Objects.equals(this.allowListId, describeAllowListDetailResponse.allowListId) &&
         Objects.equals(this.allowListName, describeAllowListDetailResponse.allowListName) &&
         Objects.equals(this.allowListType, describeAllowListDetailResponse.allowListType) &&
-        Objects.equals(this.associatedInstances, describeAllowListDetailResponse.associatedInstances);
+        Objects.equals(this.associatedInstanceNum, describeAllowListDetailResponse.associatedInstanceNum) &&
+        Objects.equals(this.associatedInstances, describeAllowListDetailResponse.associatedInstances) &&
+        Objects.equals(this.projectName, describeAllowListDetailResponse.projectName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowList, allowListDesc, allowListId, allowListName, allowListType, associatedInstances);
+    return Objects.hash(allowList, allowListDesc, allowListId, allowListName, allowListType, associatedInstanceNum, associatedInstances, projectName);
   }
 
 
@@ -202,7 +246,9 @@ public class DescribeAllowListDetailResponse extends com.volcengine.model.Abstra
     sb.append("    allowListId: ").append(toIndentedString(allowListId)).append("\n");
     sb.append("    allowListName: ").append(toIndentedString(allowListName)).append("\n");
     sb.append("    allowListType: ").append(toIndentedString(allowListType)).append("\n");
+    sb.append("    associatedInstanceNum: ").append(toIndentedString(associatedInstanceNum)).append("\n");
     sb.append("    associatedInstances: ").append(toIndentedString(associatedInstances)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -45,8 +45,53 @@ public class ModifyAllowListRequest {
   @SerializedName("ApplyInstanceNum")
   private Integer applyInstanceNum = null;
 
-  @SerializedName("ModifyMode")
-  private Integer modifyMode = null;
+  /**
+   * Gets or Sets modifyMode
+   */
+  @JsonAdapter(ModifyModeEnum.Adapter.class)
+  public enum ModifyModeEnum {
+    @SerializedName("Cover")
+    COVER("Cover"),
+    @SerializedName("Append")
+    APPEND("Append"),
+    @SerializedName("Delete")
+    DELETE("Delete");
+
+    private String value;
+
+    ModifyModeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ModifyModeEnum fromValue(String input) {
+      for (ModifyModeEnum b : ModifyModeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ModifyModeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ModifyModeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ModifyModeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ModifyModeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("ModifyMode")
+  private ModifyModeEnum modifyMode = null;
 
   public ModifyAllowListRequest allowList(String allowList) {
     this.allowList = allowList;
@@ -140,7 +185,7 @@ public class ModifyAllowListRequest {
     this.applyInstanceNum = applyInstanceNum;
   }
 
-  public ModifyAllowListRequest modifyMode(Integer modifyMode) {
+  public ModifyAllowListRequest modifyMode(ModifyModeEnum modifyMode) {
     this.modifyMode = modifyMode;
     return this;
   }
@@ -150,11 +195,11 @@ public class ModifyAllowListRequest {
    * @return modifyMode
   **/
   @Schema(description = "")
-  public Integer getModifyMode() {
+  public ModifyModeEnum getModifyMode() {
     return modifyMode;
   }
 
-  public void setModifyMode(Integer modifyMode) {
+  public void setModifyMode(ModifyModeEnum modifyMode) {
     this.modifyMode = modifyMode;
   }
 
