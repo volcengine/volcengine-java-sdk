@@ -53,10 +53,10 @@ public class ListContentGenerationTasksResponse {
         private Usage usage;
 
         @JsonProperty("created_at")
-        private long createdAt;
+        private java.lang.Long createdAt;
 
         @JsonProperty("updated_at")
-        private long updatedAt;
+        private java.lang.Long updatedAt;
 
         public String getId() {
             return id;
@@ -106,19 +106,19 @@ public class ListContentGenerationTasksResponse {
             this.usage = usage;
         }
 
-        public long getCreatedAt() {
+        public java.lang.Long getCreatedAt() {
             return createdAt;
         }
 
-        public void setCreatedAt(long createdAt) {
+        public void setCreatedAt(java.lang.Long createdAt) {
             this.createdAt = createdAt;
         }
 
-        public long getUpdatedAt() {
+        public java.lang.Long getUpdatedAt() {
             return updatedAt;
         }
 
-        public void setUpdatedAt(long updatedAt) {
+        public void setUpdatedAt(java.lang.Long updatedAt) {
             this.updatedAt = updatedAt;
         }
 

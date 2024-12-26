@@ -10,10 +10,10 @@ import java.util.List;
 public class ListContentGenerationTasksRequest {
 
     @JsonProperty("page_num")
-    private int pageNum;
+    private java.lang.Integer pageNum;
 
     @JsonProperty("page_size")
-    private int pageSize;
+    private java.lang.Integer pageSize;
 
     private String status;
     private String model;
@@ -22,7 +22,7 @@ public class ListContentGenerationTasksRequest {
     public ListContentGenerationTasksRequest() {
     }
 
-    public ListContentGenerationTasksRequest(int pageNum, int pageSize, String status, String model, List<String> taskIds) {
+    public ListContentGenerationTasksRequest(java.lang.Integer pageNum, java.lang.Integer pageSize, String status, String model, List<String> taskIds) {
         this.pageNum = pageNum;
         this.pageSize = pageSize;
         this.status = status;
@@ -30,19 +30,19 @@ public class ListContentGenerationTasksRequest {
         this.taskIds = taskIds;
     }
 
-    public int getPageNum() {
+    public java.lang.Integer getPageNum() {
         return pageNum;
     }
 
-    public void setPageNum(int pageNum) {
+    public void setPageNum(java.lang.Integer pageNum) {
         this.pageNum = pageNum;
     }
 
-    public int getPageSize() {
+    public java.lang.Integer getPageSize() {
         return pageSize;
     }
 
-    public void setPageSize(int pageSize) {
+    public void setPageSize(java.lang.Integer pageSize) {
         this.pageSize = pageSize;
     }
 
@@ -86,23 +86,23 @@ public class ListContentGenerationTasksRequest {
     }
 
     public static class Builder {
-        private int pageNum;
-        private int pageSize;
+        private java.lang.Integer pageNum;
+        private java.lang.Integer pageSize;
         private String status;
         private String model;
         private final List<String> taskIds = new ArrayList<>();
 
-        public Builder pageNum(int pageNum) {
+        public Builder pageNum(java.lang.Integer pageNum) {
             this.pageNum = pageNum;
             return this;
         }
 
-        public Builder pageSize(int pageSize) {
+        public Builder pageSize(java.lang.Integer pageSize) {
             this.pageSize = pageSize;
             return this;
         }
 
-        public Builder status(TaskStatus status) {
+        public Builder status(String status) {
             this.status = status.toString();
             return this;
         }
