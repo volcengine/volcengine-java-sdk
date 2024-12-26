@@ -36,6 +36,9 @@ public class UnsubscribeInstanceResponse extends com.volcengine.model.AbstractRe
   @SerializedName("OrderID")
   private String orderID = null;
 
+  @SerializedName("OrderIDList")
+  private List<String> orderIDList = null;
+
   @SerializedName("SuccessInstanceInfos")
   private List<SuccessInstanceInfoForUnsubscribeInstanceOutput> successInstanceInfos = null;
 
@@ -55,6 +58,32 @@ public class UnsubscribeInstanceResponse extends com.volcengine.model.AbstractRe
 
   public void setOrderID(String orderID) {
     this.orderID = orderID;
+  }
+
+  public UnsubscribeInstanceResponse orderIDList(List<String> orderIDList) {
+    this.orderIDList = orderIDList;
+    return this;
+  }
+
+  public UnsubscribeInstanceResponse addOrderIDListItem(String orderIDListItem) {
+    if (this.orderIDList == null) {
+      this.orderIDList = new ArrayList<String>();
+    }
+    this.orderIDList.add(orderIDListItem);
+    return this;
+  }
+
+   /**
+   * Get orderIDList
+   * @return orderIDList
+  **/
+  @Schema(description = "")
+  public List<String> getOrderIDList() {
+    return orderIDList;
+  }
+
+  public void setOrderIDList(List<String> orderIDList) {
+    this.orderIDList = orderIDList;
   }
 
   public UnsubscribeInstanceResponse successInstanceInfos(List<SuccessInstanceInfoForUnsubscribeInstanceOutput> successInstanceInfos) {
@@ -95,12 +124,13 @@ public class UnsubscribeInstanceResponse extends com.volcengine.model.AbstractRe
     }
     UnsubscribeInstanceResponse unsubscribeInstanceResponse = (UnsubscribeInstanceResponse) o;
     return Objects.equals(this.orderID, unsubscribeInstanceResponse.orderID) &&
+        Objects.equals(this.orderIDList, unsubscribeInstanceResponse.orderIDList) &&
         Objects.equals(this.successInstanceInfos, unsubscribeInstanceResponse.successInstanceInfos);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(orderID, successInstanceInfos);
+    return Objects.hash(orderID, orderIDList, successInstanceInfos);
   }
 
 
@@ -110,6 +140,7 @@ public class UnsubscribeInstanceResponse extends com.volcengine.model.AbstractRe
     sb.append("class UnsubscribeInstanceResponse {\n");
     
     sb.append("    orderID: ").append(toIndentedString(orderID)).append("\n");
+    sb.append("    orderIDList: ").append(toIndentedString(orderIDList)).append("\n");
     sb.append("    successInstanceInfos: ").append(toIndentedString(successInstanceInfos)).append("\n");
     sb.append("}");
     return sb.toString();

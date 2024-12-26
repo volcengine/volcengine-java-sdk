@@ -105,6 +105,9 @@ public class ListForListAmortizedCostBillDetailOutput {
   @SerializedName("DailyAmortizedRoundAmount")
   private String dailyAmortizedRoundAmount = null;
 
+  @SerializedName("DeductionUseDuration")
+  private String deductionUseDuration = null;
+
   @SerializedName("DiscountBillAmount")
   private String discountBillAmount = null;
 
@@ -215,6 +218,12 @@ public class ListForListAmortizedCostBillDetailOutput {
 
   @SerializedName("SellerUserName")
   private String sellerUserName = null;
+
+  @SerializedName("SplitItemID")
+  private String splitItemID = null;
+
+  @SerializedName("SplitItemName")
+  private String splitItemName = null;
 
   @SerializedName("SubjectName")
   private String subjectName = null;
@@ -685,6 +694,24 @@ public class ListForListAmortizedCostBillDetailOutput {
 
   public void setDailyAmortizedRoundAmount(String dailyAmortizedRoundAmount) {
     this.dailyAmortizedRoundAmount = dailyAmortizedRoundAmount;
+  }
+
+  public ListForListAmortizedCostBillDetailOutput deductionUseDuration(String deductionUseDuration) {
+    this.deductionUseDuration = deductionUseDuration;
+    return this;
+  }
+
+   /**
+   * Get deductionUseDuration
+   * @return deductionUseDuration
+  **/
+  @Schema(description = "")
+  public String getDeductionUseDuration() {
+    return deductionUseDuration;
+  }
+
+  public void setDeductionUseDuration(String deductionUseDuration) {
+    this.deductionUseDuration = deductionUseDuration;
   }
 
   public ListForListAmortizedCostBillDetailOutput discountBillAmount(String discountBillAmount) {
@@ -1353,6 +1380,42 @@ public class ListForListAmortizedCostBillDetailOutput {
     this.sellerUserName = sellerUserName;
   }
 
+  public ListForListAmortizedCostBillDetailOutput splitItemID(String splitItemID) {
+    this.splitItemID = splitItemID;
+    return this;
+  }
+
+   /**
+   * Get splitItemID
+   * @return splitItemID
+  **/
+  @Schema(description = "")
+  public String getSplitItemID() {
+    return splitItemID;
+  }
+
+  public void setSplitItemID(String splitItemID) {
+    this.splitItemID = splitItemID;
+  }
+
+  public ListForListAmortizedCostBillDetailOutput splitItemName(String splitItemName) {
+    this.splitItemName = splitItemName;
+    return this;
+  }
+
+   /**
+   * Get splitItemName
+   * @return splitItemName
+  **/
+  @Schema(description = "")
+  public String getSplitItemName() {
+    return splitItemName;
+  }
+
+  public void setSplitItemName(String splitItemName) {
+    this.splitItemName = splitItemName;
+  }
+
   public ListForListAmortizedCostBillDetailOutput subjectName(String subjectName) {
     this.subjectName = subjectName;
     return this;
@@ -1514,6 +1577,7 @@ public class ListForListAmortizedCostBillDetailOutput {
         Objects.equals(this.dailyAmortizedPayableAmount, listForListAmortizedCostBillDetailOutput.dailyAmortizedPayableAmount) &&
         Objects.equals(this.dailyAmortizedPreferentialBillAmount, listForListAmortizedCostBillDetailOutput.dailyAmortizedPreferentialBillAmount) &&
         Objects.equals(this.dailyAmortizedRoundAmount, listForListAmortizedCostBillDetailOutput.dailyAmortizedRoundAmount) &&
+        Objects.equals(this.deductionUseDuration, listForListAmortizedCostBillDetailOutput.deductionUseDuration) &&
         Objects.equals(this.discountBillAmount, listForListAmortizedCostBillDetailOutput.discountBillAmount) &&
         Objects.equals(this.discountBizBillingFunction, listForListAmortizedCostBillDetailOutput.discountBizBillingFunction) &&
         Objects.equals(this.discountBizMeasureInterval, listForListAmortizedCostBillDetailOutput.discountBizMeasureInterval) &&
@@ -1551,6 +1615,8 @@ public class ListForListAmortizedCostBillDetailOutput {
         Objects.equals(this.sellerCustomerName, listForListAmortizedCostBillDetailOutput.sellerCustomerName) &&
         Objects.equals(this.sellerID, listForListAmortizedCostBillDetailOutput.sellerID) &&
         Objects.equals(this.sellerUserName, listForListAmortizedCostBillDetailOutput.sellerUserName) &&
+        Objects.equals(this.splitItemID, listForListAmortizedCostBillDetailOutput.splitItemID) &&
+        Objects.equals(this.splitItemName, listForListAmortizedCostBillDetailOutput.splitItemName) &&
         Objects.equals(this.subjectName, listForListAmortizedCostBillDetailOutput.subjectName) &&
         Objects.equals(this.tag, listForListAmortizedCostBillDetailOutput.tag) &&
         Objects.equals(this.tradeTime, listForListAmortizedCostBillDetailOutput.tradeTime) &&
@@ -1562,7 +1628,7 @@ public class ListForListAmortizedCostBillDetailOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(amortizedBeginTime, amortizedDay, amortizedEndTime, amortizedMonth, amortizedType, billCategory, billID, billPeriod, billingFunction, billingMethodCode, billingMode, busiPeriod, businessMode, configName, costID, count, couponAmount, currency, dailyAmortizedCouponAmount, dailyAmortizedDiscountBillAmount, dailyAmortizedOriginalBillAmount, dailyAmortizedPaidAmount, dailyAmortizedPayableAmount, dailyAmortizedPreferentialBillAmount, dailyAmortizedRoundAmount, discountBillAmount, discountBizBillingFunction, discountBizMeasureInterval, discountBizUnitPrice, discountBizUnitPriceInterval, effectiveFactor, element, expandField, expenseBeginTime, expenseEndTime, factor, instanceName, instanceNo, marketPrice, measureInterval, originalBillAmount, ownerCustomerName, ownerID, ownerUserName, paidAmount, payableAmount, payerCustomerName, payerID, payerUserName, preferentialBillAmount, price, priceInterval, priceUnit, product, productZh, project, projectDisplayName, region, roundAmount, sellerCustomerName, sellerID, sellerUserName, subjectName, tag, tradeTime, unit, useDuration, useDurationUnit, zone);
+    return Objects.hash(amortizedBeginTime, amortizedDay, amortizedEndTime, amortizedMonth, amortizedType, billCategory, billID, billPeriod, billingFunction, billingMethodCode, billingMode, busiPeriod, businessMode, configName, costID, count, couponAmount, currency, dailyAmortizedCouponAmount, dailyAmortizedDiscountBillAmount, dailyAmortizedOriginalBillAmount, dailyAmortizedPaidAmount, dailyAmortizedPayableAmount, dailyAmortizedPreferentialBillAmount, dailyAmortizedRoundAmount, deductionUseDuration, discountBillAmount, discountBizBillingFunction, discountBizMeasureInterval, discountBizUnitPrice, discountBizUnitPriceInterval, effectiveFactor, element, expandField, expenseBeginTime, expenseEndTime, factor, instanceName, instanceNo, marketPrice, measureInterval, originalBillAmount, ownerCustomerName, ownerID, ownerUserName, paidAmount, payableAmount, payerCustomerName, payerID, payerUserName, preferentialBillAmount, price, priceInterval, priceUnit, product, productZh, project, projectDisplayName, region, roundAmount, sellerCustomerName, sellerID, sellerUserName, splitItemID, splitItemName, subjectName, tag, tradeTime, unit, useDuration, useDurationUnit, zone);
   }
 
 
@@ -1596,6 +1662,7 @@ public class ListForListAmortizedCostBillDetailOutput {
     sb.append("    dailyAmortizedPayableAmount: ").append(toIndentedString(dailyAmortizedPayableAmount)).append("\n");
     sb.append("    dailyAmortizedPreferentialBillAmount: ").append(toIndentedString(dailyAmortizedPreferentialBillAmount)).append("\n");
     sb.append("    dailyAmortizedRoundAmount: ").append(toIndentedString(dailyAmortizedRoundAmount)).append("\n");
+    sb.append("    deductionUseDuration: ").append(toIndentedString(deductionUseDuration)).append("\n");
     sb.append("    discountBillAmount: ").append(toIndentedString(discountBillAmount)).append("\n");
     sb.append("    discountBizBillingFunction: ").append(toIndentedString(discountBizBillingFunction)).append("\n");
     sb.append("    discountBizMeasureInterval: ").append(toIndentedString(discountBizMeasureInterval)).append("\n");
@@ -1633,6 +1700,8 @@ public class ListForListAmortizedCostBillDetailOutput {
     sb.append("    sellerCustomerName: ").append(toIndentedString(sellerCustomerName)).append("\n");
     sb.append("    sellerID: ").append(toIndentedString(sellerID)).append("\n");
     sb.append("    sellerUserName: ").append(toIndentedString(sellerUserName)).append("\n");
+    sb.append("    splitItemID: ").append(toIndentedString(splitItemID)).append("\n");
+    sb.append("    splitItemName: ").append(toIndentedString(splitItemName)).append("\n");
     sb.append("    subjectName: ").append(toIndentedString(subjectName)).append("\n");
     sb.append("    tag: ").append(toIndentedString(tag)).append("\n");
     sb.append("    tradeTime: ").append(toIndentedString(tradeTime)).append("\n");
