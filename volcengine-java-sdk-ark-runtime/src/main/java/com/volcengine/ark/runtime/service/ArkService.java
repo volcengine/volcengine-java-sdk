@@ -266,13 +266,13 @@ public class ArkService extends ArkBaseService implements ArkBaseServiceImpl {
 
     @Override
     public ListContentGenerationTasksResponse listContentGenerationTasks(ListContentGenerationTasksRequest request) {
-        Map<String, String> filters = request.getFilters() != null ? request.getFilters() : new HashMap<>();
-
         return execute(
                 api.listContentGenerationTasks(
                         request.getPageNum(),
                         request.getPageSize(),
-                        filters,
+                        request.getStatus(),
+                        request.getModel(),
+                        request.getTaskIds(),
                         new HashMap<>()
                 )
         );
@@ -282,17 +282,18 @@ public class ArkService extends ArkBaseService implements ArkBaseServiceImpl {
             ListContentGenerationTasksRequest request,
             Map<String, String> customHeaders
     ) {
-        Map<String, String> filters = request.getFilters() != null ? request.getFilters() : new HashMap<>();
-
         return execute(
                 api.listContentGenerationTasks(
                         request.getPageNum(),
                         request.getPageSize(),
-                        filters,
+                        request.getStatus(),
+                        request.getModel(),
+                        request.getTaskIds(),
                         customHeaders
                 )
         );
     }
+
 
     public DeleteContentGenerationTaskResponse deleteContentGenerationTask(DeleteContentGenerationTaskRequest request) {
         return execute(api.deleteContentGenerationTask(request.getTaskId(), new HashMap<>()));

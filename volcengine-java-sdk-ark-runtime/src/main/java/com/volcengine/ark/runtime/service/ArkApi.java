@@ -22,6 +22,7 @@ import retrofit2.http.*;
 import retrofit2.Call;
 import io.reactivex.Single;
 
+import java.util.List;
 import java.util.Map;
 
 public interface ArkApi {
@@ -63,7 +64,14 @@ public interface ArkApi {
     Single<GetContentGenerationTaskResponse> getContentGenerationTask(@Path("taskId") String taskId, @HeaderMap Map<String, String> customHeaders);
 
     @GET("/api/v3/contents/generations/tasks")
-    Single<ListContentGenerationTasksResponse> listContentGenerationTasks(@Query("page_num") int pageNum, @Query("page_size") int pageSize, @QueryMap Map<String, String> filters, @HeaderMap Map<String, String> customHeaders);
+    Single<ListContentGenerationTasksResponse> listContentGenerationTasks(
+            @Query("page_num") int pageNum,
+            @Query("page_size") int pageSize,
+            @Query("filter.status") String status,
+            @Query("filter.model") String model,
+            @Query("filter.task_ids") List<String> taskIds,
+            @HeaderMap Map<String, String> customHeaders
+    );
 
     @DELETE("/api/v3/contents/generations/tasks/{taskId}")
     Single<DeleteContentGenerationTaskResponse> deleteContentGenerationTask(@Path("taskId") String taskId, @HeaderMap Map<String, String> customHeaders);

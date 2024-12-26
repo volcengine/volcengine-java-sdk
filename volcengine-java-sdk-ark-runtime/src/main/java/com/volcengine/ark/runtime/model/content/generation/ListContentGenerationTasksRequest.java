@@ -4,9 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ListContentGenerationTasksRequest {
@@ -17,15 +15,19 @@ public class ListContentGenerationTasksRequest {
     @JsonProperty("page_size")
     private int pageSize;
 
-    private Map<String, String> filters;
+    private String status;
+    private String model;
+    private List<String> taskIds;
 
     public ListContentGenerationTasksRequest() {
     }
 
-    public ListContentGenerationTasksRequest(int pageNum, int pageSize, Map<String, String> filters) {
+    public ListContentGenerationTasksRequest(int pageNum, int pageSize, String status, String model, List<String> taskIds) {
         this.pageNum = pageNum;
         this.pageSize = pageSize;
-        this.filters = filters;
+        this.status = status;
+        this.model = model;
+        this.taskIds = taskIds;
     }
 
     public int getPageNum() {
@@ -44,12 +46,28 @@ public class ListContentGenerationTasksRequest {
         this.pageSize = pageSize;
     }
 
-    public Map<String, String> getFilters() {
-        return filters;
+    public String getStatus() {
+        return status;
     }
 
-    public void setFilters(Map<String, String> filters) {
-        this.filters = filters;
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public List<String> getTaskIds() {
+        return taskIds;
+    }
+
+    public void setTaskIds(List<String> taskIds) {
+        this.taskIds = taskIds;
     }
 
     @Override
@@ -57,7 +75,9 @@ public class ListContentGenerationTasksRequest {
         return "ListContentGenerationTasksRequest{" +
                 "pageNum=" + pageNum +
                 ", pageSize=" + pageSize +
-                ", filters=" + filters +
+                ", status='" + status + '\'' +
+                ", model='" + model + '\'' +
+                ", taskIds=" + taskIds +
                 '}';
     }
 
@@ -68,7 +88,9 @@ public class ListContentGenerationTasksRequest {
     public static class Builder {
         private int pageNum;
         private int pageSize;
-        private Map<String, String> filters = new HashMap<>();
+        private String status;
+        private String model;
+        private final List<String> taskIds = new ArrayList<>();
 
         public Builder pageNum(int pageNum) {
             this.pageNum = pageNum;
@@ -80,65 +102,29 @@ public class ListContentGenerationTasksRequest {
             return this;
         }
 
-        public Builder filter(Filter filter) {
-            this.filters.putAll(filter.build());
+        public Builder status(TaskStatus status) {
+            this.status = status.toString();
+            return this;
+        }
+
+        public Builder model(String model) {
+            this.model = model;
+            return this;
+        }
+
+        public Builder taskIds(List<String> taskIds) {
+            this.taskIds.clear();
+            this.taskIds.addAll(taskIds);
+            return this;
+        }
+
+        public Builder addTaskId(String taskId) {
+            this.taskIds.add(taskId);
             return this;
         }
 
         public ListContentGenerationTasksRequest build() {
-            return new ListContentGenerationTasksRequest(pageNum, pageSize, filters);
-        }
-    }
-
-    public static class Filter {
-        private String status;
-        private List<String> taskIds = new ArrayList<>();
-        private String model;
-
-        public static Filter.Builder builder() {
-            return new Filter.Builder();
-        }
-
-        public Map<String, String> build() {
-            Map<String, String> filterMap = new HashMap<>();
-            if (status != null) filterMap.put("filter.status", status);
-            if (taskIds != null && !taskIds.isEmpty()) {
-                List<String> taskIdsList = new ArrayList<>();
-                for (String taskId : taskIds) {
-                    taskIdsList.add("filter.task_ids=" + taskId);
-                }
-                filterMap.put("", String.join("&", taskIdsList));
-            }
-            if (model != null) filterMap.put("filter.model", model);
-            return filterMap;
-        }
-
-        public static class Builder {
-            private final Filter filter = new Filter();
-
-            public Builder status(TaskStatus status) {
-                filter.status = status.toString();
-                return this;
-            }
-
-            public Builder taskIds(List<String> taskIds) {
-                filter.taskIds = new ArrayList<>(taskIds);
-                return this;
-            }
-
-            public Builder addTaskId(String taskId) {
-                filter.taskIds.add(taskId);
-                return this;
-            }
-
-            public Builder model(String model) {
-                filter.model = model;
-                return this;
-            }
-
-            public Filter build() {
-                return filter;
-            }
+            return new ListContentGenerationTasksRequest(pageNum, pageSize, status, model, taskIds);
         }
     }
 }

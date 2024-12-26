@@ -58,7 +58,7 @@ public class ContentGenerationTaskExample {
                 .content(contents)
                 .build();
 
-        // Send request
+        // send create request
         CreateContentGenerationTaskResult createResult = service.createContentGenerationTask(createRequest);
         System.out.println(createResult);
 
@@ -76,12 +76,11 @@ public class ContentGenerationTaskExample {
         ListContentGenerationTasksRequest listRequest = ListContentGenerationTasksRequest.builder()
                 .pageNum(1)
                 .pageSize(10)
-                .filter(ListContentGenerationTasksRequest.Filter.builder()
-                        .status(TaskStatus.QUEUED)
-                        .addTaskId(createResult.getId()) // add single task ID
-//                        .taskIds(Arrays.asList("test-id-1", "test-id-2")) // add multiple task IDs
-                        .model(model)
-                        .build())
+                .status(TaskStatus.RUNNING)
+                .addTaskId(createResult.getId())
+                // for multiple IDs, you could use:
+                // .taskIds(Arrays.asList("test-id-1", "test-id-2"))
+                .model(model)
                 .build();
 
         ListContentGenerationTasksResponse listResponse = service.listContentGenerationTasks(listRequest);
@@ -93,8 +92,12 @@ public class ContentGenerationTaskExample {
                 .taskId(getResult.getId())
                 .build();
 
-        DeleteContentGenerationTaskResponse deleteResult = service.deleteContentGenerationTask(deleteRequest);
-        System.out.println(deleteResult);
+        try {
+            DeleteContentGenerationTaskResponse deleteResult = service.deleteContentGenerationTask(deleteRequest);
+            System.out.println(deleteResult);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
 
         service.shutdownExecutor();
     }
