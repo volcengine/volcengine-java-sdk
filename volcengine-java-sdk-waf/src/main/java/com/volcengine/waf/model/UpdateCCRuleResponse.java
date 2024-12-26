@@ -14,15 +14,43 @@ package com.volcengine.waf.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * UpdateHostGroupResponse
+ * UpdateCCRuleResponse
  */
 
 
 
-public class UpdateHostGroupResponse extends com.volcengine.model.AbstractResponse {
+public class UpdateCCRuleResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("Id")
+  private Integer id = null;
+
+  public UpdateCCRuleResponse id(Integer id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Get id
+   * @return id
+  **/
+  @Schema(description = "")
+  public Integer getId() {
+    return id;
+  }
+
+  public void setId(Integer id) {
+    this.id = id;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -32,20 +60,22 @@ public class UpdateHostGroupResponse extends com.volcengine.model.AbstractRespon
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return true;
+    UpdateCCRuleResponse updateCCRuleResponse = (UpdateCCRuleResponse) o;
+    return Objects.equals(this.id, updateCCRuleResponse.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash();
+    return Objects.hash(id);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UpdateHostGroupResponse {\n");
+    sb.append("class UpdateCCRuleResponse {\n");
     
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();
   }

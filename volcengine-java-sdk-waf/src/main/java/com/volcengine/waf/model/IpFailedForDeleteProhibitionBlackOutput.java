@@ -24,22 +24,61 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * RelatedRuleForListAllIpGroupsOutput
+ * IpFailedForDeleteProhibitionBlackOutput
  */
 
 
 
-public class RelatedRuleForListAllIpGroupsOutput {
+public class IpFailedForDeleteProhibitionBlackOutput {
+  @SerializedName("Ip")
+  private String ip = null;
+
+  @SerializedName("Reason")
+  private String reason = null;
+
   @SerializedName("RuleName")
   private String ruleName = null;
 
   @SerializedName("RuleTag")
   private String ruleTag = null;
 
-  @SerializedName("RuleType")
-  private String ruleType = null;
+  public IpFailedForDeleteProhibitionBlackOutput ip(String ip) {
+    this.ip = ip;
+    return this;
+  }
 
-  public RelatedRuleForListAllIpGroupsOutput ruleName(String ruleName) {
+   /**
+   * Get ip
+   * @return ip
+  **/
+  @Schema(description = "")
+  public String getIp() {
+    return ip;
+  }
+
+  public void setIp(String ip) {
+    this.ip = ip;
+  }
+
+  public IpFailedForDeleteProhibitionBlackOutput reason(String reason) {
+    this.reason = reason;
+    return this;
+  }
+
+   /**
+   * Get reason
+   * @return reason
+  **/
+  @Schema(description = "")
+  public String getReason() {
+    return reason;
+  }
+
+  public void setReason(String reason) {
+    this.reason = reason;
+  }
+
+  public IpFailedForDeleteProhibitionBlackOutput ruleName(String ruleName) {
     this.ruleName = ruleName;
     return this;
   }
@@ -57,7 +96,7 @@ public class RelatedRuleForListAllIpGroupsOutput {
     this.ruleName = ruleName;
   }
 
-  public RelatedRuleForListAllIpGroupsOutput ruleTag(String ruleTag) {
+  public IpFailedForDeleteProhibitionBlackOutput ruleTag(String ruleTag) {
     this.ruleTag = ruleTag;
     return this;
   }
@@ -75,24 +114,6 @@ public class RelatedRuleForListAllIpGroupsOutput {
     this.ruleTag = ruleTag;
   }
 
-  public RelatedRuleForListAllIpGroupsOutput ruleType(String ruleType) {
-    this.ruleType = ruleType;
-    return this;
-  }
-
-   /**
-   * Get ruleType
-   * @return ruleType
-  **/
-  @Schema(description = "")
-  public String getRuleType() {
-    return ruleType;
-  }
-
-  public void setRuleType(String ruleType) {
-    this.ruleType = ruleType;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -102,26 +123,28 @@ public class RelatedRuleForListAllIpGroupsOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RelatedRuleForListAllIpGroupsOutput relatedRuleForListAllIpGroupsOutput = (RelatedRuleForListAllIpGroupsOutput) o;
-    return Objects.equals(this.ruleName, relatedRuleForListAllIpGroupsOutput.ruleName) &&
-        Objects.equals(this.ruleTag, relatedRuleForListAllIpGroupsOutput.ruleTag) &&
-        Objects.equals(this.ruleType, relatedRuleForListAllIpGroupsOutput.ruleType);
+    IpFailedForDeleteProhibitionBlackOutput ipFailedForDeleteProhibitionBlackOutput = (IpFailedForDeleteProhibitionBlackOutput) o;
+    return Objects.equals(this.ip, ipFailedForDeleteProhibitionBlackOutput.ip) &&
+        Objects.equals(this.reason, ipFailedForDeleteProhibitionBlackOutput.reason) &&
+        Objects.equals(this.ruleName, ipFailedForDeleteProhibitionBlackOutput.ruleName) &&
+        Objects.equals(this.ruleTag, ipFailedForDeleteProhibitionBlackOutput.ruleTag);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ruleName, ruleTag, ruleType);
+    return Objects.hash(ip, reason, ruleName, ruleTag);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RelatedRuleForListAllIpGroupsOutput {\n");
+    sb.append("class IpFailedForDeleteProhibitionBlackOutput {\n");
     
+    sb.append("    ip: ").append(toIndentedString(ip)).append("\n");
+    sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
     sb.append("    ruleName: ").append(toIndentedString(ruleName)).append("\n");
     sb.append("    ruleTag: ").append(toIndentedString(ruleTag)).append("\n");
-    sb.append("    ruleType: ").append(toIndentedString(ruleType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

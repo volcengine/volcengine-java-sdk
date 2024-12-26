@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.waf.model.AccurateRuleForUpdateAclRuleInput;
+import com.volcengine.waf.model.AccurateRuleForListCCRuleOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -27,26 +27,26 @@ import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * AccurateGroupForUpdateAclRuleInput
+ * GroupForListCCRuleOutput
  */
 
 
 
-public class AccurateGroupForUpdateAclRuleInput {
+public class GroupForListCCRuleOutput {
   @SerializedName("AccurateRules")
-  private List<AccurateRuleForUpdateAclRuleInput> accurateRules = null;
+  private List<AccurateRuleForListCCRuleOutput> accurateRules = null;
 
   @SerializedName("Logic")
   private Integer logic = null;
 
-  public AccurateGroupForUpdateAclRuleInput accurateRules(List<AccurateRuleForUpdateAclRuleInput> accurateRules) {
+  public GroupForListCCRuleOutput accurateRules(List<AccurateRuleForListCCRuleOutput> accurateRules) {
     this.accurateRules = accurateRules;
     return this;
   }
 
-  public AccurateGroupForUpdateAclRuleInput addAccurateRulesItem(AccurateRuleForUpdateAclRuleInput accurateRulesItem) {
+  public GroupForListCCRuleOutput addAccurateRulesItem(AccurateRuleForListCCRuleOutput accurateRulesItem) {
     if (this.accurateRules == null) {
-      this.accurateRules = new ArrayList<AccurateRuleForUpdateAclRuleInput>();
+      this.accurateRules = new ArrayList<AccurateRuleForListCCRuleOutput>();
     }
     this.accurateRules.add(accurateRulesItem);
     return this;
@@ -58,15 +58,15 @@ public class AccurateGroupForUpdateAclRuleInput {
   **/
   @Valid
   @Schema(description = "")
-  public List<AccurateRuleForUpdateAclRuleInput> getAccurateRules() {
+  public List<AccurateRuleForListCCRuleOutput> getAccurateRules() {
     return accurateRules;
   }
 
-  public void setAccurateRules(List<AccurateRuleForUpdateAclRuleInput> accurateRules) {
+  public void setAccurateRules(List<AccurateRuleForListCCRuleOutput> accurateRules) {
     this.accurateRules = accurateRules;
   }
 
-  public AccurateGroupForUpdateAclRuleInput logic(Integer logic) {
+  public GroupForListCCRuleOutput logic(Integer logic) {
     this.logic = logic;
     return this;
   }
@@ -93,9 +93,9 @@ public class AccurateGroupForUpdateAclRuleInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AccurateGroupForUpdateAclRuleInput accurateGroupForUpdateAclRuleInput = (AccurateGroupForUpdateAclRuleInput) o;
-    return Objects.equals(this.accurateRules, accurateGroupForUpdateAclRuleInput.accurateRules) &&
-        Objects.equals(this.logic, accurateGroupForUpdateAclRuleInput.logic);
+    GroupForListCCRuleOutput groupForListCCRuleOutput = (GroupForListCCRuleOutput) o;
+    return Objects.equals(this.accurateRules, groupForListCCRuleOutput.accurateRules) &&
+        Objects.equals(this.logic, groupForListCCRuleOutput.logic);
   }
 
   @Override
@@ -107,7 +107,7 @@ public class AccurateGroupForUpdateAclRuleInput {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AccurateGroupForUpdateAclRuleInput {\n");
+    sb.append("class GroupForListCCRuleOutput {\n");
     
     sb.append("    accurateRules: ").append(toIndentedString(accurateRules)).append("\n");
     sb.append("    logic: ").append(toIndentedString(logic)).append("\n");

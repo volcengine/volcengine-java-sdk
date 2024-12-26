@@ -26,45 +26,67 @@ import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DeleteHostGroupRequest
+ * DeleteProhibitionBlackRequest
  */
 
 
 
-public class DeleteHostGroupRequest {
-  @SerializedName("HostGroupIds")
-  private List<Integer> hostGroupIds = null;
+public class DeleteProhibitionBlackRequest {
+  @SerializedName("Host")
+  private String host = null;
+
+  @SerializedName("IpList")
+  private List<String> ipList = null;
 
   @SerializedName("ProjectName")
   private String projectName = null;
 
-  public DeleteHostGroupRequest hostGroupIds(List<Integer> hostGroupIds) {
-    this.hostGroupIds = hostGroupIds;
-    return this;
-  }
-
-  public DeleteHostGroupRequest addHostGroupIdsItem(Integer hostGroupIdsItem) {
-    if (this.hostGroupIds == null) {
-      this.hostGroupIds = new ArrayList<Integer>();
-    }
-    this.hostGroupIds.add(hostGroupIdsItem);
+  public DeleteProhibitionBlackRequest host(String host) {
+    this.host = host;
     return this;
   }
 
    /**
-   * Get hostGroupIds
-   * @return hostGroupIds
+   * Get host
+   * @return host
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getHost() {
+    return host;
+  }
+
+  public void setHost(String host) {
+    this.host = host;
+  }
+
+  public DeleteProhibitionBlackRequest ipList(List<String> ipList) {
+    this.ipList = ipList;
+    return this;
+  }
+
+  public DeleteProhibitionBlackRequest addIpListItem(String ipListItem) {
+    if (this.ipList == null) {
+      this.ipList = new ArrayList<String>();
+    }
+    this.ipList.add(ipListItem);
+    return this;
+  }
+
+   /**
+   * Get ipList
+   * @return ipList
   **/
   @Schema(description = "")
-  public List<Integer> getHostGroupIds() {
-    return hostGroupIds;
+  public List<String> getIpList() {
+    return ipList;
   }
 
-  public void setHostGroupIds(List<Integer> hostGroupIds) {
-    this.hostGroupIds = hostGroupIds;
+  public void setIpList(List<String> ipList) {
+    this.ipList = ipList;
   }
 
-  public DeleteHostGroupRequest projectName(String projectName) {
+  public DeleteProhibitionBlackRequest projectName(String projectName) {
     this.projectName = projectName;
     return this;
   }
@@ -91,23 +113,25 @@ public class DeleteHostGroupRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeleteHostGroupRequest deleteHostGroupRequest = (DeleteHostGroupRequest) o;
-    return Objects.equals(this.hostGroupIds, deleteHostGroupRequest.hostGroupIds) &&
-        Objects.equals(this.projectName, deleteHostGroupRequest.projectName);
+    DeleteProhibitionBlackRequest deleteProhibitionBlackRequest = (DeleteProhibitionBlackRequest) o;
+    return Objects.equals(this.host, deleteProhibitionBlackRequest.host) &&
+        Objects.equals(this.ipList, deleteProhibitionBlackRequest.ipList) &&
+        Objects.equals(this.projectName, deleteProhibitionBlackRequest.projectName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hostGroupIds, projectName);
+    return Objects.hash(host, ipList, projectName);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeleteHostGroupRequest {\n");
+    sb.append("class DeleteProhibitionBlackRequest {\n");
     
-    sb.append("    hostGroupIds: ").append(toIndentedString(hostGroupIds)).append("\n");
+    sb.append("    host: ").append(toIndentedString(host)).append("\n");
+    sb.append("    ipList: ").append(toIndentedString(ipList)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");
     return sb.toString();
