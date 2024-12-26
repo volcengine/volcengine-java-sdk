@@ -262,5 +262,6 @@
         <module>volcengine-java-sdk-cv20240606</module>
         <module>volcengine-java-sdk-dns</module>
         <module>volcengine-java-sdk-mcdn</module>
+        <module>volcengine-java-sdk-cloudtrail</module>
     </modules>
 </project>
