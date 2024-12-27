@@ -19,13 +19,6 @@ public class ContentGenerationTaskExample {
      *    String apiKey = System.getenv("ARK_API_KEY");
      *    ArkService service = new ArkService(apiKey);
      *    Note: Choose an API key with no expiration date to prevent failures due to expiration.
-     *
-     * 2. If you authorize your endpoint with Volcengine IAM, set "VOLC_ACCESSKEY" and "VOLC_SECRETKEY" as environment variables.
-     *    String ak = System.getenv("VOLC_ACCESSKEY");
-     *    String sk = System.getenv("VOLC_SECRETKEY");
-     *    ArkService service = new ArkService(ak, sk);
-     *    To get your ak&sk, please refer to this document(https://www.volcengine.com/docs/6291/65568)
-     *    For more information，please check this document（https://www.volcengine.com/docs/82379/1263279）
      */
 
     static String apiKey = System.getenv("ARK_API_KEY");
