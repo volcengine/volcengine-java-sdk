@@ -1,7 +1,6 @@
 package com.volcengine.ark.runtime.service;
 
 
-import com.volcengine.ark.runtime.model.content.generation.DeleteContentGenerationTaskResponse;
 import com.volcengine.ark.runtime.model.bot.completion.chat.BotChatCompletionChunk;
 import com.volcengine.ark.runtime.model.bot.completion.chat.BotChatCompletionRequest;
 import com.volcengine.ark.runtime.model.bot.completion.chat.BotChatCompletionResult;

@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class DeleteContentGenerationTaskRequest {
 
-    @JsonProperty("taskId")
+    @JsonProperty("task_id")
     private String taskId;
 
     public DeleteContentGenerationTaskRequest() {
