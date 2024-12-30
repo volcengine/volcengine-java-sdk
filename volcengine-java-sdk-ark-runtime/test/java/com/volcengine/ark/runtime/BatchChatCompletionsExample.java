@@ -28,6 +28,7 @@ public class BatchChatCompletionsExample {
         // 设置最大并发数
         dispatcher.setMaxRequests(maxConcurrency);
         dispatcher.setMaxRequestsPerHost(maxConcurrency);
+        // 请单独为batch chat单独初始化一个service实例，且多个Endpoint间也不要复用同一个service实例，避免互相影响。单个service会根据最大并发数启动对应的线程池，会占用一定的资源
         ArkService service = ArkService.builder().dispatcher(dispatcher).timeout(timeout).connectionPool(connectionPool).apiKey(apiKey).build();
 
         ExecutorService executorService = Executors.newFixedThreadPool(maxConcurrency);
