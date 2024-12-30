@@ -1,6 +1,5 @@
 package com.volcengine.ark.runtime.interceptor;
 
-
 import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -8,6 +7,7 @@ import okhttp3.Response;
 import java.io.IOException;
 import java.io.InterruptedIOException;
 
+import static com.volcengine.ark.runtime.Const.*;
 import static java.lang.Math.random;
 
 public class RetryInterceptor implements Interceptor {
@@ -23,6 +23,8 @@ public class RetryInterceptor implements Interceptor {
     @Override
     public Response intercept(Chain chain) throws RuntimeException, InterruptedIOException {
         Request request = chain.request();
+
+        int requestRetryTimes = getRetryTimes(request);
 
         Response response = null;
         int tryCount = 0;
@@ -43,12 +45,12 @@ public class RetryInterceptor implements Interceptor {
             }
 
             tryCount++;
-            if (!(shouldRetry && tryCount <= retryTimes)) {
+            if (!(shouldRetry && tryCount <= requestRetryTimes)) {
                 break;
             }
 
             try {
-                double interval = retryInterval(retryTimes, retryTimes - tryCount) * 1000;
+                double interval = retryInterval(requestRetryTimes, requestRetryTimes - tryCount) * 1000;
                 Thread.sleep(Math.round(interval));
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
@@ -63,10 +65,18 @@ public class RetryInterceptor implements Interceptor {
     }
 
     public double retryInterval(int max, int remain) {
-        int nbRetries = max - remain;
+        double nbRetries = Math.min(max - remain, MAX_RETRY_DELAY/INITIAL_RETRY_DELAY);
         double sleepSeconds = Math.min(INITIAL_RETRY_DELAY * Math.pow(2.0, nbRetries), MAX_RETRY_DELAY);
         double jitter = 1 - 0.25 * random();
         return sleepSeconds * jitter;
+    }
+
+    public int getRetryTimes(Request request) {
+        String path = request.url().encodedPath();
+        if (path.equals(BATCH_CHAT_PATH)) {
+            return MAX_RETRY_TIMES;
+        }
+        return retryTimes;
     }
 }
 

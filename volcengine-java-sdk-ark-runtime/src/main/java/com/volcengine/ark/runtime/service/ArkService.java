@@ -10,10 +10,7 @@ import com.volcengine.ark.runtime.*;
 import com.volcengine.ark.runtime.exception.ArkAPIError;
 import com.volcengine.ark.runtime.exception.ArkException;
 import com.volcengine.ark.runtime.exception.ArkHttpException;
-import com.volcengine.ark.runtime.interceptor.AuthenticationInterceptor;
-import com.volcengine.ark.runtime.interceptor.ArkResourceStsAuthenticationInterceptor;
-import com.volcengine.ark.runtime.interceptor.RequestIdInterceptor;
-import com.volcengine.ark.runtime.interceptor.RetryInterceptor;
+import com.volcengine.ark.runtime.interceptor.*;
 import com.volcengine.ark.runtime.model.bot.completion.chat.BotChatCompletionChunk;
 import com.volcengine.ark.runtime.model.bot.completion.chat.BotChatCompletionRequest;
 import com.volcengine.ark.runtime.model.bot.completion.chat.BotChatCompletionResult;
@@ -164,6 +161,10 @@ public class ArkService extends ArkBaseService implements ArkBaseServiceImpl {
 
     public ChatCompletionResult createChatCompletion(ChatCompletionRequest request) {
         return execute(api.createChatCompletion(request, request.getModel(), new HashMap<>()));
+    }
+
+    public ChatCompletionResult createBatchChatCompletion(ChatCompletionRequest request) {
+        return execute(api.createBatchChatCompletion(request, request.getModel(), new HashMap<>()));
     }
 
     public ChatCompletionResult createChatCompletion(ChatCompletionRequest request, Map<String, String> customHeaders) {
@@ -356,7 +357,9 @@ public class ArkService extends ArkBaseService implements ArkBaseServiceImpl {
             OkHttpClient client = clientBuilder
                     .addInterceptor(new RequestIdInterceptor())
                     .addInterceptor(new RetryInterceptor(retryTimes))
+                    .addInterceptor(new BatchInterceptor())
                     .readTimeout(timeout.toMillis(), TimeUnit.MILLISECONDS)
+                    .callTimeout(timeout.toMillis(), TimeUnit.MILLISECONDS)
                     .connectTimeout(connectTimeout)
                     .build();
             Retrofit retrofit = defaultRetrofit(client, mapper, baseUrl);

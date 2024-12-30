@@ -24,6 +24,9 @@ public interface ArkApi {
     @POST("/api/v3/chat/completions")
     Single<ChatCompletionResult> createChatCompletion(@Body ChatCompletionRequest request, @Header(Const.REQUEST_MODEL) String model, @HeaderMap Map<String, String> customHeaders);
 
+    @POST("/api/v3/batch/chat/completions")
+    Single<ChatCompletionResult> createBatchChatCompletion(@Body ChatCompletionRequest request, @Header(Const.REQUEST_MODEL) String model, @HeaderMap Map<String, String> customHeaders);
+
     @Streaming
     @POST("/api/v3/chat/completions")
     Call<ResponseBody> createChatCompletionStream(@Body ChatCompletionRequest request, @Header(Const.REQUEST_MODEL) String model, @HeaderMap Map<String, String> customHeaders);
