@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.iam.model.TagForListUsersOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -56,6 +59,9 @@ public class UserMetadataForListUsersOutput {
 
   @SerializedName("MobilePhoneIsVerify")
   private Boolean mobilePhoneIsVerify = null;
+
+  @SerializedName("Tags")
+  private List<TagForListUsersOutput> tags = null;
 
   @SerializedName("Trn")
   private String trn = null;
@@ -228,6 +234,33 @@ public class UserMetadataForListUsersOutput {
     this.mobilePhoneIsVerify = mobilePhoneIsVerify;
   }
 
+  public UserMetadataForListUsersOutput tags(List<TagForListUsersOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public UserMetadataForListUsersOutput addTagsItem(TagForListUsersOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForListUsersOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForListUsersOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForListUsersOutput> tags) {
+    this.tags = tags;
+  }
+
   public UserMetadataForListUsersOutput trn(String trn) {
     this.trn = trn;
     return this;
@@ -301,6 +334,7 @@ public class UserMetadataForListUsersOutput {
         Objects.equals(this.id, userMetadataForListUsersOutput.id) &&
         Objects.equals(this.mobilePhone, userMetadataForListUsersOutput.mobilePhone) &&
         Objects.equals(this.mobilePhoneIsVerify, userMetadataForListUsersOutput.mobilePhoneIsVerify) &&
+        Objects.equals(this.tags, userMetadataForListUsersOutput.tags) &&
         Objects.equals(this.trn, userMetadataForListUsersOutput.trn) &&
         Objects.equals(this.updateDate, userMetadataForListUsersOutput.updateDate) &&
         Objects.equals(this.userName, userMetadataForListUsersOutput.userName);
@@ -308,7 +342,7 @@ public class UserMetadataForListUsersOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, createDate, description, displayName, email, emailIsVerify, id, mobilePhone, mobilePhoneIsVerify, trn, updateDate, userName);
+    return Objects.hash(accountId, createDate, description, displayName, email, emailIsVerify, id, mobilePhone, mobilePhoneIsVerify, tags, trn, updateDate, userName);
   }
 
 
@@ -326,6 +360,7 @@ public class UserMetadataForListUsersOutput {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    mobilePhone: ").append(toIndentedString(mobilePhone)).append("\n");
     sb.append("    mobilePhoneIsVerify: ").append(toIndentedString(mobilePhoneIsVerify)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    trn: ").append(toIndentedString(trn)).append("\n");
     sb.append("    updateDate: ").append(toIndentedString(updateDate)).append("\n");
     sb.append("    userName: ").append(toIndentedString(userName)).append("\n");

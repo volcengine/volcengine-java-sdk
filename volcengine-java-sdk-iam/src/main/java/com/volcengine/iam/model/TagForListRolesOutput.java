@@ -24,52 +24,52 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * SendCodeForChangeSecureContactInfoRequest
+ * TagForListRolesOutput
  */
 
 
 
-public class SendCodeForChangeSecureContactInfoRequest {
-  @SerializedName("NewEmail")
-  private String newEmail = null;
+public class TagForListRolesOutput {
+  @SerializedName("Key")
+  private String key = null;
 
-  @SerializedName("NewMobilePhone")
-  private String newMobilePhone = null;
+  @SerializedName("Value")
+  private String value = null;
 
-  public SendCodeForChangeSecureContactInfoRequest newEmail(String newEmail) {
-    this.newEmail = newEmail;
+  public TagForListRolesOutput key(String key) {
+    this.key = key;
     return this;
   }
 
    /**
-   * Get newEmail
-   * @return newEmail
+   * Get key
+   * @return key
   **/
   @Schema(description = "")
-  public String getNewEmail() {
-    return newEmail;
+  public String getKey() {
+    return key;
   }
 
-  public void setNewEmail(String newEmail) {
-    this.newEmail = newEmail;
+  public void setKey(String key) {
+    this.key = key;
   }
 
-  public SendCodeForChangeSecureContactInfoRequest newMobilePhone(String newMobilePhone) {
-    this.newMobilePhone = newMobilePhone;
+  public TagForListRolesOutput value(String value) {
+    this.value = value;
     return this;
   }
 
    /**
-   * Get newMobilePhone
-   * @return newMobilePhone
+   * Get value
+   * @return value
   **/
   @Schema(description = "")
-  public String getNewMobilePhone() {
-    return newMobilePhone;
+  public String getValue() {
+    return value;
   }
 
-  public void setNewMobilePhone(String newMobilePhone) {
-    this.newMobilePhone = newMobilePhone;
+  public void setValue(String value) {
+    this.value = value;
   }
 
 
@@ -81,24 +81,24 @@ public class SendCodeForChangeSecureContactInfoRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SendCodeForChangeSecureContactInfoRequest sendCodeForChangeSecureContactInfoRequest = (SendCodeForChangeSecureContactInfoRequest) o;
-    return Objects.equals(this.newEmail, sendCodeForChangeSecureContactInfoRequest.newEmail) &&
-        Objects.equals(this.newMobilePhone, sendCodeForChangeSecureContactInfoRequest.newMobilePhone);
+    TagForListRolesOutput tagForListRolesOutput = (TagForListRolesOutput) o;
+    return Objects.equals(this.key, tagForListRolesOutput.key) &&
+        Objects.equals(this.value, tagForListRolesOutput.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(newEmail, newMobilePhone);
+    return Objects.hash(key, value);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SendCodeForChangeSecureContactInfoRequest {\n");
+    sb.append("class TagForListRolesOutput {\n");
     
-    sb.append("    newEmail: ").append(toIndentedString(newEmail)).append("\n");
-    sb.append("    newMobilePhone: ").append(toIndentedString(newMobilePhone)).append("\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
   }

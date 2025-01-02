@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.iam.model.TagForCreateUserOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -56,6 +59,9 @@ public class UserForCreateUserOutput {
 
   @SerializedName("MobilePhoneIsVerify")
   private Boolean mobilePhoneIsVerify = null;
+
+  @SerializedName("Tags")
+  private List<TagForCreateUserOutput> tags = null;
 
   @SerializedName("Trn")
   private String trn = null;
@@ -228,6 +234,33 @@ public class UserForCreateUserOutput {
     this.mobilePhoneIsVerify = mobilePhoneIsVerify;
   }
 
+  public UserForCreateUserOutput tags(List<TagForCreateUserOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public UserForCreateUserOutput addTagsItem(TagForCreateUserOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForCreateUserOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForCreateUserOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForCreateUserOutput> tags) {
+    this.tags = tags;
+  }
+
   public UserForCreateUserOutput trn(String trn) {
     this.trn = trn;
     return this;
@@ -301,6 +334,7 @@ public class UserForCreateUserOutput {
         Objects.equals(this.id, userForCreateUserOutput.id) &&
         Objects.equals(this.mobilePhone, userForCreateUserOutput.mobilePhone) &&
         Objects.equals(this.mobilePhoneIsVerify, userForCreateUserOutput.mobilePhoneIsVerify) &&
+        Objects.equals(this.tags, userForCreateUserOutput.tags) &&
         Objects.equals(this.trn, userForCreateUserOutput.trn) &&
         Objects.equals(this.updateDate, userForCreateUserOutput.updateDate) &&
         Objects.equals(this.userName, userForCreateUserOutput.userName);
@@ -308,7 +342,7 @@ public class UserForCreateUserOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, createDate, description, displayName, email, emailIsVerify, id, mobilePhone, mobilePhoneIsVerify, trn, updateDate, userName);
+    return Objects.hash(accountId, createDate, description, displayName, email, emailIsVerify, id, mobilePhone, mobilePhoneIsVerify, tags, trn, updateDate, userName);
   }
 
 
@@ -326,6 +360,7 @@ public class UserForCreateUserOutput {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    mobilePhone: ").append(toIndentedString(mobilePhone)).append("\n");
     sb.append("    mobilePhoneIsVerify: ").append(toIndentedString(mobilePhoneIsVerify)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    trn: ").append(toIndentedString(trn)).append("\n");
     sb.append("    updateDate: ").append(toIndentedString(updateDate)).append("\n");
     sb.append("    userName: ").append(toIndentedString(userName)).append("\n");

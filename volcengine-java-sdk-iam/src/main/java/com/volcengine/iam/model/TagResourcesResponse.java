@@ -17,12 +17,12 @@ import java.util.Arrays;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ChangeSecureContactInfoResponse
+ * TagResourcesResponse
  */
 
 
 
-public class ChangeSecureContactInfoResponse extends com.volcengine.model.AbstractResponse {
+public class TagResourcesResponse extends com.volcengine.model.AbstractResponse {
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -44,7 +44,7 @@ public class ChangeSecureContactInfoResponse extends com.volcengine.model.Abstra
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ChangeSecureContactInfoResponse {\n");
+    sb.append("class TagResourcesResponse {\n");
     
     sb.append("}");
     return sb.toString();

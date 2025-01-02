@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.iam.model.TagForListRolesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -50,6 +53,9 @@ public class RoleMetadataForListRolesOutput {
 
   @SerializedName("RoleName")
   private String roleName = null;
+
+  @SerializedName("Tags")
+  private List<TagForListRolesOutput> tags = null;
 
   @SerializedName("Trn")
   private String trn = null;
@@ -186,6 +192,33 @@ public class RoleMetadataForListRolesOutput {
     this.roleName = roleName;
   }
 
+  public RoleMetadataForListRolesOutput tags(List<TagForListRolesOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public RoleMetadataForListRolesOutput addTagsItem(TagForListRolesOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForListRolesOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForListRolesOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForListRolesOutput> tags) {
+    this.tags = tags;
+  }
+
   public RoleMetadataForListRolesOutput trn(String trn) {
     this.trn = trn;
     return this;
@@ -257,6 +290,7 @@ public class RoleMetadataForListRolesOutput {
         Objects.equals(this.maxSessionDuration, roleMetadataForListRolesOutput.maxSessionDuration) &&
         Objects.equals(this.roleId, roleMetadataForListRolesOutput.roleId) &&
         Objects.equals(this.roleName, roleMetadataForListRolesOutput.roleName) &&
+        Objects.equals(this.tags, roleMetadataForListRolesOutput.tags) &&
         Objects.equals(this.trn, roleMetadataForListRolesOutput.trn) &&
         Objects.equals(this.trustPolicyDocument, roleMetadataForListRolesOutput.trustPolicyDocument) &&
         Objects.equals(this.updateDate, roleMetadataForListRolesOutput.updateDate);
@@ -264,7 +298,7 @@ public class RoleMetadataForListRolesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createDate, description, displayName, isServiceLinkedRole, maxSessionDuration, roleId, roleName, trn, trustPolicyDocument, updateDate);
+    return Objects.hash(createDate, description, displayName, isServiceLinkedRole, maxSessionDuration, roleId, roleName, tags, trn, trustPolicyDocument, updateDate);
   }
 
 
@@ -280,6 +314,7 @@ public class RoleMetadataForListRolesOutput {
     sb.append("    maxSessionDuration: ").append(toIndentedString(maxSessionDuration)).append("\n");
     sb.append("    roleId: ").append(toIndentedString(roleId)).append("\n");
     sb.append("    roleName: ").append(toIndentedString(roleName)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    trn: ").append(toIndentedString(trn)).append("\n");
     sb.append("    trustPolicyDocument: ").append(toIndentedString(trustPolicyDocument)).append("\n");
     sb.append("    updateDate: ").append(toIndentedString(updateDate)).append("\n");
