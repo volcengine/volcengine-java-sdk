@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
-import com.volcengine.StringUtil;
 import com.volcengine.ark.runtime.*;
 import com.volcengine.ark.runtime.exception.ArkAPIError;
 import com.volcengine.ark.runtime.exception.ArkException;
@@ -14,10 +13,13 @@ import com.volcengine.ark.runtime.interceptor.AuthenticationInterceptor;
 import com.volcengine.ark.runtime.interceptor.ArkResourceStsAuthenticationInterceptor;
 import com.volcengine.ark.runtime.interceptor.RequestIdInterceptor;
 import com.volcengine.ark.runtime.interceptor.RetryInterceptor;
+import com.volcengine.ark.runtime.model.content.generation.DeleteContentGenerationTaskResponse;
+import com.volcengine.ark.runtime.interceptor.*;
 import com.volcengine.ark.runtime.model.bot.completion.chat.BotChatCompletionChunk;
 import com.volcengine.ark.runtime.model.bot.completion.chat.BotChatCompletionRequest;
 import com.volcengine.ark.runtime.model.bot.completion.chat.BotChatCompletionResult;
 import com.volcengine.ark.runtime.model.completion.chat.*;
+import com.volcengine.ark.runtime.model.content.generation.*;
 import com.volcengine.ark.runtime.model.context.CreateContextRequest;
 import com.volcengine.ark.runtime.model.context.CreateContextResult;
 import com.volcengine.ark.runtime.model.context.chat.ContextChatCompletionRequest;
@@ -31,13 +33,11 @@ import io.reactivex.BackpressureStrategy;
 import io.reactivex.Flowable;
 import io.reactivex.Single;
 import okhttp3.*;
-import org.apache.commons.lang.StringUtils;
 import retrofit2.Call;
 import retrofit2.HttpException;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.jackson.JacksonConverterFactory;
 import retrofit2.Retrofit;
-import retrofit2.http.HeaderMap;
 
 import java.io.IOException;
 import java.net.Proxy;
@@ -166,6 +166,10 @@ public class ArkService extends ArkBaseService implements ArkBaseServiceImpl {
         return execute(api.createChatCompletion(request, request.getModel(), new HashMap<>()));
     }
 
+    public ChatCompletionResult createBatchChatCompletion(ChatCompletionRequest request) {
+        return execute(api.createBatchChatCompletion(request, request.getModel(), new HashMap<>()));
+    }
+
     public ChatCompletionResult createChatCompletion(ChatCompletionRequest request, Map<String, String> customHeaders) {
         return execute(api.createChatCompletion(request, request.getModel(), customHeaders));
     }
@@ -246,6 +250,62 @@ public class ArkService extends ArkBaseService implements ArkBaseServiceImpl {
 
     public TokenizationResult createTokenization(TokenizationRequest request, Map<String, String> customHeaders) {
         return execute(api.createTokenization(request, request.getModel(), customHeaders));
+    }
+
+    public CreateContentGenerationTaskResult createContentGenerationTask(CreateContentGenerationTaskRequest request) {
+        return execute(api.createContentGenerationTask(request, request.getModel(), new HashMap<>()));
+    }
+
+    public CreateContentGenerationTaskResult createContentGenerationTask(CreateContentGenerationTaskRequest request, Map<String, String> customHeaders) {
+        return execute(api.createContentGenerationTask(request, request.getModel(), customHeaders));
+    }
+
+
+    public GetContentGenerationTaskResponse getContentGenerationTask(GetContentGenerationTaskRequest request) {
+        return execute(api.getContentGenerationTask(request.getTaskId(), new HashMap<>()));
+    }
+
+    public GetContentGenerationTaskResponse getContentGenerationTask(GetContentGenerationTaskRequest request, Map<String, String> customHeaders) {
+        return execute(api.getContentGenerationTask(request.getTaskId(), customHeaders));
+    }
+
+    @Override
+    public ListContentGenerationTasksResponse listContentGenerationTasks(ListContentGenerationTasksRequest request) {
+        return execute(
+                api.listContentGenerationTasks(
+                        request.getPageNum(),
+                        request.getPageSize(),
+                        request.getStatus(),
+                        request.getModel(),
+                        request.getTaskIds(),
+                        new HashMap<>()
+                )
+        );
+    }
+
+    public ListContentGenerationTasksResponse listContentGenerationTasks(
+            ListContentGenerationTasksRequest request,
+            Map<String, String> customHeaders
+    ) {
+        return execute(
+                api.listContentGenerationTasks(
+                        request.getPageNum(),
+                        request.getPageSize(),
+                        request.getStatus(),
+                        request.getModel(),
+                        request.getTaskIds(),
+                        customHeaders
+                )
+        );
+    }
+
+
+    public DeleteContentGenerationTaskResponse deleteContentGenerationTask(DeleteContentGenerationTaskRequest request) {
+        return execute(api.deleteContentGenerationTask(request.getTaskId(), new HashMap<>()));
+    }
+
+    public DeleteContentGenerationTaskResponse deleteContentGenerationTask(DeleteContentGenerationTaskRequest request, Map<String, String> customHeaders) {
+        return execute(api.deleteContentGenerationTask(request.getTaskId(), customHeaders));
     }
 
     public void shutdownExecutor() {
@@ -356,7 +416,9 @@ public class ArkService extends ArkBaseService implements ArkBaseServiceImpl {
             OkHttpClient client = clientBuilder
                     .addInterceptor(new RequestIdInterceptor())
                     .addInterceptor(new RetryInterceptor(retryTimes))
+                    .addInterceptor(new BatchInterceptor())
                     .readTimeout(timeout.toMillis(), TimeUnit.MILLISECONDS)
+                    .callTimeout(timeout.toMillis(), TimeUnit.MILLISECONDS)
                     .connectTimeout(connectTimeout)
                     .build();
             Retrofit retrofit = defaultRetrofit(client, mapper, baseUrl);

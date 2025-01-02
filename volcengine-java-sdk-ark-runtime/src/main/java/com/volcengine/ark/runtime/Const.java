@@ -8,6 +8,7 @@ public class Const {
     public static final String SERVER_REQUEST_HEADER = "X-Request-Id";
     public static final String REQUEST_MODEL = "X-Request-Model";
     public static final String REQUEST_BOT = "X-Request-Bot";
+    public static final String RETRY_AFTER = "Retry-After";
     public static final String REQUEST_BOT_ID = "botId";
     public static final Integer DEFAULT_MANDATORY_REFRESH_TIMEOUT = 10 * 60;  // 10 min
     public static final Integer DEFAULT_ADVISORY_REFRESH_TIMEOUT = 30 * 60;  // 30 min
@@ -20,4 +21,7 @@ public class Const {
     public static final String CONTEXT_MODE_COMMON_PREFIX = "common_prefix";
     public static final String TRUNCATION_STRATEGY_TYPE_LAST_HISTORY_TOKENS = "last_history_tokens";
     public static final String TRUNCATION_STRATEGY_TYPE_ROLLING_TOKENS = "rolling_tokens";
+
+    public static final String BATCH_CHAT_PATH = "/api/v3/batch/chat/completions";
+    public static final int MAX_RETRY_TIMES = 259200;
 }

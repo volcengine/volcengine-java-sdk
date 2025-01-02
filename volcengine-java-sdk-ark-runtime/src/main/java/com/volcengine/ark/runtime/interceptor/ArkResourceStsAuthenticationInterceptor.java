@@ -54,6 +54,10 @@ public class ArkResourceStsAuthenticationInterceptor implements Interceptor {
         String requestResourceType = getRequestResourceType(request);
         String requestResourceId = getRequestResourceId(request);
 
+        if (request.url().url().getPath().contains("contents/generations")) {
+            throw new ArkException("content generation currently does not support ak&sk authentication, use api_key instead.");
+        }
+
         Request newRequest = chain.request()
                 .newBuilder()
                 .header("Authorization", "Bearer " + getResourceStsToken(requestResourceType, requestResourceId))
