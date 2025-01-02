@@ -21,63 +21,50 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DeleteAclRuleRequest
+ * DeleteHostGroupRequest
  */
 
 
 
-public class DeleteAclRuleRequest {
-  @SerializedName("AclType")
-  private String aclType = null;
-
-  @SerializedName("ID")
-  private Integer ID = null;
+public class DeleteHostGroupRequest {
+  @SerializedName("HostGroupIds")
+  private List<Integer> hostGroupIds = null;
 
   @SerializedName("ProjectName")
   private String projectName = null;
 
-  public DeleteAclRuleRequest aclType(String aclType) {
-    this.aclType = aclType;
+  public DeleteHostGroupRequest hostGroupIds(List<Integer> hostGroupIds) {
+    this.hostGroupIds = hostGroupIds;
+    return this;
+  }
+
+  public DeleteHostGroupRequest addHostGroupIdsItem(Integer hostGroupIdsItem) {
+    if (this.hostGroupIds == null) {
+      this.hostGroupIds = new ArrayList<Integer>();
+    }
+    this.hostGroupIds.add(hostGroupIdsItem);
     return this;
   }
 
    /**
-   * Get aclType
-   * @return aclType
+   * Get hostGroupIds
+   * @return hostGroupIds
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getAclType() {
-    return aclType;
+  @Schema(description = "")
+  public List<Integer> getHostGroupIds() {
+    return hostGroupIds;
   }
 
-  public void setAclType(String aclType) {
-    this.aclType = aclType;
+  public void setHostGroupIds(List<Integer> hostGroupIds) {
+    this.hostGroupIds = hostGroupIds;
   }
 
-  public DeleteAclRuleRequest ID(Integer ID) {
-    this.ID = ID;
-    return this;
-  }
-
-   /**
-   * Get ID
-   * @return ID
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public Integer getID() {
-    return ID;
-  }
-
-  public void setID(Integer ID) {
-    this.ID = ID;
-  }
-
-  public DeleteAclRuleRequest projectName(String projectName) {
+  public DeleteHostGroupRequest projectName(String projectName) {
     this.projectName = projectName;
     return this;
   }
@@ -104,25 +91,23 @@ public class DeleteAclRuleRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeleteAclRuleRequest deleteAclRuleRequest = (DeleteAclRuleRequest) o;
-    return Objects.equals(this.aclType, deleteAclRuleRequest.aclType) &&
-        Objects.equals(this.ID, deleteAclRuleRequest.ID) &&
-        Objects.equals(this.projectName, deleteAclRuleRequest.projectName);
+    DeleteHostGroupRequest deleteHostGroupRequest = (DeleteHostGroupRequest) o;
+    return Objects.equals(this.hostGroupIds, deleteHostGroupRequest.hostGroupIds) &&
+        Objects.equals(this.projectName, deleteHostGroupRequest.projectName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclType, ID, projectName);
+    return Objects.hash(hostGroupIds, projectName);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeleteAclRuleRequest {\n");
+    sb.append("class DeleteHostGroupRequest {\n");
     
-    sb.append("    aclType: ").append(toIndentedString(aclType)).append("\n");
-    sb.append("    ID: ").append(toIndentedString(ID)).append("\n");
+    sb.append("    hostGroupIds: ").append(toIndentedString(hostGroupIds)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");
     return sb.toString();
