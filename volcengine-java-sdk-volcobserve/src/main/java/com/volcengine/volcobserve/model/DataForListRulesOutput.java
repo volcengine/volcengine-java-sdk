@@ -88,6 +88,9 @@ public class DataForListRulesOutput {
   @SerializedName("OriginalDimensions")
   private Map<String, List<String>> originalDimensions = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("RecoveryNotify")
   private RecoveryNotifyForListRulesOutput recoveryNotify = null;
 
@@ -456,6 +459,24 @@ public class DataForListRulesOutput {
     this.originalDimensions = originalDimensions;
   }
 
+  public DataForListRulesOutput projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public DataForListRulesOutput recoveryNotify(RecoveryNotifyForListRulesOutput recoveryNotify) {
     this.recoveryNotify = recoveryNotify;
     return this;
@@ -662,6 +683,7 @@ public class DataForListRulesOutput {
         Objects.equals(this.multipleConditions, dataForListRulesOutput.multipleConditions) &&
         Objects.equals(this.namespace, dataForListRulesOutput.namespace) &&
         Objects.equals(this.originalDimensions, dataForListRulesOutput.originalDimensions) &&
+        Objects.equals(this.projectName, dataForListRulesOutput.projectName) &&
         Objects.equals(this.recoveryNotify, dataForListRulesOutput.recoveryNotify) &&
         Objects.equals(this.regions, dataForListRulesOutput.regions) &&
         Objects.equals(this.ruleName, dataForListRulesOutput.ruleName) &&
@@ -675,7 +697,7 @@ public class DataForListRulesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(alertMethods, alertState, conditionOperator, conditions, contactGroupIds, createdAt, description, dimensionConditions, effectEndAt, effectStartAt, enableState, evaluationCount, id, level, multipleConditions, namespace, originalDimensions, recoveryNotify, regions, ruleName, ruleType, silenceTime, subNamespace, updatedAt, webHook, webhookIds);
+    return Objects.hash(alertMethods, alertState, conditionOperator, conditions, contactGroupIds, createdAt, description, dimensionConditions, effectEndAt, effectStartAt, enableState, evaluationCount, id, level, multipleConditions, namespace, originalDimensions, projectName, recoveryNotify, regions, ruleName, ruleType, silenceTime, subNamespace, updatedAt, webHook, webhookIds);
   }
 
 
@@ -701,6 +723,7 @@ public class DataForListRulesOutput {
     sb.append("    multipleConditions: ").append(toIndentedString(multipleConditions)).append("\n");
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
     sb.append("    originalDimensions: ").append(toIndentedString(originalDimensions)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    recoveryNotify: ").append(toIndentedString(recoveryNotify)).append("\n");
     sb.append("    regions: ").append(toIndentedString(regions)).append("\n");
     sb.append("    ruleName: ").append(toIndentedString(ruleName)).append("\n");

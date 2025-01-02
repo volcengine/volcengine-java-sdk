@@ -7,6 +7,7 @@ import com.volcengine.ark.runtime.model.bot.completion.chat.BotChatCompletionRes
 import com.volcengine.ark.runtime.model.completion.chat.ChatCompletionChunk;
 import com.volcengine.ark.runtime.model.completion.chat.ChatCompletionRequest;
 import com.volcengine.ark.runtime.model.completion.chat.ChatCompletionResult;
+import com.volcengine.ark.runtime.model.content.generation.*;
 import com.volcengine.ark.runtime.model.context.CreateContextRequest;
 import com.volcengine.ark.runtime.model.context.CreateContextResult;
 import com.volcengine.ark.runtime.model.context.chat.ContextChatCompletionRequest;
@@ -20,6 +21,8 @@ import io.reactivex.Flowable;
 public interface ArkBaseServiceImpl {
 
     ChatCompletionResult createChatCompletion(ChatCompletionRequest request);
+
+    ChatCompletionResult createBatchChatCompletion(ChatCompletionRequest request);
 
     Flowable<ChatCompletionChunk> streamChatCompletion(ChatCompletionRequest request);
 
@@ -36,4 +39,12 @@ public interface ArkBaseServiceImpl {
     TokenizationResult createTokenization(TokenizationRequest request);
 
     EmbeddingResult createEmbeddings(EmbeddingRequest request);
+
+    CreateContentGenerationTaskResult createContentGenerationTask(CreateContentGenerationTaskRequest request);
+
+    GetContentGenerationTaskResponse getContentGenerationTask(GetContentGenerationTaskRequest request);
+
+    ListContentGenerationTasksResponse listContentGenerationTasks(ListContentGenerationTasksRequest request);
+
+    DeleteContentGenerationTaskResponse deleteContentGenerationTask(DeleteContentGenerationTaskRequest request);
 }

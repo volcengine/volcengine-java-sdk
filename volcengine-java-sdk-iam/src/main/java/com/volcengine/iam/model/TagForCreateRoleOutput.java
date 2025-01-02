@@ -24,32 +24,52 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * GetSecurityContactRequest
+ * TagForCreateRoleOutput
  */
 
 
 
-public class GetSecurityContactRequest {
-  @SerializedName("UserName")
-  private String userName = null;
+public class TagForCreateRoleOutput {
+  @SerializedName("Key")
+  private String key = null;
 
-  public GetSecurityContactRequest userName(String userName) {
-    this.userName = userName;
+  @SerializedName("Value")
+  private String value = null;
+
+  public TagForCreateRoleOutput key(String key) {
+    this.key = key;
     return this;
   }
 
    /**
-   * Get userName
-   * @return userName
+   * Get key
+   * @return key
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getUserName() {
-    return userName;
+  @Schema(description = "")
+  public String getKey() {
+    return key;
   }
 
-  public void setUserName(String userName) {
-    this.userName = userName;
+  public void setKey(String key) {
+    this.key = key;
+  }
+
+  public TagForCreateRoleOutput value(String value) {
+    this.value = value;
+    return this;
+  }
+
+   /**
+   * Get value
+   * @return value
+  **/
+  @Schema(description = "")
+  public String getValue() {
+    return value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
   }
 
 
@@ -61,22 +81,24 @@ public class GetSecurityContactRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GetSecurityContactRequest getSecurityContactRequest = (GetSecurityContactRequest) o;
-    return Objects.equals(this.userName, getSecurityContactRequest.userName);
+    TagForCreateRoleOutput tagForCreateRoleOutput = (TagForCreateRoleOutput) o;
+    return Objects.equals(this.key, tagForCreateRoleOutput.key) &&
+        Objects.equals(this.value, tagForCreateRoleOutput.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(userName);
+    return Objects.hash(key, value);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetSecurityContactRequest {\n");
+    sb.append("class TagForCreateRoleOutput {\n");
     
-    sb.append("    userName: ").append(toIndentedString(userName)).append("\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
   }

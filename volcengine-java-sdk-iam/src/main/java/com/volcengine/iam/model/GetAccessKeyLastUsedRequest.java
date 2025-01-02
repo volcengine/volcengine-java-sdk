@@ -24,58 +24,38 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * UpdateSecureContactInfoRequest
+ * GetAccessKeyLastUsedRequest
  */
 
 
 
-public class UpdateSecureContactInfoRequest {
-  @SerializedName("NewEmail")
-  private String newEmail = null;
-
-  @SerializedName("NewMobilePhone")
-  private String newMobilePhone = null;
+public class GetAccessKeyLastUsedRequest {
+  @SerializedName("AccessKeyId")
+  private String accessKeyId = null;
 
   @SerializedName("UserName")
   private String userName = null;
 
-  public UpdateSecureContactInfoRequest newEmail(String newEmail) {
-    this.newEmail = newEmail;
+  public GetAccessKeyLastUsedRequest accessKeyId(String accessKeyId) {
+    this.accessKeyId = accessKeyId;
     return this;
   }
 
    /**
-   * Get newEmail
-   * @return newEmail
+   * Get accessKeyId
+   * @return accessKeyId
   **/
-  @Schema(description = "")
-  public String getNewEmail() {
-    return newEmail;
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getAccessKeyId() {
+    return accessKeyId;
   }
 
-  public void setNewEmail(String newEmail) {
-    this.newEmail = newEmail;
+  public void setAccessKeyId(String accessKeyId) {
+    this.accessKeyId = accessKeyId;
   }
 
-  public UpdateSecureContactInfoRequest newMobilePhone(String newMobilePhone) {
-    this.newMobilePhone = newMobilePhone;
-    return this;
-  }
-
-   /**
-   * Get newMobilePhone
-   * @return newMobilePhone
-  **/
-  @Schema(description = "")
-  public String getNewMobilePhone() {
-    return newMobilePhone;
-  }
-
-  public void setNewMobilePhone(String newMobilePhone) {
-    this.newMobilePhone = newMobilePhone;
-  }
-
-  public UpdateSecureContactInfoRequest userName(String userName) {
+  public GetAccessKeyLastUsedRequest userName(String userName) {
     this.userName = userName;
     return this;
   }
@@ -84,8 +64,7 @@ public class UpdateSecureContactInfoRequest {
    * Get userName
    * @return userName
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getUserName() {
     return userName;
   }
@@ -103,25 +82,23 @@ public class UpdateSecureContactInfoRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UpdateSecureContactInfoRequest updateSecureContactInfoRequest = (UpdateSecureContactInfoRequest) o;
-    return Objects.equals(this.newEmail, updateSecureContactInfoRequest.newEmail) &&
-        Objects.equals(this.newMobilePhone, updateSecureContactInfoRequest.newMobilePhone) &&
-        Objects.equals(this.userName, updateSecureContactInfoRequest.userName);
+    GetAccessKeyLastUsedRequest getAccessKeyLastUsedRequest = (GetAccessKeyLastUsedRequest) o;
+    return Objects.equals(this.accessKeyId, getAccessKeyLastUsedRequest.accessKeyId) &&
+        Objects.equals(this.userName, getAccessKeyLastUsedRequest.userName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(newEmail, newMobilePhone, userName);
+    return Objects.hash(accessKeyId, userName);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UpdateSecureContactInfoRequest {\n");
+    sb.append("class GetAccessKeyLastUsedRequest {\n");
     
-    sb.append("    newEmail: ").append(toIndentedString(newEmail)).append("\n");
-    sb.append("    newMobilePhone: ").append(toIndentedString(newMobilePhone)).append("\n");
+    sb.append("    accessKeyId: ").append(toIndentedString(accessKeyId)).append("\n");
     sb.append("    userName: ").append(toIndentedString(userName)).append("\n");
     sb.append("}");
     return sb.toString();

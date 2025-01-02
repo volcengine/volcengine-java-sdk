@@ -81,6 +81,9 @@ public class CreateAclRuleRequest {
   @SerializedName("PrefixSwitch")
   private Integer prefixSwitch = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("Url")
   private String url = null;
 
@@ -426,6 +429,24 @@ public class CreateAclRuleRequest {
     this.prefixSwitch = prefixSwitch;
   }
 
+  public CreateAclRuleRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public CreateAclRuleRequest url(String url) {
     this.url = url;
     return this;
@@ -471,12 +492,13 @@ public class CreateAclRuleRequest {
         Objects.equals(this.ipLocationSubregion, createAclRuleRequest.ipLocationSubregion) &&
         Objects.equals(this.name, createAclRuleRequest.name) &&
         Objects.equals(this.prefixSwitch, createAclRuleRequest.prefixSwitch) &&
+        Objects.equals(this.projectName, createAclRuleRequest.projectName) &&
         Objects.equals(this.url, createAclRuleRequest.url);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accurateGroup, aclType, action, advanced, description, enable, hostAddType, hostGroupId, hostList, ipAddType, ipGroupId, ipList, ipLocationCountry, ipLocationSubregion, name, prefixSwitch, url);
+    return Objects.hash(accurateGroup, aclType, action, advanced, description, enable, hostAddType, hostGroupId, hostList, ipAddType, ipGroupId, ipList, ipLocationCountry, ipLocationSubregion, name, prefixSwitch, projectName, url);
   }
 
 
@@ -501,6 +523,7 @@ public class CreateAclRuleRequest {
     sb.append("    ipLocationSubregion: ").append(toIndentedString(ipLocationSubregion)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    prefixSwitch: ").append(toIndentedString(prefixSwitch)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("}");
     return sb.toString();

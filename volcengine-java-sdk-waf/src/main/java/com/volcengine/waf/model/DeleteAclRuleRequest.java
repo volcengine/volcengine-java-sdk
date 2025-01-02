@@ -36,6 +36,9 @@ public class DeleteAclRuleRequest {
   @SerializedName("ID")
   private Integer ID = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   public DeleteAclRuleRequest aclType(String aclType) {
     this.aclType = aclType;
     return this;
@@ -74,6 +77,24 @@ public class DeleteAclRuleRequest {
     this.ID = ID;
   }
 
+  public DeleteAclRuleRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -85,12 +106,13 @@ public class DeleteAclRuleRequest {
     }
     DeleteAclRuleRequest deleteAclRuleRequest = (DeleteAclRuleRequest) o;
     return Objects.equals(this.aclType, deleteAclRuleRequest.aclType) &&
-        Objects.equals(this.ID, deleteAclRuleRequest.ID);
+        Objects.equals(this.ID, deleteAclRuleRequest.ID) &&
+        Objects.equals(this.projectName, deleteAclRuleRequest.projectName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclType, ID);
+    return Objects.hash(aclType, ID, projectName);
   }
 
 
@@ -101,6 +123,7 @@ public class DeleteAclRuleRequest {
     
     sb.append("    aclType: ").append(toIndentedString(aclType)).append("\n");
     sb.append("    ID: ").append(toIndentedString(ID)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

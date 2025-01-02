@@ -50,6 +50,9 @@ public class ListAclRuleRequest {
   @SerializedName("PageSize")
   private Integer pageSize = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("RuleName")
   private String ruleName = null;
 
@@ -192,6 +195,24 @@ public class ListAclRuleRequest {
     this.pageSize = pageSize;
   }
 
+  public ListAclRuleRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public ListAclRuleRequest ruleName(String ruleName) {
     this.ruleName = ruleName;
     return this;
@@ -262,6 +283,7 @@ public class ListAclRuleRequest {
         Objects.equals(this.enable, listAclRuleRequest.enable) &&
         Objects.equals(this.page, listAclRuleRequest.page) &&
         Objects.equals(this.pageSize, listAclRuleRequest.pageSize) &&
+        Objects.equals(this.projectName, listAclRuleRequest.projectName) &&
         Objects.equals(this.ruleName, listAclRuleRequest.ruleName) &&
         Objects.equals(this.ruleTag, listAclRuleRequest.ruleTag) &&
         Objects.equals(this.timeOrderBy, listAclRuleRequest.timeOrderBy);
@@ -269,7 +291,7 @@ public class ListAclRuleRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclType, action, defenceHost, enable, page, pageSize, ruleName, ruleTag, timeOrderBy);
+    return Objects.hash(aclType, action, defenceHost, enable, page, pageSize, projectName, ruleName, ruleTag, timeOrderBy);
   }
 
 
@@ -284,6 +306,7 @@ public class ListAclRuleRequest {
     sb.append("    enable: ").append(toIndentedString(enable)).append("\n");
     sb.append("    page: ").append(toIndentedString(page)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    ruleName: ").append(toIndentedString(ruleName)).append("\n");
     sb.append("    ruleTag: ").append(toIndentedString(ruleTag)).append("\n");
     sb.append("    timeOrderBy: ").append(toIndentedString(timeOrderBy)).append("\n");

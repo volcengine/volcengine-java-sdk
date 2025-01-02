@@ -17,12 +17,12 @@ import java.util.Arrays;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * SendCodeForChangeSecureContactInfoResponse
+ * UntagResourcesResponse
  */
 
 
 
-public class SendCodeForChangeSecureContactInfoResponse extends com.volcengine.model.AbstractResponse {
+public class UntagResourcesResponse extends com.volcengine.model.AbstractResponse {
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -44,7 +44,7 @@ public class SendCodeForChangeSecureContactInfoResponse extends com.volcengine.m
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SendCodeForChangeSecureContactInfoResponse {\n");
+    sb.append("class UntagResourcesResponse {\n");
     
     sb.append("}");
     return sb.toString();
