@@ -1,10 +1,13 @@
 package com.volcengine.ark.runtime.service;
 
 import com.volcengine.ark.runtime.Const;
+import com.volcengine.ark.runtime.model.content.generation.DeleteContentGenerationTaskResponse;
 import com.volcengine.ark.runtime.model.bot.completion.chat.BotChatCompletionRequest;
 import com.volcengine.ark.runtime.model.bot.completion.chat.BotChatCompletionResult;
 import com.volcengine.ark.runtime.model.completion.chat.ChatCompletionRequest;
 import com.volcengine.ark.runtime.model.completion.chat.ChatCompletionResult;
+import com.volcengine.ark.runtime.model.content.generation.GetContentGenerationTaskResponse;
+import com.volcengine.ark.runtime.model.content.generation.ListContentGenerationTasksResponse;
 import com.volcengine.ark.runtime.model.context.CreateContextRequest;
 import com.volcengine.ark.runtime.model.context.CreateContextResult;
 import com.volcengine.ark.runtime.model.context.chat.ContextChatCompletionRequest;
@@ -12,11 +15,14 @@ import com.volcengine.ark.runtime.model.embeddings.EmbeddingRequest;
 import com.volcengine.ark.runtime.model.embeddings.EmbeddingResult;
 import com.volcengine.ark.runtime.model.tokenization.TokenizationRequest;
 import com.volcengine.ark.runtime.model.tokenization.TokenizationResult;
+import com.volcengine.ark.runtime.model.content.generation.CreateContentGenerationTaskRequest;
+import com.volcengine.ark.runtime.model.content.generation.CreateContentGenerationTaskResult;
 import okhttp3.ResponseBody;
 import retrofit2.http.*;
 import retrofit2.Call;
 import io.reactivex.Single;
 
+import java.util.List;
 import java.util.Map;
 
 public interface ArkApi {
@@ -53,4 +59,23 @@ public interface ArkApi {
 
     @POST("/api/v3/tokenization")
     Single<TokenizationResult> createTokenization(@Body TokenizationRequest request, @Header(Const.REQUEST_MODEL) String model, @HeaderMap Map<String, String> customHeaders);
+
+    @POST("/api/v3/contents/generations/tasks")
+    Single<CreateContentGenerationTaskResult> createContentGenerationTask(@Body CreateContentGenerationTaskRequest request, @Header(Const.REQUEST_MODEL) String model, @HeaderMap Map<String, String> customHeaders);
+
+    @GET("/api/v3/contents/generations/tasks/{taskId}")
+    Single<GetContentGenerationTaskResponse> getContentGenerationTask(@Path("taskId") String taskId, @HeaderMap Map<String, String> customHeaders);
+
+    @GET("/api/v3/contents/generations/tasks")
+    Single<ListContentGenerationTasksResponse> listContentGenerationTasks(
+            @Query("page_num") int pageNum,
+            @Query("page_size") int pageSize,
+            @Query("filter.status") String status,
+            @Query("filter.model") String model,
+            @Query("filter.task_ids") List<String> taskIds,
+            @HeaderMap Map<String, String> customHeaders
+    );
+
+    @DELETE("/api/v3/contents/generations/tasks/{taskId}")
+    Single<DeleteContentGenerationTaskResponse> deleteContentGenerationTask(@Path("taskId") String taskId, @HeaderMap Map<String, String> customHeaders);
 }
