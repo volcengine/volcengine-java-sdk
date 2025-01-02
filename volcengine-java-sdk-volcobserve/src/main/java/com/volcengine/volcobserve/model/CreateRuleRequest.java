@@ -130,6 +130,9 @@ public class CreateRuleRequest {
   @SerializedName("OriginalDimensions")
   private Map<String, List<String>> originalDimensions = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("RecoveryNotify")
   private RecoveryNotifyForCreateRuleInput recoveryNotify = null;
 
@@ -509,6 +512,24 @@ public class CreateRuleRequest {
     this.originalDimensions = originalDimensions;
   }
 
+  public CreateRuleRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public CreateRuleRequest recoveryNotify(RecoveryNotifyForCreateRuleInput recoveryNotify) {
     this.recoveryNotify = recoveryNotify;
     return this;
@@ -699,6 +720,7 @@ public class CreateRuleRequest {
         Objects.equals(this.namespace, createRuleRequest.namespace) &&
         Objects.equals(this.noData, createRuleRequest.noData) &&
         Objects.equals(this.originalDimensions, createRuleRequest.originalDimensions) &&
+        Objects.equals(this.projectName, createRuleRequest.projectName) &&
         Objects.equals(this.recoveryNotify, createRuleRequest.recoveryNotify) &&
         Objects.equals(this.regions, createRuleRequest.regions) &&
         Objects.equals(this.ruleName, createRuleRequest.ruleName) &&
@@ -711,7 +733,7 @@ public class CreateRuleRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(alertMethods, conditionOperator, conditions, contactGroupIds, description, dimensionConditions, effectEndAt, effectStartAt, enableState, evaluationCount, level, multipleConditions, namespace, noData, originalDimensions, recoveryNotify, regions, ruleName, ruleType, silenceTime, subNamespace, webhook, webhookIds);
+    return Objects.hash(alertMethods, conditionOperator, conditions, contactGroupIds, description, dimensionConditions, effectEndAt, effectStartAt, enableState, evaluationCount, level, multipleConditions, namespace, noData, originalDimensions, projectName, recoveryNotify, regions, ruleName, ruleType, silenceTime, subNamespace, webhook, webhookIds);
   }
 
 
@@ -735,6 +757,7 @@ public class CreateRuleRequest {
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
     sb.append("    noData: ").append(toIndentedString(noData)).append("\n");
     sb.append("    originalDimensions: ").append(toIndentedString(originalDimensions)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    recoveryNotify: ").append(toIndentedString(recoveryNotify)).append("\n");
     sb.append("    regions: ").append(toIndentedString(regions)).append("\n");
     sb.append("    ruleName: ").append(toIndentedString(ruleName)).append("\n");

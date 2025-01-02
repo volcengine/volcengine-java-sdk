@@ -50,6 +50,9 @@ public class ListRulesRequest {
   @SerializedName("PageSize")
   private Integer pageSize = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("RuleName")
   private String ruleName = null;
 
@@ -193,6 +196,24 @@ public class ListRulesRequest {
     this.pageSize = pageSize;
   }
 
+  public ListRulesRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public ListRulesRequest ruleName(String ruleName) {
     this.ruleName = ruleName;
     return this;
@@ -227,12 +248,13 @@ public class ListRulesRequest {
         Objects.equals(this.namespace, listRulesRequest.namespace) &&
         Objects.equals(this.pageNumber, listRulesRequest.pageNumber) &&
         Objects.equals(this.pageSize, listRulesRequest.pageSize) &&
+        Objects.equals(this.projectName, listRulesRequest.projectName) &&
         Objects.equals(this.ruleName, listRulesRequest.ruleName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(alertState, enableState, level, namespace, pageNumber, pageSize, ruleName);
+    return Objects.hash(alertState, enableState, level, namespace, pageNumber, pageSize, projectName, ruleName);
   }
 
 
@@ -247,6 +269,7 @@ public class ListRulesRequest {
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    ruleName: ").append(toIndentedString(ruleName)).append("\n");
     sb.append("}");
     return sb.toString();
