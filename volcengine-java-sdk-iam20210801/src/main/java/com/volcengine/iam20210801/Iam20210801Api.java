@@ -27,6 +27,14 @@ import java.io.IOException;
 
 import javax.validation.constraints.*;
 
+import com.volcengine.iam20210801.model.AttachPolicyInProjectRequest;
+import com.volcengine.iam20210801.model.AttachPolicyInProjectResponse;
+import com.volcengine.iam20210801.model.CreateProjectRequest;
+import com.volcengine.iam20210801.model.CreateProjectResponse;
+import com.volcengine.iam20210801.model.DeleteProjectRequest;
+import com.volcengine.iam20210801.model.DeleteProjectResponse;
+import com.volcengine.iam20210801.model.DetachPolicyInProjectRequest;
+import com.volcengine.iam20210801.model.DetachPolicyInProjectResponse;
 import com.volcengine.iam20210801.model.GetProjectRequest;
 import com.volcengine.iam20210801.model.GetProjectResponse;
 import com.volcengine.iam20210801.model.ListProjectIdentitiesRequest;
@@ -35,6 +43,10 @@ import com.volcengine.iam20210801.model.ListProjectResourcesRequest;
 import com.volcengine.iam20210801.model.ListProjectResourcesResponse;
 import com.volcengine.iam20210801.model.ListProjectsRequest;
 import com.volcengine.iam20210801.model.ListProjectsResponse;
+import com.volcengine.iam20210801.model.MoveProjectResourceRequest;
+import com.volcengine.iam20210801.model.MoveProjectResourceResponse;
+import com.volcengine.iam20210801.model.UpdateProjectRequest;
+import com.volcengine.iam20210801.model.UpdateProjectResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
