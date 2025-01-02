@@ -69,9 +69,6 @@ public class LoginProfileForUpdateLoginProfileOutput {
   @SerializedName("SafeAuthType")
   private String safeAuthType = null;
 
-  @SerializedName("Status")
-  private String status = null;
-
   @SerializedName("UpdateDate")
   private String updateDate = null;
 
@@ -315,24 +312,6 @@ public class LoginProfileForUpdateLoginProfileOutput {
     this.safeAuthType = safeAuthType;
   }
 
-  public LoginProfileForUpdateLoginProfileOutput status(String status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Get status
-   * @return status
-  **/
-  @Schema(description = "")
-  public String getStatus() {
-    return status;
-  }
-
-  public void setStatus(String status) {
-    this.status = status;
-  }
-
   public LoginProfileForUpdateLoginProfileOutput updateDate(String updateDate) {
     this.updateDate = updateDate;
     return this;
@@ -410,7 +389,6 @@ public class LoginProfileForUpdateLoginProfileOutput {
         Objects.equals(this.safeAuthExemptUnit, loginProfileForUpdateLoginProfileOutput.safeAuthExemptUnit) &&
         Objects.equals(this.safeAuthFlag, loginProfileForUpdateLoginProfileOutput.safeAuthFlag) &&
         Objects.equals(this.safeAuthType, loginProfileForUpdateLoginProfileOutput.safeAuthType) &&
-        Objects.equals(this.status, loginProfileForUpdateLoginProfileOutput.status) &&
         Objects.equals(this.updateDate, loginProfileForUpdateLoginProfileOutput.updateDate) &&
         Objects.equals(this.userId, loginProfileForUpdateLoginProfileOutput.userId) &&
         Objects.equals(this.userName, loginProfileForUpdateLoginProfileOutput.userName);
@@ -418,7 +396,7 @@ public class LoginProfileForUpdateLoginProfileOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createDate, lastLoginDate, lastLoginIp, lastResetPasswordTime, loginAllowed, loginLocked, passwordExpireAt, passwordResetRequired, safeAuthExemptDuration, safeAuthExemptRequired, safeAuthExemptUnit, safeAuthFlag, safeAuthType, status, updateDate, userId, userName);
+    return Objects.hash(createDate, lastLoginDate, lastLoginIp, lastResetPasswordTime, loginAllowed, loginLocked, passwordExpireAt, passwordResetRequired, safeAuthExemptDuration, safeAuthExemptRequired, safeAuthExemptUnit, safeAuthFlag, safeAuthType, updateDate, userId, userName);
   }
 
 
@@ -440,7 +418,6 @@ public class LoginProfileForUpdateLoginProfileOutput {
     sb.append("    safeAuthExemptUnit: ").append(toIndentedString(safeAuthExemptUnit)).append("\n");
     sb.append("    safeAuthFlag: ").append(toIndentedString(safeAuthFlag)).append("\n");
     sb.append("    safeAuthType: ").append(toIndentedString(safeAuthType)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    updateDate: ").append(toIndentedString(updateDate)).append("\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("    userName: ").append(toIndentedString(userName)).append("\n");

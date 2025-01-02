@@ -19,36 +19,38 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.iam.model.AccessKeyLastUsedForGetAccessKeyLastUsedOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * AddSAMLProviderCertificateResponse
+ * GetAccessKeyLastUsedResponse
  */
 
 
 
-public class AddSAMLProviderCertificateResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("CertificateId")
-  private String certificateId = null;
+public class GetAccessKeyLastUsedResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("AccessKeyLastUsed")
+  private AccessKeyLastUsedForGetAccessKeyLastUsedOutput accessKeyLastUsed = null;
 
-  public AddSAMLProviderCertificateResponse certificateId(String certificateId) {
-    this.certificateId = certificateId;
+  public GetAccessKeyLastUsedResponse accessKeyLastUsed(AccessKeyLastUsedForGetAccessKeyLastUsedOutput accessKeyLastUsed) {
+    this.accessKeyLastUsed = accessKeyLastUsed;
     return this;
   }
 
    /**
-   * Get certificateId
-   * @return certificateId
+   * Get accessKeyLastUsed
+   * @return accessKeyLastUsed
   **/
+  @Valid
   @Schema(description = "")
-  public String getCertificateId() {
-    return certificateId;
+  public AccessKeyLastUsedForGetAccessKeyLastUsedOutput getAccessKeyLastUsed() {
+    return accessKeyLastUsed;
   }
 
-  public void setCertificateId(String certificateId) {
-    this.certificateId = certificateId;
+  public void setAccessKeyLastUsed(AccessKeyLastUsedForGetAccessKeyLastUsedOutput accessKeyLastUsed) {
+    this.accessKeyLastUsed = accessKeyLastUsed;
   }
 
 
@@ -60,22 +62,22 @@ public class AddSAMLProviderCertificateResponse extends com.volcengine.model.Abs
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AddSAMLProviderCertificateResponse addSAMLProviderCertificateResponse = (AddSAMLProviderCertificateResponse) o;
-    return Objects.equals(this.certificateId, addSAMLProviderCertificateResponse.certificateId);
+    GetAccessKeyLastUsedResponse getAccessKeyLastUsedResponse = (GetAccessKeyLastUsedResponse) o;
+    return Objects.equals(this.accessKeyLastUsed, getAccessKeyLastUsedResponse.accessKeyLastUsed);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(certificateId);
+    return Objects.hash(accessKeyLastUsed);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AddSAMLProviderCertificateResponse {\n");
+    sb.append("class GetAccessKeyLastUsedResponse {\n");
     
-    sb.append("    certificateId: ").append(toIndentedString(certificateId)).append("\n");
+    sb.append("    accessKeyLastUsed: ").append(toIndentedString(accessKeyLastUsed)).append("\n");
     sb.append("}");
     return sb.toString();
   }

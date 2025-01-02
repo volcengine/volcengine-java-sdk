@@ -148,8 +148,7 @@ public class UpdateRoleRequest {
    * Get trustPolicyDocument
    * @return trustPolicyDocument
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getTrustPolicyDocument() {
     return trustPolicyDocument;
   }

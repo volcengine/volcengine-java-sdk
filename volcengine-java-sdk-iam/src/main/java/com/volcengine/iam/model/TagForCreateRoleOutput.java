@@ -24,52 +24,52 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * NewSecureContactInfoForGetSecurityContactOutput
+ * TagForCreateRoleOutput
  */
 
 
 
-public class NewSecureContactInfoForGetSecurityContactOutput {
-  @SerializedName("Email")
-  private String email = null;
+public class TagForCreateRoleOutput {
+  @SerializedName("Key")
+  private String key = null;
 
-  @SerializedName("Mobile")
-  private String mobile = null;
+  @SerializedName("Value")
+  private String value = null;
 
-  public NewSecureContactInfoForGetSecurityContactOutput email(String email) {
-    this.email = email;
+  public TagForCreateRoleOutput key(String key) {
+    this.key = key;
     return this;
   }
 
    /**
-   * Get email
-   * @return email
+   * Get key
+   * @return key
   **/
   @Schema(description = "")
-  public String getEmail() {
-    return email;
+  public String getKey() {
+    return key;
   }
 
-  public void setEmail(String email) {
-    this.email = email;
+  public void setKey(String key) {
+    this.key = key;
   }
 
-  public NewSecureContactInfoForGetSecurityContactOutput mobile(String mobile) {
-    this.mobile = mobile;
+  public TagForCreateRoleOutput value(String value) {
+    this.value = value;
     return this;
   }
 
    /**
-   * Get mobile
-   * @return mobile
+   * Get value
+   * @return value
   **/
   @Schema(description = "")
-  public String getMobile() {
-    return mobile;
+  public String getValue() {
+    return value;
   }
 
-  public void setMobile(String mobile) {
-    this.mobile = mobile;
+  public void setValue(String value) {
+    this.value = value;
   }
 
 
@@ -81,24 +81,24 @@ public class NewSecureContactInfoForGetSecurityContactOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    NewSecureContactInfoForGetSecurityContactOutput newSecureContactInfoForGetSecurityContactOutput = (NewSecureContactInfoForGetSecurityContactOutput) o;
-    return Objects.equals(this.email, newSecureContactInfoForGetSecurityContactOutput.email) &&
-        Objects.equals(this.mobile, newSecureContactInfoForGetSecurityContactOutput.mobile);
+    TagForCreateRoleOutput tagForCreateRoleOutput = (TagForCreateRoleOutput) o;
+    return Objects.equals(this.key, tagForCreateRoleOutput.key) &&
+        Objects.equals(this.value, tagForCreateRoleOutput.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(email, mobile);
+    return Objects.hash(key, value);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class NewSecureContactInfoForGetSecurityContactOutput {\n");
+    sb.append("class TagForCreateRoleOutput {\n");
     
-    sb.append("    email: ").append(toIndentedString(email)).append("\n");
-    sb.append("    mobile: ").append(toIndentedString(mobile)).append("\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
   }
