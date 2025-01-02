@@ -22,6 +22,8 @@ public interface ArkBaseServiceImpl {
 
     ChatCompletionResult createChatCompletion(ChatCompletionRequest request);
 
+    ChatCompletionResult createBatchChatCompletion(ChatCompletionRequest request);
+
     Flowable<ChatCompletionChunk> streamChatCompletion(ChatCompletionRequest request);
 
     BotChatCompletionResult createBotChatCompletion(BotChatCompletionRequest request);
