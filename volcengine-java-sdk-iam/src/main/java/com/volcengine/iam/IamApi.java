@@ -27,142 +27,7 @@ import java.io.IOException;
 
 import javax.validation.constraints.*;
 
-import com.volcengine.iam.model.AddClientIDToOIDCProviderRequest;
-import com.volcengine.iam.model.AddClientIDToOIDCProviderResponse;
-import com.volcengine.iam.model.AddThumbprintToOIDCProviderRequest;
-import com.volcengine.iam.model.AddThumbprintToOIDCProviderResponse;
-import com.volcengine.iam.model.AddUserToGroupRequest;
-import com.volcengine.iam.model.AddUserToGroupResponse;
-import com.volcengine.iam.model.AttachRolePolicyRequest;
-import com.volcengine.iam.model.AttachRolePolicyResponse;
-import com.volcengine.iam.model.AttachUserGroupPolicyRequest;
-import com.volcengine.iam.model.AttachUserGroupPolicyResponse;
-import com.volcengine.iam.model.AttachUserPolicyRequest;
-import com.volcengine.iam.model.AttachUserPolicyResponse;
-import com.volcengine.iam.model.CreateAccessKeyRequest;
-import com.volcengine.iam.model.CreateAccessKeyResponse;
-import com.volcengine.iam.model.CreateGroupRequest;
-import com.volcengine.iam.model.CreateGroupResponse;
-import com.volcengine.iam.model.CreateLoginProfileRequest;
-import com.volcengine.iam.model.CreateLoginProfileResponse;
-import com.volcengine.iam.model.CreateOAuthProviderRequest;
-import com.volcengine.iam.model.CreateOAuthProviderResponse;
-import com.volcengine.iam.model.CreateOIDCProviderRequest;
-import com.volcengine.iam.model.CreateOIDCProviderResponse;
-import com.volcengine.iam.model.CreatePolicyRequest;
-import com.volcengine.iam.model.CreatePolicyResponse;
-import com.volcengine.iam.model.CreateRoleRequest;
-import com.volcengine.iam.model.CreateRoleResponse;
-import com.volcengine.iam.model.CreateServiceLinkedRoleRequest;
-import com.volcengine.iam.model.CreateServiceLinkedRoleResponse;
-import com.volcengine.iam.model.CreateUserRequest;
-import com.volcengine.iam.model.CreateUserResponse;
-import com.volcengine.iam.model.DeleteAccessKeyRequest;
-import com.volcengine.iam.model.DeleteAccessKeyResponse;
-import com.volcengine.iam.model.DeleteGroupRequest;
-import com.volcengine.iam.model.DeleteGroupResponse;
-import com.volcengine.iam.model.DeleteLoginProfileRequest;
-import com.volcengine.iam.model.DeleteLoginProfileResponse;
-import com.volcengine.iam.model.DeleteOAuthProviderRequest;
-import com.volcengine.iam.model.DeleteOAuthProviderResponse;
-import com.volcengine.iam.model.DeleteOIDCProviderRequest;
-import com.volcengine.iam.model.DeleteOIDCProviderResponse;
-import com.volcengine.iam.model.DeletePolicyRequest;
-import com.volcengine.iam.model.DeletePolicyResponse;
-import com.volcengine.iam.model.DeleteRoleRequest;
-import com.volcengine.iam.model.DeleteRoleResponse;
-import com.volcengine.iam.model.DeleteSAMLProviderRequest;
-import com.volcengine.iam.model.DeleteSAMLProviderResponse;
-import com.volcengine.iam.model.DeleteServiceLinkedRoleRequest;
-import com.volcengine.iam.model.DeleteServiceLinkedRoleResponse;
-import com.volcengine.iam.model.DeleteUserRequest;
-import com.volcengine.iam.model.DeleteUserResponse;
-import com.volcengine.iam.model.DetachRolePolicyRequest;
-import com.volcengine.iam.model.DetachRolePolicyResponse;
-import com.volcengine.iam.model.DetachUserGroupPolicyRequest;
-import com.volcengine.iam.model.DetachUserGroupPolicyResponse;
-import com.volcengine.iam.model.DetachUserPolicyRequest;
-import com.volcengine.iam.model.DetachUserPolicyResponse;
-import com.volcengine.iam.model.GetAccessKeyLastUsedRequest;
-import com.volcengine.iam.model.GetAccessKeyLastUsedResponse;
-import com.volcengine.iam.model.GetGroupRequest;
-import com.volcengine.iam.model.GetGroupResponse;
-import com.volcengine.iam.model.GetLoginProfileRequest;
-import com.volcengine.iam.model.GetLoginProfileResponse;
-import com.volcengine.iam.model.GetOAuthProviderRequest;
-import com.volcengine.iam.model.GetOAuthProviderResponse;
-import com.volcengine.iam.model.GetOIDCProviderRequest;
-import com.volcengine.iam.model.GetOIDCProviderResponse;
-import com.volcengine.iam.model.GetPolicyRequest;
-import com.volcengine.iam.model.GetPolicyResponse;
-import com.volcengine.iam.model.GetRoleRequest;
-import com.volcengine.iam.model.GetRoleResponse;
-import com.volcengine.iam.model.GetSAMLProviderRequest;
-import com.volcengine.iam.model.GetSAMLProviderResponse;
-import com.volcengine.iam.model.GetSecurityConfigRequest;
-import com.volcengine.iam.model.GetSecurityConfigResponse;
-import com.volcengine.iam.model.GetUserRequest;
-import com.volcengine.iam.model.GetUserResponse;
-import com.volcengine.iam.model.ListAccessKeysRequest;
-import com.volcengine.iam.model.ListAccessKeysResponse;
-import com.volcengine.iam.model.ListAttachedRolePoliciesRequest;
-import com.volcengine.iam.model.ListAttachedRolePoliciesResponse;
-import com.volcengine.iam.model.ListAttachedUserGroupPoliciesRequest;
-import com.volcengine.iam.model.ListAttachedUserGroupPoliciesResponse;
-import com.volcengine.iam.model.ListAttachedUserPoliciesRequest;
-import com.volcengine.iam.model.ListAttachedUserPoliciesResponse;
-import com.volcengine.iam.model.ListEntitiesForPolicyRequest;
-import com.volcengine.iam.model.ListEntitiesForPolicyResponse;
-import com.volcengine.iam.model.ListGroupsForUserRequest;
-import com.volcengine.iam.model.ListGroupsForUserResponse;
-import com.volcengine.iam.model.ListGroupsRequest;
-import com.volcengine.iam.model.ListGroupsResponse;
-import com.volcengine.iam.model.ListIdentityProvidersRequest;
-import com.volcengine.iam.model.ListIdentityProvidersResponse;
-import com.volcengine.iam.model.ListOIDCProvidersRequest;
-import com.volcengine.iam.model.ListOIDCProvidersResponse;
-import com.volcengine.iam.model.ListPoliciesRequest;
-import com.volcengine.iam.model.ListPoliciesResponse;
-import com.volcengine.iam.model.ListRolesRequest;
-import com.volcengine.iam.model.ListRolesResponse;
-import com.volcengine.iam.model.ListSAMLProviderCertificatesRequest;
-import com.volcengine.iam.model.ListSAMLProviderCertificatesResponse;
-import com.volcengine.iam.model.ListSAMLProvidersRequest;
-import com.volcengine.iam.model.ListSAMLProvidersResponse;
-import com.volcengine.iam.model.ListTagsForResourcesRequest;
-import com.volcengine.iam.model.ListTagsForResourcesResponse;
-import com.volcengine.iam.model.ListUsersForGroupRequest;
-import com.volcengine.iam.model.ListUsersForGroupResponse;
-import com.volcengine.iam.model.ListUsersRequest;
-import com.volcengine.iam.model.ListUsersResponse;
-import com.volcengine.iam.model.RemoveClientIDFromOIDCProviderRequest;
-import com.volcengine.iam.model.RemoveClientIDFromOIDCProviderResponse;
-import com.volcengine.iam.model.RemoveSAMLProviderCertificateRequest;
-import com.volcengine.iam.model.RemoveSAMLProviderCertificateResponse;
-import com.volcengine.iam.model.RemoveThumbprintFromOIDCProviderRequest;
-import com.volcengine.iam.model.RemoveThumbprintFromOIDCProviderResponse;
-import com.volcengine.iam.model.RemoveUserFromGroupRequest;
-import com.volcengine.iam.model.RemoveUserFromGroupResponse;
-import com.volcengine.iam.model.SetSecurityConfigRequest;
-import com.volcengine.iam.model.SetSecurityConfigResponse;
-import com.volcengine.iam.model.TagResourcesRequest;
-import com.volcengine.iam.model.TagResourcesResponse;
-import com.volcengine.iam.model.UntagResourcesRequest;
-import com.volcengine.iam.model.UntagResourcesResponse;
-import com.volcengine.iam.model.UpdateAccessKeyRequest;
-import com.volcengine.iam.model.UpdateAccessKeyResponse;
-import com.volcengine.iam.model.UpdateGroupRequest;
-import com.volcengine.iam.model.UpdateGroupResponse;
-import com.volcengine.iam.model.UpdateLoginProfileRequest;
-import com.volcengine.iam.model.UpdateLoginProfileResponse;
-import com.volcengine.iam.model.UpdateOIDCProviderRequest;
-import com.volcengine.iam.model.UpdateOIDCProviderResponse;
-import com.volcengine.iam.model.UpdatePolicyRequest;
-import com.volcengine.iam.model.UpdatePolicyResponse;
-import com.volcengine.iam.model.UpdateRoleRequest;
-import com.volcengine.iam.model.UpdateRoleResponse;
-import com.volcengine.iam.model.UpdateUserRequest;
-import com.volcengine.iam.model.UpdateUserResponse;
+import com.volcengine.iam.model.*;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -8618,6 +8483,502 @@ public class IamApi {
 
         com.squareup.okhttp.Call call = updateUserValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<UpdateUserResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for addSAMLProviderCertificate
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call addSAMLProviderCertificateCall(AddSAMLProviderCertificateRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/AddSAMLProviderCertificate/2018-01-01/iam/post/application_x-www-form-urlencoded/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+                "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+                "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call addSAMLProviderCertificateValidateBeforeCall(AddSAMLProviderCertificateRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling addSAMLProviderCertificate(Async)");
+        }
+
+        com.squareup.okhttp.Call call = addSAMLProviderCertificateCall(body, progressListener, progressRequestListener);
+        return call;
+
+
+
+
+
+    }
+
+    /**
+     *
+     *
+     * @param body  (required)
+     * @return AddSAMLProviderCertificateResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public AddSAMLProviderCertificateResponse addSAMLProviderCertificate(AddSAMLProviderCertificateRequest body) throws ApiException {
+        ApiResponse<AddSAMLProviderCertificateResponse> resp = addSAMLProviderCertificateWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     *
+     *
+     * @param body  (required)
+     * @return ApiResponse&lt;AddSAMLProviderCertificateResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<AddSAMLProviderCertificateResponse> addSAMLProviderCertificateWithHttpInfo( @NotNull AddSAMLProviderCertificateRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = addSAMLProviderCertificateValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<AddSAMLProviderCertificateResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     *
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call addSAMLProviderCertificateAsync(AddSAMLProviderCertificateRequest body, final ApiCallback<AddSAMLProviderCertificateResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = addSAMLProviderCertificateValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<AddSAMLProviderCertificateResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for createSAMLProvider
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call createSAMLProviderCall(CreateSAMLProviderRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/CreateSAMLProvider/2018-01-01/iam/post/application_x-www-form-urlencoded/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+                "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+                "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call createSAMLProviderValidateBeforeCall(CreateSAMLProviderRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling createSAMLProvider(Async)");
+        }
+
+        com.squareup.okhttp.Call call = createSAMLProviderCall(body, progressListener, progressRequestListener);
+        return call;
+
+
+
+
+
+    }
+
+    /**
+     *
+     *
+     * @param body  (required)
+     * @return CreateSAMLProviderResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public CreateSAMLProviderResponse createSAMLProvider(CreateSAMLProviderRequest body) throws ApiException {
+        ApiResponse<CreateSAMLProviderResponse> resp = createSAMLProviderWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     *
+     *
+     * @param body  (required)
+     * @return ApiResponse&lt;CreateSAMLProviderResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<CreateSAMLProviderResponse> createSAMLProviderWithHttpInfo( @NotNull CreateSAMLProviderRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = createSAMLProviderValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<CreateSAMLProviderResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     *
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call createSAMLProviderAsync(CreateSAMLProviderRequest body, final ApiCallback<CreateSAMLProviderResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = createSAMLProviderValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CreateSAMLProviderResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for updateOAuthProvider
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call updateOAuthProviderCall(UpdateOAuthProviderRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/UpdateOAuthProvider/2018-01-01/iam/post/application_x-www-form-urlencoded/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+                "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+                "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateOAuthProviderValidateBeforeCall(UpdateOAuthProviderRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling updateOAuthProvider(Async)");
+        }
+
+        com.squareup.okhttp.Call call = updateOAuthProviderCall(body, progressListener, progressRequestListener);
+        return call;
+
+
+
+
+
+    }
+
+    /**
+     *
+     *
+     * @param body  (required)
+     * @return UpdateOAuthProviderResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public UpdateOAuthProviderResponse updateOAuthProvider(UpdateOAuthProviderRequest body) throws ApiException {
+        ApiResponse<UpdateOAuthProviderResponse> resp = updateOAuthProviderWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     *
+     *
+     * @param body  (required)
+     * @return ApiResponse&lt;UpdateOAuthProviderResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<UpdateOAuthProviderResponse> updateOAuthProviderWithHttpInfo( @NotNull UpdateOAuthProviderRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = updateOAuthProviderValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<UpdateOAuthProviderResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     *
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call updateOAuthProviderAsync(UpdateOAuthProviderRequest body, final ApiCallback<UpdateOAuthProviderResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateOAuthProviderValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<UpdateOAuthProviderResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for updateSAMLProvider
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call updateSAMLProviderCall(UpdateSAMLProviderRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/UpdateSAMLProvider/2018-01-01/iam/post/application_x-www-form-urlencoded/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+                "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+                "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateSAMLProviderValidateBeforeCall(UpdateSAMLProviderRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling updateSAMLProvider(Async)");
+        }
+
+        com.squareup.okhttp.Call call = updateSAMLProviderCall(body, progressListener, progressRequestListener);
+        return call;
+
+
+
+
+
+    }
+
+    /**
+     *
+     *
+     * @param body  (required)
+     * @return UpdateSAMLProviderResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public UpdateSAMLProviderResponse updateSAMLProvider(UpdateSAMLProviderRequest body) throws ApiException {
+        ApiResponse<UpdateSAMLProviderResponse> resp = updateSAMLProviderWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     *
+     *
+     * @param body  (required)
+     * @return ApiResponse&lt;UpdateSAMLProviderResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<UpdateSAMLProviderResponse> updateSAMLProviderWithHttpInfo( @NotNull UpdateSAMLProviderRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = updateSAMLProviderValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<UpdateSAMLProviderResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     *
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call updateSAMLProviderAsync(UpdateSAMLProviderRequest body, final ApiCallback<UpdateSAMLProviderResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateSAMLProviderValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<UpdateSAMLProviderResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
