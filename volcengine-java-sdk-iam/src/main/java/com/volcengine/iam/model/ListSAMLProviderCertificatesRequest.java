@@ -24,19 +24,16 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * AddSAMLProviderCertificateRequest
+ * ListSAMLProviderCertificatesRequest
  */
 
 
 
-public class AddSAMLProviderCertificateRequest {
+public class ListSAMLProviderCertificatesRequest {
   @SerializedName("SAMLProviderName")
   private String saMLProviderName = null;
 
-  @SerializedName("X509Certificate")
-  private String x509Certificate = null;
-
-  public AddSAMLProviderCertificateRequest saMLProviderName(String saMLProviderName) {
+  public ListSAMLProviderCertificatesRequest saMLProviderName(String saMLProviderName) {
     this.saMLProviderName = saMLProviderName;
     return this;
   }
@@ -55,25 +52,6 @@ public class AddSAMLProviderCertificateRequest {
     this.saMLProviderName = saMLProviderName;
   }
 
-  public AddSAMLProviderCertificateRequest x509Certificate(String x509Certificate) {
-    this.x509Certificate = x509Certificate;
-    return this;
-  }
-
-   /**
-   * Get x509Certificate
-   * @return x509Certificate
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getX509Certificate() {
-    return x509Certificate;
-  }
-
-  public void setX509Certificate(String x509Certificate) {
-    this.x509Certificate = x509Certificate;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -83,24 +61,22 @@ public class AddSAMLProviderCertificateRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AddSAMLProviderCertificateRequest addSAMLProviderCertificateRequest = (AddSAMLProviderCertificateRequest) o;
-    return Objects.equals(this.saMLProviderName, addSAMLProviderCertificateRequest.saMLProviderName) &&
-        Objects.equals(this.x509Certificate, addSAMLProviderCertificateRequest.x509Certificate);
+    ListSAMLProviderCertificatesRequest listSAMLProviderCertificatesRequest = (ListSAMLProviderCertificatesRequest) o;
+    return Objects.equals(this.saMLProviderName, listSAMLProviderCertificatesRequest.saMLProviderName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(saMLProviderName, x509Certificate);
+    return Objects.hash(saMLProviderName);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AddSAMLProviderCertificateRequest {\n");
+    sb.append("class ListSAMLProviderCertificatesRequest {\n");
     
     sb.append("    saMLProviderName: ").append(toIndentedString(saMLProviderName)).append("\n");
-    sb.append("    x509Certificate: ").append(toIndentedString(x509Certificate)).append("\n");
     sb.append("}");
     return sb.toString();
   }

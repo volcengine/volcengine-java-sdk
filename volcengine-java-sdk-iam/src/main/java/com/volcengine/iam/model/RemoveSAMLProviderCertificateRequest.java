@@ -24,16 +24,16 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * AddSAMLProviderCertificateResponse
+ * RemoveSAMLProviderCertificateRequest
  */
 
 
 
-public class AddSAMLProviderCertificateResponse extends com.volcengine.model.AbstractResponse {
+public class RemoveSAMLProviderCertificateRequest {
   @SerializedName("CertificateId")
   private String certificateId = null;
 
-  public AddSAMLProviderCertificateResponse certificateId(String certificateId) {
+  public RemoveSAMLProviderCertificateRequest certificateId(String certificateId) {
     this.certificateId = certificateId;
     return this;
   }
@@ -42,7 +42,8 @@ public class AddSAMLProviderCertificateResponse extends com.volcengine.model.Abs
    * Get certificateId
    * @return certificateId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getCertificateId() {
     return certificateId;
   }
@@ -60,8 +61,8 @@ public class AddSAMLProviderCertificateResponse extends com.volcengine.model.Abs
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AddSAMLProviderCertificateResponse addSAMLProviderCertificateResponse = (AddSAMLProviderCertificateResponse) o;
-    return Objects.equals(this.certificateId, addSAMLProviderCertificateResponse.certificateId);
+    RemoveSAMLProviderCertificateRequest removeSAMLProviderCertificateRequest = (RemoveSAMLProviderCertificateRequest) o;
+    return Objects.equals(this.certificateId, removeSAMLProviderCertificateRequest.certificateId);
   }
 
   @Override
@@ -73,7 +74,7 @@ public class AddSAMLProviderCertificateResponse extends com.volcengine.model.Abs
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AddSAMLProviderCertificateResponse {\n");
+    sb.append("class RemoveSAMLProviderCertificateRequest {\n");
     
     sb.append("    certificateId: ").append(toIndentedString(certificateId)).append("\n");
     sb.append("}");

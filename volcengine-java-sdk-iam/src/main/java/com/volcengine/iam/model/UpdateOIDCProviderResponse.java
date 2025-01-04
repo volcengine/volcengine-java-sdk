@@ -24,26 +24,20 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * UpdateOAuthProviderResponse
+ * UpdateOIDCProviderResponse
  */
 
 
 
-public class UpdateOAuthProviderResponse extends com.volcengine.model.AbstractResponse {
+public class UpdateOIDCProviderResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("CreateDate")
   private String createDate = null;
 
   @SerializedName("Description")
   private String description = null;
 
-  @SerializedName("OAuthProviderName")
-  private String oauthProviderName = null;
-
-  @SerializedName("SSOType")
-  private Integer ssOType = null;
-
-  @SerializedName("Status")
-  private Integer status = null;
+  @SerializedName("OIDCProviderName")
+  private String oiDCProviderName = null;
 
   @SerializedName("Trn")
   private String trn = null;
@@ -51,7 +45,7 @@ public class UpdateOAuthProviderResponse extends com.volcengine.model.AbstractRe
   @SerializedName("UpdateDate")
   private String updateDate = null;
 
-  public UpdateOAuthProviderResponse createDate(String createDate) {
+  public UpdateOIDCProviderResponse createDate(String createDate) {
     this.createDate = createDate;
     return this;
   }
@@ -69,7 +63,7 @@ public class UpdateOAuthProviderResponse extends com.volcengine.model.AbstractRe
     this.createDate = createDate;
   }
 
-  public UpdateOAuthProviderResponse description(String description) {
+  public UpdateOIDCProviderResponse description(String description) {
     this.description = description;
     return this;
   }
@@ -87,61 +81,25 @@ public class UpdateOAuthProviderResponse extends com.volcengine.model.AbstractRe
     this.description = description;
   }
 
-  public UpdateOAuthProviderResponse oauthProviderName(String oauthProviderName) {
-    this.oauthProviderName = oauthProviderName;
+  public UpdateOIDCProviderResponse oiDCProviderName(String oiDCProviderName) {
+    this.oiDCProviderName = oiDCProviderName;
     return this;
   }
 
    /**
-   * Get oauthProviderName
-   * @return oauthProviderName
+   * Get oiDCProviderName
+   * @return oiDCProviderName
   **/
   @Schema(description = "")
-  public String getOauthProviderName() {
-    return oauthProviderName;
+  public String getOiDCProviderName() {
+    return oiDCProviderName;
   }
 
-  public void setOauthProviderName(String oauthProviderName) {
-    this.oauthProviderName = oauthProviderName;
+  public void setOiDCProviderName(String oiDCProviderName) {
+    this.oiDCProviderName = oiDCProviderName;
   }
 
-  public UpdateOAuthProviderResponse ssOType(Integer ssOType) {
-    this.ssOType = ssOType;
-    return this;
-  }
-
-   /**
-   * Get ssOType
-   * @return ssOType
-  **/
-  @Schema(description = "")
-  public Integer getSsOType() {
-    return ssOType;
-  }
-
-  public void setSsOType(Integer ssOType) {
-    this.ssOType = ssOType;
-  }
-
-  public UpdateOAuthProviderResponse status(Integer status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Get status
-   * @return status
-  **/
-  @Schema(description = "")
-  public Integer getStatus() {
-    return status;
-  }
-
-  public void setStatus(Integer status) {
-    this.status = status;
-  }
-
-  public UpdateOAuthProviderResponse trn(String trn) {
+  public UpdateOIDCProviderResponse trn(String trn) {
     this.trn = trn;
     return this;
   }
@@ -159,7 +117,7 @@ public class UpdateOAuthProviderResponse extends com.volcengine.model.AbstractRe
     this.trn = trn;
   }
 
-  public UpdateOAuthProviderResponse updateDate(String updateDate) {
+  public UpdateOIDCProviderResponse updateDate(String updateDate) {
     this.updateDate = updateDate;
     return this;
   }
@@ -186,32 +144,28 @@ public class UpdateOAuthProviderResponse extends com.volcengine.model.AbstractRe
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UpdateOAuthProviderResponse updateOAuthProviderResponse = (UpdateOAuthProviderResponse) o;
-    return Objects.equals(this.createDate, updateOAuthProviderResponse.createDate) &&
-        Objects.equals(this.description, updateOAuthProviderResponse.description) &&
-        Objects.equals(this.oauthProviderName, updateOAuthProviderResponse.oauthProviderName) &&
-        Objects.equals(this.ssOType, updateOAuthProviderResponse.ssOType) &&
-        Objects.equals(this.status, updateOAuthProviderResponse.status) &&
-        Objects.equals(this.trn, updateOAuthProviderResponse.trn) &&
-        Objects.equals(this.updateDate, updateOAuthProviderResponse.updateDate);
+    UpdateOIDCProviderResponse updateOIDCProviderResponse = (UpdateOIDCProviderResponse) o;
+    return Objects.equals(this.createDate, updateOIDCProviderResponse.createDate) &&
+        Objects.equals(this.description, updateOIDCProviderResponse.description) &&
+        Objects.equals(this.oiDCProviderName, updateOIDCProviderResponse.oiDCProviderName) &&
+        Objects.equals(this.trn, updateOIDCProviderResponse.trn) &&
+        Objects.equals(this.updateDate, updateOIDCProviderResponse.updateDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createDate, description, oauthProviderName, ssOType, status, trn, updateDate);
+    return Objects.hash(createDate, description, oiDCProviderName, trn, updateDate);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UpdateOAuthProviderResponse {\n");
+    sb.append("class UpdateOIDCProviderResponse {\n");
     
     sb.append("    createDate: ").append(toIndentedString(createDate)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    oauthProviderName: ").append(toIndentedString(oauthProviderName)).append("\n");
-    sb.append("    ssOType: ").append(toIndentedString(ssOType)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    oiDCProviderName: ").append(toIndentedString(oiDCProviderName)).append("\n");
     sb.append("    trn: ").append(toIndentedString(trn)).append("\n");
     sb.append("    updateDate: ").append(toIndentedString(updateDate)).append("\n");
     sb.append("}");
