@@ -30,11 +30,32 @@ import javax.validation.Valid;
 
 
 public class DescribeKeyRequest {
+  @SerializedName("KeyID")
+  private String keyID = null;
+
   @SerializedName("KeyName")
   private String keyName = null;
 
   @SerializedName("KeyringName")
   private String keyringName = null;
+
+  public DescribeKeyRequest keyID(String keyID) {
+    this.keyID = keyID;
+    return this;
+  }
+
+   /**
+   * Get keyID
+   * @return keyID
+  **/
+  @Schema(description = "")
+  public String getKeyID() {
+    return keyID;
+  }
+
+  public void setKeyID(String keyID) {
+    this.keyID = keyID;
+  }
 
   public DescribeKeyRequest keyName(String keyName) {
     this.keyName = keyName;
@@ -45,8 +66,7 @@ public class DescribeKeyRequest {
    * Get keyName
    * @return keyName
   **/
-  @NotNull
- @Size(min=2,max=31)  @Schema(required = true, description = "")
+ @Size(min=2,max=31)  @Schema(description = "")
   public String getKeyName() {
     return keyName;
   }
@@ -64,8 +84,7 @@ public class DescribeKeyRequest {
    * Get keyringName
    * @return keyringName
   **/
-  @NotNull
- @Size(min=2,max=31)  @Schema(required = true, description = "")
+ @Size(min=2,max=31)  @Schema(description = "")
   public String getKeyringName() {
     return keyringName;
   }
@@ -84,13 +103,14 @@ public class DescribeKeyRequest {
       return false;
     }
     DescribeKeyRequest describeKeyRequest = (DescribeKeyRequest) o;
-    return Objects.equals(this.keyName, describeKeyRequest.keyName) &&
+    return Objects.equals(this.keyID, describeKeyRequest.keyID) &&
+        Objects.equals(this.keyName, describeKeyRequest.keyName) &&
         Objects.equals(this.keyringName, describeKeyRequest.keyringName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(keyName, keyringName);
+    return Objects.hash(keyID, keyName, keyringName);
   }
 
 
@@ -99,6 +119,7 @@ public class DescribeKeyRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeKeyRequest {\n");
     
+    sb.append("    keyID: ").append(toIndentedString(keyID)).append("\n");
     sb.append("    keyName: ").append(toIndentedString(keyName)).append("\n");
     sb.append("    keyringName: ").append(toIndentedString(keyringName)).append("\n");
     sb.append("}");

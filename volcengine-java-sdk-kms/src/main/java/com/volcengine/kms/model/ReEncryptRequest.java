@@ -39,6 +39,9 @@ public class ReEncryptRequest {
   @SerializedName("NewEncryptionContext")
   private Map<String, String> newEncryptionContext = null;
 
+  @SerializedName("NewKeyID")
+  private String newKeyID = null;
+
   @SerializedName("NewKeyName")
   private String newKeyName = null;
 
@@ -93,6 +96,24 @@ public class ReEncryptRequest {
     this.newEncryptionContext = newEncryptionContext;
   }
 
+  public ReEncryptRequest newKeyID(String newKeyID) {
+    this.newKeyID = newKeyID;
+    return this;
+  }
+
+   /**
+   * Get newKeyID
+   * @return newKeyID
+  **/
+  @Schema(description = "")
+  public String getNewKeyID() {
+    return newKeyID;
+  }
+
+  public void setNewKeyID(String newKeyID) {
+    this.newKeyID = newKeyID;
+  }
+
   public ReEncryptRequest newKeyName(String newKeyName) {
     this.newKeyName = newKeyName;
     return this;
@@ -102,8 +123,7 @@ public class ReEncryptRequest {
    * Get newKeyName
    * @return newKeyName
   **/
-  @NotNull
- @Size(min=2,max=31)  @Schema(required = true, description = "")
+ @Size(min=2,max=31)  @Schema(description = "")
   public String getNewKeyName() {
     return newKeyName;
   }
@@ -121,8 +141,7 @@ public class ReEncryptRequest {
    * Get newKeyringName
    * @return newKeyringName
   **/
-  @NotNull
- @Size(min=2,max=31)  @Schema(required = true, description = "")
+ @Size(min=2,max=31)  @Schema(description = "")
   public String getNewKeyringName() {
     return newKeyringName;
   }
@@ -169,6 +188,7 @@ public class ReEncryptRequest {
     ReEncryptRequest reEncryptRequest = (ReEncryptRequest) o;
     return Objects.equals(this.ciphertextBlob, reEncryptRequest.ciphertextBlob) &&
         Objects.equals(this.newEncryptionContext, reEncryptRequest.newEncryptionContext) &&
+        Objects.equals(this.newKeyID, reEncryptRequest.newKeyID) &&
         Objects.equals(this.newKeyName, reEncryptRequest.newKeyName) &&
         Objects.equals(this.newKeyringName, reEncryptRequest.newKeyringName) &&
         Objects.equals(this.oldEncryptionContext, reEncryptRequest.oldEncryptionContext);
@@ -176,7 +196,7 @@ public class ReEncryptRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(ciphertextBlob, newEncryptionContext, newKeyName, newKeyringName, oldEncryptionContext);
+    return Objects.hash(ciphertextBlob, newEncryptionContext, newKeyID, newKeyName, newKeyringName, oldEncryptionContext);
   }
 
 
@@ -187,6 +207,7 @@ public class ReEncryptRequest {
     
     sb.append("    ciphertextBlob: ").append(toIndentedString(ciphertextBlob)).append("\n");
     sb.append("    newEncryptionContext: ").append(toIndentedString(newEncryptionContext)).append("\n");
+    sb.append("    newKeyID: ").append(toIndentedString(newKeyID)).append("\n");
     sb.append("    newKeyName: ").append(toIndentedString(newKeyName)).append("\n");
     sb.append("    newKeyringName: ").append(toIndentedString(newKeyringName)).append("\n");
     sb.append("    oldEncryptionContext: ").append(toIndentedString(oldEncryptionContext)).append("\n");

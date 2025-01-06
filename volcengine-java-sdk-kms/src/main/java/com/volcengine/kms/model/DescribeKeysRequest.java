@@ -36,6 +36,9 @@ public class DescribeKeysRequest {
   @SerializedName("Filters")
   private String filters = null;
 
+  @SerializedName("KeyringID")
+  private String keyringID = null;
+
   @SerializedName("KeyringName")
   private String keyringName = null;
 
@@ -79,6 +82,24 @@ public class DescribeKeysRequest {
     this.filters = filters;
   }
 
+  public DescribeKeysRequest keyringID(String keyringID) {
+    this.keyringID = keyringID;
+    return this;
+  }
+
+   /**
+   * Get keyringID
+   * @return keyringID
+  **/
+  @Schema(description = "")
+  public String getKeyringID() {
+    return keyringID;
+  }
+
+  public void setKeyringID(String keyringID) {
+    this.keyringID = keyringID;
+  }
+
   public DescribeKeysRequest keyringName(String keyringName) {
     this.keyringName = keyringName;
     return this;
@@ -88,8 +109,7 @@ public class DescribeKeysRequest {
    * Get keyringName
    * @return keyringName
   **/
-  @NotNull
- @Size(min=2,max=31)  @Schema(required = true, description = "")
+ @Size(min=2,max=31)  @Schema(description = "")
   public String getKeyringName() {
     return keyringName;
   }
@@ -130,13 +150,14 @@ public class DescribeKeysRequest {
     DescribeKeysRequest describeKeysRequest = (DescribeKeysRequest) o;
     return Objects.equals(this.currentPage, describeKeysRequest.currentPage) &&
         Objects.equals(this.filters, describeKeysRequest.filters) &&
+        Objects.equals(this.keyringID, describeKeysRequest.keyringID) &&
         Objects.equals(this.keyringName, describeKeysRequest.keyringName) &&
         Objects.equals(this.pageSize, describeKeysRequest.pageSize);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(currentPage, filters, keyringName, pageSize);
+    return Objects.hash(currentPage, filters, keyringID, keyringName, pageSize);
   }
 
 
@@ -147,6 +168,7 @@ public class DescribeKeysRequest {
     
     sb.append("    currentPage: ").append(toIndentedString(currentPage)).append("\n");
     sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
+    sb.append("    keyringID: ").append(toIndentedString(keyringID)).append("\n");
     sb.append("    keyringName: ").append(toIndentedString(keyringName)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("}");

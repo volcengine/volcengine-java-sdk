@@ -33,6 +33,9 @@ public class UpdateKeyringRequest {
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("KeyringID")
+  private String keyringID = null;
+
   @SerializedName("KeyringName")
   private String keyringName = null;
 
@@ -54,6 +57,24 @@ public class UpdateKeyringRequest {
     this.description = description;
   }
 
+  public UpdateKeyringRequest keyringID(String keyringID) {
+    this.keyringID = keyringID;
+    return this;
+  }
+
+   /**
+   * Get keyringID
+   * @return keyringID
+  **/
+  @Schema(description = "")
+  public String getKeyringID() {
+    return keyringID;
+  }
+
+  public void setKeyringID(String keyringID) {
+    this.keyringID = keyringID;
+  }
+
   public UpdateKeyringRequest keyringName(String keyringName) {
     this.keyringName = keyringName;
     return this;
@@ -63,8 +84,7 @@ public class UpdateKeyringRequest {
    * Get keyringName
    * @return keyringName
   **/
-  @NotNull
- @Size(min=2,max=31)  @Schema(required = true, description = "")
+ @Size(min=2,max=31)  @Schema(description = "")
   public String getKeyringName() {
     return keyringName;
   }
@@ -84,12 +104,13 @@ public class UpdateKeyringRequest {
     }
     UpdateKeyringRequest updateKeyringRequest = (UpdateKeyringRequest) o;
     return Objects.equals(this.description, updateKeyringRequest.description) &&
+        Objects.equals(this.keyringID, updateKeyringRequest.keyringID) &&
         Objects.equals(this.keyringName, updateKeyringRequest.keyringName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, keyringName);
+    return Objects.hash(description, keyringID, keyringName);
   }
 
 
@@ -99,6 +120,7 @@ public class UpdateKeyringRequest {
     sb.append("class UpdateKeyringRequest {\n");
     
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    keyringID: ").append(toIndentedString(keyringID)).append("\n");
     sb.append("    keyringName: ").append(toIndentedString(keyringName)).append("\n");
     sb.append("}");
     return sb.toString();

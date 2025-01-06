@@ -128,7 +128,7 @@ public class AsymmetricEncryptRequest {
    * @return plaintext
   **/
   @NotNull
- @Size(min=1,max=4096)  @Schema(required = true, description = "")
+ @Size(min=1,max=1024)  @Schema(required = true, description = "")
   public String getPlaintext() {
     return plaintext;
   }
