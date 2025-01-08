@@ -36,6 +36,9 @@ public class ListAllIpGroupsResponse extends com.volcengine.model.AbstractRespon
   @SerializedName("Count")
   private Integer count = null;
 
+  @SerializedName("CurrentPage")
+  private Integer currentPage = null;
+
   @SerializedName("IpGroupCount")
   private Integer ipGroupCount = null;
 
@@ -73,6 +76,24 @@ public class ListAllIpGroupsResponse extends com.volcengine.model.AbstractRespon
 
   public void setCount(Integer count) {
     this.count = count;
+  }
+
+  public ListAllIpGroupsResponse currentPage(Integer currentPage) {
+    this.currentPage = currentPage;
+    return this;
+  }
+
+   /**
+   * Get currentPage
+   * @return currentPage
+  **/
+  @Schema(description = "")
+  public Integer getCurrentPage() {
+    return currentPage;
+  }
+
+  public void setCurrentPage(Integer currentPage) {
+    this.currentPage = currentPage;
   }
 
   public ListAllIpGroupsResponse ipGroupCount(Integer ipGroupCount) {
@@ -221,6 +242,7 @@ public class ListAllIpGroupsResponse extends com.volcengine.model.AbstractRespon
     }
     ListAllIpGroupsResponse listAllIpGroupsResponse = (ListAllIpGroupsResponse) o;
     return Objects.equals(this.count, listAllIpGroupsResponse.count) &&
+        Objects.equals(this.currentPage, listAllIpGroupsResponse.currentPage) &&
         Objects.equals(this.ipGroupCount, listAllIpGroupsResponse.ipGroupCount) &&
         Objects.equals(this.ipGroupList, listAllIpGroupsResponse.ipGroupList) &&
         Objects.equals(this.ipGroupQuota, listAllIpGroupsResponse.ipGroupQuota) &&
@@ -232,7 +254,7 @@ public class ListAllIpGroupsResponse extends com.volcengine.model.AbstractRespon
 
   @Override
   public int hashCode() {
-    return Objects.hash(count, ipGroupCount, ipGroupList, ipGroupQuota, ipLimitQuota, pageNumber, pageSize, totalCount);
+    return Objects.hash(count, currentPage, ipGroupCount, ipGroupList, ipGroupQuota, ipLimitQuota, pageNumber, pageSize, totalCount);
   }
 
 
@@ -242,6 +264,7 @@ public class ListAllIpGroupsResponse extends com.volcengine.model.AbstractRespon
     sb.append("class ListAllIpGroupsResponse {\n");
     
     sb.append("    count: ").append(toIndentedString(count)).append("\n");
+    sb.append("    currentPage: ").append(toIndentedString(currentPage)).append("\n");
     sb.append("    ipGroupCount: ").append(toIndentedString(ipGroupCount)).append("\n");
     sb.append("    ipGroupList: ").append(toIndentedString(ipGroupList)).append("\n");
     sb.append("    ipGroupQuota: ").append(toIndentedString(ipGroupQuota)).append("\n");

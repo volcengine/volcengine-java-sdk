@@ -44,6 +44,9 @@ public class RuleForListAclRuleOutput {
   @SerializedName("Advanced")
   private Integer advanced = null;
 
+  @SerializedName("ClientIp")
+  private String clientIp = null;
+
   @SerializedName("Description")
   private String description = null;
 
@@ -151,6 +154,24 @@ public class RuleForListAclRuleOutput {
 
   public void setAdvanced(Integer advanced) {
     this.advanced = advanced;
+  }
+
+  public RuleForListAclRuleOutput clientIp(String clientIp) {
+    this.clientIp = clientIp;
+    return this;
+  }
+
+   /**
+   * Get clientIp
+   * @return clientIp
+  **/
+  @Schema(description = "")
+  public String getClientIp() {
+    return clientIp;
+  }
+
+  public void setClientIp(String clientIp) {
+    this.clientIp = clientIp;
   }
 
   public RuleForListAclRuleOutput description(String description) {
@@ -572,6 +593,7 @@ public class RuleForListAclRuleOutput {
     return Objects.equals(this.accurateGroup, ruleForListAclRuleOutput.accurateGroup) &&
         Objects.equals(this.action, ruleForListAclRuleOutput.action) &&
         Objects.equals(this.advanced, ruleForListAclRuleOutput.advanced) &&
+        Objects.equals(this.clientIp, ruleForListAclRuleOutput.clientIp) &&
         Objects.equals(this.description, ruleForListAclRuleOutput.description) &&
         Objects.equals(this.enable, ruleForListAclRuleOutput.enable) &&
         Objects.equals(this.hostAddType, ruleForListAclRuleOutput.hostAddType) &&
@@ -594,7 +616,7 @@ public class RuleForListAclRuleOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accurateGroup, action, advanced, description, enable, hostAddType, hostGroupId, hostGroups, hostList, ID, ipAddType, ipGroupId, ipGroups, ipList, ipLocationCountry, ipLocationSubregion, name, prefixSwitch, ruleTag, updateTime, url);
+    return Objects.hash(accurateGroup, action, advanced, clientIp, description, enable, hostAddType, hostGroupId, hostGroups, hostList, ID, ipAddType, ipGroupId, ipGroups, ipList, ipLocationCountry, ipLocationSubregion, name, prefixSwitch, ruleTag, updateTime, url);
   }
 
 
@@ -606,6 +628,7 @@ public class RuleForListAclRuleOutput {
     sb.append("    accurateGroup: ").append(toIndentedString(accurateGroup)).append("\n");
     sb.append("    action: ").append(toIndentedString(action)).append("\n");
     sb.append("    advanced: ").append(toIndentedString(advanced)).append("\n");
+    sb.append("    clientIp: ").append(toIndentedString(clientIp)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    enable: ").append(toIndentedString(enable)).append("\n");
     sb.append("    hostAddType: ").append(toIndentedString(hostAddType)).append("\n");
