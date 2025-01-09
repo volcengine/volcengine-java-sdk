@@ -69,8 +69,7 @@ public class ModifyCustomizedCfgAttributesRequest {
    * Get customizedCfgId
    * @return customizedCfgId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getCustomizedCfgId() {
     return customizedCfgId;
   }

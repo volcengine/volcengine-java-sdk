@@ -48,8 +48,7 @@ public class ModifyRulesRequest {
    * Get listenerId
    * @return listenerId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getListenerId() {
     return listenerId;
   }

@@ -159,8 +159,7 @@ public class ReplaceCertificateRequest {
    * Get oldCertificateId
    * @return oldCertificateId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getOldCertificateId() {
     return oldCertificateId;
   }
@@ -232,8 +231,7 @@ public class ReplaceCertificateRequest {
    * Get updateMode
    * @return updateMode
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getUpdateMode() {
     return updateMode;
   }

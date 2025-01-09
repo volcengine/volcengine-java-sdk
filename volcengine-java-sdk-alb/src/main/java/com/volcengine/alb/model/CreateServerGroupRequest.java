@@ -21,8 +21,11 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.alb.model.HealthCheckForCreateServerGroupInput;
 import com.volcengine.alb.model.StickySessionConfigForCreateServerGroupInput;
+import com.volcengine.alb.model.TagForCreateServerGroupInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -41,6 +44,9 @@ public class CreateServerGroupRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
 
+  @SerializedName("Protocol")
+  private String protocol = null;
+
   @SerializedName("Scheduler")
   private String scheduler = null;
 
@@ -52,6 +58,9 @@ public class CreateServerGroupRequest {
 
   @SerializedName("StickySessionConfig")
   private StickySessionConfigForCreateServerGroupInput stickySessionConfig = null;
+
+  @SerializedName("Tags")
+  private List<TagForCreateServerGroupInput> tags = null;
 
   @SerializedName("VpcId")
   private String vpcId = null;
@@ -109,6 +118,24 @@ public class CreateServerGroupRequest {
 
   public void setProjectName(String projectName) {
     this.projectName = projectName;
+  }
+
+  public CreateServerGroupRequest protocol(String protocol) {
+    this.protocol = protocol;
+    return this;
+  }
+
+   /**
+   * Get protocol
+   * @return protocol
+  **/
+  @Schema(description = "")
+  public String getProtocol() {
+    return protocol;
+  }
+
+  public void setProtocol(String protocol) {
+    this.protocol = protocol;
   }
 
   public CreateServerGroupRequest scheduler(String scheduler) {
@@ -184,6 +211,33 @@ public class CreateServerGroupRequest {
     this.stickySessionConfig = stickySessionConfig;
   }
 
+  public CreateServerGroupRequest tags(List<TagForCreateServerGroupInput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public CreateServerGroupRequest addTagsItem(TagForCreateServerGroupInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForCreateServerGroupInput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForCreateServerGroupInput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForCreateServerGroupInput> tags) {
+    this.tags = tags;
+  }
+
   public CreateServerGroupRequest vpcId(String vpcId) {
     this.vpcId = vpcId;
     return this;
@@ -193,8 +247,7 @@ public class CreateServerGroupRequest {
    * Get vpcId
    * @return vpcId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getVpcId() {
     return vpcId;
   }
@@ -216,16 +269,18 @@ public class CreateServerGroupRequest {
     return Objects.equals(this.description, createServerGroupRequest.description) &&
         Objects.equals(this.healthCheck, createServerGroupRequest.healthCheck) &&
         Objects.equals(this.projectName, createServerGroupRequest.projectName) &&
+        Objects.equals(this.protocol, createServerGroupRequest.protocol) &&
         Objects.equals(this.scheduler, createServerGroupRequest.scheduler) &&
         Objects.equals(this.serverGroupName, createServerGroupRequest.serverGroupName) &&
         Objects.equals(this.serverGroupType, createServerGroupRequest.serverGroupType) &&
         Objects.equals(this.stickySessionConfig, createServerGroupRequest.stickySessionConfig) &&
+        Objects.equals(this.tags, createServerGroupRequest.tags) &&
         Objects.equals(this.vpcId, createServerGroupRequest.vpcId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, healthCheck, projectName, scheduler, serverGroupName, serverGroupType, stickySessionConfig, vpcId);
+    return Objects.hash(description, healthCheck, projectName, protocol, scheduler, serverGroupName, serverGroupType, stickySessionConfig, tags, vpcId);
   }
 
 
@@ -237,10 +292,12 @@ public class CreateServerGroupRequest {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    healthCheck: ").append(toIndentedString(healthCheck)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
     sb.append("    scheduler: ").append(toIndentedString(scheduler)).append("\n");
     sb.append("    serverGroupName: ").append(toIndentedString(serverGroupName)).append("\n");
     sb.append("    serverGroupType: ").append(toIndentedString(serverGroupType)).append("\n");
     sb.append("    stickySessionConfig: ").append(toIndentedString(stickySessionConfig)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("}");
     return sb.toString();

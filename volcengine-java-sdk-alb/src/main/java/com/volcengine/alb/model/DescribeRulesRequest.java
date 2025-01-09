@@ -42,8 +42,7 @@ public class DescribeRulesRequest {
    * Get listenerId
    * @return listenerId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getListenerId() {
     return listenerId;
   }

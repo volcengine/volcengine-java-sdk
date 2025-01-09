@@ -60,8 +60,7 @@ public class ReplaceCACertificateRequest {
    * Get caCertificate
    * @return caCertificate
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getCaCertificate() {
     return caCertificate;
   }
@@ -133,8 +132,7 @@ public class ReplaceCACertificateRequest {
    * Get oldCACertificateId
    * @return oldCACertificateId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getOldCACertificateId() {
     return oldCACertificateId;
   }
@@ -170,8 +168,7 @@ public class ReplaceCACertificateRequest {
    * Get updateMode
    * @return updateMode
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getUpdateMode() {
     return updateMode;
   }

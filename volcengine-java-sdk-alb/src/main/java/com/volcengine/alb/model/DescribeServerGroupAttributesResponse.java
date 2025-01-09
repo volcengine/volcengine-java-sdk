@@ -48,6 +48,9 @@ public class DescribeServerGroupAttributesResponse extends com.volcengine.model.
   @SerializedName("ProjectName")
   private String projectName = null;
 
+  @SerializedName("Protocol")
+  private String protocol = null;
+
   @SerializedName("RequestId")
   private String requestId = null;
 
@@ -157,6 +160,24 @@ public class DescribeServerGroupAttributesResponse extends com.volcengine.model.
 
   public void setProjectName(String projectName) {
     this.projectName = projectName;
+  }
+
+  public DescribeServerGroupAttributesResponse protocol(String protocol) {
+    this.protocol = protocol;
+    return this;
+  }
+
+   /**
+   * Get protocol
+   * @return protocol
+  **/
+  @Schema(description = "")
+  public String getProtocol() {
+    return protocol;
+  }
+
+  public void setProtocol(String protocol) {
+    this.protocol = protocol;
   }
 
   public DescribeServerGroupAttributesResponse requestId(String requestId) {
@@ -372,6 +393,7 @@ public class DescribeServerGroupAttributesResponse extends com.volcengine.model.
         Objects.equals(this.healthCheck, describeServerGroupAttributesResponse.healthCheck) &&
         Objects.equals(this.listeners, describeServerGroupAttributesResponse.listeners) &&
         Objects.equals(this.projectName, describeServerGroupAttributesResponse.projectName) &&
+        Objects.equals(this.protocol, describeServerGroupAttributesResponse.protocol) &&
         Objects.equals(this.requestId, describeServerGroupAttributesResponse.requestId) &&
         Objects.equals(this.scheduler, describeServerGroupAttributesResponse.scheduler) &&
         Objects.equals(this.serverGroupId, describeServerGroupAttributesResponse.serverGroupId) &&
@@ -386,7 +408,7 @@ public class DescribeServerGroupAttributesResponse extends com.volcengine.model.
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, healthCheck, listeners, projectName, requestId, scheduler, serverGroupId, serverGroupName, serverGroupType, servers, status, stickySessionConfig, tags, vpcId);
+    return Objects.hash(description, healthCheck, listeners, projectName, protocol, requestId, scheduler, serverGroupId, serverGroupName, serverGroupType, servers, status, stickySessionConfig, tags, vpcId);
   }
 
 
@@ -399,6 +421,7 @@ public class DescribeServerGroupAttributesResponse extends com.volcengine.model.
     sb.append("    healthCheck: ").append(toIndentedString(healthCheck)).append("\n");
     sb.append("    listeners: ").append(toIndentedString(listeners)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    scheduler: ").append(toIndentedString(scheduler)).append("\n");
     sb.append("    serverGroupId: ").append(toIndentedString(serverGroupId)).append("\n");

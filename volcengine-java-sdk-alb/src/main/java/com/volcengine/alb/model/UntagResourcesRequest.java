@@ -121,8 +121,7 @@ public class UntagResourcesRequest {
    * Get resourceType
    * @return resourceType
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public ResourceTypeEnum getResourceType() {
     return resourceType;
   }

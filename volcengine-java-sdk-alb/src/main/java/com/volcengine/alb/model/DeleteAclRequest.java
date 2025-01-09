@@ -42,8 +42,7 @@ public class DeleteAclRequest {
    * Get aclId
    * @return aclId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getAclId() {
     return aclId;
   }

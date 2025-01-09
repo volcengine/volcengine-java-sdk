@@ -75,8 +75,7 @@ public class UploadCertificateRequest {
    * Get certificateType
    * @return certificateType
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getCertificateType() {
     return certificateType;
   }
@@ -112,8 +111,7 @@ public class UploadCertificateRequest {
    * Get privateKey
    * @return privateKey
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getPrivateKey() {
     return privateKey;
   }
@@ -149,8 +147,7 @@ public class UploadCertificateRequest {
    * Get publicKey
    * @return publicKey
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getPublicKey() {
     return publicKey;
   }
