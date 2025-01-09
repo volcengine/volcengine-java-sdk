@@ -34,7 +34,7 @@ public class DeployRequestForGetApplicationInstanceOutput {
   private String namespace = null;
 
   @SerializedName("Priority")
-  private Integer priority = null;
+  private String priority = null;
 
   @SerializedName("Queue")
   private String queue = null;
@@ -109,7 +109,7 @@ public class DeployRequestForGetApplicationInstanceOutput {
     this.namespace = namespace;
   }
 
-  public DeployRequestForGetApplicationInstanceOutput priority(Integer priority) {
+  public DeployRequestForGetApplicationInstanceOutput priority(String priority) {
     this.priority = priority;
     return this;
   }
@@ -119,11 +119,11 @@ public class DeployRequestForGetApplicationInstanceOutput {
    * @return priority
   **/
   @Schema(description = "")
-  public Integer getPriority() {
+  public String getPriority() {
     return priority;
   }
 
-  public void setPriority(Integer priority) {
+  public void setPriority(String priority) {
     this.priority = priority;
   }
 

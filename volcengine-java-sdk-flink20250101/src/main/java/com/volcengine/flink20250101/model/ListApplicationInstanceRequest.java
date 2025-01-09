@@ -178,8 +178,7 @@ public class ListApplicationInstanceRequest {
    * Get sortField
    * @return sortField
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getSortField() {
     return sortField;
   }
@@ -197,8 +196,7 @@ public class ListApplicationInstanceRequest {
    * Get sortOrder
    * @return sortOrder
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getSortOrder() {
     return sortOrder;
   }

@@ -63,7 +63,7 @@ public class RecordForListApplicationInstanceOutput {
   private String engineVersion = null;
 
   @SerializedName("Id")
-  private Long id = null;
+  private String id = null;
 
   @SerializedName("Jar")
   private String jar = null;
@@ -277,7 +277,7 @@ public class RecordForListApplicationInstanceOutput {
     this.engineVersion = engineVersion;
   }
 
-  public RecordForListApplicationInstanceOutput id(Long id) {
+  public RecordForListApplicationInstanceOutput id(String id) {
     this.id = id;
     return this;
   }
@@ -287,11 +287,11 @@ public class RecordForListApplicationInstanceOutput {
    * @return id
   **/
   @Schema(description = "")
-  public Long getId() {
+  public String getId() {
     return id;
   }
 
-  public void setId(Long id) {
+  public void setId(String id) {
     this.id = id;
   }
 
