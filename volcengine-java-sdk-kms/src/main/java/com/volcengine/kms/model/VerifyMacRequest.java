@@ -39,8 +39,14 @@ public class VerifyMacRequest {
   @SerializedName("KeyringName")
   private String keyringName = null;
 
+  @SerializedName("Mac")
+  private String mac = null;
+
   @SerializedName("MacAlgorithm")
   private String macAlgorithm = null;
+
+  @SerializedName("Message")
+  private String message = null;
 
   public VerifyMacRequest keyID(String keyID) {
     this.keyID = keyID;
@@ -96,6 +102,25 @@ public class VerifyMacRequest {
     this.keyringName = keyringName;
   }
 
+  public VerifyMacRequest mac(String mac) {
+    this.mac = mac;
+    return this;
+  }
+
+   /**
+   * Get mac
+   * @return mac
+  **/
+  @NotNull
+ @Size(min=1,max=6144)  @Schema(required = true, description = "")
+  public String getMac() {
+    return mac;
+  }
+
+  public void setMac(String mac) {
+    this.mac = mac;
+  }
+
   public VerifyMacRequest macAlgorithm(String macAlgorithm) {
     this.macAlgorithm = macAlgorithm;
     return this;
@@ -115,6 +140,25 @@ public class VerifyMacRequest {
     this.macAlgorithm = macAlgorithm;
   }
 
+  public VerifyMacRequest message(String message) {
+    this.message = message;
+    return this;
+  }
+
+   /**
+   * Get message
+   * @return message
+  **/
+  @NotNull
+ @Size(min=1,max=4096)  @Schema(required = true, description = "")
+  public String getMessage() {
+    return message;
+  }
+
+  public void setMessage(String message) {
+    this.message = message;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -128,12 +172,14 @@ public class VerifyMacRequest {
     return Objects.equals(this.keyID, verifyMacRequest.keyID) &&
         Objects.equals(this.keyName, verifyMacRequest.keyName) &&
         Objects.equals(this.keyringName, verifyMacRequest.keyringName) &&
-        Objects.equals(this.macAlgorithm, verifyMacRequest.macAlgorithm);
+        Objects.equals(this.mac, verifyMacRequest.mac) &&
+        Objects.equals(this.macAlgorithm, verifyMacRequest.macAlgorithm) &&
+        Objects.equals(this.message, verifyMacRequest.message);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(keyID, keyName, keyringName, macAlgorithm);
+    return Objects.hash(keyID, keyName, keyringName, mac, macAlgorithm, message);
   }
 
 
@@ -145,7 +191,9 @@ public class VerifyMacRequest {
     sb.append("    keyID: ").append(toIndentedString(keyID)).append("\n");
     sb.append("    keyName: ").append(toIndentedString(keyName)).append("\n");
     sb.append("    keyringName: ").append(toIndentedString(keyringName)).append("\n");
+    sb.append("    mac: ").append(toIndentedString(mac)).append("\n");
     sb.append("    macAlgorithm: ").append(toIndentedString(macAlgorithm)).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("}");
     return sb.toString();
   }

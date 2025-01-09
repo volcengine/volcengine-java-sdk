@@ -36,9 +36,6 @@ public class KeyForDescribeKeysOutput {
   @SerializedName("Description")
   private String description = null;
 
-  @SerializedName("EncryptionAlgorithms")
-  private String encryptionAlgorithms = null;
-
   @SerializedName("ID")
   private String ID = null;
 
@@ -115,24 +112,6 @@ public class KeyForDescribeKeysOutput {
 
   public void setDescription(String description) {
     this.description = description;
-  }
-
-  public KeyForDescribeKeysOutput encryptionAlgorithms(String encryptionAlgorithms) {
-    this.encryptionAlgorithms = encryptionAlgorithms;
-    return this;
-  }
-
-   /**
-   * Get encryptionAlgorithms
-   * @return encryptionAlgorithms
-  **/
-  @Schema(description = "")
-  public String getEncryptionAlgorithms() {
-    return encryptionAlgorithms;
-  }
-
-  public void setEncryptionAlgorithms(String encryptionAlgorithms) {
-    this.encryptionAlgorithms = encryptionAlgorithms;
   }
 
   public KeyForDescribeKeysOutput ID(String ID) {
@@ -399,7 +378,6 @@ public class KeyForDescribeKeysOutput {
     KeyForDescribeKeysOutput keyForDescribeKeysOutput = (KeyForDescribeKeysOutput) o;
     return Objects.equals(this.creationDate, keyForDescribeKeysOutput.creationDate) &&
         Objects.equals(this.description, keyForDescribeKeysOutput.description) &&
-        Objects.equals(this.encryptionAlgorithms, keyForDescribeKeysOutput.encryptionAlgorithms) &&
         Objects.equals(this.ID, keyForDescribeKeysOutput.ID) &&
         Objects.equals(this.keyMaterialExpireTime, keyForDescribeKeysOutput.keyMaterialExpireTime) &&
         Objects.equals(this.keyName, keyForDescribeKeysOutput.keyName) &&
@@ -418,7 +396,7 @@ public class KeyForDescribeKeysOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(creationDate, description, encryptionAlgorithms, ID, keyMaterialExpireTime, keyName, keySpec, keyState, keyUsage, lastRotationTime, origin, protectionLevel, rotationState, scheduleDeleteTime, scheduleRotationTime, trn, updateDate);
+    return Objects.hash(creationDate, description, ID, keyMaterialExpireTime, keyName, keySpec, keyState, keyUsage, lastRotationTime, origin, protectionLevel, rotationState, scheduleDeleteTime, scheduleRotationTime, trn, updateDate);
   }
 
 
@@ -429,7 +407,6 @@ public class KeyForDescribeKeysOutput {
     
     sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    encryptionAlgorithms: ").append(toIndentedString(encryptionAlgorithms)).append("\n");
     sb.append("    ID: ").append(toIndentedString(ID)).append("\n");
     sb.append("    keyMaterialExpireTime: ").append(toIndentedString(keyMaterialExpireTime)).append("\n");
     sb.append("    keyName: ").append(toIndentedString(keyName)).append("\n");

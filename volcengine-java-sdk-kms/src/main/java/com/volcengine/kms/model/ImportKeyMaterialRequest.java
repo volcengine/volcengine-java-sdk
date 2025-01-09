@@ -39,6 +39,9 @@ public class ImportKeyMaterialRequest {
   @SerializedName("ImportToken")
   private String importToken = null;
 
+  @SerializedName("KeyID")
+  private String keyID = null;
+
   @SerializedName("KeyName")
   private String keyName = null;
 
@@ -104,6 +107,24 @@ public class ImportKeyMaterialRequest {
     this.importToken = importToken;
   }
 
+  public ImportKeyMaterialRequest keyID(String keyID) {
+    this.keyID = keyID;
+    return this;
+  }
+
+   /**
+   * Get keyID
+   * @return keyID
+  **/
+  @Schema(description = "")
+  public String getKeyID() {
+    return keyID;
+  }
+
+  public void setKeyID(String keyID) {
+    this.keyID = keyID;
+  }
+
   public ImportKeyMaterialRequest keyName(String keyName) {
     this.keyName = keyName;
     return this;
@@ -113,8 +134,7 @@ public class ImportKeyMaterialRequest {
    * Get keyName
    * @return keyName
   **/
-  @NotNull
- @Size(min=2,max=31)  @Schema(required = true, description = "")
+ @Size(min=2,max=31)  @Schema(description = "")
   public String getKeyName() {
     return keyName;
   }
@@ -132,8 +152,7 @@ public class ImportKeyMaterialRequest {
    * Get keyringName
    * @return keyringName
   **/
-  @NotNull
- @Size(min=2,max=31)  @Schema(required = true, description = "")
+ @Size(min=2,max=31)  @Schema(description = "")
   public String getKeyringName() {
     return keyringName;
   }
@@ -173,6 +192,7 @@ public class ImportKeyMaterialRequest {
     return Objects.equals(this.encryptedKeyMaterial, importKeyMaterialRequest.encryptedKeyMaterial) &&
         Objects.equals(this.expirationModel, importKeyMaterialRequest.expirationModel) &&
         Objects.equals(this.importToken, importKeyMaterialRequest.importToken) &&
+        Objects.equals(this.keyID, importKeyMaterialRequest.keyID) &&
         Objects.equals(this.keyName, importKeyMaterialRequest.keyName) &&
         Objects.equals(this.keyringName, importKeyMaterialRequest.keyringName) &&
         Objects.equals(this.validTo, importKeyMaterialRequest.validTo);
@@ -180,7 +200,7 @@ public class ImportKeyMaterialRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(encryptedKeyMaterial, expirationModel, importToken, keyName, keyringName, validTo);
+    return Objects.hash(encryptedKeyMaterial, expirationModel, importToken, keyID, keyName, keyringName, validTo);
   }
 
 
@@ -192,6 +212,7 @@ public class ImportKeyMaterialRequest {
     sb.append("    encryptedKeyMaterial: ").append(toIndentedString(encryptedKeyMaterial)).append("\n");
     sb.append("    expirationModel: ").append(toIndentedString(expirationModel)).append("\n");
     sb.append("    importToken: ").append(toIndentedString(importToken)).append("\n");
+    sb.append("    keyID: ").append(toIndentedString(keyID)).append("\n");
     sb.append("    keyName: ").append(toIndentedString(keyName)).append("\n");
     sb.append("    keyringName: ").append(toIndentedString(keyringName)).append("\n");
     sb.append("    validTo: ").append(toIndentedString(validTo)).append("\n");

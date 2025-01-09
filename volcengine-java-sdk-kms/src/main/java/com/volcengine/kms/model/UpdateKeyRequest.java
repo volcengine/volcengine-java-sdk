@@ -33,6 +33,9 @@ public class UpdateKeyRequest {
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("KeyID")
+  private String keyID = null;
+
   @SerializedName("KeyName")
   private String keyName = null;
 
@@ -60,6 +63,24 @@ public class UpdateKeyRequest {
     this.description = description;
   }
 
+  public UpdateKeyRequest keyID(String keyID) {
+    this.keyID = keyID;
+    return this;
+  }
+
+   /**
+   * Get keyID
+   * @return keyID
+  **/
+  @Schema(description = "")
+  public String getKeyID() {
+    return keyID;
+  }
+
+  public void setKeyID(String keyID) {
+    this.keyID = keyID;
+  }
+
   public UpdateKeyRequest keyName(String keyName) {
     this.keyName = keyName;
     return this;
@@ -69,8 +90,7 @@ public class UpdateKeyRequest {
    * Get keyName
    * @return keyName
   **/
-  @NotNull
- @Size(min=2,max=31)  @Schema(required = true, description = "")
+ @Size(min=2,max=31)  @Schema(description = "")
   public String getKeyName() {
     return keyName;
   }
@@ -88,8 +108,7 @@ public class UpdateKeyRequest {
    * Get keyringName
    * @return keyringName
   **/
-  @NotNull
- @Size(min=2,max=31)  @Schema(required = true, description = "")
+ @Size(min=2,max=31)  @Schema(description = "")
   public String getKeyringName() {
     return keyringName;
   }
@@ -127,6 +146,7 @@ public class UpdateKeyRequest {
     }
     UpdateKeyRequest updateKeyRequest = (UpdateKeyRequest) o;
     return Objects.equals(this.description, updateKeyRequest.description) &&
+        Objects.equals(this.keyID, updateKeyRequest.keyID) &&
         Objects.equals(this.keyName, updateKeyRequest.keyName) &&
         Objects.equals(this.keyringName, updateKeyRequest.keyringName) &&
         Objects.equals(this.newKeyName, updateKeyRequest.newKeyName);
@@ -134,7 +154,7 @@ public class UpdateKeyRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, keyName, keyringName, newKeyName);
+    return Objects.hash(description, keyID, keyName, keyringName, newKeyName);
   }
 
 
@@ -144,6 +164,7 @@ public class UpdateKeyRequest {
     sb.append("class UpdateKeyRequest {\n");
     
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    keyID: ").append(toIndentedString(keyID)).append("\n");
     sb.append("    keyName: ").append(toIndentedString(keyName)).append("\n");
     sb.append("    keyringName: ").append(toIndentedString(keyringName)).append("\n");
     sb.append("    newKeyName: ").append(toIndentedString(newKeyName)).append("\n");

@@ -30,6 +30,9 @@ import javax.validation.Valid;
 
 
 public class GetParametersForImportRequest {
+  @SerializedName("KeyID")
+  private String keyID = null;
+
   @SerializedName("KeyName")
   private String keyName = null;
 
@@ -42,6 +45,24 @@ public class GetParametersForImportRequest {
   @SerializedName("WrappingKeySpec")
   private String wrappingKeySpec = null;
 
+  public GetParametersForImportRequest keyID(String keyID) {
+    this.keyID = keyID;
+    return this;
+  }
+
+   /**
+   * Get keyID
+   * @return keyID
+  **/
+  @Schema(description = "")
+  public String getKeyID() {
+    return keyID;
+  }
+
+  public void setKeyID(String keyID) {
+    this.keyID = keyID;
+  }
+
   public GetParametersForImportRequest keyName(String keyName) {
     this.keyName = keyName;
     return this;
@@ -51,8 +72,7 @@ public class GetParametersForImportRequest {
    * Get keyName
    * @return keyName
   **/
-  @NotNull
- @Size(min=2,max=31)  @Schema(required = true, description = "")
+ @Size(min=2,max=31)  @Schema(description = "")
   public String getKeyName() {
     return keyName;
   }
@@ -70,8 +90,7 @@ public class GetParametersForImportRequest {
    * Get keyringName
    * @return keyringName
   **/
-  @NotNull
- @Size(min=2,max=31)  @Schema(required = true, description = "")
+ @Size(min=2,max=31)  @Schema(description = "")
   public String getKeyringName() {
     return keyringName;
   }
@@ -126,7 +145,8 @@ public class GetParametersForImportRequest {
       return false;
     }
     GetParametersForImportRequest getParametersForImportRequest = (GetParametersForImportRequest) o;
-    return Objects.equals(this.keyName, getParametersForImportRequest.keyName) &&
+    return Objects.equals(this.keyID, getParametersForImportRequest.keyID) &&
+        Objects.equals(this.keyName, getParametersForImportRequest.keyName) &&
         Objects.equals(this.keyringName, getParametersForImportRequest.keyringName) &&
         Objects.equals(this.wrappingAlgorithm, getParametersForImportRequest.wrappingAlgorithm) &&
         Objects.equals(this.wrappingKeySpec, getParametersForImportRequest.wrappingKeySpec);
@@ -134,7 +154,7 @@ public class GetParametersForImportRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(keyName, keyringName, wrappingAlgorithm, wrappingKeySpec);
+    return Objects.hash(keyID, keyName, keyringName, wrappingAlgorithm, wrappingKeySpec);
   }
 
 
@@ -143,6 +163,7 @@ public class GetParametersForImportRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetParametersForImportRequest {\n");
     
+    sb.append("    keyID: ").append(toIndentedString(keyID)).append("\n");
     sb.append("    keyName: ").append(toIndentedString(keyName)).append("\n");
     sb.append("    keyringName: ").append(toIndentedString(keyringName)).append("\n");
     sb.append("    wrappingAlgorithm: ").append(toIndentedString(wrappingAlgorithm)).append("\n");

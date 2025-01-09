@@ -36,6 +36,9 @@ public class QueryAttackSecurityEventResponse extends com.volcengine.model.Abstr
   @SerializedName("Count")
   private Integer count = null;
 
+  @SerializedName("CurrentPage")
+  private Integer currentPage = null;
+
   @SerializedName("EventEndTime")
   private Integer eventEndTime = null;
 
@@ -97,6 +100,24 @@ public class QueryAttackSecurityEventResponse extends com.volcengine.model.Abstr
 
   public void setCount(Integer count) {
     this.count = count;
+  }
+
+  public QueryAttackSecurityEventResponse currentPage(Integer currentPage) {
+    this.currentPage = currentPage;
+    return this;
+  }
+
+   /**
+   * Get currentPage
+   * @return currentPage
+  **/
+  @Schema(description = "")
+  public Integer getCurrentPage() {
+    return currentPage;
+  }
+
+  public void setCurrentPage(Integer currentPage) {
+    this.currentPage = currentPage;
   }
 
   public QueryAttackSecurityEventResponse eventEndTime(Integer eventEndTime) {
@@ -273,6 +294,7 @@ public class QueryAttackSecurityEventResponse extends com.volcengine.model.Abstr
     QueryAttackSecurityEventResponse queryAttackSecurityEventResponse = (QueryAttackSecurityEventResponse) o;
     return Objects.equals(this.attackCount, queryAttackSecurityEventResponse.attackCount) &&
         Objects.equals(this.count, queryAttackSecurityEventResponse.count) &&
+        Objects.equals(this.currentPage, queryAttackSecurityEventResponse.currentPage) &&
         Objects.equals(this.eventEndTime, queryAttackSecurityEventResponse.eventEndTime) &&
         Objects.equals(this.eventId, queryAttackSecurityEventResponse.eventId) &&
         Objects.equals(this.eventStartTime, queryAttackSecurityEventResponse.eventStartTime) &&
@@ -286,7 +308,7 @@ public class QueryAttackSecurityEventResponse extends com.volcengine.model.Abstr
 
   @Override
   public int hashCode() {
-    return Objects.hash(attackCount, count, eventEndTime, eventId, eventStartTime, eventType, host, pageNumber, pageSize, securityLevel, totalCount);
+    return Objects.hash(attackCount, count, currentPage, eventEndTime, eventId, eventStartTime, eventType, host, pageNumber, pageSize, securityLevel, totalCount);
   }
 
 
@@ -297,6 +319,7 @@ public class QueryAttackSecurityEventResponse extends com.volcengine.model.Abstr
     
     sb.append("    attackCount: ").append(toIndentedString(attackCount)).append("\n");
     sb.append("    count: ").append(toIndentedString(count)).append("\n");
+    sb.append("    currentPage: ").append(toIndentedString(currentPage)).append("\n");
     sb.append("    eventEndTime: ").append(toIndentedString(eventEndTime)).append("\n");
     sb.append("    eventId: ").append(toIndentedString(eventId)).append("\n");
     sb.append("    eventStartTime: ").append(toIndentedString(eventStartTime)).append("\n");

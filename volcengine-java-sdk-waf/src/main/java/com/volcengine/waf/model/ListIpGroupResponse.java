@@ -35,6 +35,9 @@ public class ListIpGroupResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Count")
   private Integer count = null;
 
+  @SerializedName("CurrentPage")
+  private Integer currentPage = null;
+
   @SerializedName("IpList")
   private List<String> ipList = null;
 
@@ -63,6 +66,24 @@ public class ListIpGroupResponse extends com.volcengine.model.AbstractResponse {
 
   public void setCount(Integer count) {
     this.count = count;
+  }
+
+  public ListIpGroupResponse currentPage(Integer currentPage) {
+    this.currentPage = currentPage;
+    return this;
+  }
+
+   /**
+   * Get currentPage
+   * @return currentPage
+  **/
+  @Schema(description = "")
+  public Integer getCurrentPage() {
+    return currentPage;
+  }
+
+  public void setCurrentPage(Integer currentPage) {
+    this.currentPage = currentPage;
   }
 
   public ListIpGroupResponse ipList(List<String> ipList) {
@@ -156,6 +177,7 @@ public class ListIpGroupResponse extends com.volcengine.model.AbstractResponse {
     }
     ListIpGroupResponse listIpGroupResponse = (ListIpGroupResponse) o;
     return Objects.equals(this.count, listIpGroupResponse.count) &&
+        Objects.equals(this.currentPage, listIpGroupResponse.currentPage) &&
         Objects.equals(this.ipList, listIpGroupResponse.ipList) &&
         Objects.equals(this.pageNumber, listIpGroupResponse.pageNumber) &&
         Objects.equals(this.pageSize, listIpGroupResponse.pageSize) &&
@@ -164,7 +186,7 @@ public class ListIpGroupResponse extends com.volcengine.model.AbstractResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(count, ipList, pageNumber, pageSize, totalCount);
+    return Objects.hash(count, currentPage, ipList, pageNumber, pageSize, totalCount);
   }
 
 
@@ -174,6 +196,7 @@ public class ListIpGroupResponse extends com.volcengine.model.AbstractResponse {
     sb.append("class ListIpGroupResponse {\n");
     
     sb.append("    count: ").append(toIndentedString(count)).append("\n");
+    sb.append("    currentPage: ").append(toIndentedString(currentPage)).append("\n");
     sb.append("    ipList: ").append(toIndentedString(ipList)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");

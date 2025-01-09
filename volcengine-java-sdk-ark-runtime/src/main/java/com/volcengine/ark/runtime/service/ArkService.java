@@ -5,14 +5,11 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
-import com.volcengine.ark.runtime.*;
+import com.volcengine.ark.runtime.Const;
 import com.volcengine.ark.runtime.exception.ArkAPIError;
 import com.volcengine.ark.runtime.exception.ArkException;
 import com.volcengine.ark.runtime.exception.ArkHttpException;
-import com.volcengine.ark.runtime.interceptor.AuthenticationInterceptor;
-import com.volcengine.ark.runtime.interceptor.ArkResourceStsAuthenticationInterceptor;
-import com.volcengine.ark.runtime.interceptor.RequestIdInterceptor;
-import com.volcengine.ark.runtime.interceptor.RetryInterceptor;
+import com.volcengine.ark.runtime.interceptor.*;
 import com.volcengine.ark.runtime.model.content.generation.DeleteContentGenerationTaskResponse;
 import com.volcengine.ark.runtime.interceptor.*;
 import com.volcengine.ark.runtime.model.bot.completion.chat.BotChatCompletionChunk;
@@ -39,10 +36,12 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.jackson.JacksonConverterFactory;
 import retrofit2.Retrofit;
 
+
 import java.io.IOException;
 import java.net.Proxy;
 import java.time.Duration;
 import java.util.*;
+import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.TimeUnit;
 
@@ -59,7 +58,7 @@ public class ArkService extends ArkBaseService implements ArkBaseServiceImpl {
     public ArkService(final String apiKey, final Duration timeout) {
         ObjectMapper mapper = defaultObjectMapper();
         OkHttpClient client = defaultApiKeyClient(apiKey, timeout);
-        Retrofit retrofit = defaultRetrofit(client, mapper, BASE_URL);
+        Retrofit retrofit = defaultRetrofit(client, mapper, BASE_URL, null);
 
         this.api = retrofit.create(ArkApi.class);
         this.executorService = client.dispatcher().executorService();
@@ -72,7 +71,7 @@ public class ArkService extends ArkBaseService implements ArkBaseServiceImpl {
     public ArkService(final String ak, final String sk, final Duration timeout) {
         ObjectMapper mapper = defaultObjectMapper();
         OkHttpClient client = defaultResourceStsClient(ak, sk, timeout, BASE_REGION);
-        Retrofit retrofit = defaultRetrofit(client, mapper, BASE_URL);
+        Retrofit retrofit = defaultRetrofit(client, mapper, BASE_URL, null);
 
         this.api = retrofit.create(ArkApi.class);
         this.executorService = client.dispatcher().executorService();
@@ -116,13 +115,19 @@ public class ArkService extends ArkBaseService implements ArkBaseServiceImpl {
                 .build();
     }
 
-    public static Retrofit defaultRetrofit(OkHttpClient client, ObjectMapper mapper, String baseUrl) {
-        return new Retrofit.Builder()
+    public static Retrofit defaultRetrofit(OkHttpClient client, ObjectMapper mapper, String baseUrl, Executor callbackExecutor) {
+        Retrofit.Builder builder = new Retrofit.Builder()
                 .baseUrl(baseUrl)
                 .client(client)
                 .addConverterFactory(JacksonConverterFactory.create(mapper))
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .build();
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create());
+
+        if (callbackExecutor != null) {
+            // to avoid NPE
+            builder.callbackExecutor(callbackExecutor);
+        }
+
+        return builder.build();
     }
 
     public static <T> T execute(Single<T> apiCall) {
@@ -329,6 +334,7 @@ public class ArkService extends ArkBaseService implements ArkBaseServiceImpl {
         private Proxy proxy;
         private ConnectionPool connectionPool;
         private Dispatcher dispatcher;
+        private Executor callbackExecutor;
 
         public ArkService.Builder ak(String ak) {
             this.ak = ak;
@@ -388,6 +394,11 @@ public class ArkService extends ArkBaseService implements ArkBaseServiceImpl {
             return this;
         }
 
+        public ArkService.Builder callbackExecutor(Executor callbackExecutor) {
+            this.callbackExecutor = callbackExecutor;
+            return this;
+        }
+
         public ArkService build() {
             ObjectMapper mapper = defaultObjectMapper();
             OkHttpClient.Builder clientBuilder = new OkHttpClient.Builder();
@@ -421,7 +432,7 @@ public class ArkService extends ArkBaseService implements ArkBaseServiceImpl {
                     .callTimeout(timeout.toMillis(), TimeUnit.MILLISECONDS)
                     .connectTimeout(connectTimeout)
                     .build();
-            Retrofit retrofit = defaultRetrofit(client, mapper, baseUrl);
+            Retrofit retrofit = defaultRetrofit(client, mapper, baseUrl, callbackExecutor);
 
             return new ArkService(
                     retrofit.create(ArkApi.class),

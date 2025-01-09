@@ -42,6 +42,9 @@ public class GenerateMacRequest {
   @SerializedName("MacAlgorithm")
   private String macAlgorithm = null;
 
+  @SerializedName("Message")
+  private String message = null;
+
   public GenerateMacRequest keyID(String keyID) {
     this.keyID = keyID;
     return this;
@@ -115,6 +118,25 @@ public class GenerateMacRequest {
     this.macAlgorithm = macAlgorithm;
   }
 
+  public GenerateMacRequest message(String message) {
+    this.message = message;
+    return this;
+  }
+
+   /**
+   * Get message
+   * @return message
+  **/
+  @NotNull
+ @Size(min=1,max=4096)  @Schema(required = true, description = "")
+  public String getMessage() {
+    return message;
+  }
+
+  public void setMessage(String message) {
+    this.message = message;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -128,12 +150,13 @@ public class GenerateMacRequest {
     return Objects.equals(this.keyID, generateMacRequest.keyID) &&
         Objects.equals(this.keyName, generateMacRequest.keyName) &&
         Objects.equals(this.keyringName, generateMacRequest.keyringName) &&
-        Objects.equals(this.macAlgorithm, generateMacRequest.macAlgorithm);
+        Objects.equals(this.macAlgorithm, generateMacRequest.macAlgorithm) &&
+        Objects.equals(this.message, generateMacRequest.message);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(keyID, keyName, keyringName, macAlgorithm);
+    return Objects.hash(keyID, keyName, keyringName, macAlgorithm, message);
   }
 
 
@@ -146,6 +169,7 @@ public class GenerateMacRequest {
     sb.append("    keyName: ").append(toIndentedString(keyName)).append("\n");
     sb.append("    keyringName: ").append(toIndentedString(keyringName)).append("\n");
     sb.append("    macAlgorithm: ").append(toIndentedString(macAlgorithm)).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("}");
     return sb.toString();
   }

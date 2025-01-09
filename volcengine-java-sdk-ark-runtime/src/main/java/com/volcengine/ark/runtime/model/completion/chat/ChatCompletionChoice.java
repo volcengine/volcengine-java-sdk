@@ -25,6 +25,12 @@ public class ChatCompletionChoice {
     String finishReason;
 
     /**
+     * The type of content moderation service hit.
+     */
+    @JsonProperty("moderation_hit_type")
+    String moderationHitType;
+
+    /**
      * Log probability information for the choice.
      */
     @JsonProperty("logprobs")
@@ -54,6 +60,14 @@ public class ChatCompletionChoice {
         this.finishReason = finishReason;
     }
 
+    public void setModerationHitType(String moderationHitType) {
+        this.moderationHitType = moderationHitType;
+    }
+
+    public String getModerationHitType() {
+        return moderationHitType;
+    }
+
     public ChatCompletionChoiceLogprob getLogprobs() {
         return logprobs;
     }
@@ -68,6 +82,7 @@ public class ChatCompletionChoice {
                 "index=" + index +
                 ", message=" + message +
                 ", finishReason='" + finishReason + '\'' +
+                ", moderationHitType='" + moderationHitType + '\'' +
                 ", logprobs=" + logprobs +
                 '}';
     }

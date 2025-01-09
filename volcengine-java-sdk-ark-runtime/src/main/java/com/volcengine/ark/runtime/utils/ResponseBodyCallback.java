@@ -3,6 +3,7 @@ package com.volcengine.ark.runtime.utils;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.volcengine.ark.runtime.Const;
 import com.volcengine.ark.runtime.exception.ArkAPIError;
+import com.volcengine.ark.runtime.exception.ArkException;
 import com.volcengine.ark.runtime.exception.ArkHttpException;
 import com.volcengine.ark.runtime.SSEFormatException;
 import com.volcengine.ark.runtime.service.ArkService;
@@ -51,11 +52,15 @@ public class ResponseBodyCallback implements Callback<ResponseBody> {
                 if (errorBody == null) {
                     throw e;
                 } else {
-                    ArkAPIError error = mapper.readValue(
-                            errorBody.string(),
-                            ArkAPIError.class
-                    );
-                    throw new ArkHttpException(error, e, e.code(), requestId);
+                    try {
+                        ArkAPIError error = mapper.readValue(
+                                errorBody.string(),
+                                ArkAPIError.class
+                        );
+                        throw new ArkHttpException(error, e, e.code(), requestId);
+                    } catch (Exception ignore) {
+                        throw new ArkHttpException(new ArkAPIError(new ArkAPIError.ArkErrorDetails(e.getMessage(), "", "", "InternalServiceError")), e, e.code(), requestId);
+                    }
                 }
             }
 
