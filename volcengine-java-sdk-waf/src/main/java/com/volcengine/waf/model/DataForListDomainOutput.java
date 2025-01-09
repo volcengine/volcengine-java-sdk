@@ -160,7 +160,7 @@ public class DataForListDomainOutput {
   private ProtocolPortsForListDomainOutput protocolPorts = null;
 
   @SerializedName("Protocols")
-  private List<String> protocols = null;
+  private String protocols = null;
 
   @SerializedName("ProxyConfig")
   private Integer proxyConfig = null;
@@ -1011,16 +1011,8 @@ public class DataForListDomainOutput {
     this.protocolPorts = protocolPorts;
   }
 
-  public DataForListDomainOutput protocols(List<String> protocols) {
+  public DataForListDomainOutput protocols(String protocols) {
     this.protocols = protocols;
-    return this;
-  }
-
-  public DataForListDomainOutput addProtocolsItem(String protocolsItem) {
-    if (this.protocols == null) {
-      this.protocols = new ArrayList<String>();
-    }
-    this.protocols.add(protocolsItem);
     return this;
   }
 
@@ -1029,11 +1021,11 @@ public class DataForListDomainOutput {
    * @return protocols
   **/
   @Schema(description = "")
-  public List<String> getProtocols() {
+  public String getProtocols() {
     return protocols;
   }
 
-  public void setProtocols(List<String> protocols) {
+  public void setProtocols(String protocols) {
     this.protocols = protocols;
   }
 

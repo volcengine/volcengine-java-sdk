@@ -131,8 +131,7 @@ public class ListDomainRequest {
    * Get accurateQuery
    * @return accurateQuery
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public Integer getAccurateQuery() {
     return accurateQuery;
   }

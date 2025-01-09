@@ -36,6 +36,9 @@ public class ListProhibitionResponse extends com.volcengine.model.AbstractRespon
   @SerializedName("Count")
   private Integer count = null;
 
+  @SerializedName("CurrentPage")
+  private Integer currentPage = null;
+
   @SerializedName("IpAggGroup")
   private List<IpAggGroupForListProhibitionOutput> ipAggGroup = null;
 
@@ -64,6 +67,24 @@ public class ListProhibitionResponse extends com.volcengine.model.AbstractRespon
 
   public void setCount(Integer count) {
     this.count = count;
+  }
+
+  public ListProhibitionResponse currentPage(Integer currentPage) {
+    this.currentPage = currentPage;
+    return this;
+  }
+
+   /**
+   * Get currentPage
+   * @return currentPage
+  **/
+  @Schema(description = "")
+  public Integer getCurrentPage() {
+    return currentPage;
+  }
+
+  public void setCurrentPage(Integer currentPage) {
+    this.currentPage = currentPage;
   }
 
   public ListProhibitionResponse ipAggGroup(List<IpAggGroupForListProhibitionOutput> ipAggGroup) {
@@ -158,6 +179,7 @@ public class ListProhibitionResponse extends com.volcengine.model.AbstractRespon
     }
     ListProhibitionResponse listProhibitionResponse = (ListProhibitionResponse) o;
     return Objects.equals(this.count, listProhibitionResponse.count) &&
+        Objects.equals(this.currentPage, listProhibitionResponse.currentPage) &&
         Objects.equals(this.ipAggGroup, listProhibitionResponse.ipAggGroup) &&
         Objects.equals(this.pageNumber, listProhibitionResponse.pageNumber) &&
         Objects.equals(this.pageSize, listProhibitionResponse.pageSize) &&
@@ -166,7 +188,7 @@ public class ListProhibitionResponse extends com.volcengine.model.AbstractRespon
 
   @Override
   public int hashCode() {
-    return Objects.hash(count, ipAggGroup, pageNumber, pageSize, totalCount);
+    return Objects.hash(count, currentPage, ipAggGroup, pageNumber, pageSize, totalCount);
   }
 
 
@@ -176,6 +198,7 @@ public class ListProhibitionResponse extends com.volcengine.model.AbstractRespon
     sb.append("class ListProhibitionResponse {\n");
     
     sb.append("    count: ").append(toIndentedString(count)).append("\n");
+    sb.append("    currentPage: ").append(toIndentedString(currentPage)).append("\n");
     sb.append("    ipAggGroup: ").append(toIndentedString(ipAggGroup)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");

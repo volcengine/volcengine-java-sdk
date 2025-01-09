@@ -36,6 +36,9 @@ public class ListAllowRuleResponse extends com.volcengine.model.AbstractResponse
   @SerializedName("Count")
   private Integer count = null;
 
+  @SerializedName("CurrentPage")
+  private Integer currentPage = null;
+
   @SerializedName("Data")
   private List<DataForListAllowRuleOutput> data = null;
 
@@ -64,6 +67,24 @@ public class ListAllowRuleResponse extends com.volcengine.model.AbstractResponse
 
   public void setCount(Integer count) {
     this.count = count;
+  }
+
+  public ListAllowRuleResponse currentPage(Integer currentPage) {
+    this.currentPage = currentPage;
+    return this;
+  }
+
+   /**
+   * Get currentPage
+   * @return currentPage
+  **/
+  @Schema(description = "")
+  public Integer getCurrentPage() {
+    return currentPage;
+  }
+
+  public void setCurrentPage(Integer currentPage) {
+    this.currentPage = currentPage;
   }
 
   public ListAllowRuleResponse data(List<DataForListAllowRuleOutput> data) {
@@ -158,6 +179,7 @@ public class ListAllowRuleResponse extends com.volcengine.model.AbstractResponse
     }
     ListAllowRuleResponse listAllowRuleResponse = (ListAllowRuleResponse) o;
     return Objects.equals(this.count, listAllowRuleResponse.count) &&
+        Objects.equals(this.currentPage, listAllowRuleResponse.currentPage) &&
         Objects.equals(this.data, listAllowRuleResponse.data) &&
         Objects.equals(this.pageNumber, listAllowRuleResponse.pageNumber) &&
         Objects.equals(this.pageSize, listAllowRuleResponse.pageSize) &&
@@ -166,7 +188,7 @@ public class ListAllowRuleResponse extends com.volcengine.model.AbstractResponse
 
   @Override
   public int hashCode() {
-    return Objects.hash(count, data, pageNumber, pageSize, totalCount);
+    return Objects.hash(count, currentPage, data, pageNumber, pageSize, totalCount);
   }
 
 
@@ -176,6 +198,7 @@ public class ListAllowRuleResponse extends com.volcengine.model.AbstractResponse
     sb.append("class ListAllowRuleResponse {\n");
     
     sb.append("    count: ").append(toIndentedString(count)).append("\n");
+    sb.append("    currentPage: ").append(toIndentedString(currentPage)).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");

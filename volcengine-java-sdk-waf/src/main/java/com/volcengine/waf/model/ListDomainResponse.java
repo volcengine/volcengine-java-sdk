@@ -36,11 +36,11 @@ public class ListDomainResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Count")
   private Integer count = null;
 
+  @SerializedName("CurrentPage")
+  private Integer currentPage = null;
+
   @SerializedName("Data")
   private List<DataForListDomainOutput> data = null;
-
-  @SerializedName("PageNumber")
-  private Integer pageNumber = null;
 
   @SerializedName("PageSize")
   private Integer pageSize = null;
@@ -64,6 +64,24 @@ public class ListDomainResponse extends com.volcengine.model.AbstractResponse {
 
   public void setCount(Integer count) {
     this.count = count;
+  }
+
+  public ListDomainResponse currentPage(Integer currentPage) {
+    this.currentPage = currentPage;
+    return this;
+  }
+
+   /**
+   * Get currentPage
+   * @return currentPage
+  **/
+  @Schema(description = "")
+  public Integer getCurrentPage() {
+    return currentPage;
+  }
+
+  public void setCurrentPage(Integer currentPage) {
+    this.currentPage = currentPage;
   }
 
   public ListDomainResponse data(List<DataForListDomainOutput> data) {
@@ -91,24 +109,6 @@ public class ListDomainResponse extends com.volcengine.model.AbstractResponse {
 
   public void setData(List<DataForListDomainOutput> data) {
     this.data = data;
-  }
-
-  public ListDomainResponse pageNumber(Integer pageNumber) {
-    this.pageNumber = pageNumber;
-    return this;
-  }
-
-   /**
-   * Get pageNumber
-   * @return pageNumber
-  **/
-  @Schema(description = "")
-  public Integer getPageNumber() {
-    return pageNumber;
-  }
-
-  public void setPageNumber(Integer pageNumber) {
-    this.pageNumber = pageNumber;
   }
 
   public ListDomainResponse pageSize(Integer pageSize) {
@@ -158,15 +158,15 @@ public class ListDomainResponse extends com.volcengine.model.AbstractResponse {
     }
     ListDomainResponse listDomainResponse = (ListDomainResponse) o;
     return Objects.equals(this.count, listDomainResponse.count) &&
+        Objects.equals(this.currentPage, listDomainResponse.currentPage) &&
         Objects.equals(this.data, listDomainResponse.data) &&
-        Objects.equals(this.pageNumber, listDomainResponse.pageNumber) &&
         Objects.equals(this.pageSize, listDomainResponse.pageSize) &&
         Objects.equals(this.totalCount, listDomainResponse.totalCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(count, data, pageNumber, pageSize, totalCount);
+    return Objects.hash(count, currentPage, data, pageSize, totalCount);
   }
 
 
@@ -176,8 +176,8 @@ public class ListDomainResponse extends com.volcengine.model.AbstractResponse {
     sb.append("class ListDomainResponse {\n");
     
     sb.append("    count: ").append(toIndentedString(count)).append("\n");
+    sb.append("    currentPage: ").append(toIndentedString(currentPage)).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("}");
