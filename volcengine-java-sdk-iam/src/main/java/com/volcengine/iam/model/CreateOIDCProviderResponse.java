@@ -12,32 +12,32 @@
 
 package com.volcengine.iam.model;
 
-import com.google.gson.annotations.SerializedName;
-import io.swagger.v3.oas.annotations.media.Schema;
-
 import java.util.Objects;
-
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.IOException;
+import javax.validation.constraints.*;
+import javax.validation.Valid;
 /**
- * CreateSAMLProviderResponse
+ * CreateOIDCProviderResponse
  */
 
 
 
-public class CreateSAMLProviderResponse extends com.volcengine.model.AbstractResponse {
+public class CreateOIDCProviderResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("CreateDate")
   private String createDate = null;
 
   @SerializedName("Description")
   private String description = null;
 
-  @SerializedName("SAMLProviderName")
-  private String saMLProviderName = null;
-
-  @SerializedName("SSOType")
-  private Integer ssOType = null;
-
-  @SerializedName("Status")
-  private Integer status = null;
+  @SerializedName("OIDCProviderName")
+  private String oiDCProviderName = null;
 
   @SerializedName("Trn")
   private String trn = null;
@@ -45,7 +45,7 @@ public class CreateSAMLProviderResponse extends com.volcengine.model.AbstractRes
   @SerializedName("UpdateDate")
   private String updateDate = null;
 
-  public CreateSAMLProviderResponse createDate(String createDate) {
+  public CreateOIDCProviderResponse createDate(String createDate) {
     this.createDate = createDate;
     return this;
   }
@@ -63,7 +63,7 @@ public class CreateSAMLProviderResponse extends com.volcengine.model.AbstractRes
     this.createDate = createDate;
   }
 
-  public CreateSAMLProviderResponse description(String description) {
+  public CreateOIDCProviderResponse description(String description) {
     this.description = description;
     return this;
   }
@@ -81,61 +81,25 @@ public class CreateSAMLProviderResponse extends com.volcengine.model.AbstractRes
     this.description = description;
   }
 
-  public CreateSAMLProviderResponse saMLProviderName(String saMLProviderName) {
-    this.saMLProviderName = saMLProviderName;
+  public CreateOIDCProviderResponse oiDCProviderName(String oiDCProviderName) {
+    this.oiDCProviderName = oiDCProviderName;
     return this;
   }
 
    /**
-   * Get saMLProviderName
-   * @return saMLProviderName
+   * Get oiDCProviderName
+   * @return oiDCProviderName
   **/
   @Schema(description = "")
-  public String getSaMLProviderName() {
-    return saMLProviderName;
+  public String getOiDCProviderName() {
+    return oiDCProviderName;
   }
 
-  public void setSaMLProviderName(String saMLProviderName) {
-    this.saMLProviderName = saMLProviderName;
+  public void setOiDCProviderName(String oiDCProviderName) {
+    this.oiDCProviderName = oiDCProviderName;
   }
 
-  public CreateSAMLProviderResponse ssOType(Integer ssOType) {
-    this.ssOType = ssOType;
-    return this;
-  }
-
-   /**
-   * Get ssOType
-   * @return ssOType
-  **/
-  @Schema(description = "")
-  public Integer getSsOType() {
-    return ssOType;
-  }
-
-  public void setSsOType(Integer ssOType) {
-    this.ssOType = ssOType;
-  }
-
-  public CreateSAMLProviderResponse status(Integer status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Get status
-   * @return status
-  **/
-  @Schema(description = "")
-  public Integer getStatus() {
-    return status;
-  }
-
-  public void setStatus(Integer status) {
-    this.status = status;
-  }
-
-  public CreateSAMLProviderResponse trn(String trn) {
+  public CreateOIDCProviderResponse trn(String trn) {
     this.trn = trn;
     return this;
   }
@@ -153,7 +117,7 @@ public class CreateSAMLProviderResponse extends com.volcengine.model.AbstractRes
     this.trn = trn;
   }
 
-  public CreateSAMLProviderResponse updateDate(String updateDate) {
+  public CreateOIDCProviderResponse updateDate(String updateDate) {
     this.updateDate = updateDate;
     return this;
   }
@@ -173,39 +137,35 @@ public class CreateSAMLProviderResponse extends com.volcengine.model.AbstractRes
 
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateSAMLProviderResponse createSAMLProviderResponse = (CreateSAMLProviderResponse) o;
-    return Objects.equals(this.createDate, createSAMLProviderResponse.createDate) &&
-        Objects.equals(this.description, createSAMLProviderResponse.description) &&
-        Objects.equals(this.saMLProviderName, createSAMLProviderResponse.saMLProviderName) &&
-        Objects.equals(this.ssOType, createSAMLProviderResponse.ssOType) &&
-        Objects.equals(this.status, createSAMLProviderResponse.status) &&
-        Objects.equals(this.trn, createSAMLProviderResponse.trn) &&
-        Objects.equals(this.updateDate, createSAMLProviderResponse.updateDate);
+    CreateOIDCProviderResponse createOIDCProviderResponse = (CreateOIDCProviderResponse) o;
+    return Objects.equals(this.createDate, createOIDCProviderResponse.createDate) &&
+        Objects.equals(this.description, createOIDCProviderResponse.description) &&
+        Objects.equals(this.oiDCProviderName, createOIDCProviderResponse.oiDCProviderName) &&
+        Objects.equals(this.trn, createOIDCProviderResponse.trn) &&
+        Objects.equals(this.updateDate, createOIDCProviderResponse.updateDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createDate, description, saMLProviderName, ssOType, status, trn, updateDate);
+    return Objects.hash(createDate, description, oiDCProviderName, trn, updateDate);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateSAMLProviderResponse {\n");
+    sb.append("class CreateOIDCProviderResponse {\n");
     
     sb.append("    createDate: ").append(toIndentedString(createDate)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    saMLProviderName: ").append(toIndentedString(saMLProviderName)).append("\n");
-    sb.append("    ssOType: ").append(toIndentedString(ssOType)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    oiDCProviderName: ").append(toIndentedString(oiDCProviderName)).append("\n");
     sb.append("    trn: ").append(toIndentedString(trn)).append("\n");
     sb.append("    updateDate: ").append(toIndentedString(updateDate)).append("\n");
     sb.append("}");
@@ -216,7 +176,7 @@ public class CreateSAMLProviderResponse extends com.volcengine.model.AbstractRes
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }

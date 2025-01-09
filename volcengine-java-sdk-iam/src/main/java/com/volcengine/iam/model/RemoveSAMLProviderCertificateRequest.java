@@ -12,22 +12,28 @@
 
 package com.volcengine.iam.model;
 
-import com.google.gson.annotations.SerializedName;
-import io.swagger.v3.oas.annotations.media.Schema;
-
 import java.util.Objects;
-
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.IOException;
+import javax.validation.constraints.*;
+import javax.validation.Valid;
 /**
- * AddSAMLProviderCertificateResponse
+ * RemoveSAMLProviderCertificateRequest
  */
 
 
 
-public class AddSAMLProviderCertificateResponse extends com.volcengine.model.AbstractResponse {
+public class RemoveSAMLProviderCertificateRequest {
   @SerializedName("CertificateId")
   private String certificateId = null;
 
-  public AddSAMLProviderCertificateResponse certificateId(String certificateId) {
+  public RemoveSAMLProviderCertificateRequest certificateId(String certificateId) {
     this.certificateId = certificateId;
     return this;
   }
@@ -36,7 +42,8 @@ public class AddSAMLProviderCertificateResponse extends com.volcengine.model.Abs
    * Get certificateId
    * @return certificateId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getCertificateId() {
     return certificateId;
   }
@@ -47,15 +54,15 @@ public class AddSAMLProviderCertificateResponse extends com.volcengine.model.Abs
 
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AddSAMLProviderCertificateResponse addSAMLProviderCertificateResponse = (AddSAMLProviderCertificateResponse) o;
-    return Objects.equals(this.certificateId, addSAMLProviderCertificateResponse.certificateId);
+    RemoveSAMLProviderCertificateRequest removeSAMLProviderCertificateRequest = (RemoveSAMLProviderCertificateRequest) o;
+    return Objects.equals(this.certificateId, removeSAMLProviderCertificateRequest.certificateId);
   }
 
   @Override
@@ -67,7 +74,7 @@ public class AddSAMLProviderCertificateResponse extends com.volcengine.model.Abs
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AddSAMLProviderCertificateResponse {\n");
+    sb.append("class RemoveSAMLProviderCertificateRequest {\n");
     
     sb.append("    certificateId: ").append(toIndentedString(certificateId)).append("\n");
     sb.append("}");
@@ -78,7 +85,7 @@ public class AddSAMLProviderCertificateResponse extends com.volcengine.model.Abs
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }
