@@ -30,6 +30,9 @@ import javax.validation.Valid;
 
 
 public class ScheduleKeyDeletionRequest {
+  @SerializedName("KeyID")
+  private String keyID = null;
+
   @SerializedName("KeyName")
   private String keyName = null;
 
@@ -38,6 +41,24 @@ public class ScheduleKeyDeletionRequest {
 
   @SerializedName("PendingWindowInDays")
   private Integer pendingWindowInDays = null;
+
+  public ScheduleKeyDeletionRequest keyID(String keyID) {
+    this.keyID = keyID;
+    return this;
+  }
+
+   /**
+   * Get keyID
+   * @return keyID
+  **/
+  @Schema(description = "")
+  public String getKeyID() {
+    return keyID;
+  }
+
+  public void setKeyID(String keyID) {
+    this.keyID = keyID;
+  }
 
   public ScheduleKeyDeletionRequest keyName(String keyName) {
     this.keyName = keyName;
@@ -48,8 +69,7 @@ public class ScheduleKeyDeletionRequest {
    * Get keyName
    * @return keyName
   **/
-  @NotNull
- @Size(min=2,max=31)  @Schema(required = true, description = "")
+ @Size(min=2,max=31)  @Schema(description = "")
   public String getKeyName() {
     return keyName;
   }
@@ -67,8 +87,7 @@ public class ScheduleKeyDeletionRequest {
    * Get keyringName
    * @return keyringName
   **/
-  @NotNull
- @Size(min=2,max=31)  @Schema(required = true, description = "")
+ @Size(min=2,max=31)  @Schema(description = "")
   public String getKeyringName() {
     return keyringName;
   }
@@ -107,14 +126,15 @@ public class ScheduleKeyDeletionRequest {
       return false;
     }
     ScheduleKeyDeletionRequest scheduleKeyDeletionRequest = (ScheduleKeyDeletionRequest) o;
-    return Objects.equals(this.keyName, scheduleKeyDeletionRequest.keyName) &&
+    return Objects.equals(this.keyID, scheduleKeyDeletionRequest.keyID) &&
+        Objects.equals(this.keyName, scheduleKeyDeletionRequest.keyName) &&
         Objects.equals(this.keyringName, scheduleKeyDeletionRequest.keyringName) &&
         Objects.equals(this.pendingWindowInDays, scheduleKeyDeletionRequest.pendingWindowInDays);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(keyName, keyringName, pendingWindowInDays);
+    return Objects.hash(keyID, keyName, keyringName, pendingWindowInDays);
   }
 
 
@@ -123,6 +143,7 @@ public class ScheduleKeyDeletionRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ScheduleKeyDeletionRequest {\n");
     
+    sb.append("    keyID: ").append(toIndentedString(keyID)).append("\n");
     sb.append("    keyName: ").append(toIndentedString(keyName)).append("\n");
     sb.append("    keyringName: ").append(toIndentedString(keyringName)).append("\n");
     sb.append("    pendingWindowInDays: ").append(toIndentedString(pendingWindowInDays)).append("\n");

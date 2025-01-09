@@ -30,11 +30,32 @@ import javax.validation.Valid;
 
 
 public class CancelKeyDeletionRequest {
+  @SerializedName("KeyID")
+  private String keyID = null;
+
   @SerializedName("KeyName")
   private String keyName = null;
 
   @SerializedName("KeyringName")
   private String keyringName = null;
+
+  public CancelKeyDeletionRequest keyID(String keyID) {
+    this.keyID = keyID;
+    return this;
+  }
+
+   /**
+   * Get keyID
+   * @return keyID
+  **/
+  @Schema(description = "")
+  public String getKeyID() {
+    return keyID;
+  }
+
+  public void setKeyID(String keyID) {
+    this.keyID = keyID;
+  }
 
   public CancelKeyDeletionRequest keyName(String keyName) {
     this.keyName = keyName;
@@ -45,8 +66,7 @@ public class CancelKeyDeletionRequest {
    * Get keyName
    * @return keyName
   **/
-  @NotNull
- @Size(min=2,max=31)  @Schema(required = true, description = "")
+ @Size(min=2,max=31)  @Schema(description = "")
   public String getKeyName() {
     return keyName;
   }
@@ -64,8 +84,7 @@ public class CancelKeyDeletionRequest {
    * Get keyringName
    * @return keyringName
   **/
-  @NotNull
- @Size(min=2,max=31)  @Schema(required = true, description = "")
+ @Size(min=2,max=31)  @Schema(description = "")
   public String getKeyringName() {
     return keyringName;
   }
@@ -84,13 +103,14 @@ public class CancelKeyDeletionRequest {
       return false;
     }
     CancelKeyDeletionRequest cancelKeyDeletionRequest = (CancelKeyDeletionRequest) o;
-    return Objects.equals(this.keyName, cancelKeyDeletionRequest.keyName) &&
+    return Objects.equals(this.keyID, cancelKeyDeletionRequest.keyID) &&
+        Objects.equals(this.keyName, cancelKeyDeletionRequest.keyName) &&
         Objects.equals(this.keyringName, cancelKeyDeletionRequest.keyringName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(keyName, keyringName);
+    return Objects.hash(keyID, keyName, keyringName);
   }
 
 
@@ -99,6 +119,7 @@ public class CancelKeyDeletionRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CancelKeyDeletionRequest {\n");
     
+    sb.append("    keyID: ").append(toIndentedString(keyID)).append("\n");
     sb.append("    keyName: ").append(toIndentedString(keyName)).append("\n");
     sb.append("    keyringName: ").append(toIndentedString(keyringName)).append("\n");
     sb.append("}");

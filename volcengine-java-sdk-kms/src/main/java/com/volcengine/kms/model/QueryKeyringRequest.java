@@ -30,8 +30,29 @@ import javax.validation.Valid;
 
 
 public class QueryKeyringRequest {
+  @SerializedName("KeyringID")
+  private String keyringID = null;
+
   @SerializedName("KeyringName")
   private String keyringName = null;
+
+  public QueryKeyringRequest keyringID(String keyringID) {
+    this.keyringID = keyringID;
+    return this;
+  }
+
+   /**
+   * Get keyringID
+   * @return keyringID
+  **/
+  @Schema(description = "")
+  public String getKeyringID() {
+    return keyringID;
+  }
+
+  public void setKeyringID(String keyringID) {
+    this.keyringID = keyringID;
+  }
 
   public QueryKeyringRequest keyringName(String keyringName) {
     this.keyringName = keyringName;
@@ -42,8 +63,7 @@ public class QueryKeyringRequest {
    * Get keyringName
    * @return keyringName
   **/
-  @NotNull
- @Size(min=2,max=31)  @Schema(required = true, description = "")
+ @Size(min=2,max=31)  @Schema(description = "")
   public String getKeyringName() {
     return keyringName;
   }
@@ -62,12 +82,13 @@ public class QueryKeyringRequest {
       return false;
     }
     QueryKeyringRequest queryKeyringRequest = (QueryKeyringRequest) o;
-    return Objects.equals(this.keyringName, queryKeyringRequest.keyringName);
+    return Objects.equals(this.keyringID, queryKeyringRequest.keyringID) &&
+        Objects.equals(this.keyringName, queryKeyringRequest.keyringName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(keyringName);
+    return Objects.hash(keyringID, keyringName);
   }
 
 
@@ -76,6 +97,7 @@ public class QueryKeyringRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class QueryKeyringRequest {\n");
     
+    sb.append("    keyringID: ").append(toIndentedString(keyringID)).append("\n");
     sb.append("    keyringName: ").append(toIndentedString(keyringName)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -157,7 +157,7 @@ public class KmsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ArchiveKey/2021-02-18/kms/post/application_json/";
+        String localVarPath = "/ArchiveKey/2021-02-18/kms/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3133,7 +3133,7 @@ public class KmsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DisableKeyRotation/2021-02-18/kms/post/application_json/";
+        String localVarPath = "/DisableKeyRotation/2021-02-18/kms/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3257,7 +3257,7 @@ public class KmsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/EnableKey/2021-02-18/kms/post/application_json/";
+        String localVarPath = "/EnableKey/2021-02-18/kms/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4373,7 +4373,7 @@ public class KmsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/QueryKeyring/2021-02-18/kms/post/application_json/";
+        String localVarPath = "/QueryKeyring/2021-02-18/kms/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -5365,7 +5365,7 @@ public class KmsApi {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/UpdateKeyring/2021-02-18/kms/post/application_json/";
+        String localVarPath = "/UpdateKeyring/2021-02-18/kms/get/text_plain/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
