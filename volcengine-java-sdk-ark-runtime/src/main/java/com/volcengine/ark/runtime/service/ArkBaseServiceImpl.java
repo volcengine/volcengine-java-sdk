@@ -1,6 +1,5 @@
 package com.volcengine.ark.runtime.service;
 
-
 import com.volcengine.ark.runtime.model.bot.completion.chat.BotChatCompletionChunk;
 import com.volcengine.ark.runtime.model.bot.completion.chat.BotChatCompletionRequest;
 import com.volcengine.ark.runtime.model.bot.completion.chat.BotChatCompletionResult;
@@ -13,6 +12,8 @@ import com.volcengine.ark.runtime.model.context.CreateContextResult;
 import com.volcengine.ark.runtime.model.context.chat.ContextChatCompletionRequest;
 import com.volcengine.ark.runtime.model.embeddings.EmbeddingRequest;
 import com.volcengine.ark.runtime.model.embeddings.EmbeddingResult;
+import com.volcengine.ark.runtime.model.multimodalembeddings.MultimodalEmbeddingRequest;
+import com.volcengine.ark.runtime.model.multimodalembeddings.MultimodalEmbeddingResult;
 import com.volcengine.ark.runtime.model.tokenization.TokenizationRequest;
 import com.volcengine.ark.runtime.model.tokenization.TokenizationResult;
 import io.reactivex.Flowable;
@@ -39,6 +40,8 @@ public interface ArkBaseServiceImpl {
     TokenizationResult createTokenization(TokenizationRequest request);
 
     EmbeddingResult createEmbeddings(EmbeddingRequest request);
+
+    MultimodalEmbeddingResult createMultiModalEmbeddings(MultimodalEmbeddingRequest request);
 
     CreateContentGenerationTaskResult createContentGenerationTask(CreateContentGenerationTaskRequest request);
 
