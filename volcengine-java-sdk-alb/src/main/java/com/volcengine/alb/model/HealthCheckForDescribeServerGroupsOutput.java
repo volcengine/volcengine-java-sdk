@@ -51,6 +51,9 @@ public class HealthCheckForDescribeServerGroupsOutput {
   @SerializedName("Method")
   private String method = null;
 
+  @SerializedName("Port")
+  private Integer port = null;
+
   @SerializedName("Protocol")
   private String protocol = null;
 
@@ -189,6 +192,26 @@ public class HealthCheckForDescribeServerGroupsOutput {
     this.method = method;
   }
 
+  public HealthCheckForDescribeServerGroupsOutput port(Integer port) {
+    this.port = port;
+    return this;
+  }
+
+   /**
+   * Get port
+   * minimum: 0
+   * maximum: 65535
+   * @return port
+  **/
+ @Min(0) @Max(65535)  @Schema(description = "")
+  public Integer getPort() {
+    return port;
+  }
+
+  public void setPort(Integer port) {
+    this.port = port;
+  }
+
   public HealthCheckForDescribeServerGroupsOutput protocol(String protocol) {
     this.protocol = protocol;
     return this;
@@ -278,6 +301,7 @@ public class HealthCheckForDescribeServerGroupsOutput {
         Objects.equals(this.httpVersion, healthCheckForDescribeServerGroupsOutput.httpVersion) &&
         Objects.equals(this.interval, healthCheckForDescribeServerGroupsOutput.interval) &&
         Objects.equals(this.method, healthCheckForDescribeServerGroupsOutput.method) &&
+        Objects.equals(this.port, healthCheckForDescribeServerGroupsOutput.port) &&
         Objects.equals(this.protocol, healthCheckForDescribeServerGroupsOutput.protocol) &&
         Objects.equals(this.timeout, healthCheckForDescribeServerGroupsOutput.timeout) &&
         Objects.equals(this.URI, healthCheckForDescribeServerGroupsOutput.URI) &&
@@ -286,7 +310,7 @@ public class HealthCheckForDescribeServerGroupsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(domain, enabled, healthyThreshold, httpCode, httpVersion, interval, method, protocol, timeout, URI, unhealthyThreshold);
+    return Objects.hash(domain, enabled, healthyThreshold, httpCode, httpVersion, interval, method, port, protocol, timeout, URI, unhealthyThreshold);
   }
 
 
@@ -302,6 +326,7 @@ public class HealthCheckForDescribeServerGroupsOutput {
     sb.append("    httpVersion: ").append(toIndentedString(httpVersion)).append("\n");
     sb.append("    interval: ").append(toIndentedString(interval)).append("\n");
     sb.append("    method: ").append(toIndentedString(method)).append("\n");
+    sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
     sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");
     sb.append("    URI: ").append(toIndentedString(URI)).append("\n");

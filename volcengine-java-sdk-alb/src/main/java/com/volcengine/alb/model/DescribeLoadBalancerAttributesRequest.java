@@ -42,8 +42,7 @@ public class DescribeLoadBalancerAttributesRequest {
    * Get loadBalancerId
    * @return loadBalancerId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getLoadBalancerId() {
     return loadBalancerId;
   }

@@ -33,6 +33,9 @@ import javax.validation.Valid;
 
 
 public class ModifyListenerAttributesRequest {
+  @SerializedName("AccessLogRecordCustomizedHeadersEnabled")
+  private String accessLogRecordCustomizedHeadersEnabled = null;
+
   @SerializedName("AclIds")
   private List<String> aclIds = null;
 
@@ -86,6 +89,24 @@ public class ModifyListenerAttributesRequest {
 
   @SerializedName("ServerGroupId")
   private String serverGroupId = null;
+
+  public ModifyListenerAttributesRequest accessLogRecordCustomizedHeadersEnabled(String accessLogRecordCustomizedHeadersEnabled) {
+    this.accessLogRecordCustomizedHeadersEnabled = accessLogRecordCustomizedHeadersEnabled;
+    return this;
+  }
+
+   /**
+   * Get accessLogRecordCustomizedHeadersEnabled
+   * @return accessLogRecordCustomizedHeadersEnabled
+  **/
+  @Schema(description = "")
+  public String getAccessLogRecordCustomizedHeadersEnabled() {
+    return accessLogRecordCustomizedHeadersEnabled;
+  }
+
+  public void setAccessLogRecordCustomizedHeadersEnabled(String accessLogRecordCustomizedHeadersEnabled) {
+    this.accessLogRecordCustomizedHeadersEnabled = accessLogRecordCustomizedHeadersEnabled;
+  }
 
   public ModifyListenerAttributesRequest aclIds(List<String> aclIds) {
     this.aclIds = aclIds;
@@ -365,8 +386,7 @@ public class ModifyListenerAttributesRequest {
    * Get listenerId
    * @return listenerId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getListenerId() {
     return listenerId;
   }
@@ -439,7 +459,8 @@ public class ModifyListenerAttributesRequest {
       return false;
     }
     ModifyListenerAttributesRequest modifyListenerAttributesRequest = (ModifyListenerAttributesRequest) o;
-    return Objects.equals(this.aclIds, modifyListenerAttributesRequest.aclIds) &&
+    return Objects.equals(this.accessLogRecordCustomizedHeadersEnabled, modifyListenerAttributesRequest.accessLogRecordCustomizedHeadersEnabled) &&
+        Objects.equals(this.aclIds, modifyListenerAttributesRequest.aclIds) &&
         Objects.equals(this.aclStatus, modifyListenerAttributesRequest.aclStatus) &&
         Objects.equals(this.aclType, modifyListenerAttributesRequest.aclType) &&
         Objects.equals(this.caCertificateId, modifyListenerAttributesRequest.caCertificateId) &&
@@ -461,7 +482,7 @@ public class ModifyListenerAttributesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclIds, aclStatus, aclType, caCertificateId, certCenterCertificateId, certificateId, certificateSource, clientAddressTransmissionProtocol, customizedCfgId, description, domainExtensions, enableHttp2, enableQuic, enabled, listenerId, listenerName, proxyProtocolDisabled, serverGroupId);
+    return Objects.hash(accessLogRecordCustomizedHeadersEnabled, aclIds, aclStatus, aclType, caCertificateId, certCenterCertificateId, certificateId, certificateSource, clientAddressTransmissionProtocol, customizedCfgId, description, domainExtensions, enableHttp2, enableQuic, enabled, listenerId, listenerName, proxyProtocolDisabled, serverGroupId);
   }
 
 
@@ -470,6 +491,7 @@ public class ModifyListenerAttributesRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ModifyListenerAttributesRequest {\n");
     
+    sb.append("    accessLogRecordCustomizedHeadersEnabled: ").append(toIndentedString(accessLogRecordCustomizedHeadersEnabled)).append("\n");
     sb.append("    aclIds: ").append(toIndentedString(aclIds)).append("\n");
     sb.append("    aclStatus: ").append(toIndentedString(aclStatus)).append("\n");
     sb.append("    aclType: ").append(toIndentedString(aclType)).append("\n");

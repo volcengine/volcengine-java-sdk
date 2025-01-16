@@ -122,8 +122,7 @@ public class TagResourcesRequest {
    * Get resourceType
    * @return resourceType
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public ResourceTypeEnum getResourceType() {
     return resourceType;
   }

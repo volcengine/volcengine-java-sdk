@@ -51,8 +51,7 @@ public class CreateCustomizedCfgRequest {
    * Get customizedCfgContent
    * @return customizedCfgContent
   **/
-  @NotNull
- @Size(min=1,max=4096)  @Schema(required = true, description = "")
+ @Size(min=1,max=4096)  @Schema(description = "")
   public String getCustomizedCfgContent() {
     return customizedCfgContent;
   }
@@ -70,8 +69,7 @@ public class CreateCustomizedCfgRequest {
    * Get customizedCfgName
    * @return customizedCfgName
   **/
-  @NotNull
- @Size(min=1,max=128)  @Schema(required = true, description = "")
+ @Size(min=1,max=128)  @Schema(description = "")
   public String getCustomizedCfgName() {
     return customizedCfgName;
   }

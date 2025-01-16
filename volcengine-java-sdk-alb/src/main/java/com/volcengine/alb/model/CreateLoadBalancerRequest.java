@@ -60,6 +60,12 @@ public class CreateLoadBalancerRequest {
   @SerializedName("LoadBalancerName")
   private String loadBalancerName = null;
 
+  @SerializedName("ModificationProtectionReason")
+  private String modificationProtectionReason = null;
+
+  @SerializedName("ModificationProtectionStatus")
+  private String modificationProtectionStatus = null;
+
   @SerializedName("ProjectName")
   private String projectName = null;
 
@@ -227,6 +233,42 @@ public class CreateLoadBalancerRequest {
     this.loadBalancerName = loadBalancerName;
   }
 
+  public CreateLoadBalancerRequest modificationProtectionReason(String modificationProtectionReason) {
+    this.modificationProtectionReason = modificationProtectionReason;
+    return this;
+  }
+
+   /**
+   * Get modificationProtectionReason
+   * @return modificationProtectionReason
+  **/
+  @Schema(description = "")
+  public String getModificationProtectionReason() {
+    return modificationProtectionReason;
+  }
+
+  public void setModificationProtectionReason(String modificationProtectionReason) {
+    this.modificationProtectionReason = modificationProtectionReason;
+  }
+
+  public CreateLoadBalancerRequest modificationProtectionStatus(String modificationProtectionStatus) {
+    this.modificationProtectionStatus = modificationProtectionStatus;
+    return this;
+  }
+
+   /**
+   * Get modificationProtectionStatus
+   * @return modificationProtectionStatus
+  **/
+  @Schema(description = "")
+  public String getModificationProtectionStatus() {
+    return modificationProtectionStatus;
+  }
+
+  public void setModificationProtectionStatus(String modificationProtectionStatus) {
+    this.modificationProtectionStatus = modificationProtectionStatus;
+  }
+
   public CreateLoadBalancerRequest projectName(String projectName) {
     this.projectName = projectName;
     return this;
@@ -254,8 +296,7 @@ public class CreateLoadBalancerRequest {
    * Get regionId
    * @return regionId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getRegionId() {
     return regionId;
   }
@@ -318,8 +359,7 @@ public class CreateLoadBalancerRequest {
    * Get type
    * @return type
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getType() {
     return type;
   }
@@ -391,6 +431,8 @@ public class CreateLoadBalancerRequest {
         Objects.equals(this.ipv6EipBillingConfig, createLoadBalancerRequest.ipv6EipBillingConfig) &&
         Objects.equals(this.loadBalancerBillingType, createLoadBalancerRequest.loadBalancerBillingType) &&
         Objects.equals(this.loadBalancerName, createLoadBalancerRequest.loadBalancerName) &&
+        Objects.equals(this.modificationProtectionReason, createLoadBalancerRequest.modificationProtectionReason) &&
+        Objects.equals(this.modificationProtectionStatus, createLoadBalancerRequest.modificationProtectionStatus) &&
         Objects.equals(this.projectName, createLoadBalancerRequest.projectName) &&
         Objects.equals(this.regionId, createLoadBalancerRequest.regionId) &&
         Objects.equals(this.subnetId, createLoadBalancerRequest.subnetId) &&
@@ -402,7 +444,7 @@ public class CreateLoadBalancerRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addressIpVersion, bandwidthPackageId, deleteProtection, description, eipBillingConfig, ipv6EipBillingConfig, loadBalancerBillingType, loadBalancerName, projectName, regionId, subnetId, tags, type, vpcId, zoneMappings);
+    return Objects.hash(addressIpVersion, bandwidthPackageId, deleteProtection, description, eipBillingConfig, ipv6EipBillingConfig, loadBalancerBillingType, loadBalancerName, modificationProtectionReason, modificationProtectionStatus, projectName, regionId, subnetId, tags, type, vpcId, zoneMappings);
   }
 
 
@@ -419,6 +461,8 @@ public class CreateLoadBalancerRequest {
     sb.append("    ipv6EipBillingConfig: ").append(toIndentedString(ipv6EipBillingConfig)).append("\n");
     sb.append("    loadBalancerBillingType: ").append(toIndentedString(loadBalancerBillingType)).append("\n");
     sb.append("    loadBalancerName: ").append(toIndentedString(loadBalancerName)).append("\n");
+    sb.append("    modificationProtectionReason: ").append(toIndentedString(modificationProtectionReason)).append("\n");
+    sb.append("    modificationProtectionStatus: ").append(toIndentedString(modificationProtectionStatus)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    regionId: ").append(toIndentedString(regionId)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");

@@ -48,8 +48,7 @@ public class ModifyCACertificateAttributesRequest {
    * Get caCertificateId
    * @return caCertificateId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getCaCertificateId() {
     return caCertificateId;
   }

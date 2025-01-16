@@ -48,8 +48,7 @@ public class EnableTLSAccessLogRequest {
    * Get loadBalancerId
    * @return loadBalancerId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getLoadBalancerId() {
     return loadBalancerId;
   }
@@ -67,8 +66,7 @@ public class EnableTLSAccessLogRequest {
    * Get projectId
    * @return projectId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getProjectId() {
     return projectId;
   }
@@ -86,8 +84,7 @@ public class EnableTLSAccessLogRequest {
    * Get topicId
    * @return topicId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getTopicId() {
     return topicId;
   }

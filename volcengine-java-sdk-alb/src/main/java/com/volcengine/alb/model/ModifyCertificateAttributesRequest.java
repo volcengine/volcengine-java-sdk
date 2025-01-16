@@ -48,8 +48,7 @@ public class ModifyCertificateAttributesRequest {
    * Get certificateId
    * @return certificateId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getCertificateId() {
     return certificateId;
   }

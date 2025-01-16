@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.alb.model.GlobalAcceleratorForModifyLoadBalancerAttributesInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -36,11 +37,20 @@ public class ModifyLoadBalancerAttributesRequest {
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("GlobalAccelerator")
+  private GlobalAcceleratorForModifyLoadBalancerAttributesInput globalAccelerator = null;
+
   @SerializedName("LoadBalancerId")
   private String loadBalancerId = null;
 
   @SerializedName("LoadBalancerName")
   private String loadBalancerName = null;
+
+  @SerializedName("ModificationProtectionReason")
+  private String modificationProtectionReason = null;
+
+  @SerializedName("ModificationProtectionStatus")
+  private String modificationProtectionStatus = null;
 
   @SerializedName("WafInstanceId")
   private String wafInstanceId = null;
@@ -87,6 +97,25 @@ public class ModifyLoadBalancerAttributesRequest {
     this.description = description;
   }
 
+  public ModifyLoadBalancerAttributesRequest globalAccelerator(GlobalAcceleratorForModifyLoadBalancerAttributesInput globalAccelerator) {
+    this.globalAccelerator = globalAccelerator;
+    return this;
+  }
+
+   /**
+   * Get globalAccelerator
+   * @return globalAccelerator
+  **/
+  @Valid
+  @Schema(description = "")
+  public GlobalAcceleratorForModifyLoadBalancerAttributesInput getGlobalAccelerator() {
+    return globalAccelerator;
+  }
+
+  public void setGlobalAccelerator(GlobalAcceleratorForModifyLoadBalancerAttributesInput globalAccelerator) {
+    this.globalAccelerator = globalAccelerator;
+  }
+
   public ModifyLoadBalancerAttributesRequest loadBalancerId(String loadBalancerId) {
     this.loadBalancerId = loadBalancerId;
     return this;
@@ -96,8 +125,7 @@ public class ModifyLoadBalancerAttributesRequest {
    * Get loadBalancerId
    * @return loadBalancerId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getLoadBalancerId() {
     return loadBalancerId;
   }
@@ -124,6 +152,42 @@ public class ModifyLoadBalancerAttributesRequest {
     this.loadBalancerName = loadBalancerName;
   }
 
+  public ModifyLoadBalancerAttributesRequest modificationProtectionReason(String modificationProtectionReason) {
+    this.modificationProtectionReason = modificationProtectionReason;
+    return this;
+  }
+
+   /**
+   * Get modificationProtectionReason
+   * @return modificationProtectionReason
+  **/
+  @Schema(description = "")
+  public String getModificationProtectionReason() {
+    return modificationProtectionReason;
+  }
+
+  public void setModificationProtectionReason(String modificationProtectionReason) {
+    this.modificationProtectionReason = modificationProtectionReason;
+  }
+
+  public ModifyLoadBalancerAttributesRequest modificationProtectionStatus(String modificationProtectionStatus) {
+    this.modificationProtectionStatus = modificationProtectionStatus;
+    return this;
+  }
+
+   /**
+   * Get modificationProtectionStatus
+   * @return modificationProtectionStatus
+  **/
+  @Schema(description = "")
+  public String getModificationProtectionStatus() {
+    return modificationProtectionStatus;
+  }
+
+  public void setModificationProtectionStatus(String modificationProtectionStatus) {
+    this.modificationProtectionStatus = modificationProtectionStatus;
+  }
+
   public ModifyLoadBalancerAttributesRequest wafInstanceId(String wafInstanceId) {
     this.wafInstanceId = wafInstanceId;
     return this;
@@ -133,8 +197,7 @@ public class ModifyLoadBalancerAttributesRequest {
    * Get wafInstanceId
    * @return wafInstanceId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getWafInstanceId() {
     return wafInstanceId;
   }
@@ -152,8 +215,7 @@ public class ModifyLoadBalancerAttributesRequest {
    * Get wafProtectedDomain
    * @return wafProtectedDomain
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getWafProtectedDomain() {
     return wafProtectedDomain;
   }
@@ -171,8 +233,7 @@ public class ModifyLoadBalancerAttributesRequest {
    * Get wafProtectionEnabled
    * @return wafProtectionEnabled
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getWafProtectionEnabled() {
     return wafProtectionEnabled;
   }
@@ -193,8 +254,11 @@ public class ModifyLoadBalancerAttributesRequest {
     ModifyLoadBalancerAttributesRequest modifyLoadBalancerAttributesRequest = (ModifyLoadBalancerAttributesRequest) o;
     return Objects.equals(this.deleteProtection, modifyLoadBalancerAttributesRequest.deleteProtection) &&
         Objects.equals(this.description, modifyLoadBalancerAttributesRequest.description) &&
+        Objects.equals(this.globalAccelerator, modifyLoadBalancerAttributesRequest.globalAccelerator) &&
         Objects.equals(this.loadBalancerId, modifyLoadBalancerAttributesRequest.loadBalancerId) &&
         Objects.equals(this.loadBalancerName, modifyLoadBalancerAttributesRequest.loadBalancerName) &&
+        Objects.equals(this.modificationProtectionReason, modifyLoadBalancerAttributesRequest.modificationProtectionReason) &&
+        Objects.equals(this.modificationProtectionStatus, modifyLoadBalancerAttributesRequest.modificationProtectionStatus) &&
         Objects.equals(this.wafInstanceId, modifyLoadBalancerAttributesRequest.wafInstanceId) &&
         Objects.equals(this.wafProtectedDomain, modifyLoadBalancerAttributesRequest.wafProtectedDomain) &&
         Objects.equals(this.wafProtectionEnabled, modifyLoadBalancerAttributesRequest.wafProtectionEnabled);
@@ -202,7 +266,7 @@ public class ModifyLoadBalancerAttributesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleteProtection, description, loadBalancerId, loadBalancerName, wafInstanceId, wafProtectedDomain, wafProtectionEnabled);
+    return Objects.hash(deleteProtection, description, globalAccelerator, loadBalancerId, loadBalancerName, modificationProtectionReason, modificationProtectionStatus, wafInstanceId, wafProtectedDomain, wafProtectionEnabled);
   }
 
 
@@ -213,8 +277,11 @@ public class ModifyLoadBalancerAttributesRequest {
     
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    globalAccelerator: ").append(toIndentedString(globalAccelerator)).append("\n");
     sb.append("    loadBalancerId: ").append(toIndentedString(loadBalancerId)).append("\n");
     sb.append("    loadBalancerName: ").append(toIndentedString(loadBalancerName)).append("\n");
+    sb.append("    modificationProtectionReason: ").append(toIndentedString(modificationProtectionReason)).append("\n");
+    sb.append("    modificationProtectionStatus: ").append(toIndentedString(modificationProtectionStatus)).append("\n");
     sb.append("    wafInstanceId: ").append(toIndentedString(wafInstanceId)).append("\n");
     sb.append("    wafProtectedDomain: ").append(toIndentedString(wafProtectedDomain)).append("\n");
     sb.append("    wafProtectionEnabled: ").append(toIndentedString(wafProtectionEnabled)).append("\n");
