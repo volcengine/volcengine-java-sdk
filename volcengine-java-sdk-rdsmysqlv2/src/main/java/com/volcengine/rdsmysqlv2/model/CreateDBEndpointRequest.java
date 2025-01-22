@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.rdsmysqlv2.model.ReadOnlyNodeWeightForCreateDBEndpointInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -33,6 +36,12 @@ public class CreateDBEndpointRequest {
   @SerializedName("AutoAddNewNodes")
   private Boolean autoAddNewNodes = null;
 
+  @SerializedName("ConnectionMode")
+  private String connectionMode = null;
+
+  @SerializedName("ConnectionPoolType")
+  private String connectionPoolType = null;
+
   @SerializedName("Description")
   private String description = null;
 
@@ -42,14 +51,32 @@ public class CreateDBEndpointRequest {
   @SerializedName("EndpointType")
   private String endpointType = null;
 
+  @SerializedName("IdleConnectionReclaim")
+  private Boolean idleConnectionReclaim = null;
+
   @SerializedName("InstanceId")
   private String instanceId = null;
+
+  @SerializedName("MultiStatementsMode")
+  private String multiStatementsMode = null;
 
   @SerializedName("Nodes")
   private String nodes = null;
 
+  @SerializedName("ReadOnlyNodeDistributionType")
+  private String readOnlyNodeDistributionType = null;
+
+  @SerializedName("ReadOnlyNodeMaxDelayTime")
+  private Integer readOnlyNodeMaxDelayTime = null;
+
+  @SerializedName("ReadOnlyNodeWeight")
+  private List<ReadOnlyNodeWeightForCreateDBEndpointInput> readOnlyNodeWeight = null;
+
   @SerializedName("ReadWriteMode")
   private String readWriteMode = null;
+
+  @SerializedName("ReadWriteSpliting")
+  private Boolean readWriteSpliting = null;
 
   public CreateDBEndpointRequest autoAddNewNodes(Boolean autoAddNewNodes) {
     this.autoAddNewNodes = autoAddNewNodes;
@@ -67,6 +94,42 @@ public class CreateDBEndpointRequest {
 
   public void setAutoAddNewNodes(Boolean autoAddNewNodes) {
     this.autoAddNewNodes = autoAddNewNodes;
+  }
+
+  public CreateDBEndpointRequest connectionMode(String connectionMode) {
+    this.connectionMode = connectionMode;
+    return this;
+  }
+
+   /**
+   * Get connectionMode
+   * @return connectionMode
+  **/
+  @Schema(description = "")
+  public String getConnectionMode() {
+    return connectionMode;
+  }
+
+  public void setConnectionMode(String connectionMode) {
+    this.connectionMode = connectionMode;
+  }
+
+  public CreateDBEndpointRequest connectionPoolType(String connectionPoolType) {
+    this.connectionPoolType = connectionPoolType;
+    return this;
+  }
+
+   /**
+   * Get connectionPoolType
+   * @return connectionPoolType
+  **/
+  @Schema(description = "")
+  public String getConnectionPoolType() {
+    return connectionPoolType;
+  }
+
+  public void setConnectionPoolType(String connectionPoolType) {
+    this.connectionPoolType = connectionPoolType;
   }
 
   public CreateDBEndpointRequest description(String description) {
@@ -124,6 +187,24 @@ public class CreateDBEndpointRequest {
     this.endpointType = endpointType;
   }
 
+  public CreateDBEndpointRequest idleConnectionReclaim(Boolean idleConnectionReclaim) {
+    this.idleConnectionReclaim = idleConnectionReclaim;
+    return this;
+  }
+
+   /**
+   * Get idleConnectionReclaim
+   * @return idleConnectionReclaim
+  **/
+  @Schema(description = "")
+  public Boolean isIdleConnectionReclaim() {
+    return idleConnectionReclaim;
+  }
+
+  public void setIdleConnectionReclaim(Boolean idleConnectionReclaim) {
+    this.idleConnectionReclaim = idleConnectionReclaim;
+  }
+
   public CreateDBEndpointRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
     return this;
@@ -141,6 +222,24 @@ public class CreateDBEndpointRequest {
 
   public void setInstanceId(String instanceId) {
     this.instanceId = instanceId;
+  }
+
+  public CreateDBEndpointRequest multiStatementsMode(String multiStatementsMode) {
+    this.multiStatementsMode = multiStatementsMode;
+    return this;
+  }
+
+   /**
+   * Get multiStatementsMode
+   * @return multiStatementsMode
+  **/
+  @Schema(description = "")
+  public String getMultiStatementsMode() {
+    return multiStatementsMode;
+  }
+
+  public void setMultiStatementsMode(String multiStatementsMode) {
+    this.multiStatementsMode = multiStatementsMode;
   }
 
   public CreateDBEndpointRequest nodes(String nodes) {
@@ -161,6 +260,69 @@ public class CreateDBEndpointRequest {
     this.nodes = nodes;
   }
 
+  public CreateDBEndpointRequest readOnlyNodeDistributionType(String readOnlyNodeDistributionType) {
+    this.readOnlyNodeDistributionType = readOnlyNodeDistributionType;
+    return this;
+  }
+
+   /**
+   * Get readOnlyNodeDistributionType
+   * @return readOnlyNodeDistributionType
+  **/
+  @Schema(description = "")
+  public String getReadOnlyNodeDistributionType() {
+    return readOnlyNodeDistributionType;
+  }
+
+  public void setReadOnlyNodeDistributionType(String readOnlyNodeDistributionType) {
+    this.readOnlyNodeDistributionType = readOnlyNodeDistributionType;
+  }
+
+  public CreateDBEndpointRequest readOnlyNodeMaxDelayTime(Integer readOnlyNodeMaxDelayTime) {
+    this.readOnlyNodeMaxDelayTime = readOnlyNodeMaxDelayTime;
+    return this;
+  }
+
+   /**
+   * Get readOnlyNodeMaxDelayTime
+   * @return readOnlyNodeMaxDelayTime
+  **/
+  @Schema(description = "")
+  public Integer getReadOnlyNodeMaxDelayTime() {
+    return readOnlyNodeMaxDelayTime;
+  }
+
+  public void setReadOnlyNodeMaxDelayTime(Integer readOnlyNodeMaxDelayTime) {
+    this.readOnlyNodeMaxDelayTime = readOnlyNodeMaxDelayTime;
+  }
+
+  public CreateDBEndpointRequest readOnlyNodeWeight(List<ReadOnlyNodeWeightForCreateDBEndpointInput> readOnlyNodeWeight) {
+    this.readOnlyNodeWeight = readOnlyNodeWeight;
+    return this;
+  }
+
+  public CreateDBEndpointRequest addReadOnlyNodeWeightItem(ReadOnlyNodeWeightForCreateDBEndpointInput readOnlyNodeWeightItem) {
+    if (this.readOnlyNodeWeight == null) {
+      this.readOnlyNodeWeight = new ArrayList<ReadOnlyNodeWeightForCreateDBEndpointInput>();
+    }
+    this.readOnlyNodeWeight.add(readOnlyNodeWeightItem);
+    return this;
+  }
+
+   /**
+   * Get readOnlyNodeWeight
+   * @return readOnlyNodeWeight
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<ReadOnlyNodeWeightForCreateDBEndpointInput> getReadOnlyNodeWeight() {
+    return readOnlyNodeWeight;
+  }
+
+  public void setReadOnlyNodeWeight(List<ReadOnlyNodeWeightForCreateDBEndpointInput> readOnlyNodeWeight) {
+    this.readOnlyNodeWeight = readOnlyNodeWeight;
+  }
+
   public CreateDBEndpointRequest readWriteMode(String readWriteMode) {
     this.readWriteMode = readWriteMode;
     return this;
@@ -179,6 +341,24 @@ public class CreateDBEndpointRequest {
     this.readWriteMode = readWriteMode;
   }
 
+  public CreateDBEndpointRequest readWriteSpliting(Boolean readWriteSpliting) {
+    this.readWriteSpliting = readWriteSpliting;
+    return this;
+  }
+
+   /**
+   * Get readWriteSpliting
+   * @return readWriteSpliting
+  **/
+  @Schema(description = "")
+  public Boolean isReadWriteSpliting() {
+    return readWriteSpliting;
+  }
+
+  public void setReadWriteSpliting(Boolean readWriteSpliting) {
+    this.readWriteSpliting = readWriteSpliting;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -190,17 +370,25 @@ public class CreateDBEndpointRequest {
     }
     CreateDBEndpointRequest createDBEndpointRequest = (CreateDBEndpointRequest) o;
     return Objects.equals(this.autoAddNewNodes, createDBEndpointRequest.autoAddNewNodes) &&
+        Objects.equals(this.connectionMode, createDBEndpointRequest.connectionMode) &&
+        Objects.equals(this.connectionPoolType, createDBEndpointRequest.connectionPoolType) &&
         Objects.equals(this.description, createDBEndpointRequest.description) &&
         Objects.equals(this.endpointName, createDBEndpointRequest.endpointName) &&
         Objects.equals(this.endpointType, createDBEndpointRequest.endpointType) &&
+        Objects.equals(this.idleConnectionReclaim, createDBEndpointRequest.idleConnectionReclaim) &&
         Objects.equals(this.instanceId, createDBEndpointRequest.instanceId) &&
+        Objects.equals(this.multiStatementsMode, createDBEndpointRequest.multiStatementsMode) &&
         Objects.equals(this.nodes, createDBEndpointRequest.nodes) &&
-        Objects.equals(this.readWriteMode, createDBEndpointRequest.readWriteMode);
+        Objects.equals(this.readOnlyNodeDistributionType, createDBEndpointRequest.readOnlyNodeDistributionType) &&
+        Objects.equals(this.readOnlyNodeMaxDelayTime, createDBEndpointRequest.readOnlyNodeMaxDelayTime) &&
+        Objects.equals(this.readOnlyNodeWeight, createDBEndpointRequest.readOnlyNodeWeight) &&
+        Objects.equals(this.readWriteMode, createDBEndpointRequest.readWriteMode) &&
+        Objects.equals(this.readWriteSpliting, createDBEndpointRequest.readWriteSpliting);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoAddNewNodes, description, endpointName, endpointType, instanceId, nodes, readWriteMode);
+    return Objects.hash(autoAddNewNodes, connectionMode, connectionPoolType, description, endpointName, endpointType, idleConnectionReclaim, instanceId, multiStatementsMode, nodes, readOnlyNodeDistributionType, readOnlyNodeMaxDelayTime, readOnlyNodeWeight, readWriteMode, readWriteSpliting);
   }
 
 
@@ -210,12 +398,20 @@ public class CreateDBEndpointRequest {
     sb.append("class CreateDBEndpointRequest {\n");
     
     sb.append("    autoAddNewNodes: ").append(toIndentedString(autoAddNewNodes)).append("\n");
+    sb.append("    connectionMode: ").append(toIndentedString(connectionMode)).append("\n");
+    sb.append("    connectionPoolType: ").append(toIndentedString(connectionPoolType)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    endpointName: ").append(toIndentedString(endpointName)).append("\n");
     sb.append("    endpointType: ").append(toIndentedString(endpointType)).append("\n");
+    sb.append("    idleConnectionReclaim: ").append(toIndentedString(idleConnectionReclaim)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    multiStatementsMode: ").append(toIndentedString(multiStatementsMode)).append("\n");
     sb.append("    nodes: ").append(toIndentedString(nodes)).append("\n");
+    sb.append("    readOnlyNodeDistributionType: ").append(toIndentedString(readOnlyNodeDistributionType)).append("\n");
+    sb.append("    readOnlyNodeMaxDelayTime: ").append(toIndentedString(readOnlyNodeMaxDelayTime)).append("\n");
+    sb.append("    readOnlyNodeWeight: ").append(toIndentedString(readOnlyNodeWeight)).append("\n");
     sb.append("    readWriteMode: ").append(toIndentedString(readWriteMode)).append("\n");
+    sb.append("    readWriteSpliting: ").append(toIndentedString(readWriteSpliting)).append("\n");
     sb.append("}");
     return sb.toString();
   }

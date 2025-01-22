@@ -40,6 +40,12 @@ public class EndpointForDescribeDBInstanceDetailOutput {
   @SerializedName("AutoAddNewNodes")
   private String autoAddNewNodes = null;
 
+  @SerializedName("ConnectionMode")
+  private String connectionMode = null;
+
+  @SerializedName("ConnectionPoolType")
+  private String connectionPoolType = null;
+
   @SerializedName("Description")
   private String description = null;
 
@@ -60,6 +66,15 @@ public class EndpointForDescribeDBInstanceDetailOutput {
 
   @SerializedName("IdleConnectionReclaim")
   private Boolean idleConnectionReclaim = null;
+
+  @SerializedName("MultiStatementsMode")
+  private String multiStatementsMode = null;
+
+  @SerializedName("ReadOnlyNodeDistributionType")
+  private String readOnlyNodeDistributionType = null;
+
+  @SerializedName("ReadOnlyNodeMaxDelayTime")
+  private Integer readOnlyNodeMaxDelayTime = null;
 
   @SerializedName("ReadOnlyNodeWeight")
   private List<ReadOnlyNodeWeightForDescribeDBInstanceDetailOutput> readOnlyNodeWeight = null;
@@ -110,6 +125,42 @@ public class EndpointForDescribeDBInstanceDetailOutput {
 
   public void setAutoAddNewNodes(String autoAddNewNodes) {
     this.autoAddNewNodes = autoAddNewNodes;
+  }
+
+  public EndpointForDescribeDBInstanceDetailOutput connectionMode(String connectionMode) {
+    this.connectionMode = connectionMode;
+    return this;
+  }
+
+   /**
+   * Get connectionMode
+   * @return connectionMode
+  **/
+  @Schema(description = "")
+  public String getConnectionMode() {
+    return connectionMode;
+  }
+
+  public void setConnectionMode(String connectionMode) {
+    this.connectionMode = connectionMode;
+  }
+
+  public EndpointForDescribeDBInstanceDetailOutput connectionPoolType(String connectionPoolType) {
+    this.connectionPoolType = connectionPoolType;
+    return this;
+  }
+
+   /**
+   * Get connectionPoolType
+   * @return connectionPoolType
+  **/
+  @Schema(description = "")
+  public String getConnectionPoolType() {
+    return connectionPoolType;
+  }
+
+  public void setConnectionPoolType(String connectionPoolType) {
+    this.connectionPoolType = connectionPoolType;
   }
 
   public EndpointForDescribeDBInstanceDetailOutput description(String description) {
@@ -238,6 +289,60 @@ public class EndpointForDescribeDBInstanceDetailOutput {
     this.idleConnectionReclaim = idleConnectionReclaim;
   }
 
+  public EndpointForDescribeDBInstanceDetailOutput multiStatementsMode(String multiStatementsMode) {
+    this.multiStatementsMode = multiStatementsMode;
+    return this;
+  }
+
+   /**
+   * Get multiStatementsMode
+   * @return multiStatementsMode
+  **/
+  @Schema(description = "")
+  public String getMultiStatementsMode() {
+    return multiStatementsMode;
+  }
+
+  public void setMultiStatementsMode(String multiStatementsMode) {
+    this.multiStatementsMode = multiStatementsMode;
+  }
+
+  public EndpointForDescribeDBInstanceDetailOutput readOnlyNodeDistributionType(String readOnlyNodeDistributionType) {
+    this.readOnlyNodeDistributionType = readOnlyNodeDistributionType;
+    return this;
+  }
+
+   /**
+   * Get readOnlyNodeDistributionType
+   * @return readOnlyNodeDistributionType
+  **/
+  @Schema(description = "")
+  public String getReadOnlyNodeDistributionType() {
+    return readOnlyNodeDistributionType;
+  }
+
+  public void setReadOnlyNodeDistributionType(String readOnlyNodeDistributionType) {
+    this.readOnlyNodeDistributionType = readOnlyNodeDistributionType;
+  }
+
+  public EndpointForDescribeDBInstanceDetailOutput readOnlyNodeMaxDelayTime(Integer readOnlyNodeMaxDelayTime) {
+    this.readOnlyNodeMaxDelayTime = readOnlyNodeMaxDelayTime;
+    return this;
+  }
+
+   /**
+   * Get readOnlyNodeMaxDelayTime
+   * @return readOnlyNodeMaxDelayTime
+  **/
+  @Schema(description = "")
+  public Integer getReadOnlyNodeMaxDelayTime() {
+    return readOnlyNodeMaxDelayTime;
+  }
+
+  public void setReadOnlyNodeMaxDelayTime(Integer readOnlyNodeMaxDelayTime) {
+    this.readOnlyNodeMaxDelayTime = readOnlyNodeMaxDelayTime;
+  }
+
   public EndpointForDescribeDBInstanceDetailOutput readOnlyNodeWeight(List<ReadOnlyNodeWeightForDescribeDBInstanceDetailOutput> readOnlyNodeWeight) {
     this.readOnlyNodeWeight = readOnlyNodeWeight;
     return this;
@@ -295,6 +400,8 @@ public class EndpointForDescribeDBInstanceDetailOutput {
     EndpointForDescribeDBInstanceDetailOutput endpointForDescribeDBInstanceDetailOutput = (EndpointForDescribeDBInstanceDetailOutput) o;
     return Objects.equals(this.addresses, endpointForDescribeDBInstanceDetailOutput.addresses) &&
         Objects.equals(this.autoAddNewNodes, endpointForDescribeDBInstanceDetailOutput.autoAddNewNodes) &&
+        Objects.equals(this.connectionMode, endpointForDescribeDBInstanceDetailOutput.connectionMode) &&
+        Objects.equals(this.connectionPoolType, endpointForDescribeDBInstanceDetailOutput.connectionPoolType) &&
         Objects.equals(this.description, endpointForDescribeDBInstanceDetailOutput.description) &&
         Objects.equals(this.enableReadOnly, endpointForDescribeDBInstanceDetailOutput.enableReadOnly) &&
         Objects.equals(this.enableReadWriteSplitting, endpointForDescribeDBInstanceDetailOutput.enableReadWriteSplitting) &&
@@ -302,13 +409,16 @@ public class EndpointForDescribeDBInstanceDetailOutput {
         Objects.equals(this.endpointName, endpointForDescribeDBInstanceDetailOutput.endpointName) &&
         Objects.equals(this.endpointType, endpointForDescribeDBInstanceDetailOutput.endpointType) &&
         Objects.equals(this.idleConnectionReclaim, endpointForDescribeDBInstanceDetailOutput.idleConnectionReclaim) &&
+        Objects.equals(this.multiStatementsMode, endpointForDescribeDBInstanceDetailOutput.multiStatementsMode) &&
+        Objects.equals(this.readOnlyNodeDistributionType, endpointForDescribeDBInstanceDetailOutput.readOnlyNodeDistributionType) &&
+        Objects.equals(this.readOnlyNodeMaxDelayTime, endpointForDescribeDBInstanceDetailOutput.readOnlyNodeMaxDelayTime) &&
         Objects.equals(this.readOnlyNodeWeight, endpointForDescribeDBInstanceDetailOutput.readOnlyNodeWeight) &&
         Objects.equals(this.readWriteMode, endpointForDescribeDBInstanceDetailOutput.readWriteMode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(addresses, autoAddNewNodes, description, enableReadOnly, enableReadWriteSplitting, endpointId, endpointName, endpointType, idleConnectionReclaim, readOnlyNodeWeight, readWriteMode);
+    return Objects.hash(addresses, autoAddNewNodes, connectionMode, connectionPoolType, description, enableReadOnly, enableReadWriteSplitting, endpointId, endpointName, endpointType, idleConnectionReclaim, multiStatementsMode, readOnlyNodeDistributionType, readOnlyNodeMaxDelayTime, readOnlyNodeWeight, readWriteMode);
   }
 
 
@@ -319,6 +429,8 @@ public class EndpointForDescribeDBInstanceDetailOutput {
     
     sb.append("    addresses: ").append(toIndentedString(addresses)).append("\n");
     sb.append("    autoAddNewNodes: ").append(toIndentedString(autoAddNewNodes)).append("\n");
+    sb.append("    connectionMode: ").append(toIndentedString(connectionMode)).append("\n");
+    sb.append("    connectionPoolType: ").append(toIndentedString(connectionPoolType)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    enableReadOnly: ").append(toIndentedString(enableReadOnly)).append("\n");
     sb.append("    enableReadWriteSplitting: ").append(toIndentedString(enableReadWriteSplitting)).append("\n");
@@ -326,6 +438,9 @@ public class EndpointForDescribeDBInstanceDetailOutput {
     sb.append("    endpointName: ").append(toIndentedString(endpointName)).append("\n");
     sb.append("    endpointType: ").append(toIndentedString(endpointType)).append("\n");
     sb.append("    idleConnectionReclaim: ").append(toIndentedString(idleConnectionReclaim)).append("\n");
+    sb.append("    multiStatementsMode: ").append(toIndentedString(multiStatementsMode)).append("\n");
+    sb.append("    readOnlyNodeDistributionType: ").append(toIndentedString(readOnlyNodeDistributionType)).append("\n");
+    sb.append("    readOnlyNodeMaxDelayTime: ").append(toIndentedString(readOnlyNodeMaxDelayTime)).append("\n");
     sb.append("    readOnlyNodeWeight: ").append(toIndentedString(readOnlyNodeWeight)).append("\n");
     sb.append("    readWriteMode: ").append(toIndentedString(readWriteMode)).append("\n");
     sb.append("}");

@@ -33,6 +33,9 @@ public class DescribeAllowListDetailRequest {
   @SerializedName("AllowListId")
   private String allowListId = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   public DescribeAllowListDetailRequest allowListId(String allowListId) {
     this.allowListId = allowListId;
     return this;
@@ -52,6 +55,24 @@ public class DescribeAllowListDetailRequest {
     this.allowListId = allowListId;
   }
 
+  public DescribeAllowListDetailRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -62,12 +83,13 @@ public class DescribeAllowListDetailRequest {
       return false;
     }
     DescribeAllowListDetailRequest describeAllowListDetailRequest = (DescribeAllowListDetailRequest) o;
-    return Objects.equals(this.allowListId, describeAllowListDetailRequest.allowListId);
+    return Objects.equals(this.allowListId, describeAllowListDetailRequest.allowListId) &&
+        Objects.equals(this.projectName, describeAllowListDetailRequest.projectName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowListId);
+    return Objects.hash(allowListId, projectName);
   }
 
 
@@ -77,6 +99,7 @@ public class DescribeAllowListDetailRequest {
     sb.append("class DescribeAllowListDetailRequest {\n");
     
     sb.append("    allowListId: ").append(toIndentedString(allowListId)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");
     return sb.toString();
   }
