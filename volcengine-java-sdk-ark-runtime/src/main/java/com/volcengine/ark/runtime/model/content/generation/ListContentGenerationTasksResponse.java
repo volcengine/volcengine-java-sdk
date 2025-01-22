@@ -43,8 +43,8 @@ public class ListContentGenerationTasksResponse {
         @JsonProperty("status")
         private String status;
 
-        @JsonProperty("failure_reason")
-        private String failureReason;
+        @JsonProperty("error")
+        private ContentGenerationError error;
 
         @JsonProperty("content")
         private Content content;
@@ -80,14 +80,6 @@ public class ListContentGenerationTasksResponse {
 
         public void setStatus(String status) {
             this.status = status;
-        }
-
-        public String getFailureReason() {
-            return failureReason;
-        }
-
-        public void setFailureReason(String failureReason) {
-            this.failureReason = failureReason;
         }
 
         public Content getContent() {
@@ -166,13 +158,39 @@ public class ListContentGenerationTasksResponse {
             }
         }
 
+        @JsonIgnoreProperties(ignoreUnknown = true)
+        public static class ContentGenerationError {
+
+            @JsonProperty("message")
+            private String message;
+
+            @JsonProperty("code")
+            private String code;
+
+            public String getMessage() { return message;}
+
+            public void setMessage(String message) { this.message = message; }
+
+            public String getCode() { return code;}
+
+            public void setCode(String code) { this.code = code; }
+
+            @Override
+            public String toString() {
+                return "Error{" +
+                        "message='" + message + '\'' +
+                        ", code='" + code + '\'' +
+                        "}";
+            }
+        }
+
         @Override
         public String toString() {
             return "Item{" +
                     "id='" + id + '\'' +
                     ", model='" + model + '\'' +
                     ", status='" + status + '\'' +
-                    ", failureReason='" + failureReason + '\'' +
+                    ", error='" + error + '\'' +
                     ", content=" + (content != null ? content.toString() : "null") +
                     ", usage=" + usage +
                     ", createdAt=" + createdAt +
