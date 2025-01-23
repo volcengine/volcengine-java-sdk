@@ -23,7 +23,6 @@ import com.volcengine.rdsmysqlv2.model.BasicInfoForDescribeDBInstanceDetailOutpu
 import com.volcengine.rdsmysqlv2.model.ChargeDetailForDescribeDBInstanceDetailOutput;
 import com.volcengine.rdsmysqlv2.model.EndpointForDescribeDBInstanceDetailOutput;
 import com.volcengine.rdsmysqlv2.model.NodeForDescribeDBInstanceDetailOutput;
-import com.volcengine.rdsmysqlv2.model.ProxyDetailForDescribeDBInstanceDetailOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -48,9 +47,6 @@ public class DescribeDBInstanceDetailResponse extends com.volcengine.model.Abstr
 
   @SerializedName("Nodes")
   private List<NodeForDescribeDBInstanceDetailOutput> nodes = null;
-
-  @SerializedName("ProxyDetail")
-  private ProxyDetailForDescribeDBInstanceDetailOutput proxyDetail = null;
 
   public DescribeDBInstanceDetailResponse basicInfo(BasicInfoForDescribeDBInstanceDetailOutput basicInfo) {
     this.basicInfo = basicInfo;
@@ -144,25 +140,6 @@ public class DescribeDBInstanceDetailResponse extends com.volcengine.model.Abstr
     this.nodes = nodes;
   }
 
-  public DescribeDBInstanceDetailResponse proxyDetail(ProxyDetailForDescribeDBInstanceDetailOutput proxyDetail) {
-    this.proxyDetail = proxyDetail;
-    return this;
-  }
-
-   /**
-   * Get proxyDetail
-   * @return proxyDetail
-  **/
-  @Valid
-  @Schema(description = "")
-  public ProxyDetailForDescribeDBInstanceDetailOutput getProxyDetail() {
-    return proxyDetail;
-  }
-
-  public void setProxyDetail(ProxyDetailForDescribeDBInstanceDetailOutput proxyDetail) {
-    this.proxyDetail = proxyDetail;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -176,13 +153,12 @@ public class DescribeDBInstanceDetailResponse extends com.volcengine.model.Abstr
     return Objects.equals(this.basicInfo, describeDBInstanceDetailResponse.basicInfo) &&
         Objects.equals(this.chargeDetail, describeDBInstanceDetailResponse.chargeDetail) &&
         Objects.equals(this.endpoints, describeDBInstanceDetailResponse.endpoints) &&
-        Objects.equals(this.nodes, describeDBInstanceDetailResponse.nodes) &&
-        Objects.equals(this.proxyDetail, describeDBInstanceDetailResponse.proxyDetail);
+        Objects.equals(this.nodes, describeDBInstanceDetailResponse.nodes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(basicInfo, chargeDetail, endpoints, nodes, proxyDetail);
+    return Objects.hash(basicInfo, chargeDetail, endpoints, nodes);
   }
 
 
@@ -195,7 +171,6 @@ public class DescribeDBInstanceDetailResponse extends com.volcengine.model.Abstr
     sb.append("    chargeDetail: ").append(toIndentedString(chargeDetail)).append("\n");
     sb.append("    endpoints: ").append(toIndentedString(endpoints)).append("\n");
     sb.append("    nodes: ").append(toIndentedString(nodes)).append("\n");
-    sb.append("    proxyDetail: ").append(toIndentedString(proxyDetail)).append("\n");
     sb.append("}");
     return sb.toString();
   }

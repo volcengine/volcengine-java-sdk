@@ -41,12 +41,6 @@ public class RestartDBInstanceRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;
 
-  @SerializedName("SpecifiedSwitchEndTime")
-  private String specifiedSwitchEndTime = null;
-
-  @SerializedName("SpecifiedSwitchStartTime")
-  private String specifiedSwitchStartTime = null;
-
   @SerializedName("SwitchType")
   private String switchType = null;
 
@@ -113,42 +107,6 @@ public class RestartDBInstanceRequest {
     this.instanceId = instanceId;
   }
 
-  public RestartDBInstanceRequest specifiedSwitchEndTime(String specifiedSwitchEndTime) {
-    this.specifiedSwitchEndTime = specifiedSwitchEndTime;
-    return this;
-  }
-
-   /**
-   * Get specifiedSwitchEndTime
-   * @return specifiedSwitchEndTime
-  **/
-  @Schema(description = "")
-  public String getSpecifiedSwitchEndTime() {
-    return specifiedSwitchEndTime;
-  }
-
-  public void setSpecifiedSwitchEndTime(String specifiedSwitchEndTime) {
-    this.specifiedSwitchEndTime = specifiedSwitchEndTime;
-  }
-
-  public RestartDBInstanceRequest specifiedSwitchStartTime(String specifiedSwitchStartTime) {
-    this.specifiedSwitchStartTime = specifiedSwitchStartTime;
-    return this;
-  }
-
-   /**
-   * Get specifiedSwitchStartTime
-   * @return specifiedSwitchStartTime
-  **/
-  @Schema(description = "")
-  public String getSpecifiedSwitchStartTime() {
-    return specifiedSwitchStartTime;
-  }
-
-  public void setSpecifiedSwitchStartTime(String specifiedSwitchStartTime) {
-    this.specifiedSwitchStartTime = specifiedSwitchStartTime;
-  }
-
   public RestartDBInstanceRequest switchType(String switchType) {
     this.switchType = switchType;
     return this;
@@ -180,14 +138,12 @@ public class RestartDBInstanceRequest {
     return Objects.equals(this.applyScope, restartDBInstanceRequest.applyScope) &&
         Objects.equals(this.customNodeIds, restartDBInstanceRequest.customNodeIds) &&
         Objects.equals(this.instanceId, restartDBInstanceRequest.instanceId) &&
-        Objects.equals(this.specifiedSwitchEndTime, restartDBInstanceRequest.specifiedSwitchEndTime) &&
-        Objects.equals(this.specifiedSwitchStartTime, restartDBInstanceRequest.specifiedSwitchStartTime) &&
         Objects.equals(this.switchType, restartDBInstanceRequest.switchType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(applyScope, customNodeIds, instanceId, specifiedSwitchEndTime, specifiedSwitchStartTime, switchType);
+    return Objects.hash(applyScope, customNodeIds, instanceId, switchType);
   }
 
 
@@ -199,8 +155,6 @@ public class RestartDBInstanceRequest {
     sb.append("    applyScope: ").append(toIndentedString(applyScope)).append("\n");
     sb.append("    customNodeIds: ").append(toIndentedString(customNodeIds)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
-    sb.append("    specifiedSwitchEndTime: ").append(toIndentedString(specifiedSwitchEndTime)).append("\n");
-    sb.append("    specifiedSwitchStartTime: ").append(toIndentedString(specifiedSwitchStartTime)).append("\n");
     sb.append("    switchType: ").append(toIndentedString(switchType)).append("\n");
     sb.append("}");
     return sb.toString();

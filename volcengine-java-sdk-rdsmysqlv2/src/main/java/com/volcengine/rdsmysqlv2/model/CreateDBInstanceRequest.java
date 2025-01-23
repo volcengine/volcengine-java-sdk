@@ -78,8 +78,55 @@ public class CreateDBInstanceRequest {
   @SerializedName("StorageSpace")
   private Integer storageSpace = null;
 
-  @SerializedName("StorageType")
-  private String storageType = null;
+  /**
+   * Gets or Sets storageType
+   */
+  @JsonAdapter(StorageTypeEnum.Adapter.class)
+  public enum StorageTypeEnum {
+    @SerializedName("LocalSSD")
+    LOCALSSD("LocalSSD"),
+    @SerializedName("CloudStorage")
+    CLOUDSTORAGE("CloudStorage"),
+    @SerializedName("ESSDPL1")
+    ESSDPL1("ESSDPL1"),
+    @SerializedName("ESSDPL2")
+    ESSDPL2("ESSDPL2");
+
+    private String value;
+
+    StorageTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static StorageTypeEnum fromValue(String input) {
+      for (StorageTypeEnum b : StorageTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<StorageTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final StorageTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public StorageTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return StorageTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("StorageType")
+  private StorageTypeEnum storageType = null;
 
   @SerializedName("SubnetId")
   private String subnetId = null;
@@ -365,8 +412,7 @@ public class CreateDBInstanceRequest {
    * Get storageSpace
    * @return storageSpace
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public Integer getStorageSpace() {
     return storageSpace;
   }
@@ -375,7 +421,7 @@ public class CreateDBInstanceRequest {
     this.storageSpace = storageSpace;
   }
 
-  public CreateDBInstanceRequest storageType(String storageType) {
+  public CreateDBInstanceRequest storageType(StorageTypeEnum storageType) {
     this.storageType = storageType;
     return this;
   }
@@ -386,11 +432,11 @@ public class CreateDBInstanceRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getStorageType() {
+  public StorageTypeEnum getStorageType() {
     return storageType;
   }
 
-  public void setStorageType(String storageType) {
+  public void setStorageType(StorageTypeEnum storageType) {
     this.storageType = storageType;
   }
 

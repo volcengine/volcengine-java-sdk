@@ -54,6 +54,9 @@ public class PlannedEventForDescribePlannedEventsOutput {
   @SerializedName("InstanceName")
   private String instanceName = null;
 
+  @SerializedName("IsUrgent")
+  private Boolean isUrgent = null;
+
   @SerializedName("MaxDelayTime")
   private String maxDelayTime = null;
 
@@ -71,12 +74,6 @@ public class PlannedEventForDescribePlannedEventsOutput {
 
   @SerializedName("PlannedEventReason")
   private String plannedEventReason = null;
-
-  @SerializedName("PlannedSwitchBeginTime")
-  private String plannedSwitchBeginTime = null;
-
-  @SerializedName("PlannedSwitchEndTime")
-  private String plannedSwitchEndTime = null;
 
   @SerializedName("Region")
   private String region = null;
@@ -228,6 +225,24 @@ public class PlannedEventForDescribePlannedEventsOutput {
     this.instanceName = instanceName;
   }
 
+  public PlannedEventForDescribePlannedEventsOutput isUrgent(Boolean isUrgent) {
+    this.isUrgent = isUrgent;
+    return this;
+  }
+
+   /**
+   * Get isUrgent
+   * @return isUrgent
+  **/
+  @Schema(description = "")
+  public Boolean isIsUrgent() {
+    return isUrgent;
+  }
+
+  public void setIsUrgent(Boolean isUrgent) {
+    this.isUrgent = isUrgent;
+  }
+
   public PlannedEventForDescribePlannedEventsOutput maxDelayTime(String maxDelayTime) {
     this.maxDelayTime = maxDelayTime;
     return this;
@@ -336,42 +351,6 @@ public class PlannedEventForDescribePlannedEventsOutput {
     this.plannedEventReason = plannedEventReason;
   }
 
-  public PlannedEventForDescribePlannedEventsOutput plannedSwitchBeginTime(String plannedSwitchBeginTime) {
-    this.plannedSwitchBeginTime = plannedSwitchBeginTime;
-    return this;
-  }
-
-   /**
-   * Get plannedSwitchBeginTime
-   * @return plannedSwitchBeginTime
-  **/
-  @Schema(description = "")
-  public String getPlannedSwitchBeginTime() {
-    return plannedSwitchBeginTime;
-  }
-
-  public void setPlannedSwitchBeginTime(String plannedSwitchBeginTime) {
-    this.plannedSwitchBeginTime = plannedSwitchBeginTime;
-  }
-
-  public PlannedEventForDescribePlannedEventsOutput plannedSwitchEndTime(String plannedSwitchEndTime) {
-    this.plannedSwitchEndTime = plannedSwitchEndTime;
-    return this;
-  }
-
-   /**
-   * Get plannedSwitchEndTime
-   * @return plannedSwitchEndTime
-  **/
-  @Schema(description = "")
-  public String getPlannedSwitchEndTime() {
-    return plannedSwitchEndTime;
-  }
-
-  public void setPlannedSwitchEndTime(String plannedSwitchEndTime) {
-    this.plannedSwitchEndTime = plannedSwitchEndTime;
-  }
-
   public PlannedEventForDescribePlannedEventsOutput region(String region) {
     this.region = region;
     return this;
@@ -426,21 +405,20 @@ public class PlannedEventForDescribePlannedEventsOutput {
         Objects.equals(this.eventType, plannedEventForDescribePlannedEventsOutput.eventType) &&
         Objects.equals(this.instanceId, plannedEventForDescribePlannedEventsOutput.instanceId) &&
         Objects.equals(this.instanceName, plannedEventForDescribePlannedEventsOutput.instanceName) &&
+        Objects.equals(this.isUrgent, plannedEventForDescribePlannedEventsOutput.isUrgent) &&
         Objects.equals(this.maxDelayTime, plannedEventForDescribePlannedEventsOutput.maxDelayTime) &&
         Objects.equals(this.originBeginTime, plannedEventForDescribePlannedEventsOutput.originBeginTime) &&
         Objects.equals(this.plannedBeginTime, plannedEventForDescribePlannedEventsOutput.plannedBeginTime) &&
         Objects.equals(this.plannedEndTime, plannedEventForDescribePlannedEventsOutput.plannedEndTime) &&
         Objects.equals(this.plannedEventDescription, plannedEventForDescribePlannedEventsOutput.plannedEventDescription) &&
         Objects.equals(this.plannedEventReason, plannedEventForDescribePlannedEventsOutput.plannedEventReason) &&
-        Objects.equals(this.plannedSwitchBeginTime, plannedEventForDescribePlannedEventsOutput.plannedSwitchBeginTime) &&
-        Objects.equals(this.plannedSwitchEndTime, plannedEventForDescribePlannedEventsOutput.plannedSwitchEndTime) &&
         Objects.equals(this.region, plannedEventForDescribePlannedEventsOutput.region) &&
         Objects.equals(this.status, plannedEventForDescribePlannedEventsOutput.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(businessImpact, dbEngine, eventAction, eventID, eventName, eventType, instanceId, instanceName, maxDelayTime, originBeginTime, plannedBeginTime, plannedEndTime, plannedEventDescription, plannedEventReason, plannedSwitchBeginTime, plannedSwitchEndTime, region, status);
+    return Objects.hash(businessImpact, dbEngine, eventAction, eventID, eventName, eventType, instanceId, instanceName, isUrgent, maxDelayTime, originBeginTime, plannedBeginTime, plannedEndTime, plannedEventDescription, plannedEventReason, region, status);
   }
 
 
@@ -457,14 +435,13 @@ public class PlannedEventForDescribePlannedEventsOutput {
     sb.append("    eventType: ").append(toIndentedString(eventType)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
+    sb.append("    isUrgent: ").append(toIndentedString(isUrgent)).append("\n");
     sb.append("    maxDelayTime: ").append(toIndentedString(maxDelayTime)).append("\n");
     sb.append("    originBeginTime: ").append(toIndentedString(originBeginTime)).append("\n");
     sb.append("    plannedBeginTime: ").append(toIndentedString(plannedBeginTime)).append("\n");
     sb.append("    plannedEndTime: ").append(toIndentedString(plannedEndTime)).append("\n");
     sb.append("    plannedEventDescription: ").append(toIndentedString(plannedEventDescription)).append("\n");
     sb.append("    plannedEventReason: ").append(toIndentedString(plannedEventReason)).append("\n");
-    sb.append("    plannedSwitchBeginTime: ").append(toIndentedString(plannedSwitchBeginTime)).append("\n");
-    sb.append("    plannedSwitchEndTime: ").append(toIndentedString(plannedSwitchEndTime)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");

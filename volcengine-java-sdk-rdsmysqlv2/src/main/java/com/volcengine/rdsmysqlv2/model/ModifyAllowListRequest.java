@@ -51,14 +51,8 @@ public class ModifyAllowListRequest {
   @SerializedName("ApplyInstanceNum")
   private Integer applyInstanceNum = null;
 
-  @SerializedName("IgnoreInstanceStatus")
-  private Boolean ignoreInstanceStatus = null;
-
   @SerializedName("ModifyMode")
   private String modifyMode = null;
-
-  @SerializedName("ProjectName")
-  private String projectName = null;
 
   @SerializedName("SecurityGroupBindInfos")
   private List<SecurityGroupBindInfoForModifyAllowListInput> securityGroupBindInfos = null;
@@ -182,24 +176,6 @@ public class ModifyAllowListRequest {
     this.applyInstanceNum = applyInstanceNum;
   }
 
-  public ModifyAllowListRequest ignoreInstanceStatus(Boolean ignoreInstanceStatus) {
-    this.ignoreInstanceStatus = ignoreInstanceStatus;
-    return this;
-  }
-
-   /**
-   * Get ignoreInstanceStatus
-   * @return ignoreInstanceStatus
-  **/
-  @Schema(description = "")
-  public Boolean isIgnoreInstanceStatus() {
-    return ignoreInstanceStatus;
-  }
-
-  public void setIgnoreInstanceStatus(Boolean ignoreInstanceStatus) {
-    this.ignoreInstanceStatus = ignoreInstanceStatus;
-  }
-
   public ModifyAllowListRequest modifyMode(String modifyMode) {
     this.modifyMode = modifyMode;
     return this;
@@ -216,24 +192,6 @@ public class ModifyAllowListRequest {
 
   public void setModifyMode(String modifyMode) {
     this.modifyMode = modifyMode;
-  }
-
-  public ModifyAllowListRequest projectName(String projectName) {
-    this.projectName = projectName;
-    return this;
-  }
-
-   /**
-   * Get projectName
-   * @return projectName
-  **/
-  @Schema(description = "")
-  public String getProjectName() {
-    return projectName;
-  }
-
-  public void setProjectName(String projectName) {
-    this.projectName = projectName;
   }
 
   public ModifyAllowListRequest securityGroupBindInfos(List<SecurityGroupBindInfoForModifyAllowListInput> securityGroupBindInfos) {
@@ -341,9 +299,7 @@ public class ModifyAllowListRequest {
         Objects.equals(this.allowListId, modifyAllowListRequest.allowListId) &&
         Objects.equals(this.allowListName, modifyAllowListRequest.allowListName) &&
         Objects.equals(this.applyInstanceNum, modifyAllowListRequest.applyInstanceNum) &&
-        Objects.equals(this.ignoreInstanceStatus, modifyAllowListRequest.ignoreInstanceStatus) &&
         Objects.equals(this.modifyMode, modifyAllowListRequest.modifyMode) &&
-        Objects.equals(this.projectName, modifyAllowListRequest.projectName) &&
         Objects.equals(this.securityGroupBindInfos, modifyAllowListRequest.securityGroupBindInfos) &&
         Objects.equals(this.securityGroupIds, modifyAllowListRequest.securityGroupIds) &&
         Objects.equals(this.updateSecurityGroup, modifyAllowListRequest.updateSecurityGroup) &&
@@ -352,7 +308,7 @@ public class ModifyAllowListRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowList, allowListCategory, allowListDesc, allowListId, allowListName, applyInstanceNum, ignoreInstanceStatus, modifyMode, projectName, securityGroupBindInfos, securityGroupIds, updateSecurityGroup, userAllowList);
+    return Objects.hash(allowList, allowListCategory, allowListDesc, allowListId, allowListName, applyInstanceNum, modifyMode, securityGroupBindInfos, securityGroupIds, updateSecurityGroup, userAllowList);
   }
 
 
@@ -367,9 +323,7 @@ public class ModifyAllowListRequest {
     sb.append("    allowListId: ").append(toIndentedString(allowListId)).append("\n");
     sb.append("    allowListName: ").append(toIndentedString(allowListName)).append("\n");
     sb.append("    applyInstanceNum: ").append(toIndentedString(applyInstanceNum)).append("\n");
-    sb.append("    ignoreInstanceStatus: ").append(toIndentedString(ignoreInstanceStatus)).append("\n");
     sb.append("    modifyMode: ").append(toIndentedString(modifyMode)).append("\n");
-    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    securityGroupBindInfos: ").append(toIndentedString(securityGroupBindInfos)).append("\n");
     sb.append("    securityGroupIds: ").append(toIndentedString(securityGroupIds)).append("\n");
     sb.append("    updateSecurityGroup: ").append(toIndentedString(updateSecurityGroup)).append("\n");

@@ -19,7 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.rdsmysqlv2.model.OptionForDescribeBackupsInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -55,17 +54,11 @@ public class DescribeBackupsRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;
 
-  @SerializedName("Option")
-  private OptionForDescribeBackupsInput option = null;
-
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
 
   @SerializedName("PageSize")
   private Integer pageSize = null;
-
-  @SerializedName("ProjectName")
-  private String projectName = null;
 
   public DescribeBackupsRequest backupEndTime(String backupEndTime) {
     this.backupEndTime = backupEndTime;
@@ -202,32 +195,14 @@ public class DescribeBackupsRequest {
    * Get instanceId
    * @return instanceId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getInstanceId() {
     return instanceId;
   }
 
   public void setInstanceId(String instanceId) {
     this.instanceId = instanceId;
-  }
-
-  public DescribeBackupsRequest option(OptionForDescribeBackupsInput option) {
-    this.option = option;
-    return this;
-  }
-
-   /**
-   * Get option
-   * @return option
-  **/
-  @Valid
-  @Schema(description = "")
-  public OptionForDescribeBackupsInput getOption() {
-    return option;
-  }
-
-  public void setOption(OptionForDescribeBackupsInput option) {
-    this.option = option;
   }
 
   public DescribeBackupsRequest pageNumber(Integer pageNumber) {
@@ -266,24 +241,6 @@ public class DescribeBackupsRequest {
     this.pageSize = pageSize;
   }
 
-  public DescribeBackupsRequest projectName(String projectName) {
-    this.projectName = projectName;
-    return this;
-  }
-
-   /**
-   * Get projectName
-   * @return projectName
-  **/
-  @Schema(description = "")
-  public String getProjectName() {
-    return projectName;
-  }
-
-  public void setProjectName(String projectName) {
-    this.projectName = projectName;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -302,15 +259,13 @@ public class DescribeBackupsRequest {
         Objects.equals(this.backupType, describeBackupsRequest.backupType) &&
         Objects.equals(this.createType, describeBackupsRequest.createType) &&
         Objects.equals(this.instanceId, describeBackupsRequest.instanceId) &&
-        Objects.equals(this.option, describeBackupsRequest.option) &&
         Objects.equals(this.pageNumber, describeBackupsRequest.pageNumber) &&
-        Objects.equals(this.pageSize, describeBackupsRequest.pageSize) &&
-        Objects.equals(this.projectName, describeBackupsRequest.projectName);
+        Objects.equals(this.pageSize, describeBackupsRequest.pageSize);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(backupEndTime, backupId, backupMethod, backupStartTime, backupStatus, backupType, createType, instanceId, option, pageNumber, pageSize, projectName);
+    return Objects.hash(backupEndTime, backupId, backupMethod, backupStartTime, backupStatus, backupType, createType, instanceId, pageNumber, pageSize);
   }
 
 
@@ -327,10 +282,8 @@ public class DescribeBackupsRequest {
     sb.append("    backupType: ").append(toIndentedString(backupType)).append("\n");
     sb.append("    createType: ").append(toIndentedString(createType)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
-    sb.append("    option: ").append(toIndentedString(option)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
-    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

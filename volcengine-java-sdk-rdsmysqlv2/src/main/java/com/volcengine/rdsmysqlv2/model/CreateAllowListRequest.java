@@ -48,9 +48,6 @@ public class CreateAllowListRequest {
   @SerializedName("AllowListType")
   private String allowListType = null;
 
-  @SerializedName("ProjectName")
-  private String projectName = null;
-
   @SerializedName("SecurityGroupBindInfos")
   private List<SecurityGroupBindInfoForCreateAllowListInput> securityGroupBindInfos = null;
 
@@ -151,24 +148,6 @@ public class CreateAllowListRequest {
     this.allowListType = allowListType;
   }
 
-  public CreateAllowListRequest projectName(String projectName) {
-    this.projectName = projectName;
-    return this;
-  }
-
-   /**
-   * Get projectName
-   * @return projectName
-  **/
-  @Schema(description = "")
-  public String getProjectName() {
-    return projectName;
-  }
-
-  public void setProjectName(String projectName) {
-    this.projectName = projectName;
-  }
-
   public CreateAllowListRequest securityGroupBindInfos(List<SecurityGroupBindInfoForCreateAllowListInput> securityGroupBindInfos) {
     this.securityGroupBindInfos = securityGroupBindInfos;
     return this;
@@ -255,7 +234,6 @@ public class CreateAllowListRequest {
         Objects.equals(this.allowListDesc, createAllowListRequest.allowListDesc) &&
         Objects.equals(this.allowListName, createAllowListRequest.allowListName) &&
         Objects.equals(this.allowListType, createAllowListRequest.allowListType) &&
-        Objects.equals(this.projectName, createAllowListRequest.projectName) &&
         Objects.equals(this.securityGroupBindInfos, createAllowListRequest.securityGroupBindInfos) &&
         Objects.equals(this.securityGroupIds, createAllowListRequest.securityGroupIds) &&
         Objects.equals(this.userAllowList, createAllowListRequest.userAllowList);
@@ -263,7 +241,7 @@ public class CreateAllowListRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowList, allowListCategory, allowListDesc, allowListName, allowListType, projectName, securityGroupBindInfos, securityGroupIds, userAllowList);
+    return Objects.hash(allowList, allowListCategory, allowListDesc, allowListName, allowListType, securityGroupBindInfos, securityGroupIds, userAllowList);
   }
 
 
@@ -277,7 +255,6 @@ public class CreateAllowListRequest {
     sb.append("    allowListDesc: ").append(toIndentedString(allowListDesc)).append("\n");
     sb.append("    allowListName: ").append(toIndentedString(allowListName)).append("\n");
     sb.append("    allowListType: ").append(toIndentedString(allowListType)).append("\n");
-    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    securityGroupBindInfos: ").append(toIndentedString(securityGroupBindInfos)).append("\n");
     sb.append("    securityGroupIds: ").append(toIndentedString(securityGroupIds)).append("\n");
     sb.append("    userAllowList: ").append(toIndentedString(userAllowList)).append("\n");

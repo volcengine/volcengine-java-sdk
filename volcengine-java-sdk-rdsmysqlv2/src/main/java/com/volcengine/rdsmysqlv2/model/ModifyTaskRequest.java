@@ -33,23 +33,11 @@ public class ModifyTaskRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;
 
-  @SerializedName("ModifyBeginTime")
-  private String modifyBeginTime = null;
-
-  @SerializedName("ModifyEndTime")
-  private String modifyEndTime = null;
-
   @SerializedName("ModifyType")
   private String modifyType = null;
 
-  @SerializedName("ProjectName")
-  private String projectName = null;
-
   @SerializedName("SwitchTime")
   private String switchTime = null;
-
-  @SerializedName("TaskEventOperation")
-  private String taskEventOperation = null;
 
   @SerializedName("TaskId")
   private String taskId = null;
@@ -73,42 +61,6 @@ public class ModifyTaskRequest {
     this.instanceId = instanceId;
   }
 
-  public ModifyTaskRequest modifyBeginTime(String modifyBeginTime) {
-    this.modifyBeginTime = modifyBeginTime;
-    return this;
-  }
-
-   /**
-   * Get modifyBeginTime
-   * @return modifyBeginTime
-  **/
-  @Schema(description = "")
-  public String getModifyBeginTime() {
-    return modifyBeginTime;
-  }
-
-  public void setModifyBeginTime(String modifyBeginTime) {
-    this.modifyBeginTime = modifyBeginTime;
-  }
-
-  public ModifyTaskRequest modifyEndTime(String modifyEndTime) {
-    this.modifyEndTime = modifyEndTime;
-    return this;
-  }
-
-   /**
-   * Get modifyEndTime
-   * @return modifyEndTime
-  **/
-  @Schema(description = "")
-  public String getModifyEndTime() {
-    return modifyEndTime;
-  }
-
-  public void setModifyEndTime(String modifyEndTime) {
-    this.modifyEndTime = modifyEndTime;
-  }
-
   public ModifyTaskRequest modifyType(String modifyType) {
     this.modifyType = modifyType;
     return this;
@@ -118,31 +70,14 @@ public class ModifyTaskRequest {
    * Get modifyType
    * @return modifyType
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getModifyType() {
     return modifyType;
   }
 
   public void setModifyType(String modifyType) {
     this.modifyType = modifyType;
-  }
-
-  public ModifyTaskRequest projectName(String projectName) {
-    this.projectName = projectName;
-    return this;
-  }
-
-   /**
-   * Get projectName
-   * @return projectName
-  **/
-  @Schema(description = "")
-  public String getProjectName() {
-    return projectName;
-  }
-
-  public void setProjectName(String projectName) {
-    this.projectName = projectName;
   }
 
   public ModifyTaskRequest switchTime(String switchTime) {
@@ -161,25 +96,6 @@ public class ModifyTaskRequest {
 
   public void setSwitchTime(String switchTime) {
     this.switchTime = switchTime;
-  }
-
-  public ModifyTaskRequest taskEventOperation(String taskEventOperation) {
-    this.taskEventOperation = taskEventOperation;
-    return this;
-  }
-
-   /**
-   * Get taskEventOperation
-   * @return taskEventOperation
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getTaskEventOperation() {
-    return taskEventOperation;
-  }
-
-  public void setTaskEventOperation(String taskEventOperation) {
-    this.taskEventOperation = taskEventOperation;
   }
 
   public ModifyTaskRequest taskId(String taskId) {
@@ -212,18 +128,14 @@ public class ModifyTaskRequest {
     }
     ModifyTaskRequest modifyTaskRequest = (ModifyTaskRequest) o;
     return Objects.equals(this.instanceId, modifyTaskRequest.instanceId) &&
-        Objects.equals(this.modifyBeginTime, modifyTaskRequest.modifyBeginTime) &&
-        Objects.equals(this.modifyEndTime, modifyTaskRequest.modifyEndTime) &&
         Objects.equals(this.modifyType, modifyTaskRequest.modifyType) &&
-        Objects.equals(this.projectName, modifyTaskRequest.projectName) &&
         Objects.equals(this.switchTime, modifyTaskRequest.switchTime) &&
-        Objects.equals(this.taskEventOperation, modifyTaskRequest.taskEventOperation) &&
         Objects.equals(this.taskId, modifyTaskRequest.taskId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, modifyBeginTime, modifyEndTime, modifyType, projectName, switchTime, taskEventOperation, taskId);
+    return Objects.hash(instanceId, modifyType, switchTime, taskId);
   }
 
 
@@ -233,12 +145,8 @@ public class ModifyTaskRequest {
     sb.append("class ModifyTaskRequest {\n");
     
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
-    sb.append("    modifyBeginTime: ").append(toIndentedString(modifyBeginTime)).append("\n");
-    sb.append("    modifyEndTime: ").append(toIndentedString(modifyEndTime)).append("\n");
     sb.append("    modifyType: ").append(toIndentedString(modifyType)).append("\n");
-    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    switchTime: ").append(toIndentedString(switchTime)).append("\n");
-    sb.append("    taskEventOperation: ").append(toIndentedString(taskEventOperation)).append("\n");
     sb.append("    taskId: ").append(toIndentedString(taskId)).append("\n");
     sb.append("}");
     return sb.toString();
