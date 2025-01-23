@@ -30,38 +30,11 @@ import javax.validation.Valid;
 
 
 public class DescribeAllowListsRequest {
-  @SerializedName("IPAddress")
-  private String ipAddress = null;
-
   @SerializedName("InstanceId")
   private String instanceId = null;
 
-  @SerializedName("ProjectName")
-  private String projectName = null;
-
-  @SerializedName("QueryDefault")
-  private Boolean queryDefault = null;
-
   @SerializedName("RegionId")
   private String regionId = null;
-
-  public DescribeAllowListsRequest ipAddress(String ipAddress) {
-    this.ipAddress = ipAddress;
-    return this;
-  }
-
-   /**
-   * Get ipAddress
-   * @return ipAddress
-  **/
-  @Schema(description = "")
-  public String getIpAddress() {
-    return ipAddress;
-  }
-
-  public void setIpAddress(String ipAddress) {
-    this.ipAddress = ipAddress;
-  }
 
   public DescribeAllowListsRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
@@ -81,42 +54,6 @@ public class DescribeAllowListsRequest {
     this.instanceId = instanceId;
   }
 
-  public DescribeAllowListsRequest projectName(String projectName) {
-    this.projectName = projectName;
-    return this;
-  }
-
-   /**
-   * Get projectName
-   * @return projectName
-  **/
-  @Schema(description = "")
-  public String getProjectName() {
-    return projectName;
-  }
-
-  public void setProjectName(String projectName) {
-    this.projectName = projectName;
-  }
-
-  public DescribeAllowListsRequest queryDefault(Boolean queryDefault) {
-    this.queryDefault = queryDefault;
-    return this;
-  }
-
-   /**
-   * Get queryDefault
-   * @return queryDefault
-  **/
-  @Schema(description = "")
-  public Boolean isQueryDefault() {
-    return queryDefault;
-  }
-
-  public void setQueryDefault(Boolean queryDefault) {
-    this.queryDefault = queryDefault;
-  }
-
   public DescribeAllowListsRequest regionId(String regionId) {
     this.regionId = regionId;
     return this;
@@ -126,7 +63,8 @@ public class DescribeAllowListsRequest {
    * Get regionId
    * @return regionId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getRegionId() {
     return regionId;
   }
@@ -145,16 +83,13 @@ public class DescribeAllowListsRequest {
       return false;
     }
     DescribeAllowListsRequest describeAllowListsRequest = (DescribeAllowListsRequest) o;
-    return Objects.equals(this.ipAddress, describeAllowListsRequest.ipAddress) &&
-        Objects.equals(this.instanceId, describeAllowListsRequest.instanceId) &&
-        Objects.equals(this.projectName, describeAllowListsRequest.projectName) &&
-        Objects.equals(this.queryDefault, describeAllowListsRequest.queryDefault) &&
+    return Objects.equals(this.instanceId, describeAllowListsRequest.instanceId) &&
         Objects.equals(this.regionId, describeAllowListsRequest.regionId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ipAddress, instanceId, projectName, queryDefault, regionId);
+    return Objects.hash(instanceId, regionId);
   }
 
 
@@ -163,10 +98,7 @@ public class DescribeAllowListsRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeAllowListsRequest {\n");
     
-    sb.append("    ipAddress: ").append(toIndentedString(ipAddress)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
-    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
-    sb.append("    queryDefault: ").append(toIndentedString(queryDefault)).append("\n");
     sb.append("    regionId: ").append(toIndentedString(regionId)).append("\n");
     sb.append("}");
     return sb.toString();

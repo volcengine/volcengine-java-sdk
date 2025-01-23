@@ -33,8 +33,55 @@ public class ChargeItemPriceForDescribeDBInstancePriceDetailOutput {
   @SerializedName("ChargeItemKey")
   private String chargeItemKey = null;
 
-  @SerializedName("ChargeItemType")
-  private String chargeItemType = null;
+  /**
+   * Gets or Sets chargeItemType
+   */
+  @JsonAdapter(ChargeItemTypeEnum.Adapter.class)
+  public enum ChargeItemTypeEnum {
+    @SerializedName("Primary")
+    PRIMARY("Primary"),
+    @SerializedName("Secondary")
+    SECONDARY("Secondary"),
+    @SerializedName("ReadOnly")
+    READONLY("ReadOnly"),
+    @SerializedName("Storage")
+    STORAGE("Storage");
+
+    private String value;
+
+    ChargeItemTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ChargeItemTypeEnum fromValue(String input) {
+      for (ChargeItemTypeEnum b : ChargeItemTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ChargeItemTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ChargeItemTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ChargeItemTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ChargeItemTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("ChargeItemType")
+  private ChargeItemTypeEnum chargeItemType = null;
 
   @SerializedName("ChargeItemValue")
   private Long chargeItemValue = null;
@@ -66,7 +113,7 @@ public class ChargeItemPriceForDescribeDBInstancePriceDetailOutput {
     this.chargeItemKey = chargeItemKey;
   }
 
-  public ChargeItemPriceForDescribeDBInstancePriceDetailOutput chargeItemType(String chargeItemType) {
+  public ChargeItemPriceForDescribeDBInstancePriceDetailOutput chargeItemType(ChargeItemTypeEnum chargeItemType) {
     this.chargeItemType = chargeItemType;
     return this;
   }
@@ -76,11 +123,11 @@ public class ChargeItemPriceForDescribeDBInstancePriceDetailOutput {
    * @return chargeItemType
   **/
   @Schema(description = "")
-  public String getChargeItemType() {
+  public ChargeItemTypeEnum getChargeItemType() {
     return chargeItemType;
   }
 
-  public void setChargeItemType(String chargeItemType) {
+  public void setChargeItemType(ChargeItemTypeEnum chargeItemType) {
     this.chargeItemType = chargeItemType;
   }
 

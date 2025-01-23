@@ -39,14 +39,53 @@ public class MigrateToOtherZoneRequest {
   @SerializedName("NodeInfo")
   private List<NodeInfoForMigrateToOtherZoneInput> nodeInfo = null;
 
-  @SerializedName("SpecifiedSwitchEndTime")
-  private String specifiedSwitchEndTime = null;
+  /**
+   * Gets or Sets switchType
+   */
+  @JsonAdapter(SwitchTypeEnum.Adapter.class)
+  public enum SwitchTypeEnum {
+    @SerializedName("Immediate")
+    IMMEDIATE("Immediate"),
+    @SerializedName("MaintainTime")
+    MAINTAINTIME("MaintainTime"),
+    @SerializedName("SpecifiedTime")
+    SPECIFIEDTIME("SpecifiedTime");
 
-  @SerializedName("SpecifiedSwitchStartTime")
-  private String specifiedSwitchStartTime = null;
+    private String value;
 
-  @SerializedName("SwitchType")
-  private String switchType = null;
+    SwitchTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static SwitchTypeEnum fromValue(String input) {
+      for (SwitchTypeEnum b : SwitchTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<SwitchTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final SwitchTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public SwitchTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return SwitchTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("SwitchType")
+  private SwitchTypeEnum switchType = null;
 
   public MigrateToOtherZoneRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
@@ -94,43 +133,7 @@ public class MigrateToOtherZoneRequest {
     this.nodeInfo = nodeInfo;
   }
 
-  public MigrateToOtherZoneRequest specifiedSwitchEndTime(String specifiedSwitchEndTime) {
-    this.specifiedSwitchEndTime = specifiedSwitchEndTime;
-    return this;
-  }
-
-   /**
-   * Get specifiedSwitchEndTime
-   * @return specifiedSwitchEndTime
-  **/
-  @Schema(description = "")
-  public String getSpecifiedSwitchEndTime() {
-    return specifiedSwitchEndTime;
-  }
-
-  public void setSpecifiedSwitchEndTime(String specifiedSwitchEndTime) {
-    this.specifiedSwitchEndTime = specifiedSwitchEndTime;
-  }
-
-  public MigrateToOtherZoneRequest specifiedSwitchStartTime(String specifiedSwitchStartTime) {
-    this.specifiedSwitchStartTime = specifiedSwitchStartTime;
-    return this;
-  }
-
-   /**
-   * Get specifiedSwitchStartTime
-   * @return specifiedSwitchStartTime
-  **/
-  @Schema(description = "")
-  public String getSpecifiedSwitchStartTime() {
-    return specifiedSwitchStartTime;
-  }
-
-  public void setSpecifiedSwitchStartTime(String specifiedSwitchStartTime) {
-    this.specifiedSwitchStartTime = specifiedSwitchStartTime;
-  }
-
-  public MigrateToOtherZoneRequest switchType(String switchType) {
+  public MigrateToOtherZoneRequest switchType(SwitchTypeEnum switchType) {
     this.switchType = switchType;
     return this;
   }
@@ -140,11 +143,11 @@ public class MigrateToOtherZoneRequest {
    * @return switchType
   **/
   @Schema(description = "")
-  public String getSwitchType() {
+  public SwitchTypeEnum getSwitchType() {
     return switchType;
   }
 
-  public void setSwitchType(String switchType) {
+  public void setSwitchType(SwitchTypeEnum switchType) {
     this.switchType = switchType;
   }
 
@@ -160,14 +163,12 @@ public class MigrateToOtherZoneRequest {
     MigrateToOtherZoneRequest migrateToOtherZoneRequest = (MigrateToOtherZoneRequest) o;
     return Objects.equals(this.instanceId, migrateToOtherZoneRequest.instanceId) &&
         Objects.equals(this.nodeInfo, migrateToOtherZoneRequest.nodeInfo) &&
-        Objects.equals(this.specifiedSwitchEndTime, migrateToOtherZoneRequest.specifiedSwitchEndTime) &&
-        Objects.equals(this.specifiedSwitchStartTime, migrateToOtherZoneRequest.specifiedSwitchStartTime) &&
         Objects.equals(this.switchType, migrateToOtherZoneRequest.switchType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, nodeInfo, specifiedSwitchEndTime, specifiedSwitchStartTime, switchType);
+    return Objects.hash(instanceId, nodeInfo, switchType);
   }
 
 
@@ -178,8 +179,6 @@ public class MigrateToOtherZoneRequest {
     
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    nodeInfo: ").append(toIndentedString(nodeInfo)).append("\n");
-    sb.append("    specifiedSwitchEndTime: ").append(toIndentedString(specifiedSwitchEndTime)).append("\n");
-    sb.append("    specifiedSwitchStartTime: ").append(toIndentedString(specifiedSwitchStartTime)).append("\n");
     sb.append("    switchType: ").append(toIndentedString(switchType)).append("\n");
     sb.append("}");
     return sb.toString();
