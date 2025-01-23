@@ -1,5 +1,6 @@
 package com.volcengine.ark.runtime.model.completion.chat;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.volcengine.ark.runtime.model.Usage;
 
@@ -27,6 +28,12 @@ public class ChatCompletionResult {
      * The GPT model used.
      */
     String model;
+
+    /**
+     * The service tier used for processing the request.
+     */
+    @JsonAlias("service_tier")
+    String serviceTier;
 
     /**
      * A list of all generated completions.
@@ -68,6 +75,14 @@ public class ChatCompletionResult {
 
     public void setModel(String model) {
         this.model = model;
+    }
+
+    public String getServiceTier() {
+        return serviceTier;
+    }
+
+    public void setServiceTier(String serviceTier) {
+        this.serviceTier = serviceTier;
     }
 
     public List<ChatCompletionChoice> getChoices() {

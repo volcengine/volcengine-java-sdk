@@ -49,6 +49,13 @@ public class ChatCompletionRequest {
     ChatCompletionRequestStreamOptions streamOptions;
 
     /**
+     * Specifies the latency tier to use for processing the request.
+     * This parameter is relevant for customers subscribed to the scale tier service
+     */
+    @JsonProperty("service_tier")
+    String serviceTier;
+
+    /**
      * Up to 4 sequences where the API will stop generating further tokens.
      */
     List<String> stop;
@@ -181,6 +188,14 @@ public class ChatCompletionRequest {
         this.streamOptions = streamOptions;
     }
 
+    public String getServiceTier() {
+        return serviceTier;
+    }
+
+    public void setServiceTier(String serviceTier) {
+        this.serviceTier = serviceTier;
+    }
+
     public List<String> getStop() {
         return stop;
     }
@@ -302,6 +317,7 @@ public class ChatCompletionRequest {
                 ", topP=" + topP +
                 ", stream=" + stream +
                 ", streamOptions=" + streamOptions +
+                ", serviceTier=" + serviceTier +
                 ", stop=" + stop +
                 ", maxTokens=" + maxTokens +
                 ", presencePenalty=" + presencePenalty +
@@ -444,6 +460,7 @@ public class ChatCompletionRequest {
         private Double topP;
         private Boolean stream;
         private ChatCompletionRequestStreamOptions streamOptions;
+        private String serviceTier;
         private List<String> stop;
         private Integer maxTokens;
         private Double presencePenalty;
@@ -486,6 +503,11 @@ public class ChatCompletionRequest {
 
         public ChatCompletionRequest.Builder streamOptions(ChatCompletionRequestStreamOptions streamOptions) {
             this.streamOptions = streamOptions;
+            return this;
+        }
+
+        public ChatCompletionRequest.Builder serviceTier(String serviceTier) {
+            this.serviceTier = serviceTier;
             return this;
         }
 
@@ -572,6 +594,7 @@ public class ChatCompletionRequest {
             chatCompletionRequest.setTopP(topP);
             chatCompletionRequest.setStream(stream);
             chatCompletionRequest.setStreamOptions(streamOptions);
+            chatCompletionRequest.setServiceTier(serviceTier);
             chatCompletionRequest.setStop(stop);
             chatCompletionRequest.setMaxTokens(maxTokens);
             chatCompletionRequest.setPresencePenalty(presencePenalty);
