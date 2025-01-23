@@ -36,6 +36,12 @@ public class AssociatedInstanceForDescribeAllowListDetailOutput {
   @SerializedName("InstanceName")
   private String instanceName = null;
 
+  @SerializedName("InstanceStatus")
+  private String instanceStatus = null;
+
+  @SerializedName("IsLatest")
+  private Boolean isLatest = null;
+
   @SerializedName("VPC")
   private String VPC = null;
 
@@ -75,6 +81,42 @@ public class AssociatedInstanceForDescribeAllowListDetailOutput {
     this.instanceName = instanceName;
   }
 
+  public AssociatedInstanceForDescribeAllowListDetailOutput instanceStatus(String instanceStatus) {
+    this.instanceStatus = instanceStatus;
+    return this;
+  }
+
+   /**
+   * Get instanceStatus
+   * @return instanceStatus
+  **/
+  @Schema(description = "")
+  public String getInstanceStatus() {
+    return instanceStatus;
+  }
+
+  public void setInstanceStatus(String instanceStatus) {
+    this.instanceStatus = instanceStatus;
+  }
+
+  public AssociatedInstanceForDescribeAllowListDetailOutput isLatest(Boolean isLatest) {
+    this.isLatest = isLatest;
+    return this;
+  }
+
+   /**
+   * Get isLatest
+   * @return isLatest
+  **/
+  @Schema(description = "")
+  public Boolean isIsLatest() {
+    return isLatest;
+  }
+
+  public void setIsLatest(Boolean isLatest) {
+    this.isLatest = isLatest;
+  }
+
   public AssociatedInstanceForDescribeAllowListDetailOutput VPC(String VPC) {
     this.VPC = VPC;
     return this;
@@ -105,12 +147,14 @@ public class AssociatedInstanceForDescribeAllowListDetailOutput {
     AssociatedInstanceForDescribeAllowListDetailOutput associatedInstanceForDescribeAllowListDetailOutput = (AssociatedInstanceForDescribeAllowListDetailOutput) o;
     return Objects.equals(this.instanceId, associatedInstanceForDescribeAllowListDetailOutput.instanceId) &&
         Objects.equals(this.instanceName, associatedInstanceForDescribeAllowListDetailOutput.instanceName) &&
+        Objects.equals(this.instanceStatus, associatedInstanceForDescribeAllowListDetailOutput.instanceStatus) &&
+        Objects.equals(this.isLatest, associatedInstanceForDescribeAllowListDetailOutput.isLatest) &&
         Objects.equals(this.VPC, associatedInstanceForDescribeAllowListDetailOutput.VPC);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, instanceName, VPC);
+    return Objects.hash(instanceId, instanceName, instanceStatus, isLatest, VPC);
   }
 
 
@@ -121,6 +165,8 @@ public class AssociatedInstanceForDescribeAllowListDetailOutput {
     
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
+    sb.append("    instanceStatus: ").append(toIndentedString(instanceStatus)).append("\n");
+    sb.append("    isLatest: ").append(toIndentedString(isLatest)).append("\n");
     sb.append("    VPC: ").append(toIndentedString(VPC)).append("\n");
     sb.append("}");
     return sb.toString();

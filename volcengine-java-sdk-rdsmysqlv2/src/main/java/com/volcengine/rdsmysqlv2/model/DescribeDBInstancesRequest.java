@@ -57,6 +57,9 @@ public class DescribeDBInstancesRequest {
   @SerializedName("InstanceType")
   private String instanceType = null;
 
+  @SerializedName("KernelVersion")
+  private List<String> kernelVersion = null;
+
   @SerializedName("NodeSpec")
   private String nodeSpec = null;
 
@@ -65,6 +68,12 @@ public class DescribeDBInstancesRequest {
 
   @SerializedName("PageSize")
   private Integer pageSize = null;
+
+  @SerializedName("PrivateNetworkIpAddress")
+  private String privateNetworkIpAddress = null;
+
+  @SerializedName("PrivateNetworkVpcId")
+  private String privateNetworkVpcId = null;
 
   @SerializedName("ProjectName")
   private String projectName = null;
@@ -219,6 +228,32 @@ public class DescribeDBInstancesRequest {
     this.instanceType = instanceType;
   }
 
+  public DescribeDBInstancesRequest kernelVersion(List<String> kernelVersion) {
+    this.kernelVersion = kernelVersion;
+    return this;
+  }
+
+  public DescribeDBInstancesRequest addKernelVersionItem(String kernelVersionItem) {
+    if (this.kernelVersion == null) {
+      this.kernelVersion = new ArrayList<String>();
+    }
+    this.kernelVersion.add(kernelVersionItem);
+    return this;
+  }
+
+   /**
+   * Get kernelVersion
+   * @return kernelVersion
+  **/
+  @Schema(description = "")
+  public List<String> getKernelVersion() {
+    return kernelVersion;
+  }
+
+  public void setKernelVersion(List<String> kernelVersion) {
+    this.kernelVersion = kernelVersion;
+  }
+
   public DescribeDBInstancesRequest nodeSpec(String nodeSpec) {
     this.nodeSpec = nodeSpec;
     return this;
@@ -271,6 +306,42 @@ public class DescribeDBInstancesRequest {
 
   public void setPageSize(Integer pageSize) {
     this.pageSize = pageSize;
+  }
+
+  public DescribeDBInstancesRequest privateNetworkIpAddress(String privateNetworkIpAddress) {
+    this.privateNetworkIpAddress = privateNetworkIpAddress;
+    return this;
+  }
+
+   /**
+   * Get privateNetworkIpAddress
+   * @return privateNetworkIpAddress
+  **/
+  @Schema(description = "")
+  public String getPrivateNetworkIpAddress() {
+    return privateNetworkIpAddress;
+  }
+
+  public void setPrivateNetworkIpAddress(String privateNetworkIpAddress) {
+    this.privateNetworkIpAddress = privateNetworkIpAddress;
+  }
+
+  public DescribeDBInstancesRequest privateNetworkVpcId(String privateNetworkVpcId) {
+    this.privateNetworkVpcId = privateNetworkVpcId;
+    return this;
+  }
+
+   /**
+   * Get privateNetworkVpcId
+   * @return privateNetworkVpcId
+  **/
+  @Schema(description = "")
+  public String getPrivateNetworkVpcId() {
+    return privateNetworkVpcId;
+  }
+
+  public void setPrivateNetworkVpcId(String privateNetworkVpcId) {
+    this.privateNetworkVpcId = privateNetworkVpcId;
   }
 
   public DescribeDBInstancesRequest projectName(String projectName) {
@@ -354,9 +425,12 @@ public class DescribeDBInstancesRequest {
         Objects.equals(this.instanceName, describeDBInstancesRequest.instanceName) &&
         Objects.equals(this.instanceStatus, describeDBInstancesRequest.instanceStatus) &&
         Objects.equals(this.instanceType, describeDBInstancesRequest.instanceType) &&
+        Objects.equals(this.kernelVersion, describeDBInstancesRequest.kernelVersion) &&
         Objects.equals(this.nodeSpec, describeDBInstancesRequest.nodeSpec) &&
         Objects.equals(this.pageNumber, describeDBInstancesRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeDBInstancesRequest.pageSize) &&
+        Objects.equals(this.privateNetworkIpAddress, describeDBInstancesRequest.privateNetworkIpAddress) &&
+        Objects.equals(this.privateNetworkVpcId, describeDBInstancesRequest.privateNetworkVpcId) &&
         Objects.equals(this.projectName, describeDBInstancesRequest.projectName) &&
         Objects.equals(this.tagFilters, describeDBInstancesRequest.tagFilters) &&
         Objects.equals(this.zoneId, describeDBInstancesRequest.zoneId);
@@ -364,7 +438,7 @@ public class DescribeDBInstancesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(chargeType, createTimeEnd, createTimeStart, dbEngineVersion, instanceId, instanceName, instanceStatus, instanceType, nodeSpec, pageNumber, pageSize, projectName, tagFilters, zoneId);
+    return Objects.hash(chargeType, createTimeEnd, createTimeStart, dbEngineVersion, instanceId, instanceName, instanceStatus, instanceType, kernelVersion, nodeSpec, pageNumber, pageSize, privateNetworkIpAddress, privateNetworkVpcId, projectName, tagFilters, zoneId);
   }
 
 
@@ -381,9 +455,12 @@ public class DescribeDBInstancesRequest {
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    instanceStatus: ").append(toIndentedString(instanceStatus)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
+    sb.append("    kernelVersion: ").append(toIndentedString(kernelVersion)).append("\n");
     sb.append("    nodeSpec: ").append(toIndentedString(nodeSpec)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    privateNetworkIpAddress: ").append(toIndentedString(privateNetworkIpAddress)).append("\n");
+    sb.append("    privateNetworkVpcId: ").append(toIndentedString(privateNetworkVpcId)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");

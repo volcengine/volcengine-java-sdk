@@ -33,6 +33,9 @@ import javax.validation.Valid;
 
 
 public class ModifyParameterTemplateRequest {
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("TemplateDesc")
   private String templateDesc = null;
 
@@ -44,6 +47,24 @@ public class ModifyParameterTemplateRequest {
 
   @SerializedName("TemplateParams")
   private List<TemplateParamForModifyParameterTemplateInput> templateParams = null;
+
+  public ModifyParameterTemplateRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
 
   public ModifyParameterTemplateRequest templateDesc(String templateDesc) {
     this.templateDesc = templateDesc;
@@ -138,7 +159,8 @@ public class ModifyParameterTemplateRequest {
       return false;
     }
     ModifyParameterTemplateRequest modifyParameterTemplateRequest = (ModifyParameterTemplateRequest) o;
-    return Objects.equals(this.templateDesc, modifyParameterTemplateRequest.templateDesc) &&
+    return Objects.equals(this.projectName, modifyParameterTemplateRequest.projectName) &&
+        Objects.equals(this.templateDesc, modifyParameterTemplateRequest.templateDesc) &&
         Objects.equals(this.templateId, modifyParameterTemplateRequest.templateId) &&
         Objects.equals(this.templateName, modifyParameterTemplateRequest.templateName) &&
         Objects.equals(this.templateParams, modifyParameterTemplateRequest.templateParams);
@@ -146,7 +168,7 @@ public class ModifyParameterTemplateRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(templateDesc, templateId, templateName, templateParams);
+    return Objects.hash(projectName, templateDesc, templateId, templateName, templateParams);
   }
 
 
@@ -155,6 +177,7 @@ public class ModifyParameterTemplateRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ModifyParameterTemplateRequest {\n");
     
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    templateDesc: ").append(toIndentedString(templateDesc)).append("\n");
     sb.append("    templateId: ").append(toIndentedString(templateId)).append("\n");
     sb.append("    templateName: ").append(toIndentedString(templateName)).append("\n");

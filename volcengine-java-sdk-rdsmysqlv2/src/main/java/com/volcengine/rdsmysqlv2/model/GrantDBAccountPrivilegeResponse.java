@@ -14,6 +14,15 @@ package com.volcengine.rdsmysqlv2.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -23,6 +32,35 @@ import javax.validation.Valid;
 
 
 public class GrantDBAccountPrivilegeResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("GrantPrivilegeSQL")
+  private List<String> grantPrivilegeSQL = null;
+
+  public GrantDBAccountPrivilegeResponse grantPrivilegeSQL(List<String> grantPrivilegeSQL) {
+    this.grantPrivilegeSQL = grantPrivilegeSQL;
+    return this;
+  }
+
+  public GrantDBAccountPrivilegeResponse addGrantPrivilegeSQLItem(String grantPrivilegeSQLItem) {
+    if (this.grantPrivilegeSQL == null) {
+      this.grantPrivilegeSQL = new ArrayList<String>();
+    }
+    this.grantPrivilegeSQL.add(grantPrivilegeSQLItem);
+    return this;
+  }
+
+   /**
+   * Get grantPrivilegeSQL
+   * @return grantPrivilegeSQL
+  **/
+  @Schema(description = "")
+  public List<String> getGrantPrivilegeSQL() {
+    return grantPrivilegeSQL;
+  }
+
+  public void setGrantPrivilegeSQL(List<String> grantPrivilegeSQL) {
+    this.grantPrivilegeSQL = grantPrivilegeSQL;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -32,12 +70,13 @@ public class GrantDBAccountPrivilegeResponse extends com.volcengine.model.Abstra
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return true;
+    GrantDBAccountPrivilegeResponse grantDBAccountPrivilegeResponse = (GrantDBAccountPrivilegeResponse) o;
+    return Objects.equals(this.grantPrivilegeSQL, grantDBAccountPrivilegeResponse.grantPrivilegeSQL);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash();
+    return Objects.hash(grantPrivilegeSQL);
   }
 
 
@@ -46,6 +85,7 @@ public class GrantDBAccountPrivilegeResponse extends com.volcengine.model.Abstra
     StringBuilder sb = new StringBuilder();
     sb.append("class GrantDBAccountPrivilegeResponse {\n");
     
+    sb.append("    grantPrivilegeSQL: ").append(toIndentedString(grantPrivilegeSQL)).append("\n");
     sb.append("}");
     return sb.toString();
   }
