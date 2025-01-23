@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.kms.model.MultiRegionConfigurationForCreateKeyOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -56,6 +57,12 @@ public class KeyForCreateKeyOutput {
 
   @SerializedName("LastRotationTime")
   private String lastRotationTime = null;
+
+  @SerializedName("MultiRegion")
+  private String multiRegion = null;
+
+  @SerializedName("MultiRegionConfiguration")
+  private MultiRegionConfigurationForCreateKeyOutput multiRegionConfiguration = null;
 
   @SerializedName("Origin")
   private String origin = null;
@@ -240,6 +247,43 @@ public class KeyForCreateKeyOutput {
     this.lastRotationTime = lastRotationTime;
   }
 
+  public KeyForCreateKeyOutput multiRegion(String multiRegion) {
+    this.multiRegion = multiRegion;
+    return this;
+  }
+
+   /**
+   * Get multiRegion
+   * @return multiRegion
+  **/
+  @Schema(description = "")
+  public String getMultiRegion() {
+    return multiRegion;
+  }
+
+  public void setMultiRegion(String multiRegion) {
+    this.multiRegion = multiRegion;
+  }
+
+  public KeyForCreateKeyOutput multiRegionConfiguration(MultiRegionConfigurationForCreateKeyOutput multiRegionConfiguration) {
+    this.multiRegionConfiguration = multiRegionConfiguration;
+    return this;
+  }
+
+   /**
+   * Get multiRegionConfiguration
+   * @return multiRegionConfiguration
+  **/
+  @Valid
+  @Schema(description = "")
+  public MultiRegionConfigurationForCreateKeyOutput getMultiRegionConfiguration() {
+    return multiRegionConfiguration;
+  }
+
+  public void setMultiRegionConfiguration(MultiRegionConfigurationForCreateKeyOutput multiRegionConfiguration) {
+    this.multiRegionConfiguration = multiRegionConfiguration;
+  }
+
   public KeyForCreateKeyOutput origin(String origin) {
     this.origin = origin;
     return this;
@@ -385,6 +429,8 @@ public class KeyForCreateKeyOutput {
         Objects.equals(this.keyState, keyForCreateKeyOutput.keyState) &&
         Objects.equals(this.keyUsage, keyForCreateKeyOutput.keyUsage) &&
         Objects.equals(this.lastRotationTime, keyForCreateKeyOutput.lastRotationTime) &&
+        Objects.equals(this.multiRegion, keyForCreateKeyOutput.multiRegion) &&
+        Objects.equals(this.multiRegionConfiguration, keyForCreateKeyOutput.multiRegionConfiguration) &&
         Objects.equals(this.origin, keyForCreateKeyOutput.origin) &&
         Objects.equals(this.protectionLevel, keyForCreateKeyOutput.protectionLevel) &&
         Objects.equals(this.rotationState, keyForCreateKeyOutput.rotationState) &&
@@ -396,7 +442,7 @@ public class KeyForCreateKeyOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(creationDate, description, ID, keyMaterialExpireTime, keyName, keySpec, keyState, keyUsage, lastRotationTime, origin, protectionLevel, rotationState, scheduleDeleteTime, scheduleRotationTime, trn, updateDate);
+    return Objects.hash(creationDate, description, ID, keyMaterialExpireTime, keyName, keySpec, keyState, keyUsage, lastRotationTime, multiRegion, multiRegionConfiguration, origin, protectionLevel, rotationState, scheduleDeleteTime, scheduleRotationTime, trn, updateDate);
   }
 
 
@@ -414,6 +460,8 @@ public class KeyForCreateKeyOutput {
     sb.append("    keyState: ").append(toIndentedString(keyState)).append("\n");
     sb.append("    keyUsage: ").append(toIndentedString(keyUsage)).append("\n");
     sb.append("    lastRotationTime: ").append(toIndentedString(lastRotationTime)).append("\n");
+    sb.append("    multiRegion: ").append(toIndentedString(multiRegion)).append("\n");
+    sb.append("    multiRegionConfiguration: ").append(toIndentedString(multiRegionConfiguration)).append("\n");
     sb.append("    origin: ").append(toIndentedString(origin)).append("\n");
     sb.append("    protectionLevel: ").append(toIndentedString(protectionLevel)).append("\n");
     sb.append("    rotationState: ").append(toIndentedString(rotationState)).append("\n");
