@@ -19,18 +19,18 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.kms.model.MultiRegionConfigurationForCreateKeyOutput;
+import com.volcengine.kms.model.MultiRegionConfigurationForReplicateKeyOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * KeyForCreateKeyOutput
+ * ConvertReplicaKeyForReplicateKeyOutput
  */
 
 
 
-public class KeyForCreateKeyOutput {
+public class ConvertReplicaKeyForReplicateKeyOutput {
   @SerializedName("CreationDate")
   private Long creationDate = null;
 
@@ -62,7 +62,7 @@ public class KeyForCreateKeyOutput {
   private String multiRegion = null;
 
   @SerializedName("MultiRegionConfiguration")
-  private MultiRegionConfigurationForCreateKeyOutput multiRegionConfiguration = null;
+  private MultiRegionConfigurationForReplicateKeyOutput multiRegionConfiguration = null;
 
   @SerializedName("Origin")
   private String origin = null;
@@ -85,7 +85,7 @@ public class KeyForCreateKeyOutput {
   @SerializedName("UpdateDate")
   private Long updateDate = null;
 
-  public KeyForCreateKeyOutput creationDate(Long creationDate) {
+  public ConvertReplicaKeyForReplicateKeyOutput creationDate(Long creationDate) {
     this.creationDate = creationDate;
     return this;
   }
@@ -103,7 +103,7 @@ public class KeyForCreateKeyOutput {
     this.creationDate = creationDate;
   }
 
-  public KeyForCreateKeyOutput description(String description) {
+  public ConvertReplicaKeyForReplicateKeyOutput description(String description) {
     this.description = description;
     return this;
   }
@@ -121,7 +121,7 @@ public class KeyForCreateKeyOutput {
     this.description = description;
   }
 
-  public KeyForCreateKeyOutput ID(String ID) {
+  public ConvertReplicaKeyForReplicateKeyOutput ID(String ID) {
     this.ID = ID;
     return this;
   }
@@ -139,7 +139,7 @@ public class KeyForCreateKeyOutput {
     this.ID = ID;
   }
 
-  public KeyForCreateKeyOutput keyMaterialExpireTime(String keyMaterialExpireTime) {
+  public ConvertReplicaKeyForReplicateKeyOutput keyMaterialExpireTime(String keyMaterialExpireTime) {
     this.keyMaterialExpireTime = keyMaterialExpireTime;
     return this;
   }
@@ -157,7 +157,7 @@ public class KeyForCreateKeyOutput {
     this.keyMaterialExpireTime = keyMaterialExpireTime;
   }
 
-  public KeyForCreateKeyOutput keyName(String keyName) {
+  public ConvertReplicaKeyForReplicateKeyOutput keyName(String keyName) {
     this.keyName = keyName;
     return this;
   }
@@ -175,7 +175,7 @@ public class KeyForCreateKeyOutput {
     this.keyName = keyName;
   }
 
-  public KeyForCreateKeyOutput keySpec(String keySpec) {
+  public ConvertReplicaKeyForReplicateKeyOutput keySpec(String keySpec) {
     this.keySpec = keySpec;
     return this;
   }
@@ -193,7 +193,7 @@ public class KeyForCreateKeyOutput {
     this.keySpec = keySpec;
   }
 
-  public KeyForCreateKeyOutput keyState(String keyState) {
+  public ConvertReplicaKeyForReplicateKeyOutput keyState(String keyState) {
     this.keyState = keyState;
     return this;
   }
@@ -211,7 +211,7 @@ public class KeyForCreateKeyOutput {
     this.keyState = keyState;
   }
 
-  public KeyForCreateKeyOutput keyUsage(String keyUsage) {
+  public ConvertReplicaKeyForReplicateKeyOutput keyUsage(String keyUsage) {
     this.keyUsage = keyUsage;
     return this;
   }
@@ -229,7 +229,7 @@ public class KeyForCreateKeyOutput {
     this.keyUsage = keyUsage;
   }
 
-  public KeyForCreateKeyOutput lastRotationTime(String lastRotationTime) {
+  public ConvertReplicaKeyForReplicateKeyOutput lastRotationTime(String lastRotationTime) {
     this.lastRotationTime = lastRotationTime;
     return this;
   }
@@ -247,7 +247,7 @@ public class KeyForCreateKeyOutput {
     this.lastRotationTime = lastRotationTime;
   }
 
-  public KeyForCreateKeyOutput multiRegion(String multiRegion) {
+  public ConvertReplicaKeyForReplicateKeyOutput multiRegion(String multiRegion) {
     this.multiRegion = multiRegion;
     return this;
   }
@@ -265,7 +265,7 @@ public class KeyForCreateKeyOutput {
     this.multiRegion = multiRegion;
   }
 
-  public KeyForCreateKeyOutput multiRegionConfiguration(MultiRegionConfigurationForCreateKeyOutput multiRegionConfiguration) {
+  public ConvertReplicaKeyForReplicateKeyOutput multiRegionConfiguration(MultiRegionConfigurationForReplicateKeyOutput multiRegionConfiguration) {
     this.multiRegionConfiguration = multiRegionConfiguration;
     return this;
   }
@@ -276,15 +276,15 @@ public class KeyForCreateKeyOutput {
   **/
   @Valid
   @Schema(description = "")
-  public MultiRegionConfigurationForCreateKeyOutput getMultiRegionConfiguration() {
+  public MultiRegionConfigurationForReplicateKeyOutput getMultiRegionConfiguration() {
     return multiRegionConfiguration;
   }
 
-  public void setMultiRegionConfiguration(MultiRegionConfigurationForCreateKeyOutput multiRegionConfiguration) {
+  public void setMultiRegionConfiguration(MultiRegionConfigurationForReplicateKeyOutput multiRegionConfiguration) {
     this.multiRegionConfiguration = multiRegionConfiguration;
   }
 
-  public KeyForCreateKeyOutput origin(String origin) {
+  public ConvertReplicaKeyForReplicateKeyOutput origin(String origin) {
     this.origin = origin;
     return this;
   }
@@ -302,7 +302,7 @@ public class KeyForCreateKeyOutput {
     this.origin = origin;
   }
 
-  public KeyForCreateKeyOutput protectionLevel(String protectionLevel) {
+  public ConvertReplicaKeyForReplicateKeyOutput protectionLevel(String protectionLevel) {
     this.protectionLevel = protectionLevel;
     return this;
   }
@@ -320,7 +320,7 @@ public class KeyForCreateKeyOutput {
     this.protectionLevel = protectionLevel;
   }
 
-  public KeyForCreateKeyOutput rotationState(String rotationState) {
+  public ConvertReplicaKeyForReplicateKeyOutput rotationState(String rotationState) {
     this.rotationState = rotationState;
     return this;
   }
@@ -338,7 +338,7 @@ public class KeyForCreateKeyOutput {
     this.rotationState = rotationState;
   }
 
-  public KeyForCreateKeyOutput scheduleDeleteTime(String scheduleDeleteTime) {
+  public ConvertReplicaKeyForReplicateKeyOutput scheduleDeleteTime(String scheduleDeleteTime) {
     this.scheduleDeleteTime = scheduleDeleteTime;
     return this;
   }
@@ -356,7 +356,7 @@ public class KeyForCreateKeyOutput {
     this.scheduleDeleteTime = scheduleDeleteTime;
   }
 
-  public KeyForCreateKeyOutput scheduleRotationTime(String scheduleRotationTime) {
+  public ConvertReplicaKeyForReplicateKeyOutput scheduleRotationTime(String scheduleRotationTime) {
     this.scheduleRotationTime = scheduleRotationTime;
     return this;
   }
@@ -374,7 +374,7 @@ public class KeyForCreateKeyOutput {
     this.scheduleRotationTime = scheduleRotationTime;
   }
 
-  public KeyForCreateKeyOutput trn(String trn) {
+  public ConvertReplicaKeyForReplicateKeyOutput trn(String trn) {
     this.trn = trn;
     return this;
   }
@@ -392,7 +392,7 @@ public class KeyForCreateKeyOutput {
     this.trn = trn;
   }
 
-  public KeyForCreateKeyOutput updateDate(Long updateDate) {
+  public ConvertReplicaKeyForReplicateKeyOutput updateDate(Long updateDate) {
     this.updateDate = updateDate;
     return this;
   }
@@ -419,25 +419,25 @@ public class KeyForCreateKeyOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    KeyForCreateKeyOutput keyForCreateKeyOutput = (KeyForCreateKeyOutput) o;
-    return Objects.equals(this.creationDate, keyForCreateKeyOutput.creationDate) &&
-        Objects.equals(this.description, keyForCreateKeyOutput.description) &&
-        Objects.equals(this.ID, keyForCreateKeyOutput.ID) &&
-        Objects.equals(this.keyMaterialExpireTime, keyForCreateKeyOutput.keyMaterialExpireTime) &&
-        Objects.equals(this.keyName, keyForCreateKeyOutput.keyName) &&
-        Objects.equals(this.keySpec, keyForCreateKeyOutput.keySpec) &&
-        Objects.equals(this.keyState, keyForCreateKeyOutput.keyState) &&
-        Objects.equals(this.keyUsage, keyForCreateKeyOutput.keyUsage) &&
-        Objects.equals(this.lastRotationTime, keyForCreateKeyOutput.lastRotationTime) &&
-        Objects.equals(this.multiRegion, keyForCreateKeyOutput.multiRegion) &&
-        Objects.equals(this.multiRegionConfiguration, keyForCreateKeyOutput.multiRegionConfiguration) &&
-        Objects.equals(this.origin, keyForCreateKeyOutput.origin) &&
-        Objects.equals(this.protectionLevel, keyForCreateKeyOutput.protectionLevel) &&
-        Objects.equals(this.rotationState, keyForCreateKeyOutput.rotationState) &&
-        Objects.equals(this.scheduleDeleteTime, keyForCreateKeyOutput.scheduleDeleteTime) &&
-        Objects.equals(this.scheduleRotationTime, keyForCreateKeyOutput.scheduleRotationTime) &&
-        Objects.equals(this.trn, keyForCreateKeyOutput.trn) &&
-        Objects.equals(this.updateDate, keyForCreateKeyOutput.updateDate);
+    ConvertReplicaKeyForReplicateKeyOutput convertReplicaKeyForReplicateKeyOutput = (ConvertReplicaKeyForReplicateKeyOutput) o;
+    return Objects.equals(this.creationDate, convertReplicaKeyForReplicateKeyOutput.creationDate) &&
+        Objects.equals(this.description, convertReplicaKeyForReplicateKeyOutput.description) &&
+        Objects.equals(this.ID, convertReplicaKeyForReplicateKeyOutput.ID) &&
+        Objects.equals(this.keyMaterialExpireTime, convertReplicaKeyForReplicateKeyOutput.keyMaterialExpireTime) &&
+        Objects.equals(this.keyName, convertReplicaKeyForReplicateKeyOutput.keyName) &&
+        Objects.equals(this.keySpec, convertReplicaKeyForReplicateKeyOutput.keySpec) &&
+        Objects.equals(this.keyState, convertReplicaKeyForReplicateKeyOutput.keyState) &&
+        Objects.equals(this.keyUsage, convertReplicaKeyForReplicateKeyOutput.keyUsage) &&
+        Objects.equals(this.lastRotationTime, convertReplicaKeyForReplicateKeyOutput.lastRotationTime) &&
+        Objects.equals(this.multiRegion, convertReplicaKeyForReplicateKeyOutput.multiRegion) &&
+        Objects.equals(this.multiRegionConfiguration, convertReplicaKeyForReplicateKeyOutput.multiRegionConfiguration) &&
+        Objects.equals(this.origin, convertReplicaKeyForReplicateKeyOutput.origin) &&
+        Objects.equals(this.protectionLevel, convertReplicaKeyForReplicateKeyOutput.protectionLevel) &&
+        Objects.equals(this.rotationState, convertReplicaKeyForReplicateKeyOutput.rotationState) &&
+        Objects.equals(this.scheduleDeleteTime, convertReplicaKeyForReplicateKeyOutput.scheduleDeleteTime) &&
+        Objects.equals(this.scheduleRotationTime, convertReplicaKeyForReplicateKeyOutput.scheduleRotationTime) &&
+        Objects.equals(this.trn, convertReplicaKeyForReplicateKeyOutput.trn) &&
+        Objects.equals(this.updateDate, convertReplicaKeyForReplicateKeyOutput.updateDate);
   }
 
   @Override
@@ -449,7 +449,7 @@ public class KeyForCreateKeyOutput {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class KeyForCreateKeyOutput {\n");
+    sb.append("class ConvertReplicaKeyForReplicateKeyOutput {\n");
     
     sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
