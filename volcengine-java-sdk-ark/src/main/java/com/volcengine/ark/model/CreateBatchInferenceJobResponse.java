@@ -24,52 +24,31 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * GetApiKeyResponse
+ * CreateBatchInferenceJobResponse
  */
 
 
 
-public class GetApiKeyResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("ApiKey")
-  private String apiKey = null;
+public class CreateBatchInferenceJobResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("Id")
+  private String id = null;
 
-  @SerializedName("ExpiredTime")
-  private Integer expiredTime = null;
-
-  public GetApiKeyResponse apiKey(String apiKey) {
-    this.apiKey = apiKey;
+  public CreateBatchInferenceJobResponse id(String id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * Get apiKey
-   * @return apiKey
+   * Get id
+   * @return id
   **/
   @Schema(description = "")
-  public String getApiKey() {
-    return apiKey;
+  public String getId() {
+    return id;
   }
 
-  public void setApiKey(String apiKey) {
-    this.apiKey = apiKey;
-  }
-
-  public GetApiKeyResponse expiredTime(Integer expiredTime) {
-    this.expiredTime = expiredTime;
-    return this;
-  }
-
-   /**
-   * Get expiredTime
-   * @return expiredTime
-  **/
-  @Schema(description = "")
-  public Integer getExpiredTime() {
-    return expiredTime;
-  }
-
-  public void setExpiredTime(Integer expiredTime) {
-    this.expiredTime = expiredTime;
+  public void setId(String id) {
+    this.id = id;
   }
 
 
@@ -81,24 +60,22 @@ public class GetApiKeyResponse extends com.volcengine.model.AbstractResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GetApiKeyResponse getApiKeyResponse = (GetApiKeyResponse) o;
-    return Objects.equals(this.apiKey, getApiKeyResponse.apiKey) &&
-        Objects.equals(this.expiredTime, getApiKeyResponse.expiredTime);
+    CreateBatchInferenceJobResponse createBatchInferenceJobResponse = (CreateBatchInferenceJobResponse) o;
+    return Objects.equals(this.id, createBatchInferenceJobResponse.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiKey, expiredTime);
+    return Objects.hash(id);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetApiKeyResponse {\n");
+    sb.append("class CreateBatchInferenceJobResponse {\n");
     
-    sb.append("    apiKey: ").append(toIndentedString(apiKey)).append("\n");
-    sb.append("    expiredTime: ").append(toIndentedString(expiredTime)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -24,52 +24,31 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * GetApiKeyResponse
+ * ModerationForGetEndpointOutput
  */
 
 
 
-public class GetApiKeyResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("ApiKey")
-  private String apiKey = null;
+public class ModerationForGetEndpointOutput {
+  @SerializedName("Strategy")
+  private String strategy = null;
 
-  @SerializedName("ExpiredTime")
-  private Integer expiredTime = null;
-
-  public GetApiKeyResponse apiKey(String apiKey) {
-    this.apiKey = apiKey;
+  public ModerationForGetEndpointOutput strategy(String strategy) {
+    this.strategy = strategy;
     return this;
   }
 
    /**
-   * Get apiKey
-   * @return apiKey
+   * Get strategy
+   * @return strategy
   **/
   @Schema(description = "")
-  public String getApiKey() {
-    return apiKey;
+  public String getStrategy() {
+    return strategy;
   }
 
-  public void setApiKey(String apiKey) {
-    this.apiKey = apiKey;
-  }
-
-  public GetApiKeyResponse expiredTime(Integer expiredTime) {
-    this.expiredTime = expiredTime;
-    return this;
-  }
-
-   /**
-   * Get expiredTime
-   * @return expiredTime
-  **/
-  @Schema(description = "")
-  public Integer getExpiredTime() {
-    return expiredTime;
-  }
-
-  public void setExpiredTime(Integer expiredTime) {
-    this.expiredTime = expiredTime;
+  public void setStrategy(String strategy) {
+    this.strategy = strategy;
   }
 
 
@@ -81,24 +60,22 @@ public class GetApiKeyResponse extends com.volcengine.model.AbstractResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GetApiKeyResponse getApiKeyResponse = (GetApiKeyResponse) o;
-    return Objects.equals(this.apiKey, getApiKeyResponse.apiKey) &&
-        Objects.equals(this.expiredTime, getApiKeyResponse.expiredTime);
+    ModerationForGetEndpointOutput moderationForGetEndpointOutput = (ModerationForGetEndpointOutput) o;
+    return Objects.equals(this.strategy, moderationForGetEndpointOutput.strategy);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiKey, expiredTime);
+    return Objects.hash(strategy);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetApiKeyResponse {\n");
+    sb.append("class ModerationForGetEndpointOutput {\n");
     
-    sb.append("    apiKey: ").append(toIndentedString(apiKey)).append("\n");
-    sb.append("    expiredTime: ").append(toIndentedString(expiredTime)).append("\n");
+    sb.append("    strategy: ").append(toIndentedString(strategy)).append("\n");
     sb.append("}");
     return sb.toString();
   }

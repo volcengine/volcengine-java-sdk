@@ -24,52 +24,52 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * GetApiKeyResponse
+ * HyperparameterForListModelCustomizationJobsOutput
  */
 
 
 
-public class GetApiKeyResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("ApiKey")
-  private String apiKey = null;
+public class HyperparameterForListModelCustomizationJobsOutput {
+  @SerializedName("Name")
+  private String name = null;
 
-  @SerializedName("ExpiredTime")
-  private Integer expiredTime = null;
+  @SerializedName("Value")
+  private String value = null;
 
-  public GetApiKeyResponse apiKey(String apiKey) {
-    this.apiKey = apiKey;
+  public HyperparameterForListModelCustomizationJobsOutput name(String name) {
+    this.name = name;
     return this;
   }
 
    /**
-   * Get apiKey
-   * @return apiKey
+   * Get name
+   * @return name
   **/
   @Schema(description = "")
-  public String getApiKey() {
-    return apiKey;
+  public String getName() {
+    return name;
   }
 
-  public void setApiKey(String apiKey) {
-    this.apiKey = apiKey;
+  public void setName(String name) {
+    this.name = name;
   }
 
-  public GetApiKeyResponse expiredTime(Integer expiredTime) {
-    this.expiredTime = expiredTime;
+  public HyperparameterForListModelCustomizationJobsOutput value(String value) {
+    this.value = value;
     return this;
   }
 
    /**
-   * Get expiredTime
-   * @return expiredTime
+   * Get value
+   * @return value
   **/
   @Schema(description = "")
-  public Integer getExpiredTime() {
-    return expiredTime;
+  public String getValue() {
+    return value;
   }
 
-  public void setExpiredTime(Integer expiredTime) {
-    this.expiredTime = expiredTime;
+  public void setValue(String value) {
+    this.value = value;
   }
 
 
@@ -81,24 +81,24 @@ public class GetApiKeyResponse extends com.volcengine.model.AbstractResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GetApiKeyResponse getApiKeyResponse = (GetApiKeyResponse) o;
-    return Objects.equals(this.apiKey, getApiKeyResponse.apiKey) &&
-        Objects.equals(this.expiredTime, getApiKeyResponse.expiredTime);
+    HyperparameterForListModelCustomizationJobsOutput hyperparameterForListModelCustomizationJobsOutput = (HyperparameterForListModelCustomizationJobsOutput) o;
+    return Objects.equals(this.name, hyperparameterForListModelCustomizationJobsOutput.name) &&
+        Objects.equals(this.value, hyperparameterForListModelCustomizationJobsOutput.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiKey, expiredTime);
+    return Objects.hash(name, value);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetApiKeyResponse {\n");
+    sb.append("class HyperparameterForListModelCustomizationJobsOutput {\n");
     
-    sb.append("    apiKey: ").append(toIndentedString(apiKey)).append("\n");
-    sb.append("    expiredTime: ").append(toIndentedString(expiredTime)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class GetApiKeyRequest {
   @SerializedName("DurationSeconds")
   private Integer durationSeconds = null;

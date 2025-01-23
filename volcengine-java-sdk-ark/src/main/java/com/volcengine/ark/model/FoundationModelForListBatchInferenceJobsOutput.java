@@ -24,52 +24,52 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * GetApiKeyResponse
+ * FoundationModelForListBatchInferenceJobsOutput
  */
 
 
 
-public class GetApiKeyResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("ApiKey")
-  private String apiKey = null;
+public class FoundationModelForListBatchInferenceJobsOutput {
+  @SerializedName("ModelVersion")
+  private String modelVersion = null;
 
-  @SerializedName("ExpiredTime")
-  private Integer expiredTime = null;
+  @SerializedName("Name")
+  private String name = null;
 
-  public GetApiKeyResponse apiKey(String apiKey) {
-    this.apiKey = apiKey;
+  public FoundationModelForListBatchInferenceJobsOutput modelVersion(String modelVersion) {
+    this.modelVersion = modelVersion;
     return this;
   }
 
    /**
-   * Get apiKey
-   * @return apiKey
+   * Get modelVersion
+   * @return modelVersion
   **/
   @Schema(description = "")
-  public String getApiKey() {
-    return apiKey;
+  public String getModelVersion() {
+    return modelVersion;
   }
 
-  public void setApiKey(String apiKey) {
-    this.apiKey = apiKey;
+  public void setModelVersion(String modelVersion) {
+    this.modelVersion = modelVersion;
   }
 
-  public GetApiKeyResponse expiredTime(Integer expiredTime) {
-    this.expiredTime = expiredTime;
+  public FoundationModelForListBatchInferenceJobsOutput name(String name) {
+    this.name = name;
     return this;
   }
 
    /**
-   * Get expiredTime
-   * @return expiredTime
+   * Get name
+   * @return name
   **/
   @Schema(description = "")
-  public Integer getExpiredTime() {
-    return expiredTime;
+  public String getName() {
+    return name;
   }
 
-  public void setExpiredTime(Integer expiredTime) {
-    this.expiredTime = expiredTime;
+  public void setName(String name) {
+    this.name = name;
   }
 
 
@@ -81,24 +81,24 @@ public class GetApiKeyResponse extends com.volcengine.model.AbstractResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GetApiKeyResponse getApiKeyResponse = (GetApiKeyResponse) o;
-    return Objects.equals(this.apiKey, getApiKeyResponse.apiKey) &&
-        Objects.equals(this.expiredTime, getApiKeyResponse.expiredTime);
+    FoundationModelForListBatchInferenceJobsOutput foundationModelForListBatchInferenceJobsOutput = (FoundationModelForListBatchInferenceJobsOutput) o;
+    return Objects.equals(this.modelVersion, foundationModelForListBatchInferenceJobsOutput.modelVersion) &&
+        Objects.equals(this.name, foundationModelForListBatchInferenceJobsOutput.name);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiKey, expiredTime);
+    return Objects.hash(modelVersion, name);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetApiKeyResponse {\n");
+    sb.append("class FoundationModelForListBatchInferenceJobsOutput {\n");
     
-    sb.append("    apiKey: ").append(toIndentedString(apiKey)).append("\n");
-    sb.append("    expiredTime: ").append(toIndentedString(expiredTime)).append("\n");
+    sb.append("    modelVersion: ").append(toIndentedString(modelVersion)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("}");
     return sb.toString();
   }

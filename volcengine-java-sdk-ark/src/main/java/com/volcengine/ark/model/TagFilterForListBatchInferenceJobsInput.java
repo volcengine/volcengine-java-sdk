@@ -21,55 +21,65 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * GetApiKeyResponse
+ * TagFilterForListBatchInferenceJobsInput
  */
 
 
 
-public class GetApiKeyResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("ApiKey")
-  private String apiKey = null;
+public class TagFilterForListBatchInferenceJobsInput {
+  @SerializedName("Key")
+  private String key = null;
 
-  @SerializedName("ExpiredTime")
-  private Integer expiredTime = null;
+  @SerializedName("Values")
+  private List<String> values = null;
 
-  public GetApiKeyResponse apiKey(String apiKey) {
-    this.apiKey = apiKey;
+  public TagFilterForListBatchInferenceJobsInput key(String key) {
+    this.key = key;
     return this;
   }
 
    /**
-   * Get apiKey
-   * @return apiKey
+   * Get key
+   * @return key
   **/
   @Schema(description = "")
-  public String getApiKey() {
-    return apiKey;
+  public String getKey() {
+    return key;
   }
 
-  public void setApiKey(String apiKey) {
-    this.apiKey = apiKey;
+  public void setKey(String key) {
+    this.key = key;
   }
 
-  public GetApiKeyResponse expiredTime(Integer expiredTime) {
-    this.expiredTime = expiredTime;
+  public TagFilterForListBatchInferenceJobsInput values(List<String> values) {
+    this.values = values;
+    return this;
+  }
+
+  public TagFilterForListBatchInferenceJobsInput addValuesItem(String valuesItem) {
+    if (this.values == null) {
+      this.values = new ArrayList<String>();
+    }
+    this.values.add(valuesItem);
     return this;
   }
 
    /**
-   * Get expiredTime
-   * @return expiredTime
+   * Get values
+   * @return values
   **/
   @Schema(description = "")
-  public Integer getExpiredTime() {
-    return expiredTime;
+  public List<String> getValues() {
+    return values;
   }
 
-  public void setExpiredTime(Integer expiredTime) {
-    this.expiredTime = expiredTime;
+  public void setValues(List<String> values) {
+    this.values = values;
   }
 
 
@@ -81,24 +91,24 @@ public class GetApiKeyResponse extends com.volcengine.model.AbstractResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GetApiKeyResponse getApiKeyResponse = (GetApiKeyResponse) o;
-    return Objects.equals(this.apiKey, getApiKeyResponse.apiKey) &&
-        Objects.equals(this.expiredTime, getApiKeyResponse.expiredTime);
+    TagFilterForListBatchInferenceJobsInput tagFilterForListBatchInferenceJobsInput = (TagFilterForListBatchInferenceJobsInput) o;
+    return Objects.equals(this.key, tagFilterForListBatchInferenceJobsInput.key) &&
+        Objects.equals(this.values, tagFilterForListBatchInferenceJobsInput.values);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiKey, expiredTime);
+    return Objects.hash(key, values);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetApiKeyResponse {\n");
+    sb.append("class TagFilterForListBatchInferenceJobsInput {\n");
     
-    sb.append("    apiKey: ").append(toIndentedString(apiKey)).append("\n");
-    sb.append("    expiredTime: ").append(toIndentedString(expiredTime)).append("\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    values: ").append(toIndentedString(values)).append("\n");
     sb.append("}");
     return sb.toString();
   }

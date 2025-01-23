@@ -24,52 +24,52 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * GetApiKeyResponse
+ * TagForListModelCustomizationJobsOutput
  */
 
 
 
-public class GetApiKeyResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("ApiKey")
-  private String apiKey = null;
+public class TagForListModelCustomizationJobsOutput {
+  @SerializedName("Key")
+  private String key = null;
 
-  @SerializedName("ExpiredTime")
-  private Integer expiredTime = null;
+  @SerializedName("Value")
+  private String value = null;
 
-  public GetApiKeyResponse apiKey(String apiKey) {
-    this.apiKey = apiKey;
+  public TagForListModelCustomizationJobsOutput key(String key) {
+    this.key = key;
     return this;
   }
 
    /**
-   * Get apiKey
-   * @return apiKey
+   * Get key
+   * @return key
   **/
   @Schema(description = "")
-  public String getApiKey() {
-    return apiKey;
+  public String getKey() {
+    return key;
   }
 
-  public void setApiKey(String apiKey) {
-    this.apiKey = apiKey;
+  public void setKey(String key) {
+    this.key = key;
   }
 
-  public GetApiKeyResponse expiredTime(Integer expiredTime) {
-    this.expiredTime = expiredTime;
+  public TagForListModelCustomizationJobsOutput value(String value) {
+    this.value = value;
     return this;
   }
 
    /**
-   * Get expiredTime
-   * @return expiredTime
+   * Get value
+   * @return value
   **/
   @Schema(description = "")
-  public Integer getExpiredTime() {
-    return expiredTime;
+  public String getValue() {
+    return value;
   }
 
-  public void setExpiredTime(Integer expiredTime) {
-    this.expiredTime = expiredTime;
+  public void setValue(String value) {
+    this.value = value;
   }
 
 
@@ -81,24 +81,24 @@ public class GetApiKeyResponse extends com.volcengine.model.AbstractResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GetApiKeyResponse getApiKeyResponse = (GetApiKeyResponse) o;
-    return Objects.equals(this.apiKey, getApiKeyResponse.apiKey) &&
-        Objects.equals(this.expiredTime, getApiKeyResponse.expiredTime);
+    TagForListModelCustomizationJobsOutput tagForListModelCustomizationJobsOutput = (TagForListModelCustomizationJobsOutput) o;
+    return Objects.equals(this.key, tagForListModelCustomizationJobsOutput.key) &&
+        Objects.equals(this.value, tagForListModelCustomizationJobsOutput.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiKey, expiredTime);
+    return Objects.hash(key, value);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetApiKeyResponse {\n");
+    sb.append("class TagForListModelCustomizationJobsOutput {\n");
     
-    sb.append("    apiKey: ").append(toIndentedString(apiKey)).append("\n");
-    sb.append("    expiredTime: ").append(toIndentedString(expiredTime)).append("\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
   }

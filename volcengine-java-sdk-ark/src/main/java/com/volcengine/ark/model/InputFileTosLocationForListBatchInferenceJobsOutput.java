@@ -24,52 +24,52 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * GetApiKeyResponse
+ * InputFileTosLocationForListBatchInferenceJobsOutput
  */
 
 
 
-public class GetApiKeyResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("ApiKey")
-  private String apiKey = null;
+public class InputFileTosLocationForListBatchInferenceJobsOutput {
+  @SerializedName("BucketName")
+  private String bucketName = null;
 
-  @SerializedName("ExpiredTime")
-  private Integer expiredTime = null;
+  @SerializedName("ObjectKey")
+  private String objectKey = null;
 
-  public GetApiKeyResponse apiKey(String apiKey) {
-    this.apiKey = apiKey;
+  public InputFileTosLocationForListBatchInferenceJobsOutput bucketName(String bucketName) {
+    this.bucketName = bucketName;
     return this;
   }
 
    /**
-   * Get apiKey
-   * @return apiKey
+   * Get bucketName
+   * @return bucketName
   **/
   @Schema(description = "")
-  public String getApiKey() {
-    return apiKey;
+  public String getBucketName() {
+    return bucketName;
   }
 
-  public void setApiKey(String apiKey) {
-    this.apiKey = apiKey;
+  public void setBucketName(String bucketName) {
+    this.bucketName = bucketName;
   }
 
-  public GetApiKeyResponse expiredTime(Integer expiredTime) {
-    this.expiredTime = expiredTime;
+  public InputFileTosLocationForListBatchInferenceJobsOutput objectKey(String objectKey) {
+    this.objectKey = objectKey;
     return this;
   }
 
    /**
-   * Get expiredTime
-   * @return expiredTime
+   * Get objectKey
+   * @return objectKey
   **/
   @Schema(description = "")
-  public Integer getExpiredTime() {
-    return expiredTime;
+  public String getObjectKey() {
+    return objectKey;
   }
 
-  public void setExpiredTime(Integer expiredTime) {
-    this.expiredTime = expiredTime;
+  public void setObjectKey(String objectKey) {
+    this.objectKey = objectKey;
   }
 
 
@@ -81,24 +81,24 @@ public class GetApiKeyResponse extends com.volcengine.model.AbstractResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GetApiKeyResponse getApiKeyResponse = (GetApiKeyResponse) o;
-    return Objects.equals(this.apiKey, getApiKeyResponse.apiKey) &&
-        Objects.equals(this.expiredTime, getApiKeyResponse.expiredTime);
+    InputFileTosLocationForListBatchInferenceJobsOutput inputFileTosLocationForListBatchInferenceJobsOutput = (InputFileTosLocationForListBatchInferenceJobsOutput) o;
+    return Objects.equals(this.bucketName, inputFileTosLocationForListBatchInferenceJobsOutput.bucketName) &&
+        Objects.equals(this.objectKey, inputFileTosLocationForListBatchInferenceJobsOutput.objectKey);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiKey, expiredTime);
+    return Objects.hash(bucketName, objectKey);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetApiKeyResponse {\n");
+    sb.append("class InputFileTosLocationForListBatchInferenceJobsOutput {\n");
     
-    sb.append("    apiKey: ").append(toIndentedString(apiKey)).append("\n");
-    sb.append("    expiredTime: ").append(toIndentedString(expiredTime)).append("\n");
+    sb.append("    bucketName: ").append(toIndentedString(bucketName)).append("\n");
+    sb.append("    objectKey: ").append(toIndentedString(objectKey)).append("\n");
     sb.append("}");
     return sb.toString();
   }

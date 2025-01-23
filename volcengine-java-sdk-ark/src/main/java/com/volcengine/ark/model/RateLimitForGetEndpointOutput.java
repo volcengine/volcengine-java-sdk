@@ -24,52 +24,52 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * GetApiKeyResponse
+ * RateLimitForGetEndpointOutput
  */
 
 
 
-public class GetApiKeyResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("ApiKey")
-  private String apiKey = null;
+public class RateLimitForGetEndpointOutput {
+  @SerializedName("Rpm")
+  private Integer rpm = null;
 
-  @SerializedName("ExpiredTime")
-  private Integer expiredTime = null;
+  @SerializedName("Tpm")
+  private Integer tpm = null;
 
-  public GetApiKeyResponse apiKey(String apiKey) {
-    this.apiKey = apiKey;
+  public RateLimitForGetEndpointOutput rpm(Integer rpm) {
+    this.rpm = rpm;
     return this;
   }
 
    /**
-   * Get apiKey
-   * @return apiKey
+   * Get rpm
+   * @return rpm
   **/
   @Schema(description = "")
-  public String getApiKey() {
-    return apiKey;
+  public Integer getRpm() {
+    return rpm;
   }
 
-  public void setApiKey(String apiKey) {
-    this.apiKey = apiKey;
+  public void setRpm(Integer rpm) {
+    this.rpm = rpm;
   }
 
-  public GetApiKeyResponse expiredTime(Integer expiredTime) {
-    this.expiredTime = expiredTime;
+  public RateLimitForGetEndpointOutput tpm(Integer tpm) {
+    this.tpm = tpm;
     return this;
   }
 
    /**
-   * Get expiredTime
-   * @return expiredTime
+   * Get tpm
+   * @return tpm
   **/
   @Schema(description = "")
-  public Integer getExpiredTime() {
-    return expiredTime;
+  public Integer getTpm() {
+    return tpm;
   }
 
-  public void setExpiredTime(Integer expiredTime) {
-    this.expiredTime = expiredTime;
+  public void setTpm(Integer tpm) {
+    this.tpm = tpm;
   }
 
 
@@ -81,24 +81,24 @@ public class GetApiKeyResponse extends com.volcengine.model.AbstractResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GetApiKeyResponse getApiKeyResponse = (GetApiKeyResponse) o;
-    return Objects.equals(this.apiKey, getApiKeyResponse.apiKey) &&
-        Objects.equals(this.expiredTime, getApiKeyResponse.expiredTime);
+    RateLimitForGetEndpointOutput rateLimitForGetEndpointOutput = (RateLimitForGetEndpointOutput) o;
+    return Objects.equals(this.rpm, rateLimitForGetEndpointOutput.rpm) &&
+        Objects.equals(this.tpm, rateLimitForGetEndpointOutput.tpm);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiKey, expiredTime);
+    return Objects.hash(rpm, tpm);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetApiKeyResponse {\n");
+    sb.append("class RateLimitForGetEndpointOutput {\n");
     
-    sb.append("    apiKey: ").append(toIndentedString(apiKey)).append("\n");
-    sb.append("    expiredTime: ").append(toIndentedString(expiredTime)).append("\n");
+    sb.append("    rpm: ").append(toIndentedString(rpm)).append("\n");
+    sb.append("    tpm: ").append(toIndentedString(tpm)).append("\n");
     sb.append("}");
     return sb.toString();
   }
