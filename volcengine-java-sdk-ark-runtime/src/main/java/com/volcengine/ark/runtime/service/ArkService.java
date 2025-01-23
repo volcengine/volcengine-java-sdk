@@ -22,6 +22,8 @@ import com.volcengine.ark.runtime.model.context.CreateContextResult;
 import com.volcengine.ark.runtime.model.context.chat.ContextChatCompletionRequest;
 import com.volcengine.ark.runtime.model.embeddings.EmbeddingRequest;
 import com.volcengine.ark.runtime.model.embeddings.EmbeddingResult;
+import com.volcengine.ark.runtime.model.multimodalembeddings.MultimodalEmbeddingRequest;
+import com.volcengine.ark.runtime.model.multimodalembeddings.MultimodalEmbeddingResult;
 import com.volcengine.ark.runtime.model.tokenization.TokenizationRequest;
 import com.volcengine.ark.runtime.model.tokenization.TokenizationResult;
 import com.volcengine.ark.runtime.utils.ResponseBodyCallback;
@@ -197,6 +199,14 @@ public class ArkService extends ArkBaseService implements ArkBaseServiceImpl {
 
     public EmbeddingResult createEmbeddings(EmbeddingRequest request, Map<String, String> customHeaders) {
         return execute(api.createEmbeddings(request, request.getModel(), customHeaders));
+    }
+
+    public MultimodalEmbeddingResult createMultiModalEmbeddings(MultimodalEmbeddingRequest request) {
+        return execute(api.createMultiModalEmbeddings(request, request.getModel(), new HashMap<>()));
+    }
+
+    public MultimodalEmbeddingResult createMultiModalEmbeddings(MultimodalEmbeddingRequest request, Map<String, String> customHeaders) {
+        return execute(api.createMultiModalEmbeddings(request, request.getModel(), customHeaders));
     }
 
     @Override
