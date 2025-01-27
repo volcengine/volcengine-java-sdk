@@ -50,7 +50,20 @@ public class ChatCompletionRequest {
 
     /**
      * Specifies the latency tier to use for processing the request.
-     * This parameter is relevant for customers subscribed to the scale tier service
+     *
+     *     This parameter is relevant for customers subscribed to the scale tier service:
+     *
+     *     - If set to 'auto', and the endpoint is Scale tier enabled, the system will
+     *       utilize scale tier credits until they are exhausted.
+     *     - If set to 'auto', and the endpoint is not Scale tier enabled, the request will
+     *       be processed using the default service tier with a lower uptime SLA and no
+     *       latency guarentee.
+     *     - If set to 'default', the request will be processed using the default service
+     *       tier with a lower uptime SLA and no latency guarentee.
+     *     - When not set, the default behavior is 'auto'.
+     *
+     *     When this parameter is set, the response body will include the `service_tier`
+     *     utilized.
      */
     @JsonProperty("service_tier")
     String serviceTier;
@@ -126,6 +139,11 @@ public class ChatCompletionRequest {
      * How many chat completion chatCompletionChoices to generate for each input message.
      */
     Integer n;
+
+    /**
+     * Whether to enable parallel function calling during tool use.
+     */
+    Boolean parallelToolCalls;
 
     @JsonProperty("tool_choice")
     Object toolChoice;
@@ -292,6 +310,14 @@ public class ChatCompletionRequest {
         this.n = n;
     }
 
+    public Boolean getParallelToolCalls() {
+        return parallelToolCalls;
+    }
+
+    public void setParallelToolCalls(Boolean parallelToolCalls) {
+        this.parallelToolCalls = parallelToolCalls;
+    }
+
     public Object getToolChoice() {
         return toolChoice;
     }
@@ -330,6 +356,7 @@ public class ChatCompletionRequest {
                 ", topLogprobs=" + topLogprobs +
                 ", repetitionPenalty=" + repetitionPenalty +
                 ", n=" + n +
+                ", parallelToolCalls=" + parallelToolCalls +
                 ", toolChoice=" + toolChoice +
                 ", responseFormat=" + responseFormat +
                 '}';
@@ -473,6 +500,7 @@ public class ChatCompletionRequest {
         private Integer topLogprobs;
         private Double repetitionPenalty;
         private Integer n;
+        private Boolean parallelToolCalls;
         private Object toolChoice;
         private ChatCompletionRequestResponseFormat responseFormat;
 
@@ -571,6 +599,11 @@ public class ChatCompletionRequest {
             return this;
         }
 
+        public ChatCompletionRequest.Builder parallelToolCalls(Boolean parallelToolCalls) {
+            this.parallelToolCalls = parallelToolCalls;
+            return this;
+        }
+
         public ChatCompletionRequest.Builder toolChoice(String toolChoice) {
             this.toolChoice = toolChoice;
             return this;
@@ -607,6 +640,7 @@ public class ChatCompletionRequest {
             chatCompletionRequest.setTopLogprobs(topLogprobs);
             chatCompletionRequest.setRepetitionPenalty(repetitionPenalty);
             chatCompletionRequest.setN(n);
+            chatCompletionRequest.setParallelToolCalls(parallelToolCalls);
             chatCompletionRequest.setToolChoice(toolChoice);
             chatCompletionRequest.setResponseFormat(responseFormat);
             return chatCompletionRequest;
