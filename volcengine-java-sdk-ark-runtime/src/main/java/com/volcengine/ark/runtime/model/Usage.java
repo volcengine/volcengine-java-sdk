@@ -91,6 +91,7 @@ public class Usage {
                 ", completionTokens=" + completionTokens +
                 ", totalTokens=" + totalTokens +
                 ", promptTokensDetails=" + promptTokensDetails +
+                ", completionTokensDetails=" + completionTokensDetails +
                 '}';
     }
 }
