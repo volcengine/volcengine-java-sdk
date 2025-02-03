@@ -1,5 +1,6 @@
 package com.volcengine.ark.runtime.model.completion.chat;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.volcengine.ark.runtime.utils.Converter;
@@ -12,6 +13,9 @@ public class ChatMessage {
 	ChatMessageRole role;
 
 	Object content;
+
+	@JsonProperty("reasoning_content")
+	String reasoningContent;
 
 	private String name;
 	@JsonProperty("function_call")
@@ -46,6 +50,15 @@ public class ChatMessage {
 	public void setContent(Object content) {
 		this.content = content;
 	}
+
+	public Object getReasoningContent() {
+		return reasoningContent;
+	}
+
+	public void setReasoningContent(String reasoningContent) {
+		this.reasoningContent = reasoningContent;
+	}
+
 
 	public String getName() {
 		return name;
@@ -88,6 +101,7 @@ public class ChatMessage {
 		return "ChatMessage{" +
 				"role=" + role +
 				", content='" + content + '\'' +
+				", reasoningContent='" + reasoningContent + '\'' +
 				", name='" + name + '\'' +
 				", functionCall=" + functionCall +
 				", toolCalls=" + toolCalls +
@@ -100,6 +114,9 @@ public class ChatMessage {
 		private ChatMessageRole role;
 
 		private Object content;
+
+		@JsonProperty("reasoning_content")
+		private String reasoningContent;
 
 		private String name;
 		@JsonProperty("function_call")
@@ -146,10 +163,16 @@ public class ChatMessage {
 			return this;
 		}
 
+		public ChatMessage.Builder reasoningContent(String reasoningContent) {
+			this.reasoningContent = reasoningContent;
+			return this;
+		}
+
 		public ChatMessage build() {
 			ChatMessage chatMessage = new ChatMessage();
 			chatMessage.setRole(role);
 			chatMessage.setContent(content);
+			chatMessage.setReasoningContent(reasoningContent);
 			chatMessage.setName(name);
 			chatMessage.setFunctionCall(functionCall);
 			chatMessage.setToolCalls(toolCalls);
