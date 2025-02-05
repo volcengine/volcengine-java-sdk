@@ -51,14 +51,6 @@ public class ChatMessage {
 		this.content = content;
 	}
 
-	public Object getReasoningContent() {
-		return reasoningContent;
-	}
-
-	public void setReasoningContent(String reasoningContent) {
-		this.reasoningContent = reasoningContent;
-	}
-
 
 	public String getName() {
 		return name;
@@ -92,6 +84,14 @@ public class ChatMessage {
 		this.toolCallId = toolCallId;
 	}
 
+	public String getReasoningContent() {
+		return reasoningContent;
+	}
+
+	public void setReasoningContent(String reasoningContent) {
+		this.reasoningContent = reasoningContent;
+	}
+
 	public static Builder builder() {
 		return new Builder();
 	}
@@ -100,7 +100,7 @@ public class ChatMessage {
 	public String toString() {
 		return "ChatMessage{" +
 				"role=" + role +
-				", content='" + content + '\'' +
+				", content=" + content +
 				", reasoningContent='" + reasoningContent + '\'' +
 				", name='" + name + '\'' +
 				", functionCall=" + functionCall +
