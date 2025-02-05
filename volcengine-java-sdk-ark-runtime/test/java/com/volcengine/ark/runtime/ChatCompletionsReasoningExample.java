@@ -31,7 +31,7 @@ public class ChatCompletionsReasoningExample {
      * ArkService service = new ArkService(apiKey);
      * Note: If you use an API key, this API key will not be refreshed.
      * To prevent the API from expiring and failing after some time, choose an API key with no expiration date.
-     *
+     * <p>
      * 2.If you authorize your endpoint with Volcengine Identity and Access Management（IAM), set your api key to environment variable "VOLC_ACCESSKEY", "VOLC_SECRETKEY"
      * String ak = System.getenv("VOLC_ACCESSKEY");
      * String sk = System.getenv("VOLC_SECRETKEY");
@@ -57,13 +57,10 @@ public class ChatCompletionsReasoningExample {
                 .build();
 
         service.createChatCompletion(chatCompletionRequest).getChoices().forEach(
-               choice-> {
-                   if(StringUtils.isNotEmpty(choice.getMessage().getReasoningContent())){
-                       System.out.println(choice.getMessage().getReasoningContent());
-                   }else{
-                       System.out.println(choice.getMessage().getContent());
-                   }
-               }
+                choice -> {
+                    System.out.println(choice.getMessage().getReasoningContent());
+                    System.out.println(choice.getMessage().getContent());
+                }
         );
 
         System.out.println("\n----- streaming request -----");
@@ -81,9 +78,9 @@ public class ChatCompletionsReasoningExample {
                 .blockingForEach(
                         delta -> {
                             if (!delta.getChoices().isEmpty()) {
-                                if(StringUtils.isNotEmpty(delta.getChoices().get(0).getMessage().getReasoningContent())){
+                                if (StringUtils.isNotEmpty(delta.getChoices().get(0).getMessage().getReasoningContent())) {
                                     System.out.print(delta.getChoices().get(0).getMessage().getReasoningContent());
-                                }else{
+                                } else {
                                     System.out.print(delta.getChoices().get(0).getMessage().getContent());
                                 }
                             }
