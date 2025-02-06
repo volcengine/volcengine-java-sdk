@@ -1,12 +1,13 @@
 package com.volcengine.ark.runtime;
 
-import com.volcengine.ark.runtime.model.completion.chat.ChatCompletionContentPart;
+
 import com.volcengine.ark.runtime.model.completion.chat.ChatCompletionRequest;
 import com.volcengine.ark.runtime.model.completion.chat.ChatMessage;
 import com.volcengine.ark.runtime.model.completion.chat.ChatMessageRole;
 import com.volcengine.ark.runtime.service.ArkService;
 import okhttp3.ConnectionPool;
 import okhttp3.Dispatcher;
+import org.apache.commons.lang.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +22,7 @@ import java.util.concurrent.TimeUnit;
 </dependency>
 */
 
-public class ChatCompletionsVisionExample {
+public class ChatCompletionsReasoningExample {
 
     /**
      * Authentication
@@ -45,19 +46,9 @@ public class ChatCompletionsVisionExample {
     static ArkService service = ArkService.builder().dispatcher(dispatcher).connectionPool(connectionPool).apiKey(apiKey).build();
 
     public static void main(String[] args) {
-        System.out.println("----- image input -----");
+        System.out.println("\n----- standard request -----");
         final List<ChatMessage> messages = new ArrayList<>();
-        final List<ChatCompletionContentPart> multiParts = new ArrayList<>();
-        multiParts.add(ChatCompletionContentPart.builder().type("text").text(
-                "这是哪里？"
-        ).build());
-        multiParts.add(ChatCompletionContentPart.builder().type("image_url").imageUrl(
-                new ChatCompletionContentPart.ChatCompletionContentPartImageURL(
-                        "https://ark-project.tos-cn-beijing.volces.com/images/view.jpeg"
-                )
-        ).build());
-        final ChatMessage userMessage = ChatMessage.builder().role(ChatMessageRole.USER)
-                .multiContent(multiParts).build();
+        final ChatMessage userMessage = ChatMessage.builder().role(ChatMessageRole.USER).content("How many Rs are there in the word 'strawberry'?").build();
         messages.add(userMessage);
 
         ChatCompletionRequest chatCompletionRequest = ChatCompletionRequest.builder()
@@ -65,7 +56,36 @@ public class ChatCompletionsVisionExample {
                 .messages(messages)
                 .build();
 
-        service.createChatCompletion(chatCompletionRequest).getChoices().forEach(choice -> System.out.println(choice.getMessage().getContent()));
+        service.createChatCompletion(chatCompletionRequest).getChoices().forEach(
+                choice -> {
+                    System.out.println(choice.getMessage().getReasoningContent());
+                    System.out.println(choice.getMessage().getContent());
+                }
+        );
+
+        System.out.println("\n----- streaming request -----");
+        final List<ChatMessage> streamMessages = new ArrayList<>();
+        final ChatMessage streamUserMessage = ChatMessage.builder().role(ChatMessageRole.USER).content("How many Rs are there in the word 'strawberry'?").build();
+        streamMessages.add(streamUserMessage);
+
+        ChatCompletionRequest streamChatCompletionRequest = ChatCompletionRequest.builder()
+                .model("${YOUR_ENDPOINT_ID}")
+                .messages(streamMessages)
+                .build();
+
+        service.streamChatCompletion(streamChatCompletionRequest)
+                .doOnError(Throwable::printStackTrace)
+                .blockingForEach(
+                        delta -> {
+                            if (!delta.getChoices().isEmpty()) {
+                                if (StringUtils.isNotEmpty(delta.getChoices().get(0).getMessage().getReasoningContent())) {
+                                    System.out.print(delta.getChoices().get(0).getMessage().getReasoningContent());
+                                } else {
+                                    System.out.print(delta.getChoices().get(0).getMessage().getContent());
+                                }
+                            }
+                        }
+                );
 
         // shutdown service after all requests is finished
         service.shutdownExecutor();

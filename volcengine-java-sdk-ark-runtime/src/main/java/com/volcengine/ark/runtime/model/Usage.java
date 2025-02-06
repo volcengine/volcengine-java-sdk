@@ -26,17 +26,21 @@ public class Usage {
     @JsonProperty("prompt_tokens_details")
     private PromptTokensDetails promptTokensDetails;
 
+    @JsonProperty("completion_tokens_details")
+    private CompletionTokensDetails completionTokensDetails;
+
     public Usage(long promptTokens, long completionTokens, long totalTokens) {
         this.promptTokens = promptTokens;
         this.completionTokens = completionTokens;
         this.totalTokens = totalTokens;
     }
 
-    public Usage(long promptTokens, long completionTokens, long totalTokens, PromptTokensDetails promptTokensDetails) {
+    public Usage(long promptTokens, long completionTokens, long totalTokens, PromptTokensDetails promptTokensDetails, CompletionTokensDetails completionTokensDetails) {
         this.promptTokens = promptTokens;
         this.completionTokens = completionTokens;
         this.totalTokens = totalTokens;
         this.promptTokensDetails = promptTokensDetails;
+        this.completionTokensDetails = completionTokensDetails;
     }
 
     public Usage() {}
@@ -73,6 +77,13 @@ public class Usage {
         this.promptTokensDetails = promptTokensDetails;
     }
 
+    public CompletionTokensDetails getCompletionTokensDetails() {
+        return completionTokensDetails;
+    }
+    public void setCompletionTokensDetails(CompletionTokensDetails completionTokensDetails) {
+        this.completionTokensDetails = completionTokensDetails;
+    }
+
     @Override
     public String toString() {
         return "Usage{" +
@@ -80,6 +91,7 @@ public class Usage {
                 ", completionTokens=" + completionTokens +
                 ", totalTokens=" + totalTokens +
                 ", promptTokensDetails=" + promptTokensDetails +
+                ", completionTokensDetails=" + completionTokensDetails +
                 '}';
     }
 }
