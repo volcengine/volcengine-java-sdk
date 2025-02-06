@@ -28,9 +28,10 @@ import javax.validation.Valid;
  */
 
 
+
 public class OwnerForDescribeOrganizationOutput {
   @SerializedName("AccountID")
-  private Integer accountID = null;
+  private Long accountID = null;
 
   @SerializedName("AccountName")
   private String accountName = null;
@@ -38,7 +39,7 @@ public class OwnerForDescribeOrganizationOutput {
   @SerializedName("MainName")
   private String mainName = null;
 
-  public OwnerForDescribeOrganizationOutput accountID(Integer accountID) {
+  public OwnerForDescribeOrganizationOutput accountID(Long accountID) {
     this.accountID = accountID;
     return this;
   }
@@ -48,11 +49,11 @@ public class OwnerForDescribeOrganizationOutput {
    * @return accountID
   **/
   @Schema(description = "")
-  public Integer getAccountID() {
+  public Long getAccountID() {
     return accountID;
   }
 
-  public void setAccountID(Integer accountID) {
+  public void setAccountID(Long accountID) {
     this.accountID = accountID;
   }
 

@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class QuitOrganizationResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("ApplicationID")
   private String applicationID = null;

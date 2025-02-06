@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class MoveAccountRequest {
   @SerializedName("AccountId")
   private String accountId = null;

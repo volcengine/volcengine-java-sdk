@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class InvitationListForListInvitationsOutput {
   @SerializedName("AccountID")
   private String accountID = null;

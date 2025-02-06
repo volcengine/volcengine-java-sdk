@@ -24,38 +24,58 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DetachServiceControlPolicyRequest
+ * ListPoliciesForTargetRequest
  */
 
 
 
-public class DetachServiceControlPolicyRequest {
-  @SerializedName("PolicyID")
-  private String policyID = null;
+public class ListPoliciesForTargetRequest {
+  @SerializedName("Limit")
+  private Integer limit = null;
+
+  @SerializedName("Offset")
+  private Integer offset = null;
 
   @SerializedName("TargetID")
   private String targetID = null;
 
-  public DetachServiceControlPolicyRequest policyID(String policyID) {
-    this.policyID = policyID;
+  public ListPoliciesForTargetRequest limit(Integer limit) {
+    this.limit = limit;
     return this;
   }
 
    /**
-   * Get policyID
-   * @return policyID
+   * Get limit
+   * @return limit
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getPolicyID() {
-    return policyID;
+  @Schema(description = "")
+  public Integer getLimit() {
+    return limit;
   }
 
-  public void setPolicyID(String policyID) {
-    this.policyID = policyID;
+  public void setLimit(Integer limit) {
+    this.limit = limit;
   }
 
-  public DetachServiceControlPolicyRequest targetID(String targetID) {
+  public ListPoliciesForTargetRequest offset(Integer offset) {
+    this.offset = offset;
+    return this;
+  }
+
+   /**
+   * Get offset
+   * @return offset
+  **/
+  @Schema(description = "")
+  public Integer getOffset() {
+    return offset;
+  }
+
+  public void setOffset(Integer offset) {
+    this.offset = offset;
+  }
+
+  public ListPoliciesForTargetRequest targetID(String targetID) {
     this.targetID = targetID;
     return this;
   }
@@ -83,23 +103,25 @@ public class DetachServiceControlPolicyRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DetachServiceControlPolicyRequest detachServiceControlPolicyRequest = (DetachServiceControlPolicyRequest) o;
-    return Objects.equals(this.policyID, detachServiceControlPolicyRequest.policyID) &&
-        Objects.equals(this.targetID, detachServiceControlPolicyRequest.targetID);
+    ListPoliciesForTargetRequest listPoliciesForTargetRequest = (ListPoliciesForTargetRequest) o;
+    return Objects.equals(this.limit, listPoliciesForTargetRequest.limit) &&
+        Objects.equals(this.offset, listPoliciesForTargetRequest.offset) &&
+        Objects.equals(this.targetID, listPoliciesForTargetRequest.targetID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(policyID, targetID);
+    return Objects.hash(limit, offset, targetID);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DetachServiceControlPolicyRequest {\n");
+    sb.append("class ListPoliciesForTargetRequest {\n");
     
-    sb.append("    policyID: ").append(toIndentedString(policyID)).append("\n");
+    sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
+    sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
     sb.append("    targetID: ").append(toIndentedString(targetID)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -21,6 +21,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeOrganizationRequest {
 
   @Override

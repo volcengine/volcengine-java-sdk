@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class InviteAccountRequest {
   @SerializedName("AccountId")
   private String accountId = null;

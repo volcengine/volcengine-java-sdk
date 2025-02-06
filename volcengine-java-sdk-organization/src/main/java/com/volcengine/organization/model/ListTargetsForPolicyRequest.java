@@ -24,22 +24,28 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ListOrganizationalUnitsForParentRequest
+ * ListTargetsForPolicyRequest
  */
 
 
 
-public class ListOrganizationalUnitsForParentRequest {
+public class ListTargetsForPolicyRequest {
   @SerializedName("Limit")
   private Integer limit = null;
 
   @SerializedName("Offset")
   private Integer offset = null;
 
-  @SerializedName("ParentId")
-  private String parentId = null;
+  @SerializedName("PolicyID")
+  private String policyID = null;
 
-  public ListOrganizationalUnitsForParentRequest limit(Integer limit) {
+  @SerializedName("SortBy")
+  private String sortBy = null;
+
+  @SerializedName("SortOrder")
+  private String sortOrder = null;
+
+  public ListTargetsForPolicyRequest limit(Integer limit) {
     this.limit = limit;
     return this;
   }
@@ -57,7 +63,7 @@ public class ListOrganizationalUnitsForParentRequest {
     this.limit = limit;
   }
 
-  public ListOrganizationalUnitsForParentRequest offset(Integer offset) {
+  public ListTargetsForPolicyRequest offset(Integer offset) {
     this.offset = offset;
     return this;
   }
@@ -75,23 +81,59 @@ public class ListOrganizationalUnitsForParentRequest {
     this.offset = offset;
   }
 
-  public ListOrganizationalUnitsForParentRequest parentId(String parentId) {
-    this.parentId = parentId;
+  public ListTargetsForPolicyRequest policyID(String policyID) {
+    this.policyID = policyID;
     return this;
   }
 
    /**
-   * Get parentId
-   * @return parentId
+   * Get policyID
+   * @return policyID
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getParentId() {
-    return parentId;
+  public String getPolicyID() {
+    return policyID;
   }
 
-  public void setParentId(String parentId) {
-    this.parentId = parentId;
+  public void setPolicyID(String policyID) {
+    this.policyID = policyID;
+  }
+
+  public ListTargetsForPolicyRequest sortBy(String sortBy) {
+    this.sortBy = sortBy;
+    return this;
+  }
+
+   /**
+   * Get sortBy
+   * @return sortBy
+  **/
+  @Schema(description = "")
+  public String getSortBy() {
+    return sortBy;
+  }
+
+  public void setSortBy(String sortBy) {
+    this.sortBy = sortBy;
+  }
+
+  public ListTargetsForPolicyRequest sortOrder(String sortOrder) {
+    this.sortOrder = sortOrder;
+    return this;
+  }
+
+   /**
+   * Get sortOrder
+   * @return sortOrder
+  **/
+  @Schema(description = "")
+  public String getSortOrder() {
+    return sortOrder;
+  }
+
+  public void setSortOrder(String sortOrder) {
+    this.sortOrder = sortOrder;
   }
 
 
@@ -103,26 +145,30 @@ public class ListOrganizationalUnitsForParentRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ListOrganizationalUnitsForParentRequest listOrganizationalUnitsForParentRequest = (ListOrganizationalUnitsForParentRequest) o;
-    return Objects.equals(this.limit, listOrganizationalUnitsForParentRequest.limit) &&
-        Objects.equals(this.offset, listOrganizationalUnitsForParentRequest.offset) &&
-        Objects.equals(this.parentId, listOrganizationalUnitsForParentRequest.parentId);
+    ListTargetsForPolicyRequest listTargetsForPolicyRequest = (ListTargetsForPolicyRequest) o;
+    return Objects.equals(this.limit, listTargetsForPolicyRequest.limit) &&
+        Objects.equals(this.offset, listTargetsForPolicyRequest.offset) &&
+        Objects.equals(this.policyID, listTargetsForPolicyRequest.policyID) &&
+        Objects.equals(this.sortBy, listTargetsForPolicyRequest.sortBy) &&
+        Objects.equals(this.sortOrder, listTargetsForPolicyRequest.sortOrder);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(limit, offset, parentId);
+    return Objects.hash(limit, offset, policyID, sortBy, sortOrder);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ListOrganizationalUnitsForParentRequest {\n");
+    sb.append("class ListTargetsForPolicyRequest {\n");
     
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
     sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
-    sb.append("    parentId: ").append(toIndentedString(parentId)).append("\n");
+    sb.append("    policyID: ").append(toIndentedString(policyID)).append("\n");
+    sb.append("    sortBy: ").append(toIndentedString(sortBy)).append("\n");
+    sb.append("    sortOrder: ").append(toIndentedString(sortOrder)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateAccountRequest {
   @SerializedName("AccountName")
   private String accountName = null;
@@ -40,6 +41,9 @@ public class CreateAccountRequest {
 
   @SerializedName("ShowName")
   private String showName = null;
+
+  @SerializedName("VerificationRelationId")
+  private String verificationRelationId = null;
 
   public CreateAccountRequest accountName(String accountName) {
     this.accountName = accountName;
@@ -115,6 +119,24 @@ public class CreateAccountRequest {
     this.showName = showName;
   }
 
+  public CreateAccountRequest verificationRelationId(String verificationRelationId) {
+    this.verificationRelationId = verificationRelationId;
+    return this;
+  }
+
+   /**
+   * Get verificationRelationId
+   * @return verificationRelationId
+  **/
+  @Schema(description = "")
+  public String getVerificationRelationId() {
+    return verificationRelationId;
+  }
+
+  public void setVerificationRelationId(String verificationRelationId) {
+    this.verificationRelationId = verificationRelationId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -128,12 +150,13 @@ public class CreateAccountRequest {
     return Objects.equals(this.accountName, createAccountRequest.accountName) &&
         Objects.equals(this.description, createAccountRequest.description) &&
         Objects.equals(this.orgUnitId, createAccountRequest.orgUnitId) &&
-        Objects.equals(this.showName, createAccountRequest.showName);
+        Objects.equals(this.showName, createAccountRequest.showName) &&
+        Objects.equals(this.verificationRelationId, createAccountRequest.verificationRelationId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountName, description, orgUnitId, showName);
+    return Objects.hash(accountName, description, orgUnitId, showName, verificationRelationId);
   }
 
 
@@ -146,6 +169,7 @@ public class CreateAccountRequest {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    orgUnitId: ").append(toIndentedString(orgUnitId)).append("\n");
     sb.append("    showName: ").append(toIndentedString(showName)).append("\n");
+    sb.append("    verificationRelationId: ").append(toIndentedString(verificationRelationId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

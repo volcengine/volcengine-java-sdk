@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class RejectQuitApplicationRequest {
   @SerializedName("AccountId")
   private String accountId = null;

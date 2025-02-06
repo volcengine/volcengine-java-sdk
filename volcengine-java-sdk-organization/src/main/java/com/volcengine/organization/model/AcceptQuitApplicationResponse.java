@@ -21,6 +21,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class AcceptQuitApplicationResponse extends com.volcengine.model.AbstractResponse {
 
   @Override

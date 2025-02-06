@@ -19,27 +19,33 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.organization.model.TargetForListTargetsForPolicyOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ListOrganizationalUnitsForParentRequest
+ * ListTargetsForPolicyResponse
  */
 
 
 
-public class ListOrganizationalUnitsForParentRequest {
+public class ListTargetsForPolicyResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Limit")
   private Integer limit = null;
 
   @SerializedName("Offset")
   private Integer offset = null;
 
-  @SerializedName("ParentId")
-  private String parentId = null;
+  @SerializedName("Targets")
+  private List<TargetForListTargetsForPolicyOutput> targets = null;
 
-  public ListOrganizationalUnitsForParentRequest limit(Integer limit) {
+  @SerializedName("Total")
+  private Integer total = null;
+
+  public ListTargetsForPolicyResponse limit(Integer limit) {
     this.limit = limit;
     return this;
   }
@@ -57,7 +63,7 @@ public class ListOrganizationalUnitsForParentRequest {
     this.limit = limit;
   }
 
-  public ListOrganizationalUnitsForParentRequest offset(Integer offset) {
+  public ListTargetsForPolicyResponse offset(Integer offset) {
     this.offset = offset;
     return this;
   }
@@ -75,23 +81,49 @@ public class ListOrganizationalUnitsForParentRequest {
     this.offset = offset;
   }
 
-  public ListOrganizationalUnitsForParentRequest parentId(String parentId) {
-    this.parentId = parentId;
+  public ListTargetsForPolicyResponse targets(List<TargetForListTargetsForPolicyOutput> targets) {
+    this.targets = targets;
+    return this;
+  }
+
+  public ListTargetsForPolicyResponse addTargetsItem(TargetForListTargetsForPolicyOutput targetsItem) {
+    if (this.targets == null) {
+      this.targets = new ArrayList<TargetForListTargetsForPolicyOutput>();
+    }
+    this.targets.add(targetsItem);
     return this;
   }
 
    /**
-   * Get parentId
-   * @return parentId
+   * Get targets
+   * @return targets
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getParentId() {
-    return parentId;
+  @Valid
+  @Schema(description = "")
+  public List<TargetForListTargetsForPolicyOutput> getTargets() {
+    return targets;
   }
 
-  public void setParentId(String parentId) {
-    this.parentId = parentId;
+  public void setTargets(List<TargetForListTargetsForPolicyOutput> targets) {
+    this.targets = targets;
+  }
+
+  public ListTargetsForPolicyResponse total(Integer total) {
+    this.total = total;
+    return this;
+  }
+
+   /**
+   * Get total
+   * @return total
+  **/
+  @Schema(description = "")
+  public Integer getTotal() {
+    return total;
+  }
+
+  public void setTotal(Integer total) {
+    this.total = total;
   }
 
 
@@ -103,26 +135,28 @@ public class ListOrganizationalUnitsForParentRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ListOrganizationalUnitsForParentRequest listOrganizationalUnitsForParentRequest = (ListOrganizationalUnitsForParentRequest) o;
-    return Objects.equals(this.limit, listOrganizationalUnitsForParentRequest.limit) &&
-        Objects.equals(this.offset, listOrganizationalUnitsForParentRequest.offset) &&
-        Objects.equals(this.parentId, listOrganizationalUnitsForParentRequest.parentId);
+    ListTargetsForPolicyResponse listTargetsForPolicyResponse = (ListTargetsForPolicyResponse) o;
+    return Objects.equals(this.limit, listTargetsForPolicyResponse.limit) &&
+        Objects.equals(this.offset, listTargetsForPolicyResponse.offset) &&
+        Objects.equals(this.targets, listTargetsForPolicyResponse.targets) &&
+        Objects.equals(this.total, listTargetsForPolicyResponse.total);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(limit, offset, parentId);
+    return Objects.hash(limit, offset, targets, total);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ListOrganizationalUnitsForParentRequest {\n");
+    sb.append("class ListTargetsForPolicyResponse {\n");
     
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
     sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
-    sb.append("    parentId: ").append(toIndentedString(parentId)).append("\n");
+    sb.append("    targets: ").append(toIndentedString(targets)).append("\n");
+    sb.append("    total: ").append(toIndentedString(total)).append("\n");
     sb.append("}");
     return sb.toString();
   }
