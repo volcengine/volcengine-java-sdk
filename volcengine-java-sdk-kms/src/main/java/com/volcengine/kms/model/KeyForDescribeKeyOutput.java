@@ -59,7 +59,7 @@ public class KeyForDescribeKeyOutput {
   private String lastRotationTime = null;
 
   @SerializedName("MultiRegion")
-  private String multiRegion = null;
+  private Boolean multiRegion = null;
 
   @SerializedName("MultiRegionConfiguration")
   private MultiRegionConfigurationForDescribeKeyOutput multiRegionConfiguration = null;
@@ -247,7 +247,7 @@ public class KeyForDescribeKeyOutput {
     this.lastRotationTime = lastRotationTime;
   }
 
-  public KeyForDescribeKeyOutput multiRegion(String multiRegion) {
+  public KeyForDescribeKeyOutput multiRegion(Boolean multiRegion) {
     this.multiRegion = multiRegion;
     return this;
   }
@@ -257,11 +257,11 @@ public class KeyForDescribeKeyOutput {
    * @return multiRegion
   **/
   @Schema(description = "")
-  public String getMultiRegion() {
+  public Boolean isMultiRegion() {
     return multiRegion;
   }
 
-  public void setMultiRegion(String multiRegion) {
+  public void setMultiRegion(Boolean multiRegion) {
     this.multiRegion = multiRegion;
   }
 

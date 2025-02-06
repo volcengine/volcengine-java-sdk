@@ -59,7 +59,7 @@ public class ConvertReplicaKeyForReplicateKeyOutput {
   private String lastRotationTime = null;
 
   @SerializedName("MultiRegion")
-  private String multiRegion = null;
+  private Boolean multiRegion = null;
 
   @SerializedName("MultiRegionConfiguration")
   private MultiRegionConfigurationForReplicateKeyOutput multiRegionConfiguration = null;
@@ -247,7 +247,7 @@ public class ConvertReplicaKeyForReplicateKeyOutput {
     this.lastRotationTime = lastRotationTime;
   }
 
-  public ConvertReplicaKeyForReplicateKeyOutput multiRegion(String multiRegion) {
+  public ConvertReplicaKeyForReplicateKeyOutput multiRegion(Boolean multiRegion) {
     this.multiRegion = multiRegion;
     return this;
   }
@@ -257,11 +257,11 @@ public class ConvertReplicaKeyForReplicateKeyOutput {
    * @return multiRegion
   **/
   @Schema(description = "")
-  public String getMultiRegion() {
+  public Boolean isMultiRegion() {
     return multiRegion;
   }
 
-  public void setMultiRegion(String multiRegion) {
+  public void setMultiRegion(Boolean multiRegion) {
     this.multiRegion = multiRegion;
   }
 
