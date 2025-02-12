@@ -40,7 +40,7 @@ public class HandleInvitationRequest {
   private Integer invitationType = null;
 
   @SerializedName("MajorAccountID")
-  private Integer majorAccountID = null;
+  private Long majorAccountID = null;
 
   @SerializedName("Relation")
   private Integer relation = null;
@@ -104,7 +104,7 @@ public class HandleInvitationRequest {
     this.invitationType = invitationType;
   }
 
-  public HandleInvitationRequest majorAccountID(Integer majorAccountID) {
+  public HandleInvitationRequest majorAccountID(Long majorAccountID) {
     this.majorAccountID = majorAccountID;
     return this;
   }
@@ -114,11 +114,11 @@ public class HandleInvitationRequest {
    * @return majorAccountID
   **/
   @Schema(description = "")
-  public Integer getMajorAccountID() {
+  public Long getMajorAccountID() {
     return majorAccountID;
   }
 
-  public void setMajorAccountID(Integer majorAccountID) {
+  public void setMajorAccountID(Long majorAccountID) {
     this.majorAccountID = majorAccountID;
   }
 

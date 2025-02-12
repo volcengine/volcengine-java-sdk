@@ -43,7 +43,7 @@ public class CancelInvitationRequest {
   private String relationID = null;
 
   @SerializedName("SubAccountID")
-  private Integer subAccountID = null;
+  private Long subAccountID = null;
 
   public CancelInvitationRequest authID(String authID) {
     this.authID = authID;
@@ -119,7 +119,7 @@ public class CancelInvitationRequest {
     this.relationID = relationID;
   }
 
-  public CancelInvitationRequest subAccountID(Integer subAccountID) {
+  public CancelInvitationRequest subAccountID(Long subAccountID) {
     this.subAccountID = subAccountID;
     return this;
   }
@@ -129,11 +129,11 @@ public class CancelInvitationRequest {
    * @return subAccountID
   **/
   @Schema(description = "")
-  public Integer getSubAccountID() {
+  public Long getSubAccountID() {
     return subAccountID;
   }
 
-  public void setSubAccountID(Integer subAccountID) {
+  public void setSubAccountID(Long subAccountID) {
     this.subAccountID = subAccountID;
   }
 
