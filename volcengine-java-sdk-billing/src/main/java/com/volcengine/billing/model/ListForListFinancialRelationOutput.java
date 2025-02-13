@@ -46,7 +46,7 @@ public class ListForListFinancialRelationOutput {
   private String filiationDesc = null;
 
   @SerializedName("MajorAccountID")
-  private Integer majorAccountID = null;
+  private Long majorAccountID = null;
 
   @SerializedName("MajorAccountName")
   private String majorAccountName = null;
@@ -67,7 +67,7 @@ public class ListForListFinancialRelationOutput {
   private String statusDesc = null;
 
   @SerializedName("SubAccountID")
-  private Integer subAccountID = null;
+  private Long subAccountID = null;
 
   @SerializedName("SubAccountName")
   private String subAccountName = null;
@@ -156,7 +156,7 @@ public class ListForListFinancialRelationOutput {
     this.filiationDesc = filiationDesc;
   }
 
-  public ListForListFinancialRelationOutput majorAccountID(Integer majorAccountID) {
+  public ListForListFinancialRelationOutput majorAccountID(Long majorAccountID) {
     this.majorAccountID = majorAccountID;
     return this;
   }
@@ -166,11 +166,11 @@ public class ListForListFinancialRelationOutput {
    * @return majorAccountID
   **/
   @Schema(description = "")
-  public Integer getMajorAccountID() {
+  public Long getMajorAccountID() {
     return majorAccountID;
   }
 
-  public void setMajorAccountID(Integer majorAccountID) {
+  public void setMajorAccountID(Long majorAccountID) {
     this.majorAccountID = majorAccountID;
   }
 
@@ -282,7 +282,7 @@ public class ListForListFinancialRelationOutput {
     this.statusDesc = statusDesc;
   }
 
-  public ListForListFinancialRelationOutput subAccountID(Integer subAccountID) {
+  public ListForListFinancialRelationOutput subAccountID(Long subAccountID) {
     this.subAccountID = subAccountID;
     return this;
   }
@@ -292,11 +292,11 @@ public class ListForListFinancialRelationOutput {
    * @return subAccountID
   **/
   @Schema(description = "")
-  public Integer getSubAccountID() {
+  public Long getSubAccountID() {
     return subAccountID;
   }
 
-  public void setSubAccountID(Integer subAccountID) {
+  public void setSubAccountID(Long subAccountID) {
     this.subAccountID = subAccountID;
   }
 
