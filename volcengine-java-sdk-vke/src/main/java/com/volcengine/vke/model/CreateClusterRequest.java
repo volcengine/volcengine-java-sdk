@@ -35,6 +35,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateClusterRequest {
   @SerializedName("ClientToken")
   private String clientToken = null;
@@ -59,6 +60,9 @@ public class CreateClusterRequest {
 
   @SerializedName("PodsConfig")
   private PodsConfigForCreateClusterInput podsConfig = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
 
   @SerializedName("ServicesConfig")
   private ServicesConfigForCreateClusterInput servicesConfig = null;
@@ -214,6 +218,24 @@ public class CreateClusterRequest {
     this.podsConfig = podsConfig;
   }
 
+  public CreateClusterRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public CreateClusterRequest servicesConfig(ServicesConfigForCreateClusterInput servicesConfig) {
     this.servicesConfig = servicesConfig;
     return this;
@@ -278,13 +300,14 @@ public class CreateClusterRequest {
         Objects.equals(this.loggingConfig, createClusterRequest.loggingConfig) &&
         Objects.equals(this.name, createClusterRequest.name) &&
         Objects.equals(this.podsConfig, createClusterRequest.podsConfig) &&
+        Objects.equals(this.projectName, createClusterRequest.projectName) &&
         Objects.equals(this.servicesConfig, createClusterRequest.servicesConfig) &&
         Objects.equals(this.tags, createClusterRequest.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, clusterConfig, deleteProtectionEnabled, description, kubernetesVersion, loggingConfig, name, podsConfig, servicesConfig, tags);
+    return Objects.hash(clientToken, clusterConfig, deleteProtectionEnabled, description, kubernetesVersion, loggingConfig, name, podsConfig, projectName, servicesConfig, tags);
   }
 
 
@@ -301,6 +324,7 @@ public class CreateClusterRequest {
     sb.append("    loggingConfig: ").append(toIndentedString(loggingConfig)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    podsConfig: ").append(toIndentedString(podsConfig)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    servicesConfig: ").append(toIndentedString(servicesConfig)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");

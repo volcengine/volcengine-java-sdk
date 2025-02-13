@@ -34,6 +34,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class NodeConfigForCreateNodePoolInput {
   @SerializedName("AdditionalContainerStorageEnabled")
   private Boolean additionalContainerStorageEnabled = null;
@@ -61,7 +62,9 @@ public class NodeConfigForCreateNodePoolInput {
    */
   @JsonAdapter(InstanceChargeTypeEnum.Adapter.class)
   public enum InstanceChargeTypeEnum {
+    @SerializedName("PostPaid")
     POSTPAID("PostPaid"),
+    @SerializedName("PrePaid")
     PREPAID("PrePaid");
 
     private String value;
@@ -108,6 +111,9 @@ public class NodeConfigForCreateNodePoolInput {
 
   @SerializedName("Period")
   private Integer period = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
 
   @SerializedName("Security")
   private SecurityForCreateNodePoolInput security = null;
@@ -344,6 +350,24 @@ public class NodeConfigForCreateNodePoolInput {
     this.period = period;
   }
 
+  public NodeConfigForCreateNodePoolInput projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public NodeConfigForCreateNodePoolInput security(SecurityForCreateNodePoolInput security) {
     this.security = security;
     return this;
@@ -456,6 +480,7 @@ public class NodeConfigForCreateNodePoolInput {
         Objects.equals(this.instanceTypeIds, nodeConfigForCreateNodePoolInput.instanceTypeIds) &&
         Objects.equals(this.namePrefix, nodeConfigForCreateNodePoolInput.namePrefix) &&
         Objects.equals(this.period, nodeConfigForCreateNodePoolInput.period) &&
+        Objects.equals(this.projectName, nodeConfigForCreateNodePoolInput.projectName) &&
         Objects.equals(this.security, nodeConfigForCreateNodePoolInput.security) &&
         Objects.equals(this.subnetIds, nodeConfigForCreateNodePoolInput.subnetIds) &&
         Objects.equals(this.systemVolume, nodeConfigForCreateNodePoolInput.systemVolume) &&
@@ -464,7 +489,7 @@ public class NodeConfigForCreateNodePoolInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalContainerStorageEnabled, autoRenew, autoRenewPeriod, dataVolumes, hpcClusterIds, imageId, initializeScript, instanceChargeType, instanceTypeIds, namePrefix, period, security, subnetIds, systemVolume, tags);
+    return Objects.hash(additionalContainerStorageEnabled, autoRenew, autoRenewPeriod, dataVolumes, hpcClusterIds, imageId, initializeScript, instanceChargeType, instanceTypeIds, namePrefix, period, projectName, security, subnetIds, systemVolume, tags);
   }
 
 
@@ -484,6 +509,7 @@ public class NodeConfigForCreateNodePoolInput {
     sb.append("    instanceTypeIds: ").append(toIndentedString(instanceTypeIds)).append("\n");
     sb.append("    namePrefix: ").append(toIndentedString(namePrefix)).append("\n");
     sb.append("    period: ").append(toIndentedString(period)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    security: ").append(toIndentedString(security)).append("\n");
     sb.append("    subnetIds: ").append(toIndentedString(subnetIds)).append("\n");
     sb.append("    systemVolume: ").append(toIndentedString(systemVolume)).append("\n");

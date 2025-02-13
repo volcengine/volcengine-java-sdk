@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class FilterForListClustersInput {
   @SerializedName("CreateClientToken")
   private String createClientToken = null;
@@ -49,11 +50,10 @@ public class FilterForListClustersInput {
    */
   @JsonAdapter(PodsConfigPodNetworkModeEnum.Adapter.class)
   public enum PodsConfigPodNetworkModeEnum {
+    @SerializedName("Flannel")
     FLANNEL("Flannel"),
-    VPCCNISHARED("VpcCniShared"),
-    CALICOBGP("CalicoBgp"),
-    CALICOVXLAN("CalicoVxlan"),
-    VPCCNIDEDICATED("VpcCniDedicated");
+    @SerializedName("VpcCniShared")
+    VPCCNISHARED("VpcCniShared");
 
     private String value;
 

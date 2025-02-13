@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class UpdateAddonConfigRequest {
   @SerializedName("ClientToken")
   private String clientToken = null;

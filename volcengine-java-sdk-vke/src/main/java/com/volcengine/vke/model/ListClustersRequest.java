@@ -32,6 +32,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ListClustersRequest {
   @SerializedName("Filter")
   private FilterForListClustersInput filter = null;
@@ -41,6 +42,9 @@ public class ListClustersRequest {
 
   @SerializedName("PageSize")
   private Integer pageSize = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
 
   @SerializedName("Tags")
   private List<TagForListClustersInput> tags = null;
@@ -100,6 +104,24 @@ public class ListClustersRequest {
     this.pageSize = pageSize;
   }
 
+  public ListClustersRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public ListClustersRequest tags(List<TagForListClustersInput> tags) {
     this.tags = tags;
     return this;
@@ -140,12 +162,13 @@ public class ListClustersRequest {
     return Objects.equals(this.filter, listClustersRequest.filter) &&
         Objects.equals(this.pageNumber, listClustersRequest.pageNumber) &&
         Objects.equals(this.pageSize, listClustersRequest.pageSize) &&
+        Objects.equals(this.projectName, listClustersRequest.projectName) &&
         Objects.equals(this.tags, listClustersRequest.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(filter, pageNumber, pageSize, tags);
+    return Objects.hash(filter, pageNumber, pageSize, projectName, tags);
   }
 
 
@@ -157,6 +180,7 @@ public class ListClustersRequest {
     sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();

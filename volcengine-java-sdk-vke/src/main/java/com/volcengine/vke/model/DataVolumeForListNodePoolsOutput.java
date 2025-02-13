@@ -28,15 +28,123 @@ import javax.validation.Valid;
  */
 
 
+
 public class DataVolumeForListNodePoolsOutput {
+  /**
+   * Gets or Sets fileSystem
+   */
+  @JsonAdapter(FileSystemEnum.Adapter.class)
+  public enum FileSystemEnum {
+    @SerializedName("Ext4")
+    EXT4("Ext4"),
+    @SerializedName("Xfs")
+    XFS("Xfs");
+
+    private String value;
+
+    FileSystemEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static FileSystemEnum fromValue(String input) {
+      for (FileSystemEnum b : FileSystemEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<FileSystemEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final FileSystemEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public FileSystemEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return FileSystemEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("FileSystem")
+  private FileSystemEnum fileSystem = null;
+
   @SerializedName("MountPoint")
   private String mountPoint = null;
 
   @SerializedName("Size")
   private Integer size = null;
 
-  @SerializedName("Type")
-  private String type = null;
+  /**
+   * Gets or Sets type
+   */
+  @JsonAdapter(TypeEnum.Adapter.class)
+  public enum TypeEnum {
+    @SerializedName("ESSD_PL0")
+    ESSD_PL0("ESSD_PL0"),
+    @SerializedName("ESSD_FlexPL")
+    ESSD_FLEXPL("ESSD_FlexPL");
+
+    private String value;
+
+    TypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static TypeEnum fromValue(String input) {
+      for (TypeEnum b : TypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<TypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public TypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return TypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("Type")
+  private TypeEnum type = null;
+
+  public DataVolumeForListNodePoolsOutput fileSystem(FileSystemEnum fileSystem) {
+    this.fileSystem = fileSystem;
+    return this;
+  }
+
+   /**
+   * Get fileSystem
+   * @return fileSystem
+  **/
+  @Schema(description = "")
+  public FileSystemEnum getFileSystem() {
+    return fileSystem;
+  }
+
+  public void setFileSystem(FileSystemEnum fileSystem) {
+    this.fileSystem = fileSystem;
+  }
 
   public DataVolumeForListNodePoolsOutput mountPoint(String mountPoint) {
     this.mountPoint = mountPoint;
@@ -74,7 +182,7 @@ public class DataVolumeForListNodePoolsOutput {
     this.size = size;
   }
 
-  public DataVolumeForListNodePoolsOutput type(String type) {
+  public DataVolumeForListNodePoolsOutput type(TypeEnum type) {
     this.type = type;
     return this;
   }
@@ -84,11 +192,11 @@ public class DataVolumeForListNodePoolsOutput {
    * @return type
   **/
   @Schema(description = "")
-  public String getType() {
+  public TypeEnum getType() {
     return type;
   }
 
-  public void setType(String type) {
+  public void setType(TypeEnum type) {
     this.type = type;
   }
 
@@ -102,14 +210,15 @@ public class DataVolumeForListNodePoolsOutput {
       return false;
     }
     DataVolumeForListNodePoolsOutput dataVolumeForListNodePoolsOutput = (DataVolumeForListNodePoolsOutput) o;
-    return Objects.equals(this.mountPoint, dataVolumeForListNodePoolsOutput.mountPoint) &&
+    return Objects.equals(this.fileSystem, dataVolumeForListNodePoolsOutput.fileSystem) &&
+        Objects.equals(this.mountPoint, dataVolumeForListNodePoolsOutput.mountPoint) &&
         Objects.equals(this.size, dataVolumeForListNodePoolsOutput.size) &&
         Objects.equals(this.type, dataVolumeForListNodePoolsOutput.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(mountPoint, size, type);
+    return Objects.hash(fileSystem, mountPoint, size, type);
   }
 
 
@@ -118,6 +227,7 @@ public class DataVolumeForListNodePoolsOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class DataVolumeForListNodePoolsOutput {\n");
     
+    sb.append("    fileSystem: ").append(toIndentedString(fileSystem)).append("\n");
     sb.append("    mountPoint: ").append(toIndentedString(mountPoint)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");

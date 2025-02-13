@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class AutoScalingForListNodePoolsOutput {
   @SerializedName("DesiredReplicas")
   private Integer desiredReplicas = null;
@@ -44,8 +45,54 @@ public class AutoScalingForListNodePoolsOutput {
   @SerializedName("Priority")
   private Integer priority = null;
 
-  @SerializedName("SubnetPolicy")
-  private String subnetPolicy = null;
+  @SerializedName("ScalingGroupId")
+  private String scalingGroupId = null;
+
+  /**
+   * Gets or Sets subnetPolicy
+   */
+  @JsonAdapter(SubnetPolicyEnum.Adapter.class)
+  public enum SubnetPolicyEnum {
+    @SerializedName("ZoneBalance")
+    ZONEBALANCE("ZoneBalance"),
+    @SerializedName("Priority")
+    PRIORITY("Priority");
+
+    private String value;
+
+    SubnetPolicyEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static SubnetPolicyEnum fromValue(String input) {
+      for (SubnetPolicyEnum b : SubnetPolicyEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<SubnetPolicyEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final SubnetPolicyEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public SubnetPolicyEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return SubnetPolicyEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("SubnetPolicy")
+  private SubnetPolicyEnum subnetPolicy = null;
 
   public AutoScalingForListNodePoolsOutput desiredReplicas(Integer desiredReplicas) {
     this.desiredReplicas = desiredReplicas;
@@ -137,7 +184,25 @@ public class AutoScalingForListNodePoolsOutput {
     this.priority = priority;
   }
 
-  public AutoScalingForListNodePoolsOutput subnetPolicy(String subnetPolicy) {
+  public AutoScalingForListNodePoolsOutput scalingGroupId(String scalingGroupId) {
+    this.scalingGroupId = scalingGroupId;
+    return this;
+  }
+
+   /**
+   * Get scalingGroupId
+   * @return scalingGroupId
+  **/
+  @Schema(description = "")
+  public String getScalingGroupId() {
+    return scalingGroupId;
+  }
+
+  public void setScalingGroupId(String scalingGroupId) {
+    this.scalingGroupId = scalingGroupId;
+  }
+
+  public AutoScalingForListNodePoolsOutput subnetPolicy(SubnetPolicyEnum subnetPolicy) {
     this.subnetPolicy = subnetPolicy;
     return this;
   }
@@ -147,11 +212,11 @@ public class AutoScalingForListNodePoolsOutput {
    * @return subnetPolicy
   **/
   @Schema(description = "")
-  public String getSubnetPolicy() {
+  public SubnetPolicyEnum getSubnetPolicy() {
     return subnetPolicy;
   }
 
-  public void setSubnetPolicy(String subnetPolicy) {
+  public void setSubnetPolicy(SubnetPolicyEnum subnetPolicy) {
     this.subnetPolicy = subnetPolicy;
   }
 
@@ -170,12 +235,13 @@ public class AutoScalingForListNodePoolsOutput {
         Objects.equals(this.maxReplicas, autoScalingForListNodePoolsOutput.maxReplicas) &&
         Objects.equals(this.minReplicas, autoScalingForListNodePoolsOutput.minReplicas) &&
         Objects.equals(this.priority, autoScalingForListNodePoolsOutput.priority) &&
+        Objects.equals(this.scalingGroupId, autoScalingForListNodePoolsOutput.scalingGroupId) &&
         Objects.equals(this.subnetPolicy, autoScalingForListNodePoolsOutput.subnetPolicy);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(desiredReplicas, enabled, maxReplicas, minReplicas, priority, subnetPolicy);
+    return Objects.hash(desiredReplicas, enabled, maxReplicas, minReplicas, priority, scalingGroupId, subnetPolicy);
   }
 
 
@@ -189,6 +255,7 @@ public class AutoScalingForListNodePoolsOutput {
     sb.append("    maxReplicas: ").append(toIndentedString(maxReplicas)).append("\n");
     sb.append("    minReplicas: ").append(toIndentedString(minReplicas)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
+    sb.append("    scalingGroupId: ").append(toIndentedString(scalingGroupId)).append("\n");
     sb.append("    subnetPolicy: ").append(toIndentedString(subnetPolicy)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -34,6 +34,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class NodeConfigForListNodePoolsOutput {
   @SerializedName("AdditionalContainerStorageEnabled")
   private Boolean additionalContainerStorageEnabled = null;
@@ -56,8 +57,51 @@ public class NodeConfigForListNodePoolsOutput {
   @SerializedName("InitializeScript")
   private String initializeScript = null;
 
-  @SerializedName("InstanceChargeType")
-  private String instanceChargeType = null;
+  /**
+   * Gets or Sets instanceChargeType
+   */
+  @JsonAdapter(InstanceChargeTypeEnum.Adapter.class)
+  public enum InstanceChargeTypeEnum {
+    @SerializedName("PostPaid")
+    POSTPAID("PostPaid"),
+    @SerializedName("PrePaid")
+    PREPAID("PrePaid");
+
+    private String value;
+
+    InstanceChargeTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static InstanceChargeTypeEnum fromValue(String input) {
+      for (InstanceChargeTypeEnum b : InstanceChargeTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<InstanceChargeTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final InstanceChargeTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public InstanceChargeTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return InstanceChargeTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("InstanceChargeType")
+  private InstanceChargeTypeEnum instanceChargeType = null;
 
   @SerializedName("InstanceTypeIds")
   private List<String> instanceTypeIds = null;
@@ -223,7 +267,7 @@ public class NodeConfigForListNodePoolsOutput {
     this.initializeScript = initializeScript;
   }
 
-  public NodeConfigForListNodePoolsOutput instanceChargeType(String instanceChargeType) {
+  public NodeConfigForListNodePoolsOutput instanceChargeType(InstanceChargeTypeEnum instanceChargeType) {
     this.instanceChargeType = instanceChargeType;
     return this;
   }
@@ -233,11 +277,11 @@ public class NodeConfigForListNodePoolsOutput {
    * @return instanceChargeType
   **/
   @Schema(description = "")
-  public String getInstanceChargeType() {
+  public InstanceChargeTypeEnum getInstanceChargeType() {
     return instanceChargeType;
   }
 
-  public void setInstanceChargeType(String instanceChargeType) {
+  public void setInstanceChargeType(InstanceChargeTypeEnum instanceChargeType) {
     this.instanceChargeType = instanceChargeType;
   }
 

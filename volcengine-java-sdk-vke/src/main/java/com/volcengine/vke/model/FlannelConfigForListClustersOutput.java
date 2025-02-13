@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class FlannelConfigForListClustersOutput {
   @SerializedName("MaxPodsPerNode")
   private Integer maxPodsPerNode = null;

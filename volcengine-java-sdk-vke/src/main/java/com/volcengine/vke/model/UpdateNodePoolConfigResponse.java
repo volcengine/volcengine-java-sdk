@@ -21,6 +21,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class UpdateNodePoolConfigResponse extends com.volcengine.model.AbstractResponse {
 
   @Override

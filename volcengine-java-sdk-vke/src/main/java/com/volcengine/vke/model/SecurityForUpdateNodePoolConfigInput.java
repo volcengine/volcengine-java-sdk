@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class SecurityForUpdateNodePoolConfigInput {
   @SerializedName("Login")
   private LoginForUpdateNodePoolConfigInput login = null;
@@ -43,6 +44,7 @@ public class SecurityForUpdateNodePoolConfigInput {
    */
   @JsonAdapter(SecurityStrategiesEnum.Adapter.class)
   public enum SecurityStrategiesEnum {
+    @SerializedName("Hids")
     HIDS("Hids");
 
     private String value;

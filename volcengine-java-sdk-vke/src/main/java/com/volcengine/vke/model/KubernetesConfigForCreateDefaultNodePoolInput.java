@@ -32,7 +32,11 @@ import javax.validation.Valid;
  */
 
 
+
 public class KubernetesConfigForCreateDefaultNodePoolInput {
+  @SerializedName("AutoSyncDisabled")
+  private Boolean autoSyncDisabled = null;
+
   @SerializedName("Cordon")
   private Boolean cordon = null;
 
@@ -44,6 +48,24 @@ public class KubernetesConfigForCreateDefaultNodePoolInput {
 
   @SerializedName("Taints")
   private List<TaintForCreateDefaultNodePoolInput> taints = null;
+
+  public KubernetesConfigForCreateDefaultNodePoolInput autoSyncDisabled(Boolean autoSyncDisabled) {
+    this.autoSyncDisabled = autoSyncDisabled;
+    return this;
+  }
+
+   /**
+   * Get autoSyncDisabled
+   * @return autoSyncDisabled
+  **/
+  @Schema(description = "")
+  public Boolean isAutoSyncDisabled() {
+    return autoSyncDisabled;
+  }
+
+  public void setAutoSyncDisabled(Boolean autoSyncDisabled) {
+    this.autoSyncDisabled = autoSyncDisabled;
+  }
 
   public KubernetesConfigForCreateDefaultNodePoolInput cordon(Boolean cordon) {
     this.cordon = cordon;
@@ -145,7 +167,8 @@ public class KubernetesConfigForCreateDefaultNodePoolInput {
       return false;
     }
     KubernetesConfigForCreateDefaultNodePoolInput kubernetesConfigForCreateDefaultNodePoolInput = (KubernetesConfigForCreateDefaultNodePoolInput) o;
-    return Objects.equals(this.cordon, kubernetesConfigForCreateDefaultNodePoolInput.cordon) &&
+    return Objects.equals(this.autoSyncDisabled, kubernetesConfigForCreateDefaultNodePoolInput.autoSyncDisabled) &&
+        Objects.equals(this.cordon, kubernetesConfigForCreateDefaultNodePoolInput.cordon) &&
         Objects.equals(this.labels, kubernetesConfigForCreateDefaultNodePoolInput.labels) &&
         Objects.equals(this.namePrefix, kubernetesConfigForCreateDefaultNodePoolInput.namePrefix) &&
         Objects.equals(this.taints, kubernetesConfigForCreateDefaultNodePoolInput.taints);
@@ -153,7 +176,7 @@ public class KubernetesConfigForCreateDefaultNodePoolInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cordon, labels, namePrefix, taints);
+    return Objects.hash(autoSyncDisabled, cordon, labels, namePrefix, taints);
   }
 
 
@@ -162,6 +185,7 @@ public class KubernetesConfigForCreateDefaultNodePoolInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class KubernetesConfigForCreateDefaultNodePoolInput {\n");
     
+    sb.append("    autoSyncDisabled: ").append(toIndentedString(autoSyncDisabled)).append("\n");
     sb.append("    cordon: ").append(toIndentedString(cordon)).append("\n");
     sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
     sb.append("    namePrefix: ").append(toIndentedString(namePrefix)).append("\n");

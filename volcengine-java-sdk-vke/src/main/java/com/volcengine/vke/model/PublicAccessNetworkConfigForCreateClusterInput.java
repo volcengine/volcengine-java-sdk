@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class PublicAccessNetworkConfigForCreateClusterInput {
   @SerializedName("Bandwidth")
   private Integer bandwidth = null;
@@ -40,9 +41,13 @@ public class PublicAccessNetworkConfigForCreateClusterInput {
    */
   @JsonAdapter(IspEnum.Adapter.class)
   public enum IspEnum {
+    @SerializedName("BGP")
     BGP("BGP"),
+    @SerializedName("ChinaMobile")
     CHINAMOBILE("ChinaMobile"),
+    @SerializedName("ChinaTelecom")
     CHINATELECOM("ChinaTelecom"),
+    @SerializedName("ChinaUnicom")
     CHINAUNICOM("ChinaUnicom");
 
     private String value;

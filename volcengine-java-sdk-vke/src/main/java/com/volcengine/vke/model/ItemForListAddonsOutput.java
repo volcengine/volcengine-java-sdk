@@ -29,6 +29,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ItemForListAddonsOutput {
   @SerializedName("ClusterId")
   private String clusterId = null;
@@ -42,11 +43,99 @@ public class ItemForListAddonsOutput {
   @SerializedName("CreateTime")
   private String createTime = null;
 
-  @SerializedName("DeployMode")
-  private String deployMode = null;
+  /**
+   * Gets or Sets deployMode
+   */
+  @JsonAdapter(DeployModeEnum.Adapter.class)
+  public enum DeployModeEnum {
+    @SerializedName("Managed")
+    MANAGED("Managed"),
+    @SerializedName("Unmanaged")
+    UNMANAGED("Unmanaged");
 
-  @SerializedName("DeployNodeType")
-  private String deployNodeType = null;
+    private String value;
+
+    DeployModeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static DeployModeEnum fromValue(String input) {
+      for (DeployModeEnum b : DeployModeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<DeployModeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final DeployModeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public DeployModeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return DeployModeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("DeployMode")
+  private DeployModeEnum deployMode = null;
+
+  /**
+   * Gets or Sets deployNodeType
+   */
+  @JsonAdapter(DeployNodeTypeEnum.Adapter.class)
+  public enum DeployNodeTypeEnum {
+    @SerializedName("Node")
+    NODE("Node"),
+    @SerializedName("VirtualNode")
+    VIRTUALNODE("VirtualNode"),
+    @SerializedName("EdgeNode")
+    EDGENODE("EdgeNode");
+
+    private String value;
+
+    DeployNodeTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static DeployNodeTypeEnum fromValue(String input) {
+      for (DeployNodeTypeEnum b : DeployNodeTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<DeployNodeTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final DeployNodeTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public DeployNodeTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return DeployNodeTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("DeployNodeType")
+  private DeployNodeTypeEnum deployNodeType = null;
 
   @SerializedName("Name")
   private String name = null;
@@ -135,7 +224,7 @@ public class ItemForListAddonsOutput {
     this.createTime = createTime;
   }
 
-  public ItemForListAddonsOutput deployMode(String deployMode) {
+  public ItemForListAddonsOutput deployMode(DeployModeEnum deployMode) {
     this.deployMode = deployMode;
     return this;
   }
@@ -145,15 +234,15 @@ public class ItemForListAddonsOutput {
    * @return deployMode
   **/
   @Schema(description = "")
-  public String getDeployMode() {
+  public DeployModeEnum getDeployMode() {
     return deployMode;
   }
 
-  public void setDeployMode(String deployMode) {
+  public void setDeployMode(DeployModeEnum deployMode) {
     this.deployMode = deployMode;
   }
 
-  public ItemForListAddonsOutput deployNodeType(String deployNodeType) {
+  public ItemForListAddonsOutput deployNodeType(DeployNodeTypeEnum deployNodeType) {
     this.deployNodeType = deployNodeType;
     return this;
   }
@@ -163,11 +252,11 @@ public class ItemForListAddonsOutput {
    * @return deployNodeType
   **/
   @Schema(description = "")
-  public String getDeployNodeType() {
+  public DeployNodeTypeEnum getDeployNodeType() {
     return deployNodeType;
   }
 
-  public void setDeployNodeType(String deployNodeType) {
+  public void setDeployNodeType(DeployNodeTypeEnum deployNodeType) {
     this.deployNodeType = deployNodeType;
   }
 

@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ConditionForListNodesOutput {
   @SerializedName("Type")
   private String type = null;

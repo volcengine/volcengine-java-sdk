@@ -28,15 +28,19 @@ import javax.validation.Valid;
  */
 
 
+
 public class TaintForListNodesOutput {
   /**
    * Gets or Sets effect
    */
   @JsonAdapter(EffectEnum.Adapter.class)
   public enum EffectEnum {
+    @SerializedName("NoSchedule")
     NOSCHEDULE("NoSchedule"),
-    NOEXECUTE("NoExecute"),
-    PREFERNOSCHEDULE("PreferNoSchedule");
+    @SerializedName("PreferNoSchedule")
+    PREFERNOSCHEDULE("PreferNoSchedule"),
+    @SerializedName("NoExecute")
+    NOEXECUTE("NoExecute");
 
     private String value;
 

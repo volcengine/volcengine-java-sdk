@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class LogSetupForUpdateClusterConfigInput {
   @SerializedName("Enabled")
   private Boolean enabled = null;
@@ -40,12 +41,18 @@ public class LogSetupForUpdateClusterConfigInput {
    */
   @JsonAdapter(LogTypeEnum.Adapter.class)
   public enum LogTypeEnum {
+    @SerializedName("Audit")
     AUDIT("Audit"),
-    CLOUDCONTROLLERMANAGER("CloudControllerManager"),
-    ETCD("Etcd"),
+    @SerializedName("KubeApiServer")
     KUBEAPISERVER("KubeApiServer"),
+    @SerializedName("KubeScheduler")
+    KUBESCHEDULER("KubeScheduler"),
+    @SerializedName("KubeControllerManager")
     KUBECONTROLLERMANAGER("KubeControllerManager"),
-    KUBESCHEDULER("KubeScheduler");
+    @SerializedName("CloudControllerManager")
+    CLOUDCONTROLLERMANAGER("CloudControllerManager"),
+    @SerializedName("Etcd")
+    ETCD("Etcd");
 
     private String value;
 

@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ItemForListKubeconfigsOutput {
   @SerializedName("ClusterId")
   private String clusterId = null;

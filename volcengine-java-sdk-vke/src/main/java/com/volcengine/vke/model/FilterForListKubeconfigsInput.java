@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class FilterForListKubeconfigsInput {
   @SerializedName("ClusterIds")
   private List<String> clusterIds = null;
@@ -38,13 +39,13 @@ public class FilterForListKubeconfigsInput {
   private List<String> ids = null;
 
   @SerializedName("RoleIds")
-  private List<Long> roleIds = null;
+  private List<Integer> roleIds = null;
 
   @SerializedName("Types")
   private List<String> types = null;
 
   @SerializedName("UserIds")
-  private List<Long> userIds = null;
+  private List<Integer> userIds = null;
 
   public FilterForListKubeconfigsInput clusterIds(List<String> clusterIds) {
     this.clusterIds = clusterIds;
@@ -98,14 +99,14 @@ public class FilterForListKubeconfigsInput {
     this.ids = ids;
   }
 
-  public FilterForListKubeconfigsInput roleIds(List<Long> roleIds) {
+  public FilterForListKubeconfigsInput roleIds(List<Integer> roleIds) {
     this.roleIds = roleIds;
     return this;
   }
 
-  public FilterForListKubeconfigsInput addRoleIdsItem(Long roleIdsItem) {
+  public FilterForListKubeconfigsInput addRoleIdsItem(Integer roleIdsItem) {
     if (this.roleIds == null) {
-      this.roleIds = new ArrayList<Long>();
+      this.roleIds = new ArrayList<Integer>();
     }
     this.roleIds.add(roleIdsItem);
     return this;
@@ -116,11 +117,11 @@ public class FilterForListKubeconfigsInput {
    * @return roleIds
   **/
   @Schema(description = "")
-  public List<Long> getRoleIds() {
+  public List<Integer> getRoleIds() {
     return roleIds;
   }
 
-  public void setRoleIds(List<Long> roleIds) {
+  public void setRoleIds(List<Integer> roleIds) {
     this.roleIds = roleIds;
   }
 
@@ -150,14 +151,14 @@ public class FilterForListKubeconfigsInput {
     this.types = types;
   }
 
-  public FilterForListKubeconfigsInput userIds(List<Long> userIds) {
+  public FilterForListKubeconfigsInput userIds(List<Integer> userIds) {
     this.userIds = userIds;
     return this;
   }
 
-  public FilterForListKubeconfigsInput addUserIdsItem(Long userIdsItem) {
+  public FilterForListKubeconfigsInput addUserIdsItem(Integer userIdsItem) {
     if (this.userIds == null) {
-      this.userIds = new ArrayList<Long>();
+      this.userIds = new ArrayList<Integer>();
     }
     this.userIds.add(userIdsItem);
     return this;
@@ -168,11 +169,11 @@ public class FilterForListKubeconfigsInput {
    * @return userIds
   **/
   @Schema(description = "")
-  public List<Long> getUserIds() {
+  public List<Integer> getUserIds() {
     return userIds;
   }
 
-  public void setUserIds(List<Long> userIds) {
+  public void setUserIds(List<Integer> userIds) {
     this.userIds = userIds;
   }
 
