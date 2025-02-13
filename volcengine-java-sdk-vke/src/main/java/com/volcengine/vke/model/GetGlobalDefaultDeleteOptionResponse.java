@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class GetGlobalDefaultDeleteOptionResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("DefaultDeleteAllResources")
   private Boolean defaultDeleteAllResources = null;

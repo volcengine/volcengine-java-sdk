@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class FilterForListScalingEventsInput {
   @SerializedName("EndTime")
   private String endTime = null;

@@ -30,12 +30,14 @@ import javax.validation.Valid;
  */
 
 
+
 public class DeleteNodePoolRequest {
   /**
    * Gets or Sets cascadingDeleteResources
    */
   @JsonAdapter(CascadingDeleteResourcesEnum.Adapter.class)
   public enum CascadingDeleteResourcesEnum {
+    @SerializedName("Ecs")
     ECS("Ecs");
 
     private String value;
@@ -85,6 +87,7 @@ public class DeleteNodePoolRequest {
    */
   @JsonAdapter(RetainResourcesEnum.Adapter.class)
   public enum RetainResourcesEnum {
+    @SerializedName("Ecs")
     ECS("Ecs");
 
     private String value;

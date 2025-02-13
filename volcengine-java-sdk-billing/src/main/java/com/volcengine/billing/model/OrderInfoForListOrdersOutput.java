@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.billing.model.OrderFailRefundInfoForListOrdersOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -44,6 +45,9 @@ public class OrderInfoForListOrdersOutput {
 
   @SerializedName("DiscountAmount")
   private String discountAmount = null;
+
+  @SerializedName("OrderFailRefundInfo")
+  private OrderFailRefundInfoForListOrdersOutput orderFailRefundInfo = null;
 
   @SerializedName("OrderID")
   private String orderID = null;
@@ -166,6 +170,25 @@ public class OrderInfoForListOrdersOutput {
 
   public void setDiscountAmount(String discountAmount) {
     this.discountAmount = discountAmount;
+  }
+
+  public OrderInfoForListOrdersOutput orderFailRefundInfo(OrderFailRefundInfoForListOrdersOutput orderFailRefundInfo) {
+    this.orderFailRefundInfo = orderFailRefundInfo;
+    return this;
+  }
+
+   /**
+   * Get orderFailRefundInfo
+   * @return orderFailRefundInfo
+  **/
+  @Valid
+  @Schema(description = "")
+  public OrderFailRefundInfoForListOrdersOutput getOrderFailRefundInfo() {
+    return orderFailRefundInfo;
+  }
+
+  public void setOrderFailRefundInfo(OrderFailRefundInfoForListOrdersOutput orderFailRefundInfo) {
+    this.orderFailRefundInfo = orderFailRefundInfo;
   }
 
   public OrderInfoForListOrdersOutput orderID(String orderID) {
@@ -381,6 +404,7 @@ public class OrderInfoForListOrdersOutput {
         Objects.equals(this.couponAmount, orderInfoForListOrdersOutput.couponAmount) &&
         Objects.equals(this.createTime, orderInfoForListOrdersOutput.createTime) &&
         Objects.equals(this.discountAmount, orderInfoForListOrdersOutput.discountAmount) &&
+        Objects.equals(this.orderFailRefundInfo, orderInfoForListOrdersOutput.orderFailRefundInfo) &&
         Objects.equals(this.orderID, orderInfoForListOrdersOutput.orderID) &&
         Objects.equals(this.orderType, orderInfoForListOrdersOutput.orderType) &&
         Objects.equals(this.originalAmount, orderInfoForListOrdersOutput.originalAmount) &&
@@ -396,7 +420,7 @@ public class OrderInfoForListOrdersOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(buyerCustomerName, buyerID, couponAmount, createTime, discountAmount, orderID, orderType, originalAmount, paidAmount, payableAmount, payerCustomerName, payerID, sellerCustomerName, sellerID, status, subjectNo);
+    return Objects.hash(buyerCustomerName, buyerID, couponAmount, createTime, discountAmount, orderFailRefundInfo, orderID, orderType, originalAmount, paidAmount, payableAmount, payerCustomerName, payerID, sellerCustomerName, sellerID, status, subjectNo);
   }
 
 
@@ -410,6 +434,7 @@ public class OrderInfoForListOrdersOutput {
     sb.append("    couponAmount: ").append(toIndentedString(couponAmount)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    discountAmount: ").append(toIndentedString(discountAmount)).append("\n");
+    sb.append("    orderFailRefundInfo: ").append(toIndentedString(orderFailRefundInfo)).append("\n");
     sb.append("    orderID: ").append(toIndentedString(orderID)).append("\n");
     sb.append("    orderType: ").append(toIndentedString(orderType)).append("\n");
     sb.append("    originalAmount: ").append(toIndentedString(originalAmount)).append("\n");

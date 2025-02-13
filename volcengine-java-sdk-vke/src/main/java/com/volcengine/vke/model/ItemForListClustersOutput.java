@@ -37,6 +37,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ItemForListClustersOutput {
   @SerializedName("ClusterConfig")
   private ClusterConfigForListClustersOutput clusterConfig = null;

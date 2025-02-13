@@ -32,7 +32,11 @@ import javax.validation.Valid;
  */
 
 
+
 public class KubernetesConfigForListNodePoolsOutput {
+  @SerializedName("AutoSyncDisabled")
+  private Boolean autoSyncDisabled = null;
+
   @SerializedName("Cordon")
   private Boolean cordon = null;
 
@@ -44,6 +48,24 @@ public class KubernetesConfigForListNodePoolsOutput {
 
   @SerializedName("Taints")
   private List<TaintForListNodePoolsOutput> taints = null;
+
+  public KubernetesConfigForListNodePoolsOutput autoSyncDisabled(Boolean autoSyncDisabled) {
+    this.autoSyncDisabled = autoSyncDisabled;
+    return this;
+  }
+
+   /**
+   * Get autoSyncDisabled
+   * @return autoSyncDisabled
+  **/
+  @Schema(description = "")
+  public Boolean isAutoSyncDisabled() {
+    return autoSyncDisabled;
+  }
+
+  public void setAutoSyncDisabled(Boolean autoSyncDisabled) {
+    this.autoSyncDisabled = autoSyncDisabled;
+  }
 
   public KubernetesConfigForListNodePoolsOutput cordon(Boolean cordon) {
     this.cordon = cordon;
@@ -145,7 +167,8 @@ public class KubernetesConfigForListNodePoolsOutput {
       return false;
     }
     KubernetesConfigForListNodePoolsOutput kubernetesConfigForListNodePoolsOutput = (KubernetesConfigForListNodePoolsOutput) o;
-    return Objects.equals(this.cordon, kubernetesConfigForListNodePoolsOutput.cordon) &&
+    return Objects.equals(this.autoSyncDisabled, kubernetesConfigForListNodePoolsOutput.autoSyncDisabled) &&
+        Objects.equals(this.cordon, kubernetesConfigForListNodePoolsOutput.cordon) &&
         Objects.equals(this.labels, kubernetesConfigForListNodePoolsOutput.labels) &&
         Objects.equals(this.namePrefix, kubernetesConfigForListNodePoolsOutput.namePrefix) &&
         Objects.equals(this.taints, kubernetesConfigForListNodePoolsOutput.taints);
@@ -153,7 +176,7 @@ public class KubernetesConfigForListNodePoolsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cordon, labels, namePrefix, taints);
+    return Objects.hash(autoSyncDisabled, cordon, labels, namePrefix, taints);
   }
 
 
@@ -162,6 +185,7 @@ public class KubernetesConfigForListNodePoolsOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class KubernetesConfigForListNodePoolsOutput {\n");
     
+    sb.append("    autoSyncDisabled: ").append(toIndentedString(autoSyncDisabled)).append("\n");
     sb.append("    cordon: ").append(toIndentedString(cordon)).append("\n");
     sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
     sb.append("    namePrefix: ").append(toIndentedString(namePrefix)).append("\n");

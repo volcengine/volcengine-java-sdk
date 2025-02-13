@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class SystemVolumeForCreateNodePoolInput {
   @SerializedName("Size")
   private Integer size = null;
@@ -37,11 +38,10 @@ public class SystemVolumeForCreateNodePoolInput {
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
+    @SerializedName("ESSD_PL0")
     ESSD_PL0("ESSD_PL0"),
-    ESSD_FLEXPL("ESSD_FlexPL"),
-    ESSD_PL1("ESSD_PL1"),
-    ESSD("ESSD"),
-    PTSSD("PTSSD");
+    @SerializedName("ESSD_FlexPL")
+    ESSD_FLEXPL("ESSD_FlexPL");
 
     private String value;
 

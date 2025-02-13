@@ -28,21 +28,31 @@ import javax.validation.Valid;
  */
 
 
+
 public class StatusForListNodesInput {
   /**
    * Gets or Sets conditionsType
    */
   @JsonAdapter(ConditionsTypeEnum.Adapter.class)
   public enum ConditionsTypeEnum {
-    PROGRESSING("Progressing"),
+    @SerializedName("Ok")
     OK("Ok"),
+    @SerializedName("Unschedulable")
     UNSCHEDULABLE("Unschedulable"),
+    @SerializedName("NotReady")
     NOTREADY("NotReady"),
+    @SerializedName("InitializeFailed")
     INITIALIZEFAILED("InitializeFailed"),
+    @SerializedName("ResourceCleanupFailed")
     RESOURCECLEANUPFAILED("ResourceCleanupFailed"),
+    @SerializedName("Security")
     SECURITY("Security"),
+    @SerializedName("Balance")
     BALANCE("Balance"),
-    UNKNOW("Unknow");
+    @SerializedName("Unknown")
+    UNKNOWN("Unknown"),
+    @SerializedName("Progressing")
+    PROGRESSING("Progressing");
 
     private String value;
 
@@ -85,13 +95,21 @@ public class StatusForListNodesInput {
    */
   @JsonAdapter(PhaseEnum.Adapter.class)
   public enum PhaseEnum {
+    @SerializedName("Creating")
     CREATING("Creating"),
+    @SerializedName("Running")
     RUNNING("Running"),
+    @SerializedName("Deleting")
     DELETING("Deleting"),
+    @SerializedName("Updating")
     UPDATING("Updating"),
+    @SerializedName("Failed")
     FAILED("Failed"),
+    @SerializedName("Starting")
     STARTING("Starting"),
+    @SerializedName("Stopping")
     STOPPING("Stopping"),
+    @SerializedName("Stopped")
     STOPPED("Stopped");
 
     private String value;

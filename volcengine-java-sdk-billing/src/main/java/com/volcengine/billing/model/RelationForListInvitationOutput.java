@@ -46,7 +46,7 @@ public class RelationForListInvitationOutput {
   private String filiationDesc = null;
 
   @SerializedName("MajorAccountID")
-  private Integer majorAccountID = null;
+  private Long majorAccountID = null;
 
   @SerializedName("MajorAccountName")
   private String majorAccountName = null;
@@ -67,7 +67,7 @@ public class RelationForListInvitationOutput {
   private String statusDesc = null;
 
   @SerializedName("SubAccountID")
-  private Integer subAccountID = null;
+  private Long subAccountID = null;
 
   @SerializedName("SubAccountName")
   private String subAccountName = null;
@@ -156,7 +156,7 @@ public class RelationForListInvitationOutput {
     this.filiationDesc = filiationDesc;
   }
 
-  public RelationForListInvitationOutput majorAccountID(Integer majorAccountID) {
+  public RelationForListInvitationOutput majorAccountID(Long majorAccountID) {
     this.majorAccountID = majorAccountID;
     return this;
   }
@@ -166,11 +166,11 @@ public class RelationForListInvitationOutput {
    * @return majorAccountID
   **/
   @Schema(description = "")
-  public Integer getMajorAccountID() {
+  public Long getMajorAccountID() {
     return majorAccountID;
   }
 
-  public void setMajorAccountID(Integer majorAccountID) {
+  public void setMajorAccountID(Long majorAccountID) {
     this.majorAccountID = majorAccountID;
   }
 
@@ -282,7 +282,7 @@ public class RelationForListInvitationOutput {
     this.statusDesc = statusDesc;
   }
 
-  public RelationForListInvitationOutput subAccountID(Integer subAccountID) {
+  public RelationForListInvitationOutput subAccountID(Long subAccountID) {
     this.subAccountID = subAccountID;
     return this;
   }
@@ -292,11 +292,11 @@ public class RelationForListInvitationOutput {
    * @return subAccountID
   **/
   @Schema(description = "")
-  public Integer getSubAccountID() {
+  public Long getSubAccountID() {
     return subAccountID;
   }
 
-  public void setSubAccountID(Integer subAccountID) {
+  public void setSubAccountID(Long subAccountID) {
     this.subAccountID = subAccountID;
   }
 

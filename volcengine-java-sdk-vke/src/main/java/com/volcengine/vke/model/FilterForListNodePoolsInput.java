@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class FilterForListNodePoolsInput {
   @SerializedName("AutoScaling.Enabled")
   private Boolean autoScalingEnabled = null;

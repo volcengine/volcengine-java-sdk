@@ -29,6 +29,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ListScalingEventsRequest {
   @SerializedName("ClusterId")
   private String clusterId = null;

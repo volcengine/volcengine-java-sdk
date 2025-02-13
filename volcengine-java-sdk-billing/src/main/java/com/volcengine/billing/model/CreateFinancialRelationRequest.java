@@ -40,7 +40,7 @@ public class CreateFinancialRelationRequest {
   private Integer relation = null;
 
   @SerializedName("SubAccountID")
-  private Integer subAccountID = null;
+  private Long subAccountID = null;
 
   public CreateFinancialRelationRequest accountAlias(String accountAlias) {
     this.accountAlias = accountAlias;
@@ -97,7 +97,7 @@ public class CreateFinancialRelationRequest {
     this.relation = relation;
   }
 
-  public CreateFinancialRelationRequest subAccountID(Integer subAccountID) {
+  public CreateFinancialRelationRequest subAccountID(Long subAccountID) {
     this.subAccountID = subAccountID;
     return this;
   }
@@ -108,11 +108,11 @@ public class CreateFinancialRelationRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public Integer getSubAccountID() {
+  public Long getSubAccountID() {
     return subAccountID;
   }
 
-  public void setSubAccountID(Integer subAccountID) {
+  public void setSubAccountID(Long subAccountID) {
     this.subAccountID = subAccountID;
   }
 

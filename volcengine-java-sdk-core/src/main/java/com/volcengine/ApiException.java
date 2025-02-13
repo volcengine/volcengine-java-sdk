@@ -103,6 +103,13 @@ import java.util.Map;
         return responseBody;
     }
 
+    public ResponseMetadata getResponseMetadata() {
+        return responseMetadata;
+    }
+
+    public void setResponseMetadata(ResponseMetadata responseMetadata) {
+        this.responseMetadata = responseMetadata;
+    }
 
     @Override
     public String toString() {

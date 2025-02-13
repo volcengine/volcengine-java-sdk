@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ListNodePoolsResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Items")
   private List<ItemForListNodePoolsOutput> items = null;

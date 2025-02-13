@@ -34,6 +34,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class NodeConfigForUpdateNodePoolConfigInput {
   @SerializedName("AdditionalContainerStorageEnabled")
   private Boolean additionalContainerStorageEnabled = null;
@@ -64,6 +65,9 @@ public class NodeConfigForUpdateNodePoolConfigInput {
 
   @SerializedName("Period")
   private Integer period = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
 
   @SerializedName("Security")
   private SecurityForUpdateNodePoolConfigInput security = null;
@@ -282,6 +286,24 @@ public class NodeConfigForUpdateNodePoolConfigInput {
     this.period = period;
   }
 
+  public NodeConfigForUpdateNodePoolConfigInput projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public NodeConfigForUpdateNodePoolConfigInput security(SecurityForUpdateNodePoolConfigInput security) {
     this.security = security;
     return this;
@@ -393,6 +415,7 @@ public class NodeConfigForUpdateNodePoolConfigInput {
         Objects.equals(this.instanceTypeIds, nodeConfigForUpdateNodePoolConfigInput.instanceTypeIds) &&
         Objects.equals(this.namePrefix, nodeConfigForUpdateNodePoolConfigInput.namePrefix) &&
         Objects.equals(this.period, nodeConfigForUpdateNodePoolConfigInput.period) &&
+        Objects.equals(this.projectName, nodeConfigForUpdateNodePoolConfigInput.projectName) &&
         Objects.equals(this.security, nodeConfigForUpdateNodePoolConfigInput.security) &&
         Objects.equals(this.subnetIds, nodeConfigForUpdateNodePoolConfigInput.subnetIds) &&
         Objects.equals(this.systemVolume, nodeConfigForUpdateNodePoolConfigInput.systemVolume) &&
@@ -401,7 +424,7 @@ public class NodeConfigForUpdateNodePoolConfigInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalContainerStorageEnabled, autoRenew, autoRenewPeriod, dataVolumes, hpcClusterIds, imageId, initializeScript, instanceTypeIds, namePrefix, period, security, subnetIds, systemVolume, tags);
+    return Objects.hash(additionalContainerStorageEnabled, autoRenew, autoRenewPeriod, dataVolumes, hpcClusterIds, imageId, initializeScript, instanceTypeIds, namePrefix, period, projectName, security, subnetIds, systemVolume, tags);
   }
 
 
@@ -420,6 +443,7 @@ public class NodeConfigForUpdateNodePoolConfigInput {
     sb.append("    instanceTypeIds: ").append(toIndentedString(instanceTypeIds)).append("\n");
     sb.append("    namePrefix: ").append(toIndentedString(namePrefix)).append("\n");
     sb.append("    period: ").append(toIndentedString(period)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    security: ").append(toIndentedString(security)).append("\n");
     sb.append("    subnetIds: ").append(toIndentedString(subnetIds)).append("\n");
     sb.append("    systemVolume: ").append(toIndentedString(systemVolume)).append("\n");

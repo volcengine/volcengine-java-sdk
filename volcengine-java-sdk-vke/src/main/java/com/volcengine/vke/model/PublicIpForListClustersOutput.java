@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class PublicIpForListClustersOutput {
   @SerializedName("Ipv4")
   private String ipv4 = null;

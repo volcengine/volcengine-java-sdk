@@ -29,6 +29,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class PodsConfigForUpdateClusterConfigInput {
   @SerializedName("VpcCniConfig")
   private VpcCniConfigForUpdateClusterConfigInput vpcCniConfig = null;

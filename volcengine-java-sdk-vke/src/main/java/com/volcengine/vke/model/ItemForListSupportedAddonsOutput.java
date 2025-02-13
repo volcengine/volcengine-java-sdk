@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ItemForListSupportedAddonsOutput {
   @SerializedName("Categories")
   private List<String> categories = null;

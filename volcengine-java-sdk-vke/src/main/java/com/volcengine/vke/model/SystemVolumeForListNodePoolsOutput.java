@@ -28,12 +28,56 @@ import javax.validation.Valid;
  */
 
 
+
 public class SystemVolumeForListNodePoolsOutput {
   @SerializedName("Size")
   private Integer size = null;
 
-  @SerializedName("Type")
-  private String type = null;
+  /**
+   * Gets or Sets type
+   */
+  @JsonAdapter(TypeEnum.Adapter.class)
+  public enum TypeEnum {
+    @SerializedName("ESSD_PL0")
+    ESSD_PL0("ESSD_PL0"),
+    @SerializedName("ESSD_FlexPL")
+    ESSD_FLEXPL("ESSD_FlexPL");
+
+    private String value;
+
+    TypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static TypeEnum fromValue(String input) {
+      for (TypeEnum b : TypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<TypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public TypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return TypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("Type")
+  private TypeEnum type = null;
 
   public SystemVolumeForListNodePoolsOutput size(Integer size) {
     this.size = size;
@@ -53,7 +97,7 @@ public class SystemVolumeForListNodePoolsOutput {
     this.size = size;
   }
 
-  public SystemVolumeForListNodePoolsOutput type(String type) {
+  public SystemVolumeForListNodePoolsOutput type(TypeEnum type) {
     this.type = type;
     return this;
   }
@@ -63,11 +107,11 @@ public class SystemVolumeForListNodePoolsOutput {
    * @return type
   **/
   @Schema(description = "")
-  public String getType() {
+  public TypeEnum getType() {
     return type;
   }
 
-  public void setType(String type) {
+  public void setType(TypeEnum type) {
     this.type = type;
   }
 

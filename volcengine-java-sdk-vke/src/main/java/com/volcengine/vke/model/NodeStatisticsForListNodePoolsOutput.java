@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class NodeStatisticsForListNodePoolsOutput {
   @SerializedName("CreatingCount")
   private Integer creatingCount = null;
