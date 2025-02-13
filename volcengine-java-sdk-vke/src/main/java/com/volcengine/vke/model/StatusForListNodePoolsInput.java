@@ -28,22 +28,33 @@ import javax.validation.Valid;
  */
 
 
+
 public class StatusForListNodePoolsInput {
   /**
    * Gets or Sets conditionsType
    */
   @JsonAdapter(ConditionsTypeEnum.Adapter.class)
   public enum ConditionsTypeEnum {
-    BALANCE("Balance"),
-    CLUSTERNOTRUNNING("ClusterNotRunning"),
-    CLUSTERVERSIONUPGRADING("ClusterVersionUpgrading"),
-    LIMITEDBYQUOTA("LimitedByQuota"),
+    @SerializedName("Ok")
     OK("Ok"),
-    PROGRESSING("Progressing"),
-    RESOURCECLEANUPFAILED("ResourceCleanupFailed"),
+    @SerializedName("StockOut")
     STOCKOUT("StockOut"),
+    @SerializedName("LimitedByQuota")
+    LIMITEDBYQUOTA("LimitedByQuota"),
+    @SerializedName("Balance")
+    BALANCE("Balance"),
+    @SerializedName("VersionPartlyUpgraded")
+    VERSIONPARTLYUPGRADED("VersionPartlyUpgraded"),
+    @SerializedName("ResourceCleanupFailed")
+    RESOURCECLEANUPFAILED("ResourceCleanupFailed"),
+    @SerializedName("ClusterNotRunning")
+    CLUSTERNOTRUNNING("ClusterNotRunning"),
+    @SerializedName("Unknown")
     UNKNOWN("Unknown"),
-    VERSIONPARTLYUPGRADED("VersionPartlyUpgraded");
+    @SerializedName("Progressing")
+    PROGRESSING("Progressing"),
+    @SerializedName("ClusterVersionUpgrading")
+    CLUSTERVERSIONUPGRADING("ClusterVersionUpgrading");
 
     private String value;
 
@@ -86,12 +97,18 @@ public class StatusForListNodePoolsInput {
    */
   @JsonAdapter(PhaseEnum.Adapter.class)
   public enum PhaseEnum {
+    @SerializedName("Creating")
     CREATING("Creating"),
-    DELETING("Deleting"),
-    FAILED("Failed"),
+    @SerializedName("Running")
     RUNNING("Running"),
+    @SerializedName("Updating")
+    UPDATING("Updating"),
+    @SerializedName("Scaling")
     SCALING("Scaling"),
-    UPDATING("Updating");
+    @SerializedName("Deleting")
+    DELETING("Deleting"),
+    @SerializedName("Failed")
+    FAILED("Failed");
 
     private String value;
 

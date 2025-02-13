@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class SetGlobalDefaultDeleteOptionRequest {
   @SerializedName("DefaultDeleteAllResources")
   private Boolean defaultDeleteAllResources = null;

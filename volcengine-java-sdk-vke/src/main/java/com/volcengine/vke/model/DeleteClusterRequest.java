@@ -30,16 +30,22 @@ import javax.validation.Valid;
  */
 
 
+
 public class DeleteClusterRequest {
   /**
    * Gets or Sets cascadingDeleteResources
    */
   @JsonAdapter(CascadingDeleteResourcesEnum.Adapter.class)
   public enum CascadingDeleteResourcesEnum {
-    DEFAULTNODEPOOLRESOURCE("DefaultNodePoolResource"),
-    NODEPOOLRESOURCE("NodePoolResource"),
-    CLB("Clb"),
+    @SerializedName("Nat")
     NAT("Nat"),
+    @SerializedName("Clb")
+    CLB("Clb"),
+    @SerializedName("NodePoolResource")
+    NODEPOOLRESOURCE("NodePoolResource"),
+    @SerializedName("DefaultNodePoolResource")
+    DEFAULTNODEPOOLRESOURCE("DefaultNodePoolResource"),
+    @SerializedName("TryBest")
     TRYBEST("TryBest");
 
     private String value;
@@ -89,12 +95,19 @@ public class DeleteClusterRequest {
    */
   @JsonAdapter(RetainResourcesEnum.Adapter.class)
   public enum RetainResourcesEnum {
-    DEFAULTNODEPOOLRESOURCE("DefaultNodePoolResource"),
-    NODEPOOLRESOURCE("NodePoolResource"),
-    ALB("Alb"),
-    CLB("Clb"),
+    @SerializedName("Nat")
     NAT("Nat"),
+    @SerializedName("Clb")
+    CLB("Clb"),
+    @SerializedName("Alb")
+    ALB("Alb"),
+    @SerializedName("NodePoolResource")
+    NODEPOOLRESOURCE("NodePoolResource"),
+    @SerializedName("DefaultNodePoolResource")
+    DEFAULTNODEPOOLRESOURCE("DefaultNodePoolResource"),
+    @SerializedName("SecurityGroup")
     SECURITYGROUP("SecurityGroup"),
+    @SerializedName("All")
     ALL("All");
 
     private String value;

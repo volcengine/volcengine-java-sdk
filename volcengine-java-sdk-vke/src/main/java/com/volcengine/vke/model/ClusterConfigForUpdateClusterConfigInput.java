@@ -22,11 +22,14 @@ import com.google.gson.stream.JsonWriter;
 import com.volcengine.vke.model.ApiServerPublicAccessConfigForUpdateClusterConfigInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
  * ClusterConfigForUpdateClusterConfigInput
  */
+
 
 
 public class ClusterConfigForUpdateClusterConfigInput {
@@ -35,6 +38,9 @@ public class ClusterConfigForUpdateClusterConfigInput {
 
   @SerializedName("ApiServerPublicAccessEnabled")
   private Boolean apiServerPublicAccessEnabled = null;
+
+  @SerializedName("SubnetIds")
+  private List<String> subnetIds = null;
 
   public ClusterConfigForUpdateClusterConfigInput apiServerPublicAccessConfig(ApiServerPublicAccessConfigForUpdateClusterConfigInput apiServerPublicAccessConfig) {
     this.apiServerPublicAccessConfig = apiServerPublicAccessConfig;
@@ -73,6 +79,32 @@ public class ClusterConfigForUpdateClusterConfigInput {
     this.apiServerPublicAccessEnabled = apiServerPublicAccessEnabled;
   }
 
+  public ClusterConfigForUpdateClusterConfigInput subnetIds(List<String> subnetIds) {
+    this.subnetIds = subnetIds;
+    return this;
+  }
+
+  public ClusterConfigForUpdateClusterConfigInput addSubnetIdsItem(String subnetIdsItem) {
+    if (this.subnetIds == null) {
+      this.subnetIds = new ArrayList<String>();
+    }
+    this.subnetIds.add(subnetIdsItem);
+    return this;
+  }
+
+   /**
+   * Get subnetIds
+   * @return subnetIds
+  **/
+  @Schema(description = "")
+  public List<String> getSubnetIds() {
+    return subnetIds;
+  }
+
+  public void setSubnetIds(List<String> subnetIds) {
+    this.subnetIds = subnetIds;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -84,12 +116,13 @@ public class ClusterConfigForUpdateClusterConfigInput {
     }
     ClusterConfigForUpdateClusterConfigInput clusterConfigForUpdateClusterConfigInput = (ClusterConfigForUpdateClusterConfigInput) o;
     return Objects.equals(this.apiServerPublicAccessConfig, clusterConfigForUpdateClusterConfigInput.apiServerPublicAccessConfig) &&
-        Objects.equals(this.apiServerPublicAccessEnabled, clusterConfigForUpdateClusterConfigInput.apiServerPublicAccessEnabled);
+        Objects.equals(this.apiServerPublicAccessEnabled, clusterConfigForUpdateClusterConfigInput.apiServerPublicAccessEnabled) &&
+        Objects.equals(this.subnetIds, clusterConfigForUpdateClusterConfigInput.subnetIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiServerPublicAccessConfig, apiServerPublicAccessEnabled);
+    return Objects.hash(apiServerPublicAccessConfig, apiServerPublicAccessEnabled, subnetIds);
   }
 
 
@@ -100,6 +133,7 @@ public class ClusterConfigForUpdateClusterConfigInput {
     
     sb.append("    apiServerPublicAccessConfig: ").append(toIndentedString(apiServerPublicAccessConfig)).append("\n");
     sb.append("    apiServerPublicAccessEnabled: ").append(toIndentedString(apiServerPublicAccessEnabled)).append("\n");
+    sb.append("    subnetIds: ").append(toIndentedString(subnetIds)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateKubeconfigRequest {
   @SerializedName("ClusterId")
   private String clusterId = null;
@@ -37,8 +38,12 @@ public class CreateKubeconfigRequest {
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
+    @SerializedName("Public")
+    PUBLIC("Public"),
+    @SerializedName("Private")
     PRIVATE("Private"),
-    PUBLIC("Public");
+    @SerializedName("TargetCluster")
+    TARGETCLUSTER("TargetCluster");
 
     private String value;
 

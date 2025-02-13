@@ -28,28 +28,45 @@ import javax.validation.Valid;
  */
 
 
+
 public class StatusForListClustersInput {
   /**
    * Gets or Sets conditionsType
    */
   @JsonAdapter(ConditionsTypeEnum.Adapter.class)
   public enum ConditionsTypeEnum {
-    BALANCE("Balance"),
-    CLUSTERVERSIONUPGRADING("ClusterVersionUpgrading"),
-    CREATEERROR("CreateError"),
-    DEGRADED("Degraded"),
-    DISCONNECTED("Disconnected"),
-    INVALIDCERTIFICATE("InvalidCertificate"),
-    LIMITEDBYQUOTA("LimitedByQuota"),
+    @SerializedName("Ok")
     OK("Ok"),
+    @SerializedName("CreateError")
+    CREATEERROR("CreateError"),
+    @SerializedName("Progressing")
     PROGRESSING("Progressing"),
-    RESOURCECLEANUPFAILED("ResourceCleanupFailed"),
-    SECURITY("Security"),
+    @SerializedName("ClusterVersionUpgrading")
+    CLUSTERVERSIONUPGRADING("ClusterVersionUpgrading"),
+    @SerializedName("Disconnected")
+    DISCONNECTED("Disconnected"),
+    @SerializedName("InvalidCertificate")
+    INVALIDCERTIFICATE("InvalidCertificate"),
+    @SerializedName("SetByProvider")
     SETBYPROVIDER("SetByProvider"),
-    SETBYUSER("SetByUser"),
+    @SerializedName("StockOut")
     STOCKOUT("StockOut"),
-    UNKNOWN("Unknown"),
-    WAITING("Waiting");
+    @SerializedName("LimitedByQuota")
+    LIMITEDBYQUOTA("LimitedByQuota"),
+    @SerializedName("SetByUser")
+    SETBYUSER("SetByUser"),
+    @SerializedName("Security")
+    SECURITY("Security"),
+    @SerializedName("Balance")
+    BALANCE("Balance"),
+    @SerializedName("Degraded")
+    DEGRADED("Degraded"),
+    @SerializedName("Waiting")
+    WAITING("Waiting"),
+    @SerializedName("ResourceCleanupFailed")
+    RESOURCECLEANUPFAILED("ResourceCleanupFailed"),
+    @SerializedName("Unknown")
+    UNKNOWN("Unknown");
 
     private String value;
 
@@ -92,13 +109,20 @@ public class StatusForListClustersInput {
    */
   @JsonAdapter(PhaseEnum.Adapter.class)
   public enum PhaseEnum {
-    CREATING("Creating"),
-    DELETING("Deleting"),
-    FAILED("Failed"),
+    @SerializedName("Running")
     RUNNING("Running"),
-    UPDATING("Updating"),
+    @SerializedName("Starting")
     STARTING("Starting"),
-    STOPPED("Stopped");
+    @SerializedName("Stopped")
+    STOPPED("Stopped"),
+    @SerializedName("Failed")
+    FAILED("Failed"),
+    @SerializedName("Updating")
+    UPDATING("Updating"),
+    @SerializedName("Creating")
+    CREATING("Creating"),
+    @SerializedName("Deleting")
+    DELETING("Deleting");
 
     private String value;
 

@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class LoginForCreateDefaultNodePoolInput {
   @SerializedName("Password")
   private String password = null;

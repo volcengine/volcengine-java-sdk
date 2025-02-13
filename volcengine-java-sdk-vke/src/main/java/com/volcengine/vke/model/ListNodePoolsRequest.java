@@ -32,6 +32,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ListNodePoolsRequest {
   @SerializedName("Filter")
   private FilterForListNodePoolsInput filter = null;

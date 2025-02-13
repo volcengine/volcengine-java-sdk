@@ -29,6 +29,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ListSupportedResourceTypesRequest {
   @SerializedName("Filter")
   private FilterForListSupportedResourceTypesInput filter = null;

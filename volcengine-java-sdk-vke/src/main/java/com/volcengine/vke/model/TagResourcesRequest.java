@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class TagResourcesRequest {
   @SerializedName("ResourceIds")
   private List<String> resourceIds = null;
@@ -40,8 +41,11 @@ public class TagResourcesRequest {
    */
   @JsonAdapter(ResourceTypeEnum.Adapter.class)
   public enum ResourceTypeEnum {
+    @SerializedName("Cluster")
     CLUSTER("Cluster"),
+    @SerializedName("NodePool")
     NODEPOOL("NodePool"),
+    @SerializedName("BareMachine")
     BAREMACHINE("BareMachine");
 
     private String value;

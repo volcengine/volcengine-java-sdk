@@ -28,7 +28,54 @@ import javax.validation.Valid;
  */
 
 
+
 public class DataVolumeForCreateNodePoolInput {
+  /**
+   * Gets or Sets fileSystem
+   */
+  @JsonAdapter(FileSystemEnum.Adapter.class)
+  public enum FileSystemEnum {
+    @SerializedName("Ext4")
+    EXT4("Ext4"),
+    @SerializedName("Xfs")
+    XFS("Xfs");
+
+    private String value;
+
+    FileSystemEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static FileSystemEnum fromValue(String input) {
+      for (FileSystemEnum b : FileSystemEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<FileSystemEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final FileSystemEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public FileSystemEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return FileSystemEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("FileSystem")
+  private FileSystemEnum fileSystem = null;
+
   @SerializedName("MountPoint")
   private String mountPoint = null;
 
@@ -40,11 +87,10 @@ public class DataVolumeForCreateNodePoolInput {
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
+    @SerializedName("ESSD_PL0")
     ESSD_PL0("ESSD_PL0"),
-    ESSD_FLEXPL("ESSD_FlexPL"),
-    ESSD_PL1("ESSD_PL1"),
-    ESSD("ESSD"),
-    PTSSD("PTSSD");
+    @SerializedName("ESSD_FlexPL")
+    ESSD_FLEXPL("ESSD_FlexPL");
 
     private String value;
 
@@ -81,6 +127,24 @@ public class DataVolumeForCreateNodePoolInput {
     }
   }  @SerializedName("Type")
   private TypeEnum type = null;
+
+  public DataVolumeForCreateNodePoolInput fileSystem(FileSystemEnum fileSystem) {
+    this.fileSystem = fileSystem;
+    return this;
+  }
+
+   /**
+   * Get fileSystem
+   * @return fileSystem
+  **/
+  @Schema(description = "")
+  public FileSystemEnum getFileSystem() {
+    return fileSystem;
+  }
+
+  public void setFileSystem(FileSystemEnum fileSystem) {
+    this.fileSystem = fileSystem;
+  }
 
   public DataVolumeForCreateNodePoolInput mountPoint(String mountPoint) {
     this.mountPoint = mountPoint;
@@ -146,14 +210,15 @@ public class DataVolumeForCreateNodePoolInput {
       return false;
     }
     DataVolumeForCreateNodePoolInput dataVolumeForCreateNodePoolInput = (DataVolumeForCreateNodePoolInput) o;
-    return Objects.equals(this.mountPoint, dataVolumeForCreateNodePoolInput.mountPoint) &&
+    return Objects.equals(this.fileSystem, dataVolumeForCreateNodePoolInput.fileSystem) &&
+        Objects.equals(this.mountPoint, dataVolumeForCreateNodePoolInput.mountPoint) &&
         Objects.equals(this.size, dataVolumeForCreateNodePoolInput.size) &&
         Objects.equals(this.type, dataVolumeForCreateNodePoolInput.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(mountPoint, size, type);
+    return Objects.hash(fileSystem, mountPoint, size, type);
   }
 
 
@@ -162,6 +227,7 @@ public class DataVolumeForCreateNodePoolInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class DataVolumeForCreateNodePoolInput {\n");
     
+    sb.append("    fileSystem: ").append(toIndentedString(fileSystem)).append("\n");
     sb.append("    mountPoint: ").append(toIndentedString(mountPoint)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");

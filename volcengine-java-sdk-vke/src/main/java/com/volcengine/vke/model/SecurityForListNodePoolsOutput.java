@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class SecurityForListNodePoolsOutput {
   @SerializedName("Login")
   private LoginForListNodePoolsOutput login = null;
@@ -38,8 +39,49 @@ public class SecurityForListNodePoolsOutput {
   @SerializedName("SecurityGroupIds")
   private List<String> securityGroupIds = null;
 
-  @SerializedName("SecurityStrategies")
-  private List<String> securityStrategies = null;
+  /**
+   * Gets or Sets securityStrategies
+   */
+  @JsonAdapter(SecurityStrategiesEnum.Adapter.class)
+  public enum SecurityStrategiesEnum {
+    @SerializedName("Hids")
+    HIDS("Hids");
+
+    private String value;
+
+    SecurityStrategiesEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static SecurityStrategiesEnum fromValue(String input) {
+      for (SecurityStrategiesEnum b : SecurityStrategiesEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<SecurityStrategiesEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final SecurityStrategiesEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public SecurityStrategiesEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return SecurityStrategiesEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("SecurityStrategies")
+  private List<SecurityStrategiesEnum> securityStrategies = null;
 
   @SerializedName("SecurityStrategyEnabled")
   private Boolean securityStrategyEnabled = null;
@@ -89,14 +131,14 @@ public class SecurityForListNodePoolsOutput {
     this.securityGroupIds = securityGroupIds;
   }
 
-  public SecurityForListNodePoolsOutput securityStrategies(List<String> securityStrategies) {
+  public SecurityForListNodePoolsOutput securityStrategies(List<SecurityStrategiesEnum> securityStrategies) {
     this.securityStrategies = securityStrategies;
     return this;
   }
 
-  public SecurityForListNodePoolsOutput addSecurityStrategiesItem(String securityStrategiesItem) {
+  public SecurityForListNodePoolsOutput addSecurityStrategiesItem(SecurityStrategiesEnum securityStrategiesItem) {
     if (this.securityStrategies == null) {
-      this.securityStrategies = new ArrayList<String>();
+      this.securityStrategies = new ArrayList<SecurityStrategiesEnum>();
     }
     this.securityStrategies.add(securityStrategiesItem);
     return this;
@@ -107,11 +149,11 @@ public class SecurityForListNodePoolsOutput {
    * @return securityStrategies
   **/
   @Schema(description = "")
-  public List<String> getSecurityStrategies() {
+  public List<SecurityStrategiesEnum> getSecurityStrategies() {
     return securityStrategies;
   }
 
-  public void setSecurityStrategies(List<String> securityStrategies) {
+  public void setSecurityStrategies(List<SecurityStrategiesEnum> securityStrategies) {
     this.securityStrategies = securityStrategies;
   }
 

@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class VpcCniConfigForListClustersOutput {
   @SerializedName("SubnetIds")
   private List<String> subnetIds = null;

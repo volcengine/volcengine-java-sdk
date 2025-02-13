@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class LogSetupForListClustersOutput {
   @SerializedName("Enabled")
   private Boolean enabled = null;

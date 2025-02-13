@@ -28,23 +28,35 @@ import javax.validation.Valid;
  */
 
 
+
 public class StatusForListAddonsInput {
   /**
    * Gets or Sets conditionsType
    */
   @JsonAdapter(ConditionsTypeEnum.Adapter.class)
   public enum ConditionsTypeEnum {
-    OK("Ok"),
+    @SerializedName("Unknown")
+    UNKNOWN("Unknown"),
+    @SerializedName("ClusterNotRunning")
     CLUSTERNOTRUNNING("ClusterNotRunning"),
-    CLUSTERVERSIONUPGRADING("ClusterVersionUpgrading"),
+    @SerializedName("CrashLoopBackOff")
     CRASHLOOPBACKOFF("CrashLoopBackOff"),
-    DEGRADED("Degraded"),
+    @SerializedName("ImagePullBackOff")
     IMAGEPULLBACKOFF("ImagePullBackOff"),
-    NAMECONFLICT("NameConflict"),
-    PROGRESSING("Progressing"),
-    RESOURCECLEANUPFAILED("ResourceCleanupFailed"),
+    @SerializedName("SchedulingFailed")
     SCHEDULINGFAILED("SchedulingFailed"),
-    UNKNOWN("Unknown");
+    @SerializedName("NameConflict")
+    NAMECONFLICT("NameConflict"),
+    @SerializedName("ResourceCleanupFailed")
+    RESOURCECLEANUPFAILED("ResourceCleanupFailed"),
+    @SerializedName("ClusterVersionUpgrading")
+    CLUSTERVERSIONUPGRADING("ClusterVersionUpgrading"),
+    @SerializedName("Ok")
+    OK("Ok"),
+    @SerializedName("Degraded")
+    DEGRADED("Degraded"),
+    @SerializedName("Progressing")
+    PROGRESSING("Progressing");
 
     private String value;
 
@@ -87,10 +99,15 @@ public class StatusForListAddonsInput {
    */
   @JsonAdapter(PhaseEnum.Adapter.class)
   public enum PhaseEnum {
-    CREATING("Creating"),
-    DELETING("Deleting"),
-    FAILED("Failed"),
+    @SerializedName("Running")
     RUNNING("Running"),
+    @SerializedName("Failed")
+    FAILED("Failed"),
+    @SerializedName("Creating")
+    CREATING("Creating"),
+    @SerializedName("Deleting")
+    DELETING("Deleting"),
+    @SerializedName("Updating")
     UPDATING("Updating");
 
     private String value;

@@ -32,6 +32,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class KubernetesConfigForCreateNodesInput {
   @SerializedName("Cordon")
   private Boolean cordon = null;

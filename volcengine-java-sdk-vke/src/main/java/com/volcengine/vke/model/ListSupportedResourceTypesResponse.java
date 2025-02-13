@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ListSupportedResourceTypesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Items")
   private List<ItemForListSupportedResourceTypesOutput> items = null;

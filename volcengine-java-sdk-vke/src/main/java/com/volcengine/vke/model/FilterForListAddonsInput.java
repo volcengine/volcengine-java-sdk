@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class FilterForListAddonsInput {
   @SerializedName("ClusterIds")
   private List<String> clusterIds = null;
@@ -43,7 +44,9 @@ public class FilterForListAddonsInput {
    */
   @JsonAdapter(DeployModesEnum.Adapter.class)
   public enum DeployModesEnum {
+    @SerializedName("Managed")
     MANAGED("Managed"),
+    @SerializedName("Unmanaged")
     UNMANAGED("Unmanaged");
 
     private String value;
@@ -87,8 +90,11 @@ public class FilterForListAddonsInput {
    */
   @JsonAdapter(DeployNodeTypesEnum.Adapter.class)
   public enum DeployNodeTypesEnum {
+    @SerializedName("Node")
     NODE("Node"),
+    @SerializedName("VirtualNode")
     VIRTUALNODE("VirtualNode"),
+    @SerializedName("EdgeNode")
     EDGENODE("EdgeNode");
 
     private String value;
