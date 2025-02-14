@@ -45,6 +45,9 @@ public class AllocateIpv6AddressBandwidthRequest {
   @SerializedName("Ipv6Address")
   private String ipv6Address = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   public AllocateIpv6AddressBandwidthRequest bandwidth(Integer bandwidth) {
     this.bandwidth = bandwidth;
     return this;
@@ -138,6 +141,24 @@ public class AllocateIpv6AddressBandwidthRequest {
     this.ipv6Address = ipv6Address;
   }
 
+  public AllocateIpv6AddressBandwidthRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -152,12 +173,13 @@ public class AllocateIpv6AddressBandwidthRequest {
         Objects.equals(this.bandwidthPackageId, allocateIpv6AddressBandwidthRequest.bandwidthPackageId) &&
         Objects.equals(this.billingType, allocateIpv6AddressBandwidthRequest.billingType) &&
         Objects.equals(this.clientToken, allocateIpv6AddressBandwidthRequest.clientToken) &&
-        Objects.equals(this.ipv6Address, allocateIpv6AddressBandwidthRequest.ipv6Address);
+        Objects.equals(this.ipv6Address, allocateIpv6AddressBandwidthRequest.ipv6Address) &&
+        Objects.equals(this.projectName, allocateIpv6AddressBandwidthRequest.projectName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidth, bandwidthPackageId, billingType, clientToken, ipv6Address);
+    return Objects.hash(bandwidth, bandwidthPackageId, billingType, clientToken, ipv6Address, projectName);
   }
 
 
@@ -171,6 +193,7 @@ public class AllocateIpv6AddressBandwidthRequest {
     sb.append("    billingType: ").append(toIndentedString(billingType)).append("\n");
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    ipv6Address: ").append(toIndentedString(ipv6Address)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -75,6 +75,9 @@ public class DescribeIpv6AddressBandwidthAttributesResponse extends com.volcengi
   @SerializedName("OverdueTime")
   private String overdueTime = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("RequestId")
   private String requestId = null;
 
@@ -357,6 +360,24 @@ public class DescribeIpv6AddressBandwidthAttributesResponse extends com.volcengi
     this.overdueTime = overdueTime;
   }
 
+  public DescribeIpv6AddressBandwidthAttributesResponse projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public DescribeIpv6AddressBandwidthAttributesResponse requestId(String requestId) {
     this.requestId = requestId;
     return this;
@@ -454,6 +475,7 @@ public class DescribeIpv6AddressBandwidthAttributesResponse extends com.volcengi
         Objects.equals(this.lockReason, describeIpv6AddressBandwidthAttributesResponse.lockReason) &&
         Objects.equals(this.networkType, describeIpv6AddressBandwidthAttributesResponse.networkType) &&
         Objects.equals(this.overdueTime, describeIpv6AddressBandwidthAttributesResponse.overdueTime) &&
+        Objects.equals(this.projectName, describeIpv6AddressBandwidthAttributesResponse.projectName) &&
         Objects.equals(this.requestId, describeIpv6AddressBandwidthAttributesResponse.requestId) &&
         Objects.equals(this.serviceManaged, describeIpv6AddressBandwidthAttributesResponse.serviceManaged) &&
         Objects.equals(this.status, describeIpv6AddressBandwidthAttributesResponse.status) &&
@@ -462,7 +484,7 @@ public class DescribeIpv6AddressBandwidthAttributesResponse extends com.volcengi
 
   @Override
   public int hashCode() {
-    return Objects.hash(allocationId, bandwidth, bandwidthPackageId, billingType, businessStatus, creationTime, deleteTime, ISP, instanceId, instanceType, ipv6Address, ipv6GatewayId, lockReason, networkType, overdueTime, requestId, serviceManaged, status, updateTime);
+    return Objects.hash(allocationId, bandwidth, bandwidthPackageId, billingType, businessStatus, creationTime, deleteTime, ISP, instanceId, instanceType, ipv6Address, ipv6GatewayId, lockReason, networkType, overdueTime, projectName, requestId, serviceManaged, status, updateTime);
   }
 
 
@@ -486,6 +508,7 @@ public class DescribeIpv6AddressBandwidthAttributesResponse extends com.volcengi
     sb.append("    lockReason: ").append(toIndentedString(lockReason)).append("\n");
     sb.append("    networkType: ").append(toIndentedString(networkType)).append("\n");
     sb.append("    overdueTime: ").append(toIndentedString(overdueTime)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    serviceManaged: ").append(toIndentedString(serviceManaged)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");

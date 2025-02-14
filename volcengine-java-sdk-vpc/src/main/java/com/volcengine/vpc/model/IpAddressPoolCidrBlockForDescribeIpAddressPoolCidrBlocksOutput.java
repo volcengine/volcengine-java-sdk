@@ -24,12 +24,12 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * IpAddressPooCidrBlockForDescribeIpAddressPoolCidrBlocksOutput
+ * IpAddressPoolCidrBlockForDescribeIpAddressPoolCidrBlocksOutput
  */
 
 
 
-public class IpAddressPooCidrBlockForDescribeIpAddressPoolCidrBlocksOutput {
+public class IpAddressPoolCidrBlockForDescribeIpAddressPoolCidrBlocksOutput {
   @SerializedName("CidrBlock")
   private String cidrBlock = null;
 
@@ -45,7 +45,7 @@ public class IpAddressPooCidrBlockForDescribeIpAddressPoolCidrBlocksOutput {
   @SerializedName("UsedIpCount")
   private Integer usedIpCount = null;
 
-  public IpAddressPooCidrBlockForDescribeIpAddressPoolCidrBlocksOutput cidrBlock(String cidrBlock) {
+  public IpAddressPoolCidrBlockForDescribeIpAddressPoolCidrBlocksOutput cidrBlock(String cidrBlock) {
     this.cidrBlock = cidrBlock;
     return this;
   }
@@ -63,7 +63,7 @@ public class IpAddressPooCidrBlockForDescribeIpAddressPoolCidrBlocksOutput {
     this.cidrBlock = cidrBlock;
   }
 
-  public IpAddressPooCidrBlockForDescribeIpAddressPoolCidrBlocksOutput creationTime(String creationTime) {
+  public IpAddressPoolCidrBlockForDescribeIpAddressPoolCidrBlocksOutput creationTime(String creationTime) {
     this.creationTime = creationTime;
     return this;
   }
@@ -81,7 +81,7 @@ public class IpAddressPooCidrBlockForDescribeIpAddressPoolCidrBlocksOutput {
     this.creationTime = creationTime;
   }
 
-  public IpAddressPooCidrBlockForDescribeIpAddressPoolCidrBlocksOutput status(String status) {
+  public IpAddressPoolCidrBlockForDescribeIpAddressPoolCidrBlocksOutput status(String status) {
     this.status = status;
     return this;
   }
@@ -99,7 +99,7 @@ public class IpAddressPooCidrBlockForDescribeIpAddressPoolCidrBlocksOutput {
     this.status = status;
   }
 
-  public IpAddressPooCidrBlockForDescribeIpAddressPoolCidrBlocksOutput totalIpCount(Integer totalIpCount) {
+  public IpAddressPoolCidrBlockForDescribeIpAddressPoolCidrBlocksOutput totalIpCount(Integer totalIpCount) {
     this.totalIpCount = totalIpCount;
     return this;
   }
@@ -117,7 +117,7 @@ public class IpAddressPooCidrBlockForDescribeIpAddressPoolCidrBlocksOutput {
     this.totalIpCount = totalIpCount;
   }
 
-  public IpAddressPooCidrBlockForDescribeIpAddressPoolCidrBlocksOutput usedIpCount(Integer usedIpCount) {
+  public IpAddressPoolCidrBlockForDescribeIpAddressPoolCidrBlocksOutput usedIpCount(Integer usedIpCount) {
     this.usedIpCount = usedIpCount;
     return this;
   }
@@ -144,12 +144,12 @@ public class IpAddressPooCidrBlockForDescribeIpAddressPoolCidrBlocksOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    IpAddressPooCidrBlockForDescribeIpAddressPoolCidrBlocksOutput ipAddressPooCidrBlockForDescribeIpAddressPoolCidrBlocksOutput = (IpAddressPooCidrBlockForDescribeIpAddressPoolCidrBlocksOutput) o;
-    return Objects.equals(this.cidrBlock, ipAddressPooCidrBlockForDescribeIpAddressPoolCidrBlocksOutput.cidrBlock) &&
-        Objects.equals(this.creationTime, ipAddressPooCidrBlockForDescribeIpAddressPoolCidrBlocksOutput.creationTime) &&
-        Objects.equals(this.status, ipAddressPooCidrBlockForDescribeIpAddressPoolCidrBlocksOutput.status) &&
-        Objects.equals(this.totalIpCount, ipAddressPooCidrBlockForDescribeIpAddressPoolCidrBlocksOutput.totalIpCount) &&
-        Objects.equals(this.usedIpCount, ipAddressPooCidrBlockForDescribeIpAddressPoolCidrBlocksOutput.usedIpCount);
+    IpAddressPoolCidrBlockForDescribeIpAddressPoolCidrBlocksOutput ipAddressPoolCidrBlockForDescribeIpAddressPoolCidrBlocksOutput = (IpAddressPoolCidrBlockForDescribeIpAddressPoolCidrBlocksOutput) o;
+    return Objects.equals(this.cidrBlock, ipAddressPoolCidrBlockForDescribeIpAddressPoolCidrBlocksOutput.cidrBlock) &&
+        Objects.equals(this.creationTime, ipAddressPoolCidrBlockForDescribeIpAddressPoolCidrBlocksOutput.creationTime) &&
+        Objects.equals(this.status, ipAddressPoolCidrBlockForDescribeIpAddressPoolCidrBlocksOutput.status) &&
+        Objects.equals(this.totalIpCount, ipAddressPoolCidrBlockForDescribeIpAddressPoolCidrBlocksOutput.totalIpCount) &&
+        Objects.equals(this.usedIpCount, ipAddressPoolCidrBlockForDescribeIpAddressPoolCidrBlocksOutput.usedIpCount);
   }
 
   @Override
@@ -161,7 +161,7 @@ public class IpAddressPooCidrBlockForDescribeIpAddressPoolCidrBlocksOutput {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class IpAddressPooCidrBlockForDescribeIpAddressPoolCidrBlocksOutput {\n");
+    sb.append("class IpAddressPoolCidrBlockForDescribeIpAddressPoolCidrBlocksOutput {\n");
     
     sb.append("    cidrBlock: ").append(toIndentedString(cidrBlock)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");

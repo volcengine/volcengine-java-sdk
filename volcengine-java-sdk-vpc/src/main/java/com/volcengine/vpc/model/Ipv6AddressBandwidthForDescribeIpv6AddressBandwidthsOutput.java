@@ -75,6 +75,9 @@ public class Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput {
   @SerializedName("OverdueTime")
   private String overdueTime = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("Status")
   private String status = null;
 
@@ -351,6 +354,24 @@ public class Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput {
     this.overdueTime = overdueTime;
   }
 
+  public Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput status(String status) {
     this.status = status;
     return this;
@@ -412,13 +433,14 @@ public class Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput {
         Objects.equals(this.lockReason, ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput.lockReason) &&
         Objects.equals(this.networkType, ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput.networkType) &&
         Objects.equals(this.overdueTime, ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput.overdueTime) &&
+        Objects.equals(this.projectName, ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput.projectName) &&
         Objects.equals(this.status, ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput.status) &&
         Objects.equals(this.updatedAt, ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput.updatedAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allocationId, bandwidth, bandwidthPackageId, billingType, businessStatus, creationTime, deletedTime, ISP, instanceId, instanceType, ipv6Address, ipv6GatewayId, lockReason, networkType, overdueTime, status, updatedAt);
+    return Objects.hash(allocationId, bandwidth, bandwidthPackageId, billingType, businessStatus, creationTime, deletedTime, ISP, instanceId, instanceType, ipv6Address, ipv6GatewayId, lockReason, networkType, overdueTime, projectName, status, updatedAt);
   }
 
 
@@ -442,6 +464,7 @@ public class Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput {
     sb.append("    lockReason: ").append(toIndentedString(lockReason)).append("\n");
     sb.append("    networkType: ").append(toIndentedString(networkType)).append("\n");
     sb.append("    overdueTime: ").append(toIndentedString(overdueTime)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("}");

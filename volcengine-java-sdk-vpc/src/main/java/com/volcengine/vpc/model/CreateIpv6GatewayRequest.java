@@ -39,6 +39,9 @@ public class CreateIpv6GatewayRequest {
   @SerializedName("Name")
   private String name = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("VpcId")
   private String vpcId = null;
 
@@ -96,6 +99,24 @@ public class CreateIpv6GatewayRequest {
     this.name = name;
   }
 
+  public CreateIpv6GatewayRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public CreateIpv6GatewayRequest vpcId(String vpcId) {
     this.vpcId = vpcId;
     return this;
@@ -128,12 +149,13 @@ public class CreateIpv6GatewayRequest {
     return Objects.equals(this.clientToken, createIpv6GatewayRequest.clientToken) &&
         Objects.equals(this.description, createIpv6GatewayRequest.description) &&
         Objects.equals(this.name, createIpv6GatewayRequest.name) &&
+        Objects.equals(this.projectName, createIpv6GatewayRequest.projectName) &&
         Objects.equals(this.vpcId, createIpv6GatewayRequest.vpcId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, description, name, vpcId);
+    return Objects.hash(clientToken, description, name, projectName, vpcId);
   }
 
 
@@ -145,6 +167,7 @@ public class CreateIpv6GatewayRequest {
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("}");
     return sb.toString();
