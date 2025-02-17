@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.clb.model.TagFilterForDescribeRulesInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -32,6 +35,9 @@ import javax.validation.Valid;
 public class DescribeRulesRequest {
   @SerializedName("ListenerId")
   private String listenerId = null;
+
+  @SerializedName("TagFilters")
+  private List<TagFilterForDescribeRulesInput> tagFilters = null;
 
   public DescribeRulesRequest listenerId(String listenerId) {
     this.listenerId = listenerId;
@@ -52,6 +58,33 @@ public class DescribeRulesRequest {
     this.listenerId = listenerId;
   }
 
+  public DescribeRulesRequest tagFilters(List<TagFilterForDescribeRulesInput> tagFilters) {
+    this.tagFilters = tagFilters;
+    return this;
+  }
+
+  public DescribeRulesRequest addTagFiltersItem(TagFilterForDescribeRulesInput tagFiltersItem) {
+    if (this.tagFilters == null) {
+      this.tagFilters = new ArrayList<TagFilterForDescribeRulesInput>();
+    }
+    this.tagFilters.add(tagFiltersItem);
+    return this;
+  }
+
+   /**
+   * Get tagFilters
+   * @return tagFilters
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagFilterForDescribeRulesInput> getTagFilters() {
+    return tagFilters;
+  }
+
+  public void setTagFilters(List<TagFilterForDescribeRulesInput> tagFilters) {
+    this.tagFilters = tagFilters;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -62,12 +95,13 @@ public class DescribeRulesRequest {
       return false;
     }
     DescribeRulesRequest describeRulesRequest = (DescribeRulesRequest) o;
-    return Objects.equals(this.listenerId, describeRulesRequest.listenerId);
+    return Objects.equals(this.listenerId, describeRulesRequest.listenerId) &&
+        Objects.equals(this.tagFilters, describeRulesRequest.tagFilters);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(listenerId);
+    return Objects.hash(listenerId, tagFilters);
   }
 
 
@@ -77,6 +111,7 @@ public class DescribeRulesRequest {
     sb.append("class DescribeRulesRequest {\n");
     
     sb.append("    listenerId: ").append(toIndentedString(listenerId)).append("\n");
+    sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("}");
     return sb.toString();
   }

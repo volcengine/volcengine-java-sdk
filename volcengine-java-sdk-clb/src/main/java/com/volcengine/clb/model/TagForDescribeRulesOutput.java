@@ -24,53 +24,52 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DeleteLoadBalancerRequest
+ * TagForDescribeRulesOutput
  */
 
 
 
-public class DeleteLoadBalancerRequest {
-  @SerializedName("ForceDelete")
-  private Boolean forceDelete = null;
+public class TagForDescribeRulesOutput {
+  @SerializedName("Key")
+  private String key = null;
 
-  @SerializedName("LoadBalancerId")
-  private String loadBalancerId = null;
+  @SerializedName("Value")
+  private String value = null;
 
-  public DeleteLoadBalancerRequest forceDelete(Boolean forceDelete) {
-    this.forceDelete = forceDelete;
+  public TagForDescribeRulesOutput key(String key) {
+    this.key = key;
     return this;
   }
 
    /**
-   * Get forceDelete
-   * @return forceDelete
+   * Get key
+   * @return key
   **/
   @Schema(description = "")
-  public Boolean isForceDelete() {
-    return forceDelete;
+  public String getKey() {
+    return key;
   }
 
-  public void setForceDelete(Boolean forceDelete) {
-    this.forceDelete = forceDelete;
+  public void setKey(String key) {
+    this.key = key;
   }
 
-  public DeleteLoadBalancerRequest loadBalancerId(String loadBalancerId) {
-    this.loadBalancerId = loadBalancerId;
+  public TagForDescribeRulesOutput value(String value) {
+    this.value = value;
     return this;
   }
 
    /**
-   * Get loadBalancerId
-   * @return loadBalancerId
+   * Get value
+   * @return value
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getLoadBalancerId() {
-    return loadBalancerId;
+  @Schema(description = "")
+  public String getValue() {
+    return value;
   }
 
-  public void setLoadBalancerId(String loadBalancerId) {
-    this.loadBalancerId = loadBalancerId;
+  public void setValue(String value) {
+    this.value = value;
   }
 
 
@@ -82,24 +81,24 @@ public class DeleteLoadBalancerRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeleteLoadBalancerRequest deleteLoadBalancerRequest = (DeleteLoadBalancerRequest) o;
-    return Objects.equals(this.forceDelete, deleteLoadBalancerRequest.forceDelete) &&
-        Objects.equals(this.loadBalancerId, deleteLoadBalancerRequest.loadBalancerId);
+    TagForDescribeRulesOutput tagForDescribeRulesOutput = (TagForDescribeRulesOutput) o;
+    return Objects.equals(this.key, tagForDescribeRulesOutput.key) &&
+        Objects.equals(this.value, tagForDescribeRulesOutput.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(forceDelete, loadBalancerId);
+    return Objects.hash(key, value);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeleteLoadBalancerRequest {\n");
+    sb.append("class TagForDescribeRulesOutput {\n");
     
-    sb.append("    forceDelete: ").append(toIndentedString(forceDelete)).append("\n");
-    sb.append("    loadBalancerId: ").append(toIndentedString(loadBalancerId)).append("\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
   }

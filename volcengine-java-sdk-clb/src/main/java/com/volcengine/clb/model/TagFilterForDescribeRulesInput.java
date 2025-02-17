@@ -21,56 +21,65 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DeleteLoadBalancerRequest
+ * TagFilterForDescribeRulesInput
  */
 
 
 
-public class DeleteLoadBalancerRequest {
-  @SerializedName("ForceDelete")
-  private Boolean forceDelete = null;
+public class TagFilterForDescribeRulesInput {
+  @SerializedName("Key")
+  private String key = null;
 
-  @SerializedName("LoadBalancerId")
-  private String loadBalancerId = null;
+  @SerializedName("Values")
+  private List<String> values = null;
 
-  public DeleteLoadBalancerRequest forceDelete(Boolean forceDelete) {
-    this.forceDelete = forceDelete;
+  public TagFilterForDescribeRulesInput key(String key) {
+    this.key = key;
     return this;
   }
 
    /**
-   * Get forceDelete
-   * @return forceDelete
+   * Get key
+   * @return key
   **/
   @Schema(description = "")
-  public Boolean isForceDelete() {
-    return forceDelete;
+  public String getKey() {
+    return key;
   }
 
-  public void setForceDelete(Boolean forceDelete) {
-    this.forceDelete = forceDelete;
+  public void setKey(String key) {
+    this.key = key;
   }
 
-  public DeleteLoadBalancerRequest loadBalancerId(String loadBalancerId) {
-    this.loadBalancerId = loadBalancerId;
+  public TagFilterForDescribeRulesInput values(List<String> values) {
+    this.values = values;
+    return this;
+  }
+
+  public TagFilterForDescribeRulesInput addValuesItem(String valuesItem) {
+    if (this.values == null) {
+      this.values = new ArrayList<String>();
+    }
+    this.values.add(valuesItem);
     return this;
   }
 
    /**
-   * Get loadBalancerId
-   * @return loadBalancerId
+   * Get values
+   * @return values
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getLoadBalancerId() {
-    return loadBalancerId;
+  @Schema(description = "")
+  public List<String> getValues() {
+    return values;
   }
 
-  public void setLoadBalancerId(String loadBalancerId) {
-    this.loadBalancerId = loadBalancerId;
+  public void setValues(List<String> values) {
+    this.values = values;
   }
 
 
@@ -82,24 +91,24 @@ public class DeleteLoadBalancerRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeleteLoadBalancerRequest deleteLoadBalancerRequest = (DeleteLoadBalancerRequest) o;
-    return Objects.equals(this.forceDelete, deleteLoadBalancerRequest.forceDelete) &&
-        Objects.equals(this.loadBalancerId, deleteLoadBalancerRequest.loadBalancerId);
+    TagFilterForDescribeRulesInput tagFilterForDescribeRulesInput = (TagFilterForDescribeRulesInput) o;
+    return Objects.equals(this.key, tagFilterForDescribeRulesInput.key) &&
+        Objects.equals(this.values, tagFilterForDescribeRulesInput.values);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(forceDelete, loadBalancerId);
+    return Objects.hash(key, values);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeleteLoadBalancerRequest {\n");
+    sb.append("class TagFilterForDescribeRulesInput {\n");
     
-    sb.append("    forceDelete: ").append(toIndentedString(forceDelete)).append("\n");
-    sb.append("    loadBalancerId: ").append(toIndentedString(loadBalancerId)).append("\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    values: ").append(toIndentedString(values)).append("\n");
     sb.append("}");
     return sb.toString();
   }
