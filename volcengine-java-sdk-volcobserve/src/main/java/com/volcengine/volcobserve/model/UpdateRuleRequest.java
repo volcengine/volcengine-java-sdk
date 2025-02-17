@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.volcobserve.model.ConditionForUpdateRuleInput;
 import com.volcengine.volcobserve.model.DimensionConditionsForUpdateRuleInput;
+import com.volcengine.volcobserve.model.LevelConditionForUpdateRuleInput;
 import com.volcengine.volcobserve.model.NoDataForUpdateRuleInput;
 import com.volcengine.volcobserve.model.RecoveryNotifyForUpdateRuleInput;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -121,6 +122,9 @@ public class UpdateRuleRequest {
   @SerializedName("Level")
   private String level = null;
 
+  @SerializedName("LevelConditions")
+  private List<LevelConditionForUpdateRuleInput> levelConditions = null;
+
   @SerializedName("MultipleConditions")
   private Boolean multipleConditions = null;
 
@@ -129,6 +133,9 @@ public class UpdateRuleRequest {
 
   @SerializedName("NoData")
   private NoDataForUpdateRuleInput noData = null;
+
+  @SerializedName("NotificationId")
+  private String notificationId = null;
 
   @SerializedName("OriginalDimensions")
   private Map<String, List<String>> originalDimensions = null;
@@ -448,6 +455,33 @@ public class UpdateRuleRequest {
     this.level = level;
   }
 
+  public UpdateRuleRequest levelConditions(List<LevelConditionForUpdateRuleInput> levelConditions) {
+    this.levelConditions = levelConditions;
+    return this;
+  }
+
+  public UpdateRuleRequest addLevelConditionsItem(LevelConditionForUpdateRuleInput levelConditionsItem) {
+    if (this.levelConditions == null) {
+      this.levelConditions = new ArrayList<LevelConditionForUpdateRuleInput>();
+    }
+    this.levelConditions.add(levelConditionsItem);
+    return this;
+  }
+
+   /**
+   * Get levelConditions
+   * @return levelConditions
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<LevelConditionForUpdateRuleInput> getLevelConditions() {
+    return levelConditions;
+  }
+
+  public void setLevelConditions(List<LevelConditionForUpdateRuleInput> levelConditions) {
+    this.levelConditions = levelConditions;
+  }
+
   public UpdateRuleRequest multipleConditions(Boolean multipleConditions) {
     this.multipleConditions = multipleConditions;
     return this;
@@ -502,6 +536,24 @@ public class UpdateRuleRequest {
 
   public void setNoData(NoDataForUpdateRuleInput noData) {
     this.noData = noData;
+  }
+
+  public UpdateRuleRequest notificationId(String notificationId) {
+    this.notificationId = notificationId;
+    return this;
+  }
+
+   /**
+   * Get notificationId
+   * @return notificationId
+  **/
+  @Schema(description = "")
+  public String getNotificationId() {
+    return notificationId;
+  }
+
+  public void setNotificationId(String notificationId) {
+    this.notificationId = notificationId;
   }
 
   public UpdateRuleRequest originalDimensions(Map<String, List<String>> originalDimensions) {
@@ -718,9 +770,11 @@ public class UpdateRuleRequest {
         Objects.equals(this.evaluationCount, updateRuleRequest.evaluationCount) &&
         Objects.equals(this.id, updateRuleRequest.id) &&
         Objects.equals(this.level, updateRuleRequest.level) &&
+        Objects.equals(this.levelConditions, updateRuleRequest.levelConditions) &&
         Objects.equals(this.multipleConditions, updateRuleRequest.multipleConditions) &&
         Objects.equals(this.namespace, updateRuleRequest.namespace) &&
         Objects.equals(this.noData, updateRuleRequest.noData) &&
+        Objects.equals(this.notificationId, updateRuleRequest.notificationId) &&
         Objects.equals(this.originalDimensions, updateRuleRequest.originalDimensions) &&
         Objects.equals(this.recoveryNotify, updateRuleRequest.recoveryNotify) &&
         Objects.equals(this.regions, updateRuleRequest.regions) &&
@@ -734,7 +788,7 @@ public class UpdateRuleRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(alertMethods, conditionOperator, conditions, contactGroupIds, description, dimensionConditions, effectEndAt, effectStartAt, enableState, evaluationCount, id, level, multipleConditions, namespace, noData, originalDimensions, recoveryNotify, regions, ruleName, ruleType, silenceTime, subNamespace, webhook, webhookIds);
+    return Objects.hash(alertMethods, conditionOperator, conditions, contactGroupIds, description, dimensionConditions, effectEndAt, effectStartAt, enableState, evaluationCount, id, level, levelConditions, multipleConditions, namespace, noData, notificationId, originalDimensions, recoveryNotify, regions, ruleName, ruleType, silenceTime, subNamespace, webhook, webhookIds);
   }
 
 
@@ -755,9 +809,11 @@ public class UpdateRuleRequest {
     sb.append("    evaluationCount: ").append(toIndentedString(evaluationCount)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    level: ").append(toIndentedString(level)).append("\n");
+    sb.append("    levelConditions: ").append(toIndentedString(levelConditions)).append("\n");
     sb.append("    multipleConditions: ").append(toIndentedString(multipleConditions)).append("\n");
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
     sb.append("    noData: ").append(toIndentedString(noData)).append("\n");
+    sb.append("    notificationId: ").append(toIndentedString(notificationId)).append("\n");
     sb.append("    originalDimensions: ").append(toIndentedString(originalDimensions)).append("\n");
     sb.append("    recoveryNotify: ").append(toIndentedString(recoveryNotify)).append("\n");
     sb.append("    regions: ").append(toIndentedString(regions)).append("\n");
