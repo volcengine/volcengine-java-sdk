@@ -42,6 +42,9 @@ public class CreateSnapshotRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
 
+  @SerializedName("RetentionDays")
+  private Integer retentionDays = null;
+
   @SerializedName("SnapshotName")
   private String snapshotName = null;
 
@@ -103,6 +106,24 @@ public class CreateSnapshotRequest {
 
   public void setProjectName(String projectName) {
     this.projectName = projectName;
+  }
+
+  public CreateSnapshotRequest retentionDays(Integer retentionDays) {
+    this.retentionDays = retentionDays;
+    return this;
+  }
+
+   /**
+   * Get retentionDays
+   * @return retentionDays
+  **/
+  @Schema(description = "")
+  public Integer getRetentionDays() {
+    return retentionDays;
+  }
+
+  public void setRetentionDays(Integer retentionDays) {
+    this.retentionDays = retentionDays;
   }
 
   public CreateSnapshotRequest snapshotName(String snapshotName) {
@@ -183,6 +204,7 @@ public class CreateSnapshotRequest {
     return Objects.equals(this.clientToken, createSnapshotRequest.clientToken) &&
         Objects.equals(this.description, createSnapshotRequest.description) &&
         Objects.equals(this.projectName, createSnapshotRequest.projectName) &&
+        Objects.equals(this.retentionDays, createSnapshotRequest.retentionDays) &&
         Objects.equals(this.snapshotName, createSnapshotRequest.snapshotName) &&
         Objects.equals(this.tags, createSnapshotRequest.tags) &&
         Objects.equals(this.volumeId, createSnapshotRequest.volumeId);
@@ -190,7 +212,7 @@ public class CreateSnapshotRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, description, projectName, snapshotName, tags, volumeId);
+    return Objects.hash(clientToken, description, projectName, retentionDays, snapshotName, tags, volumeId);
   }
 
 
@@ -202,6 +224,7 @@ public class CreateSnapshotRequest {
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    retentionDays: ").append(toIndentedString(retentionDays)).append("\n");
     sb.append("    snapshotName: ").append(toIndentedString(snapshotName)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    volumeId: ").append(toIndentedString(volumeId)).append("\n");

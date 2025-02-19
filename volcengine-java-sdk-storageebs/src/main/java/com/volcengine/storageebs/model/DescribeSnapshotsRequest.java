@@ -54,6 +54,9 @@ public class DescribeSnapshotsRequest {
   @SerializedName("SnapshotStatus")
   private List<String> snapshotStatus = null;
 
+  @SerializedName("SnapshotTypes")
+  private List<String> snapshotTypes = null;
+
   @SerializedName("VolumeId")
   private String volumeId = null;
 
@@ -112,9 +115,10 @@ public class DescribeSnapshotsRequest {
 
    /**
    * Get pageSize
+   * maximum: 100
    * @return pageSize
   **/
-  @Schema(description = "")
+ @Max(100)  @Schema(description = "")
   public Integer getPageSize() {
     return pageSize;
   }
@@ -211,6 +215,32 @@ public class DescribeSnapshotsRequest {
     this.snapshotStatus = snapshotStatus;
   }
 
+  public DescribeSnapshotsRequest snapshotTypes(List<String> snapshotTypes) {
+    this.snapshotTypes = snapshotTypes;
+    return this;
+  }
+
+  public DescribeSnapshotsRequest addSnapshotTypesItem(String snapshotTypesItem) {
+    if (this.snapshotTypes == null) {
+      this.snapshotTypes = new ArrayList<String>();
+    }
+    this.snapshotTypes.add(snapshotTypesItem);
+    return this;
+  }
+
+   /**
+   * Get snapshotTypes
+   * @return snapshotTypes
+  **/
+  @Schema(description = "")
+  public List<String> getSnapshotTypes() {
+    return snapshotTypes;
+  }
+
+  public void setSnapshotTypes(List<String> snapshotTypes) {
+    this.snapshotTypes = snapshotTypes;
+  }
+
   public DescribeSnapshotsRequest volumeId(String volumeId) {
     this.volumeId = volumeId;
     return this;
@@ -264,13 +294,14 @@ public class DescribeSnapshotsRequest {
         Objects.equals(this.snapshotIds, describeSnapshotsRequest.snapshotIds) &&
         Objects.equals(this.snapshotName, describeSnapshotsRequest.snapshotName) &&
         Objects.equals(this.snapshotStatus, describeSnapshotsRequest.snapshotStatus) &&
+        Objects.equals(this.snapshotTypes, describeSnapshotsRequest.snapshotTypes) &&
         Objects.equals(this.volumeId, describeSnapshotsRequest.volumeId) &&
         Objects.equals(this.zoneId, describeSnapshotsRequest.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(filter, pageNumber, pageSize, projectName, snapshotIds, snapshotName, snapshotStatus, volumeId, zoneId);
+    return Objects.hash(filter, pageNumber, pageSize, projectName, snapshotIds, snapshotName, snapshotStatus, snapshotTypes, volumeId, zoneId);
   }
 
 
@@ -286,6 +317,7 @@ public class DescribeSnapshotsRequest {
     sb.append("    snapshotIds: ").append(toIndentedString(snapshotIds)).append("\n");
     sb.append("    snapshotName: ").append(toIndentedString(snapshotName)).append("\n");
     sb.append("    snapshotStatus: ").append(toIndentedString(snapshotStatus)).append("\n");
+    sb.append("    snapshotTypes: ").append(toIndentedString(snapshotTypes)).append("\n");
     sb.append("    volumeId: ").append(toIndentedString(volumeId)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");

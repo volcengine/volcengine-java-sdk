@@ -31,6 +31,8 @@ import com.volcengine.storageebs.model.ApplyAutoSnapshotPolicyRequest;
 import com.volcengine.storageebs.model.ApplyAutoSnapshotPolicyResponse;
 import com.volcengine.storageebs.model.AttachVolumeRequest;
 import com.volcengine.storageebs.model.AttachVolumeResponse;
+import com.volcengine.storageebs.model.AutoRenewReservedStorageCapacityRequest;
+import com.volcengine.storageebs.model.AutoRenewReservedStorageCapacityResponse;
 import com.volcengine.storageebs.model.CancelAutoSnapshotPolicyRequest;
 import com.volcengine.storageebs.model.CancelAutoSnapshotPolicyResponse;
 import com.volcengine.storageebs.model.CheckUserRscPermitRequest;
@@ -59,6 +61,8 @@ import com.volcengine.storageebs.model.DescribeAutoSnapshotPolicyRequest;
 import com.volcengine.storageebs.model.DescribeAutoSnapshotPolicyResponse;
 import com.volcengine.storageebs.model.DescribeReservedStorageCapacityRequest;
 import com.volcengine.storageebs.model.DescribeReservedStorageCapacityResponse;
+import com.volcengine.storageebs.model.DescribeSnapshotChainsRequest;
+import com.volcengine.storageebs.model.DescribeSnapshotChainsResponse;
 import com.volcengine.storageebs.model.DescribeSnapshotGroupsRequest;
 import com.volcengine.storageebs.model.DescribeSnapshotGroupsResponse;
 import com.volcengine.storageebs.model.DescribeSnapshotsRequest;
@@ -75,6 +79,8 @@ import com.volcengine.storageebs.model.DetachVolumeRequest;
 import com.volcengine.storageebs.model.DetachVolumeResponse;
 import com.volcengine.storageebs.model.ExtendVolumeRequest;
 import com.volcengine.storageebs.model.ExtendVolumeResponse;
+import com.volcengine.storageebs.model.ManualRenewReservedStorageCapacityRequest;
+import com.volcengine.storageebs.model.ManualRenewReservedStorageCapacityResponse;
 import com.volcengine.storageebs.model.ModifyAutoSnapshotPolicyRequest;
 import com.volcengine.storageebs.model.ModifyAutoSnapshotPolicyResponse;
 import com.volcengine.storageebs.model.ModifySnapshotAttributeRequest;
@@ -95,6 +101,8 @@ import com.volcengine.storageebs.model.RollbackSnapshotGroupRequest;
 import com.volcengine.storageebs.model.RollbackSnapshotGroupResponse;
 import com.volcengine.storageebs.model.RollbackVolumeRequest;
 import com.volcengine.storageebs.model.RollbackVolumeResponse;
+import com.volcengine.storageebs.model.ServicePurchaseRscPreorderRequest;
+import com.volcengine.storageebs.model.ServicePurchaseRscPreorderResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -366,6 +374,130 @@ public class StorageEbsApi {
 
         com.squareup.okhttp.Call call = attachVolumeValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<AttachVolumeResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for autoRenewReservedStorageCapacity
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call autoRenewReservedStorageCapacityCall(AutoRenewReservedStorageCapacityRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/AutoRenewReservedStorageCapacity/2020-04-01/storage_ebs/get/text_plain/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call autoRenewReservedStorageCapacityValidateBeforeCall(AutoRenewReservedStorageCapacityRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling autoRenewReservedStorageCapacity(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = autoRenewReservedStorageCapacityCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return AutoRenewReservedStorageCapacityResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public AutoRenewReservedStorageCapacityResponse autoRenewReservedStorageCapacity(AutoRenewReservedStorageCapacityRequest body) throws ApiException {
+        ApiResponse<AutoRenewReservedStorageCapacityResponse> resp = autoRenewReservedStorageCapacityWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;AutoRenewReservedStorageCapacityResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<AutoRenewReservedStorageCapacityResponse> autoRenewReservedStorageCapacityWithHttpInfo( @NotNull AutoRenewReservedStorageCapacityRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = autoRenewReservedStorageCapacityValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<AutoRenewReservedStorageCapacityResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call autoRenewReservedStorageCapacityAsync(AutoRenewReservedStorageCapacityRequest body, final ApiCallback<AutoRenewReservedStorageCapacityResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = autoRenewReservedStorageCapacityValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<AutoRenewReservedStorageCapacityResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -2106,6 +2238,130 @@ public class StorageEbsApi {
         return call;
     }
     /**
+     * Build call for describeSnapshotChains
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call describeSnapshotChainsCall(DescribeSnapshotChainsRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/DescribeSnapshotChains/2020-04-01/storage_ebs/get/text_plain/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call describeSnapshotChainsValidateBeforeCall(DescribeSnapshotChainsRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling describeSnapshotChains(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = describeSnapshotChainsCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return DescribeSnapshotChainsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public DescribeSnapshotChainsResponse describeSnapshotChains(DescribeSnapshotChainsRequest body) throws ApiException {
+        ApiResponse<DescribeSnapshotChainsResponse> resp = describeSnapshotChainsWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;DescribeSnapshotChainsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<DescribeSnapshotChainsResponse> describeSnapshotChainsWithHttpInfo( @NotNull DescribeSnapshotChainsRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = describeSnapshotChainsValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<DescribeSnapshotChainsResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call describeSnapshotChainsAsync(DescribeSnapshotChainsRequest body, final ApiCallback<DescribeSnapshotChainsResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = describeSnapshotChainsValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<DescribeSnapshotChainsResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for describeSnapshotGroups
      * @param body  (required)
      * @param progressListener Progress listener
@@ -3094,6 +3350,130 @@ public class StorageEbsApi {
 
         com.squareup.okhttp.Call call = extendVolumeValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ExtendVolumeResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for manualRenewReservedStorageCapacity
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call manualRenewReservedStorageCapacityCall(ManualRenewReservedStorageCapacityRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/ManualRenewReservedStorageCapacity/2020-04-01/storage_ebs/get/text_plain/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call manualRenewReservedStorageCapacityValidateBeforeCall(ManualRenewReservedStorageCapacityRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling manualRenewReservedStorageCapacity(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = manualRenewReservedStorageCapacityCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ManualRenewReservedStorageCapacityResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ManualRenewReservedStorageCapacityResponse manualRenewReservedStorageCapacity(ManualRenewReservedStorageCapacityRequest body) throws ApiException {
+        ApiResponse<ManualRenewReservedStorageCapacityResponse> resp = manualRenewReservedStorageCapacityWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;ManualRenewReservedStorageCapacityResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ManualRenewReservedStorageCapacityResponse> manualRenewReservedStorageCapacityWithHttpInfo( @NotNull ManualRenewReservedStorageCapacityRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = manualRenewReservedStorageCapacityValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<ManualRenewReservedStorageCapacityResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call manualRenewReservedStorageCapacityAsync(ManualRenewReservedStorageCapacityRequest body, final ApiCallback<ManualRenewReservedStorageCapacityResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = manualRenewReservedStorageCapacityValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ManualRenewReservedStorageCapacityResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -4334,6 +4714,130 @@ public class StorageEbsApi {
 
         com.squareup.okhttp.Call call = rollbackVolumeValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<RollbackVolumeResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for servicePurchaseRscPreorder
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call servicePurchaseRscPreorderCall(ServicePurchaseRscPreorderRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/ServicePurchaseRscPreorder/2020-04-01/storage_ebs/get/text_plain/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call servicePurchaseRscPreorderValidateBeforeCall(ServicePurchaseRscPreorderRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling servicePurchaseRscPreorder(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = servicePurchaseRscPreorderCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ServicePurchaseRscPreorderResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ServicePurchaseRscPreorderResponse servicePurchaseRscPreorder(ServicePurchaseRscPreorderRequest body) throws ApiException {
+        ApiResponse<ServicePurchaseRscPreorderResponse> resp = servicePurchaseRscPreorderWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;ServicePurchaseRscPreorderResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ServicePurchaseRscPreorderResponse> servicePurchaseRscPreorderWithHttpInfo( @NotNull ServicePurchaseRscPreorderRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = servicePurchaseRscPreorderValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<ServicePurchaseRscPreorderResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call servicePurchaseRscPreorderAsync(ServicePurchaseRscPreorderRequest body, final ApiCallback<ServicePurchaseRscPreorderResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = servicePurchaseRscPreorderValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ServicePurchaseRscPreorderResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

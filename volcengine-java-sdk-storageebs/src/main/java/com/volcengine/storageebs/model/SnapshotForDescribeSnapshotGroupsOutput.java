@@ -51,6 +51,9 @@ public class SnapshotForDescribeSnapshotGroupsOutput {
   @SerializedName("RetentionDays")
   private Integer retentionDays = null;
 
+  @SerializedName("Shared")
+  private Boolean shared = null;
+
   @SerializedName("SnapshotGroupId")
   private String snapshotGroupId = null;
 
@@ -196,6 +199,24 @@ public class SnapshotForDescribeSnapshotGroupsOutput {
 
   public void setRetentionDays(Integer retentionDays) {
     this.retentionDays = retentionDays;
+  }
+
+  public SnapshotForDescribeSnapshotGroupsOutput shared(Boolean shared) {
+    this.shared = shared;
+    return this;
+  }
+
+   /**
+   * Get shared
+   * @return shared
+  **/
+  @Schema(description = "")
+  public Boolean isShared() {
+    return shared;
+  }
+
+  public void setShared(Boolean shared) {
+    this.shared = shared;
   }
 
   public SnapshotForDescribeSnapshotGroupsOutput snapshotGroupId(String snapshotGroupId) {
@@ -457,6 +478,7 @@ public class SnapshotForDescribeSnapshotGroupsOutput {
         Objects.equals(this.progress, snapshotForDescribeSnapshotGroupsOutput.progress) &&
         Objects.equals(this.projectName, snapshotForDescribeSnapshotGroupsOutput.projectName) &&
         Objects.equals(this.retentionDays, snapshotForDescribeSnapshotGroupsOutput.retentionDays) &&
+        Objects.equals(this.shared, snapshotForDescribeSnapshotGroupsOutput.shared) &&
         Objects.equals(this.snapshotGroupId, snapshotForDescribeSnapshotGroupsOutput.snapshotGroupId) &&
         Objects.equals(this.snapshotId, snapshotForDescribeSnapshotGroupsOutput.snapshotId) &&
         Objects.equals(this.snapshotName, snapshotForDescribeSnapshotGroupsOutput.snapshotName) &&
@@ -474,7 +496,7 @@ public class SnapshotForDescribeSnapshotGroupsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(creationTime, description, imageId, progress, projectName, retentionDays, snapshotGroupId, snapshotId, snapshotName, snapshotType, status, tags, volumeId, volumeKind, volumeName, volumeSize, volumeStatus, volumeType, zoneId);
+    return Objects.hash(creationTime, description, imageId, progress, projectName, retentionDays, shared, snapshotGroupId, snapshotId, snapshotName, snapshotType, status, tags, volumeId, volumeKind, volumeName, volumeSize, volumeStatus, volumeType, zoneId);
   }
 
 
@@ -489,6 +511,7 @@ public class SnapshotForDescribeSnapshotGroupsOutput {
     sb.append("    progress: ").append(toIndentedString(progress)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    retentionDays: ").append(toIndentedString(retentionDays)).append("\n");
+    sb.append("    shared: ").append(toIndentedString(shared)).append("\n");
     sb.append("    snapshotGroupId: ").append(toIndentedString(snapshotGroupId)).append("\n");
     sb.append("    snapshotId: ").append(toIndentedString(snapshotId)).append("\n");
     sb.append("    snapshotName: ").append(toIndentedString(snapshotName)).append("\n");
