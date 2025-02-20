@@ -24,12 +24,15 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * PurchaseReservedStorageCapacityRequest
+ * ServicePurchaseRscPreorderRequest
  */
 
 
 
-public class PurchaseReservedStorageCapacityRequest {
+public class ServicePurchaseRscPreorderRequest {
+  @SerializedName("AccountId")
+  private String accountId = null;
+
   @SerializedName("ClientToken")
   private String clientToken = null;
 
@@ -42,14 +45,14 @@ public class PurchaseReservedStorageCapacityRequest {
   @SerializedName("PeriodUnit")
   private String periodUnit = null;
 
-  @SerializedName("RSCAutoRenew")
-  private Boolean rsCAutoRenew = null;
-
   @SerializedName("ReservedCapacity")
   private Integer reservedCapacity = null;
 
   @SerializedName("ReservedStorageCapacityName")
   private String reservedStorageCapacityName = null;
+
+  @SerializedName("RscAutoRenew")
+  private Boolean rscAutoRenew = null;
 
   @SerializedName("VolumeType")
   private String volumeType = null;
@@ -57,7 +60,25 @@ public class PurchaseReservedStorageCapacityRequest {
   @SerializedName("ZoneId")
   private String zoneId = null;
 
-  public PurchaseReservedStorageCapacityRequest clientToken(String clientToken) {
+  public ServicePurchaseRscPreorderRequest accountId(String accountId) {
+    this.accountId = accountId;
+    return this;
+  }
+
+   /**
+   * Get accountId
+   * @return accountId
+  **/
+  @Schema(description = "")
+  public String getAccountId() {
+    return accountId;
+  }
+
+  public void setAccountId(String accountId) {
+    this.accountId = accountId;
+  }
+
+  public ServicePurchaseRscPreorderRequest clientToken(String clientToken) {
     this.clientToken = clientToken;
     return this;
   }
@@ -75,7 +96,7 @@ public class PurchaseReservedStorageCapacityRequest {
     this.clientToken = clientToken;
   }
 
-  public PurchaseReservedStorageCapacityRequest effectiveAt(String effectiveAt) {
+  public ServicePurchaseRscPreorderRequest effectiveAt(String effectiveAt) {
     this.effectiveAt = effectiveAt;
     return this;
   }
@@ -93,7 +114,7 @@ public class PurchaseReservedStorageCapacityRequest {
     this.effectiveAt = effectiveAt;
   }
 
-  public PurchaseReservedStorageCapacityRequest period(Integer period) {
+  public ServicePurchaseRscPreorderRequest period(Integer period) {
     this.period = period;
     return this;
   }
@@ -111,7 +132,7 @@ public class PurchaseReservedStorageCapacityRequest {
     this.period = period;
   }
 
-  public PurchaseReservedStorageCapacityRequest periodUnit(String periodUnit) {
+  public ServicePurchaseRscPreorderRequest periodUnit(String periodUnit) {
     this.periodUnit = periodUnit;
     return this;
   }
@@ -129,25 +150,7 @@ public class PurchaseReservedStorageCapacityRequest {
     this.periodUnit = periodUnit;
   }
 
-  public PurchaseReservedStorageCapacityRequest rsCAutoRenew(Boolean rsCAutoRenew) {
-    this.rsCAutoRenew = rsCAutoRenew;
-    return this;
-  }
-
-   /**
-   * Get rsCAutoRenew
-   * @return rsCAutoRenew
-  **/
-  @Schema(description = "")
-  public Boolean isRsCAutoRenew() {
-    return rsCAutoRenew;
-  }
-
-  public void setRsCAutoRenew(Boolean rsCAutoRenew) {
-    this.rsCAutoRenew = rsCAutoRenew;
-  }
-
-  public PurchaseReservedStorageCapacityRequest reservedCapacity(Integer reservedCapacity) {
+  public ServicePurchaseRscPreorderRequest reservedCapacity(Integer reservedCapacity) {
     this.reservedCapacity = reservedCapacity;
     return this;
   }
@@ -165,7 +168,7 @@ public class PurchaseReservedStorageCapacityRequest {
     this.reservedCapacity = reservedCapacity;
   }
 
-  public PurchaseReservedStorageCapacityRequest reservedStorageCapacityName(String reservedStorageCapacityName) {
+  public ServicePurchaseRscPreorderRequest reservedStorageCapacityName(String reservedStorageCapacityName) {
     this.reservedStorageCapacityName = reservedStorageCapacityName;
     return this;
   }
@@ -183,7 +186,25 @@ public class PurchaseReservedStorageCapacityRequest {
     this.reservedStorageCapacityName = reservedStorageCapacityName;
   }
 
-  public PurchaseReservedStorageCapacityRequest volumeType(String volumeType) {
+  public ServicePurchaseRscPreorderRequest rscAutoRenew(Boolean rscAutoRenew) {
+    this.rscAutoRenew = rscAutoRenew;
+    return this;
+  }
+
+   /**
+   * Get rscAutoRenew
+   * @return rscAutoRenew
+  **/
+  @Schema(description = "")
+  public Boolean isRscAutoRenew() {
+    return rscAutoRenew;
+  }
+
+  public void setRscAutoRenew(Boolean rscAutoRenew) {
+    this.rscAutoRenew = rscAutoRenew;
+  }
+
+  public ServicePurchaseRscPreorderRequest volumeType(String volumeType) {
     this.volumeType = volumeType;
     return this;
   }
@@ -201,7 +222,7 @@ public class PurchaseReservedStorageCapacityRequest {
     this.volumeType = volumeType;
   }
 
-  public PurchaseReservedStorageCapacityRequest zoneId(String zoneId) {
+  public ServicePurchaseRscPreorderRequest zoneId(String zoneId) {
     this.zoneId = zoneId;
     return this;
   }
@@ -228,36 +249,38 @@ public class PurchaseReservedStorageCapacityRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PurchaseReservedStorageCapacityRequest purchaseReservedStorageCapacityRequest = (PurchaseReservedStorageCapacityRequest) o;
-    return Objects.equals(this.clientToken, purchaseReservedStorageCapacityRequest.clientToken) &&
-        Objects.equals(this.effectiveAt, purchaseReservedStorageCapacityRequest.effectiveAt) &&
-        Objects.equals(this.period, purchaseReservedStorageCapacityRequest.period) &&
-        Objects.equals(this.periodUnit, purchaseReservedStorageCapacityRequest.periodUnit) &&
-        Objects.equals(this.rsCAutoRenew, purchaseReservedStorageCapacityRequest.rsCAutoRenew) &&
-        Objects.equals(this.reservedCapacity, purchaseReservedStorageCapacityRequest.reservedCapacity) &&
-        Objects.equals(this.reservedStorageCapacityName, purchaseReservedStorageCapacityRequest.reservedStorageCapacityName) &&
-        Objects.equals(this.volumeType, purchaseReservedStorageCapacityRequest.volumeType) &&
-        Objects.equals(this.zoneId, purchaseReservedStorageCapacityRequest.zoneId);
+    ServicePurchaseRscPreorderRequest servicePurchaseRscPreorderRequest = (ServicePurchaseRscPreorderRequest) o;
+    return Objects.equals(this.accountId, servicePurchaseRscPreorderRequest.accountId) &&
+        Objects.equals(this.clientToken, servicePurchaseRscPreorderRequest.clientToken) &&
+        Objects.equals(this.effectiveAt, servicePurchaseRscPreorderRequest.effectiveAt) &&
+        Objects.equals(this.period, servicePurchaseRscPreorderRequest.period) &&
+        Objects.equals(this.periodUnit, servicePurchaseRscPreorderRequest.periodUnit) &&
+        Objects.equals(this.reservedCapacity, servicePurchaseRscPreorderRequest.reservedCapacity) &&
+        Objects.equals(this.reservedStorageCapacityName, servicePurchaseRscPreorderRequest.reservedStorageCapacityName) &&
+        Objects.equals(this.rscAutoRenew, servicePurchaseRscPreorderRequest.rscAutoRenew) &&
+        Objects.equals(this.volumeType, servicePurchaseRscPreorderRequest.volumeType) &&
+        Objects.equals(this.zoneId, servicePurchaseRscPreorderRequest.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, effectiveAt, period, periodUnit, rsCAutoRenew, reservedCapacity, reservedStorageCapacityName, volumeType, zoneId);
+    return Objects.hash(accountId, clientToken, effectiveAt, period, periodUnit, reservedCapacity, reservedStorageCapacityName, rscAutoRenew, volumeType, zoneId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PurchaseReservedStorageCapacityRequest {\n");
+    sb.append("class ServicePurchaseRscPreorderRequest {\n");
     
+    sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    effectiveAt: ").append(toIndentedString(effectiveAt)).append("\n");
     sb.append("    period: ").append(toIndentedString(period)).append("\n");
     sb.append("    periodUnit: ").append(toIndentedString(periodUnit)).append("\n");
-    sb.append("    rsCAutoRenew: ").append(toIndentedString(rsCAutoRenew)).append("\n");
     sb.append("    reservedCapacity: ").append(toIndentedString(reservedCapacity)).append("\n");
     sb.append("    reservedStorageCapacityName: ").append(toIndentedString(reservedStorageCapacityName)).append("\n");
+    sb.append("    rscAutoRenew: ").append(toIndentedString(rscAutoRenew)).append("\n");
     sb.append("    volumeType: ").append(toIndentedString(volumeType)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");

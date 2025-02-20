@@ -26,51 +26,22 @@ import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DescribeAutoSnapshotPolicyRequest
+ * DescribeSnapshotChainsRequest
  */
 
 
 
-public class DescribeAutoSnapshotPolicyRequest {
-  @SerializedName("AutoSnapshotPolicyIds")
-  private List<String> autoSnapshotPolicyIds = null;
-
+public class DescribeSnapshotChainsRequest {
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
 
   @SerializedName("PageSize")
   private Integer pageSize = null;
 
-  @SerializedName("ProjectName")
-  private String projectName = null;
+  @SerializedName("VolumeIds")
+  private List<String> volumeIds = null;
 
-  public DescribeAutoSnapshotPolicyRequest autoSnapshotPolicyIds(List<String> autoSnapshotPolicyIds) {
-    this.autoSnapshotPolicyIds = autoSnapshotPolicyIds;
-    return this;
-  }
-
-  public DescribeAutoSnapshotPolicyRequest addAutoSnapshotPolicyIdsItem(String autoSnapshotPolicyIdsItem) {
-    if (this.autoSnapshotPolicyIds == null) {
-      this.autoSnapshotPolicyIds = new ArrayList<String>();
-    }
-    this.autoSnapshotPolicyIds.add(autoSnapshotPolicyIdsItem);
-    return this;
-  }
-
-   /**
-   * Get autoSnapshotPolicyIds
-   * @return autoSnapshotPolicyIds
-  **/
-  @Schema(description = "")
-  public List<String> getAutoSnapshotPolicyIds() {
-    return autoSnapshotPolicyIds;
-  }
-
-  public void setAutoSnapshotPolicyIds(List<String> autoSnapshotPolicyIds) {
-    this.autoSnapshotPolicyIds = autoSnapshotPolicyIds;
-  }
-
-  public DescribeAutoSnapshotPolicyRequest pageNumber(Integer pageNumber) {
+  public DescribeSnapshotChainsRequest pageNumber(Integer pageNumber) {
     this.pageNumber = pageNumber;
     return this;
   }
@@ -88,17 +59,16 @@ public class DescribeAutoSnapshotPolicyRequest {
     this.pageNumber = pageNumber;
   }
 
-  public DescribeAutoSnapshotPolicyRequest pageSize(Integer pageSize) {
+  public DescribeSnapshotChainsRequest pageSize(Integer pageSize) {
     this.pageSize = pageSize;
     return this;
   }
 
    /**
    * Get pageSize
-   * maximum: 100
    * @return pageSize
   **/
- @Max(100)  @Schema(description = "")
+  @Schema(description = "")
   public Integer getPageSize() {
     return pageSize;
   }
@@ -107,22 +77,30 @@ public class DescribeAutoSnapshotPolicyRequest {
     this.pageSize = pageSize;
   }
 
-  public DescribeAutoSnapshotPolicyRequest projectName(String projectName) {
-    this.projectName = projectName;
+  public DescribeSnapshotChainsRequest volumeIds(List<String> volumeIds) {
+    this.volumeIds = volumeIds;
+    return this;
+  }
+
+  public DescribeSnapshotChainsRequest addVolumeIdsItem(String volumeIdsItem) {
+    if (this.volumeIds == null) {
+      this.volumeIds = new ArrayList<String>();
+    }
+    this.volumeIds.add(volumeIdsItem);
     return this;
   }
 
    /**
-   * Get projectName
-   * @return projectName
+   * Get volumeIds
+   * @return volumeIds
   **/
   @Schema(description = "")
-  public String getProjectName() {
-    return projectName;
+  public List<String> getVolumeIds() {
+    return volumeIds;
   }
 
-  public void setProjectName(String projectName) {
-    this.projectName = projectName;
+  public void setVolumeIds(List<String> volumeIds) {
+    this.volumeIds = volumeIds;
   }
 
 
@@ -134,28 +112,26 @@ public class DescribeAutoSnapshotPolicyRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DescribeAutoSnapshotPolicyRequest describeAutoSnapshotPolicyRequest = (DescribeAutoSnapshotPolicyRequest) o;
-    return Objects.equals(this.autoSnapshotPolicyIds, describeAutoSnapshotPolicyRequest.autoSnapshotPolicyIds) &&
-        Objects.equals(this.pageNumber, describeAutoSnapshotPolicyRequest.pageNumber) &&
-        Objects.equals(this.pageSize, describeAutoSnapshotPolicyRequest.pageSize) &&
-        Objects.equals(this.projectName, describeAutoSnapshotPolicyRequest.projectName);
+    DescribeSnapshotChainsRequest describeSnapshotChainsRequest = (DescribeSnapshotChainsRequest) o;
+    return Objects.equals(this.pageNumber, describeSnapshotChainsRequest.pageNumber) &&
+        Objects.equals(this.pageSize, describeSnapshotChainsRequest.pageSize) &&
+        Objects.equals(this.volumeIds, describeSnapshotChainsRequest.volumeIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoSnapshotPolicyIds, pageNumber, pageSize, projectName);
+    return Objects.hash(pageNumber, pageSize, volumeIds);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DescribeAutoSnapshotPolicyRequest {\n");
+    sb.append("class DescribeSnapshotChainsRequest {\n");
     
-    sb.append("    autoSnapshotPolicyIds: ").append(toIndentedString(autoSnapshotPolicyIds)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
-    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    volumeIds: ").append(toIndentedString(volumeIds)).append("\n");
     sb.append("}");
     return sb.toString();
   }
