@@ -19,13 +19,12 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.rocketmq.model.BindTagForCreateInstanceInput;
 import com.volcengine.rocketmq.model.ChargeInfoForCreateInstanceInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -37,6 +36,9 @@ import javax.validation.Valid;
 public class CreateInstanceRequest {
   @SerializedName("AllowListIds")
   private List<String> allowListIds = null;
+
+  @SerializedName("BindTags")
+  private List<BindTagForCreateInstanceInput> bindTags = null;
 
   @SerializedName("ChargeInfo")
   private ChargeInfoForCreateInstanceInput chargeInfo = null;
@@ -80,9 +82,6 @@ public class CreateInstanceRequest {
   @SerializedName("SubnetId")
   private String subnetId = null;
 
-  @SerializedName("Tags")
-  private Map<String, String> tags = null;
-
   @SerializedName("Version")
   private String version = null;
 
@@ -116,6 +115,33 @@ public class CreateInstanceRequest {
 
   public void setAllowListIds(List<String> allowListIds) {
     this.allowListIds = allowListIds;
+  }
+
+  public CreateInstanceRequest bindTags(List<BindTagForCreateInstanceInput> bindTags) {
+    this.bindTags = bindTags;
+    return this;
+  }
+
+  public CreateInstanceRequest addBindTagsItem(BindTagForCreateInstanceInput bindTagsItem) {
+    if (this.bindTags == null) {
+      this.bindTags = new ArrayList<BindTagForCreateInstanceInput>();
+    }
+    this.bindTags.add(bindTagsItem);
+    return this;
+  }
+
+   /**
+   * Get bindTags
+   * @return bindTags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<BindTagForCreateInstanceInput> getBindTags() {
+    return bindTags;
+  }
+
+  public void setBindTags(List<BindTagForCreateInstanceInput> bindTags) {
+    this.bindTags = bindTags;
   }
 
   public CreateInstanceRequest chargeInfo(ChargeInfoForCreateInstanceInput chargeInfo) {
@@ -376,32 +402,6 @@ public class CreateInstanceRequest {
     this.subnetId = subnetId;
   }
 
-  public CreateInstanceRequest tags(Map<String, String> tags) {
-    this.tags = tags;
-    return this;
-  }
-
-  public CreateInstanceRequest putTagsItem(String key, String tagsItem) {
-    if (this.tags == null) {
-      this.tags = new HashMap<String, String>();
-    }
-    this.tags.put(key, tagsItem);
-    return this;
-  }
-
-   /**
-   * Get tags
-   * @return tags
-  **/
-  @Schema(description = "")
-  public Map<String, String> getTags() {
-    return tags;
-  }
-
-  public void setTags(Map<String, String> tags) {
-    this.tags = tags;
-  }
-
   public CreateInstanceRequest version(String version) {
     this.version = version;
     return this;
@@ -470,6 +470,7 @@ public class CreateInstanceRequest {
     }
     CreateInstanceRequest createInstanceRequest = (CreateInstanceRequest) o;
     return Objects.equals(this.allowListIds, createInstanceRequest.allowListIds) &&
+        Objects.equals(this.bindTags, createInstanceRequest.bindTags) &&
         Objects.equals(this.chargeInfo, createInstanceRequest.chargeInfo) &&
         Objects.equals(this.clientToken, createInstanceRequest.clientToken) &&
         Objects.equals(this.computeSpec, createInstanceRequest.computeSpec) &&
@@ -484,7 +485,6 @@ public class CreateInstanceRequest {
         Objects.equals(this.ssLMode, createInstanceRequest.ssLMode) &&
         Objects.equals(this.storageSpace, createInstanceRequest.storageSpace) &&
         Objects.equals(this.subnetId, createInstanceRequest.subnetId) &&
-        Objects.equals(this.tags, createInstanceRequest.tags) &&
         Objects.equals(this.version, createInstanceRequest.version) &&
         Objects.equals(this.vpcId, createInstanceRequest.vpcId) &&
         Objects.equals(this.zoneId, createInstanceRequest.zoneId);
@@ -492,7 +492,7 @@ public class CreateInstanceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowListIds, chargeInfo, clientToken, computeSpec, eipId, enableSSL, fileReservedTime, ipVersionType, instanceDescription, instanceName, networkTypes, projectName, ssLMode, storageSpace, subnetId, tags, version, vpcId, zoneId);
+    return Objects.hash(allowListIds, bindTags, chargeInfo, clientToken, computeSpec, eipId, enableSSL, fileReservedTime, ipVersionType, instanceDescription, instanceName, networkTypes, projectName, ssLMode, storageSpace, subnetId, version, vpcId, zoneId);
   }
 
 
@@ -502,6 +502,7 @@ public class CreateInstanceRequest {
     sb.append("class CreateInstanceRequest {\n");
     
     sb.append("    allowListIds: ").append(toIndentedString(allowListIds)).append("\n");
+    sb.append("    bindTags: ").append(toIndentedString(bindTags)).append("\n");
     sb.append("    chargeInfo: ").append(toIndentedString(chargeInfo)).append("\n");
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    computeSpec: ").append(toIndentedString(computeSpec)).append("\n");
@@ -516,7 +517,6 @@ public class CreateInstanceRequest {
     sb.append("    ssLMode: ").append(toIndentedString(ssLMode)).append("\n");
     sb.append("    storageSpace: ").append(toIndentedString(storageSpace)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
