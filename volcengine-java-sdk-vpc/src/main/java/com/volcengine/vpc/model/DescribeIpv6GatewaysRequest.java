@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vpc.model.TagFilterForDescribeIpv6GatewaysInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -41,6 +44,12 @@ public class DescribeIpv6GatewaysRequest {
 
   @SerializedName("NextToken")
   private String nextToken = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
+  @SerializedName("TagFilters")
+  private List<TagFilterForDescribeIpv6GatewaysInput> tagFilters = null;
 
   @SerializedName("VpcIds")
   private String vpcIds = null;
@@ -117,6 +126,51 @@ public class DescribeIpv6GatewaysRequest {
     this.nextToken = nextToken;
   }
 
+  public DescribeIpv6GatewaysRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
+  public DescribeIpv6GatewaysRequest tagFilters(List<TagFilterForDescribeIpv6GatewaysInput> tagFilters) {
+    this.tagFilters = tagFilters;
+    return this;
+  }
+
+  public DescribeIpv6GatewaysRequest addTagFiltersItem(TagFilterForDescribeIpv6GatewaysInput tagFiltersItem) {
+    if (this.tagFilters == null) {
+      this.tagFilters = new ArrayList<TagFilterForDescribeIpv6GatewaysInput>();
+    }
+    this.tagFilters.add(tagFiltersItem);
+    return this;
+  }
+
+   /**
+   * Get tagFilters
+   * @return tagFilters
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagFilterForDescribeIpv6GatewaysInput> getTagFilters() {
+    return tagFilters;
+  }
+
+  public void setTagFilters(List<TagFilterForDescribeIpv6GatewaysInput> tagFilters) {
+    this.tagFilters = tagFilters;
+  }
+
   public DescribeIpv6GatewaysRequest vpcIds(String vpcIds) {
     this.vpcIds = vpcIds;
     return this;
@@ -149,12 +203,14 @@ public class DescribeIpv6GatewaysRequest {
         Objects.equals(this.maxResults, describeIpv6GatewaysRequest.maxResults) &&
         Objects.equals(this.name, describeIpv6GatewaysRequest.name) &&
         Objects.equals(this.nextToken, describeIpv6GatewaysRequest.nextToken) &&
+        Objects.equals(this.projectName, describeIpv6GatewaysRequest.projectName) &&
+        Objects.equals(this.tagFilters, describeIpv6GatewaysRequest.tagFilters) &&
         Objects.equals(this.vpcIds, describeIpv6GatewaysRequest.vpcIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ipv6GatewayIds, maxResults, name, nextToken, vpcIds);
+    return Objects.hash(ipv6GatewayIds, maxResults, name, nextToken, projectName, tagFilters, vpcIds);
   }
 
 
@@ -167,6 +223,8 @@ public class DescribeIpv6GatewaysRequest {
     sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("    vpcIds: ").append(toIndentedString(vpcIds)).append("\n");
     sb.append("}");
     return sb.toString();

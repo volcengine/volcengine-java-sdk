@@ -123,6 +123,8 @@ public class DescribeBandwidthPackagesRequest {
   public enum ProtocolEnum {
     @SerializedName("IPv4")
     IPV4("IPv4"),
+    @SerializedName("Dual-stack")
+    DUAL_STACK("Dual-stack"),
     @SerializedName("IPv6")
     IPV6("IPv6");
 

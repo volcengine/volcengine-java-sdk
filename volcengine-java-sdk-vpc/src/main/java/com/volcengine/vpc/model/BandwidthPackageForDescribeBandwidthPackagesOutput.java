@@ -76,6 +76,9 @@ public class BandwidthPackageForDescribeBandwidthPackagesOutput {
   @SerializedName("Protocol")
   private String protocol = null;
 
+  @SerializedName("Ratio")
+  private Integer ratio = null;
+
   @SerializedName("SecurityProtectionTypes")
   private List<String> securityProtectionTypes = null;
 
@@ -349,6 +352,24 @@ public class BandwidthPackageForDescribeBandwidthPackagesOutput {
     this.protocol = protocol;
   }
 
+  public BandwidthPackageForDescribeBandwidthPackagesOutput ratio(Integer ratio) {
+    this.ratio = ratio;
+    return this;
+  }
+
+   /**
+   * Get ratio
+   * @return ratio
+  **/
+  @Schema(description = "")
+  public Integer getRatio() {
+    return ratio;
+  }
+
+  public void setRatio(Integer ratio) {
+    this.ratio = ratio;
+  }
+
   public BandwidthPackageForDescribeBandwidthPackagesOutput securityProtectionTypes(List<String> securityProtectionTypes) {
     this.securityProtectionTypes = securityProtectionTypes;
     return this;
@@ -462,6 +483,7 @@ public class BandwidthPackageForDescribeBandwidthPackagesOutput {
         Objects.equals(this.overdueTime, bandwidthPackageForDescribeBandwidthPackagesOutput.overdueTime) &&
         Objects.equals(this.projectName, bandwidthPackageForDescribeBandwidthPackagesOutput.projectName) &&
         Objects.equals(this.protocol, bandwidthPackageForDescribeBandwidthPackagesOutput.protocol) &&
+        Objects.equals(this.ratio, bandwidthPackageForDescribeBandwidthPackagesOutput.ratio) &&
         Objects.equals(this.securityProtectionTypes, bandwidthPackageForDescribeBandwidthPackagesOutput.securityProtectionTypes) &&
         Objects.equals(this.status, bandwidthPackageForDescribeBandwidthPackagesOutput.status) &&
         Objects.equals(this.tags, bandwidthPackageForDescribeBandwidthPackagesOutput.tags) &&
@@ -470,7 +492,7 @@ public class BandwidthPackageForDescribeBandwidthPackagesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidth, bandwidthPackageId, bandwidthPackageName, billingType, businessStatus, creationTime, deletedTime, description, eipAddresses, expiredTime, ISP, overdueTime, projectName, protocol, securityProtectionTypes, status, tags, updateTime);
+    return Objects.hash(bandwidth, bandwidthPackageId, bandwidthPackageName, billingType, businessStatus, creationTime, deletedTime, description, eipAddresses, expiredTime, ISP, overdueTime, projectName, protocol, ratio, securityProtectionTypes, status, tags, updateTime);
   }
 
 
@@ -493,6 +515,7 @@ public class BandwidthPackageForDescribeBandwidthPackagesOutput {
     sb.append("    overdueTime: ").append(toIndentedString(overdueTime)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
+    sb.append("    ratio: ").append(toIndentedString(ratio)).append("\n");
     sb.append("    securityProtectionTypes: ").append(toIndentedString(securityProtectionTypes)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
