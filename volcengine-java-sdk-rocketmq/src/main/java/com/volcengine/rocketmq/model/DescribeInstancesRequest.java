@@ -19,11 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.rocketmq.model.TagFilterForDescribeInstancesInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -63,8 +63,8 @@ public class DescribeInstancesRequest {
   @SerializedName("Spec")
   private String spec = null;
 
-  @SerializedName("Tags")
-  private Map<String, List<String>> tags = null;
+  @SerializedName("TagFilters")
+  private List<TagFilterForDescribeInstancesInput> tagFilters = null;
 
   @SerializedName("Version")
   private String version = null;
@@ -257,31 +257,31 @@ public class DescribeInstancesRequest {
     this.spec = spec;
   }
 
-  public DescribeInstancesRequest tags(Map<String, List<String>> tags) {
-    this.tags = tags;
+  public DescribeInstancesRequest tagFilters(List<TagFilterForDescribeInstancesInput> tagFilters) {
+    this.tagFilters = tagFilters;
     return this;
   }
 
-  public DescribeInstancesRequest putTagsItem(String key, List<String> tagsItem) {
-    if (this.tags == null) {
-      this.tags = new HashMap<String, List<String>>();
+  public DescribeInstancesRequest addTagFiltersItem(TagFilterForDescribeInstancesInput tagFiltersItem) {
+    if (this.tagFilters == null) {
+      this.tagFilters = new ArrayList<TagFilterForDescribeInstancesInput>();
     }
-    this.tags.put(key, tagsItem);
+    this.tagFilters.add(tagFiltersItem);
     return this;
   }
 
    /**
-   * Get tags
-   * @return tags
+   * Get tagFilters
+   * @return tagFilters
   **/
   @Valid
   @Schema(description = "")
-  public Map<String, List<String>> getTags() {
-    return tags;
+  public List<TagFilterForDescribeInstancesInput> getTagFilters() {
+    return tagFilters;
   }
 
-  public void setTags(Map<String, List<String>> tags) {
-    this.tags = tags;
+  public void setTagFilters(List<TagFilterForDescribeInstancesInput> tagFilters) {
+    this.tagFilters = tagFilters;
   }
 
   public DescribeInstancesRequest version(String version) {
@@ -358,7 +358,7 @@ public class DescribeInstancesRequest {
         Objects.equals(this.sortBy, describeInstancesRequest.sortBy) &&
         Objects.equals(this.sortOrder, describeInstancesRequest.sortOrder) &&
         Objects.equals(this.spec, describeInstancesRequest.spec) &&
-        Objects.equals(this.tags, describeInstancesRequest.tags) &&
+        Objects.equals(this.tagFilters, describeInstancesRequest.tagFilters) &&
         Objects.equals(this.version, describeInstancesRequest.version) &&
         Objects.equals(this.vpcId, describeInstancesRequest.vpcId) &&
         Objects.equals(this.zoneId, describeInstancesRequest.zoneId);
@@ -366,7 +366,7 @@ public class DescribeInstancesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(chargeType, instanceId, instanceName, instanceStatus, pageNumber, pageSize, projectName, sortBy, sortOrder, spec, tags, version, vpcId, zoneId);
+    return Objects.hash(chargeType, instanceId, instanceName, instanceStatus, pageNumber, pageSize, projectName, sortBy, sortOrder, spec, tagFilters, version, vpcId, zoneId);
   }
 
 
@@ -385,7 +385,7 @@ public class DescribeInstancesRequest {
     sb.append("    sortBy: ").append(toIndentedString(sortBy)).append("\n");
     sb.append("    sortOrder: ").append(toIndentedString(sortOrder)).append("\n");
     sb.append("    spec: ").append(toIndentedString(spec)).append("\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
