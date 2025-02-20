@@ -45,6 +45,12 @@ public class ModifyListenerAttributesRequest {
   @SerializedName("Bandwidth")
   private Integer bandwidth = null;
 
+  @SerializedName("CACertificateId")
+  private String caCertificateId = null;
+
+  @SerializedName("CAEnabled")
+  private String caEnabled = null;
+
   @SerializedName("CertCenterCertificateId")
   private String certCenterCertificateId = null;
 
@@ -201,6 +207,42 @@ public class ModifyListenerAttributesRequest {
 
   public void setBandwidth(Integer bandwidth) {
     this.bandwidth = bandwidth;
+  }
+
+  public ModifyListenerAttributesRequest caCertificateId(String caCertificateId) {
+    this.caCertificateId = caCertificateId;
+    return this;
+  }
+
+   /**
+   * Get caCertificateId
+   * @return caCertificateId
+  **/
+  @Schema(description = "")
+  public String getCaCertificateId() {
+    return caCertificateId;
+  }
+
+  public void setCaCertificateId(String caCertificateId) {
+    this.caCertificateId = caCertificateId;
+  }
+
+  public ModifyListenerAttributesRequest caEnabled(String caEnabled) {
+    this.caEnabled = caEnabled;
+    return this;
+  }
+
+   /**
+   * Get caEnabled
+   * @return caEnabled
+  **/
+  @Schema(description = "")
+  public String getCaEnabled() {
+    return caEnabled;
+  }
+
+  public void setCaEnabled(String caEnabled) {
+    this.caEnabled = caEnabled;
   }
 
   public ModifyListenerAttributesRequest certCenterCertificateId(String certCenterCertificateId) {
@@ -687,6 +729,8 @@ public class ModifyListenerAttributesRequest {
         Objects.equals(this.aclStatus, modifyListenerAttributesRequest.aclStatus) &&
         Objects.equals(this.aclType, modifyListenerAttributesRequest.aclType) &&
         Objects.equals(this.bandwidth, modifyListenerAttributesRequest.bandwidth) &&
+        Objects.equals(this.caCertificateId, modifyListenerAttributesRequest.caCertificateId) &&
+        Objects.equals(this.caEnabled, modifyListenerAttributesRequest.caEnabled) &&
         Objects.equals(this.certCenterCertificateId, modifyListenerAttributesRequest.certCenterCertificateId) &&
         Objects.equals(this.certificateId, modifyListenerAttributesRequest.certificateId) &&
         Objects.equals(this.certificateSource, modifyListenerAttributesRequest.certificateSource) &&
@@ -717,7 +761,7 @@ public class ModifyListenerAttributesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclIds, aclStatus, aclType, bandwidth, certCenterCertificateId, certificateId, certificateSource, clientBodyTimeout, clientHeaderTimeout, connectionDrainEnabled, connectionDrainTimeout, cookie, description, enabled, establishedTimeout, healthCheck, http2Enabled, keepaliveTimeout, listenerId, listenerName, persistenceTimeout, persistenceType, proxyConnectTimeout, proxyProtocolType, proxyReadTimeout, proxySendTimeout, scheduler, securityPolicyId, sendTimeout, serverGroupId);
+    return Objects.hash(aclIds, aclStatus, aclType, bandwidth, caCertificateId, caEnabled, certCenterCertificateId, certificateId, certificateSource, clientBodyTimeout, clientHeaderTimeout, connectionDrainEnabled, connectionDrainTimeout, cookie, description, enabled, establishedTimeout, healthCheck, http2Enabled, keepaliveTimeout, listenerId, listenerName, persistenceTimeout, persistenceType, proxyConnectTimeout, proxyProtocolType, proxyReadTimeout, proxySendTimeout, scheduler, securityPolicyId, sendTimeout, serverGroupId);
   }
 
 
@@ -730,6 +774,8 @@ public class ModifyListenerAttributesRequest {
     sb.append("    aclStatus: ").append(toIndentedString(aclStatus)).append("\n");
     sb.append("    aclType: ").append(toIndentedString(aclType)).append("\n");
     sb.append("    bandwidth: ").append(toIndentedString(bandwidth)).append("\n");
+    sb.append("    caCertificateId: ").append(toIndentedString(caCertificateId)).append("\n");
+    sb.append("    caEnabled: ").append(toIndentedString(caEnabled)).append("\n");
     sb.append("    certCenterCertificateId: ").append(toIndentedString(certCenterCertificateId)).append("\n");
     sb.append("    certificateId: ").append(toIndentedString(certificateId)).append("\n");
     sb.append("    certificateSource: ").append(toIndentedString(certificateSource)).append("\n");

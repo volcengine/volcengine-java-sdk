@@ -46,6 +46,12 @@ public class ListenerForDescribeListenersOutput {
   @SerializedName("Bandwidth")
   private Integer bandwidth = null;
 
+  @SerializedName("CACertificateId")
+  private String caCertificateId = null;
+
+  @SerializedName("CAEnabled")
+  private String caEnabled = null;
+
   @SerializedName("CertCenterCertificateId")
   private String certCenterCertificateId = null;
 
@@ -148,6 +154,9 @@ public class ListenerForDescribeListenersOutput {
   @SerializedName("UpdateTime")
   private String updateTime = null;
 
+  @SerializedName("WafProtectionEnabled")
+  private String wafProtectionEnabled = null;
+
   public ListenerForDescribeListenersOutput aclIds(List<String> aclIds) {
     this.aclIds = aclIds;
     return this;
@@ -226,6 +235,42 @@ public class ListenerForDescribeListenersOutput {
 
   public void setBandwidth(Integer bandwidth) {
     this.bandwidth = bandwidth;
+  }
+
+  public ListenerForDescribeListenersOutput caCertificateId(String caCertificateId) {
+    this.caCertificateId = caCertificateId;
+    return this;
+  }
+
+   /**
+   * Get caCertificateId
+   * @return caCertificateId
+  **/
+  @Schema(description = "")
+  public String getCaCertificateId() {
+    return caCertificateId;
+  }
+
+  public void setCaCertificateId(String caCertificateId) {
+    this.caCertificateId = caCertificateId;
+  }
+
+  public ListenerForDescribeListenersOutput caEnabled(String caEnabled) {
+    this.caEnabled = caEnabled;
+    return this;
+  }
+
+   /**
+   * Get caEnabled
+   * @return caEnabled
+  **/
+  @Schema(description = "")
+  public String getCaEnabled() {
+    return caEnabled;
+  }
+
+  public void setCaEnabled(String caEnabled) {
+    this.caEnabled = caEnabled;
   }
 
   public ListenerForDescribeListenersOutput certCenterCertificateId(String certCenterCertificateId) {
@@ -850,6 +895,24 @@ public class ListenerForDescribeListenersOutput {
     this.updateTime = updateTime;
   }
 
+  public ListenerForDescribeListenersOutput wafProtectionEnabled(String wafProtectionEnabled) {
+    this.wafProtectionEnabled = wafProtectionEnabled;
+    return this;
+  }
+
+   /**
+   * Get wafProtectionEnabled
+   * @return wafProtectionEnabled
+  **/
+  @Schema(description = "")
+  public String getWafProtectionEnabled() {
+    return wafProtectionEnabled;
+  }
+
+  public void setWafProtectionEnabled(String wafProtectionEnabled) {
+    this.wafProtectionEnabled = wafProtectionEnabled;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -864,6 +927,8 @@ public class ListenerForDescribeListenersOutput {
         Objects.equals(this.aclStatus, listenerForDescribeListenersOutput.aclStatus) &&
         Objects.equals(this.aclType, listenerForDescribeListenersOutput.aclType) &&
         Objects.equals(this.bandwidth, listenerForDescribeListenersOutput.bandwidth) &&
+        Objects.equals(this.caCertificateId, listenerForDescribeListenersOutput.caCertificateId) &&
+        Objects.equals(this.caEnabled, listenerForDescribeListenersOutput.caEnabled) &&
         Objects.equals(this.certCenterCertificateId, listenerForDescribeListenersOutput.certCenterCertificateId) &&
         Objects.equals(this.certificateId, listenerForDescribeListenersOutput.certificateId) &&
         Objects.equals(this.certificateSource, listenerForDescribeListenersOutput.certificateSource) &&
@@ -897,12 +962,13 @@ public class ListenerForDescribeListenersOutput {
         Objects.equals(this.startPort, listenerForDescribeListenersOutput.startPort) &&
         Objects.equals(this.status, listenerForDescribeListenersOutput.status) &&
         Objects.equals(this.tags, listenerForDescribeListenersOutput.tags) &&
-        Objects.equals(this.updateTime, listenerForDescribeListenersOutput.updateTime);
+        Objects.equals(this.updateTime, listenerForDescribeListenersOutput.updateTime) &&
+        Objects.equals(this.wafProtectionEnabled, listenerForDescribeListenersOutput.wafProtectionEnabled);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclIds, aclStatus, aclType, bandwidth, certCenterCertificateId, certificateId, certificateSource, clientBodyTimeout, clientHeaderTimeout, connectionDrainEnabled, connectionDrainTimeout, cookie, createTime, description, enabled, endPort, healthCheck, http2Enabled, keepaliveTimeout, listenerId, listenerName, persistenceTimeout, persistenceType, port, protocol, proxyConnectTimeout, proxyProtocolType, proxyReadTimeout, proxySendTimeout, responseCheckEnabled, scheduler, securityPolicyId, sendTimeout, serverGroupId, startPort, status, tags, updateTime);
+    return Objects.hash(aclIds, aclStatus, aclType, bandwidth, caCertificateId, caEnabled, certCenterCertificateId, certificateId, certificateSource, clientBodyTimeout, clientHeaderTimeout, connectionDrainEnabled, connectionDrainTimeout, cookie, createTime, description, enabled, endPort, healthCheck, http2Enabled, keepaliveTimeout, listenerId, listenerName, persistenceTimeout, persistenceType, port, protocol, proxyConnectTimeout, proxyProtocolType, proxyReadTimeout, proxySendTimeout, responseCheckEnabled, scheduler, securityPolicyId, sendTimeout, serverGroupId, startPort, status, tags, updateTime, wafProtectionEnabled);
   }
 
 
@@ -915,6 +981,8 @@ public class ListenerForDescribeListenersOutput {
     sb.append("    aclStatus: ").append(toIndentedString(aclStatus)).append("\n");
     sb.append("    aclType: ").append(toIndentedString(aclType)).append("\n");
     sb.append("    bandwidth: ").append(toIndentedString(bandwidth)).append("\n");
+    sb.append("    caCertificateId: ").append(toIndentedString(caCertificateId)).append("\n");
+    sb.append("    caEnabled: ").append(toIndentedString(caEnabled)).append("\n");
     sb.append("    certCenterCertificateId: ").append(toIndentedString(certCenterCertificateId)).append("\n");
     sb.append("    certificateId: ").append(toIndentedString(certificateId)).append("\n");
     sb.append("    certificateSource: ").append(toIndentedString(certificateSource)).append("\n");
@@ -949,6 +1017,7 @@ public class ListenerForDescribeListenersOutput {
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
+    sb.append("    wafProtectionEnabled: ").append(toIndentedString(wafProtectionEnabled)).append("\n");
     sb.append("}");
     return sb.toString();
   }

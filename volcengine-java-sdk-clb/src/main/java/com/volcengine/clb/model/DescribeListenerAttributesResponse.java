@@ -46,6 +46,12 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
   @SerializedName("Bandwidth")
   private Integer bandwidth = null;
 
+  @SerializedName("CACertificateId")
+  private String caCertificateId = null;
+
+  @SerializedName("CAEnabled")
+  private String caEnabled = null;
+
   @SerializedName("CertCenterCertificateId")
   private String certCenterCertificateId = null;
 
@@ -157,6 +163,9 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
   @SerializedName("UpdateTime")
   private String updateTime = null;
 
+  @SerializedName("WafProtectionEnabled")
+  private String wafProtectionEnabled = null;
+
   public DescribeListenerAttributesResponse aclIds(List<String> aclIds) {
     this.aclIds = aclIds;
     return this;
@@ -235,6 +244,42 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
 
   public void setBandwidth(Integer bandwidth) {
     this.bandwidth = bandwidth;
+  }
+
+  public DescribeListenerAttributesResponse caCertificateId(String caCertificateId) {
+    this.caCertificateId = caCertificateId;
+    return this;
+  }
+
+   /**
+   * Get caCertificateId
+   * @return caCertificateId
+  **/
+  @Schema(description = "")
+  public String getCaCertificateId() {
+    return caCertificateId;
+  }
+
+  public void setCaCertificateId(String caCertificateId) {
+    this.caCertificateId = caCertificateId;
+  }
+
+  public DescribeListenerAttributesResponse caEnabled(String caEnabled) {
+    this.caEnabled = caEnabled;
+    return this;
+  }
+
+   /**
+   * Get caEnabled
+   * @return caEnabled
+  **/
+  @Schema(description = "")
+  public String getCaEnabled() {
+    return caEnabled;
+  }
+
+  public void setCaEnabled(String caEnabled) {
+    this.caEnabled = caEnabled;
   }
 
   public DescribeListenerAttributesResponse certCenterCertificateId(String certCenterCertificateId) {
@@ -913,6 +958,24 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
     this.updateTime = updateTime;
   }
 
+  public DescribeListenerAttributesResponse wafProtectionEnabled(String wafProtectionEnabled) {
+    this.wafProtectionEnabled = wafProtectionEnabled;
+    return this;
+  }
+
+   /**
+   * Get wafProtectionEnabled
+   * @return wafProtectionEnabled
+  **/
+  @Schema(description = "")
+  public String getWafProtectionEnabled() {
+    return wafProtectionEnabled;
+  }
+
+  public void setWafProtectionEnabled(String wafProtectionEnabled) {
+    this.wafProtectionEnabled = wafProtectionEnabled;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -927,6 +990,8 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
         Objects.equals(this.aclStatus, describeListenerAttributesResponse.aclStatus) &&
         Objects.equals(this.aclType, describeListenerAttributesResponse.aclType) &&
         Objects.equals(this.bandwidth, describeListenerAttributesResponse.bandwidth) &&
+        Objects.equals(this.caCertificateId, describeListenerAttributesResponse.caCertificateId) &&
+        Objects.equals(this.caEnabled, describeListenerAttributesResponse.caEnabled) &&
         Objects.equals(this.certCenterCertificateId, describeListenerAttributesResponse.certCenterCertificateId) &&
         Objects.equals(this.certificateId, describeListenerAttributesResponse.certificateId) &&
         Objects.equals(this.certificateSource, describeListenerAttributesResponse.certificateSource) &&
@@ -963,12 +1028,13 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
         Objects.equals(this.startPort, describeListenerAttributesResponse.startPort) &&
         Objects.equals(this.status, describeListenerAttributesResponse.status) &&
         Objects.equals(this.tags, describeListenerAttributesResponse.tags) &&
-        Objects.equals(this.updateTime, describeListenerAttributesResponse.updateTime);
+        Objects.equals(this.updateTime, describeListenerAttributesResponse.updateTime) &&
+        Objects.equals(this.wafProtectionEnabled, describeListenerAttributesResponse.wafProtectionEnabled);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclIds, aclStatus, aclType, bandwidth, certCenterCertificateId, certificateId, certificateSource, clientBodyTimeout, clientHeaderTimeout, connectionDrainEnabled, connectionDrainTimeout, cookie, createTime, description, enabled, endPort, establishedTimeout, healthCheck, http2Enabled, keepaliveTimeout, listenerId, listenerName, loadBalancerId, persistenceTimeout, persistenceType, port, protocol, proxyConnectTimeout, proxyProtocolType, proxyReadTimeout, proxySendTimeout, requestId, responseCheckEnabled, scheduler, securityPolicyId, sendTimeout, serverGroupId, startPort, status, tags, updateTime);
+    return Objects.hash(aclIds, aclStatus, aclType, bandwidth, caCertificateId, caEnabled, certCenterCertificateId, certificateId, certificateSource, clientBodyTimeout, clientHeaderTimeout, connectionDrainEnabled, connectionDrainTimeout, cookie, createTime, description, enabled, endPort, establishedTimeout, healthCheck, http2Enabled, keepaliveTimeout, listenerId, listenerName, loadBalancerId, persistenceTimeout, persistenceType, port, protocol, proxyConnectTimeout, proxyProtocolType, proxyReadTimeout, proxySendTimeout, requestId, responseCheckEnabled, scheduler, securityPolicyId, sendTimeout, serverGroupId, startPort, status, tags, updateTime, wafProtectionEnabled);
   }
 
 
@@ -981,6 +1047,8 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
     sb.append("    aclStatus: ").append(toIndentedString(aclStatus)).append("\n");
     sb.append("    aclType: ").append(toIndentedString(aclType)).append("\n");
     sb.append("    bandwidth: ").append(toIndentedString(bandwidth)).append("\n");
+    sb.append("    caCertificateId: ").append(toIndentedString(caCertificateId)).append("\n");
+    sb.append("    caEnabled: ").append(toIndentedString(caEnabled)).append("\n");
     sb.append("    certCenterCertificateId: ").append(toIndentedString(certCenterCertificateId)).append("\n");
     sb.append("    certificateId: ").append(toIndentedString(certificateId)).append("\n");
     sb.append("    certificateSource: ").append(toIndentedString(certificateSource)).append("\n");
@@ -1018,6 +1086,7 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
+    sb.append("    wafProtectionEnabled: ").append(toIndentedString(wafProtectionEnabled)).append("\n");
     sb.append("}");
     return sb.toString();
   }

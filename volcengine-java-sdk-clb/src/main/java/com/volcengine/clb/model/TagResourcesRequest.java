@@ -50,7 +50,11 @@ public class TagResourcesRequest {
     @SerializedName("listener")
     LISTENER("listener"),
     @SerializedName("servergroup")
-    SERVERGROUP("servergroup");
+    SERVERGROUP("servergroup"),
+    @SerializedName("rule")
+    RULE("rule"),
+    @SerializedName("ec")
+    EC("ec");
 
     private String value;
 
