@@ -20,8 +20,11 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.clb.model.RedirectConfigForDescribeRulesOutput;
+import com.volcengine.clb.model.TagForDescribeRulesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -48,6 +51,9 @@ public class RuleForDescribeRulesOutput {
 
   @SerializedName("ServerGroupId")
   private String serverGroupId = null;
+
+  @SerializedName("Tags")
+  private List<TagForDescribeRulesOutput> tags = null;
 
   @SerializedName("Url")
   private String url = null;
@@ -161,6 +167,33 @@ public class RuleForDescribeRulesOutput {
     this.serverGroupId = serverGroupId;
   }
 
+  public RuleForDescribeRulesOutput tags(List<TagForDescribeRulesOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public RuleForDescribeRulesOutput addTagsItem(TagForDescribeRulesOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForDescribeRulesOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForDescribeRulesOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForDescribeRulesOutput> tags) {
+    this.tags = tags;
+  }
+
   public RuleForDescribeRulesOutput url(String url) {
     this.url = url;
     return this;
@@ -195,12 +228,13 @@ public class RuleForDescribeRulesOutput {
         Objects.equals(this.redirectConfig, ruleForDescribeRulesOutput.redirectConfig) &&
         Objects.equals(this.ruleId, ruleForDescribeRulesOutput.ruleId) &&
         Objects.equals(this.serverGroupId, ruleForDescribeRulesOutput.serverGroupId) &&
+        Objects.equals(this.tags, ruleForDescribeRulesOutput.tags) &&
         Objects.equals(this.url, ruleForDescribeRulesOutput.url);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(actionType, description, domain, redirectConfig, ruleId, serverGroupId, url);
+    return Objects.hash(actionType, description, domain, redirectConfig, ruleId, serverGroupId, tags, url);
   }
 
 
@@ -215,6 +249,7 @@ public class RuleForDescribeRulesOutput {
     sb.append("    redirectConfig: ").append(toIndentedString(redirectConfig)).append("\n");
     sb.append("    ruleId: ").append(toIndentedString(ruleId)).append("\n");
     sb.append("    serverGroupId: ").append(toIndentedString(serverGroupId)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -36,6 +36,15 @@ public class CreateAutoSnapshotPolicyRequest {
   @SerializedName("AutoSnapshotPolicyName")
   private String autoSnapshotPolicyName = null;
 
+  @SerializedName("DestinationRegion")
+  private String destinationRegion = null;
+
+  @SerializedName("DestinationRetentionDays")
+  private Integer destinationRetentionDays = null;
+
+  @SerializedName("EnableCopy")
+  private Boolean enableCopy = null;
+
   @SerializedName("ProjectName")
   private String projectName = null;
 
@@ -71,6 +80,62 @@ public class CreateAutoSnapshotPolicyRequest {
 
   public void setAutoSnapshotPolicyName(String autoSnapshotPolicyName) {
     this.autoSnapshotPolicyName = autoSnapshotPolicyName;
+  }
+
+  public CreateAutoSnapshotPolicyRequest destinationRegion(String destinationRegion) {
+    this.destinationRegion = destinationRegion;
+    return this;
+  }
+
+   /**
+   * Get destinationRegion
+   * @return destinationRegion
+  **/
+  @Schema(description = "")
+  public String getDestinationRegion() {
+    return destinationRegion;
+  }
+
+  public void setDestinationRegion(String destinationRegion) {
+    this.destinationRegion = destinationRegion;
+  }
+
+  public CreateAutoSnapshotPolicyRequest destinationRetentionDays(Integer destinationRetentionDays) {
+    this.destinationRetentionDays = destinationRetentionDays;
+    return this;
+  }
+
+   /**
+   * Get destinationRetentionDays
+   * minimum: -1
+   * maximum: 65536
+   * @return destinationRetentionDays
+  **/
+ @Min(-1) @Max(65536)  @Schema(description = "")
+  public Integer getDestinationRetentionDays() {
+    return destinationRetentionDays;
+  }
+
+  public void setDestinationRetentionDays(Integer destinationRetentionDays) {
+    this.destinationRetentionDays = destinationRetentionDays;
+  }
+
+  public CreateAutoSnapshotPolicyRequest enableCopy(Boolean enableCopy) {
+    this.enableCopy = enableCopy;
+    return this;
+  }
+
+   /**
+   * Get enableCopy
+   * @return enableCopy
+  **/
+  @Schema(description = "")
+  public Boolean isEnableCopy() {
+    return enableCopy;
+  }
+
+  public void setEnableCopy(Boolean enableCopy) {
+    this.enableCopy = enableCopy;
   }
 
   public CreateAutoSnapshotPolicyRequest projectName(String projectName) {
@@ -218,6 +283,9 @@ public class CreateAutoSnapshotPolicyRequest {
     }
     CreateAutoSnapshotPolicyRequest createAutoSnapshotPolicyRequest = (CreateAutoSnapshotPolicyRequest) o;
     return Objects.equals(this.autoSnapshotPolicyName, createAutoSnapshotPolicyRequest.autoSnapshotPolicyName) &&
+        Objects.equals(this.destinationRegion, createAutoSnapshotPolicyRequest.destinationRegion) &&
+        Objects.equals(this.destinationRetentionDays, createAutoSnapshotPolicyRequest.destinationRetentionDays) &&
+        Objects.equals(this.enableCopy, createAutoSnapshotPolicyRequest.enableCopy) &&
         Objects.equals(this.projectName, createAutoSnapshotPolicyRequest.projectName) &&
         Objects.equals(this.repeatDays, createAutoSnapshotPolicyRequest.repeatDays) &&
         Objects.equals(this.repeatWeekdays, createAutoSnapshotPolicyRequest.repeatWeekdays) &&
@@ -228,7 +296,7 @@ public class CreateAutoSnapshotPolicyRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoSnapshotPolicyName, projectName, repeatDays, repeatWeekdays, retentionDays, tags, timePoints);
+    return Objects.hash(autoSnapshotPolicyName, destinationRegion, destinationRetentionDays, enableCopy, projectName, repeatDays, repeatWeekdays, retentionDays, tags, timePoints);
   }
 
 
@@ -238,6 +306,9 @@ public class CreateAutoSnapshotPolicyRequest {
     sb.append("class CreateAutoSnapshotPolicyRequest {\n");
     
     sb.append("    autoSnapshotPolicyName: ").append(toIndentedString(autoSnapshotPolicyName)).append("\n");
+    sb.append("    destinationRegion: ").append(toIndentedString(destinationRegion)).append("\n");
+    sb.append("    destinationRetentionDays: ").append(toIndentedString(destinationRetentionDays)).append("\n");
+    sb.append("    enableCopy: ").append(toIndentedString(enableCopy)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    repeatDays: ").append(toIndentedString(repeatDays)).append("\n");
     sb.append("    repeatWeekdays: ").append(toIndentedString(repeatWeekdays)).append("\n");

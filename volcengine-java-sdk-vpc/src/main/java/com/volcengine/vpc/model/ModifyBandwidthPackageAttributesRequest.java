@@ -39,6 +39,9 @@ public class ModifyBandwidthPackageAttributesRequest {
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("EnableDualStack")
+  private Boolean enableDualStack = null;
+
   public ModifyBandwidthPackageAttributesRequest bandwidthPackageId(String bandwidthPackageId) {
     this.bandwidthPackageId = bandwidthPackageId;
     return this;
@@ -94,6 +97,24 @@ public class ModifyBandwidthPackageAttributesRequest {
     this.description = description;
   }
 
+  public ModifyBandwidthPackageAttributesRequest enableDualStack(Boolean enableDualStack) {
+    this.enableDualStack = enableDualStack;
+    return this;
+  }
+
+   /**
+   * Get enableDualStack
+   * @return enableDualStack
+  **/
+  @Schema(description = "")
+  public Boolean isEnableDualStack() {
+    return enableDualStack;
+  }
+
+  public void setEnableDualStack(Boolean enableDualStack) {
+    this.enableDualStack = enableDualStack;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -106,12 +127,13 @@ public class ModifyBandwidthPackageAttributesRequest {
     ModifyBandwidthPackageAttributesRequest modifyBandwidthPackageAttributesRequest = (ModifyBandwidthPackageAttributesRequest) o;
     return Objects.equals(this.bandwidthPackageId, modifyBandwidthPackageAttributesRequest.bandwidthPackageId) &&
         Objects.equals(this.bandwidthPackageName, modifyBandwidthPackageAttributesRequest.bandwidthPackageName) &&
-        Objects.equals(this.description, modifyBandwidthPackageAttributesRequest.description);
+        Objects.equals(this.description, modifyBandwidthPackageAttributesRequest.description) &&
+        Objects.equals(this.enableDualStack, modifyBandwidthPackageAttributesRequest.enableDualStack);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bandwidthPackageId, bandwidthPackageName, description);
+    return Objects.hash(bandwidthPackageId, bandwidthPackageName, description, enableDualStack);
   }
 
 
@@ -123,6 +145,7 @@ public class ModifyBandwidthPackageAttributesRequest {
     sb.append("    bandwidthPackageId: ").append(toIndentedString(bandwidthPackageId)).append("\n");
     sb.append("    bandwidthPackageName: ").append(toIndentedString(bandwidthPackageName)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    enableDualStack: ").append(toIndentedString(enableDualStack)).append("\n");
     sb.append("}");
     return sb.toString();
   }

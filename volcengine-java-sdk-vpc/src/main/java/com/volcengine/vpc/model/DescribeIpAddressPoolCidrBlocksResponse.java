@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.vpc.model.IpAddressPooCidrBlockForDescribeIpAddressPoolCidrBlocksOutput;
+import com.volcengine.vpc.model.IpAddressPoolCidrBlockForDescribeIpAddressPoolCidrBlocksOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -33,8 +33,8 @@ import javax.validation.Valid;
 
 
 public class DescribeIpAddressPoolCidrBlocksResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("IpAddressPooCidrBlocks")
-  private List<IpAddressPooCidrBlockForDescribeIpAddressPoolCidrBlocksOutput> ipAddressPooCidrBlocks = null;
+  @SerializedName("IpAddressPoolCidrBlocks")
+  private List<IpAddressPoolCidrBlockForDescribeIpAddressPoolCidrBlocksOutput> ipAddressPoolCidrBlocks = null;
 
   @SerializedName("NextToken")
   private String nextToken = null;
@@ -42,31 +42,31 @@ public class DescribeIpAddressPoolCidrBlocksResponse extends com.volcengine.mode
   @SerializedName("RequestId")
   private String requestId = null;
 
-  public DescribeIpAddressPoolCidrBlocksResponse ipAddressPooCidrBlocks(List<IpAddressPooCidrBlockForDescribeIpAddressPoolCidrBlocksOutput> ipAddressPooCidrBlocks) {
-    this.ipAddressPooCidrBlocks = ipAddressPooCidrBlocks;
+  public DescribeIpAddressPoolCidrBlocksResponse ipAddressPoolCidrBlocks(List<IpAddressPoolCidrBlockForDescribeIpAddressPoolCidrBlocksOutput> ipAddressPoolCidrBlocks) {
+    this.ipAddressPoolCidrBlocks = ipAddressPoolCidrBlocks;
     return this;
   }
 
-  public DescribeIpAddressPoolCidrBlocksResponse addIpAddressPooCidrBlocksItem(IpAddressPooCidrBlockForDescribeIpAddressPoolCidrBlocksOutput ipAddressPooCidrBlocksItem) {
-    if (this.ipAddressPooCidrBlocks == null) {
-      this.ipAddressPooCidrBlocks = new ArrayList<IpAddressPooCidrBlockForDescribeIpAddressPoolCidrBlocksOutput>();
+  public DescribeIpAddressPoolCidrBlocksResponse addIpAddressPoolCidrBlocksItem(IpAddressPoolCidrBlockForDescribeIpAddressPoolCidrBlocksOutput ipAddressPoolCidrBlocksItem) {
+    if (this.ipAddressPoolCidrBlocks == null) {
+      this.ipAddressPoolCidrBlocks = new ArrayList<IpAddressPoolCidrBlockForDescribeIpAddressPoolCidrBlocksOutput>();
     }
-    this.ipAddressPooCidrBlocks.add(ipAddressPooCidrBlocksItem);
+    this.ipAddressPoolCidrBlocks.add(ipAddressPoolCidrBlocksItem);
     return this;
   }
 
    /**
-   * Get ipAddressPooCidrBlocks
-   * @return ipAddressPooCidrBlocks
+   * Get ipAddressPoolCidrBlocks
+   * @return ipAddressPoolCidrBlocks
   **/
   @Valid
   @Schema(description = "")
-  public List<IpAddressPooCidrBlockForDescribeIpAddressPoolCidrBlocksOutput> getIpAddressPooCidrBlocks() {
-    return ipAddressPooCidrBlocks;
+  public List<IpAddressPoolCidrBlockForDescribeIpAddressPoolCidrBlocksOutput> getIpAddressPoolCidrBlocks() {
+    return ipAddressPoolCidrBlocks;
   }
 
-  public void setIpAddressPooCidrBlocks(List<IpAddressPooCidrBlockForDescribeIpAddressPoolCidrBlocksOutput> ipAddressPooCidrBlocks) {
-    this.ipAddressPooCidrBlocks = ipAddressPooCidrBlocks;
+  public void setIpAddressPoolCidrBlocks(List<IpAddressPoolCidrBlockForDescribeIpAddressPoolCidrBlocksOutput> ipAddressPoolCidrBlocks) {
+    this.ipAddressPoolCidrBlocks = ipAddressPoolCidrBlocks;
   }
 
   public DescribeIpAddressPoolCidrBlocksResponse nextToken(String nextToken) {
@@ -115,14 +115,14 @@ public class DescribeIpAddressPoolCidrBlocksResponse extends com.volcengine.mode
       return false;
     }
     DescribeIpAddressPoolCidrBlocksResponse describeIpAddressPoolCidrBlocksResponse = (DescribeIpAddressPoolCidrBlocksResponse) o;
-    return Objects.equals(this.ipAddressPooCidrBlocks, describeIpAddressPoolCidrBlocksResponse.ipAddressPooCidrBlocks) &&
+    return Objects.equals(this.ipAddressPoolCidrBlocks, describeIpAddressPoolCidrBlocksResponse.ipAddressPoolCidrBlocks) &&
         Objects.equals(this.nextToken, describeIpAddressPoolCidrBlocksResponse.nextToken) &&
         Objects.equals(this.requestId, describeIpAddressPoolCidrBlocksResponse.requestId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ipAddressPooCidrBlocks, nextToken, requestId);
+    return Objects.hash(ipAddressPoolCidrBlocks, nextToken, requestId);
   }
 
 
@@ -131,7 +131,7 @@ public class DescribeIpAddressPoolCidrBlocksResponse extends com.volcengine.mode
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeIpAddressPoolCidrBlocksResponse {\n");
     
-    sb.append("    ipAddressPooCidrBlocks: ").append(toIndentedString(ipAddressPooCidrBlocks)).append("\n");
+    sb.append("    ipAddressPoolCidrBlocks: ").append(toIndentedString(ipAddressPoolCidrBlocks)).append("\n");
     sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("}");

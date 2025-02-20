@@ -30,8 +30,29 @@ import javax.validation.Valid;
 
 
 public class DeleteLoadBalancerRequest {
+  @SerializedName("ForceDelete")
+  private Boolean forceDelete = null;
+
   @SerializedName("LoadBalancerId")
   private String loadBalancerId = null;
+
+  public DeleteLoadBalancerRequest forceDelete(Boolean forceDelete) {
+    this.forceDelete = forceDelete;
+    return this;
+  }
+
+   /**
+   * Get forceDelete
+   * @return forceDelete
+  **/
+  @Schema(description = "")
+  public Boolean isForceDelete() {
+    return forceDelete;
+  }
+
+  public void setForceDelete(Boolean forceDelete) {
+    this.forceDelete = forceDelete;
+  }
 
   public DeleteLoadBalancerRequest loadBalancerId(String loadBalancerId) {
     this.loadBalancerId = loadBalancerId;
@@ -62,12 +83,13 @@ public class DeleteLoadBalancerRequest {
       return false;
     }
     DeleteLoadBalancerRequest deleteLoadBalancerRequest = (DeleteLoadBalancerRequest) o;
-    return Objects.equals(this.loadBalancerId, deleteLoadBalancerRequest.loadBalancerId);
+    return Objects.equals(this.forceDelete, deleteLoadBalancerRequest.forceDelete) &&
+        Objects.equals(this.loadBalancerId, deleteLoadBalancerRequest.loadBalancerId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(loadBalancerId);
+    return Objects.hash(forceDelete, loadBalancerId);
   }
 
 
@@ -76,6 +98,7 @@ public class DeleteLoadBalancerRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteLoadBalancerRequest {\n");
     
+    sb.append("    forceDelete: ").append(toIndentedString(forceDelete)).append("\n");
     sb.append("    loadBalancerId: ").append(toIndentedString(loadBalancerId)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -42,6 +42,9 @@ public class DescribeIpv6GatewayAttributeResponse extends com.volcengine.model.A
   @SerializedName("Name")
   private String name = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("RequestId")
   private String requestId = null;
 
@@ -124,6 +127,24 @@ public class DescribeIpv6GatewayAttributeResponse extends com.volcengine.model.A
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public DescribeIpv6GatewayAttributeResponse projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
   }
 
   public DescribeIpv6GatewayAttributeResponse requestId(String requestId) {
@@ -212,6 +233,7 @@ public class DescribeIpv6GatewayAttributeResponse extends com.volcengine.model.A
         Objects.equals(this.description, describeIpv6GatewayAttributeResponse.description) &&
         Objects.equals(this.ipv6GatewayId, describeIpv6GatewayAttributeResponse.ipv6GatewayId) &&
         Objects.equals(this.name, describeIpv6GatewayAttributeResponse.name) &&
+        Objects.equals(this.projectName, describeIpv6GatewayAttributeResponse.projectName) &&
         Objects.equals(this.requestId, describeIpv6GatewayAttributeResponse.requestId) &&
         Objects.equals(this.status, describeIpv6GatewayAttributeResponse.status) &&
         Objects.equals(this.updateTime, describeIpv6GatewayAttributeResponse.updateTime) &&
@@ -220,7 +242,7 @@ public class DescribeIpv6GatewayAttributeResponse extends com.volcengine.model.A
 
   @Override
   public int hashCode() {
-    return Objects.hash(creationTime, description, ipv6GatewayId, name, requestId, status, updateTime, vpcId);
+    return Objects.hash(creationTime, description, ipv6GatewayId, name, projectName, requestId, status, updateTime, vpcId);
   }
 
 
@@ -233,6 +255,7 @@ public class DescribeIpv6GatewayAttributeResponse extends com.volcengine.model.A
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    ipv6GatewayId: ").append(toIndentedString(ipv6GatewayId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");

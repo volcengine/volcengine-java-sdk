@@ -112,6 +112,9 @@ public class NodeConfigForListNodePoolsOutput {
   @SerializedName("Period")
   private Integer period = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("Security")
   private SecurityForListNodePoolsOutput security = null;
 
@@ -347,6 +350,24 @@ public class NodeConfigForListNodePoolsOutput {
     this.period = period;
   }
 
+  public NodeConfigForListNodePoolsOutput projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public NodeConfigForListNodePoolsOutput security(SecurityForListNodePoolsOutput security) {
     this.security = security;
     return this;
@@ -459,6 +480,7 @@ public class NodeConfigForListNodePoolsOutput {
         Objects.equals(this.instanceTypeIds, nodeConfigForListNodePoolsOutput.instanceTypeIds) &&
         Objects.equals(this.namePrefix, nodeConfigForListNodePoolsOutput.namePrefix) &&
         Objects.equals(this.period, nodeConfigForListNodePoolsOutput.period) &&
+        Objects.equals(this.projectName, nodeConfigForListNodePoolsOutput.projectName) &&
         Objects.equals(this.security, nodeConfigForListNodePoolsOutput.security) &&
         Objects.equals(this.subnetIds, nodeConfigForListNodePoolsOutput.subnetIds) &&
         Objects.equals(this.systemVolume, nodeConfigForListNodePoolsOutput.systemVolume) &&
@@ -467,7 +489,7 @@ public class NodeConfigForListNodePoolsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalContainerStorageEnabled, autoRenew, autoRenewPeriod, dataVolumes, hpcClusterIds, imageId, initializeScript, instanceChargeType, instanceTypeIds, namePrefix, period, security, subnetIds, systemVolume, tags);
+    return Objects.hash(additionalContainerStorageEnabled, autoRenew, autoRenewPeriod, dataVolumes, hpcClusterIds, imageId, initializeScript, instanceChargeType, instanceTypeIds, namePrefix, period, projectName, security, subnetIds, systemVolume, tags);
   }
 
 
@@ -487,6 +509,7 @@ public class NodeConfigForListNodePoolsOutput {
     sb.append("    instanceTypeIds: ").append(toIndentedString(instanceTypeIds)).append("\n");
     sb.append("    namePrefix: ").append(toIndentedString(namePrefix)).append("\n");
     sb.append("    period: ").append(toIndentedString(period)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    security: ").append(toIndentedString(security)).append("\n");
     sb.append("    subnetIds: ").append(toIndentedString(subnetIds)).append("\n");
     sb.append("    systemVolume: ").append(toIndentedString(systemVolume)).append("\n");

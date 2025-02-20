@@ -72,6 +72,9 @@ public class ItemForListClustersOutput {
   @SerializedName("PodsConfig")
   private PodsConfigForListClustersOutput podsConfig = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("ServicesConfig")
   private ServicesConfigForListClustersOutput servicesConfig = null;
 
@@ -289,6 +292,24 @@ public class ItemForListClustersOutput {
     this.podsConfig = podsConfig;
   }
 
+  public ItemForListClustersOutput projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public ItemForListClustersOutput servicesConfig(ServicesConfigForListClustersOutput servicesConfig) {
     this.servicesConfig = servicesConfig;
     return this;
@@ -411,6 +432,7 @@ public class ItemForListClustersOutput {
         Objects.equals(this.name, itemForListClustersOutput.name) &&
         Objects.equals(this.nodeStatistics, itemForListClustersOutput.nodeStatistics) &&
         Objects.equals(this.podsConfig, itemForListClustersOutput.podsConfig) &&
+        Objects.equals(this.projectName, itemForListClustersOutput.projectName) &&
         Objects.equals(this.servicesConfig, itemForListClustersOutput.servicesConfig) &&
         Objects.equals(this.status, itemForListClustersOutput.status) &&
         Objects.equals(this.tags, itemForListClustersOutput.tags) &&
@@ -420,7 +442,7 @@ public class ItemForListClustersOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterConfig, createClientToken, createTime, deleteProtectionEnabled, description, id, kubernetesVersion, loggingConfig, name, nodeStatistics, podsConfig, servicesConfig, status, tags, updateClientToken, updateTime);
+    return Objects.hash(clusterConfig, createClientToken, createTime, deleteProtectionEnabled, description, id, kubernetesVersion, loggingConfig, name, nodeStatistics, podsConfig, projectName, servicesConfig, status, tags, updateClientToken, updateTime);
   }
 
 
@@ -440,6 +462,7 @@ public class ItemForListClustersOutput {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    nodeStatistics: ").append(toIndentedString(nodeStatistics)).append("\n");
     sb.append("    podsConfig: ").append(toIndentedString(podsConfig)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    servicesConfig: ").append(toIndentedString(servicesConfig)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");

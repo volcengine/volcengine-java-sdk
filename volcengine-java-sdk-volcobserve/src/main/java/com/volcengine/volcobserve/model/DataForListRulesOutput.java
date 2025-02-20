@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.volcobserve.model.ConditionForListRulesOutput;
 import com.volcengine.volcobserve.model.DimensionConditionsForListRulesOutput;
+import com.volcengine.volcobserve.model.LevelConditionForListRulesOutput;
 import com.volcengine.volcobserve.model.RecoveryNotifyForListRulesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -79,11 +80,17 @@ public class DataForListRulesOutput {
   @SerializedName("Level")
   private String level = null;
 
+  @SerializedName("LevelConditions")
+  private List<LevelConditionForListRulesOutput> levelConditions = null;
+
   @SerializedName("MultipleConditions")
   private Boolean multipleConditions = null;
 
   @SerializedName("Namespace")
   private String namespace = null;
+
+  @SerializedName("NotificationId")
+  private String notificationId = null;
 
   @SerializedName("OriginalDimensions")
   private Map<String, List<String>> originalDimensions = null;
@@ -396,6 +403,33 @@ public class DataForListRulesOutput {
     this.level = level;
   }
 
+  public DataForListRulesOutput levelConditions(List<LevelConditionForListRulesOutput> levelConditions) {
+    this.levelConditions = levelConditions;
+    return this;
+  }
+
+  public DataForListRulesOutput addLevelConditionsItem(LevelConditionForListRulesOutput levelConditionsItem) {
+    if (this.levelConditions == null) {
+      this.levelConditions = new ArrayList<LevelConditionForListRulesOutput>();
+    }
+    this.levelConditions.add(levelConditionsItem);
+    return this;
+  }
+
+   /**
+   * Get levelConditions
+   * @return levelConditions
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<LevelConditionForListRulesOutput> getLevelConditions() {
+    return levelConditions;
+  }
+
+  public void setLevelConditions(List<LevelConditionForListRulesOutput> levelConditions) {
+    this.levelConditions = levelConditions;
+  }
+
   public DataForListRulesOutput multipleConditions(Boolean multipleConditions) {
     this.multipleConditions = multipleConditions;
     return this;
@@ -430,6 +464,24 @@ public class DataForListRulesOutput {
 
   public void setNamespace(String namespace) {
     this.namespace = namespace;
+  }
+
+  public DataForListRulesOutput notificationId(String notificationId) {
+    this.notificationId = notificationId;
+    return this;
+  }
+
+   /**
+   * Get notificationId
+   * @return notificationId
+  **/
+  @Schema(description = "")
+  public String getNotificationId() {
+    return notificationId;
+  }
+
+  public void setNotificationId(String notificationId) {
+    this.notificationId = notificationId;
   }
 
   public DataForListRulesOutput originalDimensions(Map<String, List<String>> originalDimensions) {
@@ -680,8 +732,10 @@ public class DataForListRulesOutput {
         Objects.equals(this.evaluationCount, dataForListRulesOutput.evaluationCount) &&
         Objects.equals(this.id, dataForListRulesOutput.id) &&
         Objects.equals(this.level, dataForListRulesOutput.level) &&
+        Objects.equals(this.levelConditions, dataForListRulesOutput.levelConditions) &&
         Objects.equals(this.multipleConditions, dataForListRulesOutput.multipleConditions) &&
         Objects.equals(this.namespace, dataForListRulesOutput.namespace) &&
+        Objects.equals(this.notificationId, dataForListRulesOutput.notificationId) &&
         Objects.equals(this.originalDimensions, dataForListRulesOutput.originalDimensions) &&
         Objects.equals(this.projectName, dataForListRulesOutput.projectName) &&
         Objects.equals(this.recoveryNotify, dataForListRulesOutput.recoveryNotify) &&
@@ -697,7 +751,7 @@ public class DataForListRulesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(alertMethods, alertState, conditionOperator, conditions, contactGroupIds, createdAt, description, dimensionConditions, effectEndAt, effectStartAt, enableState, evaluationCount, id, level, multipleConditions, namespace, originalDimensions, projectName, recoveryNotify, regions, ruleName, ruleType, silenceTime, subNamespace, updatedAt, webHook, webhookIds);
+    return Objects.hash(alertMethods, alertState, conditionOperator, conditions, contactGroupIds, createdAt, description, dimensionConditions, effectEndAt, effectStartAt, enableState, evaluationCount, id, level, levelConditions, multipleConditions, namespace, notificationId, originalDimensions, projectName, recoveryNotify, regions, ruleName, ruleType, silenceTime, subNamespace, updatedAt, webHook, webhookIds);
   }
 
 
@@ -720,8 +774,10 @@ public class DataForListRulesOutput {
     sb.append("    evaluationCount: ").append(toIndentedString(evaluationCount)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    level: ").append(toIndentedString(level)).append("\n");
+    sb.append("    levelConditions: ").append(toIndentedString(levelConditions)).append("\n");
     sb.append("    multipleConditions: ").append(toIndentedString(multipleConditions)).append("\n");
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
+    sb.append("    notificationId: ").append(toIndentedString(notificationId)).append("\n");
     sb.append("    originalDimensions: ").append(toIndentedString(originalDimensions)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    recoveryNotify: ").append(toIndentedString(recoveryNotify)).append("\n");

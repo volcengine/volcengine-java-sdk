@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.storageebs.model.TagForDescribeAutoSnapshotPolicyOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -41,6 +42,15 @@ public class AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput {
   @SerializedName("CreatedAt")
   private String createdAt = null;
 
+  @SerializedName("DestinationRegion")
+  private String destinationRegion = null;
+
+  @SerializedName("DestinationRetentionDays")
+  private Integer destinationRetentionDays = null;
+
+  @SerializedName("EnableCopy")
+  private Boolean enableCopy = null;
+
   @SerializedName("ProjectName")
   private String projectName = null;
 
@@ -55,6 +65,9 @@ public class AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput {
 
   @SerializedName("Status")
   private String status = null;
+
+  @SerializedName("Tags")
+  private List<TagForDescribeAutoSnapshotPolicyOutput> tags = null;
 
   @SerializedName("TimePoints")
   private List<String> timePoints = null;
@@ -117,6 +130,62 @@ public class AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput {
 
   public void setCreatedAt(String createdAt) {
     this.createdAt = createdAt;
+  }
+
+  public AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput destinationRegion(String destinationRegion) {
+    this.destinationRegion = destinationRegion;
+    return this;
+  }
+
+   /**
+   * Get destinationRegion
+   * @return destinationRegion
+  **/
+  @Schema(description = "")
+  public String getDestinationRegion() {
+    return destinationRegion;
+  }
+
+  public void setDestinationRegion(String destinationRegion) {
+    this.destinationRegion = destinationRegion;
+  }
+
+  public AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput destinationRetentionDays(Integer destinationRetentionDays) {
+    this.destinationRetentionDays = destinationRetentionDays;
+    return this;
+  }
+
+   /**
+   * Get destinationRetentionDays
+   * minimum: -1
+   * maximum: 65536
+   * @return destinationRetentionDays
+  **/
+ @Min(-1) @Max(65536)  @Schema(description = "")
+  public Integer getDestinationRetentionDays() {
+    return destinationRetentionDays;
+  }
+
+  public void setDestinationRetentionDays(Integer destinationRetentionDays) {
+    this.destinationRetentionDays = destinationRetentionDays;
+  }
+
+  public AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput enableCopy(Boolean enableCopy) {
+    this.enableCopy = enableCopy;
+    return this;
+  }
+
+   /**
+   * Get enableCopy
+   * @return enableCopy
+  **/
+  @Schema(description = "")
+  public Boolean isEnableCopy() {
+    return enableCopy;
+  }
+
+  public void setEnableCopy(Boolean enableCopy) {
+    this.enableCopy = enableCopy;
   }
 
   public AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput projectName(String projectName) {
@@ -217,6 +286,33 @@ public class AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput {
     this.status = status;
   }
 
+  public AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput tags(List<TagForDescribeAutoSnapshotPolicyOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput addTagsItem(TagForDescribeAutoSnapshotPolicyOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForDescribeAutoSnapshotPolicyOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForDescribeAutoSnapshotPolicyOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForDescribeAutoSnapshotPolicyOutput> tags) {
+    this.tags = tags;
+  }
+
   public AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput timePoints(List<String> timePoints) {
     this.timePoints = timePoints;
     return this;
@@ -292,11 +388,15 @@ public class AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput {
     return Objects.equals(this.autoSnapshotPolicyId, autoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput.autoSnapshotPolicyId) &&
         Objects.equals(this.autoSnapshotPolicyName, autoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput.autoSnapshotPolicyName) &&
         Objects.equals(this.createdAt, autoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput.createdAt) &&
+        Objects.equals(this.destinationRegion, autoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput.destinationRegion) &&
+        Objects.equals(this.destinationRetentionDays, autoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput.destinationRetentionDays) &&
+        Objects.equals(this.enableCopy, autoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput.enableCopy) &&
         Objects.equals(this.projectName, autoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput.projectName) &&
         Objects.equals(this.repeatDays, autoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput.repeatDays) &&
         Objects.equals(this.repeatWeekdays, autoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput.repeatWeekdays) &&
         Objects.equals(this.retentionDays, autoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput.retentionDays) &&
         Objects.equals(this.status, autoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput.status) &&
+        Objects.equals(this.tags, autoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput.tags) &&
         Objects.equals(this.timePoints, autoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput.timePoints) &&
         Objects.equals(this.updatedAt, autoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput.updatedAt) &&
         Objects.equals(this.volumeNums, autoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput.volumeNums);
@@ -304,7 +404,7 @@ public class AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoSnapshotPolicyId, autoSnapshotPolicyName, createdAt, projectName, repeatDays, repeatWeekdays, retentionDays, status, timePoints, updatedAt, volumeNums);
+    return Objects.hash(autoSnapshotPolicyId, autoSnapshotPolicyName, createdAt, destinationRegion, destinationRetentionDays, enableCopy, projectName, repeatDays, repeatWeekdays, retentionDays, status, tags, timePoints, updatedAt, volumeNums);
   }
 
 
@@ -316,11 +416,15 @@ public class AutoSnapshotPolicyForDescribeAutoSnapshotPolicyOutput {
     sb.append("    autoSnapshotPolicyId: ").append(toIndentedString(autoSnapshotPolicyId)).append("\n");
     sb.append("    autoSnapshotPolicyName: ").append(toIndentedString(autoSnapshotPolicyName)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    destinationRegion: ").append(toIndentedString(destinationRegion)).append("\n");
+    sb.append("    destinationRetentionDays: ").append(toIndentedString(destinationRetentionDays)).append("\n");
+    sb.append("    enableCopy: ").append(toIndentedString(enableCopy)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    repeatDays: ").append(toIndentedString(repeatDays)).append("\n");
     sb.append("    repeatWeekdays: ").append(toIndentedString(repeatWeekdays)).append("\n");
     sb.append("    retentionDays: ").append(toIndentedString(retentionDays)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    timePoints: ").append(toIndentedString(timePoints)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    volumeNums: ").append(toIndentedString(volumeNums)).append("\n");

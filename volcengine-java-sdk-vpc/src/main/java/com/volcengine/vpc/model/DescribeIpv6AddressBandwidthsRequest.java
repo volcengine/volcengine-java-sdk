@@ -57,6 +57,9 @@ public class DescribeIpv6AddressBandwidthsRequest {
   @SerializedName("NextToken")
   private String nextToken = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("VpcId")
   private String vpcId = null;
 
@@ -222,6 +225,24 @@ public class DescribeIpv6AddressBandwidthsRequest {
     this.nextToken = nextToken;
   }
 
+  public DescribeIpv6AddressBandwidthsRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public DescribeIpv6AddressBandwidthsRequest vpcId(String vpcId) {
     this.vpcId = vpcId;
     return this;
@@ -259,12 +280,13 @@ public class DescribeIpv6AddressBandwidthsRequest {
         Objects.equals(this.maxResults, describeIpv6AddressBandwidthsRequest.maxResults) &&
         Objects.equals(this.networkType, describeIpv6AddressBandwidthsRequest.networkType) &&
         Objects.equals(this.nextToken, describeIpv6AddressBandwidthsRequest.nextToken) &&
+        Objects.equals(this.projectName, describeIpv6AddressBandwidthsRequest.projectName) &&
         Objects.equals(this.vpcId, describeIpv6AddressBandwidthsRequest.vpcId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allocationIds, associatedInstanceId, associatedInstanceType, bandwidthPackageId, ISP, ipv6Addresses, maxResults, networkType, nextToken, vpcId);
+    return Objects.hash(allocationIds, associatedInstanceId, associatedInstanceType, bandwidthPackageId, ISP, ipv6Addresses, maxResults, networkType, nextToken, projectName, vpcId);
   }
 
 
@@ -282,6 +304,7 @@ public class DescribeIpv6AddressBandwidthsRequest {
     sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
     sb.append("    networkType: ").append(toIndentedString(networkType)).append("\n");
     sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("}");
     return sb.toString();

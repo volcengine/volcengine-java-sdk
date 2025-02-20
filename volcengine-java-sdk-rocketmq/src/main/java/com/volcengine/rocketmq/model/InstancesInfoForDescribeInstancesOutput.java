@@ -20,11 +20,11 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.rocketmq.model.ChargeDetailForDescribeInstancesOutput;
+import com.volcengine.rocketmq.model.InstanceTagForDescribeInstancesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -73,6 +73,9 @@ public class InstancesInfoForDescribeInstancesOutput {
   @SerializedName("InstanceStatus")
   private String instanceStatus = null;
 
+  @SerializedName("InstanceTags")
+  private List<InstanceTagForDescribeInstancesOutput> instanceTags = null;
+
   @SerializedName("ProjectName")
   private String projectName = null;
 
@@ -87,9 +90,6 @@ public class InstancesInfoForDescribeInstancesOutput {
 
   @SerializedName("SubnetId")
   private String subnetId = null;
-
-  @SerializedName("Tags")
-  private Map<String, String> tags = null;
 
   @SerializedName("UsedGroupNumber")
   private Integer usedGroupNumber = null;
@@ -347,6 +347,33 @@ public class InstancesInfoForDescribeInstancesOutput {
     this.instanceStatus = instanceStatus;
   }
 
+  public InstancesInfoForDescribeInstancesOutput instanceTags(List<InstanceTagForDescribeInstancesOutput> instanceTags) {
+    this.instanceTags = instanceTags;
+    return this;
+  }
+
+  public InstancesInfoForDescribeInstancesOutput addInstanceTagsItem(InstanceTagForDescribeInstancesOutput instanceTagsItem) {
+    if (this.instanceTags == null) {
+      this.instanceTags = new ArrayList<InstanceTagForDescribeInstancesOutput>();
+    }
+    this.instanceTags.add(instanceTagsItem);
+    return this;
+  }
+
+   /**
+   * Get instanceTags
+   * @return instanceTags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<InstanceTagForDescribeInstancesOutput> getInstanceTags() {
+    return instanceTags;
+  }
+
+  public void setInstanceTags(List<InstanceTagForDescribeInstancesOutput> instanceTags) {
+    this.instanceTags = instanceTags;
+  }
+
   public InstancesInfoForDescribeInstancesOutput projectName(String projectName) {
     this.projectName = projectName;
     return this;
@@ -435,32 +462,6 @@ public class InstancesInfoForDescribeInstancesOutput {
 
   public void setSubnetId(String subnetId) {
     this.subnetId = subnetId;
-  }
-
-  public InstancesInfoForDescribeInstancesOutput tags(Map<String, String> tags) {
-    this.tags = tags;
-    return this;
-  }
-
-  public InstancesInfoForDescribeInstancesOutput putTagsItem(String key, String tagsItem) {
-    if (this.tags == null) {
-      this.tags = new HashMap<String, String>();
-    }
-    this.tags.put(key, tagsItem);
-    return this;
-  }
-
-   /**
-   * Get tags
-   * @return tags
-  **/
-  @Schema(description = "")
-  public Map<String, String> getTags() {
-    return tags;
-  }
-
-  public void setTags(Map<String, String> tags) {
-    this.tags = tags;
   }
 
   public InstancesInfoForDescribeInstancesOutput usedGroupNumber(Integer usedGroupNumber) {
@@ -612,12 +613,12 @@ public class InstancesInfoForDescribeInstancesOutput {
         Objects.equals(this.instanceId, instancesInfoForDescribeInstancesOutput.instanceId) &&
         Objects.equals(this.instanceName, instancesInfoForDescribeInstancesOutput.instanceName) &&
         Objects.equals(this.instanceStatus, instancesInfoForDescribeInstancesOutput.instanceStatus) &&
+        Objects.equals(this.instanceTags, instancesInfoForDescribeInstancesOutput.instanceTags) &&
         Objects.equals(this.projectName, instancesInfoForDescribeInstancesOutput.projectName) &&
         Objects.equals(this.regionId, instancesInfoForDescribeInstancesOutput.regionId) &&
         Objects.equals(this.ssLMode, instancesInfoForDescribeInstancesOutput.ssLMode) &&
         Objects.equals(this.storageSpace, instancesInfoForDescribeInstancesOutput.storageSpace) &&
         Objects.equals(this.subnetId, instancesInfoForDescribeInstancesOutput.subnetId) &&
-        Objects.equals(this.tags, instancesInfoForDescribeInstancesOutput.tags) &&
         Objects.equals(this.usedGroupNumber, instancesInfoForDescribeInstancesOutput.usedGroupNumber) &&
         Objects.equals(this.usedQueueNumber, instancesInfoForDescribeInstancesOutput.usedQueueNumber) &&
         Objects.equals(this.usedStorageSpace, instancesInfoForDescribeInstancesOutput.usedStorageSpace) &&
@@ -629,7 +630,7 @@ public class InstancesInfoForDescribeInstancesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, applyPrivateDNSToPublic, availableQueueNumber, chargeDetail, computeSpec, createTime, eipId, enableSSL, fileReservedTime, instanceDescription, instanceId, instanceName, instanceStatus, projectName, regionId, ssLMode, storageSpace, subnetId, tags, usedGroupNumber, usedQueueNumber, usedStorageSpace, usedTopicNumber, version, vpcId, zoneId);
+    return Objects.hash(accountId, applyPrivateDNSToPublic, availableQueueNumber, chargeDetail, computeSpec, createTime, eipId, enableSSL, fileReservedTime, instanceDescription, instanceId, instanceName, instanceStatus, instanceTags, projectName, regionId, ssLMode, storageSpace, subnetId, usedGroupNumber, usedQueueNumber, usedStorageSpace, usedTopicNumber, version, vpcId, zoneId);
   }
 
 
@@ -651,12 +652,12 @@ public class InstancesInfoForDescribeInstancesOutput {
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    instanceStatus: ").append(toIndentedString(instanceStatus)).append("\n");
+    sb.append("    instanceTags: ").append(toIndentedString(instanceTags)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    regionId: ").append(toIndentedString(regionId)).append("\n");
     sb.append("    ssLMode: ").append(toIndentedString(ssLMode)).append("\n");
     sb.append("    storageSpace: ").append(toIndentedString(storageSpace)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    usedGroupNumber: ").append(toIndentedString(usedGroupNumber)).append("\n");
     sb.append("    usedQueueNumber: ").append(toIndentedString(usedQueueNumber)).append("\n");
     sb.append("    usedStorageSpace: ").append(toIndentedString(usedStorageSpace)).append("\n");
