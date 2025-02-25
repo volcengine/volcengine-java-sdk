@@ -20,13 +20,19 @@ public class ChatToolCall {
      */
     ChatFunctionCall function;
 
+    /**
+     * The index of the tool call in the list of tool calls
+     */
+    Integer index;
+
     public ChatToolCall(String id, String type, ChatFunctionCall function) {
         this.id = id;
         this.type = type;
         this.function = function;
     }
 
-    public ChatToolCall(){}
+    public ChatToolCall() {
+    }
 
     public String getId() {
         return id;
@@ -52,12 +58,21 @@ public class ChatToolCall {
         this.function = function;
     }
 
+    public Integer getIndex() {
+        return index;
+    }
+
+    public void setIndex(Integer index) {
+        this.index = index;
+    }
+
     @Override
     public String toString() {
         return "ChatToolCall{" +
                 "id='" + id + '\'' +
                 ", type='" + type + '\'' +
                 ", function=" + function +
+                ", index=" + index +
                 '}';
     }
 }
