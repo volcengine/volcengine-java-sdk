@@ -45,6 +45,9 @@ public class CreateScheduledInstancesRequest {
   @SerializedName("Count")
   private Integer count = null;
 
+  @SerializedName("CpuMaxFrequency")
+  private Float cpuMaxFrequency = null;
+
   @SerializedName("DeliveryType")
   private String deliveryType = null;
 
@@ -86,6 +89,9 @@ public class CreateScheduledInstancesRequest {
 
   @SerializedName("KeyPairName")
   private String keyPairName = null;
+
+  @SerializedName("MinCount")
+  private Integer minCount = null;
 
   @SerializedName("NetworkInterfaces")
   private List<NetworkInterfaceForCreateScheduledInstancesInput> networkInterfaces = null;
@@ -178,6 +184,24 @@ public class CreateScheduledInstancesRequest {
 
   public void setCount(Integer count) {
     this.count = count;
+  }
+
+  public CreateScheduledInstancesRequest cpuMaxFrequency(Float cpuMaxFrequency) {
+    this.cpuMaxFrequency = cpuMaxFrequency;
+    return this;
+  }
+
+   /**
+   * Get cpuMaxFrequency
+   * @return cpuMaxFrequency
+  **/
+  @Schema(description = "")
+  public Float getCpuMaxFrequency() {
+    return cpuMaxFrequency;
+  }
+
+  public void setCpuMaxFrequency(Float cpuMaxFrequency) {
+    this.cpuMaxFrequency = cpuMaxFrequency;
   }
 
   public CreateScheduledInstancesRequest deliveryType(String deliveryType) {
@@ -434,6 +458,24 @@ public class CreateScheduledInstancesRequest {
 
   public void setKeyPairName(String keyPairName) {
     this.keyPairName = keyPairName;
+  }
+
+  public CreateScheduledInstancesRequest minCount(Integer minCount) {
+    this.minCount = minCount;
+    return this;
+  }
+
+   /**
+   * Get minCount
+   * @return minCount
+  **/
+  @Schema(description = "")
+  public Integer getMinCount() {
+    return minCount;
+  }
+
+  public void setMinCount(Integer minCount) {
+    this.minCount = minCount;
   }
 
   public CreateScheduledInstancesRequest networkInterfaces(List<NetworkInterfaceForCreateScheduledInstancesInput> networkInterfaces) {
@@ -712,6 +754,7 @@ public class CreateScheduledInstancesRequest {
     return Objects.equals(this.autoReleaseAt, createScheduledInstancesRequest.autoReleaseAt) &&
         Objects.equals(this.clientToken, createScheduledInstancesRequest.clientToken) &&
         Objects.equals(this.count, createScheduledInstancesRequest.count) &&
+        Objects.equals(this.cpuMaxFrequency, createScheduledInstancesRequest.cpuMaxFrequency) &&
         Objects.equals(this.deliveryType, createScheduledInstancesRequest.deliveryType) &&
         Objects.equals(this.description, createScheduledInstancesRequest.description) &&
         Objects.equals(this.dryRun, createScheduledInstancesRequest.dryRun) &&
@@ -726,6 +769,7 @@ public class CreateScheduledInstancesRequest {
         Objects.equals(this.instanceTypeId, createScheduledInstancesRequest.instanceTypeId) &&
         Objects.equals(this.keepImageCredential, createScheduledInstancesRequest.keepImageCredential) &&
         Objects.equals(this.keyPairName, createScheduledInstancesRequest.keyPairName) &&
+        Objects.equals(this.minCount, createScheduledInstancesRequest.minCount) &&
         Objects.equals(this.networkInterfaces, createScheduledInstancesRequest.networkInterfaces) &&
         Objects.equals(this.password, createScheduledInstancesRequest.password) &&
         Objects.equals(this.projectName, createScheduledInstancesRequest.projectName) &&
@@ -743,7 +787,7 @@ public class CreateScheduledInstancesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoReleaseAt, clientToken, count, deliveryType, description, dryRun, eipAddress, elasticScheduledInstanceType, endDeliveryAt, hostname, hpcClusterId, imageId, installRunCommandAgent, instanceName, instanceTypeId, keepImageCredential, keyPairName, networkInterfaces, password, projectName, scheduledInstanceDescription, scheduledInstanceName, securityEnhancementStrategy, startDeliveryAt, suffixIndex, tags, uniqueSuffix, userData, volumes, zoneId);
+    return Objects.hash(autoReleaseAt, clientToken, count, cpuMaxFrequency, deliveryType, description, dryRun, eipAddress, elasticScheduledInstanceType, endDeliveryAt, hostname, hpcClusterId, imageId, installRunCommandAgent, instanceName, instanceTypeId, keepImageCredential, keyPairName, minCount, networkInterfaces, password, projectName, scheduledInstanceDescription, scheduledInstanceName, securityEnhancementStrategy, startDeliveryAt, suffixIndex, tags, uniqueSuffix, userData, volumes, zoneId);
   }
 
 
@@ -755,6 +799,7 @@ public class CreateScheduledInstancesRequest {
     sb.append("    autoReleaseAt: ").append(toIndentedString(autoReleaseAt)).append("\n");
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    count: ").append(toIndentedString(count)).append("\n");
+    sb.append("    cpuMaxFrequency: ").append(toIndentedString(cpuMaxFrequency)).append("\n");
     sb.append("    deliveryType: ").append(toIndentedString(deliveryType)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    dryRun: ").append(toIndentedString(dryRun)).append("\n");
@@ -769,6 +814,7 @@ public class CreateScheduledInstancesRequest {
     sb.append("    instanceTypeId: ").append(toIndentedString(instanceTypeId)).append("\n");
     sb.append("    keepImageCredential: ").append(toIndentedString(keepImageCredential)).append("\n");
     sb.append("    keyPairName: ").append(toIndentedString(keyPairName)).append("\n");
+    sb.append("    minCount: ").append(toIndentedString(minCount)).append("\n");
     sb.append("    networkInterfaces: ").append(toIndentedString(networkInterfaces)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");

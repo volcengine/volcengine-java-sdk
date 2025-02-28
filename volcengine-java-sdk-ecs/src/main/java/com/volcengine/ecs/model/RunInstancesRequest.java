@@ -49,6 +49,9 @@ public class RunInstancesRequest {
   @SerializedName("Count")
   private Integer count = null;
 
+  @SerializedName("CpuMaxFrequency")
+  private Float cpuMaxFrequency = null;
+
   @SerializedName("CreditSpecification")
   private String creditSpecification = null;
 
@@ -221,6 +224,24 @@ public class RunInstancesRequest {
 
   public void setCount(Integer count) {
     this.count = count;
+  }
+
+  public RunInstancesRequest cpuMaxFrequency(Float cpuMaxFrequency) {
+    this.cpuMaxFrequency = cpuMaxFrequency;
+    return this;
+  }
+
+   /**
+   * Get cpuMaxFrequency
+   * @return cpuMaxFrequency
+  **/
+  @Schema(description = "")
+  public Float getCpuMaxFrequency() {
+    return cpuMaxFrequency;
+  }
+
+  public void setCpuMaxFrequency(Float cpuMaxFrequency) {
+    this.cpuMaxFrequency = cpuMaxFrequency;
   }
 
   public RunInstancesRequest creditSpecification(String creditSpecification) {
@@ -881,6 +902,7 @@ public class RunInstancesRequest {
         Objects.equals(this.autoRenewPeriod, runInstancesRequest.autoRenewPeriod) &&
         Objects.equals(this.clientToken, runInstancesRequest.clientToken) &&
         Objects.equals(this.count, runInstancesRequest.count) &&
+        Objects.equals(this.cpuMaxFrequency, runInstancesRequest.cpuMaxFrequency) &&
         Objects.equals(this.creditSpecification, runInstancesRequest.creditSpecification) &&
         Objects.equals(this.deploymentSetGroupNumber, runInstancesRequest.deploymentSetGroupNumber) &&
         Objects.equals(this.deploymentSetId, runInstancesRequest.deploymentSetId) &&
@@ -919,7 +941,7 @@ public class RunInstancesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoRenew, autoRenewPeriod, clientToken, count, creditSpecification, deploymentSetGroupNumber, deploymentSetId, description, dryRun, eipAddress, hostName, hostname, hpcClusterId, imageId, imageReleaseVersion, installRunCommandAgent, instanceChargeType, instanceName, instanceType, instanceTypeId, keepImageCredential, keyPairName, minCount, networkInterfaces, password, period, periodUnit, placement, projectName, securityEnhancementStrategy, spotPriceLimit, spotStrategy, suffixIndex, tags, uniqueSuffix, userData, volumes, zoneId);
+    return Objects.hash(autoRenew, autoRenewPeriod, clientToken, count, cpuMaxFrequency, creditSpecification, deploymentSetGroupNumber, deploymentSetId, description, dryRun, eipAddress, hostName, hostname, hpcClusterId, imageId, imageReleaseVersion, installRunCommandAgent, instanceChargeType, instanceName, instanceType, instanceTypeId, keepImageCredential, keyPairName, minCount, networkInterfaces, password, period, periodUnit, placement, projectName, securityEnhancementStrategy, spotPriceLimit, spotStrategy, suffixIndex, tags, uniqueSuffix, userData, volumes, zoneId);
   }
 
 
@@ -932,6 +954,7 @@ public class RunInstancesRequest {
     sb.append("    autoRenewPeriod: ").append(toIndentedString(autoRenewPeriod)).append("\n");
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    count: ").append(toIndentedString(count)).append("\n");
+    sb.append("    cpuMaxFrequency: ").append(toIndentedString(cpuMaxFrequency)).append("\n");
     sb.append("    creditSpecification: ").append(toIndentedString(creditSpecification)).append("\n");
     sb.append("    deploymentSetGroupNumber: ").append(toIndentedString(deploymentSetGroupNumber)).append("\n");
     sb.append("    deploymentSetId: ").append(toIndentedString(deploymentSetId)).append("\n");
