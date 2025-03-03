@@ -1275,7 +1275,7 @@ public class ApiClient {
         //sign
         final Buffer buffer = new Buffer();
         try {
-            if(reqBody != null) {
+            if (reqBody != null) {
                 reqBody.writeTo(buffer);
             }
         } catch (IOException e) {
@@ -1399,8 +1399,10 @@ public class ApiClient {
                 if (StringUtils.isEmpty(volcengineSign.getRegion())) {
                     throw new RuntimeException("Region must set when ApiClient init");
                 }
-                volcengineSign.setMethod(serviceInfo.getMethod().toUpperCase());
-                volcengineSign.setService(serviceInfo.getServiceName());
+                VolcstackSign requestSign = volcengineSign.copy();
+                requestSign.setMethod(serviceInfo.getMethod().toUpperCase());
+                requestSign.setService(serviceInfo.getServiceName());
+                auth = requestSign;
             }
             auth.applyToParams(queryParams, headerParams, payload);
         }
