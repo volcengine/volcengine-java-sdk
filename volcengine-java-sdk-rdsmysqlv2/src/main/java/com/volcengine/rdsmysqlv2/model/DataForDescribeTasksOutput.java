@@ -19,7 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.rdsmysqlv2.model.ConfigInfoForDescribeTasksOutput;
 import com.volcengine.rdsmysqlv2.model.RelatedInstanceInfosForDescribeTasksOutput;
 import com.volcengine.rdsmysqlv2.model.TaskProgressForDescribeTasksOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -35,9 +34,6 @@ import javax.validation.Valid;
 
 
 public class DataForDescribeTasksOutput {
-  @SerializedName("ConfigInfos")
-  private List<ConfigInfoForDescribeTasksOutput> configInfos = null;
-
   @SerializedName("CostTimeMS")
   private Long costTimeMS = null;
 
@@ -52,6 +48,18 @@ public class DataForDescribeTasksOutput {
 
   @SerializedName("RelatedInstanceInfos")
   private RelatedInstanceInfosForDescribeTasksOutput relatedInstanceInfos = null;
+
+  @SerializedName("ScheduledExecuteEndTime")
+  private String scheduledExecuteEndTime = null;
+
+  @SerializedName("ScheduledExecuteStartTime")
+  private String scheduledExecuteStartTime = null;
+
+  @SerializedName("ScheduledSwitchEndTime")
+  private String scheduledSwitchEndTime = null;
+
+  @SerializedName("ScheduledSwitchStartTime")
+  private String scheduledSwitchStartTime = null;
 
   @SerializedName("StartTime")
   private String startTime = null;
@@ -79,33 +87,6 @@ public class DataForDescribeTasksOutput {
 
   @SerializedName("TaskStatus")
   private String taskStatus = null;
-
-  public DataForDescribeTasksOutput configInfos(List<ConfigInfoForDescribeTasksOutput> configInfos) {
-    this.configInfos = configInfos;
-    return this;
-  }
-
-  public DataForDescribeTasksOutput addConfigInfosItem(ConfigInfoForDescribeTasksOutput configInfosItem) {
-    if (this.configInfos == null) {
-      this.configInfos = new ArrayList<ConfigInfoForDescribeTasksOutput>();
-    }
-    this.configInfos.add(configInfosItem);
-    return this;
-  }
-
-   /**
-   * Get configInfos
-   * @return configInfos
-  **/
-  @Valid
-  @Schema(description = "")
-  public List<ConfigInfoForDescribeTasksOutput> getConfigInfos() {
-    return configInfos;
-  }
-
-  public void setConfigInfos(List<ConfigInfoForDescribeTasksOutput> configInfos) {
-    this.configInfos = configInfos;
-  }
 
   public DataForDescribeTasksOutput costTimeMS(Long costTimeMS) {
     this.costTimeMS = costTimeMS;
@@ -196,6 +177,78 @@ public class DataForDescribeTasksOutput {
 
   public void setRelatedInstanceInfos(RelatedInstanceInfosForDescribeTasksOutput relatedInstanceInfos) {
     this.relatedInstanceInfos = relatedInstanceInfos;
+  }
+
+  public DataForDescribeTasksOutput scheduledExecuteEndTime(String scheduledExecuteEndTime) {
+    this.scheduledExecuteEndTime = scheduledExecuteEndTime;
+    return this;
+  }
+
+   /**
+   * Get scheduledExecuteEndTime
+   * @return scheduledExecuteEndTime
+  **/
+  @Schema(description = "")
+  public String getScheduledExecuteEndTime() {
+    return scheduledExecuteEndTime;
+  }
+
+  public void setScheduledExecuteEndTime(String scheduledExecuteEndTime) {
+    this.scheduledExecuteEndTime = scheduledExecuteEndTime;
+  }
+
+  public DataForDescribeTasksOutput scheduledExecuteStartTime(String scheduledExecuteStartTime) {
+    this.scheduledExecuteStartTime = scheduledExecuteStartTime;
+    return this;
+  }
+
+   /**
+   * Get scheduledExecuteStartTime
+   * @return scheduledExecuteStartTime
+  **/
+  @Schema(description = "")
+  public String getScheduledExecuteStartTime() {
+    return scheduledExecuteStartTime;
+  }
+
+  public void setScheduledExecuteStartTime(String scheduledExecuteStartTime) {
+    this.scheduledExecuteStartTime = scheduledExecuteStartTime;
+  }
+
+  public DataForDescribeTasksOutput scheduledSwitchEndTime(String scheduledSwitchEndTime) {
+    this.scheduledSwitchEndTime = scheduledSwitchEndTime;
+    return this;
+  }
+
+   /**
+   * Get scheduledSwitchEndTime
+   * @return scheduledSwitchEndTime
+  **/
+  @Schema(description = "")
+  public String getScheduledSwitchEndTime() {
+    return scheduledSwitchEndTime;
+  }
+
+  public void setScheduledSwitchEndTime(String scheduledSwitchEndTime) {
+    this.scheduledSwitchEndTime = scheduledSwitchEndTime;
+  }
+
+  public DataForDescribeTasksOutput scheduledSwitchStartTime(String scheduledSwitchStartTime) {
+    this.scheduledSwitchStartTime = scheduledSwitchStartTime;
+    return this;
+  }
+
+   /**
+   * Get scheduledSwitchStartTime
+   * @return scheduledSwitchStartTime
+  **/
+  @Schema(description = "")
+  public String getScheduledSwitchStartTime() {
+    return scheduledSwitchStartTime;
+  }
+
+  public void setScheduledSwitchStartTime(String scheduledSwitchStartTime) {
+    this.scheduledSwitchStartTime = scheduledSwitchStartTime;
   }
 
   public DataForDescribeTasksOutput startTime(String startTime) {
@@ -379,12 +432,15 @@ public class DataForDescribeTasksOutput {
       return false;
     }
     DataForDescribeTasksOutput dataForDescribeTasksOutput = (DataForDescribeTasksOutput) o;
-    return Objects.equals(this.configInfos, dataForDescribeTasksOutput.configInfos) &&
-        Objects.equals(this.costTimeMS, dataForDescribeTasksOutput.costTimeMS) &&
+    return Objects.equals(this.costTimeMS, dataForDescribeTasksOutput.costTimeMS) &&
         Objects.equals(this.createTime, dataForDescribeTasksOutput.createTime) &&
         Objects.equals(this.finishTime, dataForDescribeTasksOutput.finishTime) &&
         Objects.equals(this.progress, dataForDescribeTasksOutput.progress) &&
         Objects.equals(this.relatedInstanceInfos, dataForDescribeTasksOutput.relatedInstanceInfos) &&
+        Objects.equals(this.scheduledExecuteEndTime, dataForDescribeTasksOutput.scheduledExecuteEndTime) &&
+        Objects.equals(this.scheduledExecuteStartTime, dataForDescribeTasksOutput.scheduledExecuteStartTime) &&
+        Objects.equals(this.scheduledSwitchEndTime, dataForDescribeTasksOutput.scheduledSwitchEndTime) &&
+        Objects.equals(this.scheduledSwitchStartTime, dataForDescribeTasksOutput.scheduledSwitchStartTime) &&
         Objects.equals(this.startTime, dataForDescribeTasksOutput.startTime) &&
         Objects.equals(this.taskAction, dataForDescribeTasksOutput.taskAction) &&
         Objects.equals(this.taskCategory, dataForDescribeTasksOutput.taskCategory) &&
@@ -398,7 +454,7 @@ public class DataForDescribeTasksOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(configInfos, costTimeMS, createTime, finishTime, progress, relatedInstanceInfos, startTime, taskAction, taskCategory, taskDesc, taskId, taskParams, taskProgress, taskSource, taskStatus);
+    return Objects.hash(costTimeMS, createTime, finishTime, progress, relatedInstanceInfos, scheduledExecuteEndTime, scheduledExecuteStartTime, scheduledSwitchEndTime, scheduledSwitchStartTime, startTime, taskAction, taskCategory, taskDesc, taskId, taskParams, taskProgress, taskSource, taskStatus);
   }
 
 
@@ -407,12 +463,15 @@ public class DataForDescribeTasksOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class DataForDescribeTasksOutput {\n");
     
-    sb.append("    configInfos: ").append(toIndentedString(configInfos)).append("\n");
     sb.append("    costTimeMS: ").append(toIndentedString(costTimeMS)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    finishTime: ").append(toIndentedString(finishTime)).append("\n");
     sb.append("    progress: ").append(toIndentedString(progress)).append("\n");
     sb.append("    relatedInstanceInfos: ").append(toIndentedString(relatedInstanceInfos)).append("\n");
+    sb.append("    scheduledExecuteEndTime: ").append(toIndentedString(scheduledExecuteEndTime)).append("\n");
+    sb.append("    scheduledExecuteStartTime: ").append(toIndentedString(scheduledExecuteStartTime)).append("\n");
+    sb.append("    scheduledSwitchEndTime: ").append(toIndentedString(scheduledSwitchEndTime)).append("\n");
+    sb.append("    scheduledSwitchStartTime: ").append(toIndentedString(scheduledSwitchStartTime)).append("\n");
     sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
     sb.append("    taskAction: ").append(toIndentedString(taskAction)).append("\n");
     sb.append("    taskCategory: ").append(toIndentedString(taskCategory)).append("\n");

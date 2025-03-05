@@ -48,6 +48,9 @@ public class InstanceForDescribeDBInstancesOutput {
   @SerializedName("CreateTime")
   private String createTime = null;
 
+  @SerializedName("CurrentKernelVersion")
+  private String currentKernelVersion = null;
+
   @SerializedName("DBEngineVersion")
   private String dbEngineVersion = null;
 
@@ -70,16 +73,16 @@ public class InstanceForDescribeDBInstancesOutput {
   private MaintenanceWindowForDescribeDBInstancesOutput maintenanceWindow = null;
 
   @SerializedName("NodeCPUUsedPercentage")
-  private Float nodeCPUUsedPercentage = null;
+  private Double nodeCPUUsedPercentage = null;
 
   @SerializedName("NodeMemoryUsedPercentage")
-  private Float nodeMemoryUsedPercentage = null;
+  private Double nodeMemoryUsedPercentage = null;
 
   @SerializedName("NodeNumber")
   private Integer nodeNumber = null;
 
   @SerializedName("NodeSpaceUsedPercentage")
-  private Float nodeSpaceUsedPercentage = null;
+  private Double nodeSpaceUsedPercentage = null;
 
   @SerializedName("NodeSpec")
   private String nodeSpec = null;
@@ -194,6 +197,24 @@ public class InstanceForDescribeDBInstancesOutput {
 
   public void setCreateTime(String createTime) {
     this.createTime = createTime;
+  }
+
+  public InstanceForDescribeDBInstancesOutput currentKernelVersion(String currentKernelVersion) {
+    this.currentKernelVersion = currentKernelVersion;
+    return this;
+  }
+
+   /**
+   * Get currentKernelVersion
+   * @return currentKernelVersion
+  **/
+  @Schema(description = "")
+  public String getCurrentKernelVersion() {
+    return currentKernelVersion;
+  }
+
+  public void setCurrentKernelVersion(String currentKernelVersion) {
+    this.currentKernelVersion = currentKernelVersion;
   }
 
   public InstanceForDescribeDBInstancesOutput dbEngineVersion(String dbEngineVersion) {
@@ -323,7 +344,7 @@ public class InstanceForDescribeDBInstancesOutput {
     this.maintenanceWindow = maintenanceWindow;
   }
 
-  public InstanceForDescribeDBInstancesOutput nodeCPUUsedPercentage(Float nodeCPUUsedPercentage) {
+  public InstanceForDescribeDBInstancesOutput nodeCPUUsedPercentage(Double nodeCPUUsedPercentage) {
     this.nodeCPUUsedPercentage = nodeCPUUsedPercentage;
     return this;
   }
@@ -333,15 +354,15 @@ public class InstanceForDescribeDBInstancesOutput {
    * @return nodeCPUUsedPercentage
   **/
   @Schema(description = "")
-  public Float getNodeCPUUsedPercentage() {
+  public Double getNodeCPUUsedPercentage() {
     return nodeCPUUsedPercentage;
   }
 
-  public void setNodeCPUUsedPercentage(Float nodeCPUUsedPercentage) {
+  public void setNodeCPUUsedPercentage(Double nodeCPUUsedPercentage) {
     this.nodeCPUUsedPercentage = nodeCPUUsedPercentage;
   }
 
-  public InstanceForDescribeDBInstancesOutput nodeMemoryUsedPercentage(Float nodeMemoryUsedPercentage) {
+  public InstanceForDescribeDBInstancesOutput nodeMemoryUsedPercentage(Double nodeMemoryUsedPercentage) {
     this.nodeMemoryUsedPercentage = nodeMemoryUsedPercentage;
     return this;
   }
@@ -351,11 +372,11 @@ public class InstanceForDescribeDBInstancesOutput {
    * @return nodeMemoryUsedPercentage
   **/
   @Schema(description = "")
-  public Float getNodeMemoryUsedPercentage() {
+  public Double getNodeMemoryUsedPercentage() {
     return nodeMemoryUsedPercentage;
   }
 
-  public void setNodeMemoryUsedPercentage(Float nodeMemoryUsedPercentage) {
+  public void setNodeMemoryUsedPercentage(Double nodeMemoryUsedPercentage) {
     this.nodeMemoryUsedPercentage = nodeMemoryUsedPercentage;
   }
 
@@ -377,7 +398,7 @@ public class InstanceForDescribeDBInstancesOutput {
     this.nodeNumber = nodeNumber;
   }
 
-  public InstanceForDescribeDBInstancesOutput nodeSpaceUsedPercentage(Float nodeSpaceUsedPercentage) {
+  public InstanceForDescribeDBInstancesOutput nodeSpaceUsedPercentage(Double nodeSpaceUsedPercentage) {
     this.nodeSpaceUsedPercentage = nodeSpaceUsedPercentage;
     return this;
   }
@@ -387,11 +408,11 @@ public class InstanceForDescribeDBInstancesOutput {
    * @return nodeSpaceUsedPercentage
   **/
   @Schema(description = "")
-  public Float getNodeSpaceUsedPercentage() {
+  public Double getNodeSpaceUsedPercentage() {
     return nodeSpaceUsedPercentage;
   }
 
-  public void setNodeSpaceUsedPercentage(Float nodeSpaceUsedPercentage) {
+  public void setNodeSpaceUsedPercentage(Double nodeSpaceUsedPercentage) {
     this.nodeSpaceUsedPercentage = nodeSpaceUsedPercentage;
   }
 
@@ -624,6 +645,7 @@ public class InstanceForDescribeDBInstancesOutput {
         Objects.equals(this.allowListVersion, instanceForDescribeDBInstancesOutput.allowListVersion) &&
         Objects.equals(this.chargeDetail, instanceForDescribeDBInstancesOutput.chargeDetail) &&
         Objects.equals(this.createTime, instanceForDescribeDBInstancesOutput.createTime) &&
+        Objects.equals(this.currentKernelVersion, instanceForDescribeDBInstancesOutput.currentKernelVersion) &&
         Objects.equals(this.dbEngineVersion, instanceForDescribeDBInstancesOutput.dbEngineVersion) &&
         Objects.equals(this.instanceId, instanceForDescribeDBInstancesOutput.instanceId) &&
         Objects.equals(this.instanceName, instanceForDescribeDBInstancesOutput.instanceName) &&
@@ -650,7 +672,7 @@ public class InstanceForDescribeDBInstancesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addressObject, allowListVersion, chargeDetail, createTime, dbEngineVersion, instanceId, instanceName, instanceStatus, instanceType, lowerCaseTableNames, maintenanceWindow, nodeCPUUsedPercentage, nodeMemoryUsedPercentage, nodeNumber, nodeSpaceUsedPercentage, nodeSpec, projectName, regionId, storageSpace, storageType, subnetId, tags, timeZone, vpcId, zoneId, zoneIds);
+    return Objects.hash(addressObject, allowListVersion, chargeDetail, createTime, currentKernelVersion, dbEngineVersion, instanceId, instanceName, instanceStatus, instanceType, lowerCaseTableNames, maintenanceWindow, nodeCPUUsedPercentage, nodeMemoryUsedPercentage, nodeNumber, nodeSpaceUsedPercentage, nodeSpec, projectName, regionId, storageSpace, storageType, subnetId, tags, timeZone, vpcId, zoneId, zoneIds);
   }
 
 
@@ -663,6 +685,7 @@ public class InstanceForDescribeDBInstancesOutput {
     sb.append("    allowListVersion: ").append(toIndentedString(allowListVersion)).append("\n");
     sb.append("    chargeDetail: ").append(toIndentedString(chargeDetail)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
+    sb.append("    currentKernelVersion: ").append(toIndentedString(currentKernelVersion)).append("\n");
     sb.append("    dbEngineVersion: ").append(toIndentedString(dbEngineVersion)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");

@@ -14,6 +14,15 @@ package com.volcengine.rdsmysqlv2.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -23,6 +32,35 @@ import javax.validation.Valid;
 
 
 public class CreateDBAccountResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("CreateAccountSQL")
+  private List<String> createAccountSQL = null;
+
+  public CreateDBAccountResponse createAccountSQL(List<String> createAccountSQL) {
+    this.createAccountSQL = createAccountSQL;
+    return this;
+  }
+
+  public CreateDBAccountResponse addCreateAccountSQLItem(String createAccountSQLItem) {
+    if (this.createAccountSQL == null) {
+      this.createAccountSQL = new ArrayList<String>();
+    }
+    this.createAccountSQL.add(createAccountSQLItem);
+    return this;
+  }
+
+   /**
+   * Get createAccountSQL
+   * @return createAccountSQL
+  **/
+  @Schema(description = "")
+  public List<String> getCreateAccountSQL() {
+    return createAccountSQL;
+  }
+
+  public void setCreateAccountSQL(List<String> createAccountSQL) {
+    this.createAccountSQL = createAccountSQL;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -32,12 +70,13 @@ public class CreateDBAccountResponse extends com.volcengine.model.AbstractRespon
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return true;
+    CreateDBAccountResponse createDBAccountResponse = (CreateDBAccountResponse) o;
+    return Objects.equals(this.createAccountSQL, createDBAccountResponse.createAccountSQL);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash();
+    return Objects.hash(createAccountSQL);
   }
 
 
@@ -46,6 +85,7 @@ public class CreateDBAccountResponse extends com.volcengine.model.AbstractRespon
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateDBAccountResponse {\n");
     
+    sb.append("    createAccountSQL: ").append(toIndentedString(createAccountSQL)).append("\n");
     sb.append("}");
     return sb.toString();
   }
