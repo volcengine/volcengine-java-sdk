@@ -4,7 +4,7 @@
     <groupId>com.volcengine</groupId>
     <artifactId>volcengine-java-sdk</artifactId>
     <packaging>pom</packaging>
-    <version>0.1.153</version>
+    <version>0.1.154</version>
     <name>volcengine-java-sdk</name>
     <url>https://open.volcengineapi.com</url>
     <description>The Java SDK For Volcengine</description>
@@ -268,5 +268,6 @@
         <module>volcengine-java-sdk-seccenter</module>
         <module>volcengine-java-sdk-bio</module>
         <module>volcengine-java-sdk-dataleap</module>
+        <module>volcengine-java-sdk-emr</module>
     </modules>
 </project>
