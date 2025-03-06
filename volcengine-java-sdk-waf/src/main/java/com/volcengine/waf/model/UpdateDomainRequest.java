@@ -43,21 +43,6 @@ public class UpdateDomainRequest {
   @SerializedName("BackendGroups")
   private List<BackendGroupForUpdateDomainInput> backendGroups = null;
 
-  @SerializedName("BotDytokenEnable")
-  private Integer botDytokenEnable = null;
-
-  @SerializedName("BotFrequencyEnable")
-  private Integer botFrequencyEnable = null;
-
-  @SerializedName("BotRepeatEnable")
-  private Integer botRepeatEnable = null;
-
-  @SerializedName("BotSequenceDefaultAction")
-  private Integer botSequenceDefaultAction = null;
-
-  @SerializedName("BotSequenceEnable")
-  private Integer botSequenceEnable = null;
-
   @SerializedName("CertificateID")
   private Integer certificateID = null;
 
@@ -213,96 +198,6 @@ public class UpdateDomainRequest {
 
   public void setBackendGroups(List<BackendGroupForUpdateDomainInput> backendGroups) {
     this.backendGroups = backendGroups;
-  }
-
-  public UpdateDomainRequest botDytokenEnable(Integer botDytokenEnable) {
-    this.botDytokenEnable = botDytokenEnable;
-    return this;
-  }
-
-   /**
-   * Get botDytokenEnable
-   * @return botDytokenEnable
-  **/
-  @Schema(description = "")
-  public Integer getBotDytokenEnable() {
-    return botDytokenEnable;
-  }
-
-  public void setBotDytokenEnable(Integer botDytokenEnable) {
-    this.botDytokenEnable = botDytokenEnable;
-  }
-
-  public UpdateDomainRequest botFrequencyEnable(Integer botFrequencyEnable) {
-    this.botFrequencyEnable = botFrequencyEnable;
-    return this;
-  }
-
-   /**
-   * Get botFrequencyEnable
-   * @return botFrequencyEnable
-  **/
-  @Schema(description = "")
-  public Integer getBotFrequencyEnable() {
-    return botFrequencyEnable;
-  }
-
-  public void setBotFrequencyEnable(Integer botFrequencyEnable) {
-    this.botFrequencyEnable = botFrequencyEnable;
-  }
-
-  public UpdateDomainRequest botRepeatEnable(Integer botRepeatEnable) {
-    this.botRepeatEnable = botRepeatEnable;
-    return this;
-  }
-
-   /**
-   * Get botRepeatEnable
-   * @return botRepeatEnable
-  **/
-  @Schema(description = "")
-  public Integer getBotRepeatEnable() {
-    return botRepeatEnable;
-  }
-
-  public void setBotRepeatEnable(Integer botRepeatEnable) {
-    this.botRepeatEnable = botRepeatEnable;
-  }
-
-  public UpdateDomainRequest botSequenceDefaultAction(Integer botSequenceDefaultAction) {
-    this.botSequenceDefaultAction = botSequenceDefaultAction;
-    return this;
-  }
-
-   /**
-   * Get botSequenceDefaultAction
-   * @return botSequenceDefaultAction
-  **/
-  @Schema(description = "")
-  public Integer getBotSequenceDefaultAction() {
-    return botSequenceDefaultAction;
-  }
-
-  public void setBotSequenceDefaultAction(Integer botSequenceDefaultAction) {
-    this.botSequenceDefaultAction = botSequenceDefaultAction;
-  }
-
-  public UpdateDomainRequest botSequenceEnable(Integer botSequenceEnable) {
-    this.botSequenceEnable = botSequenceEnable;
-    return this;
-  }
-
-   /**
-   * Get botSequenceEnable
-   * @return botSequenceEnable
-  **/
-  @Schema(description = "")
-  public Integer getBotSequenceEnable() {
-    return botSequenceEnable;
-  }
-
-  public void setBotSequenceEnable(Integer botSequenceEnable) {
-    this.botSequenceEnable = botSequenceEnable;
   }
 
   public UpdateDomainRequest certificateID(Integer certificateID) {
@@ -1037,11 +932,6 @@ public class UpdateDomainRequest {
     UpdateDomainRequest updateDomainRequest = (UpdateDomainRequest) o;
     return Objects.equals(this.accessMode, updateDomainRequest.accessMode) &&
         Objects.equals(this.backendGroups, updateDomainRequest.backendGroups) &&
-        Objects.equals(this.botDytokenEnable, updateDomainRequest.botDytokenEnable) &&
-        Objects.equals(this.botFrequencyEnable, updateDomainRequest.botFrequencyEnable) &&
-        Objects.equals(this.botRepeatEnable, updateDomainRequest.botRepeatEnable) &&
-        Objects.equals(this.botSequenceDefaultAction, updateDomainRequest.botSequenceDefaultAction) &&
-        Objects.equals(this.botSequenceEnable, updateDomainRequest.botSequenceEnable) &&
         Objects.equals(this.certificateID, updateDomainRequest.certificateID) &&
         Objects.equals(this.certificatePlatform, updateDomainRequest.certificatePlatform) &&
         Objects.equals(this.clientIPLocation, updateDomainRequest.clientIPLocation) &&
@@ -1083,7 +973,7 @@ public class UpdateDomainRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessMode, backendGroups, botDytokenEnable, botFrequencyEnable, botRepeatEnable, botSequenceDefaultAction, botSequenceEnable, certificateID, certificatePlatform, clientIPLocation, clientMaxBodySize, cloudAccessConfig, customHeader, customSNI, domain, enableCustomRedirect, enableHTTP2, enableIPv6, enableSNI, keepAliveRequest, keepAliveTimeOut, lbAlgorithm, llMAvailable, llMPathInfo, projectName, protocolFollow, protocolPorts, protocols, proxyConfig, proxyConnectTimeOut, proxyKeepAlive, proxyKeepAliveTimeOut, proxyReadTimeOut, proxyRetry, proxyWriteTimeOut, publicRealServer, redirectHTTPS, region, ssLCiphers, ssLProtocols, tlSEnable, tlSFieldsConfig, volcCertificateID, vpcID);
+    return Objects.hash(accessMode, backendGroups, certificateID, certificatePlatform, clientIPLocation, clientMaxBodySize, cloudAccessConfig, customHeader, customSNI, domain, enableCustomRedirect, enableHTTP2, enableIPv6, enableSNI, keepAliveRequest, keepAliveTimeOut, lbAlgorithm, llMAvailable, llMPathInfo, projectName, protocolFollow, protocolPorts, protocols, proxyConfig, proxyConnectTimeOut, proxyKeepAlive, proxyKeepAliveTimeOut, proxyReadTimeOut, proxyRetry, proxyWriteTimeOut, publicRealServer, redirectHTTPS, region, ssLCiphers, ssLProtocols, tlSEnable, tlSFieldsConfig, volcCertificateID, vpcID);
   }
 
 
@@ -1094,11 +984,6 @@ public class UpdateDomainRequest {
     
     sb.append("    accessMode: ").append(toIndentedString(accessMode)).append("\n");
     sb.append("    backendGroups: ").append(toIndentedString(backendGroups)).append("\n");
-    sb.append("    botDytokenEnable: ").append(toIndentedString(botDytokenEnable)).append("\n");
-    sb.append("    botFrequencyEnable: ").append(toIndentedString(botFrequencyEnable)).append("\n");
-    sb.append("    botRepeatEnable: ").append(toIndentedString(botRepeatEnable)).append("\n");
-    sb.append("    botSequenceDefaultAction: ").append(toIndentedString(botSequenceDefaultAction)).append("\n");
-    sb.append("    botSequenceEnable: ").append(toIndentedString(botSequenceEnable)).append("\n");
     sb.append("    certificateID: ").append(toIndentedString(certificateID)).append("\n");
     sb.append("    certificatePlatform: ").append(toIndentedString(certificatePlatform)).append("\n");
     sb.append("    clientIPLocation: ").append(toIndentedString(clientIPLocation)).append("\n");
