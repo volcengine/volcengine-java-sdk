@@ -36,6 +36,9 @@ public class ModifyDBEndpointRequest {
   @SerializedName("AutoAddNewNodes")
   private Boolean autoAddNewNodes = null;
 
+  @SerializedName("ConnectionPoolType")
+  private String connectionPoolType = null;
+
   @SerializedName("Description")
   private String description = null;
 
@@ -51,58 +54,14 @@ public class ModifyDBEndpointRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;
 
+  @SerializedName("MultiStatementsMode")
+  private String multiStatementsMode = null;
+
   @SerializedName("Nodes")
   private String nodes = null;
 
-  /**
-   * Gets or Sets readOnlyNodeDistributionType
-   */
-  @JsonAdapter(ReadOnlyNodeDistributionTypeEnum.Adapter.class)
-  public enum ReadOnlyNodeDistributionTypeEnum {
-    @SerializedName("Default")
-    DEFAULT("Default"),
-    @SerializedName("Custom")
-    CUSTOM("Custom"),
-    @SerializedName("RoundRobin")
-    ROUNDROBIN("RoundRobin"),
-    @SerializedName("LoadSchedule")
-    LOADSCHEDULE("LoadSchedule");
-
-    private String value;
-
-    ReadOnlyNodeDistributionTypeEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static ReadOnlyNodeDistributionTypeEnum fromValue(String input) {
-      for (ReadOnlyNodeDistributionTypeEnum b : ReadOnlyNodeDistributionTypeEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<ReadOnlyNodeDistributionTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final ReadOnlyNodeDistributionTypeEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public ReadOnlyNodeDistributionTypeEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return ReadOnlyNodeDistributionTypeEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("ReadOnlyNodeDistributionType")
-  private ReadOnlyNodeDistributionTypeEnum readOnlyNodeDistributionType = null;
+  @SerializedName("ReadOnlyNodeDistributionType")
+  private String readOnlyNodeDistributionType = null;
 
   @SerializedName("ReadOnlyNodeMaxDelayTime")
   private Integer readOnlyNodeMaxDelayTime = null;
@@ -110,51 +69,8 @@ public class ModifyDBEndpointRequest {
   @SerializedName("ReadOnlyNodeWeight")
   private List<ReadOnlyNodeWeightForModifyDBEndpointInput> readOnlyNodeWeight = null;
 
-  /**
-   * Gets or Sets readWriteMode
-   */
-  @JsonAdapter(ReadWriteModeEnum.Adapter.class)
-  public enum ReadWriteModeEnum {
-    @SerializedName("ReadWrite")
-    READWRITE("ReadWrite"),
-    @SerializedName("ReadOnly")
-    READONLY("ReadOnly");
-
-    private String value;
-
-    ReadWriteModeEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static ReadWriteModeEnum fromValue(String input) {
-      for (ReadWriteModeEnum b : ReadWriteModeEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<ReadWriteModeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final ReadWriteModeEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public ReadWriteModeEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return ReadWriteModeEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("ReadWriteMode")
-  private ReadWriteModeEnum readWriteMode = null;
+  @SerializedName("ReadWriteMode")
+  private String readWriteMode = null;
 
   @SerializedName("ReadWriteSpliting")
   private Boolean readWriteSpliting = null;
@@ -175,6 +91,24 @@ public class ModifyDBEndpointRequest {
 
   public void setAutoAddNewNodes(Boolean autoAddNewNodes) {
     this.autoAddNewNodes = autoAddNewNodes;
+  }
+
+  public ModifyDBEndpointRequest connectionPoolType(String connectionPoolType) {
+    this.connectionPoolType = connectionPoolType;
+    return this;
+  }
+
+   /**
+   * Get connectionPoolType
+   * @return connectionPoolType
+  **/
+  @Schema(description = "")
+  public String getConnectionPoolType() {
+    return connectionPoolType;
+  }
+
+  public void setConnectionPoolType(String connectionPoolType) {
+    this.connectionPoolType = connectionPoolType;
   }
 
   public ModifyDBEndpointRequest description(String description) {
@@ -269,6 +203,24 @@ public class ModifyDBEndpointRequest {
     this.instanceId = instanceId;
   }
 
+  public ModifyDBEndpointRequest multiStatementsMode(String multiStatementsMode) {
+    this.multiStatementsMode = multiStatementsMode;
+    return this;
+  }
+
+   /**
+   * Get multiStatementsMode
+   * @return multiStatementsMode
+  **/
+  @Schema(description = "")
+  public String getMultiStatementsMode() {
+    return multiStatementsMode;
+  }
+
+  public void setMultiStatementsMode(String multiStatementsMode) {
+    this.multiStatementsMode = multiStatementsMode;
+  }
+
   public ModifyDBEndpointRequest nodes(String nodes) {
     this.nodes = nodes;
     return this;
@@ -287,7 +239,7 @@ public class ModifyDBEndpointRequest {
     this.nodes = nodes;
   }
 
-  public ModifyDBEndpointRequest readOnlyNodeDistributionType(ReadOnlyNodeDistributionTypeEnum readOnlyNodeDistributionType) {
+  public ModifyDBEndpointRequest readOnlyNodeDistributionType(String readOnlyNodeDistributionType) {
     this.readOnlyNodeDistributionType = readOnlyNodeDistributionType;
     return this;
   }
@@ -297,11 +249,11 @@ public class ModifyDBEndpointRequest {
    * @return readOnlyNodeDistributionType
   **/
   @Schema(description = "")
-  public ReadOnlyNodeDistributionTypeEnum getReadOnlyNodeDistributionType() {
+  public String getReadOnlyNodeDistributionType() {
     return readOnlyNodeDistributionType;
   }
 
-  public void setReadOnlyNodeDistributionType(ReadOnlyNodeDistributionTypeEnum readOnlyNodeDistributionType) {
+  public void setReadOnlyNodeDistributionType(String readOnlyNodeDistributionType) {
     this.readOnlyNodeDistributionType = readOnlyNodeDistributionType;
   }
 
@@ -350,7 +302,7 @@ public class ModifyDBEndpointRequest {
     this.readOnlyNodeWeight = readOnlyNodeWeight;
   }
 
-  public ModifyDBEndpointRequest readWriteMode(ReadWriteModeEnum readWriteMode) {
+  public ModifyDBEndpointRequest readWriteMode(String readWriteMode) {
     this.readWriteMode = readWriteMode;
     return this;
   }
@@ -360,11 +312,11 @@ public class ModifyDBEndpointRequest {
    * @return readWriteMode
   **/
   @Schema(description = "")
-  public ReadWriteModeEnum getReadWriteMode() {
+  public String getReadWriteMode() {
     return readWriteMode;
   }
 
-  public void setReadWriteMode(ReadWriteModeEnum readWriteMode) {
+  public void setReadWriteMode(String readWriteMode) {
     this.readWriteMode = readWriteMode;
   }
 
@@ -397,11 +349,13 @@ public class ModifyDBEndpointRequest {
     }
     ModifyDBEndpointRequest modifyDBEndpointRequest = (ModifyDBEndpointRequest) o;
     return Objects.equals(this.autoAddNewNodes, modifyDBEndpointRequest.autoAddNewNodes) &&
+        Objects.equals(this.connectionPoolType, modifyDBEndpointRequest.connectionPoolType) &&
         Objects.equals(this.description, modifyDBEndpointRequest.description) &&
         Objects.equals(this.endpointId, modifyDBEndpointRequest.endpointId) &&
         Objects.equals(this.endpointName, modifyDBEndpointRequest.endpointName) &&
         Objects.equals(this.idleConnectionReclaim, modifyDBEndpointRequest.idleConnectionReclaim) &&
         Objects.equals(this.instanceId, modifyDBEndpointRequest.instanceId) &&
+        Objects.equals(this.multiStatementsMode, modifyDBEndpointRequest.multiStatementsMode) &&
         Objects.equals(this.nodes, modifyDBEndpointRequest.nodes) &&
         Objects.equals(this.readOnlyNodeDistributionType, modifyDBEndpointRequest.readOnlyNodeDistributionType) &&
         Objects.equals(this.readOnlyNodeMaxDelayTime, modifyDBEndpointRequest.readOnlyNodeMaxDelayTime) &&
@@ -412,7 +366,7 @@ public class ModifyDBEndpointRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoAddNewNodes, description, endpointId, endpointName, idleConnectionReclaim, instanceId, nodes, readOnlyNodeDistributionType, readOnlyNodeMaxDelayTime, readOnlyNodeWeight, readWriteMode, readWriteSpliting);
+    return Objects.hash(autoAddNewNodes, connectionPoolType, description, endpointId, endpointName, idleConnectionReclaim, instanceId, multiStatementsMode, nodes, readOnlyNodeDistributionType, readOnlyNodeMaxDelayTime, readOnlyNodeWeight, readWriteMode, readWriteSpliting);
   }
 
 
@@ -422,11 +376,13 @@ public class ModifyDBEndpointRequest {
     sb.append("class ModifyDBEndpointRequest {\n");
     
     sb.append("    autoAddNewNodes: ").append(toIndentedString(autoAddNewNodes)).append("\n");
+    sb.append("    connectionPoolType: ").append(toIndentedString(connectionPoolType)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    endpointId: ").append(toIndentedString(endpointId)).append("\n");
     sb.append("    endpointName: ").append(toIndentedString(endpointName)).append("\n");
     sb.append("    idleConnectionReclaim: ").append(toIndentedString(idleConnectionReclaim)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    multiStatementsMode: ").append(toIndentedString(multiStatementsMode)).append("\n");
     sb.append("    nodes: ").append(toIndentedString(nodes)).append("\n");
     sb.append("    readOnlyNodeDistributionType: ").append(toIndentedString(readOnlyNodeDistributionType)).append("\n");
     sb.append("    readOnlyNodeMaxDelayTime: ").append(toIndentedString(readOnlyNodeMaxDelayTime)).append("\n");

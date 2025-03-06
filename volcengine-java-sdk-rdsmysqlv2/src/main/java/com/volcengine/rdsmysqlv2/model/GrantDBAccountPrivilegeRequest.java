@@ -39,6 +39,9 @@ public class GrantDBAccountPrivilegeRequest {
   @SerializedName("AccountPrivileges")
   private List<AccountPrivilegeForGrantDBAccountPrivilegeInput> accountPrivileges = null;
 
+  @SerializedName("DryRun")
+  private Boolean dryRun = null;
+
   @SerializedName("Host")
   private String host = null;
 
@@ -91,6 +94,24 @@ public class GrantDBAccountPrivilegeRequest {
     this.accountPrivileges = accountPrivileges;
   }
 
+  public GrantDBAccountPrivilegeRequest dryRun(Boolean dryRun) {
+    this.dryRun = dryRun;
+    return this;
+  }
+
+   /**
+   * Get dryRun
+   * @return dryRun
+  **/
+  @Schema(description = "")
+  public Boolean isDryRun() {
+    return dryRun;
+  }
+
+  public void setDryRun(Boolean dryRun) {
+    this.dryRun = dryRun;
+  }
+
   public GrantDBAccountPrivilegeRequest host(String host) {
     this.host = host;
     return this;
@@ -140,13 +161,14 @@ public class GrantDBAccountPrivilegeRequest {
     GrantDBAccountPrivilegeRequest grantDBAccountPrivilegeRequest = (GrantDBAccountPrivilegeRequest) o;
     return Objects.equals(this.accountName, grantDBAccountPrivilegeRequest.accountName) &&
         Objects.equals(this.accountPrivileges, grantDBAccountPrivilegeRequest.accountPrivileges) &&
+        Objects.equals(this.dryRun, grantDBAccountPrivilegeRequest.dryRun) &&
         Objects.equals(this.host, grantDBAccountPrivilegeRequest.host) &&
         Objects.equals(this.instanceId, grantDBAccountPrivilegeRequest.instanceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountName, accountPrivileges, host, instanceId);
+    return Objects.hash(accountName, accountPrivileges, dryRun, host, instanceId);
   }
 
 
@@ -157,6 +179,7 @@ public class GrantDBAccountPrivilegeRequest {
     
     sb.append("    accountName: ").append(toIndentedString(accountName)).append("\n");
     sb.append("    accountPrivileges: ").append(toIndentedString(accountPrivileges)).append("\n");
+    sb.append("    dryRun: ").append(toIndentedString(dryRun)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("}");

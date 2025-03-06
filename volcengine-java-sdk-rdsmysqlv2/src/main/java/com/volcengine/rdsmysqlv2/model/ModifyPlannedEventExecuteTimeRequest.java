@@ -33,11 +33,20 @@ public class ModifyPlannedEventExecuteTimeRequest {
   @SerializedName("EventId")
   private String eventId = null;
 
+  @SerializedName("InstanceId")
+  private String instanceId = null;
+
   @SerializedName("ModifyBeginTime")
   private String modifyBeginTime = null;
 
   @SerializedName("ModifyEndTime")
   private String modifyEndTime = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
+  @SerializedName("TaskEventOperation")
+  private String taskEventOperation = null;
 
   public ModifyPlannedEventExecuteTimeRequest eventId(String eventId) {
     this.eventId = eventId;
@@ -58,6 +67,25 @@ public class ModifyPlannedEventExecuteTimeRequest {
     this.eventId = eventId;
   }
 
+  public ModifyPlannedEventExecuteTimeRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
+    return this;
+  }
+
+   /**
+   * Get instanceId
+   * @return instanceId
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getInstanceId() {
+    return instanceId;
+  }
+
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
+  }
+
   public ModifyPlannedEventExecuteTimeRequest modifyBeginTime(String modifyBeginTime) {
     this.modifyBeginTime = modifyBeginTime;
     return this;
@@ -67,8 +95,7 @@ public class ModifyPlannedEventExecuteTimeRequest {
    * Get modifyBeginTime
    * @return modifyBeginTime
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getModifyBeginTime() {
     return modifyBeginTime;
   }
@@ -86,14 +113,50 @@ public class ModifyPlannedEventExecuteTimeRequest {
    * Get modifyEndTime
    * @return modifyEndTime
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getModifyEndTime() {
     return modifyEndTime;
   }
 
   public void setModifyEndTime(String modifyEndTime) {
     this.modifyEndTime = modifyEndTime;
+  }
+
+  public ModifyPlannedEventExecuteTimeRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
+  public ModifyPlannedEventExecuteTimeRequest taskEventOperation(String taskEventOperation) {
+    this.taskEventOperation = taskEventOperation;
+    return this;
+  }
+
+   /**
+   * Get taskEventOperation
+   * @return taskEventOperation
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getTaskEventOperation() {
+    return taskEventOperation;
+  }
+
+  public void setTaskEventOperation(String taskEventOperation) {
+    this.taskEventOperation = taskEventOperation;
   }
 
 
@@ -107,13 +170,16 @@ public class ModifyPlannedEventExecuteTimeRequest {
     }
     ModifyPlannedEventExecuteTimeRequest modifyPlannedEventExecuteTimeRequest = (ModifyPlannedEventExecuteTimeRequest) o;
     return Objects.equals(this.eventId, modifyPlannedEventExecuteTimeRequest.eventId) &&
+        Objects.equals(this.instanceId, modifyPlannedEventExecuteTimeRequest.instanceId) &&
         Objects.equals(this.modifyBeginTime, modifyPlannedEventExecuteTimeRequest.modifyBeginTime) &&
-        Objects.equals(this.modifyEndTime, modifyPlannedEventExecuteTimeRequest.modifyEndTime);
+        Objects.equals(this.modifyEndTime, modifyPlannedEventExecuteTimeRequest.modifyEndTime) &&
+        Objects.equals(this.projectName, modifyPlannedEventExecuteTimeRequest.projectName) &&
+        Objects.equals(this.taskEventOperation, modifyPlannedEventExecuteTimeRequest.taskEventOperation);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(eventId, modifyBeginTime, modifyEndTime);
+    return Objects.hash(eventId, instanceId, modifyBeginTime, modifyEndTime, projectName, taskEventOperation);
   }
 
 
@@ -123,8 +189,11 @@ public class ModifyPlannedEventExecuteTimeRequest {
     sb.append("class ModifyPlannedEventExecuteTimeRequest {\n");
     
     sb.append("    eventId: ").append(toIndentedString(eventId)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    modifyBeginTime: ").append(toIndentedString(modifyBeginTime)).append("\n");
     sb.append("    modifyEndTime: ").append(toIndentedString(modifyEndTime)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    taskEventOperation: ").append(toIndentedString(taskEventOperation)).append("\n");
     sb.append("}");
     return sb.toString();
   }
