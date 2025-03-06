@@ -33,6 +33,9 @@ public class CheckModifyDBProxyAllowedForDescribeDBProxyConfigOutput {
   @SerializedName("Allowed")
   private Boolean allowed = null;
 
+  @SerializedName("Message")
+  private String message = null;
+
   @SerializedName("Reason")
   private String reason = null;
 
@@ -52,6 +55,24 @@ public class CheckModifyDBProxyAllowedForDescribeDBProxyConfigOutput {
 
   public void setAllowed(Boolean allowed) {
     this.allowed = allowed;
+  }
+
+  public CheckModifyDBProxyAllowedForDescribeDBProxyConfigOutput message(String message) {
+    this.message = message;
+    return this;
+  }
+
+   /**
+   * Get message
+   * @return message
+  **/
+  @Schema(description = "")
+  public String getMessage() {
+    return message;
+  }
+
+  public void setMessage(String message) {
+    this.message = message;
   }
 
   public CheckModifyDBProxyAllowedForDescribeDBProxyConfigOutput reason(String reason) {
@@ -83,12 +104,13 @@ public class CheckModifyDBProxyAllowedForDescribeDBProxyConfigOutput {
     }
     CheckModifyDBProxyAllowedForDescribeDBProxyConfigOutput checkModifyDBProxyAllowedForDescribeDBProxyConfigOutput = (CheckModifyDBProxyAllowedForDescribeDBProxyConfigOutput) o;
     return Objects.equals(this.allowed, checkModifyDBProxyAllowedForDescribeDBProxyConfigOutput.allowed) &&
+        Objects.equals(this.message, checkModifyDBProxyAllowedForDescribeDBProxyConfigOutput.message) &&
         Objects.equals(this.reason, checkModifyDBProxyAllowedForDescribeDBProxyConfigOutput.reason);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowed, reason);
+    return Objects.hash(allowed, message, reason);
   }
 
 
@@ -98,6 +120,7 @@ public class CheckModifyDBProxyAllowedForDescribeDBProxyConfigOutput {
     sb.append("class CheckModifyDBProxyAllowedForDescribeDBProxyConfigOutput {\n");
     
     sb.append("    allowed: ").append(toIndentedString(allowed)).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
     sb.append("}");
     return sb.toString();

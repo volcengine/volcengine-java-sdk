@@ -33,6 +33,9 @@ import javax.validation.Valid;
 
 
 public class CreateParameterTemplateRequest {
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("TemplateDesc")
   private String templateDesc = null;
 
@@ -42,107 +45,29 @@ public class CreateParameterTemplateRequest {
   @SerializedName("TemplateParams")
   private List<TemplateParamForCreateParameterTemplateInput> templateParams = null;
 
-  /**
-   * Gets or Sets templateType
-   */
-  @JsonAdapter(TemplateTypeEnum.Adapter.class)
-  public enum TemplateTypeEnum {
-    @SerializedName("Mysql")
-    MYSQL("Mysql"),
-    @SerializedName("Postgresql")
-    POSTGRESQL("Postgresql"),
-    @SerializedName("Sqlserver")
-    SQLSERVER("Sqlserver");
+  @SerializedName("TemplateType")
+  private String templateType = null;
 
-    private String value;
+  @SerializedName("TemplateTypeVersion")
+  private String templateTypeVersion = null;
 
-    TemplateTypeEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
+  public CreateParameterTemplateRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
 
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static TemplateTypeEnum fromValue(String input) {
-      for (TemplateTypeEnum b : TemplateTypeEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<TemplateTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final TemplateTypeEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
 
-      @Override
-      public TemplateTypeEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return TemplateTypeEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("TemplateType")
-  private TemplateTypeEnum templateType = null;
-
-  /**
-   * Gets or Sets templateTypeVersion
-   */
-  @JsonAdapter(TemplateTypeVersionEnum.Adapter.class)
-  public enum TemplateTypeVersionEnum {
-    @SerializedName("MySQL_5_7")
-    MYSQL_5_7("MySQL_5_7"),
-    @SerializedName("MySQL_8_0")
-    MYSQL_8_0("MySQL_8_0"),
-    @SerializedName("MySQL_5_6")
-    MYSQL_5_6("MySQL_5_6"),
-    @SerializedName("SQLServer_2019_Ent")
-    SQLSERVER_2019_ENT("SQLServer_2019_Ent"),
-    @SerializedName("SQLServer_2019_Std")
-    SQLSERVER_2019_STD("SQLServer_2019_Std"),
-    @SerializedName("SQLServer_2019_Web")
-    SQLSERVER_2019_WEB("SQLServer_2019_Web");
-
-    private String value;
-
-    TemplateTypeVersionEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static TemplateTypeVersionEnum fromValue(String input) {
-      for (TemplateTypeVersionEnum b : TemplateTypeVersionEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<TemplateTypeVersionEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final TemplateTypeVersionEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public TemplateTypeVersionEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return TemplateTypeVersionEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("TemplateTypeVersion")
-  private TemplateTypeVersionEnum templateTypeVersion = null;
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
 
   public CreateParameterTemplateRequest templateDesc(String templateDesc) {
     this.templateDesc = templateDesc;
@@ -208,7 +133,7 @@ public class CreateParameterTemplateRequest {
     this.templateParams = templateParams;
   }
 
-  public CreateParameterTemplateRequest templateType(TemplateTypeEnum templateType) {
+  public CreateParameterTemplateRequest templateType(String templateType) {
     this.templateType = templateType;
     return this;
   }
@@ -219,15 +144,15 @@ public class CreateParameterTemplateRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public TemplateTypeEnum getTemplateType() {
+  public String getTemplateType() {
     return templateType;
   }
 
-  public void setTemplateType(TemplateTypeEnum templateType) {
+  public void setTemplateType(String templateType) {
     this.templateType = templateType;
   }
 
-  public CreateParameterTemplateRequest templateTypeVersion(TemplateTypeVersionEnum templateTypeVersion) {
+  public CreateParameterTemplateRequest templateTypeVersion(String templateTypeVersion) {
     this.templateTypeVersion = templateTypeVersion;
     return this;
   }
@@ -238,11 +163,11 @@ public class CreateParameterTemplateRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public TemplateTypeVersionEnum getTemplateTypeVersion() {
+  public String getTemplateTypeVersion() {
     return templateTypeVersion;
   }
 
-  public void setTemplateTypeVersion(TemplateTypeVersionEnum templateTypeVersion) {
+  public void setTemplateTypeVersion(String templateTypeVersion) {
     this.templateTypeVersion = templateTypeVersion;
   }
 
@@ -256,7 +181,8 @@ public class CreateParameterTemplateRequest {
       return false;
     }
     CreateParameterTemplateRequest createParameterTemplateRequest = (CreateParameterTemplateRequest) o;
-    return Objects.equals(this.templateDesc, createParameterTemplateRequest.templateDesc) &&
+    return Objects.equals(this.projectName, createParameterTemplateRequest.projectName) &&
+        Objects.equals(this.templateDesc, createParameterTemplateRequest.templateDesc) &&
         Objects.equals(this.templateName, createParameterTemplateRequest.templateName) &&
         Objects.equals(this.templateParams, createParameterTemplateRequest.templateParams) &&
         Objects.equals(this.templateType, createParameterTemplateRequest.templateType) &&
@@ -265,7 +191,7 @@ public class CreateParameterTemplateRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(templateDesc, templateName, templateParams, templateType, templateTypeVersion);
+    return Objects.hash(projectName, templateDesc, templateName, templateParams, templateType, templateTypeVersion);
   }
 
 
@@ -274,6 +200,7 @@ public class CreateParameterTemplateRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateParameterTemplateRequest {\n");
     
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    templateDesc: ").append(toIndentedString(templateDesc)).append("\n");
     sb.append("    templateName: ").append(toIndentedString(templateName)).append("\n");
     sb.append("    templateParams: ").append(toIndentedString(templateParams)).append("\n");
