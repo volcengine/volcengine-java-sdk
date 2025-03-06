@@ -21,6 +21,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ChangeAccountSecureContactInfoResponse extends com.volcengine.model.AbstractResponse {
 
   @Override

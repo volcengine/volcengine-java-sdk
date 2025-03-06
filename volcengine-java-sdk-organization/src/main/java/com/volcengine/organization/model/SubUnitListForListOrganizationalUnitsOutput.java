@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class SubUnitListForListOrganizationalUnitsOutput {
   @SerializedName("CreatedTime")
   private String createdTime = null;

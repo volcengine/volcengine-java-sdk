@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ListInvitationsRequest {
   @SerializedName("Limit")
   private Integer limit = null;

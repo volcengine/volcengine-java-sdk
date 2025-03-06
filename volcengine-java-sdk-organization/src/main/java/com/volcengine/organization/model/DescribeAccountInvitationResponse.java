@@ -29,6 +29,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeAccountInvitationResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("InvationInfo")
   private InvationInfoForDescribeAccountInvitationOutput invationInfo = null;

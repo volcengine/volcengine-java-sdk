@@ -29,6 +29,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeQuitApplicationResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("OrgQuitApplication")
   private OrgQuitApplicationForDescribeQuitApplicationOutput orgQuitApplication = null;

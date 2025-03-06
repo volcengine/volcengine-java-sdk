@@ -19,27 +19,33 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.organization.model.PolicyForListPoliciesForTargetOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ListOrganizationalUnitsForParentRequest
+ * ListPoliciesForTargetResponse
  */
 
 
 
-public class ListOrganizationalUnitsForParentRequest {
+public class ListPoliciesForTargetResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Limit")
   private Integer limit = null;
 
   @SerializedName("Offset")
   private Integer offset = null;
 
-  @SerializedName("ParentId")
-  private String parentId = null;
+  @SerializedName("Policies")
+  private List<PolicyForListPoliciesForTargetOutput> policies = null;
 
-  public ListOrganizationalUnitsForParentRequest limit(Integer limit) {
+  @SerializedName("Total")
+  private Integer total = null;
+
+  public ListPoliciesForTargetResponse limit(Integer limit) {
     this.limit = limit;
     return this;
   }
@@ -57,7 +63,7 @@ public class ListOrganizationalUnitsForParentRequest {
     this.limit = limit;
   }
 
-  public ListOrganizationalUnitsForParentRequest offset(Integer offset) {
+  public ListPoliciesForTargetResponse offset(Integer offset) {
     this.offset = offset;
     return this;
   }
@@ -75,23 +81,49 @@ public class ListOrganizationalUnitsForParentRequest {
     this.offset = offset;
   }
 
-  public ListOrganizationalUnitsForParentRequest parentId(String parentId) {
-    this.parentId = parentId;
+  public ListPoliciesForTargetResponse policies(List<PolicyForListPoliciesForTargetOutput> policies) {
+    this.policies = policies;
+    return this;
+  }
+
+  public ListPoliciesForTargetResponse addPoliciesItem(PolicyForListPoliciesForTargetOutput policiesItem) {
+    if (this.policies == null) {
+      this.policies = new ArrayList<PolicyForListPoliciesForTargetOutput>();
+    }
+    this.policies.add(policiesItem);
     return this;
   }
 
    /**
-   * Get parentId
-   * @return parentId
+   * Get policies
+   * @return policies
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getParentId() {
-    return parentId;
+  @Valid
+  @Schema(description = "")
+  public List<PolicyForListPoliciesForTargetOutput> getPolicies() {
+    return policies;
   }
 
-  public void setParentId(String parentId) {
-    this.parentId = parentId;
+  public void setPolicies(List<PolicyForListPoliciesForTargetOutput> policies) {
+    this.policies = policies;
+  }
+
+  public ListPoliciesForTargetResponse total(Integer total) {
+    this.total = total;
+    return this;
+  }
+
+   /**
+   * Get total
+   * @return total
+  **/
+  @Schema(description = "")
+  public Integer getTotal() {
+    return total;
+  }
+
+  public void setTotal(Integer total) {
+    this.total = total;
   }
 
 
@@ -103,26 +135,28 @@ public class ListOrganizationalUnitsForParentRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ListOrganizationalUnitsForParentRequest listOrganizationalUnitsForParentRequest = (ListOrganizationalUnitsForParentRequest) o;
-    return Objects.equals(this.limit, listOrganizationalUnitsForParentRequest.limit) &&
-        Objects.equals(this.offset, listOrganizationalUnitsForParentRequest.offset) &&
-        Objects.equals(this.parentId, listOrganizationalUnitsForParentRequest.parentId);
+    ListPoliciesForTargetResponse listPoliciesForTargetResponse = (ListPoliciesForTargetResponse) o;
+    return Objects.equals(this.limit, listPoliciesForTargetResponse.limit) &&
+        Objects.equals(this.offset, listPoliciesForTargetResponse.offset) &&
+        Objects.equals(this.policies, listPoliciesForTargetResponse.policies) &&
+        Objects.equals(this.total, listPoliciesForTargetResponse.total);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(limit, offset, parentId);
+    return Objects.hash(limit, offset, policies, total);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ListOrganizationalUnitsForParentRequest {\n");
+    sb.append("class ListPoliciesForTargetResponse {\n");
     
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
     sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
-    sb.append("    parentId: ").append(toIndentedString(parentId)).append("\n");
+    sb.append("    policies: ").append(toIndentedString(policies)).append("\n");
+    sb.append("    total: ").append(toIndentedString(total)).append("\n");
     sb.append("}");
     return sb.toString();
   }

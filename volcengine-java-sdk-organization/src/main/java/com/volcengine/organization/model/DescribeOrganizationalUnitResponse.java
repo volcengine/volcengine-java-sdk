@@ -29,6 +29,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeOrganizationalUnitResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("OrganizationUnit")
   private OrganizationUnitForDescribeOrganizationalUnitOutput organizationUnit = null;

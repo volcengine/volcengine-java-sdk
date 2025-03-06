@@ -24,12 +24,15 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * UpdateServiceControlPolicyRequest
+ * PolicyForListPoliciesForTargetOutput
  */
 
 
 
-public class UpdateServiceControlPolicyRequest {
+public class PolicyForListPoliciesForTargetOutput {
+  @SerializedName("AttachedTime")
+  private String attachedTime = null;
+
   @SerializedName("Description")
   private String description = null;
 
@@ -39,10 +42,28 @@ public class UpdateServiceControlPolicyRequest {
   @SerializedName("PolicyName")
   private String policyName = null;
 
-  @SerializedName("Statement")
-  private String statement = null;
+  @SerializedName("PolicyType")
+  private String policyType = null;
 
-  public UpdateServiceControlPolicyRequest description(String description) {
+  public PolicyForListPoliciesForTargetOutput attachedTime(String attachedTime) {
+    this.attachedTime = attachedTime;
+    return this;
+  }
+
+   /**
+   * Get attachedTime
+   * @return attachedTime
+  **/
+  @Schema(description = "")
+  public String getAttachedTime() {
+    return attachedTime;
+  }
+
+  public void setAttachedTime(String attachedTime) {
+    this.attachedTime = attachedTime;
+  }
+
+  public PolicyForListPoliciesForTargetOutput description(String description) {
     this.description = description;
     return this;
   }
@@ -60,7 +81,7 @@ public class UpdateServiceControlPolicyRequest {
     this.description = description;
   }
 
-  public UpdateServiceControlPolicyRequest policyID(String policyID) {
+  public PolicyForListPoliciesForTargetOutput policyID(String policyID) {
     this.policyID = policyID;
     return this;
   }
@@ -69,8 +90,7 @@ public class UpdateServiceControlPolicyRequest {
    * Get policyID
    * @return policyID
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getPolicyID() {
     return policyID;
   }
@@ -79,7 +99,7 @@ public class UpdateServiceControlPolicyRequest {
     this.policyID = policyID;
   }
 
-  public UpdateServiceControlPolicyRequest policyName(String policyName) {
+  public PolicyForListPoliciesForTargetOutput policyName(String policyName) {
     this.policyName = policyName;
     return this;
   }
@@ -88,8 +108,7 @@ public class UpdateServiceControlPolicyRequest {
    * Get policyName
    * @return policyName
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getPolicyName() {
     return policyName;
   }
@@ -98,23 +117,22 @@ public class UpdateServiceControlPolicyRequest {
     this.policyName = policyName;
   }
 
-  public UpdateServiceControlPolicyRequest statement(String statement) {
-    this.statement = statement;
+  public PolicyForListPoliciesForTargetOutput policyType(String policyType) {
+    this.policyType = policyType;
     return this;
   }
 
    /**
-   * Get statement
-   * @return statement
+   * Get policyType
+   * @return policyType
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getStatement() {
-    return statement;
+  @Schema(description = "")
+  public String getPolicyType() {
+    return policyType;
   }
 
-  public void setStatement(String statement) {
-    this.statement = statement;
+  public void setPolicyType(String policyType) {
+    this.policyType = policyType;
   }
 
 
@@ -126,28 +144,30 @@ public class UpdateServiceControlPolicyRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UpdateServiceControlPolicyRequest updateServiceControlPolicyRequest = (UpdateServiceControlPolicyRequest) o;
-    return Objects.equals(this.description, updateServiceControlPolicyRequest.description) &&
-        Objects.equals(this.policyID, updateServiceControlPolicyRequest.policyID) &&
-        Objects.equals(this.policyName, updateServiceControlPolicyRequest.policyName) &&
-        Objects.equals(this.statement, updateServiceControlPolicyRequest.statement);
+    PolicyForListPoliciesForTargetOutput policyForListPoliciesForTargetOutput = (PolicyForListPoliciesForTargetOutput) o;
+    return Objects.equals(this.attachedTime, policyForListPoliciesForTargetOutput.attachedTime) &&
+        Objects.equals(this.description, policyForListPoliciesForTargetOutput.description) &&
+        Objects.equals(this.policyID, policyForListPoliciesForTargetOutput.policyID) &&
+        Objects.equals(this.policyName, policyForListPoliciesForTargetOutput.policyName) &&
+        Objects.equals(this.policyType, policyForListPoliciesForTargetOutput.policyType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, policyID, policyName, statement);
+    return Objects.hash(attachedTime, description, policyID, policyName, policyType);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UpdateServiceControlPolicyRequest {\n");
+    sb.append("class PolicyForListPoliciesForTargetOutput {\n");
     
+    sb.append("    attachedTime: ").append(toIndentedString(attachedTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    policyID: ").append(toIndentedString(policyID)).append("\n");
     sb.append("    policyName: ").append(toIndentedString(policyName)).append("\n");
-    sb.append("    statement: ").append(toIndentedString(statement)).append("\n");
+    sb.append("    policyType: ").append(toIndentedString(policyType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

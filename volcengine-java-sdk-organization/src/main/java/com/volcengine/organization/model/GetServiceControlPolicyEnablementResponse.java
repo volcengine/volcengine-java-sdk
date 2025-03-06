@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class GetServiceControlPolicyEnablementResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("CanFullAccessDetach")
   private Boolean canFullAccessDetach = null;

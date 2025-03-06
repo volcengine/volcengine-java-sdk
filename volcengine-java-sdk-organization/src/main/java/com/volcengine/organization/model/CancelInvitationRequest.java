@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CancelInvitationRequest {
   @SerializedName("InviteId")
   private String inviteId = null;

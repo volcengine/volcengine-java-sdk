@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ChangeAccountSecureContactInfoRequest {
   @SerializedName("AccountId")
   private String accountId = null;

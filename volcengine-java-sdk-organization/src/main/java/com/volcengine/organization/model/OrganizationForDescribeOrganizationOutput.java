@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class OrganizationForDescribeOrganizationOutput {
   @SerializedName("CreatedTime")
   private String createdTime = null;

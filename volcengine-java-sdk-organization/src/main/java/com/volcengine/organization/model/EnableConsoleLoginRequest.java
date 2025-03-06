@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class EnableConsoleLoginRequest {
   @SerializedName("AccountId")
   private String accountId = null;
