@@ -44,6 +44,9 @@ public class NetworkInterfaceForDescribeInstancesOutput {
   @SerializedName("PrimaryIpAddress")
   private String primaryIpAddress = null;
 
+  @SerializedName("SecurityGroupIds")
+  private List<String> securityGroupIds = null;
+
   @SerializedName("SubnetId")
   private String subnetId = null;
 
@@ -133,6 +136,32 @@ public class NetworkInterfaceForDescribeInstancesOutput {
     this.primaryIpAddress = primaryIpAddress;
   }
 
+  public NetworkInterfaceForDescribeInstancesOutput securityGroupIds(List<String> securityGroupIds) {
+    this.securityGroupIds = securityGroupIds;
+    return this;
+  }
+
+  public NetworkInterfaceForDescribeInstancesOutput addSecurityGroupIdsItem(String securityGroupIdsItem) {
+    if (this.securityGroupIds == null) {
+      this.securityGroupIds = new ArrayList<String>();
+    }
+    this.securityGroupIds.add(securityGroupIdsItem);
+    return this;
+  }
+
+   /**
+   * Get securityGroupIds
+   * @return securityGroupIds
+  **/
+  @Schema(description = "")
+  public List<String> getSecurityGroupIds() {
+    return securityGroupIds;
+  }
+
+  public void setSecurityGroupIds(List<String> securityGroupIds) {
+    this.securityGroupIds = securityGroupIds;
+  }
+
   public NetworkInterfaceForDescribeInstancesOutput subnetId(String subnetId) {
     this.subnetId = subnetId;
     return this;
@@ -201,6 +230,7 @@ public class NetworkInterfaceForDescribeInstancesOutput {
         Objects.equals(this.macAddress, networkInterfaceForDescribeInstancesOutput.macAddress) &&
         Objects.equals(this.networkInterfaceId, networkInterfaceForDescribeInstancesOutput.networkInterfaceId) &&
         Objects.equals(this.primaryIpAddress, networkInterfaceForDescribeInstancesOutput.primaryIpAddress) &&
+        Objects.equals(this.securityGroupIds, networkInterfaceForDescribeInstancesOutput.securityGroupIds) &&
         Objects.equals(this.subnetId, networkInterfaceForDescribeInstancesOutput.subnetId) &&
         Objects.equals(this.type, networkInterfaceForDescribeInstancesOutput.type) &&
         Objects.equals(this.vpcId, networkInterfaceForDescribeInstancesOutput.vpcId);
@@ -208,7 +238,7 @@ public class NetworkInterfaceForDescribeInstancesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(ipv6Addresses, macAddress, networkInterfaceId, primaryIpAddress, subnetId, type, vpcId);
+    return Objects.hash(ipv6Addresses, macAddress, networkInterfaceId, primaryIpAddress, securityGroupIds, subnetId, type, vpcId);
   }
 
 
@@ -221,6 +251,7 @@ public class NetworkInterfaceForDescribeInstancesOutput {
     sb.append("    macAddress: ").append(toIndentedString(macAddress)).append("\n");
     sb.append("    networkInterfaceId: ").append(toIndentedString(networkInterfaceId)).append("\n");
     sb.append("    primaryIpAddress: ").append(toIndentedString(primaryIpAddress)).append("\n");
+    sb.append("    securityGroupIds: ").append(toIndentedString(securityGroupIds)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");

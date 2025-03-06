@@ -33,6 +33,9 @@ public class PurchaseReservedInstancesResponse extends com.volcengine.model.Abst
   @SerializedName("ReservedInstanceId")
   private String reservedInstanceId = null;
 
+  @SerializedName("ReservedStorageCapacityId")
+  private String reservedStorageCapacityId = null;
+
   public PurchaseReservedInstancesResponse reservedInstanceId(String reservedInstanceId) {
     this.reservedInstanceId = reservedInstanceId;
     return this;
@@ -51,6 +54,24 @@ public class PurchaseReservedInstancesResponse extends com.volcengine.model.Abst
     this.reservedInstanceId = reservedInstanceId;
   }
 
+  public PurchaseReservedInstancesResponse reservedStorageCapacityId(String reservedStorageCapacityId) {
+    this.reservedStorageCapacityId = reservedStorageCapacityId;
+    return this;
+  }
+
+   /**
+   * Get reservedStorageCapacityId
+   * @return reservedStorageCapacityId
+  **/
+  @Schema(description = "")
+  public String getReservedStorageCapacityId() {
+    return reservedStorageCapacityId;
+  }
+
+  public void setReservedStorageCapacityId(String reservedStorageCapacityId) {
+    this.reservedStorageCapacityId = reservedStorageCapacityId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -61,12 +82,13 @@ public class PurchaseReservedInstancesResponse extends com.volcengine.model.Abst
       return false;
     }
     PurchaseReservedInstancesResponse purchaseReservedInstancesResponse = (PurchaseReservedInstancesResponse) o;
-    return Objects.equals(this.reservedInstanceId, purchaseReservedInstancesResponse.reservedInstanceId);
+    return Objects.equals(this.reservedInstanceId, purchaseReservedInstancesResponse.reservedInstanceId) &&
+        Objects.equals(this.reservedStorageCapacityId, purchaseReservedInstancesResponse.reservedStorageCapacityId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(reservedInstanceId);
+    return Objects.hash(reservedInstanceId, reservedStorageCapacityId);
   }
 
 
@@ -76,6 +98,7 @@ public class PurchaseReservedInstancesResponse extends com.volcengine.model.Abst
     sb.append("class PurchaseReservedInstancesResponse {\n");
     
     sb.append("    reservedInstanceId: ").append(toIndentedString(reservedInstanceId)).append("\n");
+    sb.append("    reservedStorageCapacityId: ").append(toIndentedString(reservedStorageCapacityId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
