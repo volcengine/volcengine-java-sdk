@@ -299,5 +299,14 @@ public class VolcstackSign implements Authentication {
 
         return buf.toString();
     }
+
+    public VolcstackSign copy() {
+        VolcstackSign copySign = new VolcstackSign();
+        copySign.setRegion(this.region);
+        copySign.setCredentials(this.credentials);
+        copySign.setService(this.service);
+        copySign.setMethod(this.method);
+        return copySign;
+    }
 }
 

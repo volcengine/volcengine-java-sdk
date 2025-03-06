@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class InviteAccountResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("InviteId")
   private String inviteId = null;

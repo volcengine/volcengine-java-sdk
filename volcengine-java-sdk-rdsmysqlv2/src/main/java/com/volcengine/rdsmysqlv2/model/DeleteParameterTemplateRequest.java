@@ -30,8 +30,29 @@ import javax.validation.Valid;
 
 
 public class DeleteParameterTemplateRequest {
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("TemplateId")
   private String templateId = null;
+
+  public DeleteParameterTemplateRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
 
   public DeleteParameterTemplateRequest templateId(String templateId) {
     this.templateId = templateId;
@@ -62,12 +83,13 @@ public class DeleteParameterTemplateRequest {
       return false;
     }
     DeleteParameterTemplateRequest deleteParameterTemplateRequest = (DeleteParameterTemplateRequest) o;
-    return Objects.equals(this.templateId, deleteParameterTemplateRequest.templateId);
+    return Objects.equals(this.projectName, deleteParameterTemplateRequest.projectName) &&
+        Objects.equals(this.templateId, deleteParameterTemplateRequest.templateId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(templateId);
+    return Objects.hash(projectName, templateId);
   }
 
 
@@ -76,6 +98,7 @@ public class DeleteParameterTemplateRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteParameterTemplateRequest {\n");
     
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    templateId: ").append(toIndentedString(templateId)).append("\n");
     sb.append("}");
     return sb.toString();

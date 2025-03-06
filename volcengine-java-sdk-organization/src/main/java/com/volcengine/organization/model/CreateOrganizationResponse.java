@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateOrganizationResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("ID")
   private String ID = null;

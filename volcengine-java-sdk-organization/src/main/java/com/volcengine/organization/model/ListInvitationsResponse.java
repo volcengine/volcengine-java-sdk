@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ListInvitationsResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("InvitationList")
   private List<InvitationListForListInvitationsOutput> invitationList = null;

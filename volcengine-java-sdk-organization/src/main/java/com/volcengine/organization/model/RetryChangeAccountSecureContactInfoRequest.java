@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class RetryChangeAccountSecureContactInfoRequest {
   @SerializedName("AccountId")
   private String accountId = null;

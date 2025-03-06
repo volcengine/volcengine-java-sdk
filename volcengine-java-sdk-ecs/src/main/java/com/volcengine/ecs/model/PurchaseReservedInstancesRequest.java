@@ -66,14 +66,29 @@ public class PurchaseReservedInstancesRequest {
   @SerializedName("RegionId")
   private String regionId = null;
 
+  @SerializedName("ReservedCapacity")
+  private Integer reservedCapacity = null;
+
   @SerializedName("ReservedInstanceName")
   private String reservedInstanceName = null;
+
+  @SerializedName("ReservedStorageCapacityName")
+  private String reservedStorageCapacityName = null;
+
+  @SerializedName("RscAutoRenew")
+  private Boolean rscAutoRenew = null;
+
+  @SerializedName("RscAutoRenewPeriod")
+  private Integer rscAutoRenewPeriod = null;
 
   @SerializedName("Scope")
   private String scope = null;
 
   @SerializedName("Tags")
   private List<TagForPurchaseReservedInstancesInput> tags = null;
+
+  @SerializedName("VolumeType")
+  private String volumeType = null;
 
   @SerializedName("ZoneId")
   private String zoneId = null;
@@ -277,6 +292,24 @@ public class PurchaseReservedInstancesRequest {
     this.regionId = regionId;
   }
 
+  public PurchaseReservedInstancesRequest reservedCapacity(Integer reservedCapacity) {
+    this.reservedCapacity = reservedCapacity;
+    return this;
+  }
+
+   /**
+   * Get reservedCapacity
+   * @return reservedCapacity
+  **/
+  @Schema(description = "")
+  public Integer getReservedCapacity() {
+    return reservedCapacity;
+  }
+
+  public void setReservedCapacity(Integer reservedCapacity) {
+    this.reservedCapacity = reservedCapacity;
+  }
+
   public PurchaseReservedInstancesRequest reservedInstanceName(String reservedInstanceName) {
     this.reservedInstanceName = reservedInstanceName;
     return this;
@@ -294,6 +327,60 @@ public class PurchaseReservedInstancesRequest {
 
   public void setReservedInstanceName(String reservedInstanceName) {
     this.reservedInstanceName = reservedInstanceName;
+  }
+
+  public PurchaseReservedInstancesRequest reservedStorageCapacityName(String reservedStorageCapacityName) {
+    this.reservedStorageCapacityName = reservedStorageCapacityName;
+    return this;
+  }
+
+   /**
+   * Get reservedStorageCapacityName
+   * @return reservedStorageCapacityName
+  **/
+  @Schema(description = "")
+  public String getReservedStorageCapacityName() {
+    return reservedStorageCapacityName;
+  }
+
+  public void setReservedStorageCapacityName(String reservedStorageCapacityName) {
+    this.reservedStorageCapacityName = reservedStorageCapacityName;
+  }
+
+  public PurchaseReservedInstancesRequest rscAutoRenew(Boolean rscAutoRenew) {
+    this.rscAutoRenew = rscAutoRenew;
+    return this;
+  }
+
+   /**
+   * Get rscAutoRenew
+   * @return rscAutoRenew
+  **/
+  @Schema(description = "")
+  public Boolean isRscAutoRenew() {
+    return rscAutoRenew;
+  }
+
+  public void setRscAutoRenew(Boolean rscAutoRenew) {
+    this.rscAutoRenew = rscAutoRenew;
+  }
+
+  public PurchaseReservedInstancesRequest rscAutoRenewPeriod(Integer rscAutoRenewPeriod) {
+    this.rscAutoRenewPeriod = rscAutoRenewPeriod;
+    return this;
+  }
+
+   /**
+   * Get rscAutoRenewPeriod
+   * @return rscAutoRenewPeriod
+  **/
+  @Schema(description = "")
+  public Integer getRscAutoRenewPeriod() {
+    return rscAutoRenewPeriod;
+  }
+
+  public void setRscAutoRenewPeriod(Integer rscAutoRenewPeriod) {
+    this.rscAutoRenewPeriod = rscAutoRenewPeriod;
   }
 
   public PurchaseReservedInstancesRequest scope(String scope) {
@@ -341,6 +428,24 @@ public class PurchaseReservedInstancesRequest {
     this.tags = tags;
   }
 
+  public PurchaseReservedInstancesRequest volumeType(String volumeType) {
+    this.volumeType = volumeType;
+    return this;
+  }
+
+   /**
+   * Get volumeType
+   * @return volumeType
+  **/
+  @Schema(description = "")
+  public String getVolumeType() {
+    return volumeType;
+  }
+
+  public void setVolumeType(String volumeType) {
+    this.volumeType = volumeType;
+  }
+
   public PurchaseReservedInstancesRequest zoneId(String zoneId) {
     this.zoneId = zoneId;
     return this;
@@ -380,15 +485,20 @@ public class PurchaseReservedInstancesRequest {
         Objects.equals(this.periodUnit, purchaseReservedInstancesRequest.periodUnit) &&
         Objects.equals(this.projectName, purchaseReservedInstancesRequest.projectName) &&
         Objects.equals(this.regionId, purchaseReservedInstancesRequest.regionId) &&
+        Objects.equals(this.reservedCapacity, purchaseReservedInstancesRequest.reservedCapacity) &&
         Objects.equals(this.reservedInstanceName, purchaseReservedInstancesRequest.reservedInstanceName) &&
+        Objects.equals(this.reservedStorageCapacityName, purchaseReservedInstancesRequest.reservedStorageCapacityName) &&
+        Objects.equals(this.rscAutoRenew, purchaseReservedInstancesRequest.rscAutoRenew) &&
+        Objects.equals(this.rscAutoRenewPeriod, purchaseReservedInstancesRequest.rscAutoRenewPeriod) &&
         Objects.equals(this.scope, purchaseReservedInstancesRequest.scope) &&
         Objects.equals(this.tags, purchaseReservedInstancesRequest.tags) &&
+        Objects.equals(this.volumeType, purchaseReservedInstancesRequest.volumeType) &&
         Objects.equals(this.zoneId, purchaseReservedInstancesRequest.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoRenew, autoRenewPeriod, clientToken, description, hpcClusterId, instanceCount, instanceTypeId, period, periodUnit, projectName, regionId, reservedInstanceName, scope, tags, zoneId);
+    return Objects.hash(autoRenew, autoRenewPeriod, clientToken, description, hpcClusterId, instanceCount, instanceTypeId, period, periodUnit, projectName, regionId, reservedCapacity, reservedInstanceName, reservedStorageCapacityName, rscAutoRenew, rscAutoRenewPeriod, scope, tags, volumeType, zoneId);
   }
 
 
@@ -408,9 +518,14 @@ public class PurchaseReservedInstancesRequest {
     sb.append("    periodUnit: ").append(toIndentedString(periodUnit)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    regionId: ").append(toIndentedString(regionId)).append("\n");
+    sb.append("    reservedCapacity: ").append(toIndentedString(reservedCapacity)).append("\n");
     sb.append("    reservedInstanceName: ").append(toIndentedString(reservedInstanceName)).append("\n");
+    sb.append("    reservedStorageCapacityName: ").append(toIndentedString(reservedStorageCapacityName)).append("\n");
+    sb.append("    rscAutoRenew: ").append(toIndentedString(rscAutoRenew)).append("\n");
+    sb.append("    rscAutoRenewPeriod: ").append(toIndentedString(rscAutoRenewPeriod)).append("\n");
     sb.append("    scope: ").append(toIndentedString(scope)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    volumeType: ").append(toIndentedString(volumeType)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");
     return sb.toString();

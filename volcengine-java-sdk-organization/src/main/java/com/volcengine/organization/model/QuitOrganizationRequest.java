@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class QuitOrganizationRequest {
   @SerializedName("ApplyReason")
   private String applyReason = null;

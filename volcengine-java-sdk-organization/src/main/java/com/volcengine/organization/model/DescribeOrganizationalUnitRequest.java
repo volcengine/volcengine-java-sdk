@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeOrganizationalUnitRequest {
   @SerializedName("OrgUnitId")
   private String orgUnitId = null;
