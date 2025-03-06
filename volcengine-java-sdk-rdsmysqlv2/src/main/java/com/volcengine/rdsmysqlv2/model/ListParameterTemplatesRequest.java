@@ -36,20 +36,199 @@ public class ListParameterTemplatesRequest {
   @SerializedName("Offset")
   private Integer offset = null;
 
-  @SerializedName("ProjectName")
-  private String projectName = null;
+  /**
+   * Gets or Sets templateCategory
+   */
+  @JsonAdapter(TemplateCategoryEnum.Adapter.class)
+  public enum TemplateCategoryEnum {
+    @SerializedName("DBEngine")
+    DBENGINE("DBEngine"),
+    @SerializedName("Proxy")
+    PROXY("Proxy");
 
-  @SerializedName("TemplateCategory")
-  private String templateCategory = null;
+    private String value;
 
-  @SerializedName("TemplateSource")
-  private String templateSource = null;
+    TemplateCategoryEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
 
-  @SerializedName("TemplateType")
-  private String templateType = null;
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static TemplateCategoryEnum fromValue(String input) {
+      for (TemplateCategoryEnum b : TemplateCategoryEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<TemplateCategoryEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TemplateCategoryEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
 
-  @SerializedName("TemplateTypeVersion")
-  private String templateTypeVersion = null;
+      @Override
+      public TemplateCategoryEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return TemplateCategoryEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("TemplateCategory")
+  private TemplateCategoryEnum templateCategory = null;
+
+  /**
+   * Gets or Sets templateSource
+   */
+  @JsonAdapter(TemplateSourceEnum.Adapter.class)
+  public enum TemplateSourceEnum {
+    @SerializedName("System")
+    SYSTEM("System"),
+    @SerializedName("User")
+    USER("User");
+
+    private String value;
+
+    TemplateSourceEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static TemplateSourceEnum fromValue(String input) {
+      for (TemplateSourceEnum b : TemplateSourceEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<TemplateSourceEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TemplateSourceEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public TemplateSourceEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return TemplateSourceEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("TemplateSource")
+  private TemplateSourceEnum templateSource = null;
+
+  /**
+   * Gets or Sets templateType
+   */
+  @JsonAdapter(TemplateTypeEnum.Adapter.class)
+  public enum TemplateTypeEnum {
+    @SerializedName("Mysql")
+    MYSQL("Mysql"),
+    @SerializedName("Postgresql")
+    POSTGRESQL("Postgresql"),
+    @SerializedName("Sqlserver")
+    SQLSERVER("Sqlserver");
+
+    private String value;
+
+    TemplateTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static TemplateTypeEnum fromValue(String input) {
+      for (TemplateTypeEnum b : TemplateTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<TemplateTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TemplateTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public TemplateTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return TemplateTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("TemplateType")
+  private TemplateTypeEnum templateType = null;
+
+  /**
+   * Gets or Sets templateTypeVersion
+   */
+  @JsonAdapter(TemplateTypeVersionEnum.Adapter.class)
+  public enum TemplateTypeVersionEnum {
+    @SerializedName("MySQL_5_7")
+    MYSQL_5_7("MySQL_5_7"),
+    @SerializedName("MySQL_8_0")
+    MYSQL_8_0("MySQL_8_0"),
+    @SerializedName("MySQL_5_6")
+    MYSQL_5_6("MySQL_5_6"),
+    @SerializedName("SQLServer_2019_Ent")
+    SQLSERVER_2019_ENT("SQLServer_2019_Ent"),
+    @SerializedName("SQLServer_2019_Std")
+    SQLSERVER_2019_STD("SQLServer_2019_Std"),
+    @SerializedName("SQLServer_2019_Web")
+    SQLSERVER_2019_WEB("SQLServer_2019_Web");
+
+    private String value;
+
+    TemplateTypeVersionEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static TemplateTypeVersionEnum fromValue(String input) {
+      for (TemplateTypeVersionEnum b : TemplateTypeVersionEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<TemplateTypeVersionEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TemplateTypeVersionEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public TemplateTypeVersionEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return TemplateTypeVersionEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("TemplateTypeVersion")
+  private TemplateTypeVersionEnum templateTypeVersion = null;
 
   public ListParameterTemplatesRequest limit(Integer limit) {
     this.limit = limit;
@@ -87,25 +266,7 @@ public class ListParameterTemplatesRequest {
     this.offset = offset;
   }
 
-  public ListParameterTemplatesRequest projectName(String projectName) {
-    this.projectName = projectName;
-    return this;
-  }
-
-   /**
-   * Get projectName
-   * @return projectName
-  **/
-  @Schema(description = "")
-  public String getProjectName() {
-    return projectName;
-  }
-
-  public void setProjectName(String projectName) {
-    this.projectName = projectName;
-  }
-
-  public ListParameterTemplatesRequest templateCategory(String templateCategory) {
+  public ListParameterTemplatesRequest templateCategory(TemplateCategoryEnum templateCategory) {
     this.templateCategory = templateCategory;
     return this;
   }
@@ -115,15 +276,15 @@ public class ListParameterTemplatesRequest {
    * @return templateCategory
   **/
   @Schema(description = "")
-  public String getTemplateCategory() {
+  public TemplateCategoryEnum getTemplateCategory() {
     return templateCategory;
   }
 
-  public void setTemplateCategory(String templateCategory) {
+  public void setTemplateCategory(TemplateCategoryEnum templateCategory) {
     this.templateCategory = templateCategory;
   }
 
-  public ListParameterTemplatesRequest templateSource(String templateSource) {
+  public ListParameterTemplatesRequest templateSource(TemplateSourceEnum templateSource) {
     this.templateSource = templateSource;
     return this;
   }
@@ -133,15 +294,15 @@ public class ListParameterTemplatesRequest {
    * @return templateSource
   **/
   @Schema(description = "")
-  public String getTemplateSource() {
+  public TemplateSourceEnum getTemplateSource() {
     return templateSource;
   }
 
-  public void setTemplateSource(String templateSource) {
+  public void setTemplateSource(TemplateSourceEnum templateSource) {
     this.templateSource = templateSource;
   }
 
-  public ListParameterTemplatesRequest templateType(String templateType) {
+  public ListParameterTemplatesRequest templateType(TemplateTypeEnum templateType) {
     this.templateType = templateType;
     return this;
   }
@@ -151,15 +312,15 @@ public class ListParameterTemplatesRequest {
    * @return templateType
   **/
   @Schema(description = "")
-  public String getTemplateType() {
+  public TemplateTypeEnum getTemplateType() {
     return templateType;
   }
 
-  public void setTemplateType(String templateType) {
+  public void setTemplateType(TemplateTypeEnum templateType) {
     this.templateType = templateType;
   }
 
-  public ListParameterTemplatesRequest templateTypeVersion(String templateTypeVersion) {
+  public ListParameterTemplatesRequest templateTypeVersion(TemplateTypeVersionEnum templateTypeVersion) {
     this.templateTypeVersion = templateTypeVersion;
     return this;
   }
@@ -169,11 +330,11 @@ public class ListParameterTemplatesRequest {
    * @return templateTypeVersion
   **/
   @Schema(description = "")
-  public String getTemplateTypeVersion() {
+  public TemplateTypeVersionEnum getTemplateTypeVersion() {
     return templateTypeVersion;
   }
 
-  public void setTemplateTypeVersion(String templateTypeVersion) {
+  public void setTemplateTypeVersion(TemplateTypeVersionEnum templateTypeVersion) {
     this.templateTypeVersion = templateTypeVersion;
   }
 
@@ -189,7 +350,6 @@ public class ListParameterTemplatesRequest {
     ListParameterTemplatesRequest listParameterTemplatesRequest = (ListParameterTemplatesRequest) o;
     return Objects.equals(this.limit, listParameterTemplatesRequest.limit) &&
         Objects.equals(this.offset, listParameterTemplatesRequest.offset) &&
-        Objects.equals(this.projectName, listParameterTemplatesRequest.projectName) &&
         Objects.equals(this.templateCategory, listParameterTemplatesRequest.templateCategory) &&
         Objects.equals(this.templateSource, listParameterTemplatesRequest.templateSource) &&
         Objects.equals(this.templateType, listParameterTemplatesRequest.templateType) &&
@@ -198,7 +358,7 @@ public class ListParameterTemplatesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(limit, offset, projectName, templateCategory, templateSource, templateType, templateTypeVersion);
+    return Objects.hash(limit, offset, templateCategory, templateSource, templateType, templateTypeVersion);
   }
 
 
@@ -209,7 +369,6 @@ public class ListParameterTemplatesRequest {
     
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
     sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
-    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    templateCategory: ").append(toIndentedString(templateCategory)).append("\n");
     sb.append("    templateSource: ").append(toIndentedString(templateSource)).append("\n");
     sb.append("    templateType: ").append(toIndentedString(templateType)).append("\n");

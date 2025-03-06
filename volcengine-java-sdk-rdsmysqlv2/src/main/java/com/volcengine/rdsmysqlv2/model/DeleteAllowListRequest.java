@@ -33,9 +33,6 @@ public class DeleteAllowListRequest {
   @SerializedName("AllowListId")
   private String allowListId = null;
 
-  @SerializedName("ProjectName")
-  private String projectName = null;
-
   public DeleteAllowListRequest allowListId(String allowListId) {
     this.allowListId = allowListId;
     return this;
@@ -55,24 +52,6 @@ public class DeleteAllowListRequest {
     this.allowListId = allowListId;
   }
 
-  public DeleteAllowListRequest projectName(String projectName) {
-    this.projectName = projectName;
-    return this;
-  }
-
-   /**
-   * Get projectName
-   * @return projectName
-  **/
-  @Schema(description = "")
-  public String getProjectName() {
-    return projectName;
-  }
-
-  public void setProjectName(String projectName) {
-    this.projectName = projectName;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -83,13 +62,12 @@ public class DeleteAllowListRequest {
       return false;
     }
     DeleteAllowListRequest deleteAllowListRequest = (DeleteAllowListRequest) o;
-    return Objects.equals(this.allowListId, deleteAllowListRequest.allowListId) &&
-        Objects.equals(this.projectName, deleteAllowListRequest.projectName);
+    return Objects.equals(this.allowListId, deleteAllowListRequest.allowListId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowListId, projectName);
+    return Objects.hash(allowListId);
   }
 
 
@@ -99,7 +77,6 @@ public class DeleteAllowListRequest {
     sb.append("class DeleteAllowListRequest {\n");
     
     sb.append("    allowListId: ").append(toIndentedString(allowListId)).append("\n");
-    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

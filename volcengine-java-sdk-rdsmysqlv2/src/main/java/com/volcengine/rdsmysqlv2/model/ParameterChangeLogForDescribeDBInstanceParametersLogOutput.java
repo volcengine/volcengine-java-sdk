@@ -44,14 +44,106 @@ public class ParameterChangeLogForDescribeDBInstanceParametersLogOutput {
   @SerializedName("OldParameterValue")
   private String oldParameterValue = null;
 
-  @SerializedName("ParamApplyScope")
-  private String paramApplyScope = null;
+  /**
+   * Gets or Sets paramApplyScope
+   */
+  @JsonAdapter(ParamApplyScopeEnum.Adapter.class)
+  public enum ParamApplyScopeEnum {
+    @SerializedName("AllNode")
+    ALLNODE("AllNode"),
+    @SerializedName("OnlyMasterSlaveNode")
+    ONLYMASTERSLAVENODE("OnlyMasterSlaveNode"),
+    @SerializedName("OnlyReadOnlyNode")
+    ONLYREADONLYNODE("OnlyReadOnlyNode"),
+    @SerializedName("CustomNode")
+    CUSTOMNODE("CustomNode");
+
+    private String value;
+
+    ParamApplyScopeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ParamApplyScopeEnum fromValue(String input) {
+      for (ParamApplyScopeEnum b : ParamApplyScopeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ParamApplyScopeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ParamApplyScopeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ParamApplyScopeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ParamApplyScopeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("ParamApplyScope")
+  private ParamApplyScopeEnum paramApplyScope = null;
 
   @SerializedName("ParameterName")
   private String parameterName = null;
 
-  @SerializedName("Status")
-  private String status = null;
+  /**
+   * Gets or Sets status
+   */
+  @JsonAdapter(StatusEnum.Adapter.class)
+  public enum StatusEnum {
+    @SerializedName("Applied")
+    APPLIED("Applied"),
+    @SerializedName("Invalid")
+    INVALID("Invalid"),
+    @SerializedName("Syncing")
+    SYNCING("Syncing");
+
+    private String value;
+
+    StatusEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static StatusEnum fromValue(String input) {
+      for (StatusEnum b : StatusEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<StatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public StatusEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return StatusEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("Status")
+  private StatusEnum status = null;
 
   public ParameterChangeLogForDescribeDBInstanceParametersLogOutput customNodeIds(List<String> customNodeIds) {
     this.customNodeIds = customNodeIds;
@@ -133,7 +225,7 @@ public class ParameterChangeLogForDescribeDBInstanceParametersLogOutput {
     this.oldParameterValue = oldParameterValue;
   }
 
-  public ParameterChangeLogForDescribeDBInstanceParametersLogOutput paramApplyScope(String paramApplyScope) {
+  public ParameterChangeLogForDescribeDBInstanceParametersLogOutput paramApplyScope(ParamApplyScopeEnum paramApplyScope) {
     this.paramApplyScope = paramApplyScope;
     return this;
   }
@@ -143,11 +235,11 @@ public class ParameterChangeLogForDescribeDBInstanceParametersLogOutput {
    * @return paramApplyScope
   **/
   @Schema(description = "")
-  public String getParamApplyScope() {
+  public ParamApplyScopeEnum getParamApplyScope() {
     return paramApplyScope;
   }
 
-  public void setParamApplyScope(String paramApplyScope) {
+  public void setParamApplyScope(ParamApplyScopeEnum paramApplyScope) {
     this.paramApplyScope = paramApplyScope;
   }
 
@@ -169,7 +261,7 @@ public class ParameterChangeLogForDescribeDBInstanceParametersLogOutput {
     this.parameterName = parameterName;
   }
 
-  public ParameterChangeLogForDescribeDBInstanceParametersLogOutput status(String status) {
+  public ParameterChangeLogForDescribeDBInstanceParametersLogOutput status(StatusEnum status) {
     this.status = status;
     return this;
   }
@@ -179,11 +271,11 @@ public class ParameterChangeLogForDescribeDBInstanceParametersLogOutput {
    * @return status
   **/
   @Schema(description = "")
-  public String getStatus() {
+  public StatusEnum getStatus() {
     return status;
   }
 
-  public void setStatus(String status) {
+  public void setStatus(StatusEnum status) {
     this.status = status;
   }
 

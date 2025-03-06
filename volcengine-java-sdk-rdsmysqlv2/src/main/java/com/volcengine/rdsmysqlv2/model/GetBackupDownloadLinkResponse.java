@@ -37,7 +37,7 @@ public class GetBackupDownloadLinkResponse extends com.volcengine.model.Abstract
   private String backupFileName = null;
 
   @SerializedName("BackupFileSize")
-  private Long backupFileSize = null;
+  private Integer backupFileSize = null;
 
   @SerializedName("BackupId")
   private String backupId = null;
@@ -93,7 +93,7 @@ public class GetBackupDownloadLinkResponse extends com.volcengine.model.Abstract
     this.backupFileName = backupFileName;
   }
 
-  public GetBackupDownloadLinkResponse backupFileSize(Long backupFileSize) {
+  public GetBackupDownloadLinkResponse backupFileSize(Integer backupFileSize) {
     this.backupFileSize = backupFileSize;
     return this;
   }
@@ -103,11 +103,11 @@ public class GetBackupDownloadLinkResponse extends com.volcengine.model.Abstract
    * @return backupFileSize
   **/
   @Schema(description = "")
-  public Long getBackupFileSize() {
+  public Integer getBackupFileSize() {
     return backupFileSize;
   }
 
-  public void setBackupFileSize(Long backupFileSize) {
+  public void setBackupFileSize(Integer backupFileSize) {
     this.backupFileSize = backupFileSize;
   }
 
