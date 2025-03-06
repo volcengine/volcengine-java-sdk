@@ -42,9 +42,6 @@ public class DescribeBinlogFilesRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;
 
-  @SerializedName("ResultSorter")
-  private String resultSorter = null;
-
   @SerializedName("StartTime")
   private String startTime = null;
 
@@ -122,24 +119,6 @@ public class DescribeBinlogFilesRequest {
     this.instanceId = instanceId;
   }
 
-  public DescribeBinlogFilesRequest resultSorter(String resultSorter) {
-    this.resultSorter = resultSorter;
-    return this;
-  }
-
-   /**
-   * Get resultSorter
-   * @return resultSorter
-  **/
-  @Schema(description = "")
-  public String getResultSorter() {
-    return resultSorter;
-  }
-
-  public void setResultSorter(String resultSorter) {
-    this.resultSorter = resultSorter;
-  }
-
   public DescribeBinlogFilesRequest startTime(String startTime) {
     this.startTime = startTime;
     return this;
@@ -173,13 +152,12 @@ public class DescribeBinlogFilesRequest {
         Objects.equals(this.context, describeBinlogFilesRequest.context) &&
         Objects.equals(this.endTime, describeBinlogFilesRequest.endTime) &&
         Objects.equals(this.instanceId, describeBinlogFilesRequest.instanceId) &&
-        Objects.equals(this.resultSorter, describeBinlogFilesRequest.resultSorter) &&
         Objects.equals(this.startTime, describeBinlogFilesRequest.startTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(backupFileNumber, context, endTime, instanceId, resultSorter, startTime);
+    return Objects.hash(backupFileNumber, context, endTime, instanceId, startTime);
   }
 
 
@@ -192,7 +170,6 @@ public class DescribeBinlogFilesRequest {
     sb.append("    context: ").append(toIndentedString(context)).append("\n");
     sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
-    sb.append("    resultSorter: ").append(toIndentedString(resultSorter)).append("\n");
     sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -32,15 +32,6 @@ import javax.validation.Valid;
 
 
 public class DescribeBackupPolicyResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("BinlogBackupAllRetention")
-  private Boolean binlogBackupAllRetention = null;
-
-  @SerializedName("BinlogBackupEnabled")
-  private Boolean binlogBackupEnabled = null;
-
-  @SerializedName("BinlogBackupEncryptionEnabled")
-  private Boolean binlogBackupEncryptionEnabled = null;
-
   @SerializedName("BinlogFileCountsEnable")
   private Boolean binlogFileCountsEnable = null;
 
@@ -56,38 +47,17 @@ public class DescribeBackupPolicyResponse extends com.volcengine.model.AbstractR
   @SerializedName("BinlogStoragePercentage")
   private Integer binlogStoragePercentage = null;
 
-  @SerializedName("DataBackupAllRetention")
-  private Boolean dataBackupAllRetention = null;
-
-  @SerializedName("DataBackupEncryptionEnabled")
-  private Boolean dataBackupEncryptionEnabled = null;
-
   @SerializedName("DataBackupRetentionDay")
   private Integer dataBackupRetentionDay = null;
 
   @SerializedName("DataFullBackupPeriods")
   private List<String> dataFullBackupPeriods = null;
 
-  @SerializedName("DataFullBackupStartUTCHour")
-  private Integer dataFullBackupStartUTCHour = null;
-
   @SerializedName("DataFullBackupTime")
   private String dataFullBackupTime = null;
 
   @SerializedName("DataIncrBackupPeriods")
   private List<String> dataIncrBackupPeriods = null;
-
-  @SerializedName("DataKeepDaysAfterReleased")
-  private Integer dataKeepDaysAfterReleased = null;
-
-  @SerializedName("DataKeepPolicyAfterReleased")
-  private String dataKeepPolicyAfterReleased = null;
-
-  @SerializedName("HourlyIncrBackupEnable")
-  private Boolean hourlyIncrBackupEnable = null;
-
-  @SerializedName("IncrBackupHourPeriod")
-  private Integer incrBackupHourPeriod = null;
 
   @SerializedName("InstanceId")
   private String instanceId = null;
@@ -97,63 +67,6 @@ public class DescribeBackupPolicyResponse extends com.volcengine.model.AbstractR
 
   @SerializedName("LogBackupRetentionDay")
   private Integer logBackupRetentionDay = null;
-
-  @SerializedName("RetentionPolicySynced")
-  private Boolean retentionPolicySynced = null;
-
-  public DescribeBackupPolicyResponse binlogBackupAllRetention(Boolean binlogBackupAllRetention) {
-    this.binlogBackupAllRetention = binlogBackupAllRetention;
-    return this;
-  }
-
-   /**
-   * Get binlogBackupAllRetention
-   * @return binlogBackupAllRetention
-  **/
-  @Schema(description = "")
-  public Boolean isBinlogBackupAllRetention() {
-    return binlogBackupAllRetention;
-  }
-
-  public void setBinlogBackupAllRetention(Boolean binlogBackupAllRetention) {
-    this.binlogBackupAllRetention = binlogBackupAllRetention;
-  }
-
-  public DescribeBackupPolicyResponse binlogBackupEnabled(Boolean binlogBackupEnabled) {
-    this.binlogBackupEnabled = binlogBackupEnabled;
-    return this;
-  }
-
-   /**
-   * Get binlogBackupEnabled
-   * @return binlogBackupEnabled
-  **/
-  @Schema(description = "")
-  public Boolean isBinlogBackupEnabled() {
-    return binlogBackupEnabled;
-  }
-
-  public void setBinlogBackupEnabled(Boolean binlogBackupEnabled) {
-    this.binlogBackupEnabled = binlogBackupEnabled;
-  }
-
-  public DescribeBackupPolicyResponse binlogBackupEncryptionEnabled(Boolean binlogBackupEncryptionEnabled) {
-    this.binlogBackupEncryptionEnabled = binlogBackupEncryptionEnabled;
-    return this;
-  }
-
-   /**
-   * Get binlogBackupEncryptionEnabled
-   * @return binlogBackupEncryptionEnabled
-  **/
-  @Schema(description = "")
-  public Boolean isBinlogBackupEncryptionEnabled() {
-    return binlogBackupEncryptionEnabled;
-  }
-
-  public void setBinlogBackupEncryptionEnabled(Boolean binlogBackupEncryptionEnabled) {
-    this.binlogBackupEncryptionEnabled = binlogBackupEncryptionEnabled;
-  }
 
   public DescribeBackupPolicyResponse binlogFileCountsEnable(Boolean binlogFileCountsEnable) {
     this.binlogFileCountsEnable = binlogFileCountsEnable;
@@ -245,42 +158,6 @@ public class DescribeBackupPolicyResponse extends com.volcengine.model.AbstractR
     this.binlogStoragePercentage = binlogStoragePercentage;
   }
 
-  public DescribeBackupPolicyResponse dataBackupAllRetention(Boolean dataBackupAllRetention) {
-    this.dataBackupAllRetention = dataBackupAllRetention;
-    return this;
-  }
-
-   /**
-   * Get dataBackupAllRetention
-   * @return dataBackupAllRetention
-  **/
-  @Schema(description = "")
-  public Boolean isDataBackupAllRetention() {
-    return dataBackupAllRetention;
-  }
-
-  public void setDataBackupAllRetention(Boolean dataBackupAllRetention) {
-    this.dataBackupAllRetention = dataBackupAllRetention;
-  }
-
-  public DescribeBackupPolicyResponse dataBackupEncryptionEnabled(Boolean dataBackupEncryptionEnabled) {
-    this.dataBackupEncryptionEnabled = dataBackupEncryptionEnabled;
-    return this;
-  }
-
-   /**
-   * Get dataBackupEncryptionEnabled
-   * @return dataBackupEncryptionEnabled
-  **/
-  @Schema(description = "")
-  public Boolean isDataBackupEncryptionEnabled() {
-    return dataBackupEncryptionEnabled;
-  }
-
-  public void setDataBackupEncryptionEnabled(Boolean dataBackupEncryptionEnabled) {
-    this.dataBackupEncryptionEnabled = dataBackupEncryptionEnabled;
-  }
-
   public DescribeBackupPolicyResponse dataBackupRetentionDay(Integer dataBackupRetentionDay) {
     this.dataBackupRetentionDay = dataBackupRetentionDay;
     return this;
@@ -325,24 +202,6 @@ public class DescribeBackupPolicyResponse extends com.volcengine.model.AbstractR
     this.dataFullBackupPeriods = dataFullBackupPeriods;
   }
 
-  public DescribeBackupPolicyResponse dataFullBackupStartUTCHour(Integer dataFullBackupStartUTCHour) {
-    this.dataFullBackupStartUTCHour = dataFullBackupStartUTCHour;
-    return this;
-  }
-
-   /**
-   * Get dataFullBackupStartUTCHour
-   * @return dataFullBackupStartUTCHour
-  **/
-  @Schema(description = "")
-  public Integer getDataFullBackupStartUTCHour() {
-    return dataFullBackupStartUTCHour;
-  }
-
-  public void setDataFullBackupStartUTCHour(Integer dataFullBackupStartUTCHour) {
-    this.dataFullBackupStartUTCHour = dataFullBackupStartUTCHour;
-  }
-
   public DescribeBackupPolicyResponse dataFullBackupTime(String dataFullBackupTime) {
     this.dataFullBackupTime = dataFullBackupTime;
     return this;
@@ -385,78 +244,6 @@ public class DescribeBackupPolicyResponse extends com.volcengine.model.AbstractR
 
   public void setDataIncrBackupPeriods(List<String> dataIncrBackupPeriods) {
     this.dataIncrBackupPeriods = dataIncrBackupPeriods;
-  }
-
-  public DescribeBackupPolicyResponse dataKeepDaysAfterReleased(Integer dataKeepDaysAfterReleased) {
-    this.dataKeepDaysAfterReleased = dataKeepDaysAfterReleased;
-    return this;
-  }
-
-   /**
-   * Get dataKeepDaysAfterReleased
-   * @return dataKeepDaysAfterReleased
-  **/
-  @Schema(description = "")
-  public Integer getDataKeepDaysAfterReleased() {
-    return dataKeepDaysAfterReleased;
-  }
-
-  public void setDataKeepDaysAfterReleased(Integer dataKeepDaysAfterReleased) {
-    this.dataKeepDaysAfterReleased = dataKeepDaysAfterReleased;
-  }
-
-  public DescribeBackupPolicyResponse dataKeepPolicyAfterReleased(String dataKeepPolicyAfterReleased) {
-    this.dataKeepPolicyAfterReleased = dataKeepPolicyAfterReleased;
-    return this;
-  }
-
-   /**
-   * Get dataKeepPolicyAfterReleased
-   * @return dataKeepPolicyAfterReleased
-  **/
-  @Schema(description = "")
-  public String getDataKeepPolicyAfterReleased() {
-    return dataKeepPolicyAfterReleased;
-  }
-
-  public void setDataKeepPolicyAfterReleased(String dataKeepPolicyAfterReleased) {
-    this.dataKeepPolicyAfterReleased = dataKeepPolicyAfterReleased;
-  }
-
-  public DescribeBackupPolicyResponse hourlyIncrBackupEnable(Boolean hourlyIncrBackupEnable) {
-    this.hourlyIncrBackupEnable = hourlyIncrBackupEnable;
-    return this;
-  }
-
-   /**
-   * Get hourlyIncrBackupEnable
-   * @return hourlyIncrBackupEnable
-  **/
-  @Schema(description = "")
-  public Boolean isHourlyIncrBackupEnable() {
-    return hourlyIncrBackupEnable;
-  }
-
-  public void setHourlyIncrBackupEnable(Boolean hourlyIncrBackupEnable) {
-    this.hourlyIncrBackupEnable = hourlyIncrBackupEnable;
-  }
-
-  public DescribeBackupPolicyResponse incrBackupHourPeriod(Integer incrBackupHourPeriod) {
-    this.incrBackupHourPeriod = incrBackupHourPeriod;
-    return this;
-  }
-
-   /**
-   * Get incrBackupHourPeriod
-   * @return incrBackupHourPeriod
-  **/
-  @Schema(description = "")
-  public Integer getIncrBackupHourPeriod() {
-    return incrBackupHourPeriod;
-  }
-
-  public void setIncrBackupHourPeriod(Integer incrBackupHourPeriod) {
-    this.incrBackupHourPeriod = incrBackupHourPeriod;
   }
 
   public DescribeBackupPolicyResponse instanceId(String instanceId) {
@@ -513,24 +300,6 @@ public class DescribeBackupPolicyResponse extends com.volcengine.model.AbstractR
     this.logBackupRetentionDay = logBackupRetentionDay;
   }
 
-  public DescribeBackupPolicyResponse retentionPolicySynced(Boolean retentionPolicySynced) {
-    this.retentionPolicySynced = retentionPolicySynced;
-    return this;
-  }
-
-   /**
-   * Get retentionPolicySynced
-   * @return retentionPolicySynced
-  **/
-  @Schema(description = "")
-  public Boolean isRetentionPolicySynced() {
-    return retentionPolicySynced;
-  }
-
-  public void setRetentionPolicySynced(Boolean retentionPolicySynced) {
-    this.retentionPolicySynced = retentionPolicySynced;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -541,34 +310,23 @@ public class DescribeBackupPolicyResponse extends com.volcengine.model.AbstractR
       return false;
     }
     DescribeBackupPolicyResponse describeBackupPolicyResponse = (DescribeBackupPolicyResponse) o;
-    return Objects.equals(this.binlogBackupAllRetention, describeBackupPolicyResponse.binlogBackupAllRetention) &&
-        Objects.equals(this.binlogBackupEnabled, describeBackupPolicyResponse.binlogBackupEnabled) &&
-        Objects.equals(this.binlogBackupEncryptionEnabled, describeBackupPolicyResponse.binlogBackupEncryptionEnabled) &&
-        Objects.equals(this.binlogFileCountsEnable, describeBackupPolicyResponse.binlogFileCountsEnable) &&
+    return Objects.equals(this.binlogFileCountsEnable, describeBackupPolicyResponse.binlogFileCountsEnable) &&
         Objects.equals(this.binlogLimitCount, describeBackupPolicyResponse.binlogLimitCount) &&
         Objects.equals(this.binlogLocalRetentionHour, describeBackupPolicyResponse.binlogLocalRetentionHour) &&
         Objects.equals(this.binlogSpaceLimitEnable, describeBackupPolicyResponse.binlogSpaceLimitEnable) &&
         Objects.equals(this.binlogStoragePercentage, describeBackupPolicyResponse.binlogStoragePercentage) &&
-        Objects.equals(this.dataBackupAllRetention, describeBackupPolicyResponse.dataBackupAllRetention) &&
-        Objects.equals(this.dataBackupEncryptionEnabled, describeBackupPolicyResponse.dataBackupEncryptionEnabled) &&
         Objects.equals(this.dataBackupRetentionDay, describeBackupPolicyResponse.dataBackupRetentionDay) &&
         Objects.equals(this.dataFullBackupPeriods, describeBackupPolicyResponse.dataFullBackupPeriods) &&
-        Objects.equals(this.dataFullBackupStartUTCHour, describeBackupPolicyResponse.dataFullBackupStartUTCHour) &&
         Objects.equals(this.dataFullBackupTime, describeBackupPolicyResponse.dataFullBackupTime) &&
         Objects.equals(this.dataIncrBackupPeriods, describeBackupPolicyResponse.dataIncrBackupPeriods) &&
-        Objects.equals(this.dataKeepDaysAfterReleased, describeBackupPolicyResponse.dataKeepDaysAfterReleased) &&
-        Objects.equals(this.dataKeepPolicyAfterReleased, describeBackupPolicyResponse.dataKeepPolicyAfterReleased) &&
-        Objects.equals(this.hourlyIncrBackupEnable, describeBackupPolicyResponse.hourlyIncrBackupEnable) &&
-        Objects.equals(this.incrBackupHourPeriod, describeBackupPolicyResponse.incrBackupHourPeriod) &&
         Objects.equals(this.instanceId, describeBackupPolicyResponse.instanceId) &&
         Objects.equals(this.lockDDLTime, describeBackupPolicyResponse.lockDDLTime) &&
-        Objects.equals(this.logBackupRetentionDay, describeBackupPolicyResponse.logBackupRetentionDay) &&
-        Objects.equals(this.retentionPolicySynced, describeBackupPolicyResponse.retentionPolicySynced);
+        Objects.equals(this.logBackupRetentionDay, describeBackupPolicyResponse.logBackupRetentionDay);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(binlogBackupAllRetention, binlogBackupEnabled, binlogBackupEncryptionEnabled, binlogFileCountsEnable, binlogLimitCount, binlogLocalRetentionHour, binlogSpaceLimitEnable, binlogStoragePercentage, dataBackupAllRetention, dataBackupEncryptionEnabled, dataBackupRetentionDay, dataFullBackupPeriods, dataFullBackupStartUTCHour, dataFullBackupTime, dataIncrBackupPeriods, dataKeepDaysAfterReleased, dataKeepPolicyAfterReleased, hourlyIncrBackupEnable, incrBackupHourPeriod, instanceId, lockDDLTime, logBackupRetentionDay, retentionPolicySynced);
+    return Objects.hash(binlogFileCountsEnable, binlogLimitCount, binlogLocalRetentionHour, binlogSpaceLimitEnable, binlogStoragePercentage, dataBackupRetentionDay, dataFullBackupPeriods, dataFullBackupTime, dataIncrBackupPeriods, instanceId, lockDDLTime, logBackupRetentionDay);
   }
 
 
@@ -577,29 +335,18 @@ public class DescribeBackupPolicyResponse extends com.volcengine.model.AbstractR
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeBackupPolicyResponse {\n");
     
-    sb.append("    binlogBackupAllRetention: ").append(toIndentedString(binlogBackupAllRetention)).append("\n");
-    sb.append("    binlogBackupEnabled: ").append(toIndentedString(binlogBackupEnabled)).append("\n");
-    sb.append("    binlogBackupEncryptionEnabled: ").append(toIndentedString(binlogBackupEncryptionEnabled)).append("\n");
     sb.append("    binlogFileCountsEnable: ").append(toIndentedString(binlogFileCountsEnable)).append("\n");
     sb.append("    binlogLimitCount: ").append(toIndentedString(binlogLimitCount)).append("\n");
     sb.append("    binlogLocalRetentionHour: ").append(toIndentedString(binlogLocalRetentionHour)).append("\n");
     sb.append("    binlogSpaceLimitEnable: ").append(toIndentedString(binlogSpaceLimitEnable)).append("\n");
     sb.append("    binlogStoragePercentage: ").append(toIndentedString(binlogStoragePercentage)).append("\n");
-    sb.append("    dataBackupAllRetention: ").append(toIndentedString(dataBackupAllRetention)).append("\n");
-    sb.append("    dataBackupEncryptionEnabled: ").append(toIndentedString(dataBackupEncryptionEnabled)).append("\n");
     sb.append("    dataBackupRetentionDay: ").append(toIndentedString(dataBackupRetentionDay)).append("\n");
     sb.append("    dataFullBackupPeriods: ").append(toIndentedString(dataFullBackupPeriods)).append("\n");
-    sb.append("    dataFullBackupStartUTCHour: ").append(toIndentedString(dataFullBackupStartUTCHour)).append("\n");
     sb.append("    dataFullBackupTime: ").append(toIndentedString(dataFullBackupTime)).append("\n");
     sb.append("    dataIncrBackupPeriods: ").append(toIndentedString(dataIncrBackupPeriods)).append("\n");
-    sb.append("    dataKeepDaysAfterReleased: ").append(toIndentedString(dataKeepDaysAfterReleased)).append("\n");
-    sb.append("    dataKeepPolicyAfterReleased: ").append(toIndentedString(dataKeepPolicyAfterReleased)).append("\n");
-    sb.append("    hourlyIncrBackupEnable: ").append(toIndentedString(hourlyIncrBackupEnable)).append("\n");
-    sb.append("    incrBackupHourPeriod: ").append(toIndentedString(incrBackupHourPeriod)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    lockDDLTime: ").append(toIndentedString(lockDDLTime)).append("\n");
     sb.append("    logBackupRetentionDay: ").append(toIndentedString(logBackupRetentionDay)).append("\n");
-    sb.append("    retentionPolicySynced: ").append(toIndentedString(retentionPolicySynced)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -42,17 +42,11 @@ public class AccountForDescribeDBAccountsOutput {
   @SerializedName("AccountPrivileges")
   private List<AccountPrivilegeForDescribeDBAccountsOutput> accountPrivileges = null;
 
-  @SerializedName("AccountPrivilegesSQL")
-  private List<String> accountPrivilegesSQL = null;
-
   @SerializedName("AccountStatus")
   private String accountStatus = null;
 
   @SerializedName("AccountType")
   private String accountType = null;
-
-  @SerializedName("GlobalAccountPrivileges")
-  private List<String> globalAccountPrivileges = null;
 
   @SerializedName("Host")
   private String host = null;
@@ -120,32 +114,6 @@ public class AccountForDescribeDBAccountsOutput {
     this.accountPrivileges = accountPrivileges;
   }
 
-  public AccountForDescribeDBAccountsOutput accountPrivilegesSQL(List<String> accountPrivilegesSQL) {
-    this.accountPrivilegesSQL = accountPrivilegesSQL;
-    return this;
-  }
-
-  public AccountForDescribeDBAccountsOutput addAccountPrivilegesSQLItem(String accountPrivilegesSQLItem) {
-    if (this.accountPrivilegesSQL == null) {
-      this.accountPrivilegesSQL = new ArrayList<String>();
-    }
-    this.accountPrivilegesSQL.add(accountPrivilegesSQLItem);
-    return this;
-  }
-
-   /**
-   * Get accountPrivilegesSQL
-   * @return accountPrivilegesSQL
-  **/
-  @Schema(description = "")
-  public List<String> getAccountPrivilegesSQL() {
-    return accountPrivilegesSQL;
-  }
-
-  public void setAccountPrivilegesSQL(List<String> accountPrivilegesSQL) {
-    this.accountPrivilegesSQL = accountPrivilegesSQL;
-  }
-
   public AccountForDescribeDBAccountsOutput accountStatus(String accountStatus) {
     this.accountStatus = accountStatus;
     return this;
@@ -182,32 +150,6 @@ public class AccountForDescribeDBAccountsOutput {
     this.accountType = accountType;
   }
 
-  public AccountForDescribeDBAccountsOutput globalAccountPrivileges(List<String> globalAccountPrivileges) {
-    this.globalAccountPrivileges = globalAccountPrivileges;
-    return this;
-  }
-
-  public AccountForDescribeDBAccountsOutput addGlobalAccountPrivilegesItem(String globalAccountPrivilegesItem) {
-    if (this.globalAccountPrivileges == null) {
-      this.globalAccountPrivileges = new ArrayList<String>();
-    }
-    this.globalAccountPrivileges.add(globalAccountPrivilegesItem);
-    return this;
-  }
-
-   /**
-   * Get globalAccountPrivileges
-   * @return globalAccountPrivileges
-  **/
-  @Schema(description = "")
-  public List<String> getGlobalAccountPrivileges() {
-    return globalAccountPrivileges;
-  }
-
-  public void setGlobalAccountPrivileges(List<String> globalAccountPrivileges) {
-    this.globalAccountPrivileges = globalAccountPrivileges;
-  }
-
   public AccountForDescribeDBAccountsOutput host(String host) {
     this.host = host;
     return this;
@@ -239,16 +181,14 @@ public class AccountForDescribeDBAccountsOutput {
     return Objects.equals(this.accountDesc, accountForDescribeDBAccountsOutput.accountDesc) &&
         Objects.equals(this.accountName, accountForDescribeDBAccountsOutput.accountName) &&
         Objects.equals(this.accountPrivileges, accountForDescribeDBAccountsOutput.accountPrivileges) &&
-        Objects.equals(this.accountPrivilegesSQL, accountForDescribeDBAccountsOutput.accountPrivilegesSQL) &&
         Objects.equals(this.accountStatus, accountForDescribeDBAccountsOutput.accountStatus) &&
         Objects.equals(this.accountType, accountForDescribeDBAccountsOutput.accountType) &&
-        Objects.equals(this.globalAccountPrivileges, accountForDescribeDBAccountsOutput.globalAccountPrivileges) &&
         Objects.equals(this.host, accountForDescribeDBAccountsOutput.host);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountDesc, accountName, accountPrivileges, accountPrivilegesSQL, accountStatus, accountType, globalAccountPrivileges, host);
+    return Objects.hash(accountDesc, accountName, accountPrivileges, accountStatus, accountType, host);
   }
 
 
@@ -260,10 +200,8 @@ public class AccountForDescribeDBAccountsOutput {
     sb.append("    accountDesc: ").append(toIndentedString(accountDesc)).append("\n");
     sb.append("    accountName: ").append(toIndentedString(accountName)).append("\n");
     sb.append("    accountPrivileges: ").append(toIndentedString(accountPrivileges)).append("\n");
-    sb.append("    accountPrivilegesSQL: ").append(toIndentedString(accountPrivilegesSQL)).append("\n");
     sb.append("    accountStatus: ").append(toIndentedString(accountStatus)).append("\n");
     sb.append("    accountType: ").append(toIndentedString(accountType)).append("\n");
-    sb.append("    globalAccountPrivileges: ").append(toIndentedString(globalAccountPrivileges)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("}");
     return sb.toString();
