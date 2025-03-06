@@ -1,5 +1,6 @@
 package com.volcengine.ark.runtime.model.completion.chat;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.volcengine.ark.runtime.model.Usage;
 
@@ -26,6 +27,26 @@ public class ChatCompletionChunk {
      * The model used.
      */
     String model;
+
+    /**
+     * Specifies the latency tier to use for processing the request.
+     *
+     *     This parameter is relevant for customers subscribed to the scale tier service:
+     *
+     *     - If set to 'auto', and the endpoint is Scale tier enabled, the system will
+     *       utilize scale tier credits until they are exhausted.
+     *     - If set to 'auto', and the endpoint is not Scale tier enabled, the request will
+     *       be processed using the default service tier with a lower uptime SLA and no
+     *       latency guarentee.
+     *     - If set to 'default', the request will be processed using the default service
+     *       tier with a lower uptime SLA and no latency guarentee.
+     *     - When not set, the default behavior is 'auto'.
+     *
+     *     When this parameter is set, the response body will include the `service_tier`
+     *     utilized.
+     */
+    @JsonAlias("service_tier")
+    String serviceTier;
 
     /**
      * A list of all generated completions.
@@ -69,6 +90,14 @@ public class ChatCompletionChunk {
         this.model = model;
     }
 
+    public String getServiceTier() {
+        return serviceTier;
+    }
+
+    public void setServiceTier(String serviceTier) {
+        this.serviceTier = serviceTier;
+    }
+
     public List<ChatCompletionChoice> getChoices() {
         return choices;
     }
@@ -92,6 +121,7 @@ public class ChatCompletionChunk {
                 ", object='" + object + '\'' +
                 ", created=" + created +
                 ", model='" + model + '\'' +
+                ", service_tier='" + serviceTier + '\'' +
                 ", choices=" + choices +
                 ", usage=" + usage +
                 '}';
