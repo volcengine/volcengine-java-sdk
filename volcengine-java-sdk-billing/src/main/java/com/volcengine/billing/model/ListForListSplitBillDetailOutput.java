@@ -48,6 +48,9 @@ public class ListForListSplitBillDetailOutput {
   @SerializedName("BillingMode")
   private String billingMode = null;
 
+  @SerializedName("BusiPeriod")
+  private String busiPeriod = null;
+
   @SerializedName("BusinessMode")
   private String businessMode = null;
 
@@ -120,6 +123,12 @@ public class ListForListSplitBillDetailOutput {
   @SerializedName("OriginalBillAmount")
   private String originalBillAmount = null;
 
+  @SerializedName("OwnerCustomerName")
+  private String ownerCustomerName = null;
+
+  @SerializedName("OwnerID")
+  private String ownerID = null;
+
   @SerializedName("OwnerUserName")
   private String ownerUserName = null;
 
@@ -128,6 +137,12 @@ public class ListForListSplitBillDetailOutput {
 
   @SerializedName("PayableAmount")
   private String payableAmount = null;
+
+  @SerializedName("PayerCustomerName")
+  private String payerCustomerName = null;
+
+  @SerializedName("PayerID")
+  private String payerID = null;
 
   @SerializedName("PayerUserName")
   private String payerUserName = null;
@@ -164,6 +179,12 @@ public class ListForListSplitBillDetailOutput {
 
   @SerializedName("ReservationInstance")
   private String reservationInstance = null;
+
+  @SerializedName("SellerCustomerName")
+  private String sellerCustomerName = null;
+
+  @SerializedName("SellerID")
+  private String sellerID = null;
 
   @SerializedName("SellerUserName")
   private String sellerUserName = null;
@@ -325,6 +346,24 @@ public class ListForListSplitBillDetailOutput {
 
   public void setBillingMode(String billingMode) {
     this.billingMode = billingMode;
+  }
+
+  public ListForListSplitBillDetailOutput busiPeriod(String busiPeriod) {
+    this.busiPeriod = busiPeriod;
+    return this;
+  }
+
+   /**
+   * Get busiPeriod
+   * @return busiPeriod
+  **/
+  @Schema(description = "")
+  public String getBusiPeriod() {
+    return busiPeriod;
+  }
+
+  public void setBusiPeriod(String busiPeriod) {
+    this.busiPeriod = busiPeriod;
   }
 
   public ListForListSplitBillDetailOutput businessMode(String businessMode) {
@@ -759,6 +798,42 @@ public class ListForListSplitBillDetailOutput {
     this.originalBillAmount = originalBillAmount;
   }
 
+  public ListForListSplitBillDetailOutput ownerCustomerName(String ownerCustomerName) {
+    this.ownerCustomerName = ownerCustomerName;
+    return this;
+  }
+
+   /**
+   * Get ownerCustomerName
+   * @return ownerCustomerName
+  **/
+  @Schema(description = "")
+  public String getOwnerCustomerName() {
+    return ownerCustomerName;
+  }
+
+  public void setOwnerCustomerName(String ownerCustomerName) {
+    this.ownerCustomerName = ownerCustomerName;
+  }
+
+  public ListForListSplitBillDetailOutput ownerID(String ownerID) {
+    this.ownerID = ownerID;
+    return this;
+  }
+
+   /**
+   * Get ownerID
+   * @return ownerID
+  **/
+  @Schema(description = "")
+  public String getOwnerID() {
+    return ownerID;
+  }
+
+  public void setOwnerID(String ownerID) {
+    this.ownerID = ownerID;
+  }
+
   public ListForListSplitBillDetailOutput ownerUserName(String ownerUserName) {
     this.ownerUserName = ownerUserName;
     return this;
@@ -811,6 +886,42 @@ public class ListForListSplitBillDetailOutput {
 
   public void setPayableAmount(String payableAmount) {
     this.payableAmount = payableAmount;
+  }
+
+  public ListForListSplitBillDetailOutput payerCustomerName(String payerCustomerName) {
+    this.payerCustomerName = payerCustomerName;
+    return this;
+  }
+
+   /**
+   * Get payerCustomerName
+   * @return payerCustomerName
+  **/
+  @Schema(description = "")
+  public String getPayerCustomerName() {
+    return payerCustomerName;
+  }
+
+  public void setPayerCustomerName(String payerCustomerName) {
+    this.payerCustomerName = payerCustomerName;
+  }
+
+  public ListForListSplitBillDetailOutput payerID(String payerID) {
+    this.payerID = payerID;
+    return this;
+  }
+
+   /**
+   * Get payerID
+   * @return payerID
+  **/
+  @Schema(description = "")
+  public String getPayerID() {
+    return payerID;
+  }
+
+  public void setPayerID(String payerID) {
+    this.payerID = payerID;
   }
 
   public ListForListSplitBillDetailOutput payerUserName(String payerUserName) {
@@ -1027,6 +1138,42 @@ public class ListForListSplitBillDetailOutput {
 
   public void setReservationInstance(String reservationInstance) {
     this.reservationInstance = reservationInstance;
+  }
+
+  public ListForListSplitBillDetailOutput sellerCustomerName(String sellerCustomerName) {
+    this.sellerCustomerName = sellerCustomerName;
+    return this;
+  }
+
+   /**
+   * Get sellerCustomerName
+   * @return sellerCustomerName
+  **/
+  @Schema(description = "")
+  public String getSellerCustomerName() {
+    return sellerCustomerName;
+  }
+
+  public void setSellerCustomerName(String sellerCustomerName) {
+    this.sellerCustomerName = sellerCustomerName;
+  }
+
+  public ListForListSplitBillDetailOutput sellerID(String sellerID) {
+    this.sellerID = sellerID;
+    return this;
+  }
+
+   /**
+   * Get sellerID
+   * @return sellerID
+  **/
+  @Schema(description = "")
+  public String getSellerID() {
+    return sellerID;
+  }
+
+  public void setSellerID(String sellerID) {
+    this.sellerID = sellerID;
   }
 
   public ListForListSplitBillDetailOutput sellerUserName(String sellerUserName) {
@@ -1369,6 +1516,7 @@ public class ListForListSplitBillDetailOutput {
         Objects.equals(this.billingFunction, listForListSplitBillDetailOutput.billingFunction) &&
         Objects.equals(this.billingMethodCode, listForListSplitBillDetailOutput.billingMethodCode) &&
         Objects.equals(this.billingMode, listForListSplitBillDetailOutput.billingMode) &&
+        Objects.equals(this.busiPeriod, listForListSplitBillDetailOutput.busiPeriod) &&
         Objects.equals(this.businessMode, listForListSplitBillDetailOutput.businessMode) &&
         Objects.equals(this.configName, listForListSplitBillDetailOutput.configName) &&
         Objects.equals(this.configurationCode, listForListSplitBillDetailOutput.configurationCode) &&
@@ -1393,9 +1541,13 @@ public class ListForListSplitBillDetailOutput {
         Objects.equals(this.marketPrice, listForListSplitBillDetailOutput.marketPrice) &&
         Objects.equals(this.measureInterval, listForListSplitBillDetailOutput.measureInterval) &&
         Objects.equals(this.originalBillAmount, listForListSplitBillDetailOutput.originalBillAmount) &&
+        Objects.equals(this.ownerCustomerName, listForListSplitBillDetailOutput.ownerCustomerName) &&
+        Objects.equals(this.ownerID, listForListSplitBillDetailOutput.ownerID) &&
         Objects.equals(this.ownerUserName, listForListSplitBillDetailOutput.ownerUserName) &&
         Objects.equals(this.paidAmount, listForListSplitBillDetailOutput.paidAmount) &&
         Objects.equals(this.payableAmount, listForListSplitBillDetailOutput.payableAmount) &&
+        Objects.equals(this.payerCustomerName, listForListSplitBillDetailOutput.payerCustomerName) &&
+        Objects.equals(this.payerID, listForListSplitBillDetailOutput.payerID) &&
         Objects.equals(this.payerUserName, listForListSplitBillDetailOutput.payerUserName) &&
         Objects.equals(this.preferentialBillAmount, listForListSplitBillDetailOutput.preferentialBillAmount) &&
         Objects.equals(this.price, listForListSplitBillDetailOutput.price) &&
@@ -1408,6 +1560,8 @@ public class ListForListSplitBillDetailOutput {
         Objects.equals(this.region, listForListSplitBillDetailOutput.region) &&
         Objects.equals(this.regionCode, listForListSplitBillDetailOutput.regionCode) &&
         Objects.equals(this.reservationInstance, listForListSplitBillDetailOutput.reservationInstance) &&
+        Objects.equals(this.sellerCustomerName, listForListSplitBillDetailOutput.sellerCustomerName) &&
+        Objects.equals(this.sellerID, listForListSplitBillDetailOutput.sellerID) &&
         Objects.equals(this.sellerUserName, listForListSplitBillDetailOutput.sellerUserName) &&
         Objects.equals(this.sellingMode, listForListSplitBillDetailOutput.sellingMode) &&
         Objects.equals(this.settlementType, listForListSplitBillDetailOutput.settlementType) &&
@@ -1430,7 +1584,7 @@ public class ListForListSplitBillDetailOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(billCategory, billID, billPeriod, billingFunction, billingMethodCode, billingMode, businessMode, configName, configurationCode, couponDeductionAmount, creditCarriedAmount, currency, deductionCount, discountBillAmount, discountBizBillingFunction, discountBizMeasureInterval, discountBizUnitPrice, discountBizUnitPriceInterval, effectiveFactor, element, elementCode, expandField, expenseTime, factor, factorCode, instanceName, instanceNo, marketPrice, measureInterval, originalBillAmount, ownerUserName, paidAmount, payableAmount, payerUserName, preferentialBillAmount, price, priceInterval, priceUnit, product, productZh, project, projectDisplayName, region, regionCode, reservationInstance, sellerUserName, sellingMode, settlementType, solutionZh, splitBillDetailId, splitItemAmount, splitItemID, splitItemName, splitItemRatio, subjectName, tag, tradeTime, unit, unpaidAmount, useDuration, useDurationUnit, zone, zoneCode);
+    return Objects.hash(billCategory, billID, billPeriod, billingFunction, billingMethodCode, billingMode, busiPeriod, businessMode, configName, configurationCode, couponDeductionAmount, creditCarriedAmount, currency, deductionCount, discountBillAmount, discountBizBillingFunction, discountBizMeasureInterval, discountBizUnitPrice, discountBizUnitPriceInterval, effectiveFactor, element, elementCode, expandField, expenseTime, factor, factorCode, instanceName, instanceNo, marketPrice, measureInterval, originalBillAmount, ownerCustomerName, ownerID, ownerUserName, paidAmount, payableAmount, payerCustomerName, payerID, payerUserName, preferentialBillAmount, price, priceInterval, priceUnit, product, productZh, project, projectDisplayName, region, regionCode, reservationInstance, sellerCustomerName, sellerID, sellerUserName, sellingMode, settlementType, solutionZh, splitBillDetailId, splitItemAmount, splitItemID, splitItemName, splitItemRatio, subjectName, tag, tradeTime, unit, unpaidAmount, useDuration, useDurationUnit, zone, zoneCode);
   }
 
 
@@ -1445,6 +1599,7 @@ public class ListForListSplitBillDetailOutput {
     sb.append("    billingFunction: ").append(toIndentedString(billingFunction)).append("\n");
     sb.append("    billingMethodCode: ").append(toIndentedString(billingMethodCode)).append("\n");
     sb.append("    billingMode: ").append(toIndentedString(billingMode)).append("\n");
+    sb.append("    busiPeriod: ").append(toIndentedString(busiPeriod)).append("\n");
     sb.append("    businessMode: ").append(toIndentedString(businessMode)).append("\n");
     sb.append("    configName: ").append(toIndentedString(configName)).append("\n");
     sb.append("    configurationCode: ").append(toIndentedString(configurationCode)).append("\n");
@@ -1469,9 +1624,13 @@ public class ListForListSplitBillDetailOutput {
     sb.append("    marketPrice: ").append(toIndentedString(marketPrice)).append("\n");
     sb.append("    measureInterval: ").append(toIndentedString(measureInterval)).append("\n");
     sb.append("    originalBillAmount: ").append(toIndentedString(originalBillAmount)).append("\n");
+    sb.append("    ownerCustomerName: ").append(toIndentedString(ownerCustomerName)).append("\n");
+    sb.append("    ownerID: ").append(toIndentedString(ownerID)).append("\n");
     sb.append("    ownerUserName: ").append(toIndentedString(ownerUserName)).append("\n");
     sb.append("    paidAmount: ").append(toIndentedString(paidAmount)).append("\n");
     sb.append("    payableAmount: ").append(toIndentedString(payableAmount)).append("\n");
+    sb.append("    payerCustomerName: ").append(toIndentedString(payerCustomerName)).append("\n");
+    sb.append("    payerID: ").append(toIndentedString(payerID)).append("\n");
     sb.append("    payerUserName: ").append(toIndentedString(payerUserName)).append("\n");
     sb.append("    preferentialBillAmount: ").append(toIndentedString(preferentialBillAmount)).append("\n");
     sb.append("    price: ").append(toIndentedString(price)).append("\n");
@@ -1484,6 +1643,8 @@ public class ListForListSplitBillDetailOutput {
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    regionCode: ").append(toIndentedString(regionCode)).append("\n");
     sb.append("    reservationInstance: ").append(toIndentedString(reservationInstance)).append("\n");
+    sb.append("    sellerCustomerName: ").append(toIndentedString(sellerCustomerName)).append("\n");
+    sb.append("    sellerID: ").append(toIndentedString(sellerID)).append("\n");
     sb.append("    sellerUserName: ").append(toIndentedString(sellerUserName)).append("\n");
     sb.append("    sellingMode: ").append(toIndentedString(sellingMode)).append("\n");
     sb.append("    settlementType: ").append(toIndentedString(settlementType)).append("\n");
