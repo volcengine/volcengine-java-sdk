@@ -24,19 +24,19 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ModifyIpWhitelistResponse
+ * ModifyIpAllowListResponse
  */
 
 
 
-public class ModifyIpWhitelistResponse extends com.volcengine.model.AbstractResponse {
+public class ModifyIpAllowListResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Message")
   private String message = null;
 
   @SerializedName("Status")
   private String status = null;
 
-  public ModifyIpWhitelistResponse message(String message) {
+  public ModifyIpAllowListResponse message(String message) {
     this.message = message;
     return this;
   }
@@ -54,7 +54,7 @@ public class ModifyIpWhitelistResponse extends com.volcengine.model.AbstractResp
     this.message = message;
   }
 
-  public ModifyIpWhitelistResponse status(String status) {
+  public ModifyIpAllowListResponse status(String status) {
     this.status = status;
     return this;
   }
@@ -81,9 +81,9 @@ public class ModifyIpWhitelistResponse extends com.volcengine.model.AbstractResp
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ModifyIpWhitelistResponse modifyIpWhitelistResponse = (ModifyIpWhitelistResponse) o;
-    return Objects.equals(this.message, modifyIpWhitelistResponse.message) &&
-        Objects.equals(this.status, modifyIpWhitelistResponse.status);
+    ModifyIpAllowListResponse modifyIpAllowListResponse = (ModifyIpAllowListResponse) o;
+    return Objects.equals(this.message, modifyIpAllowListResponse.message) &&
+        Objects.equals(this.status, modifyIpAllowListResponse.status);
   }
 
   @Override
@@ -95,7 +95,7 @@ public class ModifyIpWhitelistResponse extends com.volcengine.model.AbstractResp
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ModifyIpWhitelistResponse {\n");
+    sb.append("class ModifyIpAllowListResponse {\n");
     
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");

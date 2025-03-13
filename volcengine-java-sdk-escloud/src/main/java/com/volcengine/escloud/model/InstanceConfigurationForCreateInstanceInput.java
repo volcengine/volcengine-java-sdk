@@ -94,9 +94,6 @@ public class InstanceConfigurationForCreateInstanceInput {
   @SerializedName("DeletionProtection")
   private Boolean deletionProtection = null;
 
-  @SerializedName("EnableCerebro")
-  private Boolean enableCerebro = null;
-
   @SerializedName("EnableHttps")
   private Boolean enableHttps = null;
 
@@ -270,24 +267,6 @@ public class InstanceConfigurationForCreateInstanceInput {
 
   public void setDeletionProtection(Boolean deletionProtection) {
     this.deletionProtection = deletionProtection;
-  }
-
-  public InstanceConfigurationForCreateInstanceInput enableCerebro(Boolean enableCerebro) {
-    this.enableCerebro = enableCerebro;
-    return this;
-  }
-
-   /**
-   * Get enableCerebro
-   * @return enableCerebro
-  **/
-  @Schema(description = "")
-  public Boolean isEnableCerebro() {
-    return enableCerebro;
-  }
-
-  public void setEnableCerebro(Boolean enableCerebro) {
-    this.enableCerebro = enableCerebro;
   }
 
   public InstanceConfigurationForCreateInstanceInput enableHttps(Boolean enableHttps) {
@@ -541,7 +520,6 @@ public class InstanceConfigurationForCreateInstanceInput {
         Objects.equals(this.chargeType, instanceConfigurationForCreateInstanceInput.chargeType) &&
         Objects.equals(this.configurationCode, instanceConfigurationForCreateInstanceInput.configurationCode) &&
         Objects.equals(this.deletionProtection, instanceConfigurationForCreateInstanceInput.deletionProtection) &&
-        Objects.equals(this.enableCerebro, instanceConfigurationForCreateInstanceInput.enableCerebro) &&
         Objects.equals(this.enableHttps, instanceConfigurationForCreateInstanceInput.enableHttps) &&
         Objects.equals(this.enablePureMaster, instanceConfigurationForCreateInstanceInput.enablePureMaster) &&
         Objects.equals(this.instanceName, instanceConfigurationForCreateInstanceInput.instanceName) &&
@@ -558,7 +536,7 @@ public class InstanceConfigurationForCreateInstanceInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(adminPassword, autoRenew, chargeType, configurationCode, deletionProtection, enableCerebro, enableHttps, enablePureMaster, instanceName, networkSpecs, nodeSpecsAssigns, period, projectName, regionId, subnet, VPC, version, zoneId);
+    return Objects.hash(adminPassword, autoRenew, chargeType, configurationCode, deletionProtection, enableHttps, enablePureMaster, instanceName, networkSpecs, nodeSpecsAssigns, period, projectName, regionId, subnet, VPC, version, zoneId);
   }
 
 
@@ -572,7 +550,6 @@ public class InstanceConfigurationForCreateInstanceInput {
     sb.append("    chargeType: ").append(toIndentedString(chargeType)).append("\n");
     sb.append("    configurationCode: ").append(toIndentedString(configurationCode)).append("\n");
     sb.append("    deletionProtection: ").append(toIndentedString(deletionProtection)).append("\n");
-    sb.append("    enableCerebro: ").append(toIndentedString(enableCerebro)).append("\n");
     sb.append("    enableHttps: ").append(toIndentedString(enableHttps)).append("\n");
     sb.append("    enablePureMaster: ").append(toIndentedString(enablePureMaster)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");

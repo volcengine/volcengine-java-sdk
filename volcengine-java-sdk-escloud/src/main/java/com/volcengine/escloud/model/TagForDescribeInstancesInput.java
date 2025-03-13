@@ -19,7 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.escloud.model.TagForDescribeInstancesInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -27,40 +26,60 @@ import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * TagFilterForDescribeInstancesInput
+ * TagForDescribeInstancesInput
  */
 
 
 
-public class TagFilterForDescribeInstancesInput {
-  @SerializedName("Tags")
-  private List<TagForDescribeInstancesInput> tags = null;
+public class TagForDescribeInstancesInput {
+  @SerializedName("Key")
+  private String key = null;
 
-  public TagFilterForDescribeInstancesInput tags(List<TagForDescribeInstancesInput> tags) {
-    this.tags = tags;
-    return this;
-  }
+  @SerializedName("Values")
+  private List<String> values = null;
 
-  public TagFilterForDescribeInstancesInput addTagsItem(TagForDescribeInstancesInput tagsItem) {
-    if (this.tags == null) {
-      this.tags = new ArrayList<TagForDescribeInstancesInput>();
-    }
-    this.tags.add(tagsItem);
+  public TagForDescribeInstancesInput key(String key) {
+    this.key = key;
     return this;
   }
 
    /**
-   * Get tags
-   * @return tags
+   * Get key
+   * @return key
   **/
-  @Valid
   @Schema(description = "")
-  public List<TagForDescribeInstancesInput> getTags() {
-    return tags;
+  public String getKey() {
+    return key;
   }
 
-  public void setTags(List<TagForDescribeInstancesInput> tags) {
-    this.tags = tags;
+  public void setKey(String key) {
+    this.key = key;
+  }
+
+  public TagForDescribeInstancesInput values(List<String> values) {
+    this.values = values;
+    return this;
+  }
+
+  public TagForDescribeInstancesInput addValuesItem(String valuesItem) {
+    if (this.values == null) {
+      this.values = new ArrayList<String>();
+    }
+    this.values.add(valuesItem);
+    return this;
+  }
+
+   /**
+   * Get values
+   * @return values
+  **/
+  @Schema(description = "")
+  public List<String> getValues() {
+    return values;
+  }
+
+  public void setValues(List<String> values) {
+    this.values = values;
   }
 
 
@@ -72,22 +91,24 @@ public class TagFilterForDescribeInstancesInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TagFilterForDescribeInstancesInput tagFilterForDescribeInstancesInput = (TagFilterForDescribeInstancesInput) o;
-    return Objects.equals(this.tags, tagFilterForDescribeInstancesInput.tags);
+    TagForDescribeInstancesInput tagForDescribeInstancesInput = (TagForDescribeInstancesInput) o;
+    return Objects.equals(this.key, tagForDescribeInstancesInput.key) &&
+        Objects.equals(this.values, tagForDescribeInstancesInput.values);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(tags);
+    return Objects.hash(key, values);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TagFilterForDescribeInstancesInput {\n");
+    sb.append("class TagForDescribeInstancesInput {\n");
     
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    values: ").append(toIndentedString(values)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -24,12 +24,12 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ModifyIpWhitelistRequest
+ * ModifyIpAllowListRequest
  */
 
 
 
-public class ModifyIpWhitelistRequest {
+public class ModifyIpAllowListRequest {
   @SerializedName("Component")
   private String component = null;
 
@@ -42,7 +42,7 @@ public class ModifyIpWhitelistRequest {
   @SerializedName("Type")
   private String type = null;
 
-  public ModifyIpWhitelistRequest component(String component) {
+  public ModifyIpAllowListRequest component(String component) {
     this.component = component;
     return this;
   }
@@ -61,7 +61,7 @@ public class ModifyIpWhitelistRequest {
     this.component = component;
   }
 
-  public ModifyIpWhitelistRequest instanceId(String instanceId) {
+  public ModifyIpAllowListRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
     return this;
   }
@@ -80,7 +80,7 @@ public class ModifyIpWhitelistRequest {
     this.instanceId = instanceId;
   }
 
-  public ModifyIpWhitelistRequest ipList(String ipList) {
+  public ModifyIpAllowListRequest ipList(String ipList) {
     this.ipList = ipList;
     return this;
   }
@@ -99,7 +99,7 @@ public class ModifyIpWhitelistRequest {
     this.ipList = ipList;
   }
 
-  public ModifyIpWhitelistRequest type(String type) {
+  public ModifyIpAllowListRequest type(String type) {
     this.type = type;
     return this;
   }
@@ -127,11 +127,11 @@ public class ModifyIpWhitelistRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ModifyIpWhitelistRequest modifyIpWhitelistRequest = (ModifyIpWhitelistRequest) o;
-    return Objects.equals(this.component, modifyIpWhitelistRequest.component) &&
-        Objects.equals(this.instanceId, modifyIpWhitelistRequest.instanceId) &&
-        Objects.equals(this.ipList, modifyIpWhitelistRequest.ipList) &&
-        Objects.equals(this.type, modifyIpWhitelistRequest.type);
+    ModifyIpAllowListRequest modifyIpAllowListRequest = (ModifyIpAllowListRequest) o;
+    return Objects.equals(this.component, modifyIpAllowListRequest.component) &&
+        Objects.equals(this.instanceId, modifyIpAllowListRequest.instanceId) &&
+        Objects.equals(this.ipList, modifyIpAllowListRequest.ipList) &&
+        Objects.equals(this.type, modifyIpAllowListRequest.type);
   }
 
   @Override
@@ -143,7 +143,7 @@ public class ModifyIpWhitelistRequest {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ModifyIpWhitelistRequest {\n");
+    sb.append("class ModifyIpAllowListRequest {\n");
     
     sb.append("    component: ").append(toIndentedString(component)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
