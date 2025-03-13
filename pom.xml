@@ -268,5 +268,6 @@
         <module>volcengine-java-sdk-seccenter</module>
         <module>volcengine-java-sdk-bio</module>
         <module>volcengine-java-sdk-dataleap</module>
+        <module>volcengine-java-sdk-emr</module>
     </modules>
 </project>
