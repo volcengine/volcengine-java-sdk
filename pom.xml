@@ -269,5 +269,6 @@
         <module>volcengine-java-sdk-bio</module>
         <module>volcengine-java-sdk-dataleap</module>
         <module>volcengine-java-sdk-emr</module>
+        <module>volcengine-java-sdk-certificateservice</module>
     </modules>
 </project>
