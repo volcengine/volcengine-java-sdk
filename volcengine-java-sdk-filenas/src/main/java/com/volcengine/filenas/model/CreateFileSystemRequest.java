@@ -33,6 +33,9 @@ import javax.validation.Valid;
 
 
 public class CreateFileSystemRequest {
+  @SerializedName("CacheBandwidth")
+  private Integer cacheBandwidth = null;
+
   @SerializedName("Capacity")
   private Integer capacity = null;
 
@@ -236,6 +239,26 @@ public class CreateFileSystemRequest {
 
   @SerializedName("ZoneId")
   private String zoneId = null;
+
+  public CreateFileSystemRequest cacheBandwidth(Integer cacheBandwidth) {
+    this.cacheBandwidth = cacheBandwidth;
+    return this;
+  }
+
+   /**
+   * Get cacheBandwidth
+   * minimum: 700
+   * maximum: 100000
+   * @return cacheBandwidth
+  **/
+ @Min(700) @Max(100000)  @Schema(description = "")
+  public Integer getCacheBandwidth() {
+    return cacheBandwidth;
+  }
+
+  public void setCacheBandwidth(Integer cacheBandwidth) {
+    this.cacheBandwidth = cacheBandwidth;
+  }
 
   public CreateFileSystemRequest capacity(Integer capacity) {
     this.capacity = capacity;
@@ -478,7 +501,8 @@ public class CreateFileSystemRequest {
       return false;
     }
     CreateFileSystemRequest createFileSystemRequest = (CreateFileSystemRequest) o;
-    return Objects.equals(this.capacity, createFileSystemRequest.capacity) &&
+    return Objects.equals(this.cacheBandwidth, createFileSystemRequest.cacheBandwidth) &&
+        Objects.equals(this.capacity, createFileSystemRequest.capacity) &&
         Objects.equals(this.chargeType, createFileSystemRequest.chargeType) &&
         Objects.equals(this.clientToken, createFileSystemRequest.clientToken) &&
         Objects.equals(this.description, createFileSystemRequest.description) &&
@@ -494,7 +518,7 @@ public class CreateFileSystemRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(capacity, chargeType, clientToken, description, fileSystemName, fileSystemType, projectName, protocolType, snapshotId, storageType, tags, zoneId);
+    return Objects.hash(cacheBandwidth, capacity, chargeType, clientToken, description, fileSystemName, fileSystemType, projectName, protocolType, snapshotId, storageType, tags, zoneId);
   }
 
 
@@ -503,6 +527,7 @@ public class CreateFileSystemRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateFileSystemRequest {\n");
     
+    sb.append("    cacheBandwidth: ").append(toIndentedString(cacheBandwidth)).append("\n");
     sb.append("    capacity: ").append(toIndentedString(capacity)).append("\n");
     sb.append("    chargeType: ").append(toIndentedString(chargeType)).append("\n");
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");

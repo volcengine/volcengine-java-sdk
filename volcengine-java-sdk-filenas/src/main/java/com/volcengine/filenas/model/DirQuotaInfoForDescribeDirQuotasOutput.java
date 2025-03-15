@@ -34,7 +34,7 @@ import javax.validation.Valid;
 
 public class DirQuotaInfoForDescribeDirQuotasOutput {
   @SerializedName("DirInode")
-  private Integer dirInode = null;
+  private Long dirInode = null;
 
   @SerializedName("Path")
   private String path = null;
@@ -93,7 +93,7 @@ public class DirQuotaInfoForDescribeDirQuotasOutput {
   @SerializedName("UserQuotaInfosCount")
   private Integer userQuotaInfosCount = null;
 
-  public DirQuotaInfoForDescribeDirQuotasOutput dirInode(Integer dirInode) {
+  public DirQuotaInfoForDescribeDirQuotasOutput dirInode(Long dirInode) {
     this.dirInode = dirInode;
     return this;
   }
@@ -103,11 +103,11 @@ public class DirQuotaInfoForDescribeDirQuotasOutput {
    * @return dirInode
   **/
   @Schema(description = "")
-  public Integer getDirInode() {
+  public Long getDirInode() {
     return dirInode;
   }
 
-  public void setDirInode(Integer dirInode) {
+  public void setDirInode(Long dirInode) {
     this.dirInode = dirInode;
   }
 
