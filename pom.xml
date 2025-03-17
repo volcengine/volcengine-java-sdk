@@ -270,6 +270,7 @@
         <module>volcengine-java-sdk-dataleap</module>
         <module>volcengine-java-sdk-emr</module>
         <module>volcengine-java-sdk-certificateservice</module>
+        <module>volcengine-java-sdk-rdspostgresql</module>
         <module>volcengine-java-sdk-clouddetect</module>
     </modules>
 </project>
