@@ -272,5 +272,6 @@
         <module>volcengine-java-sdk-certificateservice</module>
         <module>volcengine-java-sdk-rdspostgresql</module>
         <module>volcengine-java-sdk-clouddetect</module>
+        <module>volcengine-java-sdk-translate20250301</module>
     </modules>
 </project>
