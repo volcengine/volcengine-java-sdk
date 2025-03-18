@@ -4,7 +4,7 @@
     <groupId>com.volcengine</groupId>
     <artifactId>volcengine-java-sdk</artifactId>
     <packaging>pom</packaging>
-    <version>0.1.156</version>
+    <version>0.1.157</version>
     <name>volcengine-java-sdk</name>
     <url>https://open.volcengineapi.com</url>
     <description>The Java SDK For Volcengine</description>
@@ -270,5 +270,6 @@
         <module>volcengine-java-sdk-dataleap</module>
         <module>volcengine-java-sdk-emr</module>
         <module>volcengine-java-sdk-certificateservice</module>
+        <module>volcengine-java-sdk-clouddetect</module>
     </modules>
 </project>
