@@ -24,19 +24,19 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * GetRocketMQTriggerRequest
+ * GenWebshellEndpointRequest
  */
 
 
 
-public class GetRocketMQTriggerRequest {
+public class GenWebshellEndpointRequest {
   @SerializedName("FunctionId")
   private String functionId = null;
 
-  @SerializedName("Id")
-  private String id = null;
+  @SerializedName("InstanceName")
+  private String instanceName = null;
 
-  public GetRocketMQTriggerRequest functionId(String functionId) {
+  public GenWebshellEndpointRequest functionId(String functionId) {
     this.functionId = functionId;
     return this;
   }
@@ -55,23 +55,23 @@ public class GetRocketMQTriggerRequest {
     this.functionId = functionId;
   }
 
-  public GetRocketMQTriggerRequest id(String id) {
-    this.id = id;
+  public GenWebshellEndpointRequest instanceName(String instanceName) {
+    this.instanceName = instanceName;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Get instanceName
+   * @return instanceName
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getId() {
-    return id;
+  public String getInstanceName() {
+    return instanceName;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setInstanceName(String instanceName) {
+    this.instanceName = instanceName;
   }
 
 
@@ -83,24 +83,24 @@ public class GetRocketMQTriggerRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GetRocketMQTriggerRequest getRocketMQTriggerRequest = (GetRocketMQTriggerRequest) o;
-    return Objects.equals(this.functionId, getRocketMQTriggerRequest.functionId) &&
-        Objects.equals(this.id, getRocketMQTriggerRequest.id);
+    GenWebshellEndpointRequest genWebshellEndpointRequest = (GenWebshellEndpointRequest) o;
+    return Objects.equals(this.functionId, genWebshellEndpointRequest.functionId) &&
+        Objects.equals(this.instanceName, genWebshellEndpointRequest.instanceName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(functionId, id);
+    return Objects.hash(functionId, instanceName);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetRocketMQTriggerRequest {\n");
+    sb.append("class GenWebshellEndpointRequest {\n");
     
     sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -24,12 +24,12 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * GetRocketMQTriggerResponse
+ * CreateKafkaTriggerResponse
  */
 
 
 
-public class GetRocketMQTriggerResponse extends com.volcengine.model.AbstractResponse {
+public class CreateKafkaTriggerResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("ConsumerGroup")
   private String consumerGroup = null;
 
@@ -41,9 +41,6 @@ public class GetRocketMQTriggerResponse extends com.volcengine.model.AbstractRes
 
   @SerializedName("Enabled")
   private Boolean enabled = null;
-
-  @SerializedName("Endpoint")
-  private String endpoint = null;
 
   @SerializedName("FunctionId")
   private String functionId = null;
@@ -63,12 +60,6 @@ public class GetRocketMQTriggerResponse extends com.volcengine.model.AbstractRes
   @SerializedName("Name")
   private String name = null;
 
-  @SerializedName("Orderly")
-  private Boolean orderly = null;
-
-  @SerializedName("QPSLimit")
-  private Integer qpSLimit = null;
-
   @SerializedName("StartingPosition")
   private String startingPosition = null;
 
@@ -78,7 +69,7 @@ public class GetRocketMQTriggerResponse extends com.volcengine.model.AbstractRes
   @SerializedName("TopicName")
   private String topicName = null;
 
-  public GetRocketMQTriggerResponse consumerGroup(String consumerGroup) {
+  public CreateKafkaTriggerResponse consumerGroup(String consumerGroup) {
     this.consumerGroup = consumerGroup;
     return this;
   }
@@ -96,7 +87,7 @@ public class GetRocketMQTriggerResponse extends com.volcengine.model.AbstractRes
     this.consumerGroup = consumerGroup;
   }
 
-  public GetRocketMQTriggerResponse creationTime(String creationTime) {
+  public CreateKafkaTriggerResponse creationTime(String creationTime) {
     this.creationTime = creationTime;
     return this;
   }
@@ -114,7 +105,7 @@ public class GetRocketMQTriggerResponse extends com.volcengine.model.AbstractRes
     this.creationTime = creationTime;
   }
 
-  public GetRocketMQTriggerResponse description(String description) {
+  public CreateKafkaTriggerResponse description(String description) {
     this.description = description;
     return this;
   }
@@ -132,7 +123,7 @@ public class GetRocketMQTriggerResponse extends com.volcengine.model.AbstractRes
     this.description = description;
   }
 
-  public GetRocketMQTriggerResponse enabled(Boolean enabled) {
+  public CreateKafkaTriggerResponse enabled(Boolean enabled) {
     this.enabled = enabled;
     return this;
   }
@@ -150,25 +141,7 @@ public class GetRocketMQTriggerResponse extends com.volcengine.model.AbstractRes
     this.enabled = enabled;
   }
 
-  public GetRocketMQTriggerResponse endpoint(String endpoint) {
-    this.endpoint = endpoint;
-    return this;
-  }
-
-   /**
-   * Get endpoint
-   * @return endpoint
-  **/
-  @Schema(description = "")
-  public String getEndpoint() {
-    return endpoint;
-  }
-
-  public void setEndpoint(String endpoint) {
-    this.endpoint = endpoint;
-  }
-
-  public GetRocketMQTriggerResponse functionId(String functionId) {
+  public CreateKafkaTriggerResponse functionId(String functionId) {
     this.functionId = functionId;
     return this;
   }
@@ -186,7 +159,7 @@ public class GetRocketMQTriggerResponse extends com.volcengine.model.AbstractRes
     this.functionId = functionId;
   }
 
-  public GetRocketMQTriggerResponse id(String id) {
+  public CreateKafkaTriggerResponse id(String id) {
     this.id = id;
     return this;
   }
@@ -204,7 +177,7 @@ public class GetRocketMQTriggerResponse extends com.volcengine.model.AbstractRes
     this.id = id;
   }
 
-  public GetRocketMQTriggerResponse lastUpdateTime(String lastUpdateTime) {
+  public CreateKafkaTriggerResponse lastUpdateTime(String lastUpdateTime) {
     this.lastUpdateTime = lastUpdateTime;
     return this;
   }
@@ -222,7 +195,7 @@ public class GetRocketMQTriggerResponse extends com.volcengine.model.AbstractRes
     this.lastUpdateTime = lastUpdateTime;
   }
 
-  public GetRocketMQTriggerResponse maximumRetryAttempts(Integer maximumRetryAttempts) {
+  public CreateKafkaTriggerResponse maximumRetryAttempts(Integer maximumRetryAttempts) {
     this.maximumRetryAttempts = maximumRetryAttempts;
     return this;
   }
@@ -240,7 +213,7 @@ public class GetRocketMQTriggerResponse extends com.volcengine.model.AbstractRes
     this.maximumRetryAttempts = maximumRetryAttempts;
   }
 
-  public GetRocketMQTriggerResponse mqInstanceId(String mqInstanceId) {
+  public CreateKafkaTriggerResponse mqInstanceId(String mqInstanceId) {
     this.mqInstanceId = mqInstanceId;
     return this;
   }
@@ -258,7 +231,7 @@ public class GetRocketMQTriggerResponse extends com.volcengine.model.AbstractRes
     this.mqInstanceId = mqInstanceId;
   }
 
-  public GetRocketMQTriggerResponse name(String name) {
+  public CreateKafkaTriggerResponse name(String name) {
     this.name = name;
     return this;
   }
@@ -276,43 +249,7 @@ public class GetRocketMQTriggerResponse extends com.volcengine.model.AbstractRes
     this.name = name;
   }
 
-  public GetRocketMQTriggerResponse orderly(Boolean orderly) {
-    this.orderly = orderly;
-    return this;
-  }
-
-   /**
-   * Get orderly
-   * @return orderly
-  **/
-  @Schema(description = "")
-  public Boolean isOrderly() {
-    return orderly;
-  }
-
-  public void setOrderly(Boolean orderly) {
-    this.orderly = orderly;
-  }
-
-  public GetRocketMQTriggerResponse qpSLimit(Integer qpSLimit) {
-    this.qpSLimit = qpSLimit;
-    return this;
-  }
-
-   /**
-   * Get qpSLimit
-   * @return qpSLimit
-  **/
-  @Schema(description = "")
-  public Integer getQpSLimit() {
-    return qpSLimit;
-  }
-
-  public void setQpSLimit(Integer qpSLimit) {
-    this.qpSLimit = qpSLimit;
-  }
-
-  public GetRocketMQTriggerResponse startingPosition(String startingPosition) {
+  public CreateKafkaTriggerResponse startingPosition(String startingPosition) {
     this.startingPosition = startingPosition;
     return this;
   }
@@ -330,7 +267,7 @@ public class GetRocketMQTriggerResponse extends com.volcengine.model.AbstractRes
     this.startingPosition = startingPosition;
   }
 
-  public GetRocketMQTriggerResponse status(String status) {
+  public CreateKafkaTriggerResponse status(String status) {
     this.status = status;
     return this;
   }
@@ -348,7 +285,7 @@ public class GetRocketMQTriggerResponse extends com.volcengine.model.AbstractRes
     this.status = status;
   }
 
-  public GetRocketMQTriggerResponse topicName(String topicName) {
+  public CreateKafkaTriggerResponse topicName(String topicName) {
     this.topicName = topicName;
     return this;
   }
@@ -375,49 +312,43 @@ public class GetRocketMQTriggerResponse extends com.volcengine.model.AbstractRes
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GetRocketMQTriggerResponse getRocketMQTriggerResponse = (GetRocketMQTriggerResponse) o;
-    return Objects.equals(this.consumerGroup, getRocketMQTriggerResponse.consumerGroup) &&
-        Objects.equals(this.creationTime, getRocketMQTriggerResponse.creationTime) &&
-        Objects.equals(this.description, getRocketMQTriggerResponse.description) &&
-        Objects.equals(this.enabled, getRocketMQTriggerResponse.enabled) &&
-        Objects.equals(this.endpoint, getRocketMQTriggerResponse.endpoint) &&
-        Objects.equals(this.functionId, getRocketMQTriggerResponse.functionId) &&
-        Objects.equals(this.id, getRocketMQTriggerResponse.id) &&
-        Objects.equals(this.lastUpdateTime, getRocketMQTriggerResponse.lastUpdateTime) &&
-        Objects.equals(this.maximumRetryAttempts, getRocketMQTriggerResponse.maximumRetryAttempts) &&
-        Objects.equals(this.mqInstanceId, getRocketMQTriggerResponse.mqInstanceId) &&
-        Objects.equals(this.name, getRocketMQTriggerResponse.name) &&
-        Objects.equals(this.orderly, getRocketMQTriggerResponse.orderly) &&
-        Objects.equals(this.qpSLimit, getRocketMQTriggerResponse.qpSLimit) &&
-        Objects.equals(this.startingPosition, getRocketMQTriggerResponse.startingPosition) &&
-        Objects.equals(this.status, getRocketMQTriggerResponse.status) &&
-        Objects.equals(this.topicName, getRocketMQTriggerResponse.topicName);
+    CreateKafkaTriggerResponse createKafkaTriggerResponse = (CreateKafkaTriggerResponse) o;
+    return Objects.equals(this.consumerGroup, createKafkaTriggerResponse.consumerGroup) &&
+        Objects.equals(this.creationTime, createKafkaTriggerResponse.creationTime) &&
+        Objects.equals(this.description, createKafkaTriggerResponse.description) &&
+        Objects.equals(this.enabled, createKafkaTriggerResponse.enabled) &&
+        Objects.equals(this.functionId, createKafkaTriggerResponse.functionId) &&
+        Objects.equals(this.id, createKafkaTriggerResponse.id) &&
+        Objects.equals(this.lastUpdateTime, createKafkaTriggerResponse.lastUpdateTime) &&
+        Objects.equals(this.maximumRetryAttempts, createKafkaTriggerResponse.maximumRetryAttempts) &&
+        Objects.equals(this.mqInstanceId, createKafkaTriggerResponse.mqInstanceId) &&
+        Objects.equals(this.name, createKafkaTriggerResponse.name) &&
+        Objects.equals(this.startingPosition, createKafkaTriggerResponse.startingPosition) &&
+        Objects.equals(this.status, createKafkaTriggerResponse.status) &&
+        Objects.equals(this.topicName, createKafkaTriggerResponse.topicName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(consumerGroup, creationTime, description, enabled, endpoint, functionId, id, lastUpdateTime, maximumRetryAttempts, mqInstanceId, name, orderly, qpSLimit, startingPosition, status, topicName);
+    return Objects.hash(consumerGroup, creationTime, description, enabled, functionId, id, lastUpdateTime, maximumRetryAttempts, mqInstanceId, name, startingPosition, status, topicName);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetRocketMQTriggerResponse {\n");
+    sb.append("class CreateKafkaTriggerResponse {\n");
     
     sb.append("    consumerGroup: ").append(toIndentedString(consumerGroup)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
-    sb.append("    endpoint: ").append(toIndentedString(endpoint)).append("\n");
     sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    lastUpdateTime: ").append(toIndentedString(lastUpdateTime)).append("\n");
     sb.append("    maximumRetryAttempts: ").append(toIndentedString(maximumRetryAttempts)).append("\n");
     sb.append("    mqInstanceId: ").append(toIndentedString(mqInstanceId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    orderly: ").append(toIndentedString(orderly)).append("\n");
-    sb.append("    qpSLimit: ").append(toIndentedString(qpSLimit)).append("\n");
     sb.append("    startingPosition: ").append(toIndentedString(startingPosition)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    topicName: ").append(toIndentedString(topicName)).append("\n");

@@ -19,7 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.vefaas.model.TopParamForDeleteTimerInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -36,9 +35,6 @@ public class DeleteTimerRequest {
 
   @SerializedName("Id")
   private String id = null;
-
-  @SerializedName("TopParam")
-  private TopParamForDeleteTimerInput topParam = null;
 
   public DeleteTimerRequest functionId(String functionId) {
     this.functionId = functionId;
@@ -78,25 +74,6 @@ public class DeleteTimerRequest {
     this.id = id;
   }
 
-  public DeleteTimerRequest topParam(TopParamForDeleteTimerInput topParam) {
-    this.topParam = topParam;
-    return this;
-  }
-
-   /**
-   * Get topParam
-   * @return topParam
-  **/
-  @Valid
-  @Schema(description = "")
-  public TopParamForDeleteTimerInput getTopParam() {
-    return topParam;
-  }
-
-  public void setTopParam(TopParamForDeleteTimerInput topParam) {
-    this.topParam = topParam;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -108,13 +85,12 @@ public class DeleteTimerRequest {
     }
     DeleteTimerRequest deleteTimerRequest = (DeleteTimerRequest) o;
     return Objects.equals(this.functionId, deleteTimerRequest.functionId) &&
-        Objects.equals(this.id, deleteTimerRequest.id) &&
-        Objects.equals(this.topParam, deleteTimerRequest.topParam);
+        Objects.equals(this.id, deleteTimerRequest.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(functionId, id, topParam);
+    return Objects.hash(functionId, id);
   }
 
 
@@ -125,7 +101,6 @@ public class DeleteTimerRequest {
     
     sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    topParam: ").append(toIndentedString(topParam)).append("\n");
     sb.append("}");
     return sb.toString();
   }

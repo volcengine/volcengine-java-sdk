@@ -19,7 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.vefaas.model.TopParamForGetTimerInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -36,9 +35,6 @@ public class GetTimerRequest {
 
   @SerializedName("Id")
   private String id = null;
-
-  @SerializedName("TopParam")
-  private TopParamForGetTimerInput topParam = null;
 
   public GetTimerRequest functionId(String functionId) {
     this.functionId = functionId;
@@ -78,25 +74,6 @@ public class GetTimerRequest {
     this.id = id;
   }
 
-  public GetTimerRequest topParam(TopParamForGetTimerInput topParam) {
-    this.topParam = topParam;
-    return this;
-  }
-
-   /**
-   * Get topParam
-   * @return topParam
-  **/
-  @Valid
-  @Schema(description = "")
-  public TopParamForGetTimerInput getTopParam() {
-    return topParam;
-  }
-
-  public void setTopParam(TopParamForGetTimerInput topParam) {
-    this.topParam = topParam;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -108,13 +85,12 @@ public class GetTimerRequest {
     }
     GetTimerRequest getTimerRequest = (GetTimerRequest) o;
     return Objects.equals(this.functionId, getTimerRequest.functionId) &&
-        Objects.equals(this.id, getTimerRequest.id) &&
-        Objects.equals(this.topParam, getTimerRequest.topParam);
+        Objects.equals(this.id, getTimerRequest.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(functionId, id, topParam);
+    return Objects.hash(functionId, id);
   }
 
 
@@ -125,7 +101,6 @@ public class GetTimerRequest {
     
     sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    topParam: ").append(toIndentedString(topParam)).append("\n");
     sb.append("}");
     return sb.toString();
   }

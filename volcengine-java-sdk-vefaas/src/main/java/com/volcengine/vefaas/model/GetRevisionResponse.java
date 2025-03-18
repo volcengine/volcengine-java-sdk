@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vefaas.model.EnvForGetRevisionOutput;
+import com.volcengine.vefaas.model.HealthCheckConfigForGetRevisionOutput;
 import com.volcengine.vefaas.model.NasStorageForGetRevisionOutput;
 import com.volcengine.vefaas.model.TlsConfigForGetRevisionOutput;
 import com.volcengine.vefaas.model.TosMountConfigForGetRevisionOutput;
@@ -55,11 +56,17 @@ public class GetRevisionResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("ExclusiveMode")
   private Boolean exclusiveMode = null;
 
+  @SerializedName("HealthCheckConfig")
+  private HealthCheckConfigForGetRevisionOutput healthCheckConfig = null;
+
   @SerializedName("Id")
   private String id = null;
 
   @SerializedName("InitializerSec")
   private Integer initializerSec = null;
+
+  @SerializedName("InstanceType")
+  private String instanceType = null;
 
   @SerializedName("MaxConcurrency")
   private Integer maxConcurrency = null;
@@ -226,6 +233,25 @@ public class GetRevisionResponse extends com.volcengine.model.AbstractResponse {
     this.exclusiveMode = exclusiveMode;
   }
 
+  public GetRevisionResponse healthCheckConfig(HealthCheckConfigForGetRevisionOutput healthCheckConfig) {
+    this.healthCheckConfig = healthCheckConfig;
+    return this;
+  }
+
+   /**
+   * Get healthCheckConfig
+   * @return healthCheckConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public HealthCheckConfigForGetRevisionOutput getHealthCheckConfig() {
+    return healthCheckConfig;
+  }
+
+  public void setHealthCheckConfig(HealthCheckConfigForGetRevisionOutput healthCheckConfig) {
+    this.healthCheckConfig = healthCheckConfig;
+  }
+
   public GetRevisionResponse id(String id) {
     this.id = id;
     return this;
@@ -260,6 +286,24 @@ public class GetRevisionResponse extends com.volcengine.model.AbstractResponse {
 
   public void setInitializerSec(Integer initializerSec) {
     this.initializerSec = initializerSec;
+  }
+
+  public GetRevisionResponse instanceType(String instanceType) {
+    this.instanceType = instanceType;
+    return this;
+  }
+
+   /**
+   * Get instanceType
+   * @return instanceType
+  **/
+  @Schema(description = "")
+  public String getInstanceType() {
+    return instanceType;
+  }
+
+  public void setInstanceType(String instanceType) {
+    this.instanceType = instanceType;
   }
 
   public GetRevisionResponse maxConcurrency(Integer maxConcurrency) {
@@ -570,8 +614,10 @@ public class GetRevisionResponse extends com.volcengine.model.AbstractResponse {
         Objects.equals(this.description, getRevisionResponse.description) &&
         Objects.equals(this.envs, getRevisionResponse.envs) &&
         Objects.equals(this.exclusiveMode, getRevisionResponse.exclusiveMode) &&
+        Objects.equals(this.healthCheckConfig, getRevisionResponse.healthCheckConfig) &&
         Objects.equals(this.id, getRevisionResponse.id) &&
         Objects.equals(this.initializerSec, getRevisionResponse.initializerSec) &&
+        Objects.equals(this.instanceType, getRevisionResponse.instanceType) &&
         Objects.equals(this.maxConcurrency, getRevisionResponse.maxConcurrency) &&
         Objects.equals(this.maxReplicas, getRevisionResponse.maxReplicas) &&
         Objects.equals(this.memoryMB, getRevisionResponse.memoryMB) &&
@@ -592,7 +638,7 @@ public class GetRevisionResponse extends com.volcengine.model.AbstractResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(codeSize, codeSizeLimit, creationTime, description, envs, exclusiveMode, id, initializerSec, maxConcurrency, maxReplicas, memoryMB, name, nasStorage, requestTimeout, revisionCreationTime, revisionDescription, revisionNumber, runtime, source, sourceLocation, sourceType, tlsConfig, tosMountConfig, vpcConfig);
+    return Objects.hash(codeSize, codeSizeLimit, creationTime, description, envs, exclusiveMode, healthCheckConfig, id, initializerSec, instanceType, maxConcurrency, maxReplicas, memoryMB, name, nasStorage, requestTimeout, revisionCreationTime, revisionDescription, revisionNumber, runtime, source, sourceLocation, sourceType, tlsConfig, tosMountConfig, vpcConfig);
   }
 
 
@@ -607,8 +653,10 @@ public class GetRevisionResponse extends com.volcengine.model.AbstractResponse {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    envs: ").append(toIndentedString(envs)).append("\n");
     sb.append("    exclusiveMode: ").append(toIndentedString(exclusiveMode)).append("\n");
+    sb.append("    healthCheckConfig: ").append(toIndentedString(healthCheckConfig)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    initializerSec: ").append(toIndentedString(initializerSec)).append("\n");
+    sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("    maxConcurrency: ").append(toIndentedString(maxConcurrency)).append("\n");
     sb.append("    maxReplicas: ").append(toIndentedString(maxReplicas)).append("\n");
     sb.append("    memoryMB: ").append(toIndentedString(memoryMB)).append("\n");

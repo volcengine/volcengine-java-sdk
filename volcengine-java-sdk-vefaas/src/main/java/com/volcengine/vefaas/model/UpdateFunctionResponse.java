@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vefaas.model.EnvForUpdateFunctionOutput;
 import com.volcengine.vefaas.model.NasStorageForUpdateFunctionOutput;
+import com.volcengine.vefaas.model.TagForUpdateFunctionOutput;
 import com.volcengine.vefaas.model.TlsConfigForUpdateFunctionOutput;
 import com.volcengine.vefaas.model.TosMountConfigForUpdateFunctionOutput;
 import com.volcengine.vefaas.model.VpcConfigForUpdateFunctionOutput;
@@ -45,6 +46,9 @@ public class UpdateFunctionResponse extends com.volcengine.model.AbstractRespons
 
   @SerializedName("Command")
   private String command = null;
+
+  @SerializedName("CpuStrategy")
+  private String cpuStrategy = null;
 
   @SerializedName("CreationTime")
   private String creationTime = null;
@@ -85,6 +89,9 @@ public class UpdateFunctionResponse extends com.volcengine.model.AbstractRespons
   @SerializedName("Owner")
   private String owner = null;
 
+  @SerializedName("Port")
+  private Integer port = null;
+
   @SerializedName("ProjectName")
   private String projectName = null;
 
@@ -99,6 +106,9 @@ public class UpdateFunctionResponse extends com.volcengine.model.AbstractRespons
 
   @SerializedName("SourceType")
   private String sourceType = null;
+
+  @SerializedName("Tags")
+  private List<TagForUpdateFunctionOutput> tags = null;
 
   @SerializedName("TlsConfig")
   private TlsConfigForUpdateFunctionOutput tlsConfig = null;
@@ -164,6 +174,24 @@ public class UpdateFunctionResponse extends com.volcengine.model.AbstractRespons
 
   public void setCommand(String command) {
     this.command = command;
+  }
+
+  public UpdateFunctionResponse cpuStrategy(String cpuStrategy) {
+    this.cpuStrategy = cpuStrategy;
+    return this;
+  }
+
+   /**
+   * Get cpuStrategy
+   * @return cpuStrategy
+  **/
+  @Schema(description = "")
+  public String getCpuStrategy() {
+    return cpuStrategy;
+  }
+
+  public void setCpuStrategy(String cpuStrategy) {
+    this.cpuStrategy = cpuStrategy;
   }
 
   public UpdateFunctionResponse creationTime(String creationTime) {
@@ -410,6 +438,24 @@ public class UpdateFunctionResponse extends com.volcengine.model.AbstractRespons
     this.owner = owner;
   }
 
+  public UpdateFunctionResponse port(Integer port) {
+    this.port = port;
+    return this;
+  }
+
+   /**
+   * Get port
+   * @return port
+  **/
+  @Schema(description = "")
+  public Integer getPort() {
+    return port;
+  }
+
+  public void setPort(Integer port) {
+    this.port = port;
+  }
+
   public UpdateFunctionResponse projectName(String projectName) {
     this.projectName = projectName;
     return this;
@@ -500,6 +546,33 @@ public class UpdateFunctionResponse extends com.volcengine.model.AbstractRespons
     this.sourceType = sourceType;
   }
 
+  public UpdateFunctionResponse tags(List<TagForUpdateFunctionOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public UpdateFunctionResponse addTagsItem(TagForUpdateFunctionOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForUpdateFunctionOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForUpdateFunctionOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForUpdateFunctionOutput> tags) {
+    this.tags = tags;
+  }
+
   public UpdateFunctionResponse tlsConfig(TlsConfigForUpdateFunctionOutput tlsConfig) {
     this.tlsConfig = tlsConfig;
     return this;
@@ -588,6 +661,7 @@ public class UpdateFunctionResponse extends com.volcengine.model.AbstractRespons
     return Objects.equals(this.codeSize, updateFunctionResponse.codeSize) &&
         Objects.equals(this.codeSizeLimit, updateFunctionResponse.codeSizeLimit) &&
         Objects.equals(this.command, updateFunctionResponse.command) &&
+        Objects.equals(this.cpuStrategy, updateFunctionResponse.cpuStrategy) &&
         Objects.equals(this.creationTime, updateFunctionResponse.creationTime) &&
         Objects.equals(this.description, updateFunctionResponse.description) &&
         Objects.equals(this.envs, updateFunctionResponse.envs) &&
@@ -601,11 +675,13 @@ public class UpdateFunctionResponse extends com.volcengine.model.AbstractRespons
         Objects.equals(this.name, updateFunctionResponse.name) &&
         Objects.equals(this.nasStorage, updateFunctionResponse.nasStorage) &&
         Objects.equals(this.owner, updateFunctionResponse.owner) &&
+        Objects.equals(this.port, updateFunctionResponse.port) &&
         Objects.equals(this.projectName, updateFunctionResponse.projectName) &&
         Objects.equals(this.requestTimeout, updateFunctionResponse.requestTimeout) &&
         Objects.equals(this.runtime, updateFunctionResponse.runtime) &&
         Objects.equals(this.sourceLocation, updateFunctionResponse.sourceLocation) &&
         Objects.equals(this.sourceType, updateFunctionResponse.sourceType) &&
+        Objects.equals(this.tags, updateFunctionResponse.tags) &&
         Objects.equals(this.tlsConfig, updateFunctionResponse.tlsConfig) &&
         Objects.equals(this.tosMountConfig, updateFunctionResponse.tosMountConfig) &&
         Objects.equals(this.triggersCount, updateFunctionResponse.triggersCount) &&
@@ -614,7 +690,7 @@ public class UpdateFunctionResponse extends com.volcengine.model.AbstractRespons
 
   @Override
   public int hashCode() {
-    return Objects.hash(codeSize, codeSizeLimit, command, creationTime, description, envs, exclusiveMode, id, initializerSec, instanceType, lastUpdateTime, maxConcurrency, memoryMB, name, nasStorage, owner, projectName, requestTimeout, runtime, sourceLocation, sourceType, tlsConfig, tosMountConfig, triggersCount, vpcConfig);
+    return Objects.hash(codeSize, codeSizeLimit, command, cpuStrategy, creationTime, description, envs, exclusiveMode, id, initializerSec, instanceType, lastUpdateTime, maxConcurrency, memoryMB, name, nasStorage, owner, port, projectName, requestTimeout, runtime, sourceLocation, sourceType, tags, tlsConfig, tosMountConfig, triggersCount, vpcConfig);
   }
 
 
@@ -626,6 +702,7 @@ public class UpdateFunctionResponse extends com.volcengine.model.AbstractRespons
     sb.append("    codeSize: ").append(toIndentedString(codeSize)).append("\n");
     sb.append("    codeSizeLimit: ").append(toIndentedString(codeSizeLimit)).append("\n");
     sb.append("    command: ").append(toIndentedString(command)).append("\n");
+    sb.append("    cpuStrategy: ").append(toIndentedString(cpuStrategy)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    envs: ").append(toIndentedString(envs)).append("\n");
@@ -639,11 +716,13 @@ public class UpdateFunctionResponse extends com.volcengine.model.AbstractRespons
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    nasStorage: ").append(toIndentedString(nasStorage)).append("\n");
     sb.append("    owner: ").append(toIndentedString(owner)).append("\n");
+    sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    requestTimeout: ").append(toIndentedString(requestTimeout)).append("\n");
     sb.append("    runtime: ").append(toIndentedString(runtime)).append("\n");
     sb.append("    sourceLocation: ").append(toIndentedString(sourceLocation)).append("\n");
     sb.append("    sourceType: ").append(toIndentedString(sourceType)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    tlsConfig: ").append(toIndentedString(tlsConfig)).append("\n");
     sb.append("    tosMountConfig: ").append(toIndentedString(tosMountConfig)).append("\n");
     sb.append("    triggersCount: ").append(toIndentedString(triggersCount)).append("\n");
