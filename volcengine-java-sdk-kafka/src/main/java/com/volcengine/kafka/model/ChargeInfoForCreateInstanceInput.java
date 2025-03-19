@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ChargeInfoForCreateInstanceInput {
   @SerializedName("AutoRenew")
   private Boolean autoRenew = null;

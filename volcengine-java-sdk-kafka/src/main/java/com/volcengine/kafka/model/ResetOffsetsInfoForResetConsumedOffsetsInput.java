@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ResetOffsetsInfoForResetConsumedOffsetsInput {
   @SerializedName("PartitionId")
   private Integer partitionId = null;

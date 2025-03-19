@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class AccessPolicyForCreateTopicInput {
   @SerializedName("AccessPolicy")
   private String accessPolicy = null;

@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeGroupsResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("GroupsInfo")
   private List<GroupsInfoForDescribeGroupsOutput> groupsInfo = null;

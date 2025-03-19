@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeConsumedPartitionsRequest {
   @SerializedName("GroupId")
   private String groupId = null;

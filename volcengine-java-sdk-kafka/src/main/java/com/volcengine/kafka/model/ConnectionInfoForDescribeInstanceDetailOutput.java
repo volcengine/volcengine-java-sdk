@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ConnectionInfoForDescribeInstanceDetailOutput {
   @SerializedName("EndpointType")
   private String endpointType = null;

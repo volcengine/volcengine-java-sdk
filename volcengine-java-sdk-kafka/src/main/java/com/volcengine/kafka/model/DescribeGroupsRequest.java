@@ -19,13 +19,17 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.kafka.model.TagFilterForDescribeGroupsInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
  * DescribeGroupsRequest
  */
+
 
 
 public class DescribeGroupsRequest {
@@ -40,6 +44,12 @@ public class DescribeGroupsRequest {
 
   @SerializedName("PageSize")
   private Integer pageSize = null;
+
+  @SerializedName("TagFilters")
+  private List<TagFilterForDescribeGroupsInput> tagFilters = null;
+
+  @SerializedName("Topic")
+  private String topic = null;
 
   public DescribeGroupsRequest groupId(String groupId) {
     this.groupId = groupId;
@@ -116,6 +126,51 @@ public class DescribeGroupsRequest {
     this.pageSize = pageSize;
   }
 
+  public DescribeGroupsRequest tagFilters(List<TagFilterForDescribeGroupsInput> tagFilters) {
+    this.tagFilters = tagFilters;
+    return this;
+  }
+
+  public DescribeGroupsRequest addTagFiltersItem(TagFilterForDescribeGroupsInput tagFiltersItem) {
+    if (this.tagFilters == null) {
+      this.tagFilters = new ArrayList<TagFilterForDescribeGroupsInput>();
+    }
+    this.tagFilters.add(tagFiltersItem);
+    return this;
+  }
+
+   /**
+   * Get tagFilters
+   * @return tagFilters
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagFilterForDescribeGroupsInput> getTagFilters() {
+    return tagFilters;
+  }
+
+  public void setTagFilters(List<TagFilterForDescribeGroupsInput> tagFilters) {
+    this.tagFilters = tagFilters;
+  }
+
+  public DescribeGroupsRequest topic(String topic) {
+    this.topic = topic;
+    return this;
+  }
+
+   /**
+   * Get topic
+   * @return topic
+  **/
+  @Schema(description = "")
+  public String getTopic() {
+    return topic;
+  }
+
+  public void setTopic(String topic) {
+    this.topic = topic;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -129,12 +184,14 @@ public class DescribeGroupsRequest {
     return Objects.equals(this.groupId, describeGroupsRequest.groupId) &&
         Objects.equals(this.instanceId, describeGroupsRequest.instanceId) &&
         Objects.equals(this.pageNumber, describeGroupsRequest.pageNumber) &&
-        Objects.equals(this.pageSize, describeGroupsRequest.pageSize);
+        Objects.equals(this.pageSize, describeGroupsRequest.pageSize) &&
+        Objects.equals(this.tagFilters, describeGroupsRequest.tagFilters) &&
+        Objects.equals(this.topic, describeGroupsRequest.topic);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(groupId, instanceId, pageNumber, pageSize);
+    return Objects.hash(groupId, instanceId, pageNumber, pageSize, tagFilters, topic);
   }
 
 
@@ -147,6 +204,8 @@ public class DescribeGroupsRequest {
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
+    sb.append("    topic: ").append(toIndentedString(topic)).append("\n");
     sb.append("}");
     return sb.toString();
   }

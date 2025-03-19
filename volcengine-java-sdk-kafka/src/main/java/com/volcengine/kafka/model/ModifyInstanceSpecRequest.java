@@ -28,7 +28,11 @@ import javax.validation.Valid;
  */
 
 
+
 public class ModifyInstanceSpecRequest {
+  @SerializedName("ClientToken")
+  private String clientToken = null;
+
   @SerializedName("ComputeSpec")
   private String computeSpec = null;
 
@@ -46,6 +50,24 @@ public class ModifyInstanceSpecRequest {
 
   @SerializedName("StorageSpace")
   private Integer storageSpace = null;
+
+  public ModifyInstanceSpecRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
 
   public ModifyInstanceSpecRequest computeSpec(String computeSpec) {
     this.computeSpec = computeSpec;
@@ -166,7 +188,8 @@ public class ModifyInstanceSpecRequest {
       return false;
     }
     ModifyInstanceSpecRequest modifyInstanceSpecRequest = (ModifyInstanceSpecRequest) o;
-    return Objects.equals(this.computeSpec, modifyInstanceSpecRequest.computeSpec) &&
+    return Objects.equals(this.clientToken, modifyInstanceSpecRequest.clientToken) &&
+        Objects.equals(this.computeSpec, modifyInstanceSpecRequest.computeSpec) &&
         Objects.equals(this.instanceId, modifyInstanceSpecRequest.instanceId) &&
         Objects.equals(this.needRebalance, modifyInstanceSpecRequest.needRebalance) &&
         Objects.equals(this.partitionNumber, modifyInstanceSpecRequest.partitionNumber) &&
@@ -176,7 +199,7 @@ public class ModifyInstanceSpecRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(computeSpec, instanceId, needRebalance, partitionNumber, rebalanceTime, storageSpace);
+    return Objects.hash(clientToken, computeSpec, instanceId, needRebalance, partitionNumber, rebalanceTime, storageSpace);
   }
 
 
@@ -185,6 +208,7 @@ public class ModifyInstanceSpecRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ModifyInstanceSpecRequest {\n");
     
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    computeSpec: ").append(toIndentedString(computeSpec)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    needRebalance: ").append(toIndentedString(needRebalance)).append("\n");

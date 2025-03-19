@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeUsersResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Total")
   private Integer total = null;

@@ -19,8 +19,10 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.kafka.model.TagFilterForDescribeInstancesInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -29,6 +31,7 @@ import javax.validation.Valid;
 /**
  * DescribeInstancesRequest
  */
+
 
 
 public class DescribeInstancesRequest {
@@ -49,6 +52,9 @@ public class DescribeInstancesRequest {
 
   @SerializedName("Project")
   private String project = null;
+
+  @SerializedName("TagFilters")
+  private List<TagFilterForDescribeInstancesInput> tagFilters = null;
 
   @SerializedName("Tags")
   private Map<String, List<String>> tags = null;
@@ -166,6 +172,33 @@ public class DescribeInstancesRequest {
     this.project = project;
   }
 
+  public DescribeInstancesRequest tagFilters(List<TagFilterForDescribeInstancesInput> tagFilters) {
+    this.tagFilters = tagFilters;
+    return this;
+  }
+
+  public DescribeInstancesRequest addTagFiltersItem(TagFilterForDescribeInstancesInput tagFiltersItem) {
+    if (this.tagFilters == null) {
+      this.tagFilters = new ArrayList<TagFilterForDescribeInstancesInput>();
+    }
+    this.tagFilters.add(tagFiltersItem);
+    return this;
+  }
+
+   /**
+   * Get tagFilters
+   * @return tagFilters
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagFilterForDescribeInstancesInput> getTagFilters() {
+    return tagFilters;
+  }
+
+  public void setTagFilters(List<TagFilterForDescribeInstancesInput> tagFilters) {
+    this.tagFilters = tagFilters;
+  }
+
   public DescribeInstancesRequest tags(Map<String, List<String>> tags) {
     this.tags = tags;
     return this;
@@ -227,13 +260,14 @@ public class DescribeInstancesRequest {
         Objects.equals(this.pageNumber, describeInstancesRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeInstancesRequest.pageSize) &&
         Objects.equals(this.project, describeInstancesRequest.project) &&
+        Objects.equals(this.tagFilters, describeInstancesRequest.tagFilters) &&
         Objects.equals(this.tags, describeInstancesRequest.tags) &&
         Objects.equals(this.zoneId, describeInstancesRequest.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, instanceName, instanceStatus, pageNumber, pageSize, project, tags, zoneId);
+    return Objects.hash(instanceId, instanceName, instanceStatus, pageNumber, pageSize, project, tagFilters, tags, zoneId);
   }
 
 
@@ -248,6 +282,7 @@ public class DescribeInstancesRequest {
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    project: ").append(toIndentedString(project)).append("\n");
+    sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");

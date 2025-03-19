@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ModifyInstanceAttributesRequest {
   @SerializedName("InstanceDescription")
   private String instanceDescription = null;

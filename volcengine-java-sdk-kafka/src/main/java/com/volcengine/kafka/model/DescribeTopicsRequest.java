@@ -19,13 +19,17 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.kafka.model.TagFilterForDescribeTopicsInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
  * DescribeTopicsRequest
  */
+
 
 
 public class DescribeTopicsRequest {
@@ -43,6 +47,9 @@ public class DescribeTopicsRequest {
 
   @SerializedName("ReplicaNumber")
   private Integer replicaNumber = null;
+
+  @SerializedName("TagFilters")
+  private List<TagFilterForDescribeTopicsInput> tagFilters = null;
 
   @SerializedName("TopicName")
   private String topicName = null;
@@ -140,6 +147,33 @@ public class DescribeTopicsRequest {
     this.replicaNumber = replicaNumber;
   }
 
+  public DescribeTopicsRequest tagFilters(List<TagFilterForDescribeTopicsInput> tagFilters) {
+    this.tagFilters = tagFilters;
+    return this;
+  }
+
+  public DescribeTopicsRequest addTagFiltersItem(TagFilterForDescribeTopicsInput tagFiltersItem) {
+    if (this.tagFilters == null) {
+      this.tagFilters = new ArrayList<TagFilterForDescribeTopicsInput>();
+    }
+    this.tagFilters.add(tagFiltersItem);
+    return this;
+  }
+
+   /**
+   * Get tagFilters
+   * @return tagFilters
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagFilterForDescribeTopicsInput> getTagFilters() {
+    return tagFilters;
+  }
+
+  public void setTagFilters(List<TagFilterForDescribeTopicsInput> tagFilters) {
+    this.tagFilters = tagFilters;
+  }
+
   public DescribeTopicsRequest topicName(String topicName) {
     this.topicName = topicName;
     return this;
@@ -173,12 +207,13 @@ public class DescribeTopicsRequest {
         Objects.equals(this.pageSize, describeTopicsRequest.pageSize) &&
         Objects.equals(this.partitionNumber, describeTopicsRequest.partitionNumber) &&
         Objects.equals(this.replicaNumber, describeTopicsRequest.replicaNumber) &&
+        Objects.equals(this.tagFilters, describeTopicsRequest.tagFilters) &&
         Objects.equals(this.topicName, describeTopicsRequest.topicName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, pageNumber, pageSize, partitionNumber, replicaNumber, topicName);
+    return Objects.hash(instanceId, pageNumber, pageSize, partitionNumber, replicaNumber, tagFilters, topicName);
   }
 
 
@@ -192,6 +227,7 @@ public class DescribeTopicsRequest {
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    partitionNumber: ").append(toIndentedString(partitionNumber)).append("\n");
     sb.append("    replicaNumber: ").append(toIndentedString(replicaNumber)).append("\n");
+    sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("    topicName: ").append(toIndentedString(topicName)).append("\n");
     sb.append("}");
     return sb.toString();
