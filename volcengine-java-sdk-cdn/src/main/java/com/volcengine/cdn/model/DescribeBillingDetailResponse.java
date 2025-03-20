@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.cdn.model.TimestampPointForDescribeBillingDetailOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -26,39 +27,40 @@ import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * AddCdnDomainResponse
+ * DescribeBillingDetailResponse
  */
 
 
 
-public class AddCdnDomainResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("ResourceIds")
-  private List<String> resourceIds = null;
+public class DescribeBillingDetailResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("TimestampPoint")
+  private List<TimestampPointForDescribeBillingDetailOutput> timestampPoint = null;
 
-  public AddCdnDomainResponse resourceIds(List<String> resourceIds) {
-    this.resourceIds = resourceIds;
+  public DescribeBillingDetailResponse timestampPoint(List<TimestampPointForDescribeBillingDetailOutput> timestampPoint) {
+    this.timestampPoint = timestampPoint;
     return this;
   }
 
-  public AddCdnDomainResponse addResourceIdsItem(String resourceIdsItem) {
-    if (this.resourceIds == null) {
-      this.resourceIds = new ArrayList<String>();
+  public DescribeBillingDetailResponse addTimestampPointItem(TimestampPointForDescribeBillingDetailOutput timestampPointItem) {
+    if (this.timestampPoint == null) {
+      this.timestampPoint = new ArrayList<TimestampPointForDescribeBillingDetailOutput>();
     }
-    this.resourceIds.add(resourceIdsItem);
+    this.timestampPoint.add(timestampPointItem);
     return this;
   }
 
    /**
-   * Get resourceIds
-   * @return resourceIds
+   * Get timestampPoint
+   * @return timestampPoint
   **/
+  @Valid
   @Schema(description = "")
-  public List<String> getResourceIds() {
-    return resourceIds;
+  public List<TimestampPointForDescribeBillingDetailOutput> getTimestampPoint() {
+    return timestampPoint;
   }
 
-  public void setResourceIds(List<String> resourceIds) {
-    this.resourceIds = resourceIds;
+  public void setTimestampPoint(List<TimestampPointForDescribeBillingDetailOutput> timestampPoint) {
+    this.timestampPoint = timestampPoint;
   }
 
 
@@ -70,22 +72,22 @@ public class AddCdnDomainResponse extends com.volcengine.model.AbstractResponse 
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AddCdnDomainResponse addCdnDomainResponse = (AddCdnDomainResponse) o;
-    return Objects.equals(this.resourceIds, addCdnDomainResponse.resourceIds);
+    DescribeBillingDetailResponse describeBillingDetailResponse = (DescribeBillingDetailResponse) o;
+    return Objects.equals(this.timestampPoint, describeBillingDetailResponse.timestampPoint);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(resourceIds);
+    return Objects.hash(timestampPoint);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AddCdnDomainResponse {\n");
+    sb.append("class DescribeBillingDetailResponse {\n");
     
-    sb.append("    resourceIds: ").append(toIndentedString(resourceIds)).append("\n");
+    sb.append("    timestampPoint: ").append(toIndentedString(timestampPoint)).append("\n");
     sb.append("}");
     return sb.toString();
   }
