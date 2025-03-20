@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.filenas.model.CachePerformanceForDescribeFileSystemsOutput;
 import com.volcengine.filenas.model.CapacityForDescribeFileSystemsOutput;
 import com.volcengine.filenas.model.TagForDescribeFileSystemsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -34,6 +35,9 @@ import javax.validation.Valid;
 
 
 public class FileSystemForDescribeFileSystemsOutput {
+  @SerializedName("CachePerformance")
+  private CachePerformanceForDescribeFileSystemsOutput cachePerformance = null;
+
   @SerializedName("Capacity")
   private CapacityForDescribeFileSystemsOutput capacity = null;
 
@@ -322,6 +326,25 @@ public class FileSystemForDescribeFileSystemsOutput {
 
   @SerializedName("ZoneName")
   private String zoneName = null;
+
+  public FileSystemForDescribeFileSystemsOutput cachePerformance(CachePerformanceForDescribeFileSystemsOutput cachePerformance) {
+    this.cachePerformance = cachePerformance;
+    return this;
+  }
+
+   /**
+   * Get cachePerformance
+   * @return cachePerformance
+  **/
+  @Valid
+  @Schema(description = "")
+  public CachePerformanceForDescribeFileSystemsOutput getCachePerformance() {
+    return cachePerformance;
+  }
+
+  public void setCachePerformance(CachePerformanceForDescribeFileSystemsOutput cachePerformance) {
+    this.cachePerformance = cachePerformance;
+  }
 
   public FileSystemForDescribeFileSystemsOutput capacity(CapacityForDescribeFileSystemsOutput capacity) {
     this.capacity = capacity;
@@ -667,7 +690,8 @@ public class FileSystemForDescribeFileSystemsOutput {
       return false;
     }
     FileSystemForDescribeFileSystemsOutput fileSystemForDescribeFileSystemsOutput = (FileSystemForDescribeFileSystemsOutput) o;
-    return Objects.equals(this.capacity, fileSystemForDescribeFileSystemsOutput.capacity) &&
+    return Objects.equals(this.cachePerformance, fileSystemForDescribeFileSystemsOutput.cachePerformance) &&
+        Objects.equals(this.capacity, fileSystemForDescribeFileSystemsOutput.capacity) &&
         Objects.equals(this.chargeType, fileSystemForDescribeFileSystemsOutput.chargeType) &&
         Objects.equals(this.createTime, fileSystemForDescribeFileSystemsOutput.createTime) &&
         Objects.equals(this.description, fileSystemForDescribeFileSystemsOutput.description) &&
@@ -689,7 +713,7 @@ public class FileSystemForDescribeFileSystemsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(capacity, chargeType, createTime, description, fileSystemId, fileSystemName, fileSystemType, projectName, protocolType, regionId, snapshotCount, status, storageType, tags, updateTime, version, zoneId, zoneName);
+    return Objects.hash(cachePerformance, capacity, chargeType, createTime, description, fileSystemId, fileSystemName, fileSystemType, projectName, protocolType, regionId, snapshotCount, status, storageType, tags, updateTime, version, zoneId, zoneName);
   }
 
 
@@ -698,6 +722,7 @@ public class FileSystemForDescribeFileSystemsOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class FileSystemForDescribeFileSystemsOutput {\n");
     
+    sb.append("    cachePerformance: ").append(toIndentedString(cachePerformance)).append("\n");
     sb.append("    capacity: ").append(toIndentedString(capacity)).append("\n");
     sb.append("    chargeType: ").append(toIndentedString(chargeType)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");

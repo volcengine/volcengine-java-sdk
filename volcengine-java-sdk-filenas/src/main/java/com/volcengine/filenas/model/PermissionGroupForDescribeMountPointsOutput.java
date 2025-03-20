@@ -48,7 +48,11 @@ public class PermissionGroupForDescribeMountPointsOutput {
   @JsonAdapter(FileSystemTypeEnum.Adapter.class)
   public enum FileSystemTypeEnum {
     @SerializedName("Extreme")
-    EXTREME("Extreme");
+    EXTREME("Extreme"),
+    @SerializedName("Capacity")
+    CAPACITY("Capacity"),
+    @SerializedName("Cache")
+    CACHE("Cache");
 
     private String value;
 
