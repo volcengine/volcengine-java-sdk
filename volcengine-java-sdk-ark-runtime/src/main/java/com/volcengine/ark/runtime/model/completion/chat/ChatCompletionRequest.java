@@ -386,12 +386,24 @@ public class ChatCompletionRequest {
         @JsonProperty("include_usage")
         Boolean includeUsage;
 
+        @JsonProperty("chunk_include_usage")
+        Boolean chunkIncludeUsage;
+
         public ChatCompletionRequestStreamOptions(Boolean includeUsage) {
             this.includeUsage = includeUsage;
         }
 
+        public ChatCompletionRequestStreamOptions(Boolean includeUsage, Boolean chunkIncludeUsage) {
+            this.includeUsage = includeUsage;
+            this.chunkIncludeUsage = chunkIncludeUsage;
+        }
+
         public static ChatCompletionRequestStreamOptions of(Boolean includeUsage) {
             return new ChatCompletionRequestStreamOptions(includeUsage);
+        }
+
+        public static ChatCompletionRequestStreamOptions of(Boolean includeUsage, Boolean chunkIncludeUsage) {
+            return new ChatCompletionRequestStreamOptions(includeUsage, chunkIncludeUsage);
         }
 
         public Boolean getIncludeUsage() {
@@ -400,6 +412,14 @@ public class ChatCompletionRequest {
 
         public void setIncludeUsage(Boolean includeUsage) {
             this.includeUsage = includeUsage;
+        }
+
+        public Boolean getChunkIncludeUsage() {
+            return chunkIncludeUsage;
+        }
+
+        public void setChunkIncludeUsage(Boolean chunkIncludeUsage) {
+            this.chunkIncludeUsage = chunkIncludeUsage;
         }
     }
 
