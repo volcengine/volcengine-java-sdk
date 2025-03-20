@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class UsersInfoForDescribeUsersOutput {
   @SerializedName("AllAuthority")
   private Boolean allAuthority = null;

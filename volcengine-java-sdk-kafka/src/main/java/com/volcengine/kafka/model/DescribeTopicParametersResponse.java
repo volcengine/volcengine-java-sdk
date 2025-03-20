@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeTopicParametersResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Parameters")
   private String parameters = null;

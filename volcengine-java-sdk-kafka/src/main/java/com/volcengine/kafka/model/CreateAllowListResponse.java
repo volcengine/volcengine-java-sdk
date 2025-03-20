@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateAllowListResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("AllowListId")
   private String allowListId = null;

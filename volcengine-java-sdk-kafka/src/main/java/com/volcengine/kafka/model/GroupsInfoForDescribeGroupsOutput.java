@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.kafka.model.TagForDescribeGroupsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -28,12 +31,61 @@ import javax.validation.Valid;
  */
 
 
+
 public class GroupsInfoForDescribeGroupsOutput {
+  @SerializedName("BalanceAlgorithm")
+  private String balanceAlgorithm = null;
+
+  @SerializedName("Description")
+  private String description = null;
+
   @SerializedName("GroupId")
   private String groupId = null;
 
+  @SerializedName("ProtocolType")
+  private String protocolType = null;
+
   @SerializedName("State")
   private String state = null;
+
+  @SerializedName("Tags")
+  private List<TagForDescribeGroupsOutput> tags = null;
+
+  public GroupsInfoForDescribeGroupsOutput balanceAlgorithm(String balanceAlgorithm) {
+    this.balanceAlgorithm = balanceAlgorithm;
+    return this;
+  }
+
+   /**
+   * Get balanceAlgorithm
+   * @return balanceAlgorithm
+  **/
+  @Schema(description = "")
+  public String getBalanceAlgorithm() {
+    return balanceAlgorithm;
+  }
+
+  public void setBalanceAlgorithm(String balanceAlgorithm) {
+    this.balanceAlgorithm = balanceAlgorithm;
+  }
+
+  public GroupsInfoForDescribeGroupsOutput description(String description) {
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Get description
+   * @return description
+  **/
+  @Schema(description = "")
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
 
   public GroupsInfoForDescribeGroupsOutput groupId(String groupId) {
     this.groupId = groupId;
@@ -51,6 +103,24 @@ public class GroupsInfoForDescribeGroupsOutput {
 
   public void setGroupId(String groupId) {
     this.groupId = groupId;
+  }
+
+  public GroupsInfoForDescribeGroupsOutput protocolType(String protocolType) {
+    this.protocolType = protocolType;
+    return this;
+  }
+
+   /**
+   * Get protocolType
+   * @return protocolType
+  **/
+  @Schema(description = "")
+  public String getProtocolType() {
+    return protocolType;
+  }
+
+  public void setProtocolType(String protocolType) {
+    this.protocolType = protocolType;
   }
 
   public GroupsInfoForDescribeGroupsOutput state(String state) {
@@ -71,6 +141,33 @@ public class GroupsInfoForDescribeGroupsOutput {
     this.state = state;
   }
 
+  public GroupsInfoForDescribeGroupsOutput tags(List<TagForDescribeGroupsOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public GroupsInfoForDescribeGroupsOutput addTagsItem(TagForDescribeGroupsOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForDescribeGroupsOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForDescribeGroupsOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForDescribeGroupsOutput> tags) {
+    this.tags = tags;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -81,13 +178,17 @@ public class GroupsInfoForDescribeGroupsOutput {
       return false;
     }
     GroupsInfoForDescribeGroupsOutput groupsInfoForDescribeGroupsOutput = (GroupsInfoForDescribeGroupsOutput) o;
-    return Objects.equals(this.groupId, groupsInfoForDescribeGroupsOutput.groupId) &&
-        Objects.equals(this.state, groupsInfoForDescribeGroupsOutput.state);
+    return Objects.equals(this.balanceAlgorithm, groupsInfoForDescribeGroupsOutput.balanceAlgorithm) &&
+        Objects.equals(this.description, groupsInfoForDescribeGroupsOutput.description) &&
+        Objects.equals(this.groupId, groupsInfoForDescribeGroupsOutput.groupId) &&
+        Objects.equals(this.protocolType, groupsInfoForDescribeGroupsOutput.protocolType) &&
+        Objects.equals(this.state, groupsInfoForDescribeGroupsOutput.state) &&
+        Objects.equals(this.tags, groupsInfoForDescribeGroupsOutput.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(groupId, state);
+    return Objects.hash(balanceAlgorithm, description, groupId, protocolType, state, tags);
   }
 
 
@@ -96,8 +197,12 @@ public class GroupsInfoForDescribeGroupsOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class GroupsInfoForDescribeGroupsOutput {\n");
     
+    sb.append("    balanceAlgorithm: ").append(toIndentedString(balanceAlgorithm)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    groupId: ").append(toIndentedString(groupId)).append("\n");
+    sb.append("    protocolType: ").append(toIndentedString(protocolType)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }

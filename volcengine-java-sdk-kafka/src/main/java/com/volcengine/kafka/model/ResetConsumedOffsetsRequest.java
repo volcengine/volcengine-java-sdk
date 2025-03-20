@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ResetConsumedOffsetsRequest {
   @SerializedName("GroupId")
   private String groupId = null;

@@ -33,6 +33,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeInstanceDetailResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("BasicInstanceInfo")
   private BasicInstanceInfoForDescribeInstanceDetailOutput basicInstanceInfo = null;

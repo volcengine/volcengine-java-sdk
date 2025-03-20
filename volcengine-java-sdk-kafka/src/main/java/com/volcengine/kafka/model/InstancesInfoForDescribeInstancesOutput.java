@@ -20,8 +20,10 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.kafka.model.ChargeDetailForDescribeInstancesOutput;
+import com.volcengine.kafka.model.TagInfoForDescribeInstancesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -30,6 +32,7 @@ import javax.validation.Valid;
 /**
  * InstancesInfoForDescribeInstancesOutput
  */
+
 
 
 public class InstancesInfoForDescribeInstancesOutput {
@@ -77,6 +80,9 @@ public class InstancesInfoForDescribeInstancesOutput {
 
   @SerializedName("SubnetId")
   private String subnetId = null;
+
+  @SerializedName("TagInfos")
+  private List<TagInfoForDescribeInstancesOutput> tagInfos = null;
 
   @SerializedName("Tags")
   private Map<String, String> tags = null;
@@ -379,6 +385,33 @@ public class InstancesInfoForDescribeInstancesOutput {
     this.subnetId = subnetId;
   }
 
+  public InstancesInfoForDescribeInstancesOutput tagInfos(List<TagInfoForDescribeInstancesOutput> tagInfos) {
+    this.tagInfos = tagInfos;
+    return this;
+  }
+
+  public InstancesInfoForDescribeInstancesOutput addTagInfosItem(TagInfoForDescribeInstancesOutput tagInfosItem) {
+    if (this.tagInfos == null) {
+      this.tagInfos = new ArrayList<TagInfoForDescribeInstancesOutput>();
+    }
+    this.tagInfos.add(tagInfosItem);
+    return this;
+  }
+
+   /**
+   * Get tagInfos
+   * @return tagInfos
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagInfoForDescribeInstancesOutput> getTagInfos() {
+    return tagInfos;
+  }
+
+  public void setTagInfos(List<TagInfoForDescribeInstancesOutput> tagInfos) {
+    this.tagInfos = tagInfos;
+  }
+
   public InstancesInfoForDescribeInstancesOutput tags(Map<String, String> tags) {
     this.tags = tags;
     return this;
@@ -592,6 +625,7 @@ public class InstancesInfoForDescribeInstancesOutput {
         Objects.equals(this.storageSpace, instancesInfoForDescribeInstancesOutput.storageSpace) &&
         Objects.equals(this.storageType, instancesInfoForDescribeInstancesOutput.storageType) &&
         Objects.equals(this.subnetId, instancesInfoForDescribeInstancesOutput.subnetId) &&
+        Objects.equals(this.tagInfos, instancesInfoForDescribeInstancesOutput.tagInfos) &&
         Objects.equals(this.tags, instancesInfoForDescribeInstancesOutput.tags) &&
         Objects.equals(this.usableGroupNumber, instancesInfoForDescribeInstancesOutput.usableGroupNumber) &&
         Objects.equals(this.usablePartitionNumber, instancesInfoForDescribeInstancesOutput.usablePartitionNumber) &&
@@ -606,7 +640,7 @@ public class InstancesInfoForDescribeInstancesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, chargeDetail, computeSpec, createTime, eipId, instanceDescription, instanceId, instanceName, instanceStatus, privateDomainOnPublic, projectName, regionId, storageSpace, storageType, subnetId, tags, usableGroupNumber, usablePartitionNumber, usedGroupNumber, usedPartitionNumber, usedStorageSpace, usedTopicNumber, version, vpcId, zoneId);
+    return Objects.hash(accountId, chargeDetail, computeSpec, createTime, eipId, instanceDescription, instanceId, instanceName, instanceStatus, privateDomainOnPublic, projectName, regionId, storageSpace, storageType, subnetId, tagInfos, tags, usableGroupNumber, usablePartitionNumber, usedGroupNumber, usedPartitionNumber, usedStorageSpace, usedTopicNumber, version, vpcId, zoneId);
   }
 
 
@@ -630,6 +664,7 @@ public class InstancesInfoForDescribeInstancesOutput {
     sb.append("    storageSpace: ").append(toIndentedString(storageSpace)).append("\n");
     sb.append("    storageType: ").append(toIndentedString(storageType)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
+    sb.append("    tagInfos: ").append(toIndentedString(tagInfos)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    usableGroupNumber: ").append(toIndentedString(usableGroupNumber)).append("\n");
     sb.append("    usablePartitionNumber: ").append(toIndentedString(usablePartitionNumber)).append("\n");

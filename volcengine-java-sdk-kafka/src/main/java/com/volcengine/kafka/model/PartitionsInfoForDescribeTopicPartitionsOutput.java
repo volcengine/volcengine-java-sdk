@@ -30,6 +30,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class PartitionsInfoForDescribeTopicPartitionsOutput {
   @SerializedName("EndOffset")
   private Long endOffset = null;

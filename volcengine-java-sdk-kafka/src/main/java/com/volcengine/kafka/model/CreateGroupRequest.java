@@ -19,13 +19,17 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.kafka.model.TagForCreateGroupInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
  * CreateGroupRequest
  */
+
 
 
 public class CreateGroupRequest {
@@ -37,6 +41,9 @@ public class CreateGroupRequest {
 
   @SerializedName("InstanceId")
   private String instanceId = null;
+
+  @SerializedName("Tags")
+  private List<TagForCreateGroupInput> tags = null;
 
   public CreateGroupRequest description(String description) {
     this.description = description;
@@ -94,6 +101,33 @@ public class CreateGroupRequest {
     this.instanceId = instanceId;
   }
 
+  public CreateGroupRequest tags(List<TagForCreateGroupInput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public CreateGroupRequest addTagsItem(TagForCreateGroupInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForCreateGroupInput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForCreateGroupInput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForCreateGroupInput> tags) {
+    this.tags = tags;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -106,12 +140,13 @@ public class CreateGroupRequest {
     CreateGroupRequest createGroupRequest = (CreateGroupRequest) o;
     return Objects.equals(this.description, createGroupRequest.description) &&
         Objects.equals(this.groupId, createGroupRequest.groupId) &&
-        Objects.equals(this.instanceId, createGroupRequest.instanceId);
+        Objects.equals(this.instanceId, createGroupRequest.instanceId) &&
+        Objects.equals(this.tags, createGroupRequest.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, groupId, instanceId);
+    return Objects.hash(description, groupId, instanceId, tags);
   }
 
 
@@ -123,6 +158,7 @@ public class CreateGroupRequest {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    groupId: ").append(toIndentedString(groupId)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }
