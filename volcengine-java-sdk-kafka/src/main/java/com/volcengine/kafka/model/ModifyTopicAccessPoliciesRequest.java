@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ModifyTopicAccessPoliciesRequest {
   @SerializedName("AccessPolicies")
   private List<AccessPolicyForModifyTopicAccessPoliciesInput> accessPolicies = null;

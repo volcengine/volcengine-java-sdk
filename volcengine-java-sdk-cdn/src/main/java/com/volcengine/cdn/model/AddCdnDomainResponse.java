@@ -14,6 +14,15 @@ package com.volcengine.cdn.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -23,6 +32,35 @@ import javax.validation.Valid;
 
 
 public class AddCdnDomainResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("ResourceIds")
+  private List<String> resourceIds = null;
+
+  public AddCdnDomainResponse resourceIds(List<String> resourceIds) {
+    this.resourceIds = resourceIds;
+    return this;
+  }
+
+  public AddCdnDomainResponse addResourceIdsItem(String resourceIdsItem) {
+    if (this.resourceIds == null) {
+      this.resourceIds = new ArrayList<String>();
+    }
+    this.resourceIds.add(resourceIdsItem);
+    return this;
+  }
+
+   /**
+   * Get resourceIds
+   * @return resourceIds
+  **/
+  @Schema(description = "")
+  public List<String> getResourceIds() {
+    return resourceIds;
+  }
+
+  public void setResourceIds(List<String> resourceIds) {
+    this.resourceIds = resourceIds;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -32,12 +70,13 @@ public class AddCdnDomainResponse extends com.volcengine.model.AbstractResponse 
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return true;
+    AddCdnDomainResponse addCdnDomainResponse = (AddCdnDomainResponse) o;
+    return Objects.equals(this.resourceIds, addCdnDomainResponse.resourceIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash();
+    return Objects.hash(resourceIds);
   }
 
 
@@ -46,6 +85,7 @@ public class AddCdnDomainResponse extends com.volcengine.model.AbstractResponse 
     StringBuilder sb = new StringBuilder();
     sb.append("class AddCdnDomainResponse {\n");
     
+    sb.append("    resourceIds: ").append(toIndentedString(resourceIds)).append("\n");
     sb.append("}");
     return sb.toString();
   }

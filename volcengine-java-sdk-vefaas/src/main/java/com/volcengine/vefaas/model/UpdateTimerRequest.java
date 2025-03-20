@@ -19,7 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.vefaas.model.TopParamForUpdateTimerInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -54,9 +53,6 @@ public class UpdateTimerRequest {
 
   @SerializedName("Retries")
   private Integer retries = null;
-
-  @SerializedName("TopParam")
-  private TopParamForUpdateTimerInput topParam = null;
 
   public UpdateTimerRequest crontab(String crontab) {
     this.crontab = crontab;
@@ -204,25 +200,6 @@ public class UpdateTimerRequest {
     this.retries = retries;
   }
 
-  public UpdateTimerRequest topParam(TopParamForUpdateTimerInput topParam) {
-    this.topParam = topParam;
-    return this;
-  }
-
-   /**
-   * Get topParam
-   * @return topParam
-  **/
-  @Valid
-  @Schema(description = "")
-  public TopParamForUpdateTimerInput getTopParam() {
-    return topParam;
-  }
-
-  public void setTopParam(TopParamForUpdateTimerInput topParam) {
-    this.topParam = topParam;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -240,13 +217,12 @@ public class UpdateTimerRequest {
         Objects.equals(this.functionId, updateTimerRequest.functionId) &&
         Objects.equals(this.id, updateTimerRequest.id) &&
         Objects.equals(this.payload, updateTimerRequest.payload) &&
-        Objects.equals(this.retries, updateTimerRequest.retries) &&
-        Objects.equals(this.topParam, updateTimerRequest.topParam);
+        Objects.equals(this.retries, updateTimerRequest.retries);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(crontab, description, enableConcurrency, enabled, functionId, id, payload, retries, topParam);
+    return Objects.hash(crontab, description, enableConcurrency, enabled, functionId, id, payload, retries);
   }
 
 
@@ -263,7 +239,6 @@ public class UpdateTimerRequest {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    payload: ").append(toIndentedString(payload)).append("\n");
     sb.append("    retries: ").append(toIndentedString(retries)).append("\n");
-    sb.append("    topParam: ").append(toIndentedString(topParam)).append("\n");
     sb.append("}");
     return sb.toString();
   }

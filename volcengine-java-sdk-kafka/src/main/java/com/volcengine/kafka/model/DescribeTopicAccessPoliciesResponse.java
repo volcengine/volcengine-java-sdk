@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeTopicAccessPoliciesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("AccessPolicies")
   private List<AccessPolicyForDescribeTopicAccessPoliciesOutput> accessPolicies = null;

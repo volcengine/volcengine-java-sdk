@@ -33,9 +33,13 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateInstanceRequest {
   @SerializedName("ChargeInfo")
   private ChargeInfoForCreateInstanceInput chargeInfo = null;
+
+  @SerializedName("ClientToken")
+  private String clientToken = null;
 
   @SerializedName("ComputeSpec")
   private String computeSpec = null;
@@ -105,6 +109,24 @@ public class CreateInstanceRequest {
 
   public void setChargeInfo(ChargeInfoForCreateInstanceInput chargeInfo) {
     this.chargeInfo = chargeInfo;
+  }
+
+  public CreateInstanceRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
   }
 
   public CreateInstanceRequest computeSpec(String computeSpec) {
@@ -445,6 +467,7 @@ public class CreateInstanceRequest {
     }
     CreateInstanceRequest createInstanceRequest = (CreateInstanceRequest) o;
     return Objects.equals(this.chargeInfo, createInstanceRequest.chargeInfo) &&
+        Objects.equals(this.clientToken, createInstanceRequest.clientToken) &&
         Objects.equals(this.computeSpec, createInstanceRequest.computeSpec) &&
         Objects.equals(this.eipId, createInstanceRequest.eipId) &&
         Objects.equals(this.instanceDescription, createInstanceRequest.instanceDescription) &&
@@ -466,7 +489,7 @@ public class CreateInstanceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(chargeInfo, computeSpec, eipId, instanceDescription, instanceName, ipWhiteList, parameters, partitionNumber, projectName, storageSpace, storageType, subnetId, tags, userName, userPassword, version, vpcId, zoneId);
+    return Objects.hash(chargeInfo, clientToken, computeSpec, eipId, instanceDescription, instanceName, ipWhiteList, parameters, partitionNumber, projectName, storageSpace, storageType, subnetId, tags, userName, userPassword, version, vpcId, zoneId);
   }
 
 
@@ -476,6 +499,7 @@ public class CreateInstanceRequest {
     sb.append("class CreateInstanceRequest {\n");
     
     sb.append("    chargeInfo: ").append(toIndentedString(chargeInfo)).append("\n");
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    computeSpec: ").append(toIndentedString(computeSpec)).append("\n");
     sb.append("    eipId: ").append(toIndentedString(eipId)).append("\n");
     sb.append("    instanceDescription: ").append(toIndentedString(instanceDescription)).append("\n");

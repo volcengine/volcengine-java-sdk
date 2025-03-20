@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeTopicPartitionsResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("PartitionsInfo")
   private List<PartitionsInfoForDescribeTopicPartitionsOutput> partitionsInfo = null;

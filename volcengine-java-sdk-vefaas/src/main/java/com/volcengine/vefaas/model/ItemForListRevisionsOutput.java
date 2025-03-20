@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vefaas.model.EnvForListRevisionsOutput;
+import com.volcengine.vefaas.model.HealthCheckConfigForListRevisionsOutput;
 import com.volcengine.vefaas.model.NasStorageForListRevisionsOutput;
 import com.volcengine.vefaas.model.TlsConfigForListRevisionsOutput;
 import com.volcengine.vefaas.model.TosMountConfigForListRevisionsOutput;
@@ -54,6 +55,9 @@ public class ItemForListRevisionsOutput {
 
   @SerializedName("ExclusiveMode")
   private Boolean exclusiveMode = null;
+
+  @SerializedName("HealthCheckConfig")
+  private HealthCheckConfigForListRevisionsOutput healthCheckConfig = null;
 
   @SerializedName("Id")
   private String id = null;
@@ -227,6 +231,25 @@ public class ItemForListRevisionsOutput {
 
   public void setExclusiveMode(Boolean exclusiveMode) {
     this.exclusiveMode = exclusiveMode;
+  }
+
+  public ItemForListRevisionsOutput healthCheckConfig(HealthCheckConfigForListRevisionsOutput healthCheckConfig) {
+    this.healthCheckConfig = healthCheckConfig;
+    return this;
+  }
+
+   /**
+   * Get healthCheckConfig
+   * @return healthCheckConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public HealthCheckConfigForListRevisionsOutput getHealthCheckConfig() {
+    return healthCheckConfig;
+  }
+
+  public void setHealthCheckConfig(HealthCheckConfigForListRevisionsOutput healthCheckConfig) {
+    this.healthCheckConfig = healthCheckConfig;
   }
 
   public ItemForListRevisionsOutput id(String id) {
@@ -591,6 +614,7 @@ public class ItemForListRevisionsOutput {
         Objects.equals(this.description, itemForListRevisionsOutput.description) &&
         Objects.equals(this.envs, itemForListRevisionsOutput.envs) &&
         Objects.equals(this.exclusiveMode, itemForListRevisionsOutput.exclusiveMode) &&
+        Objects.equals(this.healthCheckConfig, itemForListRevisionsOutput.healthCheckConfig) &&
         Objects.equals(this.id, itemForListRevisionsOutput.id) &&
         Objects.equals(this.initializerSec, itemForListRevisionsOutput.initializerSec) &&
         Objects.equals(this.instanceType, itemForListRevisionsOutput.instanceType) &&
@@ -614,7 +638,7 @@ public class ItemForListRevisionsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(codeSize, codeSizeLimit, creationTime, description, envs, exclusiveMode, id, initializerSec, instanceType, maxConcurrency, maxReplicas, memoryMB, name, nasStorage, requestTimeout, revisionCreationTime, revisionDescription, revisionNumber, runtime, source, sourceLocation, sourceType, tlsConfig, tosMountConfig, vpcConfig);
+    return Objects.hash(codeSize, codeSizeLimit, creationTime, description, envs, exclusiveMode, healthCheckConfig, id, initializerSec, instanceType, maxConcurrency, maxReplicas, memoryMB, name, nasStorage, requestTimeout, revisionCreationTime, revisionDescription, revisionNumber, runtime, source, sourceLocation, sourceType, tlsConfig, tosMountConfig, vpcConfig);
   }
 
 
@@ -629,6 +653,7 @@ public class ItemForListRevisionsOutput {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    envs: ").append(toIndentedString(envs)).append("\n");
     sb.append("    exclusiveMode: ").append(toIndentedString(exclusiveMode)).append("\n");
+    sb.append("    healthCheckConfig: ").append(toIndentedString(healthCheckConfig)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    initializerSec: ").append(toIndentedString(initializerSec)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");

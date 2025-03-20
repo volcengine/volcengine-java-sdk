@@ -94,9 +94,6 @@ public class InstanceConfigurationForCreateInstanceInOneStepInput {
   @SerializedName("DeletionProtection")
   private Boolean deletionProtection = null;
 
-  @SerializedName("EnableCerebro")
-  private Boolean enableCerebro = null;
-
   @SerializedName("EnableHttps")
   private Boolean enableHttps = null;
 
@@ -270,24 +267,6 @@ public class InstanceConfigurationForCreateInstanceInOneStepInput {
 
   public void setDeletionProtection(Boolean deletionProtection) {
     this.deletionProtection = deletionProtection;
-  }
-
-  public InstanceConfigurationForCreateInstanceInOneStepInput enableCerebro(Boolean enableCerebro) {
-    this.enableCerebro = enableCerebro;
-    return this;
-  }
-
-   /**
-   * Get enableCerebro
-   * @return enableCerebro
-  **/
-  @Schema(description = "")
-  public Boolean isEnableCerebro() {
-    return enableCerebro;
-  }
-
-  public void setEnableCerebro(Boolean enableCerebro) {
-    this.enableCerebro = enableCerebro;
   }
 
   public InstanceConfigurationForCreateInstanceInOneStepInput enableHttps(Boolean enableHttps) {
@@ -541,7 +520,6 @@ public class InstanceConfigurationForCreateInstanceInOneStepInput {
         Objects.equals(this.chargeType, instanceConfigurationForCreateInstanceInOneStepInput.chargeType) &&
         Objects.equals(this.configurationCode, instanceConfigurationForCreateInstanceInOneStepInput.configurationCode) &&
         Objects.equals(this.deletionProtection, instanceConfigurationForCreateInstanceInOneStepInput.deletionProtection) &&
-        Objects.equals(this.enableCerebro, instanceConfigurationForCreateInstanceInOneStepInput.enableCerebro) &&
         Objects.equals(this.enableHttps, instanceConfigurationForCreateInstanceInOneStepInput.enableHttps) &&
         Objects.equals(this.enablePureMaster, instanceConfigurationForCreateInstanceInOneStepInput.enablePureMaster) &&
         Objects.equals(this.instanceName, instanceConfigurationForCreateInstanceInOneStepInput.instanceName) &&
@@ -558,7 +536,7 @@ public class InstanceConfigurationForCreateInstanceInOneStepInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(adminPassword, autoRenew, chargeType, configurationCode, deletionProtection, enableCerebro, enableHttps, enablePureMaster, instanceName, networkSpecs, nodeSpecsAssigns, period, projectName, regionId, subnet, VPC, version, zoneId);
+    return Objects.hash(adminPassword, autoRenew, chargeType, configurationCode, deletionProtection, enableHttps, enablePureMaster, instanceName, networkSpecs, nodeSpecsAssigns, period, projectName, regionId, subnet, VPC, version, zoneId);
   }
 
 
@@ -572,7 +550,6 @@ public class InstanceConfigurationForCreateInstanceInOneStepInput {
     sb.append("    chargeType: ").append(toIndentedString(chargeType)).append("\n");
     sb.append("    configurationCode: ").append(toIndentedString(configurationCode)).append("\n");
     sb.append("    deletionProtection: ").append(toIndentedString(deletionProtection)).append("\n");
-    sb.append("    enableCerebro: ").append(toIndentedString(enableCerebro)).append("\n");
     sb.append("    enableHttps: ").append(toIndentedString(enableHttps)).append("\n");
     sb.append("    enablePureMaster: ").append(toIndentedString(enablePureMaster)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");

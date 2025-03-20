@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import com.volcengine.vefaas.model.EnvForCreateFunctionInput;
 import com.volcengine.vefaas.model.NasStorageForCreateFunctionInput;
 import com.volcengine.vefaas.model.SourceAccessConfigForCreateFunctionInput;
+import com.volcengine.vefaas.model.TagForCreateFunctionInput;
 import com.volcengine.vefaas.model.TlsConfigForCreateFunctionInput;
 import com.volcengine.vefaas.model.TosMountConfigForCreateFunctionInput;
 import com.volcengine.vefaas.model.VpcConfigForCreateFunctionInput;
@@ -88,6 +89,9 @@ public class CreateFunctionRequest {
 
   @SerializedName("SourceType")
   private String sourceType = null;
+
+  @SerializedName("Tags")
+  private List<TagForCreateFunctionInput> tags = null;
 
   @SerializedName("TlsConfig")
   private TlsConfigForCreateFunctionInput tlsConfig = null;
@@ -417,6 +421,33 @@ public class CreateFunctionRequest {
     this.sourceType = sourceType;
   }
 
+  public CreateFunctionRequest tags(List<TagForCreateFunctionInput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public CreateFunctionRequest addTagsItem(TagForCreateFunctionInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForCreateFunctionInput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForCreateFunctionInput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForCreateFunctionInput> tags) {
+    this.tags = tags;
+  }
+
   public CreateFunctionRequest tlsConfig(TlsConfigForCreateFunctionInput tlsConfig) {
     this.tlsConfig = tlsConfig;
     return this;
@@ -501,6 +532,7 @@ public class CreateFunctionRequest {
         Objects.equals(this.source, createFunctionRequest.source) &&
         Objects.equals(this.sourceAccessConfig, createFunctionRequest.sourceAccessConfig) &&
         Objects.equals(this.sourceType, createFunctionRequest.sourceType) &&
+        Objects.equals(this.tags, createFunctionRequest.tags) &&
         Objects.equals(this.tlsConfig, createFunctionRequest.tlsConfig) &&
         Objects.equals(this.tosMountConfig, createFunctionRequest.tosMountConfig) &&
         Objects.equals(this.vpcConfig, createFunctionRequest.vpcConfig);
@@ -508,7 +540,7 @@ public class CreateFunctionRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(command, cpuStrategy, description, envs, exclusiveMode, initializerSec, instanceType, maxConcurrency, memoryMB, name, nasStorage, projectName, requestTimeout, runtime, source, sourceAccessConfig, sourceType, tlsConfig, tosMountConfig, vpcConfig);
+    return Objects.hash(command, cpuStrategy, description, envs, exclusiveMode, initializerSec, instanceType, maxConcurrency, memoryMB, name, nasStorage, projectName, requestTimeout, runtime, source, sourceAccessConfig, sourceType, tags, tlsConfig, tosMountConfig, vpcConfig);
   }
 
 
@@ -534,6 +566,7 @@ public class CreateFunctionRequest {
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    sourceAccessConfig: ").append(toIndentedString(sourceAccessConfig)).append("\n");
     sb.append("    sourceType: ").append(toIndentedString(sourceType)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    tlsConfig: ").append(toIndentedString(tlsConfig)).append("\n");
     sb.append("    tosMountConfig: ").append(toIndentedString(tosMountConfig)).append("\n");
     sb.append("    vpcConfig: ").append(toIndentedString(vpcConfig)).append("\n");

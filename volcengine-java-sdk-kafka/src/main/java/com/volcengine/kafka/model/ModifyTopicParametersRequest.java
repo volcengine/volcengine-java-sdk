@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -28,7 +30,11 @@ import javax.validation.Valid;
  */
 
 
+
 public class ModifyTopicParametersRequest {
+  @SerializedName("CleanupPolicy")
+  private List<String> cleanupPolicy = null;
+
   @SerializedName("InstanceId")
   private String instanceId = null;
 
@@ -43,6 +49,32 @@ public class ModifyTopicParametersRequest {
 
   @SerializedName("TopicName")
   private String topicName = null;
+
+  public ModifyTopicParametersRequest cleanupPolicy(List<String> cleanupPolicy) {
+    this.cleanupPolicy = cleanupPolicy;
+    return this;
+  }
+
+  public ModifyTopicParametersRequest addCleanupPolicyItem(String cleanupPolicyItem) {
+    if (this.cleanupPolicy == null) {
+      this.cleanupPolicy = new ArrayList<String>();
+    }
+    this.cleanupPolicy.add(cleanupPolicyItem);
+    return this;
+  }
+
+   /**
+   * Get cleanupPolicy
+   * @return cleanupPolicy
+  **/
+  @Schema(description = "")
+  public List<String> getCleanupPolicy() {
+    return cleanupPolicy;
+  }
+
+  public void setCleanupPolicy(List<String> cleanupPolicy) {
+    this.cleanupPolicy = cleanupPolicy;
+  }
 
   public ModifyTopicParametersRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
@@ -147,7 +179,8 @@ public class ModifyTopicParametersRequest {
       return false;
     }
     ModifyTopicParametersRequest modifyTopicParametersRequest = (ModifyTopicParametersRequest) o;
-    return Objects.equals(this.instanceId, modifyTopicParametersRequest.instanceId) &&
+    return Objects.equals(this.cleanupPolicy, modifyTopicParametersRequest.cleanupPolicy) &&
+        Objects.equals(this.instanceId, modifyTopicParametersRequest.instanceId) &&
         Objects.equals(this.parameters, modifyTopicParametersRequest.parameters) &&
         Objects.equals(this.partitionNumber, modifyTopicParametersRequest.partitionNumber) &&
         Objects.equals(this.replicaNumber, modifyTopicParametersRequest.replicaNumber) &&
@@ -156,7 +189,7 @@ public class ModifyTopicParametersRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, parameters, partitionNumber, replicaNumber, topicName);
+    return Objects.hash(cleanupPolicy, instanceId, parameters, partitionNumber, replicaNumber, topicName);
   }
 
 
@@ -165,6 +198,7 @@ public class ModifyTopicParametersRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ModifyTopicParametersRequest {\n");
     
+    sb.append("    cleanupPolicy: ").append(toIndentedString(cleanupPolicy)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    parameters: ").append(toIndentedString(parameters)).append("\n");
     sb.append("    partitionNumber: ").append(toIndentedString(partitionNumber)).append("\n");

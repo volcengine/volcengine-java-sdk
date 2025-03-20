@@ -21,6 +21,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ModifyGroupResponse extends com.volcengine.model.AbstractResponse {
 
   @Override

@@ -19,7 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.vefaas.model.TopParamForCreateTimerInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -54,9 +53,6 @@ public class CreateTimerRequest {
 
   @SerializedName("Retries")
   private Integer retries = null;
-
-  @SerializedName("TopParam")
-  private TopParamForCreateTimerInput topParam = null;
 
   public CreateTimerRequest crontab(String crontab) {
     this.crontab = crontab;
@@ -205,25 +201,6 @@ public class CreateTimerRequest {
     this.retries = retries;
   }
 
-  public CreateTimerRequest topParam(TopParamForCreateTimerInput topParam) {
-    this.topParam = topParam;
-    return this;
-  }
-
-   /**
-   * Get topParam
-   * @return topParam
-  **/
-  @Valid
-  @Schema(description = "")
-  public TopParamForCreateTimerInput getTopParam() {
-    return topParam;
-  }
-
-  public void setTopParam(TopParamForCreateTimerInput topParam) {
-    this.topParam = topParam;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -241,13 +218,12 @@ public class CreateTimerRequest {
         Objects.equals(this.functionId, createTimerRequest.functionId) &&
         Objects.equals(this.name, createTimerRequest.name) &&
         Objects.equals(this.payload, createTimerRequest.payload) &&
-        Objects.equals(this.retries, createTimerRequest.retries) &&
-        Objects.equals(this.topParam, createTimerRequest.topParam);
+        Objects.equals(this.retries, createTimerRequest.retries);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(crontab, description, enableConcurrency, enabled, functionId, name, payload, retries, topParam);
+    return Objects.hash(crontab, description, enableConcurrency, enabled, functionId, name, payload, retries);
   }
 
 
@@ -264,7 +240,6 @@ public class CreateTimerRequest {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    payload: ").append(toIndentedString(payload)).append("\n");
     sb.append("    retries: ").append(toIndentedString(retries)).append("\n");
-    sb.append("    topParam: ").append(toIndentedString(topParam)).append("\n");
     sb.append("}");
     return sb.toString();
   }

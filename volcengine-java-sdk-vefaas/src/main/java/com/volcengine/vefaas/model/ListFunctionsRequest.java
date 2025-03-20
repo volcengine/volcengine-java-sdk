@@ -19,8 +19,12 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vefaas.model.FilterForListFunctionsInput;
+import com.volcengine.vefaas.model.TagFilterForListFunctionsInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -30,11 +34,44 @@ import javax.validation.Valid;
 
 
 public class ListFunctionsRequest {
+  @SerializedName("Filters")
+  private List<FilterForListFunctionsInput> filters = null;
+
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
 
   @SerializedName("PageSize")
   private Integer pageSize = null;
+
+  @SerializedName("TagFilters")
+  private List<TagFilterForListFunctionsInput> tagFilters = null;
+
+  public ListFunctionsRequest filters(List<FilterForListFunctionsInput> filters) {
+    this.filters = filters;
+    return this;
+  }
+
+  public ListFunctionsRequest addFiltersItem(FilterForListFunctionsInput filtersItem) {
+    if (this.filters == null) {
+      this.filters = new ArrayList<FilterForListFunctionsInput>();
+    }
+    this.filters.add(filtersItem);
+    return this;
+  }
+
+   /**
+   * Get filters
+   * @return filters
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<FilterForListFunctionsInput> getFilters() {
+    return filters;
+  }
+
+  public void setFilters(List<FilterForListFunctionsInput> filters) {
+    this.filters = filters;
+  }
 
   public ListFunctionsRequest pageNumber(Integer pageNumber) {
     this.pageNumber = pageNumber;
@@ -72,6 +109,33 @@ public class ListFunctionsRequest {
     this.pageSize = pageSize;
   }
 
+  public ListFunctionsRequest tagFilters(List<TagFilterForListFunctionsInput> tagFilters) {
+    this.tagFilters = tagFilters;
+    return this;
+  }
+
+  public ListFunctionsRequest addTagFiltersItem(TagFilterForListFunctionsInput tagFiltersItem) {
+    if (this.tagFilters == null) {
+      this.tagFilters = new ArrayList<TagFilterForListFunctionsInput>();
+    }
+    this.tagFilters.add(tagFiltersItem);
+    return this;
+  }
+
+   /**
+   * Get tagFilters
+   * @return tagFilters
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagFilterForListFunctionsInput> getTagFilters() {
+    return tagFilters;
+  }
+
+  public void setTagFilters(List<TagFilterForListFunctionsInput> tagFilters) {
+    this.tagFilters = tagFilters;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -82,13 +146,15 @@ public class ListFunctionsRequest {
       return false;
     }
     ListFunctionsRequest listFunctionsRequest = (ListFunctionsRequest) o;
-    return Objects.equals(this.pageNumber, listFunctionsRequest.pageNumber) &&
-        Objects.equals(this.pageSize, listFunctionsRequest.pageSize);
+    return Objects.equals(this.filters, listFunctionsRequest.filters) &&
+        Objects.equals(this.pageNumber, listFunctionsRequest.pageNumber) &&
+        Objects.equals(this.pageSize, listFunctionsRequest.pageSize) &&
+        Objects.equals(this.tagFilters, listFunctionsRequest.tagFilters);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pageNumber, pageSize);
+    return Objects.hash(filters, pageNumber, pageSize, tagFilters);
   }
 
 
@@ -97,8 +163,10 @@ public class ListFunctionsRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListFunctionsRequest {\n");
     
+    sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("}");
     return sb.toString();
   }

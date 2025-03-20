@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ConsumedPartitionsInfoForDescribeConsumedPartitionsOutput {
   @SerializedName("Accumulation")
   private Long accumulation = null;

@@ -47,6 +47,9 @@ public class ItemForListFunctionsOutput {
   @SerializedName("Command")
   private String command = null;
 
+  @SerializedName("CpuStrategy")
+  private String cpuStrategy = null;
+
   @SerializedName("CreationTime")
   private String creationTime = null;
 
@@ -85,6 +88,9 @@ public class ItemForListFunctionsOutput {
 
   @SerializedName("Owner")
   private String owner = null;
+
+  @SerializedName("Port")
+  private Integer port = null;
 
   @SerializedName("ProjectName")
   private String projectName = null;
@@ -168,6 +174,24 @@ public class ItemForListFunctionsOutput {
 
   public void setCommand(String command) {
     this.command = command;
+  }
+
+  public ItemForListFunctionsOutput cpuStrategy(String cpuStrategy) {
+    this.cpuStrategy = cpuStrategy;
+    return this;
+  }
+
+   /**
+   * Get cpuStrategy
+   * @return cpuStrategy
+  **/
+  @Schema(description = "")
+  public String getCpuStrategy() {
+    return cpuStrategy;
+  }
+
+  public void setCpuStrategy(String cpuStrategy) {
+    this.cpuStrategy = cpuStrategy;
   }
 
   public ItemForListFunctionsOutput creationTime(String creationTime) {
@@ -414,6 +438,24 @@ public class ItemForListFunctionsOutput {
     this.owner = owner;
   }
 
+  public ItemForListFunctionsOutput port(Integer port) {
+    this.port = port;
+    return this;
+  }
+
+   /**
+   * Get port
+   * @return port
+  **/
+  @Schema(description = "")
+  public Integer getPort() {
+    return port;
+  }
+
+  public void setPort(Integer port) {
+    this.port = port;
+  }
+
   public ItemForListFunctionsOutput projectName(String projectName) {
     this.projectName = projectName;
     return this;
@@ -619,6 +661,7 @@ public class ItemForListFunctionsOutput {
     return Objects.equals(this.codeSize, itemForListFunctionsOutput.codeSize) &&
         Objects.equals(this.codeSizeLimit, itemForListFunctionsOutput.codeSizeLimit) &&
         Objects.equals(this.command, itemForListFunctionsOutput.command) &&
+        Objects.equals(this.cpuStrategy, itemForListFunctionsOutput.cpuStrategy) &&
         Objects.equals(this.creationTime, itemForListFunctionsOutput.creationTime) &&
         Objects.equals(this.description, itemForListFunctionsOutput.description) &&
         Objects.equals(this.envs, itemForListFunctionsOutput.envs) &&
@@ -632,6 +675,7 @@ public class ItemForListFunctionsOutput {
         Objects.equals(this.name, itemForListFunctionsOutput.name) &&
         Objects.equals(this.nasStorage, itemForListFunctionsOutput.nasStorage) &&
         Objects.equals(this.owner, itemForListFunctionsOutput.owner) &&
+        Objects.equals(this.port, itemForListFunctionsOutput.port) &&
         Objects.equals(this.projectName, itemForListFunctionsOutput.projectName) &&
         Objects.equals(this.requestTimeout, itemForListFunctionsOutput.requestTimeout) &&
         Objects.equals(this.runtime, itemForListFunctionsOutput.runtime) &&
@@ -646,7 +690,7 @@ public class ItemForListFunctionsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(codeSize, codeSizeLimit, command, creationTime, description, envs, exclusiveMode, id, initializerSec, instanceType, lastUpdateTime, maxConcurrency, memoryMB, name, nasStorage, owner, projectName, requestTimeout, runtime, sourceLocation, sourceType, tags, tlsConfig, tosMountConfig, triggersCount, vpcConfig);
+    return Objects.hash(codeSize, codeSizeLimit, command, cpuStrategy, creationTime, description, envs, exclusiveMode, id, initializerSec, instanceType, lastUpdateTime, maxConcurrency, memoryMB, name, nasStorage, owner, port, projectName, requestTimeout, runtime, sourceLocation, sourceType, tags, tlsConfig, tosMountConfig, triggersCount, vpcConfig);
   }
 
 
@@ -658,6 +702,7 @@ public class ItemForListFunctionsOutput {
     sb.append("    codeSize: ").append(toIndentedString(codeSize)).append("\n");
     sb.append("    codeSizeLimit: ").append(toIndentedString(codeSizeLimit)).append("\n");
     sb.append("    command: ").append(toIndentedString(command)).append("\n");
+    sb.append("    cpuStrategy: ").append(toIndentedString(cpuStrategy)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    envs: ").append(toIndentedString(envs)).append("\n");
@@ -671,6 +716,7 @@ public class ItemForListFunctionsOutput {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    nasStorage: ").append(toIndentedString(nasStorage)).append("\n");
     sb.append("    owner: ").append(toIndentedString(owner)).append("\n");
+    sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    requestTimeout: ").append(toIndentedString(requestTimeout)).append("\n");
     sb.append("    runtime: ").append(toIndentedString(runtime)).append("\n");

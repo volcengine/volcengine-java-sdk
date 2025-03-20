@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.escloud.model.TagForDescribeInstancesInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -32,54 +33,34 @@ import javax.validation.Valid;
 
 
 public class TagFilterForDescribeInstancesInput {
-  @SerializedName("Key")
-  private String key = null;
+  @SerializedName("Tags")
+  private List<TagForDescribeInstancesInput> tags = null;
 
-  @SerializedName("Values")
-  private List<String> values = null;
-
-  public TagFilterForDescribeInstancesInput key(String key) {
-    this.key = key;
+  public TagFilterForDescribeInstancesInput tags(List<TagForDescribeInstancesInput> tags) {
+    this.tags = tags;
     return this;
   }
 
-   /**
-   * Get key
-   * @return key
-  **/
-  @Schema(description = "")
-  public String getKey() {
-    return key;
-  }
-
-  public void setKey(String key) {
-    this.key = key;
-  }
-
-  public TagFilterForDescribeInstancesInput values(List<String> values) {
-    this.values = values;
-    return this;
-  }
-
-  public TagFilterForDescribeInstancesInput addValuesItem(String valuesItem) {
-    if (this.values == null) {
-      this.values = new ArrayList<String>();
+  public TagFilterForDescribeInstancesInput addTagsItem(TagForDescribeInstancesInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForDescribeInstancesInput>();
     }
-    this.values.add(valuesItem);
+    this.tags.add(tagsItem);
     return this;
   }
 
    /**
-   * Get values
-   * @return values
+   * Get tags
+   * @return tags
   **/
+  @Valid
   @Schema(description = "")
-  public List<String> getValues() {
-    return values;
+  public List<TagForDescribeInstancesInput> getTags() {
+    return tags;
   }
 
-  public void setValues(List<String> values) {
-    this.values = values;
+  public void setTags(List<TagForDescribeInstancesInput> tags) {
+    this.tags = tags;
   }
 
 
@@ -92,13 +73,12 @@ public class TagFilterForDescribeInstancesInput {
       return false;
     }
     TagFilterForDescribeInstancesInput tagFilterForDescribeInstancesInput = (TagFilterForDescribeInstancesInput) o;
-    return Objects.equals(this.key, tagFilterForDescribeInstancesInput.key) &&
-        Objects.equals(this.values, tagFilterForDescribeInstancesInput.values);
+    return Objects.equals(this.tags, tagFilterForDescribeInstancesInput.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(key, values);
+    return Objects.hash(tags);
   }
 
 
@@ -107,8 +87,7 @@ public class TagFilterForDescribeInstancesInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class TagFilterForDescribeInstancesInput {\n");
     
-    sb.append("    key: ").append(toIndentedString(key)).append("\n");
-    sb.append("    values: ").append(toIndentedString(values)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }

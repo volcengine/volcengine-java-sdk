@@ -29,6 +29,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ModifyInstanceChargeTypeRequest {
   @SerializedName("ChargeInfo")
   private ChargeInfoForModifyInstanceChargeTypeInput chargeInfo = null;

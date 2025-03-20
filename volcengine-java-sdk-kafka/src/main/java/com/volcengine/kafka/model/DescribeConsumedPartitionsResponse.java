@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeConsumedPartitionsResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("ConsumedPartitionsInfo")
   private List<ConsumedPartitionsInfoForDescribeConsumedPartitionsOutput> consumedPartitionsInfo = null;

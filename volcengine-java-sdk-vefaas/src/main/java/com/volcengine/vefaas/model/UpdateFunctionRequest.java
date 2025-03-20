@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import com.volcengine.vefaas.model.EnvForUpdateFunctionInput;
 import com.volcengine.vefaas.model.NasStorageForUpdateFunctionInput;
 import com.volcengine.vefaas.model.SourceAccessConfigForUpdateFunctionInput;
+import com.volcengine.vefaas.model.TagForUpdateFunctionInput;
 import com.volcengine.vefaas.model.TlsConfigForUpdateFunctionInput;
 import com.volcengine.vefaas.model.TosMountConfigForUpdateFunctionInput;
 import com.volcengine.vefaas.model.VpcConfigForUpdateFunctionInput;
@@ -76,6 +77,9 @@ public class UpdateFunctionRequest {
 
   @SerializedName("SourceType")
   private String sourceType = null;
+
+  @SerializedName("Tags")
+  private List<TagForUpdateFunctionInput> tags = null;
 
   @SerializedName("TlsConfig")
   private TlsConfigForUpdateFunctionInput tlsConfig = null;
@@ -332,6 +336,33 @@ public class UpdateFunctionRequest {
     this.sourceType = sourceType;
   }
 
+  public UpdateFunctionRequest tags(List<TagForUpdateFunctionInput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public UpdateFunctionRequest addTagsItem(TagForUpdateFunctionInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForUpdateFunctionInput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForUpdateFunctionInput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForUpdateFunctionInput> tags) {
+    this.tags = tags;
+  }
+
   public UpdateFunctionRequest tlsConfig(TlsConfigForUpdateFunctionInput tlsConfig) {
     this.tlsConfig = tlsConfig;
     return this;
@@ -412,6 +443,7 @@ public class UpdateFunctionRequest {
         Objects.equals(this.source, updateFunctionRequest.source) &&
         Objects.equals(this.sourceAccessConfig, updateFunctionRequest.sourceAccessConfig) &&
         Objects.equals(this.sourceType, updateFunctionRequest.sourceType) &&
+        Objects.equals(this.tags, updateFunctionRequest.tags) &&
         Objects.equals(this.tlsConfig, updateFunctionRequest.tlsConfig) &&
         Objects.equals(this.tosMountConfig, updateFunctionRequest.tosMountConfig) &&
         Objects.equals(this.vpcConfig, updateFunctionRequest.vpcConfig);
@@ -419,7 +451,7 @@ public class UpdateFunctionRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, envs, exclusiveMode, id, initializerSec, maxConcurrency, memoryMB, nasStorage, projectName, requestTimeout, source, sourceAccessConfig, sourceType, tlsConfig, tosMountConfig, vpcConfig);
+    return Objects.hash(description, envs, exclusiveMode, id, initializerSec, maxConcurrency, memoryMB, nasStorage, projectName, requestTimeout, source, sourceAccessConfig, sourceType, tags, tlsConfig, tosMountConfig, vpcConfig);
   }
 
 
@@ -441,6 +473,7 @@ public class UpdateFunctionRequest {
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    sourceAccessConfig: ").append(toIndentedString(sourceAccessConfig)).append("\n");
     sb.append("    sourceType: ").append(toIndentedString(sourceType)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    tlsConfig: ").append(toIndentedString(tlsConfig)).append("\n");
     sb.append("    tosMountConfig: ").append(toIndentedString(tosMountConfig)).append("\n");
     sb.append("    vpcConfig: ").append(toIndentedString(vpcConfig)).append("\n");

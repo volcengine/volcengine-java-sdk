@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DeleteGroupRequest {
   @SerializedName("GroupId")
   private String groupId = null;

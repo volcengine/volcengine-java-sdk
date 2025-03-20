@@ -49,8 +49,8 @@ import com.volcengine.escloud.model.ModifyChargeCodeRequest;
 import com.volcengine.escloud.model.ModifyChargeCodeResponse;
 import com.volcengine.escloud.model.ModifyDeletionProtectionRequest;
 import com.volcengine.escloud.model.ModifyDeletionProtectionResponse;
-import com.volcengine.escloud.model.ModifyIpWhitelistRequest;
-import com.volcengine.escloud.model.ModifyIpWhitelistResponse;
+import com.volcengine.escloud.model.ModifyIpAllowListRequest;
+import com.volcengine.escloud.model.ModifyIpAllowListResponse;
 import com.volcengine.escloud.model.ModifyMaintenanceSettingRequest;
 import com.volcengine.escloud.model.ModifyMaintenanceSettingResponse;
 import com.volcengine.escloud.model.ModifyNodeSpecInOneStepRequest;
@@ -1460,18 +1460,18 @@ public class EscloudApi {
         return call;
     }
     /**
-     * Build call for modifyIpWhitelist
+     * Build call for modifyIpAllowList
      * @param body  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call modifyIpWhitelistCall(ModifyIpWhitelistRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call modifyIpAllowListCall(ModifyIpAllowListRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ModifyIpWhitelist/2023-01-01/escloud/post/application_json/";
+        String localVarPath = "/ModifyIpAllowList/2023-01-01/escloud/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1509,13 +1509,13 @@ public class EscloudApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call modifyIpWhitelistValidateBeforeCall(ModifyIpWhitelistRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call modifyIpAllowListValidateBeforeCall(ModifyIpAllowListRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'body' is set
         if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling modifyIpWhitelist(Async)");
+            throw new ApiException("Missing the required parameter 'body' when calling modifyIpAllowList(Async)");
         }
         
-        com.squareup.okhttp.Call call = modifyIpWhitelistCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = modifyIpAllowListCall(body, progressListener, progressRequestListener);
         return call;
 
         
@@ -1528,11 +1528,11 @@ public class EscloudApi {
      * 
      * 
      * @param body  (required)
-     * @return ModifyIpWhitelistResponse
+     * @return ModifyIpAllowListResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ModifyIpWhitelistResponse modifyIpWhitelist(ModifyIpWhitelistRequest body) throws ApiException {
-        ApiResponse<ModifyIpWhitelistResponse> resp = modifyIpWhitelistWithHttpInfo(body);
+    public ModifyIpAllowListResponse modifyIpAllowList(ModifyIpAllowListRequest body) throws ApiException {
+        ApiResponse<ModifyIpAllowListResponse> resp = modifyIpAllowListWithHttpInfo(body);
         return resp.getData();
     }
 
@@ -1540,12 +1540,12 @@ public class EscloudApi {
      * 
      * 
      * @param body  (required)
-     * @return ApiResponse&lt;ModifyIpWhitelistResponse&gt;
+     * @return ApiResponse&lt;ModifyIpAllowListResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ModifyIpWhitelistResponse> modifyIpWhitelistWithHttpInfo( @NotNull ModifyIpWhitelistRequest body) throws ApiException {
-        com.squareup.okhttp.Call call = modifyIpWhitelistValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<ModifyIpWhitelistResponse>(){}.getType();
+    public ApiResponse<ModifyIpAllowListResponse> modifyIpAllowListWithHttpInfo( @NotNull ModifyIpAllowListRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = modifyIpAllowListValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<ModifyIpAllowListResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -1557,7 +1557,7 @@ public class EscloudApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call modifyIpWhitelistAsync(ModifyIpWhitelistRequest body, final ApiCallback<ModifyIpWhitelistResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call modifyIpAllowListAsync(ModifyIpAllowListRequest body, final ApiCallback<ModifyIpAllowListResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1578,8 +1578,8 @@ public class EscloudApi {
             };
         }
 
-        com.squareup.okhttp.Call call = modifyIpWhitelistValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ModifyIpWhitelistResponse>(){}.getType();
+        com.squareup.okhttp.Call call = modifyIpAllowListValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ModifyIpAllowListResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

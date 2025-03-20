@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.kafka.model.TagForDescribeTopicsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -28,12 +31,19 @@ import javax.validation.Valid;
  */
 
 
+
 public class TopicsInfoForDescribeTopicsOutput {
+  @SerializedName("CleanupPolicy")
+  private List<String> cleanupPolicy = null;
+
   @SerializedName("CreateTime")
   private String createTime = null;
 
   @SerializedName("Description")
   private String description = null;
+
+  @SerializedName("LogRetentionHours")
+  private Integer logRetentionHours = null;
 
   @SerializedName("PartitionNumber")
   private Integer partitionNumber = null;
@@ -44,8 +54,43 @@ public class TopicsInfoForDescribeTopicsOutput {
   @SerializedName("Status")
   private String status = null;
 
+  @SerializedName("Tags")
+  private List<TagForDescribeTopicsOutput> tags = null;
+
   @SerializedName("TopicName")
   private String topicName = null;
+
+  @SerializedName("UsedStoragePercentageInInstance")
+  private Double usedStoragePercentageInInstance = null;
+
+  @SerializedName("UsedStorageSpaceInBytes")
+  private Long usedStorageSpaceInBytes = null;
+
+  public TopicsInfoForDescribeTopicsOutput cleanupPolicy(List<String> cleanupPolicy) {
+    this.cleanupPolicy = cleanupPolicy;
+    return this;
+  }
+
+  public TopicsInfoForDescribeTopicsOutput addCleanupPolicyItem(String cleanupPolicyItem) {
+    if (this.cleanupPolicy == null) {
+      this.cleanupPolicy = new ArrayList<String>();
+    }
+    this.cleanupPolicy.add(cleanupPolicyItem);
+    return this;
+  }
+
+   /**
+   * Get cleanupPolicy
+   * @return cleanupPolicy
+  **/
+  @Schema(description = "")
+  public List<String> getCleanupPolicy() {
+    return cleanupPolicy;
+  }
+
+  public void setCleanupPolicy(List<String> cleanupPolicy) {
+    this.cleanupPolicy = cleanupPolicy;
+  }
 
   public TopicsInfoForDescribeTopicsOutput createTime(String createTime) {
     this.createTime = createTime;
@@ -81,6 +126,24 @@ public class TopicsInfoForDescribeTopicsOutput {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public TopicsInfoForDescribeTopicsOutput logRetentionHours(Integer logRetentionHours) {
+    this.logRetentionHours = logRetentionHours;
+    return this;
+  }
+
+   /**
+   * Get logRetentionHours
+   * @return logRetentionHours
+  **/
+  @Schema(description = "")
+  public Integer getLogRetentionHours() {
+    return logRetentionHours;
+  }
+
+  public void setLogRetentionHours(Integer logRetentionHours) {
+    this.logRetentionHours = logRetentionHours;
   }
 
   public TopicsInfoForDescribeTopicsOutput partitionNumber(Integer partitionNumber) {
@@ -137,6 +200,33 @@ public class TopicsInfoForDescribeTopicsOutput {
     this.status = status;
   }
 
+  public TopicsInfoForDescribeTopicsOutput tags(List<TagForDescribeTopicsOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public TopicsInfoForDescribeTopicsOutput addTagsItem(TagForDescribeTopicsOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForDescribeTopicsOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForDescribeTopicsOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForDescribeTopicsOutput> tags) {
+    this.tags = tags;
+  }
+
   public TopicsInfoForDescribeTopicsOutput topicName(String topicName) {
     this.topicName = topicName;
     return this;
@@ -155,6 +245,42 @@ public class TopicsInfoForDescribeTopicsOutput {
     this.topicName = topicName;
   }
 
+  public TopicsInfoForDescribeTopicsOutput usedStoragePercentageInInstance(Double usedStoragePercentageInInstance) {
+    this.usedStoragePercentageInInstance = usedStoragePercentageInInstance;
+    return this;
+  }
+
+   /**
+   * Get usedStoragePercentageInInstance
+   * @return usedStoragePercentageInInstance
+  **/
+  @Schema(description = "")
+  public Double getUsedStoragePercentageInInstance() {
+    return usedStoragePercentageInInstance;
+  }
+
+  public void setUsedStoragePercentageInInstance(Double usedStoragePercentageInInstance) {
+    this.usedStoragePercentageInInstance = usedStoragePercentageInInstance;
+  }
+
+  public TopicsInfoForDescribeTopicsOutput usedStorageSpaceInBytes(Long usedStorageSpaceInBytes) {
+    this.usedStorageSpaceInBytes = usedStorageSpaceInBytes;
+    return this;
+  }
+
+   /**
+   * Get usedStorageSpaceInBytes
+   * @return usedStorageSpaceInBytes
+  **/
+  @Schema(description = "")
+  public Long getUsedStorageSpaceInBytes() {
+    return usedStorageSpaceInBytes;
+  }
+
+  public void setUsedStorageSpaceInBytes(Long usedStorageSpaceInBytes) {
+    this.usedStorageSpaceInBytes = usedStorageSpaceInBytes;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -165,17 +291,22 @@ public class TopicsInfoForDescribeTopicsOutput {
       return false;
     }
     TopicsInfoForDescribeTopicsOutput topicsInfoForDescribeTopicsOutput = (TopicsInfoForDescribeTopicsOutput) o;
-    return Objects.equals(this.createTime, topicsInfoForDescribeTopicsOutput.createTime) &&
+    return Objects.equals(this.cleanupPolicy, topicsInfoForDescribeTopicsOutput.cleanupPolicy) &&
+        Objects.equals(this.createTime, topicsInfoForDescribeTopicsOutput.createTime) &&
         Objects.equals(this.description, topicsInfoForDescribeTopicsOutput.description) &&
+        Objects.equals(this.logRetentionHours, topicsInfoForDescribeTopicsOutput.logRetentionHours) &&
         Objects.equals(this.partitionNumber, topicsInfoForDescribeTopicsOutput.partitionNumber) &&
         Objects.equals(this.replicaNumber, topicsInfoForDescribeTopicsOutput.replicaNumber) &&
         Objects.equals(this.status, topicsInfoForDescribeTopicsOutput.status) &&
-        Objects.equals(this.topicName, topicsInfoForDescribeTopicsOutput.topicName);
+        Objects.equals(this.tags, topicsInfoForDescribeTopicsOutput.tags) &&
+        Objects.equals(this.topicName, topicsInfoForDescribeTopicsOutput.topicName) &&
+        Objects.equals(this.usedStoragePercentageInInstance, topicsInfoForDescribeTopicsOutput.usedStoragePercentageInInstance) &&
+        Objects.equals(this.usedStorageSpaceInBytes, topicsInfoForDescribeTopicsOutput.usedStorageSpaceInBytes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createTime, description, partitionNumber, replicaNumber, status, topicName);
+    return Objects.hash(cleanupPolicy, createTime, description, logRetentionHours, partitionNumber, replicaNumber, status, tags, topicName, usedStoragePercentageInInstance, usedStorageSpaceInBytes);
   }
 
 
@@ -184,12 +315,17 @@ public class TopicsInfoForDescribeTopicsOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class TopicsInfoForDescribeTopicsOutput {\n");
     
+    sb.append("    cleanupPolicy: ").append(toIndentedString(cleanupPolicy)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    logRetentionHours: ").append(toIndentedString(logRetentionHours)).append("\n");
     sb.append("    partitionNumber: ").append(toIndentedString(partitionNumber)).append("\n");
     sb.append("    replicaNumber: ").append(toIndentedString(replicaNumber)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    topicName: ").append(toIndentedString(topicName)).append("\n");
+    sb.append("    usedStoragePercentageInInstance: ").append(toIndentedString(usedStoragePercentageInInstance)).append("\n");
+    sb.append("    usedStorageSpaceInBytes: ").append(toIndentedString(usedStorageSpaceInBytes)).append("\n");
     sb.append("}");
     return sb.toString();
   }

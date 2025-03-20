@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.kafka.model.AccessPolicyForCreateTopicInput;
+import com.volcengine.kafka.model.TagForCreateTopicInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -31,12 +32,59 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateTopicRequest {
   @SerializedName("AccessPolicies")
   private List<AccessPolicyForCreateTopicInput> accessPolicies = null;
 
   @SerializedName("AllAuthority")
   private Boolean allAuthority = null;
+
+  /**
+   * Gets or Sets cleanupPolicy
+   */
+  @JsonAdapter(CleanupPolicyEnum.Adapter.class)
+  public enum CleanupPolicyEnum {
+    @SerializedName("delete")
+    DELETE("delete"),
+    @SerializedName("compact")
+    COMPACT("compact");
+
+    private String value;
+
+    CleanupPolicyEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static CleanupPolicyEnum fromValue(String input) {
+      for (CleanupPolicyEnum b : CleanupPolicyEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<CleanupPolicyEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final CleanupPolicyEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public CleanupPolicyEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return CleanupPolicyEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("CleanupPolicy")
+  private List<CleanupPolicyEnum> cleanupPolicy = null;
 
   @SerializedName("Description")
   private String description = null;
@@ -52,6 +100,9 @@ public class CreateTopicRequest {
 
   @SerializedName("ReplicaNumber")
   private Integer replicaNumber = null;
+
+  @SerializedName("Tags")
+  private List<TagForCreateTopicInput> tags = null;
 
   @SerializedName("TopicName")
   private String topicName = null;
@@ -99,6 +150,32 @@ public class CreateTopicRequest {
 
   public void setAllAuthority(Boolean allAuthority) {
     this.allAuthority = allAuthority;
+  }
+
+  public CreateTopicRequest cleanupPolicy(List<CleanupPolicyEnum> cleanupPolicy) {
+    this.cleanupPolicy = cleanupPolicy;
+    return this;
+  }
+
+  public CreateTopicRequest addCleanupPolicyItem(CleanupPolicyEnum cleanupPolicyItem) {
+    if (this.cleanupPolicy == null) {
+      this.cleanupPolicy = new ArrayList<CleanupPolicyEnum>();
+    }
+    this.cleanupPolicy.add(cleanupPolicyItem);
+    return this;
+  }
+
+   /**
+   * Get cleanupPolicy
+   * @return cleanupPolicy
+  **/
+  @Schema(description = "")
+  public List<CleanupPolicyEnum> getCleanupPolicy() {
+    return cleanupPolicy;
+  }
+
+  public void setCleanupPolicy(List<CleanupPolicyEnum> cleanupPolicy) {
+    this.cleanupPolicy = cleanupPolicy;
   }
 
   public CreateTopicRequest description(String description) {
@@ -193,6 +270,33 @@ public class CreateTopicRequest {
     this.replicaNumber = replicaNumber;
   }
 
+  public CreateTopicRequest tags(List<TagForCreateTopicInput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public CreateTopicRequest addTagsItem(TagForCreateTopicInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForCreateTopicInput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForCreateTopicInput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForCreateTopicInput> tags) {
+    this.tags = tags;
+  }
+
   public CreateTopicRequest topicName(String topicName) {
     this.topicName = topicName;
     return this;
@@ -224,17 +328,19 @@ public class CreateTopicRequest {
     CreateTopicRequest createTopicRequest = (CreateTopicRequest) o;
     return Objects.equals(this.accessPolicies, createTopicRequest.accessPolicies) &&
         Objects.equals(this.allAuthority, createTopicRequest.allAuthority) &&
+        Objects.equals(this.cleanupPolicy, createTopicRequest.cleanupPolicy) &&
         Objects.equals(this.description, createTopicRequest.description) &&
         Objects.equals(this.instanceId, createTopicRequest.instanceId) &&
         Objects.equals(this.parameters, createTopicRequest.parameters) &&
         Objects.equals(this.partitionNumber, createTopicRequest.partitionNumber) &&
         Objects.equals(this.replicaNumber, createTopicRequest.replicaNumber) &&
+        Objects.equals(this.tags, createTopicRequest.tags) &&
         Objects.equals(this.topicName, createTopicRequest.topicName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessPolicies, allAuthority, description, instanceId, parameters, partitionNumber, replicaNumber, topicName);
+    return Objects.hash(accessPolicies, allAuthority, cleanupPolicy, description, instanceId, parameters, partitionNumber, replicaNumber, tags, topicName);
   }
 
 
@@ -245,11 +351,13 @@ public class CreateTopicRequest {
     
     sb.append("    accessPolicies: ").append(toIndentedString(accessPolicies)).append("\n");
     sb.append("    allAuthority: ").append(toIndentedString(allAuthority)).append("\n");
+    sb.append("    cleanupPolicy: ").append(toIndentedString(cleanupPolicy)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    parameters: ").append(toIndentedString(parameters)).append("\n");
     sb.append("    partitionNumber: ").append(toIndentedString(partitionNumber)).append("\n");
     sb.append("    replicaNumber: ").append(toIndentedString(replicaNumber)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    topicName: ").append(toIndentedString(topicName)).append("\n");
     sb.append("}");
     return sb.toString();
