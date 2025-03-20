@@ -24,19 +24,19 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DeleteTimerRequest
+ * GetKafkaTriggerRequest
  */
 
 
 
-public class DeleteTimerRequest {
+public class GetKafkaTriggerRequest {
   @SerializedName("FunctionId")
   private String functionId = null;
 
   @SerializedName("Id")
   private String id = null;
 
-  public DeleteTimerRequest functionId(String functionId) {
+  public GetKafkaTriggerRequest functionId(String functionId) {
     this.functionId = functionId;
     return this;
   }
@@ -55,7 +55,7 @@ public class DeleteTimerRequest {
     this.functionId = functionId;
   }
 
-  public DeleteTimerRequest id(String id) {
+  public GetKafkaTriggerRequest id(String id) {
     this.id = id;
     return this;
   }
@@ -83,9 +83,9 @@ public class DeleteTimerRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeleteTimerRequest deleteTimerRequest = (DeleteTimerRequest) o;
-    return Objects.equals(this.functionId, deleteTimerRequest.functionId) &&
-        Objects.equals(this.id, deleteTimerRequest.id);
+    GetKafkaTriggerRequest getKafkaTriggerRequest = (GetKafkaTriggerRequest) o;
+    return Objects.equals(this.functionId, getKafkaTriggerRequest.functionId) &&
+        Objects.equals(this.id, getKafkaTriggerRequest.id);
   }
 
   @Override
@@ -97,7 +97,7 @@ public class DeleteTimerRequest {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeleteTimerRequest {\n");
+    sb.append("class GetKafkaTriggerRequest {\n");
     
     sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");

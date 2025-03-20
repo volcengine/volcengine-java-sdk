@@ -19,24 +19,27 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vefaas.model.RuleForUpdateFunctionMetricScaleStrategyRulesInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DeleteTimerRequest
+ * UpdateFunctionMetricScaleStrategyRulesRequest
  */
 
 
 
-public class DeleteTimerRequest {
+public class UpdateFunctionMetricScaleStrategyRulesRequest {
   @SerializedName("FunctionId")
   private String functionId = null;
 
-  @SerializedName("Id")
-  private String id = null;
+  @SerializedName("Rules")
+  private List<RuleForUpdateFunctionMetricScaleStrategyRulesInput> rules = null;
 
-  public DeleteTimerRequest functionId(String functionId) {
+  public UpdateFunctionMetricScaleStrategyRulesRequest functionId(String functionId) {
     this.functionId = functionId;
     return this;
   }
@@ -55,23 +58,31 @@ public class DeleteTimerRequest {
     this.functionId = functionId;
   }
 
-  public DeleteTimerRequest id(String id) {
-    this.id = id;
+  public UpdateFunctionMetricScaleStrategyRulesRequest rules(List<RuleForUpdateFunctionMetricScaleStrategyRulesInput> rules) {
+    this.rules = rules;
+    return this;
+  }
+
+  public UpdateFunctionMetricScaleStrategyRulesRequest addRulesItem(RuleForUpdateFunctionMetricScaleStrategyRulesInput rulesItem) {
+    if (this.rules == null) {
+      this.rules = new ArrayList<RuleForUpdateFunctionMetricScaleStrategyRulesInput>();
+    }
+    this.rules.add(rulesItem);
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Get rules
+   * @return rules
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getId() {
-    return id;
+  @Valid
+  @Schema(description = "")
+  public List<RuleForUpdateFunctionMetricScaleStrategyRulesInput> getRules() {
+    return rules;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setRules(List<RuleForUpdateFunctionMetricScaleStrategyRulesInput> rules) {
+    this.rules = rules;
   }
 
 
@@ -83,24 +94,24 @@ public class DeleteTimerRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeleteTimerRequest deleteTimerRequest = (DeleteTimerRequest) o;
-    return Objects.equals(this.functionId, deleteTimerRequest.functionId) &&
-        Objects.equals(this.id, deleteTimerRequest.id);
+    UpdateFunctionMetricScaleStrategyRulesRequest updateFunctionMetricScaleStrategyRulesRequest = (UpdateFunctionMetricScaleStrategyRulesRequest) o;
+    return Objects.equals(this.functionId, updateFunctionMetricScaleStrategyRulesRequest.functionId) &&
+        Objects.equals(this.rules, updateFunctionMetricScaleStrategyRulesRequest.rules);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(functionId, id);
+    return Objects.hash(functionId, rules);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeleteTimerRequest {\n");
+    sb.append("class UpdateFunctionMetricScaleStrategyRulesRequest {\n");
     
     sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    rules: ").append(toIndentedString(rules)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -24,54 +24,52 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DeleteTimerRequest
+ * TagForCreateFunctionInput
  */
 
 
 
-public class DeleteTimerRequest {
-  @SerializedName("FunctionId")
-  private String functionId = null;
+public class TagForCreateFunctionInput {
+  @SerializedName("Key")
+  private String key = null;
 
-  @SerializedName("Id")
-  private String id = null;
+  @SerializedName("Value")
+  private String value = null;
 
-  public DeleteTimerRequest functionId(String functionId) {
-    this.functionId = functionId;
+  public TagForCreateFunctionInput key(String key) {
+    this.key = key;
     return this;
   }
 
    /**
-   * Get functionId
-   * @return functionId
+   * Get key
+   * @return key
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getFunctionId() {
-    return functionId;
+  @Schema(description = "")
+  public String getKey() {
+    return key;
   }
 
-  public void setFunctionId(String functionId) {
-    this.functionId = functionId;
+  public void setKey(String key) {
+    this.key = key;
   }
 
-  public DeleteTimerRequest id(String id) {
-    this.id = id;
+  public TagForCreateFunctionInput value(String value) {
+    this.value = value;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Get value
+   * @return value
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getId() {
-    return id;
+  @Schema(description = "")
+  public String getValue() {
+    return value;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setValue(String value) {
+    this.value = value;
   }
 
 
@@ -83,24 +81,24 @@ public class DeleteTimerRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeleteTimerRequest deleteTimerRequest = (DeleteTimerRequest) o;
-    return Objects.equals(this.functionId, deleteTimerRequest.functionId) &&
-        Objects.equals(this.id, deleteTimerRequest.id);
+    TagForCreateFunctionInput tagForCreateFunctionInput = (TagForCreateFunctionInput) o;
+    return Objects.equals(this.key, tagForCreateFunctionInput.key) &&
+        Objects.equals(this.value, tagForCreateFunctionInput.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(functionId, id);
+    return Objects.hash(key, value);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeleteTimerRequest {\n");
+    sb.append("class TagForCreateFunctionInput {\n");
     
-    sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
   }

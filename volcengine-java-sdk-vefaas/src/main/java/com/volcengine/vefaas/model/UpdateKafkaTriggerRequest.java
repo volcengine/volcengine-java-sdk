@@ -24,20 +24,14 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * UpdateTimerRequest
+ * UpdateKafkaTriggerRequest
  */
 
 
 
-public class UpdateTimerRequest {
-  @SerializedName("Crontab")
-  private String crontab = null;
-
+public class UpdateKafkaTriggerRequest {
   @SerializedName("Description")
   private String description = null;
-
-  @SerializedName("EnableConcurrency")
-  private Boolean enableConcurrency = null;
 
   @SerializedName("Enabled")
   private Boolean enabled = null;
@@ -48,31 +42,10 @@ public class UpdateTimerRequest {
   @SerializedName("Id")
   private String id = null;
 
-  @SerializedName("Payload")
-  private String payload = null;
+  @SerializedName("MaximumRetryAttempts")
+  private Integer maximumRetryAttempts = null;
 
-  @SerializedName("Retries")
-  private Integer retries = null;
-
-  public UpdateTimerRequest crontab(String crontab) {
-    this.crontab = crontab;
-    return this;
-  }
-
-   /**
-   * Get crontab
-   * @return crontab
-  **/
-  @Schema(description = "")
-  public String getCrontab() {
-    return crontab;
-  }
-
-  public void setCrontab(String crontab) {
-    this.crontab = crontab;
-  }
-
-  public UpdateTimerRequest description(String description) {
+  public UpdateKafkaTriggerRequest description(String description) {
     this.description = description;
     return this;
   }
@@ -90,25 +63,7 @@ public class UpdateTimerRequest {
     this.description = description;
   }
 
-  public UpdateTimerRequest enableConcurrency(Boolean enableConcurrency) {
-    this.enableConcurrency = enableConcurrency;
-    return this;
-  }
-
-   /**
-   * Get enableConcurrency
-   * @return enableConcurrency
-  **/
-  @Schema(description = "")
-  public Boolean isEnableConcurrency() {
-    return enableConcurrency;
-  }
-
-  public void setEnableConcurrency(Boolean enableConcurrency) {
-    this.enableConcurrency = enableConcurrency;
-  }
-
-  public UpdateTimerRequest enabled(Boolean enabled) {
+  public UpdateKafkaTriggerRequest enabled(Boolean enabled) {
     this.enabled = enabled;
     return this;
   }
@@ -126,7 +81,7 @@ public class UpdateTimerRequest {
     this.enabled = enabled;
   }
 
-  public UpdateTimerRequest functionId(String functionId) {
+  public UpdateKafkaTriggerRequest functionId(String functionId) {
     this.functionId = functionId;
     return this;
   }
@@ -145,7 +100,7 @@ public class UpdateTimerRequest {
     this.functionId = functionId;
   }
 
-  public UpdateTimerRequest id(String id) {
+  public UpdateKafkaTriggerRequest id(String id) {
     this.id = id;
     return this;
   }
@@ -164,40 +119,22 @@ public class UpdateTimerRequest {
     this.id = id;
   }
 
-  public UpdateTimerRequest payload(String payload) {
-    this.payload = payload;
+  public UpdateKafkaTriggerRequest maximumRetryAttempts(Integer maximumRetryAttempts) {
+    this.maximumRetryAttempts = maximumRetryAttempts;
     return this;
   }
 
    /**
-   * Get payload
-   * @return payload
+   * Get maximumRetryAttempts
+   * @return maximumRetryAttempts
   **/
   @Schema(description = "")
-  public String getPayload() {
-    return payload;
+  public Integer getMaximumRetryAttempts() {
+    return maximumRetryAttempts;
   }
 
-  public void setPayload(String payload) {
-    this.payload = payload;
-  }
-
-  public UpdateTimerRequest retries(Integer retries) {
-    this.retries = retries;
-    return this;
-  }
-
-   /**
-   * Get retries
-   * @return retries
-  **/
-  @Schema(description = "")
-  public Integer getRetries() {
-    return retries;
-  }
-
-  public void setRetries(Integer retries) {
-    this.retries = retries;
+  public void setMaximumRetryAttempts(Integer maximumRetryAttempts) {
+    this.maximumRetryAttempts = maximumRetryAttempts;
   }
 
 
@@ -209,36 +146,30 @@ public class UpdateTimerRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UpdateTimerRequest updateTimerRequest = (UpdateTimerRequest) o;
-    return Objects.equals(this.crontab, updateTimerRequest.crontab) &&
-        Objects.equals(this.description, updateTimerRequest.description) &&
-        Objects.equals(this.enableConcurrency, updateTimerRequest.enableConcurrency) &&
-        Objects.equals(this.enabled, updateTimerRequest.enabled) &&
-        Objects.equals(this.functionId, updateTimerRequest.functionId) &&
-        Objects.equals(this.id, updateTimerRequest.id) &&
-        Objects.equals(this.payload, updateTimerRequest.payload) &&
-        Objects.equals(this.retries, updateTimerRequest.retries);
+    UpdateKafkaTriggerRequest updateKafkaTriggerRequest = (UpdateKafkaTriggerRequest) o;
+    return Objects.equals(this.description, updateKafkaTriggerRequest.description) &&
+        Objects.equals(this.enabled, updateKafkaTriggerRequest.enabled) &&
+        Objects.equals(this.functionId, updateKafkaTriggerRequest.functionId) &&
+        Objects.equals(this.id, updateKafkaTriggerRequest.id) &&
+        Objects.equals(this.maximumRetryAttempts, updateKafkaTriggerRequest.maximumRetryAttempts);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(crontab, description, enableConcurrency, enabled, functionId, id, payload, retries);
+    return Objects.hash(description, enabled, functionId, id, maximumRetryAttempts);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UpdateTimerRequest {\n");
+    sb.append("class UpdateKafkaTriggerRequest {\n");
     
-    sb.append("    crontab: ").append(toIndentedString(crontab)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    enableConcurrency: ").append(toIndentedString(enableConcurrency)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    payload: ").append(toIndentedString(payload)).append("\n");
-    sb.append("    retries: ").append(toIndentedString(retries)).append("\n");
+    sb.append("    maximumRetryAttempts: ").append(toIndentedString(maximumRetryAttempts)).append("\n");
     sb.append("}");
     return sb.toString();
   }

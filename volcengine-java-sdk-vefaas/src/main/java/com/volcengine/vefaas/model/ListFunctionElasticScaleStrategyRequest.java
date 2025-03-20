@@ -24,19 +24,16 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DeleteTimerRequest
+ * ListFunctionElasticScaleStrategyRequest
  */
 
 
 
-public class DeleteTimerRequest {
+public class ListFunctionElasticScaleStrategyRequest {
   @SerializedName("FunctionId")
   private String functionId = null;
 
-  @SerializedName("Id")
-  private String id = null;
-
-  public DeleteTimerRequest functionId(String functionId) {
+  public ListFunctionElasticScaleStrategyRequest functionId(String functionId) {
     this.functionId = functionId;
     return this;
   }
@@ -55,25 +52,6 @@ public class DeleteTimerRequest {
     this.functionId = functionId;
   }
 
-  public DeleteTimerRequest id(String id) {
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * Get id
-   * @return id
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -83,24 +61,22 @@ public class DeleteTimerRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeleteTimerRequest deleteTimerRequest = (DeleteTimerRequest) o;
-    return Objects.equals(this.functionId, deleteTimerRequest.functionId) &&
-        Objects.equals(this.id, deleteTimerRequest.id);
+    ListFunctionElasticScaleStrategyRequest listFunctionElasticScaleStrategyRequest = (ListFunctionElasticScaleStrategyRequest) o;
+    return Objects.equals(this.functionId, listFunctionElasticScaleStrategyRequest.functionId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(functionId, id);
+    return Objects.hash(functionId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeleteTimerRequest {\n");
+    sb.append("class ListFunctionElasticScaleStrategyRequest {\n");
     
     sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();
   }

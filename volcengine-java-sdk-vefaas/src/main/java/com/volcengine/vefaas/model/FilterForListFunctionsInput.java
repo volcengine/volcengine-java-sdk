@@ -21,57 +21,65 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DeleteTimerRequest
+ * FilterForListFunctionsInput
  */
 
 
 
-public class DeleteTimerRequest {
-  @SerializedName("FunctionId")
-  private String functionId = null;
+public class FilterForListFunctionsInput {
+  @SerializedName("Name")
+  private String name = null;
 
-  @SerializedName("Id")
-  private String id = null;
+  @SerializedName("Values")
+  private List<String> values = null;
 
-  public DeleteTimerRequest functionId(String functionId) {
-    this.functionId = functionId;
+  public FilterForListFunctionsInput name(String name) {
+    this.name = name;
     return this;
   }
 
    /**
-   * Get functionId
-   * @return functionId
+   * Get name
+   * @return name
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getFunctionId() {
-    return functionId;
+  @Schema(description = "")
+  public String getName() {
+    return name;
   }
 
-  public void setFunctionId(String functionId) {
-    this.functionId = functionId;
+  public void setName(String name) {
+    this.name = name;
   }
 
-  public DeleteTimerRequest id(String id) {
-    this.id = id;
+  public FilterForListFunctionsInput values(List<String> values) {
+    this.values = values;
+    return this;
+  }
+
+  public FilterForListFunctionsInput addValuesItem(String valuesItem) {
+    if (this.values == null) {
+      this.values = new ArrayList<String>();
+    }
+    this.values.add(valuesItem);
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Get values
+   * @return values
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getId() {
-    return id;
+  @Schema(description = "")
+  public List<String> getValues() {
+    return values;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setValues(List<String> values) {
+    this.values = values;
   }
 
 
@@ -83,24 +91,24 @@ public class DeleteTimerRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeleteTimerRequest deleteTimerRequest = (DeleteTimerRequest) o;
-    return Objects.equals(this.functionId, deleteTimerRequest.functionId) &&
-        Objects.equals(this.id, deleteTimerRequest.id);
+    FilterForListFunctionsInput filterForListFunctionsInput = (FilterForListFunctionsInput) o;
+    return Objects.equals(this.name, filterForListFunctionsInput.name) &&
+        Objects.equals(this.values, filterForListFunctionsInput.values);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(functionId, id);
+    return Objects.hash(name, values);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeleteTimerRequest {\n");
+    sb.append("class FilterForListFunctionsInput {\n");
     
-    sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    values: ").append(toIndentedString(values)).append("\n");
     sb.append("}");
     return sb.toString();
   }

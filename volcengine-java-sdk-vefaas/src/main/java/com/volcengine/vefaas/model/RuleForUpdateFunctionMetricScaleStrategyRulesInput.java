@@ -24,54 +24,52 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DeleteTimerRequest
+ * RuleForUpdateFunctionMetricScaleStrategyRulesInput
  */
 
 
 
-public class DeleteTimerRequest {
-  @SerializedName("FunctionId")
-  private String functionId = null;
+public class RuleForUpdateFunctionMetricScaleStrategyRulesInput {
+  @SerializedName("MetricType")
+  private String metricType = null;
 
-  @SerializedName("Id")
-  private String id = null;
+  @SerializedName("Target")
+  private Integer target = null;
 
-  public DeleteTimerRequest functionId(String functionId) {
-    this.functionId = functionId;
+  public RuleForUpdateFunctionMetricScaleStrategyRulesInput metricType(String metricType) {
+    this.metricType = metricType;
     return this;
   }
 
    /**
-   * Get functionId
-   * @return functionId
+   * Get metricType
+   * @return metricType
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getFunctionId() {
-    return functionId;
+  @Schema(description = "")
+  public String getMetricType() {
+    return metricType;
   }
 
-  public void setFunctionId(String functionId) {
-    this.functionId = functionId;
+  public void setMetricType(String metricType) {
+    this.metricType = metricType;
   }
 
-  public DeleteTimerRequest id(String id) {
-    this.id = id;
+  public RuleForUpdateFunctionMetricScaleStrategyRulesInput target(Integer target) {
+    this.target = target;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Get target
+   * @return target
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getId() {
-    return id;
+  @Schema(description = "")
+  public Integer getTarget() {
+    return target;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setTarget(Integer target) {
+    this.target = target;
   }
 
 
@@ -83,24 +81,24 @@ public class DeleteTimerRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeleteTimerRequest deleteTimerRequest = (DeleteTimerRequest) o;
-    return Objects.equals(this.functionId, deleteTimerRequest.functionId) &&
-        Objects.equals(this.id, deleteTimerRequest.id);
+    RuleForUpdateFunctionMetricScaleStrategyRulesInput ruleForUpdateFunctionMetricScaleStrategyRulesInput = (RuleForUpdateFunctionMetricScaleStrategyRulesInput) o;
+    return Objects.equals(this.metricType, ruleForUpdateFunctionMetricScaleStrategyRulesInput.metricType) &&
+        Objects.equals(this.target, ruleForUpdateFunctionMetricScaleStrategyRulesInput.target);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(functionId, id);
+    return Objects.hash(metricType, target);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeleteTimerRequest {\n");
+    sb.append("class RuleForUpdateFunctionMetricScaleStrategyRulesInput {\n");
     
-    sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    metricType: ").append(toIndentedString(metricType)).append("\n");
+    sb.append("    target: ").append(toIndentedString(target)).append("\n");
     sb.append("}");
     return sb.toString();
   }

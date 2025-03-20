@@ -24,54 +24,52 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DeleteTimerRequest
+ * HTTPHeaderForGetRevisionOutput
  */
 
 
 
-public class DeleteTimerRequest {
-  @SerializedName("FunctionId")
-  private String functionId = null;
+public class HTTPHeaderForGetRevisionOutput {
+  @SerializedName("Name")
+  private String name = null;
 
-  @SerializedName("Id")
-  private String id = null;
+  @SerializedName("Value")
+  private String value = null;
 
-  public DeleteTimerRequest functionId(String functionId) {
-    this.functionId = functionId;
+  public HTTPHeaderForGetRevisionOutput name(String name) {
+    this.name = name;
     return this;
   }
 
    /**
-   * Get functionId
-   * @return functionId
+   * Get name
+   * @return name
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getFunctionId() {
-    return functionId;
+  @Schema(description = "")
+  public String getName() {
+    return name;
   }
 
-  public void setFunctionId(String functionId) {
-    this.functionId = functionId;
+  public void setName(String name) {
+    this.name = name;
   }
 
-  public DeleteTimerRequest id(String id) {
-    this.id = id;
+  public HTTPHeaderForGetRevisionOutput value(String value) {
+    this.value = value;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Get value
+   * @return value
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getId() {
-    return id;
+  @Schema(description = "")
+  public String getValue() {
+    return value;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setValue(String value) {
+    this.value = value;
   }
 
 
@@ -83,24 +81,24 @@ public class DeleteTimerRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeleteTimerRequest deleteTimerRequest = (DeleteTimerRequest) o;
-    return Objects.equals(this.functionId, deleteTimerRequest.functionId) &&
-        Objects.equals(this.id, deleteTimerRequest.id);
+    HTTPHeaderForGetRevisionOutput htTPHeaderForGetRevisionOutput = (HTTPHeaderForGetRevisionOutput) o;
+    return Objects.equals(this.name, htTPHeaderForGetRevisionOutput.name) &&
+        Objects.equals(this.value, htTPHeaderForGetRevisionOutput.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(functionId, id);
+    return Objects.hash(name, value);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeleteTimerRequest {\n");
+    sb.append("class HTTPHeaderForGetRevisionOutput {\n");
     
-    sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
   }

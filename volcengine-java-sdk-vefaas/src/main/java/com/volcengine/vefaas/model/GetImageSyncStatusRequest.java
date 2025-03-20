@@ -24,19 +24,19 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DeleteTimerRequest
+ * GetImageSyncStatusRequest
  */
 
 
 
-public class DeleteTimerRequest {
+public class GetImageSyncStatusRequest {
   @SerializedName("FunctionId")
   private String functionId = null;
 
-  @SerializedName("Id")
-  private String id = null;
+  @SerializedName("Source")
+  private String source = null;
 
-  public DeleteTimerRequest functionId(String functionId) {
+  public GetImageSyncStatusRequest functionId(String functionId) {
     this.functionId = functionId;
     return this;
   }
@@ -55,23 +55,23 @@ public class DeleteTimerRequest {
     this.functionId = functionId;
   }
 
-  public DeleteTimerRequest id(String id) {
-    this.id = id;
+  public GetImageSyncStatusRequest source(String source) {
+    this.source = source;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Get source
+   * @return source
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getId() {
-    return id;
+  public String getSource() {
+    return source;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setSource(String source) {
+    this.source = source;
   }
 
 
@@ -83,24 +83,24 @@ public class DeleteTimerRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeleteTimerRequest deleteTimerRequest = (DeleteTimerRequest) o;
-    return Objects.equals(this.functionId, deleteTimerRequest.functionId) &&
-        Objects.equals(this.id, deleteTimerRequest.id);
+    GetImageSyncStatusRequest getImageSyncStatusRequest = (GetImageSyncStatusRequest) o;
+    return Objects.equals(this.functionId, getImageSyncStatusRequest.functionId) &&
+        Objects.equals(this.source, getImageSyncStatusRequest.source);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(functionId, id);
+    return Objects.hash(functionId, source);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeleteTimerRequest {\n");
+    sb.append("class GetImageSyncStatusRequest {\n");
     
     sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("}");
     return sb.toString();
   }

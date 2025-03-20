@@ -24,54 +24,31 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DeleteTimerRequest
+ * TCPSocketForGetRevisionOutput
  */
 
 
 
-public class DeleteTimerRequest {
-  @SerializedName("FunctionId")
-  private String functionId = null;
+public class TCPSocketForGetRevisionOutput {
+  @SerializedName("Port")
+  private Integer port = null;
 
-  @SerializedName("Id")
-  private String id = null;
-
-  public DeleteTimerRequest functionId(String functionId) {
-    this.functionId = functionId;
+  public TCPSocketForGetRevisionOutput port(Integer port) {
+    this.port = port;
     return this;
   }
 
    /**
-   * Get functionId
-   * @return functionId
+   * Get port
+   * @return port
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getFunctionId() {
-    return functionId;
+  @Schema(description = "")
+  public Integer getPort() {
+    return port;
   }
 
-  public void setFunctionId(String functionId) {
-    this.functionId = functionId;
-  }
-
-  public DeleteTimerRequest id(String id) {
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * Get id
-   * @return id
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
+  public void setPort(Integer port) {
+    this.port = port;
   }
 
 
@@ -83,24 +60,22 @@ public class DeleteTimerRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeleteTimerRequest deleteTimerRequest = (DeleteTimerRequest) o;
-    return Objects.equals(this.functionId, deleteTimerRequest.functionId) &&
-        Objects.equals(this.id, deleteTimerRequest.id);
+    TCPSocketForGetRevisionOutput tcPSocketForGetRevisionOutput = (TCPSocketForGetRevisionOutput) o;
+    return Objects.equals(this.port, tcPSocketForGetRevisionOutput.port);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(functionId, id);
+    return Objects.hash(port);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeleteTimerRequest {\n");
+    sb.append("class TCPSocketForGetRevisionOutput {\n");
     
-    sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("}");
     return sb.toString();
   }
