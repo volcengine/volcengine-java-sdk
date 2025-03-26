@@ -30,8 +30,8 @@ import javax.validation.Valid;
 
 
 public class RegionForDescribeRegionsOutput {
-  @SerializedName("Description")
-  private String description = null;
+  @SerializedName("Describeption")
+  private String describeption = null;
 
   @SerializedName("RegionId")
   private String regionId = null;
@@ -42,22 +42,22 @@ public class RegionForDescribeRegionsOutput {
   @SerializedName("RegionStatus")
   private String regionStatus = null;
 
-  public RegionForDescribeRegionsOutput description(String description) {
-    this.description = description;
+  public RegionForDescribeRegionsOutput describeption(String describeption) {
+    this.describeption = describeption;
     return this;
   }
 
    /**
-   * Get description
-   * @return description
+   * Get describeption
+   * @return describeption
   **/
   @Schema(description = "")
-  public String getDescription() {
-    return description;
+  public String getDescribeption() {
+    return describeption;
   }
 
-  public void setDescription(String description) {
-    this.description = description;
+  public void setDescribeption(String describeption) {
+    this.describeption = describeption;
   }
 
   public RegionForDescribeRegionsOutput regionId(String regionId) {
@@ -124,7 +124,7 @@ public class RegionForDescribeRegionsOutput {
       return false;
     }
     RegionForDescribeRegionsOutput regionForDescribeRegionsOutput = (RegionForDescribeRegionsOutput) o;
-    return Objects.equals(this.description, regionForDescribeRegionsOutput.description) &&
+    return Objects.equals(this.describeption, regionForDescribeRegionsOutput.describeption) &&
         Objects.equals(this.regionId, regionForDescribeRegionsOutput.regionId) &&
         Objects.equals(this.regionName, regionForDescribeRegionsOutput.regionName) &&
         Objects.equals(this.regionStatus, regionForDescribeRegionsOutput.regionStatus);
@@ -132,7 +132,7 @@ public class RegionForDescribeRegionsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, regionId, regionName, regionStatus);
+    return Objects.hash(describeption, regionId, regionName, regionStatus);
   }
 
 
@@ -141,7 +141,7 @@ public class RegionForDescribeRegionsOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class RegionForDescribeRegionsOutput {\n");
     
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    describeption: ").append(toIndentedString(describeption)).append("\n");
     sb.append("    regionId: ").append(toIndentedString(regionId)).append("\n");
     sb.append("    regionName: ").append(toIndentedString(regionName)).append("\n");
     sb.append("    regionStatus: ").append(toIndentedString(regionStatus)).append("\n");
