@@ -24,16 +24,38 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ModifyBackupPolicyResponse
+ * ModifyInstanceAdvancedFeaturesRequest
  */
 
 
 
-public class ModifyBackupPolicyResponse extends com.volcengine.model.AbstractResponse {
+public class ModifyInstanceAdvancedFeaturesRequest {
+  @SerializedName("AdvancedFeatures")
+  private String advancedFeatures = null;
+
   @SerializedName("InstanceId")
   private String instanceId = null;
 
-  public ModifyBackupPolicyResponse instanceId(String instanceId) {
+  public ModifyInstanceAdvancedFeaturesRequest advancedFeatures(String advancedFeatures) {
+    this.advancedFeatures = advancedFeatures;
+    return this;
+  }
+
+   /**
+   * Get advancedFeatures
+   * @return advancedFeatures
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getAdvancedFeatures() {
+    return advancedFeatures;
+  }
+
+  public void setAdvancedFeatures(String advancedFeatures) {
+    this.advancedFeatures = advancedFeatures;
+  }
+
+  public ModifyInstanceAdvancedFeaturesRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
     return this;
   }
@@ -42,7 +64,8 @@ public class ModifyBackupPolicyResponse extends com.volcengine.model.AbstractRes
    * Get instanceId
    * @return instanceId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getInstanceId() {
     return instanceId;
   }
@@ -60,21 +83,23 @@ public class ModifyBackupPolicyResponse extends com.volcengine.model.AbstractRes
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ModifyBackupPolicyResponse modifyBackupPolicyResponse = (ModifyBackupPolicyResponse) o;
-    return Objects.equals(this.instanceId, modifyBackupPolicyResponse.instanceId);
+    ModifyInstanceAdvancedFeaturesRequest modifyInstanceAdvancedFeaturesRequest = (ModifyInstanceAdvancedFeaturesRequest) o;
+    return Objects.equals(this.advancedFeatures, modifyInstanceAdvancedFeaturesRequest.advancedFeatures) &&
+        Objects.equals(this.instanceId, modifyInstanceAdvancedFeaturesRequest.instanceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId);
+    return Objects.hash(advancedFeatures, instanceId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ModifyBackupPolicyResponse {\n");
+    sb.append("class ModifyInstanceAdvancedFeaturesRequest {\n");
     
+    sb.append("    advancedFeatures: ").append(toIndentedString(advancedFeatures)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("}");
     return sb.toString();

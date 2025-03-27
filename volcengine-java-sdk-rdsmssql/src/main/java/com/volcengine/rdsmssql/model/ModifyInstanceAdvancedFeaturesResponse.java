@@ -24,16 +24,37 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ModifyBackupPolicyResponse
+ * ModifyInstanceAdvancedFeaturesResponse
  */
 
 
 
-public class ModifyBackupPolicyResponse extends com.volcengine.model.AbstractResponse {
+public class ModifyInstanceAdvancedFeaturesResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("AdvancedFeatures")
+  private String advancedFeatures = null;
+
   @SerializedName("InstanceId")
   private String instanceId = null;
 
-  public ModifyBackupPolicyResponse instanceId(String instanceId) {
+  public ModifyInstanceAdvancedFeaturesResponse advancedFeatures(String advancedFeatures) {
+    this.advancedFeatures = advancedFeatures;
+    return this;
+  }
+
+   /**
+   * Get advancedFeatures
+   * @return advancedFeatures
+  **/
+  @Schema(description = "")
+  public String getAdvancedFeatures() {
+    return advancedFeatures;
+  }
+
+  public void setAdvancedFeatures(String advancedFeatures) {
+    this.advancedFeatures = advancedFeatures;
+  }
+
+  public ModifyInstanceAdvancedFeaturesResponse instanceId(String instanceId) {
     this.instanceId = instanceId;
     return this;
   }
@@ -60,21 +81,23 @@ public class ModifyBackupPolicyResponse extends com.volcengine.model.AbstractRes
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ModifyBackupPolicyResponse modifyBackupPolicyResponse = (ModifyBackupPolicyResponse) o;
-    return Objects.equals(this.instanceId, modifyBackupPolicyResponse.instanceId);
+    ModifyInstanceAdvancedFeaturesResponse modifyInstanceAdvancedFeaturesResponse = (ModifyInstanceAdvancedFeaturesResponse) o;
+    return Objects.equals(this.advancedFeatures, modifyInstanceAdvancedFeaturesResponse.advancedFeatures) &&
+        Objects.equals(this.instanceId, modifyInstanceAdvancedFeaturesResponse.instanceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId);
+    return Objects.hash(advancedFeatures, instanceId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ModifyBackupPolicyResponse {\n");
+    sb.append("class ModifyInstanceAdvancedFeaturesResponse {\n");
     
+    sb.append("    advancedFeatures: ").append(toIndentedString(advancedFeatures)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("}");
     return sb.toString();

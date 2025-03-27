@@ -42,6 +42,9 @@ public class ModifyBackupPolicyRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;
 
+  @SerializedName("LogBackupInterval")
+  private Integer logBackupInterval = null;
+
   public ModifyBackupPolicyRequest backupRetentionPeriod(Integer backupRetentionPeriod) {
     this.backupRetentionPeriod = backupRetentionPeriod;
     return this;
@@ -118,6 +121,24 @@ public class ModifyBackupPolicyRequest {
     this.instanceId = instanceId;
   }
 
+  public ModifyBackupPolicyRequest logBackupInterval(Integer logBackupInterval) {
+    this.logBackupInterval = logBackupInterval;
+    return this;
+  }
+
+   /**
+   * Get logBackupInterval
+   * @return logBackupInterval
+  **/
+  @Schema(description = "")
+  public Integer getLogBackupInterval() {
+    return logBackupInterval;
+  }
+
+  public void setLogBackupInterval(Integer logBackupInterval) {
+    this.logBackupInterval = logBackupInterval;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -131,12 +152,13 @@ public class ModifyBackupPolicyRequest {
     return Objects.equals(this.backupRetentionPeriod, modifyBackupPolicyRequest.backupRetentionPeriod) &&
         Objects.equals(this.backupTime, modifyBackupPolicyRequest.backupTime) &&
         Objects.equals(this.fullBackupPeriod, modifyBackupPolicyRequest.fullBackupPeriod) &&
-        Objects.equals(this.instanceId, modifyBackupPolicyRequest.instanceId);
+        Objects.equals(this.instanceId, modifyBackupPolicyRequest.instanceId) &&
+        Objects.equals(this.logBackupInterval, modifyBackupPolicyRequest.logBackupInterval);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(backupRetentionPeriod, backupTime, fullBackupPeriod, instanceId);
+    return Objects.hash(backupRetentionPeriod, backupTime, fullBackupPeriod, instanceId, logBackupInterval);
   }
 
 
@@ -149,6 +171,7 @@ public class ModifyBackupPolicyRequest {
     sb.append("    backupTime: ").append(toIndentedString(backupTime)).append("\n");
     sb.append("    fullBackupPeriod: ").append(toIndentedString(fullBackupPeriod)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    logBackupInterval: ").append(toIndentedString(logBackupInterval)).append("\n");
     sb.append("}");
     return sb.toString();
   }

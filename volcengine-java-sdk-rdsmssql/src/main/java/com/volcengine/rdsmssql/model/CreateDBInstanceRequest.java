@@ -34,6 +34,9 @@ import javax.validation.Valid;
 
 
 public class CreateDBInstanceRequest {
+  @SerializedName("AllowListIds")
+  private List<String> allowListIds = null;
+
   @SerializedName("ChargeInfo")
   private ChargeInfoForCreateDBInstanceInput chargeInfo = null;
 
@@ -48,6 +51,9 @@ public class CreateDBInstanceRequest {
 
   @SerializedName("InstanceType")
   private String instanceType = null;
+
+  @SerializedName("MaintenanceTime")
+  private String maintenanceTime = null;
 
   @SerializedName("NodeSpec")
   private String nodeSpec = null;
@@ -75,6 +81,32 @@ public class CreateDBInstanceRequest {
 
   @SerializedName("ZoneId")
   private String zoneId = null;
+
+  public CreateDBInstanceRequest allowListIds(List<String> allowListIds) {
+    this.allowListIds = allowListIds;
+    return this;
+  }
+
+  public CreateDBInstanceRequest addAllowListIdsItem(String allowListIdsItem) {
+    if (this.allowListIds == null) {
+      this.allowListIds = new ArrayList<String>();
+    }
+    this.allowListIds.add(allowListIdsItem);
+    return this;
+  }
+
+   /**
+   * Get allowListIds
+   * @return allowListIds
+  **/
+  @Schema(description = "")
+  public List<String> getAllowListIds() {
+    return allowListIds;
+  }
+
+  public void setAllowListIds(List<String> allowListIds) {
+    this.allowListIds = allowListIds;
+  }
 
   public CreateDBInstanceRequest chargeInfo(ChargeInfoForCreateDBInstanceInput chargeInfo) {
     this.chargeInfo = chargeInfo;
@@ -168,6 +200,24 @@ public class CreateDBInstanceRequest {
 
   public void setInstanceType(String instanceType) {
     this.instanceType = instanceType;
+  }
+
+  public CreateDBInstanceRequest maintenanceTime(String maintenanceTime) {
+    this.maintenanceTime = maintenanceTime;
+    return this;
+  }
+
+   /**
+   * Get maintenanceTime
+   * @return maintenanceTime
+  **/
+  @Schema(description = "")
+  public String getMaintenanceTime() {
+    return maintenanceTime;
+  }
+
+  public void setMaintenanceTime(String maintenanceTime) {
+    this.maintenanceTime = maintenanceTime;
   }
 
   public CreateDBInstanceRequest nodeSpec(String nodeSpec) {
@@ -357,11 +407,13 @@ public class CreateDBInstanceRequest {
       return false;
     }
     CreateDBInstanceRequest createDBInstanceRequest = (CreateDBInstanceRequest) o;
-    return Objects.equals(this.chargeInfo, createDBInstanceRequest.chargeInfo) &&
+    return Objects.equals(this.allowListIds, createDBInstanceRequest.allowListIds) &&
+        Objects.equals(this.chargeInfo, createDBInstanceRequest.chargeInfo) &&
         Objects.equals(this.dbEngineVersion, createDBInstanceRequest.dbEngineVersion) &&
         Objects.equals(this.dbTimeZone, createDBInstanceRequest.dbTimeZone) &&
         Objects.equals(this.instanceName, createDBInstanceRequest.instanceName) &&
         Objects.equals(this.instanceType, createDBInstanceRequest.instanceType) &&
+        Objects.equals(this.maintenanceTime, createDBInstanceRequest.maintenanceTime) &&
         Objects.equals(this.nodeSpec, createDBInstanceRequest.nodeSpec) &&
         Objects.equals(this.projectName, createDBInstanceRequest.projectName) &&
         Objects.equals(this.serverCollation, createDBInstanceRequest.serverCollation) &&
@@ -375,7 +427,7 @@ public class CreateDBInstanceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(chargeInfo, dbEngineVersion, dbTimeZone, instanceName, instanceType, nodeSpec, projectName, serverCollation, storageSpace, subnetId, superAccountPassword, tags, vpcId, zoneId);
+    return Objects.hash(allowListIds, chargeInfo, dbEngineVersion, dbTimeZone, instanceName, instanceType, maintenanceTime, nodeSpec, projectName, serverCollation, storageSpace, subnetId, superAccountPassword, tags, vpcId, zoneId);
   }
 
 
@@ -384,11 +436,13 @@ public class CreateDBInstanceRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateDBInstanceRequest {\n");
     
+    sb.append("    allowListIds: ").append(toIndentedString(allowListIds)).append("\n");
     sb.append("    chargeInfo: ").append(toIndentedString(chargeInfo)).append("\n");
     sb.append("    dbEngineVersion: ").append(toIndentedString(dbEngineVersion)).append("\n");
     sb.append("    dbTimeZone: ").append(toIndentedString(dbTimeZone)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
+    sb.append("    maintenanceTime: ").append(toIndentedString(maintenanceTime)).append("\n");
     sb.append("    nodeSpec: ").append(toIndentedString(nodeSpec)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    serverCollation: ").append(toIndentedString(serverCollation)).append("\n");

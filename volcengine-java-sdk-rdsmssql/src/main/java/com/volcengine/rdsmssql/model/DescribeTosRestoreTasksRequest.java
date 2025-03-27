@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -42,11 +44,17 @@ public class DescribeTosRestoreTasksRequest {
   @SerializedName("PageSize")
   private Integer pageSize = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("QueryEndTime")
   private String queryEndTime = null;
 
   @SerializedName("QueryStartTime")
   private String queryStartTime = null;
+
+  @SerializedName("RestoreTaskIds")
+  private List<String> restoreTaskIds = null;
 
   public DescribeTosRestoreTasksRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
@@ -120,6 +128,24 @@ public class DescribeTosRestoreTasksRequest {
     this.pageSize = pageSize;
   }
 
+  public DescribeTosRestoreTasksRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public DescribeTosRestoreTasksRequest queryEndTime(String queryEndTime) {
     this.queryEndTime = queryEndTime;
     return this;
@@ -156,6 +182,32 @@ public class DescribeTosRestoreTasksRequest {
     this.queryStartTime = queryStartTime;
   }
 
+  public DescribeTosRestoreTasksRequest restoreTaskIds(List<String> restoreTaskIds) {
+    this.restoreTaskIds = restoreTaskIds;
+    return this;
+  }
+
+  public DescribeTosRestoreTasksRequest addRestoreTaskIdsItem(String restoreTaskIdsItem) {
+    if (this.restoreTaskIds == null) {
+      this.restoreTaskIds = new ArrayList<String>();
+    }
+    this.restoreTaskIds.add(restoreTaskIdsItem);
+    return this;
+  }
+
+   /**
+   * Get restoreTaskIds
+   * @return restoreTaskIds
+  **/
+  @Schema(description = "")
+  public List<String> getRestoreTaskIds() {
+    return restoreTaskIds;
+  }
+
+  public void setRestoreTaskIds(List<String> restoreTaskIds) {
+    this.restoreTaskIds = restoreTaskIds;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -170,13 +222,15 @@ public class DescribeTosRestoreTasksRequest {
         Objects.equals(this.instanceName, describeTosRestoreTasksRequest.instanceName) &&
         Objects.equals(this.pageNumber, describeTosRestoreTasksRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeTosRestoreTasksRequest.pageSize) &&
+        Objects.equals(this.projectName, describeTosRestoreTasksRequest.projectName) &&
         Objects.equals(this.queryEndTime, describeTosRestoreTasksRequest.queryEndTime) &&
-        Objects.equals(this.queryStartTime, describeTosRestoreTasksRequest.queryStartTime);
+        Objects.equals(this.queryStartTime, describeTosRestoreTasksRequest.queryStartTime) &&
+        Objects.equals(this.restoreTaskIds, describeTosRestoreTasksRequest.restoreTaskIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, instanceName, pageNumber, pageSize, queryEndTime, queryStartTime);
+    return Objects.hash(instanceId, instanceName, pageNumber, pageSize, projectName, queryEndTime, queryStartTime, restoreTaskIds);
   }
 
 
@@ -189,8 +243,10 @@ public class DescribeTosRestoreTasksRequest {
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    queryEndTime: ").append(toIndentedString(queryEndTime)).append("\n");
     sb.append("    queryStartTime: ").append(toIndentedString(queryStartTime)).append("\n");
+    sb.append("    restoreTaskIds: ").append(toIndentedString(restoreTaskIds)).append("\n");
     sb.append("}");
     return sb.toString();
   }
