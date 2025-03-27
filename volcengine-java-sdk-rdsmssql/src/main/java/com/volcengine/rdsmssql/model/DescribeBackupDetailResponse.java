@@ -19,36 +19,38 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.rdsmssql.model.BackupsInfoForDescribeBackupDetailOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ModifyBackupPolicyResponse
+ * DescribeBackupDetailResponse
  */
 
 
 
-public class ModifyBackupPolicyResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("InstanceId")
-  private String instanceId = null;
+public class DescribeBackupDetailResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("BackupsInfo")
+  private BackupsInfoForDescribeBackupDetailOutput backupsInfo = null;
 
-  public ModifyBackupPolicyResponse instanceId(String instanceId) {
-    this.instanceId = instanceId;
+  public DescribeBackupDetailResponse backupsInfo(BackupsInfoForDescribeBackupDetailOutput backupsInfo) {
+    this.backupsInfo = backupsInfo;
     return this;
   }
 
    /**
-   * Get instanceId
-   * @return instanceId
+   * Get backupsInfo
+   * @return backupsInfo
   **/
+  @Valid
   @Schema(description = "")
-  public String getInstanceId() {
-    return instanceId;
+  public BackupsInfoForDescribeBackupDetailOutput getBackupsInfo() {
+    return backupsInfo;
   }
 
-  public void setInstanceId(String instanceId) {
-    this.instanceId = instanceId;
+  public void setBackupsInfo(BackupsInfoForDescribeBackupDetailOutput backupsInfo) {
+    this.backupsInfo = backupsInfo;
   }
 
 
@@ -60,22 +62,22 @@ public class ModifyBackupPolicyResponse extends com.volcengine.model.AbstractRes
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ModifyBackupPolicyResponse modifyBackupPolicyResponse = (ModifyBackupPolicyResponse) o;
-    return Objects.equals(this.instanceId, modifyBackupPolicyResponse.instanceId);
+    DescribeBackupDetailResponse describeBackupDetailResponse = (DescribeBackupDetailResponse) o;
+    return Objects.equals(this.backupsInfo, describeBackupDetailResponse.backupsInfo);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId);
+    return Objects.hash(backupsInfo);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ModifyBackupPolicyResponse {\n");
+    sb.append("class DescribeBackupDetailResponse {\n");
     
-    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    backupsInfo: ").append(toIndentedString(backupsInfo)).append("\n");
     sb.append("}");
     return sb.toString();
   }

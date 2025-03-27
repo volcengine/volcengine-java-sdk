@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.rdsmssql.model.ChargeDetailForDescribeDBInstancesOutput;
 import com.volcengine.rdsmssql.model.NodeDetailInfoForDescribeDBInstancesOutput;
+import com.volcengine.rdsmssql.model.TagForDescribeDBInstancesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -58,6 +59,9 @@ public class InstancesInfoForDescribeDBInstancesOutput {
   @SerializedName("InstanceType")
   private String instanceType = null;
 
+  @SerializedName("MaintenanceTime")
+  private String maintenanceTime = null;
+
   @SerializedName("NodeDetailInfo")
   private List<NodeDetailInfoForDescribeDBInstancesOutput> nodeDetailInfo = null;
 
@@ -90,6 +94,9 @@ public class InstancesInfoForDescribeDBInstancesOutput {
 
   @SerializedName("SubnetId")
   private String subnetId = null;
+
+  @SerializedName("Tags")
+  private List<TagForDescribeDBInstancesOutput> tags = null;
 
   @SerializedName("TimeZone")
   private String timeZone = null;
@@ -243,6 +250,24 @@ public class InstancesInfoForDescribeDBInstancesOutput {
 
   public void setInstanceType(String instanceType) {
     this.instanceType = instanceType;
+  }
+
+  public InstancesInfoForDescribeDBInstancesOutput maintenanceTime(String maintenanceTime) {
+    this.maintenanceTime = maintenanceTime;
+    return this;
+  }
+
+   /**
+   * Get maintenanceTime
+   * @return maintenanceTime
+  **/
+  @Schema(description = "")
+  public String getMaintenanceTime() {
+    return maintenanceTime;
+  }
+
+  public void setMaintenanceTime(String maintenanceTime) {
+    this.maintenanceTime = maintenanceTime;
   }
 
   public InstancesInfoForDescribeDBInstancesOutput nodeDetailInfo(List<NodeDetailInfoForDescribeDBInstancesOutput> nodeDetailInfo) {
@@ -452,6 +477,33 @@ public class InstancesInfoForDescribeDBInstancesOutput {
     this.subnetId = subnetId;
   }
 
+  public InstancesInfoForDescribeDBInstancesOutput tags(List<TagForDescribeDBInstancesOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public InstancesInfoForDescribeDBInstancesOutput addTagsItem(TagForDescribeDBInstancesOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForDescribeDBInstancesOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForDescribeDBInstancesOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForDescribeDBInstancesOutput> tags) {
+    this.tags = tags;
+  }
+
   public InstancesInfoForDescribeDBInstancesOutput timeZone(String timeZone) {
     this.timeZone = timeZone;
     return this;
@@ -524,6 +576,7 @@ public class InstancesInfoForDescribeDBInstancesOutput {
         Objects.equals(this.instanceName, instancesInfoForDescribeDBInstancesOutput.instanceName) &&
         Objects.equals(this.instanceStatus, instancesInfoForDescribeDBInstancesOutput.instanceStatus) &&
         Objects.equals(this.instanceType, instancesInfoForDescribeDBInstancesOutput.instanceType) &&
+        Objects.equals(this.maintenanceTime, instancesInfoForDescribeDBInstancesOutput.maintenanceTime) &&
         Objects.equals(this.nodeDetailInfo, instancesInfoForDescribeDBInstancesOutput.nodeDetailInfo) &&
         Objects.equals(this.nodeSpec, instancesInfoForDescribeDBInstancesOutput.nodeSpec) &&
         Objects.equals(this.port, instancesInfoForDescribeDBInstancesOutput.port) &&
@@ -535,6 +588,7 @@ public class InstancesInfoForDescribeDBInstancesOutput {
         Objects.equals(this.storageSpace, instancesInfoForDescribeDBInstancesOutput.storageSpace) &&
         Objects.equals(this.storageType, instancesInfoForDescribeDBInstancesOutput.storageType) &&
         Objects.equals(this.subnetId, instancesInfoForDescribeDBInstancesOutput.subnetId) &&
+        Objects.equals(this.tags, instancesInfoForDescribeDBInstancesOutput.tags) &&
         Objects.equals(this.timeZone, instancesInfoForDescribeDBInstancesOutput.timeZone) &&
         Objects.equals(this.vpcId, instancesInfoForDescribeDBInstancesOutput.vpcId) &&
         Objects.equals(this.zoneId, instancesInfoForDescribeDBInstancesOutput.zoneId);
@@ -542,7 +596,7 @@ public class InstancesInfoForDescribeDBInstancesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(chargeDetail, createTime, dbEngineVersion, instanceCategory, instanceId, instanceName, instanceStatus, instanceType, nodeDetailInfo, nodeSpec, port, primaryInstanceId, projectName, readOnlyNumber, regionId, serverCollation, storageSpace, storageType, subnetId, timeZone, vpcId, zoneId);
+    return Objects.hash(chargeDetail, createTime, dbEngineVersion, instanceCategory, instanceId, instanceName, instanceStatus, instanceType, maintenanceTime, nodeDetailInfo, nodeSpec, port, primaryInstanceId, projectName, readOnlyNumber, regionId, serverCollation, storageSpace, storageType, subnetId, tags, timeZone, vpcId, zoneId);
   }
 
 
@@ -559,6 +613,7 @@ public class InstancesInfoForDescribeDBInstancesOutput {
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    instanceStatus: ").append(toIndentedString(instanceStatus)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
+    sb.append("    maintenanceTime: ").append(toIndentedString(maintenanceTime)).append("\n");
     sb.append("    nodeDetailInfo: ").append(toIndentedString(nodeDetailInfo)).append("\n");
     sb.append("    nodeSpec: ").append(toIndentedString(nodeSpec)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
@@ -570,6 +625,7 @@ public class InstancesInfoForDescribeDBInstancesOutput {
     sb.append("    storageSpace: ").append(toIndentedString(storageSpace)).append("\n");
     sb.append("    storageType: ").append(toIndentedString(storageType)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    timeZone: ").append(toIndentedString(timeZone)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");

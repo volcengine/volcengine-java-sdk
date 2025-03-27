@@ -24,31 +24,52 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ModifyBackupPolicyResponse
+ * TagForDescribeDBInstancesOutput
  */
 
 
 
-public class ModifyBackupPolicyResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("InstanceId")
-  private String instanceId = null;
+public class TagForDescribeDBInstancesOutput {
+  @SerializedName("Key")
+  private String key = null;
 
-  public ModifyBackupPolicyResponse instanceId(String instanceId) {
-    this.instanceId = instanceId;
+  @SerializedName("Value")
+  private String value = null;
+
+  public TagForDescribeDBInstancesOutput key(String key) {
+    this.key = key;
     return this;
   }
 
    /**
-   * Get instanceId
-   * @return instanceId
+   * Get key
+   * @return key
   **/
   @Schema(description = "")
-  public String getInstanceId() {
-    return instanceId;
+  public String getKey() {
+    return key;
   }
 
-  public void setInstanceId(String instanceId) {
-    this.instanceId = instanceId;
+  public void setKey(String key) {
+    this.key = key;
+  }
+
+  public TagForDescribeDBInstancesOutput value(String value) {
+    this.value = value;
+    return this;
+  }
+
+   /**
+   * Get value
+   * @return value
+  **/
+  @Schema(description = "")
+  public String getValue() {
+    return value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
   }
 
 
@@ -60,22 +81,24 @@ public class ModifyBackupPolicyResponse extends com.volcengine.model.AbstractRes
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ModifyBackupPolicyResponse modifyBackupPolicyResponse = (ModifyBackupPolicyResponse) o;
-    return Objects.equals(this.instanceId, modifyBackupPolicyResponse.instanceId);
+    TagForDescribeDBInstancesOutput tagForDescribeDBInstancesOutput = (TagForDescribeDBInstancesOutput) o;
+    return Objects.equals(this.key, tagForDescribeDBInstancesOutput.key) &&
+        Objects.equals(this.value, tagForDescribeDBInstancesOutput.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId);
+    return Objects.hash(key, value);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ModifyBackupPolicyResponse {\n");
+    sb.append("class TagForDescribeDBInstancesOutput {\n");
     
-    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
   }

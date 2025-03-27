@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.rdsmssql.model.BackupDatabaseDetailForDescribeBackupsOutput;
+import com.volcengine.rdsmssql.model.BackupDatabaseDetailForDescribeBackupDetailOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -27,14 +27,14 @@ import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * BackupsInfoForDescribeBackupsOutput
+ * BackupsInfoForDescribeBackupDetailOutput
  */
 
 
 
-public class BackupsInfoForDescribeBackupsOutput {
+public class BackupsInfoForDescribeBackupDetailOutput {
   @SerializedName("BackupDatabaseDetail")
-  private List<BackupDatabaseDetailForDescribeBackupsOutput> backupDatabaseDetail = null;
+  private List<BackupDatabaseDetailForDescribeBackupDetailOutput> backupDatabaseDetail = null;
 
   @SerializedName("BackupEndTime")
   private String backupEndTime = null;
@@ -66,14 +66,14 @@ public class BackupsInfoForDescribeBackupsOutput {
   @SerializedName("DownloadStatus")
   private String downloadStatus = null;
 
-  public BackupsInfoForDescribeBackupsOutput backupDatabaseDetail(List<BackupDatabaseDetailForDescribeBackupsOutput> backupDatabaseDetail) {
+  public BackupsInfoForDescribeBackupDetailOutput backupDatabaseDetail(List<BackupDatabaseDetailForDescribeBackupDetailOutput> backupDatabaseDetail) {
     this.backupDatabaseDetail = backupDatabaseDetail;
     return this;
   }
 
-  public BackupsInfoForDescribeBackupsOutput addBackupDatabaseDetailItem(BackupDatabaseDetailForDescribeBackupsOutput backupDatabaseDetailItem) {
+  public BackupsInfoForDescribeBackupDetailOutput addBackupDatabaseDetailItem(BackupDatabaseDetailForDescribeBackupDetailOutput backupDatabaseDetailItem) {
     if (this.backupDatabaseDetail == null) {
-      this.backupDatabaseDetail = new ArrayList<BackupDatabaseDetailForDescribeBackupsOutput>();
+      this.backupDatabaseDetail = new ArrayList<BackupDatabaseDetailForDescribeBackupDetailOutput>();
     }
     this.backupDatabaseDetail.add(backupDatabaseDetailItem);
     return this;
@@ -85,15 +85,15 @@ public class BackupsInfoForDescribeBackupsOutput {
   **/
   @Valid
   @Schema(description = "")
-  public List<BackupDatabaseDetailForDescribeBackupsOutput> getBackupDatabaseDetail() {
+  public List<BackupDatabaseDetailForDescribeBackupDetailOutput> getBackupDatabaseDetail() {
     return backupDatabaseDetail;
   }
 
-  public void setBackupDatabaseDetail(List<BackupDatabaseDetailForDescribeBackupsOutput> backupDatabaseDetail) {
+  public void setBackupDatabaseDetail(List<BackupDatabaseDetailForDescribeBackupDetailOutput> backupDatabaseDetail) {
     this.backupDatabaseDetail = backupDatabaseDetail;
   }
 
-  public BackupsInfoForDescribeBackupsOutput backupEndTime(String backupEndTime) {
+  public BackupsInfoForDescribeBackupDetailOutput backupEndTime(String backupEndTime) {
     this.backupEndTime = backupEndTime;
     return this;
   }
@@ -111,7 +111,7 @@ public class BackupsInfoForDescribeBackupsOutput {
     this.backupEndTime = backupEndTime;
   }
 
-  public BackupsInfoForDescribeBackupsOutput backupFileSize(Long backupFileSize) {
+  public BackupsInfoForDescribeBackupDetailOutput backupFileSize(Long backupFileSize) {
     this.backupFileSize = backupFileSize;
     return this;
   }
@@ -129,7 +129,7 @@ public class BackupsInfoForDescribeBackupsOutput {
     this.backupFileSize = backupFileSize;
   }
 
-  public BackupsInfoForDescribeBackupsOutput backupId(String backupId) {
+  public BackupsInfoForDescribeBackupDetailOutput backupId(String backupId) {
     this.backupId = backupId;
     return this;
   }
@@ -147,7 +147,7 @@ public class BackupsInfoForDescribeBackupsOutput {
     this.backupId = backupId;
   }
 
-  public BackupsInfoForDescribeBackupsOutput backupMethod(String backupMethod) {
+  public BackupsInfoForDescribeBackupDetailOutput backupMethod(String backupMethod) {
     this.backupMethod = backupMethod;
     return this;
   }
@@ -165,7 +165,7 @@ public class BackupsInfoForDescribeBackupsOutput {
     this.backupMethod = backupMethod;
   }
 
-  public BackupsInfoForDescribeBackupsOutput backupStartTime(String backupStartTime) {
+  public BackupsInfoForDescribeBackupDetailOutput backupStartTime(String backupStartTime) {
     this.backupStartTime = backupStartTime;
     return this;
   }
@@ -183,7 +183,7 @@ public class BackupsInfoForDescribeBackupsOutput {
     this.backupStartTime = backupStartTime;
   }
 
-  public BackupsInfoForDescribeBackupsOutput backupStatus(String backupStatus) {
+  public BackupsInfoForDescribeBackupDetailOutput backupStatus(String backupStatus) {
     this.backupStatus = backupStatus;
     return this;
   }
@@ -201,7 +201,7 @@ public class BackupsInfoForDescribeBackupsOutput {
     this.backupStatus = backupStatus;
   }
 
-  public BackupsInfoForDescribeBackupsOutput backupType(String backupType) {
+  public BackupsInfoForDescribeBackupDetailOutput backupType(String backupType) {
     this.backupType = backupType;
     return this;
   }
@@ -219,7 +219,7 @@ public class BackupsInfoForDescribeBackupsOutput {
     this.backupType = backupType;
   }
 
-  public BackupsInfoForDescribeBackupsOutput createType(String createType) {
+  public BackupsInfoForDescribeBackupDetailOutput createType(String createType) {
     this.createType = createType;
     return this;
   }
@@ -237,7 +237,7 @@ public class BackupsInfoForDescribeBackupsOutput {
     this.createType = createType;
   }
 
-  public BackupsInfoForDescribeBackupsOutput downloadProgress(Integer downloadProgress) {
+  public BackupsInfoForDescribeBackupDetailOutput downloadProgress(Integer downloadProgress) {
     this.downloadProgress = downloadProgress;
     return this;
   }
@@ -255,7 +255,7 @@ public class BackupsInfoForDescribeBackupsOutput {
     this.downloadProgress = downloadProgress;
   }
 
-  public BackupsInfoForDescribeBackupsOutput downloadStatus(String downloadStatus) {
+  public BackupsInfoForDescribeBackupDetailOutput downloadStatus(String downloadStatus) {
     this.downloadStatus = downloadStatus;
     return this;
   }
@@ -282,18 +282,18 @@ public class BackupsInfoForDescribeBackupsOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    BackupsInfoForDescribeBackupsOutput backupsInfoForDescribeBackupsOutput = (BackupsInfoForDescribeBackupsOutput) o;
-    return Objects.equals(this.backupDatabaseDetail, backupsInfoForDescribeBackupsOutput.backupDatabaseDetail) &&
-        Objects.equals(this.backupEndTime, backupsInfoForDescribeBackupsOutput.backupEndTime) &&
-        Objects.equals(this.backupFileSize, backupsInfoForDescribeBackupsOutput.backupFileSize) &&
-        Objects.equals(this.backupId, backupsInfoForDescribeBackupsOutput.backupId) &&
-        Objects.equals(this.backupMethod, backupsInfoForDescribeBackupsOutput.backupMethod) &&
-        Objects.equals(this.backupStartTime, backupsInfoForDescribeBackupsOutput.backupStartTime) &&
-        Objects.equals(this.backupStatus, backupsInfoForDescribeBackupsOutput.backupStatus) &&
-        Objects.equals(this.backupType, backupsInfoForDescribeBackupsOutput.backupType) &&
-        Objects.equals(this.createType, backupsInfoForDescribeBackupsOutput.createType) &&
-        Objects.equals(this.downloadProgress, backupsInfoForDescribeBackupsOutput.downloadProgress) &&
-        Objects.equals(this.downloadStatus, backupsInfoForDescribeBackupsOutput.downloadStatus);
+    BackupsInfoForDescribeBackupDetailOutput backupsInfoForDescribeBackupDetailOutput = (BackupsInfoForDescribeBackupDetailOutput) o;
+    return Objects.equals(this.backupDatabaseDetail, backupsInfoForDescribeBackupDetailOutput.backupDatabaseDetail) &&
+        Objects.equals(this.backupEndTime, backupsInfoForDescribeBackupDetailOutput.backupEndTime) &&
+        Objects.equals(this.backupFileSize, backupsInfoForDescribeBackupDetailOutput.backupFileSize) &&
+        Objects.equals(this.backupId, backupsInfoForDescribeBackupDetailOutput.backupId) &&
+        Objects.equals(this.backupMethod, backupsInfoForDescribeBackupDetailOutput.backupMethod) &&
+        Objects.equals(this.backupStartTime, backupsInfoForDescribeBackupDetailOutput.backupStartTime) &&
+        Objects.equals(this.backupStatus, backupsInfoForDescribeBackupDetailOutput.backupStatus) &&
+        Objects.equals(this.backupType, backupsInfoForDescribeBackupDetailOutput.backupType) &&
+        Objects.equals(this.createType, backupsInfoForDescribeBackupDetailOutput.createType) &&
+        Objects.equals(this.downloadProgress, backupsInfoForDescribeBackupDetailOutput.downloadProgress) &&
+        Objects.equals(this.downloadStatus, backupsInfoForDescribeBackupDetailOutput.downloadStatus);
   }
 
   @Override
@@ -305,7 +305,7 @@ public class BackupsInfoForDescribeBackupsOutput {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class BackupsInfoForDescribeBackupsOutput {\n");
+    sb.append("class BackupsInfoForDescribeBackupDetailOutput {\n");
     
     sb.append("    backupDatabaseDetail: ").append(toIndentedString(backupDatabaseDetail)).append("\n");
     sb.append("    backupEndTime: ").append(toIndentedString(backupEndTime)).append("\n");

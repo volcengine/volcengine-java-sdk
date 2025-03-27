@@ -24,16 +24,38 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ModifyBackupPolicyResponse
+ * DescribeBackupDetailRequest
  */
 
 
 
-public class ModifyBackupPolicyResponse extends com.volcengine.model.AbstractResponse {
+public class DescribeBackupDetailRequest {
+  @SerializedName("BackupId")
+  private String backupId = null;
+
   @SerializedName("InstanceId")
   private String instanceId = null;
 
-  public ModifyBackupPolicyResponse instanceId(String instanceId) {
+  public DescribeBackupDetailRequest backupId(String backupId) {
+    this.backupId = backupId;
+    return this;
+  }
+
+   /**
+   * Get backupId
+   * @return backupId
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getBackupId() {
+    return backupId;
+  }
+
+  public void setBackupId(String backupId) {
+    this.backupId = backupId;
+  }
+
+  public DescribeBackupDetailRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
     return this;
   }
@@ -42,7 +64,8 @@ public class ModifyBackupPolicyResponse extends com.volcengine.model.AbstractRes
    * Get instanceId
    * @return instanceId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getInstanceId() {
     return instanceId;
   }
@@ -60,21 +83,23 @@ public class ModifyBackupPolicyResponse extends com.volcengine.model.AbstractRes
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ModifyBackupPolicyResponse modifyBackupPolicyResponse = (ModifyBackupPolicyResponse) o;
-    return Objects.equals(this.instanceId, modifyBackupPolicyResponse.instanceId);
+    DescribeBackupDetailRequest describeBackupDetailRequest = (DescribeBackupDetailRequest) o;
+    return Objects.equals(this.backupId, describeBackupDetailRequest.backupId) &&
+        Objects.equals(this.instanceId, describeBackupDetailRequest.instanceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId);
+    return Objects.hash(backupId, instanceId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ModifyBackupPolicyResponse {\n");
+    sb.append("class DescribeBackupDetailRequest {\n");
     
+    sb.append("    backupId: ").append(toIndentedString(backupId)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("}");
     return sb.toString();

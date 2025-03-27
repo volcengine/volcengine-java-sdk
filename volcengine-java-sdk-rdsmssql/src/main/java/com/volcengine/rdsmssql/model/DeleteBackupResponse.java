@@ -14,6 +14,13 @@ package com.volcengine.rdsmssql.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -23,6 +30,48 @@ import javax.validation.Valid;
 
 
 public class DeleteBackupResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("BackupId")
+  private String backupId = null;
+
+  @SerializedName("InstanceId")
+  private String instanceId = null;
+
+  public DeleteBackupResponse backupId(String backupId) {
+    this.backupId = backupId;
+    return this;
+  }
+
+   /**
+   * Get backupId
+   * @return backupId
+  **/
+  @Schema(description = "")
+  public String getBackupId() {
+    return backupId;
+  }
+
+  public void setBackupId(String backupId) {
+    this.backupId = backupId;
+  }
+
+  public DeleteBackupResponse instanceId(String instanceId) {
+    this.instanceId = instanceId;
+    return this;
+  }
+
+   /**
+   * Get instanceId
+   * @return instanceId
+  **/
+  @Schema(description = "")
+  public String getInstanceId() {
+    return instanceId;
+  }
+
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -32,12 +81,14 @@ public class DeleteBackupResponse extends com.volcengine.model.AbstractResponse 
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return true;
+    DeleteBackupResponse deleteBackupResponse = (DeleteBackupResponse) o;
+    return Objects.equals(this.backupId, deleteBackupResponse.backupId) &&
+        Objects.equals(this.instanceId, deleteBackupResponse.instanceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash();
+    return Objects.hash(backupId, instanceId);
   }
 
 
@@ -46,6 +97,8 @@ public class DeleteBackupResponse extends com.volcengine.model.AbstractResponse 
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteBackupResponse {\n");
     
+    sb.append("    backupId: ").append(toIndentedString(backupId)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

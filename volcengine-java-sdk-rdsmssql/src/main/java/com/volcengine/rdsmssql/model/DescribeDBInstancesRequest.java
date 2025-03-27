@@ -69,6 +69,12 @@ public class DescribeDBInstancesRequest {
   @SerializedName("PrimaryInstanceId")
   private String primaryInstanceId = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
+  @SerializedName("ServerCollation")
+  private String serverCollation = null;
+
   @SerializedName("TagFilters")
   private List<TagFilterForDescribeDBInstancesInput> tagFilters = null;
 
@@ -291,6 +297,42 @@ public class DescribeDBInstancesRequest {
     this.primaryInstanceId = primaryInstanceId;
   }
 
+  public DescribeDBInstancesRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
+  public DescribeDBInstancesRequest serverCollation(String serverCollation) {
+    this.serverCollation = serverCollation;
+    return this;
+  }
+
+   /**
+   * Get serverCollation
+   * @return serverCollation
+  **/
+  @Schema(description = "")
+  public String getServerCollation() {
+    return serverCollation;
+  }
+
+  public void setServerCollation(String serverCollation) {
+    this.serverCollation = serverCollation;
+  }
+
   public DescribeDBInstancesRequest tagFilters(List<TagFilterForDescribeDBInstancesInput> tagFilters) {
     this.tagFilters = tagFilters;
     return this;
@@ -358,13 +400,15 @@ public class DescribeDBInstancesRequest {
         Objects.equals(this.pageNumber, describeDBInstancesRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeDBInstancesRequest.pageSize) &&
         Objects.equals(this.primaryInstanceId, describeDBInstancesRequest.primaryInstanceId) &&
+        Objects.equals(this.projectName, describeDBInstancesRequest.projectName) &&
+        Objects.equals(this.serverCollation, describeDBInstancesRequest.serverCollation) &&
         Objects.equals(this.tagFilters, describeDBInstancesRequest.tagFilters) &&
         Objects.equals(this.zoneId, describeDBInstancesRequest.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(chargeType, createTimeEnd, createTimeStart, dbEngineVersion, instanceCategory, instanceId, instanceName, instanceStatus, instanceType, pageNumber, pageSize, primaryInstanceId, tagFilters, zoneId);
+    return Objects.hash(chargeType, createTimeEnd, createTimeStart, dbEngineVersion, instanceCategory, instanceId, instanceName, instanceStatus, instanceType, pageNumber, pageSize, primaryInstanceId, projectName, serverCollation, tagFilters, zoneId);
   }
 
 
@@ -385,6 +429,8 @@ public class DescribeDBInstancesRequest {
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    primaryInstanceId: ").append(toIndentedString(primaryInstanceId)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    serverCollation: ").append(toIndentedString(serverCollation)).append("\n");
     sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");
