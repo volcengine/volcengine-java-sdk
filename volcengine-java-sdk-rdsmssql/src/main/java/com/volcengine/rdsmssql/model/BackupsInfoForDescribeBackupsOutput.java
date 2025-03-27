@@ -60,6 +60,12 @@ public class BackupsInfoForDescribeBackupsOutput {
   @SerializedName("CreateType")
   private String createType = null;
 
+  @SerializedName("DownloadProgress")
+  private Integer downloadProgress = null;
+
+  @SerializedName("DownloadStatus")
+  private String downloadStatus = null;
+
   public BackupsInfoForDescribeBackupsOutput backupDatabaseDetail(List<BackupDatabaseDetailForDescribeBackupsOutput> backupDatabaseDetail) {
     this.backupDatabaseDetail = backupDatabaseDetail;
     return this;
@@ -231,6 +237,42 @@ public class BackupsInfoForDescribeBackupsOutput {
     this.createType = createType;
   }
 
+  public BackupsInfoForDescribeBackupsOutput downloadProgress(Integer downloadProgress) {
+    this.downloadProgress = downloadProgress;
+    return this;
+  }
+
+   /**
+   * Get downloadProgress
+   * @return downloadProgress
+  **/
+  @Schema(description = "")
+  public Integer getDownloadProgress() {
+    return downloadProgress;
+  }
+
+  public void setDownloadProgress(Integer downloadProgress) {
+    this.downloadProgress = downloadProgress;
+  }
+
+  public BackupsInfoForDescribeBackupsOutput downloadStatus(String downloadStatus) {
+    this.downloadStatus = downloadStatus;
+    return this;
+  }
+
+   /**
+   * Get downloadStatus
+   * @return downloadStatus
+  **/
+  @Schema(description = "")
+  public String getDownloadStatus() {
+    return downloadStatus;
+  }
+
+  public void setDownloadStatus(String downloadStatus) {
+    this.downloadStatus = downloadStatus;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -249,12 +291,14 @@ public class BackupsInfoForDescribeBackupsOutput {
         Objects.equals(this.backupStartTime, backupsInfoForDescribeBackupsOutput.backupStartTime) &&
         Objects.equals(this.backupStatus, backupsInfoForDescribeBackupsOutput.backupStatus) &&
         Objects.equals(this.backupType, backupsInfoForDescribeBackupsOutput.backupType) &&
-        Objects.equals(this.createType, backupsInfoForDescribeBackupsOutput.createType);
+        Objects.equals(this.createType, backupsInfoForDescribeBackupsOutput.createType) &&
+        Objects.equals(this.downloadProgress, backupsInfoForDescribeBackupsOutput.downloadProgress) &&
+        Objects.equals(this.downloadStatus, backupsInfoForDescribeBackupsOutput.downloadStatus);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(backupDatabaseDetail, backupEndTime, backupFileSize, backupId, backupMethod, backupStartTime, backupStatus, backupType, createType);
+    return Objects.hash(backupDatabaseDetail, backupEndTime, backupFileSize, backupId, backupMethod, backupStartTime, backupStatus, backupType, createType, downloadProgress, downloadStatus);
   }
 
 
@@ -272,6 +316,8 @@ public class BackupsInfoForDescribeBackupsOutput {
     sb.append("    backupStatus: ").append(toIndentedString(backupStatus)).append("\n");
     sb.append("    backupType: ").append(toIndentedString(backupType)).append("\n");
     sb.append("    createType: ").append(toIndentedString(createType)).append("\n");
+    sb.append("    downloadProgress: ").append(toIndentedString(downloadProgress)).append("\n");
+    sb.append("    downloadStatus: ").append(toIndentedString(downloadStatus)).append("\n");
     sb.append("}");
     return sb.toString();
   }

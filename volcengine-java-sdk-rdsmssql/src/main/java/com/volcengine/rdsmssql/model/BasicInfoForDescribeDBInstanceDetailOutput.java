@@ -57,6 +57,9 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
   @SerializedName("InstanceType")
   private String instanceType = null;
 
+  @SerializedName("MaintenanceTime")
+  private String maintenanceTime = null;
+
   @SerializedName("Memory")
   private Integer memory = null;
 
@@ -256,6 +259,24 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
 
   public void setInstanceType(String instanceType) {
     this.instanceType = instanceType;
+  }
+
+  public BasicInfoForDescribeDBInstanceDetailOutput maintenanceTime(String maintenanceTime) {
+    this.maintenanceTime = maintenanceTime;
+    return this;
+  }
+
+   /**
+   * Get maintenanceTime
+   * @return maintenanceTime
+  **/
+  @Schema(description = "")
+  public String getMaintenanceTime() {
+    return maintenanceTime;
+  }
+
+  public void setMaintenanceTime(String maintenanceTime) {
+    this.maintenanceTime = maintenanceTime;
   }
 
   public BasicInfoForDescribeDBInstanceDetailOutput memory(Integer memory) {
@@ -627,6 +648,7 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
         Objects.equals(this.instanceName, basicInfoForDescribeDBInstanceDetailOutput.instanceName) &&
         Objects.equals(this.instanceStatus, basicInfoForDescribeDBInstanceDetailOutput.instanceStatus) &&
         Objects.equals(this.instanceType, basicInfoForDescribeDBInstanceDetailOutput.instanceType) &&
+        Objects.equals(this.maintenanceTime, basicInfoForDescribeDBInstanceDetailOutput.maintenanceTime) &&
         Objects.equals(this.memory, basicInfoForDescribeDBInstanceDetailOutput.memory) &&
         Objects.equals(this.nodeSpec, basicInfoForDescribeDBInstanceDetailOutput.nodeSpec) &&
         Objects.equals(this.primaryInstanceId, basicInfoForDescribeDBInstanceDetailOutput.primaryInstanceId) &&
@@ -650,7 +672,7 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(backupUse, createTime, dbEngineVersion, innerVersion, instanceId, instanceName, instanceStatus, instanceType, memory, nodeSpec, primaryInstanceId, projectName, readOnlyNumber, regionId, serverCollation, slowQueryEnable, slowQueryTime, storageSpace, storageType, storageUse, subnetId, tags, timeZone, updateTime, VCPU, vpcId, zoneId);
+    return Objects.hash(backupUse, createTime, dbEngineVersion, innerVersion, instanceId, instanceName, instanceStatus, instanceType, maintenanceTime, memory, nodeSpec, primaryInstanceId, projectName, readOnlyNumber, regionId, serverCollation, slowQueryEnable, slowQueryTime, storageSpace, storageType, storageUse, subnetId, tags, timeZone, updateTime, VCPU, vpcId, zoneId);
   }
 
 
@@ -667,6 +689,7 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    instanceStatus: ").append(toIndentedString(instanceStatus)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
+    sb.append("    maintenanceTime: ").append(toIndentedString(maintenanceTime)).append("\n");
     sb.append("    memory: ").append(toIndentedString(memory)).append("\n");
     sb.append("    nodeSpec: ").append(toIndentedString(nodeSpec)).append("\n");
     sb.append("    primaryInstanceId: ").append(toIndentedString(primaryInstanceId)).append("\n");

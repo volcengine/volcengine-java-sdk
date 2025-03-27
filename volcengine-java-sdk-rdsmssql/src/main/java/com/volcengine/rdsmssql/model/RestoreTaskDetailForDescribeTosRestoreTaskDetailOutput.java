@@ -36,6 +36,9 @@ public class RestoreTaskDetailForDescribeTosRestoreTaskDetailOutput {
   @SerializedName("DBName")
   private String dbName = null;
 
+  @SerializedName("NewDBName")
+  private String newDBName = null;
+
   @SerializedName("RestoreDesc")
   private String restoreDesc = null;
 
@@ -85,6 +88,24 @@ public class RestoreTaskDetailForDescribeTosRestoreTaskDetailOutput {
 
   public void setDbName(String dbName) {
     this.dbName = dbName;
+  }
+
+  public RestoreTaskDetailForDescribeTosRestoreTaskDetailOutput newDBName(String newDBName) {
+    this.newDBName = newDBName;
+    return this;
+  }
+
+   /**
+   * Get newDBName
+   * @return newDBName
+  **/
+  @Schema(description = "")
+  public String getNewDBName() {
+    return newDBName;
+  }
+
+  public void setNewDBName(String newDBName) {
+    this.newDBName = newDBName;
   }
 
   public RestoreTaskDetailForDescribeTosRestoreTaskDetailOutput restoreDesc(String restoreDesc) {
@@ -189,6 +210,7 @@ public class RestoreTaskDetailForDescribeTosRestoreTaskDetailOutput {
     RestoreTaskDetailForDescribeTosRestoreTaskDetailOutput restoreTaskDetailForDescribeTosRestoreTaskDetailOutput = (RestoreTaskDetailForDescribeTosRestoreTaskDetailOutput) o;
     return Objects.equals(this.backupType, restoreTaskDetailForDescribeTosRestoreTaskDetailOutput.backupType) &&
         Objects.equals(this.dbName, restoreTaskDetailForDescribeTosRestoreTaskDetailOutput.dbName) &&
+        Objects.equals(this.newDBName, restoreTaskDetailForDescribeTosRestoreTaskDetailOutput.newDBName) &&
         Objects.equals(this.restoreDesc, restoreTaskDetailForDescribeTosRestoreTaskDetailOutput.restoreDesc) &&
         Objects.equals(this.restoreEndTime, restoreTaskDetailForDescribeTosRestoreTaskDetailOutput.restoreEndTime) &&
         Objects.equals(this.restoreFileName, restoreTaskDetailForDescribeTosRestoreTaskDetailOutput.restoreFileName) &&
@@ -198,7 +220,7 @@ public class RestoreTaskDetailForDescribeTosRestoreTaskDetailOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(backupType, dbName, restoreDesc, restoreEndTime, restoreFileName, restoreFileSize, restoreStartTime);
+    return Objects.hash(backupType, dbName, newDBName, restoreDesc, restoreEndTime, restoreFileName, restoreFileSize, restoreStartTime);
   }
 
 
@@ -209,6 +231,7 @@ public class RestoreTaskDetailForDescribeTosRestoreTaskDetailOutput {
     
     sb.append("    backupType: ").append(toIndentedString(backupType)).append("\n");
     sb.append("    dbName: ").append(toIndentedString(dbName)).append("\n");
+    sb.append("    newDBName: ").append(toIndentedString(newDBName)).append("\n");
     sb.append("    restoreDesc: ").append(toIndentedString(restoreDesc)).append("\n");
     sb.append("    restoreEndTime: ").append(toIndentedString(restoreEndTime)).append("\n");
     sb.append("    restoreFileName: ").append(toIndentedString(restoreFileName)).append("\n");

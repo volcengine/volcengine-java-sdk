@@ -33,6 +33,9 @@ public class CreateBackupResponse extends com.volcengine.model.AbstractResponse 
   @SerializedName("BackupId")
   private String backupId = null;
 
+  @SerializedName("InstanceId")
+  private String instanceId = null;
+
   public CreateBackupResponse backupId(String backupId) {
     this.backupId = backupId;
     return this;
@@ -51,6 +54,24 @@ public class CreateBackupResponse extends com.volcengine.model.AbstractResponse 
     this.backupId = backupId;
   }
 
+  public CreateBackupResponse instanceId(String instanceId) {
+    this.instanceId = instanceId;
+    return this;
+  }
+
+   /**
+   * Get instanceId
+   * @return instanceId
+  **/
+  @Schema(description = "")
+  public String getInstanceId() {
+    return instanceId;
+  }
+
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -61,12 +82,13 @@ public class CreateBackupResponse extends com.volcengine.model.AbstractResponse 
       return false;
     }
     CreateBackupResponse createBackupResponse = (CreateBackupResponse) o;
-    return Objects.equals(this.backupId, createBackupResponse.backupId);
+    return Objects.equals(this.backupId, createBackupResponse.backupId) &&
+        Objects.equals(this.instanceId, createBackupResponse.instanceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(backupId);
+    return Objects.hash(backupId, instanceId);
   }
 
 
@@ -76,6 +98,7 @@ public class CreateBackupResponse extends com.volcengine.model.AbstractResponse 
     sb.append("class CreateBackupResponse {\n");
     
     sb.append("    backupId: ").append(toIndentedString(backupId)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
