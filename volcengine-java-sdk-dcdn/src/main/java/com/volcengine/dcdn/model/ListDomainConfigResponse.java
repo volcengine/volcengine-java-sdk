@@ -36,6 +36,15 @@ public class ListDomainConfigResponse extends com.volcengine.model.AbstractRespo
   @SerializedName("DomainList")
   private List<DomainListForListDomainConfigOutput> domainList = null;
 
+  @SerializedName("PageNumber")
+  private Integer pageNumber = null;
+
+  @SerializedName("PageSize")
+  private Integer pageSize = null;
+
+  @SerializedName("Total")
+  private Integer total = null;
+
   public ListDomainConfigResponse domainList(List<DomainListForListDomainConfigOutput> domainList) {
     this.domainList = domainList;
     return this;
@@ -63,6 +72,60 @@ public class ListDomainConfigResponse extends com.volcengine.model.AbstractRespo
     this.domainList = domainList;
   }
 
+  public ListDomainConfigResponse pageNumber(Integer pageNumber) {
+    this.pageNumber = pageNumber;
+    return this;
+  }
+
+   /**
+   * Get pageNumber
+   * @return pageNumber
+  **/
+  @Schema(description = "")
+  public Integer getPageNumber() {
+    return pageNumber;
+  }
+
+  public void setPageNumber(Integer pageNumber) {
+    this.pageNumber = pageNumber;
+  }
+
+  public ListDomainConfigResponse pageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+    return this;
+  }
+
+   /**
+   * Get pageSize
+   * @return pageSize
+  **/
+  @Schema(description = "")
+  public Integer getPageSize() {
+    return pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public ListDomainConfigResponse total(Integer total) {
+    this.total = total;
+    return this;
+  }
+
+   /**
+   * Get total
+   * @return total
+  **/
+  @Schema(description = "")
+  public Integer getTotal() {
+    return total;
+  }
+
+  public void setTotal(Integer total) {
+    this.total = total;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -73,12 +136,15 @@ public class ListDomainConfigResponse extends com.volcengine.model.AbstractRespo
       return false;
     }
     ListDomainConfigResponse listDomainConfigResponse = (ListDomainConfigResponse) o;
-    return Objects.equals(this.domainList, listDomainConfigResponse.domainList);
+    return Objects.equals(this.domainList, listDomainConfigResponse.domainList) &&
+        Objects.equals(this.pageNumber, listDomainConfigResponse.pageNumber) &&
+        Objects.equals(this.pageSize, listDomainConfigResponse.pageSize) &&
+        Objects.equals(this.total, listDomainConfigResponse.total);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(domainList);
+    return Objects.hash(domainList, pageNumber, pageSize, total);
   }
 
 
@@ -88,6 +154,9 @@ public class ListDomainConfigResponse extends com.volcengine.model.AbstractRespo
     sb.append("class ListDomainConfigResponse {\n");
     
     sb.append("    domainList: ").append(toIndentedString(domainList)).append("\n");
+    sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
+    sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    total: ").append(toIndentedString(total)).append("\n");
     sb.append("}");
     return sb.toString();
   }
