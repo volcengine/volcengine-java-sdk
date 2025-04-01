@@ -274,5 +274,6 @@
         <module>volcengine-java-sdk-clouddetect</module>
         <module>volcengine-java-sdk-translate20250301</module>
         <module>volcengine-java-sdk-volccontentplatform</module>
+        <module>volcengine-java-sdk-edx</module>
     </modules>
 </project>
