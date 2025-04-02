@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vke.model.ClusterConfigForListClustersOutput;
+import com.volcengine.vke.model.ConnectorConfigForListClustersOutput;
 import com.volcengine.vke.model.LoggingConfigForListClustersOutput;
 import com.volcengine.vke.model.NodeStatisticsForListClustersOutput;
 import com.volcengine.vke.model.PodsConfigForListClustersOutput;
@@ -41,6 +42,9 @@ import javax.validation.Valid;
 public class ItemForListClustersOutput {
   @SerializedName("ClusterConfig")
   private ClusterConfigForListClustersOutput clusterConfig = null;
+
+  @SerializedName("ConnectorConfig")
+  private ConnectorConfigForListClustersOutput connectorConfig = null;
 
   @SerializedName("CreateClientToken")
   private String createClientToken = null;
@@ -84,6 +88,56 @@ public class ItemForListClustersOutput {
   @SerializedName("Tags")
   private List<TagForListClustersOutput> tags = null;
 
+  /**
+   * Gets or Sets type
+   */
+  @JsonAdapter(TypeEnum.Adapter.class)
+  public enum TypeEnum {
+    @SerializedName("Managed")
+    MANAGED("Managed"),
+    @SerializedName("Standard")
+    STANDARD("Standard"),
+    @SerializedName("Registered")
+    REGISTERED("Registered"),
+    @SerializedName("OnPremise")
+    ONPREMISE("OnPremise");
+
+    private String value;
+
+    TypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static TypeEnum fromValue(String input) {
+      for (TypeEnum b : TypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<TypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public TypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return TypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("Type")
+  private TypeEnum type = null;
+
   @SerializedName("UpdateClientToken")
   private String updateClientToken = null;
 
@@ -107,6 +161,25 @@ public class ItemForListClustersOutput {
 
   public void setClusterConfig(ClusterConfigForListClustersOutput clusterConfig) {
     this.clusterConfig = clusterConfig;
+  }
+
+  public ItemForListClustersOutput connectorConfig(ConnectorConfigForListClustersOutput connectorConfig) {
+    this.connectorConfig = connectorConfig;
+    return this;
+  }
+
+   /**
+   * Get connectorConfig
+   * @return connectorConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public ConnectorConfigForListClustersOutput getConnectorConfig() {
+    return connectorConfig;
+  }
+
+  public void setConnectorConfig(ConnectorConfigForListClustersOutput connectorConfig) {
+    this.connectorConfig = connectorConfig;
   }
 
   public ItemForListClustersOutput createClientToken(String createClientToken) {
@@ -375,6 +448,24 @@ public class ItemForListClustersOutput {
     this.tags = tags;
   }
 
+  public ItemForListClustersOutput type(TypeEnum type) {
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @Schema(description = "")
+  public TypeEnum getType() {
+    return type;
+  }
+
+  public void setType(TypeEnum type) {
+    this.type = type;
+  }
+
   public ItemForListClustersOutput updateClientToken(String updateClientToken) {
     this.updateClientToken = updateClientToken;
     return this;
@@ -422,6 +513,7 @@ public class ItemForListClustersOutput {
     }
     ItemForListClustersOutput itemForListClustersOutput = (ItemForListClustersOutput) o;
     return Objects.equals(this.clusterConfig, itemForListClustersOutput.clusterConfig) &&
+        Objects.equals(this.connectorConfig, itemForListClustersOutput.connectorConfig) &&
         Objects.equals(this.createClientToken, itemForListClustersOutput.createClientToken) &&
         Objects.equals(this.createTime, itemForListClustersOutput.createTime) &&
         Objects.equals(this.deleteProtectionEnabled, itemForListClustersOutput.deleteProtectionEnabled) &&
@@ -436,13 +528,14 @@ public class ItemForListClustersOutput {
         Objects.equals(this.servicesConfig, itemForListClustersOutput.servicesConfig) &&
         Objects.equals(this.status, itemForListClustersOutput.status) &&
         Objects.equals(this.tags, itemForListClustersOutput.tags) &&
+        Objects.equals(this.type, itemForListClustersOutput.type) &&
         Objects.equals(this.updateClientToken, itemForListClustersOutput.updateClientToken) &&
         Objects.equals(this.updateTime, itemForListClustersOutput.updateTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterConfig, createClientToken, createTime, deleteProtectionEnabled, description, id, kubernetesVersion, loggingConfig, name, nodeStatistics, podsConfig, projectName, servicesConfig, status, tags, updateClientToken, updateTime);
+    return Objects.hash(clusterConfig, connectorConfig, createClientToken, createTime, deleteProtectionEnabled, description, id, kubernetesVersion, loggingConfig, name, nodeStatistics, podsConfig, projectName, servicesConfig, status, tags, type, updateClientToken, updateTime);
   }
 
 
@@ -452,6 +545,7 @@ public class ItemForListClustersOutput {
     sb.append("class ItemForListClustersOutput {\n");
     
     sb.append("    clusterConfig: ").append(toIndentedString(clusterConfig)).append("\n");
+    sb.append("    connectorConfig: ").append(toIndentedString(connectorConfig)).append("\n");
     sb.append("    createClientToken: ").append(toIndentedString(createClientToken)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    deleteProtectionEnabled: ").append(toIndentedString(deleteProtectionEnabled)).append("\n");
@@ -466,6 +560,7 @@ public class ItemForListClustersOutput {
     sb.append("    servicesConfig: ").append(toIndentedString(servicesConfig)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    updateClientToken: ").append(toIndentedString(updateClientToken)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("}");

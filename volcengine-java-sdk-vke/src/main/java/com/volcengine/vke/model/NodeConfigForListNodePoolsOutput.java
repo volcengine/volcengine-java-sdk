@@ -48,6 +48,12 @@ public class NodeConfigForListNodePoolsOutput {
   @SerializedName("DataVolumes")
   private List<DataVolumeForListNodePoolsOutput> dataVolumes = null;
 
+  @SerializedName("DeploymentSetGroupNumber")
+  private Integer deploymentSetGroupNumber = null;
+
+  @SerializedName("DeploymentSetId")
+  private String deploymentSetId = null;
+
   @SerializedName("HpcClusterIds")
   private List<String> hpcClusterIds = null;
 
@@ -206,6 +212,42 @@ public class NodeConfigForListNodePoolsOutput {
 
   public void setDataVolumes(List<DataVolumeForListNodePoolsOutput> dataVolumes) {
     this.dataVolumes = dataVolumes;
+  }
+
+  public NodeConfigForListNodePoolsOutput deploymentSetGroupNumber(Integer deploymentSetGroupNumber) {
+    this.deploymentSetGroupNumber = deploymentSetGroupNumber;
+    return this;
+  }
+
+   /**
+   * Get deploymentSetGroupNumber
+   * @return deploymentSetGroupNumber
+  **/
+  @Schema(description = "")
+  public Integer getDeploymentSetGroupNumber() {
+    return deploymentSetGroupNumber;
+  }
+
+  public void setDeploymentSetGroupNumber(Integer deploymentSetGroupNumber) {
+    this.deploymentSetGroupNumber = deploymentSetGroupNumber;
+  }
+
+  public NodeConfigForListNodePoolsOutput deploymentSetId(String deploymentSetId) {
+    this.deploymentSetId = deploymentSetId;
+    return this;
+  }
+
+   /**
+   * Get deploymentSetId
+   * @return deploymentSetId
+  **/
+  @Schema(description = "")
+  public String getDeploymentSetId() {
+    return deploymentSetId;
+  }
+
+  public void setDeploymentSetId(String deploymentSetId) {
+    this.deploymentSetId = deploymentSetId;
   }
 
   public NodeConfigForListNodePoolsOutput hpcClusterIds(List<String> hpcClusterIds) {
@@ -473,6 +515,8 @@ public class NodeConfigForListNodePoolsOutput {
         Objects.equals(this.autoRenew, nodeConfigForListNodePoolsOutput.autoRenew) &&
         Objects.equals(this.autoRenewPeriod, nodeConfigForListNodePoolsOutput.autoRenewPeriod) &&
         Objects.equals(this.dataVolumes, nodeConfigForListNodePoolsOutput.dataVolumes) &&
+        Objects.equals(this.deploymentSetGroupNumber, nodeConfigForListNodePoolsOutput.deploymentSetGroupNumber) &&
+        Objects.equals(this.deploymentSetId, nodeConfigForListNodePoolsOutput.deploymentSetId) &&
         Objects.equals(this.hpcClusterIds, nodeConfigForListNodePoolsOutput.hpcClusterIds) &&
         Objects.equals(this.imageId, nodeConfigForListNodePoolsOutput.imageId) &&
         Objects.equals(this.initializeScript, nodeConfigForListNodePoolsOutput.initializeScript) &&
@@ -489,7 +533,7 @@ public class NodeConfigForListNodePoolsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalContainerStorageEnabled, autoRenew, autoRenewPeriod, dataVolumes, hpcClusterIds, imageId, initializeScript, instanceChargeType, instanceTypeIds, namePrefix, period, projectName, security, subnetIds, systemVolume, tags);
+    return Objects.hash(additionalContainerStorageEnabled, autoRenew, autoRenewPeriod, dataVolumes, deploymentSetGroupNumber, deploymentSetId, hpcClusterIds, imageId, initializeScript, instanceChargeType, instanceTypeIds, namePrefix, period, projectName, security, subnetIds, systemVolume, tags);
   }
 
 
@@ -502,6 +546,8 @@ public class NodeConfigForListNodePoolsOutput {
     sb.append("    autoRenew: ").append(toIndentedString(autoRenew)).append("\n");
     sb.append("    autoRenewPeriod: ").append(toIndentedString(autoRenewPeriod)).append("\n");
     sb.append("    dataVolumes: ").append(toIndentedString(dataVolumes)).append("\n");
+    sb.append("    deploymentSetGroupNumber: ").append(toIndentedString(deploymentSetGroupNumber)).append("\n");
+    sb.append("    deploymentSetId: ").append(toIndentedString(deploymentSetId)).append("\n");
     sb.append("    hpcClusterIds: ").append(toIndentedString(hpcClusterIds)).append("\n");
     sb.append("    imageId: ").append(toIndentedString(imageId)).append("\n");
     sb.append("    initializeScript: ").append(toIndentedString(initializeScript)).append("\n");
