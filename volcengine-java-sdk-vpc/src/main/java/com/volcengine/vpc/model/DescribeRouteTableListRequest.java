@@ -33,6 +33,52 @@ import javax.validation.Valid;
 
 
 public class DescribeRouteTableListRequest {
+  /**
+   * Gets or Sets associateType
+   */
+  @JsonAdapter(AssociateTypeEnum.Adapter.class)
+  public enum AssociateTypeEnum {
+    @SerializedName("Subnet")
+    SUBNET("Subnet"),
+    @SerializedName("Gateway")
+    GATEWAY("Gateway");
+
+    private String value;
+
+    AssociateTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static AssociateTypeEnum fromValue(String input) {
+      for (AssociateTypeEnum b : AssociateTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<AssociateTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final AssociateTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public AssociateTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return AssociateTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("AssociateType")
+  private AssociateTypeEnum associateType = null;
+
   @SerializedName("MaxResults")
   private Integer maxResults = null;
 
@@ -59,6 +105,24 @@ public class DescribeRouteTableListRequest {
 
   @SerializedName("VpcId")
   private String vpcId = null;
+
+  public DescribeRouteTableListRequest associateType(AssociateTypeEnum associateType) {
+    this.associateType = associateType;
+    return this;
+  }
+
+   /**
+   * Get associateType
+   * @return associateType
+  **/
+  @Schema(description = "")
+  public AssociateTypeEnum getAssociateType() {
+    return associateType;
+  }
+
+  public void setAssociateType(AssociateTypeEnum associateType) {
+    this.associateType = associateType;
+  }
 
   public DescribeRouteTableListRequest maxResults(Integer maxResults) {
     this.maxResults = maxResults;
@@ -242,7 +306,8 @@ public class DescribeRouteTableListRequest {
       return false;
     }
     DescribeRouteTableListRequest describeRouteTableListRequest = (DescribeRouteTableListRequest) o;
-    return Objects.equals(this.maxResults, describeRouteTableListRequest.maxResults) &&
+    return Objects.equals(this.associateType, describeRouteTableListRequest.associateType) &&
+        Objects.equals(this.maxResults, describeRouteTableListRequest.maxResults) &&
         Objects.equals(this.nextToken, describeRouteTableListRequest.nextToken) &&
         Objects.equals(this.pageNumber, describeRouteTableListRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeRouteTableListRequest.pageSize) &&
@@ -255,7 +320,7 @@ public class DescribeRouteTableListRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(maxResults, nextToken, pageNumber, pageSize, projectName, routeTableId, routeTableName, tagFilters, vpcId);
+    return Objects.hash(associateType, maxResults, nextToken, pageNumber, pageSize, projectName, routeTableId, routeTableName, tagFilters, vpcId);
   }
 
 
@@ -264,6 +329,7 @@ public class DescribeRouteTableListRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeRouteTableListRequest {\n");
     
+    sb.append("    associateType: ").append(toIndentedString(associateType)).append("\n");
     sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
     sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
