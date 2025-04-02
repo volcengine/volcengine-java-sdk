@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.volcobserve.model.ConditionForCreateRuleInput;
+import com.volcengine.volcobserve.model.ConvertTagForCreateRuleInput;
 import com.volcengine.volcobserve.model.DimensionConditionsForCreateRuleInput;
 import com.volcengine.volcobserve.model.LevelConditionForCreateRuleInput;
 import com.volcengine.volcobserve.model.NoDataForCreateRuleInput;
@@ -200,6 +201,9 @@ public class CreateRuleRequest {
 
   @SerializedName("SubNamespace")
   private String subNamespace = null;
+
+  @SerializedName("Tags")
+  private List<ConvertTagForCreateRuleInput> tags = null;
 
   @SerializedName("Webhook")
   private String webhook = null;
@@ -703,6 +707,33 @@ public class CreateRuleRequest {
     this.subNamespace = subNamespace;
   }
 
+  public CreateRuleRequest tags(List<ConvertTagForCreateRuleInput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public CreateRuleRequest addTagsItem(ConvertTagForCreateRuleInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<ConvertTagForCreateRuleInput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<ConvertTagForCreateRuleInput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<ConvertTagForCreateRuleInput> tags) {
+    this.tags = tags;
+  }
+
   public CreateRuleRequest webhook(String webhook) {
     this.webhook = webhook;
     return this;
@@ -781,13 +812,14 @@ public class CreateRuleRequest {
         Objects.equals(this.ruleType, createRuleRequest.ruleType) &&
         Objects.equals(this.silenceTime, createRuleRequest.silenceTime) &&
         Objects.equals(this.subNamespace, createRuleRequest.subNamespace) &&
+        Objects.equals(this.tags, createRuleRequest.tags) &&
         Objects.equals(this.webhook, createRuleRequest.webhook) &&
         Objects.equals(this.webhookIds, createRuleRequest.webhookIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(alertMethods, conditionOperator, conditions, contactGroupIds, description, dimensionConditions, effectEndAt, effectStartAt, enableState, evaluationCount, level, levelConditions, multipleConditions, namespace, noData, notificationId, originalDimensions, projectName, recoveryNotify, regions, ruleName, ruleType, silenceTime, subNamespace, webhook, webhookIds);
+    return Objects.hash(alertMethods, conditionOperator, conditions, contactGroupIds, description, dimensionConditions, effectEndAt, effectStartAt, enableState, evaluationCount, level, levelConditions, multipleConditions, namespace, noData, notificationId, originalDimensions, projectName, recoveryNotify, regions, ruleName, ruleType, silenceTime, subNamespace, tags, webhook, webhookIds);
   }
 
 
@@ -820,6 +852,7 @@ public class CreateRuleRequest {
     sb.append("    ruleType: ").append(toIndentedString(ruleType)).append("\n");
     sb.append("    silenceTime: ").append(toIndentedString(silenceTime)).append("\n");
     sb.append("    subNamespace: ").append(toIndentedString(subNamespace)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    webhook: ").append(toIndentedString(webhook)).append("\n");
     sb.append("    webhookIds: ").append(toIndentedString(webhookIds)).append("\n");
     sb.append("}");

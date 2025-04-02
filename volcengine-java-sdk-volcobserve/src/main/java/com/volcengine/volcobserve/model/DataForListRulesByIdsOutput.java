@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.volcobserve.model.ConditionForListRulesByIdsOutput;
+import com.volcengine.volcobserve.model.ConvertTagForListRulesByIdsOutput;
 import com.volcengine.volcobserve.model.DimensionConditionsForListRulesByIdsOutput;
 import com.volcengine.volcobserve.model.LevelConditionForListRulesByIdsOutput;
 import com.volcengine.volcobserve.model.RecoveryNotifyForListRulesByIdsOutput;
@@ -115,6 +116,9 @@ public class DataForListRulesByIdsOutput {
 
   @SerializedName("SubNamespace")
   private String subNamespace = null;
+
+  @SerializedName("Tags")
+  private List<ConvertTagForListRulesByIdsOutput> tags = null;
 
   @SerializedName("UpdatedAt")
   private String updatedAt = null;
@@ -646,6 +650,33 @@ public class DataForListRulesByIdsOutput {
     this.subNamespace = subNamespace;
   }
 
+  public DataForListRulesByIdsOutput tags(List<ConvertTagForListRulesByIdsOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public DataForListRulesByIdsOutput addTagsItem(ConvertTagForListRulesByIdsOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<ConvertTagForListRulesByIdsOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<ConvertTagForListRulesByIdsOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<ConvertTagForListRulesByIdsOutput> tags) {
+    this.tags = tags;
+  }
+
   public DataForListRulesByIdsOutput updatedAt(String updatedAt) {
     this.updatedAt = updatedAt;
     return this;
@@ -744,6 +775,7 @@ public class DataForListRulesByIdsOutput {
         Objects.equals(this.ruleType, dataForListRulesByIdsOutput.ruleType) &&
         Objects.equals(this.silenceTime, dataForListRulesByIdsOutput.silenceTime) &&
         Objects.equals(this.subNamespace, dataForListRulesByIdsOutput.subNamespace) &&
+        Objects.equals(this.tags, dataForListRulesByIdsOutput.tags) &&
         Objects.equals(this.updatedAt, dataForListRulesByIdsOutput.updatedAt) &&
         Objects.equals(this.webHook, dataForListRulesByIdsOutput.webHook) &&
         Objects.equals(this.webhookIds, dataForListRulesByIdsOutput.webhookIds);
@@ -751,7 +783,7 @@ public class DataForListRulesByIdsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(alertMethods, alertState, conditionOperator, conditions, contactGroupIds, createdAt, description, dimensionConditions, effectEndAt, effectStartAt, enableState, evaluationCount, id, level, levelConditions, multipleConditions, namespace, notificationId, originalDimensions, projectName, recoveryNotify, regions, ruleName, ruleType, silenceTime, subNamespace, updatedAt, webHook, webhookIds);
+    return Objects.hash(alertMethods, alertState, conditionOperator, conditions, contactGroupIds, createdAt, description, dimensionConditions, effectEndAt, effectStartAt, enableState, evaluationCount, id, level, levelConditions, multipleConditions, namespace, notificationId, originalDimensions, projectName, recoveryNotify, regions, ruleName, ruleType, silenceTime, subNamespace, tags, updatedAt, webHook, webhookIds);
   }
 
 
@@ -786,6 +818,7 @@ public class DataForListRulesByIdsOutput {
     sb.append("    ruleType: ").append(toIndentedString(ruleType)).append("\n");
     sb.append("    silenceTime: ").append(toIndentedString(silenceTime)).append("\n");
     sb.append("    subNamespace: ").append(toIndentedString(subNamespace)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    webHook: ").append(toIndentedString(webHook)).append("\n");
     sb.append("    webhookIds: ").append(toIndentedString(webhookIds)).append("\n");

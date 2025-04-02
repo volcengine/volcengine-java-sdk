@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.volcobserve.model.ConditionForListRulesOutput;
+import com.volcengine.volcobserve.model.ConvertTagForListRulesOutput;
 import com.volcengine.volcobserve.model.DimensionConditionsForListRulesOutput;
 import com.volcengine.volcobserve.model.LevelConditionForListRulesOutput;
 import com.volcengine.volcobserve.model.RecoveryNotifyForListRulesOutput;
@@ -115,6 +116,9 @@ public class DataForListRulesOutput {
 
   @SerializedName("SubNamespace")
   private String subNamespace = null;
+
+  @SerializedName("Tags")
+  private List<ConvertTagForListRulesOutput> tags = null;
 
   @SerializedName("UpdatedAt")
   private String updatedAt = null;
@@ -646,6 +650,33 @@ public class DataForListRulesOutput {
     this.subNamespace = subNamespace;
   }
 
+  public DataForListRulesOutput tags(List<ConvertTagForListRulesOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public DataForListRulesOutput addTagsItem(ConvertTagForListRulesOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<ConvertTagForListRulesOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<ConvertTagForListRulesOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<ConvertTagForListRulesOutput> tags) {
+    this.tags = tags;
+  }
+
   public DataForListRulesOutput updatedAt(String updatedAt) {
     this.updatedAt = updatedAt;
     return this;
@@ -744,6 +775,7 @@ public class DataForListRulesOutput {
         Objects.equals(this.ruleType, dataForListRulesOutput.ruleType) &&
         Objects.equals(this.silenceTime, dataForListRulesOutput.silenceTime) &&
         Objects.equals(this.subNamespace, dataForListRulesOutput.subNamespace) &&
+        Objects.equals(this.tags, dataForListRulesOutput.tags) &&
         Objects.equals(this.updatedAt, dataForListRulesOutput.updatedAt) &&
         Objects.equals(this.webHook, dataForListRulesOutput.webHook) &&
         Objects.equals(this.webhookIds, dataForListRulesOutput.webhookIds);
@@ -751,7 +783,7 @@ public class DataForListRulesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(alertMethods, alertState, conditionOperator, conditions, contactGroupIds, createdAt, description, dimensionConditions, effectEndAt, effectStartAt, enableState, evaluationCount, id, level, levelConditions, multipleConditions, namespace, notificationId, originalDimensions, projectName, recoveryNotify, regions, ruleName, ruleType, silenceTime, subNamespace, updatedAt, webHook, webhookIds);
+    return Objects.hash(alertMethods, alertState, conditionOperator, conditions, contactGroupIds, createdAt, description, dimensionConditions, effectEndAt, effectStartAt, enableState, evaluationCount, id, level, levelConditions, multipleConditions, namespace, notificationId, originalDimensions, projectName, recoveryNotify, regions, ruleName, ruleType, silenceTime, subNamespace, tags, updatedAt, webHook, webhookIds);
   }
 
 
@@ -786,6 +818,7 @@ public class DataForListRulesOutput {
     sb.append("    ruleType: ").append(toIndentedString(ruleType)).append("\n");
     sb.append("    silenceTime: ").append(toIndentedString(silenceTime)).append("\n");
     sb.append("    subNamespace: ").append(toIndentedString(subNamespace)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    webHook: ").append(toIndentedString(webHook)).append("\n");
     sb.append("    webhookIds: ").append(toIndentedString(webhookIds)).append("\n");
