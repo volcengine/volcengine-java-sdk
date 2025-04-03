@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.kms.model.TagFilterForDescribeKeysInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -44,6 +47,9 @@ public class DescribeKeysRequest {
 
   @SerializedName("PageSize")
   private Integer pageSize = null;
+
+  @SerializedName("TagFilters")
+  private List<TagFilterForDescribeKeysInput> tagFilters = null;
 
   public DescribeKeysRequest currentPage(Integer currentPage) {
     this.currentPage = currentPage;
@@ -138,6 +144,33 @@ public class DescribeKeysRequest {
     this.pageSize = pageSize;
   }
 
+  public DescribeKeysRequest tagFilters(List<TagFilterForDescribeKeysInput> tagFilters) {
+    this.tagFilters = tagFilters;
+    return this;
+  }
+
+  public DescribeKeysRequest addTagFiltersItem(TagFilterForDescribeKeysInput tagFiltersItem) {
+    if (this.tagFilters == null) {
+      this.tagFilters = new ArrayList<TagFilterForDescribeKeysInput>();
+    }
+    this.tagFilters.add(tagFiltersItem);
+    return this;
+  }
+
+   /**
+   * Get tagFilters
+   * @return tagFilters
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagFilterForDescribeKeysInput> getTagFilters() {
+    return tagFilters;
+  }
+
+  public void setTagFilters(List<TagFilterForDescribeKeysInput> tagFilters) {
+    this.tagFilters = tagFilters;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -152,12 +185,13 @@ public class DescribeKeysRequest {
         Objects.equals(this.filters, describeKeysRequest.filters) &&
         Objects.equals(this.keyringID, describeKeysRequest.keyringID) &&
         Objects.equals(this.keyringName, describeKeysRequest.keyringName) &&
-        Objects.equals(this.pageSize, describeKeysRequest.pageSize);
+        Objects.equals(this.pageSize, describeKeysRequest.pageSize) &&
+        Objects.equals(this.tagFilters, describeKeysRequest.tagFilters);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(currentPage, filters, keyringID, keyringName, pageSize);
+    return Objects.hash(currentPage, filters, keyringID, keyringName, pageSize, tagFilters);
   }
 
 
@@ -171,6 +205,7 @@ public class DescribeKeysRequest {
     sb.append("    keyringID: ").append(toIndentedString(keyringID)).append("\n");
     sb.append("    keyringName: ").append(toIndentedString(keyringName)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -20,8 +20,11 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.kms.model.MultiRegionConfigurationForReplicateKeyOutput;
+import com.volcengine.kms.model.TagForReplicateKeyOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -78,6 +81,9 @@ public class ConvertReplicaKeyForReplicateKeyOutput {
 
   @SerializedName("ScheduleRotationTime")
   private String scheduleRotationTime = null;
+
+  @SerializedName("Tags")
+  private List<TagForReplicateKeyOutput> tags = null;
 
   @SerializedName("Trn")
   private String trn = null;
@@ -374,6 +380,33 @@ public class ConvertReplicaKeyForReplicateKeyOutput {
     this.scheduleRotationTime = scheduleRotationTime;
   }
 
+  public ConvertReplicaKeyForReplicateKeyOutput tags(List<TagForReplicateKeyOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public ConvertReplicaKeyForReplicateKeyOutput addTagsItem(TagForReplicateKeyOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForReplicateKeyOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForReplicateKeyOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForReplicateKeyOutput> tags) {
+    this.tags = tags;
+  }
+
   public ConvertReplicaKeyForReplicateKeyOutput trn(String trn) {
     this.trn = trn;
     return this;
@@ -436,13 +469,14 @@ public class ConvertReplicaKeyForReplicateKeyOutput {
         Objects.equals(this.rotationState, convertReplicaKeyForReplicateKeyOutput.rotationState) &&
         Objects.equals(this.scheduleDeleteTime, convertReplicaKeyForReplicateKeyOutput.scheduleDeleteTime) &&
         Objects.equals(this.scheduleRotationTime, convertReplicaKeyForReplicateKeyOutput.scheduleRotationTime) &&
+        Objects.equals(this.tags, convertReplicaKeyForReplicateKeyOutput.tags) &&
         Objects.equals(this.trn, convertReplicaKeyForReplicateKeyOutput.trn) &&
         Objects.equals(this.updateDate, convertReplicaKeyForReplicateKeyOutput.updateDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(creationDate, description, ID, keyMaterialExpireTime, keyName, keySpec, keyState, keyUsage, lastRotationTime, multiRegion, multiRegionConfiguration, origin, protectionLevel, rotationState, scheduleDeleteTime, scheduleRotationTime, trn, updateDate);
+    return Objects.hash(creationDate, description, ID, keyMaterialExpireTime, keyName, keySpec, keyState, keyUsage, lastRotationTime, multiRegion, multiRegionConfiguration, origin, protectionLevel, rotationState, scheduleDeleteTime, scheduleRotationTime, tags, trn, updateDate);
   }
 
 
@@ -467,6 +501,7 @@ public class ConvertReplicaKeyForReplicateKeyOutput {
     sb.append("    rotationState: ").append(toIndentedString(rotationState)).append("\n");
     sb.append("    scheduleDeleteTime: ").append(toIndentedString(scheduleDeleteTime)).append("\n");
     sb.append("    scheduleRotationTime: ").append(toIndentedString(scheduleRotationTime)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    trn: ").append(toIndentedString(trn)).append("\n");
     sb.append("    updateDate: ").append(toIndentedString(updateDate)).append("\n");
     sb.append("}");
