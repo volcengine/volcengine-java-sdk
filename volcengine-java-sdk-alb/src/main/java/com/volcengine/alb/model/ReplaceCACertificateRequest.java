@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.alb.model.TagForReplaceCACertificateInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -48,6 +51,9 @@ public class ReplaceCACertificateRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
 
+  @SerializedName("Tags")
+  private List<TagForReplaceCACertificateInput> tags = null;
+
   @SerializedName("UpdateMode")
   private String updateMode = null;
 
@@ -60,7 +66,8 @@ public class ReplaceCACertificateRequest {
    * Get caCertificate
    * @return caCertificate
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getCaCertificate() {
     return caCertificate;
   }
@@ -132,7 +139,8 @@ public class ReplaceCACertificateRequest {
    * Get oldCACertificateId
    * @return oldCACertificateId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getOldCACertificateId() {
     return oldCACertificateId;
   }
@@ -159,6 +167,33 @@ public class ReplaceCACertificateRequest {
     this.projectName = projectName;
   }
 
+  public ReplaceCACertificateRequest tags(List<TagForReplaceCACertificateInput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public ReplaceCACertificateRequest addTagsItem(TagForReplaceCACertificateInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForReplaceCACertificateInput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForReplaceCACertificateInput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForReplaceCACertificateInput> tags) {
+    this.tags = tags;
+  }
+
   public ReplaceCACertificateRequest updateMode(String updateMode) {
     this.updateMode = updateMode;
     return this;
@@ -168,7 +203,8 @@ public class ReplaceCACertificateRequest {
    * Get updateMode
    * @return updateMode
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getUpdateMode() {
     return updateMode;
   }
@@ -193,12 +229,13 @@ public class ReplaceCACertificateRequest {
         Objects.equals(this.description, replaceCACertificateRequest.description) &&
         Objects.equals(this.oldCACertificateId, replaceCACertificateRequest.oldCACertificateId) &&
         Objects.equals(this.projectName, replaceCACertificateRequest.projectName) &&
+        Objects.equals(this.tags, replaceCACertificateRequest.tags) &&
         Objects.equals(this.updateMode, replaceCACertificateRequest.updateMode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(caCertificate, caCertificateId, caCertificateName, description, oldCACertificateId, projectName, updateMode);
+    return Objects.hash(caCertificate, caCertificateId, caCertificateName, description, oldCACertificateId, projectName, tags, updateMode);
   }
 
 
@@ -213,6 +250,7 @@ public class ReplaceCACertificateRequest {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    oldCACertificateId: ").append(toIndentedString(oldCACertificateId)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updateMode: ").append(toIndentedString(updateMode)).append("\n");
     sb.append("}");
     return sb.toString();

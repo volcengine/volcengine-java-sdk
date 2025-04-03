@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.alb.model.HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -65,6 +68,12 @@ public class HealthCheckTemplateForCreateHealthCheckTemplatesInput {
 
   @SerializedName("Port")
   private Integer port = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
+  @SerializedName("Tags")
+  private List<HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput> tags = null;
 
   @SerializedName("UnhealthyThreshold")
   private Integer unhealthyThreshold = null;
@@ -289,6 +298,51 @@ public class HealthCheckTemplateForCreateHealthCheckTemplatesInput {
     this.port = port;
   }
 
+  public HealthCheckTemplateForCreateHealthCheckTemplatesInput projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
+  public HealthCheckTemplateForCreateHealthCheckTemplatesInput tags(List<HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public HealthCheckTemplateForCreateHealthCheckTemplatesInput addTagsItem(HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<HealthCheckTemplatesTagForCreateHealthCheckTemplatesInput> tags) {
+    this.tags = tags;
+  }
+
   public HealthCheckTemplateForCreateHealthCheckTemplatesInput unhealthyThreshold(Integer unhealthyThreshold) {
     this.unhealthyThreshold = unhealthyThreshold;
     return this;
@@ -329,12 +383,14 @@ public class HealthCheckTemplateForCreateHealthCheckTemplatesInput {
         Objects.equals(this.healthCheckURI, healthCheckTemplateForCreateHealthCheckTemplatesInput.healthCheckURI) &&
         Objects.equals(this.healthyThreshold, healthCheckTemplateForCreateHealthCheckTemplatesInput.healthyThreshold) &&
         Objects.equals(this.port, healthCheckTemplateForCreateHealthCheckTemplatesInput.port) &&
+        Objects.equals(this.projectName, healthCheckTemplateForCreateHealthCheckTemplatesInput.projectName) &&
+        Objects.equals(this.tags, healthCheckTemplateForCreateHealthCheckTemplatesInput.tags) &&
         Objects.equals(this.unhealthyThreshold, healthCheckTemplateForCreateHealthCheckTemplatesInput.unhealthyThreshold);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, healthCheckDomain, healthCheckHttpCode, healthCheckHttpVersion, healthCheckInterval, healthCheckMethod, healthCheckProtocol, healthCheckTemplateName, healthCheckTimeout, healthCheckURI, healthyThreshold, port, unhealthyThreshold);
+    return Objects.hash(description, healthCheckDomain, healthCheckHttpCode, healthCheckHttpVersion, healthCheckInterval, healthCheckMethod, healthCheckProtocol, healthCheckTemplateName, healthCheckTimeout, healthCheckURI, healthyThreshold, port, projectName, tags, unhealthyThreshold);
   }
 
 
@@ -355,6 +411,8 @@ public class HealthCheckTemplateForCreateHealthCheckTemplatesInput {
     sb.append("    healthCheckURI: ").append(toIndentedString(healthCheckURI)).append("\n");
     sb.append("    healthyThreshold: ").append(toIndentedString(healthyThreshold)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    unhealthyThreshold: ").append(toIndentedString(unhealthyThreshold)).append("\n");
     sb.append("}");
     return sb.toString();

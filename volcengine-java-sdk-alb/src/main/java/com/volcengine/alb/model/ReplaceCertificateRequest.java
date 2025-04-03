@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.alb.model.TagForReplaceCertificateInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -56,6 +59,9 @@ public class ReplaceCertificateRequest {
 
   @SerializedName("PublicKey")
   private String publicKey = null;
+
+  @SerializedName("Tags")
+  private List<TagForReplaceCertificateInput> tags = null;
 
   @SerializedName("UpdateMode")
   private String updateMode = null;
@@ -159,7 +165,8 @@ public class ReplaceCertificateRequest {
    * Get oldCertificateId
    * @return oldCertificateId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getOldCertificateId() {
     return oldCertificateId;
   }
@@ -222,6 +229,33 @@ public class ReplaceCertificateRequest {
     this.publicKey = publicKey;
   }
 
+  public ReplaceCertificateRequest tags(List<TagForReplaceCertificateInput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public ReplaceCertificateRequest addTagsItem(TagForReplaceCertificateInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForReplaceCertificateInput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForReplaceCertificateInput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForReplaceCertificateInput> tags) {
+    this.tags = tags;
+  }
+
   public ReplaceCertificateRequest updateMode(String updateMode) {
     this.updateMode = updateMode;
     return this;
@@ -231,7 +265,8 @@ public class ReplaceCertificateRequest {
    * Get updateMode
    * @return updateMode
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getUpdateMode() {
     return updateMode;
   }
@@ -259,12 +294,13 @@ public class ReplaceCertificateRequest {
         Objects.equals(this.privateKey, replaceCertificateRequest.privateKey) &&
         Objects.equals(this.projectName, replaceCertificateRequest.projectName) &&
         Objects.equals(this.publicKey, replaceCertificateRequest.publicKey) &&
+        Objects.equals(this.tags, replaceCertificateRequest.tags) &&
         Objects.equals(this.updateMode, replaceCertificateRequest.updateMode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(certCenterCertificateId, certificateId, certificateName, certificateSource, description, oldCertificateId, privateKey, projectName, publicKey, updateMode);
+    return Objects.hash(certCenterCertificateId, certificateId, certificateName, certificateSource, description, oldCertificateId, privateKey, projectName, publicKey, tags, updateMode);
   }
 
 
@@ -282,6 +318,7 @@ public class ReplaceCertificateRequest {
     sb.append("    privateKey: ").append(toIndentedString(privateKey)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    publicKey: ").append(toIndentedString(publicKey)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updateMode: ").append(toIndentedString(updateMode)).append("\n");
     sb.append("}");
     return sb.toString();

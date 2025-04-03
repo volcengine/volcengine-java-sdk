@@ -35,6 +35,9 @@ import javax.validation.Valid;
 
 
 public class DescribeListenerAttributesResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("AccessLogRecordCustomizedHeadersEnabled")
+  private String accessLogRecordCustomizedHeadersEnabled = null;
+
   @SerializedName("AclIds")
   private List<String> aclIds = null;
 
@@ -118,6 +121,24 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
 
   @SerializedName("UpdateTime")
   private String updateTime = null;
+
+  public DescribeListenerAttributesResponse accessLogRecordCustomizedHeadersEnabled(String accessLogRecordCustomizedHeadersEnabled) {
+    this.accessLogRecordCustomizedHeadersEnabled = accessLogRecordCustomizedHeadersEnabled;
+    return this;
+  }
+
+   /**
+   * Get accessLogRecordCustomizedHeadersEnabled
+   * @return accessLogRecordCustomizedHeadersEnabled
+  **/
+  @Schema(description = "")
+  public String getAccessLogRecordCustomizedHeadersEnabled() {
+    return accessLogRecordCustomizedHeadersEnabled;
+  }
+
+  public void setAccessLogRecordCustomizedHeadersEnabled(String accessLogRecordCustomizedHeadersEnabled) {
+    this.accessLogRecordCustomizedHeadersEnabled = accessLogRecordCustomizedHeadersEnabled;
+  }
 
   public DescribeListenerAttributesResponse aclIds(List<String> aclIds) {
     this.aclIds = aclIds;
@@ -668,7 +689,8 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
       return false;
     }
     DescribeListenerAttributesResponse describeListenerAttributesResponse = (DescribeListenerAttributesResponse) o;
-    return Objects.equals(this.aclIds, describeListenerAttributesResponse.aclIds) &&
+    return Objects.equals(this.accessLogRecordCustomizedHeadersEnabled, describeListenerAttributesResponse.accessLogRecordCustomizedHeadersEnabled) &&
+        Objects.equals(this.aclIds, describeListenerAttributesResponse.aclIds) &&
         Objects.equals(this.aclStatus, describeListenerAttributesResponse.aclStatus) &&
         Objects.equals(this.aclType, describeListenerAttributesResponse.aclType) &&
         Objects.equals(this.caCertificateId, describeListenerAttributesResponse.caCertificateId) &&
@@ -700,7 +722,7 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclIds, aclStatus, aclType, caCertificateId, certCenterCertificateId, certificateId, certificateSource, clientAddressTransmissionProtocol, createTime, customizedCfgId, description, domainExtensions, enableHttp2, enableQuic, enabled, listenerId, listenerName, loadBalancerId, port, projectName, protocol, proxyProtocolDisabled, requestId, serverGroupId, serverGroups, status, tags, updateTime);
+    return Objects.hash(accessLogRecordCustomizedHeadersEnabled, aclIds, aclStatus, aclType, caCertificateId, certCenterCertificateId, certificateId, certificateSource, clientAddressTransmissionProtocol, createTime, customizedCfgId, description, domainExtensions, enableHttp2, enableQuic, enabled, listenerId, listenerName, loadBalancerId, port, projectName, protocol, proxyProtocolDisabled, requestId, serverGroupId, serverGroups, status, tags, updateTime);
   }
 
 
@@ -709,6 +731,7 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeListenerAttributesResponse {\n");
     
+    sb.append("    accessLogRecordCustomizedHeadersEnabled: ").append(toIndentedString(accessLogRecordCustomizedHeadersEnabled)).append("\n");
     sb.append("    aclIds: ").append(toIndentedString(aclIds)).append("\n");
     sb.append("    aclStatus: ").append(toIndentedString(aclStatus)).append("\n");
     sb.append("    aclType: ").append(toIndentedString(aclType)).append("\n");
