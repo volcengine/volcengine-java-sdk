@@ -48,6 +48,9 @@ public class RenewInstanceRequest {
   @SerializedName("RenewalDurationUnit")
   private String renewalDurationUnit = null;
 
+  @SerializedName("UnitedExpireDay")
+  private String unitedExpireDay = null;
+
   public RenewInstanceRequest clientToken(String clientToken) {
     this.clientToken = clientToken;
     return this;
@@ -159,6 +162,24 @@ public class RenewInstanceRequest {
     this.renewalDurationUnit = renewalDurationUnit;
   }
 
+  public RenewInstanceRequest unitedExpireDay(String unitedExpireDay) {
+    this.unitedExpireDay = unitedExpireDay;
+    return this;
+  }
+
+   /**
+   * Get unitedExpireDay
+   * @return unitedExpireDay
+  **/
+  @Schema(description = "")
+  public String getUnitedExpireDay() {
+    return unitedExpireDay;
+  }
+
+  public void setUnitedExpireDay(String unitedExpireDay) {
+    this.unitedExpireDay = unitedExpireDay;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -174,12 +195,13 @@ public class RenewInstanceRequest {
         Objects.equals(this.product, renewInstanceRequest.product) &&
         Objects.equals(this.renewRelatedInstance, renewInstanceRequest.renewRelatedInstance) &&
         Objects.equals(this.renewalDuration, renewInstanceRequest.renewalDuration) &&
-        Objects.equals(this.renewalDurationUnit, renewInstanceRequest.renewalDurationUnit);
+        Objects.equals(this.renewalDurationUnit, renewInstanceRequest.renewalDurationUnit) &&
+        Objects.equals(this.unitedExpireDay, renewInstanceRequest.unitedExpireDay);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, instanceID, product, renewRelatedInstance, renewalDuration, renewalDurationUnit);
+    return Objects.hash(clientToken, instanceID, product, renewRelatedInstance, renewalDuration, renewalDurationUnit, unitedExpireDay);
   }
 
 
@@ -194,6 +216,7 @@ public class RenewInstanceRequest {
     sb.append("    renewRelatedInstance: ").append(toIndentedString(renewRelatedInstance)).append("\n");
     sb.append("    renewalDuration: ").append(toIndentedString(renewalDuration)).append("\n");
     sb.append("    renewalDurationUnit: ").append(toIndentedString(renewalDurationUnit)).append("\n");
+    sb.append("    unitedExpireDay: ").append(toIndentedString(unitedExpireDay)).append("\n");
     sb.append("}");
     return sb.toString();
   }
