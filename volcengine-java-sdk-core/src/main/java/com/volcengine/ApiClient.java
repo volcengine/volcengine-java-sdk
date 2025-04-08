@@ -19,6 +19,9 @@ import com.squareup.okhttp.internal.http.HttpMethod;
 import com.squareup.okhttp.logging.HttpLoggingInterceptor;
 import com.squareup.okhttp.logging.HttpLoggingInterceptor.Level;
 import com.volcengine.auth.Authentication;
+import com.volcengine.auth.CredentialProvider;
+import com.volcengine.endpoint.EndpointResolver;
+import com.volcengine.interceptor.*;
 import com.volcengine.model.AbstractResponse;
 import com.volcengine.model.ResponseMetadata;
 import com.volcengine.sign.Credentials;
@@ -84,8 +87,14 @@ public class ApiClient {
 
     private Credentials credentials;
     private String region;
-    private String endpoint = "open.volcengineapi.com";
+    private String endpoint;
     private boolean disableSSL = false;
+
+    private InterceptorChain interceptorChain = new InterceptorChain();
+
+    private EndpointResolver endpointResolver;
+
+    private CredentialProvider credentialProvider;
 
     /*
      * Constructor for ApiClient
@@ -106,6 +115,12 @@ public class ApiClient {
         authentications.put(DefaultAuthentication, new VolcstackSign());
         // Prevent the authentications from being modified.
         authentications = Collections.unmodifiableMap(authentications);
+
+        interceptorChain.appendRequestInterceptor(new ResolveEndpointInterceptor());
+        interceptorChain.appendRequestInterceptor(new BuildRequestInterceptor());
+        interceptorChain.appendRequestInterceptor(new SignRequestInterceptor());
+
+        interceptorChain.appendResponseInterceptor(new DeserializedResponseInterceptor());
     }
 
     /**
@@ -891,25 +906,29 @@ public class ApiClient {
      * @throws ApiException If fail to execute the call
      */
     public <T> ApiResponse<T> execute(Call call, final Type returnType, boolean... isCommon) throws ApiException {
+        if (!(call instanceof InterceptorContext)) {
+            throw new ApiException("not support custom context class");
+        }
+        InterceptorContext context = (InterceptorContext) call;
+        ResponseInterceptorContext responseInterceptorContext = new ResponseInterceptorContext();
+        responseInterceptorContext.setCommon(isCommon.length > 0 && isCommon[0]);
+        responseInterceptorContext.setReturnType(returnType);
+        context.setResponseContext(responseInterceptorContext);
+
+        context.setApiClient(this);
+
         try {
-            Response response = call.execute();
-            T data = handleResponse(response, returnType, isCommon);
-            return new ApiResponse<T>(response.code(), response.headers().toMultimap(), data);
+            this.interceptorChain.executeRequest(context);
+            Call finalCall = context.requestContext.getCall();
+            Response response = finalCall.execute();
+            context.getResponseContext().setOriginalResponse(response);
+            this.interceptorChain.executeResponse(context);
+            return new ApiResponse<T>(response.code(), response.headers().toMultimap(), (T) context.getResponseContext().getData());
         } catch (IOException e) {
             throw new ApiException(e);
         }
     }
 
-    /**
-     * {@link #executeAsync(Call, Type, ApiCallback)}
-     *
-     * @param <T>      Type
-     * @param call     An instance of the Call object
-     * @param callback ApiCallback&lt;T&gt;
-     */
-    public <T> void executeAsync(Call call, ApiCallback<T> callback) {
-        executeAsync(call, null, callback);
-    }
 
     /**
      * Execute HTTP call asynchronously.
@@ -922,7 +941,23 @@ public class ApiClient {
      */
     @SuppressWarnings("unchecked")
     public <T> void executeAsync(Call call, final Type returnType, final ApiCallback<T> callback) {
-        call.enqueue(new Callback() {
+        if (!(call instanceof InterceptorContext)) {
+            callback.onFailure(new ApiException("not support custom context class"), 0, null);
+            return;
+        }
+        final InterceptorContext context = (InterceptorContext) call;
+        ResponseInterceptorContext responseInterceptorContext = new ResponseInterceptorContext();
+        responseInterceptorContext.setReturnType(returnType);
+        context.setResponseContext(responseInterceptorContext);
+
+        context.setApiClient(this);
+        try {
+            this.interceptorChain.executeRequest(context);
+        } catch (ApiException e) {
+            callback.onFailure(e, 0, null);
+            return;
+        }
+        Callback okHttpCallBack = new Callback() {
             @Override
             public void onFailure(Request request, IOException e) {
                 callback.onFailure(new ApiException(e), 0, null);
@@ -932,14 +967,18 @@ public class ApiClient {
             public void onResponse(Response response) throws IOException {
                 T result;
                 try {
-                    result = (T) handleResponse(response, returnType);
+                    context.getResponseContext().setOriginalResponse(response);
+                    context.getApiClient().interceptorChain.executeResponse(context);
+                    result = (T) context.responseContext.getData();
                 } catch (ApiException e) {
                     callback.onFailure(e, response.code(), response.headers().toMultimap());
                     return;
                 }
                 callback.onSuccess(result, response.code(), response.headers().toMultimap());
             }
-        });
+        };
+
+        call.enqueue(okHttpCallBack);
     }
 
     /**
@@ -998,20 +1037,33 @@ public class ApiClient {
      * @return The HTTP call
      * @throws ApiException If fail to serialize the request body object
      */
-    public Call buildCall(String path, String method, List<Pair> queryParams, List<Pair> collectionQueryParams, Object body, Map<String, String> headerParams, Map<String, Object> formParams, String[] authNames, ProgressRequestBody.ProgressRequestListener progressRequestListener, boolean... isCommon) throws ApiException {
-        Request request = buildRequest(path, method, queryParams, collectionQueryParams, body, headerParams, formParams, authNames, progressRequestListener, isCommon);
-
-        return httpClient.newCall(request);
+    public InterceptorContext buildCall(String path, String method, List<Pair> queryParams, List<Pair> collectionQueryParams, Object body, Map<String, String> headerParams, Map<String, Object> formParams, String[] authNames, ProgressRequestBody.ProgressRequestListener progressRequestListener, boolean... isCommon) throws ApiException {
+        InterceptorContext interceptorContext = new InterceptorContext();
+        InitInterceptorContext requestInterceptorContext = new InitInterceptorContext.Builder()
+                .path(path)
+                .method(method)
+                .queryParams(queryParams)
+                .collectionQueryParams(collectionQueryParams)
+                .body(body)
+                .headerParams(headerParams)
+                .formParams(formParams)
+                .authNames(authNames)
+                .progressRequestListener(progressRequestListener)
+                .isCommon(isCommon.length > 0 && isCommon[0])
+                .build();
+        interceptorContext.setInitInterceptorContext(requestInterceptorContext);
+        interceptorContext.setApiClient(this);
+        return interceptorContext;
     }
 
-    private void getDefaultContentType(Map<String, String> headerParams) {
+    public void getDefaultContentType(Map<String, String> headerParams) {
         String contentType = headerParams.get("Content-Type");
         if (contentType == null) {
             headerParams.put("Content-Type", "text/plain");
         }
     }
 
-    private boolean isApplicationJsonBody(Map<String, String> headerParams) {
+    public boolean isApplicationJsonBody(Map<String, String> headerParams) {
         String contentType = headerParams.get("Content-Type");
         if (contentType == null) {
             return false;
@@ -1022,7 +1074,7 @@ public class ApiClient {
         return false;
     }
 
-    private boolean isPostBody(Map<String, String> headerParams) {
+    public boolean isPostBody(Map<String, String> headerParams) {
         String contentType = headerParams.get("Content-Type");
         if (contentType == null) {
             return false;
@@ -1033,12 +1085,12 @@ public class ApiClient {
         return false;
     }
 
-    private void updateQueryParams(List<Pair> queryParams, String[] param) {
+    public void updateQueryParams(List<Pair> queryParams, String[] param) {
         queryParams.add(new Pair("Action", param[1]));
         queryParams.add(new Pair("Version", param[2]));
     }
 
-    private ServiceInfo addPairAndGetServiceInfo(String path, List<Pair> queryParams, Map<String, String> headerParams) {
+    public ServiceInfo addPairAndGetServiceInfo(String path, List<Pair> queryParams, Map<String, String> headerParams) {
         String[] param = path.split("/");
 
         if (param.length >= 6) {
@@ -1053,7 +1105,7 @@ public class ApiClient {
 
     }
 
-    private String getTruePath(String path, Map<String, String> headerParams) {
+    public String getTruePath(String path, Map<String, String> headerParams) {
         if (isApplicationJsonBody(headerParams) || isPostBody(headerParams)) {
             String[] param = path.split("/");
             return "/?Action=" + param[1] + "&Version=" + param[2];
@@ -1088,7 +1140,7 @@ public class ApiClient {
         return false;
     }
 
-    private void buildSimpleRequest(Object body, List<Pair> queryParams, Map<String, String> headerParams, StringBuilder builder, FormEncodingBuilder formBuilder, String chain, boolean... isCommon) throws Exception {
+    public void buildSimpleRequest(Object body, List<Pair> queryParams, Map<String, String> headerParams, StringBuilder builder, FormEncodingBuilder formBuilder, String chain, boolean... isCommon) throws Exception {
         if (body == null) {
             return;
         }
@@ -1352,6 +1404,25 @@ public class ApiClient {
         return url.toString();
     }
 
+    public void buildQueryParams(String path, StringBuilder url, List<Pair> queryParams) {
+        if (queryParams != null && !queryParams.isEmpty()) {
+            // support (constant) query string in `path`, e.g. "/posts?draft=1"
+            String prefix = path.contains("?") ? "&" : "?";
+            for (Pair param : queryParams) {
+                if (param.getValue() != null) {
+                    if (prefix != null) {
+                        url.append(prefix);
+                        prefix = null;
+                    } else {
+                        url.append("&");
+                    }
+                    String value = parameterToString(param.getValue());
+                    url.append(escapeString(param.getName())).append("=").append(escapeString(value));
+                }
+            }
+        }
+    }
+
     /**
      * Set header parameters to the request builder, including default headers.
      *
@@ -1365,6 +1436,14 @@ public class ApiClient {
         for (Entry<String, String> header : defaultHeaderMap.entrySet()) {
             if (!headerParams.containsKey(header.getKey())) {
                 reqBuilder.header(header.getKey(), parameterToString(header.getValue()));
+            }
+        }
+    }
+
+    public void processDefaultHeader(Map<String, String> headerParams) {
+        for (Entry<String, String> header : defaultHeaderMap.entrySet()) {
+            if (!headerParams.containsKey(header.getKey())) {
+                headerParams.put(header.getKey(), parameterToString(header.getValue()));
             }
         }
     }
@@ -1522,6 +1601,7 @@ public class ApiClient {
         }
     }
 
+
     private KeyStore newEmptyKeyStore(char[] password) throws GeneralSecurityException {
         try {
             KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
@@ -1530,5 +1610,21 @@ public class ApiClient {
         } catch (IOException e) {
             throw new AssertionError(e);
         }
+    }
+
+    public CredentialProvider getCredentialProvider() {
+        return credentialProvider;
+    }
+
+    public void setCredentialProvider(CredentialProvider credentialProvider) {
+        this.credentialProvider = credentialProvider;
+    }
+
+    public EndpointResolver getEndpointResolver() {
+        return endpointResolver;
+    }
+
+    public void setEndpointResolver(EndpointResolver endpointResolver) {
+        this.endpointResolver = endpointResolver;
     }
 }
