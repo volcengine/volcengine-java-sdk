@@ -31,6 +31,7 @@ public class SignRequestInterceptor implements RequestInterceptor {
     @Override
     public InterceptorContext intercept(InterceptorContext context) throws ApiException {
         String path = context.getRequestContext().getPath();
+        String method=context.getRequestContext().getMethod();
         Map<String, String> headerParams = context.getRequestContext().getHeaderParams();
         List<Pair> queryParams = context.getRequestContext().getQueryParams();
         ServiceInfo serviceInfo = context.getRequestContext().getServiceInfo();
@@ -64,7 +65,7 @@ public class SignRequestInterceptor implements RequestInterceptor {
         }
         volcengineSign.setRegion(context.getApiClient().getRegion());
         volcengineSign.setService(serviceInfo.getServiceName());
-        volcengineSign.setMethod(serviceInfo.getMethod());
+        volcengineSign.setMethod(serviceInfo.getMethod().toUpperCase());
 
         if (volcengineSign.getCredentials() == null) {
             throw new RuntimeException("Credentials must set when ApiClient init");
@@ -95,9 +96,9 @@ public class SignRequestInterceptor implements RequestInterceptor {
 
         if (progressRequestListener != null && reqBody != null) {
             ProgressRequestBody progressRequestBody = new ProgressRequestBody(reqBody, progressRequestListener);
-            request = reqBuilder.method(serviceInfo.getMethod(), progressRequestBody).build();
+            request = reqBuilder.method(method, progressRequestBody).build();
         } else {
-            request = reqBuilder.method(serviceInfo.getMethod(), reqBody).build();
+            request = reqBuilder.method(method, reqBody).build();
         }
         Call call = context.getApiClient().getHttpClient().newCall(request);
         context.getRequestContext().setCall(call);

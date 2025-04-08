@@ -97,11 +97,22 @@ public class ApiClient {
 
     private CredentialProvider credentialProvider;
 
+    private Integer connectTimeout;
+
+    private Integer readTimeout;
+
+    private Integer maxIdleConns = 5;
+
+    private Integer keepAliveDurationMs = 5 * 60 * 1000;
+
+
     /*
      * Constructor for ApiClient
      */
     public ApiClient() {
+        ConnectionPool connectionPool=new ConnectionPool(maxIdleConns,keepAliveDurationMs);
         httpClient = new OkHttpClient();
+        httpClient.setConnectionPool(connectionPool);
 
 
         verifyingSsl = true;
@@ -116,7 +127,7 @@ public class ApiClient {
         authentications.put(DefaultAuthentication, new VolcstackSign());
         // Prevent the authentications from being modified.
         authentications = Collections.unmodifiableMap(authentications);
-        endpointResolver=new DefaultEndpointProvider();
+        endpointResolver = new DefaultEndpointProvider();
 
         interceptorChain.appendRequestInterceptor(new ResolveEndpointInterceptor());
         interceptorChain.appendRequestInterceptor(new BuildRequestInterceptor());
@@ -1638,5 +1649,34 @@ public class ApiClient {
 
     public void setEndpointResolver(EndpointResolver endpointResolver) {
         this.endpointResolver = endpointResolver;
+    }
+
+    public void setConnectTimeout(Integer connectTimeout) {
+        this.connectTimeout = connectTimeout;
+        this.httpClient.setConnectTimeout(connectTimeout, TimeUnit.MILLISECONDS);
+    }
+
+    public void setReadTimeout(Integer readTimeout) {
+        this.readTimeout = readTimeout;
+        this.httpClient.setReadTimeout(readTimeout, TimeUnit.MILLISECONDS);
+    }
+
+
+    public Integer getMaxIdleConns() {
+        return maxIdleConns;
+    }
+
+    public void setMaxIdleConns(Integer maxIdleConns) {
+        this.maxIdleConns = maxIdleConns;
+        this.httpClient.setConnectionPool(new ConnectionPool(maxIdleConns,keepAliveDurationMs));
+    }
+
+    public Integer getKeepAliveDurationMs() {
+        return keepAliveDurationMs;
+    }
+
+    public void setKeepAliveDurationMs(Integer keepAliveDurationMs) {
+        this.keepAliveDurationMs = keepAliveDurationMs;
+        this.httpClient.setConnectionPool(new ConnectionPool(maxIdleConns,keepAliveDurationMs));
     }
 }
