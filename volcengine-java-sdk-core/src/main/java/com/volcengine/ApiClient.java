@@ -929,6 +929,16 @@ public class ApiClient {
         }
     }
 
+    /**
+     * {@link #executeAsync(Call, Type, ApiCallback)}
+     *
+     * @param <T>      Type
+     * @param call     An instance of the Call object
+     * @param callback ApiCallback&lt;T&gt;
+     */
+    public <T> void executeAsync(Call call, ApiCallback<T> callback) {
+        executeAsync(call, null, callback);
+    }
 
     /**
      * Execute HTTP call asynchronously.
