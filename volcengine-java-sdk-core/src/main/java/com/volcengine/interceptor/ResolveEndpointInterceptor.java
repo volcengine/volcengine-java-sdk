@@ -20,15 +20,18 @@ public class ResolveEndpointInterceptor implements RequestInterceptor {
         boolean disableSSL = context.getApiClient().getDisableSSL();
         String host = context.getApiClient().getEndpoint();
 
-        String schema = "http";
+        String schema = "https";
         if (disableSSL) {
-            schema = "https";
+            schema = "http";
         }
         context.getRequestContext().setSchema(schema);
         if (StringUtils.isNotBlank(host)) {
             context.getRequestContext().setHost(host);
         } else {
             EndpointResolver endpointResolver = context.getApiClient().getEndpointResolver();
+            if (endpointResolver == null) {
+                throw new ApiException("One of Endpoint and EndpointResolver must configured");
+            }
             String path = context.getInitInterceptorContext().getPath();
             String[] param = path.split("/");
             if (param.length < 4) {
@@ -38,12 +41,8 @@ public class ResolveEndpointInterceptor implements RequestInterceptor {
             ResolveEndpointOption option = new ResolveEndpointOption();
             option.setService(service);
             option.setRegion(context.getApiClient().getRegion());
-            if (endpointResolver != null) {
-                ResolvedEndpoint resolvedEndpoint = endpointResolver.endpointFor(option);
-                context.getRequestContext().setHost(resolvedEndpoint.getEndpoint());
-            } else {
-                throw new ApiException("One of Endpoint and EndpointResolver must configured");
-            }
+            ResolvedEndpoint resolvedEndpoint = endpointResolver.endpointFor(option);
+            context.getRequestContext().setHost(resolvedEndpoint.getEndpoint());
         }
         return context;
     }

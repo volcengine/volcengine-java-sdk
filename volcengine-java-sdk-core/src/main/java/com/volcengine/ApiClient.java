@@ -20,6 +20,7 @@ import com.squareup.okhttp.logging.HttpLoggingInterceptor;
 import com.squareup.okhttp.logging.HttpLoggingInterceptor.Level;
 import com.volcengine.auth.Authentication;
 import com.volcengine.auth.CredentialProvider;
+import com.volcengine.endpoint.DefaultEndpointProvider;
 import com.volcengine.endpoint.EndpointResolver;
 import com.volcengine.interceptor.*;
 import com.volcengine.model.AbstractResponse;
@@ -115,6 +116,7 @@ public class ApiClient {
         authentications.put(DefaultAuthentication, new VolcstackSign());
         // Prevent the authentications from being modified.
         authentications = Collections.unmodifiableMap(authentications);
+        endpointResolver=new DefaultEndpointProvider();
 
         interceptorChain.appendRequestInterceptor(new ResolveEndpointInterceptor());
         interceptorChain.appendRequestInterceptor(new BuildRequestInterceptor());
@@ -1048,7 +1050,7 @@ public class ApiClient {
      * @throws ApiException If fail to serialize the request body object
      */
     public InterceptorContext buildCall(String path, String method, List<Pair> queryParams, List<Pair> collectionQueryParams, Object body, Map<String, String> headerParams, Map<String, Object> formParams, String[] authNames, ProgressRequestBody.ProgressRequestListener progressRequestListener, boolean... isCommon) throws ApiException {
-        InterceptorContext interceptorContext = new InterceptorContext();
+        InterceptorContext interceptorContext = new InterceptorContext(this.httpClient, null);
         InitInterceptorContext requestInterceptorContext = new InitInterceptorContext.Builder()
                 .path(path)
                 .method(method)

@@ -33,10 +33,7 @@ public class InterceptorContext extends com.squareup.okhttp.Call {
 
     public InterceptorContext(OkHttpClient client, Request originalRequest) {
         super(client, originalRequest);
-    }
 
-    public InterceptorContext() {
-        super(null, null);
         initInterceptorContext = new InitInterceptorContext();
         requestContext = new RequestInterceptorContext();
         responseContext = new ResponseInterceptorContext();
