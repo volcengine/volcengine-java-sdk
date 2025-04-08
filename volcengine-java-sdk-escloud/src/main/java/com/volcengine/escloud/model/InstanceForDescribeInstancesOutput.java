@@ -67,11 +67,17 @@ public class InstanceForDescribeInstancesOutput {
   @SerializedName("ESPrivateEndpoint")
   private String esPrivateEndpoint = null;
 
+  @SerializedName("ESPrivateIpAllowList")
+  private String esPrivateIpAllowList = null;
+
   @SerializedName("ESPrivateIpWhitelist")
   private String esPrivateIpWhitelist = null;
 
   @SerializedName("ESPublicEndpoint")
   private String esPublicEndpoint = null;
+
+  @SerializedName("ESPublicIpAllowList")
+  private String esPublicIpAllowList = null;
 
   @SerializedName("ESPublicIpWhitelist")
   private String esPublicIpWhitelist = null;
@@ -115,11 +121,17 @@ public class InstanceForDescribeInstancesOutput {
   @SerializedName("KibanaPrivateDomain")
   private String kibanaPrivateDomain = null;
 
+  @SerializedName("KibanaPrivateIpAllowList")
+  private String kibanaPrivateIpAllowList = null;
+
   @SerializedName("KibanaPrivateIpWhitelist")
   private String kibanaPrivateIpWhitelist = null;
 
   @SerializedName("KibanaPublicDomain")
   private String kibanaPublicDomain = null;
+
+  @SerializedName("KibanaPublicIpAllowList")
+  private String kibanaPublicIpAllowList = null;
 
   @SerializedName("KibanaPublicIpWhitelist")
   private String kibanaPublicIpWhitelist = null;
@@ -229,6 +241,56 @@ public class InstanceForDescribeInstancesOutput {
     }
   }  @SerializedName("Status")
   private StatusEnum status = null;
+
+  /**
+   * Gets or Sets subInstanceEnable
+   */
+  @JsonAdapter(SubInstanceEnableEnum.Adapter.class)
+  public enum SubInstanceEnableEnum {
+    @SerializedName("None")
+    NONE("None"),
+    @SerializedName(" AI")
+    _AI(" AI"),
+    @SerializedName(" Sql")
+    _SQL(" Sql"),
+    @SerializedName(" AI_Sql")
+    _AI_SQL(" AI_Sql");
+
+    private String value;
+
+    SubInstanceEnableEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static SubInstanceEnableEnum fromValue(String input) {
+      for (SubInstanceEnableEnum b : SubInstanceEnableEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<SubInstanceEnableEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final SubInstanceEnableEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public SubInstanceEnableEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return SubInstanceEnableEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("SubInstanceEnable")
+  private SubInstanceEnableEnum subInstanceEnable = null;
 
   @SerializedName("SubInstances")
   private List<SubInstanceForDescribeInstancesOutput> subInstances = null;
@@ -425,6 +487,24 @@ public class InstanceForDescribeInstancesOutput {
     this.esPrivateEndpoint = esPrivateEndpoint;
   }
 
+  public InstanceForDescribeInstancesOutput esPrivateIpAllowList(String esPrivateIpAllowList) {
+    this.esPrivateIpAllowList = esPrivateIpAllowList;
+    return this;
+  }
+
+   /**
+   * Get esPrivateIpAllowList
+   * @return esPrivateIpAllowList
+  **/
+  @Schema(description = "")
+  public String getEsPrivateIpAllowList() {
+    return esPrivateIpAllowList;
+  }
+
+  public void setEsPrivateIpAllowList(String esPrivateIpAllowList) {
+    this.esPrivateIpAllowList = esPrivateIpAllowList;
+  }
+
   public InstanceForDescribeInstancesOutput esPrivateIpWhitelist(String esPrivateIpWhitelist) {
     this.esPrivateIpWhitelist = esPrivateIpWhitelist;
     return this;
@@ -459,6 +539,24 @@ public class InstanceForDescribeInstancesOutput {
 
   public void setEsPublicEndpoint(String esPublicEndpoint) {
     this.esPublicEndpoint = esPublicEndpoint;
+  }
+
+  public InstanceForDescribeInstancesOutput esPublicIpAllowList(String esPublicIpAllowList) {
+    this.esPublicIpAllowList = esPublicIpAllowList;
+    return this;
+  }
+
+   /**
+   * Get esPublicIpAllowList
+   * @return esPublicIpAllowList
+  **/
+  @Schema(description = "")
+  public String getEsPublicIpAllowList() {
+    return esPublicIpAllowList;
+  }
+
+  public void setEsPublicIpAllowList(String esPublicIpAllowList) {
+    this.esPublicIpAllowList = esPublicIpAllowList;
   }
 
   public InstanceForDescribeInstancesOutput esPublicIpWhitelist(String esPublicIpWhitelist) {
@@ -715,6 +813,24 @@ public class InstanceForDescribeInstancesOutput {
     this.kibanaPrivateDomain = kibanaPrivateDomain;
   }
 
+  public InstanceForDescribeInstancesOutput kibanaPrivateIpAllowList(String kibanaPrivateIpAllowList) {
+    this.kibanaPrivateIpAllowList = kibanaPrivateIpAllowList;
+    return this;
+  }
+
+   /**
+   * Get kibanaPrivateIpAllowList
+   * @return kibanaPrivateIpAllowList
+  **/
+  @Schema(description = "")
+  public String getKibanaPrivateIpAllowList() {
+    return kibanaPrivateIpAllowList;
+  }
+
+  public void setKibanaPrivateIpAllowList(String kibanaPrivateIpAllowList) {
+    this.kibanaPrivateIpAllowList = kibanaPrivateIpAllowList;
+  }
+
   public InstanceForDescribeInstancesOutput kibanaPrivateIpWhitelist(String kibanaPrivateIpWhitelist) {
     this.kibanaPrivateIpWhitelist = kibanaPrivateIpWhitelist;
     return this;
@@ -749,6 +865,24 @@ public class InstanceForDescribeInstancesOutput {
 
   public void setKibanaPublicDomain(String kibanaPublicDomain) {
     this.kibanaPublicDomain = kibanaPublicDomain;
+  }
+
+  public InstanceForDescribeInstancesOutput kibanaPublicIpAllowList(String kibanaPublicIpAllowList) {
+    this.kibanaPublicIpAllowList = kibanaPublicIpAllowList;
+    return this;
+  }
+
+   /**
+   * Get kibanaPublicIpAllowList
+   * @return kibanaPublicIpAllowList
+  **/
+  @Schema(description = "")
+  public String getKibanaPublicIpAllowList() {
+    return kibanaPublicIpAllowList;
+  }
+
+  public void setKibanaPublicIpAllowList(String kibanaPublicIpAllowList) {
+    this.kibanaPublicIpAllowList = kibanaPublicIpAllowList;
   }
 
   public InstanceForDescribeInstancesOutput kibanaPublicIpWhitelist(String kibanaPublicIpWhitelist) {
@@ -876,6 +1010,24 @@ public class InstanceForDescribeInstancesOutput {
     this.status = status;
   }
 
+  public InstanceForDescribeInstancesOutput subInstanceEnable(SubInstanceEnableEnum subInstanceEnable) {
+    this.subInstanceEnable = subInstanceEnable;
+    return this;
+  }
+
+   /**
+   * Get subInstanceEnable
+   * @return subInstanceEnable
+  **/
+  @Schema(description = "")
+  public SubInstanceEnableEnum getSubInstanceEnable() {
+    return subInstanceEnable;
+  }
+
+  public void setSubInstanceEnable(SubInstanceEnableEnum subInstanceEnable) {
+    this.subInstanceEnable = subInstanceEnable;
+  }
+
   public InstanceForDescribeInstancesOutput subInstances(List<SubInstanceForDescribeInstancesOutput> subInstances) {
     this.subInstances = subInstances;
     return this;
@@ -996,8 +1148,10 @@ public class InstanceForDescribeInstancesOutput {
         Objects.equals(this.esEip, instanceForDescribeInstancesOutput.esEip) &&
         Objects.equals(this.esEipId, instanceForDescribeInstancesOutput.esEipId) &&
         Objects.equals(this.esPrivateEndpoint, instanceForDescribeInstancesOutput.esPrivateEndpoint) &&
+        Objects.equals(this.esPrivateIpAllowList, instanceForDescribeInstancesOutput.esPrivateIpAllowList) &&
         Objects.equals(this.esPrivateIpWhitelist, instanceForDescribeInstancesOutput.esPrivateIpWhitelist) &&
         Objects.equals(this.esPublicEndpoint, instanceForDescribeInstancesOutput.esPublicEndpoint) &&
+        Objects.equals(this.esPublicIpAllowList, instanceForDescribeInstancesOutput.esPublicIpAllowList) &&
         Objects.equals(this.esPublicIpWhitelist, instanceForDescribeInstancesOutput.esPublicIpWhitelist) &&
         Objects.equals(this.enableESPrivateDomainPublic, instanceForDescribeInstancesOutput.enableESPrivateDomainPublic) &&
         Objects.equals(this.enableESPrivateNetwork, instanceForDescribeInstancesOutput.enableESPrivateNetwork) &&
@@ -1012,14 +1166,17 @@ public class InstanceForDescribeInstancesOutput {
         Objects.equals(this.kibanaEip, instanceForDescribeInstancesOutput.kibanaEip) &&
         Objects.equals(this.kibanaEipId, instanceForDescribeInstancesOutput.kibanaEipId) &&
         Objects.equals(this.kibanaPrivateDomain, instanceForDescribeInstancesOutput.kibanaPrivateDomain) &&
+        Objects.equals(this.kibanaPrivateIpAllowList, instanceForDescribeInstancesOutput.kibanaPrivateIpAllowList) &&
         Objects.equals(this.kibanaPrivateIpWhitelist, instanceForDescribeInstancesOutput.kibanaPrivateIpWhitelist) &&
         Objects.equals(this.kibanaPublicDomain, instanceForDescribeInstancesOutput.kibanaPublicDomain) &&
+        Objects.equals(this.kibanaPublicIpAllowList, instanceForDescribeInstancesOutput.kibanaPublicIpAllowList) &&
         Objects.equals(this.kibanaPublicIpWhitelist, instanceForDescribeInstancesOutput.kibanaPublicIpWhitelist) &&
         Objects.equals(this.mainZoneId, instanceForDescribeInstancesOutput.mainZoneId) &&
         Objects.equals(this.maintenanceDay, instanceForDescribeInstancesOutput.maintenanceDay) &&
         Objects.equals(this.maintenanceTime, instanceForDescribeInstancesOutput.maintenanceTime) &&
         Objects.equals(this.resourceTags, instanceForDescribeInstancesOutput.resourceTags) &&
         Objects.equals(this.status, instanceForDescribeInstancesOutput.status) &&
+        Objects.equals(this.subInstanceEnable, instanceForDescribeInstancesOutput.subInstanceEnable) &&
         Objects.equals(this.subInstances, instanceForDescribeInstancesOutput.subInstances) &&
         Objects.equals(this.supportColdNode, instanceForDescribeInstancesOutput.supportColdNode) &&
         Objects.equals(this.totalNodes, instanceForDescribeInstancesOutput.totalNodes) &&
@@ -1029,7 +1186,7 @@ public class InstanceForDescribeInstancesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cerebroEnabled, cerebroPrivateDomain, cerebroPublicDomain, chargeEnabled, clusterId, createTime, deletionProtection, esEip, esEipId, esPrivateEndpoint, esPrivateIpWhitelist, esPublicEndpoint, esPublicIpWhitelist, enableESPrivateDomainPublic, enableESPrivateNetwork, enableESPublicNetwork, enableKibanaPrivateDomainPublic, enableKibanaPrivateNetwork, enableKibanaPublicNetwork, expireDate, instanceConfiguration, instanceId, kibanaConfig, kibanaEip, kibanaEipId, kibanaPrivateDomain, kibanaPrivateIpWhitelist, kibanaPublicDomain, kibanaPublicIpWhitelist, mainZoneId, maintenanceDay, maintenanceTime, resourceTags, status, subInstances, supportColdNode, totalNodes, transferInfo, userId);
+    return Objects.hash(cerebroEnabled, cerebroPrivateDomain, cerebroPublicDomain, chargeEnabled, clusterId, createTime, deletionProtection, esEip, esEipId, esPrivateEndpoint, esPrivateIpAllowList, esPrivateIpWhitelist, esPublicEndpoint, esPublicIpAllowList, esPublicIpWhitelist, enableESPrivateDomainPublic, enableESPrivateNetwork, enableESPublicNetwork, enableKibanaPrivateDomainPublic, enableKibanaPrivateNetwork, enableKibanaPublicNetwork, expireDate, instanceConfiguration, instanceId, kibanaConfig, kibanaEip, kibanaEipId, kibanaPrivateDomain, kibanaPrivateIpAllowList, kibanaPrivateIpWhitelist, kibanaPublicDomain, kibanaPublicIpAllowList, kibanaPublicIpWhitelist, mainZoneId, maintenanceDay, maintenanceTime, resourceTags, status, subInstanceEnable, subInstances, supportColdNode, totalNodes, transferInfo, userId);
   }
 
 
@@ -1048,8 +1205,10 @@ public class InstanceForDescribeInstancesOutput {
     sb.append("    esEip: ").append(toIndentedString(esEip)).append("\n");
     sb.append("    esEipId: ").append(toIndentedString(esEipId)).append("\n");
     sb.append("    esPrivateEndpoint: ").append(toIndentedString(esPrivateEndpoint)).append("\n");
+    sb.append("    esPrivateIpAllowList: ").append(toIndentedString(esPrivateIpAllowList)).append("\n");
     sb.append("    esPrivateIpWhitelist: ").append(toIndentedString(esPrivateIpWhitelist)).append("\n");
     sb.append("    esPublicEndpoint: ").append(toIndentedString(esPublicEndpoint)).append("\n");
+    sb.append("    esPublicIpAllowList: ").append(toIndentedString(esPublicIpAllowList)).append("\n");
     sb.append("    esPublicIpWhitelist: ").append(toIndentedString(esPublicIpWhitelist)).append("\n");
     sb.append("    enableESPrivateDomainPublic: ").append(toIndentedString(enableESPrivateDomainPublic)).append("\n");
     sb.append("    enableESPrivateNetwork: ").append(toIndentedString(enableESPrivateNetwork)).append("\n");
@@ -1064,14 +1223,17 @@ public class InstanceForDescribeInstancesOutput {
     sb.append("    kibanaEip: ").append(toIndentedString(kibanaEip)).append("\n");
     sb.append("    kibanaEipId: ").append(toIndentedString(kibanaEipId)).append("\n");
     sb.append("    kibanaPrivateDomain: ").append(toIndentedString(kibanaPrivateDomain)).append("\n");
+    sb.append("    kibanaPrivateIpAllowList: ").append(toIndentedString(kibanaPrivateIpAllowList)).append("\n");
     sb.append("    kibanaPrivateIpWhitelist: ").append(toIndentedString(kibanaPrivateIpWhitelist)).append("\n");
     sb.append("    kibanaPublicDomain: ").append(toIndentedString(kibanaPublicDomain)).append("\n");
+    sb.append("    kibanaPublicIpAllowList: ").append(toIndentedString(kibanaPublicIpAllowList)).append("\n");
     sb.append("    kibanaPublicIpWhitelist: ").append(toIndentedString(kibanaPublicIpWhitelist)).append("\n");
     sb.append("    mainZoneId: ").append(toIndentedString(mainZoneId)).append("\n");
     sb.append("    maintenanceDay: ").append(toIndentedString(maintenanceDay)).append("\n");
     sb.append("    maintenanceTime: ").append(toIndentedString(maintenanceTime)).append("\n");
     sb.append("    resourceTags: ").append(toIndentedString(resourceTags)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    subInstanceEnable: ").append(toIndentedString(subInstanceEnable)).append("\n");
     sb.append("    subInstances: ").append(toIndentedString(subInstances)).append("\n");
     sb.append("    supportColdNode: ").append(toIndentedString(supportColdNode)).append("\n");
     sb.append("    totalNodes: ").append(toIndentedString(totalNodes)).append("\n");

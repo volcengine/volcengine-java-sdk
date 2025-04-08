@@ -94,6 +94,9 @@ public class InstanceInfoForDescribeInstanceOutput {
   @SerializedName("EnableKibanaPublicNetwork")
   private Boolean enableKibanaPublicNetwork = null;
 
+  @SerializedName("EsPubBandwidth")
+  private Integer esPubBandwidth = null;
+
   @SerializedName("ExpireDate")
   private String expireDate = null;
 
@@ -117,6 +120,9 @@ public class InstanceInfoForDescribeInstanceOutput {
 
   @SerializedName("KibanaPrivateIpWhitelist")
   private String kibanaPrivateIpWhitelist = null;
+
+  @SerializedName("KibanaPubBandwidth")
+  private Integer kibanaPubBandwidth = null;
 
   @SerializedName("KibanaPublicDomain")
   private String kibanaPublicDomain = null;
@@ -229,6 +235,56 @@ public class InstanceInfoForDescribeInstanceOutput {
     }
   }  @SerializedName("Status")
   private StatusEnum status = null;
+
+  /**
+   * Gets or Sets subInstanceEnable
+   */
+  @JsonAdapter(SubInstanceEnableEnum.Adapter.class)
+  public enum SubInstanceEnableEnum {
+    @SerializedName("None")
+    NONE("None"),
+    @SerializedName(" AI")
+    _AI(" AI"),
+    @SerializedName(" Sql")
+    _SQL(" Sql"),
+    @SerializedName(" AI_Sql")
+    _AI_SQL(" AI_Sql");
+
+    private String value;
+
+    SubInstanceEnableEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static SubInstanceEnableEnum fromValue(String input) {
+      for (SubInstanceEnableEnum b : SubInstanceEnableEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<SubInstanceEnableEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final SubInstanceEnableEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public SubInstanceEnableEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return SubInstanceEnableEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("SubInstanceEnable")
+  private SubInstanceEnableEnum subInstanceEnable = null;
 
   @SerializedName("SubInstances")
   private List<SubInstanceForDescribeInstanceOutput> subInstances = null;
@@ -587,6 +643,25 @@ public class InstanceInfoForDescribeInstanceOutput {
     this.enableKibanaPublicNetwork = enableKibanaPublicNetwork;
   }
 
+  public InstanceInfoForDescribeInstanceOutput esPubBandwidth(Integer esPubBandwidth) {
+    this.esPubBandwidth = esPubBandwidth;
+    return this;
+  }
+
+   /**
+   * Get esPubBandwidth
+   * minimum: 0
+   * @return esPubBandwidth
+  **/
+ @Min(0)  @Schema(description = "")
+  public Integer getEsPubBandwidth() {
+    return esPubBandwidth;
+  }
+
+  public void setEsPubBandwidth(Integer esPubBandwidth) {
+    this.esPubBandwidth = esPubBandwidth;
+  }
+
   public InstanceInfoForDescribeInstanceOutput expireDate(String expireDate) {
     this.expireDate = expireDate;
     return this;
@@ -733,6 +808,25 @@ public class InstanceInfoForDescribeInstanceOutput {
     this.kibanaPrivateIpWhitelist = kibanaPrivateIpWhitelist;
   }
 
+  public InstanceInfoForDescribeInstanceOutput kibanaPubBandwidth(Integer kibanaPubBandwidth) {
+    this.kibanaPubBandwidth = kibanaPubBandwidth;
+    return this;
+  }
+
+   /**
+   * Get kibanaPubBandwidth
+   * minimum: 0
+   * @return kibanaPubBandwidth
+  **/
+ @Min(0)  @Schema(description = "")
+  public Integer getKibanaPubBandwidth() {
+    return kibanaPubBandwidth;
+  }
+
+  public void setKibanaPubBandwidth(Integer kibanaPubBandwidth) {
+    this.kibanaPubBandwidth = kibanaPubBandwidth;
+  }
+
   public InstanceInfoForDescribeInstanceOutput kibanaPublicDomain(String kibanaPublicDomain) {
     this.kibanaPublicDomain = kibanaPublicDomain;
     return this;
@@ -876,6 +970,24 @@ public class InstanceInfoForDescribeInstanceOutput {
     this.status = status;
   }
 
+  public InstanceInfoForDescribeInstanceOutput subInstanceEnable(SubInstanceEnableEnum subInstanceEnable) {
+    this.subInstanceEnable = subInstanceEnable;
+    return this;
+  }
+
+   /**
+   * Get subInstanceEnable
+   * @return subInstanceEnable
+  **/
+  @Schema(description = "")
+  public SubInstanceEnableEnum getSubInstanceEnable() {
+    return subInstanceEnable;
+  }
+
+  public void setSubInstanceEnable(SubInstanceEnableEnum subInstanceEnable) {
+    this.subInstanceEnable = subInstanceEnable;
+  }
+
   public InstanceInfoForDescribeInstanceOutput subInstances(List<SubInstanceForDescribeInstanceOutput> subInstances) {
     this.subInstances = subInstances;
     return this;
@@ -1005,6 +1117,7 @@ public class InstanceInfoForDescribeInstanceOutput {
         Objects.equals(this.enableKibanaPrivateDomainPublic, instanceInfoForDescribeInstanceOutput.enableKibanaPrivateDomainPublic) &&
         Objects.equals(this.enableKibanaPrivateNetwork, instanceInfoForDescribeInstanceOutput.enableKibanaPrivateNetwork) &&
         Objects.equals(this.enableKibanaPublicNetwork, instanceInfoForDescribeInstanceOutput.enableKibanaPublicNetwork) &&
+        Objects.equals(this.esPubBandwidth, instanceInfoForDescribeInstanceOutput.esPubBandwidth) &&
         Objects.equals(this.expireDate, instanceInfoForDescribeInstanceOutput.expireDate) &&
         Objects.equals(this.instanceConfiguration, instanceInfoForDescribeInstanceOutput.instanceConfiguration) &&
         Objects.equals(this.instanceId, instanceInfoForDescribeInstanceOutput.instanceId) &&
@@ -1013,6 +1126,7 @@ public class InstanceInfoForDescribeInstanceOutput {
         Objects.equals(this.kibanaEipId, instanceInfoForDescribeInstanceOutput.kibanaEipId) &&
         Objects.equals(this.kibanaPrivateDomain, instanceInfoForDescribeInstanceOutput.kibanaPrivateDomain) &&
         Objects.equals(this.kibanaPrivateIpWhitelist, instanceInfoForDescribeInstanceOutput.kibanaPrivateIpWhitelist) &&
+        Objects.equals(this.kibanaPubBandwidth, instanceInfoForDescribeInstanceOutput.kibanaPubBandwidth) &&
         Objects.equals(this.kibanaPublicDomain, instanceInfoForDescribeInstanceOutput.kibanaPublicDomain) &&
         Objects.equals(this.kibanaPublicIpWhitelist, instanceInfoForDescribeInstanceOutput.kibanaPublicIpWhitelist) &&
         Objects.equals(this.mainZoneId, instanceInfoForDescribeInstanceOutput.mainZoneId) &&
@@ -1020,6 +1134,7 @@ public class InstanceInfoForDescribeInstanceOutput {
         Objects.equals(this.maintenanceTime, instanceInfoForDescribeInstanceOutput.maintenanceTime) &&
         Objects.equals(this.resourceTags, instanceInfoForDescribeInstanceOutput.resourceTags) &&
         Objects.equals(this.status, instanceInfoForDescribeInstanceOutput.status) &&
+        Objects.equals(this.subInstanceEnable, instanceInfoForDescribeInstanceOutput.subInstanceEnable) &&
         Objects.equals(this.subInstances, instanceInfoForDescribeInstanceOutput.subInstances) &&
         Objects.equals(this.supportColdNode, instanceInfoForDescribeInstanceOutput.supportColdNode) &&
         Objects.equals(this.totalNodes, instanceInfoForDescribeInstanceOutput.totalNodes) &&
@@ -1029,7 +1144,7 @@ public class InstanceInfoForDescribeInstanceOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cerebroEnabled, cerebroPrivateDomain, cerebroPublicDomain, chargeEnabled, clusterId, createTime, deletionProtection, esEip, esEipId, esPrivateEndpoint, esPrivateIpWhitelist, esPublicEndpoint, esPublicIpWhitelist, enableESPrivateDomainPublic, enableESPrivateNetwork, enableESPublicNetwork, enableKibanaPrivateDomainPublic, enableKibanaPrivateNetwork, enableKibanaPublicNetwork, expireDate, instanceConfiguration, instanceId, kibanaConfig, kibanaEip, kibanaEipId, kibanaPrivateDomain, kibanaPrivateIpWhitelist, kibanaPublicDomain, kibanaPublicIpWhitelist, mainZoneId, maintenanceDay, maintenanceTime, resourceTags, status, subInstances, supportColdNode, totalNodes, transferInfo, userId);
+    return Objects.hash(cerebroEnabled, cerebroPrivateDomain, cerebroPublicDomain, chargeEnabled, clusterId, createTime, deletionProtection, esEip, esEipId, esPrivateEndpoint, esPrivateIpWhitelist, esPublicEndpoint, esPublicIpWhitelist, enableESPrivateDomainPublic, enableESPrivateNetwork, enableESPublicNetwork, enableKibanaPrivateDomainPublic, enableKibanaPrivateNetwork, enableKibanaPublicNetwork, esPubBandwidth, expireDate, instanceConfiguration, instanceId, kibanaConfig, kibanaEip, kibanaEipId, kibanaPrivateDomain, kibanaPrivateIpWhitelist, kibanaPubBandwidth, kibanaPublicDomain, kibanaPublicIpWhitelist, mainZoneId, maintenanceDay, maintenanceTime, resourceTags, status, subInstanceEnable, subInstances, supportColdNode, totalNodes, transferInfo, userId);
   }
 
 
@@ -1057,6 +1172,7 @@ public class InstanceInfoForDescribeInstanceOutput {
     sb.append("    enableKibanaPrivateDomainPublic: ").append(toIndentedString(enableKibanaPrivateDomainPublic)).append("\n");
     sb.append("    enableKibanaPrivateNetwork: ").append(toIndentedString(enableKibanaPrivateNetwork)).append("\n");
     sb.append("    enableKibanaPublicNetwork: ").append(toIndentedString(enableKibanaPublicNetwork)).append("\n");
+    sb.append("    esPubBandwidth: ").append(toIndentedString(esPubBandwidth)).append("\n");
     sb.append("    expireDate: ").append(toIndentedString(expireDate)).append("\n");
     sb.append("    instanceConfiguration: ").append(toIndentedString(instanceConfiguration)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
@@ -1065,6 +1181,7 @@ public class InstanceInfoForDescribeInstanceOutput {
     sb.append("    kibanaEipId: ").append(toIndentedString(kibanaEipId)).append("\n");
     sb.append("    kibanaPrivateDomain: ").append(toIndentedString(kibanaPrivateDomain)).append("\n");
     sb.append("    kibanaPrivateIpWhitelist: ").append(toIndentedString(kibanaPrivateIpWhitelist)).append("\n");
+    sb.append("    kibanaPubBandwidth: ").append(toIndentedString(kibanaPubBandwidth)).append("\n");
     sb.append("    kibanaPublicDomain: ").append(toIndentedString(kibanaPublicDomain)).append("\n");
     sb.append("    kibanaPublicIpWhitelist: ").append(toIndentedString(kibanaPublicIpWhitelist)).append("\n");
     sb.append("    mainZoneId: ").append(toIndentedString(mainZoneId)).append("\n");
@@ -1072,6 +1189,7 @@ public class InstanceInfoForDescribeInstanceOutput {
     sb.append("    maintenanceTime: ").append(toIndentedString(maintenanceTime)).append("\n");
     sb.append("    resourceTags: ").append(toIndentedString(resourceTags)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    subInstanceEnable: ").append(toIndentedString(subInstanceEnable)).append("\n");
     sb.append("    subInstances: ").append(toIndentedString(subInstances)).append("\n");
     sb.append("    supportColdNode: ").append(toIndentedString(supportColdNode)).append("\n");
     sb.append("    totalNodes: ").append(toIndentedString(totalNodes)).append("\n");
