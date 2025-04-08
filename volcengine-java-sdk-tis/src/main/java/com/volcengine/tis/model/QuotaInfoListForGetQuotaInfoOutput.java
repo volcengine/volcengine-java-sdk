@@ -33,6 +33,9 @@ public class QuotaInfoListForGetQuotaInfoOutput {
   @SerializedName("availableAmount")
   private Integer availableAmount = null;
 
+  @SerializedName("configurationCode")
+  private String configurationCode = null;
+
   @SerializedName("packageName")
   private String packageName = null;
 
@@ -55,6 +58,24 @@ public class QuotaInfoListForGetQuotaInfoOutput {
 
   public void setAvailableAmount(Integer availableAmount) {
     this.availableAmount = availableAmount;
+  }
+
+  public QuotaInfoListForGetQuotaInfoOutput configurationCode(String configurationCode) {
+    this.configurationCode = configurationCode;
+    return this;
+  }
+
+   /**
+   * Get configurationCode
+   * @return configurationCode
+  **/
+  @Schema(description = "")
+  public String getConfigurationCode() {
+    return configurationCode;
+  }
+
+  public void setConfigurationCode(String configurationCode) {
+    this.configurationCode = configurationCode;
   }
 
   public QuotaInfoListForGetQuotaInfoOutput packageName(String packageName) {
@@ -104,13 +125,14 @@ public class QuotaInfoListForGetQuotaInfoOutput {
     }
     QuotaInfoListForGetQuotaInfoOutput quotaInfoListForGetQuotaInfoOutput = (QuotaInfoListForGetQuotaInfoOutput) o;
     return Objects.equals(this.availableAmount, quotaInfoListForGetQuotaInfoOutput.availableAmount) &&
+        Objects.equals(this.configurationCode, quotaInfoListForGetQuotaInfoOutput.configurationCode) &&
         Objects.equals(this.packageName, quotaInfoListForGetQuotaInfoOutput.packageName) &&
         Objects.equals(this.totalAmount, quotaInfoListForGetQuotaInfoOutput.totalAmount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(availableAmount, packageName, totalAmount);
+    return Objects.hash(availableAmount, configurationCode, packageName, totalAmount);
   }
 
 
@@ -120,6 +142,7 @@ public class QuotaInfoListForGetQuotaInfoOutput {
     sb.append("class QuotaInfoListForGetQuotaInfoOutput {\n");
     
     sb.append("    availableAmount: ").append(toIndentedString(availableAmount)).append("\n");
+    sb.append("    configurationCode: ").append(toIndentedString(configurationCode)).append("\n");
     sb.append("    packageName: ").append(toIndentedString(packageName)).append("\n");
     sb.append("    totalAmount: ").append(toIndentedString(totalAmount)).append("\n");
     sb.append("}");
