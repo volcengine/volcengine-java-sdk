@@ -97,10 +97,6 @@ public class ApiClient {
 
     private CredentialProvider credentialProvider;
 
-    private Integer connectTimeout;
-
-    private Integer readTimeout;
-
     private Integer maxIdleConns = 5;
 
     private Integer keepAliveDurationMs = 5 * 60 * 1000;
@@ -1650,18 +1646,6 @@ public class ApiClient {
 
     public ApiClient setEndpointResolver(EndpointResolver endpointResolver) {
         this.endpointResolver = endpointResolver;
-        return this;
-    }
-
-    public ApiClient setConnectTimeout(Integer connectTimeout) {
-        this.connectTimeout = connectTimeout;
-        this.httpClient.setConnectTimeout(connectTimeout, TimeUnit.MILLISECONDS);
-        return this;
-    }
-
-    public ApiClient setReadTimeout(Integer readTimeout) {
-        this.readTimeout = readTimeout;
-        this.httpClient.setReadTimeout(readTimeout, TimeUnit.MILLISECONDS);
         return this;
     }
 
