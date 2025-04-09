@@ -1648,13 +1648,15 @@ public class ApiClient {
         return endpointResolver;
     }
 
-    public void setEndpointResolver(EndpointResolver endpointResolver) {
+    public ApiClient setEndpointResolver(EndpointResolver endpointResolver) {
         this.endpointResolver = endpointResolver;
+        return this;
     }
 
-    public void setConnectTimeout(Integer connectTimeout) {
+    public ApiClient setConnectTimeout(Integer connectTimeout) {
         this.connectTimeout = connectTimeout;
         this.httpClient.setConnectTimeout(connectTimeout, TimeUnit.MILLISECONDS);
+        return this;
     }
 
     public ApiClient setReadTimeout(Integer readTimeout) {
