@@ -1657,9 +1657,10 @@ public class ApiClient {
         this.httpClient.setConnectTimeout(connectTimeout, TimeUnit.MILLISECONDS);
     }
 
-    public void setReadTimeout(Integer readTimeout) {
+    public ApiClient setReadTimeout(Integer readTimeout) {
         this.readTimeout = readTimeout;
         this.httpClient.setReadTimeout(readTimeout, TimeUnit.MILLISECONDS);
+        return this;
     }
 
 
@@ -1667,17 +1668,19 @@ public class ApiClient {
         return maxIdleConns;
     }
 
-    public void setMaxIdleConns(Integer maxIdleConns) {
+    public ApiClient setMaxIdleConns(Integer maxIdleConns) {
         this.maxIdleConns = maxIdleConns;
         this.httpClient.setConnectionPool(new ConnectionPool(maxIdleConns,keepAliveDurationMs));
+        return this;
     }
 
     public Integer getKeepAliveDurationMs() {
         return keepAliveDurationMs;
     }
 
-    public void setKeepAliveDurationMs(Integer keepAliveDurationMs) {
+    public ApiClient setKeepAliveDurationMs(Integer keepAliveDurationMs) {
         this.keepAliveDurationMs = keepAliveDurationMs;
         this.httpClient.setConnectionPool(new ConnectionPool(maxIdleConns,keepAliveDurationMs));
+        return this;
     }
 }

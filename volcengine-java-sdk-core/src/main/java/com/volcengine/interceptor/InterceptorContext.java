@@ -102,10 +102,6 @@ public class InterceptorContext extends com.squareup.okhttp.Call {
             throw new ApiException(e);
         }
 
-
-        final String url = this.apiClient.buildUrl(truePath, queryParams, collectionQueryParams);
-        final Request.Builder reqBuilder = new Request.Builder().url(url);
-
         RequestBody reqBody;
         if (!HttpMethod.permitsRequestBody(method)) {
             reqBody = null;
