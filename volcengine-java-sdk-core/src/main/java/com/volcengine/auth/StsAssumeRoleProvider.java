@@ -156,23 +156,37 @@ public class StsAssumeRoleProvider implements Provider {
 
     public void refresh() throws ApiException {
         UniversalApi api = new UniversalApi(apiClient);
-        UniversalRequest request = new UniversalRequest("sts", "2018-01-01", "AssumeRole", HttpMethod.GET, ContentType.valueOf("text/plain"));
+        UniversalRequest request = new UniversalRequest("sts", "AssumeRole", "2018-01-01", HttpMethod.GET, ContentType.Default);
         Map<String, Object> requestMap = new HashMap<>();
         requestMap.put("DurationSeconds", this.durationSeconds);
         requestMap.put("RoleSessionName", UUID.randomUUID().toString());
-        requestMap.put("RoleTrn", String.format("trn:iam::%s::role/%s", accountId, roleName));
+        requestMap.put("RoleTrn", String.format("trn:iam::%s:role/%s", accountId, roleName));
+        long now = System.currentTimeMillis() / 1000;
         ApiResponse<Map<String, Object>> apiResponse = api.doCallWithHttpInfo(request, requestMap);
         if (apiResponse.getStatusCode() == 200) {
             Map<String, Object> responseData = apiResponse.getData();
             try {
                 if (responseData != null) {
-                    Object credentials = responseData.get("Credentials");
-                    Map<String, Object> credentialMap = (Map<String, Object>) credentials;
-                    String accessKey = (String) credentialMap.get("AccessKeyId");
-                    String secretAccessKey = (String) credentialMap.get("SecretAccessKey");
-                    String sessionToken = (String) credentialMap.get("SessionToken");
-                    this.credentialValue = new CredentialValue(accessKey, secretAccessKey, sessionToken, "StsCredentialProvider");
-                    return;
+                    if (responseData.get("ResponseMetadata") != null) {
+                        Map<String, Object> responseMetadata = (Map<String, Object>) responseData.get("ResponseMetadata");
+                        if (responseMetadata.get("Error") != null) {
+                            throw new ApiException("StsAssumeRole request return Error");
+                        }
+                    }
+                    if (responseData.get("Result") != null) {
+                        Map<String, Object> resultMap = (Map<String, Object>) responseData.get("Result");
+                        Object credentials = resultMap.get("Credentials");
+                        Map<String, Object> credentialMap = (Map<String, Object>) credentials;
+                        String accessKey = (String) credentialMap.get("AccessKeyId");
+                        String secretAccessKey = (String) credentialMap.get("SecretAccessKey");
+                        String sessionToken = (String) credentialMap.get("SessionToken");
+                        this.credentialValue = new CredentialValue(accessKey, secretAccessKey, sessionToken, "StsCredentialProvider");
+                        this.expirationTime = now + durationSeconds - expireBufferSeconds;
+                        return;
+                    } else {
+                        throw new ApiException("StsAssumeRole request return Error");
+
+                    }
                 }
             } catch (Exception e) {
                 throw new ApiException("StsAssumeRole Provider Error", apiResponse.getStatusCode(),

@@ -1639,8 +1639,9 @@ public class ApiClient {
         return credentialProvider;
     }
 
-    public void setCredentialProvider(CredentialProvider credentialProvider) {
+    public ApiClient setCredentialProvider(CredentialProvider credentialProvider) {
         this.credentialProvider = credentialProvider;
+        return this;
     }
 
     public EndpointResolver getEndpointResolver() {
