@@ -14,13 +14,6 @@ package com.volcengine.escloud.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.v3.oas.annotations.media.Schema;
-import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -30,77 +23,6 @@ import javax.validation.Valid;
 
 
 public class DescribeZonesRequest {
-  /**
-   * Gets or Sets regionId
-   */
-  @JsonAdapter(RegionIdEnum.Adapter.class)
-  public enum RegionIdEnum {
-    @SerializedName("cn-beijing")
-    CN_BEIJING("cn-beijing"),
-    @SerializedName("cn-shanghai")
-    CN_SHANGHAI("cn-shanghai"),
-    @SerializedName("cn-guangzhou")
-    CN_GUANGZHOU("cn-guangzhou"),
-    @SerializedName("ap-southeast-1")
-    AP_SOUTHEAST_1("ap-southeast-1"),
-    @SerializedName("cn-beijing-selfdrive")
-    CN_BEIJING_SELFDRIVE("cn-beijing-selfdrive");
-
-    private String value;
-
-    RegionIdEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static RegionIdEnum fromValue(String input) {
-      for (RegionIdEnum b : RegionIdEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<RegionIdEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final RegionIdEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public RegionIdEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return RegionIdEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("RegionId")
-  private RegionIdEnum regionId = null;
-
-  public DescribeZonesRequest regionId(RegionIdEnum regionId) {
-    this.regionId = regionId;
-    return this;
-  }
-
-   /**
-   * Get regionId
-   * @return regionId
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public RegionIdEnum getRegionId() {
-    return regionId;
-  }
-
-  public void setRegionId(RegionIdEnum regionId) {
-    this.regionId = regionId;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -110,13 +32,12 @@ public class DescribeZonesRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DescribeZonesRequest describeZonesRequest = (DescribeZonesRequest) o;
-    return Objects.equals(this.regionId, describeZonesRequest.regionId);
+    return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(regionId);
+    return Objects.hash();
   }
 
 
@@ -125,7 +46,6 @@ public class DescribeZonesRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeZonesRequest {\n");
     
-    sb.append("    regionId: ").append(toIndentedString(regionId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
