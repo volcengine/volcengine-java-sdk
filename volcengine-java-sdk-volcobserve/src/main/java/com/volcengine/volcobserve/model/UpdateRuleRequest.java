@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.volcobserve.model.ConditionForUpdateRuleInput;
+import com.volcengine.volcobserve.model.ConvertTagForUpdateRuleInput;
 import com.volcengine.volcobserve.model.DimensionConditionsForUpdateRuleInput;
 import com.volcengine.volcobserve.model.LevelConditionForUpdateRuleInput;
 import com.volcengine.volcobserve.model.NoDataForUpdateRuleInput;
@@ -200,6 +201,9 @@ public class UpdateRuleRequest {
 
   @SerializedName("SubNamespace")
   private String subNamespace = null;
+
+  @SerializedName("Tags")
+  private List<ConvertTagForUpdateRuleInput> tags = null;
 
   @SerializedName("Webhook")
   private String webhook = null;
@@ -704,6 +708,33 @@ public class UpdateRuleRequest {
     this.subNamespace = subNamespace;
   }
 
+  public UpdateRuleRequest tags(List<ConvertTagForUpdateRuleInput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public UpdateRuleRequest addTagsItem(ConvertTagForUpdateRuleInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<ConvertTagForUpdateRuleInput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<ConvertTagForUpdateRuleInput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<ConvertTagForUpdateRuleInput> tags) {
+    this.tags = tags;
+  }
+
   public UpdateRuleRequest webhook(String webhook) {
     this.webhook = webhook;
     return this;
@@ -782,13 +813,14 @@ public class UpdateRuleRequest {
         Objects.equals(this.ruleType, updateRuleRequest.ruleType) &&
         Objects.equals(this.silenceTime, updateRuleRequest.silenceTime) &&
         Objects.equals(this.subNamespace, updateRuleRequest.subNamespace) &&
+        Objects.equals(this.tags, updateRuleRequest.tags) &&
         Objects.equals(this.webhook, updateRuleRequest.webhook) &&
         Objects.equals(this.webhookIds, updateRuleRequest.webhookIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(alertMethods, conditionOperator, conditions, contactGroupIds, description, dimensionConditions, effectEndAt, effectStartAt, enableState, evaluationCount, id, level, levelConditions, multipleConditions, namespace, noData, notificationId, originalDimensions, recoveryNotify, regions, ruleName, ruleType, silenceTime, subNamespace, webhook, webhookIds);
+    return Objects.hash(alertMethods, conditionOperator, conditions, contactGroupIds, description, dimensionConditions, effectEndAt, effectStartAt, enableState, evaluationCount, id, level, levelConditions, multipleConditions, namespace, noData, notificationId, originalDimensions, recoveryNotify, regions, ruleName, ruleType, silenceTime, subNamespace, tags, webhook, webhookIds);
   }
 
 
@@ -821,6 +853,7 @@ public class UpdateRuleRequest {
     sb.append("    ruleType: ").append(toIndentedString(ruleType)).append("\n");
     sb.append("    silenceTime: ").append(toIndentedString(silenceTime)).append("\n");
     sb.append("    subNamespace: ").append(toIndentedString(subNamespace)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    webhook: ").append(toIndentedString(webhook)).append("\n");
     sb.append("    webhookIds: ").append(toIndentedString(webhookIds)).append("\n");
     sb.append("}");
