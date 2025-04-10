@@ -82,6 +82,9 @@ public class DataVolumeForCreateNodePoolInput {
   @SerializedName("Size")
   private Integer size = null;
 
+  @SerializedName("SnapshotId")
+  private String snapshotId = null;
+
   /**
    * Gets or Sets type
    */
@@ -182,6 +185,24 @@ public class DataVolumeForCreateNodePoolInput {
     this.size = size;
   }
 
+  public DataVolumeForCreateNodePoolInput snapshotId(String snapshotId) {
+    this.snapshotId = snapshotId;
+    return this;
+  }
+
+   /**
+   * Get snapshotId
+   * @return snapshotId
+  **/
+  @Schema(description = "")
+  public String getSnapshotId() {
+    return snapshotId;
+  }
+
+  public void setSnapshotId(String snapshotId) {
+    this.snapshotId = snapshotId;
+  }
+
   public DataVolumeForCreateNodePoolInput type(TypeEnum type) {
     this.type = type;
     return this;
@@ -213,12 +234,13 @@ public class DataVolumeForCreateNodePoolInput {
     return Objects.equals(this.fileSystem, dataVolumeForCreateNodePoolInput.fileSystem) &&
         Objects.equals(this.mountPoint, dataVolumeForCreateNodePoolInput.mountPoint) &&
         Objects.equals(this.size, dataVolumeForCreateNodePoolInput.size) &&
+        Objects.equals(this.snapshotId, dataVolumeForCreateNodePoolInput.snapshotId) &&
         Objects.equals(this.type, dataVolumeForCreateNodePoolInput.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fileSystem, mountPoint, size, type);
+    return Objects.hash(fileSystem, mountPoint, size, snapshotId, type);
   }
 
 
@@ -230,6 +252,7 @@ public class DataVolumeForCreateNodePoolInput {
     sb.append("    fileSystem: ").append(toIndentedString(fileSystem)).append("\n");
     sb.append("    mountPoint: ").append(toIndentedString(mountPoint)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
+    sb.append("    snapshotId: ").append(toIndentedString(snapshotId)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

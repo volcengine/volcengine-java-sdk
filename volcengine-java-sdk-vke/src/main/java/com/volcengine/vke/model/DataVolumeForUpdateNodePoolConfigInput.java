@@ -82,6 +82,9 @@ public class DataVolumeForUpdateNodePoolConfigInput {
   @SerializedName("Size")
   private Integer size = null;
 
+  @SerializedName("SnapshotId")
+  private String snapshotId = null;
+
   /**
    * Gets or Sets type
    */
@@ -182,6 +185,24 @@ public class DataVolumeForUpdateNodePoolConfigInput {
     this.size = size;
   }
 
+  public DataVolumeForUpdateNodePoolConfigInput snapshotId(String snapshotId) {
+    this.snapshotId = snapshotId;
+    return this;
+  }
+
+   /**
+   * Get snapshotId
+   * @return snapshotId
+  **/
+  @Schema(description = "")
+  public String getSnapshotId() {
+    return snapshotId;
+  }
+
+  public void setSnapshotId(String snapshotId) {
+    this.snapshotId = snapshotId;
+  }
+
   public DataVolumeForUpdateNodePoolConfigInput type(TypeEnum type) {
     this.type = type;
     return this;
@@ -213,12 +234,13 @@ public class DataVolumeForUpdateNodePoolConfigInput {
     return Objects.equals(this.fileSystem, dataVolumeForUpdateNodePoolConfigInput.fileSystem) &&
         Objects.equals(this.mountPoint, dataVolumeForUpdateNodePoolConfigInput.mountPoint) &&
         Objects.equals(this.size, dataVolumeForUpdateNodePoolConfigInput.size) &&
+        Objects.equals(this.snapshotId, dataVolumeForUpdateNodePoolConfigInput.snapshotId) &&
         Objects.equals(this.type, dataVolumeForUpdateNodePoolConfigInput.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fileSystem, mountPoint, size, type);
+    return Objects.hash(fileSystem, mountPoint, size, snapshotId, type);
   }
 
 
@@ -230,6 +252,7 @@ public class DataVolumeForUpdateNodePoolConfigInput {
     sb.append("    fileSystem: ").append(toIndentedString(fileSystem)).append("\n");
     sb.append("    mountPoint: ").append(toIndentedString(mountPoint)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
+    sb.append("    snapshotId: ").append(toIndentedString(snapshotId)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
