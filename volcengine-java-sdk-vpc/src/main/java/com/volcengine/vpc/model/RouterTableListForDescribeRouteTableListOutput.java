@@ -36,11 +36,63 @@ public class RouterTableListForDescribeRouteTableListOutput {
   @SerializedName("AccountId")
   private String accountId = null;
 
+  /**
+   * Gets or Sets associateType
+   */
+  @JsonAdapter(AssociateTypeEnum.Adapter.class)
+  public enum AssociateTypeEnum {
+    @SerializedName("Subnet")
+    SUBNET("Subnet"),
+    @SerializedName("Gateway")
+    GATEWAY("Gateway");
+
+    private String value;
+
+    AssociateTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static AssociateTypeEnum fromValue(String input) {
+      for (AssociateTypeEnum b : AssociateTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<AssociateTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final AssociateTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public AssociateTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return AssociateTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("AssociateType")
+  private AssociateTypeEnum associateType = null;
+
   @SerializedName("CreationTime")
   private String creationTime = null;
 
   @SerializedName("Description")
   private String description = null;
+
+  @SerializedName("Ipv4GatewayId")
+  private String ipv4GatewayId = null;
+
+  @SerializedName("Ipv6GatewayId")
+  private String ipv6GatewayId = null;
 
   @SerializedName("ProjectName")
   private String projectName = null;
@@ -87,6 +139,24 @@ public class RouterTableListForDescribeRouteTableListOutput {
     this.accountId = accountId;
   }
 
+  public RouterTableListForDescribeRouteTableListOutput associateType(AssociateTypeEnum associateType) {
+    this.associateType = associateType;
+    return this;
+  }
+
+   /**
+   * Get associateType
+   * @return associateType
+  **/
+  @Schema(description = "")
+  public AssociateTypeEnum getAssociateType() {
+    return associateType;
+  }
+
+  public void setAssociateType(AssociateTypeEnum associateType) {
+    this.associateType = associateType;
+  }
+
   public RouterTableListForDescribeRouteTableListOutput creationTime(String creationTime) {
     this.creationTime = creationTime;
     return this;
@@ -121,6 +191,42 @@ public class RouterTableListForDescribeRouteTableListOutput {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public RouterTableListForDescribeRouteTableListOutput ipv4GatewayId(String ipv4GatewayId) {
+    this.ipv4GatewayId = ipv4GatewayId;
+    return this;
+  }
+
+   /**
+   * Get ipv4GatewayId
+   * @return ipv4GatewayId
+  **/
+  @Schema(description = "")
+  public String getIpv4GatewayId() {
+    return ipv4GatewayId;
+  }
+
+  public void setIpv4GatewayId(String ipv4GatewayId) {
+    this.ipv4GatewayId = ipv4GatewayId;
+  }
+
+  public RouterTableListForDescribeRouteTableListOutput ipv6GatewayId(String ipv6GatewayId) {
+    this.ipv6GatewayId = ipv6GatewayId;
+    return this;
+  }
+
+   /**
+   * Get ipv6GatewayId
+   * @return ipv6GatewayId
+  **/
+  @Schema(description = "")
+  public String getIpv6GatewayId() {
+    return ipv6GatewayId;
+  }
+
+  public void setIpv6GatewayId(String ipv6GatewayId) {
+    this.ipv6GatewayId = ipv6GatewayId;
   }
 
   public RouterTableListForDescribeRouteTableListOutput projectName(String projectName) {
@@ -313,8 +419,11 @@ public class RouterTableListForDescribeRouteTableListOutput {
     }
     RouterTableListForDescribeRouteTableListOutput routerTableListForDescribeRouteTableListOutput = (RouterTableListForDescribeRouteTableListOutput) o;
     return Objects.equals(this.accountId, routerTableListForDescribeRouteTableListOutput.accountId) &&
+        Objects.equals(this.associateType, routerTableListForDescribeRouteTableListOutput.associateType) &&
         Objects.equals(this.creationTime, routerTableListForDescribeRouteTableListOutput.creationTime) &&
         Objects.equals(this.description, routerTableListForDescribeRouteTableListOutput.description) &&
+        Objects.equals(this.ipv4GatewayId, routerTableListForDescribeRouteTableListOutput.ipv4GatewayId) &&
+        Objects.equals(this.ipv6GatewayId, routerTableListForDescribeRouteTableListOutput.ipv6GatewayId) &&
         Objects.equals(this.projectName, routerTableListForDescribeRouteTableListOutput.projectName) &&
         Objects.equals(this.routeTableId, routerTableListForDescribeRouteTableListOutput.routeTableId) &&
         Objects.equals(this.routeTableName, routerTableListForDescribeRouteTableListOutput.routeTableName) &&
@@ -328,7 +437,7 @@ public class RouterTableListForDescribeRouteTableListOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, creationTime, description, projectName, routeTableId, routeTableName, routeTableType, subnetIds, tags, updateTime, vpcId, vpcName);
+    return Objects.hash(accountId, associateType, creationTime, description, ipv4GatewayId, ipv6GatewayId, projectName, routeTableId, routeTableName, routeTableType, subnetIds, tags, updateTime, vpcId, vpcName);
   }
 
 
@@ -338,8 +447,11 @@ public class RouterTableListForDescribeRouteTableListOutput {
     sb.append("class RouterTableListForDescribeRouteTableListOutput {\n");
     
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
+    sb.append("    associateType: ").append(toIndentedString(associateType)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    ipv4GatewayId: ").append(toIndentedString(ipv4GatewayId)).append("\n");
+    sb.append("    ipv6GatewayId: ").append(toIndentedString(ipv6GatewayId)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    routeTableId: ").append(toIndentedString(routeTableId)).append("\n");
     sb.append("    routeTableName: ").append(toIndentedString(routeTableName)).append("\n");

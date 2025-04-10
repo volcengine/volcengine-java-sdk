@@ -52,6 +52,9 @@ public class DescribeVpcAttributesResponse extends com.volcengine.model.Abstract
   @SerializedName("DnsServers")
   private List<String> dnsServers = null;
 
+  @SerializedName("Ipv4GatewayId")
+  private String ipv4GatewayId = null;
+
   @SerializedName("Ipv6CidrBlock")
   private String ipv6CidrBlock = null;
 
@@ -84,6 +87,9 @@ public class DescribeVpcAttributesResponse extends com.volcengine.model.Abstract
 
   @SerializedName("SubnetIds")
   private List<String> subnetIds = null;
+
+  @SerializedName("SupportIpv4Gateway")
+  private Boolean supportIpv4Gateway = null;
 
   @SerializedName("Tags")
   private List<TagForDescribeVpcAttributesOutput> tags = null;
@@ -223,6 +229,24 @@ public class DescribeVpcAttributesResponse extends com.volcengine.model.Abstract
 
   public void setDnsServers(List<String> dnsServers) {
     this.dnsServers = dnsServers;
+  }
+
+  public DescribeVpcAttributesResponse ipv4GatewayId(String ipv4GatewayId) {
+    this.ipv4GatewayId = ipv4GatewayId;
+    return this;
+  }
+
+   /**
+   * Get ipv4GatewayId
+   * @return ipv4GatewayId
+  **/
+  @Schema(description = "")
+  public String getIpv4GatewayId() {
+    return ipv4GatewayId;
+  }
+
+  public void setIpv4GatewayId(String ipv4GatewayId) {
+    this.ipv4GatewayId = ipv4GatewayId;
   }
 
   public DescribeVpcAttributesResponse ipv6CidrBlock(String ipv6CidrBlock) {
@@ -463,6 +487,24 @@ public class DescribeVpcAttributesResponse extends com.volcengine.model.Abstract
     this.subnetIds = subnetIds;
   }
 
+  public DescribeVpcAttributesResponse supportIpv4Gateway(Boolean supportIpv4Gateway) {
+    this.supportIpv4Gateway = supportIpv4Gateway;
+    return this;
+  }
+
+   /**
+   * Get supportIpv4Gateway
+   * @return supportIpv4Gateway
+  **/
+  @Schema(description = "")
+  public Boolean isSupportIpv4Gateway() {
+    return supportIpv4Gateway;
+  }
+
+  public void setSupportIpv4Gateway(Boolean supportIpv4Gateway) {
+    this.supportIpv4Gateway = supportIpv4Gateway;
+  }
+
   public DescribeVpcAttributesResponse tags(List<TagForDescribeVpcAttributesOutput> tags) {
     this.tags = tags;
     return this;
@@ -586,6 +628,7 @@ public class DescribeVpcAttributesResponse extends com.volcengine.model.Abstract
         Objects.equals(this.creationTime, describeVpcAttributesResponse.creationTime) &&
         Objects.equals(this.description, describeVpcAttributesResponse.description) &&
         Objects.equals(this.dnsServers, describeVpcAttributesResponse.dnsServers) &&
+        Objects.equals(this.ipv4GatewayId, describeVpcAttributesResponse.ipv4GatewayId) &&
         Objects.equals(this.ipv6CidrBlock, describeVpcAttributesResponse.ipv6CidrBlock) &&
         Objects.equals(this.isDefault, describeVpcAttributesResponse.isDefault) &&
         Objects.equals(this.natGatewayIds, describeVpcAttributesResponse.natGatewayIds) &&
@@ -597,6 +640,7 @@ public class DescribeVpcAttributesResponse extends com.volcengine.model.Abstract
         Objects.equals(this.securityGroupIds, describeVpcAttributesResponse.securityGroupIds) &&
         Objects.equals(this.status, describeVpcAttributesResponse.status) &&
         Objects.equals(this.subnetIds, describeVpcAttributesResponse.subnetIds) &&
+        Objects.equals(this.supportIpv4Gateway, describeVpcAttributesResponse.supportIpv4Gateway) &&
         Objects.equals(this.tags, describeVpcAttributesResponse.tags) &&
         Objects.equals(this.updateTime, describeVpcAttributesResponse.updateTime) &&
         Objects.equals(this.userCidrBlocks, describeVpcAttributesResponse.userCidrBlocks) &&
@@ -606,7 +650,7 @@ public class DescribeVpcAttributesResponse extends com.volcengine.model.Abstract
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, associateCens, cidrBlock, creationTime, description, dnsServers, ipv6CidrBlock, isDefault, natGatewayIds, networkAclNum, projectName, requestId, routeTableIds, secondaryCidrBlocks, securityGroupIds, status, subnetIds, tags, updateTime, userCidrBlocks, vpcId, vpcName);
+    return Objects.hash(accountId, associateCens, cidrBlock, creationTime, description, dnsServers, ipv4GatewayId, ipv6CidrBlock, isDefault, natGatewayIds, networkAclNum, projectName, requestId, routeTableIds, secondaryCidrBlocks, securityGroupIds, status, subnetIds, supportIpv4Gateway, tags, updateTime, userCidrBlocks, vpcId, vpcName);
   }
 
 
@@ -621,6 +665,7 @@ public class DescribeVpcAttributesResponse extends com.volcengine.model.Abstract
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    dnsServers: ").append(toIndentedString(dnsServers)).append("\n");
+    sb.append("    ipv4GatewayId: ").append(toIndentedString(ipv4GatewayId)).append("\n");
     sb.append("    ipv6CidrBlock: ").append(toIndentedString(ipv6CidrBlock)).append("\n");
     sb.append("    isDefault: ").append(toIndentedString(isDefault)).append("\n");
     sb.append("    natGatewayIds: ").append(toIndentedString(natGatewayIds)).append("\n");
@@ -632,6 +677,7 @@ public class DescribeVpcAttributesResponse extends com.volcengine.model.Abstract
     sb.append("    securityGroupIds: ").append(toIndentedString(securityGroupIds)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    subnetIds: ").append(toIndentedString(subnetIds)).append("\n");
+    sb.append("    supportIpv4Gateway: ").append(toIndentedString(supportIpv4Gateway)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    userCidrBlocks: ").append(toIndentedString(userCidrBlocks)).append("\n");

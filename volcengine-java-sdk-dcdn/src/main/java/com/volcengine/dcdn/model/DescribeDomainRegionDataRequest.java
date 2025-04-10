@@ -32,6 +32,9 @@ import javax.validation.Valid;
 
 
 public class DescribeDomainRegionDataRequest {
+  @SerializedName("Area")
+  private String area = null;
+
   @SerializedName("Domain")
   private String domain = null;
 
@@ -43,6 +46,24 @@ public class DescribeDomainRegionDataRequest {
 
   @SerializedName("StartTime")
   private String startTime = null;
+
+  public DescribeDomainRegionDataRequest area(String area) {
+    this.area = area;
+    return this;
+  }
+
+   /**
+   * Get area
+   * @return area
+  **/
+  @Schema(description = "")
+  public String getArea() {
+    return area;
+  }
+
+  public void setArea(String area) {
+    this.area = area;
+  }
 
   public DescribeDomainRegionDataRequest domain(String domain) {
     this.domain = domain;
@@ -137,7 +158,8 @@ public class DescribeDomainRegionDataRequest {
       return false;
     }
     DescribeDomainRegionDataRequest describeDomainRegionDataRequest = (DescribeDomainRegionDataRequest) o;
-    return Objects.equals(this.domain, describeDomainRegionDataRequest.domain) &&
+    return Objects.equals(this.area, describeDomainRegionDataRequest.area) &&
+        Objects.equals(this.domain, describeDomainRegionDataRequest.domain) &&
         Objects.equals(this.endTime, describeDomainRegionDataRequest.endTime) &&
         Objects.equals(this.projectName, describeDomainRegionDataRequest.projectName) &&
         Objects.equals(this.startTime, describeDomainRegionDataRequest.startTime);
@@ -145,7 +167,7 @@ public class DescribeDomainRegionDataRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(domain, endTime, projectName, startTime);
+    return Objects.hash(area, domain, endTime, projectName, startTime);
   }
 
 
@@ -154,6 +176,7 @@ public class DescribeDomainRegionDataRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeDomainRegionDataRequest {\n");
     
+    sb.append("    area: ").append(toIndentedString(area)).append("\n");
     sb.append("    domain: ").append(toIndentedString(domain)).append("\n");
     sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");

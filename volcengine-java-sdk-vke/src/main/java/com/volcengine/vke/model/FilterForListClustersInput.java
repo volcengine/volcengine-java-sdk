@@ -94,6 +94,56 @@ public class FilterForListClustersInput {
   @SerializedName("Statuses")
   private List<StatusForListClustersInput> statuses = null;
 
+  /**
+   * Gets or Sets types
+   */
+  @JsonAdapter(TypesEnum.Adapter.class)
+  public enum TypesEnum {
+    @SerializedName("Managed")
+    MANAGED("Managed"),
+    @SerializedName("Standard")
+    STANDARD("Standard"),
+    @SerializedName("Registered")
+    REGISTERED("Registered"),
+    @SerializedName("OnPremise")
+    ONPREMISE("OnPremise");
+
+    private String value;
+
+    TypesEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static TypesEnum fromValue(String input) {
+      for (TypesEnum b : TypesEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<TypesEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TypesEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public TypesEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return TypesEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("Types")
+  private List<TypesEnum> types = null;
+
   @SerializedName("UpdateClientToken")
   private String updateClientToken = null;
 
@@ -222,6 +272,32 @@ public class FilterForListClustersInput {
     this.statuses = statuses;
   }
 
+  public FilterForListClustersInput types(List<TypesEnum> types) {
+    this.types = types;
+    return this;
+  }
+
+  public FilterForListClustersInput addTypesItem(TypesEnum typesItem) {
+    if (this.types == null) {
+      this.types = new ArrayList<TypesEnum>();
+    }
+    this.types.add(typesItem);
+    return this;
+  }
+
+   /**
+   * Get types
+   * @return types
+  **/
+  @Schema(description = "")
+  public List<TypesEnum> getTypes() {
+    return types;
+  }
+
+  public void setTypes(List<TypesEnum> types) {
+    this.types = types;
+  }
+
   public FilterForListClustersInput updateClientToken(String updateClientToken) {
     this.updateClientToken = updateClientToken;
     return this;
@@ -256,12 +332,13 @@ public class FilterForListClustersInput {
         Objects.equals(this.name, filterForListClustersInput.name) &&
         Objects.equals(this.podsConfigPodNetworkMode, filterForListClustersInput.podsConfigPodNetworkMode) &&
         Objects.equals(this.statuses, filterForListClustersInput.statuses) &&
+        Objects.equals(this.types, filterForListClustersInput.types) &&
         Objects.equals(this.updateClientToken, filterForListClustersInput.updateClientToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createClientToken, deleteProtectionEnabled, ids, name, podsConfigPodNetworkMode, statuses, updateClientToken);
+    return Objects.hash(createClientToken, deleteProtectionEnabled, ids, name, podsConfigPodNetworkMode, statuses, types, updateClientToken);
   }
 
 
@@ -276,6 +353,7 @@ public class FilterForListClustersInput {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    podsConfigPodNetworkMode: ").append(toIndentedString(podsConfigPodNetworkMode)).append("\n");
     sb.append("    statuses: ").append(toIndentedString(statuses)).append("\n");
+    sb.append("    types: ").append(toIndentedString(types)).append("\n");
     sb.append("    updateClientToken: ").append(toIndentedString(updateClientToken)).append("\n");
     sb.append("}");
     return sb.toString();

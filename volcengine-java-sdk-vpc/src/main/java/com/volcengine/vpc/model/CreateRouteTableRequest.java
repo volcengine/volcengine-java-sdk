@@ -33,6 +33,52 @@ import javax.validation.Valid;
 
 
 public class CreateRouteTableRequest {
+  /**
+   * Gets or Sets associateType
+   */
+  @JsonAdapter(AssociateTypeEnum.Adapter.class)
+  public enum AssociateTypeEnum {
+    @SerializedName("Subnet")
+    SUBNET("Subnet"),
+    @SerializedName("Gateway")
+    GATEWAY("Gateway");
+
+    private String value;
+
+    AssociateTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static AssociateTypeEnum fromValue(String input) {
+      for (AssociateTypeEnum b : AssociateTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<AssociateTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final AssociateTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public AssociateTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return AssociateTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("AssociateType")
+  private AssociateTypeEnum associateType = null;
+
   @SerializedName("ClientToken")
   private String clientToken = null;
 
@@ -50,6 +96,24 @@ public class CreateRouteTableRequest {
 
   @SerializedName("VpcId")
   private String vpcId = null;
+
+  public CreateRouteTableRequest associateType(AssociateTypeEnum associateType) {
+    this.associateType = associateType;
+    return this;
+  }
+
+   /**
+   * Get associateType
+   * @return associateType
+  **/
+  @Schema(description = "")
+  public AssociateTypeEnum getAssociateType() {
+    return associateType;
+  }
+
+  public void setAssociateType(AssociateTypeEnum associateType) {
+    this.associateType = associateType;
+  }
 
   public CreateRouteTableRequest clientToken(String clientToken) {
     this.clientToken = clientToken;
@@ -179,7 +243,8 @@ public class CreateRouteTableRequest {
       return false;
     }
     CreateRouteTableRequest createRouteTableRequest = (CreateRouteTableRequest) o;
-    return Objects.equals(this.clientToken, createRouteTableRequest.clientToken) &&
+    return Objects.equals(this.associateType, createRouteTableRequest.associateType) &&
+        Objects.equals(this.clientToken, createRouteTableRequest.clientToken) &&
         Objects.equals(this.description, createRouteTableRequest.description) &&
         Objects.equals(this.projectName, createRouteTableRequest.projectName) &&
         Objects.equals(this.routeTableName, createRouteTableRequest.routeTableName) &&
@@ -189,7 +254,7 @@ public class CreateRouteTableRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, description, projectName, routeTableName, tags, vpcId);
+    return Objects.hash(associateType, clientToken, description, projectName, routeTableName, tags, vpcId);
   }
 
 
@@ -198,6 +263,7 @@ public class CreateRouteTableRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateRouteTableRequest {\n");
     
+    sb.append("    associateType: ").append(toIndentedString(associateType)).append("\n");
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");

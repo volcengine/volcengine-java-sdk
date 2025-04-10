@@ -86,8 +86,8 @@ public class SubInstanceForDescribeInstancesOutput {
   public enum SubInstanceTypeEnum {
     @SerializedName("Sql")
     SQL("Sql"),
-    @SerializedName("Krypton")
-    KRYPTON("Krypton");
+    @SerializedName("AI")
+    AI("AI");
 
     private String value;
 
