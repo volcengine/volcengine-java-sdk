@@ -52,6 +52,9 @@ public class VpcForDescribeVpcsOutput {
   @SerializedName("DnsServers")
   private List<String> dnsServers = null;
 
+  @SerializedName("Ipv4GatewayId")
+  private String ipv4GatewayId = null;
+
   @SerializedName("IsDefault")
   private Boolean isDefault = null;
 
@@ -78,6 +81,9 @@ public class VpcForDescribeVpcsOutput {
 
   @SerializedName("SubnetIds")
   private List<String> subnetIds = null;
+
+  @SerializedName("SupportIpv4Gateway")
+  private Boolean supportIpv4Gateway = null;
 
   @SerializedName("Tags")
   private List<TagForDescribeVpcsOutput> tags = null;
@@ -217,6 +223,24 @@ public class VpcForDescribeVpcsOutput {
 
   public void setDnsServers(List<String> dnsServers) {
     this.dnsServers = dnsServers;
+  }
+
+  public VpcForDescribeVpcsOutput ipv4GatewayId(String ipv4GatewayId) {
+    this.ipv4GatewayId = ipv4GatewayId;
+    return this;
+  }
+
+   /**
+   * Get ipv4GatewayId
+   * @return ipv4GatewayId
+  **/
+  @Schema(description = "")
+  public String getIpv4GatewayId() {
+    return ipv4GatewayId;
+  }
+
+  public void setIpv4GatewayId(String ipv4GatewayId) {
+    this.ipv4GatewayId = ipv4GatewayId;
   }
 
   public VpcForDescribeVpcsOutput isDefault(Boolean isDefault) {
@@ -421,6 +445,24 @@ public class VpcForDescribeVpcsOutput {
     this.subnetIds = subnetIds;
   }
 
+  public VpcForDescribeVpcsOutput supportIpv4Gateway(Boolean supportIpv4Gateway) {
+    this.supportIpv4Gateway = supportIpv4Gateway;
+    return this;
+  }
+
+   /**
+   * Get supportIpv4Gateway
+   * @return supportIpv4Gateway
+  **/
+  @Schema(description = "")
+  public Boolean isSupportIpv4Gateway() {
+    return supportIpv4Gateway;
+  }
+
+  public void setSupportIpv4Gateway(Boolean supportIpv4Gateway) {
+    this.supportIpv4Gateway = supportIpv4Gateway;
+  }
+
   public VpcForDescribeVpcsOutput tags(List<TagForDescribeVpcsOutput> tags) {
     this.tags = tags;
     return this;
@@ -544,6 +586,7 @@ public class VpcForDescribeVpcsOutput {
         Objects.equals(this.creationTime, vpcForDescribeVpcsOutput.creationTime) &&
         Objects.equals(this.description, vpcForDescribeVpcsOutput.description) &&
         Objects.equals(this.dnsServers, vpcForDescribeVpcsOutput.dnsServers) &&
+        Objects.equals(this.ipv4GatewayId, vpcForDescribeVpcsOutput.ipv4GatewayId) &&
         Objects.equals(this.isDefault, vpcForDescribeVpcsOutput.isDefault) &&
         Objects.equals(this.natGatewayIds, vpcForDescribeVpcsOutput.natGatewayIds) &&
         Objects.equals(this.networkAclNum, vpcForDescribeVpcsOutput.networkAclNum) &&
@@ -553,6 +596,7 @@ public class VpcForDescribeVpcsOutput {
         Objects.equals(this.securityGroupIds, vpcForDescribeVpcsOutput.securityGroupIds) &&
         Objects.equals(this.status, vpcForDescribeVpcsOutput.status) &&
         Objects.equals(this.subnetIds, vpcForDescribeVpcsOutput.subnetIds) &&
+        Objects.equals(this.supportIpv4Gateway, vpcForDescribeVpcsOutput.supportIpv4Gateway) &&
         Objects.equals(this.tags, vpcForDescribeVpcsOutput.tags) &&
         Objects.equals(this.updateTime, vpcForDescribeVpcsOutput.updateTime) &&
         Objects.equals(this.userCidrBlocks, vpcForDescribeVpcsOutput.userCidrBlocks) &&
@@ -562,7 +606,7 @@ public class VpcForDescribeVpcsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, associateCens, cidrBlock, creationTime, description, dnsServers, isDefault, natGatewayIds, networkAclNum, projectName, routeTableIds, secondaryCidrBlocks, securityGroupIds, status, subnetIds, tags, updateTime, userCidrBlocks, vpcId, vpcName);
+    return Objects.hash(accountId, associateCens, cidrBlock, creationTime, description, dnsServers, ipv4GatewayId, isDefault, natGatewayIds, networkAclNum, projectName, routeTableIds, secondaryCidrBlocks, securityGroupIds, status, subnetIds, supportIpv4Gateway, tags, updateTime, userCidrBlocks, vpcId, vpcName);
   }
 
 
@@ -577,6 +621,7 @@ public class VpcForDescribeVpcsOutput {
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    dnsServers: ").append(toIndentedString(dnsServers)).append("\n");
+    sb.append("    ipv4GatewayId: ").append(toIndentedString(ipv4GatewayId)).append("\n");
     sb.append("    isDefault: ").append(toIndentedString(isDefault)).append("\n");
     sb.append("    natGatewayIds: ").append(toIndentedString(natGatewayIds)).append("\n");
     sb.append("    networkAclNum: ").append(toIndentedString(networkAclNum)).append("\n");
@@ -586,6 +631,7 @@ public class VpcForDescribeVpcsOutput {
     sb.append("    securityGroupIds: ").append(toIndentedString(securityGroupIds)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    subnetIds: ").append(toIndentedString(subnetIds)).append("\n");
+    sb.append("    supportIpv4Gateway: ").append(toIndentedString(supportIpv4Gateway)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    userCidrBlocks: ").append(toIndentedString(userCidrBlocks)).append("\n");
