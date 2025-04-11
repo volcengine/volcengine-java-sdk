@@ -45,51 +45,8 @@ public class ListAllIpGroupsRequest {
   @SerializedName("RuleTag")
   private String ruleTag = null;
 
-  /**
-   * Gets or Sets timeOrderBy
-   */
-  @JsonAdapter(TimeOrderByEnum.Adapter.class)
-  public enum TimeOrderByEnum {
-    @SerializedName("ASC")
-    ASC("ASC"),
-    @SerializedName("DESC")
-    DESC("DESC");
-
-    private String value;
-
-    TimeOrderByEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static TimeOrderByEnum fromValue(String input) {
-      for (TimeOrderByEnum b : TimeOrderByEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<TimeOrderByEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final TimeOrderByEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public TimeOrderByEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return TimeOrderByEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("TimeOrderBy")
-  private TimeOrderByEnum timeOrderBy = null;
+  @SerializedName("TimeOrderBy")
+  private String timeOrderBy = null;
 
   public ListAllIpGroupsRequest ip(String ip) {
     this.ip = ip;
@@ -181,7 +138,7 @@ public class ListAllIpGroupsRequest {
     this.ruleTag = ruleTag;
   }
 
-  public ListAllIpGroupsRequest timeOrderBy(TimeOrderByEnum timeOrderBy) {
+  public ListAllIpGroupsRequest timeOrderBy(String timeOrderBy) {
     this.timeOrderBy = timeOrderBy;
     return this;
   }
@@ -192,11 +149,11 @@ public class ListAllIpGroupsRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public TimeOrderByEnum getTimeOrderBy() {
+  public String getTimeOrderBy() {
     return timeOrderBy;
   }
 
-  public void setTimeOrderBy(TimeOrderByEnum timeOrderBy) {
+  public void setTimeOrderBy(String timeOrderBy) {
     this.timeOrderBy = timeOrderBy;
   }
 

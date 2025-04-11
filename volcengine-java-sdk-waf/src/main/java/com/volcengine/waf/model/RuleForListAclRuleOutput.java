@@ -87,7 +87,7 @@ public class RuleForListAclRuleOutput {
   private List<String> ipLocationSubregion = null;
 
   @SerializedName("Name")
-  private List<String> name = null;
+  private String name = null;
 
   @SerializedName("PrefixSwitch")
   private List<String> prefixSwitch = null;
@@ -474,16 +474,8 @@ public class RuleForListAclRuleOutput {
     this.ipLocationSubregion = ipLocationSubregion;
   }
 
-  public RuleForListAclRuleOutput name(List<String> name) {
+  public RuleForListAclRuleOutput name(String name) {
     this.name = name;
-    return this;
-  }
-
-  public RuleForListAclRuleOutput addNameItem(String nameItem) {
-    if (this.name == null) {
-      this.name = new ArrayList<String>();
-    }
-    this.name.add(nameItem);
     return this;
   }
 
@@ -492,11 +484,11 @@ public class RuleForListAclRuleOutput {
    * @return name
   **/
   @Schema(description = "")
-  public List<String> getName() {
+  public String getName() {
     return name;
   }
 
-  public void setName(List<String> name) {
+  public void setName(String name) {
     this.name = name;
   }
 

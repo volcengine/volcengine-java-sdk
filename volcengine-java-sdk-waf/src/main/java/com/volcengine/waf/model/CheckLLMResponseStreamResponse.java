@@ -19,57 +19,59 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.waf.model.DecisionForCheckLLMResponseStreamOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * MatchForCheckLLMPromptOutput
+ * CheckLLMResponseStreamResponse
  */
 
 
 
-public class MatchForCheckLLMPromptOutput {
-  @SerializedName("Label")
-  private String label = null;
+public class CheckLLMResponseStreamResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("Decision")
+  private DecisionForCheckLLMResponseStreamOutput decision = null;
 
-  @SerializedName("Word")
-  private String word = null;
+  @SerializedName("MsgID")
+  private String msgID = null;
 
-  public MatchForCheckLLMPromptOutput label(String label) {
-    this.label = label;
+  public CheckLLMResponseStreamResponse decision(DecisionForCheckLLMResponseStreamOutput decision) {
+    this.decision = decision;
     return this;
   }
 
    /**
-   * Get label
-   * @return label
+   * Get decision
+   * @return decision
   **/
+  @Valid
   @Schema(description = "")
-  public String getLabel() {
-    return label;
+  public DecisionForCheckLLMResponseStreamOutput getDecision() {
+    return decision;
   }
 
-  public void setLabel(String label) {
-    this.label = label;
+  public void setDecision(DecisionForCheckLLMResponseStreamOutput decision) {
+    this.decision = decision;
   }
 
-  public MatchForCheckLLMPromptOutput word(String word) {
-    this.word = word;
+  public CheckLLMResponseStreamResponse msgID(String msgID) {
+    this.msgID = msgID;
     return this;
   }
 
    /**
-   * Get word
-   * @return word
+   * Get msgID
+   * @return msgID
   **/
   @Schema(description = "")
-  public String getWord() {
-    return word;
+  public String getMsgID() {
+    return msgID;
   }
 
-  public void setWord(String word) {
-    this.word = word;
+  public void setMsgID(String msgID) {
+    this.msgID = msgID;
   }
 
 
@@ -81,24 +83,24 @@ public class MatchForCheckLLMPromptOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MatchForCheckLLMPromptOutput matchForCheckLLMPromptOutput = (MatchForCheckLLMPromptOutput) o;
-    return Objects.equals(this.label, matchForCheckLLMPromptOutput.label) &&
-        Objects.equals(this.word, matchForCheckLLMPromptOutput.word);
+    CheckLLMResponseStreamResponse checkLLMResponseStreamResponse = (CheckLLMResponseStreamResponse) o;
+    return Objects.equals(this.decision, checkLLMResponseStreamResponse.decision) &&
+        Objects.equals(this.msgID, checkLLMResponseStreamResponse.msgID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(label, word);
+    return Objects.hash(decision, msgID);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class MatchForCheckLLMPromptOutput {\n");
+    sb.append("class CheckLLMResponseStreamResponse {\n");
     
-    sb.append("    label: ").append(toIndentedString(label)).append("\n");
-    sb.append("    word: ").append(toIndentedString(word)).append("\n");
+    sb.append("    decision: ").append(toIndentedString(decision)).append("\n");
+    sb.append("    msgID: ").append(toIndentedString(msgID)).append("\n");
     sb.append("}");
     return sb.toString();
   }
