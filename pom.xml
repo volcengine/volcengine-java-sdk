@@ -275,5 +275,6 @@
         <module>volcengine-java-sdk-translate20250301</module>
         <module>volcengine-java-sdk-volccontentplatform</module>
         <module>volcengine-java-sdk-edx</module>
+        <module>volcengine-java-sdk-wafruntime</module>
     </modules>
 </project>
