@@ -33,57 +33,8 @@ public class CreateVulWhiteFieldRequest {
   @SerializedName("Enable")
   private Integer enable = null;
 
-  /**
-   * Gets or Sets fieldArea
-   */
-  @JsonAdapter(FieldAreaEnum.Adapter.class)
-  public enum FieldAreaEnum {
-    @SerializedName("args")
-    ARGS("args"),
-    @SerializedName("url")
-    URL("url"),
-    @SerializedName("cookies")
-    COOKIES("cookies"),
-    @SerializedName("headers")
-    HEADERS("headers"),
-    @SerializedName("bodydetail")
-    BODYDETAIL("bodydetail");
-
-    private String value;
-
-    FieldAreaEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static FieldAreaEnum fromValue(String input) {
-      for (FieldAreaEnum b : FieldAreaEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<FieldAreaEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final FieldAreaEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public FieldAreaEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return FieldAreaEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("FieldArea")
-  private FieldAreaEnum fieldArea = null;
+  @SerializedName("FieldArea")
+  private String fieldArea = null;
 
   @SerializedName("FieldList")
   private String fieldList = null;
@@ -106,7 +57,8 @@ public class CreateVulWhiteFieldRequest {
    * Get enable
    * @return enable
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public Integer getEnable() {
     return enable;
   }
@@ -115,7 +67,7 @@ public class CreateVulWhiteFieldRequest {
     this.enable = enable;
   }
 
-  public CreateVulWhiteFieldRequest fieldArea(FieldAreaEnum fieldArea) {
+  public CreateVulWhiteFieldRequest fieldArea(String fieldArea) {
     this.fieldArea = fieldArea;
     return this;
   }
@@ -124,12 +76,13 @@ public class CreateVulWhiteFieldRequest {
    * Get fieldArea
    * @return fieldArea
   **/
-  @Schema(description = "")
-  public FieldAreaEnum getFieldArea() {
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getFieldArea() {
     return fieldArea;
   }
 
-  public void setFieldArea(FieldAreaEnum fieldArea) {
+  public void setFieldArea(String fieldArea) {
     this.fieldArea = fieldArea;
   }
 
@@ -142,7 +95,8 @@ public class CreateVulWhiteFieldRequest {
    * Get fieldList
    * @return fieldList
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getFieldList() {
     return fieldList;
   }
@@ -160,7 +114,8 @@ public class CreateVulWhiteFieldRequest {
    * Get host
    * @return host
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getHost() {
     return host;
   }
@@ -178,7 +133,8 @@ public class CreateVulWhiteFieldRequest {
    * Get name
    * @return name
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getName() {
     return name;
   }

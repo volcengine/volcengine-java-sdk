@@ -24,37 +24,16 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * MatchForCheckLLMPromptOutput
+ * CustomMatchForCheckLLMResponseStreamOutput
  */
 
 
 
-public class MatchForCheckLLMPromptOutput {
-  @SerializedName("Label")
-  private String label = null;
-
+public class CustomMatchForCheckLLMResponseStreamOutput {
   @SerializedName("Word")
   private String word = null;
 
-  public MatchForCheckLLMPromptOutput label(String label) {
-    this.label = label;
-    return this;
-  }
-
-   /**
-   * Get label
-   * @return label
-  **/
-  @Schema(description = "")
-  public String getLabel() {
-    return label;
-  }
-
-  public void setLabel(String label) {
-    this.label = label;
-  }
-
-  public MatchForCheckLLMPromptOutput word(String word) {
+  public CustomMatchForCheckLLMResponseStreamOutput word(String word) {
     this.word = word;
     return this;
   }
@@ -81,23 +60,21 @@ public class MatchForCheckLLMPromptOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MatchForCheckLLMPromptOutput matchForCheckLLMPromptOutput = (MatchForCheckLLMPromptOutput) o;
-    return Objects.equals(this.label, matchForCheckLLMPromptOutput.label) &&
-        Objects.equals(this.word, matchForCheckLLMPromptOutput.word);
+    CustomMatchForCheckLLMResponseStreamOutput customMatchForCheckLLMResponseStreamOutput = (CustomMatchForCheckLLMResponseStreamOutput) o;
+    return Objects.equals(this.word, customMatchForCheckLLMResponseStreamOutput.word);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(label, word);
+    return Objects.hash(word);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class MatchForCheckLLMPromptOutput {\n");
+    sb.append("class CustomMatchForCheckLLMResponseStreamOutput {\n");
     
-    sb.append("    label: ").append(toIndentedString(label)).append("\n");
     sb.append("    word: ").append(toIndentedString(word)).append("\n");
     sb.append("}");
     return sb.toString();

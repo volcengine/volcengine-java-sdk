@@ -34,7 +34,7 @@ public class ListVulWhiteFieldRequest {
   private String host = null;
 
   @SerializedName("Page")
-  private String page = null;
+  private Integer page = null;
 
   @SerializedName("PageSize")
   private Integer pageSize = null;
@@ -64,7 +64,7 @@ public class ListVulWhiteFieldRequest {
     this.host = host;
   }
 
-  public ListVulWhiteFieldRequest page(String page) {
+  public ListVulWhiteFieldRequest page(Integer page) {
     this.page = page;
     return this;
   }
@@ -73,13 +73,12 @@ public class ListVulWhiteFieldRequest {
    * Get page
    * @return page
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getPage() {
+  @Schema(description = "")
+  public Integer getPage() {
     return page;
   }
 
-  public void setPage(String page) {
+  public void setPage(Integer page) {
     this.page = page;
   }
 

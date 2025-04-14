@@ -36,51 +36,8 @@ public class UpdateBlockRuleRequest {
   @SerializedName("Accurate")
   private AccurateForUpdateBlockRuleInput accurate = null;
 
-  /**
-   * Gets or Sets action
-   */
-  @JsonAdapter(ActionEnum.Adapter.class)
-  public enum ActionEnum {
-    @SerializedName("observe")
-    OBSERVE("observe"),
-    @SerializedName("block")
-    BLOCK("block");
-
-    private String value;
-
-    ActionEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static ActionEnum fromValue(String input) {
-      for (ActionEnum b : ActionEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<ActionEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final ActionEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public ActionEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return ActionEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("Action")
-  private ActionEnum action = null;
+  @SerializedName("Action")
+  private String action = null;
 
   @SerializedName("Advanced")
   private Integer advanced = null;
@@ -134,7 +91,7 @@ public class UpdateBlockRuleRequest {
     this.accurate = accurate;
   }
 
-  public UpdateBlockRuleRequest action(ActionEnum action) {
+  public UpdateBlockRuleRequest action(String action) {
     this.action = action;
     return this;
   }
@@ -145,11 +102,11 @@ public class UpdateBlockRuleRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public ActionEnum getAction() {
+  public String getAction() {
     return action;
   }
 
-  public void setAction(ActionEnum action) {
+  public void setAction(String action) {
     this.action = action;
   }
 

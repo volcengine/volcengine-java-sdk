@@ -24,19 +24,19 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * MatchForCheckLLMPromptOutput
+ * MatchForCheckLLMResponseStreamOutput
  */
 
 
 
-public class MatchForCheckLLMPromptOutput {
+public class MatchForCheckLLMResponseStreamOutput {
   @SerializedName("Label")
   private String label = null;
 
   @SerializedName("Word")
   private String word = null;
 
-  public MatchForCheckLLMPromptOutput label(String label) {
+  public MatchForCheckLLMResponseStreamOutput label(String label) {
     this.label = label;
     return this;
   }
@@ -54,7 +54,7 @@ public class MatchForCheckLLMPromptOutput {
     this.label = label;
   }
 
-  public MatchForCheckLLMPromptOutput word(String word) {
+  public MatchForCheckLLMResponseStreamOutput word(String word) {
     this.word = word;
     return this;
   }
@@ -81,9 +81,9 @@ public class MatchForCheckLLMPromptOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MatchForCheckLLMPromptOutput matchForCheckLLMPromptOutput = (MatchForCheckLLMPromptOutput) o;
-    return Objects.equals(this.label, matchForCheckLLMPromptOutput.label) &&
-        Objects.equals(this.word, matchForCheckLLMPromptOutput.word);
+    MatchForCheckLLMResponseStreamOutput matchForCheckLLMResponseStreamOutput = (MatchForCheckLLMResponseStreamOutput) o;
+    return Objects.equals(this.label, matchForCheckLLMResponseStreamOutput.label) &&
+        Objects.equals(this.word, matchForCheckLLMResponseStreamOutput.word);
   }
 
   @Override
@@ -95,7 +95,7 @@ public class MatchForCheckLLMPromptOutput {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class MatchForCheckLLMPromptOutput {\n");
+    sb.append("class MatchForCheckLLMResponseStreamOutput {\n");
     
     sb.append("    label: ").append(toIndentedString(label)).append("\n");
     sb.append("    word: ").append(toIndentedString(word)).append("\n");
