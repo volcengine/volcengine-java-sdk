@@ -30,10 +30,10 @@ import javax.validation.Valid;
 
 
 public class MatchForCheckLLMPromptOutput {
-  @SerializedName("label")
+  @SerializedName("Label")
   private String label = null;
 
-  @SerializedName("word")
+  @SerializedName("Word")
   private String word = null;
 
   public MatchForCheckLLMPromptOutput label(String label) {

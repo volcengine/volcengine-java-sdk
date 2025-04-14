@@ -33,8 +33,56 @@ import javax.validation.Valid;
 
 
 public class ListVulWhiteFieldResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("Count")
+  private Integer count = null;
+
+  @SerializedName("CurrentPage")
+  private Integer currentPage = null;
+
   @SerializedName("Data")
   private List<DataForListVulWhiteFieldOutput> data = null;
+
+  @SerializedName("PageSize")
+  private Integer pageSize = null;
+
+  @SerializedName("TotalCount")
+  private Integer totalCount = null;
+
+  public ListVulWhiteFieldResponse count(Integer count) {
+    this.count = count;
+    return this;
+  }
+
+   /**
+   * Get count
+   * @return count
+  **/
+  @Schema(description = "")
+  public Integer getCount() {
+    return count;
+  }
+
+  public void setCount(Integer count) {
+    this.count = count;
+  }
+
+  public ListVulWhiteFieldResponse currentPage(Integer currentPage) {
+    this.currentPage = currentPage;
+    return this;
+  }
+
+   /**
+   * Get currentPage
+   * @return currentPage
+  **/
+  @Schema(description = "")
+  public Integer getCurrentPage() {
+    return currentPage;
+  }
+
+  public void setCurrentPage(Integer currentPage) {
+    this.currentPage = currentPage;
+  }
 
   public ListVulWhiteFieldResponse data(List<DataForListVulWhiteFieldOutput> data) {
     this.data = data;
@@ -63,6 +111,42 @@ public class ListVulWhiteFieldResponse extends com.volcengine.model.AbstractResp
     this.data = data;
   }
 
+  public ListVulWhiteFieldResponse pageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+    return this;
+  }
+
+   /**
+   * Get pageSize
+   * @return pageSize
+  **/
+  @Schema(description = "")
+  public Integer getPageSize() {
+    return pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public ListVulWhiteFieldResponse totalCount(Integer totalCount) {
+    this.totalCount = totalCount;
+    return this;
+  }
+
+   /**
+   * Get totalCount
+   * @return totalCount
+  **/
+  @Schema(description = "")
+  public Integer getTotalCount() {
+    return totalCount;
+  }
+
+  public void setTotalCount(Integer totalCount) {
+    this.totalCount = totalCount;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -73,12 +157,16 @@ public class ListVulWhiteFieldResponse extends com.volcengine.model.AbstractResp
       return false;
     }
     ListVulWhiteFieldResponse listVulWhiteFieldResponse = (ListVulWhiteFieldResponse) o;
-    return Objects.equals(this.data, listVulWhiteFieldResponse.data);
+    return Objects.equals(this.count, listVulWhiteFieldResponse.count) &&
+        Objects.equals(this.currentPage, listVulWhiteFieldResponse.currentPage) &&
+        Objects.equals(this.data, listVulWhiteFieldResponse.data) &&
+        Objects.equals(this.pageSize, listVulWhiteFieldResponse.pageSize) &&
+        Objects.equals(this.totalCount, listVulWhiteFieldResponse.totalCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data);
+    return Objects.hash(count, currentPage, data, pageSize, totalCount);
   }
 
 
@@ -87,7 +175,11 @@ public class ListVulWhiteFieldResponse extends com.volcengine.model.AbstractResp
     StringBuilder sb = new StringBuilder();
     sb.append("class ListVulWhiteFieldResponse {\n");
     
+    sb.append("    count: ").append(toIndentedString(count)).append("\n");
+    sb.append("    currentPage: ").append(toIndentedString(currentPage)).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("}");
     return sb.toString();
   }

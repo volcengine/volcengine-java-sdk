@@ -36,51 +36,8 @@ public class ListLoadBalancerRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
 
-  /**
-   * Gets or Sets type
-   */
-  @JsonAdapter(TypeEnum.Adapter.class)
-  public enum TypeEnum {
-    @SerializedName("alb")
-    ALB("alb"),
-    @SerializedName("clb")
-    CLB("clb");
-
-    private String value;
-
-    TypeEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static TypeEnum fromValue(String input) {
-      for (TypeEnum b : TypeEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<TypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public TypeEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return TypeEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("Type")
-  private TypeEnum type = null;
+  @SerializedName("Type")
+  private String type = null;
 
   public ListLoadBalancerRequest host(String host) {
     this.host = host;
@@ -118,7 +75,7 @@ public class ListLoadBalancerRequest {
     this.projectName = projectName;
   }
 
-  public ListLoadBalancerRequest type(TypeEnum type) {
+  public ListLoadBalancerRequest type(String type) {
     this.type = type;
     return this;
   }
@@ -128,11 +85,11 @@ public class ListLoadBalancerRequest {
    * @return type
   **/
   @Schema(description = "")
-  public TypeEnum getType() {
+  public String getType() {
     return type;
   }
 
-  public void setType(TypeEnum type) {
+  public void setType(String type) {
     this.type = type;
   }
 

@@ -31,12 +31,12 @@ import javax.validation.Valid;
 
 public class DeleteVulWhiteFieldRequest {
   @SerializedName("ID")
-  private String ID = null;
+  private Integer ID = null;
 
   @SerializedName("ProjectName")
   private String projectName = null;
 
-  public DeleteVulWhiteFieldRequest ID(String ID) {
+  public DeleteVulWhiteFieldRequest ID(Integer ID) {
     this.ID = ID;
     return this;
   }
@@ -47,11 +47,11 @@ public class DeleteVulWhiteFieldRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getID() {
+  public Integer getID() {
     return ID;
   }
 
-  public void setID(String ID) {
+  public void setID(Integer ID) {
     this.ID = ID;
   }
 
