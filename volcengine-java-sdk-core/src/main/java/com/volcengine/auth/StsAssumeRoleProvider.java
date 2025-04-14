@@ -100,7 +100,7 @@ public class StsAssumeRoleProvider implements Provider {
 
     public void setSchema(String schema) {
         this.schema = schema;
-        this.apiClient.setDisableSSL(schema.equals("https"));
+        this.apiClient.setDisableSSL(schema.equals("http"));
     }
 
     public int getTimeout() {
