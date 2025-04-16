@@ -997,7 +997,7 @@ public class ApiClient {
             }
         };
 
-        call.enqueue(okHttpCallBack);
+        ((InterceptorContext) call).getRequestContext().getCall().enqueue(okHttpCallBack);
     }
 
     /**
