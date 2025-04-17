@@ -15,6 +15,12 @@ public class TruncationStrategy {
     @JsonProperty("rolling_tokens")
     private Boolean rollingTokens;
 
+    @JsonProperty("max_window_tokens")
+    private Integer maxWindowTokens;
+
+    @JsonProperty("rolling_window_tokens")
+    private Integer rollingWindowTokens;
+
     public TruncationStrategy() {
     }
 
@@ -47,6 +53,22 @@ public class TruncationStrategy {
         this.rollingTokens = rollingTokens;
     }
 
+    public Integer getMaxWindowTokens() {
+        return maxWindowTokens;
+    }
+
+    public void setMaxWindowTokens(Integer maxWindowTokens) {
+        this.maxWindowTokens = maxWindowTokens;
+    }
+
+    public Integer getRollingWindowTokens() {
+        return rollingWindowTokens;
+    }
+
+    public void setRollingWindowTokens(Integer rollingWindowTokens) {
+        this.rollingWindowTokens = rollingWindowTokens;
+    }
+
     @Override
     public String toString() {
         return "TruncationStrategy{" +
@@ -64,6 +86,8 @@ public class TruncationStrategy {
         private Integer lastHistoryTokens;
         private String type;
         private Boolean rollingTokens;
+        private Integer maxWindowTokens;
+        private Integer rollingWindowTokens;
 
         private Builder() {
         }
@@ -83,11 +107,23 @@ public class TruncationStrategy {
             return this;
         }
 
+        public Builder maxWindowTokens(Integer MaxWindowTokens) {
+            this.maxWindowTokens = MaxWindowTokens;
+            return this;
+        }
+
+        public Builder rollingWindowTokens(Integer RollingWindowTokens) {
+            this.rollingWindowTokens = RollingWindowTokens;
+            return this;
+        }
+
         public TruncationStrategy build() {
             TruncationStrategy truncationStrategy = new TruncationStrategy();
             truncationStrategy.setLastHistoryTokens(lastHistoryTokens);
             truncationStrategy.setType(type);
             truncationStrategy.setRollingTokens(rollingTokens);
+            truncationStrategy.setMaxWindowTokens(maxWindowTokens);
+            truncationStrategy.setRollingWindowTokens(rollingWindowTokens);
             return truncationStrategy;
         }
     }
