@@ -31,7 +31,7 @@
 
 #### Getting Started ####
 
-##### 工程使用sdk #####
+##### 安装说明 #####
 
 建议使用Maven构建自己的项目，添加需要的相应模块的依赖，示例如下：
 
@@ -104,7 +104,7 @@ export VOLCENGINE_SESSION_TOKEN=token
 ```java
 Credentials credentials = Credentials.getCredentials(ak, sk);
 //如果使用token
-Credentials credentials = Credentials.getCredentials(ak, sk，token);
+Credentials credentials = Credentials.getCredentials(ak, sk, token);
 ```
 
 ##### Endpoint 设置 #####
@@ -128,7 +128,7 @@ ApiClient apiClient = new ApiClient()
 - Service中存在_符号时，Endpoint时需转为-符号。存在大写字母时需转成小写。
 - 并非所有云产品和Region都支持标准域名，具体请前往您所使用的产品-API参考中查看。
 
-#### Example ####
+#### SDK 示例 ####
 
 ```java
 import com.volcengine.ApiClient;
