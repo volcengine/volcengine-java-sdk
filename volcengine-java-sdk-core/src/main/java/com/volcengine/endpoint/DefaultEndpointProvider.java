@@ -1,41 +1,29 @@
 package com.volcengine.endpoint;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 public class DefaultEndpointProvider implements EndpointResolver {
-
-    private static final String SEPARATOR = ".";
-    private static final String OPEN_PREFIX = "open";
-    private static final String ENDPOINT_SUFFIX = SEPARATOR + "volcengineapi.com";
 
     // 区域代码常量
     public static final String REGION_CODE_CN_BEIJING_AUTODRIVING = "cn-beijing-autodriving";
     public static final String REGION_CODE_AP_SOUTH_EAST_3 = "ap-southeast-3";
-
+    // 常量
+    private static final String SEPARATOR = ".";
+    private static final String OPEN_PREFIX = "open";
+    private static final String ENDPOINT_SUFFIX = SEPARATOR + "volcengineapi.com";
     private static final String ENDPOINT = OPEN_PREFIX + ENDPOINT_SUFFIX;
-
-    // 区域端点映射类型
-    private static class RegionEndpointMap extends HashMap<String, String> {
-    }
-
+    private static final String DUALSTACK_ENDPOINT_SUFFIX = SEPARATOR + "volcengine-api.com";
     private static final Map<String, ServiceEndpointInfo> DEFAULT_ENDPOINT_MAP = new HashMap<>();
+    private static final Set<String> BOOTSTRAP_REGION = new HashSet<>();
 
-    private static class ServiceEndpointInfo {
-        private String service;
-        private boolean isGlobal;
-        private String globalEndpoint;
-        private String defaultEndpoint;
-        private RegionEndpointMap regionEndpointMap;
-
-        public ServiceEndpointInfo(String service, boolean isGlobal, String globalEndpoint,
-                                   String defaultEndpoint, RegionEndpointMap regionEndpointMap) {
-            this.service = service;
-            this.isGlobal = isGlobal;
-            this.globalEndpoint = globalEndpoint;
-            this.defaultEndpoint = defaultEndpoint;
-            this.regionEndpointMap = regionEndpointMap;
-        }
+    static {
+        BOOTSTRAP_REGION.add(REGION_CODE_CN_BEIJING_AUTODRIVING);
+        BOOTSTRAP_REGION.add(REGION_CODE_AP_SOUTH_EAST_3);
     }
 
     static {
@@ -358,6 +346,7 @@ public class DefaultEndpointProvider implements EndpointResolver {
         ));
     }
 
+
     // 创建区域端点映射的辅助方法
     private static RegionEndpointMap createRegionEndpointMap(String... keyValuePairs) {
         RegionEndpointMap map = new RegionEndpointMap();
@@ -369,39 +358,110 @@ public class DefaultEndpointProvider implements EndpointResolver {
         return map;
     }
 
-    @Override
-    public ResolvedEndpoint endpointFor(ResolveEndpointOption option) {
-        String endpoint = DefaultEndpointProvider.getDefaultEndpointByServiceInfo(option.getService(), option.getRegion());
-        ResolvedEndpoint result = new ResolvedEndpoint();
-        result.setEndpoint(endpoint);
-        return result;
+    private static String standardizeDomainServiceCode(String serviceCode) {
+        return serviceCode.toLowerCase().replaceAll("_", "-");
     }
 
-    public static String getDefaultEndpointByServiceInfo(String service, String regionCode) {
+    private static String getDefaultEndpointByServiceInfo(String service, String regionCode,
+                                                          Set<String> customBootstrapRegion) {
         String resultEndpoint = ENDPOINT;
         ServiceEndpointInfo endpointInfo = DEFAULT_ENDPOINT_MAP.get(service);
-        if (endpointInfo == null) {
+        if (endpointInfo == null || !inBootstrapRegionList(regionCode, customBootstrapRegion)) {
             return resultEndpoint;
         }
+
+        String endpointSuffix = hasEnabledDualstack() ? DUALSTACK_ENDPOINT_SUFFIX : ENDPOINT_SUFFIX;
 
         if (endpointInfo.isGlobal) {
             if (!endpointInfo.globalEndpoint.isEmpty()) {
                 resultEndpoint = endpointInfo.globalEndpoint;
                 return resultEndpoint;
             }
-        } else {
-            String regionEndpoint = endpointInfo.regionEndpointMap.get(regionCode);
-            if (regionEndpoint != null) {
-                resultEndpoint = regionEndpoint;
-                return resultEndpoint;
+
+            resultEndpoint = standardizeDomainServiceCode(service) + endpointSuffix;
+            return resultEndpoint;
+        }
+
+        String regionEndpoint = endpointInfo.regionEndpointMap.get(regionCode);
+        if (regionEndpoint != null) {
+            resultEndpoint = regionEndpoint;
+            return resultEndpoint;
+        }
+
+        resultEndpoint = standardizeDomainServiceCode(service) + SEPARATOR + regionCode + endpointSuffix;
+        return resultEndpoint;
+    }
+
+    private static boolean inBootstrapRegionList(String region, Set<String> customBootstrapRegion) {
+        String regionCode = region.trim();
+        String bsRegionListPath = System.getenv("VOLC_BOOTSTRAP_REGION_LIST_CONF");
+
+        if (bsRegionListPath != null && !bsRegionListPath.isEmpty()) {
+            try {
+                BufferedReader reader = new BufferedReader(new FileReader(bsRegionListPath));
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    line = line.trim();
+                    if (line.isEmpty()) {
+                        continue;
+                    }
+                    if (line.equals(regionCode)) {
+                        reader.close();
+                        return true;
+                    }
+                }
+                reader.close();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
 
-        if (!endpointInfo.defaultEndpoint.isEmpty()) {
-            resultEndpoint = endpointInfo.defaultEndpoint;
+        if (BOOTSTRAP_REGION.contains(region)) {
+            return true;
         }
-        return resultEndpoint;
+
+        if (customBootstrapRegion != null) {
+            return customBootstrapRegion.contains(region);
+        }
+
+        return false;
     }
+
+    private static boolean hasEnabledDualstack() {
+        String enableDualstack = System.getenv("VOLC_ENABLE_DUALSTACK");
+        return enableDualstack != null && enableDualstack.equals("true");
+    }
+
+    @Override
+    public ResolvedEndpoint endpointFor(ResolveEndpointOption option) {
+        String endpoint = DefaultEndpointProvider.getDefaultEndpointByServiceInfo(option.getService(),
+                option.getRegion(), option.getCustomBootstrapRegion());
+        ResolvedEndpoint result = new ResolvedEndpoint();
+        result.setEndpoint(endpoint);
+        return result;
+    }
+
+    // 区域端点映射类型
+    private static class RegionEndpointMap extends HashMap<String, String> {
+    }
+
+    private static class ServiceEndpointInfo {
+        private String service;
+        private boolean isGlobal;
+        private String globalEndpoint;
+        private String defaultEndpoint;
+        private RegionEndpointMap regionEndpointMap;
+
+        public ServiceEndpointInfo(String service, boolean isGlobal, String globalEndpoint,
+                                   String defaultEndpoint, RegionEndpointMap regionEndpointMap) {
+            this.service = service;
+            this.isGlobal = isGlobal;
+            this.globalEndpoint = globalEndpoint;
+            this.defaultEndpoint = defaultEndpoint;
+            this.regionEndpointMap = regionEndpointMap;
+        }
+    }
+
 }
 
 
