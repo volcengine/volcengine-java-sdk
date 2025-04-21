@@ -101,12 +101,13 @@ public class ApiClient {
 
     private Integer keepAliveDurationMs = 5 * 60 * 1000;
 
+    private Set<String> customBootstrapRegion;
 
     /*
      * Constructor for ApiClient
      */
     public ApiClient() {
-        ConnectionPool connectionPool=new ConnectionPool(maxIdleConns,keepAliveDurationMs);
+        ConnectionPool connectionPool = new ConnectionPool(maxIdleConns, keepAliveDurationMs);
         httpClient = new OkHttpClient();
         httpClient.setConnectionPool(connectionPool);
 
@@ -145,6 +146,17 @@ public class ApiClient {
         String arch = System.getProperty("os.arch");
 
         return String.format(format, Version.SDK_NAME, Version.SDK_VERSION, jdkInfo, osInfo, arch);
+    }
+
+    /**
+     * Set the User-Agent header's value (by adding to the default header map).
+     *
+     * @param userAgent HTTP request's user agent
+     * @return ApiClient
+     */
+    public ApiClient setUserAgent(String userAgent) {
+        addDefaultHeader("User-Agent", userAgent);
+        return this;
     }
 
     /**
@@ -236,7 +248,6 @@ public class ApiClient {
         }
         return this;
     }
-
 
     /**
      * Get HTTP client
@@ -388,18 +399,6 @@ public class ApiClient {
         return authentications.get(authName);
     }
 
-
-    /**
-     * Set the User-Agent header's value (by adding to the default header map).
-     *
-     * @param userAgent HTTP request's user agent
-     * @return ApiClient
-     */
-    public ApiClient setUserAgent(String userAgent) {
-        addDefaultHeader("User-Agent", userAgent);
-        return this;
-    }
-
     /**
      * Add a default header.
      *
@@ -527,6 +526,26 @@ public class ApiClient {
      */
     public ApiClient setWriteTimeout(int writeTimeout) {
         httpClient.setWriteTimeout(writeTimeout, TimeUnit.MILLISECONDS);
+        return this;
+    }
+
+    /**
+     * Get the custom bootstrapping regions.
+     *
+     * @return Set of custom bootstrapping regions
+     */
+    public Set<String> getCustomBootstrapRegion() {
+        return this.customBootstrapRegion;
+    }
+
+    /**
+     * Set the custom bootstrapping regions.
+     *
+     * @param customBootstrapRegion Set of custom bootstrapping regions
+     * @return Api client
+     */
+    public ApiClient setCustomBootstrapRegion(Set<String> customBootstrapRegion) {
+        this.customBootstrapRegion = customBootstrapRegion;
         return this;
     }
 
@@ -1656,7 +1675,7 @@ public class ApiClient {
 
     public ApiClient setMaxIdleConns(Integer maxIdleConns) {
         this.maxIdleConns = maxIdleConns;
-        this.httpClient.setConnectionPool(new ConnectionPool(maxIdleConns,keepAliveDurationMs));
+        this.httpClient.setConnectionPool(new ConnectionPool(maxIdleConns, keepAliveDurationMs));
         return this;
     }
 
@@ -1666,7 +1685,7 @@ public class ApiClient {
 
     public ApiClient setKeepAliveDurationMs(Integer keepAliveDurationMs) {
         this.keepAliveDurationMs = keepAliveDurationMs;
-        this.httpClient.setConnectionPool(new ConnectionPool(maxIdleConns,keepAliveDurationMs));
+        this.httpClient.setConnectionPool(new ConnectionPool(maxIdleConns, keepAliveDurationMs));
         return this;
     }
 }
