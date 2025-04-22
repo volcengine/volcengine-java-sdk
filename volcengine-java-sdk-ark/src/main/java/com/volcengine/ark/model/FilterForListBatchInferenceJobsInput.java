@@ -45,8 +45,59 @@ public class FilterForListBatchInferenceJobsInput {
   @SerializedName("Name")
   private String name = null;
 
-  @SerializedName("Phases")
-  private List<String> phases = null;
+  /**
+   * Gets or Sets phases
+   */
+  @JsonAdapter(PhasesEnum.Adapter.class)
+  public enum PhasesEnum {
+    @SerializedName("Queued")
+    QUEUED("Queued"),
+    @SerializedName("Running")
+    RUNNING("Running"),
+    @SerializedName("Completed")
+    COMPLETED("Completed"),
+    @SerializedName("Terminating")
+    TERMINATING("Terminating"),
+    @SerializedName("Terminated")
+    TERMINATED("Terminated"),
+    @SerializedName("Failed")
+    FAILED("Failed");
+
+    private String value;
+
+    PhasesEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static PhasesEnum fromValue(String input) {
+      for (PhasesEnum b : PhasesEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<PhasesEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final PhasesEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public PhasesEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return PhasesEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("Phases")
+  private List<PhasesEnum> phases = null;
 
   public FilterForListBatchInferenceJobsInput customModelIds(List<String> customModelIds) {
     this.customModelIds = customModelIds;
@@ -145,14 +196,14 @@ public class FilterForListBatchInferenceJobsInput {
     this.name = name;
   }
 
-  public FilterForListBatchInferenceJobsInput phases(List<String> phases) {
+  public FilterForListBatchInferenceJobsInput phases(List<PhasesEnum> phases) {
     this.phases = phases;
     return this;
   }
 
-  public FilterForListBatchInferenceJobsInput addPhasesItem(String phasesItem) {
+  public FilterForListBatchInferenceJobsInput addPhasesItem(PhasesEnum phasesItem) {
     if (this.phases == null) {
-      this.phases = new ArrayList<String>();
+      this.phases = new ArrayList<PhasesEnum>();
     }
     this.phases.add(phasesItem);
     return this;
@@ -163,11 +214,11 @@ public class FilterForListBatchInferenceJobsInput {
    * @return phases
   **/
   @Schema(description = "")
-  public List<String> getPhases() {
+  public List<PhasesEnum> getPhases() {
     return phases;
   }
 
-  public void setPhases(List<String> phases) {
+  public void setPhases(List<PhasesEnum> phases) {
     this.phases = phases;
   }
 
