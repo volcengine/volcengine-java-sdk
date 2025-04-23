@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CapacityInfoForDescribeFileSystemStatisticsOutput {
   @SerializedName("TotalTiB")
   private Integer totalTiB = null;

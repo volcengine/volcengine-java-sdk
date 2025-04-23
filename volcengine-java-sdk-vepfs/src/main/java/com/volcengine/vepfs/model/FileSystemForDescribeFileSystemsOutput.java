@@ -20,10 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vepfs.model.CapacityInfoForDescribeFileSystemsOutput;
-import com.volcengine.vepfs.model.MountPointForDescribeFileSystemsOutput;
-import com.volcengine.vepfs.model.StorageForDescribeFileSystemsOutput;
 import com.volcengine.vepfs.model.TagForDescribeFileSystemsOutput;
-import com.volcengine.vepfs.model.TradeInfoForDescribeFileSystemsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -35,15 +32,10 @@ import javax.validation.Valid;
  */
 
 
+
 public class FileSystemForDescribeFileSystemsOutput {
   @SerializedName("AccountId")
   private String accountId = null;
-
-  @SerializedName("AttachStatus")
-  private String attachStatus = null;
-
-  @SerializedName("AutoRenew")
-  private Boolean autoRenew = null;
 
   @SerializedName("Bandwidth")
   private Integer bandwidth = null;
@@ -51,20 +43,109 @@ public class FileSystemForDescribeFileSystemsOutput {
   @SerializedName("CapacityInfo")
   private CapacityInfoForDescribeFileSystemsOutput capacityInfo = null;
 
-  @SerializedName("ChargeStatus")
-  private String chargeStatus = null;
+  /**
+   * Gets or Sets chargeStatus
+   */
+  @JsonAdapter(ChargeStatusEnum.Adapter.class)
+  public enum ChargeStatusEnum {
+    @SerializedName("Init")
+    INIT("Init"),
+    @SerializedName("Normal")
+    NORMAL("Normal"),
+    @SerializedName("Overdue")
+    OVERDUE("Overdue"),
+    @SerializedName("Unpaid")
+    UNPAID("Unpaid"),
+    @SerializedName("NeedNotCharge")
+    NEEDNOTCHARGE("NeedNotCharge"),
+    @SerializedName("ChargeFailed")
+    CHARGEFAILED("ChargeFailed");
 
-  @SerializedName("ChargeType")
-  private String chargeType = null;
+    private String value;
+
+    ChargeStatusEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ChargeStatusEnum fromValue(String input) {
+      for (ChargeStatusEnum b : ChargeStatusEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ChargeStatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ChargeStatusEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ChargeStatusEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ChargeStatusEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("ChargeStatus")
+  private ChargeStatusEnum chargeStatus = null;
+
+  /**
+   * Gets or Sets chargeType
+   */
+  @JsonAdapter(ChargeTypeEnum.Adapter.class)
+  public enum ChargeTypeEnum {
+    @SerializedName("PayAsYouGo")
+    PAYASYOUGO("PayAsYouGo");
+
+    private String value;
+
+    ChargeTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ChargeTypeEnum fromValue(String input) {
+      for (ChargeTypeEnum b : ChargeTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ChargeTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ChargeTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ChargeTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ChargeTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("ChargeType")
+  private ChargeTypeEnum chargeType = null;
 
   @SerializedName("CreateTime")
   private String createTime = null;
 
   @SerializedName("Description")
   private String description = null;
-
-  @SerializedName("EceCode")
-  private String eceCode = null;
 
   @SerializedName("ExpireTime")
   private String expireTime = null;
@@ -75,8 +156,49 @@ public class FileSystemForDescribeFileSystemsOutput {
   @SerializedName("FileSystemName")
   private String fileSystemName = null;
 
-  @SerializedName("FileSystemType")
-  private String fileSystemType = null;
+  /**
+   * Gets or Sets fileSystemType
+   */
+  @JsonAdapter(FileSystemTypeEnum.Adapter.class)
+  public enum FileSystemTypeEnum {
+    @SerializedName("VePFS")
+    VEPFS("VePFS");
+
+    private String value;
+
+    FileSystemTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static FileSystemTypeEnum fromValue(String input) {
+      for (FileSystemTypeEnum b : FileSystemTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<FileSystemTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final FileSystemTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public FileSystemTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return FileSystemTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("FileSystemType")
+  private FileSystemTypeEnum fileSystemType = null;
 
   @SerializedName("FreeTime")
   private String freeTime = null;
@@ -84,71 +206,175 @@ public class FileSystemForDescribeFileSystemsOutput {
   @SerializedName("LastModifyTime")
   private String lastModifyTime = null;
 
-  @SerializedName("Month")
-  private Integer month = null;
-
-  @SerializedName("MountPoints")
-  private List<MountPointForDescribeFileSystemsOutput> mountPoints = null;
-
   @SerializedName("Project")
   private String project = null;
 
-  @SerializedName("ProtocolType")
-  private String protocolType = null;
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
+  /**
+   * Gets or Sets protocolType
+   */
+  @JsonAdapter(ProtocolTypeEnum.Adapter.class)
+  public enum ProtocolTypeEnum {
+    @SerializedName("NFS")
+    NFS("NFS"),
+    @SerializedName("SMB")
+    SMB("SMB"),
+    @SerializedName("VePFS")
+    VEPFS("VePFS"),
+    @SerializedName("FSX")
+    FSX("FSX");
+
+    private String value;
+
+    ProtocolTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ProtocolTypeEnum fromValue(String input) {
+      for (ProtocolTypeEnum b : ProtocolTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ProtocolTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ProtocolTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ProtocolTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ProtocolTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("ProtocolType")
+  private ProtocolTypeEnum protocolType = null;
+
+  @SerializedName("ReadBandwidth")
+  private Integer readBandwidth = null;
 
   @SerializedName("RegionId")
   private String regionId = null;
 
-  @SerializedName("ReplicasNum")
-  private Integer replicasNum = null;
-
   @SerializedName("SecurityGroupId")
   private String securityGroupId = null;
 
-  @SerializedName("Status")
-  private String status = null;
+  /**
+   * Gets or Sets status
+   */
+  @JsonAdapter(StatusEnum.Adapter.class)
+  public enum StatusEnum {
+    @SerializedName("Creating")
+    CREATING("Creating"),
+    @SerializedName("CreateError")
+    CREATEERROR("CreateError"),
+    @SerializedName("Running")
+    RUNNING("Running"),
+    @SerializedName("Updating")
+    UPDATING("Updating"),
+    @SerializedName("UpdateError")
+    UPDATEERROR("UpdateError"),
+    @SerializedName("Upgrading")
+    UPGRADING("Upgrading"),
+    @SerializedName("UpgradeError")
+    UPGRADEERROR("UpgradeError"),
+    @SerializedName("Expanding")
+    EXPANDING("Expanding"),
+    @SerializedName("ExpandError")
+    EXPANDERROR("ExpandError"),
+    @SerializedName("Deleting")
+    DELETING("Deleting"),
+    @SerializedName("DeleteError")
+    DELETEERROR("DeleteError"),
+    @SerializedName("Deleted")
+    DELETED("Deleted"),
+    @SerializedName("Attaching")
+    ATTACHING("Attaching"),
+    @SerializedName("AttachError")
+    ATTACHERROR("AttachError"),
+    @SerializedName("Detaching")
+    DETACHING("Detaching"),
+    @SerializedName("DetachError")
+    DETACHERROR("DetachError"),
+    @SerializedName("Stopped")
+    STOPPED("Stopped"),
+    @SerializedName("Error")
+    ERROR("Error");
+
+    private String value;
+
+    StatusEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static StatusEnum fromValue(String input) {
+      for (StatusEnum b : StatusEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<StatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public StatusEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return StatusEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("Status")
+  private StatusEnum status = null;
 
   @SerializedName("StopServiceTime")
   private String stopServiceTime = null;
 
-  @SerializedName("Storage")
-  private StorageForDescribeFileSystemsOutput storage = null;
-
   @SerializedName("StoreType")
   private String storeType = null;
+
+  @SerializedName("StoreTypeCN")
+  private String storeTypeCN = null;
+
+  @SerializedName("StoreTypeEN")
+  private String storeTypeEN = null;
 
   @SerializedName("SubnetId")
   private String subnetId = null;
 
-  @SerializedName("SubnetName")
-  private String subnetName = null;
-
   @SerializedName("Tags")
   private List<TagForDescribeFileSystemsOutput> tags = null;
 
-  @SerializedName("TradeInfo")
-  private TradeInfoForDescribeFileSystemsOutput tradeInfo = null;
-
-  @SerializedName("UpgradeEndTime")
-  private String upgradeEndTime = null;
-
-  @SerializedName("UpgradeError")
-  private String upgradeError = null;
-
-  @SerializedName("UpgradeStartTime")
-  private String upgradeStartTime = null;
-
-  @SerializedName("UserId")
-  private String userId = null;
-
-  @SerializedName("Version")
-  private String version = null;
+  @SerializedName("VersionNumber")
+  private String versionNumber = null;
 
   @SerializedName("VpcId")
   private String vpcId = null;
 
-  @SerializedName("VpcName")
-  private String vpcName = null;
+  @SerializedName("WriteBandwidth")
+  private Integer writeBandwidth = null;
 
   @SerializedName("ZoneId")
   private String zoneId = null;
@@ -172,42 +398,6 @@ public class FileSystemForDescribeFileSystemsOutput {
 
   public void setAccountId(String accountId) {
     this.accountId = accountId;
-  }
-
-  public FileSystemForDescribeFileSystemsOutput attachStatus(String attachStatus) {
-    this.attachStatus = attachStatus;
-    return this;
-  }
-
-   /**
-   * Get attachStatus
-   * @return attachStatus
-  **/
-  @Schema(description = "")
-  public String getAttachStatus() {
-    return attachStatus;
-  }
-
-  public void setAttachStatus(String attachStatus) {
-    this.attachStatus = attachStatus;
-  }
-
-  public FileSystemForDescribeFileSystemsOutput autoRenew(Boolean autoRenew) {
-    this.autoRenew = autoRenew;
-    return this;
-  }
-
-   /**
-   * Get autoRenew
-   * @return autoRenew
-  **/
-  @Schema(description = "")
-  public Boolean isAutoRenew() {
-    return autoRenew;
-  }
-
-  public void setAutoRenew(Boolean autoRenew) {
-    this.autoRenew = autoRenew;
   }
 
   public FileSystemForDescribeFileSystemsOutput bandwidth(Integer bandwidth) {
@@ -247,7 +437,7 @@ public class FileSystemForDescribeFileSystemsOutput {
     this.capacityInfo = capacityInfo;
   }
 
-  public FileSystemForDescribeFileSystemsOutput chargeStatus(String chargeStatus) {
+  public FileSystemForDescribeFileSystemsOutput chargeStatus(ChargeStatusEnum chargeStatus) {
     this.chargeStatus = chargeStatus;
     return this;
   }
@@ -257,15 +447,15 @@ public class FileSystemForDescribeFileSystemsOutput {
    * @return chargeStatus
   **/
   @Schema(description = "")
-  public String getChargeStatus() {
+  public ChargeStatusEnum getChargeStatus() {
     return chargeStatus;
   }
 
-  public void setChargeStatus(String chargeStatus) {
+  public void setChargeStatus(ChargeStatusEnum chargeStatus) {
     this.chargeStatus = chargeStatus;
   }
 
-  public FileSystemForDescribeFileSystemsOutput chargeType(String chargeType) {
+  public FileSystemForDescribeFileSystemsOutput chargeType(ChargeTypeEnum chargeType) {
     this.chargeType = chargeType;
     return this;
   }
@@ -275,11 +465,11 @@ public class FileSystemForDescribeFileSystemsOutput {
    * @return chargeType
   **/
   @Schema(description = "")
-  public String getChargeType() {
+  public ChargeTypeEnum getChargeType() {
     return chargeType;
   }
 
-  public void setChargeType(String chargeType) {
+  public void setChargeType(ChargeTypeEnum chargeType) {
     this.chargeType = chargeType;
   }
 
@@ -317,24 +507,6 @@ public class FileSystemForDescribeFileSystemsOutput {
 
   public void setDescription(String description) {
     this.description = description;
-  }
-
-  public FileSystemForDescribeFileSystemsOutput eceCode(String eceCode) {
-    this.eceCode = eceCode;
-    return this;
-  }
-
-   /**
-   * Get eceCode
-   * @return eceCode
-  **/
-  @Schema(description = "")
-  public String getEceCode() {
-    return eceCode;
-  }
-
-  public void setEceCode(String eceCode) {
-    this.eceCode = eceCode;
   }
 
   public FileSystemForDescribeFileSystemsOutput expireTime(String expireTime) {
@@ -391,7 +563,7 @@ public class FileSystemForDescribeFileSystemsOutput {
     this.fileSystemName = fileSystemName;
   }
 
-  public FileSystemForDescribeFileSystemsOutput fileSystemType(String fileSystemType) {
+  public FileSystemForDescribeFileSystemsOutput fileSystemType(FileSystemTypeEnum fileSystemType) {
     this.fileSystemType = fileSystemType;
     return this;
   }
@@ -401,11 +573,11 @@ public class FileSystemForDescribeFileSystemsOutput {
    * @return fileSystemType
   **/
   @Schema(description = "")
-  public String getFileSystemType() {
+  public FileSystemTypeEnum getFileSystemType() {
     return fileSystemType;
   }
 
-  public void setFileSystemType(String fileSystemType) {
+  public void setFileSystemType(FileSystemTypeEnum fileSystemType) {
     this.fileSystemType = fileSystemType;
   }
 
@@ -445,51 +617,6 @@ public class FileSystemForDescribeFileSystemsOutput {
     this.lastModifyTime = lastModifyTime;
   }
 
-  public FileSystemForDescribeFileSystemsOutput month(Integer month) {
-    this.month = month;
-    return this;
-  }
-
-   /**
-   * Get month
-   * @return month
-  **/
-  @Schema(description = "")
-  public Integer getMonth() {
-    return month;
-  }
-
-  public void setMonth(Integer month) {
-    this.month = month;
-  }
-
-  public FileSystemForDescribeFileSystemsOutput mountPoints(List<MountPointForDescribeFileSystemsOutput> mountPoints) {
-    this.mountPoints = mountPoints;
-    return this;
-  }
-
-  public FileSystemForDescribeFileSystemsOutput addMountPointsItem(MountPointForDescribeFileSystemsOutput mountPointsItem) {
-    if (this.mountPoints == null) {
-      this.mountPoints = new ArrayList<MountPointForDescribeFileSystemsOutput>();
-    }
-    this.mountPoints.add(mountPointsItem);
-    return this;
-  }
-
-   /**
-   * Get mountPoints
-   * @return mountPoints
-  **/
-  @Valid
-  @Schema(description = "")
-  public List<MountPointForDescribeFileSystemsOutput> getMountPoints() {
-    return mountPoints;
-  }
-
-  public void setMountPoints(List<MountPointForDescribeFileSystemsOutput> mountPoints) {
-    this.mountPoints = mountPoints;
-  }
-
   public FileSystemForDescribeFileSystemsOutput project(String project) {
     this.project = project;
     return this;
@@ -508,7 +635,25 @@ public class FileSystemForDescribeFileSystemsOutput {
     this.project = project;
   }
 
-  public FileSystemForDescribeFileSystemsOutput protocolType(String protocolType) {
+  public FileSystemForDescribeFileSystemsOutput projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
+  public FileSystemForDescribeFileSystemsOutput protocolType(ProtocolTypeEnum protocolType) {
     this.protocolType = protocolType;
     return this;
   }
@@ -518,12 +663,30 @@ public class FileSystemForDescribeFileSystemsOutput {
    * @return protocolType
   **/
   @Schema(description = "")
-  public String getProtocolType() {
+  public ProtocolTypeEnum getProtocolType() {
     return protocolType;
   }
 
-  public void setProtocolType(String protocolType) {
+  public void setProtocolType(ProtocolTypeEnum protocolType) {
     this.protocolType = protocolType;
+  }
+
+  public FileSystemForDescribeFileSystemsOutput readBandwidth(Integer readBandwidth) {
+    this.readBandwidth = readBandwidth;
+    return this;
+  }
+
+   /**
+   * Get readBandwidth
+   * @return readBandwidth
+  **/
+  @Schema(description = "")
+  public Integer getReadBandwidth() {
+    return readBandwidth;
+  }
+
+  public void setReadBandwidth(Integer readBandwidth) {
+    this.readBandwidth = readBandwidth;
   }
 
   public FileSystemForDescribeFileSystemsOutput regionId(String regionId) {
@@ -544,24 +707,6 @@ public class FileSystemForDescribeFileSystemsOutput {
     this.regionId = regionId;
   }
 
-  public FileSystemForDescribeFileSystemsOutput replicasNum(Integer replicasNum) {
-    this.replicasNum = replicasNum;
-    return this;
-  }
-
-   /**
-   * Get replicasNum
-   * @return replicasNum
-  **/
-  @Schema(description = "")
-  public Integer getReplicasNum() {
-    return replicasNum;
-  }
-
-  public void setReplicasNum(Integer replicasNum) {
-    this.replicasNum = replicasNum;
-  }
-
   public FileSystemForDescribeFileSystemsOutput securityGroupId(String securityGroupId) {
     this.securityGroupId = securityGroupId;
     return this;
@@ -580,7 +725,7 @@ public class FileSystemForDescribeFileSystemsOutput {
     this.securityGroupId = securityGroupId;
   }
 
-  public FileSystemForDescribeFileSystemsOutput status(String status) {
+  public FileSystemForDescribeFileSystemsOutput status(StatusEnum status) {
     this.status = status;
     return this;
   }
@@ -590,11 +735,11 @@ public class FileSystemForDescribeFileSystemsOutput {
    * @return status
   **/
   @Schema(description = "")
-  public String getStatus() {
+  public StatusEnum getStatus() {
     return status;
   }
 
-  public void setStatus(String status) {
+  public void setStatus(StatusEnum status) {
     this.status = status;
   }
 
@@ -616,25 +761,6 @@ public class FileSystemForDescribeFileSystemsOutput {
     this.stopServiceTime = stopServiceTime;
   }
 
-  public FileSystemForDescribeFileSystemsOutput storage(StorageForDescribeFileSystemsOutput storage) {
-    this.storage = storage;
-    return this;
-  }
-
-   /**
-   * Get storage
-   * @return storage
-  **/
-  @Valid
-  @Schema(description = "")
-  public StorageForDescribeFileSystemsOutput getStorage() {
-    return storage;
-  }
-
-  public void setStorage(StorageForDescribeFileSystemsOutput storage) {
-    this.storage = storage;
-  }
-
   public FileSystemForDescribeFileSystemsOutput storeType(String storeType) {
     this.storeType = storeType;
     return this;
@@ -653,6 +779,42 @@ public class FileSystemForDescribeFileSystemsOutput {
     this.storeType = storeType;
   }
 
+  public FileSystemForDescribeFileSystemsOutput storeTypeCN(String storeTypeCN) {
+    this.storeTypeCN = storeTypeCN;
+    return this;
+  }
+
+   /**
+   * Get storeTypeCN
+   * @return storeTypeCN
+  **/
+  @Schema(description = "")
+  public String getStoreTypeCN() {
+    return storeTypeCN;
+  }
+
+  public void setStoreTypeCN(String storeTypeCN) {
+    this.storeTypeCN = storeTypeCN;
+  }
+
+  public FileSystemForDescribeFileSystemsOutput storeTypeEN(String storeTypeEN) {
+    this.storeTypeEN = storeTypeEN;
+    return this;
+  }
+
+   /**
+   * Get storeTypeEN
+   * @return storeTypeEN
+  **/
+  @Schema(description = "")
+  public String getStoreTypeEN() {
+    return storeTypeEN;
+  }
+
+  public void setStoreTypeEN(String storeTypeEN) {
+    this.storeTypeEN = storeTypeEN;
+  }
+
   public FileSystemForDescribeFileSystemsOutput subnetId(String subnetId) {
     this.subnetId = subnetId;
     return this;
@@ -669,24 +831,6 @@ public class FileSystemForDescribeFileSystemsOutput {
 
   public void setSubnetId(String subnetId) {
     this.subnetId = subnetId;
-  }
-
-  public FileSystemForDescribeFileSystemsOutput subnetName(String subnetName) {
-    this.subnetName = subnetName;
-    return this;
-  }
-
-   /**
-   * Get subnetName
-   * @return subnetName
-  **/
-  @Schema(description = "")
-  public String getSubnetName() {
-    return subnetName;
-  }
-
-  public void setSubnetName(String subnetName) {
-    this.subnetName = subnetName;
   }
 
   public FileSystemForDescribeFileSystemsOutput tags(List<TagForDescribeFileSystemsOutput> tags) {
@@ -716,113 +860,22 @@ public class FileSystemForDescribeFileSystemsOutput {
     this.tags = tags;
   }
 
-  public FileSystemForDescribeFileSystemsOutput tradeInfo(TradeInfoForDescribeFileSystemsOutput tradeInfo) {
-    this.tradeInfo = tradeInfo;
+  public FileSystemForDescribeFileSystemsOutput versionNumber(String versionNumber) {
+    this.versionNumber = versionNumber;
     return this;
   }
 
    /**
-   * Get tradeInfo
-   * @return tradeInfo
-  **/
-  @Valid
-  @Schema(description = "")
-  public TradeInfoForDescribeFileSystemsOutput getTradeInfo() {
-    return tradeInfo;
-  }
-
-  public void setTradeInfo(TradeInfoForDescribeFileSystemsOutput tradeInfo) {
-    this.tradeInfo = tradeInfo;
-  }
-
-  public FileSystemForDescribeFileSystemsOutput upgradeEndTime(String upgradeEndTime) {
-    this.upgradeEndTime = upgradeEndTime;
-    return this;
-  }
-
-   /**
-   * Get upgradeEndTime
-   * @return upgradeEndTime
+   * Get versionNumber
+   * @return versionNumber
   **/
   @Schema(description = "")
-  public String getUpgradeEndTime() {
-    return upgradeEndTime;
+  public String getVersionNumber() {
+    return versionNumber;
   }
 
-  public void setUpgradeEndTime(String upgradeEndTime) {
-    this.upgradeEndTime = upgradeEndTime;
-  }
-
-  public FileSystemForDescribeFileSystemsOutput upgradeError(String upgradeError) {
-    this.upgradeError = upgradeError;
-    return this;
-  }
-
-   /**
-   * Get upgradeError
-   * @return upgradeError
-  **/
-  @Schema(description = "")
-  public String getUpgradeError() {
-    return upgradeError;
-  }
-
-  public void setUpgradeError(String upgradeError) {
-    this.upgradeError = upgradeError;
-  }
-
-  public FileSystemForDescribeFileSystemsOutput upgradeStartTime(String upgradeStartTime) {
-    this.upgradeStartTime = upgradeStartTime;
-    return this;
-  }
-
-   /**
-   * Get upgradeStartTime
-   * @return upgradeStartTime
-  **/
-  @Schema(description = "")
-  public String getUpgradeStartTime() {
-    return upgradeStartTime;
-  }
-
-  public void setUpgradeStartTime(String upgradeStartTime) {
-    this.upgradeStartTime = upgradeStartTime;
-  }
-
-  public FileSystemForDescribeFileSystemsOutput userId(String userId) {
-    this.userId = userId;
-    return this;
-  }
-
-   /**
-   * Get userId
-   * @return userId
-  **/
-  @Schema(description = "")
-  public String getUserId() {
-    return userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public FileSystemForDescribeFileSystemsOutput version(String version) {
-    this.version = version;
-    return this;
-  }
-
-   /**
-   * Get version
-   * @return version
-  **/
-  @Schema(description = "")
-  public String getVersion() {
-    return version;
-  }
-
-  public void setVersion(String version) {
-    this.version = version;
+  public void setVersionNumber(String versionNumber) {
+    this.versionNumber = versionNumber;
   }
 
   public FileSystemForDescribeFileSystemsOutput vpcId(String vpcId) {
@@ -843,22 +896,22 @@ public class FileSystemForDescribeFileSystemsOutput {
     this.vpcId = vpcId;
   }
 
-  public FileSystemForDescribeFileSystemsOutput vpcName(String vpcName) {
-    this.vpcName = vpcName;
+  public FileSystemForDescribeFileSystemsOutput writeBandwidth(Integer writeBandwidth) {
+    this.writeBandwidth = writeBandwidth;
     return this;
   }
 
    /**
-   * Get vpcName
-   * @return vpcName
+   * Get writeBandwidth
+   * @return writeBandwidth
   **/
   @Schema(description = "")
-  public String getVpcName() {
-    return vpcName;
+  public Integer getWriteBandwidth() {
+    return writeBandwidth;
   }
 
-  public void setVpcName(String vpcName) {
-    this.vpcName = vpcName;
+  public void setWriteBandwidth(Integer writeBandwidth) {
+    this.writeBandwidth = writeBandwidth;
   }
 
   public FileSystemForDescribeFileSystemsOutput zoneId(String zoneId) {
@@ -908,50 +961,41 @@ public class FileSystemForDescribeFileSystemsOutput {
     }
     FileSystemForDescribeFileSystemsOutput fileSystemForDescribeFileSystemsOutput = (FileSystemForDescribeFileSystemsOutput) o;
     return Objects.equals(this.accountId, fileSystemForDescribeFileSystemsOutput.accountId) &&
-        Objects.equals(this.attachStatus, fileSystemForDescribeFileSystemsOutput.attachStatus) &&
-        Objects.equals(this.autoRenew, fileSystemForDescribeFileSystemsOutput.autoRenew) &&
         Objects.equals(this.bandwidth, fileSystemForDescribeFileSystemsOutput.bandwidth) &&
         Objects.equals(this.capacityInfo, fileSystemForDescribeFileSystemsOutput.capacityInfo) &&
         Objects.equals(this.chargeStatus, fileSystemForDescribeFileSystemsOutput.chargeStatus) &&
         Objects.equals(this.chargeType, fileSystemForDescribeFileSystemsOutput.chargeType) &&
         Objects.equals(this.createTime, fileSystemForDescribeFileSystemsOutput.createTime) &&
         Objects.equals(this.description, fileSystemForDescribeFileSystemsOutput.description) &&
-        Objects.equals(this.eceCode, fileSystemForDescribeFileSystemsOutput.eceCode) &&
         Objects.equals(this.expireTime, fileSystemForDescribeFileSystemsOutput.expireTime) &&
         Objects.equals(this.fileSystemId, fileSystemForDescribeFileSystemsOutput.fileSystemId) &&
         Objects.equals(this.fileSystemName, fileSystemForDescribeFileSystemsOutput.fileSystemName) &&
         Objects.equals(this.fileSystemType, fileSystemForDescribeFileSystemsOutput.fileSystemType) &&
         Objects.equals(this.freeTime, fileSystemForDescribeFileSystemsOutput.freeTime) &&
         Objects.equals(this.lastModifyTime, fileSystemForDescribeFileSystemsOutput.lastModifyTime) &&
-        Objects.equals(this.month, fileSystemForDescribeFileSystemsOutput.month) &&
-        Objects.equals(this.mountPoints, fileSystemForDescribeFileSystemsOutput.mountPoints) &&
         Objects.equals(this.project, fileSystemForDescribeFileSystemsOutput.project) &&
+        Objects.equals(this.projectName, fileSystemForDescribeFileSystemsOutput.projectName) &&
         Objects.equals(this.protocolType, fileSystemForDescribeFileSystemsOutput.protocolType) &&
+        Objects.equals(this.readBandwidth, fileSystemForDescribeFileSystemsOutput.readBandwidth) &&
         Objects.equals(this.regionId, fileSystemForDescribeFileSystemsOutput.regionId) &&
-        Objects.equals(this.replicasNum, fileSystemForDescribeFileSystemsOutput.replicasNum) &&
         Objects.equals(this.securityGroupId, fileSystemForDescribeFileSystemsOutput.securityGroupId) &&
         Objects.equals(this.status, fileSystemForDescribeFileSystemsOutput.status) &&
         Objects.equals(this.stopServiceTime, fileSystemForDescribeFileSystemsOutput.stopServiceTime) &&
-        Objects.equals(this.storage, fileSystemForDescribeFileSystemsOutput.storage) &&
         Objects.equals(this.storeType, fileSystemForDescribeFileSystemsOutput.storeType) &&
+        Objects.equals(this.storeTypeCN, fileSystemForDescribeFileSystemsOutput.storeTypeCN) &&
+        Objects.equals(this.storeTypeEN, fileSystemForDescribeFileSystemsOutput.storeTypeEN) &&
         Objects.equals(this.subnetId, fileSystemForDescribeFileSystemsOutput.subnetId) &&
-        Objects.equals(this.subnetName, fileSystemForDescribeFileSystemsOutput.subnetName) &&
         Objects.equals(this.tags, fileSystemForDescribeFileSystemsOutput.tags) &&
-        Objects.equals(this.tradeInfo, fileSystemForDescribeFileSystemsOutput.tradeInfo) &&
-        Objects.equals(this.upgradeEndTime, fileSystemForDescribeFileSystemsOutput.upgradeEndTime) &&
-        Objects.equals(this.upgradeError, fileSystemForDescribeFileSystemsOutput.upgradeError) &&
-        Objects.equals(this.upgradeStartTime, fileSystemForDescribeFileSystemsOutput.upgradeStartTime) &&
-        Objects.equals(this.userId, fileSystemForDescribeFileSystemsOutput.userId) &&
-        Objects.equals(this.version, fileSystemForDescribeFileSystemsOutput.version) &&
+        Objects.equals(this.versionNumber, fileSystemForDescribeFileSystemsOutput.versionNumber) &&
         Objects.equals(this.vpcId, fileSystemForDescribeFileSystemsOutput.vpcId) &&
-        Objects.equals(this.vpcName, fileSystemForDescribeFileSystemsOutput.vpcName) &&
+        Objects.equals(this.writeBandwidth, fileSystemForDescribeFileSystemsOutput.writeBandwidth) &&
         Objects.equals(this.zoneId, fileSystemForDescribeFileSystemsOutput.zoneId) &&
         Objects.equals(this.zoneName, fileSystemForDescribeFileSystemsOutput.zoneName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, attachStatus, autoRenew, bandwidth, capacityInfo, chargeStatus, chargeType, createTime, description, eceCode, expireTime, fileSystemId, fileSystemName, fileSystemType, freeTime, lastModifyTime, month, mountPoints, project, protocolType, regionId, replicasNum, securityGroupId, status, stopServiceTime, storage, storeType, subnetId, subnetName, tags, tradeInfo, upgradeEndTime, upgradeError, upgradeStartTime, userId, version, vpcId, vpcName, zoneId, zoneName);
+    return Objects.hash(accountId, bandwidth, capacityInfo, chargeStatus, chargeType, createTime, description, expireTime, fileSystemId, fileSystemName, fileSystemType, freeTime, lastModifyTime, project, projectName, protocolType, readBandwidth, regionId, securityGroupId, status, stopServiceTime, storeType, storeTypeCN, storeTypeEN, subnetId, tags, versionNumber, vpcId, writeBandwidth, zoneId, zoneName);
   }
 
 
@@ -961,43 +1005,34 @@ public class FileSystemForDescribeFileSystemsOutput {
     sb.append("class FileSystemForDescribeFileSystemsOutput {\n");
     
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
-    sb.append("    attachStatus: ").append(toIndentedString(attachStatus)).append("\n");
-    sb.append("    autoRenew: ").append(toIndentedString(autoRenew)).append("\n");
     sb.append("    bandwidth: ").append(toIndentedString(bandwidth)).append("\n");
     sb.append("    capacityInfo: ").append(toIndentedString(capacityInfo)).append("\n");
     sb.append("    chargeStatus: ").append(toIndentedString(chargeStatus)).append("\n");
     sb.append("    chargeType: ").append(toIndentedString(chargeType)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    eceCode: ").append(toIndentedString(eceCode)).append("\n");
     sb.append("    expireTime: ").append(toIndentedString(expireTime)).append("\n");
     sb.append("    fileSystemId: ").append(toIndentedString(fileSystemId)).append("\n");
     sb.append("    fileSystemName: ").append(toIndentedString(fileSystemName)).append("\n");
     sb.append("    fileSystemType: ").append(toIndentedString(fileSystemType)).append("\n");
     sb.append("    freeTime: ").append(toIndentedString(freeTime)).append("\n");
     sb.append("    lastModifyTime: ").append(toIndentedString(lastModifyTime)).append("\n");
-    sb.append("    month: ").append(toIndentedString(month)).append("\n");
-    sb.append("    mountPoints: ").append(toIndentedString(mountPoints)).append("\n");
     sb.append("    project: ").append(toIndentedString(project)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    protocolType: ").append(toIndentedString(protocolType)).append("\n");
+    sb.append("    readBandwidth: ").append(toIndentedString(readBandwidth)).append("\n");
     sb.append("    regionId: ").append(toIndentedString(regionId)).append("\n");
-    sb.append("    replicasNum: ").append(toIndentedString(replicasNum)).append("\n");
     sb.append("    securityGroupId: ").append(toIndentedString(securityGroupId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    stopServiceTime: ").append(toIndentedString(stopServiceTime)).append("\n");
-    sb.append("    storage: ").append(toIndentedString(storage)).append("\n");
     sb.append("    storeType: ").append(toIndentedString(storeType)).append("\n");
+    sb.append("    storeTypeCN: ").append(toIndentedString(storeTypeCN)).append("\n");
+    sb.append("    storeTypeEN: ").append(toIndentedString(storeTypeEN)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
-    sb.append("    subnetName: ").append(toIndentedString(subnetName)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
-    sb.append("    tradeInfo: ").append(toIndentedString(tradeInfo)).append("\n");
-    sb.append("    upgradeEndTime: ").append(toIndentedString(upgradeEndTime)).append("\n");
-    sb.append("    upgradeError: ").append(toIndentedString(upgradeError)).append("\n");
-    sb.append("    upgradeStartTime: ").append(toIndentedString(upgradeStartTime)).append("\n");
-    sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
-    sb.append("    version: ").append(toIndentedString(version)).append("\n");
+    sb.append("    versionNumber: ").append(toIndentedString(versionNumber)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
-    sb.append("    vpcName: ").append(toIndentedString(vpcName)).append("\n");
+    sb.append("    writeBandwidth: ").append(toIndentedString(writeBandwidth)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("    zoneName: ").append(toIndentedString(zoneName)).append("\n");
     sb.append("}");

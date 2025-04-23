@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vepfs.model.FilterForDescribeFileSystemsInput;
+import com.volcengine.vepfs.model.TagFilterForDescribeFileSystemsInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -31,6 +32,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeFileSystemsRequest {
   @SerializedName("FileSystemIds")
   private String fileSystemIds = null;
@@ -38,8 +40,109 @@ public class DescribeFileSystemsRequest {
   @SerializedName("Filters")
   private List<FilterForDescribeFileSystemsInput> filters = null;
 
-  @SerializedName("OrderBy")
-  private String orderBy = null;
+  /**
+   * Gets or Sets languageCode
+   */
+  @JsonAdapter(LanguageCodeEnum.Adapter.class)
+  public enum LanguageCodeEnum {
+    @SerializedName("zh")
+    ZH("zh"),
+    @SerializedName("en")
+    EN("en");
+
+    private String value;
+
+    LanguageCodeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static LanguageCodeEnum fromValue(String input) {
+      for (LanguageCodeEnum b : LanguageCodeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<LanguageCodeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final LanguageCodeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public LanguageCodeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return LanguageCodeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("LanguageCode")
+  private LanguageCodeEnum languageCode = null;
+
+  /**
+   * Gets or Sets orderBy
+   */
+  @JsonAdapter(OrderByEnum.Adapter.class)
+  public enum OrderByEnum {
+    @SerializedName("CreateTimeDesc")
+    CREATETIMEDESC("CreateTimeDesc"),
+    @SerializedName("CreateTimeAsc")
+    CREATETIMEASC("CreateTimeAsc"),
+    @SerializedName("CapacityDesc")
+    CAPACITYDESC("CapacityDesc"),
+    @SerializedName("CapacityAsc")
+    CAPACITYASC("CapacityAsc"),
+    @SerializedName("IdDesc")
+    IDDESC("IdDesc"),
+    @SerializedName("IdAsc")
+    IDASC("IdAsc"),
+    @SerializedName("VersionNumberDesc")
+    VERSIONNUMBERDESC("VersionNumberDesc"),
+    @SerializedName("VersionNumberAsc")
+    VERSIONNUMBERASC("VersionNumberAsc");
+
+    private String value;
+
+    OrderByEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static OrderByEnum fromValue(String input) {
+      for (OrderByEnum b : OrderByEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<OrderByEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final OrderByEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public OrderByEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return OrderByEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("OrderBy")
+  private OrderByEnum orderBy = null;
 
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
@@ -49,6 +152,9 @@ public class DescribeFileSystemsRequest {
 
   @SerializedName("Project")
   private String project = null;
+
+  @SerializedName("TagFilters")
+  private List<TagFilterForDescribeFileSystemsInput> tagFilters = null;
 
   public DescribeFileSystemsRequest fileSystemIds(String fileSystemIds) {
     this.fileSystemIds = fileSystemIds;
@@ -95,7 +201,25 @@ public class DescribeFileSystemsRequest {
     this.filters = filters;
   }
 
-  public DescribeFileSystemsRequest orderBy(String orderBy) {
+  public DescribeFileSystemsRequest languageCode(LanguageCodeEnum languageCode) {
+    this.languageCode = languageCode;
+    return this;
+  }
+
+   /**
+   * Get languageCode
+   * @return languageCode
+  **/
+  @Schema(description = "")
+  public LanguageCodeEnum getLanguageCode() {
+    return languageCode;
+  }
+
+  public void setLanguageCode(LanguageCodeEnum languageCode) {
+    this.languageCode = languageCode;
+  }
+
+  public DescribeFileSystemsRequest orderBy(OrderByEnum orderBy) {
     this.orderBy = orderBy;
     return this;
   }
@@ -105,11 +229,11 @@ public class DescribeFileSystemsRequest {
    * @return orderBy
   **/
   @Schema(description = "")
-  public String getOrderBy() {
+  public OrderByEnum getOrderBy() {
     return orderBy;
   }
 
-  public void setOrderBy(String orderBy) {
+  public void setOrderBy(OrderByEnum orderBy) {
     this.orderBy = orderBy;
   }
 
@@ -167,6 +291,33 @@ public class DescribeFileSystemsRequest {
     this.project = project;
   }
 
+  public DescribeFileSystemsRequest tagFilters(List<TagFilterForDescribeFileSystemsInput> tagFilters) {
+    this.tagFilters = tagFilters;
+    return this;
+  }
+
+  public DescribeFileSystemsRequest addTagFiltersItem(TagFilterForDescribeFileSystemsInput tagFiltersItem) {
+    if (this.tagFilters == null) {
+      this.tagFilters = new ArrayList<TagFilterForDescribeFileSystemsInput>();
+    }
+    this.tagFilters.add(tagFiltersItem);
+    return this;
+  }
+
+   /**
+   * Get tagFilters
+   * @return tagFilters
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagFilterForDescribeFileSystemsInput> getTagFilters() {
+    return tagFilters;
+  }
+
+  public void setTagFilters(List<TagFilterForDescribeFileSystemsInput> tagFilters) {
+    this.tagFilters = tagFilters;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -179,15 +330,17 @@ public class DescribeFileSystemsRequest {
     DescribeFileSystemsRequest describeFileSystemsRequest = (DescribeFileSystemsRequest) o;
     return Objects.equals(this.fileSystemIds, describeFileSystemsRequest.fileSystemIds) &&
         Objects.equals(this.filters, describeFileSystemsRequest.filters) &&
+        Objects.equals(this.languageCode, describeFileSystemsRequest.languageCode) &&
         Objects.equals(this.orderBy, describeFileSystemsRequest.orderBy) &&
         Objects.equals(this.pageNumber, describeFileSystemsRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeFileSystemsRequest.pageSize) &&
-        Objects.equals(this.project, describeFileSystemsRequest.project);
+        Objects.equals(this.project, describeFileSystemsRequest.project) &&
+        Objects.equals(this.tagFilters, describeFileSystemsRequest.tagFilters);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fileSystemIds, filters, orderBy, pageNumber, pageSize, project);
+    return Objects.hash(fileSystemIds, filters, languageCode, orderBy, pageNumber, pageSize, project, tagFilters);
   }
 
 
@@ -198,10 +351,12 @@ public class DescribeFileSystemsRequest {
     
     sb.append("    fileSystemIds: ").append(toIndentedString(fileSystemIds)).append("\n");
     sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
+    sb.append("    languageCode: ").append(toIndentedString(languageCode)).append("\n");
     sb.append("    orderBy: ").append(toIndentedString(orderBy)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    project: ").append(toIndentedString(project)).append("\n");
+    sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("}");
     return sb.toString();
   }

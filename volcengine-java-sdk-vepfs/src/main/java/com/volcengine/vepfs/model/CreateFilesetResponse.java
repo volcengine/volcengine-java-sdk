@@ -24,51 +24,31 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * StorageForDescribeFileSystemsOutput
+ * CreateFilesetResponse
  */
 
 
-public class StorageForDescribeFileSystemsOutput {
-  @SerializedName("SubVolume")
-  private String subVolume = null;
 
-  @SerializedName("Volume")
-  private String volume = null;
+public class CreateFilesetResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("FilesetId")
+  private String filesetId = null;
 
-  public StorageForDescribeFileSystemsOutput subVolume(String subVolume) {
-    this.subVolume = subVolume;
+  public CreateFilesetResponse filesetId(String filesetId) {
+    this.filesetId = filesetId;
     return this;
   }
 
    /**
-   * Get subVolume
-   * @return subVolume
+   * Get filesetId
+   * @return filesetId
   **/
   @Schema(description = "")
-  public String getSubVolume() {
-    return subVolume;
+  public String getFilesetId() {
+    return filesetId;
   }
 
-  public void setSubVolume(String subVolume) {
-    this.subVolume = subVolume;
-  }
-
-  public StorageForDescribeFileSystemsOutput volume(String volume) {
-    this.volume = volume;
-    return this;
-  }
-
-   /**
-   * Get volume
-   * @return volume
-  **/
-  @Schema(description = "")
-  public String getVolume() {
-    return volume;
-  }
-
-  public void setVolume(String volume) {
-    this.volume = volume;
+  public void setFilesetId(String filesetId) {
+    this.filesetId = filesetId;
   }
 
 
@@ -80,24 +60,22 @@ public class StorageForDescribeFileSystemsOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    StorageForDescribeFileSystemsOutput storageForDescribeFileSystemsOutput = (StorageForDescribeFileSystemsOutput) o;
-    return Objects.equals(this.subVolume, storageForDescribeFileSystemsOutput.subVolume) &&
-        Objects.equals(this.volume, storageForDescribeFileSystemsOutput.volume);
+    CreateFilesetResponse createFilesetResponse = (CreateFilesetResponse) o;
+    return Objects.equals(this.filesetId, createFilesetResponse.filesetId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(subVolume, volume);
+    return Objects.hash(filesetId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class StorageForDescribeFileSystemsOutput {\n");
+    sb.append("class CreateFilesetResponse {\n");
     
-    sb.append("    subVolume: ").append(toIndentedString(subVolume)).append("\n");
-    sb.append("    volume: ").append(toIndentedString(volume)).append("\n");
+    sb.append("    filesetId: ").append(toIndentedString(filesetId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
