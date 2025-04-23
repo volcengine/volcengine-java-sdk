@@ -11,7 +11,9 @@ public class DefaultEndpointProvider implements EndpointResolver {
 
     // 区域代码常量
     public static final String REGION_CODE_CN_BEIJING_AUTODRIVING = "cn-beijing-autodriving";
+    public static final String REGION_CODE_AP_SOUTH_EAST_2 = "ap-southeast-2";
     public static final String REGION_CODE_AP_SOUTH_EAST_3 = "ap-southeast-3";
+    public static final String REGION_CODE_CN_HONGKONG = "cn-hongkong";
     // 常量
     private static final String SEPARATOR = ".";
     private static final String OPEN_PREFIX = "open";
@@ -23,10 +25,20 @@ public class DefaultEndpointProvider implements EndpointResolver {
 
     static {
         BOOTSTRAP_REGION.add(REGION_CODE_CN_BEIJING_AUTODRIVING);
+        BOOTSTRAP_REGION.add(REGION_CODE_AP_SOUTH_EAST_2);
         BOOTSTRAP_REGION.add(REGION_CODE_AP_SOUTH_EAST_3);
     }
 
     static {
+        // --------------------------- iam ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("iam", new ServiceEndpointInfo(
+                "iam",
+                true,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
+
         // --------------------------- vke ---------------------------
         DEFAULT_ENDPOINT_MAP.put("vke", new ServiceEndpointInfo(
                 "vke",
@@ -382,10 +394,12 @@ public class DefaultEndpointProvider implements EndpointResolver {
             return resultEndpoint;
         }
 
-        String regionEndpoint = endpointInfo.regionEndpointMap.get(regionCode);
-        if (regionEndpoint != null) {
-            resultEndpoint = regionEndpoint;
-            return resultEndpoint;
+        if (endpointInfo.regionEndpointMap != null) {
+            String regionEndpoint = endpointInfo.regionEndpointMap.get(regionCode);
+            if (regionEndpoint != null) {
+                resultEndpoint = regionEndpoint;
+                return resultEndpoint;
+            }
         }
 
         resultEndpoint = standardizeDomainServiceCode(service) + SEPARATOR + regionCode + endpointSuffix;
