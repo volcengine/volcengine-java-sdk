@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.alb.model.TagForCreateAclInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -38,6 +41,9 @@ public class CreateAclRequest {
 
   @SerializedName("ProjectName")
   private String projectName = null;
+
+  @SerializedName("Tags")
+  private List<TagForCreateAclInput> tags = null;
 
   public CreateAclRequest aclName(String aclName) {
     this.aclName = aclName;
@@ -93,6 +99,33 @@ public class CreateAclRequest {
     this.projectName = projectName;
   }
 
+  public CreateAclRequest tags(List<TagForCreateAclInput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public CreateAclRequest addTagsItem(TagForCreateAclInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForCreateAclInput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForCreateAclInput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForCreateAclInput> tags) {
+    this.tags = tags;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -105,12 +138,13 @@ public class CreateAclRequest {
     CreateAclRequest createAclRequest = (CreateAclRequest) o;
     return Objects.equals(this.aclName, createAclRequest.aclName) &&
         Objects.equals(this.description, createAclRequest.description) &&
-        Objects.equals(this.projectName, createAclRequest.projectName);
+        Objects.equals(this.projectName, createAclRequest.projectName) &&
+        Objects.equals(this.tags, createAclRequest.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclName, description, projectName);
+    return Objects.hash(aclName, description, projectName, tags);
   }
 
 
@@ -122,6 +156,7 @@ public class CreateAclRequest {
     sb.append("    aclName: ").append(toIndentedString(aclName)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }

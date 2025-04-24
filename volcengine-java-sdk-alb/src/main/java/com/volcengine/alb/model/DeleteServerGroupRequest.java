@@ -42,7 +42,8 @@ public class DeleteServerGroupRequest {
    * Get serverGroupId
    * @return serverGroupId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getServerGroupId() {
     return serverGroupId;
   }
