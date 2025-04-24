@@ -31,7 +31,8 @@ import javax.validation.Valid;
  */
 
 
-public class DescribeMountServicesResponse {
+
+public class DescribeMountServicesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("MountServices")
   private List<MountServiceForDescribeMountServicesOutput> mountServices = null;
 

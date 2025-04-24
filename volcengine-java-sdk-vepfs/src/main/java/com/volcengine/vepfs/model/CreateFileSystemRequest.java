@@ -31,12 +31,54 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateFileSystemRequest {
   @SerializedName("Capacity")
   private Integer capacity = null;
 
-  @SerializedName("ChargeType")
-  private String chargeType = null;
+  /**
+   * Gets or Sets chargeType
+   */
+  @JsonAdapter(ChargeTypeEnum.Adapter.class)
+  public enum ChargeTypeEnum {
+    @SerializedName("PayAsYouGo")
+    PAYASYOUGO("PayAsYouGo");
+
+    private String value;
+
+    ChargeTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ChargeTypeEnum fromValue(String input) {
+      for (ChargeTypeEnum b : ChargeTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ChargeTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ChargeTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ChargeTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ChargeTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("ChargeType")
+  private ChargeTypeEnum chargeType = null;
 
   @SerializedName("Description")
   private String description = null;
@@ -44,14 +86,102 @@ public class CreateFileSystemRequest {
   @SerializedName("FileSystemName")
   private String fileSystemName = null;
 
-  @SerializedName("FileSystemType")
-  private String fileSystemType = null;
+  /**
+   * Gets or Sets fileSystemType
+   */
+  @JsonAdapter(FileSystemTypeEnum.Adapter.class)
+  public enum FileSystemTypeEnum {
+    @SerializedName("VePFS")
+    VEPFS("VePFS");
+
+    private String value;
+
+    FileSystemTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static FileSystemTypeEnum fromValue(String input) {
+      for (FileSystemTypeEnum b : FileSystemTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<FileSystemTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final FileSystemTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public FileSystemTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return FileSystemTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("FileSystemType")
+  private FileSystemTypeEnum fileSystemType = null;
 
   @SerializedName("Project")
   private String project = null;
 
-  @SerializedName("ProtocolType")
-  private String protocolType = null;
+  /**
+   * Gets or Sets protocolType
+   */
+  @JsonAdapter(ProtocolTypeEnum.Adapter.class)
+  public enum ProtocolTypeEnum {
+    @SerializedName("NFS")
+    NFS("NFS"),
+    @SerializedName("SMB")
+    SMB("SMB"),
+    @SerializedName("VePFS")
+    VEPFS("VePFS"),
+    @SerializedName("FSX")
+    FSX("FSX");
+
+    private String value;
+
+    ProtocolTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ProtocolTypeEnum fromValue(String input) {
+      for (ProtocolTypeEnum b : ProtocolTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ProtocolTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ProtocolTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ProtocolTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ProtocolTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("ProtocolType")
+  private ProtocolTypeEnum protocolType = null;
 
   @SerializedName("StoreType")
   private String storeType = null;
@@ -61,6 +191,9 @@ public class CreateFileSystemRequest {
 
   @SerializedName("Tags")
   private List<TagForCreateFileSystemInput> tags = null;
+
+  @SerializedName("VersionNumber")
+  private String versionNumber = null;
 
   @SerializedName("VpcId")
   private String vpcId = null;
@@ -86,7 +219,7 @@ public class CreateFileSystemRequest {
     this.capacity = capacity;
   }
 
-  public CreateFileSystemRequest chargeType(String chargeType) {
+  public CreateFileSystemRequest chargeType(ChargeTypeEnum chargeType) {
     this.chargeType = chargeType;
     return this;
   }
@@ -95,12 +228,13 @@ public class CreateFileSystemRequest {
    * Get chargeType
    * @return chargeType
   **/
-  @Schema(description = "")
-  public String getChargeType() {
+  @NotNull
+  @Schema(required = true, description = "")
+  public ChargeTypeEnum getChargeType() {
     return chargeType;
   }
 
-  public void setChargeType(String chargeType) {
+  public void setChargeType(ChargeTypeEnum chargeType) {
     this.chargeType = chargeType;
   }
 
@@ -131,7 +265,8 @@ public class CreateFileSystemRequest {
    * Get fileSystemName
    * @return fileSystemName
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getFileSystemName() {
     return fileSystemName;
   }
@@ -140,7 +275,7 @@ public class CreateFileSystemRequest {
     this.fileSystemName = fileSystemName;
   }
 
-  public CreateFileSystemRequest fileSystemType(String fileSystemType) {
+  public CreateFileSystemRequest fileSystemType(FileSystemTypeEnum fileSystemType) {
     this.fileSystemType = fileSystemType;
     return this;
   }
@@ -149,12 +284,13 @@ public class CreateFileSystemRequest {
    * Get fileSystemType
    * @return fileSystemType
   **/
-  @Schema(description = "")
-  public String getFileSystemType() {
+  @NotNull
+  @Schema(required = true, description = "")
+  public FileSystemTypeEnum getFileSystemType() {
     return fileSystemType;
   }
 
-  public void setFileSystemType(String fileSystemType) {
+  public void setFileSystemType(FileSystemTypeEnum fileSystemType) {
     this.fileSystemType = fileSystemType;
   }
 
@@ -176,7 +312,7 @@ public class CreateFileSystemRequest {
     this.project = project;
   }
 
-  public CreateFileSystemRequest protocolType(String protocolType) {
+  public CreateFileSystemRequest protocolType(ProtocolTypeEnum protocolType) {
     this.protocolType = protocolType;
     return this;
   }
@@ -185,12 +321,13 @@ public class CreateFileSystemRequest {
    * Get protocolType
    * @return protocolType
   **/
-  @Schema(description = "")
-  public String getProtocolType() {
+  @NotNull
+  @Schema(required = true, description = "")
+  public ProtocolTypeEnum getProtocolType() {
     return protocolType;
   }
 
-  public void setProtocolType(String protocolType) {
+  public void setProtocolType(ProtocolTypeEnum protocolType) {
     this.protocolType = protocolType;
   }
 
@@ -203,7 +340,8 @@ public class CreateFileSystemRequest {
    * Get storeType
    * @return storeType
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getStoreType() {
     return storeType;
   }
@@ -257,6 +395,24 @@ public class CreateFileSystemRequest {
     this.tags = tags;
   }
 
+  public CreateFileSystemRequest versionNumber(String versionNumber) {
+    this.versionNumber = versionNumber;
+    return this;
+  }
+
+   /**
+   * Get versionNumber
+   * @return versionNumber
+  **/
+  @Schema(description = "")
+  public String getVersionNumber() {
+    return versionNumber;
+  }
+
+  public void setVersionNumber(String versionNumber) {
+    this.versionNumber = versionNumber;
+  }
+
   public CreateFileSystemRequest vpcId(String vpcId) {
     this.vpcId = vpcId;
     return this;
@@ -284,7 +440,8 @@ public class CreateFileSystemRequest {
    * Get zoneId
    * @return zoneId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getZoneId() {
     return zoneId;
   }
@@ -313,13 +470,14 @@ public class CreateFileSystemRequest {
         Objects.equals(this.storeType, createFileSystemRequest.storeType) &&
         Objects.equals(this.subnetId, createFileSystemRequest.subnetId) &&
         Objects.equals(this.tags, createFileSystemRequest.tags) &&
+        Objects.equals(this.versionNumber, createFileSystemRequest.versionNumber) &&
         Objects.equals(this.vpcId, createFileSystemRequest.vpcId) &&
         Objects.equals(this.zoneId, createFileSystemRequest.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(capacity, chargeType, description, fileSystemName, fileSystemType, project, protocolType, storeType, subnetId, tags, vpcId, zoneId);
+    return Objects.hash(capacity, chargeType, description, fileSystemName, fileSystemType, project, protocolType, storeType, subnetId, tags, versionNumber, vpcId, zoneId);
   }
 
 
@@ -338,6 +496,7 @@ public class CreateFileSystemRequest {
     sb.append("    storeType: ").append(toIndentedString(storeType)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    versionNumber: ").append(toIndentedString(versionNumber)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");

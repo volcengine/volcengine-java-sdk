@@ -28,29 +28,99 @@ import javax.validation.Valid;
  */
 
 
+
 public class NodeTypeInfoForDescribeMountServiceNodeTypesOutput {
-  @SerializedName("Description")
-  private String description = null;
+  @SerializedName("DescriptionCN")
+  private String descriptionCN = null;
+
+  @SerializedName("DescriptionEN")
+  private String descriptionEN = null;
 
   @SerializedName("NodeType")
   private String nodeType = null;
 
-  public NodeTypeInfoForDescribeMountServiceNodeTypesOutput description(String description) {
-    this.description = description;
+  /**
+   * Gets or Sets status
+   */
+  @JsonAdapter(StatusEnum.Adapter.class)
+  public enum StatusEnum {
+    @SerializedName("UnSold")
+    UNSOLD("UnSold"),
+    @SerializedName("OnSale")
+    ONSALE("OnSale"),
+    @SerializedName("SoldOut")
+    SOLDOUT("SoldOut");
+
+    private String value;
+
+    StatusEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static StatusEnum fromValue(String input) {
+      for (StatusEnum b : StatusEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<StatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public StatusEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return StatusEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("Status")
+  private StatusEnum status = null;
+
+  public NodeTypeInfoForDescribeMountServiceNodeTypesOutput descriptionCN(String descriptionCN) {
+    this.descriptionCN = descriptionCN;
     return this;
   }
 
    /**
-   * Get description
-   * @return description
+   * Get descriptionCN
+   * @return descriptionCN
   **/
   @Schema(description = "")
-  public String getDescription() {
-    return description;
+  public String getDescriptionCN() {
+    return descriptionCN;
   }
 
-  public void setDescription(String description) {
-    this.description = description;
+  public void setDescriptionCN(String descriptionCN) {
+    this.descriptionCN = descriptionCN;
+  }
+
+  public NodeTypeInfoForDescribeMountServiceNodeTypesOutput descriptionEN(String descriptionEN) {
+    this.descriptionEN = descriptionEN;
+    return this;
+  }
+
+   /**
+   * Get descriptionEN
+   * @return descriptionEN
+  **/
+  @Schema(description = "")
+  public String getDescriptionEN() {
+    return descriptionEN;
+  }
+
+  public void setDescriptionEN(String descriptionEN) {
+    this.descriptionEN = descriptionEN;
   }
 
   public NodeTypeInfoForDescribeMountServiceNodeTypesOutput nodeType(String nodeType) {
@@ -71,6 +141,24 @@ public class NodeTypeInfoForDescribeMountServiceNodeTypesOutput {
     this.nodeType = nodeType;
   }
 
+  public NodeTypeInfoForDescribeMountServiceNodeTypesOutput status(StatusEnum status) {
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * Get status
+   * @return status
+  **/
+  @Schema(description = "")
+  public StatusEnum getStatus() {
+    return status;
+  }
+
+  public void setStatus(StatusEnum status) {
+    this.status = status;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -81,13 +169,15 @@ public class NodeTypeInfoForDescribeMountServiceNodeTypesOutput {
       return false;
     }
     NodeTypeInfoForDescribeMountServiceNodeTypesOutput nodeTypeInfoForDescribeMountServiceNodeTypesOutput = (NodeTypeInfoForDescribeMountServiceNodeTypesOutput) o;
-    return Objects.equals(this.description, nodeTypeInfoForDescribeMountServiceNodeTypesOutput.description) &&
-        Objects.equals(this.nodeType, nodeTypeInfoForDescribeMountServiceNodeTypesOutput.nodeType);
+    return Objects.equals(this.descriptionCN, nodeTypeInfoForDescribeMountServiceNodeTypesOutput.descriptionCN) &&
+        Objects.equals(this.descriptionEN, nodeTypeInfoForDescribeMountServiceNodeTypesOutput.descriptionEN) &&
+        Objects.equals(this.nodeType, nodeTypeInfoForDescribeMountServiceNodeTypesOutput.nodeType) &&
+        Objects.equals(this.status, nodeTypeInfoForDescribeMountServiceNodeTypesOutput.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, nodeType);
+    return Objects.hash(descriptionCN, descriptionEN, nodeType, status);
   }
 
 
@@ -96,8 +186,10 @@ public class NodeTypeInfoForDescribeMountServiceNodeTypesOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class NodeTypeInfoForDescribeMountServiceNodeTypesOutput {\n");
     
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    descriptionCN: ").append(toIndentedString(descriptionCN)).append("\n");
+    sb.append("    descriptionEN: ").append(toIndentedString(descriptionEN)).append("\n");
     sb.append("    nodeType: ").append(toIndentedString(nodeType)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
     return sb.toString();
   }

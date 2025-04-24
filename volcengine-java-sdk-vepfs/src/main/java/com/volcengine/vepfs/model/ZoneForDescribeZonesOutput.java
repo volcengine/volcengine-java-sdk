@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ZoneForDescribeZonesOutput {
   @SerializedName("RegionId")
   private String regionId = null;

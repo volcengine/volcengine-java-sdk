@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class ExpandFileSystemRequest {
   @SerializedName("Capacity")
   private Integer capacity = null;
@@ -47,7 +48,8 @@ public class ExpandFileSystemRequest {
    * Get capacity
    * @return capacity
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public Integer getCapacity() {
     return capacity;
   }
@@ -83,7 +85,8 @@ public class ExpandFileSystemRequest {
    * Get fileSystemId
    * @return fileSystemId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getFileSystemId() {
     return fileSystemId;
   }

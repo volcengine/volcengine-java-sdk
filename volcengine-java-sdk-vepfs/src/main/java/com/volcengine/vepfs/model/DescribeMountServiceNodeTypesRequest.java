@@ -28,9 +28,74 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeMountServiceNodeTypesRequest {
+  /**
+   * Gets or Sets languageCode
+   */
+  @JsonAdapter(LanguageCodeEnum.Adapter.class)
+  public enum LanguageCodeEnum {
+    @SerializedName("zh")
+    ZH("zh"),
+    @SerializedName("en")
+    EN("en");
+
+    private String value;
+
+    LanguageCodeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static LanguageCodeEnum fromValue(String input) {
+      for (LanguageCodeEnum b : LanguageCodeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<LanguageCodeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final LanguageCodeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public LanguageCodeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return LanguageCodeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("LanguageCode")
+  private LanguageCodeEnum languageCode = null;
+
   @SerializedName("ZoneId")
   private String zoneId = null;
+
+  public DescribeMountServiceNodeTypesRequest languageCode(LanguageCodeEnum languageCode) {
+    this.languageCode = languageCode;
+    return this;
+  }
+
+   /**
+   * Get languageCode
+   * @return languageCode
+  **/
+  @Schema(description = "")
+  public LanguageCodeEnum getLanguageCode() {
+    return languageCode;
+  }
+
+  public void setLanguageCode(LanguageCodeEnum languageCode) {
+    this.languageCode = languageCode;
+  }
 
   public DescribeMountServiceNodeTypesRequest zoneId(String zoneId) {
     this.zoneId = zoneId;
@@ -60,12 +125,13 @@ public class DescribeMountServiceNodeTypesRequest {
       return false;
     }
     DescribeMountServiceNodeTypesRequest describeMountServiceNodeTypesRequest = (DescribeMountServiceNodeTypesRequest) o;
-    return Objects.equals(this.zoneId, describeMountServiceNodeTypesRequest.zoneId);
+    return Objects.equals(this.languageCode, describeMountServiceNodeTypesRequest.languageCode) &&
+        Objects.equals(this.zoneId, describeMountServiceNodeTypesRequest.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(zoneId);
+    return Objects.hash(languageCode, zoneId);
   }
 
 
@@ -74,6 +140,7 @@ public class DescribeMountServiceNodeTypesRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeMountServiceNodeTypesRequest {\n");
     
+    sb.append("    languageCode: ").append(toIndentedString(languageCode)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");
     return sb.toString();
