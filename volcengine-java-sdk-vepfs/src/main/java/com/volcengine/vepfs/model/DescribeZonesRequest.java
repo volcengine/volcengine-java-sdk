@@ -28,29 +28,73 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeZonesRequest {
-  @SerializedName("FileSystemType")
-  private String fileSystemType = null;
+  /**
+   * Gets or Sets languageCode
+   */
+  @JsonAdapter(LanguageCodeEnum.Adapter.class)
+  public enum LanguageCodeEnum {
+    @SerializedName("zh")
+    ZH("zh"),
+    @SerializedName("en")
+    EN("en");
+
+    private String value;
+
+    LanguageCodeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static LanguageCodeEnum fromValue(String input) {
+      for (LanguageCodeEnum b : LanguageCodeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<LanguageCodeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final LanguageCodeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public LanguageCodeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return LanguageCodeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("LanguageCode")
+  private LanguageCodeEnum languageCode = null;
 
   @SerializedName("RegionId")
   private String regionId = null;
 
-  public DescribeZonesRequest fileSystemType(String fileSystemType) {
-    this.fileSystemType = fileSystemType;
+  public DescribeZonesRequest languageCode(LanguageCodeEnum languageCode) {
+    this.languageCode = languageCode;
     return this;
   }
 
    /**
-   * Get fileSystemType
-   * @return fileSystemType
+   * Get languageCode
+   * @return languageCode
   **/
   @Schema(description = "")
-  public String getFileSystemType() {
-    return fileSystemType;
+  public LanguageCodeEnum getLanguageCode() {
+    return languageCode;
   }
 
-  public void setFileSystemType(String fileSystemType) {
-    this.fileSystemType = fileSystemType;
+  public void setLanguageCode(LanguageCodeEnum languageCode) {
+    this.languageCode = languageCode;
   }
 
   public DescribeZonesRequest regionId(String regionId) {
@@ -81,13 +125,13 @@ public class DescribeZonesRequest {
       return false;
     }
     DescribeZonesRequest describeZonesRequest = (DescribeZonesRequest) o;
-    return Objects.equals(this.fileSystemType, describeZonesRequest.fileSystemType) &&
+    return Objects.equals(this.languageCode, describeZonesRequest.languageCode) &&
         Objects.equals(this.regionId, describeZonesRequest.regionId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fileSystemType, regionId);
+    return Objects.hash(languageCode, regionId);
   }
 
 
@@ -96,7 +140,7 @@ public class DescribeZonesRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeZonesRequest {\n");
     
-    sb.append("    fileSystemType: ").append(toIndentedString(fileSystemType)).append("\n");
+    sb.append("    languageCode: ").append(toIndentedString(languageCode)).append("\n");
     sb.append("    regionId: ").append(toIndentedString(regionId)).append("\n");
     sb.append("}");
     return sb.toString();

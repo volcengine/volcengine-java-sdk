@@ -28,12 +28,16 @@ import javax.validation.Valid;
  */
 
 
+
 public class RegionForDescribeRegionsOutput {
   @SerializedName("RegionId")
   private String regionId = null;
 
   @SerializedName("RegionName")
   private String regionName = null;
+
+  @SerializedName("TotalCount")
+  private Integer totalCount = null;
 
   public RegionForDescribeRegionsOutput regionId(String regionId) {
     this.regionId = regionId;
@@ -71,6 +75,24 @@ public class RegionForDescribeRegionsOutput {
     this.regionName = regionName;
   }
 
+  public RegionForDescribeRegionsOutput totalCount(Integer totalCount) {
+    this.totalCount = totalCount;
+    return this;
+  }
+
+   /**
+   * Get totalCount
+   * @return totalCount
+  **/
+  @Schema(description = "")
+  public Integer getTotalCount() {
+    return totalCount;
+  }
+
+  public void setTotalCount(Integer totalCount) {
+    this.totalCount = totalCount;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -82,12 +104,13 @@ public class RegionForDescribeRegionsOutput {
     }
     RegionForDescribeRegionsOutput regionForDescribeRegionsOutput = (RegionForDescribeRegionsOutput) o;
     return Objects.equals(this.regionId, regionForDescribeRegionsOutput.regionId) &&
-        Objects.equals(this.regionName, regionForDescribeRegionsOutput.regionName);
+        Objects.equals(this.regionName, regionForDescribeRegionsOutput.regionName) &&
+        Objects.equals(this.totalCount, regionForDescribeRegionsOutput.totalCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(regionId, regionName);
+    return Objects.hash(regionId, regionName, totalCount);
   }
 
 
@@ -98,6 +121,7 @@ public class RegionForDescribeRegionsOutput {
     
     sb.append("    regionId: ").append(toIndentedString(regionId)).append("\n");
     sb.append("    regionName: ").append(toIndentedString(regionName)).append("\n");
+    sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("}");
     return sb.toString();
   }

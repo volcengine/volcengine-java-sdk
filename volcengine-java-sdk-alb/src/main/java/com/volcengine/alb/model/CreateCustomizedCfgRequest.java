@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.alb.model.TagForCreateCustomizedCfgInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -42,6 +45,9 @@ public class CreateCustomizedCfgRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
 
+  @SerializedName("Tags")
+  private List<TagForCreateCustomizedCfgInput> tags = null;
+
   public CreateCustomizedCfgRequest customizedCfgContent(String customizedCfgContent) {
     this.customizedCfgContent = customizedCfgContent;
     return this;
@@ -51,7 +57,8 @@ public class CreateCustomizedCfgRequest {
    * Get customizedCfgContent
    * @return customizedCfgContent
   **/
- @Size(min=1,max=4096)  @Schema(description = "")
+  @NotNull
+ @Size(min=1,max=4096)  @Schema(required = true, description = "")
   public String getCustomizedCfgContent() {
     return customizedCfgContent;
   }
@@ -69,7 +76,8 @@ public class CreateCustomizedCfgRequest {
    * Get customizedCfgName
    * @return customizedCfgName
   **/
- @Size(min=1,max=128)  @Schema(description = "")
+  @NotNull
+ @Size(min=1,max=128)  @Schema(required = true, description = "")
   public String getCustomizedCfgName() {
     return customizedCfgName;
   }
@@ -114,6 +122,33 @@ public class CreateCustomizedCfgRequest {
     this.projectName = projectName;
   }
 
+  public CreateCustomizedCfgRequest tags(List<TagForCreateCustomizedCfgInput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public CreateCustomizedCfgRequest addTagsItem(TagForCreateCustomizedCfgInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForCreateCustomizedCfgInput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForCreateCustomizedCfgInput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForCreateCustomizedCfgInput> tags) {
+    this.tags = tags;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -127,12 +162,13 @@ public class CreateCustomizedCfgRequest {
     return Objects.equals(this.customizedCfgContent, createCustomizedCfgRequest.customizedCfgContent) &&
         Objects.equals(this.customizedCfgName, createCustomizedCfgRequest.customizedCfgName) &&
         Objects.equals(this.description, createCustomizedCfgRequest.description) &&
-        Objects.equals(this.projectName, createCustomizedCfgRequest.projectName);
+        Objects.equals(this.projectName, createCustomizedCfgRequest.projectName) &&
+        Objects.equals(this.tags, createCustomizedCfgRequest.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(customizedCfgContent, customizedCfgName, description, projectName);
+    return Objects.hash(customizedCfgContent, customizedCfgName, description, projectName, tags);
   }
 
 
@@ -145,6 +181,7 @@ public class CreateCustomizedCfgRequest {
     sb.append("    customizedCfgName: ").append(toIndentedString(customizedCfgName)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }

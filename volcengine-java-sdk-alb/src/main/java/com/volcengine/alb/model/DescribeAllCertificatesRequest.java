@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.alb.model.TagFilterForDescribeAllCertificatesInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -49,6 +50,9 @@ public class DescribeAllCertificatesRequest {
 
   @SerializedName("ProjectName")
   private String projectName = null;
+
+  @SerializedName("TagFilters")
+  private List<TagFilterForDescribeAllCertificatesInput> tagFilters = null;
 
   public DescribeAllCertificatesRequest certificateIds(List<String> certificateIds) {
     this.certificateIds = certificateIds;
@@ -166,6 +170,33 @@ public class DescribeAllCertificatesRequest {
     this.projectName = projectName;
   }
 
+  public DescribeAllCertificatesRequest tagFilters(List<TagFilterForDescribeAllCertificatesInput> tagFilters) {
+    this.tagFilters = tagFilters;
+    return this;
+  }
+
+  public DescribeAllCertificatesRequest addTagFiltersItem(TagFilterForDescribeAllCertificatesInput tagFiltersItem) {
+    if (this.tagFilters == null) {
+      this.tagFilters = new ArrayList<TagFilterForDescribeAllCertificatesInput>();
+    }
+    this.tagFilters.add(tagFiltersItem);
+    return this;
+  }
+
+   /**
+   * Get tagFilters
+   * @return tagFilters
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagFilterForDescribeAllCertificatesInput> getTagFilters() {
+    return tagFilters;
+  }
+
+  public void setTagFilters(List<TagFilterForDescribeAllCertificatesInput> tagFilters) {
+    this.tagFilters = tagFilters;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -181,12 +212,13 @@ public class DescribeAllCertificatesRequest {
         Objects.equals(this.certificateType, describeAllCertificatesRequest.certificateType) &&
         Objects.equals(this.pageNumber, describeAllCertificatesRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeAllCertificatesRequest.pageSize) &&
-        Objects.equals(this.projectName, describeAllCertificatesRequest.projectName);
+        Objects.equals(this.projectName, describeAllCertificatesRequest.projectName) &&
+        Objects.equals(this.tagFilters, describeAllCertificatesRequest.tagFilters);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(certificateIds, certificateName, certificateType, pageNumber, pageSize, projectName);
+    return Objects.hash(certificateIds, certificateName, certificateType, pageNumber, pageSize, projectName, tagFilters);
   }
 
 
@@ -201,6 +233,7 @@ public class DescribeAllCertificatesRequest {
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("}");
     return sb.toString();
   }

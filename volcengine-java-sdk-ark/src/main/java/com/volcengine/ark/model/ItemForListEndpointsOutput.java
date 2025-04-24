@@ -41,51 +41,8 @@ public class ItemForListEndpointsOutput {
   @SerializedName("Description")
   private String description = null;
 
-  /**
-   * Gets or Sets endpointModelType
-   */
-  @JsonAdapter(EndpointModelTypeEnum.Adapter.class)
-  public enum EndpointModelTypeEnum {
-    @SerializedName("FoundationModel")
-    FOUNDATIONMODEL("FoundationModel"),
-    @SerializedName("CustomModel")
-    CUSTOMMODEL("CustomModel");
-
-    private String value;
-
-    EndpointModelTypeEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static EndpointModelTypeEnum fromValue(String input) {
-      for (EndpointModelTypeEnum b : EndpointModelTypeEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<EndpointModelTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final EndpointModelTypeEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public EndpointModelTypeEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return EndpointModelTypeEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("EndpointModelType")
-  private EndpointModelTypeEnum endpointModelType = null;
+  @SerializedName("EndpointModelType")
+  private String endpointModelType = null;
 
   @SerializedName("Id")
   private String id = null;
@@ -108,67 +65,14 @@ public class ItemForListEndpointsOutput {
   @SerializedName("RollingId")
   private String rollingId = null;
 
-  @SerializedName("ScaleTierId")
-  private String scaleTierId = null;
-
-  /**
-   * Gets or Sets status
-   */
-  @JsonAdapter(StatusEnum.Adapter.class)
-  public enum StatusEnum {
-    @SerializedName("Running")
-    RUNNING("Running"),
-    @SerializedName("Scheduling")
-    SCHEDULING("Scheduling"),
-    @SerializedName("Abnormal")
-    ABNORMAL("Abnormal"),
-    @SerializedName("Stopped")
-    STOPPED("Stopped");
-
-    private String value;
-
-    StatusEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static StatusEnum fromValue(String input) {
-      for (StatusEnum b : StatusEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<StatusEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public StatusEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return StatusEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("Status")
-  private StatusEnum status = null;
+  @SerializedName("Status")
+  private String status = null;
 
   @SerializedName("StatusReason")
   private String statusReason = null;
 
   @SerializedName("SupportRolling")
   private Boolean supportRolling = null;
-
-  @SerializedName("SupportScaleTier")
-  private Boolean supportScaleTier = null;
 
   @SerializedName("Tags")
   private List<TagForListEndpointsOutput> tags = null;
@@ -212,7 +116,7 @@ public class ItemForListEndpointsOutput {
     this.description = description;
   }
 
-  public ItemForListEndpointsOutput endpointModelType(EndpointModelTypeEnum endpointModelType) {
+  public ItemForListEndpointsOutput endpointModelType(String endpointModelType) {
     this.endpointModelType = endpointModelType;
     return this;
   }
@@ -222,11 +126,11 @@ public class ItemForListEndpointsOutput {
    * @return endpointModelType
   **/
   @Schema(description = "")
-  public EndpointModelTypeEnum getEndpointModelType() {
+  public String getEndpointModelType() {
     return endpointModelType;
   }
 
-  public void setEndpointModelType(EndpointModelTypeEnum endpointModelType) {
+  public void setEndpointModelType(String endpointModelType) {
     this.endpointModelType = endpointModelType;
   }
 
@@ -358,25 +262,7 @@ public class ItemForListEndpointsOutput {
     this.rollingId = rollingId;
   }
 
-  public ItemForListEndpointsOutput scaleTierId(String scaleTierId) {
-    this.scaleTierId = scaleTierId;
-    return this;
-  }
-
-   /**
-   * Get scaleTierId
-   * @return scaleTierId
-  **/
-  @Schema(description = "")
-  public String getScaleTierId() {
-    return scaleTierId;
-  }
-
-  public void setScaleTierId(String scaleTierId) {
-    this.scaleTierId = scaleTierId;
-  }
-
-  public ItemForListEndpointsOutput status(StatusEnum status) {
+  public ItemForListEndpointsOutput status(String status) {
     this.status = status;
     return this;
   }
@@ -386,11 +272,11 @@ public class ItemForListEndpointsOutput {
    * @return status
   **/
   @Schema(description = "")
-  public StatusEnum getStatus() {
+  public String getStatus() {
     return status;
   }
 
-  public void setStatus(StatusEnum status) {
+  public void setStatus(String status) {
     this.status = status;
   }
 
@@ -428,24 +314,6 @@ public class ItemForListEndpointsOutput {
 
   public void setSupportRolling(Boolean supportRolling) {
     this.supportRolling = supportRolling;
-  }
-
-  public ItemForListEndpointsOutput supportScaleTier(Boolean supportScaleTier) {
-    this.supportScaleTier = supportScaleTier;
-    return this;
-  }
-
-   /**
-   * Get supportScaleTier
-   * @return supportScaleTier
-  **/
-  @Schema(description = "")
-  public Boolean isSupportScaleTier() {
-    return supportScaleTier;
-  }
-
-  public void setSupportScaleTier(Boolean supportScaleTier) {
-    this.supportScaleTier = supportScaleTier;
   }
 
   public ItemForListEndpointsOutput tags(List<TagForListEndpointsOutput> tags) {
@@ -513,18 +381,16 @@ public class ItemForListEndpointsOutput {
         Objects.equals(this.projectName, itemForListEndpointsOutput.projectName) &&
         Objects.equals(this.rateLimit, itemForListEndpointsOutput.rateLimit) &&
         Objects.equals(this.rollingId, itemForListEndpointsOutput.rollingId) &&
-        Objects.equals(this.scaleTierId, itemForListEndpointsOutput.scaleTierId) &&
         Objects.equals(this.status, itemForListEndpointsOutput.status) &&
         Objects.equals(this.statusReason, itemForListEndpointsOutput.statusReason) &&
         Objects.equals(this.supportRolling, itemForListEndpointsOutput.supportRolling) &&
-        Objects.equals(this.supportScaleTier, itemForListEndpointsOutput.supportScaleTier) &&
         Objects.equals(this.tags, itemForListEndpointsOutput.tags) &&
         Objects.equals(this.updateTime, itemForListEndpointsOutput.updateTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createTime, description, endpointModelType, id, modelReference, modelUnitId, name, projectName, rateLimit, rollingId, scaleTierId, status, statusReason, supportRolling, supportScaleTier, tags, updateTime);
+    return Objects.hash(createTime, description, endpointModelType, id, modelReference, modelUnitId, name, projectName, rateLimit, rollingId, status, statusReason, supportRolling, tags, updateTime);
   }
 
 
@@ -543,11 +409,9 @@ public class ItemForListEndpointsOutput {
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    rateLimit: ").append(toIndentedString(rateLimit)).append("\n");
     sb.append("    rollingId: ").append(toIndentedString(rollingId)).append("\n");
-    sb.append("    scaleTierId: ").append(toIndentedString(scaleTierId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    statusReason: ").append(toIndentedString(statusReason)).append("\n");
     sb.append("    supportRolling: ").append(toIndentedString(supportRolling)).append("\n");
-    sb.append("    supportScaleTier: ").append(toIndentedString(supportScaleTier)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("}");

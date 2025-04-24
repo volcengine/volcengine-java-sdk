@@ -30,6 +30,12 @@ import javax.validation.Valid;
 
 
 public class UpdateKafkaTriggerResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("BatchFlushDurationMilliseconds")
+  private Integer batchFlushDurationMilliseconds = null;
+
+  @SerializedName("BatchSize")
+  private Integer batchSize = null;
+
   @SerializedName("ConsumerGroup")
   private String consumerGroup = null;
 
@@ -68,6 +74,42 @@ public class UpdateKafkaTriggerResponse extends com.volcengine.model.AbstractRes
 
   @SerializedName("TopicName")
   private String topicName = null;
+
+  public UpdateKafkaTriggerResponse batchFlushDurationMilliseconds(Integer batchFlushDurationMilliseconds) {
+    this.batchFlushDurationMilliseconds = batchFlushDurationMilliseconds;
+    return this;
+  }
+
+   /**
+   * Get batchFlushDurationMilliseconds
+   * @return batchFlushDurationMilliseconds
+  **/
+  @Schema(description = "")
+  public Integer getBatchFlushDurationMilliseconds() {
+    return batchFlushDurationMilliseconds;
+  }
+
+  public void setBatchFlushDurationMilliseconds(Integer batchFlushDurationMilliseconds) {
+    this.batchFlushDurationMilliseconds = batchFlushDurationMilliseconds;
+  }
+
+  public UpdateKafkaTriggerResponse batchSize(Integer batchSize) {
+    this.batchSize = batchSize;
+    return this;
+  }
+
+   /**
+   * Get batchSize
+   * @return batchSize
+  **/
+  @Schema(description = "")
+  public Integer getBatchSize() {
+    return batchSize;
+  }
+
+  public void setBatchSize(Integer batchSize) {
+    this.batchSize = batchSize;
+  }
 
   public UpdateKafkaTriggerResponse consumerGroup(String consumerGroup) {
     this.consumerGroup = consumerGroup;
@@ -313,7 +355,9 @@ public class UpdateKafkaTriggerResponse extends com.volcengine.model.AbstractRes
       return false;
     }
     UpdateKafkaTriggerResponse updateKafkaTriggerResponse = (UpdateKafkaTriggerResponse) o;
-    return Objects.equals(this.consumerGroup, updateKafkaTriggerResponse.consumerGroup) &&
+    return Objects.equals(this.batchFlushDurationMilliseconds, updateKafkaTriggerResponse.batchFlushDurationMilliseconds) &&
+        Objects.equals(this.batchSize, updateKafkaTriggerResponse.batchSize) &&
+        Objects.equals(this.consumerGroup, updateKafkaTriggerResponse.consumerGroup) &&
         Objects.equals(this.creationTime, updateKafkaTriggerResponse.creationTime) &&
         Objects.equals(this.description, updateKafkaTriggerResponse.description) &&
         Objects.equals(this.enabled, updateKafkaTriggerResponse.enabled) &&
@@ -330,7 +374,7 @@ public class UpdateKafkaTriggerResponse extends com.volcengine.model.AbstractRes
 
   @Override
   public int hashCode() {
-    return Objects.hash(consumerGroup, creationTime, description, enabled, functionId, id, lastUpdateTime, maximumRetryAttempts, mqInstanceId, name, startingPosition, status, topicName);
+    return Objects.hash(batchFlushDurationMilliseconds, batchSize, consumerGroup, creationTime, description, enabled, functionId, id, lastUpdateTime, maximumRetryAttempts, mqInstanceId, name, startingPosition, status, topicName);
   }
 
 
@@ -339,6 +383,8 @@ public class UpdateKafkaTriggerResponse extends com.volcengine.model.AbstractRes
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateKafkaTriggerResponse {\n");
     
+    sb.append("    batchFlushDurationMilliseconds: ").append(toIndentedString(batchFlushDurationMilliseconds)).append("\n");
+    sb.append("    batchSize: ").append(toIndentedString(batchSize)).append("\n");
     sb.append("    consumerGroup: ").append(toIndentedString(consumerGroup)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");

@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.alb.model.TagForDescribeCustomizedCfgsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -55,6 +56,9 @@ public class CustomizedCfgForDescribeCustomizedCfgsOutput {
 
   @SerializedName("Status")
   private String status = null;
+
+  @SerializedName("Tags")
+  private List<TagForDescribeCustomizedCfgsOutput> tags = null;
 
   @SerializedName("UpdateTime")
   private String updateTime = null;
@@ -211,6 +215,33 @@ public class CustomizedCfgForDescribeCustomizedCfgsOutput {
     this.status = status;
   }
 
+  public CustomizedCfgForDescribeCustomizedCfgsOutput tags(List<TagForDescribeCustomizedCfgsOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public CustomizedCfgForDescribeCustomizedCfgsOutput addTagsItem(TagForDescribeCustomizedCfgsOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForDescribeCustomizedCfgsOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForDescribeCustomizedCfgsOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForDescribeCustomizedCfgsOutput> tags) {
+    this.tags = tags;
+  }
+
   public CustomizedCfgForDescribeCustomizedCfgsOutput updateTime(String updateTime) {
     this.updateTime = updateTime;
     return this;
@@ -247,12 +278,13 @@ public class CustomizedCfgForDescribeCustomizedCfgsOutput {
         Objects.equals(this.listeners, customizedCfgForDescribeCustomizedCfgsOutput.listeners) &&
         Objects.equals(this.projectName, customizedCfgForDescribeCustomizedCfgsOutput.projectName) &&
         Objects.equals(this.status, customizedCfgForDescribeCustomizedCfgsOutput.status) &&
+        Objects.equals(this.tags, customizedCfgForDescribeCustomizedCfgsOutput.tags) &&
         Objects.equals(this.updateTime, customizedCfgForDescribeCustomizedCfgsOutput.updateTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createTime, customizedCfgContent, customizedCfgId, customizedCfgName, description, listeners, projectName, status, updateTime);
+    return Objects.hash(createTime, customizedCfgContent, customizedCfgId, customizedCfgName, description, listeners, projectName, status, tags, updateTime);
   }
 
 
@@ -269,6 +301,7 @@ public class CustomizedCfgForDescribeCustomizedCfgsOutput {
     sb.append("    listeners: ").append(toIndentedString(listeners)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("}");
     return sb.toString();

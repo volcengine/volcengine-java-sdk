@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.alb.model.AclEntryForDescribeAclAttributesOutput;
 import com.volcengine.alb.model.ListenerForDescribeAclAttributesOutput;
+import com.volcengine.alb.model.TagForDescribeAclAttributesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -60,6 +61,9 @@ public class DescribeAclAttributesResponse extends com.volcengine.model.Abstract
 
   @SerializedName("Status")
   private String status = null;
+
+  @SerializedName("Tags")
+  private List<TagForDescribeAclAttributesOutput> tags = null;
 
   @SerializedName("UpdateTime")
   private String updateTime = null;
@@ -244,6 +248,33 @@ public class DescribeAclAttributesResponse extends com.volcengine.model.Abstract
     this.status = status;
   }
 
+  public DescribeAclAttributesResponse tags(List<TagForDescribeAclAttributesOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public DescribeAclAttributesResponse addTagsItem(TagForDescribeAclAttributesOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForDescribeAclAttributesOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForDescribeAclAttributesOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForDescribeAclAttributesOutput> tags) {
+    this.tags = tags;
+  }
+
   public DescribeAclAttributesResponse updateTime(String updateTime) {
     this.updateTime = updateTime;
     return this;
@@ -281,12 +312,13 @@ public class DescribeAclAttributesResponse extends com.volcengine.model.Abstract
         Objects.equals(this.projectName, describeAclAttributesResponse.projectName) &&
         Objects.equals(this.requestId, describeAclAttributesResponse.requestId) &&
         Objects.equals(this.status, describeAclAttributesResponse.status) &&
+        Objects.equals(this.tags, describeAclAttributesResponse.tags) &&
         Objects.equals(this.updateTime, describeAclAttributesResponse.updateTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclEntries, aclId, aclName, createTime, description, listeners, projectName, requestId, status, updateTime);
+    return Objects.hash(aclEntries, aclId, aclName, createTime, description, listeners, projectName, requestId, status, tags, updateTime);
   }
 
 
@@ -304,6 +336,7 @@ public class DescribeAclAttributesResponse extends com.volcengine.model.Abstract
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("}");
     return sb.toString();

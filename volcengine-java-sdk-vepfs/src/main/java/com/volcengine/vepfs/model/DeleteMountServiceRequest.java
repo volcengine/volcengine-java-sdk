@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DeleteMountServiceRequest {
   @SerializedName("MountServiceId")
   private String mountServiceId = null;
@@ -41,7 +42,8 @@ public class DeleteMountServiceRequest {
    * Get mountServiceId
    * @return mountServiceId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getMountServiceId() {
     return mountServiceId;
   }

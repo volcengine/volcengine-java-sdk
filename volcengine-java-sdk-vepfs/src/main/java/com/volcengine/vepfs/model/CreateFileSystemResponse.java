@@ -31,7 +31,8 @@ import javax.validation.Valid;
  */
 
 
-public class CreateFileSystemResponse {
+
+public class CreateFileSystemResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("FileSystemId")
   private String fileSystemId = null;
 

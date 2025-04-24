@@ -35,6 +35,9 @@ public class GetApiKeyRequest {
   @SerializedName("DurationSeconds")
   private Integer durationSeconds = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("ResourceIds")
   private List<String> resourceIds = null;
 
@@ -58,6 +61,24 @@ public class GetApiKeyRequest {
 
   public void setDurationSeconds(Integer durationSeconds) {
     this.durationSeconds = durationSeconds;
+  }
+
+  public GetApiKeyRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
   }
 
   public GetApiKeyRequest resourceIds(List<String> resourceIds) {
@@ -116,13 +137,14 @@ public class GetApiKeyRequest {
     }
     GetApiKeyRequest getApiKeyRequest = (GetApiKeyRequest) o;
     return Objects.equals(this.durationSeconds, getApiKeyRequest.durationSeconds) &&
+        Objects.equals(this.projectName, getApiKeyRequest.projectName) &&
         Objects.equals(this.resourceIds, getApiKeyRequest.resourceIds) &&
         Objects.equals(this.resourceType, getApiKeyRequest.resourceType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(durationSeconds, resourceIds, resourceType);
+    return Objects.hash(durationSeconds, projectName, resourceIds, resourceType);
   }
 
 
@@ -132,6 +154,7 @@ public class GetApiKeyRequest {
     sb.append("class GetApiKeyRequest {\n");
     
     sb.append("    durationSeconds: ").append(toIndentedString(durationSeconds)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    resourceIds: ").append(toIndentedString(resourceIds)).append("\n");
     sb.append("    resourceType: ").append(toIndentedString(resourceType)).append("\n");
     sb.append("}");

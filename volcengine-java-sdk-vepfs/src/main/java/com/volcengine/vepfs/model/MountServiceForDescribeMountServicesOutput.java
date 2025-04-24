@@ -32,6 +32,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class MountServiceForDescribeMountServicesOutput {
   @SerializedName("AccountId")
   private String accountId = null;
@@ -57,35 +58,87 @@ public class MountServiceForDescribeMountServicesOutput {
   @SerializedName("RegionId")
   private String regionId = null;
 
-  @SerializedName("SecondarySecurityGroupId")
-  private String secondarySecurityGroupId = null;
-
-  @SerializedName("SecondarySubnetId")
-  private String secondarySubnetId = null;
-
-  @SerializedName("SecondaryVpcId")
-  private String secondaryVpcId = null;
-
   @SerializedName("SecurityGroupId")
   private String securityGroupId = null;
 
-  @SerializedName("Status")
-  private String status = null;
+  /**
+   * Gets or Sets status
+   */
+  @JsonAdapter(StatusEnum.Adapter.class)
+  public enum StatusEnum {
+    @SerializedName("Creating")
+    CREATING("Creating"),
+    @SerializedName("CreateError")
+    CREATEERROR("CreateError"),
+    @SerializedName("Running")
+    RUNNING("Running"),
+    @SerializedName("Updating")
+    UPDATING("Updating"),
+    @SerializedName("UpdateError")
+    UPDATEERROR("UpdateError"),
+    @SerializedName("Deleting")
+    DELETING("Deleting"),
+    @SerializedName("DeleteError")
+    DELETEERROR("DeleteError"),
+    @SerializedName("Deleted")
+    DELETED("Deleted"),
+    @SerializedName("Attaching")
+    ATTACHING("Attaching"),
+    @SerializedName("AttachError")
+    ATTACHERROR("AttachError"),
+    @SerializedName("Detaching")
+    DETACHING("Detaching"),
+    @SerializedName("DetachError")
+    DETACHERROR("DetachError"),
+    @SerializedName("Stopped")
+    STOPPED("Stopped"),
+    @SerializedName("Error")
+    ERROR("Error");
+
+    private String value;
+
+    StatusEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static StatusEnum fromValue(String input) {
+      for (StatusEnum b : StatusEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<StatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public StatusEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return StatusEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("Status")
+  private StatusEnum status = null;
 
   @SerializedName("SubnetId")
   private String subnetId = null;
 
-  @SerializedName("SubnetName")
-  private String subnetName = null;
-
-  @SerializedName("Version")
-  private String version = null;
+  @SerializedName("VersionNumber")
+  private String versionNumber = null;
 
   @SerializedName("VpcId")
   private String vpcId = null;
-
-  @SerializedName("VpcName")
-  private String vpcName = null;
 
   @SerializedName("ZoneId")
   private String zoneId = null;
@@ -255,60 +308,6 @@ public class MountServiceForDescribeMountServicesOutput {
     this.regionId = regionId;
   }
 
-  public MountServiceForDescribeMountServicesOutput secondarySecurityGroupId(String secondarySecurityGroupId) {
-    this.secondarySecurityGroupId = secondarySecurityGroupId;
-    return this;
-  }
-
-   /**
-   * Get secondarySecurityGroupId
-   * @return secondarySecurityGroupId
-  **/
-  @Schema(description = "")
-  public String getSecondarySecurityGroupId() {
-    return secondarySecurityGroupId;
-  }
-
-  public void setSecondarySecurityGroupId(String secondarySecurityGroupId) {
-    this.secondarySecurityGroupId = secondarySecurityGroupId;
-  }
-
-  public MountServiceForDescribeMountServicesOutput secondarySubnetId(String secondarySubnetId) {
-    this.secondarySubnetId = secondarySubnetId;
-    return this;
-  }
-
-   /**
-   * Get secondarySubnetId
-   * @return secondarySubnetId
-  **/
-  @Schema(description = "")
-  public String getSecondarySubnetId() {
-    return secondarySubnetId;
-  }
-
-  public void setSecondarySubnetId(String secondarySubnetId) {
-    this.secondarySubnetId = secondarySubnetId;
-  }
-
-  public MountServiceForDescribeMountServicesOutput secondaryVpcId(String secondaryVpcId) {
-    this.secondaryVpcId = secondaryVpcId;
-    return this;
-  }
-
-   /**
-   * Get secondaryVpcId
-   * @return secondaryVpcId
-  **/
-  @Schema(description = "")
-  public String getSecondaryVpcId() {
-    return secondaryVpcId;
-  }
-
-  public void setSecondaryVpcId(String secondaryVpcId) {
-    this.secondaryVpcId = secondaryVpcId;
-  }
-
   public MountServiceForDescribeMountServicesOutput securityGroupId(String securityGroupId) {
     this.securityGroupId = securityGroupId;
     return this;
@@ -327,7 +326,7 @@ public class MountServiceForDescribeMountServicesOutput {
     this.securityGroupId = securityGroupId;
   }
 
-  public MountServiceForDescribeMountServicesOutput status(String status) {
+  public MountServiceForDescribeMountServicesOutput status(StatusEnum status) {
     this.status = status;
     return this;
   }
@@ -337,11 +336,11 @@ public class MountServiceForDescribeMountServicesOutput {
    * @return status
   **/
   @Schema(description = "")
-  public String getStatus() {
+  public StatusEnum getStatus() {
     return status;
   }
 
-  public void setStatus(String status) {
+  public void setStatus(StatusEnum status) {
     this.status = status;
   }
 
@@ -363,40 +362,22 @@ public class MountServiceForDescribeMountServicesOutput {
     this.subnetId = subnetId;
   }
 
-  public MountServiceForDescribeMountServicesOutput subnetName(String subnetName) {
-    this.subnetName = subnetName;
+  public MountServiceForDescribeMountServicesOutput versionNumber(String versionNumber) {
+    this.versionNumber = versionNumber;
     return this;
   }
 
    /**
-   * Get subnetName
-   * @return subnetName
+   * Get versionNumber
+   * @return versionNumber
   **/
   @Schema(description = "")
-  public String getSubnetName() {
-    return subnetName;
+  public String getVersionNumber() {
+    return versionNumber;
   }
 
-  public void setSubnetName(String subnetName) {
-    this.subnetName = subnetName;
-  }
-
-  public MountServiceForDescribeMountServicesOutput version(String version) {
-    this.version = version;
-    return this;
-  }
-
-   /**
-   * Get version
-   * @return version
-  **/
-  @Schema(description = "")
-  public String getVersion() {
-    return version;
-  }
-
-  public void setVersion(String version) {
-    this.version = version;
+  public void setVersionNumber(String versionNumber) {
+    this.versionNumber = versionNumber;
   }
 
   public MountServiceForDescribeMountServicesOutput vpcId(String vpcId) {
@@ -415,24 +396,6 @@ public class MountServiceForDescribeMountServicesOutput {
 
   public void setVpcId(String vpcId) {
     this.vpcId = vpcId;
-  }
-
-  public MountServiceForDescribeMountServicesOutput vpcName(String vpcName) {
-    this.vpcName = vpcName;
-    return this;
-  }
-
-   /**
-   * Get vpcName
-   * @return vpcName
-  **/
-  @Schema(description = "")
-  public String getVpcName() {
-    return vpcName;
-  }
-
-  public void setVpcName(String vpcName) {
-    this.vpcName = vpcName;
   }
 
   public MountServiceForDescribeMountServicesOutput zoneId(String zoneId) {
@@ -489,23 +452,18 @@ public class MountServiceForDescribeMountServicesOutput {
         Objects.equals(this.nodes, mountServiceForDescribeMountServicesOutput.nodes) &&
         Objects.equals(this.project, mountServiceForDescribeMountServicesOutput.project) &&
         Objects.equals(this.regionId, mountServiceForDescribeMountServicesOutput.regionId) &&
-        Objects.equals(this.secondarySecurityGroupId, mountServiceForDescribeMountServicesOutput.secondarySecurityGroupId) &&
-        Objects.equals(this.secondarySubnetId, mountServiceForDescribeMountServicesOutput.secondarySubnetId) &&
-        Objects.equals(this.secondaryVpcId, mountServiceForDescribeMountServicesOutput.secondaryVpcId) &&
         Objects.equals(this.securityGroupId, mountServiceForDescribeMountServicesOutput.securityGroupId) &&
         Objects.equals(this.status, mountServiceForDescribeMountServicesOutput.status) &&
         Objects.equals(this.subnetId, mountServiceForDescribeMountServicesOutput.subnetId) &&
-        Objects.equals(this.subnetName, mountServiceForDescribeMountServicesOutput.subnetName) &&
-        Objects.equals(this.version, mountServiceForDescribeMountServicesOutput.version) &&
+        Objects.equals(this.versionNumber, mountServiceForDescribeMountServicesOutput.versionNumber) &&
         Objects.equals(this.vpcId, mountServiceForDescribeMountServicesOutput.vpcId) &&
-        Objects.equals(this.vpcName, mountServiceForDescribeMountServicesOutput.vpcName) &&
         Objects.equals(this.zoneId, mountServiceForDescribeMountServicesOutput.zoneId) &&
         Objects.equals(this.zoneName, mountServiceForDescribeMountServicesOutput.zoneName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, attachFileSystems, createTime, mountServiceId, mountServiceName, nodes, project, regionId, secondarySecurityGroupId, secondarySubnetId, secondaryVpcId, securityGroupId, status, subnetId, subnetName, version, vpcId, vpcName, zoneId, zoneName);
+    return Objects.hash(accountId, attachFileSystems, createTime, mountServiceId, mountServiceName, nodes, project, regionId, securityGroupId, status, subnetId, versionNumber, vpcId, zoneId, zoneName);
   }
 
 
@@ -522,16 +480,11 @@ public class MountServiceForDescribeMountServicesOutput {
     sb.append("    nodes: ").append(toIndentedString(nodes)).append("\n");
     sb.append("    project: ").append(toIndentedString(project)).append("\n");
     sb.append("    regionId: ").append(toIndentedString(regionId)).append("\n");
-    sb.append("    secondarySecurityGroupId: ").append(toIndentedString(secondarySecurityGroupId)).append("\n");
-    sb.append("    secondarySubnetId: ").append(toIndentedString(secondarySubnetId)).append("\n");
-    sb.append("    secondaryVpcId: ").append(toIndentedString(secondaryVpcId)).append("\n");
     sb.append("    securityGroupId: ").append(toIndentedString(securityGroupId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
-    sb.append("    subnetName: ").append(toIndentedString(subnetName)).append("\n");
-    sb.append("    version: ").append(toIndentedString(version)).append("\n");
+    sb.append("    versionNumber: ").append(toIndentedString(versionNumber)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
-    sb.append("    vpcName: ").append(toIndentedString(vpcName)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("    zoneName: ").append(toIndentedString(zoneName)).append("\n");
     sb.append("}");
