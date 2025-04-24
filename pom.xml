@@ -273,5 +273,8 @@
         <module>volcengine-java-sdk-rdspostgresql</module>
         <module>volcengine-java-sdk-clouddetect</module>
         <module>volcengine-java-sdk-translate20250301</module>
+        <module>volcengine-java-sdk-edx</module>
+        <module>volcengine-java-sdk-wafruntime</module>
+        <module>volcengine-java-sdk-volccontentplatform</module>
     </modules>
 </project>
