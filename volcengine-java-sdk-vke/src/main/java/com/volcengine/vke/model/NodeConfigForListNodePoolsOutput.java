@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vke.model.DataVolumeForListNodePoolsOutput;
+import com.volcengine.vke.model.PublicAccessConfigForListNodePoolsOutput;
 import com.volcengine.vke.model.SecurityForListNodePoolsOutput;
 import com.volcengine.vke.model.SystemVolumeForListNodePoolsOutput;
 import com.volcengine.vke.model.TagForListNodePoolsOutput;
@@ -120,6 +121,12 @@ public class NodeConfigForListNodePoolsOutput {
 
   @SerializedName("ProjectName")
   private String projectName = null;
+
+  @SerializedName("PublicAccessConfig")
+  private PublicAccessConfigForListNodePoolsOutput publicAccessConfig = null;
+
+  @SerializedName("PublicAccessEnabled")
+  private Boolean publicAccessEnabled = null;
 
   @SerializedName("Security")
   private SecurityForListNodePoolsOutput security = null;
@@ -410,6 +417,43 @@ public class NodeConfigForListNodePoolsOutput {
     this.projectName = projectName;
   }
 
+  public NodeConfigForListNodePoolsOutput publicAccessConfig(PublicAccessConfigForListNodePoolsOutput publicAccessConfig) {
+    this.publicAccessConfig = publicAccessConfig;
+    return this;
+  }
+
+   /**
+   * Get publicAccessConfig
+   * @return publicAccessConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public PublicAccessConfigForListNodePoolsOutput getPublicAccessConfig() {
+    return publicAccessConfig;
+  }
+
+  public void setPublicAccessConfig(PublicAccessConfigForListNodePoolsOutput publicAccessConfig) {
+    this.publicAccessConfig = publicAccessConfig;
+  }
+
+  public NodeConfigForListNodePoolsOutput publicAccessEnabled(Boolean publicAccessEnabled) {
+    this.publicAccessEnabled = publicAccessEnabled;
+    return this;
+  }
+
+   /**
+   * Get publicAccessEnabled
+   * @return publicAccessEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isPublicAccessEnabled() {
+    return publicAccessEnabled;
+  }
+
+  public void setPublicAccessEnabled(Boolean publicAccessEnabled) {
+    this.publicAccessEnabled = publicAccessEnabled;
+  }
+
   public NodeConfigForListNodePoolsOutput security(SecurityForListNodePoolsOutput security) {
     this.security = security;
     return this;
@@ -525,6 +569,8 @@ public class NodeConfigForListNodePoolsOutput {
         Objects.equals(this.namePrefix, nodeConfigForListNodePoolsOutput.namePrefix) &&
         Objects.equals(this.period, nodeConfigForListNodePoolsOutput.period) &&
         Objects.equals(this.projectName, nodeConfigForListNodePoolsOutput.projectName) &&
+        Objects.equals(this.publicAccessConfig, nodeConfigForListNodePoolsOutput.publicAccessConfig) &&
+        Objects.equals(this.publicAccessEnabled, nodeConfigForListNodePoolsOutput.publicAccessEnabled) &&
         Objects.equals(this.security, nodeConfigForListNodePoolsOutput.security) &&
         Objects.equals(this.subnetIds, nodeConfigForListNodePoolsOutput.subnetIds) &&
         Objects.equals(this.systemVolume, nodeConfigForListNodePoolsOutput.systemVolume) &&
@@ -533,7 +579,7 @@ public class NodeConfigForListNodePoolsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalContainerStorageEnabled, autoRenew, autoRenewPeriod, dataVolumes, deploymentSetGroupNumber, deploymentSetId, hpcClusterIds, imageId, initializeScript, instanceChargeType, instanceTypeIds, namePrefix, period, projectName, security, subnetIds, systemVolume, tags);
+    return Objects.hash(additionalContainerStorageEnabled, autoRenew, autoRenewPeriod, dataVolumes, deploymentSetGroupNumber, deploymentSetId, hpcClusterIds, imageId, initializeScript, instanceChargeType, instanceTypeIds, namePrefix, period, projectName, publicAccessConfig, publicAccessEnabled, security, subnetIds, systemVolume, tags);
   }
 
 
@@ -556,6 +602,8 @@ public class NodeConfigForListNodePoolsOutput {
     sb.append("    namePrefix: ").append(toIndentedString(namePrefix)).append("\n");
     sb.append("    period: ").append(toIndentedString(period)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    publicAccessConfig: ").append(toIndentedString(publicAccessConfig)).append("\n");
+    sb.append("    publicAccessEnabled: ").append(toIndentedString(publicAccessEnabled)).append("\n");
     sb.append("    security: ").append(toIndentedString(security)).append("\n");
     sb.append("    subnetIds: ").append(toIndentedString(subnetIds)).append("\n");
     sb.append("    systemVolume: ").append(toIndentedString(systemVolume)).append("\n");
