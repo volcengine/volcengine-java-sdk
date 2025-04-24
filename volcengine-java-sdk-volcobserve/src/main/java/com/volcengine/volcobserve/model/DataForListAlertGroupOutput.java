@@ -45,6 +45,9 @@ public class DataForListAlertGroupOutput {
   @SerializedName("EndAt")
   private String endAt = null;
 
+  @SerializedName("Id")
+  private String id = null;
+
   @SerializedName("Level")
   private String level = null;
 
@@ -163,6 +166,24 @@ public class DataForListAlertGroupOutput {
 
   public void setEndAt(String endAt) {
     this.endAt = endAt;
+  }
+
+  public DataForListAlertGroupOutput id(String id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Get id
+   * @return id
+  **/
+  @Schema(description = "")
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
   }
 
   public DataForListAlertGroupOutput level(String level) {
@@ -360,6 +381,7 @@ public class DataForListAlertGroupOutput {
         Objects.equals(this.dimension, dataForListAlertGroupOutput.dimension) &&
         Objects.equals(this.duration, dataForListAlertGroupOutput.duration) &&
         Objects.equals(this.endAt, dataForListAlertGroupOutput.endAt) &&
+        Objects.equals(this.id, dataForListAlertGroupOutput.id) &&
         Objects.equals(this.level, dataForListAlertGroupOutput.level) &&
         Objects.equals(this.namespace, dataForListAlertGroupOutput.namespace) &&
         Objects.equals(this.region, dataForListAlertGroupOutput.region) &&
@@ -374,7 +396,7 @@ public class DataForListAlertGroupOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(alertState, alertType, dimension, duration, endAt, level, namespace, region, resourceId, resourceName, resourceType, ruleId, ruleName, startAt, subNamespace);
+    return Objects.hash(alertState, alertType, dimension, duration, endAt, id, level, namespace, region, resourceId, resourceName, resourceType, ruleId, ruleName, startAt, subNamespace);
   }
 
 
@@ -388,6 +410,7 @@ public class DataForListAlertGroupOutput {
     sb.append("    dimension: ").append(toIndentedString(dimension)).append("\n");
     sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
     sb.append("    endAt: ").append(toIndentedString(endAt)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    level: ").append(toIndentedString(level)).append("\n");
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
