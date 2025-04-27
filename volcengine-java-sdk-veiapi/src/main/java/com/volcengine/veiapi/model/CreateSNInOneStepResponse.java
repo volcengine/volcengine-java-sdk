@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateSNInOneStepResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("node_id")
   private String nodeId = null;
