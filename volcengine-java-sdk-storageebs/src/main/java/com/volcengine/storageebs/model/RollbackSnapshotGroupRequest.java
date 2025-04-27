@@ -32,6 +32,9 @@ import javax.validation.Valid;
 
 
 public class RollbackSnapshotGroupRequest {
+  @SerializedName("ClientToken")
+  private String clientToken = null;
+
   @SerializedName("InstanceId")
   private String instanceId = null;
 
@@ -43,6 +46,24 @@ public class RollbackSnapshotGroupRequest {
 
   @SerializedName("VolumeIds")
   private List<String> volumeIds = null;
+
+  public RollbackSnapshotGroupRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+   /**
+   * Get clientToken
+   * @return clientToken
+  **/
+  @Schema(description = "")
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
 
   public RollbackSnapshotGroupRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
@@ -143,7 +164,8 @@ public class RollbackSnapshotGroupRequest {
       return false;
     }
     RollbackSnapshotGroupRequest rollbackSnapshotGroupRequest = (RollbackSnapshotGroupRequest) o;
-    return Objects.equals(this.instanceId, rollbackSnapshotGroupRequest.instanceId) &&
+    return Objects.equals(this.clientToken, rollbackSnapshotGroupRequest.clientToken) &&
+        Objects.equals(this.instanceId, rollbackSnapshotGroupRequest.instanceId) &&
         Objects.equals(this.snapshotGroupId, rollbackSnapshotGroupRequest.snapshotGroupId) &&
         Objects.equals(this.snapshotIds, rollbackSnapshotGroupRequest.snapshotIds) &&
         Objects.equals(this.volumeIds, rollbackSnapshotGroupRequest.volumeIds);
@@ -151,7 +173,7 @@ public class RollbackSnapshotGroupRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, snapshotGroupId, snapshotIds, volumeIds);
+    return Objects.hash(clientToken, instanceId, snapshotGroupId, snapshotIds, volumeIds);
   }
 
 
@@ -160,6 +182,7 @@ public class RollbackSnapshotGroupRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class RollbackSnapshotGroupRequest {\n");
     
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    snapshotGroupId: ").append(toIndentedString(snapshotGroupId)).append("\n");
     sb.append("    snapshotIds: ").append(toIndentedString(snapshotIds)).append("\n");
