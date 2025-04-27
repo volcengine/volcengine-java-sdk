@@ -103,6 +103,8 @@ public class ApiClient {
 
     private Set<String> customBootstrapRegion;
 
+    private Boolean useDualStack;
+
     /*
      * Constructor for ApiClient
      */
@@ -546,6 +548,26 @@ public class ApiClient {
      */
     public ApiClient setCustomBootstrapRegion(Set<String> customBootstrapRegion) {
         this.customBootstrapRegion = customBootstrapRegion;
+        return this;
+    }
+
+    /**
+     * Get the use dual stack flag.
+     *
+     * @return use dual stack flag
+     */
+    public Boolean getUseDualStack() {
+        return this.useDualStack;
+    }
+
+    /**
+     * Set the use dual stack flag.
+     *
+     * @param useDualStack boolean
+     * @return Api client
+     */
+    public ApiClient setUseDualStack(boolean useDualStack) {
+        this.useDualStack = useDualStack;
         return this;
     }
 

@@ -678,14 +678,14 @@ public class DefaultEndpointProvider implements EndpointResolver {
     }
 
     private static String getDefaultEndpointByServiceInfo(String service, String regionCode,
-                                                          Set<String> customBootstrapRegion) {
+                                                          Set<String> customBootstrapRegion, Boolean useDualStack) {
         String resultEndpoint = ENDPOINT;
         ServiceEndpointInfo endpointInfo = DEFAULT_ENDPOINT_MAP.get(service);
         if (endpointInfo == null || !inBootstrapRegionList(regionCode, customBootstrapRegion)) {
             return resultEndpoint;
         }
 
-        String endpointSuffix = hasEnabledDualstack() ? DUALSTACK_ENDPOINT_SUFFIX : ENDPOINT_SUFFIX;
+        String endpointSuffix = hasEnabledDualstack(useDualStack) ? DUALSTACK_ENDPOINT_SUFFIX : ENDPOINT_SUFFIX;
 
         if (endpointInfo.isGlobal) {
             if (!endpointInfo.globalEndpoint.isEmpty()) {
@@ -744,15 +744,19 @@ public class DefaultEndpointProvider implements EndpointResolver {
         return false;
     }
 
-    private static boolean hasEnabledDualstack() {
-        String enableDualstack = System.getenv("VOLC_ENABLE_DUALSTACK");
-        return enableDualstack != null && enableDualstack.equals("true");
+    private static boolean hasEnabledDualstack(Boolean useDualStack) {
+        if (useDualStack == null) {
+            String enableDualstack = System.getenv("VOLC_ENABLE_DUALSTACK");
+            return enableDualstack != null && enableDualstack.equals("true");
+        }
+
+        return useDualStack;
     }
 
     @Override
     public ResolvedEndpoint endpointFor(ResolveEndpointOption option) {
         String endpoint = DefaultEndpointProvider.getDefaultEndpointByServiceInfo(option.getService(),
-                option.getRegion(), option.getCustomBootstrapRegion());
+                option.getRegion(), option.getCustomBootstrapRegion(), option.getUseDualStack());
         ResolvedEndpoint result = new ResolvedEndpoint();
         result.setEndpoint(endpoint);
         return result;

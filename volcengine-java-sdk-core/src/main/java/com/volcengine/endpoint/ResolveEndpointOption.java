@@ -9,6 +9,8 @@ public class ResolveEndpointOption {
 
     private Set<String> customBootstrapRegion = new HashSet<>();
 
+    private Boolean useDualStack = null;
+
     public String getService() {
         return service;
     }
@@ -31,6 +33,14 @@ public class ResolveEndpointOption {
 
     public void setCustomBootstrapRegion(Set<String> customBootstrapRegion) {
         this.customBootstrapRegion = customBootstrapRegion;
+    }
+
+    public Boolean getUseDualStack() {
+        return useDualStack;
+    }
+
+    public void setUseDualStack(Boolean useDualStack) {
+        this.useDualStack = useDualStack;
     }
 
 }
