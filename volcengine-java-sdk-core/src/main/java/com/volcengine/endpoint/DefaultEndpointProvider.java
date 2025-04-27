@@ -30,6 +30,51 @@ public class DefaultEndpointProvider implements EndpointResolver {
     }
 
     static {
+        // --------------------------- advdefence ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("advdefence", new ServiceEndpointInfo(
+                "advdefence",
+                true,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
+
+        // --------------------------- ark ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("ark", new ServiceEndpointInfo(
+                "ark",
+                false,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
+
+        // --------------------------- billing ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("billing", new ServiceEndpointInfo(
+                "billing",
+                true,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
+
+        // --------------------------- bio ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("bio", new ServiceEndpointInfo(
+                "bio",
+                false,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
+
+        // --------------------------- cdn ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("cdn", new ServiceEndpointInfo(
+                "cdn",
+                true,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
+
         // --------------------------- iam ---------------------------
         DEFAULT_ENDPOINT_MAP.put("iam", new ServiceEndpointInfo(
                 "iam",
@@ -45,7 +90,34 @@ public class DefaultEndpointProvider implements EndpointResolver {
                 false,
                 "",
                 ENDPOINT,
-                createRegionEndpointMap(REGION_CODE_CN_BEIJING_AUTODRIVING, "vke")
+                createRegionEndpointMap()
+        ));
+
+        // --------------------------- vmp ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("vmp", new ServiceEndpointInfo(
+                "vmp",
+                false,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
+
+        // --------------------------- volc_content_platform ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("volc_content_platform", new ServiceEndpointInfo(
+                "volc_content_platform",
+                true,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
+
+        // --------------------------- volc_observe ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("volc_observe", new ServiceEndpointInfo(
+                "volc_observe",
+                false,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
         ));
 
         // --------------------------- Redis ---------------------------
@@ -54,10 +126,7 @@ public class DefaultEndpointProvider implements EndpointResolver {
                 false,
                 "",
                 ENDPOINT,
-                createRegionEndpointMap(
-                        REGION_CODE_CN_BEIJING_AUTODRIVING, "redis",
-                        REGION_CODE_AP_SOUTH_EAST_3, "redis"
-                )
+                createRegionEndpointMap()
         ));
 
         // --------------------------- privatelink ---------------------------
@@ -66,10 +135,16 @@ public class DefaultEndpointProvider implements EndpointResolver {
                 false,
                 "",
                 ENDPOINT,
-                createRegionEndpointMap(
-                        REGION_CODE_CN_BEIJING_AUTODRIVING, "privatelink",
-                        REGION_CODE_AP_SOUTH_EAST_3, "privatelink"
-                )
+                createRegionEndpointMap()
+        ));
+
+        // --------------------------- rabbitmq ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("rabbitmq", new ServiceEndpointInfo(
+                "rabbitmq",
+                false,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
         ));
 
         // --------------------------- vpc ---------------------------
@@ -78,10 +153,7 @@ public class DefaultEndpointProvider implements EndpointResolver {
                 false,
                 "",
                 ENDPOINT,
-                createRegionEndpointMap(
-                        REGION_CODE_CN_BEIJING_AUTODRIVING, "vpc",
-                        REGION_CODE_AP_SOUTH_EAST_3, "vpc"
-                )
+                createRegionEndpointMap()
         ));
 
         // --------------------------- RocketMQ ---------------------------
@@ -90,22 +162,16 @@ public class DefaultEndpointProvider implements EndpointResolver {
                 false,
                 "",
                 ENDPOINT,
-                createRegionEndpointMap(
-                        REGION_CODE_CN_BEIJING_AUTODRIVING, "rocketmq",
-                        REGION_CODE_AP_SOUTH_EAST_3, "rocketmq"
-                )
+                createRegionEndpointMap()
         ));
 
-        // --------------------------- Kafka ---------------------------
-        DEFAULT_ENDPOINT_MAP.put("Kafka", new ServiceEndpointInfo(
-                "Kafka",
+        // --------------------------- kafka ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("kafka", new ServiceEndpointInfo(
+                "kafka",
                 false,
                 "",
                 ENDPOINT,
-                createRegionEndpointMap(
-                        REGION_CODE_CN_BEIJING_AUTODRIVING, "kafka",
-                        REGION_CODE_AP_SOUTH_EAST_3, "kafka"
-                )
+                createRegionEndpointMap()
         ));
 
         // --------------------------- rds_mysql ---------------------------
@@ -114,10 +180,16 @@ public class DefaultEndpointProvider implements EndpointResolver {
                 false,
                 "",
                 ENDPOINT,
-                createRegionEndpointMap(
-                        REGION_CODE_CN_BEIJING_AUTODRIVING, "rds-mysql",
-                        REGION_CODE_AP_SOUTH_EAST_3, "rds-mysql"
-                )
+                createRegionEndpointMap()
+        ));
+
+        // --------------------------- rds_mssql ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("rds_mssql", new ServiceEndpointInfo(
+                "rds_mssql",
+                false,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
         ));
 
         // --------------------------- rds_postgresql ---------------------------
@@ -126,10 +198,43 @@ public class DefaultEndpointProvider implements EndpointResolver {
                 false,
                 "",
                 ENDPOINT,
-                createRegionEndpointMap(
-                        REGION_CODE_CN_BEIJING_AUTODRIVING, "rds-postgresql",
-                        REGION_CODE_AP_SOUTH_EAST_3, "rds-postgresql"
-                )
+                createRegionEndpointMap()
+        ));
+
+        // --------------------------- redis ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("redis", new ServiceEndpointInfo(
+                "redis",
+                false,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
+
+        // --------------------------- rocketmq ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("rocketmq", new ServiceEndpointInfo(
+                "rocketmq",
+                false,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
+
+        // --------------------------- seccenter ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("seccenter", new ServiceEndpointInfo(
+                "seccenter",
+                true,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
+
+        // --------------------------- spark ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("spark", new ServiceEndpointInfo(
+                "spark",
+                true,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
         ));
 
         // --------------------------- storage_ebs ---------------------------
@@ -138,10 +243,7 @@ public class DefaultEndpointProvider implements EndpointResolver {
                 false,
                 "",
                 ENDPOINT,
-                createRegionEndpointMap(
-                        REGION_CODE_CN_BEIJING_AUTODRIVING, "storage-ebs",
-                        REGION_CODE_AP_SOUTH_EAST_3, "storage-ebs"
-                )
+                createRegionEndpointMap()
         ));
 
         // --------------------------- clb ---------------------------
@@ -150,7 +252,25 @@ public class DefaultEndpointProvider implements EndpointResolver {
                 false,
                 "",
                 ENDPOINT,
-                createRegionEndpointMap(REGION_CODE_CN_BEIJING_AUTODRIVING, "clb")
+                createRegionEndpointMap()
+        ));
+
+        // --------------------------- cloud_detect ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("cloud_detect", new ServiceEndpointInfo(
+                "cloud_detect",
+                true,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
+
+        // --------------------------- cloud_trail ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("cloud_trail", new ServiceEndpointInfo(
+                "cloud_trail",
+                false,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
         ));
 
         // --------------------------- ecs ---------------------------
@@ -159,10 +279,34 @@ public class DefaultEndpointProvider implements EndpointResolver {
                 false,
                 "",
                 ENDPOINT,
-                createRegionEndpointMap(
-                        REGION_CODE_CN_BEIJING_AUTODRIVING, "ecs",
-                        REGION_CODE_AP_SOUTH_EAST_3, "ecs"
-                )
+                createRegionEndpointMap()
+        ));
+
+        // --------------------------- edx ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("edx", new ServiceEndpointInfo(
+                "edx",
+                true,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
+
+        // --------------------------- emr ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("emr", new ServiceEndpointInfo(
+                "emr",
+                false,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
+
+        // --------------------------- escloud ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("escloud", new ServiceEndpointInfo(
+                "escloud",
+                false,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
         ));
 
         // --------------------------- alb ---------------------------
@@ -171,19 +315,43 @@ public class DefaultEndpointProvider implements EndpointResolver {
                 false,
                 "",
                 ENDPOINT,
-                createRegionEndpointMap(
-                        REGION_CODE_CN_BEIJING_AUTODRIVING, "alb",
-                        REGION_CODE_AP_SOUTH_EAST_3, "alb"
-                )
+                createRegionEndpointMap()
         ));
 
-        // --------------------------- FileNAS ---------------------------
-        DEFAULT_ENDPOINT_MAP.put("FileNAS", new ServiceEndpointInfo(
-                "FileNAS",
+        // --------------------------- filenas ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("filenas", new ServiceEndpointInfo(
+                "filenas",
                 false,
                 "",
                 ENDPOINT,
-                createRegionEndpointMap(REGION_CODE_CN_BEIJING_AUTODRIVING, "filenas")
+                createRegionEndpointMap()
+        ));
+
+        // --------------------------- flink ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("flink", new ServiceEndpointInfo(
+                "flink",
+                false,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
+
+        // --------------------------- fw_center ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("fw_center", new ServiceEndpointInfo(
+                "fw_center",
+                true,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
+
+        // --------------------------- httpdns ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("httpdns", new ServiceEndpointInfo(
+                "httpdns",
+                true,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
         ));
 
         // --------------------------- configcenter ---------------------------
@@ -192,7 +360,25 @@ public class DefaultEndpointProvider implements EndpointResolver {
                 false,
                 "",
                 ENDPOINT,
-                createRegionEndpointMap(REGION_CODE_CN_BEIJING_AUTODRIVING, "configcenter")
+                createRegionEndpointMap()
+        ));
+
+        // --------------------------- cen ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("cen", new ServiceEndpointInfo(
+                "cen",
+                true,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
+
+        // ---------------------------  ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("certificate_service", new ServiceEndpointInfo(
+                "certificate_service",
+                true,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
         ));
 
         // --------------------------- cr ---------------------------
@@ -201,7 +387,34 @@ public class DefaultEndpointProvider implements EndpointResolver {
                 false,
                 "",
                 ENDPOINT,
-                createRegionEndpointMap(REGION_CODE_CN_BEIJING_AUTODRIVING, "cr")
+                createRegionEndpointMap()
+        ));
+
+        // --------------------------- cv ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("cv", new ServiceEndpointInfo(
+                "cv",
+                true,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
+
+        // --------------------------- dataleap ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("dataleap", new ServiceEndpointInfo(
+                "dataleap",
+                false,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
+
+        // --------------------------- dcdn ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("dcdn", new ServiceEndpointInfo(
+                "dcdn",
+                true,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
         ));
 
         // --------------------------- sts ---------------------------
@@ -210,7 +423,16 @@ public class DefaultEndpointProvider implements EndpointResolver {
                 false,
                 "",
                 ENDPOINT,
-                createRegionEndpointMap(REGION_CODE_CN_BEIJING_AUTODRIVING, "sts")
+                createRegionEndpointMap()
+        ));
+
+        // --------------------------- tis ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("tis", new ServiceEndpointInfo(
+                "tis",
+                true,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
         ));
 
         // --------------------------- mongodb ---------------------------
@@ -219,10 +441,7 @@ public class DefaultEndpointProvider implements EndpointResolver {
                 false,
                 "",
                 ENDPOINT,
-                createRegionEndpointMap(
-                        REGION_CODE_CN_BEIJING_AUTODRIVING, "mongodb",
-                        REGION_CODE_AP_SOUTH_EAST_3, "mongodb"
-                )
+                createRegionEndpointMap()
         ));
 
         // --------------------------- transitrouter ---------------------------
@@ -231,10 +450,52 @@ public class DefaultEndpointProvider implements EndpointResolver {
                 false,
                 "",
                 ENDPOINT,
-                createRegionEndpointMap(
-                        REGION_CODE_CN_BEIJING_AUTODRIVING, "transitrouter",
-                        REGION_CODE_AP_SOUTH_EAST_3, "transitrouter"
-                )
+                createRegionEndpointMap()
+        ));
+
+        // --------------------------- translate ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("translate", new ServiceEndpointInfo(
+                "translate",
+                true,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
+
+        // --------------------------- vedbm ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("vedbm", new ServiceEndpointInfo(
+                "vedbm",
+                false,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
+
+        // --------------------------- vefaas ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("vefaas", new ServiceEndpointInfo(
+                "vefaas",
+                false,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
+
+        // --------------------------- vei_api ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("vei_api", new ServiceEndpointInfo(
+                "vei_api",
+                true,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
+
+        // --------------------------- vei_api ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("vepfs", new ServiceEndpointInfo(
+                "vepfs",
+                false,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
         ));
 
         // --------------------------- Volc_Observe ---------------------------
@@ -243,10 +504,7 @@ public class DefaultEndpointProvider implements EndpointResolver {
                 false,
                 "",
                 ENDPOINT,
-                createRegionEndpointMap(
-                        REGION_CODE_CN_BEIJING_AUTODRIVING, "volc-observe",
-                        REGION_CODE_AP_SOUTH_EAST_3, "volc-observe"
-                )
+                createRegionEndpointMap()
         ));
 
         // --------------------------- dms ---------------------------
@@ -255,10 +513,16 @@ public class DefaultEndpointProvider implements EndpointResolver {
                 false,
                 "",
                 ENDPOINT,
-                createRegionEndpointMap(
-                        REGION_CODE_CN_BEIJING_AUTODRIVING, "dms",
-                        REGION_CODE_AP_SOUTH_EAST_3, "dms"
-                )
+                createRegionEndpointMap()
+        ));
+
+        // --------------------------- dns ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("dns", new ServiceEndpointInfo(
+                "dns",
+                true,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
         ));
 
         // --------------------------- auto_scaling ---------------------------
@@ -267,10 +531,7 @@ public class DefaultEndpointProvider implements EndpointResolver {
                 false,
                 "",
                 ENDPOINT,
-                createRegionEndpointMap(
-                        REGION_CODE_CN_BEIJING_AUTODRIVING, "auto-scaling",
-                        REGION_CODE_AP_SOUTH_EAST_3, "auto-scaling"
-                )
+                createRegionEndpointMap()
         ));
 
         // --------------------------- directconnect ---------------------------
@@ -279,10 +540,7 @@ public class DefaultEndpointProvider implements EndpointResolver {
                 false,
                 "",
                 ENDPOINT,
-                createRegionEndpointMap(
-                        REGION_CODE_CN_BEIJING_AUTODRIVING, "directconnect",
-                        REGION_CODE_AP_SOUTH_EAST_3, "directconnect"
-                )
+                createRegionEndpointMap()
         ));
 
         // --------------------------- kms ---------------------------
@@ -291,7 +549,34 @@ public class DefaultEndpointProvider implements EndpointResolver {
                 false,
                 "",
                 ENDPOINT,
-                createRegionEndpointMap(REGION_CODE_CN_BEIJING_AUTODRIVING, "kms")
+                createRegionEndpointMap()
+        ));
+
+        // --------------------------- mcdn ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("mcdn", new ServiceEndpointInfo(
+                "mcdn",
+                true,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
+
+        // --------------------------- mcs ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("mcs", new ServiceEndpointInfo(
+                "mcs",
+                false,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
+
+        // --------------------------- ml_platform ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("ml_platform", new ServiceEndpointInfo(
+                "ml_platform",
+                false,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
         ));
 
         // --------------------------- dbw ---------------------------
@@ -300,7 +585,7 @@ public class DefaultEndpointProvider implements EndpointResolver {
                 false,
                 "",
                 ENDPOINT,
-                createRegionEndpointMap(REGION_CODE_AP_SOUTH_EAST_3, "dbw")
+                createRegionEndpointMap()
         ));
 
         // --------------------------- dts ---------------------------
@@ -309,10 +594,7 @@ public class DefaultEndpointProvider implements EndpointResolver {
                 false,
                 "",
                 ENDPOINT,
-                createRegionEndpointMap(
-                        REGION_CODE_CN_BEIJING_AUTODRIVING, "dts",
-                        REGION_CODE_AP_SOUTH_EAST_3, "dts"
-                )
+                createRegionEndpointMap()
         ));
 
         // --------------------------- natgateway ---------------------------
@@ -321,7 +603,25 @@ public class DefaultEndpointProvider implements EndpointResolver {
                 false,
                 "",
                 ENDPOINT,
-                createRegionEndpointMap(REGION_CODE_AP_SOUTH_EAST_3, "natgateway")
+                createRegionEndpointMap()
+        ));
+
+        // --------------------------- nta ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("nta", new ServiceEndpointInfo(
+                "nta",
+                true,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
+
+        // --------------------------- organization ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("organization", new ServiceEndpointInfo(
+                "organization",
+                true,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
         ));
 
         // --------------------------- tos ---------------------------
@@ -330,10 +630,7 @@ public class DefaultEndpointProvider implements EndpointResolver {
                 false,
                 "",
                 ENDPOINT,
-                createRegionEndpointMap(
-                        REGION_CODE_CN_BEIJING_AUTODRIVING, "tos",
-                        REGION_CODE_AP_SOUTH_EAST_3, "tos"
-                )
+                createRegionEndpointMap()
         ));
 
         // --------------------------- TLS ---------------------------
@@ -342,10 +639,7 @@ public class DefaultEndpointProvider implements EndpointResolver {
                 false,
                 "",
                 ENDPOINT,
-                createRegionEndpointMap(
-                        REGION_CODE_CN_BEIJING_AUTODRIVING, "tls",
-                        REGION_CODE_AP_SOUTH_EAST_3, "tls"
-                )
+                createRegionEndpointMap()
         ));
 
         // --------------------------- vpn ---------------------------
@@ -354,7 +648,16 @@ public class DefaultEndpointProvider implements EndpointResolver {
                 false,
                 "",
                 ENDPOINT,
-                createRegionEndpointMap(REGION_CODE_AP_SOUTH_EAST_3, "vpn")
+                createRegionEndpointMap()
+        ));
+
+        // --------------------------- waf ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("waf", new ServiceEndpointInfo(
+                "waf",
+                true,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
         ));
     }
 
@@ -426,7 +729,7 @@ public class DefaultEndpointProvider implements EndpointResolver {
                 }
                 reader.close();
             } catch (Exception e) {
-                e.printStackTrace();
+                System.err.println("Error when reading " + bsRegionListPath + ": " + e.getMessage());
             }
         }
 
