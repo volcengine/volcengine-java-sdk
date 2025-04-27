@@ -46,13 +46,13 @@ public class WafApiRuntime extends WafApi {
         body.setContent(session.getStreamBuf());
 
         String msgID = session.getMsgID();
-        if (msgID != null) {
+        if (msgID != null  && !msgID.isEmpty()) {
             body.setMsgID(msgID);
         }
 
         if (!body.getContent().isEmpty()) {
             ApiResponse<CheckLLMResponseStreamResponse> resp = checkLLMResponseStreamWithHttpInfo(body);
-            if (session.getMsgID() == null && resp.getData() != null) {
+            if (session.getMsgID().isEmpty() && resp.getData() != null) {
                 session.setMsgID(resp.getData().getMsgID());
             }
             session.setDefaultBody(resp.getData() );

@@ -44,7 +44,7 @@ public class LLMStreamSession {
      *
      * @return 流缓冲区的值
      */
-    public String getStreamBuf() {
+     String getStreamBuf() {
         return streamBuf;
     }
 
@@ -53,7 +53,7 @@ public class LLMStreamSession {
      *
      * @param streamBuf 要设置的流缓冲区的值
      */
-    public void setStreamBuf(String streamBuf) {
+     void setStreamBuf(String streamBuf) {
         this.streamBuf = streamBuf;
     }
 
@@ -62,7 +62,7 @@ public class LLMStreamSession {
      *
      * @return 流发送长度的值
      */
-    public int getStreamSendLen() {
+     int getStreamSendLen() {
         return streamSendLen;
     }
 
@@ -71,7 +71,7 @@ public class LLMStreamSession {
      *
      * @param streamSendLen 要设置的流发送长度的值
      */
-    public void setStreamSendLen(int streamSendLen) {
+     void setStreamSendLen(int streamSendLen) {
         this.streamSendLen = streamSendLen;
     }
 
@@ -80,7 +80,7 @@ public class LLMStreamSession {
      *
      * @return 消息 ID 的值
      */
-    public String getMsgID() {
+     String getMsgID() {
         return msgID;
     }
 
@@ -89,7 +89,7 @@ public class LLMStreamSession {
      *
      * @param msgID 要设置的消息 ID 的值
      */
-    public void setMsgID(String msgID) {
+     void setMsgID(String msgID) {
         this.msgID = msgID;
     }
 
@@ -98,7 +98,7 @@ public class LLMStreamSession {
      *
      * @return 默认响应体
      */
-    public CheckLLMResponseStreamResponse getDefaultBody() {
+     CheckLLMResponseStreamResponse getDefaultBody() {
         return defaultBody;
     }
 
@@ -107,7 +107,7 @@ public class LLMStreamSession {
      *
      * @param defaultBody 要设置的默认响应体
      */
-    public void setDefaultBody(CheckLLMResponseStreamResponse defaultBody) {
+     void setDefaultBody(CheckLLMResponseStreamResponse defaultBody) {
         this.defaultBody = defaultBody;
     }
 
@@ -117,25 +117,11 @@ public class LLMStreamSession {
      *
      * @param str 要追加的字符串
      */
-    public void appendStreamBuf(String str) {
+     void appendStreamBuf(String str) {
         if (str != null) {
             this.streamBuf += str;
             this.streamSendLen += str.length();
         }
     }
 
-    /**
-     * 重写 toString 方法，返回对象的字符串表示形式。
-     *
-     * @return 对象的字符串表示形式
-     */
-    @Override
-    public String toString() {
-        return "LLMStreamSession{" +
-                "streamBuf='" + streamBuf + '\'' +
-                ", streamSendLen=" + streamSendLen +
-                ", msgID='" + msgID + '\'' +
-                ", defaultBody=" + defaultBody +
-                '}';
-    }
 }
