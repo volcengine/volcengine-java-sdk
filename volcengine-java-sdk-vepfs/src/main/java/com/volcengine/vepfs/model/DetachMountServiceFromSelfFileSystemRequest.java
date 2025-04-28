@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DetachMountServiceFromSelfFileSystemRequest {
   @SerializedName("FileSystemId")
   private String fileSystemId = null;
@@ -44,7 +45,8 @@ public class DetachMountServiceFromSelfFileSystemRequest {
    * Get fileSystemId
    * @return fileSystemId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getFileSystemId() {
     return fileSystemId;
   }
@@ -62,7 +64,8 @@ public class DetachMountServiceFromSelfFileSystemRequest {
    * Get mountServiceId
    * @return mountServiceId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getMountServiceId() {
     return mountServiceId;
   }

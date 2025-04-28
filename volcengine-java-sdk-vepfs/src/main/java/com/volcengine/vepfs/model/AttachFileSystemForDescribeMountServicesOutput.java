@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class AttachFileSystemForDescribeMountServicesOutput {
   @SerializedName("AccountId")
   private String accountId = null;
@@ -41,11 +42,57 @@ public class AttachFileSystemForDescribeMountServicesOutput {
   @SerializedName("FileSystemName")
   private String fileSystemName = null;
 
-  @SerializedName("Status")
-  private String status = null;
+  /**
+   * Gets or Sets status
+   */
+  @JsonAdapter(StatusEnum.Adapter.class)
+  public enum StatusEnum {
+    @SerializedName("Attaching")
+    ATTACHING("Attaching"),
+    @SerializedName("AttachError")
+    ATTACHERROR("AttachError"),
+    @SerializedName("Attached")
+    ATTACHED("Attached"),
+    @SerializedName("Detaching")
+    DETACHING("Detaching"),
+    @SerializedName("DetachError")
+    DETACHERROR("DetachError");
 
-  @SerializedName("Type")
-  private String type = null;
+    private String value;
+
+    StatusEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static StatusEnum fromValue(String input) {
+      for (StatusEnum b : StatusEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<StatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public StatusEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return StatusEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("Status")
+  private StatusEnum status = null;
 
   public AttachFileSystemForDescribeMountServicesOutput accountId(String accountId) {
     this.accountId = accountId;
@@ -119,7 +166,7 @@ public class AttachFileSystemForDescribeMountServicesOutput {
     this.fileSystemName = fileSystemName;
   }
 
-  public AttachFileSystemForDescribeMountServicesOutput status(String status) {
+  public AttachFileSystemForDescribeMountServicesOutput status(StatusEnum status) {
     this.status = status;
     return this;
   }
@@ -129,30 +176,12 @@ public class AttachFileSystemForDescribeMountServicesOutput {
    * @return status
   **/
   @Schema(description = "")
-  public String getStatus() {
+  public StatusEnum getStatus() {
     return status;
   }
 
-  public void setStatus(String status) {
+  public void setStatus(StatusEnum status) {
     this.status = status;
-  }
-
-  public AttachFileSystemForDescribeMountServicesOutput type(String type) {
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * Get type
-   * @return type
-  **/
-  @Schema(description = "")
-  public String getType() {
-    return type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
   }
 
 
@@ -169,13 +198,12 @@ public class AttachFileSystemForDescribeMountServicesOutput {
         Objects.equals(this.customerPath, attachFileSystemForDescribeMountServicesOutput.customerPath) &&
         Objects.equals(this.fileSystemId, attachFileSystemForDescribeMountServicesOutput.fileSystemId) &&
         Objects.equals(this.fileSystemName, attachFileSystemForDescribeMountServicesOutput.fileSystemName) &&
-        Objects.equals(this.status, attachFileSystemForDescribeMountServicesOutput.status) &&
-        Objects.equals(this.type, attachFileSystemForDescribeMountServicesOutput.type);
+        Objects.equals(this.status, attachFileSystemForDescribeMountServicesOutput.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, customerPath, fileSystemId, fileSystemName, status, type);
+    return Objects.hash(accountId, customerPath, fileSystemId, fileSystemName, status);
   }
 
 
@@ -189,7 +217,6 @@ public class AttachFileSystemForDescribeMountServicesOutput {
     sb.append("    fileSystemId: ").append(toIndentedString(fileSystemId)).append("\n");
     sb.append("    fileSystemName: ").append(toIndentedString(fileSystemName)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -31,6 +31,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class UpdateFileSystemRequest {
   @SerializedName("Description")
   private String description = null;
@@ -71,7 +72,8 @@ public class UpdateFileSystemRequest {
    * Get fileSystemId
    * @return fileSystemId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getFileSystemId() {
     return fileSystemId;
   }

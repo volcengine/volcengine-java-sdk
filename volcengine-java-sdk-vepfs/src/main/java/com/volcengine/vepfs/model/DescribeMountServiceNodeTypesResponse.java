@@ -31,7 +31,8 @@ import javax.validation.Valid;
  */
 
 
-public class DescribeMountServiceNodeTypesResponse {
+
+public class DescribeMountServiceNodeTypesResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("NodeTypeInfos")
   private List<NodeTypeInfoForDescribeMountServiceNodeTypesOutput> nodeTypeInfos = null;
 

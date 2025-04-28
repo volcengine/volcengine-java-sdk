@@ -28,14 +28,64 @@ import javax.validation.Valid;
  */
 
 
+
 public class FilterForDescribeMountServicesInput {
-  @SerializedName("Key")
-  private String key = null;
+  /**
+   * Gets or Sets key
+   */
+  @JsonAdapter(KeyEnum.Adapter.class)
+  public enum KeyEnum {
+    @SerializedName("FileSystemId")
+    FILESYSTEMID("FileSystemId"),
+    @SerializedName("MountServiceName")
+    MOUNTSERVICENAME("MountServiceName"),
+    @SerializedName("MountServiceId")
+    MOUNTSERVICEID("MountServiceId"),
+    @SerializedName("Status")
+    STATUS("Status"),
+    @SerializedName("ZoneId")
+    ZONEID("ZoneId");
+
+    private String value;
+
+    KeyEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static KeyEnum fromValue(String input) {
+      for (KeyEnum b : KeyEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<KeyEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final KeyEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public KeyEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return KeyEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("Key")
+  private KeyEnum key = null;
 
   @SerializedName("Value")
   private String value = null;
 
-  public FilterForDescribeMountServicesInput key(String key) {
+  public FilterForDescribeMountServicesInput key(KeyEnum key) {
     this.key = key;
     return this;
   }
@@ -45,11 +95,11 @@ public class FilterForDescribeMountServicesInput {
    * @return key
   **/
   @Schema(description = "")
-  public String getKey() {
+  public KeyEnum getKey() {
     return key;
   }
 
-  public void setKey(String key) {
+  public void setKey(KeyEnum key) {
     this.key = key;
   }
 

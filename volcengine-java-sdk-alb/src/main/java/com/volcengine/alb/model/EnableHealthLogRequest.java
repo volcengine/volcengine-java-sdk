@@ -48,7 +48,8 @@ public class EnableHealthLogRequest {
    * Get loadBalancerId
    * @return loadBalancerId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getLoadBalancerId() {
     return loadBalancerId;
   }
@@ -66,7 +67,8 @@ public class EnableHealthLogRequest {
    * Get projectId
    * @return projectId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getProjectId() {
     return projectId;
   }
@@ -84,7 +86,8 @@ public class EnableHealthLogRequest {
    * Get topicId
    * @return topicId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getTopicId() {
     return topicId;
   }

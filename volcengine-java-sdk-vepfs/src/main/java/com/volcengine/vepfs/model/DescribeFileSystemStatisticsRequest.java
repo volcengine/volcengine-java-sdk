@@ -14,6 +14,13 @@ package com.volcengine.vepfs.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -21,7 +28,72 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeFileSystemStatisticsRequest {
+  /**
+   * Gets or Sets languageCode
+   */
+  @JsonAdapter(LanguageCodeEnum.Adapter.class)
+  public enum LanguageCodeEnum {
+    @SerializedName("zh")
+    ZH("zh"),
+    @SerializedName("en")
+    EN("en");
+
+    private String value;
+
+    LanguageCodeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static LanguageCodeEnum fromValue(String input) {
+      for (LanguageCodeEnum b : LanguageCodeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<LanguageCodeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final LanguageCodeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public LanguageCodeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return LanguageCodeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("LanguageCode")
+  private LanguageCodeEnum languageCode = null;
+
+  public DescribeFileSystemStatisticsRequest languageCode(LanguageCodeEnum languageCode) {
+    this.languageCode = languageCode;
+    return this;
+  }
+
+   /**
+   * Get languageCode
+   * @return languageCode
+  **/
+  @Schema(description = "")
+  public LanguageCodeEnum getLanguageCode() {
+    return languageCode;
+  }
+
+  public void setLanguageCode(LanguageCodeEnum languageCode) {
+    this.languageCode = languageCode;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -31,12 +103,13 @@ public class DescribeFileSystemStatisticsRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return true;
+    DescribeFileSystemStatisticsRequest describeFileSystemStatisticsRequest = (DescribeFileSystemStatisticsRequest) o;
+    return Objects.equals(this.languageCode, describeFileSystemStatisticsRequest.languageCode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash();
+    return Objects.hash(languageCode);
   }
 
 
@@ -45,6 +118,7 @@ public class DescribeFileSystemStatisticsRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeFileSystemStatisticsRequest {\n");
     
+    sb.append("    languageCode: ").append(toIndentedString(languageCode)).append("\n");
     sb.append("}");
     return sb.toString();
   }

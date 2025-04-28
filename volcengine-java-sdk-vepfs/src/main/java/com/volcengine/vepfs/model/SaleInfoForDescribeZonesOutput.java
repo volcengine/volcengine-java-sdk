@@ -28,26 +28,166 @@ import javax.validation.Valid;
  */
 
 
-public class SaleInfoForDescribeZonesOutput {
-  @SerializedName("FileSystemType")
-  private String fileSystemType = null;
 
-  @SerializedName("ProtocolType")
-  private String protocolType = null;
+public class SaleInfoForDescribeZonesOutput {
+  /**
+   * Gets or Sets fileSystemType
+   */
+  @JsonAdapter(FileSystemTypeEnum.Adapter.class)
+  public enum FileSystemTypeEnum {
+    @SerializedName("VePFS")
+    VEPFS("VePFS");
+
+    private String value;
+
+    FileSystemTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static FileSystemTypeEnum fromValue(String input) {
+      for (FileSystemTypeEnum b : FileSystemTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<FileSystemTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final FileSystemTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public FileSystemTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return FileSystemTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("FileSystemType")
+  private FileSystemTypeEnum fileSystemType = null;
+
+  /**
+   * Gets or Sets protocolType
+   */
+  @JsonAdapter(ProtocolTypeEnum.Adapter.class)
+  public enum ProtocolTypeEnum {
+    @SerializedName("NFS")
+    NFS("NFS"),
+    @SerializedName("SMB")
+    SMB("SMB"),
+    @SerializedName("VePFS")
+    VEPFS("VePFS"),
+    @SerializedName("FSX")
+    FSX("FSX");
+
+    private String value;
+
+    ProtocolTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ProtocolTypeEnum fromValue(String input) {
+      for (ProtocolTypeEnum b : ProtocolTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ProtocolTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ProtocolTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ProtocolTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ProtocolTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("ProtocolType")
+  private ProtocolTypeEnum protocolType = null;
 
   @SerializedName("RegionId")
   private String regionId = null;
 
-  @SerializedName("Status")
-  private String status = null;
+  /**
+   * Gets or Sets status
+   */
+  @JsonAdapter(StatusEnum.Adapter.class)
+  public enum StatusEnum {
+    @SerializedName("UnSold")
+    UNSOLD("UnSold"),
+    @SerializedName("OnSale")
+    ONSALE("OnSale"),
+    @SerializedName("SoldOut")
+    SOLDOUT("SoldOut");
+
+    private String value;
+
+    StatusEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static StatusEnum fromValue(String input) {
+      for (StatusEnum b : StatusEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<StatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public StatusEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return StatusEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("Status")
+  private StatusEnum status = null;
 
   @SerializedName("StoreType")
   private String storeType = null;
 
+  @SerializedName("StoreTypeCN")
+  private String storeTypeCN = null;
+
+  @SerializedName("StoreTypeEN")
+  private String storeTypeEN = null;
+
   @SerializedName("ZoneId")
   private String zoneId = null;
 
-  public SaleInfoForDescribeZonesOutput fileSystemType(String fileSystemType) {
+  public SaleInfoForDescribeZonesOutput fileSystemType(FileSystemTypeEnum fileSystemType) {
     this.fileSystemType = fileSystemType;
     return this;
   }
@@ -57,15 +197,15 @@ public class SaleInfoForDescribeZonesOutput {
    * @return fileSystemType
   **/
   @Schema(description = "")
-  public String getFileSystemType() {
+  public FileSystemTypeEnum getFileSystemType() {
     return fileSystemType;
   }
 
-  public void setFileSystemType(String fileSystemType) {
+  public void setFileSystemType(FileSystemTypeEnum fileSystemType) {
     this.fileSystemType = fileSystemType;
   }
 
-  public SaleInfoForDescribeZonesOutput protocolType(String protocolType) {
+  public SaleInfoForDescribeZonesOutput protocolType(ProtocolTypeEnum protocolType) {
     this.protocolType = protocolType;
     return this;
   }
@@ -75,11 +215,11 @@ public class SaleInfoForDescribeZonesOutput {
    * @return protocolType
   **/
   @Schema(description = "")
-  public String getProtocolType() {
+  public ProtocolTypeEnum getProtocolType() {
     return protocolType;
   }
 
-  public void setProtocolType(String protocolType) {
+  public void setProtocolType(ProtocolTypeEnum protocolType) {
     this.protocolType = protocolType;
   }
 
@@ -101,7 +241,7 @@ public class SaleInfoForDescribeZonesOutput {
     this.regionId = regionId;
   }
 
-  public SaleInfoForDescribeZonesOutput status(String status) {
+  public SaleInfoForDescribeZonesOutput status(StatusEnum status) {
     this.status = status;
     return this;
   }
@@ -111,11 +251,11 @@ public class SaleInfoForDescribeZonesOutput {
    * @return status
   **/
   @Schema(description = "")
-  public String getStatus() {
+  public StatusEnum getStatus() {
     return status;
   }
 
-  public void setStatus(String status) {
+  public void setStatus(StatusEnum status) {
     this.status = status;
   }
 
@@ -135,6 +275,42 @@ public class SaleInfoForDescribeZonesOutput {
 
   public void setStoreType(String storeType) {
     this.storeType = storeType;
+  }
+
+  public SaleInfoForDescribeZonesOutput storeTypeCN(String storeTypeCN) {
+    this.storeTypeCN = storeTypeCN;
+    return this;
+  }
+
+   /**
+   * Get storeTypeCN
+   * @return storeTypeCN
+  **/
+  @Schema(description = "")
+  public String getStoreTypeCN() {
+    return storeTypeCN;
+  }
+
+  public void setStoreTypeCN(String storeTypeCN) {
+    this.storeTypeCN = storeTypeCN;
+  }
+
+  public SaleInfoForDescribeZonesOutput storeTypeEN(String storeTypeEN) {
+    this.storeTypeEN = storeTypeEN;
+    return this;
+  }
+
+   /**
+   * Get storeTypeEN
+   * @return storeTypeEN
+  **/
+  @Schema(description = "")
+  public String getStoreTypeEN() {
+    return storeTypeEN;
+  }
+
+  public void setStoreTypeEN(String storeTypeEN) {
+    this.storeTypeEN = storeTypeEN;
   }
 
   public SaleInfoForDescribeZonesOutput zoneId(String zoneId) {
@@ -170,12 +346,14 @@ public class SaleInfoForDescribeZonesOutput {
         Objects.equals(this.regionId, saleInfoForDescribeZonesOutput.regionId) &&
         Objects.equals(this.status, saleInfoForDescribeZonesOutput.status) &&
         Objects.equals(this.storeType, saleInfoForDescribeZonesOutput.storeType) &&
+        Objects.equals(this.storeTypeCN, saleInfoForDescribeZonesOutput.storeTypeCN) &&
+        Objects.equals(this.storeTypeEN, saleInfoForDescribeZonesOutput.storeTypeEN) &&
         Objects.equals(this.zoneId, saleInfoForDescribeZonesOutput.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fileSystemType, protocolType, regionId, status, storeType, zoneId);
+    return Objects.hash(fileSystemType, protocolType, regionId, status, storeType, storeTypeCN, storeTypeEN, zoneId);
   }
 
 
@@ -189,6 +367,8 @@ public class SaleInfoForDescribeZonesOutput {
     sb.append("    regionId: ").append(toIndentedString(regionId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    storeType: ").append(toIndentedString(storeType)).append("\n");
+    sb.append("    storeTypeCN: ").append(toIndentedString(storeTypeCN)).append("\n");
+    sb.append("    storeTypeEN: ").append(toIndentedString(storeTypeEN)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");
     return sb.toString();
