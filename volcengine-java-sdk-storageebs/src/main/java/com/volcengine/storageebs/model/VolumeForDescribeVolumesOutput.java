@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.storageebs.model.AttachmentForDescribeVolumesOutput;
 import com.volcengine.storageebs.model.BaselinePerformanceForDescribeVolumesOutput;
 import com.volcengine.storageebs.model.ExtraPerformanceForDescribeVolumesOutput;
 import com.volcengine.storageebs.model.TagForDescribeVolumesOutput;
@@ -36,6 +37,9 @@ import javax.validation.Valid;
 
 
 public class VolumeForDescribeVolumesOutput {
+  @SerializedName("Attachments")
+  private List<AttachmentForDescribeVolumesOutput> attachments = null;
+
   @SerializedName("AutoSnapshotPolicyId")
   private String autoSnapshotPolicyId = null;
 
@@ -137,6 +141,33 @@ public class VolumeForDescribeVolumesOutput {
 
   @SerializedName("ZoneId")
   private String zoneId = null;
+
+  public VolumeForDescribeVolumesOutput attachments(List<AttachmentForDescribeVolumesOutput> attachments) {
+    this.attachments = attachments;
+    return this;
+  }
+
+  public VolumeForDescribeVolumesOutput addAttachmentsItem(AttachmentForDescribeVolumesOutput attachmentsItem) {
+    if (this.attachments == null) {
+      this.attachments = new ArrayList<AttachmentForDescribeVolumesOutput>();
+    }
+    this.attachments.add(attachmentsItem);
+    return this;
+  }
+
+   /**
+   * Get attachments
+   * @return attachments
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<AttachmentForDescribeVolumesOutput> getAttachments() {
+    return attachments;
+  }
+
+  public void setAttachments(List<AttachmentForDescribeVolumesOutput> attachments) {
+    this.attachments = attachments;
+  }
 
   public VolumeForDescribeVolumesOutput autoSnapshotPolicyId(String autoSnapshotPolicyId) {
     this.autoSnapshotPolicyId = autoSnapshotPolicyId;
@@ -772,7 +803,8 @@ public class VolumeForDescribeVolumesOutput {
       return false;
     }
     VolumeForDescribeVolumesOutput volumeForDescribeVolumesOutput = (VolumeForDescribeVolumesOutput) o;
-    return Objects.equals(this.autoSnapshotPolicyId, volumeForDescribeVolumesOutput.autoSnapshotPolicyId) &&
+    return Objects.equals(this.attachments, volumeForDescribeVolumesOutput.attachments) &&
+        Objects.equals(this.autoSnapshotPolicyId, volumeForDescribeVolumesOutput.autoSnapshotPolicyId) &&
         Objects.equals(this.autoSnapshotPolicyName, volumeForDescribeVolumesOutput.autoSnapshotPolicyName) &&
         Objects.equals(this.baselinePerformance, volumeForDescribeVolumesOutput.baselinePerformance) &&
         Objects.equals(this.billingType, volumeForDescribeVolumesOutput.billingType) &&
@@ -810,7 +842,7 @@ public class VolumeForDescribeVolumesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoSnapshotPolicyId, autoSnapshotPolicyName, baselinePerformance, billingType, createdAt, deleteWithInstance, description, deviceName, errorDetail, expiredTime, extraPerformance, extraPerformanceIOPS, extraPerformanceThroughputMB, extraPerformanceTypeId, imageId, instanceId, kind, overdueReclaimTime, overdueTime, payType, projectName, renewType, size, snapshotCount, sourceSnapshotId, status, tags, totalPerformance, tradeStatus, updatedAt, volumeId, volumeName, volumeType, zoneId);
+    return Objects.hash(attachments, autoSnapshotPolicyId, autoSnapshotPolicyName, baselinePerformance, billingType, createdAt, deleteWithInstance, description, deviceName, errorDetail, expiredTime, extraPerformance, extraPerformanceIOPS, extraPerformanceThroughputMB, extraPerformanceTypeId, imageId, instanceId, kind, overdueReclaimTime, overdueTime, payType, projectName, renewType, size, snapshotCount, sourceSnapshotId, status, tags, totalPerformance, tradeStatus, updatedAt, volumeId, volumeName, volumeType, zoneId);
   }
 
 
@@ -819,6 +851,7 @@ public class VolumeForDescribeVolumesOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class VolumeForDescribeVolumesOutput {\n");
     
+    sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
     sb.append("    autoSnapshotPolicyId: ").append(toIndentedString(autoSnapshotPolicyId)).append("\n");
     sb.append("    autoSnapshotPolicyName: ").append(toIndentedString(autoSnapshotPolicyName)).append("\n");
     sb.append("    baselinePerformance: ").append(toIndentedString(baselinePerformance)).append("\n");
