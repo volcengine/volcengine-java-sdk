@@ -41,6 +41,8 @@ public class ResolveEndpointInterceptor implements RequestInterceptor {
             ResolveEndpointOption option = new ResolveEndpointOption();
             option.setService(service);
             option.setRegion(context.getApiClient().getRegion());
+            option.setCustomBootstrapRegion(context.getApiClient().getCustomBootstrapRegion());
+            option.setUseDualStack(context.getApiClient().getUseDualStack());
             ResolvedEndpoint resolvedEndpoint = endpointResolver.endpointFor(option);
             context.getRequestContext().setHost(resolvedEndpoint.getEndpoint());
         }

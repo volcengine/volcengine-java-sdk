@@ -3,7 +3,7 @@
     <parent>
         <artifactId>volcengine-java-sdk</artifactId>
         <groupId>com.volcengine</groupId>
-        <version>0.2.5</version>
+        <version>0.2.6</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -424,6 +424,12 @@
             <dependency>
                 <groupId>com.volcengine</groupId>
                 <artifactId>volcengine-java-sdk-mlplatform20240701</artifactId>
+                <optional>false</optional>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.volcengine</groupId>
+                <artifactId>volcengine-java-sdk-vod20250101</artifactId>
                 <optional>false</optional>
                 <version>${project.version}</version>
             </dependency>
