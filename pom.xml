@@ -277,5 +277,6 @@
         <module>volcengine-java-sdk-wafruntime</module>
         <module>volcengine-java-sdk-volccontentplatform</module>
         <module>volcengine-java-sdk-mlplatform20240701</module>
+        <module>volcengine-java-sdk-vod20250101</module>
     </modules>
 </project>
