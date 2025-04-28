@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.alb.model.TagFilterForDescribeAclsInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -46,6 +47,9 @@ public class DescribeAclsRequest {
 
   @SerializedName("ProjectName")
   private String projectName = null;
+
+  @SerializedName("TagFilters")
+  private List<TagFilterForDescribeAclsInput> tagFilters = null;
 
   public DescribeAclsRequest aclIds(List<String> aclIds) {
     this.aclIds = aclIds;
@@ -145,6 +149,33 @@ public class DescribeAclsRequest {
     this.projectName = projectName;
   }
 
+  public DescribeAclsRequest tagFilters(List<TagFilterForDescribeAclsInput> tagFilters) {
+    this.tagFilters = tagFilters;
+    return this;
+  }
+
+  public DescribeAclsRequest addTagFiltersItem(TagFilterForDescribeAclsInput tagFiltersItem) {
+    if (this.tagFilters == null) {
+      this.tagFilters = new ArrayList<TagFilterForDescribeAclsInput>();
+    }
+    this.tagFilters.add(tagFiltersItem);
+    return this;
+  }
+
+   /**
+   * Get tagFilters
+   * @return tagFilters
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagFilterForDescribeAclsInput> getTagFilters() {
+    return tagFilters;
+  }
+
+  public void setTagFilters(List<TagFilterForDescribeAclsInput> tagFilters) {
+    this.tagFilters = tagFilters;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -159,12 +190,13 @@ public class DescribeAclsRequest {
         Objects.equals(this.aclName, describeAclsRequest.aclName) &&
         Objects.equals(this.pageNumber, describeAclsRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeAclsRequest.pageSize) &&
-        Objects.equals(this.projectName, describeAclsRequest.projectName);
+        Objects.equals(this.projectName, describeAclsRequest.projectName) &&
+        Objects.equals(this.tagFilters, describeAclsRequest.tagFilters);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclIds, aclName, pageNumber, pageSize, projectName);
+    return Objects.hash(aclIds, aclName, pageNumber, pageSize, projectName, tagFilters);
   }
 
 
@@ -178,6 +210,7 @@ public class DescribeAclsRequest {
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("}");
     return sb.toString();
   }

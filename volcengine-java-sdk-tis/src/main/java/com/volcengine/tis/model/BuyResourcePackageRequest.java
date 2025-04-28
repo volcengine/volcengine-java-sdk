@@ -33,65 +33,8 @@ public class BuyResourcePackageRequest {
   @SerializedName("deviceName")
   private String deviceName = null;
 
-  /**
-   * Gets or Sets item
-   */
-  @JsonAdapter(ItemEnum.Adapter.class)
-  public enum ItemEnum {
-    @SerializedName("test_01")
-    TEST_01("test_01"),
-    @SerializedName("recording_3")
-    RECORDING_3("recording_3"),
-    @SerializedName("recording_10")
-    RECORDING_10("recording_10"),
-    @SerializedName("voice_3")
-    VOICE_3("voice_3"),
-    @SerializedName("voice_10")
-    VOICE_10("voice_10"),
-    @SerializedName("bigmodel_32k")
-    BIGMODEL_32K("bigmodel_32k"),
-    @SerializedName("bigmodel_128k")
-    BIGMODEL_128K("bigmodel_128k"),
-    @SerializedName("image_10")
-    IMAGE_10("image_10"),
-    @SerializedName("image_50")
-    IMAGE_50("image_50");
-
-    private String value;
-
-    ItemEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static ItemEnum fromValue(String input) {
-      for (ItemEnum b : ItemEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<ItemEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final ItemEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public ItemEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return ItemEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("item")
-  private ItemEnum item = null;
+  @SerializedName("item")
+  private String item = null;
 
   @SerializedName("productKey")
   private String productKey = null;
@@ -115,7 +58,7 @@ public class BuyResourcePackageRequest {
     this.deviceName = deviceName;
   }
 
-  public BuyResourcePackageRequest item(ItemEnum item) {
+  public BuyResourcePackageRequest item(String item) {
     this.item = item;
     return this;
   }
@@ -126,11 +69,11 @@ public class BuyResourcePackageRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public ItemEnum getItem() {
+  public String getItem() {
     return item;
   }
 
-  public void setItem(ItemEnum item) {
+  public void setItem(String item) {
     this.item = item;
   }
 

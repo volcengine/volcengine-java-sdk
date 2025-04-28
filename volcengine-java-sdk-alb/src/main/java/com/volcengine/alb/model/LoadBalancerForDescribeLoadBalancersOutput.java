@@ -70,6 +70,9 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
   @SerializedName("LoadBalancerBillingType")
   private Integer loadBalancerBillingType = null;
 
+  @SerializedName("LoadBalancerEdition")
+  private String loadBalancerEdition = null;
+
   @SerializedName("LoadBalancerId")
   private String loadBalancerId = null;
 
@@ -338,6 +341,24 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
 
   public void setLoadBalancerBillingType(Integer loadBalancerBillingType) {
     this.loadBalancerBillingType = loadBalancerBillingType;
+  }
+
+  public LoadBalancerForDescribeLoadBalancersOutput loadBalancerEdition(String loadBalancerEdition) {
+    this.loadBalancerEdition = loadBalancerEdition;
+    return this;
+  }
+
+   /**
+   * Get loadBalancerEdition
+   * @return loadBalancerEdition
+  **/
+  @Schema(description = "")
+  public String getLoadBalancerEdition() {
+    return loadBalancerEdition;
+  }
+
+  public void setLoadBalancerEdition(String loadBalancerEdition) {
+    this.loadBalancerEdition = loadBalancerEdition;
   }
 
   public LoadBalancerForDescribeLoadBalancersOutput loadBalancerId(String loadBalancerId) {
@@ -712,6 +733,7 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
         Objects.equals(this.eniAddress, loadBalancerForDescribeLoadBalancersOutput.eniAddress) &&
         Objects.equals(this.eniId, loadBalancerForDescribeLoadBalancersOutput.eniId) &&
         Objects.equals(this.loadBalancerBillingType, loadBalancerForDescribeLoadBalancersOutput.loadBalancerBillingType) &&
+        Objects.equals(this.loadBalancerEdition, loadBalancerForDescribeLoadBalancersOutput.loadBalancerEdition) &&
         Objects.equals(this.loadBalancerId, loadBalancerForDescribeLoadBalancersOutput.loadBalancerId) &&
         Objects.equals(this.loadBalancerName, loadBalancerForDescribeLoadBalancersOutput.loadBalancerName) &&
         Objects.equals(this.localAddresses, loadBalancerForDescribeLoadBalancersOutput.localAddresses) &&
@@ -734,7 +756,7 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addressIpVersion, businessStatus, createTime, dnSName, deleteProtection, deletedTime, description, eipAddress, eipId, eniAddress, eniId, loadBalancerBillingType, loadBalancerId, loadBalancerName, localAddresses, lockReason, modificationProtectionReason, modificationProtectionStatus, overdueTime, projectName, sniAutoMatch, status, subnetId, tags, type, updateTime, vpcId, wafInstanceId, wafProtectionEnabled, zoneMappings);
+    return Objects.hash(addressIpVersion, businessStatus, createTime, dnSName, deleteProtection, deletedTime, description, eipAddress, eipId, eniAddress, eniId, loadBalancerBillingType, loadBalancerEdition, loadBalancerId, loadBalancerName, localAddresses, lockReason, modificationProtectionReason, modificationProtectionStatus, overdueTime, projectName, sniAutoMatch, status, subnetId, tags, type, updateTime, vpcId, wafInstanceId, wafProtectionEnabled, zoneMappings);
   }
 
 
@@ -755,6 +777,7 @@ public class LoadBalancerForDescribeLoadBalancersOutput {
     sb.append("    eniAddress: ").append(toIndentedString(eniAddress)).append("\n");
     sb.append("    eniId: ").append(toIndentedString(eniId)).append("\n");
     sb.append("    loadBalancerBillingType: ").append(toIndentedString(loadBalancerBillingType)).append("\n");
+    sb.append("    loadBalancerEdition: ").append(toIndentedString(loadBalancerEdition)).append("\n");
     sb.append("    loadBalancerId: ").append(toIndentedString(loadBalancerId)).append("\n");
     sb.append("    loadBalancerName: ").append(toIndentedString(loadBalancerName)).append("\n");
     sb.append("    localAddresses: ").append(toIndentedString(localAddresses)).append("\n");

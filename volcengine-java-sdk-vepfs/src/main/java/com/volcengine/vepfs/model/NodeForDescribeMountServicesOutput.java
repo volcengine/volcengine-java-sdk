@@ -28,12 +28,10 @@ import javax.validation.Valid;
  */
 
 
+
 public class NodeForDescribeMountServicesOutput {
   @SerializedName("DefaultPassword")
   private String defaultPassword = null;
-
-  @SerializedName("NodeIP")
-  private String nodeIP = null;
 
   @SerializedName("NodeId")
   private String nodeId = null;
@@ -54,24 +52,6 @@ public class NodeForDescribeMountServicesOutput {
 
   public void setDefaultPassword(String defaultPassword) {
     this.defaultPassword = defaultPassword;
-  }
-
-  public NodeForDescribeMountServicesOutput nodeIP(String nodeIP) {
-    this.nodeIP = nodeIP;
-    return this;
-  }
-
-   /**
-   * Get nodeIP
-   * @return nodeIP
-  **/
-  @Schema(description = "")
-  public String getNodeIP() {
-    return nodeIP;
-  }
-
-  public void setNodeIP(String nodeIP) {
-    this.nodeIP = nodeIP;
   }
 
   public NodeForDescribeMountServicesOutput nodeId(String nodeId) {
@@ -103,13 +83,12 @@ public class NodeForDescribeMountServicesOutput {
     }
     NodeForDescribeMountServicesOutput nodeForDescribeMountServicesOutput = (NodeForDescribeMountServicesOutput) o;
     return Objects.equals(this.defaultPassword, nodeForDescribeMountServicesOutput.defaultPassword) &&
-        Objects.equals(this.nodeIP, nodeForDescribeMountServicesOutput.nodeIP) &&
         Objects.equals(this.nodeId, nodeForDescribeMountServicesOutput.nodeId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(defaultPassword, nodeIP, nodeId);
+    return Objects.hash(defaultPassword, nodeId);
   }
 
 
@@ -119,7 +98,6 @@ public class NodeForDescribeMountServicesOutput {
     sb.append("class NodeForDescribeMountServicesOutput {\n");
     
     sb.append("    defaultPassword: ").append(toIndentedString(defaultPassword)).append("\n");
-    sb.append("    nodeIP: ").append(toIndentedString(nodeIP)).append("\n");
     sb.append("    nodeId: ").append(toIndentedString(nodeId)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -14,13 +14,6 @@ package com.volcengine.vepfs.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.v3.oas.annotations.media.Schema;
-import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -28,28 +21,8 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeRegionsRequest {
-  @SerializedName("FileSystemType")
-  private String fileSystemType = null;
-
-  public DescribeRegionsRequest fileSystemType(String fileSystemType) {
-    this.fileSystemType = fileSystemType;
-    return this;
-  }
-
-   /**
-   * Get fileSystemType
-   * @return fileSystemType
-  **/
-  @Schema(description = "")
-  public String getFileSystemType() {
-    return fileSystemType;
-  }
-
-  public void setFileSystemType(String fileSystemType) {
-    this.fileSystemType = fileSystemType;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -59,13 +32,12 @@ public class DescribeRegionsRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DescribeRegionsRequest describeRegionsRequest = (DescribeRegionsRequest) o;
-    return Objects.equals(this.fileSystemType, describeRegionsRequest.fileSystemType);
+    return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fileSystemType);
+    return Objects.hash();
   }
 
 
@@ -74,7 +46,6 @@ public class DescribeRegionsRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeRegionsRequest {\n");
     
-    sb.append("    fileSystemType: ").append(toIndentedString(fileSystemType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

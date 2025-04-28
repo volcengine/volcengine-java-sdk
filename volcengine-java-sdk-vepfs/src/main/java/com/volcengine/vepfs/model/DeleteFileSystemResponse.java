@@ -14,6 +14,13 @@ package com.volcengine.vepfs.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -21,7 +28,29 @@ import javax.validation.Valid;
  */
 
 
-public class DeleteFileSystemResponse {
+
+public class DeleteFileSystemResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("OrderNO")
+  private String orderNO = null;
+
+  public DeleteFileSystemResponse orderNO(String orderNO) {
+    this.orderNO = orderNO;
+    return this;
+  }
+
+   /**
+   * Get orderNO
+   * @return orderNO
+  **/
+  @Schema(description = "")
+  public String getOrderNO() {
+    return orderNO;
+  }
+
+  public void setOrderNO(String orderNO) {
+    this.orderNO = orderNO;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -31,12 +60,13 @@ public class DeleteFileSystemResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return true;
+    DeleteFileSystemResponse deleteFileSystemResponse = (DeleteFileSystemResponse) o;
+    return Objects.equals(this.orderNO, deleteFileSystemResponse.orderNO);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash();
+    return Objects.hash(orderNO);
   }
 
 
@@ -45,6 +75,7 @@ public class DeleteFileSystemResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteFileSystemResponse {\n");
     
+    sb.append("    orderNO: ").append(toIndentedString(orderNO)).append("\n");
     sb.append("}");
     return sb.toString();
   }

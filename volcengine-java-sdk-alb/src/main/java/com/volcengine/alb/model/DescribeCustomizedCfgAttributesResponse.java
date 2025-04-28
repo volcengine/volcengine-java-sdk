@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.alb.model.ListenerForDescribeCustomizedCfgAttributesOutput;
+import com.volcengine.alb.model.TagForDescribeCustomizedCfgAttributesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -59,6 +60,9 @@ public class DescribeCustomizedCfgAttributesResponse extends com.volcengine.mode
 
   @SerializedName("Status")
   private String status = null;
+
+  @SerializedName("Tags")
+  private List<TagForDescribeCustomizedCfgAttributesOutput> tags = null;
 
   @SerializedName("UpdateTime")
   private String updateTime = null;
@@ -234,6 +238,33 @@ public class DescribeCustomizedCfgAttributesResponse extends com.volcengine.mode
     this.status = status;
   }
 
+  public DescribeCustomizedCfgAttributesResponse tags(List<TagForDescribeCustomizedCfgAttributesOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public DescribeCustomizedCfgAttributesResponse addTagsItem(TagForDescribeCustomizedCfgAttributesOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForDescribeCustomizedCfgAttributesOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForDescribeCustomizedCfgAttributesOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForDescribeCustomizedCfgAttributesOutput> tags) {
+    this.tags = tags;
+  }
+
   public DescribeCustomizedCfgAttributesResponse updateTime(String updateTime) {
     this.updateTime = updateTime;
     return this;
@@ -271,12 +302,13 @@ public class DescribeCustomizedCfgAttributesResponse extends com.volcengine.mode
         Objects.equals(this.projectName, describeCustomizedCfgAttributesResponse.projectName) &&
         Objects.equals(this.requestId, describeCustomizedCfgAttributesResponse.requestId) &&
         Objects.equals(this.status, describeCustomizedCfgAttributesResponse.status) &&
+        Objects.equals(this.tags, describeCustomizedCfgAttributesResponse.tags) &&
         Objects.equals(this.updateTime, describeCustomizedCfgAttributesResponse.updateTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createTime, customizedCfgContent, customizedCfgId, customizedCfgName, description, listeners, projectName, requestId, status, updateTime);
+    return Objects.hash(createTime, customizedCfgContent, customizedCfgId, customizedCfgName, description, listeners, projectName, requestId, status, tags, updateTime);
   }
 
 
@@ -294,6 +326,7 @@ public class DescribeCustomizedCfgAttributesResponse extends com.volcengine.mode
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("}");
     return sb.toString();

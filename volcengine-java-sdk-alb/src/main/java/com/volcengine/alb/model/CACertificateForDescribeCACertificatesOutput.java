@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.alb.model.TagForDescribeCACertificatesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -64,6 +65,9 @@ public class CACertificateForDescribeCACertificatesOutput {
 
   @SerializedName("Status")
   private String status = null;
+
+  @SerializedName("Tags")
+  private List<TagForDescribeCACertificatesOutput> tags = null;
 
   public CACertificateForDescribeCACertificatesOutput caCertificateId(String caCertificateId) {
     this.caCertificateId = caCertificateId;
@@ -271,6 +275,33 @@ public class CACertificateForDescribeCACertificatesOutput {
     this.status = status;
   }
 
+  public CACertificateForDescribeCACertificatesOutput tags(List<TagForDescribeCACertificatesOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public CACertificateForDescribeCACertificatesOutput addTagsItem(TagForDescribeCACertificatesOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForDescribeCACertificatesOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForDescribeCACertificatesOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForDescribeCACertificatesOutput> tags) {
+    this.tags = tags;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -291,12 +322,13 @@ public class CACertificateForDescribeCACertificatesOutput {
         Objects.equals(this.listeners, caCertificateForDescribeCACertificatesOutput.listeners) &&
         Objects.equals(this.projectName, caCertificateForDescribeCACertificatesOutput.projectName) &&
         Objects.equals(this.san, caCertificateForDescribeCACertificatesOutput.san) &&
-        Objects.equals(this.status, caCertificateForDescribeCACertificatesOutput.status);
+        Objects.equals(this.status, caCertificateForDescribeCACertificatesOutput.status) &&
+        Objects.equals(this.tags, caCertificateForDescribeCACertificatesOutput.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(caCertificateId, caCertificateName, certificateType, createTime, description, domainName, expiredAt, listeners, projectName, san, status);
+    return Objects.hash(caCertificateId, caCertificateName, certificateType, createTime, description, domainName, expiredAt, listeners, projectName, san, status, tags);
   }
 
 
@@ -316,6 +348,7 @@ public class CACertificateForDescribeCACertificatesOutput {
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    san: ").append(toIndentedString(san)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }

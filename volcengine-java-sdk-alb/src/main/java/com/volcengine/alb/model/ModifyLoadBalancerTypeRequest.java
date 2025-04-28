@@ -51,7 +51,8 @@ public class ModifyLoadBalancerTypeRequest {
    * Get loadBalancerId
    * @return loadBalancerId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getLoadBalancerId() {
     return loadBalancerId;
   }
@@ -69,7 +70,8 @@ public class ModifyLoadBalancerTypeRequest {
    * Get type
    * @return type
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getType() {
     return type;
   }

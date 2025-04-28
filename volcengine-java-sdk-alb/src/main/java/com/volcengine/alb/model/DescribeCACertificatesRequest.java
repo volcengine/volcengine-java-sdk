@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.alb.model.TagFilterForDescribeCACertificatesInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -46,6 +47,9 @@ public class DescribeCACertificatesRequest {
 
   @SerializedName("ProjectName")
   private String projectName = null;
+
+  @SerializedName("TagFilters")
+  private List<TagFilterForDescribeCACertificatesInput> tagFilters = null;
 
   public DescribeCACertificatesRequest caCertificateIds(List<String> caCertificateIds) {
     this.caCertificateIds = caCertificateIds;
@@ -145,6 +149,33 @@ public class DescribeCACertificatesRequest {
     this.projectName = projectName;
   }
 
+  public DescribeCACertificatesRequest tagFilters(List<TagFilterForDescribeCACertificatesInput> tagFilters) {
+    this.tagFilters = tagFilters;
+    return this;
+  }
+
+  public DescribeCACertificatesRequest addTagFiltersItem(TagFilterForDescribeCACertificatesInput tagFiltersItem) {
+    if (this.tagFilters == null) {
+      this.tagFilters = new ArrayList<TagFilterForDescribeCACertificatesInput>();
+    }
+    this.tagFilters.add(tagFiltersItem);
+    return this;
+  }
+
+   /**
+   * Get tagFilters
+   * @return tagFilters
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagFilterForDescribeCACertificatesInput> getTagFilters() {
+    return tagFilters;
+  }
+
+  public void setTagFilters(List<TagFilterForDescribeCACertificatesInput> tagFilters) {
+    this.tagFilters = tagFilters;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -159,12 +190,13 @@ public class DescribeCACertificatesRequest {
         Objects.equals(this.caCertificateName, describeCACertificatesRequest.caCertificateName) &&
         Objects.equals(this.pageNumber, describeCACertificatesRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeCACertificatesRequest.pageSize) &&
-        Objects.equals(this.projectName, describeCACertificatesRequest.projectName);
+        Objects.equals(this.projectName, describeCACertificatesRequest.projectName) &&
+        Objects.equals(this.tagFilters, describeCACertificatesRequest.tagFilters);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(caCertificateIds, caCertificateName, pageNumber, pageSize, projectName);
+    return Objects.hash(caCertificateIds, caCertificateName, pageNumber, pageSize, projectName, tagFilters);
   }
 
 
@@ -178,6 +210,7 @@ public class DescribeCACertificatesRequest {
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("}");
     return sb.toString();
   }
