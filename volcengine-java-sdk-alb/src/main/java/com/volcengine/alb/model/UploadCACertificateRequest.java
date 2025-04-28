@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.alb.model.TagForUploadCACertificateInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -42,6 +45,9 @@ public class UploadCACertificateRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
 
+  @SerializedName("Tags")
+  private List<TagForUploadCACertificateInput> tags = null;
+
   public UploadCACertificateRequest caCertificate(String caCertificate) {
     this.caCertificate = caCertificate;
     return this;
@@ -51,7 +57,8 @@ public class UploadCACertificateRequest {
    * Get caCertificate
    * @return caCertificate
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getCaCertificate() {
     return caCertificate;
   }
@@ -114,6 +121,33 @@ public class UploadCACertificateRequest {
     this.projectName = projectName;
   }
 
+  public UploadCACertificateRequest tags(List<TagForUploadCACertificateInput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public UploadCACertificateRequest addTagsItem(TagForUploadCACertificateInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForUploadCACertificateInput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForUploadCACertificateInput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForUploadCACertificateInput> tags) {
+    this.tags = tags;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -127,12 +161,13 @@ public class UploadCACertificateRequest {
     return Objects.equals(this.caCertificate, uploadCACertificateRequest.caCertificate) &&
         Objects.equals(this.caCertificateName, uploadCACertificateRequest.caCertificateName) &&
         Objects.equals(this.description, uploadCACertificateRequest.description) &&
-        Objects.equals(this.projectName, uploadCACertificateRequest.projectName);
+        Objects.equals(this.projectName, uploadCACertificateRequest.projectName) &&
+        Objects.equals(this.tags, uploadCACertificateRequest.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(caCertificate, caCertificateName, description, projectName);
+    return Objects.hash(caCertificate, caCertificateName, description, projectName, tags);
   }
 
 
@@ -145,6 +180,7 @@ public class UploadCACertificateRequest {
     sb.append("    caCertificateName: ").append(toIndentedString(caCertificateName)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }

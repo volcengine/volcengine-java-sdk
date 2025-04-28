@@ -372,7 +372,8 @@ public class CreateListenerRequest {
    * Get loadBalancerId
    * @return loadBalancerId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getLoadBalancerId() {
     return loadBalancerId;
   }
@@ -390,7 +391,8 @@ public class CreateListenerRequest {
    * Get port
    * @return port
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public Integer getPort() {
     return port;
   }
@@ -408,7 +410,8 @@ public class CreateListenerRequest {
    * Get protocol
    * @return protocol
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getProtocol() {
     return protocol;
   }
@@ -444,7 +447,8 @@ public class CreateListenerRequest {
    * Get serverGroupId
    * @return serverGroupId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getServerGroupId() {
     return serverGroupId;
   }

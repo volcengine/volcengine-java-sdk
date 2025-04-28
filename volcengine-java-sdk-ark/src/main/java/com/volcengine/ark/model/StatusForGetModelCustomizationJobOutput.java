@@ -39,8 +39,65 @@ public class StatusForGetModelCustomizationJobOutput {
   @SerializedName("OutputExpiredTime")
   private String outputExpiredTime = null;
 
-  @SerializedName("Phase")
-  private String phase = null;
+  /**
+   * Gets or Sets phase
+   */
+  @JsonAdapter(PhaseEnum.Adapter.class)
+  public enum PhaseEnum {
+    @SerializedName("Preprocessing")
+    PREPROCESSING("Preprocessing"),
+    @SerializedName("Queued")
+    QUEUED("Queued"),
+    @SerializedName("Deploying")
+    DEPLOYING("Deploying"),
+    @SerializedName("Running")
+    RUNNING("Running"),
+    @SerializedName("Completing")
+    COMPLETING("Completing"),
+    @SerializedName("Completed")
+    COMPLETED("Completed"),
+    @SerializedName("Terminating")
+    TERMINATING("Terminating"),
+    @SerializedName("Terminated")
+    TERMINATED("Terminated"),
+    @SerializedName("Failed")
+    FAILED("Failed");
+
+    private String value;
+
+    PhaseEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static PhaseEnum fromValue(String input) {
+      for (PhaseEnum b : PhaseEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<PhaseEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final PhaseEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public PhaseEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return PhaseEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("Phase")
+  private PhaseEnum phase = null;
 
   @SerializedName("PhaseTime")
   private String phaseTime = null;
@@ -114,7 +171,7 @@ public class StatusForGetModelCustomizationJobOutput {
     this.outputExpiredTime = outputExpiredTime;
   }
 
-  public StatusForGetModelCustomizationJobOutput phase(String phase) {
+  public StatusForGetModelCustomizationJobOutput phase(PhaseEnum phase) {
     this.phase = phase;
     return this;
   }
@@ -124,11 +181,11 @@ public class StatusForGetModelCustomizationJobOutput {
    * @return phase
   **/
   @Schema(description = "")
-  public String getPhase() {
+  public PhaseEnum getPhase() {
     return phase;
   }
 
-  public void setPhase(String phase) {
+  public void setPhase(PhaseEnum phase) {
     this.phase = phase;
   }
 

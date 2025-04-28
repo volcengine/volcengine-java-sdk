@@ -42,7 +42,8 @@ public class DeleteCustomizedCfgRequest {
    * Get customizedCfgId
    * @return customizedCfgId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getCustomizedCfgId() {
     return customizedCfgId;
   }

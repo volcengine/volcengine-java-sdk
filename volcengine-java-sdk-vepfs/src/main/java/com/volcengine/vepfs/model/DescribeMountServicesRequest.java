@@ -31,18 +31,119 @@ import javax.validation.Valid;
  */
 
 
+
 public class DescribeMountServicesRequest {
   @SerializedName("Filters")
   private List<FilterForDescribeMountServicesInput> filters = null;
 
-  @SerializedName("OrderBy")
-  private String orderBy = null;
+  /**
+   * Gets or Sets languageCode
+   */
+  @JsonAdapter(LanguageCodeEnum.Adapter.class)
+  public enum LanguageCodeEnum {
+    @SerializedName("zh")
+    ZH("zh"),
+    @SerializedName("en")
+    EN("en");
+
+    private String value;
+
+    LanguageCodeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static LanguageCodeEnum fromValue(String input) {
+      for (LanguageCodeEnum b : LanguageCodeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<LanguageCodeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final LanguageCodeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public LanguageCodeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return LanguageCodeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("LanguageCode")
+  private LanguageCodeEnum languageCode = null;
+
+  /**
+   * Gets or Sets orderBy
+   */
+  @JsonAdapter(OrderByEnum.Adapter.class)
+  public enum OrderByEnum {
+    @SerializedName("CreateTimeDesc")
+    CREATETIMEDESC("CreateTimeDesc"),
+    @SerializedName("CreateTimeAsc")
+    CREATETIMEASC("CreateTimeAsc"),
+    @SerializedName("NameDesc")
+    NAMEDESC("NameDesc"),
+    @SerializedName("NameAsc")
+    NAMEASC("NameAsc"),
+    @SerializedName("VersionNumberDesc")
+    VERSIONNUMBERDESC("VersionNumberDesc"),
+    @SerializedName("VersionNumberAsc")
+    VERSIONNUMBERASC("VersionNumberAsc");
+
+    private String value;
+
+    OrderByEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static OrderByEnum fromValue(String input) {
+      for (OrderByEnum b : OrderByEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<OrderByEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final OrderByEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public OrderByEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return OrderByEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("OrderBy")
+  private OrderByEnum orderBy = null;
 
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
 
   @SerializedName("PageSize")
   private Integer pageSize = null;
+
+  @SerializedName("Project")
+  private String project = null;
 
   public DescribeMountServicesRequest filters(List<FilterForDescribeMountServicesInput> filters) {
     this.filters = filters;
@@ -71,7 +172,25 @@ public class DescribeMountServicesRequest {
     this.filters = filters;
   }
 
-  public DescribeMountServicesRequest orderBy(String orderBy) {
+  public DescribeMountServicesRequest languageCode(LanguageCodeEnum languageCode) {
+    this.languageCode = languageCode;
+    return this;
+  }
+
+   /**
+   * Get languageCode
+   * @return languageCode
+  **/
+  @Schema(description = "")
+  public LanguageCodeEnum getLanguageCode() {
+    return languageCode;
+  }
+
+  public void setLanguageCode(LanguageCodeEnum languageCode) {
+    this.languageCode = languageCode;
+  }
+
+  public DescribeMountServicesRequest orderBy(OrderByEnum orderBy) {
     this.orderBy = orderBy;
     return this;
   }
@@ -81,11 +200,11 @@ public class DescribeMountServicesRequest {
    * @return orderBy
   **/
   @Schema(description = "")
-  public String getOrderBy() {
+  public OrderByEnum getOrderBy() {
     return orderBy;
   }
 
-  public void setOrderBy(String orderBy) {
+  public void setOrderBy(OrderByEnum orderBy) {
     this.orderBy = orderBy;
   }
 
@@ -125,6 +244,24 @@ public class DescribeMountServicesRequest {
     this.pageSize = pageSize;
   }
 
+  public DescribeMountServicesRequest project(String project) {
+    this.project = project;
+    return this;
+  }
+
+   /**
+   * Get project
+   * @return project
+  **/
+  @Schema(description = "")
+  public String getProject() {
+    return project;
+  }
+
+  public void setProject(String project) {
+    this.project = project;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -136,14 +273,16 @@ public class DescribeMountServicesRequest {
     }
     DescribeMountServicesRequest describeMountServicesRequest = (DescribeMountServicesRequest) o;
     return Objects.equals(this.filters, describeMountServicesRequest.filters) &&
+        Objects.equals(this.languageCode, describeMountServicesRequest.languageCode) &&
         Objects.equals(this.orderBy, describeMountServicesRequest.orderBy) &&
         Objects.equals(this.pageNumber, describeMountServicesRequest.pageNumber) &&
-        Objects.equals(this.pageSize, describeMountServicesRequest.pageSize);
+        Objects.equals(this.pageSize, describeMountServicesRequest.pageSize) &&
+        Objects.equals(this.project, describeMountServicesRequest.project);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(filters, orderBy, pageNumber, pageSize);
+    return Objects.hash(filters, languageCode, orderBy, pageNumber, pageSize, project);
   }
 
 
@@ -153,9 +292,11 @@ public class DescribeMountServicesRequest {
     sb.append("class DescribeMountServicesRequest {\n");
     
     sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
+    sb.append("    languageCode: ").append(toIndentedString(languageCode)).append("\n");
     sb.append("    orderBy: ").append(toIndentedString(orderBy)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    project: ").append(toIndentedString(project)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -41,6 +41,9 @@ public class CreateServerGroupRequest {
   @SerializedName("HealthCheck")
   private HealthCheckForCreateServerGroupInput healthCheck = null;
 
+  @SerializedName("IPAddressType")
+  private String ipAddressType = null;
+
   @SerializedName("ProjectName")
   private String projectName = null;
 
@@ -100,6 +103,24 @@ public class CreateServerGroupRequest {
 
   public void setHealthCheck(HealthCheckForCreateServerGroupInput healthCheck) {
     this.healthCheck = healthCheck;
+  }
+
+  public CreateServerGroupRequest ipAddressType(String ipAddressType) {
+    this.ipAddressType = ipAddressType;
+    return this;
+  }
+
+   /**
+   * Get ipAddressType
+   * @return ipAddressType
+  **/
+  @Schema(description = "")
+  public String getIpAddressType() {
+    return ipAddressType;
+  }
+
+  public void setIpAddressType(String ipAddressType) {
+    this.ipAddressType = ipAddressType;
   }
 
   public CreateServerGroupRequest projectName(String projectName) {
@@ -247,7 +268,8 @@ public class CreateServerGroupRequest {
    * Get vpcId
    * @return vpcId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getVpcId() {
     return vpcId;
   }
@@ -268,6 +290,7 @@ public class CreateServerGroupRequest {
     CreateServerGroupRequest createServerGroupRequest = (CreateServerGroupRequest) o;
     return Objects.equals(this.description, createServerGroupRequest.description) &&
         Objects.equals(this.healthCheck, createServerGroupRequest.healthCheck) &&
+        Objects.equals(this.ipAddressType, createServerGroupRequest.ipAddressType) &&
         Objects.equals(this.projectName, createServerGroupRequest.projectName) &&
         Objects.equals(this.protocol, createServerGroupRequest.protocol) &&
         Objects.equals(this.scheduler, createServerGroupRequest.scheduler) &&
@@ -280,7 +303,7 @@ public class CreateServerGroupRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, healthCheck, projectName, protocol, scheduler, serverGroupName, serverGroupType, stickySessionConfig, tags, vpcId);
+    return Objects.hash(description, healthCheck, ipAddressType, projectName, protocol, scheduler, serverGroupName, serverGroupType, stickySessionConfig, tags, vpcId);
   }
 
 
@@ -291,6 +314,7 @@ public class CreateServerGroupRequest {
     
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    healthCheck: ").append(toIndentedString(healthCheck)).append("\n");
+    sb.append("    ipAddressType: ").append(toIndentedString(ipAddressType)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
     sb.append("    scheduler: ").append(toIndentedString(scheduler)).append("\n");

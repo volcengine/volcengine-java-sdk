@@ -42,6 +42,9 @@ public class DescribeServerGroupAttributesResponse extends com.volcengine.model.
   @SerializedName("HealthCheck")
   private HealthCheckForDescribeServerGroupAttributesOutput healthCheck = null;
 
+  @SerializedName("IPAddressType")
+  private String ipAddressType = null;
+
   @SerializedName("Listeners")
   private List<String> listeners = null;
 
@@ -116,6 +119,24 @@ public class DescribeServerGroupAttributesResponse extends com.volcengine.model.
 
   public void setHealthCheck(HealthCheckForDescribeServerGroupAttributesOutput healthCheck) {
     this.healthCheck = healthCheck;
+  }
+
+  public DescribeServerGroupAttributesResponse ipAddressType(String ipAddressType) {
+    this.ipAddressType = ipAddressType;
+    return this;
+  }
+
+   /**
+   * Get ipAddressType
+   * @return ipAddressType
+  **/
+  @Schema(description = "")
+  public String getIpAddressType() {
+    return ipAddressType;
+  }
+
+  public void setIpAddressType(String ipAddressType) {
+    this.ipAddressType = ipAddressType;
   }
 
   public DescribeServerGroupAttributesResponse listeners(List<String> listeners) {
@@ -391,6 +412,7 @@ public class DescribeServerGroupAttributesResponse extends com.volcengine.model.
     DescribeServerGroupAttributesResponse describeServerGroupAttributesResponse = (DescribeServerGroupAttributesResponse) o;
     return Objects.equals(this.description, describeServerGroupAttributesResponse.description) &&
         Objects.equals(this.healthCheck, describeServerGroupAttributesResponse.healthCheck) &&
+        Objects.equals(this.ipAddressType, describeServerGroupAttributesResponse.ipAddressType) &&
         Objects.equals(this.listeners, describeServerGroupAttributesResponse.listeners) &&
         Objects.equals(this.projectName, describeServerGroupAttributesResponse.projectName) &&
         Objects.equals(this.protocol, describeServerGroupAttributesResponse.protocol) &&
@@ -408,7 +430,7 @@ public class DescribeServerGroupAttributesResponse extends com.volcengine.model.
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, healthCheck, listeners, projectName, protocol, requestId, scheduler, serverGroupId, serverGroupName, serverGroupType, servers, status, stickySessionConfig, tags, vpcId);
+    return Objects.hash(description, healthCheck, ipAddressType, listeners, projectName, protocol, requestId, scheduler, serverGroupId, serverGroupName, serverGroupType, servers, status, stickySessionConfig, tags, vpcId);
   }
 
 
@@ -419,6 +441,7 @@ public class DescribeServerGroupAttributesResponse extends com.volcengine.model.
     
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    healthCheck: ").append(toIndentedString(healthCheck)).append("\n");
+    sb.append("    ipAddressType: ").append(toIndentedString(ipAddressType)).append("\n");
     sb.append("    listeners: ").append(toIndentedString(listeners)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");

@@ -28,7 +28,8 @@ import javax.validation.Valid;
  */
 
 
-public class CreateMountServiceResponse {
+
+public class CreateMountServiceResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("MountServiceId")
   private String mountServiceId = null;
 

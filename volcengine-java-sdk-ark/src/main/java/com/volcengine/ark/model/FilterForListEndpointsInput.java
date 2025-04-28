@@ -35,51 +35,8 @@ public class FilterForListEndpointsInput {
   @SerializedName("CustomModelIds")
   private List<String> customModelIds = null;
 
-  /**
-   * Gets or Sets endpointModelTypes
-   */
-  @JsonAdapter(EndpointModelTypesEnum.Adapter.class)
-  public enum EndpointModelTypesEnum {
-    @SerializedName("FoundationModel")
-    FOUNDATIONMODEL("FoundationModel"),
-    @SerializedName("CustomModel")
-    CUSTOMMODEL("CustomModel");
-
-    private String value;
-
-    EndpointModelTypesEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static EndpointModelTypesEnum fromValue(String input) {
-      for (EndpointModelTypesEnum b : EndpointModelTypesEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<EndpointModelTypesEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final EndpointModelTypesEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public EndpointModelTypesEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return EndpointModelTypesEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("EndpointModelTypes")
-  private List<EndpointModelTypesEnum> endpointModelTypes = null;
+  @SerializedName("EndpointModelTypes")
+  private List<String> endpointModelTypes = null;
 
   @SerializedName("FoundationModelName")
   private String foundationModelName = null;
@@ -93,55 +50,8 @@ public class FilterForListEndpointsInput {
   @SerializedName("Name")
   private String name = null;
 
-  /**
-   * Gets or Sets statuses
-   */
-  @JsonAdapter(StatusesEnum.Adapter.class)
-  public enum StatusesEnum {
-    @SerializedName("Running")
-    RUNNING("Running"),
-    @SerializedName("Scheduling")
-    SCHEDULING("Scheduling"),
-    @SerializedName("Abnormal")
-    ABNORMAL("Abnormal"),
-    @SerializedName("Stopped")
-    STOPPED("Stopped");
-
-    private String value;
-
-    StatusesEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static StatusesEnum fromValue(String input) {
-      for (StatusesEnum b : StatusesEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<StatusesEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final StatusesEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public StatusesEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return StatusesEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("Statuses")
-  private List<StatusesEnum> statuses = null;
+  @SerializedName("Statuses")
+  private List<String> statuses = null;
 
   public FilterForListEndpointsInput customModelIds(List<String> customModelIds) {
     this.customModelIds = customModelIds;
@@ -169,14 +79,14 @@ public class FilterForListEndpointsInput {
     this.customModelIds = customModelIds;
   }
 
-  public FilterForListEndpointsInput endpointModelTypes(List<EndpointModelTypesEnum> endpointModelTypes) {
+  public FilterForListEndpointsInput endpointModelTypes(List<String> endpointModelTypes) {
     this.endpointModelTypes = endpointModelTypes;
     return this;
   }
 
-  public FilterForListEndpointsInput addEndpointModelTypesItem(EndpointModelTypesEnum endpointModelTypesItem) {
+  public FilterForListEndpointsInput addEndpointModelTypesItem(String endpointModelTypesItem) {
     if (this.endpointModelTypes == null) {
-      this.endpointModelTypes = new ArrayList<EndpointModelTypesEnum>();
+      this.endpointModelTypes = new ArrayList<String>();
     }
     this.endpointModelTypes.add(endpointModelTypesItem);
     return this;
@@ -187,11 +97,11 @@ public class FilterForListEndpointsInput {
    * @return endpointModelTypes
   **/
   @Schema(description = "")
-  public List<EndpointModelTypesEnum> getEndpointModelTypes() {
+  public List<String> getEndpointModelTypes() {
     return endpointModelTypes;
   }
 
-  public void setEndpointModelTypes(List<EndpointModelTypesEnum> endpointModelTypes) {
+  public void setEndpointModelTypes(List<String> endpointModelTypes) {
     this.endpointModelTypes = endpointModelTypes;
   }
 
@@ -283,14 +193,14 @@ public class FilterForListEndpointsInput {
     this.name = name;
   }
 
-  public FilterForListEndpointsInput statuses(List<StatusesEnum> statuses) {
+  public FilterForListEndpointsInput statuses(List<String> statuses) {
     this.statuses = statuses;
     return this;
   }
 
-  public FilterForListEndpointsInput addStatusesItem(StatusesEnum statusesItem) {
+  public FilterForListEndpointsInput addStatusesItem(String statusesItem) {
     if (this.statuses == null) {
-      this.statuses = new ArrayList<StatusesEnum>();
+      this.statuses = new ArrayList<String>();
     }
     this.statuses.add(statusesItem);
     return this;
@@ -301,11 +211,11 @@ public class FilterForListEndpointsInput {
    * @return statuses
   **/
   @Schema(description = "")
-  public List<StatusesEnum> getStatuses() {
+  public List<String> getStatuses() {
     return statuses;
   }
 
-  public void setStatuses(List<StatusesEnum> statuses) {
+  public void setStatuses(List<String> statuses) {
     this.statuses = statuses;
   }
 

@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateMountServiceRequest {
   @SerializedName("MountServiceName")
   private String mountServiceName = null;
@@ -56,7 +57,8 @@ public class CreateMountServiceRequest {
    * Get mountServiceName
    * @return mountServiceName
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getMountServiceName() {
     return mountServiceName;
   }
@@ -74,7 +76,8 @@ public class CreateMountServiceRequest {
    * Get nodeType
    * @return nodeType
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getNodeType() {
     return nodeType;
   }
@@ -110,7 +113,8 @@ public class CreateMountServiceRequest {
    * Get subnetId
    * @return subnetId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getSubnetId() {
     return subnetId;
   }
@@ -128,7 +132,8 @@ public class CreateMountServiceRequest {
    * Get vpcId
    * @return vpcId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getVpcId() {
     return vpcId;
   }
@@ -146,7 +151,8 @@ public class CreateMountServiceRequest {
    * Get zoneId
    * @return zoneId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getZoneId() {
     return zoneId;
   }

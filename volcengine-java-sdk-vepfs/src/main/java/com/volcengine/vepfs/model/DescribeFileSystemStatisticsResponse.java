@@ -31,7 +31,8 @@ import javax.validation.Valid;
  */
 
 
-public class DescribeFileSystemStatisticsResponse {
+
+public class DescribeFileSystemStatisticsResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Statistics")
   private List<StatisticForDescribeFileSystemStatisticsOutput> statistics = null;
 

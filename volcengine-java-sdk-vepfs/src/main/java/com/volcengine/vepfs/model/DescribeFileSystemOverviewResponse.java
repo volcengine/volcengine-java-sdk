@@ -29,7 +29,8 @@ import javax.validation.Valid;
  */
 
 
-public class DescribeFileSystemOverviewResponse {
+
+public class DescribeFileSystemOverviewResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("OverView")
   private OverViewForDescribeFileSystemOverviewOutput overView = null;
 

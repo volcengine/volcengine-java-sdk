@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class AttachMountServiceToSelfFileSystemRequest {
   @SerializedName("CustomerPath")
   private String customerPath = null;
@@ -65,7 +66,8 @@ public class AttachMountServiceToSelfFileSystemRequest {
    * Get fileSystemId
    * @return fileSystemId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getFileSystemId() {
     return fileSystemId;
   }
@@ -83,7 +85,8 @@ public class AttachMountServiceToSelfFileSystemRequest {
    * Get mountServiceId
    * @return mountServiceId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getMountServiceId() {
     return mountServiceId;
   }

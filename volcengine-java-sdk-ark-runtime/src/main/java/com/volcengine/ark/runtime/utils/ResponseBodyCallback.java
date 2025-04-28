@@ -58,6 +58,8 @@ public class ResponseBodyCallback implements Callback<ResponseBody> {
                                 ArkAPIError.class
                         );
                         throw new ArkHttpException(error, e, e.code(), requestId);
+                    } catch (ArkHttpException httpException) {
+                        throw httpException;
                     } catch (Exception ignore) {
                         throw new ArkHttpException(new ArkAPIError(new ArkAPIError.ArkErrorDetails(e.getMessage(), "", "", "InternalServiceError")), e, e.code(), requestId);
                     }
@@ -80,7 +82,8 @@ public class ResponseBodyCallback implements Callback<ResponseBody> {
                         }
                     } catch (ArkHttpException e) {
                         throw e;
-                    } catch (Exception ignored) {}
+                    } catch (Exception ignored) {
+                    }
 
                     sse = new SSE(data);
                 } else if (line.equals("") && sse != null) {
@@ -107,7 +110,7 @@ public class ResponseBodyCallback implements Callback<ResponseBody> {
                 try {
                     reader.close();
                 } catch (IOException e) {
-					          // do nothing
+                    // do nothing
                 }
             }
         }
