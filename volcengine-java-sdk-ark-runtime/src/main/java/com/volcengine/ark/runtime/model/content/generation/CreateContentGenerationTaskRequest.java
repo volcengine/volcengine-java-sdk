@@ -87,13 +87,17 @@ public class CreateContentGenerationTaskRequest {
         @JsonProperty("image_url")
         private ImageUrl imageUrl;
 
+        @JsonProperty("role")
+        private String role;
+
         public Content() {
         }
 
-        public Content(String type, String text, ImageUrl imageUrl) {
+        public Content(String type, String text, ImageUrl imageUrl, String role) {
             this.type = type;
             this.text = text;
             this.imageUrl = imageUrl;
+            this.role = role;
         }
 
         public String getType() {
@@ -120,12 +124,21 @@ public class CreateContentGenerationTaskRequest {
             this.imageUrl = imageUrl;
         }
 
+        public String getRole() {
+            return role;
+        }
+
+        public void setRole(String role) {
+            this.role = role;
+        }
+
         @Override
         public String toString() {
             return "Content{" +
                     "type='" + type + '\'' +
                     ", text='" + text + '\'' +
                     ", imageUrl=" + imageUrl +
+                    ", role=" + role +
                     '}';
         }
 
@@ -137,6 +150,7 @@ public class CreateContentGenerationTaskRequest {
             private String type;
             private String text;
             private ImageUrl imageUrl;
+            private String role;
 
             private Builder() {
             }
@@ -156,11 +170,17 @@ public class CreateContentGenerationTaskRequest {
                 return this;
             }
 
+            public Builder role(String role) {
+                this.role = role;
+                return this;
+            }
+
             public Content build() {
                 Content content = new Content();
                 content.setType(type);
                 content.setText(text);
                 content.setImageUrl(imageUrl);
+                content.setRole(role);
                 return content;
             }
         }
