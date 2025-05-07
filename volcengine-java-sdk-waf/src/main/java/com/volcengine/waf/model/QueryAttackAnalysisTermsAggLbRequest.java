@@ -44,6 +44,9 @@ public class QueryAttackAnalysisTermsAggLbRequest {
   @SerializedName("Plugins")
   private List<String> plugins = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("StartTime")
   private Integer startTime = null;
 
@@ -56,7 +59,8 @@ public class QueryAttackAnalysisTermsAggLbRequest {
    * Get analysisKey
    * @return analysisKey
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getAnalysisKey() {
     return analysisKey;
   }
@@ -128,6 +132,24 @@ public class QueryAttackAnalysisTermsAggLbRequest {
     this.plugins = plugins;
   }
 
+  public QueryAttackAnalysisTermsAggLbRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public QueryAttackAnalysisTermsAggLbRequest startTime(Integer startTime) {
     this.startTime = startTime;
     return this;
@@ -161,12 +183,13 @@ public class QueryAttackAnalysisTermsAggLbRequest {
         Objects.equals(this.endTime, queryAttackAnalysisTermsAggLbRequest.endTime) &&
         Objects.equals(this.host, queryAttackAnalysisTermsAggLbRequest.host) &&
         Objects.equals(this.plugins, queryAttackAnalysisTermsAggLbRequest.plugins) &&
+        Objects.equals(this.projectName, queryAttackAnalysisTermsAggLbRequest.projectName) &&
         Objects.equals(this.startTime, queryAttackAnalysisTermsAggLbRequest.startTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(analysisKey, endTime, host, plugins, startTime);
+    return Objects.hash(analysisKey, endTime, host, plugins, projectName, startTime);
   }
 
 
@@ -179,6 +202,7 @@ public class QueryAttackAnalysisTermsAggLbRequest {
     sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    plugins: ").append(toIndentedString(plugins)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
     sb.append("}");
     return sb.toString();
