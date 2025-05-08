@@ -34,7 +34,7 @@ public class ListCustomPageRequest {
   private String host = null;
 
   @SerializedName("Page")
-  private String page = null;
+  private Integer page = null;
 
   @SerializedName("PageSize")
   private Integer pageSize = null;
@@ -61,7 +61,7 @@ public class ListCustomPageRequest {
     this.host = host;
   }
 
-  public ListCustomPageRequest page(String page) {
+  public ListCustomPageRequest page(Integer page) {
     this.page = page;
     return this;
   }
@@ -71,11 +71,11 @@ public class ListCustomPageRequest {
    * @return page
   **/
   @Schema(description = "")
-  public String getPage() {
+  public Integer getPage() {
     return page;
   }
 
-  public void setPage(String page) {
+  public void setPage(Integer page) {
     this.page = page;
   }
 
