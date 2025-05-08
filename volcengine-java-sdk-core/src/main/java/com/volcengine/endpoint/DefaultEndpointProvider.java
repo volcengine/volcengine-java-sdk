@@ -11,6 +11,7 @@ public class DefaultEndpointProvider implements EndpointResolver {
 
     // 区域代码常量
     public static final String REGION_CODE_CN_BEIJING_AUTODRIVING = "cn-beijing-autodriving";
+    public static final String REGION_CODE_CN_SHANGHAI_AUTODRIVING = "cn-shanghai-autodriving";
     public static final String REGION_CODE_AP_SOUTH_EAST_2 = "ap-southeast-2";
     public static final String REGION_CODE_AP_SOUTH_EAST_3 = "ap-southeast-3";
     public static final String REGION_CODE_CN_HONGKONG = "cn-hongkong";
@@ -27,6 +28,7 @@ public class DefaultEndpointProvider implements EndpointResolver {
         BOOTSTRAP_REGION.add(REGION_CODE_CN_BEIJING_AUTODRIVING);
         BOOTSTRAP_REGION.add(REGION_CODE_AP_SOUTH_EAST_2);
         BOOTSTRAP_REGION.add(REGION_CODE_AP_SOUTH_EAST_3);
+        BOOTSTRAP_REGION.add(REGION_CODE_CN_SHANGHAI_AUTODRIVING);
     }
 
     static {
