@@ -44,7 +44,7 @@ public class ImageGenerationsExample {
 
         System.out.println(generateRequest.toString());
         // send create request
-        ImagesResponse imagesResponse = service.GenerateImages(generateRequest);
+        ImagesResponse imagesResponse = service.generateImages(generateRequest);
         System.out.println(imagesResponse.getData().get(0).getUrl());
 
         service.shutdownExecutor();

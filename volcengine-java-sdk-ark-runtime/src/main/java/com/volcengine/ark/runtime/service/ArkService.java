@@ -269,7 +269,7 @@ public class ArkService extends ArkBaseService implements ArkBaseServiceImpl {
         return execute(api.createTokenization(request, request.getModel(), customHeaders));
     }
 
-    public ImagesResponse GenerateImages(GenerateImagesRequest request) {
+    public ImagesResponse generateImages(GenerateImagesRequest request) {
         return execute(api.generateImages(request, request.getModel(), new HashMap<>()));
     }
 
