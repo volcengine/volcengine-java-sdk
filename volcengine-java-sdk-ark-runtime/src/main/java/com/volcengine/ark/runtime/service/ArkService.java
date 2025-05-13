@@ -22,6 +22,8 @@ import com.volcengine.ark.runtime.model.context.CreateContextResult;
 import com.volcengine.ark.runtime.model.context.chat.ContextChatCompletionRequest;
 import com.volcengine.ark.runtime.model.embeddings.EmbeddingRequest;
 import com.volcengine.ark.runtime.model.embeddings.EmbeddingResult;
+import com.volcengine.ark.runtime.model.images.generation.GenerateImagesRequest;
+import com.volcengine.ark.runtime.model.images.generation.ImagesResponse;
 import com.volcengine.ark.runtime.model.multimodalembeddings.MultimodalEmbeddingRequest;
 import com.volcengine.ark.runtime.model.multimodalembeddings.MultimodalEmbeddingResult;
 import com.volcengine.ark.runtime.model.tokenization.TokenizationRequest;
@@ -265,6 +267,10 @@ public class ArkService extends ArkBaseService implements ArkBaseServiceImpl {
 
     public TokenizationResult createTokenization(TokenizationRequest request, Map<String, String> customHeaders) {
         return execute(api.createTokenization(request, request.getModel(), customHeaders));
+    }
+
+    public ImagesResponse GenerateImages(GenerateImagesRequest request) {
+        return execute(api.generateImages(request, request.getModel(), new HashMap<>()));
     }
 
     public CreateContentGenerationTaskResult createContentGenerationTask(CreateContentGenerationTaskRequest request) {
