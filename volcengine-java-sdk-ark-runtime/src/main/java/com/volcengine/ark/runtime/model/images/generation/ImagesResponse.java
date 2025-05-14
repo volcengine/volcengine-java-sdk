@@ -81,7 +81,7 @@ public class ImagesResponse {
         }
 
         public String getB64Json() {
-            return url;
+            return b64Json;
         }
 
         public void setB64Json(String b64Json) {
