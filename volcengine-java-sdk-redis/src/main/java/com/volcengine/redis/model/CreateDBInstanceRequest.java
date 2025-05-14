@@ -61,8 +61,59 @@ public class CreateDBInstanceRequest {
   @SerializedName("MultiAZ")
   private String multiAZ = null;
 
+  /**
+   * Gets or Sets noAuthMode
+   */
+  @JsonAdapter(NoAuthModeEnum.Adapter.class)
+  public enum NoAuthModeEnum {
+    @SerializedName("Invalid")
+    INVALID("Invalid"),
+    @SerializedName("open")
+    OPEN("open"),
+    @SerializedName("close")
+    CLOSE("close");
+
+    private String value;
+
+    NoAuthModeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static NoAuthModeEnum fromValue(String input) {
+      for (NoAuthModeEnum b : NoAuthModeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<NoAuthModeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final NoAuthModeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public NoAuthModeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return NoAuthModeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("NoAuthMode")
+  private NoAuthModeEnum noAuthMode = null;
+
   @SerializedName("NodeNumber")
   private Integer nodeNumber = null;
+
+  @SerializedName("ParameterGroupId")
+  private String parameterGroupId = null;
 
   @SerializedName("Password")
   private String password = null;
@@ -278,6 +329,24 @@ public class CreateDBInstanceRequest {
     this.multiAZ = multiAZ;
   }
 
+  public CreateDBInstanceRequest noAuthMode(NoAuthModeEnum noAuthMode) {
+    this.noAuthMode = noAuthMode;
+    return this;
+  }
+
+   /**
+   * Get noAuthMode
+   * @return noAuthMode
+  **/
+  @Schema(description = "")
+  public NoAuthModeEnum getNoAuthMode() {
+    return noAuthMode;
+  }
+
+  public void setNoAuthMode(NoAuthModeEnum noAuthMode) {
+    this.noAuthMode = noAuthMode;
+  }
+
   public CreateDBInstanceRequest nodeNumber(Integer nodeNumber) {
     this.nodeNumber = nodeNumber;
     return this;
@@ -297,6 +366,24 @@ public class CreateDBInstanceRequest {
     this.nodeNumber = nodeNumber;
   }
 
+  public CreateDBInstanceRequest parameterGroupId(String parameterGroupId) {
+    this.parameterGroupId = parameterGroupId;
+    return this;
+  }
+
+   /**
+   * Get parameterGroupId
+   * @return parameterGroupId
+  **/
+  @Schema(description = "")
+  public String getParameterGroupId() {
+    return parameterGroupId;
+  }
+
+  public void setParameterGroupId(String parameterGroupId) {
+    this.parameterGroupId = parameterGroupId;
+  }
+
   public CreateDBInstanceRequest password(String password) {
     this.password = password;
     return this;
@@ -306,8 +393,7 @@ public class CreateDBInstanceRequest {
    * Get password
    * @return password
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getPassword() {
     return password;
   }
@@ -529,7 +615,9 @@ public class CreateDBInstanceRequest {
         Objects.equals(this.engineVersion, createDBInstanceRequest.engineVersion) &&
         Objects.equals(this.instanceName, createDBInstanceRequest.instanceName) &&
         Objects.equals(this.multiAZ, createDBInstanceRequest.multiAZ) &&
+        Objects.equals(this.noAuthMode, createDBInstanceRequest.noAuthMode) &&
         Objects.equals(this.nodeNumber, createDBInstanceRequest.nodeNumber) &&
+        Objects.equals(this.parameterGroupId, createDBInstanceRequest.parameterGroupId) &&
         Objects.equals(this.password, createDBInstanceRequest.password) &&
         Objects.equals(this.port, createDBInstanceRequest.port) &&
         Objects.equals(this.projectName, createDBInstanceRequest.projectName) &&
@@ -545,7 +633,7 @@ public class CreateDBInstanceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowListIds, autoRenew, chargeType, clientToken, configureNodes, deletionProtection, engineVersion, instanceName, multiAZ, nodeNumber, password, port, projectName, purchaseMonths, regionId, shardCapacity, shardNumber, shardedCluster, subnetId, tags, vpcId);
+    return Objects.hash(allowListIds, autoRenew, chargeType, clientToken, configureNodes, deletionProtection, engineVersion, instanceName, multiAZ, noAuthMode, nodeNumber, parameterGroupId, password, port, projectName, purchaseMonths, regionId, shardCapacity, shardNumber, shardedCluster, subnetId, tags, vpcId);
   }
 
 
@@ -563,7 +651,9 @@ public class CreateDBInstanceRequest {
     sb.append("    engineVersion: ").append(toIndentedString(engineVersion)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    multiAZ: ").append(toIndentedString(multiAZ)).append("\n");
+    sb.append("    noAuthMode: ").append(toIndentedString(noAuthMode)).append("\n");
     sb.append("    nodeNumber: ").append(toIndentedString(nodeNumber)).append("\n");
+    sb.append("    parameterGroupId: ").append(toIndentedString(parameterGroupId)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");

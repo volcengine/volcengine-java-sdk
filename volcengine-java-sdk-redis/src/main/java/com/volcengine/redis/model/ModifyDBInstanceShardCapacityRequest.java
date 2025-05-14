@@ -45,6 +45,9 @@ public class ModifyDBInstanceShardCapacityRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;
 
+  @SerializedName("ReserveAdditionalBandwidth")
+  private Boolean reserveAdditionalBandwidth = null;
+
   @SerializedName("ShardCapacity")
   private Long shardCapacity = null;
 
@@ -140,6 +143,24 @@ public class ModifyDBInstanceShardCapacityRequest {
     this.instanceId = instanceId;
   }
 
+  public ModifyDBInstanceShardCapacityRequest reserveAdditionalBandwidth(Boolean reserveAdditionalBandwidth) {
+    this.reserveAdditionalBandwidth = reserveAdditionalBandwidth;
+    return this;
+  }
+
+   /**
+   * Get reserveAdditionalBandwidth
+   * @return reserveAdditionalBandwidth
+  **/
+  @Schema(description = "")
+  public Boolean isReserveAdditionalBandwidth() {
+    return reserveAdditionalBandwidth;
+  }
+
+  public void setReserveAdditionalBandwidth(Boolean reserveAdditionalBandwidth) {
+    this.reserveAdditionalBandwidth = reserveAdditionalBandwidth;
+  }
+
   public ModifyDBInstanceShardCapacityRequest shardCapacity(Long shardCapacity) {
     this.shardCapacity = shardCapacity;
     return this;
@@ -174,12 +195,13 @@ public class ModifyDBInstanceShardCapacityRequest {
         Objects.equals(this.clientToken, modifyDBInstanceShardCapacityRequest.clientToken) &&
         Objects.equals(this.createBackup, modifyDBInstanceShardCapacityRequest.createBackup) &&
         Objects.equals(this.instanceId, modifyDBInstanceShardCapacityRequest.instanceId) &&
+        Objects.equals(this.reserveAdditionalBandwidth, modifyDBInstanceShardCapacityRequest.reserveAdditionalBandwidth) &&
         Objects.equals(this.shardCapacity, modifyDBInstanceShardCapacityRequest.shardCapacity);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(applyImmediately, backupPointName, clientToken, createBackup, instanceId, shardCapacity);
+    return Objects.hash(applyImmediately, backupPointName, clientToken, createBackup, instanceId, reserveAdditionalBandwidth, shardCapacity);
   }
 
 
@@ -193,6 +215,7 @@ public class ModifyDBInstanceShardCapacityRequest {
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    createBackup: ").append(toIndentedString(createBackup)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    reserveAdditionalBandwidth: ").append(toIndentedString(reserveAdditionalBandwidth)).append("\n");
     sb.append("    shardCapacity: ").append(toIndentedString(shardCapacity)).append("\n");
     sb.append("}");
     return sb.toString();
