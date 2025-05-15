@@ -31,6 +31,12 @@ import javax.validation.Valid;
 
 
 public class CreateKafkaTriggerRequest {
+  @SerializedName("BatchFlushDurationMilliseconds")
+  private Integer batchFlushDurationMilliseconds = null;
+
+  @SerializedName("BatchSize")
+  private Integer batchSize = null;
+
   @SerializedName("Description")
   private String description = null;
 
@@ -57,6 +63,42 @@ public class CreateKafkaTriggerRequest {
 
   @SerializedName("TopicName")
   private String topicName = null;
+
+  public CreateKafkaTriggerRequest batchFlushDurationMilliseconds(Integer batchFlushDurationMilliseconds) {
+    this.batchFlushDurationMilliseconds = batchFlushDurationMilliseconds;
+    return this;
+  }
+
+   /**
+   * Get batchFlushDurationMilliseconds
+   * @return batchFlushDurationMilliseconds
+  **/
+  @Schema(description = "")
+  public Integer getBatchFlushDurationMilliseconds() {
+    return batchFlushDurationMilliseconds;
+  }
+
+  public void setBatchFlushDurationMilliseconds(Integer batchFlushDurationMilliseconds) {
+    this.batchFlushDurationMilliseconds = batchFlushDurationMilliseconds;
+  }
+
+  public CreateKafkaTriggerRequest batchSize(Integer batchSize) {
+    this.batchSize = batchSize;
+    return this;
+  }
+
+   /**
+   * Get batchSize
+   * @return batchSize
+  **/
+  @Schema(description = "")
+  public Integer getBatchSize() {
+    return batchSize;
+  }
+
+  public void setBatchSize(Integer batchSize) {
+    this.batchSize = batchSize;
+  }
 
   public CreateKafkaTriggerRequest description(String description) {
     this.description = description;
@@ -235,7 +277,9 @@ public class CreateKafkaTriggerRequest {
       return false;
     }
     CreateKafkaTriggerRequest createKafkaTriggerRequest = (CreateKafkaTriggerRequest) o;
-    return Objects.equals(this.description, createKafkaTriggerRequest.description) &&
+    return Objects.equals(this.batchFlushDurationMilliseconds, createKafkaTriggerRequest.batchFlushDurationMilliseconds) &&
+        Objects.equals(this.batchSize, createKafkaTriggerRequest.batchSize) &&
+        Objects.equals(this.description, createKafkaTriggerRequest.description) &&
         Objects.equals(this.enabled, createKafkaTriggerRequest.enabled) &&
         Objects.equals(this.functionId, createKafkaTriggerRequest.functionId) &&
         Objects.equals(this.kafkaCredentials, createKafkaTriggerRequest.kafkaCredentials) &&
@@ -248,7 +292,7 @@ public class CreateKafkaTriggerRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, enabled, functionId, kafkaCredentials, maximumRetryAttempts, mqInstanceId, name, startingPosition, topicName);
+    return Objects.hash(batchFlushDurationMilliseconds, batchSize, description, enabled, functionId, kafkaCredentials, maximumRetryAttempts, mqInstanceId, name, startingPosition, topicName);
   }
 
 
@@ -257,6 +301,8 @@ public class CreateKafkaTriggerRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateKafkaTriggerRequest {\n");
     
+    sb.append("    batchFlushDurationMilliseconds: ").append(toIndentedString(batchFlushDurationMilliseconds)).append("\n");
+    sb.append("    batchSize: ").append(toIndentedString(batchSize)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");

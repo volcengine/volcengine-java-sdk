@@ -94,6 +94,9 @@ public class DescribeLoadBalancerAttributesResponse extends com.volcengine.model
   @SerializedName("LoadBalancerBillingType")
   private Integer loadBalancerBillingType = null;
 
+  @SerializedName("LoadBalancerEdition")
+  private String loadBalancerEdition = null;
+
   @SerializedName("LoadBalancerId")
   private String loadBalancerId = null;
 
@@ -489,6 +492,24 @@ public class DescribeLoadBalancerAttributesResponse extends com.volcengine.model
 
   public void setLoadBalancerBillingType(Integer loadBalancerBillingType) {
     this.loadBalancerBillingType = loadBalancerBillingType;
+  }
+
+  public DescribeLoadBalancerAttributesResponse loadBalancerEdition(String loadBalancerEdition) {
+    this.loadBalancerEdition = loadBalancerEdition;
+    return this;
+  }
+
+   /**
+   * Get loadBalancerEdition
+   * @return loadBalancerEdition
+  **/
+  @Schema(description = "")
+  public String getLoadBalancerEdition() {
+    return loadBalancerEdition;
+  }
+
+  public void setLoadBalancerEdition(String loadBalancerEdition) {
+    this.loadBalancerEdition = loadBalancerEdition;
   }
 
   public DescribeLoadBalancerAttributesResponse loadBalancerId(String loadBalancerId) {
@@ -906,6 +927,7 @@ public class DescribeLoadBalancerAttributesResponse extends com.volcengine.model
         Objects.equals(this.healthLog, describeLoadBalancerAttributesResponse.healthLog) &&
         Objects.equals(this.listeners, describeLoadBalancerAttributesResponse.listeners) &&
         Objects.equals(this.loadBalancerBillingType, describeLoadBalancerAttributesResponse.loadBalancerBillingType) &&
+        Objects.equals(this.loadBalancerEdition, describeLoadBalancerAttributesResponse.loadBalancerEdition) &&
         Objects.equals(this.loadBalancerId, describeLoadBalancerAttributesResponse.loadBalancerId) &&
         Objects.equals(this.loadBalancerName, describeLoadBalancerAttributesResponse.loadBalancerName) &&
         Objects.equals(this.localAddresses, describeLoadBalancerAttributesResponse.localAddresses) &&
@@ -930,7 +952,7 @@ public class DescribeLoadBalancerAttributesResponse extends com.volcengine.model
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessLog, addressIpVersion, businessStatus, createTime, dnSName, deleteProtection, deletedTime, description, eip, eipAddress, eipId, enabled, eniAddress, eniId, globalAccelerators, healthLog, listeners, loadBalancerBillingType, loadBalancerId, loadBalancerName, localAddresses, lockReason, modificationProtectionReason, modificationProtectionStatus, overdueTime, projectName, requestId, sniAutoMatch, status, subnetId, tlSAccessLog, tags, type, updateTime, vpcId, wafInstanceId, wafProtectionEnabled, zoneMappings);
+    return Objects.hash(accessLog, addressIpVersion, businessStatus, createTime, dnSName, deleteProtection, deletedTime, description, eip, eipAddress, eipId, enabled, eniAddress, eniId, globalAccelerators, healthLog, listeners, loadBalancerBillingType, loadBalancerEdition, loadBalancerId, loadBalancerName, localAddresses, lockReason, modificationProtectionReason, modificationProtectionStatus, overdueTime, projectName, requestId, sniAutoMatch, status, subnetId, tlSAccessLog, tags, type, updateTime, vpcId, wafInstanceId, wafProtectionEnabled, zoneMappings);
   }
 
 
@@ -957,6 +979,7 @@ public class DescribeLoadBalancerAttributesResponse extends com.volcengine.model
     sb.append("    healthLog: ").append(toIndentedString(healthLog)).append("\n");
     sb.append("    listeners: ").append(toIndentedString(listeners)).append("\n");
     sb.append("    loadBalancerBillingType: ").append(toIndentedString(loadBalancerBillingType)).append("\n");
+    sb.append("    loadBalancerEdition: ").append(toIndentedString(loadBalancerEdition)).append("\n");
     sb.append("    loadBalancerId: ").append(toIndentedString(loadBalancerId)).append("\n");
     sb.append("    loadBalancerName: ").append(toIndentedString(loadBalancerName)).append("\n");
     sb.append("    localAddresses: ").append(toIndentedString(localAddresses)).append("\n");

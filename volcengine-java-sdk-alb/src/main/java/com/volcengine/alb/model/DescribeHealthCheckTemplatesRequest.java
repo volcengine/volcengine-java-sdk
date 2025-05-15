@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.alb.model.TagFilterForDescribeHealthCheckTemplatesInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -43,6 +44,12 @@ public class DescribeHealthCheckTemplatesRequest {
 
   @SerializedName("PageSize")
   private Integer pageSize = null;
+
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
+  @SerializedName("TagFilters")
+  private List<TagFilterForDescribeHealthCheckTemplatesInput> tagFilters = null;
 
   public DescribeHealthCheckTemplatesRequest healthCheckTemplateIds(List<String> healthCheckTemplateIds) {
     this.healthCheckTemplateIds = healthCheckTemplateIds;
@@ -124,6 +131,51 @@ public class DescribeHealthCheckTemplatesRequest {
     this.pageSize = pageSize;
   }
 
+  public DescribeHealthCheckTemplatesRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
+  public DescribeHealthCheckTemplatesRequest tagFilters(List<TagFilterForDescribeHealthCheckTemplatesInput> tagFilters) {
+    this.tagFilters = tagFilters;
+    return this;
+  }
+
+  public DescribeHealthCheckTemplatesRequest addTagFiltersItem(TagFilterForDescribeHealthCheckTemplatesInput tagFiltersItem) {
+    if (this.tagFilters == null) {
+      this.tagFilters = new ArrayList<TagFilterForDescribeHealthCheckTemplatesInput>();
+    }
+    this.tagFilters.add(tagFiltersItem);
+    return this;
+  }
+
+   /**
+   * Get tagFilters
+   * @return tagFilters
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagFilterForDescribeHealthCheckTemplatesInput> getTagFilters() {
+    return tagFilters;
+  }
+
+  public void setTagFilters(List<TagFilterForDescribeHealthCheckTemplatesInput> tagFilters) {
+    this.tagFilters = tagFilters;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -137,12 +189,14 @@ public class DescribeHealthCheckTemplatesRequest {
     return Objects.equals(this.healthCheckTemplateIds, describeHealthCheckTemplatesRequest.healthCheckTemplateIds) &&
         Objects.equals(this.healthCheckTemplateName, describeHealthCheckTemplatesRequest.healthCheckTemplateName) &&
         Objects.equals(this.pageNumber, describeHealthCheckTemplatesRequest.pageNumber) &&
-        Objects.equals(this.pageSize, describeHealthCheckTemplatesRequest.pageSize);
+        Objects.equals(this.pageSize, describeHealthCheckTemplatesRequest.pageSize) &&
+        Objects.equals(this.projectName, describeHealthCheckTemplatesRequest.projectName) &&
+        Objects.equals(this.tagFilters, describeHealthCheckTemplatesRequest.tagFilters);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(healthCheckTemplateIds, healthCheckTemplateName, pageNumber, pageSize);
+    return Objects.hash(healthCheckTemplateIds, healthCheckTemplateName, pageNumber, pageSize, projectName, tagFilters);
   }
 
 
@@ -155,6 +209,8 @@ public class DescribeHealthCheckTemplatesRequest {
     sb.append("    healthCheckTemplateName: ").append(toIndentedString(healthCheckTemplateName)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("}");
     return sb.toString();
   }

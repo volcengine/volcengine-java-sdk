@@ -47,7 +47,8 @@ public class RemoveAclEntriesRequest {
    * Get aclId
    * @return aclId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getAclId() {
     return aclId;
   }

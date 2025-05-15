@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class DeleteFileSystemRequest {
   @SerializedName("FileSystemId")
   private String fileSystemId = null;
@@ -41,7 +42,8 @@ public class DeleteFileSystemRequest {
    * Get fileSystemId
    * @return fileSystemId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getFileSystemId() {
     return fileSystemId;
   }

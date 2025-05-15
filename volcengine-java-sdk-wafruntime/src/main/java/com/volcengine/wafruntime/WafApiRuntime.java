@@ -19,48 +19,45 @@ import com.volcengine.ApiResponse;
 import com.volcengine.waf.WafApi;
 import com.volcengine.waf.model.CheckLLMResponseStreamRequest;
 import com.volcengine.waf.model.CheckLLMResponseStreamResponse;
-
 public class WafApiRuntime extends WafApi {
-    private String Streambuf = "";
-    private int StreamSendLen = 0;
-    private String MsgID = "";
-    private ApiClient apiClient;
-    private CheckLLMResponseStreamResponse defaultBody;
-
-    // WafApiRuntime 的构造函数，显式调用父类的构造函数
+    public WafApiRuntime() {
+        super();
+    }
     public WafApiRuntime(ApiClient apiClient) {
-        super(apiClient);  // 调用父类的带参数构造函数
-        this.apiClient = apiClient;
+        super(apiClient);
     }
+    public CheckLLMResponseStreamResponse checkLLMResponseStream(CheckLLMResponseStreamRequest body, LLMStreamSession session) throws ApiException {
+        // 检查输入参数是否为空
+        if (body == null || session == null) {
+            throw new IllegalArgumentException("输入参数 body 或 session 为空，无法进行处理。");
+        }
 
-    // 提供一个方法用于更新拼接字符串和发送长度
-    public void appendStreambuf(String value) {
-        Streambuf = Streambuf + value;
-        StreamSendLen += Streambuf.length();
-    }
+        String content = body.getContent();
+        if (content == null) {
+            content = "";
+        }
+        session.appendStreamBuf(content);
 
-    @Override
-    public CheckLLMResponseStreamResponse checkLLMResponseStream(CheckLLMResponseStreamRequest body) throws ApiException {
-        appendStreambuf(body.getContent());
         // 发送长度小于10个字符并且不是第一次也不是最后一次的条件下则缓存content
-        if (StreamSendLen < 10 && body.getMsgID() != null && body.getUseStream() != 2) {
-            return defaultBody;
+        if (session.getStreamSendLen() < 10 && body.getMsgID() != null && body.getUseStream() != 2) {
+            return session.getDefaultBody();
         }
-        StreamSendLen = 0;
-        body.setContent(Streambuf);
-        if (!MsgID.isEmpty()) {
-            body.setMsgID(MsgID);
-        }
+        session.setStreamSendLen(0);
+        body.setContent(session.getStreamBuf());
 
+        String msgID = session.getMsgID();
+        if (msgID != null  && !msgID.isEmpty()) {
+            body.setMsgID(msgID);
+        }
 
         if (!body.getContent().isEmpty()) {
             ApiResponse<CheckLLMResponseStreamResponse> resp = checkLLMResponseStreamWithHttpInfo(body);
-            if (MsgID.isEmpty()) {
-                MsgID = resp.getData().getMsgID();
+            if (session.getMsgID().isEmpty() && resp.getData() != null) {
+                session.setMsgID(resp.getData().getMsgID());
             }
-            defaultBody = resp.getData();
-            return resp.getData();
+            session.setDefaultBody(resp.getData() );
+            return resp.getData() ;
         }
-        return null;
+        return session.getDefaultBody();
     }
 }

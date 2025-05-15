@@ -29,6 +29,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class StatisticForDescribeFileSystemStatisticsOutput {
   @SerializedName("AccountId")
   private String accountId = null;
@@ -36,14 +37,61 @@ public class StatisticForDescribeFileSystemStatisticsOutput {
   @SerializedName("CapacityInfo")
   private CapacityInfoForDescribeFileSystemStatisticsOutput capacityInfo = null;
 
-  @SerializedName("FileSystemType")
-  private String fileSystemType = null;
+  /**
+   * Gets or Sets fileSystemType
+   */
+  @JsonAdapter(FileSystemTypeEnum.Adapter.class)
+  public enum FileSystemTypeEnum {
+    @SerializedName("VePFS")
+    VEPFS("VePFS");
+
+    private String value;
+
+    FileSystemTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static FileSystemTypeEnum fromValue(String input) {
+      for (FileSystemTypeEnum b : FileSystemTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<FileSystemTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final FileSystemTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public FileSystemTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return FileSystemTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("FileSystemType")
+  private FileSystemTypeEnum fileSystemType = null;
 
   @SerializedName("RegionId")
   private String regionId = null;
 
   @SerializedName("StoreType")
   private String storeType = null;
+
+  @SerializedName("StoreTypeCN")
+  private String storeTypeCN = null;
+
+  @SerializedName("StoreTypeEN")
+  private String storeTypeEN = null;
 
   @SerializedName("TotalCount")
   private Integer totalCount = null;
@@ -85,7 +133,7 @@ public class StatisticForDescribeFileSystemStatisticsOutput {
     this.capacityInfo = capacityInfo;
   }
 
-  public StatisticForDescribeFileSystemStatisticsOutput fileSystemType(String fileSystemType) {
+  public StatisticForDescribeFileSystemStatisticsOutput fileSystemType(FileSystemTypeEnum fileSystemType) {
     this.fileSystemType = fileSystemType;
     return this;
   }
@@ -95,11 +143,11 @@ public class StatisticForDescribeFileSystemStatisticsOutput {
    * @return fileSystemType
   **/
   @Schema(description = "")
-  public String getFileSystemType() {
+  public FileSystemTypeEnum getFileSystemType() {
     return fileSystemType;
   }
 
-  public void setFileSystemType(String fileSystemType) {
+  public void setFileSystemType(FileSystemTypeEnum fileSystemType) {
     this.fileSystemType = fileSystemType;
   }
 
@@ -139,6 +187,42 @@ public class StatisticForDescribeFileSystemStatisticsOutput {
     this.storeType = storeType;
   }
 
+  public StatisticForDescribeFileSystemStatisticsOutput storeTypeCN(String storeTypeCN) {
+    this.storeTypeCN = storeTypeCN;
+    return this;
+  }
+
+   /**
+   * Get storeTypeCN
+   * @return storeTypeCN
+  **/
+  @Schema(description = "")
+  public String getStoreTypeCN() {
+    return storeTypeCN;
+  }
+
+  public void setStoreTypeCN(String storeTypeCN) {
+    this.storeTypeCN = storeTypeCN;
+  }
+
+  public StatisticForDescribeFileSystemStatisticsOutput storeTypeEN(String storeTypeEN) {
+    this.storeTypeEN = storeTypeEN;
+    return this;
+  }
+
+   /**
+   * Get storeTypeEN
+   * @return storeTypeEN
+  **/
+  @Schema(description = "")
+  public String getStoreTypeEN() {
+    return storeTypeEN;
+  }
+
+  public void setStoreTypeEN(String storeTypeEN) {
+    this.storeTypeEN = storeTypeEN;
+  }
+
   public StatisticForDescribeFileSystemStatisticsOutput totalCount(Integer totalCount) {
     this.totalCount = totalCount;
     return this;
@@ -172,12 +256,14 @@ public class StatisticForDescribeFileSystemStatisticsOutput {
         Objects.equals(this.fileSystemType, statisticForDescribeFileSystemStatisticsOutput.fileSystemType) &&
         Objects.equals(this.regionId, statisticForDescribeFileSystemStatisticsOutput.regionId) &&
         Objects.equals(this.storeType, statisticForDescribeFileSystemStatisticsOutput.storeType) &&
+        Objects.equals(this.storeTypeCN, statisticForDescribeFileSystemStatisticsOutput.storeTypeCN) &&
+        Objects.equals(this.storeTypeEN, statisticForDescribeFileSystemStatisticsOutput.storeTypeEN) &&
         Objects.equals(this.totalCount, statisticForDescribeFileSystemStatisticsOutput.totalCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, capacityInfo, fileSystemType, regionId, storeType, totalCount);
+    return Objects.hash(accountId, capacityInfo, fileSystemType, regionId, storeType, storeTypeCN, storeTypeEN, totalCount);
   }
 
 
@@ -191,6 +277,8 @@ public class StatisticForDescribeFileSystemStatisticsOutput {
     sb.append("    fileSystemType: ").append(toIndentedString(fileSystemType)).append("\n");
     sb.append("    regionId: ").append(toIndentedString(regionId)).append("\n");
     sb.append("    storeType: ").append(toIndentedString(storeType)).append("\n");
+    sb.append("    storeTypeCN: ").append(toIndentedString(storeTypeCN)).append("\n");
+    sb.append("    storeTypeEN: ").append(toIndentedString(storeTypeEN)).append("\n");
     sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("}");
     return sb.toString();

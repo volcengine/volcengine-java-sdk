@@ -45,7 +45,8 @@ public class EnableAccessLogRequest {
    * Get bucketName
    * @return bucketName
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getBucketName() {
     return bucketName;
   }
@@ -63,7 +64,8 @@ public class EnableAccessLogRequest {
    * Get loadBalancerId
    * @return loadBalancerId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getLoadBalancerId() {
     return loadBalancerId;
   }

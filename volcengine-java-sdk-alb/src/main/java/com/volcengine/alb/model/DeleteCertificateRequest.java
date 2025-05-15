@@ -42,7 +42,8 @@ public class DeleteCertificateRequest {
    * Get certificateId
    * @return certificateId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getCertificateId() {
     return certificateId;
   }

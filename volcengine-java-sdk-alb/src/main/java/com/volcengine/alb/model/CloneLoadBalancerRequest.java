@@ -166,7 +166,8 @@ public class CloneLoadBalancerRequest {
    * Get loadBalancerID
    * @return loadBalancerID
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getLoadBalancerID() {
     return loadBalancerID;
   }
@@ -220,7 +221,8 @@ public class CloneLoadBalancerRequest {
    * Get regionId
    * @return regionId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getRegionId() {
     return regionId;
   }

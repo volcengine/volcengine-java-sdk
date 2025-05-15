@@ -42,6 +42,9 @@ public class FilterForListNodesInput {
   @SerializedName("Ids")
   private List<String> ids = null;
 
+  @SerializedName("InstanceIds")
+  private List<String> instanceIds = null;
+
   @SerializedName("Name")
   private String name = null;
 
@@ -122,6 +125,32 @@ public class FilterForListNodesInput {
 
   public void setIds(List<String> ids) {
     this.ids = ids;
+  }
+
+  public FilterForListNodesInput instanceIds(List<String> instanceIds) {
+    this.instanceIds = instanceIds;
+    return this;
+  }
+
+  public FilterForListNodesInput addInstanceIdsItem(String instanceIdsItem) {
+    if (this.instanceIds == null) {
+      this.instanceIds = new ArrayList<String>();
+    }
+    this.instanceIds.add(instanceIdsItem);
+    return this;
+  }
+
+   /**
+   * Get instanceIds
+   * @return instanceIds
+  **/
+  @Schema(description = "")
+  public List<String> getInstanceIds() {
+    return instanceIds;
+  }
+
+  public void setInstanceIds(List<String> instanceIds) {
+    this.instanceIds = instanceIds;
   }
 
   public FilterForListNodesInput name(String name) {
@@ -234,6 +263,7 @@ public class FilterForListNodesInput {
     return Objects.equals(this.clusterIds, filterForListNodesInput.clusterIds) &&
         Objects.equals(this.createClientToken, filterForListNodesInput.createClientToken) &&
         Objects.equals(this.ids, filterForListNodesInput.ids) &&
+        Objects.equals(this.instanceIds, filterForListNodesInput.instanceIds) &&
         Objects.equals(this.name, filterForListNodesInput.name) &&
         Objects.equals(this.nodePoolIds, filterForListNodesInput.nodePoolIds) &&
         Objects.equals(this.statuses, filterForListNodesInput.statuses) &&
@@ -242,7 +272,7 @@ public class FilterForListNodesInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterIds, createClientToken, ids, name, nodePoolIds, statuses, zoneIds);
+    return Objects.hash(clusterIds, createClientToken, ids, instanceIds, name, nodePoolIds, statuses, zoneIds);
   }
 
 
@@ -254,6 +284,7 @@ public class FilterForListNodesInput {
     sb.append("    clusterIds: ").append(toIndentedString(clusterIds)).append("\n");
     sb.append("    createClientToken: ").append(toIndentedString(createClientToken)).append("\n");
     sb.append("    ids: ").append(toIndentedString(ids)).append("\n");
+    sb.append("    instanceIds: ").append(toIndentedString(instanceIds)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    nodePoolIds: ").append(toIndentedString(nodePoolIds)).append("\n");
     sb.append("    statuses: ").append(toIndentedString(statuses)).append("\n");

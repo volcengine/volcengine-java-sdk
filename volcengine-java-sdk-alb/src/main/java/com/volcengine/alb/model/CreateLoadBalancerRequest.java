@@ -57,6 +57,9 @@ public class CreateLoadBalancerRequest {
   @SerializedName("LoadBalancerBillingType")
   private Integer loadBalancerBillingType = null;
 
+  @SerializedName("LoadBalancerEdition")
+  private String loadBalancerEdition = null;
+
   @SerializedName("LoadBalancerName")
   private String loadBalancerName = null;
 
@@ -215,6 +218,24 @@ public class CreateLoadBalancerRequest {
     this.loadBalancerBillingType = loadBalancerBillingType;
   }
 
+  public CreateLoadBalancerRequest loadBalancerEdition(String loadBalancerEdition) {
+    this.loadBalancerEdition = loadBalancerEdition;
+    return this;
+  }
+
+   /**
+   * Get loadBalancerEdition
+   * @return loadBalancerEdition
+  **/
+  @Schema(description = "")
+  public String getLoadBalancerEdition() {
+    return loadBalancerEdition;
+  }
+
+  public void setLoadBalancerEdition(String loadBalancerEdition) {
+    this.loadBalancerEdition = loadBalancerEdition;
+  }
+
   public CreateLoadBalancerRequest loadBalancerName(String loadBalancerName) {
     this.loadBalancerName = loadBalancerName;
     return this;
@@ -296,7 +317,8 @@ public class CreateLoadBalancerRequest {
    * Get regionId
    * @return regionId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getRegionId() {
     return regionId;
   }
@@ -359,7 +381,8 @@ public class CreateLoadBalancerRequest {
    * Get type
    * @return type
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getType() {
     return type;
   }
@@ -430,6 +453,7 @@ public class CreateLoadBalancerRequest {
         Objects.equals(this.eipBillingConfig, createLoadBalancerRequest.eipBillingConfig) &&
         Objects.equals(this.ipv6EipBillingConfig, createLoadBalancerRequest.ipv6EipBillingConfig) &&
         Objects.equals(this.loadBalancerBillingType, createLoadBalancerRequest.loadBalancerBillingType) &&
+        Objects.equals(this.loadBalancerEdition, createLoadBalancerRequest.loadBalancerEdition) &&
         Objects.equals(this.loadBalancerName, createLoadBalancerRequest.loadBalancerName) &&
         Objects.equals(this.modificationProtectionReason, createLoadBalancerRequest.modificationProtectionReason) &&
         Objects.equals(this.modificationProtectionStatus, createLoadBalancerRequest.modificationProtectionStatus) &&
@@ -444,7 +468,7 @@ public class CreateLoadBalancerRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addressIpVersion, bandwidthPackageId, deleteProtection, description, eipBillingConfig, ipv6EipBillingConfig, loadBalancerBillingType, loadBalancerName, modificationProtectionReason, modificationProtectionStatus, projectName, regionId, subnetId, tags, type, vpcId, zoneMappings);
+    return Objects.hash(addressIpVersion, bandwidthPackageId, deleteProtection, description, eipBillingConfig, ipv6EipBillingConfig, loadBalancerBillingType, loadBalancerEdition, loadBalancerName, modificationProtectionReason, modificationProtectionStatus, projectName, regionId, subnetId, tags, type, vpcId, zoneMappings);
   }
 
 
@@ -460,6 +484,7 @@ public class CreateLoadBalancerRequest {
     sb.append("    eipBillingConfig: ").append(toIndentedString(eipBillingConfig)).append("\n");
     sb.append("    ipv6EipBillingConfig: ").append(toIndentedString(ipv6EipBillingConfig)).append("\n");
     sb.append("    loadBalancerBillingType: ").append(toIndentedString(loadBalancerBillingType)).append("\n");
+    sb.append("    loadBalancerEdition: ").append(toIndentedString(loadBalancerEdition)).append("\n");
     sb.append("    loadBalancerName: ").append(toIndentedString(loadBalancerName)).append("\n");
     sb.append("    modificationProtectionReason: ").append(toIndentedString(modificationProtectionReason)).append("\n");
     sb.append("    modificationProtectionStatus: ").append(toIndentedString(modificationProtectionStatus)).append("\n");

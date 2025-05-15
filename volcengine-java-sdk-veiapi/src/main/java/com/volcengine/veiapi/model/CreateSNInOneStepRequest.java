@@ -28,6 +28,7 @@ import javax.validation.Valid;
  */
 
 
+
 public class CreateSNInOneStepRequest {
   @SerializedName("auto_renew")
   private Boolean autoRenew = null;

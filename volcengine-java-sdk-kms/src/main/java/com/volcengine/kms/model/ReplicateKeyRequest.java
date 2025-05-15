@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.kms.model.TagForReplicateKeyInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -44,6 +47,9 @@ public class ReplicateKeyRequest {
 
   @SerializedName("ReplicaRegion")
   private String replicaRegion = null;
+
+  @SerializedName("Tags")
+  private List<TagForReplicateKeyInput> tags = null;
 
   public ReplicateKeyRequest description(String description) {
     this.description = description;
@@ -136,6 +142,33 @@ public class ReplicateKeyRequest {
     this.replicaRegion = replicaRegion;
   }
 
+  public ReplicateKeyRequest tags(List<TagForReplicateKeyInput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public ReplicateKeyRequest addTagsItem(TagForReplicateKeyInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForReplicateKeyInput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForReplicateKeyInput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForReplicateKeyInput> tags) {
+    this.tags = tags;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -150,12 +183,13 @@ public class ReplicateKeyRequest {
         Objects.equals(this.keyID, replicateKeyRequest.keyID) &&
         Objects.equals(this.keyName, replicateKeyRequest.keyName) &&
         Objects.equals(this.keyringName, replicateKeyRequest.keyringName) &&
-        Objects.equals(this.replicaRegion, replicateKeyRequest.replicaRegion);
+        Objects.equals(this.replicaRegion, replicateKeyRequest.replicaRegion) &&
+        Objects.equals(this.tags, replicateKeyRequest.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, keyID, keyName, keyringName, replicaRegion);
+    return Objects.hash(description, keyID, keyName, keyringName, replicaRegion, tags);
   }
 
 
@@ -169,6 +203,7 @@ public class ReplicateKeyRequest {
     sb.append("    keyName: ").append(toIndentedString(keyName)).append("\n");
     sb.append("    keyringName: ").append(toIndentedString(keyringName)).append("\n");
     sb.append("    replicaRegion: ").append(toIndentedString(replicaRegion)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }
