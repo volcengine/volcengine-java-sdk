@@ -661,6 +661,24 @@ public class DefaultEndpointProvider implements EndpointResolver {
                 ENDPOINT,
                 createRegionEndpointMap()
         ));
+
+        // --------------------------- quota ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("quota", new ServiceEndpointInfo(
+                "quota",
+                true,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
+
+        // --------------------------- bmq ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("bmq", new ServiceEndpointInfo(
+                "bmq",
+                false,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
     }
 
 

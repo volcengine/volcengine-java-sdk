@@ -33,8 +33,14 @@ public class DisableVpcEndpointConnectionRequest {
   @SerializedName("EndpointId")
   private String endpointId = null;
 
+  @SerializedName("ReplacingResource")
+  private String replacingResource = null;
+
   @SerializedName("ServiceId")
   private String serviceId = null;
+
+  @SerializedName("ZoneId")
+  private String zoneId = null;
 
   public DisableVpcEndpointConnectionRequest endpointId(String endpointId) {
     this.endpointId = endpointId;
@@ -53,6 +59,24 @@ public class DisableVpcEndpointConnectionRequest {
 
   public void setEndpointId(String endpointId) {
     this.endpointId = endpointId;
+  }
+
+  public DisableVpcEndpointConnectionRequest replacingResource(String replacingResource) {
+    this.replacingResource = replacingResource;
+    return this;
+  }
+
+   /**
+   * Get replacingResource
+   * @return replacingResource
+  **/
+  @Schema(description = "")
+  public String getReplacingResource() {
+    return replacingResource;
+  }
+
+  public void setReplacingResource(String replacingResource) {
+    this.replacingResource = replacingResource;
   }
 
   public DisableVpcEndpointConnectionRequest serviceId(String serviceId) {
@@ -74,6 +98,24 @@ public class DisableVpcEndpointConnectionRequest {
     this.serviceId = serviceId;
   }
 
+  public DisableVpcEndpointConnectionRequest zoneId(String zoneId) {
+    this.zoneId = zoneId;
+    return this;
+  }
+
+   /**
+   * Get zoneId
+   * @return zoneId
+  **/
+  @Schema(description = "")
+  public String getZoneId() {
+    return zoneId;
+  }
+
+  public void setZoneId(String zoneId) {
+    this.zoneId = zoneId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -85,12 +127,14 @@ public class DisableVpcEndpointConnectionRequest {
     }
     DisableVpcEndpointConnectionRequest disableVpcEndpointConnectionRequest = (DisableVpcEndpointConnectionRequest) o;
     return Objects.equals(this.endpointId, disableVpcEndpointConnectionRequest.endpointId) &&
-        Objects.equals(this.serviceId, disableVpcEndpointConnectionRequest.serviceId);
+        Objects.equals(this.replacingResource, disableVpcEndpointConnectionRequest.replacingResource) &&
+        Objects.equals(this.serviceId, disableVpcEndpointConnectionRequest.serviceId) &&
+        Objects.equals(this.zoneId, disableVpcEndpointConnectionRequest.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(endpointId, serviceId);
+    return Objects.hash(endpointId, replacingResource, serviceId, zoneId);
   }
 
 
@@ -100,7 +144,9 @@ public class DisableVpcEndpointConnectionRequest {
     sb.append("class DisableVpcEndpointConnectionRequest {\n");
     
     sb.append("    endpointId: ").append(toIndentedString(endpointId)).append("\n");
+    sb.append("    replacingResource: ").append(toIndentedString(replacingResource)).append("\n");
     sb.append("    serviceId: ").append(toIndentedString(serviceId)).append("\n");
+    sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

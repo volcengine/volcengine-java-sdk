@@ -48,6 +48,9 @@ public class EndpointConnectionForDescribeVpcEndpointConnectionsOutput {
   @SerializedName("EndpointVpcId")
   private String endpointVpcId = null;
 
+  @SerializedName("ReplaceResourceId")
+  private String replaceResourceId = null;
+
   @SerializedName("ServiceId")
   private String serviceId = null;
 
@@ -147,6 +150,24 @@ public class EndpointConnectionForDescribeVpcEndpointConnectionsOutput {
     this.endpointVpcId = endpointVpcId;
   }
 
+  public EndpointConnectionForDescribeVpcEndpointConnectionsOutput replaceResourceId(String replaceResourceId) {
+    this.replaceResourceId = replaceResourceId;
+    return this;
+  }
+
+   /**
+   * Get replaceResourceId
+   * @return replaceResourceId
+  **/
+  @Schema(description = "")
+  public String getReplaceResourceId() {
+    return replaceResourceId;
+  }
+
+  public void setReplaceResourceId(String replaceResourceId) {
+    this.replaceResourceId = replaceResourceId;
+  }
+
   public EndpointConnectionForDescribeVpcEndpointConnectionsOutput serviceId(String serviceId) {
     this.serviceId = serviceId;
     return this;
@@ -225,6 +246,7 @@ public class EndpointConnectionForDescribeVpcEndpointConnectionsOutput {
         Objects.equals(this.endpointId, endpointConnectionForDescribeVpcEndpointConnectionsOutput.endpointId) &&
         Objects.equals(this.endpointOwnerAccountId, endpointConnectionForDescribeVpcEndpointConnectionsOutput.endpointOwnerAccountId) &&
         Objects.equals(this.endpointVpcId, endpointConnectionForDescribeVpcEndpointConnectionsOutput.endpointVpcId) &&
+        Objects.equals(this.replaceResourceId, endpointConnectionForDescribeVpcEndpointConnectionsOutput.replaceResourceId) &&
         Objects.equals(this.serviceId, endpointConnectionForDescribeVpcEndpointConnectionsOutput.serviceId) &&
         Objects.equals(this.updateTime, endpointConnectionForDescribeVpcEndpointConnectionsOutput.updateTime) &&
         Objects.equals(this.zones, endpointConnectionForDescribeVpcEndpointConnectionsOutput.zones);
@@ -232,7 +254,7 @@ public class EndpointConnectionForDescribeVpcEndpointConnectionsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(connectionStatus, creationTime, endpointId, endpointOwnerAccountId, endpointVpcId, serviceId, updateTime, zones);
+    return Objects.hash(connectionStatus, creationTime, endpointId, endpointOwnerAccountId, endpointVpcId, replaceResourceId, serviceId, updateTime, zones);
   }
 
 
@@ -246,6 +268,7 @@ public class EndpointConnectionForDescribeVpcEndpointConnectionsOutput {
     sb.append("    endpointId: ").append(toIndentedString(endpointId)).append("\n");
     sb.append("    endpointOwnerAccountId: ").append(toIndentedString(endpointOwnerAccountId)).append("\n");
     sb.append("    endpointVpcId: ").append(toIndentedString(endpointVpcId)).append("\n");
+    sb.append("    replaceResourceId: ").append(toIndentedString(replaceResourceId)).append("\n");
     sb.append("    serviceId: ").append(toIndentedString(serviceId)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    zones: ").append(toIndentedString(zones)).append("\n");

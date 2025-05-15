@@ -46,23 +46,6 @@ public class ChatCompletionsReasoningExample {
     static ArkService service = ArkService.builder().dispatcher(dispatcher).connectionPool(connectionPool).apiKey(apiKey).build();
 
     public static void main(String[] args) {
-        System.out.println("\n----- standard request -----");
-        final List<ChatMessage> messages = new ArrayList<>();
-        final ChatMessage userMessage = ChatMessage.builder().role(ChatMessageRole.USER).content("How many Rs are there in the word 'strawberry'?").build();
-        messages.add(userMessage);
-
-        ChatCompletionRequest chatCompletionRequest = ChatCompletionRequest.builder()
-                .model("${YOUR_ENDPOINT_ID}")
-                .messages(messages)
-                .build();
-
-        service.createChatCompletion(chatCompletionRequest).getChoices().forEach(
-                choice -> {
-                    System.out.println(choice.getMessage().getReasoningContent());
-                    System.out.println(choice.getMessage().getContent());
-                }
-        );
-
         System.out.println("\n----- streaming request -----");
         final List<ChatMessage> streamMessages = new ArrayList<>();
         final ChatMessage streamUserMessage = ChatMessage.builder().role(ChatMessageRole.USER).content("How many Rs are there in the word 'strawberry'?").build();
@@ -71,6 +54,7 @@ public class ChatCompletionsReasoningExample {
         ChatCompletionRequest streamChatCompletionRequest = ChatCompletionRequest.builder()
                 .model("${YOUR_ENDPOINT_ID}")
                 .messages(streamMessages)
+                .thinking(new ChatCompletionRequest.ChatCompletionRequestThinking("enabled"))
                 .build();
 
         service.streamChatCompletion(streamChatCompletionRequest)
@@ -86,6 +70,25 @@ public class ChatCompletionsReasoningExample {
                             }
                         }
                 );
+
+        System.out.println("\n----- standard request -----");
+        final List<ChatMessage> messages = new ArrayList<>();
+        final ChatMessage userMessage = ChatMessage.builder().role(ChatMessageRole.USER).content("How many Rs are there in the word 'strawberry'?").build();
+        messages.add(userMessage);
+
+        ChatCompletionRequest chatCompletionRequest = ChatCompletionRequest.builder()
+                .model("${YOUR_ENDPOINT_ID}")
+                .messages(messages)
+                .thinking(new ChatCompletionRequest.ChatCompletionRequestThinking("enabled"))
+                .build();
+
+        service.createChatCompletion(chatCompletionRequest).getChoices().forEach(
+                choice -> {
+                    System.out.println(choice.getMessage().getReasoningContent());
+                    System.out.println(choice.getMessage().getContent());
+                }
+        );
+
 
         // shutdown service after all requests is finished
         service.shutdownExecutor();

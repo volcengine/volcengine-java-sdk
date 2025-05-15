@@ -24,52 +24,53 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * VpcInfoForDescribeBackupsOutput
+ * DeleteDBEndpointDirectLinkAddressRequest
  */
 
 
 
-public class VpcInfoForDescribeBackupsOutput {
-  @SerializedName("ID")
-  private String ID = null;
+public class DeleteDBEndpointDirectLinkAddressRequest {
+  @SerializedName("ClientToken")
+  private String clientToken = null;
 
-  @SerializedName("Name")
-  private String name = null;
+  @SerializedName("InstanceId")
+  private String instanceId = null;
 
-  public VpcInfoForDescribeBackupsOutput ID(String ID) {
-    this.ID = ID;
+  public DeleteDBEndpointDirectLinkAddressRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
     return this;
   }
 
    /**
-   * Get ID
-   * @return ID
+   * Get clientToken
+   * @return clientToken
   **/
   @Schema(description = "")
-  public String getID() {
-    return ID;
+  public String getClientToken() {
+    return clientToken;
   }
 
-  public void setID(String ID) {
-    this.ID = ID;
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
   }
 
-  public VpcInfoForDescribeBackupsOutput name(String name) {
-    this.name = name;
+  public DeleteDBEndpointDirectLinkAddressRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
     return this;
   }
 
    /**
-   * Get name
-   * @return name
+   * Get instanceId
+   * @return instanceId
   **/
-  @Schema(description = "")
-  public String getName() {
-    return name;
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getInstanceId() {
+    return instanceId;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
   }
 
 
@@ -81,24 +82,24 @@ public class VpcInfoForDescribeBackupsOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    VpcInfoForDescribeBackupsOutput vpcInfoForDescribeBackupsOutput = (VpcInfoForDescribeBackupsOutput) o;
-    return Objects.equals(this.ID, vpcInfoForDescribeBackupsOutput.ID) &&
-        Objects.equals(this.name, vpcInfoForDescribeBackupsOutput.name);
+    DeleteDBEndpointDirectLinkAddressRequest deleteDBEndpointDirectLinkAddressRequest = (DeleteDBEndpointDirectLinkAddressRequest) o;
+    return Objects.equals(this.clientToken, deleteDBEndpointDirectLinkAddressRequest.clientToken) &&
+        Objects.equals(this.instanceId, deleteDBEndpointDirectLinkAddressRequest.instanceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ID, name);
+    return Objects.hash(clientToken, instanceId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class VpcInfoForDescribeBackupsOutput {\n");
+    sb.append("class DeleteDBEndpointDirectLinkAddressRequest {\n");
     
-    sb.append("    ID: ").append(toIndentedString(ID)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

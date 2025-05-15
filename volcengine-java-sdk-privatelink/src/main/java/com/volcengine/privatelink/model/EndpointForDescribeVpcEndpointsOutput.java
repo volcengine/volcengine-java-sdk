@@ -33,6 +33,9 @@ import javax.validation.Valid;
 
 
 public class EndpointForDescribeVpcEndpointsOutput {
+  @SerializedName("Bps")
+  private Integer bps = null;
+
   @SerializedName("BusinessStatus")
   private String businessStatus = null;
 
@@ -98,6 +101,24 @@ public class EndpointForDescribeVpcEndpointsOutput {
 
   @SerializedName("VpcId")
   private String vpcId = null;
+
+  public EndpointForDescribeVpcEndpointsOutput bps(Integer bps) {
+    this.bps = bps;
+    return this;
+  }
+
+   /**
+   * Get bps
+   * @return bps
+  **/
+  @Schema(description = "")
+  public Integer getBps() {
+    return bps;
+  }
+
+  public void setBps(Integer bps) {
+    this.bps = bps;
+  }
 
   public EndpointForDescribeVpcEndpointsOutput businessStatus(String businessStatus) {
     this.businessStatus = businessStatus;
@@ -522,7 +543,8 @@ public class EndpointForDescribeVpcEndpointsOutput {
       return false;
     }
     EndpointForDescribeVpcEndpointsOutput endpointForDescribeVpcEndpointsOutput = (EndpointForDescribeVpcEndpointsOutput) o;
-    return Objects.equals(this.businessStatus, endpointForDescribeVpcEndpointsOutput.businessStatus) &&
+    return Objects.equals(this.bps, endpointForDescribeVpcEndpointsOutput.bps) &&
+        Objects.equals(this.businessStatus, endpointForDescribeVpcEndpointsOutput.businessStatus) &&
         Objects.equals(this.connectionStatus, endpointForDescribeVpcEndpointsOutput.connectionStatus) &&
         Objects.equals(this.creationTime, endpointForDescribeVpcEndpointsOutput.creationTime) &&
         Objects.equals(this.deletedTime, endpointForDescribeVpcEndpointsOutput.deletedTime) &&
@@ -548,7 +570,7 @@ public class EndpointForDescribeVpcEndpointsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(businessStatus, connectionStatus, creationTime, deletedTime, description, endpointDomain, endpointId, endpointIndex, endpointName, endpointType, ipAddressVersions, payer, privateDNSEnabled, privateDNSName, projectName, serviceId, serviceManaged, serviceName, status, tags, updateTime, vpcId);
+    return Objects.hash(bps, businessStatus, connectionStatus, creationTime, deletedTime, description, endpointDomain, endpointId, endpointIndex, endpointName, endpointType, ipAddressVersions, payer, privateDNSEnabled, privateDNSName, projectName, serviceId, serviceManaged, serviceName, status, tags, updateTime, vpcId);
   }
 
 
@@ -557,6 +579,7 @@ public class EndpointForDescribeVpcEndpointsOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class EndpointForDescribeVpcEndpointsOutput {\n");
     
+    sb.append("    bps: ").append(toIndentedString(bps)).append("\n");
     sb.append("    businessStatus: ").append(toIndentedString(businessStatus)).append("\n");
     sb.append("    connectionStatus: ").append(toIndentedString(connectionStatus)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");

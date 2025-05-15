@@ -19,7 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.redis.model.VpcInfoForDescribeBackupsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -27,23 +26,23 @@ import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * InstanceDetailForDescribeBackupsOutput
+ * InstanceInfoForDescribeCrossRegionBackupsOutput
  */
 
 
 
-public class InstanceDetailForDescribeBackupsOutput {
+public class InstanceInfoForDescribeCrossRegionBackupsOutput {
   @SerializedName("AccountId")
   private Long accountId = null;
 
   @SerializedName("ArchType")
   private String archType = null;
 
-  @SerializedName("AutoRenew")
-  private Boolean autoRenew = null;
-
   @SerializedName("ChargeType")
   private String chargeType = null;
+
+  @SerializedName("DeletionProtection")
+  private String deletionProtection = null;
 
   @SerializedName("EngineVersion")
   private String engineVersion = null;
@@ -70,24 +69,21 @@ public class InstanceDetailForDescribeBackupsOutput {
   private Integer replicas = null;
 
   @SerializedName("ShardCapacity")
-  private Long shardCapacity = null;
+  private Double shardCapacity = null;
 
-  @SerializedName("ShardCount")
-  private Integer shardCount = null;
+  @SerializedName("ShardNumber")
+  private Integer shardNumber = null;
 
   @SerializedName("TotalCapacity")
   private Long totalCapacity = null;
 
-  @SerializedName("UsedCapacity")
-  private Long usedCapacity = null;
-
-  @SerializedName("VpcInfo")
-  private VpcInfoForDescribeBackupsOutput vpcInfo = null;
+  @SerializedName("VpcId")
+  private String vpcId = null;
 
   @SerializedName("ZoneIds")
   private List<String> zoneIds = null;
 
-  public InstanceDetailForDescribeBackupsOutput accountId(Long accountId) {
+  public InstanceInfoForDescribeCrossRegionBackupsOutput accountId(Long accountId) {
     this.accountId = accountId;
     return this;
   }
@@ -105,7 +101,7 @@ public class InstanceDetailForDescribeBackupsOutput {
     this.accountId = accountId;
   }
 
-  public InstanceDetailForDescribeBackupsOutput archType(String archType) {
+  public InstanceInfoForDescribeCrossRegionBackupsOutput archType(String archType) {
     this.archType = archType;
     return this;
   }
@@ -123,25 +119,7 @@ public class InstanceDetailForDescribeBackupsOutput {
     this.archType = archType;
   }
 
-  public InstanceDetailForDescribeBackupsOutput autoRenew(Boolean autoRenew) {
-    this.autoRenew = autoRenew;
-    return this;
-  }
-
-   /**
-   * Get autoRenew
-   * @return autoRenew
-  **/
-  @Schema(description = "")
-  public Boolean isAutoRenew() {
-    return autoRenew;
-  }
-
-  public void setAutoRenew(Boolean autoRenew) {
-    this.autoRenew = autoRenew;
-  }
-
-  public InstanceDetailForDescribeBackupsOutput chargeType(String chargeType) {
+  public InstanceInfoForDescribeCrossRegionBackupsOutput chargeType(String chargeType) {
     this.chargeType = chargeType;
     return this;
   }
@@ -159,7 +137,25 @@ public class InstanceDetailForDescribeBackupsOutput {
     this.chargeType = chargeType;
   }
 
-  public InstanceDetailForDescribeBackupsOutput engineVersion(String engineVersion) {
+  public InstanceInfoForDescribeCrossRegionBackupsOutput deletionProtection(String deletionProtection) {
+    this.deletionProtection = deletionProtection;
+    return this;
+  }
+
+   /**
+   * Get deletionProtection
+   * @return deletionProtection
+  **/
+  @Schema(description = "")
+  public String getDeletionProtection() {
+    return deletionProtection;
+  }
+
+  public void setDeletionProtection(String deletionProtection) {
+    this.deletionProtection = deletionProtection;
+  }
+
+  public InstanceInfoForDescribeCrossRegionBackupsOutput engineVersion(String engineVersion) {
     this.engineVersion = engineVersion;
     return this;
   }
@@ -177,7 +173,7 @@ public class InstanceDetailForDescribeBackupsOutput {
     this.engineVersion = engineVersion;
   }
 
-  public InstanceDetailForDescribeBackupsOutput expiredTime(String expiredTime) {
+  public InstanceInfoForDescribeCrossRegionBackupsOutput expiredTime(String expiredTime) {
     this.expiredTime = expiredTime;
     return this;
   }
@@ -195,7 +191,7 @@ public class InstanceDetailForDescribeBackupsOutput {
     this.expiredTime = expiredTime;
   }
 
-  public InstanceDetailForDescribeBackupsOutput instanceId(String instanceId) {
+  public InstanceInfoForDescribeCrossRegionBackupsOutput instanceId(String instanceId) {
     this.instanceId = instanceId;
     return this;
   }
@@ -213,7 +209,7 @@ public class InstanceDetailForDescribeBackupsOutput {
     this.instanceId = instanceId;
   }
 
-  public InstanceDetailForDescribeBackupsOutput instanceName(String instanceName) {
+  public InstanceInfoForDescribeCrossRegionBackupsOutput instanceName(String instanceName) {
     this.instanceName = instanceName;
     return this;
   }
@@ -231,7 +227,7 @@ public class InstanceDetailForDescribeBackupsOutput {
     this.instanceName = instanceName;
   }
 
-  public InstanceDetailForDescribeBackupsOutput maintenanceTime(String maintenanceTime) {
+  public InstanceInfoForDescribeCrossRegionBackupsOutput maintenanceTime(String maintenanceTime) {
     this.maintenanceTime = maintenanceTime;
     return this;
   }
@@ -249,7 +245,7 @@ public class InstanceDetailForDescribeBackupsOutput {
     this.maintenanceTime = maintenanceTime;
   }
 
-  public InstanceDetailForDescribeBackupsOutput networkType(String networkType) {
+  public InstanceInfoForDescribeCrossRegionBackupsOutput networkType(String networkType) {
     this.networkType = networkType;
     return this;
   }
@@ -267,7 +263,7 @@ public class InstanceDetailForDescribeBackupsOutput {
     this.networkType = networkType;
   }
 
-  public InstanceDetailForDescribeBackupsOutput regionId(String regionId) {
+  public InstanceInfoForDescribeCrossRegionBackupsOutput regionId(String regionId) {
     this.regionId = regionId;
     return this;
   }
@@ -285,7 +281,7 @@ public class InstanceDetailForDescribeBackupsOutput {
     this.regionId = regionId;
   }
 
-  public InstanceDetailForDescribeBackupsOutput replicas(Integer replicas) {
+  public InstanceInfoForDescribeCrossRegionBackupsOutput replicas(Integer replicas) {
     this.replicas = replicas;
     return this;
   }
@@ -303,7 +299,7 @@ public class InstanceDetailForDescribeBackupsOutput {
     this.replicas = replicas;
   }
 
-  public InstanceDetailForDescribeBackupsOutput shardCapacity(Long shardCapacity) {
+  public InstanceInfoForDescribeCrossRegionBackupsOutput shardCapacity(Double shardCapacity) {
     this.shardCapacity = shardCapacity;
     return this;
   }
@@ -313,33 +309,33 @@ public class InstanceDetailForDescribeBackupsOutput {
    * @return shardCapacity
   **/
   @Schema(description = "")
-  public Long getShardCapacity() {
+  public Double getShardCapacity() {
     return shardCapacity;
   }
 
-  public void setShardCapacity(Long shardCapacity) {
+  public void setShardCapacity(Double shardCapacity) {
     this.shardCapacity = shardCapacity;
   }
 
-  public InstanceDetailForDescribeBackupsOutput shardCount(Integer shardCount) {
-    this.shardCount = shardCount;
+  public InstanceInfoForDescribeCrossRegionBackupsOutput shardNumber(Integer shardNumber) {
+    this.shardNumber = shardNumber;
     return this;
   }
 
    /**
-   * Get shardCount
-   * @return shardCount
+   * Get shardNumber
+   * @return shardNumber
   **/
   @Schema(description = "")
-  public Integer getShardCount() {
-    return shardCount;
+  public Integer getShardNumber() {
+    return shardNumber;
   }
 
-  public void setShardCount(Integer shardCount) {
-    this.shardCount = shardCount;
+  public void setShardNumber(Integer shardNumber) {
+    this.shardNumber = shardNumber;
   }
 
-  public InstanceDetailForDescribeBackupsOutput totalCapacity(Long totalCapacity) {
+  public InstanceInfoForDescribeCrossRegionBackupsOutput totalCapacity(Long totalCapacity) {
     this.totalCapacity = totalCapacity;
     return this;
   }
@@ -357,49 +353,30 @@ public class InstanceDetailForDescribeBackupsOutput {
     this.totalCapacity = totalCapacity;
   }
 
-  public InstanceDetailForDescribeBackupsOutput usedCapacity(Long usedCapacity) {
-    this.usedCapacity = usedCapacity;
+  public InstanceInfoForDescribeCrossRegionBackupsOutput vpcId(String vpcId) {
+    this.vpcId = vpcId;
     return this;
   }
 
    /**
-   * Get usedCapacity
-   * @return usedCapacity
+   * Get vpcId
+   * @return vpcId
   **/
   @Schema(description = "")
-  public Long getUsedCapacity() {
-    return usedCapacity;
+  public String getVpcId() {
+    return vpcId;
   }
 
-  public void setUsedCapacity(Long usedCapacity) {
-    this.usedCapacity = usedCapacity;
+  public void setVpcId(String vpcId) {
+    this.vpcId = vpcId;
   }
 
-  public InstanceDetailForDescribeBackupsOutput vpcInfo(VpcInfoForDescribeBackupsOutput vpcInfo) {
-    this.vpcInfo = vpcInfo;
-    return this;
-  }
-
-   /**
-   * Get vpcInfo
-   * @return vpcInfo
-  **/
-  @Valid
-  @Schema(description = "")
-  public VpcInfoForDescribeBackupsOutput getVpcInfo() {
-    return vpcInfo;
-  }
-
-  public void setVpcInfo(VpcInfoForDescribeBackupsOutput vpcInfo) {
-    this.vpcInfo = vpcInfo;
-  }
-
-  public InstanceDetailForDescribeBackupsOutput zoneIds(List<String> zoneIds) {
+  public InstanceInfoForDescribeCrossRegionBackupsOutput zoneIds(List<String> zoneIds) {
     this.zoneIds = zoneIds;
     return this;
   }
 
-  public InstanceDetailForDescribeBackupsOutput addZoneIdsItem(String zoneIdsItem) {
+  public InstanceInfoForDescribeCrossRegionBackupsOutput addZoneIdsItem(String zoneIdsItem) {
     if (this.zoneIds == null) {
       this.zoneIds = new ArrayList<String>();
     }
@@ -429,42 +406,41 @@ public class InstanceDetailForDescribeBackupsOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    InstanceDetailForDescribeBackupsOutput instanceDetailForDescribeBackupsOutput = (InstanceDetailForDescribeBackupsOutput) o;
-    return Objects.equals(this.accountId, instanceDetailForDescribeBackupsOutput.accountId) &&
-        Objects.equals(this.archType, instanceDetailForDescribeBackupsOutput.archType) &&
-        Objects.equals(this.autoRenew, instanceDetailForDescribeBackupsOutput.autoRenew) &&
-        Objects.equals(this.chargeType, instanceDetailForDescribeBackupsOutput.chargeType) &&
-        Objects.equals(this.engineVersion, instanceDetailForDescribeBackupsOutput.engineVersion) &&
-        Objects.equals(this.expiredTime, instanceDetailForDescribeBackupsOutput.expiredTime) &&
-        Objects.equals(this.instanceId, instanceDetailForDescribeBackupsOutput.instanceId) &&
-        Objects.equals(this.instanceName, instanceDetailForDescribeBackupsOutput.instanceName) &&
-        Objects.equals(this.maintenanceTime, instanceDetailForDescribeBackupsOutput.maintenanceTime) &&
-        Objects.equals(this.networkType, instanceDetailForDescribeBackupsOutput.networkType) &&
-        Objects.equals(this.regionId, instanceDetailForDescribeBackupsOutput.regionId) &&
-        Objects.equals(this.replicas, instanceDetailForDescribeBackupsOutput.replicas) &&
-        Objects.equals(this.shardCapacity, instanceDetailForDescribeBackupsOutput.shardCapacity) &&
-        Objects.equals(this.shardCount, instanceDetailForDescribeBackupsOutput.shardCount) &&
-        Objects.equals(this.totalCapacity, instanceDetailForDescribeBackupsOutput.totalCapacity) &&
-        Objects.equals(this.usedCapacity, instanceDetailForDescribeBackupsOutput.usedCapacity) &&
-        Objects.equals(this.vpcInfo, instanceDetailForDescribeBackupsOutput.vpcInfo) &&
-        Objects.equals(this.zoneIds, instanceDetailForDescribeBackupsOutput.zoneIds);
+    InstanceInfoForDescribeCrossRegionBackupsOutput instanceInfoForDescribeCrossRegionBackupsOutput = (InstanceInfoForDescribeCrossRegionBackupsOutput) o;
+    return Objects.equals(this.accountId, instanceInfoForDescribeCrossRegionBackupsOutput.accountId) &&
+        Objects.equals(this.archType, instanceInfoForDescribeCrossRegionBackupsOutput.archType) &&
+        Objects.equals(this.chargeType, instanceInfoForDescribeCrossRegionBackupsOutput.chargeType) &&
+        Objects.equals(this.deletionProtection, instanceInfoForDescribeCrossRegionBackupsOutput.deletionProtection) &&
+        Objects.equals(this.engineVersion, instanceInfoForDescribeCrossRegionBackupsOutput.engineVersion) &&
+        Objects.equals(this.expiredTime, instanceInfoForDescribeCrossRegionBackupsOutput.expiredTime) &&
+        Objects.equals(this.instanceId, instanceInfoForDescribeCrossRegionBackupsOutput.instanceId) &&
+        Objects.equals(this.instanceName, instanceInfoForDescribeCrossRegionBackupsOutput.instanceName) &&
+        Objects.equals(this.maintenanceTime, instanceInfoForDescribeCrossRegionBackupsOutput.maintenanceTime) &&
+        Objects.equals(this.networkType, instanceInfoForDescribeCrossRegionBackupsOutput.networkType) &&
+        Objects.equals(this.regionId, instanceInfoForDescribeCrossRegionBackupsOutput.regionId) &&
+        Objects.equals(this.replicas, instanceInfoForDescribeCrossRegionBackupsOutput.replicas) &&
+        Objects.equals(this.shardCapacity, instanceInfoForDescribeCrossRegionBackupsOutput.shardCapacity) &&
+        Objects.equals(this.shardNumber, instanceInfoForDescribeCrossRegionBackupsOutput.shardNumber) &&
+        Objects.equals(this.totalCapacity, instanceInfoForDescribeCrossRegionBackupsOutput.totalCapacity) &&
+        Objects.equals(this.vpcId, instanceInfoForDescribeCrossRegionBackupsOutput.vpcId) &&
+        Objects.equals(this.zoneIds, instanceInfoForDescribeCrossRegionBackupsOutput.zoneIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, archType, autoRenew, chargeType, engineVersion, expiredTime, instanceId, instanceName, maintenanceTime, networkType, regionId, replicas, shardCapacity, shardCount, totalCapacity, usedCapacity, vpcInfo, zoneIds);
+    return Objects.hash(accountId, archType, chargeType, deletionProtection, engineVersion, expiredTime, instanceId, instanceName, maintenanceTime, networkType, regionId, replicas, shardCapacity, shardNumber, totalCapacity, vpcId, zoneIds);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class InstanceDetailForDescribeBackupsOutput {\n");
+    sb.append("class InstanceInfoForDescribeCrossRegionBackupsOutput {\n");
     
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    archType: ").append(toIndentedString(archType)).append("\n");
-    sb.append("    autoRenew: ").append(toIndentedString(autoRenew)).append("\n");
     sb.append("    chargeType: ").append(toIndentedString(chargeType)).append("\n");
+    sb.append("    deletionProtection: ").append(toIndentedString(deletionProtection)).append("\n");
     sb.append("    engineVersion: ").append(toIndentedString(engineVersion)).append("\n");
     sb.append("    expiredTime: ").append(toIndentedString(expiredTime)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
@@ -474,10 +450,9 @@ public class InstanceDetailForDescribeBackupsOutput {
     sb.append("    regionId: ").append(toIndentedString(regionId)).append("\n");
     sb.append("    replicas: ").append(toIndentedString(replicas)).append("\n");
     sb.append("    shardCapacity: ").append(toIndentedString(shardCapacity)).append("\n");
-    sb.append("    shardCount: ").append(toIndentedString(shardCount)).append("\n");
+    sb.append("    shardNumber: ").append(toIndentedString(shardNumber)).append("\n");
     sb.append("    totalCapacity: ").append(toIndentedString(totalCapacity)).append("\n");
-    sb.append("    usedCapacity: ").append(toIndentedString(usedCapacity)).append("\n");
-    sb.append("    vpcInfo: ").append(toIndentedString(vpcInfo)).append("\n");
+    sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("    zoneIds: ").append(toIndentedString(zoneIds)).append("\n");
     sb.append("}");
     return sb.toString();

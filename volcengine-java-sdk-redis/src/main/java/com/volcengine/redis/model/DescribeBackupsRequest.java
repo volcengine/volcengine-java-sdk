@@ -38,8 +38,55 @@ public class DescribeBackupsRequest {
   @SerializedName("BackupPointName")
   private String backupPointName = null;
 
-  @SerializedName("BackupStrategyList")
-  private List<String> backupStrategyList = null;
+  /**
+   * Gets or Sets backupStrategyList
+   */
+  @JsonAdapter(BackupStrategyListEnum.Adapter.class)
+  public enum BackupStrategyListEnum {
+    @SerializedName("ManualBackup")
+    MANUALBACKUP("ManualBackup"),
+    @SerializedName("AutomatedBackup")
+    AUTOMATEDBACKUP("AutomatedBackup"),
+    @SerializedName("DataFlashBack")
+    DATAFLASHBACK("DataFlashBack"),
+    @SerializedName("AllStrategy")
+    ALLSTRATEGY("AllStrategy");
+
+    private String value;
+
+    BackupStrategyListEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static BackupStrategyListEnum fromValue(String input) {
+      for (BackupStrategyListEnum b : BackupStrategyListEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<BackupStrategyListEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final BackupStrategyListEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public BackupStrategyListEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return BackupStrategyListEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("BackupStrategyList")
+  private List<BackupStrategyListEnum> backupStrategyList = null;
 
   @SerializedName("EndTime")
   private String endTime = null;
@@ -143,14 +190,14 @@ public class DescribeBackupsRequest {
     this.backupPointName = backupPointName;
   }
 
-  public DescribeBackupsRequest backupStrategyList(List<String> backupStrategyList) {
+  public DescribeBackupsRequest backupStrategyList(List<BackupStrategyListEnum> backupStrategyList) {
     this.backupStrategyList = backupStrategyList;
     return this;
   }
 
-  public DescribeBackupsRequest addBackupStrategyListItem(String backupStrategyListItem) {
+  public DescribeBackupsRequest addBackupStrategyListItem(BackupStrategyListEnum backupStrategyListItem) {
     if (this.backupStrategyList == null) {
-      this.backupStrategyList = new ArrayList<String>();
+      this.backupStrategyList = new ArrayList<BackupStrategyListEnum>();
     }
     this.backupStrategyList.add(backupStrategyListItem);
     return this;
@@ -161,11 +208,11 @@ public class DescribeBackupsRequest {
    * @return backupStrategyList
   **/
   @Schema(description = "")
-  public List<String> getBackupStrategyList() {
+  public List<BackupStrategyListEnum> getBackupStrategyList() {
     return backupStrategyList;
   }
 
-  public void setBackupStrategyList(List<String> backupStrategyList) {
+  public void setBackupStrategyList(List<BackupStrategyListEnum> backupStrategyList) {
     this.backupStrategyList = backupStrategyList;
   }
 
