@@ -75,16 +75,16 @@
 ```xml
 
 <dependencies>
-  <dependency>
-    <groupId>com.volcengine</groupId>
-    <artifactId>volcengine-java-sdk-vpc</artifactId>
-   <version>0.2.9</version>
-  </dependency>
-  <dependency>
-    <groupId>com.volcengine</groupId>
-    <artifactId>volcengine-java-sdk-ecs</artifactId>
-   <version>0.2.9</version>
-  </dependency>
+    <dependency>
+        <groupId>com.volcengine</groupId>
+        <artifactId>volcengine-java-sdk-vpc</artifactId>
+        <version>0.2.9</version>
+    </dependency>
+    <dependency>
+        <groupId>com.volcengine</groupId>
+        <artifactId>volcengine-java-sdk-ecs</artifactId>
+        <version>0.2.9</version>
+    </dependency>
 </dependencies>
 ```
 
