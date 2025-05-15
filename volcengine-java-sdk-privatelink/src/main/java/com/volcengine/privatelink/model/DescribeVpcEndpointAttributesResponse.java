@@ -34,6 +34,9 @@ import javax.validation.Valid;
 
 
 public class DescribeVpcEndpointAttributesResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("Bps")
+  private Integer bps = null;
+
   @SerializedName("BusinessStatus")
   private String businessStatus = null;
 
@@ -108,6 +111,24 @@ public class DescribeVpcEndpointAttributesResponse extends com.volcengine.model.
 
   @SerializedName("VpcId")
   private String vpcId = null;
+
+  public DescribeVpcEndpointAttributesResponse bps(Integer bps) {
+    this.bps = bps;
+    return this;
+  }
+
+   /**
+   * Get bps
+   * @return bps
+  **/
+  @Schema(description = "")
+  public Integer getBps() {
+    return bps;
+  }
+
+  public void setBps(Integer bps) {
+    this.bps = bps;
+  }
 
   public DescribeVpcEndpointAttributesResponse businessStatus(String businessStatus) {
     this.businessStatus = businessStatus;
@@ -595,7 +616,8 @@ public class DescribeVpcEndpointAttributesResponse extends com.volcengine.model.
       return false;
     }
     DescribeVpcEndpointAttributesResponse describeVpcEndpointAttributesResponse = (DescribeVpcEndpointAttributesResponse) o;
-    return Objects.equals(this.businessStatus, describeVpcEndpointAttributesResponse.businessStatus) &&
+    return Objects.equals(this.bps, describeVpcEndpointAttributesResponse.bps) &&
+        Objects.equals(this.businessStatus, describeVpcEndpointAttributesResponse.businessStatus) &&
         Objects.equals(this.connectionStatus, describeVpcEndpointAttributesResponse.connectionStatus) &&
         Objects.equals(this.creationTime, describeVpcEndpointAttributesResponse.creationTime) &&
         Objects.equals(this.deletedTime, describeVpcEndpointAttributesResponse.deletedTime) &&
@@ -624,7 +646,7 @@ public class DescribeVpcEndpointAttributesResponse extends com.volcengine.model.
 
   @Override
   public int hashCode() {
-    return Objects.hash(businessStatus, connectionStatus, creationTime, deletedTime, description, endpoint, endpointDomain, endpointId, endpointIndex, endpointName, endpointType, ipAddressVersions, ipAddressVersionsN, payer, privateDNSEnabled, privateDNSName, projectName, requestId, serviceId, serviceManaged, serviceName, status, tags, updateTime, vpcId);
+    return Objects.hash(bps, businessStatus, connectionStatus, creationTime, deletedTime, description, endpoint, endpointDomain, endpointId, endpointIndex, endpointName, endpointType, ipAddressVersions, ipAddressVersionsN, payer, privateDNSEnabled, privateDNSName, projectName, requestId, serviceId, serviceManaged, serviceName, status, tags, updateTime, vpcId);
   }
 
 
@@ -633,6 +655,7 @@ public class DescribeVpcEndpointAttributesResponse extends com.volcengine.model.
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeVpcEndpointAttributesResponse {\n");
     
+    sb.append("    bps: ").append(toIndentedString(bps)).append("\n");
     sb.append("    businessStatus: ").append(toIndentedString(businessStatus)).append("\n");
     sb.append("    connectionStatus: ").append(toIndentedString(connectionStatus)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
