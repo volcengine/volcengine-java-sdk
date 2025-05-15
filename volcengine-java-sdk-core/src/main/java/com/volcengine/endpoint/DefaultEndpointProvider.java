@@ -670,6 +670,15 @@ public class DefaultEndpointProvider implements EndpointResolver {
                 ENDPOINT,
                 createRegionEndpointMap()
         ));
+
+        // --------------------------- bmq ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("bmq", new ServiceEndpointInfo(
+                "bmq",
+                false,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
     }
 
 
