@@ -113,12 +113,16 @@ import com.volcengine.privatelink.model.EnableVpcEndpointConnectionRequest;
 import com.volcengine.privatelink.model.EnableVpcEndpointConnectionResponse;
 import com.volcengine.privatelink.model.ListTagsForResourcesRequest;
 import com.volcengine.privatelink.model.ListTagsForResourcesResponse;
+import com.volcengine.privatelink.model.ModifyEndpointPayerAccountRequest;
+import com.volcengine.privatelink.model.ModifyEndpointPayerAccountResponse;
 import com.volcengine.privatelink.model.ModifyPrivateLinkGatewayAttributesRequest;
 import com.volcengine.privatelink.model.ModifyPrivateLinkGatewayAttributesResponse;
 import com.volcengine.privatelink.model.ModifyUniqueResourceTypeVpcEndpointServiceAttributesRequest;
 import com.volcengine.privatelink.model.ModifyUniqueResourceTypeVpcEndpointServiceAttributesResponse;
 import com.volcengine.privatelink.model.ModifyVpcEndpointAttributesRequest;
 import com.volcengine.privatelink.model.ModifyVpcEndpointAttributesResponse;
+import com.volcengine.privatelink.model.ModifyVpcEndpointConnectionsRequest;
+import com.volcengine.privatelink.model.ModifyVpcEndpointConnectionsResponse;
 import com.volcengine.privatelink.model.ModifyVpcEndpointServiceAttributesRequest;
 import com.volcengine.privatelink.model.ModifyVpcEndpointServiceAttributesResponse;
 import com.volcengine.privatelink.model.ModifyVpcEndpointServiceResourceAttributesRequest;
@@ -5498,6 +5502,130 @@ public class PrivatelinkApi {
         return call;
     }
     /**
+     * Build call for modifyEndpointPayerAccount
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call modifyEndpointPayerAccountCall(ModifyEndpointPayerAccountRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/ModifyEndpointPayerAccount/2020-04-01/privatelink/get/text_plain/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call modifyEndpointPayerAccountValidateBeforeCall(ModifyEndpointPayerAccountRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling modifyEndpointPayerAccount(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = modifyEndpointPayerAccountCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ModifyEndpointPayerAccountResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ModifyEndpointPayerAccountResponse modifyEndpointPayerAccount(ModifyEndpointPayerAccountRequest body) throws ApiException {
+        ApiResponse<ModifyEndpointPayerAccountResponse> resp = modifyEndpointPayerAccountWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;ModifyEndpointPayerAccountResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ModifyEndpointPayerAccountResponse> modifyEndpointPayerAccountWithHttpInfo( @NotNull ModifyEndpointPayerAccountRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = modifyEndpointPayerAccountValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<ModifyEndpointPayerAccountResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call modifyEndpointPayerAccountAsync(ModifyEndpointPayerAccountRequest body, final ApiCallback<ModifyEndpointPayerAccountResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = modifyEndpointPayerAccountValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ModifyEndpointPayerAccountResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for modifyPrivateLinkGatewayAttributes
      * @param body  (required)
      * @param progressListener Progress listener
@@ -5866,6 +5994,130 @@ public class PrivatelinkApi {
 
         com.squareup.okhttp.Call call = modifyVpcEndpointAttributesValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ModifyVpcEndpointAttributesResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for modifyVpcEndpointConnections
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call modifyVpcEndpointConnectionsCall(ModifyVpcEndpointConnectionsRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/ModifyVpcEndpointConnections/2020-04-01/privatelink/get/text_plain/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call modifyVpcEndpointConnectionsValidateBeforeCall(ModifyVpcEndpointConnectionsRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling modifyVpcEndpointConnections(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = modifyVpcEndpointConnectionsCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ModifyVpcEndpointConnectionsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ModifyVpcEndpointConnectionsResponse modifyVpcEndpointConnections(ModifyVpcEndpointConnectionsRequest body) throws ApiException {
+        ApiResponse<ModifyVpcEndpointConnectionsResponse> resp = modifyVpcEndpointConnectionsWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;ModifyVpcEndpointConnectionsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ModifyVpcEndpointConnectionsResponse> modifyVpcEndpointConnectionsWithHttpInfo( @NotNull ModifyVpcEndpointConnectionsRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = modifyVpcEndpointConnectionsValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<ModifyVpcEndpointConnectionsResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call modifyVpcEndpointConnectionsAsync(ModifyVpcEndpointConnectionsRequest body, final ApiCallback<ModifyVpcEndpointConnectionsResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = modifyVpcEndpointConnectionsValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ModifyVpcEndpointConnectionsResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

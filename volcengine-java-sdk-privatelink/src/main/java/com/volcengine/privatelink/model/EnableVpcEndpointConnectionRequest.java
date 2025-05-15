@@ -42,6 +42,9 @@ public class EnableVpcEndpointConnectionRequest {
   @SerializedName("ServiceId")
   private String serviceId = null;
 
+  @SerializedName("ZoneId")
+  private String zoneId = null;
+
   public EnableVpcEndpointConnectionRequest endpointId(String endpointId) {
     this.endpointId = endpointId;
     return this;
@@ -107,6 +110,24 @@ public class EnableVpcEndpointConnectionRequest {
     this.serviceId = serviceId;
   }
 
+  public EnableVpcEndpointConnectionRequest zoneId(String zoneId) {
+    this.zoneId = zoneId;
+    return this;
+  }
+
+   /**
+   * Get zoneId
+   * @return zoneId
+  **/
+  @Schema(description = "")
+  public String getZoneId() {
+    return zoneId;
+  }
+
+  public void setZoneId(String zoneId) {
+    this.zoneId = zoneId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -119,12 +140,13 @@ public class EnableVpcEndpointConnectionRequest {
     EnableVpcEndpointConnectionRequest enableVpcEndpointConnectionRequest = (EnableVpcEndpointConnectionRequest) o;
     return Objects.equals(this.endpointId, enableVpcEndpointConnectionRequest.endpointId) &&
         Objects.equals(this.resourcesAllocate, enableVpcEndpointConnectionRequest.resourcesAllocate) &&
-        Objects.equals(this.serviceId, enableVpcEndpointConnectionRequest.serviceId);
+        Objects.equals(this.serviceId, enableVpcEndpointConnectionRequest.serviceId) &&
+        Objects.equals(this.zoneId, enableVpcEndpointConnectionRequest.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(endpointId, resourcesAllocate, serviceId);
+    return Objects.hash(endpointId, resourcesAllocate, serviceId, zoneId);
   }
 
 
@@ -136,6 +158,7 @@ public class EnableVpcEndpointConnectionRequest {
     sb.append("    endpointId: ").append(toIndentedString(endpointId)).append("\n");
     sb.append("    resourcesAllocate: ").append(toIndentedString(resourcesAllocate)).append("\n");
     sb.append("    serviceId: ").append(toIndentedString(serviceId)).append("\n");
+    sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
