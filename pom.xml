@@ -280,5 +280,6 @@
         <module>volcengine-java-sdk-vod20250101</module>
         <module>volcengine-java-sdk-tag</module>
         <module>volcengine-java-sdk-bmq20240901</module>
+        <module>volcengine-java-sdk-quota</module>
     </modules>
 </project>
