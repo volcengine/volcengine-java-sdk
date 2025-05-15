@@ -44,6 +44,7 @@ public class ContentGenerationTaskExample {
                 .imageUrl(CreateContentGenerationTaskRequest.ImageUrl.builder()
                         .url("${IMAGE URL HERE}")
                         .build())
+                // .role("first_frame")
                 .build());
 
         CreateContentGenerationTaskRequest createRequest = CreateContentGenerationTaskRequest.builder()

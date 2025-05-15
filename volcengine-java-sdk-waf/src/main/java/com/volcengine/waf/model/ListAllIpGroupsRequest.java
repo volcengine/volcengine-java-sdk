@@ -34,7 +34,7 @@ public class ListAllIpGroupsRequest {
   private String ip = null;
 
   @SerializedName("Page")
-  private String page = null;
+  private Integer page = null;
 
   @SerializedName("PageSize")
   private Integer pageSize = null;
@@ -66,7 +66,7 @@ public class ListAllIpGroupsRequest {
     this.ip = ip;
   }
 
-  public ListAllIpGroupsRequest page(String page) {
+  public ListAllIpGroupsRequest page(Integer page) {
     this.page = page;
     return this;
   }
@@ -76,11 +76,11 @@ public class ListAllIpGroupsRequest {
    * @return page
   **/
   @Schema(description = "")
-  public String getPage() {
+  public Integer getPage() {
     return page;
   }
 
-  public void setPage(String page) {
+  public void setPage(Integer page) {
     this.page = page;
   }
 
