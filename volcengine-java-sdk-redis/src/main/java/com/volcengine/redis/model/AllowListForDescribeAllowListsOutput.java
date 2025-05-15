@@ -97,6 +97,9 @@ public class AllowListForDescribeAllowListsOutput {
   @SerializedName("AssociatedInstanceNum")
   private Integer associatedInstanceNum = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("SecurityGroupBindInfos")
   private List<SecurityGroupBindInfoForDescribeAllowListsOutput> securityGroupBindInfos = null;
 
@@ -226,6 +229,24 @@ public class AllowListForDescribeAllowListsOutput {
     this.associatedInstanceNum = associatedInstanceNum;
   }
 
+  public AllowListForDescribeAllowListsOutput projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public AllowListForDescribeAllowListsOutput securityGroupBindInfos(List<SecurityGroupBindInfoForDescribeAllowListsOutput> securityGroupBindInfos) {
     this.securityGroupBindInfos = securityGroupBindInfos;
     return this;
@@ -270,12 +291,13 @@ public class AllowListForDescribeAllowListsOutput {
         Objects.equals(this.allowListName, allowListForDescribeAllowListsOutput.allowListName) &&
         Objects.equals(this.allowListType, allowListForDescribeAllowListsOutput.allowListType) &&
         Objects.equals(this.associatedInstanceNum, allowListForDescribeAllowListsOutput.associatedInstanceNum) &&
+        Objects.equals(this.projectName, allowListForDescribeAllowListsOutput.projectName) &&
         Objects.equals(this.securityGroupBindInfos, allowListForDescribeAllowListsOutput.securityGroupBindInfos);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowListCategory, allowListDesc, allowListIPNum, allowListId, allowListName, allowListType, associatedInstanceNum, securityGroupBindInfos);
+    return Objects.hash(allowListCategory, allowListDesc, allowListIPNum, allowListId, allowListName, allowListType, associatedInstanceNum, projectName, securityGroupBindInfos);
   }
 
 
@@ -291,6 +313,7 @@ public class AllowListForDescribeAllowListsOutput {
     sb.append("    allowListName: ").append(toIndentedString(allowListName)).append("\n");
     sb.append("    allowListType: ").append(toIndentedString(allowListType)).append("\n");
     sb.append("    associatedInstanceNum: ").append(toIndentedString(associatedInstanceNum)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    securityGroupBindInfos: ").append(toIndentedString(securityGroupBindInfos)).append("\n");
     sb.append("}");
     return sb.toString();

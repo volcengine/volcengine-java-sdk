@@ -19,8 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.redis.model.InstanceDetailForDescribeBackupsOutput;
-import com.volcengine.redis.model.ShardListForDescribeBackupsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -37,6 +35,9 @@ public class InstanceInfoForDescribeBackupsOutput {
   @SerializedName("AccountId")
   private Long accountId = null;
 
+  @SerializedName("ArchType")
+  private String archType = null;
+
   @SerializedName("ChargeType")
   private String chargeType = null;
 
@@ -49,14 +50,14 @@ public class InstanceInfoForDescribeBackupsOutput {
   @SerializedName("ExpiredTime")
   private String expiredTime = null;
 
-  @SerializedName("InstanceDetail")
-  private InstanceDetailForDescribeBackupsOutput instanceDetail = null;
-
   @SerializedName("InstanceId")
   private String instanceId = null;
 
   @SerializedName("InstanceName")
   private String instanceName = null;
+
+  @SerializedName("MaintenanceTime")
+  private String maintenanceTime = null;
 
   @SerializedName("NetworkType")
   private String networkType = null;
@@ -64,14 +65,17 @@ public class InstanceInfoForDescribeBackupsOutput {
   @SerializedName("RegionId")
   private String regionId = null;
 
+  @SerializedName("Replicas")
+  private Integer replicas = null;
+
   @SerializedName("ShardCapacity")
   private Double shardCapacity = null;
 
-  @SerializedName("ShardList")
-  private List<ShardListForDescribeBackupsOutput> shardList = null;
-
   @SerializedName("ShardNumber")
   private Integer shardNumber = null;
+
+  @SerializedName("TotalCapacity")
+  private Long totalCapacity = null;
 
   @SerializedName("VpcId")
   private String vpcId = null;
@@ -95,6 +99,24 @@ public class InstanceInfoForDescribeBackupsOutput {
 
   public void setAccountId(Long accountId) {
     this.accountId = accountId;
+  }
+
+  public InstanceInfoForDescribeBackupsOutput archType(String archType) {
+    this.archType = archType;
+    return this;
+  }
+
+   /**
+   * Get archType
+   * @return archType
+  **/
+  @Schema(description = "")
+  public String getArchType() {
+    return archType;
+  }
+
+  public void setArchType(String archType) {
+    this.archType = archType;
   }
 
   public InstanceInfoForDescribeBackupsOutput chargeType(String chargeType) {
@@ -169,25 +191,6 @@ public class InstanceInfoForDescribeBackupsOutput {
     this.expiredTime = expiredTime;
   }
 
-  public InstanceInfoForDescribeBackupsOutput instanceDetail(InstanceDetailForDescribeBackupsOutput instanceDetail) {
-    this.instanceDetail = instanceDetail;
-    return this;
-  }
-
-   /**
-   * Get instanceDetail
-   * @return instanceDetail
-  **/
-  @Valid
-  @Schema(description = "")
-  public InstanceDetailForDescribeBackupsOutput getInstanceDetail() {
-    return instanceDetail;
-  }
-
-  public void setInstanceDetail(InstanceDetailForDescribeBackupsOutput instanceDetail) {
-    this.instanceDetail = instanceDetail;
-  }
-
   public InstanceInfoForDescribeBackupsOutput instanceId(String instanceId) {
     this.instanceId = instanceId;
     return this;
@@ -222,6 +225,24 @@ public class InstanceInfoForDescribeBackupsOutput {
 
   public void setInstanceName(String instanceName) {
     this.instanceName = instanceName;
+  }
+
+  public InstanceInfoForDescribeBackupsOutput maintenanceTime(String maintenanceTime) {
+    this.maintenanceTime = maintenanceTime;
+    return this;
+  }
+
+   /**
+   * Get maintenanceTime
+   * @return maintenanceTime
+  **/
+  @Schema(description = "")
+  public String getMaintenanceTime() {
+    return maintenanceTime;
+  }
+
+  public void setMaintenanceTime(String maintenanceTime) {
+    this.maintenanceTime = maintenanceTime;
   }
 
   public InstanceInfoForDescribeBackupsOutput networkType(String networkType) {
@@ -260,6 +281,24 @@ public class InstanceInfoForDescribeBackupsOutput {
     this.regionId = regionId;
   }
 
+  public InstanceInfoForDescribeBackupsOutput replicas(Integer replicas) {
+    this.replicas = replicas;
+    return this;
+  }
+
+   /**
+   * Get replicas
+   * @return replicas
+  **/
+  @Schema(description = "")
+  public Integer getReplicas() {
+    return replicas;
+  }
+
+  public void setReplicas(Integer replicas) {
+    this.replicas = replicas;
+  }
+
   public InstanceInfoForDescribeBackupsOutput shardCapacity(Double shardCapacity) {
     this.shardCapacity = shardCapacity;
     return this;
@@ -278,33 +317,6 @@ public class InstanceInfoForDescribeBackupsOutput {
     this.shardCapacity = shardCapacity;
   }
 
-  public InstanceInfoForDescribeBackupsOutput shardList(List<ShardListForDescribeBackupsOutput> shardList) {
-    this.shardList = shardList;
-    return this;
-  }
-
-  public InstanceInfoForDescribeBackupsOutput addShardListItem(ShardListForDescribeBackupsOutput shardListItem) {
-    if (this.shardList == null) {
-      this.shardList = new ArrayList<ShardListForDescribeBackupsOutput>();
-    }
-    this.shardList.add(shardListItem);
-    return this;
-  }
-
-   /**
-   * Get shardList
-   * @return shardList
-  **/
-  @Valid
-  @Schema(description = "")
-  public List<ShardListForDescribeBackupsOutput> getShardList() {
-    return shardList;
-  }
-
-  public void setShardList(List<ShardListForDescribeBackupsOutput> shardList) {
-    this.shardList = shardList;
-  }
-
   public InstanceInfoForDescribeBackupsOutput shardNumber(Integer shardNumber) {
     this.shardNumber = shardNumber;
     return this;
@@ -321,6 +333,24 @@ public class InstanceInfoForDescribeBackupsOutput {
 
   public void setShardNumber(Integer shardNumber) {
     this.shardNumber = shardNumber;
+  }
+
+  public InstanceInfoForDescribeBackupsOutput totalCapacity(Long totalCapacity) {
+    this.totalCapacity = totalCapacity;
+    return this;
+  }
+
+   /**
+   * Get totalCapacity
+   * @return totalCapacity
+  **/
+  @Schema(description = "")
+  public Long getTotalCapacity() {
+    return totalCapacity;
+  }
+
+  public void setTotalCapacity(Long totalCapacity) {
+    this.totalCapacity = totalCapacity;
   }
 
   public InstanceInfoForDescribeBackupsOutput vpcId(String vpcId) {
@@ -378,25 +408,27 @@ public class InstanceInfoForDescribeBackupsOutput {
     }
     InstanceInfoForDescribeBackupsOutput instanceInfoForDescribeBackupsOutput = (InstanceInfoForDescribeBackupsOutput) o;
     return Objects.equals(this.accountId, instanceInfoForDescribeBackupsOutput.accountId) &&
+        Objects.equals(this.archType, instanceInfoForDescribeBackupsOutput.archType) &&
         Objects.equals(this.chargeType, instanceInfoForDescribeBackupsOutput.chargeType) &&
         Objects.equals(this.deletionProtection, instanceInfoForDescribeBackupsOutput.deletionProtection) &&
         Objects.equals(this.engineVersion, instanceInfoForDescribeBackupsOutput.engineVersion) &&
         Objects.equals(this.expiredTime, instanceInfoForDescribeBackupsOutput.expiredTime) &&
-        Objects.equals(this.instanceDetail, instanceInfoForDescribeBackupsOutput.instanceDetail) &&
         Objects.equals(this.instanceId, instanceInfoForDescribeBackupsOutput.instanceId) &&
         Objects.equals(this.instanceName, instanceInfoForDescribeBackupsOutput.instanceName) &&
+        Objects.equals(this.maintenanceTime, instanceInfoForDescribeBackupsOutput.maintenanceTime) &&
         Objects.equals(this.networkType, instanceInfoForDescribeBackupsOutput.networkType) &&
         Objects.equals(this.regionId, instanceInfoForDescribeBackupsOutput.regionId) &&
+        Objects.equals(this.replicas, instanceInfoForDescribeBackupsOutput.replicas) &&
         Objects.equals(this.shardCapacity, instanceInfoForDescribeBackupsOutput.shardCapacity) &&
-        Objects.equals(this.shardList, instanceInfoForDescribeBackupsOutput.shardList) &&
         Objects.equals(this.shardNumber, instanceInfoForDescribeBackupsOutput.shardNumber) &&
+        Objects.equals(this.totalCapacity, instanceInfoForDescribeBackupsOutput.totalCapacity) &&
         Objects.equals(this.vpcId, instanceInfoForDescribeBackupsOutput.vpcId) &&
         Objects.equals(this.zoneIds, instanceInfoForDescribeBackupsOutput.zoneIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, chargeType, deletionProtection, engineVersion, expiredTime, instanceDetail, instanceId, instanceName, networkType, regionId, shardCapacity, shardList, shardNumber, vpcId, zoneIds);
+    return Objects.hash(accountId, archType, chargeType, deletionProtection, engineVersion, expiredTime, instanceId, instanceName, maintenanceTime, networkType, regionId, replicas, shardCapacity, shardNumber, totalCapacity, vpcId, zoneIds);
   }
 
 
@@ -406,18 +438,20 @@ public class InstanceInfoForDescribeBackupsOutput {
     sb.append("class InstanceInfoForDescribeBackupsOutput {\n");
     
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
+    sb.append("    archType: ").append(toIndentedString(archType)).append("\n");
     sb.append("    chargeType: ").append(toIndentedString(chargeType)).append("\n");
     sb.append("    deletionProtection: ").append(toIndentedString(deletionProtection)).append("\n");
     sb.append("    engineVersion: ").append(toIndentedString(engineVersion)).append("\n");
     sb.append("    expiredTime: ").append(toIndentedString(expiredTime)).append("\n");
-    sb.append("    instanceDetail: ").append(toIndentedString(instanceDetail)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
+    sb.append("    maintenanceTime: ").append(toIndentedString(maintenanceTime)).append("\n");
     sb.append("    networkType: ").append(toIndentedString(networkType)).append("\n");
     sb.append("    regionId: ").append(toIndentedString(regionId)).append("\n");
+    sb.append("    replicas: ").append(toIndentedString(replicas)).append("\n");
     sb.append("    shardCapacity: ").append(toIndentedString(shardCapacity)).append("\n");
-    sb.append("    shardList: ").append(toIndentedString(shardList)).append("\n");
     sb.append("    shardNumber: ").append(toIndentedString(shardNumber)).append("\n");
+    sb.append("    totalCapacity: ").append(toIndentedString(totalCapacity)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("    zoneIds: ").append(toIndentedString(zoneIds)).append("\n");
     sb.append("}");
