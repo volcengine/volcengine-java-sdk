@@ -13,6 +13,8 @@ import com.volcengine.ark.runtime.model.context.CreateContextResult;
 import com.volcengine.ark.runtime.model.context.chat.ContextChatCompletionRequest;
 import com.volcengine.ark.runtime.model.embeddings.EmbeddingRequest;
 import com.volcengine.ark.runtime.model.embeddings.EmbeddingResult;
+import com.volcengine.ark.runtime.model.images.generation.GenerateImagesRequest;
+import com.volcengine.ark.runtime.model.images.generation.ImagesResponse;
 import com.volcengine.ark.runtime.model.multimodalembeddings.MultimodalEmbeddingRequest;
 import com.volcengine.ark.runtime.model.multimodalembeddings.MultimodalEmbeddingResult;
 import com.volcengine.ark.runtime.model.tokenization.TokenizationRequest;
@@ -64,6 +66,9 @@ public interface ArkApi {
 
     @POST("/api/v3/tokenization")
     Single<TokenizationResult> createTokenization(@Body TokenizationRequest request, @Header(Const.REQUEST_MODEL) String model, @HeaderMap Map<String, String> customHeaders);
+
+    @POST("/api/v3/images/generations")
+    Single<ImagesResponse> generateImages(@Body GenerateImagesRequest request, @Header(Const.REQUEST_MODEL) String model, @HeaderMap Map<String, String> customHeaders);
 
     @POST("/api/v3/contents/generations/tasks")
     Single<CreateContentGenerationTaskResult> createContentGenerationTask(@Body CreateContentGenerationTaskRequest request, @Header(Const.REQUEST_MODEL) String model, @HeaderMap Map<String, String> customHeaders);
