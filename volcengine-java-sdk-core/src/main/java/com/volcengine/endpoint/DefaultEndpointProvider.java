@@ -661,6 +661,15 @@ public class DefaultEndpointProvider implements EndpointResolver {
                 ENDPOINT,
                 createRegionEndpointMap()
         ));
+
+        // --------------------------- quota ---------------------------
+        DEFAULT_ENDPOINT_MAP.put("quota", new ServiceEndpointInfo(
+                "quota",
+                true,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
     }
 
 
