@@ -21,9 +21,12 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vod20250101.model.ControlForStartExecutionInput;
 import com.volcengine.vod20250101.model.InputForStartExecutionInput;
+import com.volcengine.vod20250101.model.MultiInputForStartExecutionInput;
 import com.volcengine.vod20250101.model.OperationForStartExecutionInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -38,6 +41,9 @@ public class StartExecutionRequest {
 
   @SerializedName("Input")
   private InputForStartExecutionInput input = null;
+
+  @SerializedName("MultiInputs")
+  private List<MultiInputForStartExecutionInput> multiInputs = null;
 
   @SerializedName("Operation")
   private OperationForStartExecutionInput operation = null;
@@ -80,6 +86,33 @@ public class StartExecutionRequest {
     this.input = input;
   }
 
+  public StartExecutionRequest multiInputs(List<MultiInputForStartExecutionInput> multiInputs) {
+    this.multiInputs = multiInputs;
+    return this;
+  }
+
+  public StartExecutionRequest addMultiInputsItem(MultiInputForStartExecutionInput multiInputsItem) {
+    if (this.multiInputs == null) {
+      this.multiInputs = new ArrayList<MultiInputForStartExecutionInput>();
+    }
+    this.multiInputs.add(multiInputsItem);
+    return this;
+  }
+
+   /**
+   * Get multiInputs
+   * @return multiInputs
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<MultiInputForStartExecutionInput> getMultiInputs() {
+    return multiInputs;
+  }
+
+  public void setMultiInputs(List<MultiInputForStartExecutionInput> multiInputs) {
+    this.multiInputs = multiInputs;
+  }
+
   public StartExecutionRequest operation(OperationForStartExecutionInput operation) {
     this.operation = operation;
     return this;
@@ -111,12 +144,13 @@ public class StartExecutionRequest {
     StartExecutionRequest startExecutionRequest = (StartExecutionRequest) o;
     return Objects.equals(this.control, startExecutionRequest.control) &&
         Objects.equals(this.input, startExecutionRequest.input) &&
+        Objects.equals(this.multiInputs, startExecutionRequest.multiInputs) &&
         Objects.equals(this.operation, startExecutionRequest.operation);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(control, input, operation);
+    return Objects.hash(control, input, multiInputs, operation);
   }
 
 
@@ -127,6 +161,7 @@ public class StartExecutionRequest {
     
     sb.append("    control: ").append(toIndentedString(control)).append("\n");
     sb.append("    input: ").append(toIndentedString(input)).append("\n");
+    sb.append("    multiInputs: ").append(toIndentedString(multiInputs)).append("\n");
     sb.append("    operation: ").append(toIndentedString(operation)).append("\n");
     sb.append("}");
     return sb.toString();

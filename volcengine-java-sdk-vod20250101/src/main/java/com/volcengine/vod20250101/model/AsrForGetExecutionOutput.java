@@ -33,6 +33,9 @@ public class AsrForGetExecutionOutput {
   @SerializedName("Language")
   private String language = null;
 
+  @SerializedName("Mode")
+  private String mode = null;
+
   @SerializedName("Type")
   private String type = null;
 
@@ -58,6 +61,24 @@ public class AsrForGetExecutionOutput {
 
   public void setLanguage(String language) {
     this.language = language;
+  }
+
+  public AsrForGetExecutionOutput mode(String mode) {
+    this.mode = mode;
+    return this;
+  }
+
+   /**
+   * Get mode
+   * @return mode
+  **/
+  @Schema(description = "")
+  public String getMode() {
+    return mode;
+  }
+
+  public void setMode(String mode) {
+    this.mode = mode;
   }
 
   public AsrForGetExecutionOutput type(String type) {
@@ -125,6 +146,7 @@ public class AsrForGetExecutionOutput {
     }
     AsrForGetExecutionOutput asrForGetExecutionOutput = (AsrForGetExecutionOutput) o;
     return Objects.equals(this.language, asrForGetExecutionOutput.language) &&
+        Objects.equals(this.mode, asrForGetExecutionOutput.mode) &&
         Objects.equals(this.type, asrForGetExecutionOutput.type) &&
         Objects.equals(this.withConfidence, asrForGetExecutionOutput.withConfidence) &&
         Objects.equals(this.withSpeakerInfo, asrForGetExecutionOutput.withSpeakerInfo);
@@ -132,7 +154,7 @@ public class AsrForGetExecutionOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(language, type, withConfidence, withSpeakerInfo);
+    return Objects.hash(language, mode, type, withConfidence, withSpeakerInfo);
   }
 
 
@@ -142,6 +164,7 @@ public class AsrForGetExecutionOutput {
     sb.append("class AsrForGetExecutionOutput {\n");
     
     sb.append("    language: ").append(toIndentedString(language)).append("\n");
+    sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    withConfidence: ").append(toIndentedString(withConfidence)).append("\n");
     sb.append("    withSpeakerInfo: ").append(toIndentedString(withSpeakerInfo)).append("\n");

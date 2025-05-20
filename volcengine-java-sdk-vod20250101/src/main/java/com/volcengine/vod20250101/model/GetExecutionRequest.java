@@ -42,7 +42,8 @@ public class GetExecutionRequest {
    * Get runId
    * @return runId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getRunId() {
     return runId;
   }
