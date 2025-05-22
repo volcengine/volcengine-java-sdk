@@ -94,6 +94,9 @@ public class CreateAllowListRequest {
   @SerializedName("ClientToken")
   private String clientToken = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("SecurityGroupBindInfos")
   private List<SecurityGroupBindInfoForCreateAllowListInput> securityGroupBindInfos = null;
 
@@ -206,6 +209,24 @@ public class CreateAllowListRequest {
     this.clientToken = clientToken;
   }
 
+  public CreateAllowListRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public CreateAllowListRequest securityGroupBindInfos(List<SecurityGroupBindInfoForCreateAllowListInput> securityGroupBindInfos) {
     this.securityGroupBindInfos = securityGroupBindInfos;
     return this;
@@ -249,12 +270,13 @@ public class CreateAllowListRequest {
         Objects.equals(this.allowListName, createAllowListRequest.allowListName) &&
         Objects.equals(this.allowListType, createAllowListRequest.allowListType) &&
         Objects.equals(this.clientToken, createAllowListRequest.clientToken) &&
+        Objects.equals(this.projectName, createAllowListRequest.projectName) &&
         Objects.equals(this.securityGroupBindInfos, createAllowListRequest.securityGroupBindInfos);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowList, allowListCategory, allowListDesc, allowListName, allowListType, clientToken, securityGroupBindInfos);
+    return Objects.hash(allowList, allowListCategory, allowListDesc, allowListName, allowListType, clientToken, projectName, securityGroupBindInfos);
   }
 
 
@@ -269,6 +291,7 @@ public class CreateAllowListRequest {
     sb.append("    allowListName: ").append(toIndentedString(allowListName)).append("\n");
     sb.append("    allowListType: ").append(toIndentedString(allowListType)).append("\n");
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    securityGroupBindInfos: ").append(toIndentedString(securityGroupBindInfos)).append("\n");
     sb.append("}");
     return sb.toString();

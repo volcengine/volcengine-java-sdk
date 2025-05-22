@@ -30,8 +30,57 @@ import javax.validation.Valid;
 
 
 public class ModifyDBInstanceVisitAddressRequest {
-  @SerializedName("AddrType")
-  private String addrType = null;
+  /**
+   * Gets or Sets addrType
+   */
+  @JsonAdapter(AddrTypeEnum.Adapter.class)
+  public enum AddrTypeEnum {
+    @SerializedName("Private")
+    PRIVATE("Private"),
+    @SerializedName("Public")
+    PUBLIC("Public"),
+    @SerializedName("PublicZone")
+    PUBLICZONE("PublicZone"),
+    @SerializedName("StorageInner")
+    STORAGEINNER("StorageInner"),
+    @SerializedName("DirectLink")
+    DIRECTLINK("DirectLink");
+
+    private String value;
+
+    AddrTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static AddrTypeEnum fromValue(String input) {
+      for (AddrTypeEnum b : AddrTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<AddrTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final AddrTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public AddrTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return AddrTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("AddrType")
+  private AddrTypeEnum addrType = null;
 
   @SerializedName("ClientToken")
   private String clientToken = null;
@@ -45,7 +94,10 @@ public class ModifyDBInstanceVisitAddressRequest {
   @SerializedName("NewPort")
   private Integer newPort = null;
 
-  public ModifyDBInstanceVisitAddressRequest addrType(String addrType) {
+  @SerializedName("UpgradeRegionDomain")
+  private Boolean upgradeRegionDomain = null;
+
+  public ModifyDBInstanceVisitAddressRequest addrType(AddrTypeEnum addrType) {
     this.addrType = addrType;
     return this;
   }
@@ -56,11 +108,11 @@ public class ModifyDBInstanceVisitAddressRequest {
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getAddrType() {
+  public AddrTypeEnum getAddrType() {
     return addrType;
   }
 
-  public void setAddrType(String addrType) {
+  public void setAddrType(AddrTypeEnum addrType) {
     this.addrType = addrType;
   }
 
@@ -137,6 +189,24 @@ public class ModifyDBInstanceVisitAddressRequest {
     this.newPort = newPort;
   }
 
+  public ModifyDBInstanceVisitAddressRequest upgradeRegionDomain(Boolean upgradeRegionDomain) {
+    this.upgradeRegionDomain = upgradeRegionDomain;
+    return this;
+  }
+
+   /**
+   * Get upgradeRegionDomain
+   * @return upgradeRegionDomain
+  **/
+  @Schema(description = "")
+  public Boolean isUpgradeRegionDomain() {
+    return upgradeRegionDomain;
+  }
+
+  public void setUpgradeRegionDomain(Boolean upgradeRegionDomain) {
+    this.upgradeRegionDomain = upgradeRegionDomain;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -151,12 +221,13 @@ public class ModifyDBInstanceVisitAddressRequest {
         Objects.equals(this.clientToken, modifyDBInstanceVisitAddressRequest.clientToken) &&
         Objects.equals(this.instanceId, modifyDBInstanceVisitAddressRequest.instanceId) &&
         Objects.equals(this.newAddressPrefix, modifyDBInstanceVisitAddressRequest.newAddressPrefix) &&
-        Objects.equals(this.newPort, modifyDBInstanceVisitAddressRequest.newPort);
+        Objects.equals(this.newPort, modifyDBInstanceVisitAddressRequest.newPort) &&
+        Objects.equals(this.upgradeRegionDomain, modifyDBInstanceVisitAddressRequest.upgradeRegionDomain);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(addrType, clientToken, instanceId, newAddressPrefix, newPort);
+    return Objects.hash(addrType, clientToken, instanceId, newAddressPrefix, newPort, upgradeRegionDomain);
   }
 
 
@@ -170,6 +241,7 @@ public class ModifyDBInstanceVisitAddressRequest {
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    newAddressPrefix: ").append(toIndentedString(newAddressPrefix)).append("\n");
     sb.append("    newPort: ").append(toIndentedString(newPort)).append("\n");
+    sb.append("    upgradeRegionDomain: ").append(toIndentedString(upgradeRegionDomain)).append("\n");
     sb.append("}");
     return sb.toString();
   }

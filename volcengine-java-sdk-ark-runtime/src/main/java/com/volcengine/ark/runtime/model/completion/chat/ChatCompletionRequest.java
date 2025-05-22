@@ -158,6 +158,46 @@ public class ChatCompletionRequest {
     @JsonProperty("response_format")
     ChatCompletionRequestResponseFormat responseFormat;
 
+    @JsonProperty("thinking")
+    ChatCompletionRequestThinking thinking;
+
+    @Override
+    public String toString() {
+        return "ChatCompletionRequest{" +
+                "model='" + model + '\'' +
+                ", messages=" + messages +
+                ", temperature=" + temperature +
+                ", topP=" + topP +
+                ", stream=" + stream +
+                ", streamOptions=" + streamOptions +
+                ", serviceTier='" + serviceTier + '\'' +
+                ", stop=" + stop +
+                ", maxTokens=" + maxTokens +
+                ", presencePenalty=" + presencePenalty +
+                ", frequencyPenalty=" + frequencyPenalty +
+                ", logitBias=" + logitBias +
+                ", user='" + user + '\'' +
+                ", tools=" + tools +
+                ", functionCall=" + functionCall +
+                ", logprobs=" + logprobs +
+                ", topLogprobs=" + topLogprobs +
+                ", repetitionPenalty=" + repetitionPenalty +
+                ", n=" + n +
+                ", parallelToolCalls=" + parallelToolCalls +
+                ", toolChoice=" + toolChoice +
+                ", responseFormat=" + responseFormat +
+                ", thinking=" + thinking +
+                '}';
+    }
+
+    public ChatCompletionRequestThinking getThinking() {
+        return thinking;
+    }
+
+    public void setThinking(ChatCompletionRequestThinking thinking) {
+        this.thinking = thinking;
+    }
+
     public String getModel() {
         return model;
     }
@@ -334,34 +374,6 @@ public class ChatCompletionRequest {
         this.responseFormat = responseFormat;
     }
 
-    @Override
-    public String toString() {
-        return "ChatCompletionRequest{" +
-                "model='" + model + '\'' +
-                ", messages=" + messages +
-                ", temperature=" + temperature +
-                ", topP=" + topP +
-                ", stream=" + stream +
-                ", streamOptions=" + streamOptions +
-                ", serviceTier=" + serviceTier +
-                ", stop=" + stop +
-                ", maxTokens=" + maxTokens +
-                ", presencePenalty=" + presencePenalty +
-                ", frequencyPenalty=" + frequencyPenalty +
-                ", logitBias=" + logitBias +
-                ", user='" + user + '\'' +
-                ", tools=" + tools +
-                ", functionCall=" + functionCall +
-                ", logprobs=" + logprobs +
-                ", topLogprobs=" + topLogprobs +
-                ", repetitionPenalty=" + repetitionPenalty +
-                ", n=" + n +
-                ", parallelToolCalls=" + parallelToolCalls +
-                ", toolChoice=" + toolChoice +
-                ", responseFormat=" + responseFormat +
-                '}';
-    }
-
     public static class ChatCompletionRequestFunctionCall {
         String name;
 
@@ -480,6 +492,22 @@ public class ChatCompletionRequest {
 
     }
 
+    public static class ChatCompletionRequestThinking{
+        public ChatCompletionRequestThinking(String type) {
+            this.type = type;
+        }
+
+        public String getType() {
+            return type;
+        }
+
+        public void setType(String type) {
+            this.type = type;
+        }
+
+        String type;
+    }
+
     public static class ChatCompletionRequestToolChoiceFunction {
         String name;
 
@@ -523,6 +551,7 @@ public class ChatCompletionRequest {
         private Boolean parallelToolCalls;
         private Object toolChoice;
         private ChatCompletionRequestResponseFormat responseFormat;
+        private ChatCompletionRequestThinking thinking;
 
         public ChatCompletionRequest.Builder model(String model) {
             this.model = model;
@@ -639,6 +668,10 @@ public class ChatCompletionRequest {
             return this;
         }
 
+        public ChatCompletionRequest.Builder thinking(ChatCompletionRequestThinking thinking) {
+            this.thinking = thinking;
+            return this;
+        }
         public ChatCompletionRequest build() {
             ChatCompletionRequest chatCompletionRequest = new ChatCompletionRequest();
             chatCompletionRequest.setModel(model);
@@ -663,6 +696,7 @@ public class ChatCompletionRequest {
             chatCompletionRequest.setParallelToolCalls(parallelToolCalls);
             chatCompletionRequest.setToolChoice(toolChoice);
             chatCompletionRequest.setResponseFormat(responseFormat);
+            chatCompletionRequest.setThinking(thinking);
             return chatCompletionRequest;
         }
     }

@@ -101,7 +101,7 @@ public class VpcEndpointServiceForDescribeVpcEndpointServicesOutput {
   private String updateTime = null;
 
   @SerializedName("WildcardDomainEnabled")
-  private String wildcardDomainEnabled = null;
+  private Boolean wildcardDomainEnabled = null;
 
   @SerializedName("ZoneIds")
   private List<String> zoneIds = null;
@@ -520,7 +520,7 @@ public class VpcEndpointServiceForDescribeVpcEndpointServicesOutput {
     this.updateTime = updateTime;
   }
 
-  public VpcEndpointServiceForDescribeVpcEndpointServicesOutput wildcardDomainEnabled(String wildcardDomainEnabled) {
+  public VpcEndpointServiceForDescribeVpcEndpointServicesOutput wildcardDomainEnabled(Boolean wildcardDomainEnabled) {
     this.wildcardDomainEnabled = wildcardDomainEnabled;
     return this;
   }
@@ -530,11 +530,11 @@ public class VpcEndpointServiceForDescribeVpcEndpointServicesOutput {
    * @return wildcardDomainEnabled
   **/
   @Schema(description = "")
-  public String getWildcardDomainEnabled() {
+  public Boolean isWildcardDomainEnabled() {
     return wildcardDomainEnabled;
   }
 
-  public void setWildcardDomainEnabled(String wildcardDomainEnabled) {
+  public void setWildcardDomainEnabled(Boolean wildcardDomainEnabled) {
     this.wildcardDomainEnabled = wildcardDomainEnabled;
   }
 

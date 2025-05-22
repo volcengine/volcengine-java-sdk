@@ -33,6 +33,9 @@ public class AccountForListDBAccountOutput {
   @SerializedName("AccountName")
   private String accountName = null;
 
+  @SerializedName("AccountStatus")
+  private String accountStatus = null;
+
   @SerializedName("Description")
   private String description = null;
 
@@ -58,6 +61,24 @@ public class AccountForListDBAccountOutput {
 
   public void setAccountName(String accountName) {
     this.accountName = accountName;
+  }
+
+  public AccountForListDBAccountOutput accountStatus(String accountStatus) {
+    this.accountStatus = accountStatus;
+    return this;
+  }
+
+   /**
+   * Get accountStatus
+   * @return accountStatus
+  **/
+  @Schema(description = "")
+  public String getAccountStatus() {
+    return accountStatus;
+  }
+
+  public void setAccountStatus(String accountStatus) {
+    this.accountStatus = accountStatus;
   }
 
   public AccountForListDBAccountOutput description(String description) {
@@ -125,6 +146,7 @@ public class AccountForListDBAccountOutput {
     }
     AccountForListDBAccountOutput accountForListDBAccountOutput = (AccountForListDBAccountOutput) o;
     return Objects.equals(this.accountName, accountForListDBAccountOutput.accountName) &&
+        Objects.equals(this.accountStatus, accountForListDBAccountOutput.accountStatus) &&
         Objects.equals(this.description, accountForListDBAccountOutput.description) &&
         Objects.equals(this.instanceId, accountForListDBAccountOutput.instanceId) &&
         Objects.equals(this.roleName, accountForListDBAccountOutput.roleName);
@@ -132,7 +154,7 @@ public class AccountForListDBAccountOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountName, description, instanceId, roleName);
+    return Objects.hash(accountName, accountStatus, description, instanceId, roleName);
   }
 
 
@@ -142,6 +164,7 @@ public class AccountForListDBAccountOutput {
     sb.append("class AccountForListDBAccountOutput {\n");
     
     sb.append("    accountName: ").append(toIndentedString(accountName)).append("\n");
+    sb.append("    accountStatus: ").append(toIndentedString(accountStatus)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    roleName: ").append(toIndentedString(roleName)).append("\n");

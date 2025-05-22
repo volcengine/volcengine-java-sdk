@@ -36,6 +36,9 @@ public class CreateAccountRequest {
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("InheritProfile")
+  private Boolean inheritProfile = null;
+
   @SerializedName("OrgUnitId")
   private String orgUnitId = null;
 
@@ -80,6 +83,24 @@ public class CreateAccountRequest {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public CreateAccountRequest inheritProfile(Boolean inheritProfile) {
+    this.inheritProfile = inheritProfile;
+    return this;
+  }
+
+   /**
+   * Get inheritProfile
+   * @return inheritProfile
+  **/
+  @Schema(description = "")
+  public Boolean isInheritProfile() {
+    return inheritProfile;
+  }
+
+  public void setInheritProfile(Boolean inheritProfile) {
+    this.inheritProfile = inheritProfile;
   }
 
   public CreateAccountRequest orgUnitId(String orgUnitId) {
@@ -149,6 +170,7 @@ public class CreateAccountRequest {
     CreateAccountRequest createAccountRequest = (CreateAccountRequest) o;
     return Objects.equals(this.accountName, createAccountRequest.accountName) &&
         Objects.equals(this.description, createAccountRequest.description) &&
+        Objects.equals(this.inheritProfile, createAccountRequest.inheritProfile) &&
         Objects.equals(this.orgUnitId, createAccountRequest.orgUnitId) &&
         Objects.equals(this.showName, createAccountRequest.showName) &&
         Objects.equals(this.verificationRelationId, createAccountRequest.verificationRelationId);
@@ -156,7 +178,7 @@ public class CreateAccountRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountName, description, orgUnitId, showName, verificationRelationId);
+    return Objects.hash(accountName, description, inheritProfile, orgUnitId, showName, verificationRelationId);
   }
 
 
@@ -167,6 +189,7 @@ public class CreateAccountRequest {
     
     sb.append("    accountName: ").append(toIndentedString(accountName)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    inheritProfile: ").append(toIndentedString(inheritProfile)).append("\n");
     sb.append("    orgUnitId: ").append(toIndentedString(orgUnitId)).append("\n");
     sb.append("    showName: ").append(toIndentedString(showName)).append("\n");
     sb.append("    verificationRelationId: ").append(toIndentedString(verificationRelationId)).append("\n");

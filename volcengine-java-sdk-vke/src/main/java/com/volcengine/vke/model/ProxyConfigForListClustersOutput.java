@@ -23,6 +23,8 @@ import com.volcengine.vke.model.ApiServerEndpointsForListClustersOutput;
 import com.volcengine.vke.model.ApiServerPublicAccessConfigForListClustersOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -32,6 +34,12 @@ import javax.validation.Valid;
 
 
 public class ProxyConfigForListClustersOutput {
+  @SerializedName("AclEnabled")
+  private Boolean aclEnabled = null;
+
+  @SerializedName("AclIpWhitelist")
+  private List<String> aclIpWhitelist = null;
+
   @SerializedName("ApiServerEndpoints")
   private ApiServerEndpointsForListClustersOutput apiServerEndpoints = null;
 
@@ -42,10 +50,54 @@ public class ProxyConfigForListClustersOutput {
   private Boolean apiServerPublicAccessEnabled = null;
 
   @SerializedName("SubnetIds")
-  private String subnetIds = null;
+  private List<String> subnetIds = null;
 
   @SerializedName("VpcId")
   private String vpcId = null;
+
+  public ProxyConfigForListClustersOutput aclEnabled(Boolean aclEnabled) {
+    this.aclEnabled = aclEnabled;
+    return this;
+  }
+
+   /**
+   * Get aclEnabled
+   * @return aclEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isAclEnabled() {
+    return aclEnabled;
+  }
+
+  public void setAclEnabled(Boolean aclEnabled) {
+    this.aclEnabled = aclEnabled;
+  }
+
+  public ProxyConfigForListClustersOutput aclIpWhitelist(List<String> aclIpWhitelist) {
+    this.aclIpWhitelist = aclIpWhitelist;
+    return this;
+  }
+
+  public ProxyConfigForListClustersOutput addAclIpWhitelistItem(String aclIpWhitelistItem) {
+    if (this.aclIpWhitelist == null) {
+      this.aclIpWhitelist = new ArrayList<String>();
+    }
+    this.aclIpWhitelist.add(aclIpWhitelistItem);
+    return this;
+  }
+
+   /**
+   * Get aclIpWhitelist
+   * @return aclIpWhitelist
+  **/
+  @Schema(description = "")
+  public List<String> getAclIpWhitelist() {
+    return aclIpWhitelist;
+  }
+
+  public void setAclIpWhitelist(List<String> aclIpWhitelist) {
+    this.aclIpWhitelist = aclIpWhitelist;
+  }
 
   public ProxyConfigForListClustersOutput apiServerEndpoints(ApiServerEndpointsForListClustersOutput apiServerEndpoints) {
     this.apiServerEndpoints = apiServerEndpoints;
@@ -103,8 +155,16 @@ public class ProxyConfigForListClustersOutput {
     this.apiServerPublicAccessEnabled = apiServerPublicAccessEnabled;
   }
 
-  public ProxyConfigForListClustersOutput subnetIds(String subnetIds) {
+  public ProxyConfigForListClustersOutput subnetIds(List<String> subnetIds) {
     this.subnetIds = subnetIds;
+    return this;
+  }
+
+  public ProxyConfigForListClustersOutput addSubnetIdsItem(String subnetIdsItem) {
+    if (this.subnetIds == null) {
+      this.subnetIds = new ArrayList<String>();
+    }
+    this.subnetIds.add(subnetIdsItem);
     return this;
   }
 
@@ -113,11 +173,11 @@ public class ProxyConfigForListClustersOutput {
    * @return subnetIds
   **/
   @Schema(description = "")
-  public String getSubnetIds() {
+  public List<String> getSubnetIds() {
     return subnetIds;
   }
 
-  public void setSubnetIds(String subnetIds) {
+  public void setSubnetIds(List<String> subnetIds) {
     this.subnetIds = subnetIds;
   }
 
@@ -149,7 +209,9 @@ public class ProxyConfigForListClustersOutput {
       return false;
     }
     ProxyConfigForListClustersOutput proxyConfigForListClustersOutput = (ProxyConfigForListClustersOutput) o;
-    return Objects.equals(this.apiServerEndpoints, proxyConfigForListClustersOutput.apiServerEndpoints) &&
+    return Objects.equals(this.aclEnabled, proxyConfigForListClustersOutput.aclEnabled) &&
+        Objects.equals(this.aclIpWhitelist, proxyConfigForListClustersOutput.aclIpWhitelist) &&
+        Objects.equals(this.apiServerEndpoints, proxyConfigForListClustersOutput.apiServerEndpoints) &&
         Objects.equals(this.apiServerPublicAccessConfig, proxyConfigForListClustersOutput.apiServerPublicAccessConfig) &&
         Objects.equals(this.apiServerPublicAccessEnabled, proxyConfigForListClustersOutput.apiServerPublicAccessEnabled) &&
         Objects.equals(this.subnetIds, proxyConfigForListClustersOutput.subnetIds) &&
@@ -158,7 +220,7 @@ public class ProxyConfigForListClustersOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiServerEndpoints, apiServerPublicAccessConfig, apiServerPublicAccessEnabled, subnetIds, vpcId);
+    return Objects.hash(aclEnabled, aclIpWhitelist, apiServerEndpoints, apiServerPublicAccessConfig, apiServerPublicAccessEnabled, subnetIds, vpcId);
   }
 
 
@@ -167,6 +229,8 @@ public class ProxyConfigForListClustersOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProxyConfigForListClustersOutput {\n");
     
+    sb.append("    aclEnabled: ").append(toIndentedString(aclEnabled)).append("\n");
+    sb.append("    aclIpWhitelist: ").append(toIndentedString(aclIpWhitelist)).append("\n");
     sb.append("    apiServerEndpoints: ").append(toIndentedString(apiServerEndpoints)).append("\n");
     sb.append("    apiServerPublicAccessConfig: ").append(toIndentedString(apiServerPublicAccessConfig)).append("\n");
     sb.append("    apiServerPublicAccessEnabled: ").append(toIndentedString(apiServerPublicAccessEnabled)).append("\n");
