@@ -62,7 +62,7 @@
         <dependency>
             <groupId>com.volcengine</groupId>
             <artifactId>volcengine-java-sdk-bom</artifactId>
-            <version>0.2.9</version>
+            <version>0.2.10</version>
             <type>pom</type>
             <scope>import</scope>
         </dependency>
@@ -78,12 +78,12 @@
     <dependency>
         <groupId>com.volcengine</groupId>
         <artifactId>volcengine-java-sdk-vpc</artifactId>
-        <version>0.2.9</version>
+        <version>0.2.10</version>
     </dependency>
     <dependency>
         <groupId>com.volcengine</groupId>
         <artifactId>volcengine-java-sdk-ecs</artifactId>
-        <version>0.2.9</version>
+        <version>0.2.10</version>
     </dependency>
 </dependencies>
 ```
@@ -126,7 +126,6 @@ ApiClient apiClient = new ApiClient()
 注：
 
 - Service中存在_符号时，Endpoint时需转为-符号。存在大写字母时需转成小写。
-- 并非所有云产品和Region都支持标准域名，具体请前往您所使用的产品-API参考中查看。
 
 #### SDK 示例 ####
 

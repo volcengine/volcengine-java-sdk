@@ -23,6 +23,9 @@ import com.volcengine.vod20250101.model.AdAuditForStartExecutionInput;
 import com.volcengine.vod20250101.model.AsrForStartExecutionInput;
 import com.volcengine.vod20250101.model.AudioExtractForStartExecutionInput;
 import com.volcengine.vod20250101.model.HighlightForStartExecutionInput;
+import com.volcengine.vod20250101.model.OcrForStartExecutionInput;
+import com.volcengine.vod20250101.model.SegmentForStartExecutionInput;
+import com.volcengine.vod20250101.model.StorylineForStartExecutionInput;
 import com.volcengine.vod20250101.model.VisionForStartExecutionInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -46,6 +49,15 @@ public class TaskForStartExecutionInput {
 
   @SerializedName("Highlight")
   private HighlightForStartExecutionInput highlight = null;
+
+  @SerializedName("Ocr")
+  private OcrForStartExecutionInput ocr = null;
+
+  @SerializedName("Segment")
+  private SegmentForStartExecutionInput segment = null;
+
+  @SerializedName("Storyline")
+  private StorylineForStartExecutionInput storyline = null;
 
   @SerializedName("Type")
   private String type = null;
@@ -129,6 +141,63 @@ public class TaskForStartExecutionInput {
     this.highlight = highlight;
   }
 
+  public TaskForStartExecutionInput ocr(OcrForStartExecutionInput ocr) {
+    this.ocr = ocr;
+    return this;
+  }
+
+   /**
+   * Get ocr
+   * @return ocr
+  **/
+  @Valid
+  @Schema(description = "")
+  public OcrForStartExecutionInput getOcr() {
+    return ocr;
+  }
+
+  public void setOcr(OcrForStartExecutionInput ocr) {
+    this.ocr = ocr;
+  }
+
+  public TaskForStartExecutionInput segment(SegmentForStartExecutionInput segment) {
+    this.segment = segment;
+    return this;
+  }
+
+   /**
+   * Get segment
+   * @return segment
+  **/
+  @Valid
+  @Schema(description = "")
+  public SegmentForStartExecutionInput getSegment() {
+    return segment;
+  }
+
+  public void setSegment(SegmentForStartExecutionInput segment) {
+    this.segment = segment;
+  }
+
+  public TaskForStartExecutionInput storyline(StorylineForStartExecutionInput storyline) {
+    this.storyline = storyline;
+    return this;
+  }
+
+   /**
+   * Get storyline
+   * @return storyline
+  **/
+  @Valid
+  @Schema(description = "")
+  public StorylineForStartExecutionInput getStoryline() {
+    return storyline;
+  }
+
+  public void setStoryline(StorylineForStartExecutionInput storyline) {
+    this.storyline = storyline;
+  }
+
   public TaskForStartExecutionInput type(String type) {
     this.type = type;
     return this;
@@ -180,13 +249,16 @@ public class TaskForStartExecutionInput {
         Objects.equals(this.asr, taskForStartExecutionInput.asr) &&
         Objects.equals(this.audioExtract, taskForStartExecutionInput.audioExtract) &&
         Objects.equals(this.highlight, taskForStartExecutionInput.highlight) &&
+        Objects.equals(this.ocr, taskForStartExecutionInput.ocr) &&
+        Objects.equals(this.segment, taskForStartExecutionInput.segment) &&
+        Objects.equals(this.storyline, taskForStartExecutionInput.storyline) &&
         Objects.equals(this.type, taskForStartExecutionInput.type) &&
         Objects.equals(this.vision, taskForStartExecutionInput.vision);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(adAudit, asr, audioExtract, highlight, type, vision);
+    return Objects.hash(adAudit, asr, audioExtract, highlight, ocr, segment, storyline, type, vision);
   }
 
 
@@ -199,6 +271,9 @@ public class TaskForStartExecutionInput {
     sb.append("    asr: ").append(toIndentedString(asr)).append("\n");
     sb.append("    audioExtract: ").append(toIndentedString(audioExtract)).append("\n");
     sb.append("    highlight: ").append(toIndentedString(highlight)).append("\n");
+    sb.append("    ocr: ").append(toIndentedString(ocr)).append("\n");
+    sb.append("    segment: ").append(toIndentedString(segment)).append("\n");
+    sb.append("    storyline: ").append(toIndentedString(storyline)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    vision: ").append(toIndentedString(vision)).append("\n");
     sb.append("}");

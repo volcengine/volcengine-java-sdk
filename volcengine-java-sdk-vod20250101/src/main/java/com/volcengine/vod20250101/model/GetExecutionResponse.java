@@ -22,10 +22,13 @@ import com.google.gson.stream.JsonWriter;
 import com.volcengine.vod20250101.model.ControlForGetExecutionOutput;
 import com.volcengine.vod20250101.model.InputForGetExecutionOutput;
 import com.volcengine.vod20250101.model.MetaForGetExecutionOutput;
+import com.volcengine.vod20250101.model.MultiInputForGetExecutionOutput;
 import com.volcengine.vod20250101.model.OperationForGetExecutionOutput;
 import com.volcengine.vod20250101.model.OutputForGetExecutionOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -46,6 +49,9 @@ public class GetExecutionResponse extends com.volcengine.model.AbstractResponse 
 
   @SerializedName("Meta")
   private MetaForGetExecutionOutput meta = null;
+
+  @SerializedName("MultiInputs")
+  private List<MultiInputForGetExecutionOutput> multiInputs = null;
 
   @SerializedName("Operation")
   private OperationForGetExecutionOutput operation = null;
@@ -132,6 +138,33 @@ public class GetExecutionResponse extends com.volcengine.model.AbstractResponse 
 
   public void setMeta(MetaForGetExecutionOutput meta) {
     this.meta = meta;
+  }
+
+  public GetExecutionResponse multiInputs(List<MultiInputForGetExecutionOutput> multiInputs) {
+    this.multiInputs = multiInputs;
+    return this;
+  }
+
+  public GetExecutionResponse addMultiInputsItem(MultiInputForGetExecutionOutput multiInputsItem) {
+    if (this.multiInputs == null) {
+      this.multiInputs = new ArrayList<MultiInputForGetExecutionOutput>();
+    }
+    this.multiInputs.add(multiInputsItem);
+    return this;
+  }
+
+   /**
+   * Get multiInputs
+   * @return multiInputs
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<MultiInputForGetExecutionOutput> getMultiInputs() {
+    return multiInputs;
+  }
+
+  public void setMultiInputs(List<MultiInputForGetExecutionOutput> multiInputs) {
+    this.multiInputs = multiInputs;
   }
 
   public GetExecutionResponse operation(OperationForGetExecutionOutput operation) {
@@ -222,6 +255,7 @@ public class GetExecutionResponse extends com.volcengine.model.AbstractResponse 
         Objects.equals(this.control, getExecutionResponse.control) &&
         Objects.equals(this.input, getExecutionResponse.input) &&
         Objects.equals(this.meta, getExecutionResponse.meta) &&
+        Objects.equals(this.multiInputs, getExecutionResponse.multiInputs) &&
         Objects.equals(this.operation, getExecutionResponse.operation) &&
         Objects.equals(this.output, getExecutionResponse.output) &&
         Objects.equals(this.runId, getExecutionResponse.runId) &&
@@ -230,7 +264,7 @@ public class GetExecutionResponse extends com.volcengine.model.AbstractResponse 
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, control, input, meta, operation, output, runId, status);
+    return Objects.hash(code, control, input, meta, multiInputs, operation, output, runId, status);
   }
 
 
@@ -243,6 +277,7 @@ public class GetExecutionResponse extends com.volcengine.model.AbstractResponse 
     sb.append("    control: ").append(toIndentedString(control)).append("\n");
     sb.append("    input: ").append(toIndentedString(input)).append("\n");
     sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
+    sb.append("    multiInputs: ").append(toIndentedString(multiInputs)).append("\n");
     sb.append("    operation: ").append(toIndentedString(operation)).append("\n");
     sb.append("    output: ").append(toIndentedString(output)).append("\n");
     sb.append("    runId: ").append(toIndentedString(runId)).append("\n");
