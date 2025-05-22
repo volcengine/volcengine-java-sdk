@@ -39,6 +39,9 @@ public class ConvertAsrForGetExecutionOutput {
   @SerializedName("Duration")
   private Double duration = null;
 
+  @SerializedName("Mode")
+  private String mode = null;
+
   @SerializedName("Utterances")
   private List<UtteranceForGetExecutionOutput> utterances = null;
 
@@ -76,6 +79,24 @@ public class ConvertAsrForGetExecutionOutput {
 
   public void setDuration(Double duration) {
     this.duration = duration;
+  }
+
+  public ConvertAsrForGetExecutionOutput mode(String mode) {
+    this.mode = mode;
+    return this;
+  }
+
+   /**
+   * Get mode
+   * @return mode
+  **/
+  @Schema(description = "")
+  public String getMode() {
+    return mode;
+  }
+
+  public void setMode(String mode) {
+    this.mode = mode;
   }
 
   public ConvertAsrForGetExecutionOutput utterances(List<UtteranceForGetExecutionOutput> utterances) {
@@ -117,12 +138,13 @@ public class ConvertAsrForGetExecutionOutput {
     ConvertAsrForGetExecutionOutput convertAsrForGetExecutionOutput = (ConvertAsrForGetExecutionOutput) o;
     return Objects.equals(this.confidence, convertAsrForGetExecutionOutput.confidence) &&
         Objects.equals(this.duration, convertAsrForGetExecutionOutput.duration) &&
+        Objects.equals(this.mode, convertAsrForGetExecutionOutput.mode) &&
         Objects.equals(this.utterances, convertAsrForGetExecutionOutput.utterances);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(confidence, duration, utterances);
+    return Objects.hash(confidence, duration, mode, utterances);
   }
 
 
@@ -133,6 +155,7 @@ public class ConvertAsrForGetExecutionOutput {
     
     sb.append("    confidence: ").append(toIndentedString(confidence)).append("\n");
     sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
+    sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
     sb.append("    utterances: ").append(toIndentedString(utterances)).append("\n");
     sb.append("}");
     return sb.toString();

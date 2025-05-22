@@ -22,7 +22,10 @@ import com.google.gson.stream.JsonWriter;
 import com.volcengine.vod20250101.model.ConvertAdAuditForGetExecutionOutput;
 import com.volcengine.vod20250101.model.ConvertAsrForGetExecutionOutput;
 import com.volcengine.vod20250101.model.ConvertAudioExtractForGetExecutionOutput;
+import com.volcengine.vod20250101.model.ConvertConvertSegmentForGetExecutionOutput;
+import com.volcengine.vod20250101.model.ConvertConvertStorylineForGetExecutionOutput;
 import com.volcengine.vod20250101.model.ConvertHighlightForGetExecutionOutput;
+import com.volcengine.vod20250101.model.ConvertOcrForGetExecutionOutput;
 import com.volcengine.vod20250101.model.ConvertVisionForGetExecutionOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -46,6 +49,15 @@ public class ConvertTaskForGetExecutionOutput {
 
   @SerializedName("Highlight")
   private ConvertHighlightForGetExecutionOutput highlight = null;
+
+  @SerializedName("Ocr")
+  private ConvertOcrForGetExecutionOutput ocr = null;
+
+  @SerializedName("Segment")
+  private ConvertConvertSegmentForGetExecutionOutput segment = null;
+
+  @SerializedName("Storyline")
+  private ConvertConvertStorylineForGetExecutionOutput storyline = null;
 
   @SerializedName("Type")
   private String type = null;
@@ -129,6 +141,63 @@ public class ConvertTaskForGetExecutionOutput {
     this.highlight = highlight;
   }
 
+  public ConvertTaskForGetExecutionOutput ocr(ConvertOcrForGetExecutionOutput ocr) {
+    this.ocr = ocr;
+    return this;
+  }
+
+   /**
+   * Get ocr
+   * @return ocr
+  **/
+  @Valid
+  @Schema(description = "")
+  public ConvertOcrForGetExecutionOutput getOcr() {
+    return ocr;
+  }
+
+  public void setOcr(ConvertOcrForGetExecutionOutput ocr) {
+    this.ocr = ocr;
+  }
+
+  public ConvertTaskForGetExecutionOutput segment(ConvertConvertSegmentForGetExecutionOutput segment) {
+    this.segment = segment;
+    return this;
+  }
+
+   /**
+   * Get segment
+   * @return segment
+  **/
+  @Valid
+  @Schema(description = "")
+  public ConvertConvertSegmentForGetExecutionOutput getSegment() {
+    return segment;
+  }
+
+  public void setSegment(ConvertConvertSegmentForGetExecutionOutput segment) {
+    this.segment = segment;
+  }
+
+  public ConvertTaskForGetExecutionOutput storyline(ConvertConvertStorylineForGetExecutionOutput storyline) {
+    this.storyline = storyline;
+    return this;
+  }
+
+   /**
+   * Get storyline
+   * @return storyline
+  **/
+  @Valid
+  @Schema(description = "")
+  public ConvertConvertStorylineForGetExecutionOutput getStoryline() {
+    return storyline;
+  }
+
+  public void setStoryline(ConvertConvertStorylineForGetExecutionOutput storyline) {
+    this.storyline = storyline;
+  }
+
   public ConvertTaskForGetExecutionOutput type(String type) {
     this.type = type;
     return this;
@@ -180,13 +249,16 @@ public class ConvertTaskForGetExecutionOutput {
         Objects.equals(this.asr, convertTaskForGetExecutionOutput.asr) &&
         Objects.equals(this.audioExtract, convertTaskForGetExecutionOutput.audioExtract) &&
         Objects.equals(this.highlight, convertTaskForGetExecutionOutput.highlight) &&
+        Objects.equals(this.ocr, convertTaskForGetExecutionOutput.ocr) &&
+        Objects.equals(this.segment, convertTaskForGetExecutionOutput.segment) &&
+        Objects.equals(this.storyline, convertTaskForGetExecutionOutput.storyline) &&
         Objects.equals(this.type, convertTaskForGetExecutionOutput.type) &&
         Objects.equals(this.vision, convertTaskForGetExecutionOutput.vision);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(adAudit, asr, audioExtract, highlight, type, vision);
+    return Objects.hash(adAudit, asr, audioExtract, highlight, ocr, segment, storyline, type, vision);
   }
 
 
@@ -199,6 +271,9 @@ public class ConvertTaskForGetExecutionOutput {
     sb.append("    asr: ").append(toIndentedString(asr)).append("\n");
     sb.append("    audioExtract: ").append(toIndentedString(audioExtract)).append("\n");
     sb.append("    highlight: ").append(toIndentedString(highlight)).append("\n");
+    sb.append("    ocr: ").append(toIndentedString(ocr)).append("\n");
+    sb.append("    segment: ").append(toIndentedString(segment)).append("\n");
+    sb.append("    storyline: ").append(toIndentedString(storyline)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    vision: ").append(toIndentedString(vision)).append("\n");
     sb.append("}");
