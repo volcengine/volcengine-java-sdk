@@ -39,6 +39,9 @@ public class CreateDBEndpointPublicAddressRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;
 
+  @SerializedName("Port")
+  private Integer port = null;
+
   public CreateDBEndpointPublicAddressRequest clientToken(String clientToken) {
     this.clientToken = clientToken;
     return this;
@@ -95,6 +98,24 @@ public class CreateDBEndpointPublicAddressRequest {
     this.instanceId = instanceId;
   }
 
+  public CreateDBEndpointPublicAddressRequest port(Integer port) {
+    this.port = port;
+    return this;
+  }
+
+   /**
+   * Get port
+   * @return port
+  **/
+  @Schema(description = "")
+  public Integer getPort() {
+    return port;
+  }
+
+  public void setPort(Integer port) {
+    this.port = port;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -107,12 +128,13 @@ public class CreateDBEndpointPublicAddressRequest {
     CreateDBEndpointPublicAddressRequest createDBEndpointPublicAddressRequest = (CreateDBEndpointPublicAddressRequest) o;
     return Objects.equals(this.clientToken, createDBEndpointPublicAddressRequest.clientToken) &&
         Objects.equals(this.eipId, createDBEndpointPublicAddressRequest.eipId) &&
-        Objects.equals(this.instanceId, createDBEndpointPublicAddressRequest.instanceId);
+        Objects.equals(this.instanceId, createDBEndpointPublicAddressRequest.instanceId) &&
+        Objects.equals(this.port, createDBEndpointPublicAddressRequest.port);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, eipId, instanceId);
+    return Objects.hash(clientToken, eipId, instanceId, port);
   }
 
 
@@ -124,6 +146,7 @@ public class CreateDBEndpointPublicAddressRequest {
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    eipId: ").append(toIndentedString(eipId)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("}");
     return sb.toString();
   }
