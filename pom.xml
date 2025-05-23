@@ -282,5 +282,6 @@
         <module>volcengine-java-sdk-bmq20240901</module>
         <module>volcengine-java-sdk-quota</module>
         <module>volcengine-java-sdk-seccenter20240508</module>
+        <module>volcengine-java-sdk-privatezone</module>
     </modules>
 </project>
