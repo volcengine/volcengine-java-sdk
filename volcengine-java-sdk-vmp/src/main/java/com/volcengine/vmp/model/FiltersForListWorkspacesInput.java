@@ -41,6 +41,9 @@ public class FiltersForListWorkspacesInput {
   @SerializedName("Name")
   private String name = null;
 
+  @SerializedName("Statuses")
+  private List<String> statuses = null;
+
   public FiltersForListWorkspacesInput ids(List<String> ids) {
     this.ids = ids;
     return this;
@@ -111,6 +114,32 @@ public class FiltersForListWorkspacesInput {
     this.name = name;
   }
 
+  public FiltersForListWorkspacesInput statuses(List<String> statuses) {
+    this.statuses = statuses;
+    return this;
+  }
+
+  public FiltersForListWorkspacesInput addStatusesItem(String statusesItem) {
+    if (this.statuses == null) {
+      this.statuses = new ArrayList<String>();
+    }
+    this.statuses.add(statusesItem);
+    return this;
+  }
+
+   /**
+   * Get statuses
+   * @return statuses
+  **/
+  @Schema(description = "")
+  public List<String> getStatuses() {
+    return statuses;
+  }
+
+  public void setStatuses(List<String> statuses) {
+    this.statuses = statuses;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -123,12 +152,13 @@ public class FiltersForListWorkspacesInput {
     FiltersForListWorkspacesInput filtersForListWorkspacesInput = (FiltersForListWorkspacesInput) o;
     return Objects.equals(this.ids, filtersForListWorkspacesInput.ids) &&
         Objects.equals(this.instanceTypeIds, filtersForListWorkspacesInput.instanceTypeIds) &&
-        Objects.equals(this.name, filtersForListWorkspacesInput.name);
+        Objects.equals(this.name, filtersForListWorkspacesInput.name) &&
+        Objects.equals(this.statuses, filtersForListWorkspacesInput.statuses);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ids, instanceTypeIds, name);
+    return Objects.hash(ids, instanceTypeIds, name, statuses);
   }
 
 
@@ -140,6 +170,7 @@ public class FiltersForListWorkspacesInput {
     sb.append("    ids: ").append(toIndentedString(ids)).append("\n");
     sb.append("    instanceTypeIds: ").append(toIndentedString(instanceTypeIds)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    statuses: ").append(toIndentedString(statuses)).append("\n");
     sb.append("}");
     return sb.toString();
   }

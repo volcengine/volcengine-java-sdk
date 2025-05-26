@@ -57,6 +57,9 @@ public class ItemForListWorkspacesOutput {
   @SerializedName("ProjectName")
   private String projectName = null;
 
+  @SerializedName("PrometheusPushIntranetEndpoint")
+  private String prometheusPushIntranetEndpoint = null;
+
   @SerializedName("PrometheusQueryIntranetEndpoint")
   private String prometheusQueryIntranetEndpoint = null;
 
@@ -216,6 +219,24 @@ public class ItemForListWorkspacesOutput {
     this.projectName = projectName;
   }
 
+  public ItemForListWorkspacesOutput prometheusPushIntranetEndpoint(String prometheusPushIntranetEndpoint) {
+    this.prometheusPushIntranetEndpoint = prometheusPushIntranetEndpoint;
+    return this;
+  }
+
+   /**
+   * Get prometheusPushIntranetEndpoint
+   * @return prometheusPushIntranetEndpoint
+  **/
+  @Schema(description = "")
+  public String getPrometheusPushIntranetEndpoint() {
+    return prometheusPushIntranetEndpoint;
+  }
+
+  public void setPrometheusPushIntranetEndpoint(String prometheusPushIntranetEndpoint) {
+    this.prometheusPushIntranetEndpoint = prometheusPushIntranetEndpoint;
+  }
+
   public ItemForListWorkspacesOutput prometheusQueryIntranetEndpoint(String prometheusQueryIntranetEndpoint) {
     this.prometheusQueryIntranetEndpoint = prometheusQueryIntranetEndpoint;
     return this;
@@ -333,6 +354,7 @@ public class ItemForListWorkspacesOutput {
         Objects.equals(this.name, itemForListWorkspacesOutput.name) &&
         Objects.equals(this.overdueReclaimTime, itemForListWorkspacesOutput.overdueReclaimTime) &&
         Objects.equals(this.projectName, itemForListWorkspacesOutput.projectName) &&
+        Objects.equals(this.prometheusPushIntranetEndpoint, itemForListWorkspacesOutput.prometheusPushIntranetEndpoint) &&
         Objects.equals(this.prometheusQueryIntranetEndpoint, itemForListWorkspacesOutput.prometheusQueryIntranetEndpoint) &&
         Objects.equals(this.prometheusWriteIntranetEndpoint, itemForListWorkspacesOutput.prometheusWriteIntranetEndpoint) &&
         Objects.equals(this.status, itemForListWorkspacesOutput.status) &&
@@ -342,7 +364,7 @@ public class ItemForListWorkspacesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createTime, deleteProtectionEnabled, description, id, instanceTypeId, name, overdueReclaimTime, projectName, prometheusQueryIntranetEndpoint, prometheusWriteIntranetEndpoint, status, tags, username);
+    return Objects.hash(createTime, deleteProtectionEnabled, description, id, instanceTypeId, name, overdueReclaimTime, projectName, prometheusPushIntranetEndpoint, prometheusQueryIntranetEndpoint, prometheusWriteIntranetEndpoint, status, tags, username);
   }
 
 
@@ -359,6 +381,7 @@ public class ItemForListWorkspacesOutput {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    overdueReclaimTime: ").append(toIndentedString(overdueReclaimTime)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    prometheusPushIntranetEndpoint: ").append(toIndentedString(prometheusPushIntranetEndpoint)).append("\n");
     sb.append("    prometheusQueryIntranetEndpoint: ").append(toIndentedString(prometheusQueryIntranetEndpoint)).append("\n");
     sb.append("    prometheusWriteIntranetEndpoint: ").append(toIndentedString(prometheusWriteIntranetEndpoint)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
