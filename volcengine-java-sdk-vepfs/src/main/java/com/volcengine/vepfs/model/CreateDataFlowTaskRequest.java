@@ -83,54 +83,6 @@ public class CreateDataFlowTaskRequest {
   }  @SerializedName("DataType")
   private DataTypeEnum dataType = null;
 
-  /**
-   * Gets or Sets deleteRule
-   */
-  @JsonAdapter(DeleteRuleEnum.Adapter.class)
-  public enum DeleteRuleEnum {
-    @SerializedName("DELETE_TYPE_ONLY_FS")
-    DELETE_TYPE_ONLY_FS("DELETE_TYPE_ONLY_FS"),
-    @SerializedName("DELETE_TYPE_FS_WITH_LATEST_OBJECT")
-    DELETE_TYPE_FS_WITH_LATEST_OBJECT("DELETE_TYPE_FS_WITH_LATEST_OBJECT"),
-    @SerializedName("DELETE_TYPE_FS_WITH_ALLVERSION_OBJECT")
-    DELETE_TYPE_FS_WITH_ALLVERSION_OBJECT("DELETE_TYPE_FS_WITH_ALLVERSION_OBJECT");
-
-    private String value;
-
-    DeleteRuleEnum(String value) {
-      this.value = value;
-    }
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-    public static DeleteRuleEnum fromValue(String input) {
-      for (DeleteRuleEnum b : DeleteRuleEnum.values()) {
-        if (b.value.equals(input)) {
-          return b;
-        }
-      }
-      return null;
-    }
-    public static class Adapter extends TypeAdapter<DeleteRuleEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final DeleteRuleEnum enumeration) throws IOException {
-        jsonWriter.value(String.valueOf(enumeration.getValue()));
-      }
-
-      @Override
-      public DeleteRuleEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
-        return DeleteRuleEnum.fromValue((String)(value));
-      }
-    }
-  }  @SerializedName("DeleteRule")
-  private DeleteRuleEnum deleteRule = null;
-
   @SerializedName("EntryListFileInfo")
   private EntryListFileInfoForCreateDataFlowTaskInput entryListFileInfo = null;
 
@@ -247,9 +199,7 @@ public class CreateDataFlowTaskRequest {
     @SerializedName("Export")
     EXPORT("Export"),
     @SerializedName("Inventory")
-    INVENTORY("Inventory"),
-    @SerializedName("Delete")
-    DELETE("Delete");
+    INVENTORY("Inventory");
 
     private String value;
 
@@ -340,24 +290,6 @@ public class CreateDataFlowTaskRequest {
 
   public void setDataType(DataTypeEnum dataType) {
     this.dataType = dataType;
-  }
-
-  public CreateDataFlowTaskRequest deleteRule(DeleteRuleEnum deleteRule) {
-    this.deleteRule = deleteRule;
-    return this;
-  }
-
-   /**
-   * Get deleteRule
-   * @return deleteRule
-  **/
-  @Schema(description = "")
-  public DeleteRuleEnum getDeleteRule() {
-    return deleteRule;
-  }
-
-  public void setDeleteRule(DeleteRuleEnum deleteRule) {
-    this.deleteRule = deleteRule;
   }
 
   public CreateDataFlowTaskRequest entryListFileInfo(EntryListFileInfoForCreateDataFlowTaskInput entryListFileInfo) {
@@ -502,7 +434,6 @@ public class CreateDataFlowTaskRequest {
     return Objects.equals(this.dataStorage, createDataFlowTaskRequest.dataStorage) &&
         Objects.equals(this.dataStoragePath, createDataFlowTaskRequest.dataStoragePath) &&
         Objects.equals(this.dataType, createDataFlowTaskRequest.dataType) &&
-        Objects.equals(this.deleteRule, createDataFlowTaskRequest.deleteRule) &&
         Objects.equals(this.entryListFileInfo, createDataFlowTaskRequest.entryListFileInfo) &&
         Objects.equals(this.exportSymlinkPolicy, createDataFlowTaskRequest.exportSymlinkPolicy) &&
         Objects.equals(this.fileSystemId, createDataFlowTaskRequest.fileSystemId) &&
@@ -514,7 +445,7 @@ public class CreateDataFlowTaskRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dataStorage, dataStoragePath, dataType, deleteRule, entryListFileInfo, exportSymlinkPolicy, fileSystemId, filesetId, sameNameFilePolicy, subPath, taskAction);
+    return Objects.hash(dataStorage, dataStoragePath, dataType, entryListFileInfo, exportSymlinkPolicy, fileSystemId, filesetId, sameNameFilePolicy, subPath, taskAction);
   }
 
 
@@ -526,7 +457,6 @@ public class CreateDataFlowTaskRequest {
     sb.append("    dataStorage: ").append(toIndentedString(dataStorage)).append("\n");
     sb.append("    dataStoragePath: ").append(toIndentedString(dataStoragePath)).append("\n");
     sb.append("    dataType: ").append(toIndentedString(dataType)).append("\n");
-    sb.append("    deleteRule: ").append(toIndentedString(deleteRule)).append("\n");
     sb.append("    entryListFileInfo: ").append(toIndentedString(entryListFileInfo)).append("\n");
     sb.append("    exportSymlinkPolicy: ").append(toIndentedString(exportSymlinkPolicy)).append("\n");
     sb.append("    fileSystemId: ").append(toIndentedString(fileSystemId)).append("\n");
