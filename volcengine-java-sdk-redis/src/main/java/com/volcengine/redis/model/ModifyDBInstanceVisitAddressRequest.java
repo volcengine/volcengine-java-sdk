@@ -44,7 +44,9 @@ public class ModifyDBInstanceVisitAddressRequest {
     @SerializedName("StorageInner")
     STORAGEINNER("StorageInner"),
     @SerializedName("DirectLink")
-    DIRECTLINK("DirectLink");
+    DIRECTLINK("DirectLink"),
+    @SerializedName("PublicZoneAffinity")
+    PUBLICZONEAFFINITY("PublicZoneAffinity");
 
     private String value;
 
