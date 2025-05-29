@@ -679,8 +679,39 @@ public class DefaultEndpointProvider implements EndpointResolver {
                 ENDPOINT,
                 createRegionEndpointMap()
         ));
-    }
 
+        DEFAULT_ENDPOINT_MAP.put("acep", new ServiceEndpointInfo(
+                "acep",
+                true,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
+
+        DEFAULT_ENDPOINT_MAP.put("private_zone", new ServiceEndpointInfo(
+                "private_zone",
+                true,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
+
+        DEFAULT_ENDPOINT_MAP.put("sqs", new ServiceEndpointInfo(
+                "sqs",
+                false,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
+
+        DEFAULT_ENDPOINT_MAP.put("resourcecenter", new ServiceEndpointInfo(
+                "resourcecenter",
+                true,
+                "",
+                ENDPOINT,
+                createRegionEndpointMap()
+        ));
+    }
 
     // 创建区域端点映射的辅助方法
     private static RegionEndpointMap createRegionEndpointMap(String... keyValuePairs) {
