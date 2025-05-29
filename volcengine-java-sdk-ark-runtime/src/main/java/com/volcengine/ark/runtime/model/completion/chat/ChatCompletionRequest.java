@@ -437,16 +437,10 @@ public class ChatCompletionRequest {
 
     public static class ChatCompletionRequestResponseFormat {
         String type;
+        ResponseFormatJSONSchemaJSONSchemaParam jsonSchema;
+
+        @Deprecated
         JsonNode schema;
-
-        public ChatCompletionRequestResponseFormat(String type) {
-            this.type = type;
-        }
-
-        public ChatCompletionRequestResponseFormat(String type, Object schema) {
-            this.type = type;
-            this.schema = JacksonUtil.clsToJsonNode(schema);
-        }
 
         public String getType() {
             return type;
@@ -456,13 +450,23 @@ public class ChatCompletionRequest {
             this.type = type;
         }
 
-        public JsonNode getSchema() {
-            return schema;
+        public ResponseFormatJSONSchemaJSONSchemaParam getJsonSchema() {
+            return jsonSchema;
         }
 
-        public void setSchema(JsonNode schema) {
-            this.schema = schema;
+        public void setJsonSchema(ResponseFormatJSONSchemaJSONSchemaParam jsonSchema) {
+            this.jsonSchema = jsonSchema;
         }
+
+        public ChatCompletionRequestResponseFormat(String type) {
+            this.type = type;
+        }
+
+        public ChatCompletionRequestResponseFormat(String type,ResponseFormatJSONSchemaJSONSchemaParam jsonSchema) {
+            this.jsonSchema = jsonSchema;
+            this.type = type;
+        }
+
     }
 
     public static class ChatCompletionRequestToolChoice {
