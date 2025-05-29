@@ -459,6 +459,18 @@
             </dependency>
             <dependency>
                 <groupId>com.volcengine</groupId>
+                <artifactId>volcengine-java-sdk-privatezone</artifactId>
+                <optional>false</optional>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.volcengine</groupId>
+                <artifactId>volcengine-java-sdk-acep</artifactId>
+                <optional>false</optional>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.volcengine</groupId>
                 <artifactId>volcengine-java-sdk-resourcecenter</artifactId>
                 <optional>false</optional>
                 <version>${project.version}</version>
