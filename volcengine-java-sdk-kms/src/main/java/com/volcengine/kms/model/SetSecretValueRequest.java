@@ -46,7 +46,7 @@ public class SetSecretValueRequest {
    * @return secretName
   **/
   @NotNull
- @Size(min=2,max=31)  @Schema(required = true, description = "")
+ @Size(min=2,max=128)  @Schema(required = true, description = "")
   public String getSecretName() {
     return secretName;
   }

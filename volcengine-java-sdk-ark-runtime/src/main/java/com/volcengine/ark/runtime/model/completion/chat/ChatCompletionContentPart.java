@@ -14,6 +14,8 @@ public class ChatCompletionContentPart {
 
     ChatCompletionContentPartImageURL imageUrl;
 
+    ChatCompletionContentPartVideoURL videoUrl;
+
     public String getType() {
         return type;
     }
@@ -46,6 +48,14 @@ public class ChatCompletionContentPart {
         this.imageUrl = imageUrl;
     }
 
+    public ChatCompletionContentPartVideoURL getVideoUrl() {
+        return videoUrl;
+    }
+
+    public void setVideoUrl(ChatCompletionContentPartVideoURL videoUrl) {
+        this.videoUrl = videoUrl;
+    }
+
     public static Builder builder() {
         return new Builder();
     }
@@ -57,7 +67,46 @@ public class ChatCompletionContentPart {
                 ", content='" + content + '\'' +
                 ", text='" + text + '\'' +
                 ", imageUrl=" + imageUrl +
+                ", videoUrl=" + videoUrl +
                 '}';
+    }
+
+    public static class ChatCompletionContentPartVideoURL {
+        String url;
+        double fps;
+
+        @Override
+        public String toString() {
+            return "ChatCompletionContentPartVideoURL{" +
+                    "url='" + url + '\'' +
+                    ", fps=" + fps +
+                    '}';
+        }
+
+        public String getUrl() {
+            return url;
+        }
+
+        public void setUrl(String url) {
+            this.url = url;
+        }
+
+        public double getFps() {
+            return fps;
+        }
+
+        public void setFps(double fps) {
+            this.fps = fps;
+        }
+
+        public ChatCompletionContentPartVideoURL(String url) {
+            this.url = url;
+        }
+
+        public ChatCompletionContentPartVideoURL(String url, double fps) {
+            this.url = url;
+            this.fps = fps;
+        }
     }
 
     public static class ChatCompletionContentPartImageURL {
@@ -106,6 +155,7 @@ public class ChatCompletionContentPart {
         private String content;
         private String text;
         private ChatCompletionContentPartImageURL imageUrl;
+        private ChatCompletionContentPartVideoURL videoUrl;
 
         public Builder type(String type) {
             this.type = type;
@@ -127,12 +177,18 @@ public class ChatCompletionContentPart {
             return this;
         }
 
+        public Builder videoUrl(ChatCompletionContentPartVideoURL videoUrl) {
+            this.videoUrl = videoUrl;
+            return this;
+        }
+
         public ChatCompletionContentPart build() {
             ChatCompletionContentPart chatCompletionContentPart = new ChatCompletionContentPart();
             chatCompletionContentPart.setType(type);
             chatCompletionContentPart.setContent(content);
             chatCompletionContentPart.setText(text);
             chatCompletionContentPart.setImageUrl(imageUrl);
+            chatCompletionContentPart.setVideoUrl(videoUrl);
             return chatCompletionContentPart;
         }
     }

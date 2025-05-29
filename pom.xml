@@ -4,7 +4,7 @@
     <groupId>com.volcengine</groupId>
     <artifactId>volcengine-java-sdk</artifactId>
     <packaging>pom</packaging>
-    <version>0.2.12</version>
+    <version>0.2.13</version>
     <name>volcengine-java-sdk</name>
     <url>https://open.volcengineapi.com</url>
     <description>The Java SDK For Volcengine</description>
@@ -281,5 +281,9 @@
         <module>volcengine-java-sdk-tag</module>
         <module>volcengine-java-sdk-bmq20240901</module>
         <module>volcengine-java-sdk-quota</module>
+        <module>volcengine-java-sdk-seccenter20240508</module>
+        <module>volcengine-java-sdk-privatezone</module>
+        <module>volcengine-java-sdk-acep</module>
+        <module>volcengine-java-sdk-resourcecenter</module>
     </modules>
 </project>
