@@ -26,30 +26,30 @@ import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * FiltersForListWorkspaceStatusInput
+ * FilterForListRuleFilesInput
  */
 
 
 
-public class FiltersForListWorkspaceStatusInput {
+public class FilterForListRuleFilesInput {
   @SerializedName("Ids")
   private List<String> ids = null;
-
-  @SerializedName("InstanceTypeIds")
-  private List<String> instanceTypeIds = null;
 
   @SerializedName("Name")
   private String name = null;
 
-  @SerializedName("Statuses")
-  private List<String> statuses = null;
+  @SerializedName("Status")
+  private List<String> status = null;
 
-  public FiltersForListWorkspaceStatusInput ids(List<String> ids) {
+  @SerializedName("WorkspaceId")
+  private String workspaceId = null;
+
+  public FilterForListRuleFilesInput ids(List<String> ids) {
     this.ids = ids;
     return this;
   }
 
-  public FiltersForListWorkspaceStatusInput addIdsItem(String idsItem) {
+  public FilterForListRuleFilesInput addIdsItem(String idsItem) {
     if (this.ids == null) {
       this.ids = new ArrayList<String>();
     }
@@ -70,33 +70,7 @@ public class FiltersForListWorkspaceStatusInput {
     this.ids = ids;
   }
 
-  public FiltersForListWorkspaceStatusInput instanceTypeIds(List<String> instanceTypeIds) {
-    this.instanceTypeIds = instanceTypeIds;
-    return this;
-  }
-
-  public FiltersForListWorkspaceStatusInput addInstanceTypeIdsItem(String instanceTypeIdsItem) {
-    if (this.instanceTypeIds == null) {
-      this.instanceTypeIds = new ArrayList<String>();
-    }
-    this.instanceTypeIds.add(instanceTypeIdsItem);
-    return this;
-  }
-
-   /**
-   * Get instanceTypeIds
-   * @return instanceTypeIds
-  **/
-  @Schema(description = "")
-  public List<String> getInstanceTypeIds() {
-    return instanceTypeIds;
-  }
-
-  public void setInstanceTypeIds(List<String> instanceTypeIds) {
-    this.instanceTypeIds = instanceTypeIds;
-  }
-
-  public FiltersForListWorkspaceStatusInput name(String name) {
+  public FilterForListRuleFilesInput name(String name) {
     this.name = name;
     return this;
   }
@@ -114,30 +88,48 @@ public class FiltersForListWorkspaceStatusInput {
     this.name = name;
   }
 
-  public FiltersForListWorkspaceStatusInput statuses(List<String> statuses) {
-    this.statuses = statuses;
+  public FilterForListRuleFilesInput status(List<String> status) {
+    this.status = status;
     return this;
   }
 
-  public FiltersForListWorkspaceStatusInput addStatusesItem(String statusesItem) {
-    if (this.statuses == null) {
-      this.statuses = new ArrayList<String>();
+  public FilterForListRuleFilesInput addStatusItem(String statusItem) {
+    if (this.status == null) {
+      this.status = new ArrayList<String>();
     }
-    this.statuses.add(statusesItem);
+    this.status.add(statusItem);
     return this;
   }
 
    /**
-   * Get statuses
-   * @return statuses
+   * Get status
+   * @return status
   **/
   @Schema(description = "")
-  public List<String> getStatuses() {
-    return statuses;
+  public List<String> getStatus() {
+    return status;
   }
 
-  public void setStatuses(List<String> statuses) {
-    this.statuses = statuses;
+  public void setStatus(List<String> status) {
+    this.status = status;
+  }
+
+  public FilterForListRuleFilesInput workspaceId(String workspaceId) {
+    this.workspaceId = workspaceId;
+    return this;
+  }
+
+   /**
+   * Get workspaceId
+   * @return workspaceId
+  **/
+  @Schema(description = "")
+  public String getWorkspaceId() {
+    return workspaceId;
+  }
+
+  public void setWorkspaceId(String workspaceId) {
+    this.workspaceId = workspaceId;
   }
 
 
@@ -149,28 +141,28 @@ public class FiltersForListWorkspaceStatusInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FiltersForListWorkspaceStatusInput filtersForListWorkspaceStatusInput = (FiltersForListWorkspaceStatusInput) o;
-    return Objects.equals(this.ids, filtersForListWorkspaceStatusInput.ids) &&
-        Objects.equals(this.instanceTypeIds, filtersForListWorkspaceStatusInput.instanceTypeIds) &&
-        Objects.equals(this.name, filtersForListWorkspaceStatusInput.name) &&
-        Objects.equals(this.statuses, filtersForListWorkspaceStatusInput.statuses);
+    FilterForListRuleFilesInput filterForListRuleFilesInput = (FilterForListRuleFilesInput) o;
+    return Objects.equals(this.ids, filterForListRuleFilesInput.ids) &&
+        Objects.equals(this.name, filterForListRuleFilesInput.name) &&
+        Objects.equals(this.status, filterForListRuleFilesInput.status) &&
+        Objects.equals(this.workspaceId, filterForListRuleFilesInput.workspaceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ids, instanceTypeIds, name, statuses);
+    return Objects.hash(ids, name, status, workspaceId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class FiltersForListWorkspaceStatusInput {\n");
+    sb.append("class FilterForListRuleFilesInput {\n");
     
     sb.append("    ids: ").append(toIndentedString(ids)).append("\n");
-    sb.append("    instanceTypeIds: ").append(toIndentedString(instanceTypeIds)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    statuses: ").append(toIndentedString(statuses)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    workspaceId: ").append(toIndentedString(workspaceId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

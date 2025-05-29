@@ -19,7 +19,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.vmp.model.TagForListWorkspacesOutput;
+import com.volcengine.vmp.model.InstanceTypeForGetWorkspaceOutput;
+import com.volcengine.vmp.model.QuotaForGetWorkspaceOutput;
+import com.volcengine.vmp.model.TagForGetWorkspaceOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -27,12 +29,12 @@ import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ItemForListWorkspacesOutput
+ * GetWorkspaceResponse
  */
 
 
 
-public class ItemForListWorkspacesOutput {
+public class GetWorkspaceResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("CreateTime")
   private String createTime = null;
 
@@ -44,6 +46,9 @@ public class ItemForListWorkspacesOutput {
 
   @SerializedName("Id")
   private String id = null;
+
+  @SerializedName("InstanceType")
+  private InstanceTypeForGetWorkspaceOutput instanceType = null;
 
   @SerializedName("InstanceTypeId")
   private String instanceTypeId = null;
@@ -66,16 +71,19 @@ public class ItemForListWorkspacesOutput {
   @SerializedName("PrometheusWriteIntranetEndpoint")
   private String prometheusWriteIntranetEndpoint = null;
 
+  @SerializedName("Quota")
+  private QuotaForGetWorkspaceOutput quota = null;
+
   @SerializedName("Status")
   private String status = null;
 
   @SerializedName("Tags")
-  private List<TagForListWorkspacesOutput> tags = null;
+  private List<TagForGetWorkspaceOutput> tags = null;
 
   @SerializedName("Username")
   private String username = null;
 
-  public ItemForListWorkspacesOutput createTime(String createTime) {
+  public GetWorkspaceResponse createTime(String createTime) {
     this.createTime = createTime;
     return this;
   }
@@ -93,7 +101,7 @@ public class ItemForListWorkspacesOutput {
     this.createTime = createTime;
   }
 
-  public ItemForListWorkspacesOutput deleteProtectionEnabled(Boolean deleteProtectionEnabled) {
+  public GetWorkspaceResponse deleteProtectionEnabled(Boolean deleteProtectionEnabled) {
     this.deleteProtectionEnabled = deleteProtectionEnabled;
     return this;
   }
@@ -111,7 +119,7 @@ public class ItemForListWorkspacesOutput {
     this.deleteProtectionEnabled = deleteProtectionEnabled;
   }
 
-  public ItemForListWorkspacesOutput description(String description) {
+  public GetWorkspaceResponse description(String description) {
     this.description = description;
     return this;
   }
@@ -129,7 +137,7 @@ public class ItemForListWorkspacesOutput {
     this.description = description;
   }
 
-  public ItemForListWorkspacesOutput id(String id) {
+  public GetWorkspaceResponse id(String id) {
     this.id = id;
     return this;
   }
@@ -147,7 +155,26 @@ public class ItemForListWorkspacesOutput {
     this.id = id;
   }
 
-  public ItemForListWorkspacesOutput instanceTypeId(String instanceTypeId) {
+  public GetWorkspaceResponse instanceType(InstanceTypeForGetWorkspaceOutput instanceType) {
+    this.instanceType = instanceType;
+    return this;
+  }
+
+   /**
+   * Get instanceType
+   * @return instanceType
+  **/
+  @Valid
+  @Schema(description = "")
+  public InstanceTypeForGetWorkspaceOutput getInstanceType() {
+    return instanceType;
+  }
+
+  public void setInstanceType(InstanceTypeForGetWorkspaceOutput instanceType) {
+    this.instanceType = instanceType;
+  }
+
+  public GetWorkspaceResponse instanceTypeId(String instanceTypeId) {
     this.instanceTypeId = instanceTypeId;
     return this;
   }
@@ -165,7 +192,7 @@ public class ItemForListWorkspacesOutput {
     this.instanceTypeId = instanceTypeId;
   }
 
-  public ItemForListWorkspacesOutput name(String name) {
+  public GetWorkspaceResponse name(String name) {
     this.name = name;
     return this;
   }
@@ -183,7 +210,7 @@ public class ItemForListWorkspacesOutput {
     this.name = name;
   }
 
-  public ItemForListWorkspacesOutput overdueReclaimTime(String overdueReclaimTime) {
+  public GetWorkspaceResponse overdueReclaimTime(String overdueReclaimTime) {
     this.overdueReclaimTime = overdueReclaimTime;
     return this;
   }
@@ -201,7 +228,7 @@ public class ItemForListWorkspacesOutput {
     this.overdueReclaimTime = overdueReclaimTime;
   }
 
-  public ItemForListWorkspacesOutput projectName(String projectName) {
+  public GetWorkspaceResponse projectName(String projectName) {
     this.projectName = projectName;
     return this;
   }
@@ -219,7 +246,7 @@ public class ItemForListWorkspacesOutput {
     this.projectName = projectName;
   }
 
-  public ItemForListWorkspacesOutput prometheusPushIntranetEndpoint(String prometheusPushIntranetEndpoint) {
+  public GetWorkspaceResponse prometheusPushIntranetEndpoint(String prometheusPushIntranetEndpoint) {
     this.prometheusPushIntranetEndpoint = prometheusPushIntranetEndpoint;
     return this;
   }
@@ -237,7 +264,7 @@ public class ItemForListWorkspacesOutput {
     this.prometheusPushIntranetEndpoint = prometheusPushIntranetEndpoint;
   }
 
-  public ItemForListWorkspacesOutput prometheusQueryIntranetEndpoint(String prometheusQueryIntranetEndpoint) {
+  public GetWorkspaceResponse prometheusQueryIntranetEndpoint(String prometheusQueryIntranetEndpoint) {
     this.prometheusQueryIntranetEndpoint = prometheusQueryIntranetEndpoint;
     return this;
   }
@@ -255,7 +282,7 @@ public class ItemForListWorkspacesOutput {
     this.prometheusQueryIntranetEndpoint = prometheusQueryIntranetEndpoint;
   }
 
-  public ItemForListWorkspacesOutput prometheusWriteIntranetEndpoint(String prometheusWriteIntranetEndpoint) {
+  public GetWorkspaceResponse prometheusWriteIntranetEndpoint(String prometheusWriteIntranetEndpoint) {
     this.prometheusWriteIntranetEndpoint = prometheusWriteIntranetEndpoint;
     return this;
   }
@@ -273,7 +300,26 @@ public class ItemForListWorkspacesOutput {
     this.prometheusWriteIntranetEndpoint = prometheusWriteIntranetEndpoint;
   }
 
-  public ItemForListWorkspacesOutput status(String status) {
+  public GetWorkspaceResponse quota(QuotaForGetWorkspaceOutput quota) {
+    this.quota = quota;
+    return this;
+  }
+
+   /**
+   * Get quota
+   * @return quota
+  **/
+  @Valid
+  @Schema(description = "")
+  public QuotaForGetWorkspaceOutput getQuota() {
+    return quota;
+  }
+
+  public void setQuota(QuotaForGetWorkspaceOutput quota) {
+    this.quota = quota;
+  }
+
+  public GetWorkspaceResponse status(String status) {
     this.status = status;
     return this;
   }
@@ -291,14 +337,14 @@ public class ItemForListWorkspacesOutput {
     this.status = status;
   }
 
-  public ItemForListWorkspacesOutput tags(List<TagForListWorkspacesOutput> tags) {
+  public GetWorkspaceResponse tags(List<TagForGetWorkspaceOutput> tags) {
     this.tags = tags;
     return this;
   }
 
-  public ItemForListWorkspacesOutput addTagsItem(TagForListWorkspacesOutput tagsItem) {
+  public GetWorkspaceResponse addTagsItem(TagForGetWorkspaceOutput tagsItem) {
     if (this.tags == null) {
-      this.tags = new ArrayList<TagForListWorkspacesOutput>();
+      this.tags = new ArrayList<TagForGetWorkspaceOutput>();
     }
     this.tags.add(tagsItem);
     return this;
@@ -310,15 +356,15 @@ public class ItemForListWorkspacesOutput {
   **/
   @Valid
   @Schema(description = "")
-  public List<TagForListWorkspacesOutput> getTags() {
+  public List<TagForGetWorkspaceOutput> getTags() {
     return tags;
   }
 
-  public void setTags(List<TagForListWorkspacesOutput> tags) {
+  public void setTags(List<TagForGetWorkspaceOutput> tags) {
     this.tags = tags;
   }
 
-  public ItemForListWorkspacesOutput username(String username) {
+  public GetWorkspaceResponse username(String username) {
     this.username = username;
     return this;
   }
@@ -345,38 +391,41 @@ public class ItemForListWorkspacesOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ItemForListWorkspacesOutput itemForListWorkspacesOutput = (ItemForListWorkspacesOutput) o;
-    return Objects.equals(this.createTime, itemForListWorkspacesOutput.createTime) &&
-        Objects.equals(this.deleteProtectionEnabled, itemForListWorkspacesOutput.deleteProtectionEnabled) &&
-        Objects.equals(this.description, itemForListWorkspacesOutput.description) &&
-        Objects.equals(this.id, itemForListWorkspacesOutput.id) &&
-        Objects.equals(this.instanceTypeId, itemForListWorkspacesOutput.instanceTypeId) &&
-        Objects.equals(this.name, itemForListWorkspacesOutput.name) &&
-        Objects.equals(this.overdueReclaimTime, itemForListWorkspacesOutput.overdueReclaimTime) &&
-        Objects.equals(this.projectName, itemForListWorkspacesOutput.projectName) &&
-        Objects.equals(this.prometheusPushIntranetEndpoint, itemForListWorkspacesOutput.prometheusPushIntranetEndpoint) &&
-        Objects.equals(this.prometheusQueryIntranetEndpoint, itemForListWorkspacesOutput.prometheusQueryIntranetEndpoint) &&
-        Objects.equals(this.prometheusWriteIntranetEndpoint, itemForListWorkspacesOutput.prometheusWriteIntranetEndpoint) &&
-        Objects.equals(this.status, itemForListWorkspacesOutput.status) &&
-        Objects.equals(this.tags, itemForListWorkspacesOutput.tags) &&
-        Objects.equals(this.username, itemForListWorkspacesOutput.username);
+    GetWorkspaceResponse getWorkspaceResponse = (GetWorkspaceResponse) o;
+    return Objects.equals(this.createTime, getWorkspaceResponse.createTime) &&
+        Objects.equals(this.deleteProtectionEnabled, getWorkspaceResponse.deleteProtectionEnabled) &&
+        Objects.equals(this.description, getWorkspaceResponse.description) &&
+        Objects.equals(this.id, getWorkspaceResponse.id) &&
+        Objects.equals(this.instanceType, getWorkspaceResponse.instanceType) &&
+        Objects.equals(this.instanceTypeId, getWorkspaceResponse.instanceTypeId) &&
+        Objects.equals(this.name, getWorkspaceResponse.name) &&
+        Objects.equals(this.overdueReclaimTime, getWorkspaceResponse.overdueReclaimTime) &&
+        Objects.equals(this.projectName, getWorkspaceResponse.projectName) &&
+        Objects.equals(this.prometheusPushIntranetEndpoint, getWorkspaceResponse.prometheusPushIntranetEndpoint) &&
+        Objects.equals(this.prometheusQueryIntranetEndpoint, getWorkspaceResponse.prometheusQueryIntranetEndpoint) &&
+        Objects.equals(this.prometheusWriteIntranetEndpoint, getWorkspaceResponse.prometheusWriteIntranetEndpoint) &&
+        Objects.equals(this.quota, getWorkspaceResponse.quota) &&
+        Objects.equals(this.status, getWorkspaceResponse.status) &&
+        Objects.equals(this.tags, getWorkspaceResponse.tags) &&
+        Objects.equals(this.username, getWorkspaceResponse.username);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createTime, deleteProtectionEnabled, description, id, instanceTypeId, name, overdueReclaimTime, projectName, prometheusPushIntranetEndpoint, prometheusQueryIntranetEndpoint, prometheusWriteIntranetEndpoint, status, tags, username);
+    return Objects.hash(createTime, deleteProtectionEnabled, description, id, instanceType, instanceTypeId, name, overdueReclaimTime, projectName, prometheusPushIntranetEndpoint, prometheusQueryIntranetEndpoint, prometheusWriteIntranetEndpoint, quota, status, tags, username);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ItemForListWorkspacesOutput {\n");
+    sb.append("class GetWorkspaceResponse {\n");
     
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    deleteProtectionEnabled: ").append(toIndentedString(deleteProtectionEnabled)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("    instanceTypeId: ").append(toIndentedString(instanceTypeId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    overdueReclaimTime: ").append(toIndentedString(overdueReclaimTime)).append("\n");
@@ -384,6 +433,7 @@ public class ItemForListWorkspacesOutput {
     sb.append("    prometheusPushIntranetEndpoint: ").append(toIndentedString(prometheusPushIntranetEndpoint)).append("\n");
     sb.append("    prometheusQueryIntranetEndpoint: ").append(toIndentedString(prometheusQueryIntranetEndpoint)).append("\n");
     sb.append("    prometheusWriteIntranetEndpoint: ").append(toIndentedString(prometheusWriteIntranetEndpoint)).append("\n");
+    sb.append("    quota: ").append(toIndentedString(quota)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");

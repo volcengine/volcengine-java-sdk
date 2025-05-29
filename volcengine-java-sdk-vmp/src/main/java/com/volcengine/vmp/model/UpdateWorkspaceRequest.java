@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vmp.model.QuotaForUpdateWorkspaceInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -44,6 +45,9 @@ public class UpdateWorkspaceRequest {
 
   @SerializedName("Password")
   private String password = null;
+
+  @SerializedName("Quota")
+  private QuotaForUpdateWorkspaceInput quota = null;
 
   @SerializedName("Username")
   private String username = null;
@@ -139,6 +143,25 @@ public class UpdateWorkspaceRequest {
     this.password = password;
   }
 
+  public UpdateWorkspaceRequest quota(QuotaForUpdateWorkspaceInput quota) {
+    this.quota = quota;
+    return this;
+  }
+
+   /**
+   * Get quota
+   * @return quota
+  **/
+  @Valid
+  @Schema(description = "")
+  public QuotaForUpdateWorkspaceInput getQuota() {
+    return quota;
+  }
+
+  public void setQuota(QuotaForUpdateWorkspaceInput quota) {
+    this.quota = quota;
+  }
+
   public UpdateWorkspaceRequest username(String username) {
     this.username = username;
     return this;
@@ -172,12 +195,13 @@ public class UpdateWorkspaceRequest {
         Objects.equals(this.id, updateWorkspaceRequest.id) &&
         Objects.equals(this.name, updateWorkspaceRequest.name) &&
         Objects.equals(this.password, updateWorkspaceRequest.password) &&
+        Objects.equals(this.quota, updateWorkspaceRequest.quota) &&
         Objects.equals(this.username, updateWorkspaceRequest.username);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleteProtectionEnabled, description, id, name, password, username);
+    return Objects.hash(deleteProtectionEnabled, description, id, name, password, quota, username);
   }
 
 
@@ -191,6 +215,7 @@ public class UpdateWorkspaceRequest {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
+    sb.append("    quota: ").append(toIndentedString(quota)).append("\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
