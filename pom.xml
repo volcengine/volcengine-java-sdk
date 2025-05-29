@@ -283,5 +283,6 @@
         <module>volcengine-java-sdk-quota</module>
         <module>volcengine-java-sdk-seccenter20240508</module>
         <module>volcengine-java-sdk-privatezone</module>
+        <module>volcengine-java-sdk-acep</module>
     </modules>
 </project>
