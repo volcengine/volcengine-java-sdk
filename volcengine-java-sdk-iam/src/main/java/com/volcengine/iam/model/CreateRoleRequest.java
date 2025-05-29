@@ -78,8 +78,7 @@ public class CreateRoleRequest {
    * Get displayName
    * @return displayName
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getDisplayName() {
     return displayName;
   }

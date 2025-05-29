@@ -19,36 +19,38 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.iam.model.SummaryMapForGetAccountSummaryOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * AddSAMLProviderCertificateResponse
+ * GetAccountSummaryResponse
  */
 
 
 
-public class AddSAMLProviderCertificateResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("CertificateId")
-  private String certificateId = null;
+public class GetAccountSummaryResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("SummaryMap")
+  private SummaryMapForGetAccountSummaryOutput summaryMap = null;
 
-  public AddSAMLProviderCertificateResponse certificateId(String certificateId) {
-    this.certificateId = certificateId;
+  public GetAccountSummaryResponse summaryMap(SummaryMapForGetAccountSummaryOutput summaryMap) {
+    this.summaryMap = summaryMap;
     return this;
   }
 
    /**
-   * Get certificateId
-   * @return certificateId
+   * Get summaryMap
+   * @return summaryMap
   **/
+  @Valid
   @Schema(description = "")
-  public String getCertificateId() {
-    return certificateId;
+  public SummaryMapForGetAccountSummaryOutput getSummaryMap() {
+    return summaryMap;
   }
 
-  public void setCertificateId(String certificateId) {
-    this.certificateId = certificateId;
+  public void setSummaryMap(SummaryMapForGetAccountSummaryOutput summaryMap) {
+    this.summaryMap = summaryMap;
   }
 
 
@@ -60,22 +62,22 @@ public class AddSAMLProviderCertificateResponse extends com.volcengine.model.Abs
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AddSAMLProviderCertificateResponse addSAMLProviderCertificateResponse = (AddSAMLProviderCertificateResponse) o;
-    return Objects.equals(this.certificateId, addSAMLProviderCertificateResponse.certificateId);
+    GetAccountSummaryResponse getAccountSummaryResponse = (GetAccountSummaryResponse) o;
+    return Objects.equals(this.summaryMap, getAccountSummaryResponse.summaryMap);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(certificateId);
+    return Objects.hash(summaryMap);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AddSAMLProviderCertificateResponse {\n");
+    sb.append("class GetAccountSummaryResponse {\n");
     
-    sb.append("    certificateId: ").append(toIndentedString(certificateId)).append("\n");
+    sb.append("    summaryMap: ").append(toIndentedString(summaryMap)).append("\n");
     sb.append("}");
     return sb.toString();
   }
