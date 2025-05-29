@@ -30,8 +30,29 @@ import javax.validation.Valid;
 
 
 public class GetRoleRequest {
+  @SerializedName("ID")
+  private Long ID = null;
+
   @SerializedName("RoleName")
   private String roleName = null;
+
+  public GetRoleRequest ID(Long ID) {
+    this.ID = ID;
+    return this;
+  }
+
+   /**
+   * Get ID
+   * @return ID
+  **/
+  @Schema(description = "")
+  public Long getID() {
+    return ID;
+  }
+
+  public void setID(Long ID) {
+    this.ID = ID;
+  }
 
   public GetRoleRequest roleName(String roleName) {
     this.roleName = roleName;
@@ -62,12 +83,13 @@ public class GetRoleRequest {
       return false;
     }
     GetRoleRequest getRoleRequest = (GetRoleRequest) o;
-    return Objects.equals(this.roleName, getRoleRequest.roleName);
+    return Objects.equals(this.ID, getRoleRequest.ID) &&
+        Objects.equals(this.roleName, getRoleRequest.roleName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(roleName);
+    return Objects.hash(ID, roleName);
   }
 
 
@@ -76,6 +98,7 @@ public class GetRoleRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetRoleRequest {\n");
     
+    sb.append("    ID: ").append(toIndentedString(ID)).append("\n");
     sb.append("    roleName: ").append(toIndentedString(roleName)).append("\n");
     sb.append("}");
     return sb.toString();
