@@ -70,6 +70,54 @@ public class SecretForDescribeSecretsOutput {
   private String secretName = null;
 
   /**
+   * Gets or Sets secretState
+   */
+  @JsonAdapter(SecretStateEnum.Adapter.class)
+  public enum SecretStateEnum {
+    @SerializedName("Enable")
+    ENABLE("Enable"),
+    @SerializedName("Disable")
+    DISABLE("Disable"),
+    @SerializedName("PendingDelete")
+    PENDINGDELETE("PendingDelete");
+
+    private String value;
+
+    SecretStateEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static SecretStateEnum fromValue(String input) {
+      for (SecretStateEnum b : SecretStateEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<SecretStateEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final SecretStateEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public SecretStateEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return SecretStateEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("SecretState")
+  private SecretStateEnum secretState = null;
+
+  /**
    * Gets or Sets secretType
    */
   @JsonAdapter(SecretTypeEnum.Adapter.class)
@@ -364,6 +412,24 @@ public class SecretForDescribeSecretsOutput {
     this.secretName = secretName;
   }
 
+  public SecretForDescribeSecretsOutput secretState(SecretStateEnum secretState) {
+    this.secretState = secretState;
+    return this;
+  }
+
+   /**
+   * Get secretState
+   * @return secretState
+  **/
+  @Schema(description = "")
+  public SecretStateEnum getSecretState() {
+    return secretState;
+  }
+
+  public void setSecretState(SecretStateEnum secretState) {
+    this.secretState = secretState;
+  }
+
   public SecretForDescribeSecretsOutput secretType(SecretTypeEnum secretType) {
     this.secretType = secretType;
     return this;
@@ -459,6 +525,7 @@ public class SecretForDescribeSecretsOutput {
         Objects.equals(this.scheduleDeleteTime, secretForDescribeSecretsOutput.scheduleDeleteTime) &&
         Objects.equals(this.scheduleRotationTime, secretForDescribeSecretsOutput.scheduleRotationTime) &&
         Objects.equals(this.secretName, secretForDescribeSecretsOutput.secretName) &&
+        Objects.equals(this.secretState, secretForDescribeSecretsOutput.secretState) &&
         Objects.equals(this.secretType, secretForDescribeSecretsOutput.secretType) &&
         Objects.equals(this.trn, secretForDescribeSecretsOutput.trn) &&
         Objects.equals(this.UID, secretForDescribeSecretsOutput.UID) &&
@@ -467,7 +534,7 @@ public class SecretForDescribeSecretsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(creationDate, description, encryptionKey, extendedConfig, ID, lastRotationTime, managed, projectName, rotationInterval, rotationState, scheduleDeleteTime, scheduleRotationTime, secretName, secretType, trn, UID, updateDate);
+    return Objects.hash(creationDate, description, encryptionKey, extendedConfig, ID, lastRotationTime, managed, projectName, rotationInterval, rotationState, scheduleDeleteTime, scheduleRotationTime, secretName, secretState, secretType, trn, UID, updateDate);
   }
 
 
@@ -489,6 +556,7 @@ public class SecretForDescribeSecretsOutput {
     sb.append("    scheduleDeleteTime: ").append(toIndentedString(scheduleDeleteTime)).append("\n");
     sb.append("    scheduleRotationTime: ").append(toIndentedString(scheduleRotationTime)).append("\n");
     sb.append("    secretName: ").append(toIndentedString(secretName)).append("\n");
+    sb.append("    secretState: ").append(toIndentedString(secretState)).append("\n");
     sb.append("    secretType: ").append(toIndentedString(secretType)).append("\n");
     sb.append("    trn: ").append(toIndentedString(trn)).append("\n");
     sb.append("    UID: ").append(toIndentedString(UID)).append("\n");
