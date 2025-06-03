@@ -26,6 +26,12 @@ public class BotActionUsage {
     @JsonProperty("search_count")
     private Integer searchCount;
 
+    @JsonProperty("action_name")
+    private String actionName;
+
+    @JsonProperty("count")
+    private Integer count;
+
     public String getName() {
         return name;
     }
@@ -66,6 +72,22 @@ public class BotActionUsage {
         this.searchCount = searchCount;
     }
 
+    public String getActionName() {
+        return actionName;
+    }
+
+    public void setActionName(String actionName) {
+        this.actionName = actionName;
+    }
+
+    public Integer getCount() {
+        return count;
+    }
+
+    public void setCount(Integer count) {
+        this.count = count;
+    }
+
     @Override
     public String toString() {
         return "BotActionUsage{" +
@@ -74,6 +96,8 @@ public class BotActionUsage {
                 ", completionTokens=" + completionTokens +
                 ", totalTokens=" + totalTokens +
                 ", searchCount=" + searchCount +
+                ", actionName='" + actionName + '\'' +
+                ", count=" + count +
                 '}';
     }
 }
