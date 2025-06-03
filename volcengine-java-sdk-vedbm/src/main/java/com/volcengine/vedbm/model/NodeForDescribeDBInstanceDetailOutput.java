@@ -41,38 +41,38 @@ public class NodeForDescribeDBInstanceDetailOutput {
    */
   @JsonAdapter(NodeSpecEnum.Adapter.class)
   public enum NodeSpecEnum {
-    @SerializedName("vedb.mysql.x4.large")
-    VEDB_MYSQL_X4_LARGE("vedb.mysql.x4.large"),
-    @SerializedName("vedb.mysql.x8.large")
-    VEDB_MYSQL_X8_LARGE("vedb.mysql.x8.large"),
-    @SerializedName("vedb.mysql.x4.xlarge")
-    VEDB_MYSQL_X4_XLARGE("vedb.mysql.x4.xlarge"),
-    @SerializedName("vedb.mysql.x8.xlarge")
-    VEDB_MYSQL_X8_XLARGE("vedb.mysql.x8.xlarge"),
-    @SerializedName("vedb.mysql.x4.2xlarge")
-    VEDB_MYSQL_X4_2XLARGE("vedb.mysql.x4.2xlarge"),
-    @SerializedName("vedb.mysql.x8.2xlarge")
-    VEDB_MYSQL_X8_2XLARGE("vedb.mysql.x8.2xlarge"),
-    @SerializedName("vedb.mysql.x4.4xlarge")
-    VEDB_MYSQL_X4_4XLARGE("vedb.mysql.x4.4xlarge"),
-    @SerializedName("vedb.mysql.x8.4xlarge")
-    VEDB_MYSQL_X8_4XLARGE("vedb.mysql.x8.4xlarge"),
-    @SerializedName("vedb.mysql.x8.6xlarge")
-    VEDB_MYSQL_X8_6XLARGE("vedb.mysql.x8.6xlarge"),
-    @SerializedName("vedb.mysql.x4.8xlarge")
-    VEDB_MYSQL_X4_8XLARGE("vedb.mysql.x4.8xlarge"),
-    @SerializedName("vedb.mysql.x8.8xlarge")
-    VEDB_MYSQL_X8_8XLARGE("vedb.mysql.x8.8xlarge"),
+    @SerializedName("vedb.mysql.g4.2xlarge")
+    VEDB_MYSQL_G4_2XLARGE("vedb.mysql.g4.2xlarge"),
+    @SerializedName("vedb.mysql.g4.4xlarge")
+    VEDB_MYSQL_G4_4XLARGE("vedb.mysql.g4.4xlarge"),
     @SerializedName("vedb.mysql.g4.large")
     VEDB_MYSQL_G4_LARGE("vedb.mysql.g4.large"),
     @SerializedName("vedb.mysql.g4.xlarge")
     VEDB_MYSQL_G4_XLARGE("vedb.mysql.g4.xlarge"),
-    @SerializedName("vedb.mysql.g4.2xlarge")
-    VEDB_MYSQL_G4_2XLARGE("vedb.mysql.g4.2xlarge"),
     @SerializedName("vedb.mysql.g8.2xlarge")
     VEDB_MYSQL_G8_2XLARGE("vedb.mysql.g8.2xlarge"),
-    @SerializedName("vedb.mysql.g4.4xlarge")
-    VEDB_MYSQL_G4_4XLARGE("vedb.mysql.g4.4xlarge");
+    @SerializedName("vedb.mysql.x4.2xlarge")
+    VEDB_MYSQL_X4_2XLARGE("vedb.mysql.x4.2xlarge"),
+    @SerializedName("vedb.mysql.x4.4xlarge")
+    VEDB_MYSQL_X4_4XLARGE("vedb.mysql.x4.4xlarge"),
+    @SerializedName("vedb.mysql.x4.8xlarge")
+    VEDB_MYSQL_X4_8XLARGE("vedb.mysql.x4.8xlarge"),
+    @SerializedName("vedb.mysql.x4.large")
+    VEDB_MYSQL_X4_LARGE("vedb.mysql.x4.large"),
+    @SerializedName("vedb.mysql.x4.xlarge")
+    VEDB_MYSQL_X4_XLARGE("vedb.mysql.x4.xlarge"),
+    @SerializedName("vedb.mysql.x8.2xlarge")
+    VEDB_MYSQL_X8_2XLARGE("vedb.mysql.x8.2xlarge"),
+    @SerializedName("vedb.mysql.x8.4xlarge")
+    VEDB_MYSQL_X8_4XLARGE("vedb.mysql.x8.4xlarge"),
+    @SerializedName("vedb.mysql.x8.6xlarge")
+    VEDB_MYSQL_X8_6XLARGE("vedb.mysql.x8.6xlarge"),
+    @SerializedName("vedb.mysql.x8.8xlarge")
+    VEDB_MYSQL_X8_8XLARGE("vedb.mysql.x8.8xlarge"),
+    @SerializedName("vedb.mysql.x8.large")
+    VEDB_MYSQL_X8_LARGE("vedb.mysql.x8.large"),
+    @SerializedName("vedb.mysql.x8.xlarge")
+    VEDB_MYSQL_X8_XLARGE("vedb.mysql.x8.xlarge");
 
     private String value;
 
