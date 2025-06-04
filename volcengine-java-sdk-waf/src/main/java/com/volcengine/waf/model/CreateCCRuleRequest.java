@@ -37,9 +37,6 @@ public class CreateCCRuleRequest {
   @SerializedName("AccurateGroup")
   private AccurateGroupForCreateCCRuleInput accurateGroup = null;
 
-  @SerializedName("AccurateGroupPriority")
-  private Integer accurateGroupPriority = null;
-
   @SerializedName("CCType")
   private Integer ccType = null;
 
@@ -105,24 +102,6 @@ public class CreateCCRuleRequest {
 
   public void setAccurateGroup(AccurateGroupForCreateCCRuleInput accurateGroup) {
     this.accurateGroup = accurateGroup;
-  }
-
-  public CreateCCRuleRequest accurateGroupPriority(Integer accurateGroupPriority) {
-    this.accurateGroupPriority = accurateGroupPriority;
-    return this;
-  }
-
-   /**
-   * Get accurateGroupPriority
-   * @return accurateGroupPriority
-  **/
-  @Schema(description = "")
-  public Integer getAccurateGroupPriority() {
-    return accurateGroupPriority;
-  }
-
-  public void setAccurateGroupPriority(Integer accurateGroupPriority) {
-    this.accurateGroupPriority = accurateGroupPriority;
   }
 
   public CreateCCRuleRequest ccType(Integer ccType) {
@@ -440,7 +419,6 @@ public class CreateCCRuleRequest {
     }
     CreateCCRuleRequest createCCRuleRequest = (CreateCCRuleRequest) o;
     return Objects.equals(this.accurateGroup, createCCRuleRequest.accurateGroup) &&
-        Objects.equals(this.accurateGroupPriority, createCCRuleRequest.accurateGroupPriority) &&
         Objects.equals(this.ccType, createCCRuleRequest.ccType) &&
         Objects.equals(this.countTime, createCCRuleRequest.countTime) &&
         Objects.equals(this.cronConfs, createCCRuleRequest.cronConfs) &&
@@ -461,7 +439,7 @@ public class CreateCCRuleRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accurateGroup, accurateGroupPriority, ccType, countTime, cronConfs, cronEnable, effectTime, enable, exemptionTime, field, host, name, pathThreshold, projectName, rulePriority, ruleTag, singleThreshold, url);
+    return Objects.hash(accurateGroup, ccType, countTime, cronConfs, cronEnable, effectTime, enable, exemptionTime, field, host, name, pathThreshold, projectName, rulePriority, ruleTag, singleThreshold, url);
   }
 
 
@@ -471,7 +449,6 @@ public class CreateCCRuleRequest {
     sb.append("class CreateCCRuleRequest {\n");
     
     sb.append("    accurateGroup: ").append(toIndentedString(accurateGroup)).append("\n");
-    sb.append("    accurateGroupPriority: ").append(toIndentedString(accurateGroupPriority)).append("\n");
     sb.append("    ccType: ").append(toIndentedString(ccType)).append("\n");
     sb.append("    countTime: ").append(toIndentedString(countTime)).append("\n");
     sb.append("    cronConfs: ").append(toIndentedString(cronConfs)).append("\n");

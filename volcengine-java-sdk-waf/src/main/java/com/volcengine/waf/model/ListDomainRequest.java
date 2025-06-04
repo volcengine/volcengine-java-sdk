@@ -63,6 +63,9 @@ public class ListDomainRequest {
   @SerializedName("PageSize")
   private Integer pageSize = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("PublicRealServer")
   private List<Integer> publicRealServer = null;
 
@@ -311,6 +314,24 @@ public class ListDomainRequest {
     this.pageSize = pageSize;
   }
 
+  public ListDomainRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public ListDomainRequest publicRealServer(List<Integer> publicRealServer) {
     this.publicRealServer = publicRealServer;
     return this;
@@ -554,6 +575,7 @@ public class ListDomainRequest {
         Objects.equals(this.lbInfo, listDomainRequest.lbInfo) &&
         Objects.equals(this.page, listDomainRequest.page) &&
         Objects.equals(this.pageSize, listDomainRequest.pageSize) &&
+        Objects.equals(this.projectName, listDomainRequest.projectName) &&
         Objects.equals(this.publicRealServer, listDomainRequest.publicRealServer) &&
         Objects.equals(this.region, listDomainRequest.region) &&
         Objects.equals(this.sortByCreateTime, listDomainRequest.sortByCreateTime) &&
@@ -569,7 +591,7 @@ public class ListDomainRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessMode, accurateQuery, attackStatus, clientIp, defenceMode, domain, domainOrPath, lbInfo, page, pageSize, publicRealServer, region, sortByCreateTime, sortByDomainName, sortByUpdateTime, status, tlSEnable, vpcId, vpcName, vpcOwnerId, vpcOwnerName);
+    return Objects.hash(accessMode, accurateQuery, attackStatus, clientIp, defenceMode, domain, domainOrPath, lbInfo, page, pageSize, projectName, publicRealServer, region, sortByCreateTime, sortByDomainName, sortByUpdateTime, status, tlSEnable, vpcId, vpcName, vpcOwnerId, vpcOwnerName);
   }
 
 
@@ -588,6 +610,7 @@ public class ListDomainRequest {
     sb.append("    lbInfo: ").append(toIndentedString(lbInfo)).append("\n");
     sb.append("    page: ").append(toIndentedString(page)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    publicRealServer: ").append(toIndentedString(publicRealServer)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    sortByCreateTime: ").append(toIndentedString(sortByCreateTime)).append("\n");
