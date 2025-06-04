@@ -14,12 +14,21 @@ public class CreateContentGenerationTaskRequest {
     @JsonProperty("content")
     private List<Content> content;
 
+    @JsonProperty("callback_url")
+    private String callbackUrl;
+
     public CreateContentGenerationTaskRequest() {
     }
 
     public CreateContentGenerationTaskRequest(String model, List<Content> content) {
         this.model = model;
         this.content = content;
+    }
+
+    public CreateContentGenerationTaskRequest(String model, List<Content> content, String callbackUrl) {
+        this.model = model;
+        this.content = content;
+        this.callbackUrl = callbackUrl;
     }
 
     public String getModel() {
@@ -38,11 +47,20 @@ public class CreateContentGenerationTaskRequest {
         this.content = content;
     }
 
+    public String getCallbackUrl() {
+        return callbackUrl;
+    }
+
+    public void setCallbackUrl(String callbackUrl) {
+        this.callbackUrl = callbackUrl;
+    }
+
     @Override
     public String toString() {
         return "CreateContentGenerationTaskRequest{" +
                 "model='" + model + '\'' +
                 ", content=" + content +
+                ", callbackUrl='" + callbackUrl + '\'' +
                 '}';
     }
 
@@ -53,6 +71,7 @@ public class CreateContentGenerationTaskRequest {
     public static class Builder {
         private String model;
         private List<Content> content;
+        private String callbackUrl;
 
         private Builder() {
         }
@@ -67,10 +86,16 @@ public class CreateContentGenerationTaskRequest {
             return this;
         }
 
+        public Builder callbackUrl(String callbackUrl) {
+            this.callbackUrl = callbackUrl;
+            return this;
+        }
+
         public CreateContentGenerationTaskRequest build() {
             CreateContentGenerationTaskRequest createContentGenerationTaskRequest = new CreateContentGenerationTaskRequest();
             createContentGenerationTaskRequest.setModel(model);
             createContentGenerationTaskRequest.setContent(content);
+            createContentGenerationTaskRequest.setCallbackUrl(callbackUrl);
             return createContentGenerationTaskRequest;
         }
     }
