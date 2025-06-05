@@ -21,7 +21,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.waf.model.BackendGroupForUpdateDomainInput;
 import com.volcengine.waf.model.CloudAccessConfigForUpdateDomainInput;
-import com.volcengine.waf.model.LLMPathInfoForUpdateDomainInput;
 import com.volcengine.waf.model.ProtocolPortsForUpdateDomainInput;
 import com.volcengine.waf.model.TLSFieldsConfigForUpdateDomainInput;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -87,12 +86,6 @@ public class UpdateDomainRequest {
 
   @SerializedName("LBAlgorithm")
   private String lbAlgorithm = null;
-
-  @SerializedName("LLMAvailable")
-  private Boolean llMAvailable = null;
-
-  @SerializedName("LLMPathInfo")
-  private List<LLMPathInfoForUpdateDomainInput> llMPathInfo = null;
 
   @SerializedName("ProjectName")
   private String projectName = null;
@@ -486,51 +479,6 @@ public class UpdateDomainRequest {
 
   public void setLbAlgorithm(String lbAlgorithm) {
     this.lbAlgorithm = lbAlgorithm;
-  }
-
-  public UpdateDomainRequest llMAvailable(Boolean llMAvailable) {
-    this.llMAvailable = llMAvailable;
-    return this;
-  }
-
-   /**
-   * Get llMAvailable
-   * @return llMAvailable
-  **/
-  @Schema(description = "")
-  public Boolean isLlMAvailable() {
-    return llMAvailable;
-  }
-
-  public void setLlMAvailable(Boolean llMAvailable) {
-    this.llMAvailable = llMAvailable;
-  }
-
-  public UpdateDomainRequest llMPathInfo(List<LLMPathInfoForUpdateDomainInput> llMPathInfo) {
-    this.llMPathInfo = llMPathInfo;
-    return this;
-  }
-
-  public UpdateDomainRequest addLlMPathInfoItem(LLMPathInfoForUpdateDomainInput llMPathInfoItem) {
-    if (this.llMPathInfo == null) {
-      this.llMPathInfo = new ArrayList<LLMPathInfoForUpdateDomainInput>();
-    }
-    this.llMPathInfo.add(llMPathInfoItem);
-    return this;
-  }
-
-   /**
-   * Get llMPathInfo
-   * @return llMPathInfo
-  **/
-  @Valid
-  @Schema(description = "")
-  public List<LLMPathInfoForUpdateDomainInput> getLlMPathInfo() {
-    return llMPathInfo;
-  }
-
-  public void setLlMPathInfo(List<LLMPathInfoForUpdateDomainInput> llMPathInfo) {
-    this.llMPathInfo = llMPathInfo;
   }
 
   public UpdateDomainRequest projectName(String projectName) {
@@ -947,8 +895,6 @@ public class UpdateDomainRequest {
         Objects.equals(this.keepAliveRequest, updateDomainRequest.keepAliveRequest) &&
         Objects.equals(this.keepAliveTimeOut, updateDomainRequest.keepAliveTimeOut) &&
         Objects.equals(this.lbAlgorithm, updateDomainRequest.lbAlgorithm) &&
-        Objects.equals(this.llMAvailable, updateDomainRequest.llMAvailable) &&
-        Objects.equals(this.llMPathInfo, updateDomainRequest.llMPathInfo) &&
         Objects.equals(this.projectName, updateDomainRequest.projectName) &&
         Objects.equals(this.protocolFollow, updateDomainRequest.protocolFollow) &&
         Objects.equals(this.protocolPorts, updateDomainRequest.protocolPorts) &&
@@ -973,7 +919,7 @@ public class UpdateDomainRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessMode, backendGroups, certificateID, certificatePlatform, clientIPLocation, clientMaxBodySize, cloudAccessConfig, customHeader, customSNI, domain, enableCustomRedirect, enableHTTP2, enableIPv6, enableSNI, keepAliveRequest, keepAliveTimeOut, lbAlgorithm, llMAvailable, llMPathInfo, projectName, protocolFollow, protocolPorts, protocols, proxyConfig, proxyConnectTimeOut, proxyKeepAlive, proxyKeepAliveTimeOut, proxyReadTimeOut, proxyRetry, proxyWriteTimeOut, publicRealServer, redirectHTTPS, region, ssLCiphers, ssLProtocols, tlSEnable, tlSFieldsConfig, volcCertificateID, vpcID);
+    return Objects.hash(accessMode, backendGroups, certificateID, certificatePlatform, clientIPLocation, clientMaxBodySize, cloudAccessConfig, customHeader, customSNI, domain, enableCustomRedirect, enableHTTP2, enableIPv6, enableSNI, keepAliveRequest, keepAliveTimeOut, lbAlgorithm, projectName, protocolFollow, protocolPorts, protocols, proxyConfig, proxyConnectTimeOut, proxyKeepAlive, proxyKeepAliveTimeOut, proxyReadTimeOut, proxyRetry, proxyWriteTimeOut, publicRealServer, redirectHTTPS, region, ssLCiphers, ssLProtocols, tlSEnable, tlSFieldsConfig, volcCertificateID, vpcID);
   }
 
 
@@ -999,8 +945,6 @@ public class UpdateDomainRequest {
     sb.append("    keepAliveRequest: ").append(toIndentedString(keepAliveRequest)).append("\n");
     sb.append("    keepAliveTimeOut: ").append(toIndentedString(keepAliveTimeOut)).append("\n");
     sb.append("    lbAlgorithm: ").append(toIndentedString(lbAlgorithm)).append("\n");
-    sb.append("    llMAvailable: ").append(toIndentedString(llMAvailable)).append("\n");
-    sb.append("    llMPathInfo: ").append(toIndentedString(llMPathInfo)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    protocolFollow: ").append(toIndentedString(protocolFollow)).append("\n");
     sb.append("    protocolPorts: ").append(toIndentedString(protocolPorts)).append("\n");

@@ -106,7 +106,7 @@ public class DataForListDomainOutput {
   private String clbServerId = null;
 
   @SerializedName("ClientIPLocation")
-  private String clientIPLocation = null;
+  private Integer clientIPLocation = null;
 
   @SerializedName("ClientMaxBodySize")
   private Integer clientMaxBodySize = null;
@@ -669,7 +669,7 @@ public class DataForListDomainOutput {
     this.clbServerId = clbServerId;
   }
 
-  public DataForListDomainOutput clientIPLocation(String clientIPLocation) {
+  public DataForListDomainOutput clientIPLocation(Integer clientIPLocation) {
     this.clientIPLocation = clientIPLocation;
     return this;
   }
@@ -679,11 +679,11 @@ public class DataForListDomainOutput {
    * @return clientIPLocation
   **/
   @Schema(description = "")
-  public String getClientIPLocation() {
+  public Integer getClientIPLocation() {
     return clientIPLocation;
   }
 
-  public void setClientIPLocation(String clientIPLocation) {
+  public void setClientIPLocation(Integer clientIPLocation) {
     this.clientIPLocation = clientIPLocation;
   }
 

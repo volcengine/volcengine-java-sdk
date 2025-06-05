@@ -50,6 +50,7 @@ public class ContentGenerationTaskExample {
         CreateContentGenerationTaskRequest createRequest = CreateContentGenerationTaskRequest.builder()
                 .model(model)
                 .content(contents)
+                // .callbackUrl("YOUR CALLBACK URL")
                 .build();
 
         // send create request
