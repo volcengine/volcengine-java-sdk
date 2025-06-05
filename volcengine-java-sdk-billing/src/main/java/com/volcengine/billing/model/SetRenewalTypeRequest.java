@@ -49,7 +49,7 @@ public class SetRenewalTypeRequest {
   private String renewalDurationUnit = null;
 
   @SerializedName("RenewalTimes")
-  private String renewalTimes = null;
+  private Long renewalTimes = null;
 
   @SerializedName("SetRenewalRelatedInstance")
   private Boolean setRenewalRelatedInstance = null;
@@ -165,7 +165,7 @@ public class SetRenewalTypeRequest {
     this.renewalDurationUnit = renewalDurationUnit;
   }
 
-  public SetRenewalTypeRequest renewalTimes(String renewalTimes) {
+  public SetRenewalTypeRequest renewalTimes(Long renewalTimes) {
     this.renewalTimes = renewalTimes;
     return this;
   }
@@ -175,11 +175,11 @@ public class SetRenewalTypeRequest {
    * @return renewalTimes
   **/
   @Schema(description = "")
-  public String getRenewalTimes() {
+  public Long getRenewalTimes() {
     return renewalTimes;
   }
 
-  public void setRenewalTimes(String renewalTimes) {
+  public void setRenewalTimes(Long renewalTimes) {
     this.renewalTimes = renewalTimes;
   }
 
