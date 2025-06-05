@@ -48,6 +48,9 @@ public class ListHostGroupRequest {
   @SerializedName("PageSize")
   private Integer pageSize = null;
 
+  @SerializedName("ProjectName")
+  private String projectName = null;
+
   @SerializedName("RuleTag")
   private String ruleTag = null;
 
@@ -162,6 +165,24 @@ public class ListHostGroupRequest {
     this.pageSize = pageSize;
   }
 
+  public ListHostGroupRequest projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * Get projectName
+   * @return projectName
+  **/
+  @Schema(description = "")
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
   public ListHostGroupRequest ruleTag(String ruleTag) {
     this.ruleTag = ruleTag;
     return this;
@@ -214,13 +235,14 @@ public class ListHostGroupRequest {
         Objects.equals(this.nameFix, listHostGroupRequest.nameFix) &&
         Objects.equals(this.page, listHostGroupRequest.page) &&
         Objects.equals(this.pageSize, listHostGroupRequest.pageSize) &&
+        Objects.equals(this.projectName, listHostGroupRequest.projectName) &&
         Objects.equals(this.ruleTag, listHostGroupRequest.ruleTag) &&
         Objects.equals(this.timeOrderBy, listHostGroupRequest.timeOrderBy);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hostFix, hostGroupID, listAll, nameFix, page, pageSize, ruleTag, timeOrderBy);
+    return Objects.hash(hostFix, hostGroupID, listAll, nameFix, page, pageSize, projectName, ruleTag, timeOrderBy);
   }
 
 
@@ -235,6 +257,7 @@ public class ListHostGroupRequest {
     sb.append("    nameFix: ").append(toIndentedString(nameFix)).append("\n");
     sb.append("    page: ").append(toIndentedString(page)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    ruleTag: ").append(toIndentedString(ruleTag)).append("\n");
     sb.append("    timeOrderBy: ").append(toIndentedString(timeOrderBy)).append("\n");
     sb.append("}");
