@@ -43,6 +43,9 @@ public class DataForDescribeTasksOutput {
   @SerializedName("FinishTime")
   private String finishTime = null;
 
+  @SerializedName("OriginConfig")
+  private String originConfig = null;
+
   @SerializedName("Progress")
   private Integer progress = null;
 
@@ -140,6 +143,24 @@ public class DataForDescribeTasksOutput {
 
   public void setFinishTime(String finishTime) {
     this.finishTime = finishTime;
+  }
+
+  public DataForDescribeTasksOutput originConfig(String originConfig) {
+    this.originConfig = originConfig;
+    return this;
+  }
+
+   /**
+   * Get originConfig
+   * @return originConfig
+  **/
+  @Schema(description = "")
+  public String getOriginConfig() {
+    return originConfig;
+  }
+
+  public void setOriginConfig(String originConfig) {
+    this.originConfig = originConfig;
   }
 
   public DataForDescribeTasksOutput progress(Integer progress) {
@@ -435,6 +456,7 @@ public class DataForDescribeTasksOutput {
     return Objects.equals(this.costTimeMS, dataForDescribeTasksOutput.costTimeMS) &&
         Objects.equals(this.createTime, dataForDescribeTasksOutput.createTime) &&
         Objects.equals(this.finishTime, dataForDescribeTasksOutput.finishTime) &&
+        Objects.equals(this.originConfig, dataForDescribeTasksOutput.originConfig) &&
         Objects.equals(this.progress, dataForDescribeTasksOutput.progress) &&
         Objects.equals(this.relatedInstanceInfos, dataForDescribeTasksOutput.relatedInstanceInfos) &&
         Objects.equals(this.scheduledExecuteEndTime, dataForDescribeTasksOutput.scheduledExecuteEndTime) &&
@@ -454,7 +476,7 @@ public class DataForDescribeTasksOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(costTimeMS, createTime, finishTime, progress, relatedInstanceInfos, scheduledExecuteEndTime, scheduledExecuteStartTime, scheduledSwitchEndTime, scheduledSwitchStartTime, startTime, taskAction, taskCategory, taskDesc, taskId, taskParams, taskProgress, taskSource, taskStatus);
+    return Objects.hash(costTimeMS, createTime, finishTime, originConfig, progress, relatedInstanceInfos, scheduledExecuteEndTime, scheduledExecuteStartTime, scheduledSwitchEndTime, scheduledSwitchStartTime, startTime, taskAction, taskCategory, taskDesc, taskId, taskParams, taskProgress, taskSource, taskStatus);
   }
 
 
@@ -466,6 +488,7 @@ public class DataForDescribeTasksOutput {
     sb.append("    costTimeMS: ").append(toIndentedString(costTimeMS)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    finishTime: ").append(toIndentedString(finishTime)).append("\n");
+    sb.append("    originConfig: ").append(toIndentedString(originConfig)).append("\n");
     sb.append("    progress: ").append(toIndentedString(progress)).append("\n");
     sb.append("    relatedInstanceInfos: ").append(toIndentedString(relatedInstanceInfos)).append("\n");
     sb.append("    scheduledExecuteEndTime: ").append(toIndentedString(scheduledExecuteEndTime)).append("\n");

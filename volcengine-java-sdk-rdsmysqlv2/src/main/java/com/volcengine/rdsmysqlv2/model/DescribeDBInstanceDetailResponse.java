@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.rdsmysqlv2.model.BasicInfoForDescribeDBInstanceDetailOutput;
 import com.volcengine.rdsmysqlv2.model.ChargeDetailForDescribeDBInstanceDetailOutput;
+import com.volcengine.rdsmysqlv2.model.DisasterRecoveryInstanceForDescribeDBInstanceDetailOutput;
 import com.volcengine.rdsmysqlv2.model.EndpointForDescribeDBInstanceDetailOutput;
 import com.volcengine.rdsmysqlv2.model.NodeForDescribeDBInstanceDetailOutput;
 import com.volcengine.rdsmysqlv2.model.ProxyDetailForDescribeDBInstanceDetailOutput;
@@ -42,6 +43,9 @@ public class DescribeDBInstanceDetailResponse extends com.volcengine.model.Abstr
 
   @SerializedName("ChargeDetail")
   private ChargeDetailForDescribeDBInstanceDetailOutput chargeDetail = null;
+
+  @SerializedName("DisasterRecoveryInstances")
+  private List<DisasterRecoveryInstanceForDescribeDBInstanceDetailOutput> disasterRecoveryInstances = null;
 
   @SerializedName("Endpoints")
   private List<EndpointForDescribeDBInstanceDetailOutput> endpoints = null;
@@ -88,6 +92,33 @@ public class DescribeDBInstanceDetailResponse extends com.volcengine.model.Abstr
 
   public void setChargeDetail(ChargeDetailForDescribeDBInstanceDetailOutput chargeDetail) {
     this.chargeDetail = chargeDetail;
+  }
+
+  public DescribeDBInstanceDetailResponse disasterRecoveryInstances(List<DisasterRecoveryInstanceForDescribeDBInstanceDetailOutput> disasterRecoveryInstances) {
+    this.disasterRecoveryInstances = disasterRecoveryInstances;
+    return this;
+  }
+
+  public DescribeDBInstanceDetailResponse addDisasterRecoveryInstancesItem(DisasterRecoveryInstanceForDescribeDBInstanceDetailOutput disasterRecoveryInstancesItem) {
+    if (this.disasterRecoveryInstances == null) {
+      this.disasterRecoveryInstances = new ArrayList<DisasterRecoveryInstanceForDescribeDBInstanceDetailOutput>();
+    }
+    this.disasterRecoveryInstances.add(disasterRecoveryInstancesItem);
+    return this;
+  }
+
+   /**
+   * Get disasterRecoveryInstances
+   * @return disasterRecoveryInstances
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<DisasterRecoveryInstanceForDescribeDBInstanceDetailOutput> getDisasterRecoveryInstances() {
+    return disasterRecoveryInstances;
+  }
+
+  public void setDisasterRecoveryInstances(List<DisasterRecoveryInstanceForDescribeDBInstanceDetailOutput> disasterRecoveryInstances) {
+    this.disasterRecoveryInstances = disasterRecoveryInstances;
   }
 
   public DescribeDBInstanceDetailResponse endpoints(List<EndpointForDescribeDBInstanceDetailOutput> endpoints) {
@@ -175,6 +206,7 @@ public class DescribeDBInstanceDetailResponse extends com.volcengine.model.Abstr
     DescribeDBInstanceDetailResponse describeDBInstanceDetailResponse = (DescribeDBInstanceDetailResponse) o;
     return Objects.equals(this.basicInfo, describeDBInstanceDetailResponse.basicInfo) &&
         Objects.equals(this.chargeDetail, describeDBInstanceDetailResponse.chargeDetail) &&
+        Objects.equals(this.disasterRecoveryInstances, describeDBInstanceDetailResponse.disasterRecoveryInstances) &&
         Objects.equals(this.endpoints, describeDBInstanceDetailResponse.endpoints) &&
         Objects.equals(this.nodes, describeDBInstanceDetailResponse.nodes) &&
         Objects.equals(this.proxyDetail, describeDBInstanceDetailResponse.proxyDetail);
@@ -182,7 +214,7 @@ public class DescribeDBInstanceDetailResponse extends com.volcengine.model.Abstr
 
   @Override
   public int hashCode() {
-    return Objects.hash(basicInfo, chargeDetail, endpoints, nodes, proxyDetail);
+    return Objects.hash(basicInfo, chargeDetail, disasterRecoveryInstances, endpoints, nodes, proxyDetail);
   }
 
 
@@ -193,6 +225,7 @@ public class DescribeDBInstanceDetailResponse extends com.volcengine.model.Abstr
     
     sb.append("    basicInfo: ").append(toIndentedString(basicInfo)).append("\n");
     sb.append("    chargeDetail: ").append(toIndentedString(chargeDetail)).append("\n");
+    sb.append("    disasterRecoveryInstances: ").append(toIndentedString(disasterRecoveryInstances)).append("\n");
     sb.append("    endpoints: ").append(toIndentedString(endpoints)).append("\n");
     sb.append("    nodes: ").append(toIndentedString(nodes)).append("\n");
     sb.append("    proxyDetail: ").append(toIndentedString(proxyDetail)).append("\n");

@@ -36,6 +36,12 @@ public class DescribeDBInstanceParametersLogRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;
 
+  @SerializedName("PageNumber")
+  private Integer pageNumber = null;
+
+  @SerializedName("PageSize")
+  private Integer pageSize = null;
+
   @SerializedName("StartTime")
   private String startTime = null;
 
@@ -77,6 +83,42 @@ public class DescribeDBInstanceParametersLogRequest {
     this.instanceId = instanceId;
   }
 
+  public DescribeDBInstanceParametersLogRequest pageNumber(Integer pageNumber) {
+    this.pageNumber = pageNumber;
+    return this;
+  }
+
+   /**
+   * Get pageNumber
+   * @return pageNumber
+  **/
+  @Schema(description = "")
+  public Integer getPageNumber() {
+    return pageNumber;
+  }
+
+  public void setPageNumber(Integer pageNumber) {
+    this.pageNumber = pageNumber;
+  }
+
+  public DescribeDBInstanceParametersLogRequest pageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+    return this;
+  }
+
+   /**
+   * Get pageSize
+   * @return pageSize
+  **/
+  @Schema(description = "")
+  public Integer getPageSize() {
+    return pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
   public DescribeDBInstanceParametersLogRequest startTime(String startTime) {
     this.startTime = startTime;
     return this;
@@ -108,12 +150,14 @@ public class DescribeDBInstanceParametersLogRequest {
     DescribeDBInstanceParametersLogRequest describeDBInstanceParametersLogRequest = (DescribeDBInstanceParametersLogRequest) o;
     return Objects.equals(this.endTime, describeDBInstanceParametersLogRequest.endTime) &&
         Objects.equals(this.instanceId, describeDBInstanceParametersLogRequest.instanceId) &&
+        Objects.equals(this.pageNumber, describeDBInstanceParametersLogRequest.pageNumber) &&
+        Objects.equals(this.pageSize, describeDBInstanceParametersLogRequest.pageSize) &&
         Objects.equals(this.startTime, describeDBInstanceParametersLogRequest.startTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(endTime, instanceId, startTime);
+    return Objects.hash(endTime, instanceId, pageNumber, pageSize, startTime);
   }
 
 
@@ -124,6 +168,8 @@ public class DescribeDBInstanceParametersLogRequest {
     
     sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
+    sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
     sb.append("}");
     return sb.toString();

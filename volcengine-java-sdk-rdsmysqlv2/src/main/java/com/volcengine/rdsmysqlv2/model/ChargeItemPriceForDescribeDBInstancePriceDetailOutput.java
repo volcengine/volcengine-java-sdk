@@ -40,13 +40,13 @@ public class ChargeItemPriceForDescribeDBInstancePriceDetailOutput {
   private Long chargeItemValue = null;
 
   @SerializedName("DiscountPrice")
-  private Double discountPrice = null;
+  private String discountPrice = null;
 
   @SerializedName("OriginalPrice")
-  private Double originalPrice = null;
+  private String originalPrice = null;
 
   @SerializedName("PayablePrice")
-  private Double payablePrice = null;
+  private String payablePrice = null;
 
   public ChargeItemPriceForDescribeDBInstancePriceDetailOutput chargeItemKey(String chargeItemKey) {
     this.chargeItemKey = chargeItemKey;
@@ -102,7 +102,7 @@ public class ChargeItemPriceForDescribeDBInstancePriceDetailOutput {
     this.chargeItemValue = chargeItemValue;
   }
 
-  public ChargeItemPriceForDescribeDBInstancePriceDetailOutput discountPrice(Double discountPrice) {
+  public ChargeItemPriceForDescribeDBInstancePriceDetailOutput discountPrice(String discountPrice) {
     this.discountPrice = discountPrice;
     return this;
   }
@@ -112,15 +112,15 @@ public class ChargeItemPriceForDescribeDBInstancePriceDetailOutput {
    * @return discountPrice
   **/
   @Schema(description = "")
-  public Double getDiscountPrice() {
+  public String getDiscountPrice() {
     return discountPrice;
   }
 
-  public void setDiscountPrice(Double discountPrice) {
+  public void setDiscountPrice(String discountPrice) {
     this.discountPrice = discountPrice;
   }
 
-  public ChargeItemPriceForDescribeDBInstancePriceDetailOutput originalPrice(Double originalPrice) {
+  public ChargeItemPriceForDescribeDBInstancePriceDetailOutput originalPrice(String originalPrice) {
     this.originalPrice = originalPrice;
     return this;
   }
@@ -130,15 +130,15 @@ public class ChargeItemPriceForDescribeDBInstancePriceDetailOutput {
    * @return originalPrice
   **/
   @Schema(description = "")
-  public Double getOriginalPrice() {
+  public String getOriginalPrice() {
     return originalPrice;
   }
 
-  public void setOriginalPrice(Double originalPrice) {
+  public void setOriginalPrice(String originalPrice) {
     this.originalPrice = originalPrice;
   }
 
-  public ChargeItemPriceForDescribeDBInstancePriceDetailOutput payablePrice(Double payablePrice) {
+  public ChargeItemPriceForDescribeDBInstancePriceDetailOutput payablePrice(String payablePrice) {
     this.payablePrice = payablePrice;
     return this;
   }
@@ -148,11 +148,11 @@ public class ChargeItemPriceForDescribeDBInstancePriceDetailOutput {
    * @return payablePrice
   **/
   @Schema(description = "")
-  public Double getPayablePrice() {
+  public String getPayablePrice() {
     return payablePrice;
   }
 
-  public void setPayablePrice(Double payablePrice) {
+  public void setPayablePrice(String payablePrice) {
     this.payablePrice = payablePrice;
   }
 

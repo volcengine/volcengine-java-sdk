@@ -39,6 +39,15 @@ public class ModifyDBInstanceSSLRequest {
   @SerializedName("SSLEnable")
   private Boolean ssLEnable = null;
 
+  @SerializedName("SpecifiedSwitchEndTime")
+  private String specifiedSwitchEndTime = null;
+
+  @SerializedName("SpecifiedSwitchStartTime")
+  private String specifiedSwitchStartTime = null;
+
+  @SerializedName("SwitchType")
+  private String switchType = null;
+
   public ModifyDBInstanceSSLRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
     return this;
@@ -94,6 +103,60 @@ public class ModifyDBInstanceSSLRequest {
     this.ssLEnable = ssLEnable;
   }
 
+  public ModifyDBInstanceSSLRequest specifiedSwitchEndTime(String specifiedSwitchEndTime) {
+    this.specifiedSwitchEndTime = specifiedSwitchEndTime;
+    return this;
+  }
+
+   /**
+   * Get specifiedSwitchEndTime
+   * @return specifiedSwitchEndTime
+  **/
+  @Schema(description = "")
+  public String getSpecifiedSwitchEndTime() {
+    return specifiedSwitchEndTime;
+  }
+
+  public void setSpecifiedSwitchEndTime(String specifiedSwitchEndTime) {
+    this.specifiedSwitchEndTime = specifiedSwitchEndTime;
+  }
+
+  public ModifyDBInstanceSSLRequest specifiedSwitchStartTime(String specifiedSwitchStartTime) {
+    this.specifiedSwitchStartTime = specifiedSwitchStartTime;
+    return this;
+  }
+
+   /**
+   * Get specifiedSwitchStartTime
+   * @return specifiedSwitchStartTime
+  **/
+  @Schema(description = "")
+  public String getSpecifiedSwitchStartTime() {
+    return specifiedSwitchStartTime;
+  }
+
+  public void setSpecifiedSwitchStartTime(String specifiedSwitchStartTime) {
+    this.specifiedSwitchStartTime = specifiedSwitchStartTime;
+  }
+
+  public ModifyDBInstanceSSLRequest switchType(String switchType) {
+    this.switchType = switchType;
+    return this;
+  }
+
+   /**
+   * Get switchType
+   * @return switchType
+  **/
+  @Schema(description = "")
+  public String getSwitchType() {
+    return switchType;
+  }
+
+  public void setSwitchType(String switchType) {
+    this.switchType = switchType;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -106,12 +169,15 @@ public class ModifyDBInstanceSSLRequest {
     ModifyDBInstanceSSLRequest modifyDBInstanceSSLRequest = (ModifyDBInstanceSSLRequest) o;
     return Objects.equals(this.instanceId, modifyDBInstanceSSLRequest.instanceId) &&
         Objects.equals(this.reloadSSLCertificate, modifyDBInstanceSSLRequest.reloadSSLCertificate) &&
-        Objects.equals(this.ssLEnable, modifyDBInstanceSSLRequest.ssLEnable);
+        Objects.equals(this.ssLEnable, modifyDBInstanceSSLRequest.ssLEnable) &&
+        Objects.equals(this.specifiedSwitchEndTime, modifyDBInstanceSSLRequest.specifiedSwitchEndTime) &&
+        Objects.equals(this.specifiedSwitchStartTime, modifyDBInstanceSSLRequest.specifiedSwitchStartTime) &&
+        Objects.equals(this.switchType, modifyDBInstanceSSLRequest.switchType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, reloadSSLCertificate, ssLEnable);
+    return Objects.hash(instanceId, reloadSSLCertificate, ssLEnable, specifiedSwitchEndTime, specifiedSwitchStartTime, switchType);
   }
 
 
@@ -123,6 +189,9 @@ public class ModifyDBInstanceSSLRequest {
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    reloadSSLCertificate: ").append(toIndentedString(reloadSSLCertificate)).append("\n");
     sb.append("    ssLEnable: ").append(toIndentedString(ssLEnable)).append("\n");
+    sb.append("    specifiedSwitchEndTime: ").append(toIndentedString(specifiedSwitchEndTime)).append("\n");
+    sb.append("    specifiedSwitchStartTime: ").append(toIndentedString(specifiedSwitchStartTime)).append("\n");
+    sb.append("    switchType: ").append(toIndentedString(switchType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

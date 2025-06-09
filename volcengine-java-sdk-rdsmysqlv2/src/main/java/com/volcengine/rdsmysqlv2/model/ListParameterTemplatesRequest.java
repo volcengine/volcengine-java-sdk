@@ -42,6 +42,9 @@ public class ListParameterTemplatesRequest {
   @SerializedName("TemplateCategory")
   private String templateCategory = null;
 
+  @SerializedName("TemplateName")
+  private String templateName = null;
+
   @SerializedName("TemplateSource")
   private String templateSource = null;
 
@@ -123,6 +126,24 @@ public class ListParameterTemplatesRequest {
     this.templateCategory = templateCategory;
   }
 
+  public ListParameterTemplatesRequest templateName(String templateName) {
+    this.templateName = templateName;
+    return this;
+  }
+
+   /**
+   * Get templateName
+   * @return templateName
+  **/
+  @Schema(description = "")
+  public String getTemplateName() {
+    return templateName;
+  }
+
+  public void setTemplateName(String templateName) {
+    this.templateName = templateName;
+  }
+
   public ListParameterTemplatesRequest templateSource(String templateSource) {
     this.templateSource = templateSource;
     return this;
@@ -191,6 +212,7 @@ public class ListParameterTemplatesRequest {
         Objects.equals(this.offset, listParameterTemplatesRequest.offset) &&
         Objects.equals(this.projectName, listParameterTemplatesRequest.projectName) &&
         Objects.equals(this.templateCategory, listParameterTemplatesRequest.templateCategory) &&
+        Objects.equals(this.templateName, listParameterTemplatesRequest.templateName) &&
         Objects.equals(this.templateSource, listParameterTemplatesRequest.templateSource) &&
         Objects.equals(this.templateType, listParameterTemplatesRequest.templateType) &&
         Objects.equals(this.templateTypeVersion, listParameterTemplatesRequest.templateTypeVersion);
@@ -198,7 +220,7 @@ public class ListParameterTemplatesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(limit, offset, projectName, templateCategory, templateSource, templateType, templateTypeVersion);
+    return Objects.hash(limit, offset, projectName, templateCategory, templateName, templateSource, templateType, templateTypeVersion);
   }
 
 
@@ -211,6 +233,7 @@ public class ListParameterTemplatesRequest {
     sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    templateCategory: ").append(toIndentedString(templateCategory)).append("\n");
+    sb.append("    templateName: ").append(toIndentedString(templateName)).append("\n");
     sb.append("    templateSource: ").append(toIndentedString(templateSource)).append("\n");
     sb.append("    templateType: ").append(toIndentedString(templateType)).append("\n");
     sb.append("    templateTypeVersion: ").append(toIndentedString(templateTypeVersion)).append("\n");

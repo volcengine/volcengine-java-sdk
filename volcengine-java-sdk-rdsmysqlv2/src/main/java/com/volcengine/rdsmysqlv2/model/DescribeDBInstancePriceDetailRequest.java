@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.rdsmysqlv2.model.NodeInfoForDescribeDBInstancePriceDetailInput;
+import com.volcengine.rdsmysqlv2.model.ProxyNodeCustomForDescribeDBInstancePriceDetailInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -50,6 +51,9 @@ public class DescribeDBInstancePriceDetailRequest {
 
   @SerializedName("ProjectName")
   private String projectName = null;
+
+  @SerializedName("ProxyNodeCustom")
+  private ProxyNodeCustomForDescribeDBInstancePriceDetailInput proxyNodeCustom = null;
 
   @SerializedName("StorageSpace")
   private Integer storageSpace = null;
@@ -175,6 +179,25 @@ public class DescribeDBInstancePriceDetailRequest {
     this.projectName = projectName;
   }
 
+  public DescribeDBInstancePriceDetailRequest proxyNodeCustom(ProxyNodeCustomForDescribeDBInstancePriceDetailInput proxyNodeCustom) {
+    this.proxyNodeCustom = proxyNodeCustom;
+    return this;
+  }
+
+   /**
+   * Get proxyNodeCustom
+   * @return proxyNodeCustom
+  **/
+  @Valid
+  @Schema(description = "")
+  public ProxyNodeCustomForDescribeDBInstancePriceDetailInput getProxyNodeCustom() {
+    return proxyNodeCustom;
+  }
+
+  public void setProxyNodeCustom(ProxyNodeCustomForDescribeDBInstancePriceDetailInput proxyNodeCustom) {
+    this.proxyNodeCustom = proxyNodeCustom;
+  }
+
   public DescribeDBInstancePriceDetailRequest storageSpace(Integer storageSpace) {
     this.storageSpace = storageSpace;
     return this;
@@ -229,13 +252,14 @@ public class DescribeDBInstancePriceDetailRequest {
         Objects.equals(this.period, describeDBInstancePriceDetailRequest.period) &&
         Objects.equals(this.periodUnit, describeDBInstancePriceDetailRequest.periodUnit) &&
         Objects.equals(this.projectName, describeDBInstancePriceDetailRequest.projectName) &&
+        Objects.equals(this.proxyNodeCustom, describeDBInstancePriceDetailRequest.proxyNodeCustom) &&
         Objects.equals(this.storageSpace, describeDBInstancePriceDetailRequest.storageSpace) &&
         Objects.equals(this.storageType, describeDBInstancePriceDetailRequest.storageType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(chargeType, nodeInfo, number, period, periodUnit, projectName, storageSpace, storageType);
+    return Objects.hash(chargeType, nodeInfo, number, period, periodUnit, projectName, proxyNodeCustom, storageSpace, storageType);
   }
 
 
@@ -250,6 +274,7 @@ public class DescribeDBInstancePriceDetailRequest {
     sb.append("    period: ").append(toIndentedString(period)).append("\n");
     sb.append("    periodUnit: ").append(toIndentedString(periodUnit)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    proxyNodeCustom: ").append(toIndentedString(proxyNodeCustom)).append("\n");
     sb.append("    storageSpace: ").append(toIndentedString(storageSpace)).append("\n");
     sb.append("    storageType: ").append(toIndentedString(storageType)).append("\n");
     sb.append("}");

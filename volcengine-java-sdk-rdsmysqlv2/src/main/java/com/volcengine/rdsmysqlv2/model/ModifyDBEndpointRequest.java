@@ -51,14 +51,26 @@ public class ModifyDBEndpointRequest {
   @SerializedName("IdleConnectionReclaim")
   private Boolean idleConnectionReclaim = null;
 
+  @SerializedName("ImplicitTransSplit")
+  private Boolean implicitTransSplit = null;
+
   @SerializedName("InstanceId")
   private String instanceId = null;
+
+  @SerializedName("MasterNodeRouting")
+  private Boolean masterNodeRouting = null;
+
+  @SerializedName("MasterProtectorTimeout")
+  private Integer masterProtectorTimeout = null;
 
   @SerializedName("MultiStatementsMode")
   private String multiStatementsMode = null;
 
   @SerializedName("Nodes")
   private String nodes = null;
+
+  @SerializedName("OverloadProtection")
+  private Boolean overloadProtection = null;
 
   @SerializedName("ReadOnlyNodeDistributionType")
   private String readOnlyNodeDistributionType = null;
@@ -184,6 +196,24 @@ public class ModifyDBEndpointRequest {
     this.idleConnectionReclaim = idleConnectionReclaim;
   }
 
+  public ModifyDBEndpointRequest implicitTransSplit(Boolean implicitTransSplit) {
+    this.implicitTransSplit = implicitTransSplit;
+    return this;
+  }
+
+   /**
+   * Get implicitTransSplit
+   * @return implicitTransSplit
+  **/
+  @Schema(description = "")
+  public Boolean isImplicitTransSplit() {
+    return implicitTransSplit;
+  }
+
+  public void setImplicitTransSplit(Boolean implicitTransSplit) {
+    this.implicitTransSplit = implicitTransSplit;
+  }
+
   public ModifyDBEndpointRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
     return this;
@@ -201,6 +231,42 @@ public class ModifyDBEndpointRequest {
 
   public void setInstanceId(String instanceId) {
     this.instanceId = instanceId;
+  }
+
+  public ModifyDBEndpointRequest masterNodeRouting(Boolean masterNodeRouting) {
+    this.masterNodeRouting = masterNodeRouting;
+    return this;
+  }
+
+   /**
+   * Get masterNodeRouting
+   * @return masterNodeRouting
+  **/
+  @Schema(description = "")
+  public Boolean isMasterNodeRouting() {
+    return masterNodeRouting;
+  }
+
+  public void setMasterNodeRouting(Boolean masterNodeRouting) {
+    this.masterNodeRouting = masterNodeRouting;
+  }
+
+  public ModifyDBEndpointRequest masterProtectorTimeout(Integer masterProtectorTimeout) {
+    this.masterProtectorTimeout = masterProtectorTimeout;
+    return this;
+  }
+
+   /**
+   * Get masterProtectorTimeout
+   * @return masterProtectorTimeout
+  **/
+  @Schema(description = "")
+  public Integer getMasterProtectorTimeout() {
+    return masterProtectorTimeout;
+  }
+
+  public void setMasterProtectorTimeout(Integer masterProtectorTimeout) {
+    this.masterProtectorTimeout = masterProtectorTimeout;
   }
 
   public ModifyDBEndpointRequest multiStatementsMode(String multiStatementsMode) {
@@ -237,6 +303,24 @@ public class ModifyDBEndpointRequest {
 
   public void setNodes(String nodes) {
     this.nodes = nodes;
+  }
+
+  public ModifyDBEndpointRequest overloadProtection(Boolean overloadProtection) {
+    this.overloadProtection = overloadProtection;
+    return this;
+  }
+
+   /**
+   * Get overloadProtection
+   * @return overloadProtection
+  **/
+  @Schema(description = "")
+  public Boolean isOverloadProtection() {
+    return overloadProtection;
+  }
+
+  public void setOverloadProtection(Boolean overloadProtection) {
+    this.overloadProtection = overloadProtection;
   }
 
   public ModifyDBEndpointRequest readOnlyNodeDistributionType(String readOnlyNodeDistributionType) {
@@ -354,9 +438,13 @@ public class ModifyDBEndpointRequest {
         Objects.equals(this.endpointId, modifyDBEndpointRequest.endpointId) &&
         Objects.equals(this.endpointName, modifyDBEndpointRequest.endpointName) &&
         Objects.equals(this.idleConnectionReclaim, modifyDBEndpointRequest.idleConnectionReclaim) &&
+        Objects.equals(this.implicitTransSplit, modifyDBEndpointRequest.implicitTransSplit) &&
         Objects.equals(this.instanceId, modifyDBEndpointRequest.instanceId) &&
+        Objects.equals(this.masterNodeRouting, modifyDBEndpointRequest.masterNodeRouting) &&
+        Objects.equals(this.masterProtectorTimeout, modifyDBEndpointRequest.masterProtectorTimeout) &&
         Objects.equals(this.multiStatementsMode, modifyDBEndpointRequest.multiStatementsMode) &&
         Objects.equals(this.nodes, modifyDBEndpointRequest.nodes) &&
+        Objects.equals(this.overloadProtection, modifyDBEndpointRequest.overloadProtection) &&
         Objects.equals(this.readOnlyNodeDistributionType, modifyDBEndpointRequest.readOnlyNodeDistributionType) &&
         Objects.equals(this.readOnlyNodeMaxDelayTime, modifyDBEndpointRequest.readOnlyNodeMaxDelayTime) &&
         Objects.equals(this.readOnlyNodeWeight, modifyDBEndpointRequest.readOnlyNodeWeight) &&
@@ -366,7 +454,7 @@ public class ModifyDBEndpointRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoAddNewNodes, connectionPoolType, description, endpointId, endpointName, idleConnectionReclaim, instanceId, multiStatementsMode, nodes, readOnlyNodeDistributionType, readOnlyNodeMaxDelayTime, readOnlyNodeWeight, readWriteMode, readWriteSpliting);
+    return Objects.hash(autoAddNewNodes, connectionPoolType, description, endpointId, endpointName, idleConnectionReclaim, implicitTransSplit, instanceId, masterNodeRouting, masterProtectorTimeout, multiStatementsMode, nodes, overloadProtection, readOnlyNodeDistributionType, readOnlyNodeMaxDelayTime, readOnlyNodeWeight, readWriteMode, readWriteSpliting);
   }
 
 
@@ -381,9 +469,13 @@ public class ModifyDBEndpointRequest {
     sb.append("    endpointId: ").append(toIndentedString(endpointId)).append("\n");
     sb.append("    endpointName: ").append(toIndentedString(endpointName)).append("\n");
     sb.append("    idleConnectionReclaim: ").append(toIndentedString(idleConnectionReclaim)).append("\n");
+    sb.append("    implicitTransSplit: ").append(toIndentedString(implicitTransSplit)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    masterNodeRouting: ").append(toIndentedString(masterNodeRouting)).append("\n");
+    sb.append("    masterProtectorTimeout: ").append(toIndentedString(masterProtectorTimeout)).append("\n");
     sb.append("    multiStatementsMode: ").append(toIndentedString(multiStatementsMode)).append("\n");
     sb.append("    nodes: ").append(toIndentedString(nodes)).append("\n");
+    sb.append("    overloadProtection: ").append(toIndentedString(overloadProtection)).append("\n");
     sb.append("    readOnlyNodeDistributionType: ").append(toIndentedString(readOnlyNodeDistributionType)).append("\n");
     sb.append("    readOnlyNodeMaxDelayTime: ").append(toIndentedString(readOnlyNodeMaxDelayTime)).append("\n");
     sb.append("    readOnlyNodeWeight: ").append(toIndentedString(readOnlyNodeWeight)).append("\n");
