@@ -33,6 +33,9 @@ import javax.validation.Valid;
 
 
 public class AccountForDescribeDBAccountsOutput {
+  @SerializedName("AccountDesc")
+  private String accountDesc = null;
+
   @SerializedName("AccountName")
   private String accountName = null;
 
@@ -44,10 +47,10 @@ public class AccountForDescribeDBAccountsOutput {
    */
   @JsonAdapter(AccountTypeEnum.Adapter.class)
   public enum AccountTypeEnum {
-    @SerializedName("Super")
-    SUPER("Super"),
     @SerializedName("Normal")
-    NORMAL("Normal");
+    NORMAL("Normal"),
+    @SerializedName("Super")
+    SUPER("Super");
 
     private String value;
 
@@ -84,6 +87,24 @@ public class AccountForDescribeDBAccountsOutput {
     }
   }  @SerializedName("AccountType")
   private AccountTypeEnum accountType = null;
+
+  public AccountForDescribeDBAccountsOutput accountDesc(String accountDesc) {
+    this.accountDesc = accountDesc;
+    return this;
+  }
+
+   /**
+   * Get accountDesc
+   * @return accountDesc
+  **/
+  @Schema(description = "")
+  public String getAccountDesc() {
+    return accountDesc;
+  }
+
+  public void setAccountDesc(String accountDesc) {
+    this.accountDesc = accountDesc;
+  }
 
   public AccountForDescribeDBAccountsOutput accountName(String accountName) {
     this.accountName = accountName;
@@ -158,14 +179,15 @@ public class AccountForDescribeDBAccountsOutput {
       return false;
     }
     AccountForDescribeDBAccountsOutput accountForDescribeDBAccountsOutput = (AccountForDescribeDBAccountsOutput) o;
-    return Objects.equals(this.accountName, accountForDescribeDBAccountsOutput.accountName) &&
+    return Objects.equals(this.accountDesc, accountForDescribeDBAccountsOutput.accountDesc) &&
+        Objects.equals(this.accountName, accountForDescribeDBAccountsOutput.accountName) &&
         Objects.equals(this.accountPrivileges, accountForDescribeDBAccountsOutput.accountPrivileges) &&
         Objects.equals(this.accountType, accountForDescribeDBAccountsOutput.accountType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountName, accountPrivileges, accountType);
+    return Objects.hash(accountDesc, accountName, accountPrivileges, accountType);
   }
 
 
@@ -174,6 +196,7 @@ public class AccountForDescribeDBAccountsOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class AccountForDescribeDBAccountsOutput {\n");
     
+    sb.append("    accountDesc: ").append(toIndentedString(accountDesc)).append("\n");
     sb.append("    accountName: ").append(toIndentedString(accountName)).append("\n");
     sb.append("    accountPrivileges: ").append(toIndentedString(accountPrivileges)).append("\n");
     sb.append("    accountType: ").append(toIndentedString(accountType)).append("\n");

@@ -38,16 +38,16 @@ public class DatabasesPrivilegeForCreateDatabaseInput {
    */
   @JsonAdapter(AccountPrivilegeEnum.Adapter.class)
   public enum AccountPrivilegeEnum {
-    @SerializedName("ReadWrite")
-    READWRITE("ReadWrite"),
-    @SerializedName("ReadOnly")
-    READONLY("ReadOnly"),
+    @SerializedName("Custom")
+    CUSTOM("Custom"),
     @SerializedName("DDLOnly")
     DDLONLY("DDLOnly"),
     @SerializedName("DMLOnly")
     DMLONLY("DMLOnly"),
-    @SerializedName("Custom")
-    CUSTOM("Custom");
+    @SerializedName("ReadOnly")
+    READONLY("ReadOnly"),
+    @SerializedName("ReadWrite")
+    READWRITE("ReadWrite");
 
     private String value;
 

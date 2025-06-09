@@ -37,10 +37,10 @@ public class MaintenanceWindowForDescribeDBInstanceDetailOutput {
    */
   @JsonAdapter(DayKindEnum.Adapter.class)
   public enum DayKindEnum {
-    @SerializedName("Week")
-    WEEK("Week"),
     @SerializedName("Month")
-    MONTH("Month");
+    MONTH("Month"),
+    @SerializedName("Week")
+    WEEK("Week");
 
     private String value;
 
@@ -86,20 +86,20 @@ public class MaintenanceWindowForDescribeDBInstanceDetailOutput {
    */
   @JsonAdapter(DayOfWeekEnum.Adapter.class)
   public enum DayOfWeekEnum {
-    @SerializedName("Sunday")
-    SUNDAY("Sunday"),
+    @SerializedName("Friday")
+    FRIDAY("Friday"),
     @SerializedName("Monday")
     MONDAY("Monday"),
+    @SerializedName("Saturday")
+    SATURDAY("Saturday"),
+    @SerializedName("Sunday")
+    SUNDAY("Sunday"),
+    @SerializedName("Thursday")
+    THURSDAY("Thursday"),
     @SerializedName("Tuesday")
     TUESDAY("Tuesday"),
     @SerializedName("Wednesday")
-    WEDNESDAY("Wednesday"),
-    @SerializedName("Thursday")
-    THURSDAY("Thursday"),
-    @SerializedName("Friday")
-    FRIDAY("Friday"),
-    @SerializedName("Saturday")
-    SATURDAY("Saturday");
+    WEDNESDAY("Wednesday");
 
     private String value;
 

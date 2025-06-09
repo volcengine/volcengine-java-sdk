@@ -40,10 +40,10 @@ public class ModifyDBEndpointRequest {
   public enum ConsistLevelEnum {
     @SerializedName("Eventual")
     EVENTUAL("Eventual"),
-    @SerializedName("Session")
-    SESSION("Session"),
     @SerializedName("Global")
-    GLOBAL("Global");
+    GLOBAL("Global"),
+    @SerializedName("Session")
+    SESSION("Session");
 
     private String value;
 
@@ -89,10 +89,10 @@ public class ModifyDBEndpointRequest {
    */
   @JsonAdapter(ConsistTimeoutActionEnum.Adapter.class)
   public enum ConsistTimeoutActionEnum {
-    @SerializedName("ReturnError")
-    RETURNERROR("ReturnError"),
     @SerializedName("ReadMaster")
-    READMASTER("ReadMaster");
+    READMASTER("ReadMaster"),
+    @SerializedName("ReturnError")
+    RETURNERROR("ReturnError");
 
     private String value;
 

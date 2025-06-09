@@ -33,6 +33,9 @@ import javax.validation.Valid;
 
 
 public class CreateDBAccountRequest {
+  @SerializedName("AccountDesc")
+  private String accountDesc = null;
+
   @SerializedName("AccountName")
   private String accountName = null;
 
@@ -47,10 +50,10 @@ public class CreateDBAccountRequest {
    */
   @JsonAdapter(AccountTypeEnum.Adapter.class)
   public enum AccountTypeEnum {
-    @SerializedName("Super")
-    SUPER("Super"),
     @SerializedName("Normal")
-    NORMAL("Normal");
+    NORMAL("Normal"),
+    @SerializedName("Super")
+    SUPER("Super");
 
     private String value;
 
@@ -90,6 +93,24 @@ public class CreateDBAccountRequest {
 
   @SerializedName("InstanceId")
   private String instanceId = null;
+
+  public CreateDBAccountRequest accountDesc(String accountDesc) {
+    this.accountDesc = accountDesc;
+    return this;
+  }
+
+   /**
+   * Get accountDesc
+   * @return accountDesc
+  **/
+  @Schema(description = "")
+  public String getAccountDesc() {
+    return accountDesc;
+  }
+
+  public void setAccountDesc(String accountDesc) {
+    this.accountDesc = accountDesc;
+  }
 
   public CreateDBAccountRequest accountName(String accountName) {
     this.accountName = accountName;
@@ -204,7 +225,8 @@ public class CreateDBAccountRequest {
       return false;
     }
     CreateDBAccountRequest createDBAccountRequest = (CreateDBAccountRequest) o;
-    return Objects.equals(this.accountName, createDBAccountRequest.accountName) &&
+    return Objects.equals(this.accountDesc, createDBAccountRequest.accountDesc) &&
+        Objects.equals(this.accountName, createDBAccountRequest.accountName) &&
         Objects.equals(this.accountPassword, createDBAccountRequest.accountPassword) &&
         Objects.equals(this.accountPrivileges, createDBAccountRequest.accountPrivileges) &&
         Objects.equals(this.accountType, createDBAccountRequest.accountType) &&
@@ -213,7 +235,7 @@ public class CreateDBAccountRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountName, accountPassword, accountPrivileges, accountType, instanceId);
+    return Objects.hash(accountDesc, accountName, accountPassword, accountPrivileges, accountType, instanceId);
   }
 
 
@@ -222,6 +244,7 @@ public class CreateDBAccountRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateDBAccountRequest {\n");
     
+    sb.append("    accountDesc: ").append(toIndentedString(accountDesc)).append("\n");
     sb.append("    accountName: ").append(toIndentedString(accountName)).append("\n");
     sb.append("    accountPassword: ").append(toIndentedString(accountPassword)).append("\n");
     sb.append("    accountPrivileges: ").append(toIndentedString(accountPrivileges)).append("\n");

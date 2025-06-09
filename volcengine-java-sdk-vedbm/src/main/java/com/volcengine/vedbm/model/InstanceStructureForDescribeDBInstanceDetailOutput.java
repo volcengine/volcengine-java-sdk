@@ -41,8 +41,12 @@ public class InstanceStructureForDescribeDBInstanceDetailOutput {
    */
   @JsonAdapter(SubInstanceTypeEnum.Adapter.class)
   public enum SubInstanceTypeEnum {
+    @SerializedName("HotStandby")
+    HOTSTANDBY("HotStandby"),
     @SerializedName("Primary")
-    PRIMARY("Primary");
+    PRIMARY("Primary"),
+    @SerializedName("ZoneStandby")
+    ZONESTANDBY("ZoneStandby");
 
     private String value;
 
