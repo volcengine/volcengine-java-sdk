@@ -90,6 +90,8 @@ public class DescribeDBInstancesRequest {
    */
   @JsonAdapter(DbEngineVersionEnum.Adapter.class)
   public enum DbEngineVersionEnum {
+    @SerializedName("MySQL_5_7")
+    MYSQL_5_7("MySQL_5_7"),
     @SerializedName("MySQL_8_0")
     MYSQL_8_0("MySQL_8_0");
 
@@ -140,42 +142,40 @@ public class DescribeDBInstancesRequest {
    */
   @JsonAdapter(InstanceStatusEnum.Adapter.class)
   public enum InstanceStatusEnum {
-    @SerializedName("WaitingPaid")
-    WAITINGPAID("WaitingPaid"),
-    @SerializedName("Running")
-    RUNNING("Running"),
-    @SerializedName("Creating")
-    CREATING("Creating"),
-    @SerializedName("Scaling")
-    SCALING("Scaling"),
-    @SerializedName("Restarting")
-    RESTARTING("Restarting"),
-    @SerializedName("Restoring")
-    RESTORING("Restoring"),
-    @SerializedName("Upgrading")
-    UPGRADING("Upgrading"),
-    @SerializedName("PrimaryChanging")
-    PRIMARYCHANGING("PrimaryChanging"),
-    @SerializedName("Unavailable")
-    UNAVAILABLE("Unavailable"),
-    @SerializedName("Deleting")
-    DELETING("Deleting"),
-    @SerializedName("Deleted")
-    DELETED("Deleted"),
+    @SerializedName("AddressModifying")
+    ADDRESSMODIFYING("AddressModifying"),
+    @SerializedName("AllowListMaintaining")
+    ALLOWLISTMAINTAINING("AllowListMaintaining"),
     @SerializedName("CreateFailed")
     CREATEFAILED("CreateFailed"),
-    @SerializedName("Closing")
-    CLOSING("Closing"),
+    @SerializedName("Creating")
+    CREATING("Creating"),
+    @SerializedName("Deleting")
+    DELETING("Deleting"),
+    @SerializedName("Error")
+    ERROR("Error"),
     @SerializedName("Expired")
     EXPIRED("Expired"),
     @SerializedName("Owing")
     OWING("Owing"),
+    @SerializedName("PrimaryChanging")
+    PRIMARYCHANGING("PrimaryChanging"),
+    @SerializedName("Reclaiming")
+    RECLAIMING("Reclaiming"),
+    @SerializedName("Restarting")
+    RESTARTING("Restarting"),
+    @SerializedName("Restoring")
+    RESTORING("Restoring"),
     @SerializedName("Resuming")
     RESUMING("Resuming"),
-    @SerializedName("AllowListMaintaining")
-    ALLOWLISTMAINTAINING("AllowListMaintaining"),
-    @SerializedName("Error")
-    ERROR("Error");
+    @SerializedName("Running")
+    RUNNING("Running"),
+    @SerializedName("Scaling")
+    SCALING("Scaling"),
+    @SerializedName("Upgrading")
+    UPGRADING("Upgrading"),
+    @SerializedName("WaitingPaid")
+    WAITINGPAID("WaitingPaid");
 
     private String value;
 
@@ -218,38 +218,38 @@ public class DescribeDBInstancesRequest {
    */
   @JsonAdapter(NodeSpecEnum.Adapter.class)
   public enum NodeSpecEnum {
-    @SerializedName("vedb.mysql.x4.large")
-    VEDB_MYSQL_X4_LARGE("vedb.mysql.x4.large"),
-    @SerializedName("vedb.mysql.x8.large")
-    VEDB_MYSQL_X8_LARGE("vedb.mysql.x8.large"),
-    @SerializedName("vedb.mysql.x4.xlarge")
-    VEDB_MYSQL_X4_XLARGE("vedb.mysql.x4.xlarge"),
-    @SerializedName("vedb.mysql.x8.xlarge")
-    VEDB_MYSQL_X8_XLARGE("vedb.mysql.x8.xlarge"),
-    @SerializedName("vedb.mysql.x4.2xlarge")
-    VEDB_MYSQL_X4_2XLARGE("vedb.mysql.x4.2xlarge"),
-    @SerializedName("vedb.mysql.x8.2xlarge")
-    VEDB_MYSQL_X8_2XLARGE("vedb.mysql.x8.2xlarge"),
-    @SerializedName("vedb.mysql.x4.4xlarge")
-    VEDB_MYSQL_X4_4XLARGE("vedb.mysql.x4.4xlarge"),
-    @SerializedName("vedb.mysql.x8.4xlarge")
-    VEDB_MYSQL_X8_4XLARGE("vedb.mysql.x8.4xlarge"),
-    @SerializedName("vedb.mysql.x8.6xlarge")
-    VEDB_MYSQL_X8_6XLARGE("vedb.mysql.x8.6xlarge"),
-    @SerializedName("vedb.mysql.x4.8xlarge")
-    VEDB_MYSQL_X4_8XLARGE("vedb.mysql.x4.8xlarge"),
-    @SerializedName("vedb.mysql.x8.8xlarge")
-    VEDB_MYSQL_X8_8XLARGE("vedb.mysql.x8.8xlarge"),
+    @SerializedName("vedb.mysql.g4.2xlarge")
+    VEDB_MYSQL_G4_2XLARGE("vedb.mysql.g4.2xlarge"),
+    @SerializedName("vedb.mysql.g4.4xlarge")
+    VEDB_MYSQL_G4_4XLARGE("vedb.mysql.g4.4xlarge"),
     @SerializedName("vedb.mysql.g4.large")
     VEDB_MYSQL_G4_LARGE("vedb.mysql.g4.large"),
     @SerializedName("vedb.mysql.g4.xlarge")
     VEDB_MYSQL_G4_XLARGE("vedb.mysql.g4.xlarge"),
-    @SerializedName("vedb.mysql.g4.2xlarge")
-    VEDB_MYSQL_G4_2XLARGE("vedb.mysql.g4.2xlarge"),
     @SerializedName("vedb.mysql.g8.2xlarge")
     VEDB_MYSQL_G8_2XLARGE("vedb.mysql.g8.2xlarge"),
-    @SerializedName("vedb.mysql.g4.4xlarge")
-    VEDB_MYSQL_G4_4XLARGE("vedb.mysql.g4.4xlarge");
+    @SerializedName("vedb.mysql.x4.2xlarge")
+    VEDB_MYSQL_X4_2XLARGE("vedb.mysql.x4.2xlarge"),
+    @SerializedName("vedb.mysql.x4.4xlarge")
+    VEDB_MYSQL_X4_4XLARGE("vedb.mysql.x4.4xlarge"),
+    @SerializedName("vedb.mysql.x4.8xlarge")
+    VEDB_MYSQL_X4_8XLARGE("vedb.mysql.x4.8xlarge"),
+    @SerializedName("vedb.mysql.x4.large")
+    VEDB_MYSQL_X4_LARGE("vedb.mysql.x4.large"),
+    @SerializedName("vedb.mysql.x4.xlarge")
+    VEDB_MYSQL_X4_XLARGE("vedb.mysql.x4.xlarge"),
+    @SerializedName("vedb.mysql.x8.2xlarge")
+    VEDB_MYSQL_X8_2XLARGE("vedb.mysql.x8.2xlarge"),
+    @SerializedName("vedb.mysql.x8.4xlarge")
+    VEDB_MYSQL_X8_4XLARGE("vedb.mysql.x8.4xlarge"),
+    @SerializedName("vedb.mysql.x8.6xlarge")
+    VEDB_MYSQL_X8_6XLARGE("vedb.mysql.x8.6xlarge"),
+    @SerializedName("vedb.mysql.x8.8xlarge")
+    VEDB_MYSQL_X8_8XLARGE("vedb.mysql.x8.8xlarge"),
+    @SerializedName("vedb.mysql.x8.large")
+    VEDB_MYSQL_X8_LARGE("vedb.mysql.x8.large"),
+    @SerializedName("vedb.mysql.x8.xlarge")
+    VEDB_MYSQL_X8_XLARGE("vedb.mysql.x8.xlarge");
 
     private String value;
 
@@ -295,6 +295,52 @@ public class DescribeDBInstancesRequest {
 
   @SerializedName("ProjectName")
   private String projectName = null;
+
+  /**
+   * Gets or Sets storageChargeType
+   */
+  @JsonAdapter(StorageChargeTypeEnum.Adapter.class)
+  public enum StorageChargeTypeEnum {
+    @SerializedName("PostPaid")
+    POSTPAID("PostPaid"),
+    @SerializedName("PrePaid")
+    PREPAID("PrePaid");
+
+    private String value;
+
+    StorageChargeTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static StorageChargeTypeEnum fromValue(String input) {
+      for (StorageChargeTypeEnum b : StorageChargeTypeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<StorageChargeTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final StorageChargeTypeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public StorageChargeTypeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return StorageChargeTypeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("StorageChargeType")
+  private StorageChargeTypeEnum storageChargeType = null;
 
   @SerializedName("TagFilters")
   private List<TagFilterForDescribeDBInstancesInput> tagFilters = null;
@@ -500,6 +546,24 @@ public class DescribeDBInstancesRequest {
     this.projectName = projectName;
   }
 
+  public DescribeDBInstancesRequest storageChargeType(StorageChargeTypeEnum storageChargeType) {
+    this.storageChargeType = storageChargeType;
+    return this;
+  }
+
+   /**
+   * Get storageChargeType
+   * @return storageChargeType
+  **/
+  @Schema(description = "")
+  public StorageChargeTypeEnum getStorageChargeType() {
+    return storageChargeType;
+  }
+
+  public void setStorageChargeType(StorageChargeTypeEnum storageChargeType) {
+    this.storageChargeType = storageChargeType;
+  }
+
   public DescribeDBInstancesRequest tagFilters(List<TagFilterForDescribeDBInstancesInput> tagFilters) {
     this.tagFilters = tagFilters;
     return this;
@@ -566,13 +630,14 @@ public class DescribeDBInstancesRequest {
         Objects.equals(this.pageNumber, describeDBInstancesRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeDBInstancesRequest.pageSize) &&
         Objects.equals(this.projectName, describeDBInstancesRequest.projectName) &&
+        Objects.equals(this.storageChargeType, describeDBInstancesRequest.storageChargeType) &&
         Objects.equals(this.tagFilters, describeDBInstancesRequest.tagFilters) &&
         Objects.equals(this.zoneId, describeDBInstancesRequest.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(chargeType, createTimeEnd, createTimeStart, dbEngineVersion, instanceId, instanceName, instanceStatus, nodeSpec, pageNumber, pageSize, projectName, tagFilters, zoneId);
+    return Objects.hash(chargeType, createTimeEnd, createTimeStart, dbEngineVersion, instanceId, instanceName, instanceStatus, nodeSpec, pageNumber, pageSize, projectName, storageChargeType, tagFilters, zoneId);
   }
 
 
@@ -592,6 +657,7 @@ public class DescribeDBInstancesRequest {
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    storageChargeType: ").append(toIndentedString(storageChargeType)).append("\n");
     sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");

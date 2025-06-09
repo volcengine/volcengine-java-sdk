@@ -38,14 +38,14 @@ public class DatabaseForDescribeDatabasesOutput {
    */
   @JsonAdapter(CharacterSetNameEnum.Adapter.class)
   public enum CharacterSetNameEnum {
-    @SerializedName("utf8mb4")
-    UTF8MB4("utf8mb4"),
-    @SerializedName("utf8")
-    UTF8("utf8"),
+    @SerializedName("ascii")
+    ASCII("ascii"),
     @SerializedName("latin1")
     LATIN1("latin1"),
-    @SerializedName("ascii")
-    ASCII("ascii");
+    @SerializedName("utf8")
+    UTF8("utf8"),
+    @SerializedName("utf8mb4")
+    UTF8MB4("utf8mb4");
 
     private String value;
 
@@ -83,6 +83,9 @@ public class DatabaseForDescribeDatabasesOutput {
   }  @SerializedName("CharacterSetName")
   private CharacterSetNameEnum characterSetName = null;
 
+  @SerializedName("DBDesc")
+  private String dbDesc = null;
+
   @SerializedName("DBName")
   private String dbName = null;
 
@@ -105,6 +108,24 @@ public class DatabaseForDescribeDatabasesOutput {
 
   public void setCharacterSetName(CharacterSetNameEnum characterSetName) {
     this.characterSetName = characterSetName;
+  }
+
+  public DatabaseForDescribeDatabasesOutput dbDesc(String dbDesc) {
+    this.dbDesc = dbDesc;
+    return this;
+  }
+
+   /**
+   * Get dbDesc
+   * @return dbDesc
+  **/
+  @Schema(description = "")
+  public String getDbDesc() {
+    return dbDesc;
+  }
+
+  public void setDbDesc(String dbDesc) {
+    this.dbDesc = dbDesc;
   }
 
   public DatabaseForDescribeDatabasesOutput dbName(String dbName) {
@@ -163,13 +184,14 @@ public class DatabaseForDescribeDatabasesOutput {
     }
     DatabaseForDescribeDatabasesOutput databaseForDescribeDatabasesOutput = (DatabaseForDescribeDatabasesOutput) o;
     return Objects.equals(this.characterSetName, databaseForDescribeDatabasesOutput.characterSetName) &&
+        Objects.equals(this.dbDesc, databaseForDescribeDatabasesOutput.dbDesc) &&
         Objects.equals(this.dbName, databaseForDescribeDatabasesOutput.dbName) &&
         Objects.equals(this.databasesPrivileges, databaseForDescribeDatabasesOutput.databasesPrivileges);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(characterSetName, dbName, databasesPrivileges);
+    return Objects.hash(characterSetName, dbDesc, dbName, databasesPrivileges);
   }
 
 
@@ -179,6 +201,7 @@ public class DatabaseForDescribeDatabasesOutput {
     sb.append("class DatabaseForDescribeDatabasesOutput {\n");
     
     sb.append("    characterSetName: ").append(toIndentedString(characterSetName)).append("\n");
+    sb.append("    dbDesc: ").append(toIndentedString(dbDesc)).append("\n");
     sb.append("    dbName: ").append(toIndentedString(dbName)).append("\n");
     sb.append("    databasesPrivileges: ").append(toIndentedString(databasesPrivileges)).append("\n");
     sb.append("}");

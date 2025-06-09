@@ -46,10 +46,10 @@ public class InstanceForDescribeDBInstancesOutput {
    */
   @JsonAdapter(DbEngineVersionEnum.Adapter.class)
   public enum DbEngineVersionEnum {
-    @SerializedName("MySQL_8_0")
-    MYSQL_8_0("MySQL_8_0"),
     @SerializedName("MySQL_5_7")
-    MYSQL_5_7("MySQL_5_7");
+    MYSQL_5_7("MySQL_5_7"),
+    @SerializedName("MySQL_8_0")
+    MYSQL_8_0("MySQL_8_0");
 
     private String value;
 
@@ -147,40 +147,40 @@ public class InstanceForDescribeDBInstancesOutput {
    */
   @JsonAdapter(InstanceStatusEnum.Adapter.class)
   public enum InstanceStatusEnum {
-    @SerializedName("WaitingPaid")
-    WAITINGPAID("WaitingPaid"),
-    @SerializedName("Running")
-    RUNNING("Running"),
-    @SerializedName("Creating")
-    CREATING("Creating"),
-    @SerializedName("Scaling")
-    SCALING("Scaling"),
-    @SerializedName("Restarting")
-    RESTARTING("Restarting"),
-    @SerializedName("Restoring")
-    RESTORING("Restoring"),
-    @SerializedName("Upgrading")
-    UPGRADING("Upgrading"),
-    @SerializedName("PrimaryChanging")
-    PRIMARYCHANGING("PrimaryChanging"),
-    @SerializedName("Unavailable")
-    UNAVAILABLE("Unavailable"),
-    @SerializedName("Deleting")
-    DELETING("Deleting"),
-    @SerializedName("Deleted")
-    DELETED("Deleted"),
+    @SerializedName("AddressModifying")
+    ADDRESSMODIFYING("AddressModifying"),
+    @SerializedName("AllowListMaintaining")
+    ALLOWLISTMAINTAINING("AllowListMaintaining"),
     @SerializedName("CreateFailed")
     CREATEFAILED("CreateFailed"),
-    @SerializedName("Closing")
-    CLOSING("Closing"),
+    @SerializedName("Creating")
+    CREATING("Creating"),
+    @SerializedName("Deleting")
+    DELETING("Deleting"),
+    @SerializedName("Error")
+    ERROR("Error"),
     @SerializedName("Expired")
     EXPIRED("Expired"),
     @SerializedName("Owing")
     OWING("Owing"),
+    @SerializedName("PrimaryChanging")
+    PRIMARYCHANGING("PrimaryChanging"),
+    @SerializedName("Reclaiming")
+    RECLAIMING("Reclaiming"),
+    @SerializedName("Restarting")
+    RESTARTING("Restarting"),
+    @SerializedName("Restoring")
+    RESTORING("Restoring"),
     @SerializedName("Resuming")
     RESUMING("Resuming"),
-    @SerializedName("AllowListMaintaining")
-    ALLOWLISTMAINTAINING("AllowListMaintaining");
+    @SerializedName("Running")
+    RUNNING("Running"),
+    @SerializedName("Scaling")
+    SCALING("Scaling"),
+    @SerializedName("Upgrading")
+    UPGRADING("Upgrading"),
+    @SerializedName("WaitingPaid")
+    WAITINGPAID("WaitingPaid");
 
     private String value;
 

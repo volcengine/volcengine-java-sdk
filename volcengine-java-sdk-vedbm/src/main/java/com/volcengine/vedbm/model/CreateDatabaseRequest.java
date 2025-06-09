@@ -38,14 +38,14 @@ public class CreateDatabaseRequest {
    */
   @JsonAdapter(CharacterSetNameEnum.Adapter.class)
   public enum CharacterSetNameEnum {
-    @SerializedName("utf8mb4")
-    UTF8MB4("utf8mb4"),
-    @SerializedName("utf8")
-    UTF8("utf8"),
+    @SerializedName("ascii")
+    ASCII("ascii"),
     @SerializedName("latin1")
     LATIN1("latin1"),
-    @SerializedName("ascii")
-    ASCII("ascii");
+    @SerializedName("utf8")
+    UTF8("utf8"),
+    @SerializedName("utf8mb4")
+    UTF8MB4("utf8mb4");
 
     private String value;
 
@@ -83,6 +83,9 @@ public class CreateDatabaseRequest {
   }  @SerializedName("CharacterSetName")
   private CharacterSetNameEnum characterSetName = null;
 
+  @SerializedName("DBDesc")
+  private String dbDesc = null;
+
   @SerializedName("DBName")
   private String dbName = null;
 
@@ -108,6 +111,24 @@ public class CreateDatabaseRequest {
 
   public void setCharacterSetName(CharacterSetNameEnum characterSetName) {
     this.characterSetName = characterSetName;
+  }
+
+  public CreateDatabaseRequest dbDesc(String dbDesc) {
+    this.dbDesc = dbDesc;
+    return this;
+  }
+
+   /**
+   * Get dbDesc
+   * @return dbDesc
+  **/
+  @Schema(description = "")
+  public String getDbDesc() {
+    return dbDesc;
+  }
+
+  public void setDbDesc(String dbDesc) {
+    this.dbDesc = dbDesc;
   }
 
   public CreateDatabaseRequest dbName(String dbName) {
@@ -186,6 +207,7 @@ public class CreateDatabaseRequest {
     }
     CreateDatabaseRequest createDatabaseRequest = (CreateDatabaseRequest) o;
     return Objects.equals(this.characterSetName, createDatabaseRequest.characterSetName) &&
+        Objects.equals(this.dbDesc, createDatabaseRequest.dbDesc) &&
         Objects.equals(this.dbName, createDatabaseRequest.dbName) &&
         Objects.equals(this.databasesPrivileges, createDatabaseRequest.databasesPrivileges) &&
         Objects.equals(this.instanceId, createDatabaseRequest.instanceId);
@@ -193,7 +215,7 @@ public class CreateDatabaseRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(characterSetName, dbName, databasesPrivileges, instanceId);
+    return Objects.hash(characterSetName, dbDesc, dbName, databasesPrivileges, instanceId);
   }
 
 
@@ -203,6 +225,7 @@ public class CreateDatabaseRequest {
     sb.append("class CreateDatabaseRequest {\n");
     
     sb.append("    characterSetName: ").append(toIndentedString(characterSetName)).append("\n");
+    sb.append("    dbDesc: ").append(toIndentedString(dbDesc)).append("\n");
     sb.append("    dbName: ").append(toIndentedString(dbName)).append("\n");
     sb.append("    databasesPrivileges: ").append(toIndentedString(databasesPrivileges)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");

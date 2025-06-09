@@ -44,10 +44,14 @@ public class ChargeDetailForDescribeDBInstanceDetailOutput {
    */
   @JsonAdapter(ChargeStatusEnum.Adapter.class)
   public enum ChargeStatusEnum {
+    @SerializedName("Expired")
+    EXPIRED("Expired"),
     @SerializedName("Normal")
     NORMAL("Normal"),
     @SerializedName("Overdue")
     OVERDUE("Overdue"),
+    @SerializedName("Recycled")
+    RECYCLED("Recycled"),
     @SerializedName("Shutdown")
     SHUTDOWN("Shutdown");
 

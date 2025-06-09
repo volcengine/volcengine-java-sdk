@@ -87,6 +87,8 @@ public class CreateDBInstanceRequest {
    */
   @JsonAdapter(DbEngineVersionEnum.Adapter.class)
   public enum DbEngineVersionEnum {
+    @SerializedName("MySQL_5_7")
+    MYSQL_5_7("MySQL_5_7"),
     @SerializedName("MySQL_8_0")
     MYSQL_8_0("MySQL_8_0");
 
@@ -131,6 +133,8 @@ public class CreateDBInstanceRequest {
    */
   @JsonAdapter(DbMinorVersionEnum.Adapter.class)
   public enum DbMinorVersionEnum {
+    @SerializedName("2.0")
+    _2_0("2.0"),
     @SerializedName("3.0")
     _3_0("3.0"),
     @SerializedName("3.1")
@@ -226,8 +230,51 @@ public class CreateDBInstanceRequest {
   @SerializedName("InstanceName")
   private String instanceName = null;
 
-  @SerializedName("LowerCaseTableNames")
-  private String lowerCaseTableNames = null;
+  /**
+   * Gets or Sets lowerCaseTableNames
+   */
+  @JsonAdapter(LowerCaseTableNamesEnum.Adapter.class)
+  public enum LowerCaseTableNamesEnum {
+    @SerializedName("0")
+    _0("0"),
+    @SerializedName("1")
+    _1("1");
+
+    private String value;
+
+    LowerCaseTableNamesEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static LowerCaseTableNamesEnum fromValue(String input) {
+      for (LowerCaseTableNamesEnum b : LowerCaseTableNamesEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<LowerCaseTableNamesEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final LowerCaseTableNamesEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public LowerCaseTableNamesEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return LowerCaseTableNamesEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("LowerCaseTableNames")
+  private LowerCaseTableNamesEnum lowerCaseTableNames = null;
 
   @SerializedName("NodeNumber")
   private Integer nodeNumber = null;
@@ -237,38 +284,38 @@ public class CreateDBInstanceRequest {
    */
   @JsonAdapter(NodeSpecEnum.Adapter.class)
   public enum NodeSpecEnum {
-    @SerializedName("vedb.mysql.x4.large")
-    VEDB_MYSQL_X4_LARGE("vedb.mysql.x4.large"),
-    @SerializedName("vedb.mysql.x8.large")
-    VEDB_MYSQL_X8_LARGE("vedb.mysql.x8.large"),
-    @SerializedName("vedb.mysql.x4.xlarge")
-    VEDB_MYSQL_X4_XLARGE("vedb.mysql.x4.xlarge"),
-    @SerializedName("vedb.mysql.x8.xlarge")
-    VEDB_MYSQL_X8_XLARGE("vedb.mysql.x8.xlarge"),
-    @SerializedName("vedb.mysql.x4.2xlarge")
-    VEDB_MYSQL_X4_2XLARGE("vedb.mysql.x4.2xlarge"),
-    @SerializedName("vedb.mysql.x8.2xlarge")
-    VEDB_MYSQL_X8_2XLARGE("vedb.mysql.x8.2xlarge"),
-    @SerializedName("vedb.mysql.x4.4xlarge")
-    VEDB_MYSQL_X4_4XLARGE("vedb.mysql.x4.4xlarge"),
-    @SerializedName("vedb.mysql.x8.4xlarge")
-    VEDB_MYSQL_X8_4XLARGE("vedb.mysql.x8.4xlarge"),
-    @SerializedName("vedb.mysql.x8.6xlarge")
-    VEDB_MYSQL_X8_6XLARGE("vedb.mysql.x8.6xlarge"),
-    @SerializedName("vedb.mysql.x4.8xlarge")
-    VEDB_MYSQL_X4_8XLARGE("vedb.mysql.x4.8xlarge"),
-    @SerializedName("vedb.mysql.x8.8xlarge")
-    VEDB_MYSQL_X8_8XLARGE("vedb.mysql.x8.8xlarge"),
+    @SerializedName("vedb.mysql.g4.2xlarge")
+    VEDB_MYSQL_G4_2XLARGE("vedb.mysql.g4.2xlarge"),
+    @SerializedName("vedb.mysql.g4.4xlarge")
+    VEDB_MYSQL_G4_4XLARGE("vedb.mysql.g4.4xlarge"),
     @SerializedName("vedb.mysql.g4.large")
     VEDB_MYSQL_G4_LARGE("vedb.mysql.g4.large"),
     @SerializedName("vedb.mysql.g4.xlarge")
     VEDB_MYSQL_G4_XLARGE("vedb.mysql.g4.xlarge"),
-    @SerializedName("vedb.mysql.g4.2xlarge")
-    VEDB_MYSQL_G4_2XLARGE("vedb.mysql.g4.2xlarge"),
     @SerializedName("vedb.mysql.g8.2xlarge")
     VEDB_MYSQL_G8_2XLARGE("vedb.mysql.g8.2xlarge"),
-    @SerializedName("vedb.mysql.g4.4xlarge")
-    VEDB_MYSQL_G4_4XLARGE("vedb.mysql.g4.4xlarge");
+    @SerializedName("vedb.mysql.x4.2xlarge")
+    VEDB_MYSQL_X4_2XLARGE("vedb.mysql.x4.2xlarge"),
+    @SerializedName("vedb.mysql.x4.4xlarge")
+    VEDB_MYSQL_X4_4XLARGE("vedb.mysql.x4.4xlarge"),
+    @SerializedName("vedb.mysql.x4.8xlarge")
+    VEDB_MYSQL_X4_8XLARGE("vedb.mysql.x4.8xlarge"),
+    @SerializedName("vedb.mysql.x4.large")
+    VEDB_MYSQL_X4_LARGE("vedb.mysql.x4.large"),
+    @SerializedName("vedb.mysql.x4.xlarge")
+    VEDB_MYSQL_X4_XLARGE("vedb.mysql.x4.xlarge"),
+    @SerializedName("vedb.mysql.x8.2xlarge")
+    VEDB_MYSQL_X8_2XLARGE("vedb.mysql.x8.2xlarge"),
+    @SerializedName("vedb.mysql.x8.4xlarge")
+    VEDB_MYSQL_X8_4XLARGE("vedb.mysql.x8.4xlarge"),
+    @SerializedName("vedb.mysql.x8.6xlarge")
+    VEDB_MYSQL_X8_6XLARGE("vedb.mysql.x8.6xlarge"),
+    @SerializedName("vedb.mysql.x8.8xlarge")
+    VEDB_MYSQL_X8_8XLARGE("vedb.mysql.x8.8xlarge"),
+    @SerializedName("vedb.mysql.x8.large")
+    VEDB_MYSQL_X8_LARGE("vedb.mysql.x8.large"),
+    @SerializedName("vedb.mysql.x8.xlarge")
+    VEDB_MYSQL_X8_XLARGE("vedb.mysql.x8.xlarge");
 
     private String value;
 
@@ -425,6 +472,9 @@ public class CreateDBInstanceRequest {
   @SerializedName("Tags")
   private List<TagForCreateDBInstanceInput> tags = null;
 
+  @SerializedName("TemplateId")
+  private String templateId = null;
+
   @SerializedName("VpcId")
   private String vpcId = null;
 
@@ -559,7 +609,7 @@ public class CreateDBInstanceRequest {
     this.instanceName = instanceName;
   }
 
-  public CreateDBInstanceRequest lowerCaseTableNames(String lowerCaseTableNames) {
+  public CreateDBInstanceRequest lowerCaseTableNames(LowerCaseTableNamesEnum lowerCaseTableNames) {
     this.lowerCaseTableNames = lowerCaseTableNames;
     return this;
   }
@@ -569,11 +619,11 @@ public class CreateDBInstanceRequest {
    * @return lowerCaseTableNames
   **/
   @Schema(description = "")
-  public String getLowerCaseTableNames() {
+  public LowerCaseTableNamesEnum getLowerCaseTableNames() {
     return lowerCaseTableNames;
   }
 
-  public void setLowerCaseTableNames(String lowerCaseTableNames) {
+  public void setLowerCaseTableNames(LowerCaseTableNamesEnum lowerCaseTableNames) {
     this.lowerCaseTableNames = lowerCaseTableNames;
   }
 
@@ -823,6 +873,24 @@ public class CreateDBInstanceRequest {
     this.tags = tags;
   }
 
+  public CreateDBInstanceRequest templateId(String templateId) {
+    this.templateId = templateId;
+    return this;
+  }
+
+   /**
+   * Get templateId
+   * @return templateId
+  **/
+  @Schema(description = "")
+  public String getTemplateId() {
+    return templateId;
+  }
+
+  public void setTemplateId(String templateId) {
+    this.templateId = templateId;
+  }
+
   public CreateDBInstanceRequest vpcId(String vpcId) {
     this.vpcId = vpcId;
     return this;
@@ -892,13 +960,14 @@ public class CreateDBInstanceRequest {
         Objects.equals(this.superAccountName, createDBInstanceRequest.superAccountName) &&
         Objects.equals(this.superAccountPassword, createDBInstanceRequest.superAccountPassword) &&
         Objects.equals(this.tags, createDBInstanceRequest.tags) &&
+        Objects.equals(this.templateId, createDBInstanceRequest.templateId) &&
         Objects.equals(this.vpcId, createDBInstanceRequest.vpcId) &&
         Objects.equals(this.zoneIds, createDBInstanceRequest.zoneIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoRenew, chargeType, dbEngineVersion, dbMinorVersion, dbTimeZone, deletionProtection, instanceName, lowerCaseTableNames, nodeNumber, nodeSpec, number, period, periodUnit, port, prePaidStorageInGB, projectName, storageChargeType, subnetId, superAccountName, superAccountPassword, tags, vpcId, zoneIds);
+    return Objects.hash(autoRenew, chargeType, dbEngineVersion, dbMinorVersion, dbTimeZone, deletionProtection, instanceName, lowerCaseTableNames, nodeNumber, nodeSpec, number, period, periodUnit, port, prePaidStorageInGB, projectName, storageChargeType, subnetId, superAccountName, superAccountPassword, tags, templateId, vpcId, zoneIds);
   }
 
 
@@ -928,6 +997,7 @@ public class CreateDBInstanceRequest {
     sb.append("    superAccountName: ").append(toIndentedString(superAccountName)).append("\n");
     sb.append("    superAccountPassword: ").append(toIndentedString(superAccountPassword)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    templateId: ").append(toIndentedString(templateId)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("    zoneIds: ").append(toIndentedString(zoneIds)).append("\n");
     sb.append("}");
