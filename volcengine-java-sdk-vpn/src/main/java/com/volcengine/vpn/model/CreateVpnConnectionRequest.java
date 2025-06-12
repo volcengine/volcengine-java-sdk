@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import com.volcengine.vpn.model.BgpConfigForCreateVpnConnectionInput;
 import com.volcengine.vpn.model.IkeConfigForCreateVpnConnectionInput;
 import com.volcengine.vpn.model.IpsecConfigForCreateVpnConnectionInput;
+import com.volcengine.vpn.model.TunnelOptionForCreateVpnConnectionInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -79,6 +80,9 @@ public class CreateVpnConnectionRequest {
 
   @SerializedName("Spec")
   private String spec = null;
+
+  @SerializedName("TunnelOptions")
+  private List<TunnelOptionForCreateVpnConnectionInput> tunnelOptions = null;
 
   @SerializedName("VpnConnectionName")
   private String vpnConnectionName = null;
@@ -150,8 +154,7 @@ public class CreateVpnConnectionRequest {
    * Get customerGatewayId
    * @return customerGatewayId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getCustomerGatewayId() {
     return customerGatewayId;
   }
@@ -376,6 +379,33 @@ public class CreateVpnConnectionRequest {
     this.spec = spec;
   }
 
+  public CreateVpnConnectionRequest tunnelOptions(List<TunnelOptionForCreateVpnConnectionInput> tunnelOptions) {
+    this.tunnelOptions = tunnelOptions;
+    return this;
+  }
+
+  public CreateVpnConnectionRequest addTunnelOptionsItem(TunnelOptionForCreateVpnConnectionInput tunnelOptionsItem) {
+    if (this.tunnelOptions == null) {
+      this.tunnelOptions = new ArrayList<TunnelOptionForCreateVpnConnectionInput>();
+    }
+    this.tunnelOptions.add(tunnelOptionsItem);
+    return this;
+  }
+
+   /**
+   * Get tunnelOptions
+   * @return tunnelOptions
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TunnelOptionForCreateVpnConnectionInput> getTunnelOptions() {
+    return tunnelOptions;
+  }
+
+  public void setTunnelOptions(List<TunnelOptionForCreateVpnConnectionInput> tunnelOptions) {
+    this.tunnelOptions = tunnelOptions;
+  }
+
   public CreateVpnConnectionRequest vpnConnectionName(String vpnConnectionName) {
     this.vpnConnectionName = vpnConnectionName;
     return this;
@@ -403,8 +433,7 @@ public class CreateVpnConnectionRequest {
    * Get vpnGatewayId
    * @return vpnGatewayId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getVpnGatewayId() {
     return vpnGatewayId;
   }
@@ -438,13 +467,14 @@ public class CreateVpnConnectionRequest {
         Objects.equals(this.projectName, createVpnConnectionRequest.projectName) &&
         Objects.equals(this.remoteSubnet, createVpnConnectionRequest.remoteSubnet) &&
         Objects.equals(this.spec, createVpnConnectionRequest.spec) &&
+        Objects.equals(this.tunnelOptions, createVpnConnectionRequest.tunnelOptions) &&
         Objects.equals(this.vpnConnectionName, createVpnConnectionRequest.vpnConnectionName) &&
         Objects.equals(this.vpnGatewayId, createVpnConnectionRequest.vpnGatewayId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attachType, bgpConfig, clientToken, customerGatewayId, description, dpdAction, ikeConfig, ipsecConfig, localSubnet, logEnabled, natTraversal, negotiateInstantly, projectName, remoteSubnet, spec, vpnConnectionName, vpnGatewayId);
+    return Objects.hash(attachType, bgpConfig, clientToken, customerGatewayId, description, dpdAction, ikeConfig, ipsecConfig, localSubnet, logEnabled, natTraversal, negotiateInstantly, projectName, remoteSubnet, spec, tunnelOptions, vpnConnectionName, vpnGatewayId);
   }
 
 
@@ -468,6 +498,7 @@ public class CreateVpnConnectionRequest {
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    remoteSubnet: ").append(toIndentedString(remoteSubnet)).append("\n");
     sb.append("    spec: ").append(toIndentedString(spec)).append("\n");
+    sb.append("    tunnelOptions: ").append(toIndentedString(tunnelOptions)).append("\n");
     sb.append("    vpnConnectionName: ").append(toIndentedString(vpnConnectionName)).append("\n");
     sb.append("    vpnGatewayId: ").append(toIndentedString(vpnGatewayId)).append("\n");
     sb.append("}");

@@ -42,11 +42,17 @@ public class IkeConfigForModifyVpnConnectionAttributesInput {
   @SerializedName("Lifetime")
   private Integer lifetime = null;
 
+  @SerializedName("LocalId")
+  private String localId = null;
+
   @SerializedName("Mode")
   private String mode = null;
 
   @SerializedName("Psk")
   private String psk = null;
+
+  @SerializedName("RemoteId")
+  private String remoteId = null;
 
   @SerializedName("Version")
   private String version = null;
@@ -123,6 +129,24 @@ public class IkeConfigForModifyVpnConnectionAttributesInput {
     this.lifetime = lifetime;
   }
 
+  public IkeConfigForModifyVpnConnectionAttributesInput localId(String localId) {
+    this.localId = localId;
+    return this;
+  }
+
+   /**
+   * Get localId
+   * @return localId
+  **/
+  @Schema(description = "")
+  public String getLocalId() {
+    return localId;
+  }
+
+  public void setLocalId(String localId) {
+    this.localId = localId;
+  }
+
   public IkeConfigForModifyVpnConnectionAttributesInput mode(String mode) {
     this.mode = mode;
     return this;
@@ -159,6 +183,24 @@ public class IkeConfigForModifyVpnConnectionAttributesInput {
     this.psk = psk;
   }
 
+  public IkeConfigForModifyVpnConnectionAttributesInput remoteId(String remoteId) {
+    this.remoteId = remoteId;
+    return this;
+  }
+
+   /**
+   * Get remoteId
+   * @return remoteId
+  **/
+  @Schema(description = "")
+  public String getRemoteId() {
+    return remoteId;
+  }
+
+  public void setRemoteId(String remoteId) {
+    this.remoteId = remoteId;
+  }
+
   public IkeConfigForModifyVpnConnectionAttributesInput version(String version) {
     this.version = version;
     return this;
@@ -191,14 +233,16 @@ public class IkeConfigForModifyVpnConnectionAttributesInput {
         Objects.equals(this.dhGroup, ikeConfigForModifyVpnConnectionAttributesInput.dhGroup) &&
         Objects.equals(this.encAlg, ikeConfigForModifyVpnConnectionAttributesInput.encAlg) &&
         Objects.equals(this.lifetime, ikeConfigForModifyVpnConnectionAttributesInput.lifetime) &&
+        Objects.equals(this.localId, ikeConfigForModifyVpnConnectionAttributesInput.localId) &&
         Objects.equals(this.mode, ikeConfigForModifyVpnConnectionAttributesInput.mode) &&
         Objects.equals(this.psk, ikeConfigForModifyVpnConnectionAttributesInput.psk) &&
+        Objects.equals(this.remoteId, ikeConfigForModifyVpnConnectionAttributesInput.remoteId) &&
         Objects.equals(this.version, ikeConfigForModifyVpnConnectionAttributesInput.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(authAlg, dhGroup, encAlg, lifetime, mode, psk, version);
+    return Objects.hash(authAlg, dhGroup, encAlg, lifetime, localId, mode, psk, remoteId, version);
   }
 
 
@@ -211,8 +255,10 @@ public class IkeConfigForModifyVpnConnectionAttributesInput {
     sb.append("    dhGroup: ").append(toIndentedString(dhGroup)).append("\n");
     sb.append("    encAlg: ").append(toIndentedString(encAlg)).append("\n");
     sb.append("    lifetime: ").append(toIndentedString(lifetime)).append("\n");
+    sb.append("    localId: ").append(toIndentedString(localId)).append("\n");
     sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
     sb.append("    psk: ").append(toIndentedString(psk)).append("\n");
+    sb.append("    remoteId: ").append(toIndentedString(remoteId)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();

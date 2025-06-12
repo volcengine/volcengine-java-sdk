@@ -45,6 +45,9 @@ public class DescribeVpnGatewayRouteAttributesResponse extends com.volcengine.mo
   @SerializedName("NextHopId")
   private String nextHopId = null;
 
+  @SerializedName("NextTunnelId")
+  private String nextTunnelId = null;
+
   @SerializedName("RequestId")
   private String requestId = null;
 
@@ -142,6 +145,24 @@ public class DescribeVpnGatewayRouteAttributesResponse extends com.volcengine.mo
 
   public void setNextHopId(String nextHopId) {
     this.nextHopId = nextHopId;
+  }
+
+  public DescribeVpnGatewayRouteAttributesResponse nextTunnelId(String nextTunnelId) {
+    this.nextTunnelId = nextTunnelId;
+    return this;
+  }
+
+   /**
+   * Get nextTunnelId
+   * @return nextTunnelId
+  **/
+  @Schema(description = "")
+  public String getNextTunnelId() {
+    return nextTunnelId;
+  }
+
+  public void setNextTunnelId(String nextTunnelId) {
+    this.nextTunnelId = nextTunnelId;
   }
 
   public DescribeVpnGatewayRouteAttributesResponse requestId(String requestId) {
@@ -266,6 +287,7 @@ public class DescribeVpnGatewayRouteAttributesResponse extends com.volcengine.mo
         Objects.equals(this.creationTime, describeVpnGatewayRouteAttributesResponse.creationTime) &&
         Objects.equals(this.destinationCidrBlock, describeVpnGatewayRouteAttributesResponse.destinationCidrBlock) &&
         Objects.equals(this.nextHopId, describeVpnGatewayRouteAttributesResponse.nextHopId) &&
+        Objects.equals(this.nextTunnelId, describeVpnGatewayRouteAttributesResponse.nextTunnelId) &&
         Objects.equals(this.requestId, describeVpnGatewayRouteAttributesResponse.requestId) &&
         Objects.equals(this.routeType, describeVpnGatewayRouteAttributesResponse.routeType) &&
         Objects.equals(this.status, describeVpnGatewayRouteAttributesResponse.status) &&
@@ -276,7 +298,7 @@ public class DescribeVpnGatewayRouteAttributesResponse extends com.volcengine.mo
 
   @Override
   public int hashCode() {
-    return Objects.hash(asPath, creationTime, destinationCidrBlock, nextHopId, requestId, routeType, status, updateTime, vpnGatewayId, vpnGatewayRouteId);
+    return Objects.hash(asPath, creationTime, destinationCidrBlock, nextHopId, nextTunnelId, requestId, routeType, status, updateTime, vpnGatewayId, vpnGatewayRouteId);
   }
 
 
@@ -289,6 +311,7 @@ public class DescribeVpnGatewayRouteAttributesResponse extends com.volcengine.mo
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    destinationCidrBlock: ").append(toIndentedString(destinationCidrBlock)).append("\n");
     sb.append("    nextHopId: ").append(toIndentedString(nextHopId)).append("\n");
+    sb.append("    nextTunnelId: ").append(toIndentedString(nextTunnelId)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    routeType: ").append(toIndentedString(routeType)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");

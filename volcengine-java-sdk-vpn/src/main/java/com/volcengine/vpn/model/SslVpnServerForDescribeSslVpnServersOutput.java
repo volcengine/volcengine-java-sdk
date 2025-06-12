@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vpn.model.TagForDescribeSslVpnServersOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -73,6 +74,9 @@ public class SslVpnServerForDescribeSslVpnServersOutput {
 
   @SerializedName("Status")
   private String status = null;
+
+  @SerializedName("Tags")
+  private List<TagForDescribeSslVpnServersOutput> tags = null;
 
   @SerializedName("UpdateTime")
   private String updateTime = null;
@@ -340,6 +344,33 @@ public class SslVpnServerForDescribeSslVpnServersOutput {
     this.status = status;
   }
 
+  public SslVpnServerForDescribeSslVpnServersOutput tags(List<TagForDescribeSslVpnServersOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public SslVpnServerForDescribeSslVpnServersOutput addTagsItem(TagForDescribeSslVpnServersOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForDescribeSslVpnServersOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForDescribeSslVpnServersOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForDescribeSslVpnServersOutput> tags) {
+    this.tags = tags;
+  }
+
   public SslVpnServerForDescribeSslVpnServersOutput updateTime(String updateTime) {
     this.updateTime = updateTime;
     return this;
@@ -400,13 +431,14 @@ public class SslVpnServerForDescribeSslVpnServersOutput {
         Objects.equals(this.sslVpnServerId, sslVpnServerForDescribeSslVpnServersOutput.sslVpnServerId) &&
         Objects.equals(this.sslVpnServerName, sslVpnServerForDescribeSslVpnServersOutput.sslVpnServerName) &&
         Objects.equals(this.status, sslVpnServerForDescribeSslVpnServersOutput.status) &&
+        Objects.equals(this.tags, sslVpnServerForDescribeSslVpnServersOutput.tags) &&
         Objects.equals(this.updateTime, sslVpnServerForDescribeSslVpnServersOutput.updateTime) &&
         Objects.equals(this.vpnGatewayId, sslVpnServerForDescribeSslVpnServersOutput.vpnGatewayId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(auth, cipher, clientIpPool, compress, creationTime, description, isBlocked, localSubnets, port, projectName, protocol, sslVpnServerId, sslVpnServerName, status, updateTime, vpnGatewayId);
+    return Objects.hash(auth, cipher, clientIpPool, compress, creationTime, description, isBlocked, localSubnets, port, projectName, protocol, sslVpnServerId, sslVpnServerName, status, tags, updateTime, vpnGatewayId);
   }
 
 
@@ -429,6 +461,7 @@ public class SslVpnServerForDescribeSslVpnServersOutput {
     sb.append("    sslVpnServerId: ").append(toIndentedString(sslVpnServerId)).append("\n");
     sb.append("    sslVpnServerName: ").append(toIndentedString(sslVpnServerName)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    vpnGatewayId: ").append(toIndentedString(vpnGatewayId)).append("\n");
     sb.append("}");
