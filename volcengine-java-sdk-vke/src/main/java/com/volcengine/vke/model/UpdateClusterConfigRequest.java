@@ -21,7 +21,9 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vke.model.ClusterConfigForUpdateClusterConfigInput;
 import com.volcengine.vke.model.LoggingConfigForUpdateClusterConfigInput;
+import com.volcengine.vke.model.MonitoringConfigForUpdateClusterConfigInput;
 import com.volcengine.vke.model.PodsConfigForUpdateClusterConfigInput;
+import com.volcengine.vke.model.RegisterMonitoringConfigForUpdateClusterConfigInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -51,11 +53,20 @@ public class UpdateClusterConfigRequest {
   @SerializedName("LoggingConfig")
   private LoggingConfigForUpdateClusterConfigInput loggingConfig = null;
 
+  @SerializedName("MonitoringConfig")
+  private MonitoringConfigForUpdateClusterConfigInput monitoringConfig = null;
+
   @SerializedName("Name")
   private String name = null;
 
   @SerializedName("PodsConfig")
   private PodsConfigForUpdateClusterConfigInput podsConfig = null;
+
+  @SerializedName("RegisterMonitoringConfig")
+  private RegisterMonitoringConfigForUpdateClusterConfigInput registerMonitoringConfig = null;
+
+  @SerializedName("SourceRegion")
+  private String sourceRegion = null;
 
   public UpdateClusterConfigRequest clientToken(String clientToken) {
     this.clientToken = clientToken;
@@ -168,6 +179,25 @@ public class UpdateClusterConfigRequest {
     this.loggingConfig = loggingConfig;
   }
 
+  public UpdateClusterConfigRequest monitoringConfig(MonitoringConfigForUpdateClusterConfigInput monitoringConfig) {
+    this.monitoringConfig = monitoringConfig;
+    return this;
+  }
+
+   /**
+   * Get monitoringConfig
+   * @return monitoringConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public MonitoringConfigForUpdateClusterConfigInput getMonitoringConfig() {
+    return monitoringConfig;
+  }
+
+  public void setMonitoringConfig(MonitoringConfigForUpdateClusterConfigInput monitoringConfig) {
+    this.monitoringConfig = monitoringConfig;
+  }
+
   public UpdateClusterConfigRequest name(String name) {
     this.name = name;
     return this;
@@ -205,6 +235,43 @@ public class UpdateClusterConfigRequest {
     this.podsConfig = podsConfig;
   }
 
+  public UpdateClusterConfigRequest registerMonitoringConfig(RegisterMonitoringConfigForUpdateClusterConfigInput registerMonitoringConfig) {
+    this.registerMonitoringConfig = registerMonitoringConfig;
+    return this;
+  }
+
+   /**
+   * Get registerMonitoringConfig
+   * @return registerMonitoringConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public RegisterMonitoringConfigForUpdateClusterConfigInput getRegisterMonitoringConfig() {
+    return registerMonitoringConfig;
+  }
+
+  public void setRegisterMonitoringConfig(RegisterMonitoringConfigForUpdateClusterConfigInput registerMonitoringConfig) {
+    this.registerMonitoringConfig = registerMonitoringConfig;
+  }
+
+  public UpdateClusterConfigRequest sourceRegion(String sourceRegion) {
+    this.sourceRegion = sourceRegion;
+    return this;
+  }
+
+   /**
+   * Get sourceRegion
+   * @return sourceRegion
+  **/
+  @Schema(description = "")
+  public String getSourceRegion() {
+    return sourceRegion;
+  }
+
+  public void setSourceRegion(String sourceRegion) {
+    this.sourceRegion = sourceRegion;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -221,13 +288,16 @@ public class UpdateClusterConfigRequest {
         Objects.equals(this.description, updateClusterConfigRequest.description) &&
         Objects.equals(this.id, updateClusterConfigRequest.id) &&
         Objects.equals(this.loggingConfig, updateClusterConfigRequest.loggingConfig) &&
+        Objects.equals(this.monitoringConfig, updateClusterConfigRequest.monitoringConfig) &&
         Objects.equals(this.name, updateClusterConfigRequest.name) &&
-        Objects.equals(this.podsConfig, updateClusterConfigRequest.podsConfig);
+        Objects.equals(this.podsConfig, updateClusterConfigRequest.podsConfig) &&
+        Objects.equals(this.registerMonitoringConfig, updateClusterConfigRequest.registerMonitoringConfig) &&
+        Objects.equals(this.sourceRegion, updateClusterConfigRequest.sourceRegion);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, clusterConfig, deleteProtectionEnabled, description, id, loggingConfig, name, podsConfig);
+    return Objects.hash(clientToken, clusterConfig, deleteProtectionEnabled, description, id, loggingConfig, monitoringConfig, name, podsConfig, registerMonitoringConfig, sourceRegion);
   }
 
 
@@ -242,8 +312,11 @@ public class UpdateClusterConfigRequest {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    loggingConfig: ").append(toIndentedString(loggingConfig)).append("\n");
+    sb.append("    monitoringConfig: ").append(toIndentedString(monitoringConfig)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    podsConfig: ").append(toIndentedString(podsConfig)).append("\n");
+    sb.append("    registerMonitoringConfig: ").append(toIndentedString(registerMonitoringConfig)).append("\n");
+    sb.append("    sourceRegion: ").append(toIndentedString(sourceRegion)).append("\n");
     sb.append("}");
     return sb.toString();
   }
