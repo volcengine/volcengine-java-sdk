@@ -80,6 +80,12 @@ public class ChatCompletionRequest {
     Integer maxTokens;
 
     /**
+     * The maximum number of tokens allowed for the generated answer, including reasoning tokens.
+     */
+    @JsonProperty("max_completion_tokens")
+    Integer maxCompletionTokens;
+
+    /**
      * Number between -2.0 and 2.0. Positive values penalize new tokens based on whether they appear in the text so far,
      * increasing the model's likelihood to talk about new topics.
      */
@@ -173,6 +179,7 @@ public class ChatCompletionRequest {
                 ", serviceTier='" + serviceTier + '\'' +
                 ", stop=" + stop +
                 ", maxTokens=" + maxTokens +
+                ", maxCompletionTokens=" + maxCompletionTokens +
                 ", presencePenalty=" + presencePenalty +
                 ", frequencyPenalty=" + frequencyPenalty +
                 ", logitBias=" + logitBias +
@@ -188,6 +195,15 @@ public class ChatCompletionRequest {
                 ", responseFormat=" + responseFormat +
                 ", thinking=" + thinking +
                 '}';
+    }
+
+
+    public Integer getMaxCompletionTokens() {
+        return maxCompletionTokens;
+    }
+
+    public void setMaxCompletionTokens(Integer maxCompletionTokens) {
+        this.maxCompletionTokens = maxCompletionTokens;
     }
 
     public ChatCompletionRequestThinking getThinking() {
@@ -556,6 +572,7 @@ public class ChatCompletionRequest {
         private Object toolChoice;
         private ChatCompletionRequestResponseFormat responseFormat;
         private ChatCompletionRequestThinking thinking;
+        private Integer maxCompletionTokens;
 
         public ChatCompletionRequest.Builder model(String model) {
             this.model = model;
@@ -599,6 +616,11 @@ public class ChatCompletionRequest {
 
         public ChatCompletionRequest.Builder maxTokens(Integer maxTokens) {
             this.maxTokens = maxTokens;
+            return this;
+        }
+
+        public ChatCompletionRequest.Builder maxCompletionTokens(Integer maxCompletionTokens) {
+            this.maxCompletionTokens = maxCompletionTokens;
             return this;
         }
 
@@ -701,6 +723,7 @@ public class ChatCompletionRequest {
             chatCompletionRequest.setToolChoice(toolChoice);
             chatCompletionRequest.setResponseFormat(responseFormat);
             chatCompletionRequest.setThinking(thinking);
+            chatCompletionRequest.setMaxCompletionTokens(maxCompletionTokens);
             return chatCompletionRequest;
         }
     }
