@@ -79,6 +79,9 @@ public class GetJobResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("Status")
   private StatusForGetJobOutput status = null;
 
+  @SerializedName("StopReason")
+  private String stopReason = null;
+
   @SerializedName("StorageConfig")
   private StorageConfigForGetJobOutput storageConfig = null;
 
@@ -334,6 +337,24 @@ public class GetJobResponse extends com.volcengine.model.AbstractResponse {
     this.status = status;
   }
 
+  public GetJobResponse stopReason(String stopReason) {
+    this.stopReason = stopReason;
+    return this;
+  }
+
+   /**
+   * Get stopReason
+   * @return stopReason
+  **/
+  @Schema(description = "")
+  public String getStopReason() {
+    return stopReason;
+  }
+
+  public void setStopReason(String stopReason) {
+    this.stopReason = stopReason;
+  }
+
   public GetJobResponse storageConfig(StorageConfigForGetJobOutput storageConfig) {
     this.storageConfig = storageConfig;
     return this;
@@ -394,13 +415,14 @@ public class GetJobResponse extends com.volcengine.model.AbstractResponse {
         Objects.equals(this.retryConfig, getJobResponse.retryConfig) &&
         Objects.equals(this.runtimeConfig, getJobResponse.runtimeConfig) &&
         Objects.equals(this.status, getJobResponse.status) &&
+        Objects.equals(this.stopReason, getJobResponse.stopReason) &&
         Objects.equals(this.storageConfig, getJobResponse.storageConfig) &&
         Objects.equals(this.updateTime, getJobResponse.updateTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createTime, createdBy, description, diagnoseConfig, id, initialId, name, observableConfig, privateNetworkConfig, resourceConfig, retryConfig, runtimeConfig, status, storageConfig, updateTime);
+    return Objects.hash(createTime, createdBy, description, diagnoseConfig, id, initialId, name, observableConfig, privateNetworkConfig, resourceConfig, retryConfig, runtimeConfig, status, stopReason, storageConfig, updateTime);
   }
 
 
@@ -422,6 +444,7 @@ public class GetJobResponse extends com.volcengine.model.AbstractResponse {
     sb.append("    retryConfig: ").append(toIndentedString(retryConfig)).append("\n");
     sb.append("    runtimeConfig: ").append(toIndentedString(runtimeConfig)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    stopReason: ").append(toIndentedString(stopReason)).append("\n");
     sb.append("    storageConfig: ").append(toIndentedString(storageConfig)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("}");

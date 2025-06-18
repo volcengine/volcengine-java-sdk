@@ -70,6 +70,9 @@ public class ItemForListResourceGroupsOutput {
   @SerializedName("WorkloadNetworkConfig")
   private WorkloadNetworkConfigForListResourceGroupsOutput workloadNetworkConfig = null;
 
+  @SerializedName("WorkloadNetworkMode")
+  private String workloadNetworkMode = null;
+
   @SerializedName("ZoneIds")
   private List<String> zoneIds = null;
 
@@ -276,6 +279,24 @@ public class ItemForListResourceGroupsOutput {
     this.workloadNetworkConfig = workloadNetworkConfig;
   }
 
+  public ItemForListResourceGroupsOutput workloadNetworkMode(String workloadNetworkMode) {
+    this.workloadNetworkMode = workloadNetworkMode;
+    return this;
+  }
+
+   /**
+   * Get workloadNetworkMode
+   * @return workloadNetworkMode
+  **/
+  @Schema(description = "")
+  public String getWorkloadNetworkMode() {
+    return workloadNetworkMode;
+  }
+
+  public void setWorkloadNetworkMode(String workloadNetworkMode) {
+    this.workloadNetworkMode = workloadNetworkMode;
+  }
+
   public ItemForListResourceGroupsOutput zoneIds(List<String> zoneIds) {
     this.zoneIds = zoneIds;
     return this;
@@ -323,12 +344,13 @@ public class ItemForListResourceGroupsOutput {
         Objects.equals(this.status, itemForListResourceGroupsOutput.status) &&
         Objects.equals(this.storageConfig, itemForListResourceGroupsOutput.storageConfig) &&
         Objects.equals(this.workloadNetworkConfig, itemForListResourceGroupsOutput.workloadNetworkConfig) &&
+        Objects.equals(this.workloadNetworkMode, itemForListResourceGroupsOutput.workloadNetworkMode) &&
         Objects.equals(this.zoneIds, itemForListResourceGroupsOutput.zoneIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(chargeType, description, expireTime, id, name, periodUnit, resourceAllocated, resourceCapability, status, storageConfig, workloadNetworkConfig, zoneIds);
+    return Objects.hash(chargeType, description, expireTime, id, name, periodUnit, resourceAllocated, resourceCapability, status, storageConfig, workloadNetworkConfig, workloadNetworkMode, zoneIds);
   }
 
 
@@ -348,6 +370,7 @@ public class ItemForListResourceGroupsOutput {
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    storageConfig: ").append(toIndentedString(storageConfig)).append("\n");
     sb.append("    workloadNetworkConfig: ").append(toIndentedString(workloadNetworkConfig)).append("\n");
+    sb.append("    workloadNetworkMode: ").append(toIndentedString(workloadNetworkMode)).append("\n");
     sb.append("    zoneIds: ").append(toIndentedString(zoneIds)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -24,41 +24,37 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * GetDeploymentRequest
+ * CancelResourceReservationPlanRequest
  */
 
 
 
-public class GetDeploymentRequest {
-  @SerializedName("HistoryVersionLimit")
-  private Integer historyVersionLimit = null;
+public class CancelResourceReservationPlanRequest {
+  @SerializedName("DryRun")
+  private Boolean dryRun = null;
 
   @SerializedName("Id")
   private String id = null;
 
-  @SerializedName("IncludeInstanceItems")
-  private Boolean includeInstanceItems = null;
-
-  public GetDeploymentRequest historyVersionLimit(Integer historyVersionLimit) {
-    this.historyVersionLimit = historyVersionLimit;
+  public CancelResourceReservationPlanRequest dryRun(Boolean dryRun) {
+    this.dryRun = dryRun;
     return this;
   }
 
    /**
-   * Get historyVersionLimit
-   * maximum: 100
-   * @return historyVersionLimit
+   * Get dryRun
+   * @return dryRun
   **/
- @Max(100)  @Schema(description = "")
-  public Integer getHistoryVersionLimit() {
-    return historyVersionLimit;
+  @Schema(description = "")
+  public Boolean isDryRun() {
+    return dryRun;
   }
 
-  public void setHistoryVersionLimit(Integer historyVersionLimit) {
-    this.historyVersionLimit = historyVersionLimit;
+  public void setDryRun(Boolean dryRun) {
+    this.dryRun = dryRun;
   }
 
-  public GetDeploymentRequest id(String id) {
+  public CancelResourceReservationPlanRequest id(String id) {
     this.id = id;
     return this;
   }
@@ -77,24 +73,6 @@ public class GetDeploymentRequest {
     this.id = id;
   }
 
-  public GetDeploymentRequest includeInstanceItems(Boolean includeInstanceItems) {
-    this.includeInstanceItems = includeInstanceItems;
-    return this;
-  }
-
-   /**
-   * Get includeInstanceItems
-   * @return includeInstanceItems
-  **/
-  @Schema(description = "")
-  public Boolean isIncludeInstanceItems() {
-    return includeInstanceItems;
-  }
-
-  public void setIncludeInstanceItems(Boolean includeInstanceItems) {
-    this.includeInstanceItems = includeInstanceItems;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -104,26 +82,24 @@ public class GetDeploymentRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GetDeploymentRequest getDeploymentRequest = (GetDeploymentRequest) o;
-    return Objects.equals(this.historyVersionLimit, getDeploymentRequest.historyVersionLimit) &&
-        Objects.equals(this.id, getDeploymentRequest.id) &&
-        Objects.equals(this.includeInstanceItems, getDeploymentRequest.includeInstanceItems);
+    CancelResourceReservationPlanRequest cancelResourceReservationPlanRequest = (CancelResourceReservationPlanRequest) o;
+    return Objects.equals(this.dryRun, cancelResourceReservationPlanRequest.dryRun) &&
+        Objects.equals(this.id, cancelResourceReservationPlanRequest.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(historyVersionLimit, id, includeInstanceItems);
+    return Objects.hash(dryRun, id);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetDeploymentRequest {\n");
+    sb.append("class CancelResourceReservationPlanRequest {\n");
     
-    sb.append("    historyVersionLimit: ").append(toIndentedString(historyVersionLimit)).append("\n");
+    sb.append("    dryRun: ").append(toIndentedString(dryRun)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    includeInstanceItems: ").append(toIndentedString(includeInstanceItems)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -84,6 +84,9 @@ public class GetInstanceTypeResponse extends com.volcengine.model.AbstractRespon
   @SerializedName("RdmaEniMaximumBandwidthMbps")
   private Integer rdmaEniMaximumBandwidthMbps = null;
 
+  @SerializedName("ReservationPlanPriceByHour")
+  private Double reservationPlanPriceByHour = null;
+
   @SerializedName("VolumeMaximumBandwidthMbps")
   private Integer volumeMaximumBandwidthMbps = null;
 
@@ -402,6 +405,24 @@ public class GetInstanceTypeResponse extends com.volcengine.model.AbstractRespon
     this.rdmaEniMaximumBandwidthMbps = rdmaEniMaximumBandwidthMbps;
   }
 
+  public GetInstanceTypeResponse reservationPlanPriceByHour(Double reservationPlanPriceByHour) {
+    this.reservationPlanPriceByHour = reservationPlanPriceByHour;
+    return this;
+  }
+
+   /**
+   * Get reservationPlanPriceByHour
+   * @return reservationPlanPriceByHour
+  **/
+  @Schema(description = "")
+  public Double getReservationPlanPriceByHour() {
+    return reservationPlanPriceByHour;
+  }
+
+  public void setReservationPlanPriceByHour(Double reservationPlanPriceByHour) {
+    this.reservationPlanPriceByHour = reservationPlanPriceByHour;
+  }
+
   public GetInstanceTypeResponse volumeMaximumBandwidthMbps(Integer volumeMaximumBandwidthMbps) {
     this.volumeMaximumBandwidthMbps = volumeMaximumBandwidthMbps;
     return this;
@@ -518,6 +539,7 @@ public class GetInstanceTypeResponse extends com.volcengine.model.AbstractRespon
         Objects.equals(this.priceByMonth, getInstanceTypeResponse.priceByMonth) &&
         Objects.equals(this.rdmaEniCount, getInstanceTypeResponse.rdmaEniCount) &&
         Objects.equals(this.rdmaEniMaximumBandwidthMbps, getInstanceTypeResponse.rdmaEniMaximumBandwidthMbps) &&
+        Objects.equals(this.reservationPlanPriceByHour, getInstanceTypeResponse.reservationPlanPriceByHour) &&
         Objects.equals(this.volumeMaximumBandwidthMbps, getInstanceTypeResponse.volumeMaximumBandwidthMbps) &&
         Objects.equals(this.volumeMaximumIops, getInstanceTypeResponse.volumeMaximumIops) &&
         Objects.equals(this.volumeSupportedTypes, getInstanceTypeResponse.volumeSupportedTypes) &&
@@ -526,7 +548,7 @@ public class GetInstanceTypeResponse extends com.volcengine.model.AbstractRespon
 
   @Override
   public int hashCode() {
-    return Objects.hash(availableGPUMemoryMiB, cpu, eniCount, eniMaximumBandwidthMbps, family, gpuCount, gpuMemoryMiB, gpuType, id, kind, memoryMiB, nvmeSsdCount, priceByDay, priceByHour, priceByMonth, rdmaEniCount, rdmaEniMaximumBandwidthMbps, volumeMaximumBandwidthMbps, volumeMaximumIops, volumeSupportedTypes, zoneInfo);
+    return Objects.hash(availableGPUMemoryMiB, cpu, eniCount, eniMaximumBandwidthMbps, family, gpuCount, gpuMemoryMiB, gpuType, id, kind, memoryMiB, nvmeSsdCount, priceByDay, priceByHour, priceByMonth, rdmaEniCount, rdmaEniMaximumBandwidthMbps, reservationPlanPriceByHour, volumeMaximumBandwidthMbps, volumeMaximumIops, volumeSupportedTypes, zoneInfo);
   }
 
 
@@ -552,6 +574,7 @@ public class GetInstanceTypeResponse extends com.volcengine.model.AbstractRespon
     sb.append("    priceByMonth: ").append(toIndentedString(priceByMonth)).append("\n");
     sb.append("    rdmaEniCount: ").append(toIndentedString(rdmaEniCount)).append("\n");
     sb.append("    rdmaEniMaximumBandwidthMbps: ").append(toIndentedString(rdmaEniMaximumBandwidthMbps)).append("\n");
+    sb.append("    reservationPlanPriceByHour: ").append(toIndentedString(reservationPlanPriceByHour)).append("\n");
     sb.append("    volumeMaximumBandwidthMbps: ").append(toIndentedString(volumeMaximumBandwidthMbps)).append("\n");
     sb.append("    volumeMaximumIops: ").append(toIndentedString(volumeMaximumIops)).append("\n");
     sb.append("    volumeSupportedTypes: ").append(toIndentedString(volumeSupportedTypes)).append("\n");

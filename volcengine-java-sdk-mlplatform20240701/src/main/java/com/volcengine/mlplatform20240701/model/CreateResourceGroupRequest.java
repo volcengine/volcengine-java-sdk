@@ -93,6 +93,9 @@ public class CreateResourceGroupRequest {
   @SerializedName("DryRun")
   private Boolean dryRun = null;
 
+  @SerializedName("MGpuEnabled")
+  private Boolean mgpuEnabled = null;
+
   @SerializedName("Name")
   private String name = null;
 
@@ -151,11 +154,11 @@ public class CreateResourceGroupRequest {
   @SerializedName("StorageConfig")
   private StorageConfigForCreateResourceGroupInput storageConfig = null;
 
-  @SerializedName("UseMGpu")
-  private Boolean useMGpu = null;
-
   @SerializedName("WorkloadNetworkConfig")
   private WorkloadNetworkConfigForCreateResourceGroupInput workloadNetworkConfig = null;
+
+  @SerializedName("WorkloadNetworkMode")
+  private String workloadNetworkMode = null;
 
   public CreateResourceGroupRequest autoRenew(Boolean autoRenew) {
     this.autoRenew = autoRenew;
@@ -247,6 +250,24 @@ public class CreateResourceGroupRequest {
 
   public void setDryRun(Boolean dryRun) {
     this.dryRun = dryRun;
+  }
+
+  public CreateResourceGroupRequest mgpuEnabled(Boolean mgpuEnabled) {
+    this.mgpuEnabled = mgpuEnabled;
+    return this;
+  }
+
+   /**
+   * Get mgpuEnabled
+   * @return mgpuEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isMgpuEnabled() {
+    return mgpuEnabled;
+  }
+
+  public void setMgpuEnabled(Boolean mgpuEnabled) {
+    this.mgpuEnabled = mgpuEnabled;
   }
 
   public CreateResourceGroupRequest name(String name) {
@@ -343,24 +364,6 @@ public class CreateResourceGroupRequest {
     this.storageConfig = storageConfig;
   }
 
-  public CreateResourceGroupRequest useMGpu(Boolean useMGpu) {
-    this.useMGpu = useMGpu;
-    return this;
-  }
-
-   /**
-   * Get useMGpu
-   * @return useMGpu
-  **/
-  @Schema(description = "")
-  public Boolean isUseMGpu() {
-    return useMGpu;
-  }
-
-  public void setUseMGpu(Boolean useMGpu) {
-    this.useMGpu = useMGpu;
-  }
-
   public CreateResourceGroupRequest workloadNetworkConfig(WorkloadNetworkConfigForCreateResourceGroupInput workloadNetworkConfig) {
     this.workloadNetworkConfig = workloadNetworkConfig;
     return this;
@@ -380,6 +383,24 @@ public class CreateResourceGroupRequest {
     this.workloadNetworkConfig = workloadNetworkConfig;
   }
 
+  public CreateResourceGroupRequest workloadNetworkMode(String workloadNetworkMode) {
+    this.workloadNetworkMode = workloadNetworkMode;
+    return this;
+  }
+
+   /**
+   * Get workloadNetworkMode
+   * @return workloadNetworkMode
+  **/
+  @Schema(description = "")
+  public String getWorkloadNetworkMode() {
+    return workloadNetworkMode;
+  }
+
+  public void setWorkloadNetworkMode(String workloadNetworkMode) {
+    this.workloadNetworkMode = workloadNetworkMode;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -395,18 +416,19 @@ public class CreateResourceGroupRequest {
         Objects.equals(this.chargeType, createResourceGroupRequest.chargeType) &&
         Objects.equals(this.description, createResourceGroupRequest.description) &&
         Objects.equals(this.dryRun, createResourceGroupRequest.dryRun) &&
+        Objects.equals(this.mgpuEnabled, createResourceGroupRequest.mgpuEnabled) &&
         Objects.equals(this.name, createResourceGroupRequest.name) &&
         Objects.equals(this.period, createResourceGroupRequest.period) &&
         Objects.equals(this.periodUnit, createResourceGroupRequest.periodUnit) &&
         Objects.equals(this.resourceConfig, createResourceGroupRequest.resourceConfig) &&
         Objects.equals(this.storageConfig, createResourceGroupRequest.storageConfig) &&
-        Objects.equals(this.useMGpu, createResourceGroupRequest.useMGpu) &&
-        Objects.equals(this.workloadNetworkConfig, createResourceGroupRequest.workloadNetworkConfig);
+        Objects.equals(this.workloadNetworkConfig, createResourceGroupRequest.workloadNetworkConfig) &&
+        Objects.equals(this.workloadNetworkMode, createResourceGroupRequest.workloadNetworkMode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoRenew, autoRenewPeriod, chargeType, description, dryRun, name, period, periodUnit, resourceConfig, storageConfig, useMGpu, workloadNetworkConfig);
+    return Objects.hash(autoRenew, autoRenewPeriod, chargeType, description, dryRun, mgpuEnabled, name, period, periodUnit, resourceConfig, storageConfig, workloadNetworkConfig, workloadNetworkMode);
   }
 
 
@@ -420,13 +442,14 @@ public class CreateResourceGroupRequest {
     sb.append("    chargeType: ").append(toIndentedString(chargeType)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    dryRun: ").append(toIndentedString(dryRun)).append("\n");
+    sb.append("    mgpuEnabled: ").append(toIndentedString(mgpuEnabled)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    period: ").append(toIndentedString(period)).append("\n");
     sb.append("    periodUnit: ").append(toIndentedString(periodUnit)).append("\n");
     sb.append("    resourceConfig: ").append(toIndentedString(resourceConfig)).append("\n");
     sb.append("    storageConfig: ").append(toIndentedString(storageConfig)).append("\n");
-    sb.append("    useMGpu: ").append(toIndentedString(useMGpu)).append("\n");
     sb.append("    workloadNetworkConfig: ").append(toIndentedString(workloadNetworkConfig)).append("\n");
+    sb.append("    workloadNetworkMode: ").append(toIndentedString(workloadNetworkMode)).append("\n");
     sb.append("}");
     return sb.toString();
   }

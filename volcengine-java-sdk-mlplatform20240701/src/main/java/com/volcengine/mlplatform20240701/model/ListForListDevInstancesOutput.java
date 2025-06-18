@@ -72,6 +72,12 @@ public class ListForListDevInstancesOutput {
   @SerializedName("NodeAffinitySpec")
   private NodeAffinitySpecForListDevInstancesOutput nodeAffinitySpec = null;
 
+  @SerializedName("NumaAffinity")
+  private String numaAffinity = null;
+
+  @SerializedName("NumaStatus")
+  private String numaStatus = null;
+
   @SerializedName("Ports")
   private List<PortForListDevInstancesOutput> ports = null;
 
@@ -303,6 +309,42 @@ public class ListForListDevInstancesOutput {
 
   public void setNodeAffinitySpec(NodeAffinitySpecForListDevInstancesOutput nodeAffinitySpec) {
     this.nodeAffinitySpec = nodeAffinitySpec;
+  }
+
+  public ListForListDevInstancesOutput numaAffinity(String numaAffinity) {
+    this.numaAffinity = numaAffinity;
+    return this;
+  }
+
+   /**
+   * Get numaAffinity
+   * @return numaAffinity
+  **/
+  @Schema(description = "")
+  public String getNumaAffinity() {
+    return numaAffinity;
+  }
+
+  public void setNumaAffinity(String numaAffinity) {
+    this.numaAffinity = numaAffinity;
+  }
+
+  public ListForListDevInstancesOutput numaStatus(String numaStatus) {
+    this.numaStatus = numaStatus;
+    return this;
+  }
+
+   /**
+   * Get numaStatus
+   * @return numaStatus
+  **/
+  @Schema(description = "")
+  public String getNumaStatus() {
+    return numaStatus;
+  }
+
+  public void setNumaStatus(String numaStatus) {
+    this.numaStatus = numaStatus;
   }
 
   public ListForListDevInstancesOutput ports(List<PortForListDevInstancesOutput> ports) {
@@ -545,6 +587,8 @@ public class ListForListDevInstancesOutput {
         Objects.equals(this.launchTime, listForListDevInstancesOutput.launchTime) &&
         Objects.equals(this.name, listForListDevInstancesOutput.name) &&
         Objects.equals(this.nodeAffinitySpec, listForListDevInstancesOutput.nodeAffinitySpec) &&
+        Objects.equals(this.numaAffinity, listForListDevInstancesOutput.numaAffinity) &&
+        Objects.equals(this.numaStatus, listForListDevInstancesOutput.numaStatus) &&
         Objects.equals(this.ports, listForListDevInstancesOutput.ports) &&
         Objects.equals(this.resourceClaim, listForListDevInstancesOutput.resourceClaim) &&
         Objects.equals(this.resourceQueueId, listForListDevInstancesOutput.resourceQueueId) &&
@@ -560,7 +604,7 @@ public class ListForListDevInstancesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowImageBuild, createTime, creatorTrn, description, expectedStopTime, id, image, isBuildingImage, launchTime, name, nodeAffinitySpec, ports, resourceClaim, resourceQueueId, sshPublicKey, status, stopTime, stoppedTime, storages, updateTime, volume, zoneID);
+    return Objects.hash(allowImageBuild, createTime, creatorTrn, description, expectedStopTime, id, image, isBuildingImage, launchTime, name, nodeAffinitySpec, numaAffinity, numaStatus, ports, resourceClaim, resourceQueueId, sshPublicKey, status, stopTime, stoppedTime, storages, updateTime, volume, zoneID);
   }
 
 
@@ -580,6 +624,8 @@ public class ListForListDevInstancesOutput {
     sb.append("    launchTime: ").append(toIndentedString(launchTime)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    nodeAffinitySpec: ").append(toIndentedString(nodeAffinitySpec)).append("\n");
+    sb.append("    numaAffinity: ").append(toIndentedString(numaAffinity)).append("\n");
+    sb.append("    numaStatus: ").append(toIndentedString(numaStatus)).append("\n");
     sb.append("    ports: ").append(toIndentedString(ports)).append("\n");
     sb.append("    resourceClaim: ").append(toIndentedString(resourceClaim)).append("\n");
     sb.append("    resourceQueueId: ").append(toIndentedString(resourceQueueId)).append("\n");
