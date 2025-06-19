@@ -24,17 +24,14 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * ConditionForListRulesOutput
+ * ConditionForCreateAlertTemplateInput
  */
 
 
 
-public class ConditionForListRulesOutput {
+public class ConditionForCreateAlertTemplateInput {
   @SerializedName("ComparisonOperator")
   private String comparisonOperator = null;
-
-  @SerializedName("DisplayName")
-  private String displayName = null;
 
   @SerializedName("MetricName")
   private String metricName = null;
@@ -42,16 +39,13 @@ public class ConditionForListRulesOutput {
   @SerializedName("MetricUnit")
   private String metricUnit = null;
 
-  @SerializedName("Period")
-  private String period = null;
-
   @SerializedName("Statistics")
   private String statistics = null;
 
   @SerializedName("Threshold")
   private String threshold = null;
 
-  public ConditionForListRulesOutput comparisonOperator(String comparisonOperator) {
+  public ConditionForCreateAlertTemplateInput comparisonOperator(String comparisonOperator) {
     this.comparisonOperator = comparisonOperator;
     return this;
   }
@@ -69,25 +63,7 @@ public class ConditionForListRulesOutput {
     this.comparisonOperator = comparisonOperator;
   }
 
-  public ConditionForListRulesOutput displayName(String displayName) {
-    this.displayName = displayName;
-    return this;
-  }
-
-   /**
-   * Get displayName
-   * @return displayName
-  **/
-  @Schema(description = "")
-  public String getDisplayName() {
-    return displayName;
-  }
-
-  public void setDisplayName(String displayName) {
-    this.displayName = displayName;
-  }
-
-  public ConditionForListRulesOutput metricName(String metricName) {
+  public ConditionForCreateAlertTemplateInput metricName(String metricName) {
     this.metricName = metricName;
     return this;
   }
@@ -105,7 +81,7 @@ public class ConditionForListRulesOutput {
     this.metricName = metricName;
   }
 
-  public ConditionForListRulesOutput metricUnit(String metricUnit) {
+  public ConditionForCreateAlertTemplateInput metricUnit(String metricUnit) {
     this.metricUnit = metricUnit;
     return this;
   }
@@ -123,25 +99,7 @@ public class ConditionForListRulesOutput {
     this.metricUnit = metricUnit;
   }
 
-  public ConditionForListRulesOutput period(String period) {
-    this.period = period;
-    return this;
-  }
-
-   /**
-   * Get period
-   * @return period
-  **/
-  @Schema(description = "")
-  public String getPeriod() {
-    return period;
-  }
-
-  public void setPeriod(String period) {
-    this.period = period;
-  }
-
-  public ConditionForListRulesOutput statistics(String statistics) {
+  public ConditionForCreateAlertTemplateInput statistics(String statistics) {
     this.statistics = statistics;
     return this;
   }
@@ -159,7 +117,7 @@ public class ConditionForListRulesOutput {
     this.statistics = statistics;
   }
 
-  public ConditionForListRulesOutput threshold(String threshold) {
+  public ConditionForCreateAlertTemplateInput threshold(String threshold) {
     this.threshold = threshold;
     return this;
   }
@@ -186,32 +144,28 @@ public class ConditionForListRulesOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ConditionForListRulesOutput conditionForListRulesOutput = (ConditionForListRulesOutput) o;
-    return Objects.equals(this.comparisonOperator, conditionForListRulesOutput.comparisonOperator) &&
-        Objects.equals(this.displayName, conditionForListRulesOutput.displayName) &&
-        Objects.equals(this.metricName, conditionForListRulesOutput.metricName) &&
-        Objects.equals(this.metricUnit, conditionForListRulesOutput.metricUnit) &&
-        Objects.equals(this.period, conditionForListRulesOutput.period) &&
-        Objects.equals(this.statistics, conditionForListRulesOutput.statistics) &&
-        Objects.equals(this.threshold, conditionForListRulesOutput.threshold);
+    ConditionForCreateAlertTemplateInput conditionForCreateAlertTemplateInput = (ConditionForCreateAlertTemplateInput) o;
+    return Objects.equals(this.comparisonOperator, conditionForCreateAlertTemplateInput.comparisonOperator) &&
+        Objects.equals(this.metricName, conditionForCreateAlertTemplateInput.metricName) &&
+        Objects.equals(this.metricUnit, conditionForCreateAlertTemplateInput.metricUnit) &&
+        Objects.equals(this.statistics, conditionForCreateAlertTemplateInput.statistics) &&
+        Objects.equals(this.threshold, conditionForCreateAlertTemplateInput.threshold);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(comparisonOperator, displayName, metricName, metricUnit, period, statistics, threshold);
+    return Objects.hash(comparisonOperator, metricName, metricUnit, statistics, threshold);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ConditionForListRulesOutput {\n");
+    sb.append("class ConditionForCreateAlertTemplateInput {\n");
     
     sb.append("    comparisonOperator: ").append(toIndentedString(comparisonOperator)).append("\n");
-    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    metricName: ").append(toIndentedString(metricName)).append("\n");
     sb.append("    metricUnit: ").append(toIndentedString(metricUnit)).append("\n");
-    sb.append("    period: ").append(toIndentedString(period)).append("\n");
     sb.append("    statistics: ").append(toIndentedString(statistics)).append("\n");
     sb.append("    threshold: ").append(toIndentedString(threshold)).append("\n");
     sb.append("}");
