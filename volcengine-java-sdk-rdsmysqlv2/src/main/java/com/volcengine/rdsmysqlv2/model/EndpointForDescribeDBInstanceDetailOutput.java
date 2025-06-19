@@ -40,6 +40,9 @@ public class EndpointForDescribeDBInstanceDetailOutput {
   @SerializedName("AutoAddNewNodes")
   private String autoAddNewNodes = null;
 
+  @SerializedName("ConnectionInfoTags")
+  private List<String> connectionInfoTags = null;
+
   @SerializedName("ConnectionMode")
   private String connectionMode = null;
 
@@ -67,8 +70,20 @@ public class EndpointForDescribeDBInstanceDetailOutput {
   @SerializedName("IdleConnectionReclaim")
   private Boolean idleConnectionReclaim = null;
 
+  @SerializedName("ImplicitTransSplit")
+  private Boolean implicitTransSplit = null;
+
+  @SerializedName("MasterNodeRouting")
+  private Boolean masterNodeRouting = null;
+
+  @SerializedName("MasterProtectorTimeout")
+  private Integer masterProtectorTimeout = null;
+
   @SerializedName("MultiStatementsMode")
   private String multiStatementsMode = null;
+
+  @SerializedName("OverloadProtection")
+  private Boolean overloadProtection = null;
 
   @SerializedName("ReadOnlyNodeDistributionType")
   private String readOnlyNodeDistributionType = null;
@@ -125,6 +140,32 @@ public class EndpointForDescribeDBInstanceDetailOutput {
 
   public void setAutoAddNewNodes(String autoAddNewNodes) {
     this.autoAddNewNodes = autoAddNewNodes;
+  }
+
+  public EndpointForDescribeDBInstanceDetailOutput connectionInfoTags(List<String> connectionInfoTags) {
+    this.connectionInfoTags = connectionInfoTags;
+    return this;
+  }
+
+  public EndpointForDescribeDBInstanceDetailOutput addConnectionInfoTagsItem(String connectionInfoTagsItem) {
+    if (this.connectionInfoTags == null) {
+      this.connectionInfoTags = new ArrayList<String>();
+    }
+    this.connectionInfoTags.add(connectionInfoTagsItem);
+    return this;
+  }
+
+   /**
+   * Get connectionInfoTags
+   * @return connectionInfoTags
+  **/
+  @Schema(description = "")
+  public List<String> getConnectionInfoTags() {
+    return connectionInfoTags;
+  }
+
+  public void setConnectionInfoTags(List<String> connectionInfoTags) {
+    this.connectionInfoTags = connectionInfoTags;
   }
 
   public EndpointForDescribeDBInstanceDetailOutput connectionMode(String connectionMode) {
@@ -289,6 +330,60 @@ public class EndpointForDescribeDBInstanceDetailOutput {
     this.idleConnectionReclaim = idleConnectionReclaim;
   }
 
+  public EndpointForDescribeDBInstanceDetailOutput implicitTransSplit(Boolean implicitTransSplit) {
+    this.implicitTransSplit = implicitTransSplit;
+    return this;
+  }
+
+   /**
+   * Get implicitTransSplit
+   * @return implicitTransSplit
+  **/
+  @Schema(description = "")
+  public Boolean isImplicitTransSplit() {
+    return implicitTransSplit;
+  }
+
+  public void setImplicitTransSplit(Boolean implicitTransSplit) {
+    this.implicitTransSplit = implicitTransSplit;
+  }
+
+  public EndpointForDescribeDBInstanceDetailOutput masterNodeRouting(Boolean masterNodeRouting) {
+    this.masterNodeRouting = masterNodeRouting;
+    return this;
+  }
+
+   /**
+   * Get masterNodeRouting
+   * @return masterNodeRouting
+  **/
+  @Schema(description = "")
+  public Boolean isMasterNodeRouting() {
+    return masterNodeRouting;
+  }
+
+  public void setMasterNodeRouting(Boolean masterNodeRouting) {
+    this.masterNodeRouting = masterNodeRouting;
+  }
+
+  public EndpointForDescribeDBInstanceDetailOutput masterProtectorTimeout(Integer masterProtectorTimeout) {
+    this.masterProtectorTimeout = masterProtectorTimeout;
+    return this;
+  }
+
+   /**
+   * Get masterProtectorTimeout
+   * @return masterProtectorTimeout
+  **/
+  @Schema(description = "")
+  public Integer getMasterProtectorTimeout() {
+    return masterProtectorTimeout;
+  }
+
+  public void setMasterProtectorTimeout(Integer masterProtectorTimeout) {
+    this.masterProtectorTimeout = masterProtectorTimeout;
+  }
+
   public EndpointForDescribeDBInstanceDetailOutput multiStatementsMode(String multiStatementsMode) {
     this.multiStatementsMode = multiStatementsMode;
     return this;
@@ -305,6 +400,24 @@ public class EndpointForDescribeDBInstanceDetailOutput {
 
   public void setMultiStatementsMode(String multiStatementsMode) {
     this.multiStatementsMode = multiStatementsMode;
+  }
+
+  public EndpointForDescribeDBInstanceDetailOutput overloadProtection(Boolean overloadProtection) {
+    this.overloadProtection = overloadProtection;
+    return this;
+  }
+
+   /**
+   * Get overloadProtection
+   * @return overloadProtection
+  **/
+  @Schema(description = "")
+  public Boolean isOverloadProtection() {
+    return overloadProtection;
+  }
+
+  public void setOverloadProtection(Boolean overloadProtection) {
+    this.overloadProtection = overloadProtection;
   }
 
   public EndpointForDescribeDBInstanceDetailOutput readOnlyNodeDistributionType(String readOnlyNodeDistributionType) {
@@ -400,6 +513,7 @@ public class EndpointForDescribeDBInstanceDetailOutput {
     EndpointForDescribeDBInstanceDetailOutput endpointForDescribeDBInstanceDetailOutput = (EndpointForDescribeDBInstanceDetailOutput) o;
     return Objects.equals(this.addresses, endpointForDescribeDBInstanceDetailOutput.addresses) &&
         Objects.equals(this.autoAddNewNodes, endpointForDescribeDBInstanceDetailOutput.autoAddNewNodes) &&
+        Objects.equals(this.connectionInfoTags, endpointForDescribeDBInstanceDetailOutput.connectionInfoTags) &&
         Objects.equals(this.connectionMode, endpointForDescribeDBInstanceDetailOutput.connectionMode) &&
         Objects.equals(this.connectionPoolType, endpointForDescribeDBInstanceDetailOutput.connectionPoolType) &&
         Objects.equals(this.description, endpointForDescribeDBInstanceDetailOutput.description) &&
@@ -409,7 +523,11 @@ public class EndpointForDescribeDBInstanceDetailOutput {
         Objects.equals(this.endpointName, endpointForDescribeDBInstanceDetailOutput.endpointName) &&
         Objects.equals(this.endpointType, endpointForDescribeDBInstanceDetailOutput.endpointType) &&
         Objects.equals(this.idleConnectionReclaim, endpointForDescribeDBInstanceDetailOutput.idleConnectionReclaim) &&
+        Objects.equals(this.implicitTransSplit, endpointForDescribeDBInstanceDetailOutput.implicitTransSplit) &&
+        Objects.equals(this.masterNodeRouting, endpointForDescribeDBInstanceDetailOutput.masterNodeRouting) &&
+        Objects.equals(this.masterProtectorTimeout, endpointForDescribeDBInstanceDetailOutput.masterProtectorTimeout) &&
         Objects.equals(this.multiStatementsMode, endpointForDescribeDBInstanceDetailOutput.multiStatementsMode) &&
+        Objects.equals(this.overloadProtection, endpointForDescribeDBInstanceDetailOutput.overloadProtection) &&
         Objects.equals(this.readOnlyNodeDistributionType, endpointForDescribeDBInstanceDetailOutput.readOnlyNodeDistributionType) &&
         Objects.equals(this.readOnlyNodeMaxDelayTime, endpointForDescribeDBInstanceDetailOutput.readOnlyNodeMaxDelayTime) &&
         Objects.equals(this.readOnlyNodeWeight, endpointForDescribeDBInstanceDetailOutput.readOnlyNodeWeight) &&
@@ -418,7 +536,7 @@ public class EndpointForDescribeDBInstanceDetailOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addresses, autoAddNewNodes, connectionMode, connectionPoolType, description, enableReadOnly, enableReadWriteSplitting, endpointId, endpointName, endpointType, idleConnectionReclaim, multiStatementsMode, readOnlyNodeDistributionType, readOnlyNodeMaxDelayTime, readOnlyNodeWeight, readWriteMode);
+    return Objects.hash(addresses, autoAddNewNodes, connectionInfoTags, connectionMode, connectionPoolType, description, enableReadOnly, enableReadWriteSplitting, endpointId, endpointName, endpointType, idleConnectionReclaim, implicitTransSplit, masterNodeRouting, masterProtectorTimeout, multiStatementsMode, overloadProtection, readOnlyNodeDistributionType, readOnlyNodeMaxDelayTime, readOnlyNodeWeight, readWriteMode);
   }
 
 
@@ -429,6 +547,7 @@ public class EndpointForDescribeDBInstanceDetailOutput {
     
     sb.append("    addresses: ").append(toIndentedString(addresses)).append("\n");
     sb.append("    autoAddNewNodes: ").append(toIndentedString(autoAddNewNodes)).append("\n");
+    sb.append("    connectionInfoTags: ").append(toIndentedString(connectionInfoTags)).append("\n");
     sb.append("    connectionMode: ").append(toIndentedString(connectionMode)).append("\n");
     sb.append("    connectionPoolType: ").append(toIndentedString(connectionPoolType)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
@@ -438,7 +557,11 @@ public class EndpointForDescribeDBInstanceDetailOutput {
     sb.append("    endpointName: ").append(toIndentedString(endpointName)).append("\n");
     sb.append("    endpointType: ").append(toIndentedString(endpointType)).append("\n");
     sb.append("    idleConnectionReclaim: ").append(toIndentedString(idleConnectionReclaim)).append("\n");
+    sb.append("    implicitTransSplit: ").append(toIndentedString(implicitTransSplit)).append("\n");
+    sb.append("    masterNodeRouting: ").append(toIndentedString(masterNodeRouting)).append("\n");
+    sb.append("    masterProtectorTimeout: ").append(toIndentedString(masterProtectorTimeout)).append("\n");
     sb.append("    multiStatementsMode: ").append(toIndentedString(multiStatementsMode)).append("\n");
+    sb.append("    overloadProtection: ").append(toIndentedString(overloadProtection)).append("\n");
     sb.append("    readOnlyNodeDistributionType: ").append(toIndentedString(readOnlyNodeDistributionType)).append("\n");
     sb.append("    readOnlyNodeMaxDelayTime: ").append(toIndentedString(readOnlyNodeMaxDelayTime)).append("\n");
     sb.append("    readOnlyNodeWeight: ").append(toIndentedString(readOnlyNodeWeight)).append("\n");

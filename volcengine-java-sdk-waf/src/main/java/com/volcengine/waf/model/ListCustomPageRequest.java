@@ -42,6 +42,9 @@ public class ListCustomPageRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
 
+  @SerializedName("RuleTag")
+  private String ruleTag = null;
+
   public ListCustomPageRequest host(String host) {
     this.host = host;
     return this;
@@ -115,6 +118,24 @@ public class ListCustomPageRequest {
     this.projectName = projectName;
   }
 
+  public ListCustomPageRequest ruleTag(String ruleTag) {
+    this.ruleTag = ruleTag;
+    return this;
+  }
+
+   /**
+   * Get ruleTag
+   * @return ruleTag
+  **/
+  @Schema(description = "")
+  public String getRuleTag() {
+    return ruleTag;
+  }
+
+  public void setRuleTag(String ruleTag) {
+    this.ruleTag = ruleTag;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -128,12 +149,13 @@ public class ListCustomPageRequest {
     return Objects.equals(this.host, listCustomPageRequest.host) &&
         Objects.equals(this.page, listCustomPageRequest.page) &&
         Objects.equals(this.pageSize, listCustomPageRequest.pageSize) &&
-        Objects.equals(this.projectName, listCustomPageRequest.projectName);
+        Objects.equals(this.projectName, listCustomPageRequest.projectName) &&
+        Objects.equals(this.ruleTag, listCustomPageRequest.ruleTag);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(host, page, pageSize, projectName);
+    return Objects.hash(host, page, pageSize, projectName, ruleTag);
   }
 
 
@@ -146,6 +168,7 @@ public class ListCustomPageRequest {
     sb.append("    page: ").append(toIndentedString(page)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    ruleTag: ").append(toIndentedString(ruleTag)).append("\n");
     sb.append("}");
     return sb.toString();
   }

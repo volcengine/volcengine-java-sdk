@@ -88,9 +88,6 @@ public class UpdateCCRuleRequest {
   @SerializedName("SingleThreshold")
   private Integer singleThreshold = null;
 
-  @SerializedName("UpdateTime")
-  private String updateTime = null;
-
   @SerializedName("Url")
   private String url = null;
 
@@ -435,24 +432,6 @@ public class UpdateCCRuleRequest {
     this.singleThreshold = singleThreshold;
   }
 
-  public UpdateCCRuleRequest updateTime(String updateTime) {
-    this.updateTime = updateTime;
-    return this;
-  }
-
-   /**
-   * Get updateTime
-   * @return updateTime
-  **/
-  @Schema(description = "")
-  public String getUpdateTime() {
-    return updateTime;
-  }
-
-  public void setUpdateTime(String updateTime) {
-    this.updateTime = updateTime;
-  }
-
   public UpdateCCRuleRequest url(String url) {
     this.url = url;
     return this;
@@ -500,13 +479,12 @@ public class UpdateCCRuleRequest {
         Objects.equals(this.rulePriority, updateCCRuleRequest.rulePriority) &&
         Objects.equals(this.ruleTag, updateCCRuleRequest.ruleTag) &&
         Objects.equals(this.singleThreshold, updateCCRuleRequest.singleThreshold) &&
-        Objects.equals(this.updateTime, updateCCRuleRequest.updateTime) &&
         Objects.equals(this.url, updateCCRuleRequest.url);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accurateGroup, accurateGroupPriority, ccType, countTime, cronConfs, cronEnable, effectTime, enable, exemptionTime, field, host, id, name, pathThreshold, projectName, rulePriority, ruleTag, singleThreshold, updateTime, url);
+    return Objects.hash(accurateGroup, accurateGroupPriority, ccType, countTime, cronConfs, cronEnable, effectTime, enable, exemptionTime, field, host, id, name, pathThreshold, projectName, rulePriority, ruleTag, singleThreshold, url);
   }
 
 
@@ -533,7 +511,6 @@ public class UpdateCCRuleRequest {
     sb.append("    rulePriority: ").append(toIndentedString(rulePriority)).append("\n");
     sb.append("    ruleTag: ").append(toIndentedString(ruleTag)).append("\n");
     sb.append("    singleThreshold: ").append(toIndentedString(singleThreshold)).append("\n");
-    sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("}");
     return sb.toString();

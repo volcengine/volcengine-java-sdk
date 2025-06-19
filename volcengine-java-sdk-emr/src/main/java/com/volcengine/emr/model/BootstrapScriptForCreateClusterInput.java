@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.emr.model.EffectiveScopeForCreateClusterInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -31,7 +32,7 @@ import javax.validation.Valid;
 
 public class BootstrapScriptForCreateClusterInput {
   @SerializedName("EffectiveScope")
-  private String effectiveScope = null;
+  private EffectiveScopeForCreateClusterInput effectiveScope = null;
 
   /**
    * Gets or Sets executionFailStrategy
@@ -84,10 +85,10 @@ public class BootstrapScriptForCreateClusterInput {
    */
   @JsonAdapter(ExecutionMomentEnum.Adapter.class)
   public enum ExecutionMomentEnum {
-    @SerializedName("BEFORE_APP_INSTALL")
-    BEFORE_APP_INSTALL("BEFORE_APP_INSTALL"),
-    @SerializedName("AFTER_APP_STARTED")
-    AFTER_APP_STARTED("AFTER_APP_STARTED");
+    @SerializedName("BEFORE_APPLICATION_INSTALL")
+    BEFORE_APPLICATION_INSTALL("BEFORE_APPLICATION_INSTALL"),
+    @SerializedName("AFTER_APPLICATION_STARTED")
+    AFTER_APPLICATION_STARTED("AFTER_APPLICATION_STARTED");
 
     private String value;
 
@@ -183,7 +184,7 @@ public class BootstrapScriptForCreateClusterInput {
   }  @SerializedName("ScriptType")
   private ScriptTypeEnum scriptType = null;
 
-  public BootstrapScriptForCreateClusterInput effectiveScope(String effectiveScope) {
+  public BootstrapScriptForCreateClusterInput effectiveScope(EffectiveScopeForCreateClusterInput effectiveScope) {
     this.effectiveScope = effectiveScope;
     return this;
   }
@@ -192,12 +193,13 @@ public class BootstrapScriptForCreateClusterInput {
    * Get effectiveScope
    * @return effectiveScope
   **/
+  @Valid
   @Schema(description = "")
-  public String getEffectiveScope() {
+  public EffectiveScopeForCreateClusterInput getEffectiveScope() {
     return effectiveScope;
   }
 
-  public void setEffectiveScope(String effectiveScope) {
+  public void setEffectiveScope(EffectiveScopeForCreateClusterInput effectiveScope) {
     this.effectiveScope = effectiveScope;
   }
 

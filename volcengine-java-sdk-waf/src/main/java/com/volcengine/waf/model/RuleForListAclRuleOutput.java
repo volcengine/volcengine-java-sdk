@@ -89,9 +89,6 @@ public class RuleForListAclRuleOutput {
   @SerializedName("Name")
   private String name = null;
 
-  @SerializedName("PrefixSwitch")
-  private List<String> prefixSwitch = null;
-
   @SerializedName("RuleTag")
   private String ruleTag = null;
 
@@ -492,32 +489,6 @@ public class RuleForListAclRuleOutput {
     this.name = name;
   }
 
-  public RuleForListAclRuleOutput prefixSwitch(List<String> prefixSwitch) {
-    this.prefixSwitch = prefixSwitch;
-    return this;
-  }
-
-  public RuleForListAclRuleOutput addPrefixSwitchItem(String prefixSwitchItem) {
-    if (this.prefixSwitch == null) {
-      this.prefixSwitch = new ArrayList<String>();
-    }
-    this.prefixSwitch.add(prefixSwitchItem);
-    return this;
-  }
-
-   /**
-   * Get prefixSwitch
-   * @return prefixSwitch
-  **/
-  @Schema(description = "")
-  public List<String> getPrefixSwitch() {
-    return prefixSwitch;
-  }
-
-  public void setPrefixSwitch(List<String> prefixSwitch) {
-    this.prefixSwitch = prefixSwitch;
-  }
-
   public RuleForListAclRuleOutput ruleTag(String ruleTag) {
     this.ruleTag = ruleTag;
     return this;
@@ -600,7 +571,6 @@ public class RuleForListAclRuleOutput {
         Objects.equals(this.ipLocationCountry, ruleForListAclRuleOutput.ipLocationCountry) &&
         Objects.equals(this.ipLocationSubregion, ruleForListAclRuleOutput.ipLocationSubregion) &&
         Objects.equals(this.name, ruleForListAclRuleOutput.name) &&
-        Objects.equals(this.prefixSwitch, ruleForListAclRuleOutput.prefixSwitch) &&
         Objects.equals(this.ruleTag, ruleForListAclRuleOutput.ruleTag) &&
         Objects.equals(this.updateTime, ruleForListAclRuleOutput.updateTime) &&
         Objects.equals(this.url, ruleForListAclRuleOutput.url);
@@ -608,7 +578,7 @@ public class RuleForListAclRuleOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accurateGroup, action, advanced, clientIp, description, enable, hostAddType, hostGroupId, hostGroups, hostList, ID, ipAddType, ipGroupId, ipGroups, ipList, ipLocationCountry, ipLocationSubregion, name, prefixSwitch, ruleTag, updateTime, url);
+    return Objects.hash(accurateGroup, action, advanced, clientIp, description, enable, hostAddType, hostGroupId, hostGroups, hostList, ID, ipAddType, ipGroupId, ipGroups, ipList, ipLocationCountry, ipLocationSubregion, name, ruleTag, updateTime, url);
   }
 
 
@@ -635,7 +605,6 @@ public class RuleForListAclRuleOutput {
     sb.append("    ipLocationCountry: ").append(toIndentedString(ipLocationCountry)).append("\n");
     sb.append("    ipLocationSubregion: ").append(toIndentedString(ipLocationSubregion)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    prefixSwitch: ").append(toIndentedString(prefixSwitch)).append("\n");
     sb.append("    ruleTag: ").append(toIndentedString(ruleTag)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");

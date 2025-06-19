@@ -33,8 +33,56 @@ import javax.validation.Valid;
 
 
 public class ListHostGroupResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("Count")
+  private Integer count = null;
+
+  @SerializedName("CurrentPage")
+  private Integer currentPage = null;
+
   @SerializedName("HostGroupList")
   private List<HostGroupListForListHostGroupOutput> hostGroupList = null;
+
+  @SerializedName("PageSize")
+  private Integer pageSize = null;
+
+  @SerializedName("TotalCount")
+  private Integer totalCount = null;
+
+  public ListHostGroupResponse count(Integer count) {
+    this.count = count;
+    return this;
+  }
+
+   /**
+   * Get count
+   * @return count
+  **/
+  @Schema(description = "")
+  public Integer getCount() {
+    return count;
+  }
+
+  public void setCount(Integer count) {
+    this.count = count;
+  }
+
+  public ListHostGroupResponse currentPage(Integer currentPage) {
+    this.currentPage = currentPage;
+    return this;
+  }
+
+   /**
+   * Get currentPage
+   * @return currentPage
+  **/
+  @Schema(description = "")
+  public Integer getCurrentPage() {
+    return currentPage;
+  }
+
+  public void setCurrentPage(Integer currentPage) {
+    this.currentPage = currentPage;
+  }
 
   public ListHostGroupResponse hostGroupList(List<HostGroupListForListHostGroupOutput> hostGroupList) {
     this.hostGroupList = hostGroupList;
@@ -63,6 +111,42 @@ public class ListHostGroupResponse extends com.volcengine.model.AbstractResponse
     this.hostGroupList = hostGroupList;
   }
 
+  public ListHostGroupResponse pageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+    return this;
+  }
+
+   /**
+   * Get pageSize
+   * @return pageSize
+  **/
+  @Schema(description = "")
+  public Integer getPageSize() {
+    return pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public ListHostGroupResponse totalCount(Integer totalCount) {
+    this.totalCount = totalCount;
+    return this;
+  }
+
+   /**
+   * Get totalCount
+   * @return totalCount
+  **/
+  @Schema(description = "")
+  public Integer getTotalCount() {
+    return totalCount;
+  }
+
+  public void setTotalCount(Integer totalCount) {
+    this.totalCount = totalCount;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -73,12 +157,16 @@ public class ListHostGroupResponse extends com.volcengine.model.AbstractResponse
       return false;
     }
     ListHostGroupResponse listHostGroupResponse = (ListHostGroupResponse) o;
-    return Objects.equals(this.hostGroupList, listHostGroupResponse.hostGroupList);
+    return Objects.equals(this.count, listHostGroupResponse.count) &&
+        Objects.equals(this.currentPage, listHostGroupResponse.currentPage) &&
+        Objects.equals(this.hostGroupList, listHostGroupResponse.hostGroupList) &&
+        Objects.equals(this.pageSize, listHostGroupResponse.pageSize) &&
+        Objects.equals(this.totalCount, listHostGroupResponse.totalCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hostGroupList);
+    return Objects.hash(count, currentPage, hostGroupList, pageSize, totalCount);
   }
 
 
@@ -87,7 +175,11 @@ public class ListHostGroupResponse extends com.volcengine.model.AbstractResponse
     StringBuilder sb = new StringBuilder();
     sb.append("class ListHostGroupResponse {\n");
     
+    sb.append("    count: ").append(toIndentedString(count)).append("\n");
+    sb.append("    currentPage: ").append(toIndentedString(currentPage)).append("\n");
     sb.append("    hostGroupList: ").append(toIndentedString(hostGroupList)).append("\n");
+    sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("}");
     return sb.toString();
   }

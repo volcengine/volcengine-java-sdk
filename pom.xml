@@ -286,7 +286,11 @@
         <module>volcengine-java-sdk-acep</module>
         <module>volcengine-java-sdk-resourcecenter</module>
         <module>volcengine-java-sdk-sqs</module>
+        <module>volcengine-java-sdk-dbw</module>
         <module>volcengine-java-sdk-coze20250601</module>
+        <module>volcengine-java-sdk-aiotvideo</module>
+        <module>volcengine-java-sdk-apig</module>
+        <module>volcengine-java-sdk-apig20221112</module>
         <module>volcengine-java-sdk-aiotvideo20231001</module>
     </modules>
 </project>

@@ -31,7 +31,7 @@ import javax.validation.Valid;
 
 public class HealthCheckerForDescribeVpnConnectionsOutput {
   @SerializedName("CheckInterval")
-  private String checkInterval = null;
+  private Integer checkInterval = null;
 
   /**
    * Gets or Sets checkResult
@@ -97,7 +97,7 @@ public class HealthCheckerForDescribeVpnConnectionsOutput {
   @SerializedName("UpTime")
   private Integer upTime = null;
 
-  public HealthCheckerForDescribeVpnConnectionsOutput checkInterval(String checkInterval) {
+  public HealthCheckerForDescribeVpnConnectionsOutput checkInterval(Integer checkInterval) {
     this.checkInterval = checkInterval;
     return this;
   }
@@ -107,11 +107,11 @@ public class HealthCheckerForDescribeVpnConnectionsOutput {
    * @return checkInterval
   **/
   @Schema(description = "")
-  public String getCheckInterval() {
+  public Integer getCheckInterval() {
     return checkInterval;
   }
 
-  public void setCheckInterval(String checkInterval) {
+  public void setCheckInterval(Integer checkInterval) {
     this.checkInterval = checkInterval;
   }
 

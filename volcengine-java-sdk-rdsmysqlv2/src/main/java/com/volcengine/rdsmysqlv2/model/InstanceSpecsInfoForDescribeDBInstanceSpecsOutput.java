@@ -69,6 +69,9 @@ public class InstanceSpecsInfoForDescribeDBInstanceSpecsOutput {
   @SerializedName("StorageStep")
   private Integer storageStep = null;
 
+  @SerializedName("StorageType")
+  private String storageType = null;
+
   @SerializedName("VCPU")
   private Integer VCPU = null;
 
@@ -309,6 +312,24 @@ public class InstanceSpecsInfoForDescribeDBInstanceSpecsOutput {
     this.storageStep = storageStep;
   }
 
+  public InstanceSpecsInfoForDescribeDBInstanceSpecsOutput storageType(String storageType) {
+    this.storageType = storageType;
+    return this;
+  }
+
+   /**
+   * Get storageType
+   * @return storageType
+  **/
+  @Schema(description = "")
+  public String getStorageType() {
+    return storageType;
+  }
+
+  public void setStorageType(String storageType) {
+    this.storageType = storageType;
+  }
+
   public InstanceSpecsInfoForDescribeDBInstanceSpecsOutput VCPU(Integer VCPU) {
     this.VCPU = VCPU;
     return this;
@@ -368,13 +389,14 @@ public class InstanceSpecsInfoForDescribeDBInstanceSpecsOutput {
         Objects.equals(this.storageMax, instanceSpecsInfoForDescribeDBInstanceSpecsOutput.storageMax) &&
         Objects.equals(this.storageMin, instanceSpecsInfoForDescribeDBInstanceSpecsOutput.storageMin) &&
         Objects.equals(this.storageStep, instanceSpecsInfoForDescribeDBInstanceSpecsOutput.storageStep) &&
+        Objects.equals(this.storageType, instanceSpecsInfoForDescribeDBInstanceSpecsOutput.storageType) &&
         Objects.equals(this.VCPU, instanceSpecsInfoForDescribeDBInstanceSpecsOutput.VCPU) &&
         Objects.equals(this.zoneId, instanceSpecsInfoForDescribeDBInstanceSpecsOutput.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(connection, dbEngineVersion, IOPS, instanceType, memory, QPS, regionId, specCode, specFamily, specStatus, storageMax, storageMin, storageStep, VCPU, zoneId);
+    return Objects.hash(connection, dbEngineVersion, IOPS, instanceType, memory, QPS, regionId, specCode, specFamily, specStatus, storageMax, storageMin, storageStep, storageType, VCPU, zoneId);
   }
 
 
@@ -396,6 +418,7 @@ public class InstanceSpecsInfoForDescribeDBInstanceSpecsOutput {
     sb.append("    storageMax: ").append(toIndentedString(storageMax)).append("\n");
     sb.append("    storageMin: ").append(toIndentedString(storageMin)).append("\n");
     sb.append("    storageStep: ").append(toIndentedString(storageStep)).append("\n");
+    sb.append("    storageType: ").append(toIndentedString(storageType)).append("\n");
     sb.append("    VCPU: ").append(toIndentedString(VCPU)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");
