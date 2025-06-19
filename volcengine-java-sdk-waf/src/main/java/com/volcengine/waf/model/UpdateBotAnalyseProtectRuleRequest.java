@@ -76,7 +76,7 @@ public class UpdateBotAnalyseProtectRuleRequest {
   private Integer rulePriority = null;
 
   @SerializedName("SingleProportion")
-  private String singleProportion = null;
+  private Float singleProportion = null;
 
   @SerializedName("SingleThreshold")
   private Integer singleThreshold = null;
@@ -357,7 +357,7 @@ public class UpdateBotAnalyseProtectRuleRequest {
     this.rulePriority = rulePriority;
   }
 
-  public UpdateBotAnalyseProtectRuleRequest singleProportion(String singleProportion) {
+  public UpdateBotAnalyseProtectRuleRequest singleProportion(Float singleProportion) {
     this.singleProportion = singleProportion;
     return this;
   }
@@ -367,11 +367,11 @@ public class UpdateBotAnalyseProtectRuleRequest {
    * @return singleProportion
   **/
   @Schema(description = "")
-  public String getSingleProportion() {
+  public Float getSingleProportion() {
     return singleProportion;
   }
 
-  public void setSingleProportion(String singleProportion) {
+  public void setSingleProportion(Float singleProportion) {
     this.singleProportion = singleProportion;
   }
 

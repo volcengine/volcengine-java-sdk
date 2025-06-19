@@ -43,7 +43,7 @@ public class UpdateWafServiceControlRequest {
   private Integer blackLctEnable = null;
 
   @SerializedName("BotDytokenEnable")
-  private String botDytokenEnable = null;
+  private Integer botDytokenEnable = null;
 
   @SerializedName("BotFrequencyEnable")
   private Integer botFrequencyEnable = null;
@@ -168,7 +168,7 @@ public class UpdateWafServiceControlRequest {
     this.blackLctEnable = blackLctEnable;
   }
 
-  public UpdateWafServiceControlRequest botDytokenEnable(String botDytokenEnable) {
+  public UpdateWafServiceControlRequest botDytokenEnable(Integer botDytokenEnable) {
     this.botDytokenEnable = botDytokenEnable;
     return this;
   }
@@ -178,11 +178,11 @@ public class UpdateWafServiceControlRequest {
    * @return botDytokenEnable
   **/
   @Schema(description = "")
-  public String getBotDytokenEnable() {
+  public Integer getBotDytokenEnable() {
     return botDytokenEnable;
   }
 
-  public void setBotDytokenEnable(String botDytokenEnable) {
+  public void setBotDytokenEnable(Integer botDytokenEnable) {
     this.botDytokenEnable = botDytokenEnable;
   }
 

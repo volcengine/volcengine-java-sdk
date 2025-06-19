@@ -14,6 +14,13 @@ package com.volcengine.rdsmysqlv2.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -23,6 +30,27 @@ import javax.validation.Valid;
 
 
 public class CopyParameterTemplateResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("TemplateId")
+  private String templateId = null;
+
+  public CopyParameterTemplateResponse templateId(String templateId) {
+    this.templateId = templateId;
+    return this;
+  }
+
+   /**
+   * Get templateId
+   * @return templateId
+  **/
+  @Schema(description = "")
+  public String getTemplateId() {
+    return templateId;
+  }
+
+  public void setTemplateId(String templateId) {
+    this.templateId = templateId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -32,12 +60,13 @@ public class CopyParameterTemplateResponse extends com.volcengine.model.Abstract
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return true;
+    CopyParameterTemplateResponse copyParameterTemplateResponse = (CopyParameterTemplateResponse) o;
+    return Objects.equals(this.templateId, copyParameterTemplateResponse.templateId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash();
+    return Objects.hash(templateId);
   }
 
 
@@ -46,6 +75,7 @@ public class CopyParameterTemplateResponse extends com.volcengine.model.Abstract
     StringBuilder sb = new StringBuilder();
     sb.append("class CopyParameterTemplateResponse {\n");
     
+    sb.append("    templateId: ").append(toIndentedString(templateId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

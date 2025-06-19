@@ -36,6 +36,9 @@ public class RestoreToExistedInstanceRequest {
   @SerializedName("BackupId")
   private String backupId = null;
 
+  @SerializedName("FastMode")
+  private Boolean fastMode = null;
+
   @SerializedName("RestoreTime")
   private String restoreTime = null;
 
@@ -64,6 +67,24 @@ public class RestoreToExistedInstanceRequest {
 
   public void setBackupId(String backupId) {
     this.backupId = backupId;
+  }
+
+  public RestoreToExistedInstanceRequest fastMode(Boolean fastMode) {
+    this.fastMode = fastMode;
+    return this;
+  }
+
+   /**
+   * Get fastMode
+   * @return fastMode
+  **/
+  @Schema(description = "")
+  public Boolean isFastMode() {
+    return fastMode;
+  }
+
+  public void setFastMode(Boolean fastMode) {
+    this.fastMode = fastMode;
   }
 
   public RestoreToExistedInstanceRequest restoreTime(String restoreTime) {
@@ -159,6 +180,7 @@ public class RestoreToExistedInstanceRequest {
     }
     RestoreToExistedInstanceRequest restoreToExistedInstanceRequest = (RestoreToExistedInstanceRequest) o;
     return Objects.equals(this.backupId, restoreToExistedInstanceRequest.backupId) &&
+        Objects.equals(this.fastMode, restoreToExistedInstanceRequest.fastMode) &&
         Objects.equals(this.restoreTime, restoreToExistedInstanceRequest.restoreTime) &&
         Objects.equals(this.restoreType, restoreToExistedInstanceRequest.restoreType) &&
         Objects.equals(this.sourceDBInstanceId, restoreToExistedInstanceRequest.sourceDBInstanceId) &&
@@ -167,7 +189,7 @@ public class RestoreToExistedInstanceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(backupId, restoreTime, restoreType, sourceDBInstanceId, tableMeta);
+    return Objects.hash(backupId, fastMode, restoreTime, restoreType, sourceDBInstanceId, tableMeta);
   }
 
 
@@ -177,6 +199,7 @@ public class RestoreToExistedInstanceRequest {
     sb.append("class RestoreToExistedInstanceRequest {\n");
     
     sb.append("    backupId: ").append(toIndentedString(backupId)).append("\n");
+    sb.append("    fastMode: ").append(toIndentedString(fastMode)).append("\n");
     sb.append("    restoreTime: ").append(toIndentedString(restoreTime)).append("\n");
     sb.append("    restoreType: ").append(toIndentedString(restoreType)).append("\n");
     sb.append("    sourceDBInstanceId: ").append(toIndentedString(sourceDBInstanceId)).append("\n");

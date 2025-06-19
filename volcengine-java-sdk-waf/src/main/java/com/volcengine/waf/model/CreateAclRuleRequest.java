@@ -78,9 +78,6 @@ public class CreateAclRuleRequest {
   @SerializedName("Name")
   private String name = null;
 
-  @SerializedName("PrefixSwitch")
-  private Integer prefixSwitch = null;
-
   @SerializedName("ProjectName")
   private String projectName = null;
 
@@ -411,24 +408,6 @@ public class CreateAclRuleRequest {
     this.name = name;
   }
 
-  public CreateAclRuleRequest prefixSwitch(Integer prefixSwitch) {
-    this.prefixSwitch = prefixSwitch;
-    return this;
-  }
-
-   /**
-   * Get prefixSwitch
-   * @return prefixSwitch
-  **/
-  @Schema(description = "")
-  public Integer getPrefixSwitch() {
-    return prefixSwitch;
-  }
-
-  public void setPrefixSwitch(Integer prefixSwitch) {
-    this.prefixSwitch = prefixSwitch;
-  }
-
   public CreateAclRuleRequest projectName(String projectName) {
     this.projectName = projectName;
     return this;
@@ -491,14 +470,13 @@ public class CreateAclRuleRequest {
         Objects.equals(this.ipLocationCountry, createAclRuleRequest.ipLocationCountry) &&
         Objects.equals(this.ipLocationSubregion, createAclRuleRequest.ipLocationSubregion) &&
         Objects.equals(this.name, createAclRuleRequest.name) &&
-        Objects.equals(this.prefixSwitch, createAclRuleRequest.prefixSwitch) &&
         Objects.equals(this.projectName, createAclRuleRequest.projectName) &&
         Objects.equals(this.url, createAclRuleRequest.url);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accurateGroup, aclType, action, advanced, description, enable, hostAddType, hostGroupId, hostList, ipAddType, ipGroupId, ipList, ipLocationCountry, ipLocationSubregion, name, prefixSwitch, projectName, url);
+    return Objects.hash(accurateGroup, aclType, action, advanced, description, enable, hostAddType, hostGroupId, hostList, ipAddType, ipGroupId, ipList, ipLocationCountry, ipLocationSubregion, name, projectName, url);
   }
 
 
@@ -522,7 +500,6 @@ public class CreateAclRuleRequest {
     sb.append("    ipLocationCountry: ").append(toIndentedString(ipLocationCountry)).append("\n");
     sb.append("    ipLocationSubregion: ").append(toIndentedString(ipLocationSubregion)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    prefixSwitch: ").append(toIndentedString(prefixSwitch)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("}");

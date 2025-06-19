@@ -19,8 +19,14 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.rdsmysqlv2.model.AutoStorageScalingConfigForRebuildDBInstanceInput;
+import com.volcengine.rdsmysqlv2.model.ChargeInfoForRebuildDBInstanceInput;
+import com.volcengine.rdsmysqlv2.model.InstanceTagForRebuildDBInstanceInput;
+import com.volcengine.rdsmysqlv2.model.NodeInfoForRebuildDBInstanceInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -30,14 +36,174 @@ import javax.validation.Valid;
 
 
 public class RebuildDBInstanceRequest {
+  @SerializedName("AllowListIds")
+  private List<String> allowListIds = null;
+
+  @SerializedName("AutoStorageScalingConfig")
+  private AutoStorageScalingConfigForRebuildDBInstanceInput autoStorageScalingConfig = null;
+
+  @SerializedName("BackupId")
+  private String backupId = null;
+
+  @SerializedName("ChargeInfo")
+  private ChargeInfoForRebuildDBInstanceInput chargeInfo = null;
+
+  @SerializedName("DBParamGroupId")
+  private String dbParamGroupId = null;
+
+  @SerializedName("DeletionProtection")
+  private String deletionProtection = null;
+
   @SerializedName("InstanceId")
   private String instanceId = null;
+
+  @SerializedName("InstanceName")
+  private String instanceName = null;
+
+  @SerializedName("InstanceTags")
+  private List<InstanceTagForRebuildDBInstanceInput> instanceTags = null;
+
+  @SerializedName("NodeInfo")
+  private List<NodeInfoForRebuildDBInstanceInput> nodeInfo = null;
+
+  @SerializedName("Port")
+  private Integer port = null;
 
   @SerializedName("ProjectName")
   private String projectName = null;
 
   @SerializedName("RequestSource")
   private String requestSource = null;
+
+  @SerializedName("StorageSpace")
+  private Integer storageSpace = null;
+
+  @SerializedName("StorageType")
+  private String storageType = null;
+
+  @SerializedName("SubnetId")
+  private String subnetId = null;
+
+  @SerializedName("VpcId")
+  private String vpcId = null;
+
+  public RebuildDBInstanceRequest allowListIds(List<String> allowListIds) {
+    this.allowListIds = allowListIds;
+    return this;
+  }
+
+  public RebuildDBInstanceRequest addAllowListIdsItem(String allowListIdsItem) {
+    if (this.allowListIds == null) {
+      this.allowListIds = new ArrayList<String>();
+    }
+    this.allowListIds.add(allowListIdsItem);
+    return this;
+  }
+
+   /**
+   * Get allowListIds
+   * @return allowListIds
+  **/
+  @Schema(description = "")
+  public List<String> getAllowListIds() {
+    return allowListIds;
+  }
+
+  public void setAllowListIds(List<String> allowListIds) {
+    this.allowListIds = allowListIds;
+  }
+
+  public RebuildDBInstanceRequest autoStorageScalingConfig(AutoStorageScalingConfigForRebuildDBInstanceInput autoStorageScalingConfig) {
+    this.autoStorageScalingConfig = autoStorageScalingConfig;
+    return this;
+  }
+
+   /**
+   * Get autoStorageScalingConfig
+   * @return autoStorageScalingConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public AutoStorageScalingConfigForRebuildDBInstanceInput getAutoStorageScalingConfig() {
+    return autoStorageScalingConfig;
+  }
+
+  public void setAutoStorageScalingConfig(AutoStorageScalingConfigForRebuildDBInstanceInput autoStorageScalingConfig) {
+    this.autoStorageScalingConfig = autoStorageScalingConfig;
+  }
+
+  public RebuildDBInstanceRequest backupId(String backupId) {
+    this.backupId = backupId;
+    return this;
+  }
+
+   /**
+   * Get backupId
+   * @return backupId
+  **/
+  @Schema(description = "")
+  public String getBackupId() {
+    return backupId;
+  }
+
+  public void setBackupId(String backupId) {
+    this.backupId = backupId;
+  }
+
+  public RebuildDBInstanceRequest chargeInfo(ChargeInfoForRebuildDBInstanceInput chargeInfo) {
+    this.chargeInfo = chargeInfo;
+    return this;
+  }
+
+   /**
+   * Get chargeInfo
+   * @return chargeInfo
+  **/
+  @Valid
+  @Schema(description = "")
+  public ChargeInfoForRebuildDBInstanceInput getChargeInfo() {
+    return chargeInfo;
+  }
+
+  public void setChargeInfo(ChargeInfoForRebuildDBInstanceInput chargeInfo) {
+    this.chargeInfo = chargeInfo;
+  }
+
+  public RebuildDBInstanceRequest dbParamGroupId(String dbParamGroupId) {
+    this.dbParamGroupId = dbParamGroupId;
+    return this;
+  }
+
+   /**
+   * Get dbParamGroupId
+   * @return dbParamGroupId
+  **/
+  @Schema(description = "")
+  public String getDbParamGroupId() {
+    return dbParamGroupId;
+  }
+
+  public void setDbParamGroupId(String dbParamGroupId) {
+    this.dbParamGroupId = dbParamGroupId;
+  }
+
+  public RebuildDBInstanceRequest deletionProtection(String deletionProtection) {
+    this.deletionProtection = deletionProtection;
+    return this;
+  }
+
+   /**
+   * Get deletionProtection
+   * @return deletionProtection
+  **/
+  @Schema(description = "")
+  public String getDeletionProtection() {
+    return deletionProtection;
+  }
+
+  public void setDeletionProtection(String deletionProtection) {
+    this.deletionProtection = deletionProtection;
+  }
 
   public RebuildDBInstanceRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
@@ -56,6 +222,96 @@ public class RebuildDBInstanceRequest {
 
   public void setInstanceId(String instanceId) {
     this.instanceId = instanceId;
+  }
+
+  public RebuildDBInstanceRequest instanceName(String instanceName) {
+    this.instanceName = instanceName;
+    return this;
+  }
+
+   /**
+   * Get instanceName
+   * @return instanceName
+  **/
+  @Schema(description = "")
+  public String getInstanceName() {
+    return instanceName;
+  }
+
+  public void setInstanceName(String instanceName) {
+    this.instanceName = instanceName;
+  }
+
+  public RebuildDBInstanceRequest instanceTags(List<InstanceTagForRebuildDBInstanceInput> instanceTags) {
+    this.instanceTags = instanceTags;
+    return this;
+  }
+
+  public RebuildDBInstanceRequest addInstanceTagsItem(InstanceTagForRebuildDBInstanceInput instanceTagsItem) {
+    if (this.instanceTags == null) {
+      this.instanceTags = new ArrayList<InstanceTagForRebuildDBInstanceInput>();
+    }
+    this.instanceTags.add(instanceTagsItem);
+    return this;
+  }
+
+   /**
+   * Get instanceTags
+   * @return instanceTags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<InstanceTagForRebuildDBInstanceInput> getInstanceTags() {
+    return instanceTags;
+  }
+
+  public void setInstanceTags(List<InstanceTagForRebuildDBInstanceInput> instanceTags) {
+    this.instanceTags = instanceTags;
+  }
+
+  public RebuildDBInstanceRequest nodeInfo(List<NodeInfoForRebuildDBInstanceInput> nodeInfo) {
+    this.nodeInfo = nodeInfo;
+    return this;
+  }
+
+  public RebuildDBInstanceRequest addNodeInfoItem(NodeInfoForRebuildDBInstanceInput nodeInfoItem) {
+    if (this.nodeInfo == null) {
+      this.nodeInfo = new ArrayList<NodeInfoForRebuildDBInstanceInput>();
+    }
+    this.nodeInfo.add(nodeInfoItem);
+    return this;
+  }
+
+   /**
+   * Get nodeInfo
+   * @return nodeInfo
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<NodeInfoForRebuildDBInstanceInput> getNodeInfo() {
+    return nodeInfo;
+  }
+
+  public void setNodeInfo(List<NodeInfoForRebuildDBInstanceInput> nodeInfo) {
+    this.nodeInfo = nodeInfo;
+  }
+
+  public RebuildDBInstanceRequest port(Integer port) {
+    this.port = port;
+    return this;
+  }
+
+   /**
+   * Get port
+   * @return port
+  **/
+  @Schema(description = "")
+  public Integer getPort() {
+    return port;
+  }
+
+  public void setPort(Integer port) {
+    this.port = port;
   }
 
   public RebuildDBInstanceRequest projectName(String projectName) {
@@ -94,6 +350,78 @@ public class RebuildDBInstanceRequest {
     this.requestSource = requestSource;
   }
 
+  public RebuildDBInstanceRequest storageSpace(Integer storageSpace) {
+    this.storageSpace = storageSpace;
+    return this;
+  }
+
+   /**
+   * Get storageSpace
+   * @return storageSpace
+  **/
+  @Schema(description = "")
+  public Integer getStorageSpace() {
+    return storageSpace;
+  }
+
+  public void setStorageSpace(Integer storageSpace) {
+    this.storageSpace = storageSpace;
+  }
+
+  public RebuildDBInstanceRequest storageType(String storageType) {
+    this.storageType = storageType;
+    return this;
+  }
+
+   /**
+   * Get storageType
+   * @return storageType
+  **/
+  @Schema(description = "")
+  public String getStorageType() {
+    return storageType;
+  }
+
+  public void setStorageType(String storageType) {
+    this.storageType = storageType;
+  }
+
+  public RebuildDBInstanceRequest subnetId(String subnetId) {
+    this.subnetId = subnetId;
+    return this;
+  }
+
+   /**
+   * Get subnetId
+   * @return subnetId
+  **/
+  @Schema(description = "")
+  public String getSubnetId() {
+    return subnetId;
+  }
+
+  public void setSubnetId(String subnetId) {
+    this.subnetId = subnetId;
+  }
+
+  public RebuildDBInstanceRequest vpcId(String vpcId) {
+    this.vpcId = vpcId;
+    return this;
+  }
+
+   /**
+   * Get vpcId
+   * @return vpcId
+  **/
+  @Schema(description = "")
+  public String getVpcId() {
+    return vpcId;
+  }
+
+  public void setVpcId(String vpcId) {
+    this.vpcId = vpcId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -104,14 +432,28 @@ public class RebuildDBInstanceRequest {
       return false;
     }
     RebuildDBInstanceRequest rebuildDBInstanceRequest = (RebuildDBInstanceRequest) o;
-    return Objects.equals(this.instanceId, rebuildDBInstanceRequest.instanceId) &&
+    return Objects.equals(this.allowListIds, rebuildDBInstanceRequest.allowListIds) &&
+        Objects.equals(this.autoStorageScalingConfig, rebuildDBInstanceRequest.autoStorageScalingConfig) &&
+        Objects.equals(this.backupId, rebuildDBInstanceRequest.backupId) &&
+        Objects.equals(this.chargeInfo, rebuildDBInstanceRequest.chargeInfo) &&
+        Objects.equals(this.dbParamGroupId, rebuildDBInstanceRequest.dbParamGroupId) &&
+        Objects.equals(this.deletionProtection, rebuildDBInstanceRequest.deletionProtection) &&
+        Objects.equals(this.instanceId, rebuildDBInstanceRequest.instanceId) &&
+        Objects.equals(this.instanceName, rebuildDBInstanceRequest.instanceName) &&
+        Objects.equals(this.instanceTags, rebuildDBInstanceRequest.instanceTags) &&
+        Objects.equals(this.nodeInfo, rebuildDBInstanceRequest.nodeInfo) &&
+        Objects.equals(this.port, rebuildDBInstanceRequest.port) &&
         Objects.equals(this.projectName, rebuildDBInstanceRequest.projectName) &&
-        Objects.equals(this.requestSource, rebuildDBInstanceRequest.requestSource);
+        Objects.equals(this.requestSource, rebuildDBInstanceRequest.requestSource) &&
+        Objects.equals(this.storageSpace, rebuildDBInstanceRequest.storageSpace) &&
+        Objects.equals(this.storageType, rebuildDBInstanceRequest.storageType) &&
+        Objects.equals(this.subnetId, rebuildDBInstanceRequest.subnetId) &&
+        Objects.equals(this.vpcId, rebuildDBInstanceRequest.vpcId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, projectName, requestSource);
+    return Objects.hash(allowListIds, autoStorageScalingConfig, backupId, chargeInfo, dbParamGroupId, deletionProtection, instanceId, instanceName, instanceTags, nodeInfo, port, projectName, requestSource, storageSpace, storageType, subnetId, vpcId);
   }
 
 
@@ -120,9 +462,23 @@ public class RebuildDBInstanceRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class RebuildDBInstanceRequest {\n");
     
+    sb.append("    allowListIds: ").append(toIndentedString(allowListIds)).append("\n");
+    sb.append("    autoStorageScalingConfig: ").append(toIndentedString(autoStorageScalingConfig)).append("\n");
+    sb.append("    backupId: ").append(toIndentedString(backupId)).append("\n");
+    sb.append("    chargeInfo: ").append(toIndentedString(chargeInfo)).append("\n");
+    sb.append("    dbParamGroupId: ").append(toIndentedString(dbParamGroupId)).append("\n");
+    sb.append("    deletionProtection: ").append(toIndentedString(deletionProtection)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
+    sb.append("    instanceTags: ").append(toIndentedString(instanceTags)).append("\n");
+    sb.append("    nodeInfo: ").append(toIndentedString(nodeInfo)).append("\n");
+    sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    requestSource: ").append(toIndentedString(requestSource)).append("\n");
+    sb.append("    storageSpace: ").append(toIndentedString(storageSpace)).append("\n");
+    sb.append("    storageType: ").append(toIndentedString(storageType)).append("\n");
+    sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
+    sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

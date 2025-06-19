@@ -21,8 +21,11 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.emr.model.NodeAttributeForListClustersOutput;
 import com.volcengine.emr.model.StateChangeReasonForListClustersOutput;
+import com.volcengine.emr.model.TagForListClustersOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -53,6 +56,9 @@ public class ItemForListClustersOutput {
   @SerializedName("CreateTime")
   private Long createTime = null;
 
+  @SerializedName("CreateTimeStr")
+  private String createTimeStr = null;
+
   @SerializedName("Creator")
   private String creator = null;
 
@@ -79,6 +85,9 @@ public class ItemForListClustersOutput {
 
   @SerializedName("StateChangeReason")
   private StateChangeReasonForListClustersOutput stateChangeReason = null;
+
+  @SerializedName("Tags")
+  private List<TagForListClustersOutput> tags = null;
 
   @SerializedName("TerminateTime")
   private Long terminateTime = null;
@@ -210,6 +219,24 @@ public class ItemForListClustersOutput {
 
   public void setCreateTime(Long createTime) {
     this.createTime = createTime;
+  }
+
+  public ItemForListClustersOutput createTimeStr(String createTimeStr) {
+    this.createTimeStr = createTimeStr;
+    return this;
+  }
+
+   /**
+   * Get createTimeStr
+   * @return createTimeStr
+  **/
+  @Schema(description = "")
+  public String getCreateTimeStr() {
+    return createTimeStr;
+  }
+
+  public void setCreateTimeStr(String createTimeStr) {
+    this.createTimeStr = createTimeStr;
   }
 
   public ItemForListClustersOutput creator(String creator) {
@@ -376,6 +403,33 @@ public class ItemForListClustersOutput {
     this.stateChangeReason = stateChangeReason;
   }
 
+  public ItemForListClustersOutput tags(List<TagForListClustersOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public ItemForListClustersOutput addTagsItem(TagForListClustersOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForListClustersOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForListClustersOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForListClustersOutput> tags) {
+    this.tags = tags;
+  }
+
   public ItemForListClustersOutput terminateTime(Long terminateTime) {
     this.terminateTime = terminateTime;
     return this;
@@ -429,6 +483,7 @@ public class ItemForListClustersOutput {
         Objects.equals(this.clusterState, itemForListClustersOutput.clusterState) &&
         Objects.equals(this.clusterType, itemForListClustersOutput.clusterType) &&
         Objects.equals(this.createTime, itemForListClustersOutput.createTime) &&
+        Objects.equals(this.createTimeStr, itemForListClustersOutput.createTimeStr) &&
         Objects.equals(this.creator, itemForListClustersOutput.creator) &&
         Objects.equals(this.expireTime, itemForListClustersOutput.expireTime) &&
         Objects.equals(this.nodeAttribute, itemForListClustersOutput.nodeAttribute) &&
@@ -438,13 +493,14 @@ public class ItemForListClustersOutput {
         Objects.equals(this.releaseVersion, itemForListClustersOutput.releaseVersion) &&
         Objects.equals(this.securityGroupId, itemForListClustersOutput.securityGroupId) &&
         Objects.equals(this.stateChangeReason, itemForListClustersOutput.stateChangeReason) &&
+        Objects.equals(this.tags, itemForListClustersOutput.tags) &&
         Objects.equals(this.terminateTime, itemForListClustersOutput.terminateTime) &&
         Objects.equals(this.vpcId, itemForListClustersOutput.vpcId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, chargeType, clusterId, clusterName, clusterState, clusterType, createTime, creator, expireTime, nodeAttribute, projectName, readyTime, regionId, releaseVersion, securityGroupId, stateChangeReason, terminateTime, vpcId);
+    return Objects.hash(accountId, chargeType, clusterId, clusterName, clusterState, clusterType, createTime, createTimeStr, creator, expireTime, nodeAttribute, projectName, readyTime, regionId, releaseVersion, securityGroupId, stateChangeReason, tags, terminateTime, vpcId);
   }
 
 
@@ -460,6 +516,7 @@ public class ItemForListClustersOutput {
     sb.append("    clusterState: ").append(toIndentedString(clusterState)).append("\n");
     sb.append("    clusterType: ").append(toIndentedString(clusterType)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
+    sb.append("    createTimeStr: ").append(toIndentedString(createTimeStr)).append("\n");
     sb.append("    creator: ").append(toIndentedString(creator)).append("\n");
     sb.append("    expireTime: ").append(toIndentedString(expireTime)).append("\n");
     sb.append("    nodeAttribute: ").append(toIndentedString(nodeAttribute)).append("\n");
@@ -469,6 +526,7 @@ public class ItemForListClustersOutput {
     sb.append("    releaseVersion: ").append(toIndentedString(releaseVersion)).append("\n");
     sb.append("    securityGroupId: ").append(toIndentedString(securityGroupId)).append("\n");
     sb.append("    stateChangeReason: ").append(toIndentedString(stateChangeReason)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    terminateTime: ").append(toIndentedString(terminateTime)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("}");

@@ -33,11 +33,17 @@ public class ConditionForListRulesByIdsOutput {
   @SerializedName("ComparisonOperator")
   private String comparisonOperator = null;
 
+  @SerializedName("DisplayName")
+  private String displayName = null;
+
   @SerializedName("MetricName")
   private String metricName = null;
 
   @SerializedName("MetricUnit")
   private String metricUnit = null;
+
+  @SerializedName("Period")
+  private String period = null;
 
   @SerializedName("Statistics")
   private String statistics = null;
@@ -61,6 +67,24 @@ public class ConditionForListRulesByIdsOutput {
 
   public void setComparisonOperator(String comparisonOperator) {
     this.comparisonOperator = comparisonOperator;
+  }
+
+  public ConditionForListRulesByIdsOutput displayName(String displayName) {
+    this.displayName = displayName;
+    return this;
+  }
+
+   /**
+   * Get displayName
+   * @return displayName
+  **/
+  @Schema(description = "")
+  public String getDisplayName() {
+    return displayName;
+  }
+
+  public void setDisplayName(String displayName) {
+    this.displayName = displayName;
   }
 
   public ConditionForListRulesByIdsOutput metricName(String metricName) {
@@ -97,6 +121,24 @@ public class ConditionForListRulesByIdsOutput {
 
   public void setMetricUnit(String metricUnit) {
     this.metricUnit = metricUnit;
+  }
+
+  public ConditionForListRulesByIdsOutput period(String period) {
+    this.period = period;
+    return this;
+  }
+
+   /**
+   * Get period
+   * @return period
+  **/
+  @Schema(description = "")
+  public String getPeriod() {
+    return period;
+  }
+
+  public void setPeriod(String period) {
+    this.period = period;
   }
 
   public ConditionForListRulesByIdsOutput statistics(String statistics) {
@@ -146,15 +188,17 @@ public class ConditionForListRulesByIdsOutput {
     }
     ConditionForListRulesByIdsOutput conditionForListRulesByIdsOutput = (ConditionForListRulesByIdsOutput) o;
     return Objects.equals(this.comparisonOperator, conditionForListRulesByIdsOutput.comparisonOperator) &&
+        Objects.equals(this.displayName, conditionForListRulesByIdsOutput.displayName) &&
         Objects.equals(this.metricName, conditionForListRulesByIdsOutput.metricName) &&
         Objects.equals(this.metricUnit, conditionForListRulesByIdsOutput.metricUnit) &&
+        Objects.equals(this.period, conditionForListRulesByIdsOutput.period) &&
         Objects.equals(this.statistics, conditionForListRulesByIdsOutput.statistics) &&
         Objects.equals(this.threshold, conditionForListRulesByIdsOutput.threshold);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(comparisonOperator, metricName, metricUnit, statistics, threshold);
+    return Objects.hash(comparisonOperator, displayName, metricName, metricUnit, period, statistics, threshold);
   }
 
 
@@ -164,8 +208,10 @@ public class ConditionForListRulesByIdsOutput {
     sb.append("class ConditionForListRulesByIdsOutput {\n");
     
     sb.append("    comparisonOperator: ").append(toIndentedString(comparisonOperator)).append("\n");
+    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    metricName: ").append(toIndentedString(metricName)).append("\n");
     sb.append("    metricUnit: ").append(toIndentedString(metricUnit)).append("\n");
+    sb.append("    period: ").append(toIndentedString(period)).append("\n");
     sb.append("    statistics: ").append(toIndentedString(statistics)).append("\n");
     sb.append("    threshold: ").append(toIndentedString(threshold)).append("\n");
     sb.append("}");

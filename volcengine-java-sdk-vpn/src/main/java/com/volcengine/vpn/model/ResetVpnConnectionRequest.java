@@ -33,6 +33,9 @@ public class ResetVpnConnectionRequest {
   @SerializedName("ClientToken")
   private String clientToken = null;
 
+  @SerializedName("TunnelId")
+  private String tunnelId = null;
+
   @SerializedName("VpnConnectionId")
   private String vpnConnectionId = null;
 
@@ -52,6 +55,24 @@ public class ResetVpnConnectionRequest {
 
   public void setClientToken(String clientToken) {
     this.clientToken = clientToken;
+  }
+
+  public ResetVpnConnectionRequest tunnelId(String tunnelId) {
+    this.tunnelId = tunnelId;
+    return this;
+  }
+
+   /**
+   * Get tunnelId
+   * @return tunnelId
+  **/
+  @Schema(description = "")
+  public String getTunnelId() {
+    return tunnelId;
+  }
+
+  public void setTunnelId(String tunnelId) {
+    this.tunnelId = tunnelId;
   }
 
   public ResetVpnConnectionRequest vpnConnectionId(String vpnConnectionId) {
@@ -84,12 +105,13 @@ public class ResetVpnConnectionRequest {
     }
     ResetVpnConnectionRequest resetVpnConnectionRequest = (ResetVpnConnectionRequest) o;
     return Objects.equals(this.clientToken, resetVpnConnectionRequest.clientToken) &&
+        Objects.equals(this.tunnelId, resetVpnConnectionRequest.tunnelId) &&
         Objects.equals(this.vpnConnectionId, resetVpnConnectionRequest.vpnConnectionId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientToken, vpnConnectionId);
+    return Objects.hash(clientToken, tunnelId, vpnConnectionId);
   }
 
 
@@ -99,6 +121,7 @@ public class ResetVpnConnectionRequest {
     sb.append("class ResetVpnConnectionRequest {\n");
     
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
+    sb.append("    tunnelId: ").append(toIndentedString(tunnelId)).append("\n");
     sb.append("    vpnConnectionId: ").append(toIndentedString(vpnConnectionId)).append("\n");
     sb.append("}");
     return sb.toString();
