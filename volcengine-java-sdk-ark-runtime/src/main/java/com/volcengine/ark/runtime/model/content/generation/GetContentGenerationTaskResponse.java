@@ -57,6 +57,14 @@ public class GetContentGenerationTaskResponse {
         this.status = status;
     }
 
+    public ContentGenerationError getError() {
+        return error;
+    }
+
+    public void setError(ContentGenerationError error) {
+        this.error = error;
+    }
+
     public Content getContent() {
         return content;
     }
