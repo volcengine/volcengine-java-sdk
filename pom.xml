@@ -289,5 +289,6 @@
         <module>volcengine-java-sdk-dbw</module>
         <module>volcengine-java-sdk-coze20250601</module>
         <module>volcengine-java-sdk-aiotvideo</module>
+        <module>volcengine-java-sdk-apig</module>
     </modules>
 </project>
