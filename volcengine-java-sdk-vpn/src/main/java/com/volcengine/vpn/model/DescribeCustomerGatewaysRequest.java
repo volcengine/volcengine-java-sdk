@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vpn.model.TagFilterForDescribeCustomerGatewaysInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -52,6 +53,9 @@ public class DescribeCustomerGatewaysRequest {
 
   @SerializedName("Status")
   private String status = null;
+
+  @SerializedName("TagFilters")
+  private List<TagFilterForDescribeCustomerGatewaysInput> tagFilters = null;
 
   public DescribeCustomerGatewaysRequest customerGatewayIds(List<String> customerGatewayIds) {
     this.customerGatewayIds = customerGatewayIds;
@@ -187,6 +191,33 @@ public class DescribeCustomerGatewaysRequest {
     this.status = status;
   }
 
+  public DescribeCustomerGatewaysRequest tagFilters(List<TagFilterForDescribeCustomerGatewaysInput> tagFilters) {
+    this.tagFilters = tagFilters;
+    return this;
+  }
+
+  public DescribeCustomerGatewaysRequest addTagFiltersItem(TagFilterForDescribeCustomerGatewaysInput tagFiltersItem) {
+    if (this.tagFilters == null) {
+      this.tagFilters = new ArrayList<TagFilterForDescribeCustomerGatewaysInput>();
+    }
+    this.tagFilters.add(tagFiltersItem);
+    return this;
+  }
+
+   /**
+   * Get tagFilters
+   * @return tagFilters
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagFilterForDescribeCustomerGatewaysInput> getTagFilters() {
+    return tagFilters;
+  }
+
+  public void setTagFilters(List<TagFilterForDescribeCustomerGatewaysInput> tagFilters) {
+    this.tagFilters = tagFilters;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -203,12 +234,13 @@ public class DescribeCustomerGatewaysRequest {
         Objects.equals(this.pageNumber, describeCustomerGatewaysRequest.pageNumber) &&
         Objects.equals(this.pageSize, describeCustomerGatewaysRequest.pageSize) &&
         Objects.equals(this.projectName, describeCustomerGatewaysRequest.projectName) &&
-        Objects.equals(this.status, describeCustomerGatewaysRequest.status);
+        Objects.equals(this.status, describeCustomerGatewaysRequest.status) &&
+        Objects.equals(this.tagFilters, describeCustomerGatewaysRequest.tagFilters);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(customerGatewayIds, customerGatewayName, ipAddress, pageNumber, pageSize, projectName, status);
+    return Objects.hash(customerGatewayIds, customerGatewayName, ipAddress, pageNumber, pageSize, projectName, status, tagFilters);
   }
 
 
@@ -224,6 +256,7 @@ public class DescribeCustomerGatewaysRequest {
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("}");
     return sb.toString();
   }

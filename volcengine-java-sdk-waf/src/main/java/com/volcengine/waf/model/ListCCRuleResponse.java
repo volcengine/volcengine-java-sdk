@@ -33,11 +33,20 @@ import javax.validation.Valid;
 
 
 public class ListCCRuleResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("Count")
+  private Integer count = null;
+
+  @SerializedName("CurrentPage")
+  private Integer currentPage = null;
+
   @SerializedName("EnableCount")
   private Integer enableCount = null;
 
   @SerializedName("InsertTime")
   private String insertTime = null;
+
+  @SerializedName("PageSize")
+  private Integer pageSize = null;
 
   @SerializedName("RuleGroup")
   private List<RuleGroupForListCCRuleOutput> ruleGroup = null;
@@ -47,6 +56,42 @@ public class ListCCRuleResponse extends com.volcengine.model.AbstractResponse {
 
   @SerializedName("Url")
   private String url = null;
+
+  public ListCCRuleResponse count(Integer count) {
+    this.count = count;
+    return this;
+  }
+
+   /**
+   * Get count
+   * @return count
+  **/
+  @Schema(description = "")
+  public Integer getCount() {
+    return count;
+  }
+
+  public void setCount(Integer count) {
+    this.count = count;
+  }
+
+  public ListCCRuleResponse currentPage(Integer currentPage) {
+    this.currentPage = currentPage;
+    return this;
+  }
+
+   /**
+   * Get currentPage
+   * @return currentPage
+  **/
+  @Schema(description = "")
+  public Integer getCurrentPage() {
+    return currentPage;
+  }
+
+  public void setCurrentPage(Integer currentPage) {
+    this.currentPage = currentPage;
+  }
 
   public ListCCRuleResponse enableCount(Integer enableCount) {
     this.enableCount = enableCount;
@@ -82,6 +127,24 @@ public class ListCCRuleResponse extends com.volcengine.model.AbstractResponse {
 
   public void setInsertTime(String insertTime) {
     this.insertTime = insertTime;
+  }
+
+  public ListCCRuleResponse pageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+    return this;
+  }
+
+   /**
+   * Get pageSize
+   * @return pageSize
+  **/
+  @Schema(description = "")
+  public Integer getPageSize() {
+    return pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
   }
 
   public ListCCRuleResponse ruleGroup(List<RuleGroupForListCCRuleOutput> ruleGroup) {
@@ -157,8 +220,11 @@ public class ListCCRuleResponse extends com.volcengine.model.AbstractResponse {
       return false;
     }
     ListCCRuleResponse listCCRuleResponse = (ListCCRuleResponse) o;
-    return Objects.equals(this.enableCount, listCCRuleResponse.enableCount) &&
+    return Objects.equals(this.count, listCCRuleResponse.count) &&
+        Objects.equals(this.currentPage, listCCRuleResponse.currentPage) &&
+        Objects.equals(this.enableCount, listCCRuleResponse.enableCount) &&
         Objects.equals(this.insertTime, listCCRuleResponse.insertTime) &&
+        Objects.equals(this.pageSize, listCCRuleResponse.pageSize) &&
         Objects.equals(this.ruleGroup, listCCRuleResponse.ruleGroup) &&
         Objects.equals(this.totalCount, listCCRuleResponse.totalCount) &&
         Objects.equals(this.url, listCCRuleResponse.url);
@@ -166,7 +232,7 @@ public class ListCCRuleResponse extends com.volcengine.model.AbstractResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(enableCount, insertTime, ruleGroup, totalCount, url);
+    return Objects.hash(count, currentPage, enableCount, insertTime, pageSize, ruleGroup, totalCount, url);
   }
 
 
@@ -175,8 +241,11 @@ public class ListCCRuleResponse extends com.volcengine.model.AbstractResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListCCRuleResponse {\n");
     
+    sb.append("    count: ").append(toIndentedString(count)).append("\n");
+    sb.append("    currentPage: ").append(toIndentedString(currentPage)).append("\n");
     sb.append("    enableCount: ").append(toIndentedString(enableCount)).append("\n");
     sb.append("    insertTime: ").append(toIndentedString(insertTime)).append("\n");
+    sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    ruleGroup: ").append(toIndentedString(ruleGroup)).append("\n");
     sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");

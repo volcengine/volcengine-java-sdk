@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.rdsmysqlv2.model.AccountPrivilegeForGrantDBAccountPrivilegeInput;
+import com.volcengine.rdsmysqlv2.model.TableColumnPrivilegeForGrantDBAccountPrivilegeInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -47,6 +48,9 @@ public class GrantDBAccountPrivilegeRequest {
 
   @SerializedName("InstanceId")
   private String instanceId = null;
+
+  @SerializedName("TableColumnPrivileges")
+  private List<TableColumnPrivilegeForGrantDBAccountPrivilegeInput> tableColumnPrivileges = null;
 
   public GrantDBAccountPrivilegeRequest accountName(String accountName) {
     this.accountName = accountName;
@@ -149,6 +153,33 @@ public class GrantDBAccountPrivilegeRequest {
     this.instanceId = instanceId;
   }
 
+  public GrantDBAccountPrivilegeRequest tableColumnPrivileges(List<TableColumnPrivilegeForGrantDBAccountPrivilegeInput> tableColumnPrivileges) {
+    this.tableColumnPrivileges = tableColumnPrivileges;
+    return this;
+  }
+
+  public GrantDBAccountPrivilegeRequest addTableColumnPrivilegesItem(TableColumnPrivilegeForGrantDBAccountPrivilegeInput tableColumnPrivilegesItem) {
+    if (this.tableColumnPrivileges == null) {
+      this.tableColumnPrivileges = new ArrayList<TableColumnPrivilegeForGrantDBAccountPrivilegeInput>();
+    }
+    this.tableColumnPrivileges.add(tableColumnPrivilegesItem);
+    return this;
+  }
+
+   /**
+   * Get tableColumnPrivileges
+   * @return tableColumnPrivileges
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TableColumnPrivilegeForGrantDBAccountPrivilegeInput> getTableColumnPrivileges() {
+    return tableColumnPrivileges;
+  }
+
+  public void setTableColumnPrivileges(List<TableColumnPrivilegeForGrantDBAccountPrivilegeInput> tableColumnPrivileges) {
+    this.tableColumnPrivileges = tableColumnPrivileges;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -163,12 +194,13 @@ public class GrantDBAccountPrivilegeRequest {
         Objects.equals(this.accountPrivileges, grantDBAccountPrivilegeRequest.accountPrivileges) &&
         Objects.equals(this.dryRun, grantDBAccountPrivilegeRequest.dryRun) &&
         Objects.equals(this.host, grantDBAccountPrivilegeRequest.host) &&
-        Objects.equals(this.instanceId, grantDBAccountPrivilegeRequest.instanceId);
+        Objects.equals(this.instanceId, grantDBAccountPrivilegeRequest.instanceId) &&
+        Objects.equals(this.tableColumnPrivileges, grantDBAccountPrivilegeRequest.tableColumnPrivileges);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountName, accountPrivileges, dryRun, host, instanceId);
+    return Objects.hash(accountName, accountPrivileges, dryRun, host, instanceId, tableColumnPrivileges);
   }
 
 
@@ -182,6 +214,7 @@ public class GrantDBAccountPrivilegeRequest {
     sb.append("    dryRun: ").append(toIndentedString(dryRun)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    tableColumnPrivileges: ").append(toIndentedString(tableColumnPrivileges)).append("\n");
     sb.append("}");
     return sb.toString();
   }

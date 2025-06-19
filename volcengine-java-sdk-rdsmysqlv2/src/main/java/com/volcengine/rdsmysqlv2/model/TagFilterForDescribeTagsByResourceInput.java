@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -35,6 +37,9 @@ public class TagFilterForDescribeTagsByResourceInput {
 
   @SerializedName("Value")
   private String value = null;
+
+  @SerializedName("Values")
+  private List<String> values = null;
 
   public TagFilterForDescribeTagsByResourceInput key(String key) {
     this.key = key;
@@ -72,6 +77,32 @@ public class TagFilterForDescribeTagsByResourceInput {
     this.value = value;
   }
 
+  public TagFilterForDescribeTagsByResourceInput values(List<String> values) {
+    this.values = values;
+    return this;
+  }
+
+  public TagFilterForDescribeTagsByResourceInput addValuesItem(String valuesItem) {
+    if (this.values == null) {
+      this.values = new ArrayList<String>();
+    }
+    this.values.add(valuesItem);
+    return this;
+  }
+
+   /**
+   * Get values
+   * @return values
+  **/
+  @Schema(description = "")
+  public List<String> getValues() {
+    return values;
+  }
+
+  public void setValues(List<String> values) {
+    this.values = values;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -83,12 +114,13 @@ public class TagFilterForDescribeTagsByResourceInput {
     }
     TagFilterForDescribeTagsByResourceInput tagFilterForDescribeTagsByResourceInput = (TagFilterForDescribeTagsByResourceInput) o;
     return Objects.equals(this.key, tagFilterForDescribeTagsByResourceInput.key) &&
-        Objects.equals(this.value, tagFilterForDescribeTagsByResourceInput.value);
+        Objects.equals(this.value, tagFilterForDescribeTagsByResourceInput.value) &&
+        Objects.equals(this.values, tagFilterForDescribeTagsByResourceInput.values);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(key, value);
+    return Objects.hash(key, value, values);
   }
 
 
@@ -99,6 +131,7 @@ public class TagFilterForDescribeTagsByResourceInput {
     
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    values: ").append(toIndentedString(values)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -35,6 +35,9 @@ public class VpcCniConfigForCreateClusterInput {
   @SerializedName("SubnetIds")
   private List<String> subnetIds = null;
 
+  @SerializedName("TrunkEniEnabled")
+  private Boolean trunkEniEnabled = null;
+
   public VpcCniConfigForCreateClusterInput subnetIds(List<String> subnetIds) {
     this.subnetIds = subnetIds;
     return this;
@@ -61,6 +64,24 @@ public class VpcCniConfigForCreateClusterInput {
     this.subnetIds = subnetIds;
   }
 
+  public VpcCniConfigForCreateClusterInput trunkEniEnabled(Boolean trunkEniEnabled) {
+    this.trunkEniEnabled = trunkEniEnabled;
+    return this;
+  }
+
+   /**
+   * Get trunkEniEnabled
+   * @return trunkEniEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isTrunkEniEnabled() {
+    return trunkEniEnabled;
+  }
+
+  public void setTrunkEniEnabled(Boolean trunkEniEnabled) {
+    this.trunkEniEnabled = trunkEniEnabled;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -71,12 +92,13 @@ public class VpcCniConfigForCreateClusterInput {
       return false;
     }
     VpcCniConfigForCreateClusterInput vpcCniConfigForCreateClusterInput = (VpcCniConfigForCreateClusterInput) o;
-    return Objects.equals(this.subnetIds, vpcCniConfigForCreateClusterInput.subnetIds);
+    return Objects.equals(this.subnetIds, vpcCniConfigForCreateClusterInput.subnetIds) &&
+        Objects.equals(this.trunkEniEnabled, vpcCniConfigForCreateClusterInput.trunkEniEnabled);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(subnetIds);
+    return Objects.hash(subnetIds, trunkEniEnabled);
   }
 
 
@@ -86,6 +108,7 @@ public class VpcCniConfigForCreateClusterInput {
     sb.append("class VpcCniConfigForCreateClusterInput {\n");
     
     sb.append("    subnetIds: ").append(toIndentedString(subnetIds)).append("\n");
+    sb.append("    trunkEniEnabled: ").append(toIndentedString(trunkEniEnabled)).append("\n");
     sb.append("}");
     return sb.toString();
   }

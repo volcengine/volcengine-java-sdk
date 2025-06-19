@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vpn.model.TagFilterForDescribeVpnConnectionsInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -55,6 +56,9 @@ public class DescribeVpnConnectionsRequest {
 
   @SerializedName("Status")
   private String status = null;
+
+  @SerializedName("TagFilters")
+  private List<TagFilterForDescribeVpnConnectionsInput> tagFilters = null;
 
   @SerializedName("TransitRouterId")
   private String transitRouterId = null;
@@ -212,6 +216,33 @@ public class DescribeVpnConnectionsRequest {
     this.status = status;
   }
 
+  public DescribeVpnConnectionsRequest tagFilters(List<TagFilterForDescribeVpnConnectionsInput> tagFilters) {
+    this.tagFilters = tagFilters;
+    return this;
+  }
+
+  public DescribeVpnConnectionsRequest addTagFiltersItem(TagFilterForDescribeVpnConnectionsInput tagFiltersItem) {
+    if (this.tagFilters == null) {
+      this.tagFilters = new ArrayList<TagFilterForDescribeVpnConnectionsInput>();
+    }
+    this.tagFilters.add(tagFiltersItem);
+    return this;
+  }
+
+   /**
+   * Get tagFilters
+   * @return tagFilters
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagFilterForDescribeVpnConnectionsInput> getTagFilters() {
+    return tagFilters;
+  }
+
+  public void setTagFilters(List<TagFilterForDescribeVpnConnectionsInput> tagFilters) {
+    this.tagFilters = tagFilters;
+  }
+
   public DescribeVpnConnectionsRequest transitRouterId(String transitRouterId) {
     this.transitRouterId = transitRouterId;
     return this;
@@ -310,6 +341,7 @@ public class DescribeVpnConnectionsRequest {
         Objects.equals(this.projectName, describeVpnConnectionsRequest.projectName) &&
         Objects.equals(this.spec, describeVpnConnectionsRequest.spec) &&
         Objects.equals(this.status, describeVpnConnectionsRequest.status) &&
+        Objects.equals(this.tagFilters, describeVpnConnectionsRequest.tagFilters) &&
         Objects.equals(this.transitRouterId, describeVpnConnectionsRequest.transitRouterId) &&
         Objects.equals(this.vpnConnectionIds, describeVpnConnectionsRequest.vpnConnectionIds) &&
         Objects.equals(this.vpnConnectionName, describeVpnConnectionsRequest.vpnConnectionName) &&
@@ -318,7 +350,7 @@ public class DescribeVpnConnectionsRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(attachStatus, attachType, customerGatewayId, pageNumber, pageSize, projectName, spec, status, transitRouterId, vpnConnectionIds, vpnConnectionName, vpnGatewayId);
+    return Objects.hash(attachStatus, attachType, customerGatewayId, pageNumber, pageSize, projectName, spec, status, tagFilters, transitRouterId, vpnConnectionIds, vpnConnectionName, vpnGatewayId);
   }
 
 
@@ -335,6 +367,7 @@ public class DescribeVpnConnectionsRequest {
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    spec: ").append(toIndentedString(spec)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("    transitRouterId: ").append(toIndentedString(transitRouterId)).append("\n");
     sb.append("    vpnConnectionIds: ").append(toIndentedString(vpnConnectionIds)).append("\n");
     sb.append("    vpnConnectionName: ").append(toIndentedString(vpnConnectionName)).append("\n");

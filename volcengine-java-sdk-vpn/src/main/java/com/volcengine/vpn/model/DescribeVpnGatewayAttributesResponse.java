@@ -60,6 +60,9 @@ public class DescribeVpnGatewayAttributesResponse extends com.volcengine.model.A
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("DualTunnelEnabled")
+  private Boolean dualTunnelEnabled = null;
+
   @SerializedName("ExpiredTime")
   private String expiredTime = null;
 
@@ -86,6 +89,12 @@ public class DescribeVpnGatewayAttributesResponse extends com.volcengine.model.A
 
   @SerializedName("RouteCount")
   private Integer routeCount = null;
+
+  @SerializedName("SecondaryIpAddress")
+  private String secondaryIpAddress = null;
+
+  @SerializedName("SecondarySubnetId")
+  private String secondarySubnetId = null;
 
   @SerializedName("SslEnabled")
   private Boolean sslEnabled = null;
@@ -279,6 +288,24 @@ public class DescribeVpnGatewayAttributesResponse extends com.volcengine.model.A
     this.description = description;
   }
 
+  public DescribeVpnGatewayAttributesResponse dualTunnelEnabled(Boolean dualTunnelEnabled) {
+    this.dualTunnelEnabled = dualTunnelEnabled;
+    return this;
+  }
+
+   /**
+   * Get dualTunnelEnabled
+   * @return dualTunnelEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isDualTunnelEnabled() {
+    return dualTunnelEnabled;
+  }
+
+  public void setDualTunnelEnabled(Boolean dualTunnelEnabled) {
+    this.dualTunnelEnabled = dualTunnelEnabled;
+  }
+
   public DescribeVpnGatewayAttributesResponse expiredTime(String expiredTime) {
     this.expiredTime = expiredTime;
     return this;
@@ -439,6 +466,42 @@ public class DescribeVpnGatewayAttributesResponse extends com.volcengine.model.A
 
   public void setRouteCount(Integer routeCount) {
     this.routeCount = routeCount;
+  }
+
+  public DescribeVpnGatewayAttributesResponse secondaryIpAddress(String secondaryIpAddress) {
+    this.secondaryIpAddress = secondaryIpAddress;
+    return this;
+  }
+
+   /**
+   * Get secondaryIpAddress
+   * @return secondaryIpAddress
+  **/
+  @Schema(description = "")
+  public String getSecondaryIpAddress() {
+    return secondaryIpAddress;
+  }
+
+  public void setSecondaryIpAddress(String secondaryIpAddress) {
+    this.secondaryIpAddress = secondaryIpAddress;
+  }
+
+  public DescribeVpnGatewayAttributesResponse secondarySubnetId(String secondarySubnetId) {
+    this.secondarySubnetId = secondarySubnetId;
+    return this;
+  }
+
+   /**
+   * Get secondarySubnetId
+   * @return secondarySubnetId
+  **/
+  @Schema(description = "")
+  public String getSecondarySubnetId() {
+    return secondarySubnetId;
+  }
+
+  public void setSecondarySubnetId(String secondarySubnetId) {
+    this.secondarySubnetId = secondarySubnetId;
   }
 
   public DescribeVpnGatewayAttributesResponse sslEnabled(Boolean sslEnabled) {
@@ -649,6 +712,7 @@ public class DescribeVpnGatewayAttributesResponse extends com.volcengine.model.A
         Objects.equals(this.creationTime, describeVpnGatewayAttributesResponse.creationTime) &&
         Objects.equals(this.deletedTime, describeVpnGatewayAttributesResponse.deletedTime) &&
         Objects.equals(this.description, describeVpnGatewayAttributesResponse.description) &&
+        Objects.equals(this.dualTunnelEnabled, describeVpnGatewayAttributesResponse.dualTunnelEnabled) &&
         Objects.equals(this.expiredTime, describeVpnGatewayAttributesResponse.expiredTime) &&
         Objects.equals(this.ipAddress, describeVpnGatewayAttributesResponse.ipAddress) &&
         Objects.equals(this.ipsecEnabled, describeVpnGatewayAttributesResponse.ipsecEnabled) &&
@@ -658,6 +722,8 @@ public class DescribeVpnGatewayAttributesResponse extends com.volcengine.model.A
         Objects.equals(this.projectName, describeVpnGatewayAttributesResponse.projectName) &&
         Objects.equals(this.requestId, describeVpnGatewayAttributesResponse.requestId) &&
         Objects.equals(this.routeCount, describeVpnGatewayAttributesResponse.routeCount) &&
+        Objects.equals(this.secondaryIpAddress, describeVpnGatewayAttributesResponse.secondaryIpAddress) &&
+        Objects.equals(this.secondarySubnetId, describeVpnGatewayAttributesResponse.secondarySubnetId) &&
         Objects.equals(this.sslEnabled, describeVpnGatewayAttributesResponse.sslEnabled) &&
         Objects.equals(this.sslMaxConnection, describeVpnGatewayAttributesResponse.sslMaxConnection) &&
         Objects.equals(this.sslMaxConnections, describeVpnGatewayAttributesResponse.sslMaxConnections) &&
@@ -672,7 +738,7 @@ public class DescribeVpnGatewayAttributesResponse extends com.volcengine.model.A
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, asn, bandwidth, billingType, businessStatus, connectionCount, creationTime, deletedTime, description, expiredTime, ipAddress, ipsecEnabled, isBlocked, lockReason, overdueTime, projectName, requestId, routeCount, sslEnabled, sslMaxConnection, sslMaxConnections, status, subnetId, tags, updateTime, vpcId, vpnGatewayId, vpnGatewayName);
+    return Objects.hash(accountId, asn, bandwidth, billingType, businessStatus, connectionCount, creationTime, deletedTime, description, dualTunnelEnabled, expiredTime, ipAddress, ipsecEnabled, isBlocked, lockReason, overdueTime, projectName, requestId, routeCount, secondaryIpAddress, secondarySubnetId, sslEnabled, sslMaxConnection, sslMaxConnections, status, subnetId, tags, updateTime, vpcId, vpnGatewayId, vpnGatewayName);
   }
 
 
@@ -690,6 +756,7 @@ public class DescribeVpnGatewayAttributesResponse extends com.volcengine.model.A
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    deletedTime: ").append(toIndentedString(deletedTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    dualTunnelEnabled: ").append(toIndentedString(dualTunnelEnabled)).append("\n");
     sb.append("    expiredTime: ").append(toIndentedString(expiredTime)).append("\n");
     sb.append("    ipAddress: ").append(toIndentedString(ipAddress)).append("\n");
     sb.append("    ipsecEnabled: ").append(toIndentedString(ipsecEnabled)).append("\n");
@@ -699,6 +766,8 @@ public class DescribeVpnGatewayAttributesResponse extends com.volcengine.model.A
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    routeCount: ").append(toIndentedString(routeCount)).append("\n");
+    sb.append("    secondaryIpAddress: ").append(toIndentedString(secondaryIpAddress)).append("\n");
+    sb.append("    secondarySubnetId: ").append(toIndentedString(secondarySubnetId)).append("\n");
     sb.append("    sslEnabled: ").append(toIndentedString(sslEnabled)).append("\n");
     sb.append("    sslMaxConnection: ").append(toIndentedString(sslMaxConnection)).append("\n");
     sb.append("    sslMaxConnections: ").append(toIndentedString(sslMaxConnections)).append("\n");

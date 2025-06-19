@@ -54,6 +54,9 @@ public class AccountForDescribeDBAccountsOutput {
   @SerializedName("GlobalAccountPrivileges")
   private List<String> globalAccountPrivileges = null;
 
+  @SerializedName("HasTableColumnPrivilegeDBNames")
+  private List<String> hasTableColumnPrivilegeDBNames = null;
+
   @SerializedName("Host")
   private String host = null;
 
@@ -208,6 +211,32 @@ public class AccountForDescribeDBAccountsOutput {
     this.globalAccountPrivileges = globalAccountPrivileges;
   }
 
+  public AccountForDescribeDBAccountsOutput hasTableColumnPrivilegeDBNames(List<String> hasTableColumnPrivilegeDBNames) {
+    this.hasTableColumnPrivilegeDBNames = hasTableColumnPrivilegeDBNames;
+    return this;
+  }
+
+  public AccountForDescribeDBAccountsOutput addHasTableColumnPrivilegeDBNamesItem(String hasTableColumnPrivilegeDBNamesItem) {
+    if (this.hasTableColumnPrivilegeDBNames == null) {
+      this.hasTableColumnPrivilegeDBNames = new ArrayList<String>();
+    }
+    this.hasTableColumnPrivilegeDBNames.add(hasTableColumnPrivilegeDBNamesItem);
+    return this;
+  }
+
+   /**
+   * Get hasTableColumnPrivilegeDBNames
+   * @return hasTableColumnPrivilegeDBNames
+  **/
+  @Schema(description = "")
+  public List<String> getHasTableColumnPrivilegeDBNames() {
+    return hasTableColumnPrivilegeDBNames;
+  }
+
+  public void setHasTableColumnPrivilegeDBNames(List<String> hasTableColumnPrivilegeDBNames) {
+    this.hasTableColumnPrivilegeDBNames = hasTableColumnPrivilegeDBNames;
+  }
+
   public AccountForDescribeDBAccountsOutput host(String host) {
     this.host = host;
     return this;
@@ -243,12 +272,13 @@ public class AccountForDescribeDBAccountsOutput {
         Objects.equals(this.accountStatus, accountForDescribeDBAccountsOutput.accountStatus) &&
         Objects.equals(this.accountType, accountForDescribeDBAccountsOutput.accountType) &&
         Objects.equals(this.globalAccountPrivileges, accountForDescribeDBAccountsOutput.globalAccountPrivileges) &&
+        Objects.equals(this.hasTableColumnPrivilegeDBNames, accountForDescribeDBAccountsOutput.hasTableColumnPrivilegeDBNames) &&
         Objects.equals(this.host, accountForDescribeDBAccountsOutput.host);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountDesc, accountName, accountPrivileges, accountPrivilegesSQL, accountStatus, accountType, globalAccountPrivileges, host);
+    return Objects.hash(accountDesc, accountName, accountPrivileges, accountPrivilegesSQL, accountStatus, accountType, globalAccountPrivileges, hasTableColumnPrivilegeDBNames, host);
   }
 
 
@@ -264,6 +294,7 @@ public class AccountForDescribeDBAccountsOutput {
     sb.append("    accountStatus: ").append(toIndentedString(accountStatus)).append("\n");
     sb.append("    accountType: ").append(toIndentedString(accountType)).append("\n");
     sb.append("    globalAccountPrivileges: ").append(toIndentedString(globalAccountPrivileges)).append("\n");
+    sb.append("    hasTableColumnPrivilegeDBNames: ").append(toIndentedString(hasTableColumnPrivilegeDBNames)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("}");
     return sb.toString();

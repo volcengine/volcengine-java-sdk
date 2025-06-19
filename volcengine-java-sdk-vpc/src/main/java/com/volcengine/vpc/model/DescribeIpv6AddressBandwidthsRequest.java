@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vpc.model.TagFilterForDescribeIpv6AddressBandwidthsInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -31,7 +34,7 @@ import javax.validation.Valid;
 
 public class DescribeIpv6AddressBandwidthsRequest {
   @SerializedName("AllocationIds")
-  private String allocationIds = null;
+  private List<String> allocationIds = null;
 
   @SerializedName("AssociatedInstanceId")
   private String associatedInstanceId = null;
@@ -46,7 +49,7 @@ public class DescribeIpv6AddressBandwidthsRequest {
   private String ISP = null;
 
   @SerializedName("Ipv6Addresses")
-  private String ipv6Addresses = null;
+  private List<String> ipv6Addresses = null;
 
   @SerializedName("MaxResults")
   private Integer maxResults = null;
@@ -60,11 +63,22 @@ public class DescribeIpv6AddressBandwidthsRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
 
+  @SerializedName("TagFilters")
+  private List<TagFilterForDescribeIpv6AddressBandwidthsInput> tagFilters = null;
+
   @SerializedName("VpcId")
   private String vpcId = null;
 
-  public DescribeIpv6AddressBandwidthsRequest allocationIds(String allocationIds) {
+  public DescribeIpv6AddressBandwidthsRequest allocationIds(List<String> allocationIds) {
     this.allocationIds = allocationIds;
+    return this;
+  }
+
+  public DescribeIpv6AddressBandwidthsRequest addAllocationIdsItem(String allocationIdsItem) {
+    if (this.allocationIds == null) {
+      this.allocationIds = new ArrayList<String>();
+    }
+    this.allocationIds.add(allocationIdsItem);
     return this;
   }
 
@@ -73,11 +87,11 @@ public class DescribeIpv6AddressBandwidthsRequest {
    * @return allocationIds
   **/
   @Schema(description = "")
-  public String getAllocationIds() {
+  public List<String> getAllocationIds() {
     return allocationIds;
   }
 
-  public void setAllocationIds(String allocationIds) {
+  public void setAllocationIds(List<String> allocationIds) {
     this.allocationIds = allocationIds;
   }
 
@@ -153,8 +167,16 @@ public class DescribeIpv6AddressBandwidthsRequest {
     this.ISP = ISP;
   }
 
-  public DescribeIpv6AddressBandwidthsRequest ipv6Addresses(String ipv6Addresses) {
+  public DescribeIpv6AddressBandwidthsRequest ipv6Addresses(List<String> ipv6Addresses) {
     this.ipv6Addresses = ipv6Addresses;
+    return this;
+  }
+
+  public DescribeIpv6AddressBandwidthsRequest addIpv6AddressesItem(String ipv6AddressesItem) {
+    if (this.ipv6Addresses == null) {
+      this.ipv6Addresses = new ArrayList<String>();
+    }
+    this.ipv6Addresses.add(ipv6AddressesItem);
     return this;
   }
 
@@ -163,11 +185,11 @@ public class DescribeIpv6AddressBandwidthsRequest {
    * @return ipv6Addresses
   **/
   @Schema(description = "")
-  public String getIpv6Addresses() {
+  public List<String> getIpv6Addresses() {
     return ipv6Addresses;
   }
 
-  public void setIpv6Addresses(String ipv6Addresses) {
+  public void setIpv6Addresses(List<String> ipv6Addresses) {
     this.ipv6Addresses = ipv6Addresses;
   }
 
@@ -243,6 +265,33 @@ public class DescribeIpv6AddressBandwidthsRequest {
     this.projectName = projectName;
   }
 
+  public DescribeIpv6AddressBandwidthsRequest tagFilters(List<TagFilterForDescribeIpv6AddressBandwidthsInput> tagFilters) {
+    this.tagFilters = tagFilters;
+    return this;
+  }
+
+  public DescribeIpv6AddressBandwidthsRequest addTagFiltersItem(TagFilterForDescribeIpv6AddressBandwidthsInput tagFiltersItem) {
+    if (this.tagFilters == null) {
+      this.tagFilters = new ArrayList<TagFilterForDescribeIpv6AddressBandwidthsInput>();
+    }
+    this.tagFilters.add(tagFiltersItem);
+    return this;
+  }
+
+   /**
+   * Get tagFilters
+   * @return tagFilters
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagFilterForDescribeIpv6AddressBandwidthsInput> getTagFilters() {
+    return tagFilters;
+  }
+
+  public void setTagFilters(List<TagFilterForDescribeIpv6AddressBandwidthsInput> tagFilters) {
+    this.tagFilters = tagFilters;
+  }
+
   public DescribeIpv6AddressBandwidthsRequest vpcId(String vpcId) {
     this.vpcId = vpcId;
     return this;
@@ -281,12 +330,13 @@ public class DescribeIpv6AddressBandwidthsRequest {
         Objects.equals(this.networkType, describeIpv6AddressBandwidthsRequest.networkType) &&
         Objects.equals(this.nextToken, describeIpv6AddressBandwidthsRequest.nextToken) &&
         Objects.equals(this.projectName, describeIpv6AddressBandwidthsRequest.projectName) &&
+        Objects.equals(this.tagFilters, describeIpv6AddressBandwidthsRequest.tagFilters) &&
         Objects.equals(this.vpcId, describeIpv6AddressBandwidthsRequest.vpcId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allocationIds, associatedInstanceId, associatedInstanceType, bandwidthPackageId, ISP, ipv6Addresses, maxResults, networkType, nextToken, projectName, vpcId);
+    return Objects.hash(allocationIds, associatedInstanceId, associatedInstanceType, bandwidthPackageId, ISP, ipv6Addresses, maxResults, networkType, nextToken, projectName, tagFilters, vpcId);
   }
 
 
@@ -305,6 +355,7 @@ public class DescribeIpv6AddressBandwidthsRequest {
     sb.append("    networkType: ").append(toIndentedString(networkType)).append("\n");
     sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("}");
     return sb.toString();

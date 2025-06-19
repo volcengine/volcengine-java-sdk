@@ -98,6 +98,9 @@ public class DescribeBackupPolicyResponse extends com.volcengine.model.AbstractR
   @SerializedName("LogBackupRetentionDay")
   private Integer logBackupRetentionDay = null;
 
+  @SerializedName("PublicDownloadEnable")
+  private Boolean publicDownloadEnable = null;
+
   @SerializedName("RetentionPolicySynced")
   private Boolean retentionPolicySynced = null;
 
@@ -513,6 +516,24 @@ public class DescribeBackupPolicyResponse extends com.volcengine.model.AbstractR
     this.logBackupRetentionDay = logBackupRetentionDay;
   }
 
+  public DescribeBackupPolicyResponse publicDownloadEnable(Boolean publicDownloadEnable) {
+    this.publicDownloadEnable = publicDownloadEnable;
+    return this;
+  }
+
+   /**
+   * Get publicDownloadEnable
+   * @return publicDownloadEnable
+  **/
+  @Schema(description = "")
+  public Boolean isPublicDownloadEnable() {
+    return publicDownloadEnable;
+  }
+
+  public void setPublicDownloadEnable(Boolean publicDownloadEnable) {
+    this.publicDownloadEnable = publicDownloadEnable;
+  }
+
   public DescribeBackupPolicyResponse retentionPolicySynced(Boolean retentionPolicySynced) {
     this.retentionPolicySynced = retentionPolicySynced;
     return this;
@@ -563,12 +584,13 @@ public class DescribeBackupPolicyResponse extends com.volcengine.model.AbstractR
         Objects.equals(this.instanceId, describeBackupPolicyResponse.instanceId) &&
         Objects.equals(this.lockDDLTime, describeBackupPolicyResponse.lockDDLTime) &&
         Objects.equals(this.logBackupRetentionDay, describeBackupPolicyResponse.logBackupRetentionDay) &&
+        Objects.equals(this.publicDownloadEnable, describeBackupPolicyResponse.publicDownloadEnable) &&
         Objects.equals(this.retentionPolicySynced, describeBackupPolicyResponse.retentionPolicySynced);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(binlogBackupAllRetention, binlogBackupEnabled, binlogBackupEncryptionEnabled, binlogFileCountsEnable, binlogLimitCount, binlogLocalRetentionHour, binlogSpaceLimitEnable, binlogStoragePercentage, dataBackupAllRetention, dataBackupEncryptionEnabled, dataBackupRetentionDay, dataFullBackupPeriods, dataFullBackupStartUTCHour, dataFullBackupTime, dataIncrBackupPeriods, dataKeepDaysAfterReleased, dataKeepPolicyAfterReleased, hourlyIncrBackupEnable, incrBackupHourPeriod, instanceId, lockDDLTime, logBackupRetentionDay, retentionPolicySynced);
+    return Objects.hash(binlogBackupAllRetention, binlogBackupEnabled, binlogBackupEncryptionEnabled, binlogFileCountsEnable, binlogLimitCount, binlogLocalRetentionHour, binlogSpaceLimitEnable, binlogStoragePercentage, dataBackupAllRetention, dataBackupEncryptionEnabled, dataBackupRetentionDay, dataFullBackupPeriods, dataFullBackupStartUTCHour, dataFullBackupTime, dataIncrBackupPeriods, dataKeepDaysAfterReleased, dataKeepPolicyAfterReleased, hourlyIncrBackupEnable, incrBackupHourPeriod, instanceId, lockDDLTime, logBackupRetentionDay, publicDownloadEnable, retentionPolicySynced);
   }
 
 
@@ -599,6 +621,7 @@ public class DescribeBackupPolicyResponse extends com.volcengine.model.AbstractR
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    lockDDLTime: ").append(toIndentedString(lockDDLTime)).append("\n");
     sb.append("    logBackupRetentionDay: ").append(toIndentedString(logBackupRetentionDay)).append("\n");
+    sb.append("    publicDownloadEnable: ").append(toIndentedString(publicDownloadEnable)).append("\n");
     sb.append("    retentionPolicySynced: ").append(toIndentedString(retentionPolicySynced)).append("\n");
     sb.append("}");
     return sb.toString();

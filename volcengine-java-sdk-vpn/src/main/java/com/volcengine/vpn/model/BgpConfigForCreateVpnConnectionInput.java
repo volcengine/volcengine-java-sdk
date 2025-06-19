@@ -48,8 +48,7 @@ public class BgpConfigForCreateVpnConnectionInput {
    * Get enableBgp
    * @return enableBgp
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public Boolean isEnableBgp() {
     return enableBgp;
   }
