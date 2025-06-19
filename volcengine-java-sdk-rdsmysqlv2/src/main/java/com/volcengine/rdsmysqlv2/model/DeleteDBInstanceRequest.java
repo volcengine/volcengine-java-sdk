@@ -30,11 +30,32 @@ import javax.validation.Valid;
 
 
 public class DeleteDBInstanceRequest {
+  @SerializedName("DataKeepDays")
+  private Integer dataKeepDays = null;
+
   @SerializedName("DataKeepPolicy")
   private String dataKeepPolicy = null;
 
   @SerializedName("InstanceId")
   private String instanceId = null;
+
+  public DeleteDBInstanceRequest dataKeepDays(Integer dataKeepDays) {
+    this.dataKeepDays = dataKeepDays;
+    return this;
+  }
+
+   /**
+   * Get dataKeepDays
+   * @return dataKeepDays
+  **/
+  @Schema(description = "")
+  public Integer getDataKeepDays() {
+    return dataKeepDays;
+  }
+
+  public void setDataKeepDays(Integer dataKeepDays) {
+    this.dataKeepDays = dataKeepDays;
+  }
 
   public DeleteDBInstanceRequest dataKeepPolicy(String dataKeepPolicy) {
     this.dataKeepPolicy = dataKeepPolicy;
@@ -83,13 +104,14 @@ public class DeleteDBInstanceRequest {
       return false;
     }
     DeleteDBInstanceRequest deleteDBInstanceRequest = (DeleteDBInstanceRequest) o;
-    return Objects.equals(this.dataKeepPolicy, deleteDBInstanceRequest.dataKeepPolicy) &&
+    return Objects.equals(this.dataKeepDays, deleteDBInstanceRequest.dataKeepDays) &&
+        Objects.equals(this.dataKeepPolicy, deleteDBInstanceRequest.dataKeepPolicy) &&
         Objects.equals(this.instanceId, deleteDBInstanceRequest.instanceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dataKeepPolicy, instanceId);
+    return Objects.hash(dataKeepDays, dataKeepPolicy, instanceId);
   }
 
 
@@ -98,6 +120,7 @@ public class DeleteDBInstanceRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteDBInstanceRequest {\n");
     
+    sb.append("    dataKeepDays: ").append(toIndentedString(dataKeepDays)).append("\n");
     sb.append("    dataKeepPolicy: ").append(toIndentedString(dataKeepPolicy)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("}");

@@ -210,7 +210,8 @@ public class ListHostGroupRequest {
    * Get timeOrderBy
    * @return timeOrderBy
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getTimeOrderBy() {
     return timeOrderBy;
   }

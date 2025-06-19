@@ -60,6 +60,9 @@ public class VpnGatewayForDescribeVpnGatewaysOutput {
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("DualTunnelEnabled")
+  private Boolean dualTunnelEnabled = null;
+
   @SerializedName("ExpiredTime")
   private String expiredTime = null;
 
@@ -83,6 +86,12 @@ public class VpnGatewayForDescribeVpnGatewaysOutput {
 
   @SerializedName("RouteCount")
   private Integer routeCount = null;
+
+  @SerializedName("SecondaryIpAddress")
+  private String secondaryIpAddress = null;
+
+  @SerializedName("SecondarySubnetId")
+  private String secondarySubnetId = null;
 
   @SerializedName("SslEnabled")
   private Boolean sslEnabled = null;
@@ -273,6 +282,24 @@ public class VpnGatewayForDescribeVpnGatewaysOutput {
     this.description = description;
   }
 
+  public VpnGatewayForDescribeVpnGatewaysOutput dualTunnelEnabled(Boolean dualTunnelEnabled) {
+    this.dualTunnelEnabled = dualTunnelEnabled;
+    return this;
+  }
+
+   /**
+   * Get dualTunnelEnabled
+   * @return dualTunnelEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isDualTunnelEnabled() {
+    return dualTunnelEnabled;
+  }
+
+  public void setDualTunnelEnabled(Boolean dualTunnelEnabled) {
+    this.dualTunnelEnabled = dualTunnelEnabled;
+  }
+
   public VpnGatewayForDescribeVpnGatewaysOutput expiredTime(String expiredTime) {
     this.expiredTime = expiredTime;
     return this;
@@ -415,6 +442,42 @@ public class VpnGatewayForDescribeVpnGatewaysOutput {
 
   public void setRouteCount(Integer routeCount) {
     this.routeCount = routeCount;
+  }
+
+  public VpnGatewayForDescribeVpnGatewaysOutput secondaryIpAddress(String secondaryIpAddress) {
+    this.secondaryIpAddress = secondaryIpAddress;
+    return this;
+  }
+
+   /**
+   * Get secondaryIpAddress
+   * @return secondaryIpAddress
+  **/
+  @Schema(description = "")
+  public String getSecondaryIpAddress() {
+    return secondaryIpAddress;
+  }
+
+  public void setSecondaryIpAddress(String secondaryIpAddress) {
+    this.secondaryIpAddress = secondaryIpAddress;
+  }
+
+  public VpnGatewayForDescribeVpnGatewaysOutput secondarySubnetId(String secondarySubnetId) {
+    this.secondarySubnetId = secondarySubnetId;
+    return this;
+  }
+
+   /**
+   * Get secondarySubnetId
+   * @return secondarySubnetId
+  **/
+  @Schema(description = "")
+  public String getSecondarySubnetId() {
+    return secondarySubnetId;
+  }
+
+  public void setSecondarySubnetId(String secondarySubnetId) {
+    this.secondarySubnetId = secondarySubnetId;
   }
 
   public VpnGatewayForDescribeVpnGatewaysOutput sslEnabled(Boolean sslEnabled) {
@@ -607,6 +670,7 @@ public class VpnGatewayForDescribeVpnGatewaysOutput {
         Objects.equals(this.creationTime, vpnGatewayForDescribeVpnGatewaysOutput.creationTime) &&
         Objects.equals(this.deletedTime, vpnGatewayForDescribeVpnGatewaysOutput.deletedTime) &&
         Objects.equals(this.description, vpnGatewayForDescribeVpnGatewaysOutput.description) &&
+        Objects.equals(this.dualTunnelEnabled, vpnGatewayForDescribeVpnGatewaysOutput.dualTunnelEnabled) &&
         Objects.equals(this.expiredTime, vpnGatewayForDescribeVpnGatewaysOutput.expiredTime) &&
         Objects.equals(this.ipAddress, vpnGatewayForDescribeVpnGatewaysOutput.ipAddress) &&
         Objects.equals(this.ipsecEnabled, vpnGatewayForDescribeVpnGatewaysOutput.ipsecEnabled) &&
@@ -615,6 +679,8 @@ public class VpnGatewayForDescribeVpnGatewaysOutput {
         Objects.equals(this.overdueTime, vpnGatewayForDescribeVpnGatewaysOutput.overdueTime) &&
         Objects.equals(this.projectName, vpnGatewayForDescribeVpnGatewaysOutput.projectName) &&
         Objects.equals(this.routeCount, vpnGatewayForDescribeVpnGatewaysOutput.routeCount) &&
+        Objects.equals(this.secondaryIpAddress, vpnGatewayForDescribeVpnGatewaysOutput.secondaryIpAddress) &&
+        Objects.equals(this.secondarySubnetId, vpnGatewayForDescribeVpnGatewaysOutput.secondarySubnetId) &&
         Objects.equals(this.sslEnabled, vpnGatewayForDescribeVpnGatewaysOutput.sslEnabled) &&
         Objects.equals(this.sslMaxConnections, vpnGatewayForDescribeVpnGatewaysOutput.sslMaxConnections) &&
         Objects.equals(this.status, vpnGatewayForDescribeVpnGatewaysOutput.status) &&
@@ -628,7 +694,7 @@ public class VpnGatewayForDescribeVpnGatewaysOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, asn, bandwidth, billingType, businessStatus, connectionCount, creationTime, deletedTime, description, expiredTime, ipAddress, ipsecEnabled, isBlocked, lockReason, overdueTime, projectName, routeCount, sslEnabled, sslMaxConnections, status, subnetId, tags, updateTime, vpcId, vpnGatewayId, vpnGatewayName);
+    return Objects.hash(accountId, asn, bandwidth, billingType, businessStatus, connectionCount, creationTime, deletedTime, description, dualTunnelEnabled, expiredTime, ipAddress, ipsecEnabled, isBlocked, lockReason, overdueTime, projectName, routeCount, secondaryIpAddress, secondarySubnetId, sslEnabled, sslMaxConnections, status, subnetId, tags, updateTime, vpcId, vpnGatewayId, vpnGatewayName);
   }
 
 
@@ -646,6 +712,7 @@ public class VpnGatewayForDescribeVpnGatewaysOutput {
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    deletedTime: ").append(toIndentedString(deletedTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    dualTunnelEnabled: ").append(toIndentedString(dualTunnelEnabled)).append("\n");
     sb.append("    expiredTime: ").append(toIndentedString(expiredTime)).append("\n");
     sb.append("    ipAddress: ").append(toIndentedString(ipAddress)).append("\n");
     sb.append("    ipsecEnabled: ").append(toIndentedString(ipsecEnabled)).append("\n");
@@ -654,6 +721,8 @@ public class VpnGatewayForDescribeVpnGatewaysOutput {
     sb.append("    overdueTime: ").append(toIndentedString(overdueTime)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    routeCount: ").append(toIndentedString(routeCount)).append("\n");
+    sb.append("    secondaryIpAddress: ").append(toIndentedString(secondaryIpAddress)).append("\n");
+    sb.append("    secondarySubnetId: ").append(toIndentedString(secondarySubnetId)).append("\n");
     sb.append("    sslEnabled: ").append(toIndentedString(sslEnabled)).append("\n");
     sb.append("    sslMaxConnections: ").append(toIndentedString(sslMaxConnections)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");

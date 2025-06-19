@@ -34,7 +34,7 @@ import javax.validation.Valid;
 
 public class DescribeIpv6GatewaysRequest {
   @SerializedName("Ipv6GatewayIds")
-  private String ipv6GatewayIds = null;
+  private List<String> ipv6GatewayIds = null;
 
   @SerializedName("MaxResults")
   private Integer maxResults = null;
@@ -52,10 +52,18 @@ public class DescribeIpv6GatewaysRequest {
   private List<TagFilterForDescribeIpv6GatewaysInput> tagFilters = null;
 
   @SerializedName("VpcIds")
-  private String vpcIds = null;
+  private List<String> vpcIds = null;
 
-  public DescribeIpv6GatewaysRequest ipv6GatewayIds(String ipv6GatewayIds) {
+  public DescribeIpv6GatewaysRequest ipv6GatewayIds(List<String> ipv6GatewayIds) {
     this.ipv6GatewayIds = ipv6GatewayIds;
+    return this;
+  }
+
+  public DescribeIpv6GatewaysRequest addIpv6GatewayIdsItem(String ipv6GatewayIdsItem) {
+    if (this.ipv6GatewayIds == null) {
+      this.ipv6GatewayIds = new ArrayList<String>();
+    }
+    this.ipv6GatewayIds.add(ipv6GatewayIdsItem);
     return this;
   }
 
@@ -64,11 +72,11 @@ public class DescribeIpv6GatewaysRequest {
    * @return ipv6GatewayIds
   **/
   @Schema(description = "")
-  public String getIpv6GatewayIds() {
+  public List<String> getIpv6GatewayIds() {
     return ipv6GatewayIds;
   }
 
-  public void setIpv6GatewayIds(String ipv6GatewayIds) {
+  public void setIpv6GatewayIds(List<String> ipv6GatewayIds) {
     this.ipv6GatewayIds = ipv6GatewayIds;
   }
 
@@ -171,8 +179,16 @@ public class DescribeIpv6GatewaysRequest {
     this.tagFilters = tagFilters;
   }
 
-  public DescribeIpv6GatewaysRequest vpcIds(String vpcIds) {
+  public DescribeIpv6GatewaysRequest vpcIds(List<String> vpcIds) {
     this.vpcIds = vpcIds;
+    return this;
+  }
+
+  public DescribeIpv6GatewaysRequest addVpcIdsItem(String vpcIdsItem) {
+    if (this.vpcIds == null) {
+      this.vpcIds = new ArrayList<String>();
+    }
+    this.vpcIds.add(vpcIdsItem);
     return this;
   }
 
@@ -181,11 +197,11 @@ public class DescribeIpv6GatewaysRequest {
    * @return vpcIds
   **/
   @Schema(description = "")
-  public String getVpcIds() {
+  public List<String> getVpcIds() {
     return vpcIds;
   }
 
-  public void setVpcIds(String vpcIds) {
+  public void setVpcIds(List<String> vpcIds) {
     this.vpcIds = vpcIds;
   }
 

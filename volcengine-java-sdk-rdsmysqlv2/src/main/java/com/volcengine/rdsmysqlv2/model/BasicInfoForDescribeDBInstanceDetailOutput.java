@@ -64,6 +64,21 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
   @SerializedName("DataSyncMode")
   private String dataSyncMode = null;
 
+  @SerializedName("DeletionProtection")
+  private String deletionProtection = null;
+
+  @SerializedName("DrDtsTaskId")
+  private String drDtsTaskId = null;
+
+  @SerializedName("DrDtsTaskName")
+  private String drDtsTaskName = null;
+
+  @SerializedName("DrDtsTaskStatus")
+  private String drDtsTaskStatus = null;
+
+  @SerializedName("DrSecondsBehindMaster")
+  private Integer drSecondsBehindMaster = null;
+
   @SerializedName("InstanceId")
   private String instanceId = null;
 
@@ -81,6 +96,15 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
 
   @SerializedName("MaintenanceWindow")
   private MaintenanceWindowForDescribeDBInstanceDetailOutput maintenanceWindow = null;
+
+  @SerializedName("MasterInstanceId")
+  private String masterInstanceId = null;
+
+  @SerializedName("MasterInstanceName")
+  private String masterInstanceName = null;
+
+  @SerializedName("MasterRegion")
+  private String masterRegion = null;
 
   @SerializedName("Memory")
   private Integer memory = null;
@@ -307,6 +331,96 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
     this.dataSyncMode = dataSyncMode;
   }
 
+  public BasicInfoForDescribeDBInstanceDetailOutput deletionProtection(String deletionProtection) {
+    this.deletionProtection = deletionProtection;
+    return this;
+  }
+
+   /**
+   * Get deletionProtection
+   * @return deletionProtection
+  **/
+  @Schema(description = "")
+  public String getDeletionProtection() {
+    return deletionProtection;
+  }
+
+  public void setDeletionProtection(String deletionProtection) {
+    this.deletionProtection = deletionProtection;
+  }
+
+  public BasicInfoForDescribeDBInstanceDetailOutput drDtsTaskId(String drDtsTaskId) {
+    this.drDtsTaskId = drDtsTaskId;
+    return this;
+  }
+
+   /**
+   * Get drDtsTaskId
+   * @return drDtsTaskId
+  **/
+  @Schema(description = "")
+  public String getDrDtsTaskId() {
+    return drDtsTaskId;
+  }
+
+  public void setDrDtsTaskId(String drDtsTaskId) {
+    this.drDtsTaskId = drDtsTaskId;
+  }
+
+  public BasicInfoForDescribeDBInstanceDetailOutput drDtsTaskName(String drDtsTaskName) {
+    this.drDtsTaskName = drDtsTaskName;
+    return this;
+  }
+
+   /**
+   * Get drDtsTaskName
+   * @return drDtsTaskName
+  **/
+  @Schema(description = "")
+  public String getDrDtsTaskName() {
+    return drDtsTaskName;
+  }
+
+  public void setDrDtsTaskName(String drDtsTaskName) {
+    this.drDtsTaskName = drDtsTaskName;
+  }
+
+  public BasicInfoForDescribeDBInstanceDetailOutput drDtsTaskStatus(String drDtsTaskStatus) {
+    this.drDtsTaskStatus = drDtsTaskStatus;
+    return this;
+  }
+
+   /**
+   * Get drDtsTaskStatus
+   * @return drDtsTaskStatus
+  **/
+  @Schema(description = "")
+  public String getDrDtsTaskStatus() {
+    return drDtsTaskStatus;
+  }
+
+  public void setDrDtsTaskStatus(String drDtsTaskStatus) {
+    this.drDtsTaskStatus = drDtsTaskStatus;
+  }
+
+  public BasicInfoForDescribeDBInstanceDetailOutput drSecondsBehindMaster(Integer drSecondsBehindMaster) {
+    this.drSecondsBehindMaster = drSecondsBehindMaster;
+    return this;
+  }
+
+   /**
+   * Get drSecondsBehindMaster
+   * @return drSecondsBehindMaster
+  **/
+  @Schema(description = "")
+  public Integer getDrSecondsBehindMaster() {
+    return drSecondsBehindMaster;
+  }
+
+  public void setDrSecondsBehindMaster(Integer drSecondsBehindMaster) {
+    this.drSecondsBehindMaster = drSecondsBehindMaster;
+  }
+
   public BasicInfoForDescribeDBInstanceDetailOutput instanceId(String instanceId) {
     this.instanceId = instanceId;
     return this;
@@ -414,6 +528,60 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
 
   public void setMaintenanceWindow(MaintenanceWindowForDescribeDBInstanceDetailOutput maintenanceWindow) {
     this.maintenanceWindow = maintenanceWindow;
+  }
+
+  public BasicInfoForDescribeDBInstanceDetailOutput masterInstanceId(String masterInstanceId) {
+    this.masterInstanceId = masterInstanceId;
+    return this;
+  }
+
+   /**
+   * Get masterInstanceId
+   * @return masterInstanceId
+  **/
+  @Schema(description = "")
+  public String getMasterInstanceId() {
+    return masterInstanceId;
+  }
+
+  public void setMasterInstanceId(String masterInstanceId) {
+    this.masterInstanceId = masterInstanceId;
+  }
+
+  public BasicInfoForDescribeDBInstanceDetailOutput masterInstanceName(String masterInstanceName) {
+    this.masterInstanceName = masterInstanceName;
+    return this;
+  }
+
+   /**
+   * Get masterInstanceName
+   * @return masterInstanceName
+  **/
+  @Schema(description = "")
+  public String getMasterInstanceName() {
+    return masterInstanceName;
+  }
+
+  public void setMasterInstanceName(String masterInstanceName) {
+    this.masterInstanceName = masterInstanceName;
+  }
+
+  public BasicInfoForDescribeDBInstanceDetailOutput masterRegion(String masterRegion) {
+    this.masterRegion = masterRegion;
+    return this;
+  }
+
+   /**
+   * Get masterRegion
+   * @return masterRegion
+  **/
+  @Schema(description = "")
+  public String getMasterRegion() {
+    return masterRegion;
+  }
+
+  public void setMasterRegion(String masterRegion) {
+    this.masterRegion = masterRegion;
   }
 
   public BasicInfoForDescribeDBInstanceDetailOutput memory(Integer memory) {
@@ -715,12 +883,20 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
         Objects.equals(this.currentKernelVersion, basicInfoForDescribeDBInstanceDetailOutput.currentKernelVersion) &&
         Objects.equals(this.dbEngineVersion, basicInfoForDescribeDBInstanceDetailOutput.dbEngineVersion) &&
         Objects.equals(this.dataSyncMode, basicInfoForDescribeDBInstanceDetailOutput.dataSyncMode) &&
+        Objects.equals(this.deletionProtection, basicInfoForDescribeDBInstanceDetailOutput.deletionProtection) &&
+        Objects.equals(this.drDtsTaskId, basicInfoForDescribeDBInstanceDetailOutput.drDtsTaskId) &&
+        Objects.equals(this.drDtsTaskName, basicInfoForDescribeDBInstanceDetailOutput.drDtsTaskName) &&
+        Objects.equals(this.drDtsTaskStatus, basicInfoForDescribeDBInstanceDetailOutput.drDtsTaskStatus) &&
+        Objects.equals(this.drSecondsBehindMaster, basicInfoForDescribeDBInstanceDetailOutput.drSecondsBehindMaster) &&
         Objects.equals(this.instanceId, basicInfoForDescribeDBInstanceDetailOutput.instanceId) &&
         Objects.equals(this.instanceName, basicInfoForDescribeDBInstanceDetailOutput.instanceName) &&
         Objects.equals(this.instanceStatus, basicInfoForDescribeDBInstanceDetailOutput.instanceStatus) &&
         Objects.equals(this.instanceType, basicInfoForDescribeDBInstanceDetailOutput.instanceType) &&
         Objects.equals(this.lowerCaseTableNames, basicInfoForDescribeDBInstanceDetailOutput.lowerCaseTableNames) &&
         Objects.equals(this.maintenanceWindow, basicInfoForDescribeDBInstanceDetailOutput.maintenanceWindow) &&
+        Objects.equals(this.masterInstanceId, basicInfoForDescribeDBInstanceDetailOutput.masterInstanceId) &&
+        Objects.equals(this.masterInstanceName, basicInfoForDescribeDBInstanceDetailOutput.masterInstanceName) &&
+        Objects.equals(this.masterRegion, basicInfoForDescribeDBInstanceDetailOutput.masterRegion) &&
         Objects.equals(this.memory, basicInfoForDescribeDBInstanceDetailOutput.memory) &&
         Objects.equals(this.nodeNumber, basicInfoForDescribeDBInstanceDetailOutput.nodeNumber) &&
         Objects.equals(this.nodeSpec, basicInfoForDescribeDBInstanceDetailOutput.nodeSpec) &&
@@ -740,7 +916,7 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowListVersion, autoUpgradeMinorVersion, backupFreeQuotaSize, backupUse, basicBackupBinlogSize, basicBackupDataSize, createTime, currentKernelVersion, dbEngineVersion, dataSyncMode, instanceId, instanceName, instanceStatus, instanceType, lowerCaseTableNames, maintenanceWindow, memory, nodeNumber, nodeSpec, projectName, regionId, storageSpace, storageType, storageUse, subnetId, tags, timeZone, updateTime, VCPU, vpcId, zoneId);
+    return Objects.hash(allowListVersion, autoUpgradeMinorVersion, backupFreeQuotaSize, backupUse, basicBackupBinlogSize, basicBackupDataSize, createTime, currentKernelVersion, dbEngineVersion, dataSyncMode, deletionProtection, drDtsTaskId, drDtsTaskName, drDtsTaskStatus, drSecondsBehindMaster, instanceId, instanceName, instanceStatus, instanceType, lowerCaseTableNames, maintenanceWindow, masterInstanceId, masterInstanceName, masterRegion, memory, nodeNumber, nodeSpec, projectName, regionId, storageSpace, storageType, storageUse, subnetId, tags, timeZone, updateTime, VCPU, vpcId, zoneId);
   }
 
 
@@ -759,12 +935,20 @@ public class BasicInfoForDescribeDBInstanceDetailOutput {
     sb.append("    currentKernelVersion: ").append(toIndentedString(currentKernelVersion)).append("\n");
     sb.append("    dbEngineVersion: ").append(toIndentedString(dbEngineVersion)).append("\n");
     sb.append("    dataSyncMode: ").append(toIndentedString(dataSyncMode)).append("\n");
+    sb.append("    deletionProtection: ").append(toIndentedString(deletionProtection)).append("\n");
+    sb.append("    drDtsTaskId: ").append(toIndentedString(drDtsTaskId)).append("\n");
+    sb.append("    drDtsTaskName: ").append(toIndentedString(drDtsTaskName)).append("\n");
+    sb.append("    drDtsTaskStatus: ").append(toIndentedString(drDtsTaskStatus)).append("\n");
+    sb.append("    drSecondsBehindMaster: ").append(toIndentedString(drSecondsBehindMaster)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    instanceStatus: ").append(toIndentedString(instanceStatus)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("    lowerCaseTableNames: ").append(toIndentedString(lowerCaseTableNames)).append("\n");
     sb.append("    maintenanceWindow: ").append(toIndentedString(maintenanceWindow)).append("\n");
+    sb.append("    masterInstanceId: ").append(toIndentedString(masterInstanceId)).append("\n");
+    sb.append("    masterInstanceName: ").append(toIndentedString(masterInstanceName)).append("\n");
+    sb.append("    masterRegion: ").append(toIndentedString(masterRegion)).append("\n");
     sb.append("    memory: ").append(toIndentedString(memory)).append("\n");
     sb.append("    nodeNumber: ").append(toIndentedString(nodeNumber)).append("\n");
     sb.append("    nodeSpec: ").append(toIndentedString(nodeSpec)).append("\n");

@@ -14,6 +14,14 @@ package com.volcengine.vod20250101.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import com.volcengine.vod20250101.model.ProjectBaseInfoForSubmitAITranslationWorkflowOutput;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -23,6 +31,28 @@ import javax.validation.Valid;
 
 
 public class SubmitAITranslationWorkflowResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("ProjectBaseInfo")
+  private ProjectBaseInfoForSubmitAITranslationWorkflowOutput projectBaseInfo = null;
+
+  public SubmitAITranslationWorkflowResponse projectBaseInfo(ProjectBaseInfoForSubmitAITranslationWorkflowOutput projectBaseInfo) {
+    this.projectBaseInfo = projectBaseInfo;
+    return this;
+  }
+
+   /**
+   * Get projectBaseInfo
+   * @return projectBaseInfo
+  **/
+  @Valid
+  @Schema(description = "")
+  public ProjectBaseInfoForSubmitAITranslationWorkflowOutput getProjectBaseInfo() {
+    return projectBaseInfo;
+  }
+
+  public void setProjectBaseInfo(ProjectBaseInfoForSubmitAITranslationWorkflowOutput projectBaseInfo) {
+    this.projectBaseInfo = projectBaseInfo;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -32,12 +62,13 @@ public class SubmitAITranslationWorkflowResponse extends com.volcengine.model.Ab
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return true;
+    SubmitAITranslationWorkflowResponse submitAITranslationWorkflowResponse = (SubmitAITranslationWorkflowResponse) o;
+    return Objects.equals(this.projectBaseInfo, submitAITranslationWorkflowResponse.projectBaseInfo);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash();
+    return Objects.hash(projectBaseInfo);
   }
 
 
@@ -46,6 +77,7 @@ public class SubmitAITranslationWorkflowResponse extends com.volcengine.model.Ab
     StringBuilder sb = new StringBuilder();
     sb.append("class SubmitAITranslationWorkflowResponse {\n");
     
+    sb.append("    projectBaseInfo: ").append(toIndentedString(projectBaseInfo)).append("\n");
     sb.append("}");
     return sb.toString();
   }

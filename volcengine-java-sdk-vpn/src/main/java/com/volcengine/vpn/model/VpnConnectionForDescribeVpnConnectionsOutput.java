@@ -23,6 +23,8 @@ import com.volcengine.vpn.model.BgpInfoForDescribeVpnConnectionsOutput;
 import com.volcengine.vpn.model.HealthCheckerForDescribeVpnConnectionsOutput;
 import com.volcengine.vpn.model.IkeConfigForDescribeVpnConnectionsOutput;
 import com.volcengine.vpn.model.IpsecConfigForDescribeVpnConnectionsOutput;
+import com.volcengine.vpn.model.TagForDescribeVpnConnectionsOutput;
+import com.volcengine.vpn.model.TunnelOptionForDescribeVpnConnectionsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -69,6 +71,9 @@ public class VpnConnectionForDescribeVpnConnectionsOutput {
   @SerializedName("DpdAction")
   private String dpdAction = null;
 
+  @SerializedName("DualTunnelEnabled")
+  private Boolean dualTunnelEnabled = null;
+
   @SerializedName("HealthCheckers")
   private List<HealthCheckerForDescribeVpnConnectionsOutput> healthCheckers = null;
 
@@ -114,8 +119,14 @@ public class VpnConnectionForDescribeVpnConnectionsOutput {
   @SerializedName("Status")
   private String status = null;
 
+  @SerializedName("Tags")
+  private List<TagForDescribeVpnConnectionsOutput> tags = null;
+
   @SerializedName("TransitRouterId")
   private String transitRouterId = null;
+
+  @SerializedName("TunnelOptions")
+  private List<TunnelOptionForDescribeVpnConnectionsOutput> tunnelOptions = null;
 
   @SerializedName("UpdateTime")
   private String updateTime = null;
@@ -329,6 +340,24 @@ public class VpnConnectionForDescribeVpnConnectionsOutput {
 
   public void setDpdAction(String dpdAction) {
     this.dpdAction = dpdAction;
+  }
+
+  public VpnConnectionForDescribeVpnConnectionsOutput dualTunnelEnabled(Boolean dualTunnelEnabled) {
+    this.dualTunnelEnabled = dualTunnelEnabled;
+    return this;
+  }
+
+   /**
+   * Get dualTunnelEnabled
+   * @return dualTunnelEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isDualTunnelEnabled() {
+    return dualTunnelEnabled;
+  }
+
+  public void setDualTunnelEnabled(Boolean dualTunnelEnabled) {
+    this.dualTunnelEnabled = dualTunnelEnabled;
   }
 
   public VpnConnectionForDescribeVpnConnectionsOutput healthCheckers(List<HealthCheckerForDescribeVpnConnectionsOutput> healthCheckers) {
@@ -628,6 +657,33 @@ public class VpnConnectionForDescribeVpnConnectionsOutput {
     this.status = status;
   }
 
+  public VpnConnectionForDescribeVpnConnectionsOutput tags(List<TagForDescribeVpnConnectionsOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public VpnConnectionForDescribeVpnConnectionsOutput addTagsItem(TagForDescribeVpnConnectionsOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForDescribeVpnConnectionsOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForDescribeVpnConnectionsOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForDescribeVpnConnectionsOutput> tags) {
+    this.tags = tags;
+  }
+
   public VpnConnectionForDescribeVpnConnectionsOutput transitRouterId(String transitRouterId) {
     this.transitRouterId = transitRouterId;
     return this;
@@ -644,6 +700,33 @@ public class VpnConnectionForDescribeVpnConnectionsOutput {
 
   public void setTransitRouterId(String transitRouterId) {
     this.transitRouterId = transitRouterId;
+  }
+
+  public VpnConnectionForDescribeVpnConnectionsOutput tunnelOptions(List<TunnelOptionForDescribeVpnConnectionsOutput> tunnelOptions) {
+    this.tunnelOptions = tunnelOptions;
+    return this;
+  }
+
+  public VpnConnectionForDescribeVpnConnectionsOutput addTunnelOptionsItem(TunnelOptionForDescribeVpnConnectionsOutput tunnelOptionsItem) {
+    if (this.tunnelOptions == null) {
+      this.tunnelOptions = new ArrayList<TunnelOptionForDescribeVpnConnectionsOutput>();
+    }
+    this.tunnelOptions.add(tunnelOptionsItem);
+    return this;
+  }
+
+   /**
+   * Get tunnelOptions
+   * @return tunnelOptions
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TunnelOptionForDescribeVpnConnectionsOutput> getTunnelOptions() {
+    return tunnelOptions;
+  }
+
+  public void setTunnelOptions(List<TunnelOptionForDescribeVpnConnectionsOutput> tunnelOptions) {
+    this.tunnelOptions = tunnelOptions;
   }
 
   public VpnConnectionForDescribeVpnConnectionsOutput updateTime(String updateTime) {
@@ -757,6 +840,7 @@ public class VpnConnectionForDescribeVpnConnectionsOutput {
         Objects.equals(this.deletedTime, vpnConnectionForDescribeVpnConnectionsOutput.deletedTime) &&
         Objects.equals(this.description, vpnConnectionForDescribeVpnConnectionsOutput.description) &&
         Objects.equals(this.dpdAction, vpnConnectionForDescribeVpnConnectionsOutput.dpdAction) &&
+        Objects.equals(this.dualTunnelEnabled, vpnConnectionForDescribeVpnConnectionsOutput.dualTunnelEnabled) &&
         Objects.equals(this.healthCheckers, vpnConnectionForDescribeVpnConnectionsOutput.healthCheckers) &&
         Objects.equals(this.ikeConfig, vpnConnectionForDescribeVpnConnectionsOutput.ikeConfig) &&
         Objects.equals(this.ipAddress, vpnConnectionForDescribeVpnConnectionsOutput.ipAddress) &&
@@ -772,7 +856,9 @@ public class VpnConnectionForDescribeVpnConnectionsOutput {
         Objects.equals(this.requestId, vpnConnectionForDescribeVpnConnectionsOutput.requestId) &&
         Objects.equals(this.spec, vpnConnectionForDescribeVpnConnectionsOutput.spec) &&
         Objects.equals(this.status, vpnConnectionForDescribeVpnConnectionsOutput.status) &&
+        Objects.equals(this.tags, vpnConnectionForDescribeVpnConnectionsOutput.tags) &&
         Objects.equals(this.transitRouterId, vpnConnectionForDescribeVpnConnectionsOutput.transitRouterId) &&
+        Objects.equals(this.tunnelOptions, vpnConnectionForDescribeVpnConnectionsOutput.tunnelOptions) &&
         Objects.equals(this.updateTime, vpnConnectionForDescribeVpnConnectionsOutput.updateTime) &&
         Objects.equals(this.vpnConnectionId, vpnConnectionForDescribeVpnConnectionsOutput.vpnConnectionId) &&
         Objects.equals(this.vpnConnectionName, vpnConnectionForDescribeVpnConnectionsOutput.vpnConnectionName) &&
@@ -782,7 +868,7 @@ public class VpnConnectionForDescribeVpnConnectionsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, attachStatus, attachType, bgpInfo, businessStatus, connectStatus, creationTime, customerGatewayId, deletedTime, description, dpdAction, healthCheckers, ikeConfig, ipAddress, ipsecConfig, isBlocked, localSubnet, logEnabled, natTraversal, negotiateInstantly, overdueTime, projectName, remoteSubnet, requestId, spec, status, transitRouterId, updateTime, vpnConnectionId, vpnConnectionName, vpnGatewayId, zoneId);
+    return Objects.hash(accountId, attachStatus, attachType, bgpInfo, businessStatus, connectStatus, creationTime, customerGatewayId, deletedTime, description, dpdAction, dualTunnelEnabled, healthCheckers, ikeConfig, ipAddress, ipsecConfig, isBlocked, localSubnet, logEnabled, natTraversal, negotiateInstantly, overdueTime, projectName, remoteSubnet, requestId, spec, status, tags, transitRouterId, tunnelOptions, updateTime, vpnConnectionId, vpnConnectionName, vpnGatewayId, zoneId);
   }
 
 
@@ -802,6 +888,7 @@ public class VpnConnectionForDescribeVpnConnectionsOutput {
     sb.append("    deletedTime: ").append(toIndentedString(deletedTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    dpdAction: ").append(toIndentedString(dpdAction)).append("\n");
+    sb.append("    dualTunnelEnabled: ").append(toIndentedString(dualTunnelEnabled)).append("\n");
     sb.append("    healthCheckers: ").append(toIndentedString(healthCheckers)).append("\n");
     sb.append("    ikeConfig: ").append(toIndentedString(ikeConfig)).append("\n");
     sb.append("    ipAddress: ").append(toIndentedString(ipAddress)).append("\n");
@@ -817,7 +904,9 @@ public class VpnConnectionForDescribeVpnConnectionsOutput {
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    spec: ").append(toIndentedString(spec)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    transitRouterId: ").append(toIndentedString(transitRouterId)).append("\n");
+    sb.append("    tunnelOptions: ").append(toIndentedString(tunnelOptions)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    vpnConnectionId: ").append(toIndentedString(vpnConnectionId)).append("\n");
     sb.append("    vpnConnectionName: ").append(toIndentedString(vpnConnectionName)).append("\n");

@@ -33,6 +33,9 @@ public class CopyParameterTemplateRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
 
+  @SerializedName("Region")
+  private String region = null;
+
   @SerializedName("SrcTemplateId")
   private String srcTemplateId = null;
 
@@ -58,6 +61,24 @@ public class CopyParameterTemplateRequest {
 
   public void setProjectName(String projectName) {
     this.projectName = projectName;
+  }
+
+  public CopyParameterTemplateRequest region(String region) {
+    this.region = region;
+    return this;
+  }
+
+   /**
+   * Get region
+   * @return region
+  **/
+  @Schema(description = "")
+  public String getRegion() {
+    return region;
+  }
+
+  public void setRegion(String region) {
+    this.region = region;
   }
 
   public CopyParameterTemplateRequest srcTemplateId(String srcTemplateId) {
@@ -127,6 +148,7 @@ public class CopyParameterTemplateRequest {
     }
     CopyParameterTemplateRequest copyParameterTemplateRequest = (CopyParameterTemplateRequest) o;
     return Objects.equals(this.projectName, copyParameterTemplateRequest.projectName) &&
+        Objects.equals(this.region, copyParameterTemplateRequest.region) &&
         Objects.equals(this.srcTemplateId, copyParameterTemplateRequest.srcTemplateId) &&
         Objects.equals(this.templateDesc, copyParameterTemplateRequest.templateDesc) &&
         Objects.equals(this.templateName, copyParameterTemplateRequest.templateName);
@@ -134,7 +156,7 @@ public class CopyParameterTemplateRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(projectName, srcTemplateId, templateDesc, templateName);
+    return Objects.hash(projectName, region, srcTemplateId, templateDesc, templateName);
   }
 
 
@@ -144,6 +166,7 @@ public class CopyParameterTemplateRequest {
     sb.append("class CopyParameterTemplateRequest {\n");
     
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    srcTemplateId: ").append(toIndentedString(srcTemplateId)).append("\n");
     sb.append("    templateDesc: ").append(toIndentedString(templateDesc)).append("\n");
     sb.append("    templateName: ").append(toIndentedString(templateName)).append("\n");

@@ -80,7 +80,7 @@ public class RuleForListBotAnalyseProtectRuleOutput {
   private String ruleTag = null;
 
   @SerializedName("SingleProportion")
-  private String singleProportion = null;
+  private Float singleProportion = null;
 
   @SerializedName("SingleThreshold")
   private Integer singleThreshold = null;
@@ -383,7 +383,7 @@ public class RuleForListBotAnalyseProtectRuleOutput {
     this.ruleTag = ruleTag;
   }
 
-  public RuleForListBotAnalyseProtectRuleOutput singleProportion(String singleProportion) {
+  public RuleForListBotAnalyseProtectRuleOutput singleProportion(Float singleProportion) {
     this.singleProportion = singleProportion;
     return this;
   }
@@ -393,11 +393,11 @@ public class RuleForListBotAnalyseProtectRuleOutput {
    * @return singleProportion
   **/
   @Schema(description = "")
-  public String getSingleProportion() {
+  public Float getSingleProportion() {
     return singleProportion;
   }
 
-  public void setSingleProportion(String singleProportion) {
+  public void setSingleProportion(Float singleProportion) {
     this.singleProportion = singleProportion;
   }
 

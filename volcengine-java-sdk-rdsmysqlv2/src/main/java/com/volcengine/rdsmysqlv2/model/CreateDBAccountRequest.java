@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.rdsmysqlv2.model.AccountPrivilegeForCreateDBAccountInput;
+import com.volcengine.rdsmysqlv2.model.TableColumnPrivilegeForCreateDBAccountInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -56,6 +57,9 @@ public class CreateDBAccountRequest {
 
   @SerializedName("InstanceId")
   private String instanceId = null;
+
+  @SerializedName("TableColumnPrivileges")
+  private List<TableColumnPrivilegeForCreateDBAccountInput> tableColumnPrivileges = null;
 
   public CreateDBAccountRequest accountDesc(String accountDesc) {
     this.accountDesc = accountDesc;
@@ -214,6 +218,33 @@ public class CreateDBAccountRequest {
     this.instanceId = instanceId;
   }
 
+  public CreateDBAccountRequest tableColumnPrivileges(List<TableColumnPrivilegeForCreateDBAccountInput> tableColumnPrivileges) {
+    this.tableColumnPrivileges = tableColumnPrivileges;
+    return this;
+  }
+
+  public CreateDBAccountRequest addTableColumnPrivilegesItem(TableColumnPrivilegeForCreateDBAccountInput tableColumnPrivilegesItem) {
+    if (this.tableColumnPrivileges == null) {
+      this.tableColumnPrivileges = new ArrayList<TableColumnPrivilegeForCreateDBAccountInput>();
+    }
+    this.tableColumnPrivileges.add(tableColumnPrivilegesItem);
+    return this;
+  }
+
+   /**
+   * Get tableColumnPrivileges
+   * @return tableColumnPrivileges
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TableColumnPrivilegeForCreateDBAccountInput> getTableColumnPrivileges() {
+    return tableColumnPrivileges;
+  }
+
+  public void setTableColumnPrivileges(List<TableColumnPrivilegeForCreateDBAccountInput> tableColumnPrivileges) {
+    this.tableColumnPrivileges = tableColumnPrivileges;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -231,12 +262,13 @@ public class CreateDBAccountRequest {
         Objects.equals(this.accountType, createDBAccountRequest.accountType) &&
         Objects.equals(this.dryRun, createDBAccountRequest.dryRun) &&
         Objects.equals(this.host, createDBAccountRequest.host) &&
-        Objects.equals(this.instanceId, createDBAccountRequest.instanceId);
+        Objects.equals(this.instanceId, createDBAccountRequest.instanceId) &&
+        Objects.equals(this.tableColumnPrivileges, createDBAccountRequest.tableColumnPrivileges);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountDesc, accountName, accountPassword, accountPrivileges, accountType, dryRun, host, instanceId);
+    return Objects.hash(accountDesc, accountName, accountPassword, accountPrivileges, accountType, dryRun, host, instanceId, tableColumnPrivileges);
   }
 
 
@@ -253,6 +285,7 @@ public class CreateDBAccountRequest {
     sb.append("    dryRun: ").append(toIndentedString(dryRun)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    tableColumnPrivileges: ").append(toIndentedString(tableColumnPrivileges)).append("\n");
     sb.append("}");
     return sb.toString();
   }

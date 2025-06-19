@@ -45,6 +45,9 @@ public class VpnGatewayRouteForDescribeVpnGatewayRoutesOutput {
   @SerializedName("NextHopId")
   private String nextHopId = null;
 
+  @SerializedName("NextTunnelId")
+  private String nextTunnelId = null;
+
   /**
    * Gets or Sets routeType
    */
@@ -186,6 +189,24 @@ public class VpnGatewayRouteForDescribeVpnGatewayRoutesOutput {
     this.nextHopId = nextHopId;
   }
 
+  public VpnGatewayRouteForDescribeVpnGatewayRoutesOutput nextTunnelId(String nextTunnelId) {
+    this.nextTunnelId = nextTunnelId;
+    return this;
+  }
+
+   /**
+   * Get nextTunnelId
+   * @return nextTunnelId
+  **/
+  @Schema(description = "")
+  public String getNextTunnelId() {
+    return nextTunnelId;
+  }
+
+  public void setNextTunnelId(String nextTunnelId) {
+    this.nextTunnelId = nextTunnelId;
+  }
+
   public VpnGatewayRouteForDescribeVpnGatewayRoutesOutput routeType(RouteTypeEnum routeType) {
     this.routeType = routeType;
     return this;
@@ -290,6 +311,7 @@ public class VpnGatewayRouteForDescribeVpnGatewayRoutesOutput {
         Objects.equals(this.creationTime, vpnGatewayRouteForDescribeVpnGatewayRoutesOutput.creationTime) &&
         Objects.equals(this.destinationCidrBlock, vpnGatewayRouteForDescribeVpnGatewayRoutesOutput.destinationCidrBlock) &&
         Objects.equals(this.nextHopId, vpnGatewayRouteForDescribeVpnGatewayRoutesOutput.nextHopId) &&
+        Objects.equals(this.nextTunnelId, vpnGatewayRouteForDescribeVpnGatewayRoutesOutput.nextTunnelId) &&
         Objects.equals(this.routeType, vpnGatewayRouteForDescribeVpnGatewayRoutesOutput.routeType) &&
         Objects.equals(this.status, vpnGatewayRouteForDescribeVpnGatewayRoutesOutput.status) &&
         Objects.equals(this.updateTime, vpnGatewayRouteForDescribeVpnGatewayRoutesOutput.updateTime) &&
@@ -299,7 +321,7 @@ public class VpnGatewayRouteForDescribeVpnGatewayRoutesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(asPath, creationTime, destinationCidrBlock, nextHopId, routeType, status, updateTime, vpnGatewayId, vpnGatewayRouteId);
+    return Objects.hash(asPath, creationTime, destinationCidrBlock, nextHopId, nextTunnelId, routeType, status, updateTime, vpnGatewayId, vpnGatewayRouteId);
   }
 
 
@@ -312,6 +334,7 @@ public class VpnGatewayRouteForDescribeVpnGatewayRoutesOutput {
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    destinationCidrBlock: ").append(toIndentedString(destinationCidrBlock)).append("\n");
     sb.append("    nextHopId: ").append(toIndentedString(nextHopId)).append("\n");
+    sb.append("    nextTunnelId: ").append(toIndentedString(nextTunnelId)).append("\n");
     sb.append("    routeType: ").append(toIndentedString(routeType)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
