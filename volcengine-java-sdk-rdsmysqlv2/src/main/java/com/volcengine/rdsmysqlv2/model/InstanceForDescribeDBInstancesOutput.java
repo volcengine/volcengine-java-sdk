@@ -54,6 +54,12 @@ public class InstanceForDescribeDBInstancesOutput {
   @SerializedName("DBEngineVersion")
   private String dbEngineVersion = null;
 
+  @SerializedName("DeletionProtection")
+  private String deletionProtection = null;
+
+  @SerializedName("DrDtsTaskId")
+  private String drDtsTaskId = null;
+
   @SerializedName("InstanceId")
   private String instanceId = null;
 
@@ -233,6 +239,42 @@ public class InstanceForDescribeDBInstancesOutput {
 
   public void setDbEngineVersion(String dbEngineVersion) {
     this.dbEngineVersion = dbEngineVersion;
+  }
+
+  public InstanceForDescribeDBInstancesOutput deletionProtection(String deletionProtection) {
+    this.deletionProtection = deletionProtection;
+    return this;
+  }
+
+   /**
+   * Get deletionProtection
+   * @return deletionProtection
+  **/
+  @Schema(description = "")
+  public String getDeletionProtection() {
+    return deletionProtection;
+  }
+
+  public void setDeletionProtection(String deletionProtection) {
+    this.deletionProtection = deletionProtection;
+  }
+
+  public InstanceForDescribeDBInstancesOutput drDtsTaskId(String drDtsTaskId) {
+    this.drDtsTaskId = drDtsTaskId;
+    return this;
+  }
+
+   /**
+   * Get drDtsTaskId
+   * @return drDtsTaskId
+  **/
+  @Schema(description = "")
+  public String getDrDtsTaskId() {
+    return drDtsTaskId;
+  }
+
+  public void setDrDtsTaskId(String drDtsTaskId) {
+    this.drDtsTaskId = drDtsTaskId;
   }
 
   public InstanceForDescribeDBInstancesOutput instanceId(String instanceId) {
@@ -647,6 +689,8 @@ public class InstanceForDescribeDBInstancesOutput {
         Objects.equals(this.createTime, instanceForDescribeDBInstancesOutput.createTime) &&
         Objects.equals(this.currentKernelVersion, instanceForDescribeDBInstancesOutput.currentKernelVersion) &&
         Objects.equals(this.dbEngineVersion, instanceForDescribeDBInstancesOutput.dbEngineVersion) &&
+        Objects.equals(this.deletionProtection, instanceForDescribeDBInstancesOutput.deletionProtection) &&
+        Objects.equals(this.drDtsTaskId, instanceForDescribeDBInstancesOutput.drDtsTaskId) &&
         Objects.equals(this.instanceId, instanceForDescribeDBInstancesOutput.instanceId) &&
         Objects.equals(this.instanceName, instanceForDescribeDBInstancesOutput.instanceName) &&
         Objects.equals(this.instanceStatus, instanceForDescribeDBInstancesOutput.instanceStatus) &&
@@ -672,7 +716,7 @@ public class InstanceForDescribeDBInstancesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addressObject, allowListVersion, chargeDetail, createTime, currentKernelVersion, dbEngineVersion, instanceId, instanceName, instanceStatus, instanceType, lowerCaseTableNames, maintenanceWindow, nodeCPUUsedPercentage, nodeMemoryUsedPercentage, nodeNumber, nodeSpaceUsedPercentage, nodeSpec, projectName, regionId, storageSpace, storageType, subnetId, tags, timeZone, vpcId, zoneId, zoneIds);
+    return Objects.hash(addressObject, allowListVersion, chargeDetail, createTime, currentKernelVersion, dbEngineVersion, deletionProtection, drDtsTaskId, instanceId, instanceName, instanceStatus, instanceType, lowerCaseTableNames, maintenanceWindow, nodeCPUUsedPercentage, nodeMemoryUsedPercentage, nodeNumber, nodeSpaceUsedPercentage, nodeSpec, projectName, regionId, storageSpace, storageType, subnetId, tags, timeZone, vpcId, zoneId, zoneIds);
   }
 
 
@@ -687,6 +731,8 @@ public class InstanceForDescribeDBInstancesOutput {
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    currentKernelVersion: ").append(toIndentedString(currentKernelVersion)).append("\n");
     sb.append("    dbEngineVersion: ").append(toIndentedString(dbEngineVersion)).append("\n");
+    sb.append("    deletionProtection: ").append(toIndentedString(deletionProtection)).append("\n");
+    sb.append("    drDtsTaskId: ").append(toIndentedString(drDtsTaskId)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    instanceStatus: ").append(toIndentedString(instanceStatus)).append("\n");

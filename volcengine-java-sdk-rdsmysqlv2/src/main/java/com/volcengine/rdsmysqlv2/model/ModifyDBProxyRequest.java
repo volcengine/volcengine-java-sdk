@@ -31,6 +31,9 @@ import javax.validation.Valid;
 
 
 public class ModifyDBProxyRequest {
+  @SerializedName("ConvertDefaultEndpoint")
+  private Boolean convertDefaultEndpoint = null;
+
   @SerializedName("EnableDBProxy")
   private Boolean enableDBProxy = null;
 
@@ -39,6 +42,24 @@ public class ModifyDBProxyRequest {
 
   @SerializedName("ProxyNodeCustom")
   private ProxyNodeCustomForModifyDBProxyInput proxyNodeCustom = null;
+
+  public ModifyDBProxyRequest convertDefaultEndpoint(Boolean convertDefaultEndpoint) {
+    this.convertDefaultEndpoint = convertDefaultEndpoint;
+    return this;
+  }
+
+   /**
+   * Get convertDefaultEndpoint
+   * @return convertDefaultEndpoint
+  **/
+  @Schema(description = "")
+  public Boolean isConvertDefaultEndpoint() {
+    return convertDefaultEndpoint;
+  }
+
+  public void setConvertDefaultEndpoint(Boolean convertDefaultEndpoint) {
+    this.convertDefaultEndpoint = convertDefaultEndpoint;
+  }
 
   public ModifyDBProxyRequest enableDBProxy(Boolean enableDBProxy) {
     this.enableDBProxy = enableDBProxy;
@@ -106,14 +127,15 @@ public class ModifyDBProxyRequest {
       return false;
     }
     ModifyDBProxyRequest modifyDBProxyRequest = (ModifyDBProxyRequest) o;
-    return Objects.equals(this.enableDBProxy, modifyDBProxyRequest.enableDBProxy) &&
+    return Objects.equals(this.convertDefaultEndpoint, modifyDBProxyRequest.convertDefaultEndpoint) &&
+        Objects.equals(this.enableDBProxy, modifyDBProxyRequest.enableDBProxy) &&
         Objects.equals(this.instanceId, modifyDBProxyRequest.instanceId) &&
         Objects.equals(this.proxyNodeCustom, modifyDBProxyRequest.proxyNodeCustom);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(enableDBProxy, instanceId, proxyNodeCustom);
+    return Objects.hash(convertDefaultEndpoint, enableDBProxy, instanceId, proxyNodeCustom);
   }
 
 
@@ -122,6 +144,7 @@ public class ModifyDBProxyRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ModifyDBProxyRequest {\n");
     
+    sb.append("    convertDefaultEndpoint: ").append(toIndentedString(convertDefaultEndpoint)).append("\n");
     sb.append("    enableDBProxy: ").append(toIndentedString(enableDBProxy)).append("\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    proxyNodeCustom: ").append(toIndentedString(proxyNodeCustom)).append("\n");
