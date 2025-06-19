@@ -22,8 +22,10 @@ import com.google.gson.stream.JsonWriter;
 import com.volcengine.vke.model.ClusterConfigForListClustersOutput;
 import com.volcengine.vke.model.ConnectorConfigForListClustersOutput;
 import com.volcengine.vke.model.LoggingConfigForListClustersOutput;
+import com.volcengine.vke.model.MonitoringConfigForListClustersOutput;
 import com.volcengine.vke.model.NodeStatisticsForListClustersOutput;
 import com.volcengine.vke.model.PodsConfigForListClustersOutput;
+import com.volcengine.vke.model.RegisterMonitoringConfigForListClustersOutput;
 import com.volcengine.vke.model.ServicesConfigForListClustersOutput;
 import com.volcengine.vke.model.StatusForListClustersOutput;
 import com.volcengine.vke.model.TagForListClustersOutput;
@@ -67,6 +69,12 @@ public class ItemForListClustersOutput {
   @SerializedName("LoggingConfig")
   private LoggingConfigForListClustersOutput loggingConfig = null;
 
+  @SerializedName("Message")
+  private String message = null;
+
+  @SerializedName("MonitoringConfig")
+  private MonitoringConfigForListClustersOutput monitoringConfig = null;
+
   @SerializedName("Name")
   private String name = null;
 
@@ -78,6 +86,9 @@ public class ItemForListClustersOutput {
 
   @SerializedName("ProjectName")
   private String projectName = null;
+
+  @SerializedName("RegisterMonitoringConfig")
+  private RegisterMonitoringConfigForListClustersOutput registerMonitoringConfig = null;
 
   @SerializedName("ServicesConfig")
   private ServicesConfigForListClustersOutput servicesConfig = null;
@@ -309,6 +320,43 @@ public class ItemForListClustersOutput {
     this.loggingConfig = loggingConfig;
   }
 
+  public ItemForListClustersOutput message(String message) {
+    this.message = message;
+    return this;
+  }
+
+   /**
+   * Get message
+   * @return message
+  **/
+  @Schema(description = "")
+  public String getMessage() {
+    return message;
+  }
+
+  public void setMessage(String message) {
+    this.message = message;
+  }
+
+  public ItemForListClustersOutput monitoringConfig(MonitoringConfigForListClustersOutput monitoringConfig) {
+    this.monitoringConfig = monitoringConfig;
+    return this;
+  }
+
+   /**
+   * Get monitoringConfig
+   * @return monitoringConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public MonitoringConfigForListClustersOutput getMonitoringConfig() {
+    return monitoringConfig;
+  }
+
+  public void setMonitoringConfig(MonitoringConfigForListClustersOutput monitoringConfig) {
+    this.monitoringConfig = monitoringConfig;
+  }
+
   public ItemForListClustersOutput name(String name) {
     this.name = name;
     return this;
@@ -381,6 +429,25 @@ public class ItemForListClustersOutput {
 
   public void setProjectName(String projectName) {
     this.projectName = projectName;
+  }
+
+  public ItemForListClustersOutput registerMonitoringConfig(RegisterMonitoringConfigForListClustersOutput registerMonitoringConfig) {
+    this.registerMonitoringConfig = registerMonitoringConfig;
+    return this;
+  }
+
+   /**
+   * Get registerMonitoringConfig
+   * @return registerMonitoringConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public RegisterMonitoringConfigForListClustersOutput getRegisterMonitoringConfig() {
+    return registerMonitoringConfig;
+  }
+
+  public void setRegisterMonitoringConfig(RegisterMonitoringConfigForListClustersOutput registerMonitoringConfig) {
+    this.registerMonitoringConfig = registerMonitoringConfig;
   }
 
   public ItemForListClustersOutput servicesConfig(ServicesConfigForListClustersOutput servicesConfig) {
@@ -521,10 +588,13 @@ public class ItemForListClustersOutput {
         Objects.equals(this.id, itemForListClustersOutput.id) &&
         Objects.equals(this.kubernetesVersion, itemForListClustersOutput.kubernetesVersion) &&
         Objects.equals(this.loggingConfig, itemForListClustersOutput.loggingConfig) &&
+        Objects.equals(this.message, itemForListClustersOutput.message) &&
+        Objects.equals(this.monitoringConfig, itemForListClustersOutput.monitoringConfig) &&
         Objects.equals(this.name, itemForListClustersOutput.name) &&
         Objects.equals(this.nodeStatistics, itemForListClustersOutput.nodeStatistics) &&
         Objects.equals(this.podsConfig, itemForListClustersOutput.podsConfig) &&
         Objects.equals(this.projectName, itemForListClustersOutput.projectName) &&
+        Objects.equals(this.registerMonitoringConfig, itemForListClustersOutput.registerMonitoringConfig) &&
         Objects.equals(this.servicesConfig, itemForListClustersOutput.servicesConfig) &&
         Objects.equals(this.status, itemForListClustersOutput.status) &&
         Objects.equals(this.tags, itemForListClustersOutput.tags) &&
@@ -535,7 +605,7 @@ public class ItemForListClustersOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterConfig, connectorConfig, createClientToken, createTime, deleteProtectionEnabled, description, id, kubernetesVersion, loggingConfig, name, nodeStatistics, podsConfig, projectName, servicesConfig, status, tags, type, updateClientToken, updateTime);
+    return Objects.hash(clusterConfig, connectorConfig, createClientToken, createTime, deleteProtectionEnabled, description, id, kubernetesVersion, loggingConfig, message, monitoringConfig, name, nodeStatistics, podsConfig, projectName, registerMonitoringConfig, servicesConfig, status, tags, type, updateClientToken, updateTime);
   }
 
 
@@ -553,10 +623,13 @@ public class ItemForListClustersOutput {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    kubernetesVersion: ").append(toIndentedString(kubernetesVersion)).append("\n");
     sb.append("    loggingConfig: ").append(toIndentedString(loggingConfig)).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("    monitoringConfig: ").append(toIndentedString(monitoringConfig)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    nodeStatistics: ").append(toIndentedString(nodeStatistics)).append("\n");
     sb.append("    podsConfig: ").append(toIndentedString(podsConfig)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    registerMonitoringConfig: ").append(toIndentedString(registerMonitoringConfig)).append("\n");
     sb.append("    servicesConfig: ").append(toIndentedString(servicesConfig)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
