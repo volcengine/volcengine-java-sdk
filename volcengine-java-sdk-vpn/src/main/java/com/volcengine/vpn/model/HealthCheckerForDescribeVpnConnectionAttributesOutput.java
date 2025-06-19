@@ -24,12 +24,12 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * HealthCheckerForDescribeVpnConnectionsOutput
+ * HealthCheckerForDescribeVpnConnectionAttributesOutput
  */
 
 
 
-public class HealthCheckerForDescribeVpnConnectionsOutput {
+public class HealthCheckerForDescribeVpnConnectionAttributesOutput {
   @SerializedName("CheckInterval")
   private Integer checkInterval = null;
 
@@ -97,7 +97,7 @@ public class HealthCheckerForDescribeVpnConnectionsOutput {
   @SerializedName("UpTime")
   private Integer upTime = null;
 
-  public HealthCheckerForDescribeVpnConnectionsOutput checkInterval(Integer checkInterval) {
+  public HealthCheckerForDescribeVpnConnectionAttributesOutput checkInterval(Integer checkInterval) {
     this.checkInterval = checkInterval;
     return this;
   }
@@ -115,7 +115,7 @@ public class HealthCheckerForDescribeVpnConnectionsOutput {
     this.checkInterval = checkInterval;
   }
 
-  public HealthCheckerForDescribeVpnConnectionsOutput checkResult(CheckResultEnum checkResult) {
+  public HealthCheckerForDescribeVpnConnectionAttributesOutput checkResult(CheckResultEnum checkResult) {
     this.checkResult = checkResult;
     return this;
   }
@@ -133,7 +133,7 @@ public class HealthCheckerForDescribeVpnConnectionsOutput {
     this.checkResult = checkResult;
   }
 
-  public HealthCheckerForDescribeVpnConnectionsOutput checkerId(String checkerId) {
+  public HealthCheckerForDescribeVpnConnectionAttributesOutput checkerId(String checkerId) {
     this.checkerId = checkerId;
     return this;
   }
@@ -151,7 +151,7 @@ public class HealthCheckerForDescribeVpnConnectionsOutput {
     this.checkerId = checkerId;
   }
 
-  public HealthCheckerForDescribeVpnConnectionsOutput downTime(Integer downTime) {
+  public HealthCheckerForDescribeVpnConnectionAttributesOutput downTime(Integer downTime) {
     this.downTime = downTime;
     return this;
   }
@@ -169,7 +169,7 @@ public class HealthCheckerForDescribeVpnConnectionsOutput {
     this.downTime = downTime;
   }
 
-  public HealthCheckerForDescribeVpnConnectionsOutput localIp(String localIp) {
+  public HealthCheckerForDescribeVpnConnectionAttributesOutput localIp(String localIp) {
     this.localIp = localIp;
     return this;
   }
@@ -187,7 +187,7 @@ public class HealthCheckerForDescribeVpnConnectionsOutput {
     this.localIp = localIp;
   }
 
-  public HealthCheckerForDescribeVpnConnectionsOutput remoteIp(String remoteIp) {
+  public HealthCheckerForDescribeVpnConnectionAttributesOutput remoteIp(String remoteIp) {
     this.remoteIp = remoteIp;
     return this;
   }
@@ -205,7 +205,7 @@ public class HealthCheckerForDescribeVpnConnectionsOutput {
     this.remoteIp = remoteIp;
   }
 
-  public HealthCheckerForDescribeVpnConnectionsOutput timeout(Integer timeout) {
+  public HealthCheckerForDescribeVpnConnectionAttributesOutput timeout(Integer timeout) {
     this.timeout = timeout;
     return this;
   }
@@ -223,7 +223,7 @@ public class HealthCheckerForDescribeVpnConnectionsOutput {
     this.timeout = timeout;
   }
 
-  public HealthCheckerForDescribeVpnConnectionsOutput upTime(Integer upTime) {
+  public HealthCheckerForDescribeVpnConnectionAttributesOutput upTime(Integer upTime) {
     this.upTime = upTime;
     return this;
   }
@@ -250,15 +250,15 @@ public class HealthCheckerForDescribeVpnConnectionsOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    HealthCheckerForDescribeVpnConnectionsOutput healthCheckerForDescribeVpnConnectionsOutput = (HealthCheckerForDescribeVpnConnectionsOutput) o;
-    return Objects.equals(this.checkInterval, healthCheckerForDescribeVpnConnectionsOutput.checkInterval) &&
-        Objects.equals(this.checkResult, healthCheckerForDescribeVpnConnectionsOutput.checkResult) &&
-        Objects.equals(this.checkerId, healthCheckerForDescribeVpnConnectionsOutput.checkerId) &&
-        Objects.equals(this.downTime, healthCheckerForDescribeVpnConnectionsOutput.downTime) &&
-        Objects.equals(this.localIp, healthCheckerForDescribeVpnConnectionsOutput.localIp) &&
-        Objects.equals(this.remoteIp, healthCheckerForDescribeVpnConnectionsOutput.remoteIp) &&
-        Objects.equals(this.timeout, healthCheckerForDescribeVpnConnectionsOutput.timeout) &&
-        Objects.equals(this.upTime, healthCheckerForDescribeVpnConnectionsOutput.upTime);
+    HealthCheckerForDescribeVpnConnectionAttributesOutput healthCheckerForDescribeVpnConnectionAttributesOutput = (HealthCheckerForDescribeVpnConnectionAttributesOutput) o;
+    return Objects.equals(this.checkInterval, healthCheckerForDescribeVpnConnectionAttributesOutput.checkInterval) &&
+        Objects.equals(this.checkResult, healthCheckerForDescribeVpnConnectionAttributesOutput.checkResult) &&
+        Objects.equals(this.checkerId, healthCheckerForDescribeVpnConnectionAttributesOutput.checkerId) &&
+        Objects.equals(this.downTime, healthCheckerForDescribeVpnConnectionAttributesOutput.downTime) &&
+        Objects.equals(this.localIp, healthCheckerForDescribeVpnConnectionAttributesOutput.localIp) &&
+        Objects.equals(this.remoteIp, healthCheckerForDescribeVpnConnectionAttributesOutput.remoteIp) &&
+        Objects.equals(this.timeout, healthCheckerForDescribeVpnConnectionAttributesOutput.timeout) &&
+        Objects.equals(this.upTime, healthCheckerForDescribeVpnConnectionAttributesOutput.upTime);
   }
 
   @Override
@@ -270,7 +270,7 @@ public class HealthCheckerForDescribeVpnConnectionsOutput {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class HealthCheckerForDescribeVpnConnectionsOutput {\n");
+    sb.append("class HealthCheckerForDescribeVpnConnectionAttributesOutput {\n");
     
     sb.append("    checkInterval: ").append(toIndentedString(checkInterval)).append("\n");
     sb.append("    checkResult: ").append(toIndentedString(checkResult)).append("\n");

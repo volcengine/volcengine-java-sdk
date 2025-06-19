@@ -48,6 +48,9 @@ public class CreateVpnGatewayRequest {
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("DualTunnelEnabled")
+  private Boolean dualTunnelEnabled = null;
+
   @SerializedName("IpsecEnabled")
   private Boolean ipsecEnabled = null;
 
@@ -59,6 +62,9 @@ public class CreateVpnGatewayRequest {
 
   @SerializedName("ProjectName")
   private String projectName = null;
+
+  @SerializedName("SecondarySubnetId")
+  private String secondarySubnetId = null;
 
   @SerializedName("SslEnabled")
   private Boolean sslEnabled = null;
@@ -169,6 +175,24 @@ public class CreateVpnGatewayRequest {
     this.description = description;
   }
 
+  public CreateVpnGatewayRequest dualTunnelEnabled(Boolean dualTunnelEnabled) {
+    this.dualTunnelEnabled = dualTunnelEnabled;
+    return this;
+  }
+
+   /**
+   * Get dualTunnelEnabled
+   * @return dualTunnelEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isDualTunnelEnabled() {
+    return dualTunnelEnabled;
+  }
+
+  public void setDualTunnelEnabled(Boolean dualTunnelEnabled) {
+    this.dualTunnelEnabled = dualTunnelEnabled;
+  }
+
   public CreateVpnGatewayRequest ipsecEnabled(Boolean ipsecEnabled) {
     this.ipsecEnabled = ipsecEnabled;
     return this;
@@ -239,6 +263,24 @@ public class CreateVpnGatewayRequest {
 
   public void setProjectName(String projectName) {
     this.projectName = projectName;
+  }
+
+  public CreateVpnGatewayRequest secondarySubnetId(String secondarySubnetId) {
+    this.secondarySubnetId = secondarySubnetId;
+    return this;
+  }
+
+   /**
+   * Get secondarySubnetId
+   * @return secondarySubnetId
+  **/
+  @Schema(description = "")
+  public String getSecondarySubnetId() {
+    return secondarySubnetId;
+  }
+
+  public void setSecondarySubnetId(String secondarySubnetId) {
+    this.secondarySubnetId = secondarySubnetId;
   }
 
   public CreateVpnGatewayRequest sslEnabled(Boolean sslEnabled) {
@@ -375,10 +417,12 @@ public class CreateVpnGatewayRequest {
         Objects.equals(this.billingType, createVpnGatewayRequest.billingType) &&
         Objects.equals(this.clientToken, createVpnGatewayRequest.clientToken) &&
         Objects.equals(this.description, createVpnGatewayRequest.description) &&
+        Objects.equals(this.dualTunnelEnabled, createVpnGatewayRequest.dualTunnelEnabled) &&
         Objects.equals(this.ipsecEnabled, createVpnGatewayRequest.ipsecEnabled) &&
         Objects.equals(this.period, createVpnGatewayRequest.period) &&
         Objects.equals(this.periodUnit, createVpnGatewayRequest.periodUnit) &&
         Objects.equals(this.projectName, createVpnGatewayRequest.projectName) &&
+        Objects.equals(this.secondarySubnetId, createVpnGatewayRequest.secondarySubnetId) &&
         Objects.equals(this.sslEnabled, createVpnGatewayRequest.sslEnabled) &&
         Objects.equals(this.sslMaxConnections, createVpnGatewayRequest.sslMaxConnections) &&
         Objects.equals(this.subnetId, createVpnGatewayRequest.subnetId) &&
@@ -389,7 +433,7 @@ public class CreateVpnGatewayRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(asn, bandwidth, billingType, clientToken, description, ipsecEnabled, period, periodUnit, projectName, sslEnabled, sslMaxConnections, subnetId, tags, vpcId, vpnGatewayName);
+    return Objects.hash(asn, bandwidth, billingType, clientToken, description, dualTunnelEnabled, ipsecEnabled, period, periodUnit, projectName, secondarySubnetId, sslEnabled, sslMaxConnections, subnetId, tags, vpcId, vpnGatewayName);
   }
 
 
@@ -403,10 +447,12 @@ public class CreateVpnGatewayRequest {
     sb.append("    billingType: ").append(toIndentedString(billingType)).append("\n");
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    dualTunnelEnabled: ").append(toIndentedString(dualTunnelEnabled)).append("\n");
     sb.append("    ipsecEnabled: ").append(toIndentedString(ipsecEnabled)).append("\n");
     sb.append("    period: ").append(toIndentedString(period)).append("\n");
     sb.append("    periodUnit: ").append(toIndentedString(periodUnit)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    secondarySubnetId: ").append(toIndentedString(secondarySubnetId)).append("\n");
     sb.append("    sslEnabled: ").append(toIndentedString(sslEnabled)).append("\n");
     sb.append("    sslMaxConnections: ").append(toIndentedString(sslMaxConnections)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");

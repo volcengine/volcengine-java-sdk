@@ -24,12 +24,12 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * IkeConfigForCreateVpnConnectionInput
+ * IkeConfigForModifyVpnConnectionTunnelAttributesInput
  */
 
 
 
-public class IkeConfigForCreateVpnConnectionInput {
+public class IkeConfigForModifyVpnConnectionTunnelAttributesInput {
   @SerializedName("AuthAlg")
   private String authAlg = null;
 
@@ -57,7 +57,7 @@ public class IkeConfigForCreateVpnConnectionInput {
   @SerializedName("Version")
   private String version = null;
 
-  public IkeConfigForCreateVpnConnectionInput authAlg(String authAlg) {
+  public IkeConfigForModifyVpnConnectionTunnelAttributesInput authAlg(String authAlg) {
     this.authAlg = authAlg;
     return this;
   }
@@ -75,7 +75,7 @@ public class IkeConfigForCreateVpnConnectionInput {
     this.authAlg = authAlg;
   }
 
-  public IkeConfigForCreateVpnConnectionInput dhGroup(String dhGroup) {
+  public IkeConfigForModifyVpnConnectionTunnelAttributesInput dhGroup(String dhGroup) {
     this.dhGroup = dhGroup;
     return this;
   }
@@ -93,7 +93,7 @@ public class IkeConfigForCreateVpnConnectionInput {
     this.dhGroup = dhGroup;
   }
 
-  public IkeConfigForCreateVpnConnectionInput encAlg(String encAlg) {
+  public IkeConfigForModifyVpnConnectionTunnelAttributesInput encAlg(String encAlg) {
     this.encAlg = encAlg;
     return this;
   }
@@ -111,7 +111,7 @@ public class IkeConfigForCreateVpnConnectionInput {
     this.encAlg = encAlg;
   }
 
-  public IkeConfigForCreateVpnConnectionInput lifetime(Integer lifetime) {
+  public IkeConfigForModifyVpnConnectionTunnelAttributesInput lifetime(Integer lifetime) {
     this.lifetime = lifetime;
     return this;
   }
@@ -129,7 +129,7 @@ public class IkeConfigForCreateVpnConnectionInput {
     this.lifetime = lifetime;
   }
 
-  public IkeConfigForCreateVpnConnectionInput localId(String localId) {
+  public IkeConfigForModifyVpnConnectionTunnelAttributesInput localId(String localId) {
     this.localId = localId;
     return this;
   }
@@ -147,7 +147,7 @@ public class IkeConfigForCreateVpnConnectionInput {
     this.localId = localId;
   }
 
-  public IkeConfigForCreateVpnConnectionInput mode(String mode) {
+  public IkeConfigForModifyVpnConnectionTunnelAttributesInput mode(String mode) {
     this.mode = mode;
     return this;
   }
@@ -165,7 +165,7 @@ public class IkeConfigForCreateVpnConnectionInput {
     this.mode = mode;
   }
 
-  public IkeConfigForCreateVpnConnectionInput psk(String psk) {
+  public IkeConfigForModifyVpnConnectionTunnelAttributesInput psk(String psk) {
     this.psk = psk;
     return this;
   }
@@ -183,7 +183,7 @@ public class IkeConfigForCreateVpnConnectionInput {
     this.psk = psk;
   }
 
-  public IkeConfigForCreateVpnConnectionInput remoteId(String remoteId) {
+  public IkeConfigForModifyVpnConnectionTunnelAttributesInput remoteId(String remoteId) {
     this.remoteId = remoteId;
     return this;
   }
@@ -201,7 +201,7 @@ public class IkeConfigForCreateVpnConnectionInput {
     this.remoteId = remoteId;
   }
 
-  public IkeConfigForCreateVpnConnectionInput version(String version) {
+  public IkeConfigForModifyVpnConnectionTunnelAttributesInput version(String version) {
     this.version = version;
     return this;
   }
@@ -228,16 +228,16 @@ public class IkeConfigForCreateVpnConnectionInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    IkeConfigForCreateVpnConnectionInput ikeConfigForCreateVpnConnectionInput = (IkeConfigForCreateVpnConnectionInput) o;
-    return Objects.equals(this.authAlg, ikeConfigForCreateVpnConnectionInput.authAlg) &&
-        Objects.equals(this.dhGroup, ikeConfigForCreateVpnConnectionInput.dhGroup) &&
-        Objects.equals(this.encAlg, ikeConfigForCreateVpnConnectionInput.encAlg) &&
-        Objects.equals(this.lifetime, ikeConfigForCreateVpnConnectionInput.lifetime) &&
-        Objects.equals(this.localId, ikeConfigForCreateVpnConnectionInput.localId) &&
-        Objects.equals(this.mode, ikeConfigForCreateVpnConnectionInput.mode) &&
-        Objects.equals(this.psk, ikeConfigForCreateVpnConnectionInput.psk) &&
-        Objects.equals(this.remoteId, ikeConfigForCreateVpnConnectionInput.remoteId) &&
-        Objects.equals(this.version, ikeConfigForCreateVpnConnectionInput.version);
+    IkeConfigForModifyVpnConnectionTunnelAttributesInput ikeConfigForModifyVpnConnectionTunnelAttributesInput = (IkeConfigForModifyVpnConnectionTunnelAttributesInput) o;
+    return Objects.equals(this.authAlg, ikeConfigForModifyVpnConnectionTunnelAttributesInput.authAlg) &&
+        Objects.equals(this.dhGroup, ikeConfigForModifyVpnConnectionTunnelAttributesInput.dhGroup) &&
+        Objects.equals(this.encAlg, ikeConfigForModifyVpnConnectionTunnelAttributesInput.encAlg) &&
+        Objects.equals(this.lifetime, ikeConfigForModifyVpnConnectionTunnelAttributesInput.lifetime) &&
+        Objects.equals(this.localId, ikeConfigForModifyVpnConnectionTunnelAttributesInput.localId) &&
+        Objects.equals(this.mode, ikeConfigForModifyVpnConnectionTunnelAttributesInput.mode) &&
+        Objects.equals(this.psk, ikeConfigForModifyVpnConnectionTunnelAttributesInput.psk) &&
+        Objects.equals(this.remoteId, ikeConfigForModifyVpnConnectionTunnelAttributesInput.remoteId) &&
+        Objects.equals(this.version, ikeConfigForModifyVpnConnectionTunnelAttributesInput.version);
   }
 
   @Override
@@ -249,7 +249,7 @@ public class IkeConfigForCreateVpnConnectionInput {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class IkeConfigForCreateVpnConnectionInput {\n");
+    sb.append("class IkeConfigForModifyVpnConnectionTunnelAttributesInput {\n");
     
     sb.append("    authAlg: ").append(toIndentedString(authAlg)).append("\n");
     sb.append("    dhGroup: ").append(toIndentedString(dhGroup)).append("\n");
