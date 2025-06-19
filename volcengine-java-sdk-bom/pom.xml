@@ -504,6 +504,18 @@
                 <optional>false</optional>
                 <version>${project.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.volcengine</groupId>
+                <artifactId>volcengine-java-sdk-apig20221112</artifactId>
+                <optional>false</optional>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.volcengine</groupId>
+                <artifactId>volcengine-java-sdk-aiotvideo20231001</artifactId>
+                <optional>false</optional>
+                <version>${project.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 </project>
