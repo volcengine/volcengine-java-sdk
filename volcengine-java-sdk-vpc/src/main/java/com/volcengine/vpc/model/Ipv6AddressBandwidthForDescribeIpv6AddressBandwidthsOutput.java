@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vpc.model.TagForDescribeIpv6AddressBandwidthsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -80,6 +83,9 @@ public class Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput {
 
   @SerializedName("Status")
   private String status = null;
+
+  @SerializedName("Tags")
+  private List<TagForDescribeIpv6AddressBandwidthsOutput> tags = null;
 
   @SerializedName("UpdatedAt")
   private String updatedAt = null;
@@ -390,6 +396,33 @@ public class Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput {
     this.status = status;
   }
 
+  public Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput tags(List<TagForDescribeIpv6AddressBandwidthsOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput addTagsItem(TagForDescribeIpv6AddressBandwidthsOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForDescribeIpv6AddressBandwidthsOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForDescribeIpv6AddressBandwidthsOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForDescribeIpv6AddressBandwidthsOutput> tags) {
+    this.tags = tags;
+  }
+
   public Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput updatedAt(String updatedAt) {
     this.updatedAt = updatedAt;
     return this;
@@ -435,12 +468,13 @@ public class Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput {
         Objects.equals(this.overdueTime, ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput.overdueTime) &&
         Objects.equals(this.projectName, ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput.projectName) &&
         Objects.equals(this.status, ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput.status) &&
+        Objects.equals(this.tags, ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput.tags) &&
         Objects.equals(this.updatedAt, ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput.updatedAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allocationId, bandwidth, bandwidthPackageId, billingType, businessStatus, creationTime, deletedTime, ISP, instanceId, instanceType, ipv6Address, ipv6GatewayId, lockReason, networkType, overdueTime, projectName, status, updatedAt);
+    return Objects.hash(allocationId, bandwidth, bandwidthPackageId, billingType, businessStatus, creationTime, deletedTime, ISP, instanceId, instanceType, ipv6Address, ipv6GatewayId, lockReason, networkType, overdueTime, projectName, status, tags, updatedAt);
   }
 
 
@@ -466,6 +500,7 @@ public class Ipv6AddressBandwidthForDescribeIpv6AddressBandwidthsOutput {
     sb.append("    overdueTime: ").append(toIndentedString(overdueTime)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("}");
     return sb.toString();

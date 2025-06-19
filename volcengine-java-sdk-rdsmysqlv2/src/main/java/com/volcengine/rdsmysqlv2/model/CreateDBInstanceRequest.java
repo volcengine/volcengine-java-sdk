@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.rdsmysqlv2.model.AutoStorageScalingConfigForCreateDBInstanceInput;
 import com.volcengine.rdsmysqlv2.model.ChargeInfoForCreateDBInstanceInput;
 import com.volcengine.rdsmysqlv2.model.InstanceTagForCreateDBInstanceInput;
 import com.volcengine.rdsmysqlv2.model.MaintenanceWindowForCreateDBInstanceInput;
@@ -39,6 +40,9 @@ public class CreateDBInstanceRequest {
   @SerializedName("AllowListIds")
   private List<String> allowListIds = null;
 
+  @SerializedName("AutoStorageScalingConfig")
+  private AutoStorageScalingConfigForCreateDBInstanceInput autoStorageScalingConfig = null;
+
   @SerializedName("ChargeInfo")
   private ChargeInfoForCreateDBInstanceInput chargeInfo = null;
 
@@ -50,6 +54,9 @@ public class CreateDBInstanceRequest {
 
   @SerializedName("DBTimeZone")
   private String dbTimeZone = null;
+
+  @SerializedName("DeletionProtection")
+  private String deletionProtection = null;
 
   @SerializedName("InstanceName")
   private String instanceName = null;
@@ -117,6 +124,25 @@ public class CreateDBInstanceRequest {
 
   public void setAllowListIds(List<String> allowListIds) {
     this.allowListIds = allowListIds;
+  }
+
+  public CreateDBInstanceRequest autoStorageScalingConfig(AutoStorageScalingConfigForCreateDBInstanceInput autoStorageScalingConfig) {
+    this.autoStorageScalingConfig = autoStorageScalingConfig;
+    return this;
+  }
+
+   /**
+   * Get autoStorageScalingConfig
+   * @return autoStorageScalingConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public AutoStorageScalingConfigForCreateDBInstanceInput getAutoStorageScalingConfig() {
+    return autoStorageScalingConfig;
+  }
+
+  public void setAutoStorageScalingConfig(AutoStorageScalingConfigForCreateDBInstanceInput autoStorageScalingConfig) {
+    this.autoStorageScalingConfig = autoStorageScalingConfig;
   }
 
   public CreateDBInstanceRequest chargeInfo(ChargeInfoForCreateDBInstanceInput chargeInfo) {
@@ -191,6 +217,24 @@ public class CreateDBInstanceRequest {
 
   public void setDbTimeZone(String dbTimeZone) {
     this.dbTimeZone = dbTimeZone;
+  }
+
+  public CreateDBInstanceRequest deletionProtection(String deletionProtection) {
+    this.deletionProtection = deletionProtection;
+    return this;
+  }
+
+   /**
+   * Get deletionProtection
+   * @return deletionProtection
+  **/
+  @Schema(description = "")
+  public String getDeletionProtection() {
+    return deletionProtection;
+  }
+
+  public void setDeletionProtection(String deletionProtection) {
+    this.deletionProtection = deletionProtection;
   }
 
   public CreateDBInstanceRequest instanceName(String instanceName) {
@@ -479,10 +523,12 @@ public class CreateDBInstanceRequest {
     }
     CreateDBInstanceRequest createDBInstanceRequest = (CreateDBInstanceRequest) o;
     return Objects.equals(this.allowListIds, createDBInstanceRequest.allowListIds) &&
+        Objects.equals(this.autoStorageScalingConfig, createDBInstanceRequest.autoStorageScalingConfig) &&
         Objects.equals(this.chargeInfo, createDBInstanceRequest.chargeInfo) &&
         Objects.equals(this.dbEngineVersion, createDBInstanceRequest.dbEngineVersion) &&
         Objects.equals(this.dbParamGroupId, createDBInstanceRequest.dbParamGroupId) &&
         Objects.equals(this.dbTimeZone, createDBInstanceRequest.dbTimeZone) &&
+        Objects.equals(this.deletionProtection, createDBInstanceRequest.deletionProtection) &&
         Objects.equals(this.instanceName, createDBInstanceRequest.instanceName) &&
         Objects.equals(this.instanceTags, createDBInstanceRequest.instanceTags) &&
         Objects.equals(this.instanceType, createDBInstanceRequest.instanceType) &&
@@ -501,7 +547,7 @@ public class CreateDBInstanceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowListIds, chargeInfo, dbEngineVersion, dbParamGroupId, dbTimeZone, instanceName, instanceTags, instanceType, lowerCaseTableNames, maintenanceWindow, nodeInfo, port, projectName, storageSpace, storageType, subnetId, superAccountName, superAccountPassword, vpcId);
+    return Objects.hash(allowListIds, autoStorageScalingConfig, chargeInfo, dbEngineVersion, dbParamGroupId, dbTimeZone, deletionProtection, instanceName, instanceTags, instanceType, lowerCaseTableNames, maintenanceWindow, nodeInfo, port, projectName, storageSpace, storageType, subnetId, superAccountName, superAccountPassword, vpcId);
   }
 
 
@@ -511,10 +557,12 @@ public class CreateDBInstanceRequest {
     sb.append("class CreateDBInstanceRequest {\n");
     
     sb.append("    allowListIds: ").append(toIndentedString(allowListIds)).append("\n");
+    sb.append("    autoStorageScalingConfig: ").append(toIndentedString(autoStorageScalingConfig)).append("\n");
     sb.append("    chargeInfo: ").append(toIndentedString(chargeInfo)).append("\n");
     sb.append("    dbEngineVersion: ").append(toIndentedString(dbEngineVersion)).append("\n");
     sb.append("    dbParamGroupId: ").append(toIndentedString(dbParamGroupId)).append("\n");
     sb.append("    dbTimeZone: ").append(toIndentedString(dbTimeZone)).append("\n");
+    sb.append("    deletionProtection: ").append(toIndentedString(deletionProtection)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    instanceTags: ").append(toIndentedString(instanceTags)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");

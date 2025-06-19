@@ -66,6 +66,9 @@ public class BackupForDescribeBackupsOutput {
   @SerializedName("CreateType")
   private String createType = null;
 
+  @SerializedName("DBEngineVersion")
+  private String dbEngineVersion = null;
+
   @SerializedName("DBTableInfos")
   private List<DBTableInfoForDescribeBackupsOutput> dbTableInfos = null;
 
@@ -282,6 +285,24 @@ public class BackupForDescribeBackupsOutput {
     this.createType = createType;
   }
 
+  public BackupForDescribeBackupsOutput dbEngineVersion(String dbEngineVersion) {
+    this.dbEngineVersion = dbEngineVersion;
+    return this;
+  }
+
+   /**
+   * Get dbEngineVersion
+   * @return dbEngineVersion
+  **/
+  @Schema(description = "")
+  public String getDbEngineVersion() {
+    return dbEngineVersion;
+  }
+
+  public void setDbEngineVersion(String dbEngineVersion) {
+    this.dbEngineVersion = dbEngineVersion;
+  }
+
   public BackupForDescribeBackupsOutput dbTableInfos(List<DBTableInfoForDescribeBackupsOutput> dbTableInfos) {
     this.dbTableInfos = dbTableInfos;
     return this;
@@ -420,6 +441,7 @@ public class BackupForDescribeBackupsOutput {
         Objects.equals(this.backupType, backupForDescribeBackupsOutput.backupType) &&
         Objects.equals(this.consistentTime, backupForDescribeBackupsOutput.consistentTime) &&
         Objects.equals(this.createType, backupForDescribeBackupsOutput.createType) &&
+        Objects.equals(this.dbEngineVersion, backupForDescribeBackupsOutput.dbEngineVersion) &&
         Objects.equals(this.dbTableInfos, backupForDescribeBackupsOutput.dbTableInfos) &&
         Objects.equals(this.downloadStatus, backupForDescribeBackupsOutput.downloadStatus) &&
         Objects.equals(this.errorMessage, backupForDescribeBackupsOutput.errorMessage) &&
@@ -430,7 +452,7 @@ public class BackupForDescribeBackupsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(backupEndTime, backupFileName, backupFileSize, backupId, backupMethod, backupRegion, backupStartTime, backupStatus, backupType, consistentTime, createType, dbTableInfos, downloadStatus, errorMessage, expiredTime, isEncrypted, isExpired);
+    return Objects.hash(backupEndTime, backupFileName, backupFileSize, backupId, backupMethod, backupRegion, backupStartTime, backupStatus, backupType, consistentTime, createType, dbEngineVersion, dbTableInfos, downloadStatus, errorMessage, expiredTime, isEncrypted, isExpired);
   }
 
 
@@ -450,6 +472,7 @@ public class BackupForDescribeBackupsOutput {
     sb.append("    backupType: ").append(toIndentedString(backupType)).append("\n");
     sb.append("    consistentTime: ").append(toIndentedString(consistentTime)).append("\n");
     sb.append("    createType: ").append(toIndentedString(createType)).append("\n");
+    sb.append("    dbEngineVersion: ").append(toIndentedString(dbEngineVersion)).append("\n");
     sb.append("    dbTableInfos: ").append(toIndentedString(dbTableInfos)).append("\n");
     sb.append("    downloadStatus: ").append(toIndentedString(downloadStatus)).append("\n");
     sb.append("    errorMessage: ").append(toIndentedString(errorMessage)).append("\n");

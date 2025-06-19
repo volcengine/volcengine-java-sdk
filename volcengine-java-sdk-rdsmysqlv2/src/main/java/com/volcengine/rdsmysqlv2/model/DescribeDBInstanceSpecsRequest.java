@@ -39,6 +39,12 @@ public class DescribeDBInstanceSpecsRequest {
   @SerializedName("SpecCode")
   private String specCode = null;
 
+  @SerializedName("SpecFamily")
+  private String specFamily = null;
+
+  @SerializedName("StorageType")
+  private String storageType = null;
+
   @SerializedName("ZoneId")
   private String zoneId = null;
 
@@ -96,6 +102,42 @@ public class DescribeDBInstanceSpecsRequest {
     this.specCode = specCode;
   }
 
+  public DescribeDBInstanceSpecsRequest specFamily(String specFamily) {
+    this.specFamily = specFamily;
+    return this;
+  }
+
+   /**
+   * Get specFamily
+   * @return specFamily
+  **/
+  @Schema(description = "")
+  public String getSpecFamily() {
+    return specFamily;
+  }
+
+  public void setSpecFamily(String specFamily) {
+    this.specFamily = specFamily;
+  }
+
+  public DescribeDBInstanceSpecsRequest storageType(String storageType) {
+    this.storageType = storageType;
+    return this;
+  }
+
+   /**
+   * Get storageType
+   * @return storageType
+  **/
+  @Schema(description = "")
+  public String getStorageType() {
+    return storageType;
+  }
+
+  public void setStorageType(String storageType) {
+    this.storageType = storageType;
+  }
+
   public DescribeDBInstanceSpecsRequest zoneId(String zoneId) {
     this.zoneId = zoneId;
     return this;
@@ -127,12 +169,14 @@ public class DescribeDBInstanceSpecsRequest {
     return Objects.equals(this.dbEngineVersion, describeDBInstanceSpecsRequest.dbEngineVersion) &&
         Objects.equals(this.instanceType, describeDBInstanceSpecsRequest.instanceType) &&
         Objects.equals(this.specCode, describeDBInstanceSpecsRequest.specCode) &&
+        Objects.equals(this.specFamily, describeDBInstanceSpecsRequest.specFamily) &&
+        Objects.equals(this.storageType, describeDBInstanceSpecsRequest.storageType) &&
         Objects.equals(this.zoneId, describeDBInstanceSpecsRequest.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dbEngineVersion, instanceType, specCode, zoneId);
+    return Objects.hash(dbEngineVersion, instanceType, specCode, specFamily, storageType, zoneId);
   }
 
 
@@ -144,6 +188,8 @@ public class DescribeDBInstanceSpecsRequest {
     sb.append("    dbEngineVersion: ").append(toIndentedString(dbEngineVersion)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("    specCode: ").append(toIndentedString(specCode)).append("\n");
+    sb.append("    specFamily: ").append(toIndentedString(specFamily)).append("\n");
+    sb.append("    storageType: ").append(toIndentedString(storageType)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");
     return sb.toString();

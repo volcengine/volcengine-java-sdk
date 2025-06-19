@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vpn.model.TagFilterForDescribeSslVpnClientCertsInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -46,6 +47,9 @@ public class DescribeSslVpnClientCertsRequest {
 
   @SerializedName("SslVpnServerId")
   private String sslVpnServerId = null;
+
+  @SerializedName("TagFilters")
+  private List<TagFilterForDescribeSslVpnClientCertsInput> tagFilters = null;
 
   public DescribeSslVpnClientCertsRequest pageNumber(Integer pageNumber) {
     this.pageNumber = pageNumber;
@@ -145,6 +149,33 @@ public class DescribeSslVpnClientCertsRequest {
     this.sslVpnServerId = sslVpnServerId;
   }
 
+  public DescribeSslVpnClientCertsRequest tagFilters(List<TagFilterForDescribeSslVpnClientCertsInput> tagFilters) {
+    this.tagFilters = tagFilters;
+    return this;
+  }
+
+  public DescribeSslVpnClientCertsRequest addTagFiltersItem(TagFilterForDescribeSslVpnClientCertsInput tagFiltersItem) {
+    if (this.tagFilters == null) {
+      this.tagFilters = new ArrayList<TagFilterForDescribeSslVpnClientCertsInput>();
+    }
+    this.tagFilters.add(tagFiltersItem);
+    return this;
+  }
+
+   /**
+   * Get tagFilters
+   * @return tagFilters
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagFilterForDescribeSslVpnClientCertsInput> getTagFilters() {
+    return tagFilters;
+  }
+
+  public void setTagFilters(List<TagFilterForDescribeSslVpnClientCertsInput> tagFilters) {
+    this.tagFilters = tagFilters;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -159,12 +190,13 @@ public class DescribeSslVpnClientCertsRequest {
         Objects.equals(this.pageSize, describeSslVpnClientCertsRequest.pageSize) &&
         Objects.equals(this.sslVpnClientCertIds, describeSslVpnClientCertsRequest.sslVpnClientCertIds) &&
         Objects.equals(this.sslVpnClientCertName, describeSslVpnClientCertsRequest.sslVpnClientCertName) &&
-        Objects.equals(this.sslVpnServerId, describeSslVpnClientCertsRequest.sslVpnServerId);
+        Objects.equals(this.sslVpnServerId, describeSslVpnClientCertsRequest.sslVpnServerId) &&
+        Objects.equals(this.tagFilters, describeSslVpnClientCertsRequest.tagFilters);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pageNumber, pageSize, sslVpnClientCertIds, sslVpnClientCertName, sslVpnServerId);
+    return Objects.hash(pageNumber, pageSize, sslVpnClientCertIds, sslVpnClientCertName, sslVpnServerId, tagFilters);
   }
 
 
@@ -178,6 +210,7 @@ public class DescribeSslVpnClientCertsRequest {
     sb.append("    sslVpnClientCertIds: ").append(toIndentedString(sslVpnClientCertIds)).append("\n");
     sb.append("    sslVpnClientCertName: ").append(toIndentedString(sslVpnClientCertName)).append("\n");
     sb.append("    sslVpnServerId: ").append(toIndentedString(sslVpnServerId)).append("\n");
+    sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("}");
     return sb.toString();
   }

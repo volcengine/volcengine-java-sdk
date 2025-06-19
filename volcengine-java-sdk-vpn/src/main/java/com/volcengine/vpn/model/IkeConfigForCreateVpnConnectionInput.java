@@ -174,8 +174,7 @@ public class IkeConfigForCreateVpnConnectionInput {
    * Get psk
    * @return psk
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getPsk() {
     return psk;
   }

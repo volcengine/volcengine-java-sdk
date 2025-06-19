@@ -78,6 +78,9 @@ public class DescribeDBInstancesRequest {
   @SerializedName("ProjectName")
   private String projectName = null;
 
+  @SerializedName("StorageType")
+  private String storageType = null;
+
   @SerializedName("TagFilters")
   private List<TagFilterForDescribeDBInstancesInput> tagFilters = null;
 
@@ -362,6 +365,24 @@ public class DescribeDBInstancesRequest {
     this.projectName = projectName;
   }
 
+  public DescribeDBInstancesRequest storageType(String storageType) {
+    this.storageType = storageType;
+    return this;
+  }
+
+   /**
+   * Get storageType
+   * @return storageType
+  **/
+  @Schema(description = "")
+  public String getStorageType() {
+    return storageType;
+  }
+
+  public void setStorageType(String storageType) {
+    this.storageType = storageType;
+  }
+
   public DescribeDBInstancesRequest tagFilters(List<TagFilterForDescribeDBInstancesInput> tagFilters) {
     this.tagFilters = tagFilters;
     return this;
@@ -432,13 +453,14 @@ public class DescribeDBInstancesRequest {
         Objects.equals(this.privateNetworkIpAddress, describeDBInstancesRequest.privateNetworkIpAddress) &&
         Objects.equals(this.privateNetworkVpcId, describeDBInstancesRequest.privateNetworkVpcId) &&
         Objects.equals(this.projectName, describeDBInstancesRequest.projectName) &&
+        Objects.equals(this.storageType, describeDBInstancesRequest.storageType) &&
         Objects.equals(this.tagFilters, describeDBInstancesRequest.tagFilters) &&
         Objects.equals(this.zoneId, describeDBInstancesRequest.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(chargeType, createTimeEnd, createTimeStart, dbEngineVersion, instanceId, instanceName, instanceStatus, instanceType, kernelVersion, nodeSpec, pageNumber, pageSize, privateNetworkIpAddress, privateNetworkVpcId, projectName, tagFilters, zoneId);
+    return Objects.hash(chargeType, createTimeEnd, createTimeStart, dbEngineVersion, instanceId, instanceName, instanceStatus, instanceType, kernelVersion, nodeSpec, pageNumber, pageSize, privateNetworkIpAddress, privateNetworkVpcId, projectName, storageType, tagFilters, zoneId);
   }
 
 
@@ -462,6 +484,7 @@ public class DescribeDBInstancesRequest {
     sb.append("    privateNetworkIpAddress: ").append(toIndentedString(privateNetworkIpAddress)).append("\n");
     sb.append("    privateNetworkVpcId: ").append(toIndentedString(privateNetworkVpcId)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    storageType: ").append(toIndentedString(storageType)).append("\n");
     sb.append("    tagFilters: ").append(toIndentedString(tagFilters)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");

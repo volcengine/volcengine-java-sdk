@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.rdsmysqlv2.model.AutoStorageScalingConfigForRestoreToNewInstanceInput;
 import com.volcengine.rdsmysqlv2.model.ChargeInfoForRestoreToNewInstanceInput;
 import com.volcengine.rdsmysqlv2.model.InstanceTagForRestoreToNewInstanceInput;
 import com.volcengine.rdsmysqlv2.model.NodeInfoForRestoreToNewInstanceInput;
@@ -38,6 +39,9 @@ public class RestoreToNewInstanceRequest {
   @SerializedName("AllowListIds")
   private List<String> allowListIds = null;
 
+  @SerializedName("AutoStorageScalingConfig")
+  private AutoStorageScalingConfigForRestoreToNewInstanceInput autoStorageScalingConfig = null;
+
   @SerializedName("BackupId")
   private String backupId = null;
 
@@ -46,6 +50,9 @@ public class RestoreToNewInstanceRequest {
 
   @SerializedName("DBParamGroupId")
   private String dbParamGroupId = null;
+
+  @SerializedName("DeletionProtection")
+  private String deletionProtection = null;
 
   @SerializedName("InstanceName")
   private String instanceName = null;
@@ -106,6 +113,25 @@ public class RestoreToNewInstanceRequest {
     this.allowListIds = allowListIds;
   }
 
+  public RestoreToNewInstanceRequest autoStorageScalingConfig(AutoStorageScalingConfigForRestoreToNewInstanceInput autoStorageScalingConfig) {
+    this.autoStorageScalingConfig = autoStorageScalingConfig;
+    return this;
+  }
+
+   /**
+   * Get autoStorageScalingConfig
+   * @return autoStorageScalingConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public AutoStorageScalingConfigForRestoreToNewInstanceInput getAutoStorageScalingConfig() {
+    return autoStorageScalingConfig;
+  }
+
+  public void setAutoStorageScalingConfig(AutoStorageScalingConfigForRestoreToNewInstanceInput autoStorageScalingConfig) {
+    this.autoStorageScalingConfig = autoStorageScalingConfig;
+  }
+
   public RestoreToNewInstanceRequest backupId(String backupId) {
     this.backupId = backupId;
     return this;
@@ -159,6 +185,24 @@ public class RestoreToNewInstanceRequest {
 
   public void setDbParamGroupId(String dbParamGroupId) {
     this.dbParamGroupId = dbParamGroupId;
+  }
+
+  public RestoreToNewInstanceRequest deletionProtection(String deletionProtection) {
+    this.deletionProtection = deletionProtection;
+    return this;
+  }
+
+   /**
+   * Get deletionProtection
+   * @return deletionProtection
+  **/
+  @Schema(description = "")
+  public String getDeletionProtection() {
+    return deletionProtection;
+  }
+
+  public void setDeletionProtection(String deletionProtection) {
+    this.deletionProtection = deletionProtection;
   }
 
   public RestoreToNewInstanceRequest instanceName(String instanceName) {
@@ -392,9 +436,11 @@ public class RestoreToNewInstanceRequest {
     }
     RestoreToNewInstanceRequest restoreToNewInstanceRequest = (RestoreToNewInstanceRequest) o;
     return Objects.equals(this.allowListIds, restoreToNewInstanceRequest.allowListIds) &&
+        Objects.equals(this.autoStorageScalingConfig, restoreToNewInstanceRequest.autoStorageScalingConfig) &&
         Objects.equals(this.backupId, restoreToNewInstanceRequest.backupId) &&
         Objects.equals(this.chargeInfo, restoreToNewInstanceRequest.chargeInfo) &&
         Objects.equals(this.dbParamGroupId, restoreToNewInstanceRequest.dbParamGroupId) &&
+        Objects.equals(this.deletionProtection, restoreToNewInstanceRequest.deletionProtection) &&
         Objects.equals(this.instanceName, restoreToNewInstanceRequest.instanceName) &&
         Objects.equals(this.instanceTags, restoreToNewInstanceRequest.instanceTags) &&
         Objects.equals(this.nodeInfo, restoreToNewInstanceRequest.nodeInfo) &&
@@ -410,7 +456,7 @@ public class RestoreToNewInstanceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowListIds, backupId, chargeInfo, dbParamGroupId, instanceName, instanceTags, nodeInfo, port, projectName, restoreTime, srcInstanceId, storageSpace, storageType, subnetId, vpcId);
+    return Objects.hash(allowListIds, autoStorageScalingConfig, backupId, chargeInfo, dbParamGroupId, deletionProtection, instanceName, instanceTags, nodeInfo, port, projectName, restoreTime, srcInstanceId, storageSpace, storageType, subnetId, vpcId);
   }
 
 
@@ -420,9 +466,11 @@ public class RestoreToNewInstanceRequest {
     sb.append("class RestoreToNewInstanceRequest {\n");
     
     sb.append("    allowListIds: ").append(toIndentedString(allowListIds)).append("\n");
+    sb.append("    autoStorageScalingConfig: ").append(toIndentedString(autoStorageScalingConfig)).append("\n");
     sb.append("    backupId: ").append(toIndentedString(backupId)).append("\n");
     sb.append("    chargeInfo: ").append(toIndentedString(chargeInfo)).append("\n");
     sb.append("    dbParamGroupId: ").append(toIndentedString(dbParamGroupId)).append("\n");
+    sb.append("    deletionProtection: ").append(toIndentedString(deletionProtection)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    instanceTags: ").append(toIndentedString(instanceTags)).append("\n");
     sb.append("    nodeInfo: ").append(toIndentedString(nodeInfo)).append("\n");

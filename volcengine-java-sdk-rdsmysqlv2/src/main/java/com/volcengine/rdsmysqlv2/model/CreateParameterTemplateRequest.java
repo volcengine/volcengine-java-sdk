@@ -142,8 +142,7 @@ public class CreateParameterTemplateRequest {
    * Get templateType
    * @return templateType
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getTemplateType() {
     return templateType;
   }
@@ -161,8 +160,7 @@ public class CreateParameterTemplateRequest {
    * Get templateTypeVersion
    * @return templateTypeVersion
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getTemplateTypeVersion() {
     return templateTypeVersion;
   }
