@@ -72,6 +72,12 @@ public class GetDevInstanceResponse extends com.volcengine.model.AbstractRespons
   @SerializedName("NodeAffinitySpec")
   private NodeAffinitySpecForGetDevInstanceOutput nodeAffinitySpec = null;
 
+  @SerializedName("NumaAffinity")
+  private String numaAffinity = null;
+
+  @SerializedName("NumaStatus")
+  private String numaStatus = null;
+
   @SerializedName("Ports")
   private List<PortForGetDevInstanceOutput> ports = null;
 
@@ -303,6 +309,42 @@ public class GetDevInstanceResponse extends com.volcengine.model.AbstractRespons
 
   public void setNodeAffinitySpec(NodeAffinitySpecForGetDevInstanceOutput nodeAffinitySpec) {
     this.nodeAffinitySpec = nodeAffinitySpec;
+  }
+
+  public GetDevInstanceResponse numaAffinity(String numaAffinity) {
+    this.numaAffinity = numaAffinity;
+    return this;
+  }
+
+   /**
+   * Get numaAffinity
+   * @return numaAffinity
+  **/
+  @Schema(description = "")
+  public String getNumaAffinity() {
+    return numaAffinity;
+  }
+
+  public void setNumaAffinity(String numaAffinity) {
+    this.numaAffinity = numaAffinity;
+  }
+
+  public GetDevInstanceResponse numaStatus(String numaStatus) {
+    this.numaStatus = numaStatus;
+    return this;
+  }
+
+   /**
+   * Get numaStatus
+   * @return numaStatus
+  **/
+  @Schema(description = "")
+  public String getNumaStatus() {
+    return numaStatus;
+  }
+
+  public void setNumaStatus(String numaStatus) {
+    this.numaStatus = numaStatus;
   }
 
   public GetDevInstanceResponse ports(List<PortForGetDevInstanceOutput> ports) {
@@ -545,6 +587,8 @@ public class GetDevInstanceResponse extends com.volcengine.model.AbstractRespons
         Objects.equals(this.launchTime, getDevInstanceResponse.launchTime) &&
         Objects.equals(this.name, getDevInstanceResponse.name) &&
         Objects.equals(this.nodeAffinitySpec, getDevInstanceResponse.nodeAffinitySpec) &&
+        Objects.equals(this.numaAffinity, getDevInstanceResponse.numaAffinity) &&
+        Objects.equals(this.numaStatus, getDevInstanceResponse.numaStatus) &&
         Objects.equals(this.ports, getDevInstanceResponse.ports) &&
         Objects.equals(this.resourceClaim, getDevInstanceResponse.resourceClaim) &&
         Objects.equals(this.resourceQueueId, getDevInstanceResponse.resourceQueueId) &&
@@ -560,7 +604,7 @@ public class GetDevInstanceResponse extends com.volcengine.model.AbstractRespons
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowImageBuild, createTime, creatorTrn, description, expectedStopTime, id, image, isBuildingImage, launchTime, name, nodeAffinitySpec, ports, resourceClaim, resourceQueueId, sshPublicKey, status, stopTime, stoppedTime, storages, updateTime, volume, zoneID);
+    return Objects.hash(allowImageBuild, createTime, creatorTrn, description, expectedStopTime, id, image, isBuildingImage, launchTime, name, nodeAffinitySpec, numaAffinity, numaStatus, ports, resourceClaim, resourceQueueId, sshPublicKey, status, stopTime, stoppedTime, storages, updateTime, volume, zoneID);
   }
 
 
@@ -580,6 +624,8 @@ public class GetDevInstanceResponse extends com.volcengine.model.AbstractRespons
     sb.append("    launchTime: ").append(toIndentedString(launchTime)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    nodeAffinitySpec: ").append(toIndentedString(nodeAffinitySpec)).append("\n");
+    sb.append("    numaAffinity: ").append(toIndentedString(numaAffinity)).append("\n");
+    sb.append("    numaStatus: ").append(toIndentedString(numaStatus)).append("\n");
     sb.append("    ports: ").append(toIndentedString(ports)).append("\n");
     sb.append("    resourceClaim: ").append(toIndentedString(resourceClaim)).append("\n");
     sb.append("    resourceQueueId: ").append(toIndentedString(resourceQueueId)).append("\n");

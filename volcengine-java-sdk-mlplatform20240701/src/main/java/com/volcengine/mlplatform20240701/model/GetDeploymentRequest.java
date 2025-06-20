@@ -30,8 +30,33 @@ import javax.validation.Valid;
 
 
 public class GetDeploymentRequest {
+  @SerializedName("HistoryVersionLimit")
+  private Integer historyVersionLimit = null;
+
   @SerializedName("Id")
   private String id = null;
+
+  @SerializedName("IncludeInstanceItems")
+  private Boolean includeInstanceItems = null;
+
+  public GetDeploymentRequest historyVersionLimit(Integer historyVersionLimit) {
+    this.historyVersionLimit = historyVersionLimit;
+    return this;
+  }
+
+   /**
+   * Get historyVersionLimit
+   * maximum: 100
+   * @return historyVersionLimit
+  **/
+ @Max(100)  @Schema(description = "")
+  public Integer getHistoryVersionLimit() {
+    return historyVersionLimit;
+  }
+
+  public void setHistoryVersionLimit(Integer historyVersionLimit) {
+    this.historyVersionLimit = historyVersionLimit;
+  }
 
   public GetDeploymentRequest id(String id) {
     this.id = id;
@@ -52,6 +77,24 @@ public class GetDeploymentRequest {
     this.id = id;
   }
 
+  public GetDeploymentRequest includeInstanceItems(Boolean includeInstanceItems) {
+    this.includeInstanceItems = includeInstanceItems;
+    return this;
+  }
+
+   /**
+   * Get includeInstanceItems
+   * @return includeInstanceItems
+  **/
+  @Schema(description = "")
+  public Boolean isIncludeInstanceItems() {
+    return includeInstanceItems;
+  }
+
+  public void setIncludeInstanceItems(Boolean includeInstanceItems) {
+    this.includeInstanceItems = includeInstanceItems;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -62,12 +105,14 @@ public class GetDeploymentRequest {
       return false;
     }
     GetDeploymentRequest getDeploymentRequest = (GetDeploymentRequest) o;
-    return Objects.equals(this.id, getDeploymentRequest.id);
+    return Objects.equals(this.historyVersionLimit, getDeploymentRequest.historyVersionLimit) &&
+        Objects.equals(this.id, getDeploymentRequest.id) &&
+        Objects.equals(this.includeInstanceItems, getDeploymentRequest.includeInstanceItems);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id);
+    return Objects.hash(historyVersionLimit, id, includeInstanceItems);
   }
 
 
@@ -76,7 +121,9 @@ public class GetDeploymentRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetDeploymentRequest {\n");
     
+    sb.append("    historyVersionLimit: ").append(toIndentedString(historyVersionLimit)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    includeInstanceItems: ").append(toIndentedString(includeInstanceItems)).append("\n");
     sb.append("}");
     return sb.toString();
   }

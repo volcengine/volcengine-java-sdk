@@ -86,6 +86,9 @@ public class StopJobRequest {
   @SerializedName("Id")
   private String id = null;
 
+  @SerializedName("Reason")
+  private String reason = null;
+
   public StopJobRequest diagnoseNames(List<DiagnoseNamesEnum> diagnoseNames) {
     this.diagnoseNames = diagnoseNames;
     return this;
@@ -149,6 +152,24 @@ public class StopJobRequest {
     this.id = id;
   }
 
+  public StopJobRequest reason(String reason) {
+    this.reason = reason;
+    return this;
+  }
+
+   /**
+   * Get reason
+   * @return reason
+  **/
+  @Schema(description = "")
+  public String getReason() {
+    return reason;
+  }
+
+  public void setReason(String reason) {
+    this.reason = reason;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -161,12 +182,13 @@ public class StopJobRequest {
     StopJobRequest stopJobRequest = (StopJobRequest) o;
     return Objects.equals(this.diagnoseNames, stopJobRequest.diagnoseNames) &&
         Objects.equals(this.dryRun, stopJobRequest.dryRun) &&
-        Objects.equals(this.id, stopJobRequest.id);
+        Objects.equals(this.id, stopJobRequest.id) &&
+        Objects.equals(this.reason, stopJobRequest.reason);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(diagnoseNames, dryRun, id);
+    return Objects.hash(diagnoseNames, dryRun, id, reason);
   }
 
 
@@ -178,6 +200,7 @@ public class StopJobRequest {
     sb.append("    diagnoseNames: ").append(toIndentedString(diagnoseNames)).append("\n");
     sb.append("    dryRun: ").append(toIndentedString(dryRun)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
     sb.append("}");
     return sb.toString();
   }

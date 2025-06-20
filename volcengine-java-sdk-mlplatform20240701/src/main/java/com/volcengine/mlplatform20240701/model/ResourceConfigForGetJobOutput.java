@@ -39,6 +39,9 @@ public class ResourceConfigForGetJobOutput {
   @SerializedName("MaxRuntimeSeconds")
   private Long maxRuntimeSeconds = null;
 
+  @SerializedName("NumaAffinity")
+  private String numaAffinity = null;
+
   @SerializedName("OnlyUseSuspectedNode")
   private Boolean onlyUseSuspectedNode = null;
 
@@ -53,6 +56,9 @@ public class ResourceConfigForGetJobOutput {
 
   @SerializedName("ResourceReservation")
   private Boolean resourceReservation = null;
+
+  @SerializedName("ResourceReservationPlanId")
+  private String resourceReservationPlanId = null;
 
   @SerializedName("Roles")
   private List<RoleForGetJobOutput> roles = null;
@@ -91,6 +97,24 @@ public class ResourceConfigForGetJobOutput {
 
   public void setMaxRuntimeSeconds(Long maxRuntimeSeconds) {
     this.maxRuntimeSeconds = maxRuntimeSeconds;
+  }
+
+  public ResourceConfigForGetJobOutput numaAffinity(String numaAffinity) {
+    this.numaAffinity = numaAffinity;
+    return this;
+  }
+
+   /**
+   * Get numaAffinity
+   * @return numaAffinity
+  **/
+  @Schema(description = "")
+  public String getNumaAffinity() {
+    return numaAffinity;
+  }
+
+  public void setNumaAffinity(String numaAffinity) {
+    this.numaAffinity = numaAffinity;
   }
 
   public ResourceConfigForGetJobOutput onlyUseSuspectedNode(Boolean onlyUseSuspectedNode) {
@@ -183,6 +207,24 @@ public class ResourceConfigForGetJobOutput {
     this.resourceReservation = resourceReservation;
   }
 
+  public ResourceConfigForGetJobOutput resourceReservationPlanId(String resourceReservationPlanId) {
+    this.resourceReservationPlanId = resourceReservationPlanId;
+    return this;
+  }
+
+   /**
+   * Get resourceReservationPlanId
+   * @return resourceReservationPlanId
+  **/
+  @Schema(description = "")
+  public String getResourceReservationPlanId() {
+    return resourceReservationPlanId;
+  }
+
+  public void setResourceReservationPlanId(String resourceReservationPlanId) {
+    this.resourceReservationPlanId = resourceReservationPlanId;
+  }
+
   public ResourceConfigForGetJobOutput roles(List<RoleForGetJobOutput> roles) {
     this.roles = roles;
     return this;
@@ -222,17 +264,19 @@ public class ResourceConfigForGetJobOutput {
     ResourceConfigForGetJobOutput resourceConfigForGetJobOutput = (ResourceConfigForGetJobOutput) o;
     return Objects.equals(this.holdingTimeSeconds, resourceConfigForGetJobOutput.holdingTimeSeconds) &&
         Objects.equals(this.maxRuntimeSeconds, resourceConfigForGetJobOutput.maxRuntimeSeconds) &&
+        Objects.equals(this.numaAffinity, resourceConfigForGetJobOutput.numaAffinity) &&
         Objects.equals(this.onlyUseSuspectedNode, resourceConfigForGetJobOutput.onlyUseSuspectedNode) &&
         Objects.equals(this.preemptible, resourceConfigForGetJobOutput.preemptible) &&
         Objects.equals(this.priority, resourceConfigForGetJobOutput.priority) &&
         Objects.equals(this.resourceQueueId, resourceConfigForGetJobOutput.resourceQueueId) &&
         Objects.equals(this.resourceReservation, resourceConfigForGetJobOutput.resourceReservation) &&
+        Objects.equals(this.resourceReservationPlanId, resourceConfigForGetJobOutput.resourceReservationPlanId) &&
         Objects.equals(this.roles, resourceConfigForGetJobOutput.roles);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(holdingTimeSeconds, maxRuntimeSeconds, onlyUseSuspectedNode, preemptible, priority, resourceQueueId, resourceReservation, roles);
+    return Objects.hash(holdingTimeSeconds, maxRuntimeSeconds, numaAffinity, onlyUseSuspectedNode, preemptible, priority, resourceQueueId, resourceReservation, resourceReservationPlanId, roles);
   }
 
 
@@ -243,11 +287,13 @@ public class ResourceConfigForGetJobOutput {
     
     sb.append("    holdingTimeSeconds: ").append(toIndentedString(holdingTimeSeconds)).append("\n");
     sb.append("    maxRuntimeSeconds: ").append(toIndentedString(maxRuntimeSeconds)).append("\n");
+    sb.append("    numaAffinity: ").append(toIndentedString(numaAffinity)).append("\n");
     sb.append("    onlyUseSuspectedNode: ").append(toIndentedString(onlyUseSuspectedNode)).append("\n");
     sb.append("    preemptible: ").append(toIndentedString(preemptible)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
     sb.append("    resourceQueueId: ").append(toIndentedString(resourceQueueId)).append("\n");
     sb.append("    resourceReservation: ").append(toIndentedString(resourceReservation)).append("\n");
+    sb.append("    resourceReservationPlanId: ").append(toIndentedString(resourceReservationPlanId)).append("\n");
     sb.append("    roles: ").append(toIndentedString(roles)).append("\n");
     sb.append("}");
     return sb.toString();

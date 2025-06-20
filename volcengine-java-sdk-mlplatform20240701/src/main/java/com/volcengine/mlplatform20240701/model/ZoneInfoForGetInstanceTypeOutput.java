@@ -31,6 +31,50 @@ import javax.validation.Valid;
 
 public class ZoneInfoForGetInstanceTypeOutput {
   /**
+   * Gets or Sets reservationPlanSupportStatus
+   */
+  @JsonAdapter(ReservationPlanSupportStatusEnum.Adapter.class)
+  public enum ReservationPlanSupportStatusEnum {
+    @SerializedName("Valid")
+    VALID("Valid");
+
+    private String value;
+
+    ReservationPlanSupportStatusEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ReservationPlanSupportStatusEnum fromValue(String input) {
+      for (ReservationPlanSupportStatusEnum b : ReservationPlanSupportStatusEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ReservationPlanSupportStatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ReservationPlanSupportStatusEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ReservationPlanSupportStatusEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ReservationPlanSupportStatusEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("ReservationPlanSupportStatus")
+  private ReservationPlanSupportStatusEnum reservationPlanSupportStatus = null;
+
+  /**
    * Gets or Sets supportStatus
    */
   @JsonAdapter(SupportStatusEnum.Adapter.class)
@@ -79,6 +123,24 @@ public class ZoneInfoForGetInstanceTypeOutput {
   @SerializedName("ZoneId")
   private String zoneId = null;
 
+  public ZoneInfoForGetInstanceTypeOutput reservationPlanSupportStatus(ReservationPlanSupportStatusEnum reservationPlanSupportStatus) {
+    this.reservationPlanSupportStatus = reservationPlanSupportStatus;
+    return this;
+  }
+
+   /**
+   * Get reservationPlanSupportStatus
+   * @return reservationPlanSupportStatus
+  **/
+  @Schema(description = "")
+  public ReservationPlanSupportStatusEnum getReservationPlanSupportStatus() {
+    return reservationPlanSupportStatus;
+  }
+
+  public void setReservationPlanSupportStatus(ReservationPlanSupportStatusEnum reservationPlanSupportStatus) {
+    this.reservationPlanSupportStatus = reservationPlanSupportStatus;
+  }
+
   public ZoneInfoForGetInstanceTypeOutput supportStatus(SupportStatusEnum supportStatus) {
     this.supportStatus = supportStatus;
     return this;
@@ -125,13 +187,14 @@ public class ZoneInfoForGetInstanceTypeOutput {
       return false;
     }
     ZoneInfoForGetInstanceTypeOutput zoneInfoForGetInstanceTypeOutput = (ZoneInfoForGetInstanceTypeOutput) o;
-    return Objects.equals(this.supportStatus, zoneInfoForGetInstanceTypeOutput.supportStatus) &&
+    return Objects.equals(this.reservationPlanSupportStatus, zoneInfoForGetInstanceTypeOutput.reservationPlanSupportStatus) &&
+        Objects.equals(this.supportStatus, zoneInfoForGetInstanceTypeOutput.supportStatus) &&
         Objects.equals(this.zoneId, zoneInfoForGetInstanceTypeOutput.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(supportStatus, zoneId);
+    return Objects.hash(reservationPlanSupportStatus, supportStatus, zoneId);
   }
 
 
@@ -140,6 +203,7 @@ public class ZoneInfoForGetInstanceTypeOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ZoneInfoForGetInstanceTypeOutput {\n");
     
+    sb.append("    reservationPlanSupportStatus: ").append(toIndentedString(reservationPlanSupportStatus)).append("\n");
     sb.append("    supportStatus: ").append(toIndentedString(supportStatus)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");

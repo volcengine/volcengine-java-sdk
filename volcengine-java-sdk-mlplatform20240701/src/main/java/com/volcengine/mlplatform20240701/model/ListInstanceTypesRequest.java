@@ -34,6 +34,50 @@ public class ListInstanceTypesRequest {
   private String nameContains = null;
 
   /**
+   * Gets or Sets reservationPlanSupportStatus
+   */
+  @JsonAdapter(ReservationPlanSupportStatusEnum.Adapter.class)
+  public enum ReservationPlanSupportStatusEnum {
+    @SerializedName("Valid")
+    VALID("Valid");
+
+    private String value;
+
+    ReservationPlanSupportStatusEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ReservationPlanSupportStatusEnum fromValue(String input) {
+      for (ReservationPlanSupportStatusEnum b : ReservationPlanSupportStatusEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ReservationPlanSupportStatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ReservationPlanSupportStatusEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ReservationPlanSupportStatusEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ReservationPlanSupportStatusEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("ReservationPlanSupportStatus")
+  private ReservationPlanSupportStatusEnum reservationPlanSupportStatus = null;
+
+  /**
    * Gets or Sets supportStatus
    */
   @JsonAdapter(SupportStatusEnum.Adapter.class)
@@ -100,6 +144,24 @@ public class ListInstanceTypesRequest {
     this.nameContains = nameContains;
   }
 
+  public ListInstanceTypesRequest reservationPlanSupportStatus(ReservationPlanSupportStatusEnum reservationPlanSupportStatus) {
+    this.reservationPlanSupportStatus = reservationPlanSupportStatus;
+    return this;
+  }
+
+   /**
+   * Get reservationPlanSupportStatus
+   * @return reservationPlanSupportStatus
+  **/
+  @Schema(description = "")
+  public ReservationPlanSupportStatusEnum getReservationPlanSupportStatus() {
+    return reservationPlanSupportStatus;
+  }
+
+  public void setReservationPlanSupportStatus(ReservationPlanSupportStatusEnum reservationPlanSupportStatus) {
+    this.reservationPlanSupportStatus = reservationPlanSupportStatus;
+  }
+
   public ListInstanceTypesRequest supportStatus(SupportStatusEnum supportStatus) {
     this.supportStatus = supportStatus;
     return this;
@@ -147,13 +209,14 @@ public class ListInstanceTypesRequest {
     }
     ListInstanceTypesRequest listInstanceTypesRequest = (ListInstanceTypesRequest) o;
     return Objects.equals(this.nameContains, listInstanceTypesRequest.nameContains) &&
+        Objects.equals(this.reservationPlanSupportStatus, listInstanceTypesRequest.reservationPlanSupportStatus) &&
         Objects.equals(this.supportStatus, listInstanceTypesRequest.supportStatus) &&
         Objects.equals(this.zoneId, listInstanceTypesRequest.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(nameContains, supportStatus, zoneId);
+    return Objects.hash(nameContains, reservationPlanSupportStatus, supportStatus, zoneId);
   }
 
 
@@ -163,6 +226,7 @@ public class ListInstanceTypesRequest {
     sb.append("class ListInstanceTypesRequest {\n");
     
     sb.append("    nameContains: ").append(toIndentedString(nameContains)).append("\n");
+    sb.append("    reservationPlanSupportStatus: ").append(toIndentedString(reservationPlanSupportStatus)).append("\n");
     sb.append("    supportStatus: ").append(toIndentedString(supportStatus)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");
