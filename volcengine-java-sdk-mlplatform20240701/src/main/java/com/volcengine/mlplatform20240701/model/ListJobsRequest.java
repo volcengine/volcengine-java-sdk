@@ -106,6 +106,9 @@ public class ListJobsRequest {
   @SerializedName("ResourceQueueId")
   private String resourceQueueId = null;
 
+  @SerializedName("ResourceReservationPlanId")
+  private String resourceReservationPlanId = null;
+
   /**
    * Gets or Sets sortBy
    */
@@ -426,6 +429,24 @@ public class ListJobsRequest {
     this.resourceQueueId = resourceQueueId;
   }
 
+  public ListJobsRequest resourceReservationPlanId(String resourceReservationPlanId) {
+    this.resourceReservationPlanId = resourceReservationPlanId;
+    return this;
+  }
+
+   /**
+   * Get resourceReservationPlanId
+   * @return resourceReservationPlanId
+  **/
+  @Schema(description = "")
+  public String getResourceReservationPlanId() {
+    return resourceReservationPlanId;
+  }
+
+  public void setResourceReservationPlanId(String resourceReservationPlanId) {
+    this.resourceReservationPlanId = resourceReservationPlanId;
+  }
+
   public ListJobsRequest sortBy(SortByEnum sortBy) {
     this.sortBy = sortBy;
     return this;
@@ -535,6 +556,7 @@ public class ListJobsRequest {
         Objects.equals(this.priority, listJobsRequest.priority) &&
         Objects.equals(this.resourceGroupId, listJobsRequest.resourceGroupId) &&
         Objects.equals(this.resourceQueueId, listJobsRequest.resourceQueueId) &&
+        Objects.equals(this.resourceReservationPlanId, listJobsRequest.resourceReservationPlanId) &&
         Objects.equals(this.sortBy, listJobsRequest.sortBy) &&
         Objects.equals(this.sortOrder, listJobsRequest.sortOrder) &&
         Objects.equals(this.state, listJobsRequest.state) &&
@@ -544,7 +566,7 @@ public class ListJobsRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createTimeAfter, createTimeBefore, diagnoseState, nameContains, pageNumber, pageSize, priority, resourceGroupId, resourceQueueId, sortBy, sortOrder, state, updateTimeAfter, updateTimeBefore);
+    return Objects.hash(createTimeAfter, createTimeBefore, diagnoseState, nameContains, pageNumber, pageSize, priority, resourceGroupId, resourceQueueId, resourceReservationPlanId, sortBy, sortOrder, state, updateTimeAfter, updateTimeBefore);
   }
 
 
@@ -562,6 +584,7 @@ public class ListJobsRequest {
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
     sb.append("    resourceGroupId: ").append(toIndentedString(resourceGroupId)).append("\n");
     sb.append("    resourceQueueId: ").append(toIndentedString(resourceQueueId)).append("\n");
+    sb.append("    resourceReservationPlanId: ").append(toIndentedString(resourceReservationPlanId)).append("\n");
     sb.append("    sortBy: ").append(toIndentedString(sortBy)).append("\n");
     sb.append("    sortOrder: ").append(toIndentedString(sortOrder)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");

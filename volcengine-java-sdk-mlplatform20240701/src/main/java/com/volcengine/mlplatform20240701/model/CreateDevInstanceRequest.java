@@ -54,6 +54,9 @@ public class CreateDevInstanceRequest {
   @SerializedName("NodeAffinitySpec")
   private NodeAffinitySpecForCreateDevInstanceInput nodeAffinitySpec = null;
 
+  @SerializedName("NumaAffinity")
+  private String numaAffinity = null;
+
   @SerializedName("Ports")
   private List<PortForCreateDevInstanceInput> ports = null;
 
@@ -164,6 +167,24 @@ public class CreateDevInstanceRequest {
 
   public void setNodeAffinitySpec(NodeAffinitySpecForCreateDevInstanceInput nodeAffinitySpec) {
     this.nodeAffinitySpec = nodeAffinitySpec;
+  }
+
+  public CreateDevInstanceRequest numaAffinity(String numaAffinity) {
+    this.numaAffinity = numaAffinity;
+    return this;
+  }
+
+   /**
+   * Get numaAffinity
+   * @return numaAffinity
+  **/
+  @Schema(description = "")
+  public String getNumaAffinity() {
+    return numaAffinity;
+  }
+
+  public void setNumaAffinity(String numaAffinity) {
+    this.numaAffinity = numaAffinity;
   }
 
   public CreateDevInstanceRequest ports(List<PortForCreateDevInstanceInput> ports) {
@@ -310,6 +331,7 @@ public class CreateDevInstanceRequest {
         Objects.equals(this.image, createDevInstanceRequest.image) &&
         Objects.equals(this.name, createDevInstanceRequest.name) &&
         Objects.equals(this.nodeAffinitySpec, createDevInstanceRequest.nodeAffinitySpec) &&
+        Objects.equals(this.numaAffinity, createDevInstanceRequest.numaAffinity) &&
         Objects.equals(this.ports, createDevInstanceRequest.ports) &&
         Objects.equals(this.resourceClaim, createDevInstanceRequest.resourceClaim) &&
         Objects.equals(this.resourceQueueId, createDevInstanceRequest.resourceQueueId) &&
@@ -320,7 +342,7 @@ public class CreateDevInstanceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(credential, description, image, name, nodeAffinitySpec, ports, resourceClaim, resourceQueueId, sshPublicKey, storages, volume);
+    return Objects.hash(credential, description, image, name, nodeAffinitySpec, numaAffinity, ports, resourceClaim, resourceQueueId, sshPublicKey, storages, volume);
   }
 
 
@@ -334,6 +356,7 @@ public class CreateDevInstanceRequest {
     sb.append("    image: ").append(toIndentedString(image)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    nodeAffinitySpec: ").append(toIndentedString(nodeAffinitySpec)).append("\n");
+    sb.append("    numaAffinity: ").append(toIndentedString(numaAffinity)).append("\n");
     sb.append("    ports: ").append(toIndentedString(ports)).append("\n");
     sb.append("    resourceClaim: ").append(toIndentedString(resourceClaim)).append("\n");
     sb.append("    resourceQueueId: ").append(toIndentedString(resourceQueueId)).append("\n");

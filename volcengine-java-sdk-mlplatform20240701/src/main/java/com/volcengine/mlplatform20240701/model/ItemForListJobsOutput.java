@@ -56,6 +56,9 @@ public class ItemForListJobsOutput {
   @SerializedName("Status")
   private StatusForListJobsOutput status = null;
 
+  @SerializedName("StopReason")
+  private String stopReason = null;
+
   @SerializedName("UpdateTime")
   private String updateTime = null;
 
@@ -205,6 +208,24 @@ public class ItemForListJobsOutput {
     this.status = status;
   }
 
+  public ItemForListJobsOutput stopReason(String stopReason) {
+    this.stopReason = stopReason;
+    return this;
+  }
+
+   /**
+   * Get stopReason
+   * @return stopReason
+  **/
+  @Schema(description = "")
+  public String getStopReason() {
+    return stopReason;
+  }
+
+  public void setStopReason(String stopReason) {
+    this.stopReason = stopReason;
+  }
+
   public ItemForListJobsOutput updateTime(String updateTime) {
     this.updateTime = updateTime;
     return this;
@@ -241,12 +262,13 @@ public class ItemForListJobsOutput {
         Objects.equals(this.name, itemForListJobsOutput.name) &&
         Objects.equals(this.resourceConfig, itemForListJobsOutput.resourceConfig) &&
         Objects.equals(this.status, itemForListJobsOutput.status) &&
+        Objects.equals(this.stopReason, itemForListJobsOutput.stopReason) &&
         Objects.equals(this.updateTime, itemForListJobsOutput.updateTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createTime, createdBy, description, id, initialId, name, resourceConfig, status, updateTime);
+    return Objects.hash(createTime, createdBy, description, id, initialId, name, resourceConfig, status, stopReason, updateTime);
   }
 
 
@@ -263,6 +285,7 @@ public class ItemForListJobsOutput {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    resourceConfig: ").append(toIndentedString(resourceConfig)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    stopReason: ").append(toIndentedString(stopReason)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("}");
     return sb.toString();

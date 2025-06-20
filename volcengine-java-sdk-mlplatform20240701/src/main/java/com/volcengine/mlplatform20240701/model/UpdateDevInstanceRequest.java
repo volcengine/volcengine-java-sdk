@@ -52,6 +52,9 @@ public class UpdateDevInstanceRequest {
   @SerializedName("NodeAffinitySpec")
   private NodeAffinitySpecForUpdateDevInstanceInput nodeAffinitySpec = null;
 
+  @SerializedName("NumaAffinity")
+  private String numaAffinity = null;
+
   @SerializedName("Ports")
   private List<PortForUpdateDevInstanceInput> ports = null;
 
@@ -161,6 +164,24 @@ public class UpdateDevInstanceRequest {
 
   public void setNodeAffinitySpec(NodeAffinitySpecForUpdateDevInstanceInput nodeAffinitySpec) {
     this.nodeAffinitySpec = nodeAffinitySpec;
+  }
+
+  public UpdateDevInstanceRequest numaAffinity(String numaAffinity) {
+    this.numaAffinity = numaAffinity;
+    return this;
+  }
+
+   /**
+   * Get numaAffinity
+   * @return numaAffinity
+  **/
+  @Schema(description = "")
+  public String getNumaAffinity() {
+    return numaAffinity;
+  }
+
+  public void setNumaAffinity(String numaAffinity) {
+    this.numaAffinity = numaAffinity;
   }
 
   public UpdateDevInstanceRequest ports(List<PortForUpdateDevInstanceInput> ports) {
@@ -305,6 +326,7 @@ public class UpdateDevInstanceRequest {
         Objects.equals(this.id, updateDevInstanceRequest.id) &&
         Objects.equals(this.name, updateDevInstanceRequest.name) &&
         Objects.equals(this.nodeAffinitySpec, updateDevInstanceRequest.nodeAffinitySpec) &&
+        Objects.equals(this.numaAffinity, updateDevInstanceRequest.numaAffinity) &&
         Objects.equals(this.ports, updateDevInstanceRequest.ports) &&
         Objects.equals(this.resourceClaim, updateDevInstanceRequest.resourceClaim) &&
         Objects.equals(this.resourceQueueId, updateDevInstanceRequest.resourceQueueId) &&
@@ -315,7 +337,7 @@ public class UpdateDevInstanceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(credential, description, id, name, nodeAffinitySpec, ports, resourceClaim, resourceQueueId, sshPublicKey, storages, volumeSize);
+    return Objects.hash(credential, description, id, name, nodeAffinitySpec, numaAffinity, ports, resourceClaim, resourceQueueId, sshPublicKey, storages, volumeSize);
   }
 
 
@@ -329,6 +351,7 @@ public class UpdateDevInstanceRequest {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    nodeAffinitySpec: ").append(toIndentedString(nodeAffinitySpec)).append("\n");
+    sb.append("    numaAffinity: ").append(toIndentedString(numaAffinity)).append("\n");
     sb.append("    ports: ").append(toIndentedString(ports)).append("\n");
     sb.append("    resourceClaim: ").append(toIndentedString(resourceClaim)).append("\n");
     sb.append("    resourceQueueId: ").append(toIndentedString(resourceQueueId)).append("\n");

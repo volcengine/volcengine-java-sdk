@@ -51,6 +51,9 @@ public class UpdateResourceGroupRequest {
   @SerializedName("WorkloadNetworkConfig")
   private WorkloadNetworkConfigForUpdateResourceGroupInput workloadNetworkConfig = null;
 
+  @SerializedName("WorkloadNetworkMode")
+  private String workloadNetworkMode = null;
+
   public UpdateResourceGroupRequest description(String description) {
     this.description = description;
     return this;
@@ -163,6 +166,24 @@ public class UpdateResourceGroupRequest {
     this.workloadNetworkConfig = workloadNetworkConfig;
   }
 
+  public UpdateResourceGroupRequest workloadNetworkMode(String workloadNetworkMode) {
+    this.workloadNetworkMode = workloadNetworkMode;
+    return this;
+  }
+
+   /**
+   * Get workloadNetworkMode
+   * @return workloadNetworkMode
+  **/
+  @Schema(description = "")
+  public String getWorkloadNetworkMode() {
+    return workloadNetworkMode;
+  }
+
+  public void setWorkloadNetworkMode(String workloadNetworkMode) {
+    this.workloadNetworkMode = workloadNetworkMode;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -178,12 +199,13 @@ public class UpdateResourceGroupRequest {
         Objects.equals(this.name, updateResourceGroupRequest.name) &&
         Objects.equals(this.resourceConfig, updateResourceGroupRequest.resourceConfig) &&
         Objects.equals(this.storageConfig, updateResourceGroupRequest.storageConfig) &&
-        Objects.equals(this.workloadNetworkConfig, updateResourceGroupRequest.workloadNetworkConfig);
+        Objects.equals(this.workloadNetworkConfig, updateResourceGroupRequest.workloadNetworkConfig) &&
+        Objects.equals(this.workloadNetworkMode, updateResourceGroupRequest.workloadNetworkMode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, id, name, resourceConfig, storageConfig, workloadNetworkConfig);
+    return Objects.hash(description, id, name, resourceConfig, storageConfig, workloadNetworkConfig, workloadNetworkMode);
   }
 
 
@@ -198,6 +220,7 @@ public class UpdateResourceGroupRequest {
     sb.append("    resourceConfig: ").append(toIndentedString(resourceConfig)).append("\n");
     sb.append("    storageConfig: ").append(toIndentedString(storageConfig)).append("\n");
     sb.append("    workloadNetworkConfig: ").append(toIndentedString(workloadNetworkConfig)).append("\n");
+    sb.append("    workloadNetworkMode: ").append(toIndentedString(workloadNetworkMode)).append("\n");
     sb.append("}");
     return sb.toString();
   }

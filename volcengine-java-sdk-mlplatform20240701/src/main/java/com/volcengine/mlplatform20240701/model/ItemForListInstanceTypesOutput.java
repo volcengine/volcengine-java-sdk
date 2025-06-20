@@ -135,6 +135,9 @@ public class ItemForListInstanceTypesOutput {
   @SerializedName("RdmaEniMaximumBandwidthMbps")
   private Integer rdmaEniMaximumBandwidthMbps = null;
 
+  @SerializedName("ReservationPlanPriceByHour")
+  private Double reservationPlanPriceByHour = null;
+
   @SerializedName("VolumeMaximumBandwidthMbps")
   private Integer volumeMaximumBandwidthMbps = null;
 
@@ -453,6 +456,24 @@ public class ItemForListInstanceTypesOutput {
     this.rdmaEniMaximumBandwidthMbps = rdmaEniMaximumBandwidthMbps;
   }
 
+  public ItemForListInstanceTypesOutput reservationPlanPriceByHour(Double reservationPlanPriceByHour) {
+    this.reservationPlanPriceByHour = reservationPlanPriceByHour;
+    return this;
+  }
+
+   /**
+   * Get reservationPlanPriceByHour
+   * @return reservationPlanPriceByHour
+  **/
+  @Schema(description = "")
+  public Double getReservationPlanPriceByHour() {
+    return reservationPlanPriceByHour;
+  }
+
+  public void setReservationPlanPriceByHour(Double reservationPlanPriceByHour) {
+    this.reservationPlanPriceByHour = reservationPlanPriceByHour;
+  }
+
   public ItemForListInstanceTypesOutput volumeMaximumBandwidthMbps(Integer volumeMaximumBandwidthMbps) {
     this.volumeMaximumBandwidthMbps = volumeMaximumBandwidthMbps;
     return this;
@@ -569,6 +590,7 @@ public class ItemForListInstanceTypesOutput {
         Objects.equals(this.priceByMonth, itemForListInstanceTypesOutput.priceByMonth) &&
         Objects.equals(this.rdmaEniCount, itemForListInstanceTypesOutput.rdmaEniCount) &&
         Objects.equals(this.rdmaEniMaximumBandwidthMbps, itemForListInstanceTypesOutput.rdmaEniMaximumBandwidthMbps) &&
+        Objects.equals(this.reservationPlanPriceByHour, itemForListInstanceTypesOutput.reservationPlanPriceByHour) &&
         Objects.equals(this.volumeMaximumBandwidthMbps, itemForListInstanceTypesOutput.volumeMaximumBandwidthMbps) &&
         Objects.equals(this.volumeMaximumIops, itemForListInstanceTypesOutput.volumeMaximumIops) &&
         Objects.equals(this.volumeSupportedTypes, itemForListInstanceTypesOutput.volumeSupportedTypes) &&
@@ -577,7 +599,7 @@ public class ItemForListInstanceTypesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(availableGPUMemoryMiB, cpu, eniCount, eniMaximumBandwidthMbps, family, gpuCount, gpuMemoryMiB, gpuType, id, kind, memoryMiB, nvmeSsdCount, priceByDay, priceByHour, priceByMonth, rdmaEniCount, rdmaEniMaximumBandwidthMbps, volumeMaximumBandwidthMbps, volumeMaximumIops, volumeSupportedTypes, zoneInfo);
+    return Objects.hash(availableGPUMemoryMiB, cpu, eniCount, eniMaximumBandwidthMbps, family, gpuCount, gpuMemoryMiB, gpuType, id, kind, memoryMiB, nvmeSsdCount, priceByDay, priceByHour, priceByMonth, rdmaEniCount, rdmaEniMaximumBandwidthMbps, reservationPlanPriceByHour, volumeMaximumBandwidthMbps, volumeMaximumIops, volumeSupportedTypes, zoneInfo);
   }
 
 
@@ -603,6 +625,7 @@ public class ItemForListInstanceTypesOutput {
     sb.append("    priceByMonth: ").append(toIndentedString(priceByMonth)).append("\n");
     sb.append("    rdmaEniCount: ").append(toIndentedString(rdmaEniCount)).append("\n");
     sb.append("    rdmaEniMaximumBandwidthMbps: ").append(toIndentedString(rdmaEniMaximumBandwidthMbps)).append("\n");
+    sb.append("    reservationPlanPriceByHour: ").append(toIndentedString(reservationPlanPriceByHour)).append("\n");
     sb.append("    volumeMaximumBandwidthMbps: ").append(toIndentedString(volumeMaximumBandwidthMbps)).append("\n");
     sb.append("    volumeMaximumIops: ").append(toIndentedString(volumeMaximumIops)).append("\n");
     sb.append("    volumeSupportedTypes: ").append(toIndentedString(volumeSupportedTypes)).append("\n");

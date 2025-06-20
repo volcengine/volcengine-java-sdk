@@ -97,6 +97,9 @@ public class StatusForListJobInstancesOutput {
   @SerializedName("Message")
   private String message = null;
 
+  @SerializedName("NumaStatus")
+  private String numaStatus = null;
+
   /**
    * Gets or Sets secondaryState
    */
@@ -330,6 +333,24 @@ public class StatusForListJobInstancesOutput {
     this.message = message;
   }
 
+  public StatusForListJobInstancesOutput numaStatus(String numaStatus) {
+    this.numaStatus = numaStatus;
+    return this;
+  }
+
+   /**
+   * Get numaStatus
+   * @return numaStatus
+  **/
+  @Schema(description = "")
+  public String getNumaStatus() {
+    return numaStatus;
+  }
+
+  public void setNumaStatus(String numaStatus) {
+    this.numaStatus = numaStatus;
+  }
+
   public StatusForListJobInstancesOutput secondaryState(SecondaryStateEnum secondaryState) {
     this.secondaryState = secondaryState;
     return this;
@@ -400,6 +421,7 @@ public class StatusForListJobInstancesOutput {
         Objects.equals(this.exitCode, statusForListJobInstancesOutput.exitCode) &&
         Objects.equals(this.holdingEndTime, statusForListJobInstancesOutput.holdingEndTime) &&
         Objects.equals(this.message, statusForListJobInstancesOutput.message) &&
+        Objects.equals(this.numaStatus, statusForListJobInstancesOutput.numaStatus) &&
         Objects.equals(this.secondaryState, statusForListJobInstancesOutput.secondaryState) &&
         Objects.equals(this.startTime, statusForListJobInstancesOutput.startTime) &&
         Objects.equals(this.state, statusForListJobInstancesOutput.state);
@@ -407,7 +429,7 @@ public class StatusForListJobInstancesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(diagnoseMessage, diagnoseState, endTime, exitCode, holdingEndTime, message, secondaryState, startTime, state);
+    return Objects.hash(diagnoseMessage, diagnoseState, endTime, exitCode, holdingEndTime, message, numaStatus, secondaryState, startTime, state);
   }
 
 
@@ -422,6 +444,7 @@ public class StatusForListJobInstancesOutput {
     sb.append("    exitCode: ").append(toIndentedString(exitCode)).append("\n");
     sb.append("    holdingEndTime: ").append(toIndentedString(holdingEndTime)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("    numaStatus: ").append(toIndentedString(numaStatus)).append("\n");
     sb.append("    secondaryState: ").append(toIndentedString(secondaryState)).append("\n");
     sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
