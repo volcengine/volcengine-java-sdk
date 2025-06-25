@@ -37,6 +37,9 @@ import javax.validation.Valid;
 
 
 public class RunInstancesRequest {
+  @SerializedName("AffinityGroupSize")
+  private Integer affinityGroupSize = null;
+
   @SerializedName("AutoRenew")
   private Boolean autoRenew = null;
 
@@ -54,6 +57,9 @@ public class RunInstancesRequest {
 
   @SerializedName("CreditSpecification")
   private String creditSpecification = null;
+
+  @SerializedName("DeletionProtection")
+  private Boolean deletionProtection = null;
 
   @SerializedName("DeploymentSetGroupNumber")
   private Integer deploymentSetGroupNumber = null;
@@ -153,6 +159,24 @@ public class RunInstancesRequest {
 
   @SerializedName("ZoneId")
   private String zoneId = null;
+
+  public RunInstancesRequest affinityGroupSize(Integer affinityGroupSize) {
+    this.affinityGroupSize = affinityGroupSize;
+    return this;
+  }
+
+   /**
+   * Get affinityGroupSize
+   * @return affinityGroupSize
+  **/
+  @Schema(description = "")
+  public Integer getAffinityGroupSize() {
+    return affinityGroupSize;
+  }
+
+  public void setAffinityGroupSize(Integer affinityGroupSize) {
+    this.affinityGroupSize = affinityGroupSize;
+  }
 
   public RunInstancesRequest autoRenew(Boolean autoRenew) {
     this.autoRenew = autoRenew;
@@ -260,6 +284,24 @@ public class RunInstancesRequest {
 
   public void setCreditSpecification(String creditSpecification) {
     this.creditSpecification = creditSpecification;
+  }
+
+  public RunInstancesRequest deletionProtection(Boolean deletionProtection) {
+    this.deletionProtection = deletionProtection;
+    return this;
+  }
+
+   /**
+   * Get deletionProtection
+   * @return deletionProtection
+  **/
+  @Schema(description = "")
+  public Boolean isDeletionProtection() {
+    return deletionProtection;
+  }
+
+  public void setDeletionProtection(Boolean deletionProtection) {
+    this.deletionProtection = deletionProtection;
   }
 
   public RunInstancesRequest deploymentSetGroupNumber(Integer deploymentSetGroupNumber) {
@@ -898,12 +940,14 @@ public class RunInstancesRequest {
       return false;
     }
     RunInstancesRequest runInstancesRequest = (RunInstancesRequest) o;
-    return Objects.equals(this.autoRenew, runInstancesRequest.autoRenew) &&
+    return Objects.equals(this.affinityGroupSize, runInstancesRequest.affinityGroupSize) &&
+        Objects.equals(this.autoRenew, runInstancesRequest.autoRenew) &&
         Objects.equals(this.autoRenewPeriod, runInstancesRequest.autoRenewPeriod) &&
         Objects.equals(this.clientToken, runInstancesRequest.clientToken) &&
         Objects.equals(this.count, runInstancesRequest.count) &&
         Objects.equals(this.cpuMaxFrequency, runInstancesRequest.cpuMaxFrequency) &&
         Objects.equals(this.creditSpecification, runInstancesRequest.creditSpecification) &&
+        Objects.equals(this.deletionProtection, runInstancesRequest.deletionProtection) &&
         Objects.equals(this.deploymentSetGroupNumber, runInstancesRequest.deploymentSetGroupNumber) &&
         Objects.equals(this.deploymentSetId, runInstancesRequest.deploymentSetId) &&
         Objects.equals(this.description, runInstancesRequest.description) &&
@@ -941,7 +985,7 @@ public class RunInstancesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoRenew, autoRenewPeriod, clientToken, count, cpuMaxFrequency, creditSpecification, deploymentSetGroupNumber, deploymentSetId, description, dryRun, eipAddress, hostName, hostname, hpcClusterId, imageId, imageReleaseVersion, installRunCommandAgent, instanceChargeType, instanceName, instanceType, instanceTypeId, keepImageCredential, keyPairName, minCount, networkInterfaces, password, period, periodUnit, placement, projectName, securityEnhancementStrategy, spotPriceLimit, spotStrategy, suffixIndex, tags, uniqueSuffix, userData, volumes, zoneId);
+    return Objects.hash(affinityGroupSize, autoRenew, autoRenewPeriod, clientToken, count, cpuMaxFrequency, creditSpecification, deletionProtection, deploymentSetGroupNumber, deploymentSetId, description, dryRun, eipAddress, hostName, hostname, hpcClusterId, imageId, imageReleaseVersion, installRunCommandAgent, instanceChargeType, instanceName, instanceType, instanceTypeId, keepImageCredential, keyPairName, minCount, networkInterfaces, password, period, periodUnit, placement, projectName, securityEnhancementStrategy, spotPriceLimit, spotStrategy, suffixIndex, tags, uniqueSuffix, userData, volumes, zoneId);
   }
 
 
@@ -950,12 +994,14 @@ public class RunInstancesRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class RunInstancesRequest {\n");
     
+    sb.append("    affinityGroupSize: ").append(toIndentedString(affinityGroupSize)).append("\n");
     sb.append("    autoRenew: ").append(toIndentedString(autoRenew)).append("\n");
     sb.append("    autoRenewPeriod: ").append(toIndentedString(autoRenewPeriod)).append("\n");
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    count: ").append(toIndentedString(count)).append("\n");
     sb.append("    cpuMaxFrequency: ").append(toIndentedString(cpuMaxFrequency)).append("\n");
     sb.append("    creditSpecification: ").append(toIndentedString(creditSpecification)).append("\n");
+    sb.append("    deletionProtection: ").append(toIndentedString(deletionProtection)).append("\n");
     sb.append("    deploymentSetGroupNumber: ").append(toIndentedString(deploymentSetGroupNumber)).append("\n");
     sb.append("    deploymentSetId: ").append(toIndentedString(deploymentSetId)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
