@@ -39,6 +39,9 @@ import javax.validation.Valid;
 
 
 public class InstanceTypeForDescribeInstanceTypesOutput {
+  @SerializedName("AffinityGroupSizes")
+  private List<Integer> affinityGroupSizes = null;
+
   @SerializedName("BaselineCredit")
   private Long baselineCredit = null;
 
@@ -53,6 +56,9 @@ public class InstanceTypeForDescribeInstanceTypesOutput {
 
   @SerializedName("InstanceTypeId")
   private String instanceTypeId = null;
+
+  @SerializedName("IsSupportAffinityGroup")
+  private Boolean isSupportAffinityGroup = null;
 
   @SerializedName("LocalVolumes")
   private List<LocalVolumeForDescribeInstanceTypesOutput> localVolumes = null;
@@ -71,6 +77,32 @@ public class InstanceTypeForDescribeInstanceTypesOutput {
 
   @SerializedName("Volume")
   private VolumeForDescribeInstanceTypesOutput volume = null;
+
+  public InstanceTypeForDescribeInstanceTypesOutput affinityGroupSizes(List<Integer> affinityGroupSizes) {
+    this.affinityGroupSizes = affinityGroupSizes;
+    return this;
+  }
+
+  public InstanceTypeForDescribeInstanceTypesOutput addAffinityGroupSizesItem(Integer affinityGroupSizesItem) {
+    if (this.affinityGroupSizes == null) {
+      this.affinityGroupSizes = new ArrayList<Integer>();
+    }
+    this.affinityGroupSizes.add(affinityGroupSizesItem);
+    return this;
+  }
+
+   /**
+   * Get affinityGroupSizes
+   * @return affinityGroupSizes
+  **/
+  @Schema(description = "")
+  public List<Integer> getAffinityGroupSizes() {
+    return affinityGroupSizes;
+  }
+
+  public void setAffinityGroupSizes(List<Integer> affinityGroupSizes) {
+    this.affinityGroupSizes = affinityGroupSizes;
+  }
 
   public InstanceTypeForDescribeInstanceTypesOutput baselineCredit(Long baselineCredit) {
     this.baselineCredit = baselineCredit;
@@ -161,6 +193,24 @@ public class InstanceTypeForDescribeInstanceTypesOutput {
 
   public void setInstanceTypeId(String instanceTypeId) {
     this.instanceTypeId = instanceTypeId;
+  }
+
+  public InstanceTypeForDescribeInstanceTypesOutput isSupportAffinityGroup(Boolean isSupportAffinityGroup) {
+    this.isSupportAffinityGroup = isSupportAffinityGroup;
+    return this;
+  }
+
+   /**
+   * Get isSupportAffinityGroup
+   * @return isSupportAffinityGroup
+  **/
+  @Schema(description = "")
+  public Boolean isIsSupportAffinityGroup() {
+    return isSupportAffinityGroup;
+  }
+
+  public void setIsSupportAffinityGroup(Boolean isSupportAffinityGroup) {
+    this.isSupportAffinityGroup = isSupportAffinityGroup;
   }
 
   public InstanceTypeForDescribeInstanceTypesOutput localVolumes(List<LocalVolumeForDescribeInstanceTypesOutput> localVolumes) {
@@ -295,11 +345,13 @@ public class InstanceTypeForDescribeInstanceTypesOutput {
       return false;
     }
     InstanceTypeForDescribeInstanceTypesOutput instanceTypeForDescribeInstanceTypesOutput = (InstanceTypeForDescribeInstanceTypesOutput) o;
-    return Objects.equals(this.baselineCredit, instanceTypeForDescribeInstanceTypesOutput.baselineCredit) &&
+    return Objects.equals(this.affinityGroupSizes, instanceTypeForDescribeInstanceTypesOutput.affinityGroupSizes) &&
+        Objects.equals(this.baselineCredit, instanceTypeForDescribeInstanceTypesOutput.baselineCredit) &&
         Objects.equals(this.gpu, instanceTypeForDescribeInstanceTypesOutput.gpu) &&
         Objects.equals(this.initialCredit, instanceTypeForDescribeInstanceTypesOutput.initialCredit) &&
         Objects.equals(this.instanceTypeFamily, instanceTypeForDescribeInstanceTypesOutput.instanceTypeFamily) &&
         Objects.equals(this.instanceTypeId, instanceTypeForDescribeInstanceTypesOutput.instanceTypeId) &&
+        Objects.equals(this.isSupportAffinityGroup, instanceTypeForDescribeInstanceTypesOutput.isSupportAffinityGroup) &&
         Objects.equals(this.localVolumes, instanceTypeForDescribeInstanceTypesOutput.localVolumes) &&
         Objects.equals(this.memory, instanceTypeForDescribeInstanceTypesOutput.memory) &&
         Objects.equals(this.network, instanceTypeForDescribeInstanceTypesOutput.network) &&
@@ -310,7 +362,7 @@ public class InstanceTypeForDescribeInstanceTypesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(baselineCredit, gpu, initialCredit, instanceTypeFamily, instanceTypeId, localVolumes, memory, network, processor, rdma, volume);
+    return Objects.hash(affinityGroupSizes, baselineCredit, gpu, initialCredit, instanceTypeFamily, instanceTypeId, isSupportAffinityGroup, localVolumes, memory, network, processor, rdma, volume);
   }
 
 
@@ -319,11 +371,13 @@ public class InstanceTypeForDescribeInstanceTypesOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class InstanceTypeForDescribeInstanceTypesOutput {\n");
     
+    sb.append("    affinityGroupSizes: ").append(toIndentedString(affinityGroupSizes)).append("\n");
     sb.append("    baselineCredit: ").append(toIndentedString(baselineCredit)).append("\n");
     sb.append("    gpu: ").append(toIndentedString(gpu)).append("\n");
     sb.append("    initialCredit: ").append(toIndentedString(initialCredit)).append("\n");
     sb.append("    instanceTypeFamily: ").append(toIndentedString(instanceTypeFamily)).append("\n");
     sb.append("    instanceTypeId: ").append(toIndentedString(instanceTypeId)).append("\n");
+    sb.append("    isSupportAffinityGroup: ").append(toIndentedString(isSupportAffinityGroup)).append("\n");
     sb.append("    localVolumes: ").append(toIndentedString(localVolumes)).append("\n");
     sb.append("    memory: ").append(toIndentedString(memory)).append("\n");
     sb.append("    network: ").append(toIndentedString(network)).append("\n");

@@ -33,6 +33,9 @@ import javax.validation.Valid;
 
 
 public class DescribeInstancesRequest {
+  @SerializedName("AffinityGroupIds")
+  private List<String> affinityGroupIds = null;
+
   @SerializedName("DedicatedHostClusterId")
   private String dedicatedHostClusterId = null;
 
@@ -101,6 +104,32 @@ public class DescribeInstancesRequest {
 
   @SerializedName("ZoneId")
   private String zoneId = null;
+
+  public DescribeInstancesRequest affinityGroupIds(List<String> affinityGroupIds) {
+    this.affinityGroupIds = affinityGroupIds;
+    return this;
+  }
+
+  public DescribeInstancesRequest addAffinityGroupIdsItem(String affinityGroupIdsItem) {
+    if (this.affinityGroupIds == null) {
+      this.affinityGroupIds = new ArrayList<String>();
+    }
+    this.affinityGroupIds.add(affinityGroupIdsItem);
+    return this;
+  }
+
+   /**
+   * Get affinityGroupIds
+   * @return affinityGroupIds
+  **/
+  @Schema(description = "")
+  public List<String> getAffinityGroupIds() {
+    return affinityGroupIds;
+  }
+
+  public void setAffinityGroupIds(List<String> affinityGroupIds) {
+    this.affinityGroupIds = affinityGroupIds;
+  }
 
   public DescribeInstancesRequest dedicatedHostClusterId(String dedicatedHostClusterId) {
     this.dedicatedHostClusterId = dedicatedHostClusterId;
@@ -599,7 +628,8 @@ public class DescribeInstancesRequest {
       return false;
     }
     DescribeInstancesRequest describeInstancesRequest = (DescribeInstancesRequest) o;
-    return Objects.equals(this.dedicatedHostClusterId, describeInstancesRequest.dedicatedHostClusterId) &&
+    return Objects.equals(this.affinityGroupIds, describeInstancesRequest.affinityGroupIds) &&
+        Objects.equals(this.dedicatedHostClusterId, describeInstancesRequest.dedicatedHostClusterId) &&
         Objects.equals(this.dedicatedHostId, describeInstancesRequest.dedicatedHostId) &&
         Objects.equals(this.deploymentSetGroupNumbers, describeInstancesRequest.deploymentSetGroupNumbers) &&
         Objects.equals(this.deploymentSetIds, describeInstancesRequest.deploymentSetIds) &&
@@ -626,7 +656,7 @@ public class DescribeInstancesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dedicatedHostClusterId, dedicatedHostId, deploymentSetGroupNumbers, deploymentSetIds, eipAddresses, hpcClusterId, instanceChargeType, instanceIds, instanceName, instanceTypeFamilies, instanceTypeIds, instanceTypes, ipv6Addresses, keyPairName, maxResults, nextToken, primaryIpAddress, projectName, scheduledInstanceId, status, tagFilters, vpcId, zoneId);
+    return Objects.hash(affinityGroupIds, dedicatedHostClusterId, dedicatedHostId, deploymentSetGroupNumbers, deploymentSetIds, eipAddresses, hpcClusterId, instanceChargeType, instanceIds, instanceName, instanceTypeFamilies, instanceTypeIds, instanceTypes, ipv6Addresses, keyPairName, maxResults, nextToken, primaryIpAddress, projectName, scheduledInstanceId, status, tagFilters, vpcId, zoneId);
   }
 
 
@@ -635,6 +665,7 @@ public class DescribeInstancesRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeInstancesRequest {\n");
     
+    sb.append("    affinityGroupIds: ").append(toIndentedString(affinityGroupIds)).append("\n");
     sb.append("    dedicatedHostClusterId: ").append(toIndentedString(dedicatedHostClusterId)).append("\n");
     sb.append("    dedicatedHostId: ").append(toIndentedString(dedicatedHostId)).append("\n");
     sb.append("    deploymentSetGroupNumbers: ").append(toIndentedString(deploymentSetGroupNumbers)).append("\n");

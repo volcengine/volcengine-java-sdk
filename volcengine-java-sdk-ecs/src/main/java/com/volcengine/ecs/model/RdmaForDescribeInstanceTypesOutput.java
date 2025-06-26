@@ -33,6 +33,9 @@ public class RdmaForDescribeInstanceTypesOutput {
   @SerializedName("RdmaNetworkInterfaces")
   private Integer rdmaNetworkInterfaces = null;
 
+  @SerializedName("RdmaProductName")
+  private String rdmaProductName = null;
+
   public RdmaForDescribeInstanceTypesOutput rdmaNetworkInterfaces(Integer rdmaNetworkInterfaces) {
     this.rdmaNetworkInterfaces = rdmaNetworkInterfaces;
     return this;
@@ -51,6 +54,24 @@ public class RdmaForDescribeInstanceTypesOutput {
     this.rdmaNetworkInterfaces = rdmaNetworkInterfaces;
   }
 
+  public RdmaForDescribeInstanceTypesOutput rdmaProductName(String rdmaProductName) {
+    this.rdmaProductName = rdmaProductName;
+    return this;
+  }
+
+   /**
+   * Get rdmaProductName
+   * @return rdmaProductName
+  **/
+  @Schema(description = "")
+  public String getRdmaProductName() {
+    return rdmaProductName;
+  }
+
+  public void setRdmaProductName(String rdmaProductName) {
+    this.rdmaProductName = rdmaProductName;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -61,12 +82,13 @@ public class RdmaForDescribeInstanceTypesOutput {
       return false;
     }
     RdmaForDescribeInstanceTypesOutput rdmaForDescribeInstanceTypesOutput = (RdmaForDescribeInstanceTypesOutput) o;
-    return Objects.equals(this.rdmaNetworkInterfaces, rdmaForDescribeInstanceTypesOutput.rdmaNetworkInterfaces);
+    return Objects.equals(this.rdmaNetworkInterfaces, rdmaForDescribeInstanceTypesOutput.rdmaNetworkInterfaces) &&
+        Objects.equals(this.rdmaProductName, rdmaForDescribeInstanceTypesOutput.rdmaProductName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(rdmaNetworkInterfaces);
+    return Objects.hash(rdmaNetworkInterfaces, rdmaProductName);
   }
 
 
@@ -76,6 +98,7 @@ public class RdmaForDescribeInstanceTypesOutput {
     sb.append("class RdmaForDescribeInstanceTypesOutput {\n");
     
     sb.append("    rdmaNetworkInterfaces: ").append(toIndentedString(rdmaNetworkInterfaces)).append("\n");
+    sb.append("    rdmaProductName: ").append(toIndentedString(rdmaProductName)).append("\n");
     sb.append("}");
     return sb.toString();
   }
