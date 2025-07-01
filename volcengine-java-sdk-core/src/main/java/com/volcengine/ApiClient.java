@@ -14,7 +14,17 @@ package com.volcengine;
 
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
-import com.squareup.okhttp.*;
+import com.squareup.okhttp.Call;
+import com.squareup.okhttp.Callback;
+import com.squareup.okhttp.ConnectionPool;
+import com.squareup.okhttp.FormEncodingBuilder;
+import com.squareup.okhttp.Headers;
+import com.squareup.okhttp.MediaType;
+import com.squareup.okhttp.MultipartBuilder;
+import com.squareup.okhttp.OkHttpClient;
+import com.squareup.okhttp.Request;
+import com.squareup.okhttp.RequestBody;
+import com.squareup.okhttp.Response;
 import com.squareup.okhttp.internal.http.HttpMethod;
 import com.squareup.okhttp.logging.HttpLoggingInterceptor;
 import com.squareup.okhttp.logging.HttpLoggingInterceptor.Level;
@@ -22,9 +32,20 @@ import com.volcengine.auth.Authentication;
 import com.volcengine.auth.CredentialProvider;
 import com.volcengine.endpoint.DefaultEndpointProvider;
 import com.volcengine.endpoint.EndpointResolver;
-import com.volcengine.interceptor.*;
+import com.volcengine.interceptor.BuildRequestInterceptor;
+import com.volcengine.interceptor.DeserializedResponseInterceptor;
+import com.volcengine.interceptor.InitInterceptorContext;
+import com.volcengine.interceptor.InterceptorChain;
+import com.volcengine.interceptor.InterceptorContext;
+import com.volcengine.interceptor.ResolveEndpointInterceptor;
+import com.volcengine.interceptor.ResponseInterceptorContext;
+import com.volcengine.interceptor.SignRequestInterceptor;
 import com.volcengine.model.AbstractResponse;
 import com.volcengine.model.ResponseMetadata;
+import com.volcengine.retryer.BackoffStrategy;
+import com.volcengine.retryer.DefaultRetryerSetting;
+import com.volcengine.retryer.RetryCondition;
+import com.volcengine.retryer.Retryer;
 import com.volcengine.sign.Credentials;
 import com.volcengine.sign.ServiceInfo;
 import com.volcengine.sign.VolcstackSign;
@@ -37,7 +58,13 @@ import org.threeten.bp.LocalDate;
 import org.threeten.bp.OffsetDateTime;
 import org.threeten.bp.format.DateTimeFormatter;
 
-import javax.net.ssl.*;
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.KeyManager;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLSession;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.TrustManagerFactory;
+import javax.net.ssl.X509TrustManager;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -57,9 +84,17 @@ import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import java.text.DateFormat;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -105,6 +140,12 @@ public class ApiClient {
 
     private Boolean useDualStack;
 
+    private boolean autoRetry = DefaultRetryerSetting.DEFAULT_AUTO_RETRY_ENABLED;
+
+    private final Retryer retryer = DefaultRetryerSetting.DEFAULT_RETRYER;
+
+    private static final SdkLogger LOGGER = SdkLogger.getLogger(ApiClient.class);
+
     /*
      * Constructor for ApiClient
      */
@@ -133,6 +174,7 @@ public class ApiClient {
         interceptorChain.appendRequestInterceptor(new SignRequestInterceptor());
 
         interceptorChain.appendResponseInterceptor(new DeserializedResponseInterceptor());
+        SdkLogger.enableConsoleOutput(java.util.logging.Level.WARNING);
     }
 
     /**
@@ -434,9 +476,11 @@ public class ApiClient {
                 loggingInterceptor = new HttpLoggingInterceptor();
                 loggingInterceptor.setLevel(Level.BODY);
                 httpClient.interceptors().add(loggingInterceptor);
+                SdkLogger.enableConsoleOutput(java.util.logging.Level.ALL);
             } else {
                 httpClient.interceptors().remove(loggingInterceptor);
                 loggingInterceptor = null;
+                SdkLogger.enableConsoleOutput(java.util.logging.Level.WARNING);
             }
         }
         this.debugging = debugging;
@@ -964,19 +1008,71 @@ public class ApiClient {
         responseInterceptorContext.setCommon(isCommon.length > 0 && isCommon[0]);
         responseInterceptorContext.setReturnType(returnType);
         context.setResponseContext(responseInterceptorContext);
-
         context.setApiClient(this);
 
-        try {
-            this.interceptorChain.executeRequest(context);
-            Call finalCall = context.requestContext.getCall();
-            Response response = finalCall.execute();
-            context.getResponseContext().setOriginalResponse(response);
-            this.interceptorChain.executeResponse(context);
-            return new ApiResponse<T>(response.code(), response.headers().toMultimap(), (T) context.getResponseContext().getData());
-        } catch (IOException e) {
-            throw new ApiException(e);
+        int numMaxRetries = retryer.getNumMaxRetries();
+        ApiException apiException;
+        ApiResponse<T> apiResponse = null;
+        for (int retryCount = 0; retryCount <= numMaxRetries; retryCount++) {
+            apiException = null;
+            apiResponse = null;
+            try {
+                this.interceptorChain.executeRequest(context);
+            } catch (ApiException e) {
+                throw e;
+            }
+
+            try {
+                Call finalCall = context.getApiClient().getHttpClient().newCall(context.getRequestContext().getRequest());
+                Response response =  finalCall.execute();
+                context.getResponseContext().setOriginalResponse(response);
+                this.interceptorChain.executeResponse(context);
+                apiResponse = new ApiResponse<T>(response.code(), response.headers().toMultimap(), (T) context.getResponseContext().getData());
+            } catch (IOException e) {
+                apiException = new ApiException(e);
+            }catch (ApiException e) {
+                apiException = handleApiResponseException(e);
+            }
+
+            if (!requestShouldRetry(apiResponse, retryCount, apiException)) {
+                if (apiException != null) {
+                    throw apiException;
+                }
+                return apiResponse;
+            }
         }
+
+        return apiResponse;
+    }
+
+    private ApiException handleApiResponseException(ApiException apiException) {
+        if (apiException.getResponseBody() != null) {
+            StringBuilder builder = new StringBuilder();
+            Map<String, ResponseMetadata> meta = new HashMap<>();
+            try {
+                if (!convertResponseBody(apiException.getResponseBody(), builder, meta)) {
+                    apiException.setResponseMetadata(meta.get("ResponseMetadata"));
+                }
+            }catch (Exception e) {
+                return apiException;
+            }
+        }
+        return apiException;
+    }
+
+    private boolean requestShouldRetry(ApiResponse apiResponse, int retryCount, ApiException lastException) throws ApiException {
+        if (autoRetry && retryer.shouldRetry(apiResponse, retryCount, lastException)) {
+            try {
+                long delay = retryer.getBackoffDelay(retryCount);
+                LOGGER.debug("retryCount: " + (retryCount + 1) + ", delay: " + delay + ", backoffStrategy: " + retryer.getBackoffStrategy().getClass().getName());
+                Thread.sleep(delay);
+            } catch (Exception e) {
+                throw new ApiException(e);
+            }
+            return true;
+        }
+
+        return false;
     }
 
     /**
@@ -1011,34 +1107,76 @@ public class ApiClient {
         context.setResponseContext(responseInterceptorContext);
 
         context.setApiClient(this);
+
+        final int maxRetries = retryer.getNumMaxRetries();
+        final AtomicInteger retryCount = new AtomicInteger(0);
+        attemptAsync(context, callback, retryCount, maxRetries);
+    }
+
+    private <T> void attemptAsync(
+            final InterceptorContext context,
+            final ApiCallback<T> callback,
+            final AtomicInteger retryCount,
+            final int maxRetries
+    ) {
         try {
             this.interceptorChain.executeRequest(context);
         } catch (ApiException e) {
             callback.onFailure(e, 0, null);
             return;
         }
-        Callback okHttpCallBack = new Callback() {
+
+        Call okhttpCall = getHttpClient().newCall(context.getRequestContext().getRequest());
+        okhttpCall.enqueue(new Callback() {
             @Override
-            public void onFailure(Request request, IOException e) {
-                callback.onFailure(new ApiException(e), 0, null);
+            public void onFailure(Request req, IOException ioe) {
+                int current = retryCount.get();
+                ApiException apiException = new ApiException(ioe);
+                try {
+                    if (autoRetry && current < maxRetries
+                            && requestShouldRetry(null, current, apiException)) {
+                        retryCount.incrementAndGet();
+                        attemptAsync(context, callback, retryCount, maxRetries);
+                    } else {
+                        callback.onFailure(apiException, 0, null);
+                    }
+                }catch (ApiException e) {
+                    callback.onFailure(apiException, 0, null);
+                }
+
             }
 
             @Override
             public void onResponse(Response response) throws IOException {
-                T result;
+                T result = null;
+                ApiException apiException = null;
+                ApiResponse<T> apiResponse = null;
+                int current = retryCount.getAndIncrement();
+
                 try {
                     context.getResponseContext().setOriginalResponse(response);
                     context.getApiClient().interceptorChain.executeResponse(context);
                     result = (T) context.responseContext.getData();
+                    apiResponse = new ApiResponse<T>(response.code(), response.headers().toMultimap(), result);
                 } catch (ApiException e) {
-                    callback.onFailure(e, response.code(), response.headers().toMultimap());
-                    return;
+                    apiException = handleApiResponseException(e);
                 }
-                callback.onSuccess(result, response.code(), response.headers().toMultimap());
-            }
-        };
 
-        ((InterceptorContext) call).getRequestContext().getCall().enqueue(okHttpCallBack);
+                try {
+                    if (!requestShouldRetry(apiResponse, current, apiException)) {
+                        if (apiException != null) {
+                            callback.onFailure(apiException, response.code(), response.headers().toMultimap());
+                        }else {
+                            callback.onSuccess(result, response.code(), response.headers().toMultimap());
+                        }
+                    }else {
+                        attemptAsync(context, callback,retryCount , maxRetries);
+                    }
+                }catch (ApiException e){
+                    callback.onFailure(apiException, response.code(), response.headers().toMultimap());
+                }
+            }
+        });
     }
 
     /**
@@ -1708,6 +1846,80 @@ public class ApiClient {
     public ApiClient setKeepAliveDurationMs(Integer keepAliveDurationMs) {
         this.keepAliveDurationMs = keepAliveDurationMs;
         this.httpClient.setConnectionPool(new ConnectionPool(maxIdleConns, keepAliveDurationMs));
+        return this;
+    }
+
+    public boolean isAutoRetry() {
+        return autoRetry;
+    }
+
+    public ApiClient setAutoRetry(boolean autoRetry) {
+        this.autoRetry = autoRetry;
+        return this;
+    }
+
+    public int getNumMaxRetries() {
+        return retryer.getNumMaxRetries();
+    }
+
+    public ApiClient setNumMaxRetries(int numMaxRetries) {
+        retryer.setNumMaxRetries(numMaxRetries);
+        return this;
+    }
+
+    public Set<String> getRetryErrorCodes() {
+        return retryer.getRetryCondition().getRetryErrorCodes();
+    }
+
+    public ApiClient addRetryErrorCode(String retryErrorCode) {
+        retryer.getRetryCondition().addRetryErrorCode(retryErrorCode);
+        return this;
+    }
+
+    public ApiClient addRetryErrorCodes(Set<String> retryErrorCodes) {
+        retryer.getRetryCondition().addRetryErrorCodes(retryErrorCodes);
+        return this;
+    }
+
+    public long getMinRetryDelayMs() {
+        return retryer.getBackoffStrategy().getMinRetryDelayMs();
+    }
+
+    public ApiClient setMinRetryDelayMs(long minRetryDelayMs) {
+        retryer.getBackoffStrategy().setMinRetryDelayMs(minRetryDelayMs);
+        return this;
+    }
+
+    public long getMaxRetryDelayMs() {
+        return retryer.getBackoffStrategy().getMaxRetryDelayMs();
+    }
+
+    public ApiClient setMaxRetryDelayMs(long maxRetryDelayMs) {
+        retryer.getBackoffStrategy().setMaxRetryDelayMs(maxRetryDelayMs);
+        return this;
+    }
+
+    public RetryCondition getRetryCondition() {
+        return retryer.getRetryCondition();
+    }
+
+    public ApiClient setRetryCondition(RetryCondition retryCondition) throws ApiException {
+        Set<String> retryErrorCodes = retryer.getRetryCondition().getRetryErrorCodes();
+        retryCondition.addRetryErrorCodes(retryErrorCodes);
+        retryer.setRetryCondition(retryCondition);
+        return this;
+    }
+
+    public BackoffStrategy getBackoffStrategy() {
+        return retryer.getBackoffStrategy();
+    }
+
+    public ApiClient setBackoffStrategy(BackoffStrategy backoffStrategy) throws ApiException {
+        long minRetryDelayMs = retryer.getBackoffStrategy().getMinRetryDelayMs();
+        long maxRetryDelayMs = retryer.getBackoffStrategy().getMaxRetryDelayMs();
+        backoffStrategy.setMinRetryDelayMs(minRetryDelayMs);
+        backoffStrategy.setMaxRetryDelayMs(maxRetryDelayMs);
+        retryer.setBackoffStrategy(backoffStrategy);
         return this;
     }
 }
