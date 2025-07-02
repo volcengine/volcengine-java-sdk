@@ -30,8 +30,29 @@ import javax.validation.Valid;
 
 
 public class DisableAccessLogRequest {
+  @SerializedName("DeliveryType")
+  private String deliveryType = null;
+
   @SerializedName("LoadBalancerId")
   private String loadBalancerId = null;
+
+  public DisableAccessLogRequest deliveryType(String deliveryType) {
+    this.deliveryType = deliveryType;
+    return this;
+  }
+
+   /**
+   * Get deliveryType
+   * @return deliveryType
+  **/
+  @Schema(description = "")
+  public String getDeliveryType() {
+    return deliveryType;
+  }
+
+  public void setDeliveryType(String deliveryType) {
+    this.deliveryType = deliveryType;
+  }
 
   public DisableAccessLogRequest loadBalancerId(String loadBalancerId) {
     this.loadBalancerId = loadBalancerId;
@@ -62,12 +83,13 @@ public class DisableAccessLogRequest {
       return false;
     }
     DisableAccessLogRequest disableAccessLogRequest = (DisableAccessLogRequest) o;
-    return Objects.equals(this.loadBalancerId, disableAccessLogRequest.loadBalancerId);
+    return Objects.equals(this.deliveryType, disableAccessLogRequest.deliveryType) &&
+        Objects.equals(this.loadBalancerId, disableAccessLogRequest.loadBalancerId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(loadBalancerId);
+    return Objects.hash(deliveryType, loadBalancerId);
   }
 
 
@@ -76,6 +98,7 @@ public class DisableAccessLogRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DisableAccessLogRequest {\n");
     
+    sb.append("    deliveryType: ").append(toIndentedString(deliveryType)).append("\n");
     sb.append("    loadBalancerId: ").append(toIndentedString(loadBalancerId)).append("\n");
     sb.append("}");
     return sb.toString();

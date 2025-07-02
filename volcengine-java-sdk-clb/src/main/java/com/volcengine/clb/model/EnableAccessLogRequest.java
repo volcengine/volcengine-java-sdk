@@ -33,8 +33,17 @@ public class EnableAccessLogRequest {
   @SerializedName("BucketName")
   private String bucketName = null;
 
+  @SerializedName("DeliveryType")
+  private String deliveryType = null;
+
   @SerializedName("LoadBalancerId")
   private String loadBalancerId = null;
+
+  @SerializedName("TlsProjectId")
+  private String tlsProjectId = null;
+
+  @SerializedName("TlsTopicId")
+  private String tlsTopicId = null;
 
   public EnableAccessLogRequest bucketName(String bucketName) {
     this.bucketName = bucketName;
@@ -45,14 +54,31 @@ public class EnableAccessLogRequest {
    * Get bucketName
    * @return bucketName
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getBucketName() {
     return bucketName;
   }
 
   public void setBucketName(String bucketName) {
     this.bucketName = bucketName;
+  }
+
+  public EnableAccessLogRequest deliveryType(String deliveryType) {
+    this.deliveryType = deliveryType;
+    return this;
+  }
+
+   /**
+   * Get deliveryType
+   * @return deliveryType
+  **/
+  @Schema(description = "")
+  public String getDeliveryType() {
+    return deliveryType;
+  }
+
+  public void setDeliveryType(String deliveryType) {
+    this.deliveryType = deliveryType;
   }
 
   public EnableAccessLogRequest loadBalancerId(String loadBalancerId) {
@@ -74,6 +100,42 @@ public class EnableAccessLogRequest {
     this.loadBalancerId = loadBalancerId;
   }
 
+  public EnableAccessLogRequest tlsProjectId(String tlsProjectId) {
+    this.tlsProjectId = tlsProjectId;
+    return this;
+  }
+
+   /**
+   * Get tlsProjectId
+   * @return tlsProjectId
+  **/
+  @Schema(description = "")
+  public String getTlsProjectId() {
+    return tlsProjectId;
+  }
+
+  public void setTlsProjectId(String tlsProjectId) {
+    this.tlsProjectId = tlsProjectId;
+  }
+
+  public EnableAccessLogRequest tlsTopicId(String tlsTopicId) {
+    this.tlsTopicId = tlsTopicId;
+    return this;
+  }
+
+   /**
+   * Get tlsTopicId
+   * @return tlsTopicId
+  **/
+  @Schema(description = "")
+  public String getTlsTopicId() {
+    return tlsTopicId;
+  }
+
+  public void setTlsTopicId(String tlsTopicId) {
+    this.tlsTopicId = tlsTopicId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -85,12 +147,15 @@ public class EnableAccessLogRequest {
     }
     EnableAccessLogRequest enableAccessLogRequest = (EnableAccessLogRequest) o;
     return Objects.equals(this.bucketName, enableAccessLogRequest.bucketName) &&
-        Objects.equals(this.loadBalancerId, enableAccessLogRequest.loadBalancerId);
+        Objects.equals(this.deliveryType, enableAccessLogRequest.deliveryType) &&
+        Objects.equals(this.loadBalancerId, enableAccessLogRequest.loadBalancerId) &&
+        Objects.equals(this.tlsProjectId, enableAccessLogRequest.tlsProjectId) &&
+        Objects.equals(this.tlsTopicId, enableAccessLogRequest.tlsTopicId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bucketName, loadBalancerId);
+    return Objects.hash(bucketName, deliveryType, loadBalancerId, tlsProjectId, tlsTopicId);
   }
 
 
@@ -100,7 +165,10 @@ public class EnableAccessLogRequest {
     sb.append("class EnableAccessLogRequest {\n");
     
     sb.append("    bucketName: ").append(toIndentedString(bucketName)).append("\n");
+    sb.append("    deliveryType: ").append(toIndentedString(deliveryType)).append("\n");
     sb.append("    loadBalancerId: ").append(toIndentedString(loadBalancerId)).append("\n");
+    sb.append("    tlsProjectId: ").append(toIndentedString(tlsProjectId)).append("\n");
+    sb.append("    tlsTopicId: ").append(toIndentedString(tlsTopicId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

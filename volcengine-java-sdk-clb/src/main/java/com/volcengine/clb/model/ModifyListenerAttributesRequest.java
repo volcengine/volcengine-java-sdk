@@ -75,6 +75,9 @@ public class ModifyListenerAttributesRequest {
   @SerializedName("Cookie")
   private String cookie = null;
 
+  @SerializedName("Cps")
+  private Integer cps = null;
+
   @SerializedName("Description")
   private String description = null;
 
@@ -98,6 +101,12 @@ public class ModifyListenerAttributesRequest {
 
   @SerializedName("ListenerName")
   private String listenerName = null;
+
+  @SerializedName("LoadType")
+  private String loadType = null;
+
+  @SerializedName("MaxConnections")
+  private Integer maxConnections = null;
 
   @SerializedName("PersistenceTimeout")
   private Integer persistenceTimeout = null;
@@ -389,6 +398,24 @@ public class ModifyListenerAttributesRequest {
     this.cookie = cookie;
   }
 
+  public ModifyListenerAttributesRequest cps(Integer cps) {
+    this.cps = cps;
+    return this;
+  }
+
+   /**
+   * Get cps
+   * @return cps
+  **/
+  @Schema(description = "")
+  public Integer getCps() {
+    return cps;
+  }
+
+  public void setCps(Integer cps) {
+    this.cps = cps;
+  }
+
   public ModifyListenerAttributesRequest description(String description) {
     this.description = description;
     return this;
@@ -533,6 +560,42 @@ public class ModifyListenerAttributesRequest {
 
   public void setListenerName(String listenerName) {
     this.listenerName = listenerName;
+  }
+
+  public ModifyListenerAttributesRequest loadType(String loadType) {
+    this.loadType = loadType;
+    return this;
+  }
+
+   /**
+   * Get loadType
+   * @return loadType
+  **/
+  @Schema(description = "")
+  public String getLoadType() {
+    return loadType;
+  }
+
+  public void setLoadType(String loadType) {
+    this.loadType = loadType;
+  }
+
+  public ModifyListenerAttributesRequest maxConnections(Integer maxConnections) {
+    this.maxConnections = maxConnections;
+    return this;
+  }
+
+   /**
+   * Get maxConnections
+   * @return maxConnections
+  **/
+  @Schema(description = "")
+  public Integer getMaxConnections() {
+    return maxConnections;
+  }
+
+  public void setMaxConnections(Integer maxConnections) {
+    this.maxConnections = maxConnections;
   }
 
   public ModifyListenerAttributesRequest persistenceTimeout(Integer persistenceTimeout) {
@@ -739,6 +802,7 @@ public class ModifyListenerAttributesRequest {
         Objects.equals(this.connectionDrainEnabled, modifyListenerAttributesRequest.connectionDrainEnabled) &&
         Objects.equals(this.connectionDrainTimeout, modifyListenerAttributesRequest.connectionDrainTimeout) &&
         Objects.equals(this.cookie, modifyListenerAttributesRequest.cookie) &&
+        Objects.equals(this.cps, modifyListenerAttributesRequest.cps) &&
         Objects.equals(this.description, modifyListenerAttributesRequest.description) &&
         Objects.equals(this.enabled, modifyListenerAttributesRequest.enabled) &&
         Objects.equals(this.establishedTimeout, modifyListenerAttributesRequest.establishedTimeout) &&
@@ -747,6 +811,8 @@ public class ModifyListenerAttributesRequest {
         Objects.equals(this.keepaliveTimeout, modifyListenerAttributesRequest.keepaliveTimeout) &&
         Objects.equals(this.listenerId, modifyListenerAttributesRequest.listenerId) &&
         Objects.equals(this.listenerName, modifyListenerAttributesRequest.listenerName) &&
+        Objects.equals(this.loadType, modifyListenerAttributesRequest.loadType) &&
+        Objects.equals(this.maxConnections, modifyListenerAttributesRequest.maxConnections) &&
         Objects.equals(this.persistenceTimeout, modifyListenerAttributesRequest.persistenceTimeout) &&
         Objects.equals(this.persistenceType, modifyListenerAttributesRequest.persistenceType) &&
         Objects.equals(this.proxyConnectTimeout, modifyListenerAttributesRequest.proxyConnectTimeout) &&
@@ -761,7 +827,7 @@ public class ModifyListenerAttributesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclIds, aclStatus, aclType, bandwidth, caCertificateId, caEnabled, certCenterCertificateId, certificateId, certificateSource, clientBodyTimeout, clientHeaderTimeout, connectionDrainEnabled, connectionDrainTimeout, cookie, description, enabled, establishedTimeout, healthCheck, http2Enabled, keepaliveTimeout, listenerId, listenerName, persistenceTimeout, persistenceType, proxyConnectTimeout, proxyProtocolType, proxyReadTimeout, proxySendTimeout, scheduler, securityPolicyId, sendTimeout, serverGroupId);
+    return Objects.hash(aclIds, aclStatus, aclType, bandwidth, caCertificateId, caEnabled, certCenterCertificateId, certificateId, certificateSource, clientBodyTimeout, clientHeaderTimeout, connectionDrainEnabled, connectionDrainTimeout, cookie, cps, description, enabled, establishedTimeout, healthCheck, http2Enabled, keepaliveTimeout, listenerId, listenerName, loadType, maxConnections, persistenceTimeout, persistenceType, proxyConnectTimeout, proxyProtocolType, proxyReadTimeout, proxySendTimeout, scheduler, securityPolicyId, sendTimeout, serverGroupId);
   }
 
 
@@ -784,6 +850,7 @@ public class ModifyListenerAttributesRequest {
     sb.append("    connectionDrainEnabled: ").append(toIndentedString(connectionDrainEnabled)).append("\n");
     sb.append("    connectionDrainTimeout: ").append(toIndentedString(connectionDrainTimeout)).append("\n");
     sb.append("    cookie: ").append(toIndentedString(cookie)).append("\n");
+    sb.append("    cps: ").append(toIndentedString(cps)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    establishedTimeout: ").append(toIndentedString(establishedTimeout)).append("\n");
@@ -792,6 +859,8 @@ public class ModifyListenerAttributesRequest {
     sb.append("    keepaliveTimeout: ").append(toIndentedString(keepaliveTimeout)).append("\n");
     sb.append("    listenerId: ").append(toIndentedString(listenerId)).append("\n");
     sb.append("    listenerName: ").append(toIndentedString(listenerName)).append("\n");
+    sb.append("    loadType: ").append(toIndentedString(loadType)).append("\n");
+    sb.append("    maxConnections: ").append(toIndentedString(maxConnections)).append("\n");
     sb.append("    persistenceTimeout: ").append(toIndentedString(persistenceTimeout)).append("\n");
     sb.append("    persistenceType: ").append(toIndentedString(persistenceType)).append("\n");
     sb.append("    proxyConnectTimeout: ").append(toIndentedString(proxyConnectTimeout)).append("\n");
