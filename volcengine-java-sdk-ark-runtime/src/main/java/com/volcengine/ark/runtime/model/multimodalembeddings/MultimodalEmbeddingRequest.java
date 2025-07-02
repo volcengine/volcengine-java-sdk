@@ -27,6 +27,10 @@ public class MultimodalEmbeddingRequest {
     @JsonProperty("encoding_format")
     private String encodingFormat;
 
+    @JsonProperty("dimensions")
+    private Integer dimensions;
+
+
     public MultimodalEmbeddingRequest() {
     }
 
@@ -54,6 +58,13 @@ public class MultimodalEmbeddingRequest {
         return encodingFormat;
     }
 
+    public void setDimensions(Integer dimensions) {
+        this.dimensions = dimensions;
+    }
+
+    public Integer getDimensions() {
+        return dimensions;
+    }
 
     public static MultimodalEmbeddingRequest.Builder builder() {
         return new MultimodalEmbeddingRequest.Builder();
@@ -63,6 +74,7 @@ public class MultimodalEmbeddingRequest {
         private String model;
         private List<MultimodalEmbeddingInput> input;
         private String encodingFormat;
+        private Integer dimensions;
 
         private Builder() {
         }
@@ -82,11 +94,17 @@ public class MultimodalEmbeddingRequest {
             return this;
         }
 
+        public MultimodalEmbeddingRequest.Builder dimensions(Integer dimensions) {
+            this.dimensions = dimensions;
+            return this;
+        }
+
         public MultimodalEmbeddingRequest build() {
             MultimodalEmbeddingRequest embeddingRequest = new MultimodalEmbeddingRequest();
             embeddingRequest.setModel(model);
             embeddingRequest.setInput(input);
             embeddingRequest.setEncodingFormat(encodingFormat);
+            embeddingRequest.setDimensions(dimensions);
             return embeddingRequest;
         }
     }
