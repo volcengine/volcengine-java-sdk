@@ -37,7 +37,7 @@ public class GetContentGenerationTaskResponse {
 	private java.lang.Long seed;
 
 	@JsonProperty("revised_prompt")
-	private String revisedPrompt
+	private String revisedPrompt;
 
     public String getId() {
         return id;
