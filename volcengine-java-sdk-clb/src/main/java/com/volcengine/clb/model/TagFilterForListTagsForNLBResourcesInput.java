@@ -21,56 +21,65 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DisableAccessLogRequest
+ * TagFilterForListTagsForNLBResourcesInput
  */
 
 
 
-public class DisableAccessLogRequest {
-  @SerializedName("DeliveryType")
-  private String deliveryType = null;
+public class TagFilterForListTagsForNLBResourcesInput {
+  @SerializedName("Key")
+  private String key = null;
 
-  @SerializedName("LoadBalancerId")
-  private String loadBalancerId = null;
+  @SerializedName("Values")
+  private List<String> values = null;
 
-  public DisableAccessLogRequest deliveryType(String deliveryType) {
-    this.deliveryType = deliveryType;
+  public TagFilterForListTagsForNLBResourcesInput key(String key) {
+    this.key = key;
     return this;
   }
 
    /**
-   * Get deliveryType
-   * @return deliveryType
+   * Get key
+   * @return key
   **/
   @Schema(description = "")
-  public String getDeliveryType() {
-    return deliveryType;
+  public String getKey() {
+    return key;
   }
 
-  public void setDeliveryType(String deliveryType) {
-    this.deliveryType = deliveryType;
+  public void setKey(String key) {
+    this.key = key;
   }
 
-  public DisableAccessLogRequest loadBalancerId(String loadBalancerId) {
-    this.loadBalancerId = loadBalancerId;
+  public TagFilterForListTagsForNLBResourcesInput values(List<String> values) {
+    this.values = values;
+    return this;
+  }
+
+  public TagFilterForListTagsForNLBResourcesInput addValuesItem(String valuesItem) {
+    if (this.values == null) {
+      this.values = new ArrayList<String>();
+    }
+    this.values.add(valuesItem);
     return this;
   }
 
    /**
-   * Get loadBalancerId
-   * @return loadBalancerId
+   * Get values
+   * @return values
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getLoadBalancerId() {
-    return loadBalancerId;
+  @Schema(description = "")
+  public List<String> getValues() {
+    return values;
   }
 
-  public void setLoadBalancerId(String loadBalancerId) {
-    this.loadBalancerId = loadBalancerId;
+  public void setValues(List<String> values) {
+    this.values = values;
   }
 
 
@@ -82,24 +91,24 @@ public class DisableAccessLogRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DisableAccessLogRequest disableAccessLogRequest = (DisableAccessLogRequest) o;
-    return Objects.equals(this.deliveryType, disableAccessLogRequest.deliveryType) &&
-        Objects.equals(this.loadBalancerId, disableAccessLogRequest.loadBalancerId);
+    TagFilterForListTagsForNLBResourcesInput tagFilterForListTagsForNLBResourcesInput = (TagFilterForListTagsForNLBResourcesInput) o;
+    return Objects.equals(this.key, tagFilterForListTagsForNLBResourcesInput.key) &&
+        Objects.equals(this.values, tagFilterForListTagsForNLBResourcesInput.values);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(deliveryType, loadBalancerId);
+    return Objects.hash(key, values);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DisableAccessLogRequest {\n");
+    sb.append("class TagFilterForListTagsForNLBResourcesInput {\n");
     
-    sb.append("    deliveryType: ").append(toIndentedString(deliveryType)).append("\n");
-    sb.append("    loadBalancerId: ").append(toIndentedString(loadBalancerId)).append("\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    values: ").append(toIndentedString(values)).append("\n");
     sb.append("}");
     return sb.toString();
   }

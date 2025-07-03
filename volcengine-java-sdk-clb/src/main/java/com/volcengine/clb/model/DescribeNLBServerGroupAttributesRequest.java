@@ -24,53 +24,32 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DisableAccessLogRequest
+ * DescribeNLBServerGroupAttributesRequest
  */
 
 
 
-public class DisableAccessLogRequest {
-  @SerializedName("DeliveryType")
-  private String deliveryType = null;
+public class DescribeNLBServerGroupAttributesRequest {
+  @SerializedName("ServerGroupId")
+  private String serverGroupId = null;
 
-  @SerializedName("LoadBalancerId")
-  private String loadBalancerId = null;
-
-  public DisableAccessLogRequest deliveryType(String deliveryType) {
-    this.deliveryType = deliveryType;
+  public DescribeNLBServerGroupAttributesRequest serverGroupId(String serverGroupId) {
+    this.serverGroupId = serverGroupId;
     return this;
   }
 
    /**
-   * Get deliveryType
-   * @return deliveryType
-  **/
-  @Schema(description = "")
-  public String getDeliveryType() {
-    return deliveryType;
-  }
-
-  public void setDeliveryType(String deliveryType) {
-    this.deliveryType = deliveryType;
-  }
-
-  public DisableAccessLogRequest loadBalancerId(String loadBalancerId) {
-    this.loadBalancerId = loadBalancerId;
-    return this;
-  }
-
-   /**
-   * Get loadBalancerId
-   * @return loadBalancerId
+   * Get serverGroupId
+   * @return serverGroupId
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getLoadBalancerId() {
-    return loadBalancerId;
+  public String getServerGroupId() {
+    return serverGroupId;
   }
 
-  public void setLoadBalancerId(String loadBalancerId) {
-    this.loadBalancerId = loadBalancerId;
+  public void setServerGroupId(String serverGroupId) {
+    this.serverGroupId = serverGroupId;
   }
 
 
@@ -82,24 +61,22 @@ public class DisableAccessLogRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DisableAccessLogRequest disableAccessLogRequest = (DisableAccessLogRequest) o;
-    return Objects.equals(this.deliveryType, disableAccessLogRequest.deliveryType) &&
-        Objects.equals(this.loadBalancerId, disableAccessLogRequest.loadBalancerId);
+    DescribeNLBServerGroupAttributesRequest describeNLBServerGroupAttributesRequest = (DescribeNLBServerGroupAttributesRequest) o;
+    return Objects.equals(this.serverGroupId, describeNLBServerGroupAttributesRequest.serverGroupId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(deliveryType, loadBalancerId);
+    return Objects.hash(serverGroupId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DisableAccessLogRequest {\n");
+    sb.append("class DescribeNLBServerGroupAttributesRequest {\n");
     
-    sb.append("    deliveryType: ").append(toIndentedString(deliveryType)).append("\n");
-    sb.append("    loadBalancerId: ").append(toIndentedString(loadBalancerId)).append("\n");
+    sb.append("    serverGroupId: ").append(toIndentedString(serverGroupId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

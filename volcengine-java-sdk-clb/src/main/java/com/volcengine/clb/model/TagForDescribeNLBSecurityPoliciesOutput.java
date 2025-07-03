@@ -24,53 +24,52 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DisableAccessLogRequest
+ * TagForDescribeNLBSecurityPoliciesOutput
  */
 
 
 
-public class DisableAccessLogRequest {
-  @SerializedName("DeliveryType")
-  private String deliveryType = null;
+public class TagForDescribeNLBSecurityPoliciesOutput {
+  @SerializedName("Key")
+  private String key = null;
 
-  @SerializedName("LoadBalancerId")
-  private String loadBalancerId = null;
+  @SerializedName("Value")
+  private String value = null;
 
-  public DisableAccessLogRequest deliveryType(String deliveryType) {
-    this.deliveryType = deliveryType;
+  public TagForDescribeNLBSecurityPoliciesOutput key(String key) {
+    this.key = key;
     return this;
   }
 
    /**
-   * Get deliveryType
-   * @return deliveryType
+   * Get key
+   * @return key
   **/
   @Schema(description = "")
-  public String getDeliveryType() {
-    return deliveryType;
+  public String getKey() {
+    return key;
   }
 
-  public void setDeliveryType(String deliveryType) {
-    this.deliveryType = deliveryType;
+  public void setKey(String key) {
+    this.key = key;
   }
 
-  public DisableAccessLogRequest loadBalancerId(String loadBalancerId) {
-    this.loadBalancerId = loadBalancerId;
+  public TagForDescribeNLBSecurityPoliciesOutput value(String value) {
+    this.value = value;
     return this;
   }
 
    /**
-   * Get loadBalancerId
-   * @return loadBalancerId
+   * Get value
+   * @return value
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getLoadBalancerId() {
-    return loadBalancerId;
+  @Schema(description = "")
+  public String getValue() {
+    return value;
   }
 
-  public void setLoadBalancerId(String loadBalancerId) {
-    this.loadBalancerId = loadBalancerId;
+  public void setValue(String value) {
+    this.value = value;
   }
 
 
@@ -82,24 +81,24 @@ public class DisableAccessLogRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DisableAccessLogRequest disableAccessLogRequest = (DisableAccessLogRequest) o;
-    return Objects.equals(this.deliveryType, disableAccessLogRequest.deliveryType) &&
-        Objects.equals(this.loadBalancerId, disableAccessLogRequest.loadBalancerId);
+    TagForDescribeNLBSecurityPoliciesOutput tagForDescribeNLBSecurityPoliciesOutput = (TagForDescribeNLBSecurityPoliciesOutput) o;
+    return Objects.equals(this.key, tagForDescribeNLBSecurityPoliciesOutput.key) &&
+        Objects.equals(this.value, tagForDescribeNLBSecurityPoliciesOutput.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(deliveryType, loadBalancerId);
+    return Objects.hash(key, value);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DisableAccessLogRequest {\n");
+    sb.append("class TagForDescribeNLBSecurityPoliciesOutput {\n");
     
-    sb.append("    deliveryType: ").append(toIndentedString(deliveryType)).append("\n");
-    sb.append("    loadBalancerId: ").append(toIndentedString(loadBalancerId)).append("\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
   }

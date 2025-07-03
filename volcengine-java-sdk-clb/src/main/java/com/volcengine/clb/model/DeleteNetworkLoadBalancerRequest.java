@@ -24,37 +24,16 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DisableAccessLogRequest
+ * DeleteNetworkLoadBalancerRequest
  */
 
 
 
-public class DisableAccessLogRequest {
-  @SerializedName("DeliveryType")
-  private String deliveryType = null;
-
+public class DeleteNetworkLoadBalancerRequest {
   @SerializedName("LoadBalancerId")
   private String loadBalancerId = null;
 
-  public DisableAccessLogRequest deliveryType(String deliveryType) {
-    this.deliveryType = deliveryType;
-    return this;
-  }
-
-   /**
-   * Get deliveryType
-   * @return deliveryType
-  **/
-  @Schema(description = "")
-  public String getDeliveryType() {
-    return deliveryType;
-  }
-
-  public void setDeliveryType(String deliveryType) {
-    this.deliveryType = deliveryType;
-  }
-
-  public DisableAccessLogRequest loadBalancerId(String loadBalancerId) {
+  public DeleteNetworkLoadBalancerRequest loadBalancerId(String loadBalancerId) {
     this.loadBalancerId = loadBalancerId;
     return this;
   }
@@ -82,23 +61,21 @@ public class DisableAccessLogRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DisableAccessLogRequest disableAccessLogRequest = (DisableAccessLogRequest) o;
-    return Objects.equals(this.deliveryType, disableAccessLogRequest.deliveryType) &&
-        Objects.equals(this.loadBalancerId, disableAccessLogRequest.loadBalancerId);
+    DeleteNetworkLoadBalancerRequest deleteNetworkLoadBalancerRequest = (DeleteNetworkLoadBalancerRequest) o;
+    return Objects.equals(this.loadBalancerId, deleteNetworkLoadBalancerRequest.loadBalancerId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(deliveryType, loadBalancerId);
+    return Objects.hash(loadBalancerId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DisableAccessLogRequest {\n");
+    sb.append("class DeleteNetworkLoadBalancerRequest {\n");
     
-    sb.append("    deliveryType: ").append(toIndentedString(deliveryType)).append("\n");
     sb.append("    loadBalancerId: ").append(toIndentedString(loadBalancerId)).append("\n");
     sb.append("}");
     return sb.toString();

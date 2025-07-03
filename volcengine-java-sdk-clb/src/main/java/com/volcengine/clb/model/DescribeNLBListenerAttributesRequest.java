@@ -24,53 +24,32 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DisableAccessLogRequest
+ * DescribeNLBListenerAttributesRequest
  */
 
 
 
-public class DisableAccessLogRequest {
-  @SerializedName("DeliveryType")
-  private String deliveryType = null;
+public class DescribeNLBListenerAttributesRequest {
+  @SerializedName("ListenerId")
+  private String listenerId = null;
 
-  @SerializedName("LoadBalancerId")
-  private String loadBalancerId = null;
-
-  public DisableAccessLogRequest deliveryType(String deliveryType) {
-    this.deliveryType = deliveryType;
+  public DescribeNLBListenerAttributesRequest listenerId(String listenerId) {
+    this.listenerId = listenerId;
     return this;
   }
 
    /**
-   * Get deliveryType
-   * @return deliveryType
-  **/
-  @Schema(description = "")
-  public String getDeliveryType() {
-    return deliveryType;
-  }
-
-  public void setDeliveryType(String deliveryType) {
-    this.deliveryType = deliveryType;
-  }
-
-  public DisableAccessLogRequest loadBalancerId(String loadBalancerId) {
-    this.loadBalancerId = loadBalancerId;
-    return this;
-  }
-
-   /**
-   * Get loadBalancerId
-   * @return loadBalancerId
+   * Get listenerId
+   * @return listenerId
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getLoadBalancerId() {
-    return loadBalancerId;
+  public String getListenerId() {
+    return listenerId;
   }
 
-  public void setLoadBalancerId(String loadBalancerId) {
-    this.loadBalancerId = loadBalancerId;
+  public void setListenerId(String listenerId) {
+    this.listenerId = listenerId;
   }
 
 
@@ -82,24 +61,22 @@ public class DisableAccessLogRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DisableAccessLogRequest disableAccessLogRequest = (DisableAccessLogRequest) o;
-    return Objects.equals(this.deliveryType, disableAccessLogRequest.deliveryType) &&
-        Objects.equals(this.loadBalancerId, disableAccessLogRequest.loadBalancerId);
+    DescribeNLBListenerAttributesRequest describeNLBListenerAttributesRequest = (DescribeNLBListenerAttributesRequest) o;
+    return Objects.equals(this.listenerId, describeNLBListenerAttributesRequest.listenerId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(deliveryType, loadBalancerId);
+    return Objects.hash(listenerId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DisableAccessLogRequest {\n");
+    sb.append("class DescribeNLBListenerAttributesRequest {\n");
     
-    sb.append("    deliveryType: ").append(toIndentedString(deliveryType)).append("\n");
-    sb.append("    loadBalancerId: ").append(toIndentedString(loadBalancerId)).append("\n");
+    sb.append("    listenerId: ").append(toIndentedString(listenerId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

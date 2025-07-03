@@ -24,53 +24,52 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DisableAccessLogRequest
+ * ZoneMappingForModifyNetworkLoadBalancerNetworkTypeInput
  */
 
 
 
-public class DisableAccessLogRequest {
-  @SerializedName("DeliveryType")
-  private String deliveryType = null;
+public class ZoneMappingForModifyNetworkLoadBalancerNetworkTypeInput {
+  @SerializedName("EipId")
+  private String eipId = null;
 
-  @SerializedName("LoadBalancerId")
-  private String loadBalancerId = null;
+  @SerializedName("ZoneId")
+  private String zoneId = null;
 
-  public DisableAccessLogRequest deliveryType(String deliveryType) {
-    this.deliveryType = deliveryType;
+  public ZoneMappingForModifyNetworkLoadBalancerNetworkTypeInput eipId(String eipId) {
+    this.eipId = eipId;
     return this;
   }
 
    /**
-   * Get deliveryType
-   * @return deliveryType
+   * Get eipId
+   * @return eipId
   **/
   @Schema(description = "")
-  public String getDeliveryType() {
-    return deliveryType;
+  public String getEipId() {
+    return eipId;
   }
 
-  public void setDeliveryType(String deliveryType) {
-    this.deliveryType = deliveryType;
+  public void setEipId(String eipId) {
+    this.eipId = eipId;
   }
 
-  public DisableAccessLogRequest loadBalancerId(String loadBalancerId) {
-    this.loadBalancerId = loadBalancerId;
+  public ZoneMappingForModifyNetworkLoadBalancerNetworkTypeInput zoneId(String zoneId) {
+    this.zoneId = zoneId;
     return this;
   }
 
    /**
-   * Get loadBalancerId
-   * @return loadBalancerId
+   * Get zoneId
+   * @return zoneId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getLoadBalancerId() {
-    return loadBalancerId;
+  @Schema(description = "")
+  public String getZoneId() {
+    return zoneId;
   }
 
-  public void setLoadBalancerId(String loadBalancerId) {
-    this.loadBalancerId = loadBalancerId;
+  public void setZoneId(String zoneId) {
+    this.zoneId = zoneId;
   }
 
 
@@ -82,24 +81,24 @@ public class DisableAccessLogRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DisableAccessLogRequest disableAccessLogRequest = (DisableAccessLogRequest) o;
-    return Objects.equals(this.deliveryType, disableAccessLogRequest.deliveryType) &&
-        Objects.equals(this.loadBalancerId, disableAccessLogRequest.loadBalancerId);
+    ZoneMappingForModifyNetworkLoadBalancerNetworkTypeInput zoneMappingForModifyNetworkLoadBalancerNetworkTypeInput = (ZoneMappingForModifyNetworkLoadBalancerNetworkTypeInput) o;
+    return Objects.equals(this.eipId, zoneMappingForModifyNetworkLoadBalancerNetworkTypeInput.eipId) &&
+        Objects.equals(this.zoneId, zoneMappingForModifyNetworkLoadBalancerNetworkTypeInput.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(deliveryType, loadBalancerId);
+    return Objects.hash(eipId, zoneId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DisableAccessLogRequest {\n");
+    sb.append("class ZoneMappingForModifyNetworkLoadBalancerNetworkTypeInput {\n");
     
-    sb.append("    deliveryType: ").append(toIndentedString(deliveryType)).append("\n");
-    sb.append("    loadBalancerId: ").append(toIndentedString(loadBalancerId)).append("\n");
+    sb.append("    eipId: ").append(toIndentedString(eipId)).append("\n");
+    sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -36,6 +36,15 @@ public class AccessLogForDescribeLoadBalancerAttributesOutput {
   @SerializedName("Enabled")
   private Boolean enabled = null;
 
+  @SerializedName("TlsEnabled")
+  private Boolean tlsEnabled = null;
+
+  @SerializedName("TlsProjectId")
+  private String tlsProjectId = null;
+
+  @SerializedName("TlsTopicId")
+  private String tlsTopicId = null;
+
   public AccessLogForDescribeLoadBalancerAttributesOutput bucketName(String bucketName) {
     this.bucketName = bucketName;
     return this;
@@ -72,6 +81,60 @@ public class AccessLogForDescribeLoadBalancerAttributesOutput {
     this.enabled = enabled;
   }
 
+  public AccessLogForDescribeLoadBalancerAttributesOutput tlsEnabled(Boolean tlsEnabled) {
+    this.tlsEnabled = tlsEnabled;
+    return this;
+  }
+
+   /**
+   * Get tlsEnabled
+   * @return tlsEnabled
+  **/
+  @Schema(description = "")
+  public Boolean isTlsEnabled() {
+    return tlsEnabled;
+  }
+
+  public void setTlsEnabled(Boolean tlsEnabled) {
+    this.tlsEnabled = tlsEnabled;
+  }
+
+  public AccessLogForDescribeLoadBalancerAttributesOutput tlsProjectId(String tlsProjectId) {
+    this.tlsProjectId = tlsProjectId;
+    return this;
+  }
+
+   /**
+   * Get tlsProjectId
+   * @return tlsProjectId
+  **/
+  @Schema(description = "")
+  public String getTlsProjectId() {
+    return tlsProjectId;
+  }
+
+  public void setTlsProjectId(String tlsProjectId) {
+    this.tlsProjectId = tlsProjectId;
+  }
+
+  public AccessLogForDescribeLoadBalancerAttributesOutput tlsTopicId(String tlsTopicId) {
+    this.tlsTopicId = tlsTopicId;
+    return this;
+  }
+
+   /**
+   * Get tlsTopicId
+   * @return tlsTopicId
+  **/
+  @Schema(description = "")
+  public String getTlsTopicId() {
+    return tlsTopicId;
+  }
+
+  public void setTlsTopicId(String tlsTopicId) {
+    this.tlsTopicId = tlsTopicId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -83,12 +146,15 @@ public class AccessLogForDescribeLoadBalancerAttributesOutput {
     }
     AccessLogForDescribeLoadBalancerAttributesOutput accessLogForDescribeLoadBalancerAttributesOutput = (AccessLogForDescribeLoadBalancerAttributesOutput) o;
     return Objects.equals(this.bucketName, accessLogForDescribeLoadBalancerAttributesOutput.bucketName) &&
-        Objects.equals(this.enabled, accessLogForDescribeLoadBalancerAttributesOutput.enabled);
+        Objects.equals(this.enabled, accessLogForDescribeLoadBalancerAttributesOutput.enabled) &&
+        Objects.equals(this.tlsEnabled, accessLogForDescribeLoadBalancerAttributesOutput.tlsEnabled) &&
+        Objects.equals(this.tlsProjectId, accessLogForDescribeLoadBalancerAttributesOutput.tlsProjectId) &&
+        Objects.equals(this.tlsTopicId, accessLogForDescribeLoadBalancerAttributesOutput.tlsTopicId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bucketName, enabled);
+    return Objects.hash(bucketName, enabled, tlsEnabled, tlsProjectId, tlsTopicId);
   }
 
 
@@ -99,6 +165,9 @@ public class AccessLogForDescribeLoadBalancerAttributesOutput {
     
     sb.append("    bucketName: ").append(toIndentedString(bucketName)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
+    sb.append("    tlsEnabled: ").append(toIndentedString(tlsEnabled)).append("\n");
+    sb.append("    tlsProjectId: ").append(toIndentedString(tlsProjectId)).append("\n");
+    sb.append("    tlsTopicId: ").append(toIndentedString(tlsTopicId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

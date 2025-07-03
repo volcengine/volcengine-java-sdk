@@ -21,40 +21,24 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DisableAccessLogRequest
+ * ModifyNetworkLoadBalancerSecurityGroupsRequest
  */
 
 
 
-public class DisableAccessLogRequest {
-  @SerializedName("DeliveryType")
-  private String deliveryType = null;
-
+public class ModifyNetworkLoadBalancerSecurityGroupsRequest {
   @SerializedName("LoadBalancerId")
   private String loadBalancerId = null;
 
-  public DisableAccessLogRequest deliveryType(String deliveryType) {
-    this.deliveryType = deliveryType;
-    return this;
-  }
+  @SerializedName("SecurityGroupIds")
+  private List<String> securityGroupIds = null;
 
-   /**
-   * Get deliveryType
-   * @return deliveryType
-  **/
-  @Schema(description = "")
-  public String getDeliveryType() {
-    return deliveryType;
-  }
-
-  public void setDeliveryType(String deliveryType) {
-    this.deliveryType = deliveryType;
-  }
-
-  public DisableAccessLogRequest loadBalancerId(String loadBalancerId) {
+  public ModifyNetworkLoadBalancerSecurityGroupsRequest loadBalancerId(String loadBalancerId) {
     this.loadBalancerId = loadBalancerId;
     return this;
   }
@@ -73,6 +57,32 @@ public class DisableAccessLogRequest {
     this.loadBalancerId = loadBalancerId;
   }
 
+  public ModifyNetworkLoadBalancerSecurityGroupsRequest securityGroupIds(List<String> securityGroupIds) {
+    this.securityGroupIds = securityGroupIds;
+    return this;
+  }
+
+  public ModifyNetworkLoadBalancerSecurityGroupsRequest addSecurityGroupIdsItem(String securityGroupIdsItem) {
+    if (this.securityGroupIds == null) {
+      this.securityGroupIds = new ArrayList<String>();
+    }
+    this.securityGroupIds.add(securityGroupIdsItem);
+    return this;
+  }
+
+   /**
+   * Get securityGroupIds
+   * @return securityGroupIds
+  **/
+  @Schema(description = "")
+  public List<String> getSecurityGroupIds() {
+    return securityGroupIds;
+  }
+
+  public void setSecurityGroupIds(List<String> securityGroupIds) {
+    this.securityGroupIds = securityGroupIds;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -82,24 +92,24 @@ public class DisableAccessLogRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DisableAccessLogRequest disableAccessLogRequest = (DisableAccessLogRequest) o;
-    return Objects.equals(this.deliveryType, disableAccessLogRequest.deliveryType) &&
-        Objects.equals(this.loadBalancerId, disableAccessLogRequest.loadBalancerId);
+    ModifyNetworkLoadBalancerSecurityGroupsRequest modifyNetworkLoadBalancerSecurityGroupsRequest = (ModifyNetworkLoadBalancerSecurityGroupsRequest) o;
+    return Objects.equals(this.loadBalancerId, modifyNetworkLoadBalancerSecurityGroupsRequest.loadBalancerId) &&
+        Objects.equals(this.securityGroupIds, modifyNetworkLoadBalancerSecurityGroupsRequest.securityGroupIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(deliveryType, loadBalancerId);
+    return Objects.hash(loadBalancerId, securityGroupIds);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DisableAccessLogRequest {\n");
+    sb.append("class ModifyNetworkLoadBalancerSecurityGroupsRequest {\n");
     
-    sb.append("    deliveryType: ").append(toIndentedString(deliveryType)).append("\n");
     sb.append("    loadBalancerId: ").append(toIndentedString(loadBalancerId)).append("\n");
+    sb.append("    securityGroupIds: ").append(toIndentedString(securityGroupIds)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -24,37 +24,19 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DisableAccessLogRequest
+ * CreateNetworkLoadBalancerResponse
  */
 
 
 
-public class DisableAccessLogRequest {
-  @SerializedName("DeliveryType")
-  private String deliveryType = null;
-
+public class CreateNetworkLoadBalancerResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("LoadBalancerId")
   private String loadBalancerId = null;
 
-  public DisableAccessLogRequest deliveryType(String deliveryType) {
-    this.deliveryType = deliveryType;
-    return this;
-  }
+  @SerializedName("RequestId")
+  private String requestId = null;
 
-   /**
-   * Get deliveryType
-   * @return deliveryType
-  **/
-  @Schema(description = "")
-  public String getDeliveryType() {
-    return deliveryType;
-  }
-
-  public void setDeliveryType(String deliveryType) {
-    this.deliveryType = deliveryType;
-  }
-
-  public DisableAccessLogRequest loadBalancerId(String loadBalancerId) {
+  public CreateNetworkLoadBalancerResponse loadBalancerId(String loadBalancerId) {
     this.loadBalancerId = loadBalancerId;
     return this;
   }
@@ -63,14 +45,31 @@ public class DisableAccessLogRequest {
    * Get loadBalancerId
    * @return loadBalancerId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getLoadBalancerId() {
     return loadBalancerId;
   }
 
   public void setLoadBalancerId(String loadBalancerId) {
     this.loadBalancerId = loadBalancerId;
+  }
+
+  public CreateNetworkLoadBalancerResponse requestId(String requestId) {
+    this.requestId = requestId;
+    return this;
+  }
+
+   /**
+   * Get requestId
+   * @return requestId
+  **/
+  @Schema(description = "")
+  public String getRequestId() {
+    return requestId;
+  }
+
+  public void setRequestId(String requestId) {
+    this.requestId = requestId;
   }
 
 
@@ -82,24 +81,24 @@ public class DisableAccessLogRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DisableAccessLogRequest disableAccessLogRequest = (DisableAccessLogRequest) o;
-    return Objects.equals(this.deliveryType, disableAccessLogRequest.deliveryType) &&
-        Objects.equals(this.loadBalancerId, disableAccessLogRequest.loadBalancerId);
+    CreateNetworkLoadBalancerResponse createNetworkLoadBalancerResponse = (CreateNetworkLoadBalancerResponse) o;
+    return Objects.equals(this.loadBalancerId, createNetworkLoadBalancerResponse.loadBalancerId) &&
+        Objects.equals(this.requestId, createNetworkLoadBalancerResponse.requestId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(deliveryType, loadBalancerId);
+    return Objects.hash(loadBalancerId, requestId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DisableAccessLogRequest {\n");
+    sb.append("class CreateNetworkLoadBalancerResponse {\n");
     
-    sb.append("    deliveryType: ").append(toIndentedString(deliveryType)).append("\n");
     sb.append("    loadBalancerId: ").append(toIndentedString(loadBalancerId)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

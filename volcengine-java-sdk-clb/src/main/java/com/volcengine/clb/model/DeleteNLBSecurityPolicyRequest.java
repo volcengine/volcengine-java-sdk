@@ -24,53 +24,53 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DisableAccessLogRequest
+ * DeleteNLBSecurityPolicyRequest
  */
 
 
 
-public class DisableAccessLogRequest {
-  @SerializedName("DeliveryType")
-  private String deliveryType = null;
+public class DeleteNLBSecurityPolicyRequest {
+  @SerializedName("ClientToken")
+  private String clientToken = null;
 
-  @SerializedName("LoadBalancerId")
-  private String loadBalancerId = null;
+  @SerializedName("SecurityPolicyId")
+  private String securityPolicyId = null;
 
-  public DisableAccessLogRequest deliveryType(String deliveryType) {
-    this.deliveryType = deliveryType;
+  public DeleteNLBSecurityPolicyRequest clientToken(String clientToken) {
+    this.clientToken = clientToken;
     return this;
   }
 
    /**
-   * Get deliveryType
-   * @return deliveryType
+   * Get clientToken
+   * @return clientToken
   **/
   @Schema(description = "")
-  public String getDeliveryType() {
-    return deliveryType;
+  public String getClientToken() {
+    return clientToken;
   }
 
-  public void setDeliveryType(String deliveryType) {
-    this.deliveryType = deliveryType;
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
   }
 
-  public DisableAccessLogRequest loadBalancerId(String loadBalancerId) {
-    this.loadBalancerId = loadBalancerId;
+  public DeleteNLBSecurityPolicyRequest securityPolicyId(String securityPolicyId) {
+    this.securityPolicyId = securityPolicyId;
     return this;
   }
 
    /**
-   * Get loadBalancerId
-   * @return loadBalancerId
+   * Get securityPolicyId
+   * @return securityPolicyId
   **/
   @NotNull
   @Schema(required = true, description = "")
-  public String getLoadBalancerId() {
-    return loadBalancerId;
+  public String getSecurityPolicyId() {
+    return securityPolicyId;
   }
 
-  public void setLoadBalancerId(String loadBalancerId) {
-    this.loadBalancerId = loadBalancerId;
+  public void setSecurityPolicyId(String securityPolicyId) {
+    this.securityPolicyId = securityPolicyId;
   }
 
 
@@ -82,24 +82,24 @@ public class DisableAccessLogRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DisableAccessLogRequest disableAccessLogRequest = (DisableAccessLogRequest) o;
-    return Objects.equals(this.deliveryType, disableAccessLogRequest.deliveryType) &&
-        Objects.equals(this.loadBalancerId, disableAccessLogRequest.loadBalancerId);
+    DeleteNLBSecurityPolicyRequest deleteNLBSecurityPolicyRequest = (DeleteNLBSecurityPolicyRequest) o;
+    return Objects.equals(this.clientToken, deleteNLBSecurityPolicyRequest.clientToken) &&
+        Objects.equals(this.securityPolicyId, deleteNLBSecurityPolicyRequest.securityPolicyId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(deliveryType, loadBalancerId);
+    return Objects.hash(clientToken, securityPolicyId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DisableAccessLogRequest {\n");
+    sb.append("class DeleteNLBSecurityPolicyRequest {\n");
     
-    sb.append("    deliveryType: ").append(toIndentedString(deliveryType)).append("\n");
-    sb.append("    loadBalancerId: ").append(toIndentedString(loadBalancerId)).append("\n");
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
+    sb.append("    securityPolicyId: ").append(toIndentedString(securityPolicyId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

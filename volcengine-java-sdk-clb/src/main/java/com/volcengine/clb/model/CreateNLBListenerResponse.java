@@ -24,53 +24,52 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DisableAccessLogRequest
+ * CreateNLBListenerResponse
  */
 
 
 
-public class DisableAccessLogRequest {
-  @SerializedName("DeliveryType")
-  private String deliveryType = null;
+public class CreateNLBListenerResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("ListenerId")
+  private String listenerId = null;
 
-  @SerializedName("LoadBalancerId")
-  private String loadBalancerId = null;
+  @SerializedName("RequestId")
+  private String requestId = null;
 
-  public DisableAccessLogRequest deliveryType(String deliveryType) {
-    this.deliveryType = deliveryType;
+  public CreateNLBListenerResponse listenerId(String listenerId) {
+    this.listenerId = listenerId;
     return this;
   }
 
    /**
-   * Get deliveryType
-   * @return deliveryType
+   * Get listenerId
+   * @return listenerId
   **/
   @Schema(description = "")
-  public String getDeliveryType() {
-    return deliveryType;
+  public String getListenerId() {
+    return listenerId;
   }
 
-  public void setDeliveryType(String deliveryType) {
-    this.deliveryType = deliveryType;
+  public void setListenerId(String listenerId) {
+    this.listenerId = listenerId;
   }
 
-  public DisableAccessLogRequest loadBalancerId(String loadBalancerId) {
-    this.loadBalancerId = loadBalancerId;
+  public CreateNLBListenerResponse requestId(String requestId) {
+    this.requestId = requestId;
     return this;
   }
 
    /**
-   * Get loadBalancerId
-   * @return loadBalancerId
+   * Get requestId
+   * @return requestId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getLoadBalancerId() {
-    return loadBalancerId;
+  @Schema(description = "")
+  public String getRequestId() {
+    return requestId;
   }
 
-  public void setLoadBalancerId(String loadBalancerId) {
-    this.loadBalancerId = loadBalancerId;
+  public void setRequestId(String requestId) {
+    this.requestId = requestId;
   }
 
 
@@ -82,24 +81,24 @@ public class DisableAccessLogRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DisableAccessLogRequest disableAccessLogRequest = (DisableAccessLogRequest) o;
-    return Objects.equals(this.deliveryType, disableAccessLogRequest.deliveryType) &&
-        Objects.equals(this.loadBalancerId, disableAccessLogRequest.loadBalancerId);
+    CreateNLBListenerResponse createNLBListenerResponse = (CreateNLBListenerResponse) o;
+    return Objects.equals(this.listenerId, createNLBListenerResponse.listenerId) &&
+        Objects.equals(this.requestId, createNLBListenerResponse.requestId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(deliveryType, loadBalancerId);
+    return Objects.hash(listenerId, requestId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DisableAccessLogRequest {\n");
+    sb.append("class CreateNLBListenerResponse {\n");
     
-    sb.append("    deliveryType: ").append(toIndentedString(deliveryType)).append("\n");
-    sb.append("    loadBalancerId: ").append(toIndentedString(loadBalancerId)).append("\n");
+    sb.append("    listenerId: ").append(toIndentedString(listenerId)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

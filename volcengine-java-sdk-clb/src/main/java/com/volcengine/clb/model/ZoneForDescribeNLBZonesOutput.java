@@ -24,53 +24,31 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DisableAccessLogRequest
+ * ZoneForDescribeNLBZonesOutput
  */
 
 
 
-public class DisableAccessLogRequest {
-  @SerializedName("DeliveryType")
-  private String deliveryType = null;
+public class ZoneForDescribeNLBZonesOutput {
+  @SerializedName("ZoneId")
+  private String zoneId = null;
 
-  @SerializedName("LoadBalancerId")
-  private String loadBalancerId = null;
-
-  public DisableAccessLogRequest deliveryType(String deliveryType) {
-    this.deliveryType = deliveryType;
+  public ZoneForDescribeNLBZonesOutput zoneId(String zoneId) {
+    this.zoneId = zoneId;
     return this;
   }
 
    /**
-   * Get deliveryType
-   * @return deliveryType
+   * Get zoneId
+   * @return zoneId
   **/
   @Schema(description = "")
-  public String getDeliveryType() {
-    return deliveryType;
+  public String getZoneId() {
+    return zoneId;
   }
 
-  public void setDeliveryType(String deliveryType) {
-    this.deliveryType = deliveryType;
-  }
-
-  public DisableAccessLogRequest loadBalancerId(String loadBalancerId) {
-    this.loadBalancerId = loadBalancerId;
-    return this;
-  }
-
-   /**
-   * Get loadBalancerId
-   * @return loadBalancerId
-  **/
-  @NotNull
-  @Schema(required = true, description = "")
-  public String getLoadBalancerId() {
-    return loadBalancerId;
-  }
-
-  public void setLoadBalancerId(String loadBalancerId) {
-    this.loadBalancerId = loadBalancerId;
+  public void setZoneId(String zoneId) {
+    this.zoneId = zoneId;
   }
 
 
@@ -82,24 +60,22 @@ public class DisableAccessLogRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DisableAccessLogRequest disableAccessLogRequest = (DisableAccessLogRequest) o;
-    return Objects.equals(this.deliveryType, disableAccessLogRequest.deliveryType) &&
-        Objects.equals(this.loadBalancerId, disableAccessLogRequest.loadBalancerId);
+    ZoneForDescribeNLBZonesOutput zoneForDescribeNLBZonesOutput = (ZoneForDescribeNLBZonesOutput) o;
+    return Objects.equals(this.zoneId, zoneForDescribeNLBZonesOutput.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(deliveryType, loadBalancerId);
+    return Objects.hash(zoneId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DisableAccessLogRequest {\n");
+    sb.append("class ZoneForDescribeNLBZonesOutput {\n");
     
-    sb.append("    deliveryType: ").append(toIndentedString(deliveryType)).append("\n");
-    sb.append("    loadBalancerId: ").append(toIndentedString(loadBalancerId)).append("\n");
+    sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
