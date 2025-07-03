@@ -76,6 +76,9 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
   @SerializedName("Cookie")
   private String cookie = null;
 
+  @SerializedName("Cps")
+  private Integer cps = null;
+
   @SerializedName("CreateTime")
   private String createTime = null;
 
@@ -87,6 +90,9 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
 
   @SerializedName("EndPort")
   private Integer endPort = null;
+
+  @SerializedName("EnhancedSchedulerEnable")
+  private String enhancedSchedulerEnable = null;
 
   @SerializedName("EstablishedTimeout")
   private Integer establishedTimeout = null;
@@ -108,6 +114,12 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
 
   @SerializedName("LoadBalancerId")
   private String loadBalancerId = null;
+
+  @SerializedName("LoadType")
+  private String loadType = null;
+
+  @SerializedName("MaxConnections")
+  private Integer maxConnections = null;
 
   @SerializedName("PersistenceTimeout")
   private Integer persistenceTimeout = null;
@@ -426,6 +438,24 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
     this.cookie = cookie;
   }
 
+  public DescribeListenerAttributesResponse cps(Integer cps) {
+    this.cps = cps;
+    return this;
+  }
+
+   /**
+   * Get cps
+   * @return cps
+  **/
+  @Schema(description = "")
+  public Integer getCps() {
+    return cps;
+  }
+
+  public void setCps(Integer cps) {
+    this.cps = cps;
+  }
+
   public DescribeListenerAttributesResponse createTime(String createTime) {
     this.createTime = createTime;
     return this;
@@ -496,6 +526,24 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
 
   public void setEndPort(Integer endPort) {
     this.endPort = endPort;
+  }
+
+  public DescribeListenerAttributesResponse enhancedSchedulerEnable(String enhancedSchedulerEnable) {
+    this.enhancedSchedulerEnable = enhancedSchedulerEnable;
+    return this;
+  }
+
+   /**
+   * Get enhancedSchedulerEnable
+   * @return enhancedSchedulerEnable
+  **/
+  @Schema(description = "")
+  public String getEnhancedSchedulerEnable() {
+    return enhancedSchedulerEnable;
+  }
+
+  public void setEnhancedSchedulerEnable(String enhancedSchedulerEnable) {
+    this.enhancedSchedulerEnable = enhancedSchedulerEnable;
   }
 
   public DescribeListenerAttributesResponse establishedTimeout(Integer establishedTimeout) {
@@ -623,6 +671,42 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
 
   public void setLoadBalancerId(String loadBalancerId) {
     this.loadBalancerId = loadBalancerId;
+  }
+
+  public DescribeListenerAttributesResponse loadType(String loadType) {
+    this.loadType = loadType;
+    return this;
+  }
+
+   /**
+   * Get loadType
+   * @return loadType
+  **/
+  @Schema(description = "")
+  public String getLoadType() {
+    return loadType;
+  }
+
+  public void setLoadType(String loadType) {
+    this.loadType = loadType;
+  }
+
+  public DescribeListenerAttributesResponse maxConnections(Integer maxConnections) {
+    this.maxConnections = maxConnections;
+    return this;
+  }
+
+   /**
+   * Get maxConnections
+   * @return maxConnections
+  **/
+  @Schema(description = "")
+  public Integer getMaxConnections() {
+    return maxConnections;
+  }
+
+  public void setMaxConnections(Integer maxConnections) {
+    this.maxConnections = maxConnections;
   }
 
   public DescribeListenerAttributesResponse persistenceTimeout(Integer persistenceTimeout) {
@@ -1000,10 +1084,12 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
         Objects.equals(this.connectionDrainEnabled, describeListenerAttributesResponse.connectionDrainEnabled) &&
         Objects.equals(this.connectionDrainTimeout, describeListenerAttributesResponse.connectionDrainTimeout) &&
         Objects.equals(this.cookie, describeListenerAttributesResponse.cookie) &&
+        Objects.equals(this.cps, describeListenerAttributesResponse.cps) &&
         Objects.equals(this.createTime, describeListenerAttributesResponse.createTime) &&
         Objects.equals(this.description, describeListenerAttributesResponse.description) &&
         Objects.equals(this.enabled, describeListenerAttributesResponse.enabled) &&
         Objects.equals(this.endPort, describeListenerAttributesResponse.endPort) &&
+        Objects.equals(this.enhancedSchedulerEnable, describeListenerAttributesResponse.enhancedSchedulerEnable) &&
         Objects.equals(this.establishedTimeout, describeListenerAttributesResponse.establishedTimeout) &&
         Objects.equals(this.healthCheck, describeListenerAttributesResponse.healthCheck) &&
         Objects.equals(this.http2Enabled, describeListenerAttributesResponse.http2Enabled) &&
@@ -1011,6 +1097,8 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
         Objects.equals(this.listenerId, describeListenerAttributesResponse.listenerId) &&
         Objects.equals(this.listenerName, describeListenerAttributesResponse.listenerName) &&
         Objects.equals(this.loadBalancerId, describeListenerAttributesResponse.loadBalancerId) &&
+        Objects.equals(this.loadType, describeListenerAttributesResponse.loadType) &&
+        Objects.equals(this.maxConnections, describeListenerAttributesResponse.maxConnections) &&
         Objects.equals(this.persistenceTimeout, describeListenerAttributesResponse.persistenceTimeout) &&
         Objects.equals(this.persistenceType, describeListenerAttributesResponse.persistenceType) &&
         Objects.equals(this.port, describeListenerAttributesResponse.port) &&
@@ -1034,7 +1122,7 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclIds, aclStatus, aclType, bandwidth, caCertificateId, caEnabled, certCenterCertificateId, certificateId, certificateSource, clientBodyTimeout, clientHeaderTimeout, connectionDrainEnabled, connectionDrainTimeout, cookie, createTime, description, enabled, endPort, establishedTimeout, healthCheck, http2Enabled, keepaliveTimeout, listenerId, listenerName, loadBalancerId, persistenceTimeout, persistenceType, port, protocol, proxyConnectTimeout, proxyProtocolType, proxyReadTimeout, proxySendTimeout, requestId, responseCheckEnabled, scheduler, securityPolicyId, sendTimeout, serverGroupId, startPort, status, tags, updateTime, wafProtectionEnabled);
+    return Objects.hash(aclIds, aclStatus, aclType, bandwidth, caCertificateId, caEnabled, certCenterCertificateId, certificateId, certificateSource, clientBodyTimeout, clientHeaderTimeout, connectionDrainEnabled, connectionDrainTimeout, cookie, cps, createTime, description, enabled, endPort, enhancedSchedulerEnable, establishedTimeout, healthCheck, http2Enabled, keepaliveTimeout, listenerId, listenerName, loadBalancerId, loadType, maxConnections, persistenceTimeout, persistenceType, port, protocol, proxyConnectTimeout, proxyProtocolType, proxyReadTimeout, proxySendTimeout, requestId, responseCheckEnabled, scheduler, securityPolicyId, sendTimeout, serverGroupId, startPort, status, tags, updateTime, wafProtectionEnabled);
   }
 
 
@@ -1057,10 +1145,12 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
     sb.append("    connectionDrainEnabled: ").append(toIndentedString(connectionDrainEnabled)).append("\n");
     sb.append("    connectionDrainTimeout: ").append(toIndentedString(connectionDrainTimeout)).append("\n");
     sb.append("    cookie: ").append(toIndentedString(cookie)).append("\n");
+    sb.append("    cps: ").append(toIndentedString(cps)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    endPort: ").append(toIndentedString(endPort)).append("\n");
+    sb.append("    enhancedSchedulerEnable: ").append(toIndentedString(enhancedSchedulerEnable)).append("\n");
     sb.append("    establishedTimeout: ").append(toIndentedString(establishedTimeout)).append("\n");
     sb.append("    healthCheck: ").append(toIndentedString(healthCheck)).append("\n");
     sb.append("    http2Enabled: ").append(toIndentedString(http2Enabled)).append("\n");
@@ -1068,6 +1158,8 @@ public class DescribeListenerAttributesResponse extends com.volcengine.model.Abs
     sb.append("    listenerId: ").append(toIndentedString(listenerId)).append("\n");
     sb.append("    listenerName: ").append(toIndentedString(listenerName)).append("\n");
     sb.append("    loadBalancerId: ").append(toIndentedString(loadBalancerId)).append("\n");
+    sb.append("    loadType: ").append(toIndentedString(loadType)).append("\n");
+    sb.append("    maxConnections: ").append(toIndentedString(maxConnections)).append("\n");
     sb.append("    persistenceTimeout: ").append(toIndentedString(persistenceTimeout)).append("\n");
     sb.append("    persistenceType: ").append(toIndentedString(persistenceType)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");

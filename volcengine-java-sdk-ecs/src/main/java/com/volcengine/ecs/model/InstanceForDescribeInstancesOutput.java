@@ -25,6 +25,7 @@ import com.volcengine.ecs.model.LocalVolumeForDescribeInstancesOutput;
 import com.volcengine.ecs.model.NetworkInterfaceForDescribeInstancesOutput;
 import com.volcengine.ecs.model.PlacementForDescribeInstancesOutput;
 import com.volcengine.ecs.model.TagForDescribeInstancesOutput;
+import com.volcengine.ecs.model.VolumeForDescribeInstancesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -38,6 +39,9 @@ import javax.validation.Valid;
 
 
 public class InstanceForDescribeInstancesOutput {
+  @SerializedName("AffinityGroupId")
+  private String affinityGroupId = null;
+
   @SerializedName("CpuOptions")
   private CpuOptionsForDescribeInstancesOutput cpuOptions = null;
 
@@ -46,6 +50,9 @@ public class InstanceForDescribeInstancesOutput {
 
   @SerializedName("CreatedAt")
   private String createdAt = null;
+
+  @SerializedName("DeletionProtection")
+  private Boolean deletionProtection = null;
 
   @SerializedName("DeploymentSetGroupNumber")
   private Integer deploymentSetGroupNumber = null;
@@ -143,11 +150,32 @@ public class InstanceForDescribeInstancesOutput {
   @SerializedName("Uuid")
   private String uuid = null;
 
+  @SerializedName("Volumes")
+  private List<VolumeForDescribeInstancesOutput> volumes = null;
+
   @SerializedName("VpcId")
   private String vpcId = null;
 
   @SerializedName("ZoneId")
   private String zoneId = null;
+
+  public InstanceForDescribeInstancesOutput affinityGroupId(String affinityGroupId) {
+    this.affinityGroupId = affinityGroupId;
+    return this;
+  }
+
+   /**
+   * Get affinityGroupId
+   * @return affinityGroupId
+  **/
+  @Schema(description = "")
+  public String getAffinityGroupId() {
+    return affinityGroupId;
+  }
+
+  public void setAffinityGroupId(String affinityGroupId) {
+    this.affinityGroupId = affinityGroupId;
+  }
 
   public InstanceForDescribeInstancesOutput cpuOptions(CpuOptionsForDescribeInstancesOutput cpuOptions) {
     this.cpuOptions = cpuOptions;
@@ -202,6 +230,24 @@ public class InstanceForDescribeInstancesOutput {
 
   public void setCreatedAt(String createdAt) {
     this.createdAt = createdAt;
+  }
+
+  public InstanceForDescribeInstancesOutput deletionProtection(Boolean deletionProtection) {
+    this.deletionProtection = deletionProtection;
+    return this;
+  }
+
+   /**
+   * Get deletionProtection
+   * @return deletionProtection
+  **/
+  @Schema(description = "")
+  public Boolean isDeletionProtection() {
+    return deletionProtection;
+  }
+
+  public void setDeletionProtection(Boolean deletionProtection) {
+    this.deletionProtection = deletionProtection;
   }
 
   public InstanceForDescribeInstancesOutput deploymentSetGroupNumber(Integer deploymentSetGroupNumber) {
@@ -817,6 +863,33 @@ public class InstanceForDescribeInstancesOutput {
     this.uuid = uuid;
   }
 
+  public InstanceForDescribeInstancesOutput volumes(List<VolumeForDescribeInstancesOutput> volumes) {
+    this.volumes = volumes;
+    return this;
+  }
+
+  public InstanceForDescribeInstancesOutput addVolumesItem(VolumeForDescribeInstancesOutput volumesItem) {
+    if (this.volumes == null) {
+      this.volumes = new ArrayList<VolumeForDescribeInstancesOutput>();
+    }
+    this.volumes.add(volumesItem);
+    return this;
+  }
+
+   /**
+   * Get volumes
+   * @return volumes
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<VolumeForDescribeInstancesOutput> getVolumes() {
+    return volumes;
+  }
+
+  public void setVolumes(List<VolumeForDescribeInstancesOutput> volumes) {
+    this.volumes = volumes;
+  }
+
   public InstanceForDescribeInstancesOutput vpcId(String vpcId) {
     this.vpcId = vpcId;
     return this;
@@ -863,9 +936,11 @@ public class InstanceForDescribeInstancesOutput {
       return false;
     }
     InstanceForDescribeInstancesOutput instanceForDescribeInstancesOutput = (InstanceForDescribeInstancesOutput) o;
-    return Objects.equals(this.cpuOptions, instanceForDescribeInstancesOutput.cpuOptions) &&
+    return Objects.equals(this.affinityGroupId, instanceForDescribeInstancesOutput.affinityGroupId) &&
+        Objects.equals(this.cpuOptions, instanceForDescribeInstancesOutput.cpuOptions) &&
         Objects.equals(this.cpus, instanceForDescribeInstancesOutput.cpus) &&
         Objects.equals(this.createdAt, instanceForDescribeInstancesOutput.createdAt) &&
+        Objects.equals(this.deletionProtection, instanceForDescribeInstancesOutput.deletionProtection) &&
         Objects.equals(this.deploymentSetGroupNumber, instanceForDescribeInstancesOutput.deploymentSetGroupNumber) &&
         Objects.equals(this.deploymentSetId, instanceForDescribeInstancesOutput.deploymentSetId) &&
         Objects.equals(this.description, instanceForDescribeInstancesOutput.description) &&
@@ -898,13 +973,14 @@ public class InstanceForDescribeInstancesOutput {
         Objects.equals(this.tags, instanceForDescribeInstancesOutput.tags) &&
         Objects.equals(this.updatedAt, instanceForDescribeInstancesOutput.updatedAt) &&
         Objects.equals(this.uuid, instanceForDescribeInstancesOutput.uuid) &&
+        Objects.equals(this.volumes, instanceForDescribeInstancesOutput.volumes) &&
         Objects.equals(this.vpcId, instanceForDescribeInstancesOutput.vpcId) &&
         Objects.equals(this.zoneId, instanceForDescribeInstancesOutput.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cpuOptions, cpus, createdAt, deploymentSetGroupNumber, deploymentSetId, description, eipAddress, elasticScheduledInstanceType, expiredAt, hostName, hostname, hpcClusterId, imageId, instanceChargeType, instanceId, instanceName, instanceTypeId, keyPairId, keyPairName, localVolumes, memorySize, networkInterfaces, osName, osType, placement, projectName, rdmaIpAddresses, scheduledInstanceId, spotPriceLimit, spotStrategy, status, stoppedMode, tags, updatedAt, uuid, vpcId, zoneId);
+    return Objects.hash(affinityGroupId, cpuOptions, cpus, createdAt, deletionProtection, deploymentSetGroupNumber, deploymentSetId, description, eipAddress, elasticScheduledInstanceType, expiredAt, hostName, hostname, hpcClusterId, imageId, instanceChargeType, instanceId, instanceName, instanceTypeId, keyPairId, keyPairName, localVolumes, memorySize, networkInterfaces, osName, osType, placement, projectName, rdmaIpAddresses, scheduledInstanceId, spotPriceLimit, spotStrategy, status, stoppedMode, tags, updatedAt, uuid, volumes, vpcId, zoneId);
   }
 
 
@@ -913,9 +989,11 @@ public class InstanceForDescribeInstancesOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class InstanceForDescribeInstancesOutput {\n");
     
+    sb.append("    affinityGroupId: ").append(toIndentedString(affinityGroupId)).append("\n");
     sb.append("    cpuOptions: ").append(toIndentedString(cpuOptions)).append("\n");
     sb.append("    cpus: ").append(toIndentedString(cpus)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    deletionProtection: ").append(toIndentedString(deletionProtection)).append("\n");
     sb.append("    deploymentSetGroupNumber: ").append(toIndentedString(deploymentSetGroupNumber)).append("\n");
     sb.append("    deploymentSetId: ").append(toIndentedString(deploymentSetId)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
@@ -948,6 +1026,7 @@ public class InstanceForDescribeInstancesOutput {
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    uuid: ").append(toIndentedString(uuid)).append("\n");
+    sb.append("    volumes: ").append(toIndentedString(volumes)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("    zoneId: ").append(toIndentedString(zoneId)).append("\n");
     sb.append("}");

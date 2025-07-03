@@ -15,6 +15,7 @@ public class DefaultEndpointProvider implements EndpointResolver {
     public static final String REGION_CODE_AP_SOUTH_EAST_2 = "ap-southeast-2";
     public static final String REGION_CODE_AP_SOUTH_EAST_3 = "ap-southeast-3";
     public static final String REGION_CODE_CN_HONGKONG = "cn-hongkong";
+    public static final String REGION_CODE_CN_BEIJING_SELFDRIVE = "cn-beijing-selfdrive";
     // 常量
     private static final String SEPARATOR = ".";
     private static final String OPEN_PREFIX = "open";
@@ -29,6 +30,7 @@ public class DefaultEndpointProvider implements EndpointResolver {
         BOOTSTRAP_REGION.add(REGION_CODE_AP_SOUTH_EAST_2);
         BOOTSTRAP_REGION.add(REGION_CODE_AP_SOUTH_EAST_3);
         BOOTSTRAP_REGION.add(REGION_CODE_CN_SHANGHAI_AUTODRIVING);
+        BOOTSTRAP_REGION.add(REGION_CODE_CN_BEIJING_SELFDRIVE);
     }
 
     static {

@@ -45,6 +45,9 @@ public class InstanceConfigForDescribeScheduledInstancesOutput {
   @SerializedName("HostName")
   private String hostName = null;
 
+  @SerializedName("HpcClusterId")
+  private String hpcClusterId = null;
+
   @SerializedName("ImageId")
   private String imageId = null;
 
@@ -125,6 +128,24 @@ public class InstanceConfigForDescribeScheduledInstancesOutput {
 
   public void setHostName(String hostName) {
     this.hostName = hostName;
+  }
+
+  public InstanceConfigForDescribeScheduledInstancesOutput hpcClusterId(String hpcClusterId) {
+    this.hpcClusterId = hpcClusterId;
+    return this;
+  }
+
+   /**
+   * Get hpcClusterId
+   * @return hpcClusterId
+  **/
+  @Schema(description = "")
+  public String getHpcClusterId() {
+    return hpcClusterId;
+  }
+
+  public void setHpcClusterId(String hpcClusterId) {
+    this.hpcClusterId = hpcClusterId;
   }
 
   public InstanceConfigForDescribeScheduledInstancesOutput imageId(String imageId) {
@@ -329,6 +350,7 @@ public class InstanceConfigForDescribeScheduledInstancesOutput {
     return Objects.equals(this.description, instanceConfigForDescribeScheduledInstancesOutput.description) &&
         Objects.equals(this.eipAddress, instanceConfigForDescribeScheduledInstancesOutput.eipAddress) &&
         Objects.equals(this.hostName, instanceConfigForDescribeScheduledInstancesOutput.hostName) &&
+        Objects.equals(this.hpcClusterId, instanceConfigForDescribeScheduledInstancesOutput.hpcClusterId) &&
         Objects.equals(this.imageId, instanceConfigForDescribeScheduledInstancesOutput.imageId) &&
         Objects.equals(this.instanceName, instanceConfigForDescribeScheduledInstancesOutput.instanceName) &&
         Objects.equals(this.instanceTypeId, instanceConfigForDescribeScheduledInstancesOutput.instanceTypeId) &&
@@ -342,7 +364,7 @@ public class InstanceConfigForDescribeScheduledInstancesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, eipAddress, hostName, imageId, instanceName, instanceTypeId, keyPairName, networkInterfacesRes, projectName, tags, volumes, zoneId);
+    return Objects.hash(description, eipAddress, hostName, hpcClusterId, imageId, instanceName, instanceTypeId, keyPairName, networkInterfacesRes, projectName, tags, volumes, zoneId);
   }
 
 
@@ -354,6 +376,7 @@ public class InstanceConfigForDescribeScheduledInstancesOutput {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    eipAddress: ").append(toIndentedString(eipAddress)).append("\n");
     sb.append("    hostName: ").append(toIndentedString(hostName)).append("\n");
+    sb.append("    hpcClusterId: ").append(toIndentedString(hpcClusterId)).append("\n");
     sb.append("    imageId: ").append(toIndentedString(imageId)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    instanceTypeId: ").append(toIndentedString(instanceTypeId)).append("\n");

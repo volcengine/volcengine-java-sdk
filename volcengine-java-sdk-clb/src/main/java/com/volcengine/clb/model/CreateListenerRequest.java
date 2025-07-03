@@ -76,6 +76,9 @@ public class CreateListenerRequest {
   @SerializedName("Cookie")
   private String cookie = null;
 
+  @SerializedName("Cps")
+  private Integer cps = null;
+
   @SerializedName("Description")
   private String description = null;
 
@@ -84,6 +87,9 @@ public class CreateListenerRequest {
 
   @SerializedName("EndPort")
   private Integer endPort = null;
+
+  @SerializedName("EnhancedSchedulerEnable")
+  private String enhancedSchedulerEnable = null;
 
   @SerializedName("EstablishedTimeout")
   private Integer establishedTimeout = null;
@@ -102,6 +108,12 @@ public class CreateListenerRequest {
 
   @SerializedName("LoadBalancerId")
   private String loadBalancerId = null;
+
+  @SerializedName("LoadType")
+  private String loadType = null;
+
+  @SerializedName("MaxConnections")
+  private Integer maxConnections = null;
 
   @SerializedName("PersistenceTimeout")
   private Integer persistenceTimeout = null;
@@ -405,6 +417,24 @@ public class CreateListenerRequest {
     this.cookie = cookie;
   }
 
+  public CreateListenerRequest cps(Integer cps) {
+    this.cps = cps;
+    return this;
+  }
+
+   /**
+   * Get cps
+   * @return cps
+  **/
+  @Schema(description = "")
+  public Integer getCps() {
+    return cps;
+  }
+
+  public void setCps(Integer cps) {
+    this.cps = cps;
+  }
+
   public CreateListenerRequest description(String description) {
     this.description = description;
     return this;
@@ -457,6 +487,24 @@ public class CreateListenerRequest {
 
   public void setEndPort(Integer endPort) {
     this.endPort = endPort;
+  }
+
+  public CreateListenerRequest enhancedSchedulerEnable(String enhancedSchedulerEnable) {
+    this.enhancedSchedulerEnable = enhancedSchedulerEnable;
+    return this;
+  }
+
+   /**
+   * Get enhancedSchedulerEnable
+   * @return enhancedSchedulerEnable
+  **/
+  @Schema(description = "")
+  public String getEnhancedSchedulerEnable() {
+    return enhancedSchedulerEnable;
+  }
+
+  public void setEnhancedSchedulerEnable(String enhancedSchedulerEnable) {
+    this.enhancedSchedulerEnable = enhancedSchedulerEnable;
   }
 
   public CreateListenerRequest establishedTimeout(Integer establishedTimeout) {
@@ -567,6 +615,42 @@ public class CreateListenerRequest {
 
   public void setLoadBalancerId(String loadBalancerId) {
     this.loadBalancerId = loadBalancerId;
+  }
+
+  public CreateListenerRequest loadType(String loadType) {
+    this.loadType = loadType;
+    return this;
+  }
+
+   /**
+   * Get loadType
+   * @return loadType
+  **/
+  @Schema(description = "")
+  public String getLoadType() {
+    return loadType;
+  }
+
+  public void setLoadType(String loadType) {
+    this.loadType = loadType;
+  }
+
+  public CreateListenerRequest maxConnections(Integer maxConnections) {
+    this.maxConnections = maxConnections;
+    return this;
+  }
+
+   /**
+   * Get maxConnections
+   * @return maxConnections
+  **/
+  @Schema(description = "")
+  public Integer getMaxConnections() {
+    return maxConnections;
+  }
+
+  public void setMaxConnections(Integer maxConnections) {
+    this.maxConnections = maxConnections;
   }
 
   public CreateListenerRequest persistenceTimeout(Integer persistenceTimeout) {
@@ -857,15 +941,19 @@ public class CreateListenerRequest {
         Objects.equals(this.connectionDrainEnabled, createListenerRequest.connectionDrainEnabled) &&
         Objects.equals(this.connectionDrainTimeout, createListenerRequest.connectionDrainTimeout) &&
         Objects.equals(this.cookie, createListenerRequest.cookie) &&
+        Objects.equals(this.cps, createListenerRequest.cps) &&
         Objects.equals(this.description, createListenerRequest.description) &&
         Objects.equals(this.enabled, createListenerRequest.enabled) &&
         Objects.equals(this.endPort, createListenerRequest.endPort) &&
+        Objects.equals(this.enhancedSchedulerEnable, createListenerRequest.enhancedSchedulerEnable) &&
         Objects.equals(this.establishedTimeout, createListenerRequest.establishedTimeout) &&
         Objects.equals(this.healthCheck, createListenerRequest.healthCheck) &&
         Objects.equals(this.http2Enabled, createListenerRequest.http2Enabled) &&
         Objects.equals(this.keepaliveTimeout, createListenerRequest.keepaliveTimeout) &&
         Objects.equals(this.listenerName, createListenerRequest.listenerName) &&
         Objects.equals(this.loadBalancerId, createListenerRequest.loadBalancerId) &&
+        Objects.equals(this.loadType, createListenerRequest.loadType) &&
+        Objects.equals(this.maxConnections, createListenerRequest.maxConnections) &&
         Objects.equals(this.persistenceTimeout, createListenerRequest.persistenceTimeout) &&
         Objects.equals(this.persistenceType, createListenerRequest.persistenceType) &&
         Objects.equals(this.port, createListenerRequest.port) &&
@@ -884,7 +972,7 @@ public class CreateListenerRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclIds, aclStatus, aclType, bandwidth, caCertificateId, caEnabled, certCenterCertificateId, certificateId, certificateSource, clientBodyTimeout, clientHeaderTimeout, connectionDrainEnabled, connectionDrainTimeout, cookie, description, enabled, endPort, establishedTimeout, healthCheck, http2Enabled, keepaliveTimeout, listenerName, loadBalancerId, persistenceTimeout, persistenceType, port, protocol, proxyConnectTimeout, proxyProtocolType, proxyReadTimeout, proxySendTimeout, scheduler, securityPolicyId, sendTimeout, serverGroupId, startPort, tags);
+    return Objects.hash(aclIds, aclStatus, aclType, bandwidth, caCertificateId, caEnabled, certCenterCertificateId, certificateId, certificateSource, clientBodyTimeout, clientHeaderTimeout, connectionDrainEnabled, connectionDrainTimeout, cookie, cps, description, enabled, endPort, enhancedSchedulerEnable, establishedTimeout, healthCheck, http2Enabled, keepaliveTimeout, listenerName, loadBalancerId, loadType, maxConnections, persistenceTimeout, persistenceType, port, protocol, proxyConnectTimeout, proxyProtocolType, proxyReadTimeout, proxySendTimeout, scheduler, securityPolicyId, sendTimeout, serverGroupId, startPort, tags);
   }
 
 
@@ -907,15 +995,19 @@ public class CreateListenerRequest {
     sb.append("    connectionDrainEnabled: ").append(toIndentedString(connectionDrainEnabled)).append("\n");
     sb.append("    connectionDrainTimeout: ").append(toIndentedString(connectionDrainTimeout)).append("\n");
     sb.append("    cookie: ").append(toIndentedString(cookie)).append("\n");
+    sb.append("    cps: ").append(toIndentedString(cps)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    endPort: ").append(toIndentedString(endPort)).append("\n");
+    sb.append("    enhancedSchedulerEnable: ").append(toIndentedString(enhancedSchedulerEnable)).append("\n");
     sb.append("    establishedTimeout: ").append(toIndentedString(establishedTimeout)).append("\n");
     sb.append("    healthCheck: ").append(toIndentedString(healthCheck)).append("\n");
     sb.append("    http2Enabled: ").append(toIndentedString(http2Enabled)).append("\n");
     sb.append("    keepaliveTimeout: ").append(toIndentedString(keepaliveTimeout)).append("\n");
     sb.append("    listenerName: ").append(toIndentedString(listenerName)).append("\n");
     sb.append("    loadBalancerId: ").append(toIndentedString(loadBalancerId)).append("\n");
+    sb.append("    loadType: ").append(toIndentedString(loadType)).append("\n");
+    sb.append("    maxConnections: ").append(toIndentedString(maxConnections)).append("\n");
     sb.append("    persistenceTimeout: ").append(toIndentedString(persistenceTimeout)).append("\n");
     sb.append("    persistenceType: ").append(toIndentedString(persistenceType)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");

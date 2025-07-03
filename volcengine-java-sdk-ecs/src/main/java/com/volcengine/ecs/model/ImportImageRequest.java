@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.ecs.model.ImportDataVolumeForImportImageInput;
 import com.volcengine.ecs.model.TagForImportImageInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -44,6 +45,9 @@ public class ImportImageRequest {
 
   @SerializedName("ImageName")
   private String imageName = null;
+
+  @SerializedName("ImportDataVolumes")
+  private List<ImportDataVolumeForImportImageInput> importDataVolumes = null;
 
   @SerializedName("LicenseType")
   private String licenseType = null;
@@ -140,6 +144,33 @@ public class ImportImageRequest {
 
   public void setImageName(String imageName) {
     this.imageName = imageName;
+  }
+
+  public ImportImageRequest importDataVolumes(List<ImportDataVolumeForImportImageInput> importDataVolumes) {
+    this.importDataVolumes = importDataVolumes;
+    return this;
+  }
+
+  public ImportImageRequest addImportDataVolumesItem(ImportDataVolumeForImportImageInput importDataVolumesItem) {
+    if (this.importDataVolumes == null) {
+      this.importDataVolumes = new ArrayList<ImportDataVolumeForImportImageInput>();
+    }
+    this.importDataVolumes.add(importDataVolumesItem);
+    return this;
+  }
+
+   /**
+   * Get importDataVolumes
+   * @return importDataVolumes
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<ImportDataVolumeForImportImageInput> getImportDataVolumes() {
+    return importDataVolumes;
+  }
+
+  public void setImportDataVolumes(List<ImportDataVolumeForImportImageInput> importDataVolumes) {
+    this.importDataVolumes = importDataVolumes;
   }
 
   public ImportImageRequest licenseType(String licenseType) {
@@ -311,6 +342,7 @@ public class ImportImageRequest {
         Objects.equals(this.bootMode, importImageRequest.bootMode) &&
         Objects.equals(this.description, importImageRequest.description) &&
         Objects.equals(this.imageName, importImageRequest.imageName) &&
+        Objects.equals(this.importDataVolumes, importImageRequest.importDataVolumes) &&
         Objects.equals(this.licenseType, importImageRequest.licenseType) &&
         Objects.equals(this.needDetection, importImageRequest.needDetection) &&
         Objects.equals(this.osType, importImageRequest.osType) &&
@@ -323,7 +355,7 @@ public class ImportImageRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(architecture, bootMode, description, imageName, licenseType, needDetection, osType, platform, platformVersion, projectName, tags, url);
+    return Objects.hash(architecture, bootMode, description, imageName, importDataVolumes, licenseType, needDetection, osType, platform, platformVersion, projectName, tags, url);
   }
 
 
@@ -336,6 +368,7 @@ public class ImportImageRequest {
     sb.append("    bootMode: ").append(toIndentedString(bootMode)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    imageName: ").append(toIndentedString(imageName)).append("\n");
+    sb.append("    importDataVolumes: ").append(toIndentedString(importDataVolumes)).append("\n");
     sb.append("    licenseType: ").append(toIndentedString(licenseType)).append("\n");
     sb.append("    needDetection: ").append(toIndentedString(needDetection)).append("\n");
     sb.append("    osType: ").append(toIndentedString(osType)).append("\n");

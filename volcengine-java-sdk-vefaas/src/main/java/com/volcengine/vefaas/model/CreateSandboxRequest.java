@@ -19,9 +19,13 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vefaas.model.EnvForCreateSandboxInput;
+import com.volcengine.vefaas.model.InstanceTosMountConfigForCreateSandboxInput;
 import com.volcengine.vefaas.model.MetadataForCreateSandboxInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -31,14 +35,47 @@ import javax.validation.Valid;
 
 
 public class CreateSandboxRequest {
+  @SerializedName("Envs")
+  private List<EnvForCreateSandboxInput> envs = null;
+
   @SerializedName("FunctionId")
   private String functionId = null;
+
+  @SerializedName("InstanceTosMountConfig")
+  private InstanceTosMountConfigForCreateSandboxInput instanceTosMountConfig = null;
 
   @SerializedName("Metadata")
   private MetadataForCreateSandboxInput metadata = null;
 
   @SerializedName("Timeout")
   private Integer timeout = null;
+
+  public CreateSandboxRequest envs(List<EnvForCreateSandboxInput> envs) {
+    this.envs = envs;
+    return this;
+  }
+
+  public CreateSandboxRequest addEnvsItem(EnvForCreateSandboxInput envsItem) {
+    if (this.envs == null) {
+      this.envs = new ArrayList<EnvForCreateSandboxInput>();
+    }
+    this.envs.add(envsItem);
+    return this;
+  }
+
+   /**
+   * Get envs
+   * @return envs
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<EnvForCreateSandboxInput> getEnvs() {
+    return envs;
+  }
+
+  public void setEnvs(List<EnvForCreateSandboxInput> envs) {
+    this.envs = envs;
+  }
 
   public CreateSandboxRequest functionId(String functionId) {
     this.functionId = functionId;
@@ -57,6 +94,25 @@ public class CreateSandboxRequest {
 
   public void setFunctionId(String functionId) {
     this.functionId = functionId;
+  }
+
+  public CreateSandboxRequest instanceTosMountConfig(InstanceTosMountConfigForCreateSandboxInput instanceTosMountConfig) {
+    this.instanceTosMountConfig = instanceTosMountConfig;
+    return this;
+  }
+
+   /**
+   * Get instanceTosMountConfig
+   * @return instanceTosMountConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public InstanceTosMountConfigForCreateSandboxInput getInstanceTosMountConfig() {
+    return instanceTosMountConfig;
+  }
+
+  public void setInstanceTosMountConfig(InstanceTosMountConfigForCreateSandboxInput instanceTosMountConfig) {
+    this.instanceTosMountConfig = instanceTosMountConfig;
   }
 
   public CreateSandboxRequest metadata(MetadataForCreateSandboxInput metadata) {
@@ -106,14 +162,16 @@ public class CreateSandboxRequest {
       return false;
     }
     CreateSandboxRequest createSandboxRequest = (CreateSandboxRequest) o;
-    return Objects.equals(this.functionId, createSandboxRequest.functionId) &&
+    return Objects.equals(this.envs, createSandboxRequest.envs) &&
+        Objects.equals(this.functionId, createSandboxRequest.functionId) &&
+        Objects.equals(this.instanceTosMountConfig, createSandboxRequest.instanceTosMountConfig) &&
         Objects.equals(this.metadata, createSandboxRequest.metadata) &&
         Objects.equals(this.timeout, createSandboxRequest.timeout);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(functionId, metadata, timeout);
+    return Objects.hash(envs, functionId, instanceTosMountConfig, metadata, timeout);
   }
 
 
@@ -122,7 +180,9 @@ public class CreateSandboxRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateSandboxRequest {\n");
     
+    sb.append("    envs: ").append(toIndentedString(envs)).append("\n");
     sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
+    sb.append("    instanceTosMountConfig: ").append(toIndentedString(instanceTosMountConfig)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");
     sb.append("}");
