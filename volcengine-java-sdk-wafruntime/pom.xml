@@ -7,6 +7,8 @@
         <version>0.2.21</version>
     </parent>
     <artifactId>volcengine-java-sdk-wafruntime</artifactId>
+    <name>volcengine-java-sdk-wafruntime</name>
+    <description>The Java SDK for Volcengine wafruntime</description>
     <dependencies>
         <dependency>
             <groupId>com.volcengine</groupId>

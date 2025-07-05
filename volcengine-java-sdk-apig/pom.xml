@@ -8,6 +8,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>volcengine-java-sdk-apig</artifactId>
+    <name>volcengine-java-sdk-apig</name>
+    <description>The Java SDK for Volcengine apig</description>
     <dependencies>
         <dependency>
             <groupId>com.volcengine</groupId>

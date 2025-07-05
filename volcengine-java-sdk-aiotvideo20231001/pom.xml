@@ -8,6 +8,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>volcengine-java-sdk-aiotvideo20231001</artifactId>
+    <name>volcengine-java-sdk-aiotvideo20231001</name>
+    <description>The Java SDK for Volcengine aiotvideo20231001</description>
     <dependencies>
         <dependency>
             <groupId>com.volcengine</groupId>

@@ -8,6 +8,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>volcengine-java-sdk-ecs</artifactId>
+    <name>volcengine-java-sdk-ecs</name>
+    <description>The Java SDK for Volcengine ecs</description>
     <dependencies>
         <dependency>
             <groupId>com.volcengine</groupId>

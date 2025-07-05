@@ -8,6 +8,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>volcengine-java-sdk-coze20250601</artifactId>
+    <name>volcengine-java-sdk-coze20250601</name>
+    <description>The Java SDK for Volcengine coze20250601</description>
     <dependencies>
         <dependency>
             <groupId>com.volcengine</groupId>

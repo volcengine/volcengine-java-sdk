@@ -8,6 +8,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>volcengine-java-sdk-directconnect</artifactId>
+    <name>volcengine-java-sdk-directconnect</name>
+    <description>The Java SDK for Volcengine directconnect</description>
     <dependencies>
         <dependency>
             <groupId>com.volcengine</groupId>
