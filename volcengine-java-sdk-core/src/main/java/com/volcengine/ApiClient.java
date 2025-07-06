@@ -591,6 +591,26 @@ public class ApiClient extends BaseClient{
     }
 
     /**
+     * Get the use dual stack flag.
+     *
+     * @return use dual stack flag
+     */
+    public Boolean getUseDualStack() {
+        return this.useDualStack;
+    }
+
+    /**
+     * Set the use dual stack flag.
+     *
+     * @param useDualStack boolean
+     * @return Api client
+     */
+    public ApiClient setUseDualStack(boolean useDualStack) {
+        this.useDualStack = useDualStack;
+        return this;
+    }
+
+    /**
      * Get the http proxy.
      *
      * @return http proxy
