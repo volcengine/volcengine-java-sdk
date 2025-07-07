@@ -8,6 +8,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>volcengine-java-sdk-privatelink</artifactId>
+    <name>volcengine-java-sdk-privatelink</name>
+    <description>The Java SDK for Volcengine privatelink</description>
     <dependencies>
         <dependency>
             <groupId>com.volcengine</groupId>

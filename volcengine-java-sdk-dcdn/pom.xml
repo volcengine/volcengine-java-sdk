@@ -8,6 +8,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>volcengine-java-sdk-dcdn</artifactId>
+    <name>volcengine-java-sdk-dcdn</name>
+    <description>The Java SDK for Volcengine dcdn</description>
     <dependencies>
         <dependency>
             <groupId>com.volcengine</groupId>

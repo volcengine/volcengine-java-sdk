@@ -8,6 +8,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>volcengine-java-sdk-vmp</artifactId>
+    <name>volcengine-java-sdk-vmp</name>
+    <description>The Java SDK for Volcengine vmp</description>
     <dependencies>
         <dependency>
             <groupId>com.volcengine</groupId>

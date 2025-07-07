@@ -8,6 +8,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>volcengine-java-sdk-flink20250101</artifactId>
+    <name>volcengine-java-sdk-flink20250101</name>
+    <description>The Java SDK for Volcengine flink20250101</description>
     <dependencies>
         <dependency>
             <groupId>com.volcengine</groupId>

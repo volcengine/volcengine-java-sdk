@@ -8,6 +8,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>volcengine-java-sdk-kms</artifactId>
+    <name>volcengine-java-sdk-kms</name>
+    <description>The Java SDK for Volcengine kms</description>
     <dependencies>
         <dependency>
             <groupId>com.volcengine</groupId>

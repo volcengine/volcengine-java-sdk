@@ -8,6 +8,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>volcengine-java-sdk-cloudtrail20180101</artifactId>
+    <name>volcengine-java-sdk-cloudtrail20180101</name>
+    <description>The Java SDK for Volcengine cloudtrail20180101</description>
     <dependencies>
         <dependency>
             <groupId>com.volcengine</groupId>

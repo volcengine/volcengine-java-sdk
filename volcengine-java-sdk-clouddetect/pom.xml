@@ -8,6 +8,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>volcengine-java-sdk-clouddetect</artifactId>
+    <name>volcengine-java-sdk-clouddetect</name>
+    <description>The Java SDK for Volcengine clouddetect</description>
     <dependencies>
         <dependency>
             <groupId>com.volcengine</groupId>

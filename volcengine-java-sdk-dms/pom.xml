@@ -8,6 +8,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>volcengine-java-sdk-dms</artifactId>
+    <name>volcengine-java-sdk-dms</name>
+    <description>The Java SDK for Volcengine dms</description>
     <dependencies>
         <dependency>
             <groupId>com.volcengine</groupId>

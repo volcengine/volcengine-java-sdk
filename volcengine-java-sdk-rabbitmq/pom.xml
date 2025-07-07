@@ -8,6 +8,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>volcengine-java-sdk-rabbitmq</artifactId>
+    <name>volcengine-java-sdk-rabbitmq</name>
+    <description>The Java SDK for Volcengine rabbitmq</description>
     <dependencies>
         <dependency>
             <groupId>com.volcengine</groupId>

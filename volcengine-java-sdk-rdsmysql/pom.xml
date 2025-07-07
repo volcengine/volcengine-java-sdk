@@ -8,6 +8,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>volcengine-java-sdk-rdsmysql</artifactId>
+    <name>volcengine-java-sdk-rdsmysql</name>
+    <description>The Java SDK for Volcengine rdsmysql</description>
     <dependencies>
         <dependency>
             <groupId>com.volcengine</groupId>

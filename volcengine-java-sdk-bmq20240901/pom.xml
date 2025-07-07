@@ -8,6 +8,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>volcengine-java-sdk-bmq20240901</artifactId>
+    <name>volcengine-java-sdk-bmq20240901</name>
+    <description>The Java SDK for Volcengine bmq20240901</description>
     <dependencies>
         <dependency>
             <groupId>com.volcengine</groupId>
