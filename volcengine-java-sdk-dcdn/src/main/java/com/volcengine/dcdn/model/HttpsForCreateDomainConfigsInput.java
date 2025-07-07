@@ -37,6 +37,9 @@ public class HttpsForCreateDomainConfigsInput {
   @SerializedName("CertBind")
   private CertBindForCreateDomainConfigsInput certBind = null;
 
+  @SerializedName("EnableHttps")
+  private Boolean enableHttps = null;
+
   @SerializedName("ForceRedirect")
   private ForceRedirectForCreateDomainConfigsInput forceRedirect = null;
 
@@ -69,6 +72,24 @@ public class HttpsForCreateDomainConfigsInput {
 
   public void setCertBind(CertBindForCreateDomainConfigsInput certBind) {
     this.certBind = certBind;
+  }
+
+  public HttpsForCreateDomainConfigsInput enableHttps(Boolean enableHttps) {
+    this.enableHttps = enableHttps;
+    return this;
+  }
+
+   /**
+   * Get enableHttps
+   * @return enableHttps
+  **/
+  @Schema(description = "")
+  public Boolean isEnableHttps() {
+    return enableHttps;
+  }
+
+  public void setEnableHttps(Boolean enableHttps) {
+    this.enableHttps = enableHttps;
   }
 
   public HttpsForCreateDomainConfigsInput forceRedirect(ForceRedirectForCreateDomainConfigsInput forceRedirect) {
@@ -175,6 +196,7 @@ public class HttpsForCreateDomainConfigsInput {
     }
     HttpsForCreateDomainConfigsInput httpsForCreateDomainConfigsInput = (HttpsForCreateDomainConfigsInput) o;
     return Objects.equals(this.certBind, httpsForCreateDomainConfigsInput.certBind) &&
+        Objects.equals(this.enableHttps, httpsForCreateDomainConfigsInput.enableHttps) &&
         Objects.equals(this.forceRedirect, httpsForCreateDomainConfigsInput.forceRedirect) &&
         Objects.equals(this.hsts, httpsForCreateDomainConfigsInput.hsts) &&
         Objects.equals(this.http2, httpsForCreateDomainConfigsInput.http2) &&
@@ -184,7 +206,7 @@ public class HttpsForCreateDomainConfigsInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(certBind, forceRedirect, hsts, http2, quICSwitch, tlsVersions);
+    return Objects.hash(certBind, enableHttps, forceRedirect, hsts, http2, quICSwitch, tlsVersions);
   }
 
 
@@ -194,6 +216,7 @@ public class HttpsForCreateDomainConfigsInput {
     sb.append("class HttpsForCreateDomainConfigsInput {\n");
     
     sb.append("    certBind: ").append(toIndentedString(certBind)).append("\n");
+    sb.append("    enableHttps: ").append(toIndentedString(enableHttps)).append("\n");
     sb.append("    forceRedirect: ").append(toIndentedString(forceRedirect)).append("\n");
     sb.append("    hsts: ").append(toIndentedString(hsts)).append("\n");
     sb.append("    http2: ").append(toIndentedString(http2)).append("\n");
