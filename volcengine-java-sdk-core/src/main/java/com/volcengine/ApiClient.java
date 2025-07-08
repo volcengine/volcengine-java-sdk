@@ -172,6 +172,8 @@ public class ApiClient extends BaseClient{
         interceptorChain.appendRequestInterceptor(new SignRequestInterceptor());
 
         interceptorChain.appendResponseInterceptor(new DeserializedResponseInterceptor());
+
+        updateClientProxy();
     }
 
     /**
