@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -30,8 +32,311 @@ import javax.validation.Valid;
 
 
 public class DescribeCrossRegionBackupsRequest {
+  @SerializedName("BackupPointId")
+  private String backupPointId = null;
+
+  @SerializedName("BackupPointName")
+  private String backupPointName = null;
+
+  /**
+   * Gets or Sets backupStrategyList
+   */
+  @JsonAdapter(BackupStrategyListEnum.Adapter.class)
+  public enum BackupStrategyListEnum {
+    @SerializedName("ManualBackup")
+    MANUALBACKUP("ManualBackup"),
+    @SerializedName("AutomatedBackup")
+    AUTOMATEDBACKUP("AutomatedBackup"),
+    @SerializedName("DataFlashBack")
+    DATAFLASHBACK("DataFlashBack"),
+    @SerializedName("AllStrategy")
+    ALLSTRATEGY("AllStrategy");
+
+    private String value;
+
+    BackupStrategyListEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static BackupStrategyListEnum fromValue(String input) {
+      for (BackupStrategyListEnum b : BackupStrategyListEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<BackupStrategyListEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final BackupStrategyListEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public BackupStrategyListEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return BackupStrategyListEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("BackupStrategyList")
+  private List<BackupStrategyListEnum> backupStrategyList = null;
+
+  @SerializedName("EndTime")
+  private String endTime = null;
+
+  @SerializedName("InstanceId")
+  private String instanceId = null;
+
+  @SerializedName("PageNumber")
+  private Integer pageNumber = null;
+
+  @SerializedName("PageSize")
+  private Integer pageSize = null;
+
   @SerializedName("ProjectName")
   private String projectName = null;
+
+  /**
+   * Gets or Sets scope
+   */
+  @JsonAdapter(ScopeEnum.Adapter.class)
+  public enum ScopeEnum {
+    @SerializedName("OneInstance")
+    ONEINSTANCE("OneInstance"),
+    @SerializedName("DestroyedInstances")
+    DESTROYEDINSTANCES("DestroyedInstances"),
+    @SerializedName("AccountInstances")
+    ACCOUNTINSTANCES("AccountInstances");
+
+    private String value;
+
+    ScopeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ScopeEnum fromValue(String input) {
+      for (ScopeEnum b : ScopeEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<ScopeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ScopeEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public ScopeEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return ScopeEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("Scope")
+  private ScopeEnum scope = null;
+
+  @SerializedName("StartTime")
+  private String startTime = null;
+
+  /**
+   * Gets or Sets status
+   */
+  @JsonAdapter(StatusEnum.Adapter.class)
+  public enum StatusEnum {
+    @SerializedName("Creating")
+    CREATING("Creating"),
+    @SerializedName("Available")
+    AVAILABLE("Available"),
+    @SerializedName("Unavailable")
+    UNAVAILABLE("Unavailable"),
+    @SerializedName("Deleting")
+    DELETING("Deleting");
+
+    private String value;
+
+    StatusEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static StatusEnum fromValue(String input) {
+      for (StatusEnum b : StatusEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<StatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public StatusEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return StatusEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("Status")
+  private StatusEnum status = null;
+
+  public DescribeCrossRegionBackupsRequest backupPointId(String backupPointId) {
+    this.backupPointId = backupPointId;
+    return this;
+  }
+
+   /**
+   * Get backupPointId
+   * @return backupPointId
+  **/
+  @Schema(description = "")
+  public String getBackupPointId() {
+    return backupPointId;
+  }
+
+  public void setBackupPointId(String backupPointId) {
+    this.backupPointId = backupPointId;
+  }
+
+  public DescribeCrossRegionBackupsRequest backupPointName(String backupPointName) {
+    this.backupPointName = backupPointName;
+    return this;
+  }
+
+   /**
+   * Get backupPointName
+   * @return backupPointName
+  **/
+  @Schema(description = "")
+  public String getBackupPointName() {
+    return backupPointName;
+  }
+
+  public void setBackupPointName(String backupPointName) {
+    this.backupPointName = backupPointName;
+  }
+
+  public DescribeCrossRegionBackupsRequest backupStrategyList(List<BackupStrategyListEnum> backupStrategyList) {
+    this.backupStrategyList = backupStrategyList;
+    return this;
+  }
+
+  public DescribeCrossRegionBackupsRequest addBackupStrategyListItem(BackupStrategyListEnum backupStrategyListItem) {
+    if (this.backupStrategyList == null) {
+      this.backupStrategyList = new ArrayList<BackupStrategyListEnum>();
+    }
+    this.backupStrategyList.add(backupStrategyListItem);
+    return this;
+  }
+
+   /**
+   * Get backupStrategyList
+   * @return backupStrategyList
+  **/
+  @Schema(description = "")
+  public List<BackupStrategyListEnum> getBackupStrategyList() {
+    return backupStrategyList;
+  }
+
+  public void setBackupStrategyList(List<BackupStrategyListEnum> backupStrategyList) {
+    this.backupStrategyList = backupStrategyList;
+  }
+
+  public DescribeCrossRegionBackupsRequest endTime(String endTime) {
+    this.endTime = endTime;
+    return this;
+  }
+
+   /**
+   * Get endTime
+   * @return endTime
+  **/
+  @Schema(description = "")
+  public String getEndTime() {
+    return endTime;
+  }
+
+  public void setEndTime(String endTime) {
+    this.endTime = endTime;
+  }
+
+  public DescribeCrossRegionBackupsRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
+    return this;
+  }
+
+   /**
+   * Get instanceId
+   * @return instanceId
+  **/
+  @Schema(description = "")
+  public String getInstanceId() {
+    return instanceId;
+  }
+
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
+  }
+
+  public DescribeCrossRegionBackupsRequest pageNumber(Integer pageNumber) {
+    this.pageNumber = pageNumber;
+    return this;
+  }
+
+   /**
+   * Get pageNumber
+   * @return pageNumber
+  **/
+  @Schema(description = "")
+  public Integer getPageNumber() {
+    return pageNumber;
+  }
+
+  public void setPageNumber(Integer pageNumber) {
+    this.pageNumber = pageNumber;
+  }
+
+  public DescribeCrossRegionBackupsRequest pageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+    return this;
+  }
+
+   /**
+   * Get pageSize
+   * @return pageSize
+  **/
+  @Schema(description = "")
+  public Integer getPageSize() {
+    return pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
 
   public DescribeCrossRegionBackupsRequest projectName(String projectName) {
     this.projectName = projectName;
@@ -51,6 +356,60 @@ public class DescribeCrossRegionBackupsRequest {
     this.projectName = projectName;
   }
 
+  public DescribeCrossRegionBackupsRequest scope(ScopeEnum scope) {
+    this.scope = scope;
+    return this;
+  }
+
+   /**
+   * Get scope
+   * @return scope
+  **/
+  @Schema(description = "")
+  public ScopeEnum getScope() {
+    return scope;
+  }
+
+  public void setScope(ScopeEnum scope) {
+    this.scope = scope;
+  }
+
+  public DescribeCrossRegionBackupsRequest startTime(String startTime) {
+    this.startTime = startTime;
+    return this;
+  }
+
+   /**
+   * Get startTime
+   * @return startTime
+  **/
+  @Schema(description = "")
+  public String getStartTime() {
+    return startTime;
+  }
+
+  public void setStartTime(String startTime) {
+    this.startTime = startTime;
+  }
+
+  public DescribeCrossRegionBackupsRequest status(StatusEnum status) {
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * Get status
+   * @return status
+  **/
+  @Schema(description = "")
+  public StatusEnum getStatus() {
+    return status;
+  }
+
+  public void setStatus(StatusEnum status) {
+    this.status = status;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -61,12 +420,22 @@ public class DescribeCrossRegionBackupsRequest {
       return false;
     }
     DescribeCrossRegionBackupsRequest describeCrossRegionBackupsRequest = (DescribeCrossRegionBackupsRequest) o;
-    return Objects.equals(this.projectName, describeCrossRegionBackupsRequest.projectName);
+    return Objects.equals(this.backupPointId, describeCrossRegionBackupsRequest.backupPointId) &&
+        Objects.equals(this.backupPointName, describeCrossRegionBackupsRequest.backupPointName) &&
+        Objects.equals(this.backupStrategyList, describeCrossRegionBackupsRequest.backupStrategyList) &&
+        Objects.equals(this.endTime, describeCrossRegionBackupsRequest.endTime) &&
+        Objects.equals(this.instanceId, describeCrossRegionBackupsRequest.instanceId) &&
+        Objects.equals(this.pageNumber, describeCrossRegionBackupsRequest.pageNumber) &&
+        Objects.equals(this.pageSize, describeCrossRegionBackupsRequest.pageSize) &&
+        Objects.equals(this.projectName, describeCrossRegionBackupsRequest.projectName) &&
+        Objects.equals(this.scope, describeCrossRegionBackupsRequest.scope) &&
+        Objects.equals(this.startTime, describeCrossRegionBackupsRequest.startTime) &&
+        Objects.equals(this.status, describeCrossRegionBackupsRequest.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(projectName);
+    return Objects.hash(backupPointId, backupPointName, backupStrategyList, endTime, instanceId, pageNumber, pageSize, projectName, scope, startTime, status);
   }
 
 
@@ -75,7 +444,17 @@ public class DescribeCrossRegionBackupsRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeCrossRegionBackupsRequest {\n");
     
+    sb.append("    backupPointId: ").append(toIndentedString(backupPointId)).append("\n");
+    sb.append("    backupPointName: ").append(toIndentedString(backupPointName)).append("\n");
+    sb.append("    backupStrategyList: ").append(toIndentedString(backupStrategyList)).append("\n");
+    sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
+    sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    scope: ").append(toIndentedString(scope)).append("\n");
+    sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
     return sb.toString();
   }

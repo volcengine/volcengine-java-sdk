@@ -45,6 +45,8 @@ import com.volcengine.redis.model.CreateDBInstanceRequest;
 import com.volcengine.redis.model.CreateDBInstanceResponse;
 import com.volcengine.redis.model.CreateEnterpriseDBInstanceRequest;
 import com.volcengine.redis.model.CreateEnterpriseDBInstanceResponse;
+import com.volcengine.redis.model.CreateKeyScanJobRequest;
+import com.volcengine.redis.model.CreateKeyScanJobResponse;
 import com.volcengine.redis.model.CreateParameterGroupRequest;
 import com.volcengine.redis.model.CreateParameterGroupResponse;
 import com.volcengine.redis.model.DecreaseDBInstanceNodeNumberRequest;
@@ -77,10 +79,14 @@ import com.volcengine.redis.model.DescribeBackupsRequest;
 import com.volcengine.redis.model.DescribeBackupsResponse;
 import com.volcengine.redis.model.DescribeBigKeysRequest;
 import com.volcengine.redis.model.DescribeBigKeysResponse;
-import com.volcengine.redis.model.DescribeCrossBackupPolicyRequest;
-import com.volcengine.redis.model.DescribeCrossBackupPolicyResponse;
+import com.volcengine.redis.model.DescribeCrossRegionBackupPolicyRequest;
+import com.volcengine.redis.model.DescribeCrossRegionBackupPolicyResponse;
 import com.volcengine.redis.model.DescribeCrossRegionBackupsRequest;
 import com.volcengine.redis.model.DescribeCrossRegionBackupsResponse;
+import com.volcengine.redis.model.DescribeDBInstanceAclCategoriesRequest;
+import com.volcengine.redis.model.DescribeDBInstanceAclCategoriesResponse;
+import com.volcengine.redis.model.DescribeDBInstanceAclCommandsRequest;
+import com.volcengine.redis.model.DescribeDBInstanceAclCommandsResponse;
 import com.volcengine.redis.model.DescribeDBInstanceBandwidthPerShardRequest;
 import com.volcengine.redis.model.DescribeDBInstanceBandwidthPerShardResponse;
 import com.volcengine.redis.model.DescribeDBInstanceDetailRequest;
@@ -99,12 +105,12 @@ import com.volcengine.redis.model.DescribeEnterpriseDBInstanceParamsRequest;
 import com.volcengine.redis.model.DescribeEnterpriseDBInstanceParamsResponse;
 import com.volcengine.redis.model.DescribeEnterpriseDBInstanceSpecsRequest;
 import com.volcengine.redis.model.DescribeEnterpriseDBInstanceSpecsResponse;
-import com.volcengine.redis.model.DescribeEnterpriseSlowLogsRequest;
-import com.volcengine.redis.model.DescribeEnterpriseSlowLogsResponse;
 import com.volcengine.redis.model.DescribeEnterpriseZonesRequest;
 import com.volcengine.redis.model.DescribeEnterpriseZonesResponse;
 import com.volcengine.redis.model.DescribeHotKeysRequest;
 import com.volcengine.redis.model.DescribeHotKeysResponse;
+import com.volcengine.redis.model.DescribeKeyScanJobsRequest;
+import com.volcengine.redis.model.DescribeKeyScanJobsResponse;
 import com.volcengine.redis.model.DescribeNodeIdsRequest;
 import com.volcengine.redis.model.DescribeNodeIdsResponse;
 import com.volcengine.redis.model.DescribeParameterGroupDetailRequest;
@@ -139,8 +145,8 @@ import com.volcengine.redis.model.ModifyAllowListRequest;
 import com.volcengine.redis.model.ModifyAllowListResponse;
 import com.volcengine.redis.model.ModifyBackupPlanRequest;
 import com.volcengine.redis.model.ModifyBackupPlanResponse;
-import com.volcengine.redis.model.ModifyCrossBackupPolicyRequest;
-import com.volcengine.redis.model.ModifyCrossBackupPolicyResponse;
+import com.volcengine.redis.model.ModifyCrossRegionBackupPolicyRequest;
+import com.volcengine.redis.model.ModifyCrossRegionBackupPolicyResponse;
 import com.volcengine.redis.model.ModifyDBAccountRequest;
 import com.volcengine.redis.model.ModifyDBAccountResponse;
 import com.volcengine.redis.model.ModifyDBInstanceAZConfigureRequest;
@@ -191,10 +197,6 @@ import com.volcengine.redis.model.StopContinuousBackupRequest;
 import com.volcengine.redis.model.StopContinuousBackupResponse;
 import com.volcengine.redis.model.SwitchOverRequest;
 import com.volcengine.redis.model.SwitchOverResponse;
-import com.volcengine.redis.model.TagResourcesRequest;
-import com.volcengine.redis.model.TagResourcesResponse;
-import com.volcengine.redis.model.UnTagResourcesRequest;
-import com.volcengine.redis.model.UnTagResourcesResponse;
 import com.volcengine.redis.model.UpgradeAllowListVersionRequest;
 import com.volcengine.redis.model.UpgradeAllowListVersionResponse;
 
@@ -1336,6 +1338,130 @@ public class RedisApi {
 
         com.squareup.okhttp.Call call = createEnterpriseDBInstanceValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<CreateEnterpriseDBInstanceResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for createKeyScanJob
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call createKeyScanJobCall(CreateKeyScanJobRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/CreateKeyScanJob/2020-12-07/redis/post/application_json/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call createKeyScanJobValidateBeforeCall(CreateKeyScanJobRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling createKeyScanJob(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = createKeyScanJobCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return CreateKeyScanJobResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public CreateKeyScanJobResponse createKeyScanJob(CreateKeyScanJobRequest body) throws ApiException {
+        ApiResponse<CreateKeyScanJobResponse> resp = createKeyScanJobWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;CreateKeyScanJobResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<CreateKeyScanJobResponse> createKeyScanJobWithHttpInfo( @NotNull CreateKeyScanJobRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = createKeyScanJobValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<CreateKeyScanJobResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call createKeyScanJobAsync(CreateKeyScanJobRequest body, final ApiCallback<CreateKeyScanJobResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = createKeyScanJobValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CreateKeyScanJobResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -3324,18 +3450,18 @@ public class RedisApi {
         return call;
     }
     /**
-     * Build call for describeCrossBackupPolicy
+     * Build call for describeCrossRegionBackupPolicy
      * @param body  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call describeCrossBackupPolicyCall(DescribeCrossBackupPolicyRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call describeCrossRegionBackupPolicyCall(DescribeCrossRegionBackupPolicyRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/DescribeCrossBackupPolicy/2020-12-07/redis/post/application_json/";
+        String localVarPath = "/DescribeCrossRegionBackupPolicy/2020-12-07/redis/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3373,13 +3499,13 @@ public class RedisApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call describeCrossBackupPolicyValidateBeforeCall(DescribeCrossBackupPolicyRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call describeCrossRegionBackupPolicyValidateBeforeCall(DescribeCrossRegionBackupPolicyRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'body' is set
         if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling describeCrossBackupPolicy(Async)");
+            throw new ApiException("Missing the required parameter 'body' when calling describeCrossRegionBackupPolicy(Async)");
         }
         
-        com.squareup.okhttp.Call call = describeCrossBackupPolicyCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = describeCrossRegionBackupPolicyCall(body, progressListener, progressRequestListener);
         return call;
 
         
@@ -3392,11 +3518,11 @@ public class RedisApi {
      * 
      * 
      * @param body  (required)
-     * @return DescribeCrossBackupPolicyResponse
+     * @return DescribeCrossRegionBackupPolicyResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public DescribeCrossBackupPolicyResponse describeCrossBackupPolicy(DescribeCrossBackupPolicyRequest body) throws ApiException {
-        ApiResponse<DescribeCrossBackupPolicyResponse> resp = describeCrossBackupPolicyWithHttpInfo(body);
+    public DescribeCrossRegionBackupPolicyResponse describeCrossRegionBackupPolicy(DescribeCrossRegionBackupPolicyRequest body) throws ApiException {
+        ApiResponse<DescribeCrossRegionBackupPolicyResponse> resp = describeCrossRegionBackupPolicyWithHttpInfo(body);
         return resp.getData();
     }
 
@@ -3404,12 +3530,12 @@ public class RedisApi {
      * 
      * 
      * @param body  (required)
-     * @return ApiResponse&lt;DescribeCrossBackupPolicyResponse&gt;
+     * @return ApiResponse&lt;DescribeCrossRegionBackupPolicyResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<DescribeCrossBackupPolicyResponse> describeCrossBackupPolicyWithHttpInfo( @NotNull DescribeCrossBackupPolicyRequest body) throws ApiException {
-        com.squareup.okhttp.Call call = describeCrossBackupPolicyValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<DescribeCrossBackupPolicyResponse>(){}.getType();
+    public ApiResponse<DescribeCrossRegionBackupPolicyResponse> describeCrossRegionBackupPolicyWithHttpInfo( @NotNull DescribeCrossRegionBackupPolicyRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = describeCrossRegionBackupPolicyValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<DescribeCrossRegionBackupPolicyResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -3421,7 +3547,7 @@ public class RedisApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call describeCrossBackupPolicyAsync(DescribeCrossBackupPolicyRequest body, final ApiCallback<DescribeCrossBackupPolicyResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call describeCrossRegionBackupPolicyAsync(DescribeCrossRegionBackupPolicyRequest body, final ApiCallback<DescribeCrossRegionBackupPolicyResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3442,8 +3568,8 @@ public class RedisApi {
             };
         }
 
-        com.squareup.okhttp.Call call = describeCrossBackupPolicyValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<DescribeCrossBackupPolicyResponse>(){}.getType();
+        com.squareup.okhttp.Call call = describeCrossRegionBackupPolicyValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<DescribeCrossRegionBackupPolicyResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -3568,6 +3694,254 @@ public class RedisApi {
 
         com.squareup.okhttp.Call call = describeCrossRegionBackupsValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<DescribeCrossRegionBackupsResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for describeDBInstanceAclCategories
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call describeDBInstanceAclCategoriesCall(DescribeDBInstanceAclCategoriesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/DescribeDBInstanceAclCategories/2020-12-07/redis/post/application_json/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call describeDBInstanceAclCategoriesValidateBeforeCall(DescribeDBInstanceAclCategoriesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling describeDBInstanceAclCategories(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = describeDBInstanceAclCategoriesCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return DescribeDBInstanceAclCategoriesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public DescribeDBInstanceAclCategoriesResponse describeDBInstanceAclCategories(DescribeDBInstanceAclCategoriesRequest body) throws ApiException {
+        ApiResponse<DescribeDBInstanceAclCategoriesResponse> resp = describeDBInstanceAclCategoriesWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;DescribeDBInstanceAclCategoriesResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<DescribeDBInstanceAclCategoriesResponse> describeDBInstanceAclCategoriesWithHttpInfo( @NotNull DescribeDBInstanceAclCategoriesRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = describeDBInstanceAclCategoriesValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<DescribeDBInstanceAclCategoriesResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call describeDBInstanceAclCategoriesAsync(DescribeDBInstanceAclCategoriesRequest body, final ApiCallback<DescribeDBInstanceAclCategoriesResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = describeDBInstanceAclCategoriesValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<DescribeDBInstanceAclCategoriesResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for describeDBInstanceAclCommands
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call describeDBInstanceAclCommandsCall(DescribeDBInstanceAclCommandsRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/DescribeDBInstanceAclCommands/2020-12-07/redis/post/application_json/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call describeDBInstanceAclCommandsValidateBeforeCall(DescribeDBInstanceAclCommandsRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling describeDBInstanceAclCommands(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = describeDBInstanceAclCommandsCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return DescribeDBInstanceAclCommandsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public DescribeDBInstanceAclCommandsResponse describeDBInstanceAclCommands(DescribeDBInstanceAclCommandsRequest body) throws ApiException {
+        ApiResponse<DescribeDBInstanceAclCommandsResponse> resp = describeDBInstanceAclCommandsWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;DescribeDBInstanceAclCommandsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<DescribeDBInstanceAclCommandsResponse> describeDBInstanceAclCommandsWithHttpInfo( @NotNull DescribeDBInstanceAclCommandsRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = describeDBInstanceAclCommandsValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<DescribeDBInstanceAclCommandsResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call describeDBInstanceAclCommandsAsync(DescribeDBInstanceAclCommandsRequest body, final ApiCallback<DescribeDBInstanceAclCommandsResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = describeDBInstanceAclCommandsValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<DescribeDBInstanceAclCommandsResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -4688,130 +5062,6 @@ public class RedisApi {
         return call;
     }
     /**
-     * Build call for describeEnterpriseSlowLogs
-     * @param body  (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call describeEnterpriseSlowLogsCall(DescribeEnterpriseSlowLogsRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
-        
-        // create path and map variables
-        String localVarPath = "/DescribeEnterpriseSlowLogs/2020-12-07/redis/post/application_json/";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "text/plain"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call describeEnterpriseSlowLogsValidateBeforeCall(DescribeEnterpriseSlowLogsRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling describeEnterpriseSlowLogs(Async)");
-        }
-        
-        com.squareup.okhttp.Call call = describeEnterpriseSlowLogsCall(body, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * 
-     * 
-     * @param body  (required)
-     * @return DescribeEnterpriseSlowLogsResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public DescribeEnterpriseSlowLogsResponse describeEnterpriseSlowLogs(DescribeEnterpriseSlowLogsRequest body) throws ApiException {
-        ApiResponse<DescribeEnterpriseSlowLogsResponse> resp = describeEnterpriseSlowLogsWithHttpInfo(body);
-        return resp.getData();
-    }
-
-    /**
-     * 
-     * 
-     * @param body  (required)
-     * @return ApiResponse&lt;DescribeEnterpriseSlowLogsResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<DescribeEnterpriseSlowLogsResponse> describeEnterpriseSlowLogsWithHttpInfo( @NotNull DescribeEnterpriseSlowLogsRequest body) throws ApiException {
-        com.squareup.okhttp.Call call = describeEnterpriseSlowLogsValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<DescribeEnterpriseSlowLogsResponse>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param body  (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call describeEnterpriseSlowLogsAsync(DescribeEnterpriseSlowLogsRequest body, final ApiCallback<DescribeEnterpriseSlowLogsResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = describeEnterpriseSlowLogsValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<DescribeEnterpriseSlowLogsResponse>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
      * Build call for describeEnterpriseZones
      * @param body  (required)
      * @param progressListener Progress listener
@@ -5056,6 +5306,130 @@ public class RedisApi {
 
         com.squareup.okhttp.Call call = describeHotKeysValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<DescribeHotKeysResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for describeKeyScanJobs
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call describeKeyScanJobsCall(DescribeKeyScanJobsRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/DescribeKeyScanJobs/2020-12-07/redis/post/application_json/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "text/plain"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "volcengineSign" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call describeKeyScanJobsValidateBeforeCall(DescribeKeyScanJobsRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling describeKeyScanJobs(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = describeKeyScanJobsCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return DescribeKeyScanJobsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public DescribeKeyScanJobsResponse describeKeyScanJobs(DescribeKeyScanJobsRequest body) throws ApiException {
+        ApiResponse<DescribeKeyScanJobsResponse> resp = describeKeyScanJobsWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param body  (required)
+     * @return ApiResponse&lt;DescribeKeyScanJobsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<DescribeKeyScanJobsResponse> describeKeyScanJobsWithHttpInfo( @NotNull DescribeKeyScanJobsRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = describeKeyScanJobsValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<DescribeKeyScanJobsResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param body  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call describeKeyScanJobsAsync(DescribeKeyScanJobsRequest body, final ApiCallback<DescribeKeyScanJobsResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = describeKeyScanJobsValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<DescribeKeyScanJobsResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -7168,18 +7542,18 @@ public class RedisApi {
         return call;
     }
     /**
-     * Build call for modifyCrossBackupPolicy
+     * Build call for modifyCrossRegionBackupPolicy
      * @param body  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call modifyCrossBackupPolicyCall(ModifyCrossBackupPolicyRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call modifyCrossRegionBackupPolicyCall(ModifyCrossRegionBackupPolicyRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/ModifyCrossBackupPolicy/2020-12-07/redis/post/application_json/";
+        String localVarPath = "/ModifyCrossRegionBackupPolicy/2020-12-07/redis/post/application_json/";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -7217,13 +7591,13 @@ public class RedisApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call modifyCrossBackupPolicyValidateBeforeCall(ModifyCrossBackupPolicyRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call modifyCrossRegionBackupPolicyValidateBeforeCall(ModifyCrossRegionBackupPolicyRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'body' is set
         if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling modifyCrossBackupPolicy(Async)");
+            throw new ApiException("Missing the required parameter 'body' when calling modifyCrossRegionBackupPolicy(Async)");
         }
         
-        com.squareup.okhttp.Call call = modifyCrossBackupPolicyCall(body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = modifyCrossRegionBackupPolicyCall(body, progressListener, progressRequestListener);
         return call;
 
         
@@ -7236,11 +7610,11 @@ public class RedisApi {
      * 
      * 
      * @param body  (required)
-     * @return ModifyCrossBackupPolicyResponse
+     * @return ModifyCrossRegionBackupPolicyResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ModifyCrossBackupPolicyResponse modifyCrossBackupPolicy(ModifyCrossBackupPolicyRequest body) throws ApiException {
-        ApiResponse<ModifyCrossBackupPolicyResponse> resp = modifyCrossBackupPolicyWithHttpInfo(body);
+    public ModifyCrossRegionBackupPolicyResponse modifyCrossRegionBackupPolicy(ModifyCrossRegionBackupPolicyRequest body) throws ApiException {
+        ApiResponse<ModifyCrossRegionBackupPolicyResponse> resp = modifyCrossRegionBackupPolicyWithHttpInfo(body);
         return resp.getData();
     }
 
@@ -7248,12 +7622,12 @@ public class RedisApi {
      * 
      * 
      * @param body  (required)
-     * @return ApiResponse&lt;ModifyCrossBackupPolicyResponse&gt;
+     * @return ApiResponse&lt;ModifyCrossRegionBackupPolicyResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ModifyCrossBackupPolicyResponse> modifyCrossBackupPolicyWithHttpInfo( @NotNull ModifyCrossBackupPolicyRequest body) throws ApiException {
-        com.squareup.okhttp.Call call = modifyCrossBackupPolicyValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<ModifyCrossBackupPolicyResponse>(){}.getType();
+    public ApiResponse<ModifyCrossRegionBackupPolicyResponse> modifyCrossRegionBackupPolicyWithHttpInfo( @NotNull ModifyCrossRegionBackupPolicyRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = modifyCrossRegionBackupPolicyValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<ModifyCrossRegionBackupPolicyResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -7265,7 +7639,7 @@ public class RedisApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call modifyCrossBackupPolicyAsync(ModifyCrossBackupPolicyRequest body, final ApiCallback<ModifyCrossBackupPolicyResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call modifyCrossRegionBackupPolicyAsync(ModifyCrossRegionBackupPolicyRequest body, final ApiCallback<ModifyCrossRegionBackupPolicyResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -7286,8 +7660,8 @@ public class RedisApi {
             };
         }
 
-        com.squareup.okhttp.Call call = modifyCrossBackupPolicyValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ModifyCrossBackupPolicyResponse>(){}.getType();
+        com.squareup.okhttp.Call call = modifyCrossRegionBackupPolicyValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ModifyCrossRegionBackupPolicyResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -10388,254 +10762,6 @@ public class RedisApi {
 
         com.squareup.okhttp.Call call = switchOverValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<SwitchOverResponse>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for tagResources
-     * @param body  (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call tagResourcesCall(TagResourcesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
-        
-        // create path and map variables
-        String localVarPath = "/TagResources/2020-12-07/redis/post/application_json/";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "text/plain"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call tagResourcesValidateBeforeCall(TagResourcesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling tagResources(Async)");
-        }
-        
-        com.squareup.okhttp.Call call = tagResourcesCall(body, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * 
-     * 
-     * @param body  (required)
-     * @return TagResourcesResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public TagResourcesResponse tagResources(TagResourcesRequest body) throws ApiException {
-        ApiResponse<TagResourcesResponse> resp = tagResourcesWithHttpInfo(body);
-        return resp.getData();
-    }
-
-    /**
-     * 
-     * 
-     * @param body  (required)
-     * @return ApiResponse&lt;TagResourcesResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<TagResourcesResponse> tagResourcesWithHttpInfo( @NotNull TagResourcesRequest body) throws ApiException {
-        com.squareup.okhttp.Call call = tagResourcesValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<TagResourcesResponse>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param body  (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call tagResourcesAsync(TagResourcesRequest body, final ApiCallback<TagResourcesResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = tagResourcesValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<TagResourcesResponse>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for unTagResources
-     * @param body  (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call unTagResourcesCall(UnTagResourcesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
-        
-        // create path and map variables
-        String localVarPath = "/UnTagResources/2020-12-07/redis/post/application_json/";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "text/plain"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "volcengineSign" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call unTagResourcesValidateBeforeCall(UnTagResourcesRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling unTagResources(Async)");
-        }
-        
-        com.squareup.okhttp.Call call = unTagResourcesCall(body, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * 
-     * 
-     * @param body  (required)
-     * @return UnTagResourcesResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public UnTagResourcesResponse unTagResources(UnTagResourcesRequest body) throws ApiException {
-        ApiResponse<UnTagResourcesResponse> resp = unTagResourcesWithHttpInfo(body);
-        return resp.getData();
-    }
-
-    /**
-     * 
-     * 
-     * @param body  (required)
-     * @return ApiResponse&lt;UnTagResourcesResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<UnTagResourcesResponse> unTagResourcesWithHttpInfo( @NotNull UnTagResourcesRequest body) throws ApiException {
-        com.squareup.okhttp.Call call = unTagResourcesValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<UnTagResourcesResponse>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param body  (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call unTagResourcesAsync(UnTagResourcesRequest body, final ApiCallback<UnTagResourcesResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = unTagResourcesValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<UnTagResourcesResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

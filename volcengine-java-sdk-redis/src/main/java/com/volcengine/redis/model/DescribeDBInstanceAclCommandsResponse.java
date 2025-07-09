@@ -26,39 +26,39 @@ import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DescribeAvailableCrossRegionResponse
+ * DescribeDBInstanceAclCommandsResponse
  */
 
 
 
-public class DescribeAvailableCrossRegionResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("TargetRegionIds")
-  private List<String> targetRegionIds = null;
+public class DescribeDBInstanceAclCommandsResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("Commands")
+  private List<String> commands = null;
 
-  public DescribeAvailableCrossRegionResponse targetRegionIds(List<String> targetRegionIds) {
-    this.targetRegionIds = targetRegionIds;
+  public DescribeDBInstanceAclCommandsResponse commands(List<String> commands) {
+    this.commands = commands;
     return this;
   }
 
-  public DescribeAvailableCrossRegionResponse addTargetRegionIdsItem(String targetRegionIdsItem) {
-    if (this.targetRegionIds == null) {
-      this.targetRegionIds = new ArrayList<String>();
+  public DescribeDBInstanceAclCommandsResponse addCommandsItem(String commandsItem) {
+    if (this.commands == null) {
+      this.commands = new ArrayList<String>();
     }
-    this.targetRegionIds.add(targetRegionIdsItem);
+    this.commands.add(commandsItem);
     return this;
   }
 
    /**
-   * Get targetRegionIds
-   * @return targetRegionIds
+   * Get commands
+   * @return commands
   **/
   @Schema(description = "")
-  public List<String> getTargetRegionIds() {
-    return targetRegionIds;
+  public List<String> getCommands() {
+    return commands;
   }
 
-  public void setTargetRegionIds(List<String> targetRegionIds) {
-    this.targetRegionIds = targetRegionIds;
+  public void setCommands(List<String> commands) {
+    this.commands = commands;
   }
 
 
@@ -70,22 +70,22 @@ public class DescribeAvailableCrossRegionResponse extends com.volcengine.model.A
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DescribeAvailableCrossRegionResponse describeAvailableCrossRegionResponse = (DescribeAvailableCrossRegionResponse) o;
-    return Objects.equals(this.targetRegionIds, describeAvailableCrossRegionResponse.targetRegionIds);
+    DescribeDBInstanceAclCommandsResponse describeDBInstanceAclCommandsResponse = (DescribeDBInstanceAclCommandsResponse) o;
+    return Objects.equals(this.commands, describeDBInstanceAclCommandsResponse.commands);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(targetRegionIds);
+    return Objects.hash(commands);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DescribeAvailableCrossRegionResponse {\n");
+    sb.append("class DescribeDBInstanceAclCommandsResponse {\n");
     
-    sb.append("    targetRegionIds: ").append(toIndentedString(targetRegionIds)).append("\n");
+    sb.append("    commands: ").append(toIndentedString(commands)).append("\n");
     sb.append("}");
     return sb.toString();
   }

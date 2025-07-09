@@ -21,44 +21,35 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DescribeAvailableCrossRegionResponse
+ * DescribeDBInstanceAclCategoriesRequest
  */
 
 
 
-public class DescribeAvailableCrossRegionResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("TargetRegionIds")
-  private List<String> targetRegionIds = null;
+public class DescribeDBInstanceAclCategoriesRequest {
+  @SerializedName("InstanceId")
+  private String instanceId = null;
 
-  public DescribeAvailableCrossRegionResponse targetRegionIds(List<String> targetRegionIds) {
-    this.targetRegionIds = targetRegionIds;
-    return this;
-  }
-
-  public DescribeAvailableCrossRegionResponse addTargetRegionIdsItem(String targetRegionIdsItem) {
-    if (this.targetRegionIds == null) {
-      this.targetRegionIds = new ArrayList<String>();
-    }
-    this.targetRegionIds.add(targetRegionIdsItem);
+  public DescribeDBInstanceAclCategoriesRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
     return this;
   }
 
    /**
-   * Get targetRegionIds
-   * @return targetRegionIds
+   * Get instanceId
+   * @return instanceId
   **/
-  @Schema(description = "")
-  public List<String> getTargetRegionIds() {
-    return targetRegionIds;
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getInstanceId() {
+    return instanceId;
   }
 
-  public void setTargetRegionIds(List<String> targetRegionIds) {
-    this.targetRegionIds = targetRegionIds;
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
   }
 
 
@@ -70,22 +61,22 @@ public class DescribeAvailableCrossRegionResponse extends com.volcengine.model.A
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DescribeAvailableCrossRegionResponse describeAvailableCrossRegionResponse = (DescribeAvailableCrossRegionResponse) o;
-    return Objects.equals(this.targetRegionIds, describeAvailableCrossRegionResponse.targetRegionIds);
+    DescribeDBInstanceAclCategoriesRequest describeDBInstanceAclCategoriesRequest = (DescribeDBInstanceAclCategoriesRequest) o;
+    return Objects.equals(this.instanceId, describeDBInstanceAclCategoriesRequest.instanceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(targetRegionIds);
+    return Objects.hash(instanceId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DescribeAvailableCrossRegionResponse {\n");
+    sb.append("class DescribeDBInstanceAclCategoriesRequest {\n");
     
-    sb.append("    targetRegionIds: ").append(toIndentedString(targetRegionIds)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

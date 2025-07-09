@@ -24,52 +24,54 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * TagForTagResourcesInput
+ * DescribeDBInstanceAclCommandsRequest
  */
 
 
 
-public class TagForTagResourcesInput {
-  @SerializedName("Key")
-  private String key = null;
+public class DescribeDBInstanceAclCommandsRequest {
+  @SerializedName("Category")
+  private String category = null;
 
-  @SerializedName("Value")
-  private String value = null;
+  @SerializedName("InstanceId")
+  private String instanceId = null;
 
-  public TagForTagResourcesInput key(String key) {
-    this.key = key;
+  public DescribeDBInstanceAclCommandsRequest category(String category) {
+    this.category = category;
     return this;
   }
 
    /**
-   * Get key
-   * @return key
+   * Get category
+   * @return category
   **/
-  @Schema(description = "")
-  public String getKey() {
-    return key;
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getCategory() {
+    return category;
   }
 
-  public void setKey(String key) {
-    this.key = key;
+  public void setCategory(String category) {
+    this.category = category;
   }
 
-  public TagForTagResourcesInput value(String value) {
-    this.value = value;
+  public DescribeDBInstanceAclCommandsRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
     return this;
   }
 
    /**
-   * Get value
-   * @return value
+   * Get instanceId
+   * @return instanceId
   **/
-  @Schema(description = "")
-  public String getValue() {
-    return value;
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getInstanceId() {
+    return instanceId;
   }
 
-  public void setValue(String value) {
-    this.value = value;
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
   }
 
 
@@ -81,24 +83,24 @@ public class TagForTagResourcesInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TagForTagResourcesInput tagForTagResourcesInput = (TagForTagResourcesInput) o;
-    return Objects.equals(this.key, tagForTagResourcesInput.key) &&
-        Objects.equals(this.value, tagForTagResourcesInput.value);
+    DescribeDBInstanceAclCommandsRequest describeDBInstanceAclCommandsRequest = (DescribeDBInstanceAclCommandsRequest) o;
+    return Objects.equals(this.category, describeDBInstanceAclCommandsRequest.category) &&
+        Objects.equals(this.instanceId, describeDBInstanceAclCommandsRequest.instanceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(key, value);
+    return Objects.hash(category, instanceId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TagForTagResourcesInput {\n");
+    sb.append("class DescribeDBInstanceAclCommandsRequest {\n");
     
-    sb.append("    key: ").append(toIndentedString(key)).append("\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    category: ").append(toIndentedString(category)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
