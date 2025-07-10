@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.tis.model.DeviceInfoListForGetQuotaInfoOutput;
 import com.volcengine.tis.model.QuotaInfoListForGetQuotaInfoOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -33,8 +34,30 @@ import javax.validation.Valid;
 
 
 public class GetQuotaInfoResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("deviceInfoList")
+  private DeviceInfoListForGetQuotaInfoOutput deviceInfoList = null;
+
   @SerializedName("quotaInfoList")
   private List<QuotaInfoListForGetQuotaInfoOutput> quotaInfoList = null;
+
+  public GetQuotaInfoResponse deviceInfoList(DeviceInfoListForGetQuotaInfoOutput deviceInfoList) {
+    this.deviceInfoList = deviceInfoList;
+    return this;
+  }
+
+   /**
+   * Get deviceInfoList
+   * @return deviceInfoList
+  **/
+  @Valid
+  @Schema(description = "")
+  public DeviceInfoListForGetQuotaInfoOutput getDeviceInfoList() {
+    return deviceInfoList;
+  }
+
+  public void setDeviceInfoList(DeviceInfoListForGetQuotaInfoOutput deviceInfoList) {
+    this.deviceInfoList = deviceInfoList;
+  }
 
   public GetQuotaInfoResponse quotaInfoList(List<QuotaInfoListForGetQuotaInfoOutput> quotaInfoList) {
     this.quotaInfoList = quotaInfoList;
@@ -73,12 +96,13 @@ public class GetQuotaInfoResponse extends com.volcengine.model.AbstractResponse 
       return false;
     }
     GetQuotaInfoResponse getQuotaInfoResponse = (GetQuotaInfoResponse) o;
-    return Objects.equals(this.quotaInfoList, getQuotaInfoResponse.quotaInfoList);
+    return Objects.equals(this.deviceInfoList, getQuotaInfoResponse.deviceInfoList) &&
+        Objects.equals(this.quotaInfoList, getQuotaInfoResponse.quotaInfoList);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(quotaInfoList);
+    return Objects.hash(deviceInfoList, quotaInfoList);
   }
 
 
@@ -87,6 +111,7 @@ public class GetQuotaInfoResponse extends com.volcengine.model.AbstractResponse 
     StringBuilder sb = new StringBuilder();
     sb.append("class GetQuotaInfoResponse {\n");
     
+    sb.append("    deviceInfoList: ").append(toIndentedString(deviceInfoList)).append("\n");
     sb.append("    quotaInfoList: ").append(toIndentedString(quotaInfoList)).append("\n");
     sb.append("}");
     return sb.toString();

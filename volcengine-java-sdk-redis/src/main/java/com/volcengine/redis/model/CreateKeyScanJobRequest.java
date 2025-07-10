@@ -24,16 +24,22 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DescribeEnterpriseSlowLogsRequest
+ * CreateKeyScanJobRequest
  */
 
 
 
-public class DescribeEnterpriseSlowLogsRequest {
+public class CreateKeyScanJobRequest {
   @SerializedName("InstanceId")
   private String instanceId = null;
 
-  public DescribeEnterpriseSlowLogsRequest instanceId(String instanceId) {
+  @SerializedName("ScanKeyNumPerSecond")
+  private Integer scanKeyNumPerSecond = null;
+
+  @SerializedName("TimeoutMinutes")
+  private Integer timeoutMinutes = null;
+
+  public CreateKeyScanJobRequest instanceId(String instanceId) {
     this.instanceId = instanceId;
     return this;
   }
@@ -52,6 +58,44 @@ public class DescribeEnterpriseSlowLogsRequest {
     this.instanceId = instanceId;
   }
 
+  public CreateKeyScanJobRequest scanKeyNumPerSecond(Integer scanKeyNumPerSecond) {
+    this.scanKeyNumPerSecond = scanKeyNumPerSecond;
+    return this;
+  }
+
+   /**
+   * Get scanKeyNumPerSecond
+   * @return scanKeyNumPerSecond
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public Integer getScanKeyNumPerSecond() {
+    return scanKeyNumPerSecond;
+  }
+
+  public void setScanKeyNumPerSecond(Integer scanKeyNumPerSecond) {
+    this.scanKeyNumPerSecond = scanKeyNumPerSecond;
+  }
+
+  public CreateKeyScanJobRequest timeoutMinutes(Integer timeoutMinutes) {
+    this.timeoutMinutes = timeoutMinutes;
+    return this;
+  }
+
+   /**
+   * Get timeoutMinutes
+   * @return timeoutMinutes
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public Integer getTimeoutMinutes() {
+    return timeoutMinutes;
+  }
+
+  public void setTimeoutMinutes(Integer timeoutMinutes) {
+    this.timeoutMinutes = timeoutMinutes;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -61,22 +105,26 @@ public class DescribeEnterpriseSlowLogsRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DescribeEnterpriseSlowLogsRequest describeEnterpriseSlowLogsRequest = (DescribeEnterpriseSlowLogsRequest) o;
-    return Objects.equals(this.instanceId, describeEnterpriseSlowLogsRequest.instanceId);
+    CreateKeyScanJobRequest createKeyScanJobRequest = (CreateKeyScanJobRequest) o;
+    return Objects.equals(this.instanceId, createKeyScanJobRequest.instanceId) &&
+        Objects.equals(this.scanKeyNumPerSecond, createKeyScanJobRequest.scanKeyNumPerSecond) &&
+        Objects.equals(this.timeoutMinutes, createKeyScanJobRequest.timeoutMinutes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId);
+    return Objects.hash(instanceId, scanKeyNumPerSecond, timeoutMinutes);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DescribeEnterpriseSlowLogsRequest {\n");
+    sb.append("class CreateKeyScanJobRequest {\n");
     
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+    sb.append("    scanKeyNumPerSecond: ").append(toIndentedString(scanKeyNumPerSecond)).append("\n");
+    sb.append("    timeoutMinutes: ").append(toIndentedString(timeoutMinutes)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -33,8 +33,14 @@ public class CertBindForDescribeDomainDetailOutput {
   @SerializedName("CertId")
   private String certId = null;
 
+  @SerializedName("CertName")
+  private String certName = null;
+
   @SerializedName("CertSource")
   private String certSource = null;
+
+  @SerializedName("Expire")
+  private String expire = null;
 
   public CertBindForDescribeDomainDetailOutput certId(String certId) {
     this.certId = certId;
@@ -52,6 +58,24 @@ public class CertBindForDescribeDomainDetailOutput {
 
   public void setCertId(String certId) {
     this.certId = certId;
+  }
+
+  public CertBindForDescribeDomainDetailOutput certName(String certName) {
+    this.certName = certName;
+    return this;
+  }
+
+   /**
+   * Get certName
+   * @return certName
+  **/
+  @Schema(description = "")
+  public String getCertName() {
+    return certName;
+  }
+
+  public void setCertName(String certName) {
+    this.certName = certName;
   }
 
   public CertBindForDescribeDomainDetailOutput certSource(String certSource) {
@@ -72,6 +96,24 @@ public class CertBindForDescribeDomainDetailOutput {
     this.certSource = certSource;
   }
 
+  public CertBindForDescribeDomainDetailOutput expire(String expire) {
+    this.expire = expire;
+    return this;
+  }
+
+   /**
+   * Get expire
+   * @return expire
+  **/
+  @Schema(description = "")
+  public String getExpire() {
+    return expire;
+  }
+
+  public void setExpire(String expire) {
+    this.expire = expire;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -83,12 +125,14 @@ public class CertBindForDescribeDomainDetailOutput {
     }
     CertBindForDescribeDomainDetailOutput certBindForDescribeDomainDetailOutput = (CertBindForDescribeDomainDetailOutput) o;
     return Objects.equals(this.certId, certBindForDescribeDomainDetailOutput.certId) &&
-        Objects.equals(this.certSource, certBindForDescribeDomainDetailOutput.certSource);
+        Objects.equals(this.certName, certBindForDescribeDomainDetailOutput.certName) &&
+        Objects.equals(this.certSource, certBindForDescribeDomainDetailOutput.certSource) &&
+        Objects.equals(this.expire, certBindForDescribeDomainDetailOutput.expire);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(certId, certSource);
+    return Objects.hash(certId, certName, certSource, expire);
   }
 
 
@@ -98,7 +142,9 @@ public class CertBindForDescribeDomainDetailOutput {
     sb.append("class CertBindForDescribeDomainDetailOutput {\n");
     
     sb.append("    certId: ").append(toIndentedString(certId)).append("\n");
+    sb.append("    certName: ").append(toIndentedString(certName)).append("\n");
     sb.append("    certSource: ").append(toIndentedString(certSource)).append("\n");
+    sb.append("    expire: ").append(toIndentedString(expire)).append("\n");
     sb.append("}");
     return sb.toString();
   }

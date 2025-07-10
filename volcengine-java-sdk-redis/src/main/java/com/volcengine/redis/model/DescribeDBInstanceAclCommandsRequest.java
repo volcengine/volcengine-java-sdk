@@ -19,48 +19,59 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.redis.model.SlowQueryForDescribeEnterpriseSlowLogsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DescribeEnterpriseSlowLogsResponse
+ * DescribeDBInstanceAclCommandsRequest
  */
 
 
 
-public class DescribeEnterpriseSlowLogsResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("SlowQuery")
-  private List<SlowQueryForDescribeEnterpriseSlowLogsOutput> slowQuery = null;
+public class DescribeDBInstanceAclCommandsRequest {
+  @SerializedName("Category")
+  private String category = null;
 
-  public DescribeEnterpriseSlowLogsResponse slowQuery(List<SlowQueryForDescribeEnterpriseSlowLogsOutput> slowQuery) {
-    this.slowQuery = slowQuery;
-    return this;
-  }
+  @SerializedName("InstanceId")
+  private String instanceId = null;
 
-  public DescribeEnterpriseSlowLogsResponse addSlowQueryItem(SlowQueryForDescribeEnterpriseSlowLogsOutput slowQueryItem) {
-    if (this.slowQuery == null) {
-      this.slowQuery = new ArrayList<SlowQueryForDescribeEnterpriseSlowLogsOutput>();
-    }
-    this.slowQuery.add(slowQueryItem);
+  public DescribeDBInstanceAclCommandsRequest category(String category) {
+    this.category = category;
     return this;
   }
 
    /**
-   * Get slowQuery
-   * @return slowQuery
+   * Get category
+   * @return category
   **/
-  @Valid
-  @Schema(description = "")
-  public List<SlowQueryForDescribeEnterpriseSlowLogsOutput> getSlowQuery() {
-    return slowQuery;
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getCategory() {
+    return category;
   }
 
-  public void setSlowQuery(List<SlowQueryForDescribeEnterpriseSlowLogsOutput> slowQuery) {
-    this.slowQuery = slowQuery;
+  public void setCategory(String category) {
+    this.category = category;
+  }
+
+  public DescribeDBInstanceAclCommandsRequest instanceId(String instanceId) {
+    this.instanceId = instanceId;
+    return this;
+  }
+
+   /**
+   * Get instanceId
+   * @return instanceId
+  **/
+  @NotNull
+  @Schema(required = true, description = "")
+  public String getInstanceId() {
+    return instanceId;
+  }
+
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
   }
 
 
@@ -72,22 +83,24 @@ public class DescribeEnterpriseSlowLogsResponse extends com.volcengine.model.Abs
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DescribeEnterpriseSlowLogsResponse describeEnterpriseSlowLogsResponse = (DescribeEnterpriseSlowLogsResponse) o;
-    return Objects.equals(this.slowQuery, describeEnterpriseSlowLogsResponse.slowQuery);
+    DescribeDBInstanceAclCommandsRequest describeDBInstanceAclCommandsRequest = (DescribeDBInstanceAclCommandsRequest) o;
+    return Objects.equals(this.category, describeDBInstanceAclCommandsRequest.category) &&
+        Objects.equals(this.instanceId, describeDBInstanceAclCommandsRequest.instanceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(slowQuery);
+    return Objects.hash(category, instanceId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DescribeEnterpriseSlowLogsResponse {\n");
+    sb.append("class DescribeDBInstanceAclCommandsRequest {\n");
     
-    sb.append("    slowQuery: ").append(toIndentedString(slowQuery)).append("\n");
+    sb.append("    category: ").append(toIndentedString(category)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -17,12 +17,12 @@ import java.util.Arrays;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * UnTagResourcesResponse
+ * ModifyCrossRegionBackupPolicyResponse
  */
 
 
 
-public class UnTagResourcesResponse extends com.volcengine.model.AbstractResponse {
+public class ModifyCrossRegionBackupPolicyResponse extends com.volcengine.model.AbstractResponse {
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -44,7 +44,7 @@ public class UnTagResourcesResponse extends com.volcengine.model.AbstractRespons
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UnTagResourcesResponse {\n");
+    sb.append("class ModifyCrossRegionBackupPolicyResponse {\n");
     
     sb.append("}");
     return sb.toString();
