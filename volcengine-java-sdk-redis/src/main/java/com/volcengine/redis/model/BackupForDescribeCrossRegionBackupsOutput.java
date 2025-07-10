@@ -152,6 +152,9 @@ public class BackupForDescribeCrossRegionBackupsOutput {
   @SerializedName("Size")
   private Long size = null;
 
+  @SerializedName("SourceRegion")
+  private String sourceRegion = null;
+
   @SerializedName("StartTime")
   private String startTime = null;
 
@@ -207,6 +210,9 @@ public class BackupForDescribeCrossRegionBackupsOutput {
 
   @SerializedName("TTL")
   private Integer TTL = null;
+
+  @SerializedName("TargetRegion")
+  private String targetRegion = null;
 
   public BackupForDescribeCrossRegionBackupsOutput backupPointId(String backupPointId) {
     this.backupPointId = backupPointId;
@@ -371,6 +377,24 @@ public class BackupForDescribeCrossRegionBackupsOutput {
     this.size = size;
   }
 
+  public BackupForDescribeCrossRegionBackupsOutput sourceRegion(String sourceRegion) {
+    this.sourceRegion = sourceRegion;
+    return this;
+  }
+
+   /**
+   * Get sourceRegion
+   * @return sourceRegion
+  **/
+  @Schema(description = "")
+  public String getSourceRegion() {
+    return sourceRegion;
+  }
+
+  public void setSourceRegion(String sourceRegion) {
+    this.sourceRegion = sourceRegion;
+  }
+
   public BackupForDescribeCrossRegionBackupsOutput startTime(String startTime) {
     this.startTime = startTime;
     return this;
@@ -425,6 +449,24 @@ public class BackupForDescribeCrossRegionBackupsOutput {
     this.TTL = TTL;
   }
 
+  public BackupForDescribeCrossRegionBackupsOutput targetRegion(String targetRegion) {
+    this.targetRegion = targetRegion;
+    return this;
+  }
+
+   /**
+   * Get targetRegion
+   * @return targetRegion
+  **/
+  @Schema(description = "")
+  public String getTargetRegion() {
+    return targetRegion;
+  }
+
+  public void setTargetRegion(String targetRegion) {
+    this.targetRegion = targetRegion;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -444,14 +486,16 @@ public class BackupForDescribeCrossRegionBackupsOutput {
         Objects.equals(this.instanceInfo, backupForDescribeCrossRegionBackupsOutput.instanceInfo) &&
         Objects.equals(this.projectName, backupForDescribeCrossRegionBackupsOutput.projectName) &&
         Objects.equals(this.size, backupForDescribeCrossRegionBackupsOutput.size) &&
+        Objects.equals(this.sourceRegion, backupForDescribeCrossRegionBackupsOutput.sourceRegion) &&
         Objects.equals(this.startTime, backupForDescribeCrossRegionBackupsOutput.startTime) &&
         Objects.equals(this.status, backupForDescribeCrossRegionBackupsOutput.status) &&
-        Objects.equals(this.TTL, backupForDescribeCrossRegionBackupsOutput.TTL);
+        Objects.equals(this.TTL, backupForDescribeCrossRegionBackupsOutput.TTL) &&
+        Objects.equals(this.targetRegion, backupForDescribeCrossRegionBackupsOutput.targetRegion);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(backupPointId, backupPointName, backupStrategy, backupType, endTime, instanceId, instanceInfo, projectName, size, startTime, status, TTL);
+    return Objects.hash(backupPointId, backupPointName, backupStrategy, backupType, endTime, instanceId, instanceInfo, projectName, size, sourceRegion, startTime, status, TTL, targetRegion);
   }
 
 
@@ -469,9 +513,11 @@ public class BackupForDescribeCrossRegionBackupsOutput {
     sb.append("    instanceInfo: ").append(toIndentedString(instanceInfo)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
+    sb.append("    sourceRegion: ").append(toIndentedString(sourceRegion)).append("\n");
     sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    TTL: ").append(toIndentedString(TTL)).append("\n");
+    sb.append("    targetRegion: ").append(toIndentedString(targetRegion)).append("\n");
     sb.append("}");
     return sb.toString();
   }

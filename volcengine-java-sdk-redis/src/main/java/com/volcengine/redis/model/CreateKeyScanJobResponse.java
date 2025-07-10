@@ -14,15 +14,43 @@ package com.volcengine.redis.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DescribeCrossBackupPolicyResponse
+ * CreateKeyScanJobResponse
  */
 
 
 
-public class DescribeCrossBackupPolicyResponse extends com.volcengine.model.AbstractResponse {
+public class CreateKeyScanJobResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("JobId")
+  private String jobId = null;
+
+  public CreateKeyScanJobResponse jobId(String jobId) {
+    this.jobId = jobId;
+    return this;
+  }
+
+   /**
+   * Get jobId
+   * @return jobId
+  **/
+  @Schema(description = "")
+  public String getJobId() {
+    return jobId;
+  }
+
+  public void setJobId(String jobId) {
+    this.jobId = jobId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -32,20 +60,22 @@ public class DescribeCrossBackupPolicyResponse extends com.volcengine.model.Abst
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return true;
+    CreateKeyScanJobResponse createKeyScanJobResponse = (CreateKeyScanJobResponse) o;
+    return Objects.equals(this.jobId, createKeyScanJobResponse.jobId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash();
+    return Objects.hash(jobId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DescribeCrossBackupPolicyResponse {\n");
+    sb.append("class CreateKeyScanJobResponse {\n");
     
+    sb.append("    jobId: ").append(toIndentedString(jobId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -19,7 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.redis.model.SlowQueryForDescribeEnterpriseSlowLogsOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -27,40 +26,39 @@ import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * DescribeEnterpriseSlowLogsResponse
+ * DescribeDBInstanceAclCategoriesResponse
  */
 
 
 
-public class DescribeEnterpriseSlowLogsResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("SlowQuery")
-  private List<SlowQueryForDescribeEnterpriseSlowLogsOutput> slowQuery = null;
+public class DescribeDBInstanceAclCategoriesResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("Categories")
+  private List<String> categories = null;
 
-  public DescribeEnterpriseSlowLogsResponse slowQuery(List<SlowQueryForDescribeEnterpriseSlowLogsOutput> slowQuery) {
-    this.slowQuery = slowQuery;
+  public DescribeDBInstanceAclCategoriesResponse categories(List<String> categories) {
+    this.categories = categories;
     return this;
   }
 
-  public DescribeEnterpriseSlowLogsResponse addSlowQueryItem(SlowQueryForDescribeEnterpriseSlowLogsOutput slowQueryItem) {
-    if (this.slowQuery == null) {
-      this.slowQuery = new ArrayList<SlowQueryForDescribeEnterpriseSlowLogsOutput>();
+  public DescribeDBInstanceAclCategoriesResponse addCategoriesItem(String categoriesItem) {
+    if (this.categories == null) {
+      this.categories = new ArrayList<String>();
     }
-    this.slowQuery.add(slowQueryItem);
+    this.categories.add(categoriesItem);
     return this;
   }
 
    /**
-   * Get slowQuery
-   * @return slowQuery
+   * Get categories
+   * @return categories
   **/
-  @Valid
   @Schema(description = "")
-  public List<SlowQueryForDescribeEnterpriseSlowLogsOutput> getSlowQuery() {
-    return slowQuery;
+  public List<String> getCategories() {
+    return categories;
   }
 
-  public void setSlowQuery(List<SlowQueryForDescribeEnterpriseSlowLogsOutput> slowQuery) {
-    this.slowQuery = slowQuery;
+  public void setCategories(List<String> categories) {
+    this.categories = categories;
   }
 
 
@@ -72,22 +70,22 @@ public class DescribeEnterpriseSlowLogsResponse extends com.volcengine.model.Abs
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DescribeEnterpriseSlowLogsResponse describeEnterpriseSlowLogsResponse = (DescribeEnterpriseSlowLogsResponse) o;
-    return Objects.equals(this.slowQuery, describeEnterpriseSlowLogsResponse.slowQuery);
+    DescribeDBInstanceAclCategoriesResponse describeDBInstanceAclCategoriesResponse = (DescribeDBInstanceAclCategoriesResponse) o;
+    return Objects.equals(this.categories, describeDBInstanceAclCategoriesResponse.categories);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(slowQuery);
+    return Objects.hash(categories);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DescribeEnterpriseSlowLogsResponse {\n");
+    sb.append("class DescribeDBInstanceAclCategoriesResponse {\n");
     
-    sb.append("    slowQuery: ").append(toIndentedString(slowQuery)).append("\n");
+    sb.append("    categories: ").append(toIndentedString(categories)).append("\n");
     sb.append("}");
     return sb.toString();
   }
