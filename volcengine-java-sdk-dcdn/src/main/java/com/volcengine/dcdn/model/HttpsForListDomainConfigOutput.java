@@ -37,6 +37,9 @@ public class HttpsForListDomainConfigOutput {
   @SerializedName("CertBind")
   private CertBindForListDomainConfigOutput certBind = null;
 
+  @SerializedName("EnableHttps")
+  private Boolean enableHttps = null;
+
   @SerializedName("ForceRedirect")
   private ForceRedirectForListDomainConfigOutput forceRedirect = null;
 
@@ -69,6 +72,24 @@ public class HttpsForListDomainConfigOutput {
 
   public void setCertBind(CertBindForListDomainConfigOutput certBind) {
     this.certBind = certBind;
+  }
+
+  public HttpsForListDomainConfigOutput enableHttps(Boolean enableHttps) {
+    this.enableHttps = enableHttps;
+    return this;
+  }
+
+   /**
+   * Get enableHttps
+   * @return enableHttps
+  **/
+  @Schema(description = "")
+  public Boolean isEnableHttps() {
+    return enableHttps;
+  }
+
+  public void setEnableHttps(Boolean enableHttps) {
+    this.enableHttps = enableHttps;
   }
 
   public HttpsForListDomainConfigOutput forceRedirect(ForceRedirectForListDomainConfigOutput forceRedirect) {
@@ -175,6 +196,7 @@ public class HttpsForListDomainConfigOutput {
     }
     HttpsForListDomainConfigOutput httpsForListDomainConfigOutput = (HttpsForListDomainConfigOutput) o;
     return Objects.equals(this.certBind, httpsForListDomainConfigOutput.certBind) &&
+        Objects.equals(this.enableHttps, httpsForListDomainConfigOutput.enableHttps) &&
         Objects.equals(this.forceRedirect, httpsForListDomainConfigOutput.forceRedirect) &&
         Objects.equals(this.hsts, httpsForListDomainConfigOutput.hsts) &&
         Objects.equals(this.http2, httpsForListDomainConfigOutput.http2) &&
@@ -184,7 +206,7 @@ public class HttpsForListDomainConfigOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(certBind, forceRedirect, hsts, http2, quICSwitch, tlsVersions);
+    return Objects.hash(certBind, enableHttps, forceRedirect, hsts, http2, quICSwitch, tlsVersions);
   }
 
 
@@ -194,6 +216,7 @@ public class HttpsForListDomainConfigOutput {
     sb.append("class HttpsForListDomainConfigOutput {\n");
     
     sb.append("    certBind: ").append(toIndentedString(certBind)).append("\n");
+    sb.append("    enableHttps: ").append(toIndentedString(enableHttps)).append("\n");
     sb.append("    forceRedirect: ").append(toIndentedString(forceRedirect)).append("\n");
     sb.append("    hsts: ").append(toIndentedString(hsts)).append("\n");
     sb.append("    http2: ").append(toIndentedString(http2)).append("\n");

@@ -37,6 +37,9 @@ public class HttpsForUpdateSingleDomainConfigInput {
   @SerializedName("CertBind")
   private CertBindForUpdateSingleDomainConfigInput certBind = null;
 
+  @SerializedName("EnableHttps")
+  private Boolean enableHttps = null;
+
   @SerializedName("ForceRedirect")
   private ForceRedirectForUpdateSingleDomainConfigInput forceRedirect = null;
 
@@ -69,6 +72,24 @@ public class HttpsForUpdateSingleDomainConfigInput {
 
   public void setCertBind(CertBindForUpdateSingleDomainConfigInput certBind) {
     this.certBind = certBind;
+  }
+
+  public HttpsForUpdateSingleDomainConfigInput enableHttps(Boolean enableHttps) {
+    this.enableHttps = enableHttps;
+    return this;
+  }
+
+   /**
+   * Get enableHttps
+   * @return enableHttps
+  **/
+  @Schema(description = "")
+  public Boolean isEnableHttps() {
+    return enableHttps;
+  }
+
+  public void setEnableHttps(Boolean enableHttps) {
+    this.enableHttps = enableHttps;
   }
 
   public HttpsForUpdateSingleDomainConfigInput forceRedirect(ForceRedirectForUpdateSingleDomainConfigInput forceRedirect) {
@@ -175,6 +196,7 @@ public class HttpsForUpdateSingleDomainConfigInput {
     }
     HttpsForUpdateSingleDomainConfigInput httpsForUpdateSingleDomainConfigInput = (HttpsForUpdateSingleDomainConfigInput) o;
     return Objects.equals(this.certBind, httpsForUpdateSingleDomainConfigInput.certBind) &&
+        Objects.equals(this.enableHttps, httpsForUpdateSingleDomainConfigInput.enableHttps) &&
         Objects.equals(this.forceRedirect, httpsForUpdateSingleDomainConfigInput.forceRedirect) &&
         Objects.equals(this.hsts, httpsForUpdateSingleDomainConfigInput.hsts) &&
         Objects.equals(this.http2, httpsForUpdateSingleDomainConfigInput.http2) &&
@@ -184,7 +206,7 @@ public class HttpsForUpdateSingleDomainConfigInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(certBind, forceRedirect, hsts, http2, quICSwitch, tlsVersions);
+    return Objects.hash(certBind, enableHttps, forceRedirect, hsts, http2, quICSwitch, tlsVersions);
   }
 
 
@@ -194,6 +216,7 @@ public class HttpsForUpdateSingleDomainConfigInput {
     sb.append("class HttpsForUpdateSingleDomainConfigInput {\n");
     
     sb.append("    certBind: ").append(toIndentedString(certBind)).append("\n");
+    sb.append("    enableHttps: ").append(toIndentedString(enableHttps)).append("\n");
     sb.append("    forceRedirect: ").append(toIndentedString(forceRedirect)).append("\n");
     sb.append("    hsts: ").append(toIndentedString(hsts)).append("\n");
     sb.append("    http2: ").append(toIndentedString(http2)).append("\n");

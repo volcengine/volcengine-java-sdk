@@ -33,8 +33,14 @@ public class CertBindForCreateDomainConfigsInput {
   @SerializedName("CertId")
   private String certId = null;
 
+  @SerializedName("CertName")
+  private String certName = null;
+
   @SerializedName("CertSource")
   private String certSource = null;
+
+  @SerializedName("Expire")
+  private String expire = null;
 
   public CertBindForCreateDomainConfigsInput certId(String certId) {
     this.certId = certId;
@@ -52,6 +58,24 @@ public class CertBindForCreateDomainConfigsInput {
 
   public void setCertId(String certId) {
     this.certId = certId;
+  }
+
+  public CertBindForCreateDomainConfigsInput certName(String certName) {
+    this.certName = certName;
+    return this;
+  }
+
+   /**
+   * Get certName
+   * @return certName
+  **/
+  @Schema(description = "")
+  public String getCertName() {
+    return certName;
+  }
+
+  public void setCertName(String certName) {
+    this.certName = certName;
   }
 
   public CertBindForCreateDomainConfigsInput certSource(String certSource) {
@@ -72,6 +96,24 @@ public class CertBindForCreateDomainConfigsInput {
     this.certSource = certSource;
   }
 
+  public CertBindForCreateDomainConfigsInput expire(String expire) {
+    this.expire = expire;
+    return this;
+  }
+
+   /**
+   * Get expire
+   * @return expire
+  **/
+  @Schema(description = "")
+  public String getExpire() {
+    return expire;
+  }
+
+  public void setExpire(String expire) {
+    this.expire = expire;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -83,12 +125,14 @@ public class CertBindForCreateDomainConfigsInput {
     }
     CertBindForCreateDomainConfigsInput certBindForCreateDomainConfigsInput = (CertBindForCreateDomainConfigsInput) o;
     return Objects.equals(this.certId, certBindForCreateDomainConfigsInput.certId) &&
-        Objects.equals(this.certSource, certBindForCreateDomainConfigsInput.certSource);
+        Objects.equals(this.certName, certBindForCreateDomainConfigsInput.certName) &&
+        Objects.equals(this.certSource, certBindForCreateDomainConfigsInput.certSource) &&
+        Objects.equals(this.expire, certBindForCreateDomainConfigsInput.expire);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(certId, certSource);
+    return Objects.hash(certId, certName, certSource, expire);
   }
 
 
@@ -98,7 +142,9 @@ public class CertBindForCreateDomainConfigsInput {
     sb.append("class CertBindForCreateDomainConfigsInput {\n");
     
     sb.append("    certId: ").append(toIndentedString(certId)).append("\n");
+    sb.append("    certName: ").append(toIndentedString(certName)).append("\n");
     sb.append("    certSource: ").append(toIndentedString(certSource)).append("\n");
+    sb.append("    expire: ").append(toIndentedString(expire)).append("\n");
     sb.append("}");
     return sb.toString();
   }

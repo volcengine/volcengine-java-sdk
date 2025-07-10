@@ -37,6 +37,9 @@ public class HttpsForDescribeDomainDetailOutput {
   @SerializedName("CertBind")
   private CertBindForDescribeDomainDetailOutput certBind = null;
 
+  @SerializedName("EnableHttps")
+  private Boolean enableHttps = null;
+
   @SerializedName("ForceRedirect")
   private ForceRedirectForDescribeDomainDetailOutput forceRedirect = null;
 
@@ -69,6 +72,24 @@ public class HttpsForDescribeDomainDetailOutput {
 
   public void setCertBind(CertBindForDescribeDomainDetailOutput certBind) {
     this.certBind = certBind;
+  }
+
+  public HttpsForDescribeDomainDetailOutput enableHttps(Boolean enableHttps) {
+    this.enableHttps = enableHttps;
+    return this;
+  }
+
+   /**
+   * Get enableHttps
+   * @return enableHttps
+  **/
+  @Schema(description = "")
+  public Boolean isEnableHttps() {
+    return enableHttps;
+  }
+
+  public void setEnableHttps(Boolean enableHttps) {
+    this.enableHttps = enableHttps;
   }
 
   public HttpsForDescribeDomainDetailOutput forceRedirect(ForceRedirectForDescribeDomainDetailOutput forceRedirect) {
@@ -175,6 +196,7 @@ public class HttpsForDescribeDomainDetailOutput {
     }
     HttpsForDescribeDomainDetailOutput httpsForDescribeDomainDetailOutput = (HttpsForDescribeDomainDetailOutput) o;
     return Objects.equals(this.certBind, httpsForDescribeDomainDetailOutput.certBind) &&
+        Objects.equals(this.enableHttps, httpsForDescribeDomainDetailOutput.enableHttps) &&
         Objects.equals(this.forceRedirect, httpsForDescribeDomainDetailOutput.forceRedirect) &&
         Objects.equals(this.hsts, httpsForDescribeDomainDetailOutput.hsts) &&
         Objects.equals(this.http2, httpsForDescribeDomainDetailOutput.http2) &&
@@ -184,7 +206,7 @@ public class HttpsForDescribeDomainDetailOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(certBind, forceRedirect, hsts, http2, quICSwitch, tlsVersions);
+    return Objects.hash(certBind, enableHttps, forceRedirect, hsts, http2, quICSwitch, tlsVersions);
   }
 
 
@@ -194,6 +216,7 @@ public class HttpsForDescribeDomainDetailOutput {
     sb.append("class HttpsForDescribeDomainDetailOutput {\n");
     
     sb.append("    certBind: ").append(toIndentedString(certBind)).append("\n");
+    sb.append("    enableHttps: ").append(toIndentedString(enableHttps)).append("\n");
     sb.append("    forceRedirect: ").append(toIndentedString(forceRedirect)).append("\n");
     sb.append("    hsts: ").append(toIndentedString(hsts)).append("\n");
     sb.append("    http2: ").append(toIndentedString(http2)).append("\n");
