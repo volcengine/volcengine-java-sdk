@@ -32,6 +32,9 @@ import javax.validation.Valid;
 
 
 public class ListPodRequest {
+  @SerializedName("ArchiveStatus")
+  private String archiveStatus = null;
+
   @SerializedName("AuthorityStatus")
   private Integer authorityStatus = null;
 
@@ -79,6 +82,24 @@ public class ListPodRequest {
 
   @SerializedName("ZoneId")
   private String zoneId = null;
+
+  public ListPodRequest archiveStatus(String archiveStatus) {
+    this.archiveStatus = archiveStatus;
+    return this;
+  }
+
+   /**
+   * Get archiveStatus
+   * @return archiveStatus
+  **/
+  @Schema(description = "")
+  public String getArchiveStatus() {
+    return archiveStatus;
+  }
+
+  public void setArchiveStatus(String archiveStatus) {
+    this.archiveStatus = archiveStatus;
+  }
 
   public ListPodRequest authorityStatus(Integer authorityStatus) {
     this.authorityStatus = authorityStatus;
@@ -435,7 +456,8 @@ public class ListPodRequest {
       return false;
     }
     ListPodRequest listPodRequest = (ListPodRequest) o;
-    return Objects.equals(this.authorityStatus, listPodRequest.authorityStatus) &&
+    return Objects.equals(this.archiveStatus, listPodRequest.archiveStatus) &&
+        Objects.equals(this.authorityStatus, listPodRequest.authorityStatus) &&
         Objects.equals(this.configurationCodeList, listPodRequest.configurationCodeList) &&
         Objects.equals(this.dnSId, listPodRequest.dnSId) &&
         Objects.equals(this.dcList, listPodRequest.dcList) &&
@@ -455,7 +477,7 @@ public class ListPodRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(authorityStatus, configurationCodeList, dnSId, dcList, hostId, maxResults, nextToken, onlineList, podIdList, podName, productId, regionList, serverTypeCode, streamStatusList, tagIdList, zoneId);
+    return Objects.hash(archiveStatus, authorityStatus, configurationCodeList, dnSId, dcList, hostId, maxResults, nextToken, onlineList, podIdList, podName, productId, regionList, serverTypeCode, streamStatusList, tagIdList, zoneId);
   }
 
 
@@ -464,6 +486,7 @@ public class ListPodRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListPodRequest {\n");
     
+    sb.append("    archiveStatus: ").append(toIndentedString(archiveStatus)).append("\n");
     sb.append("    authorityStatus: ").append(toIndentedString(authorityStatus)).append("\n");
     sb.append("    configurationCodeList: ").append(toIndentedString(configurationCodeList)).append("\n");
     sb.append("    dnSId: ").append(toIndentedString(dnSId)).append("\n");
