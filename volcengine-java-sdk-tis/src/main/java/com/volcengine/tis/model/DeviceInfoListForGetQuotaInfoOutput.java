@@ -24,52 +24,52 @@ import java.io.IOException;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * GetAccessTokenResponse
+ * DeviceInfoListForGetQuotaInfoOutput
  */
 
 
 
-public class GetAccessTokenResponse extends com.volcengine.model.AbstractResponse {
-  @SerializedName("AccessToken")
-  private String accessToken = null;
+public class DeviceInfoListForGetQuotaInfoOutput {
+  @SerializedName("fieldName")
+  private String fieldName = null;
 
-  @SerializedName("ExpireTime")
-  private Long expireTime = null;
+  @SerializedName("fieldValue")
+  private String fieldValue = null;
 
-  public GetAccessTokenResponse accessToken(String accessToken) {
-    this.accessToken = accessToken;
+  public DeviceInfoListForGetQuotaInfoOutput fieldName(String fieldName) {
+    this.fieldName = fieldName;
     return this;
   }
 
    /**
-   * Get accessToken
-   * @return accessToken
+   * Get fieldName
+   * @return fieldName
   **/
   @Schema(description = "")
-  public String getAccessToken() {
-    return accessToken;
+  public String getFieldName() {
+    return fieldName;
   }
 
-  public void setAccessToken(String accessToken) {
-    this.accessToken = accessToken;
+  public void setFieldName(String fieldName) {
+    this.fieldName = fieldName;
   }
 
-  public GetAccessTokenResponse expireTime(Long expireTime) {
-    this.expireTime = expireTime;
+  public DeviceInfoListForGetQuotaInfoOutput fieldValue(String fieldValue) {
+    this.fieldValue = fieldValue;
     return this;
   }
 
    /**
-   * Get expireTime
-   * @return expireTime
+   * Get fieldValue
+   * @return fieldValue
   **/
   @Schema(description = "")
-  public Long getExpireTime() {
-    return expireTime;
+  public String getFieldValue() {
+    return fieldValue;
   }
 
-  public void setExpireTime(Long expireTime) {
-    this.expireTime = expireTime;
+  public void setFieldValue(String fieldValue) {
+    this.fieldValue = fieldValue;
   }
 
 
@@ -81,24 +81,24 @@ public class GetAccessTokenResponse extends com.volcengine.model.AbstractRespons
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GetAccessTokenResponse getAccessTokenResponse = (GetAccessTokenResponse) o;
-    return Objects.equals(this.accessToken, getAccessTokenResponse.accessToken) &&
-        Objects.equals(this.expireTime, getAccessTokenResponse.expireTime);
+    DeviceInfoListForGetQuotaInfoOutput deviceInfoListForGetQuotaInfoOutput = (DeviceInfoListForGetQuotaInfoOutput) o;
+    return Objects.equals(this.fieldName, deviceInfoListForGetQuotaInfoOutput.fieldName) &&
+        Objects.equals(this.fieldValue, deviceInfoListForGetQuotaInfoOutput.fieldValue);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessToken, expireTime);
+    return Objects.hash(fieldName, fieldValue);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetAccessTokenResponse {\n");
+    sb.append("class DeviceInfoListForGetQuotaInfoOutput {\n");
     
-    sb.append("    accessToken: ").append(toIndentedString(accessToken)).append("\n");
-    sb.append("    expireTime: ").append(toIndentedString(expireTime)).append("\n");
+    sb.append("    fieldName: ").append(toIndentedString(fieldName)).append("\n");
+    sb.append("    fieldValue: ").append(toIndentedString(fieldValue)).append("\n");
     sb.append("}");
     return sb.toString();
   }
