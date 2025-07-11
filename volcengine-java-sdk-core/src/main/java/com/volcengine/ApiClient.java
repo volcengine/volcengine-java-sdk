@@ -98,7 +98,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class ApiClient {
+public class ApiClient extends BaseClient{
     private final static String DefaultAuthentication = "volcengineSign";
 
     private boolean debugging = false;
@@ -1921,5 +1921,10 @@ public class ApiClient {
         backoffStrategy.setMaxRetryDelayMs(maxRetryDelayMs);
         retryer.setBackoffStrategy(backoffStrategy);
         return this;
+    }
+
+    @Override
+    public OkHttpClient getOkHttpClient() {
+        return this.httpClient;
     }
 }
