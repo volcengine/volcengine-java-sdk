@@ -19,7 +19,6 @@ public class DeserializedResponseInterceptor implements ResponseInterceptor {
         Response response = context.getResponseContext().getOriginalResponse();
         Type returnType = context.getResponseContext().getReturnType();
         boolean common = context.getResponseContext().isCommon();
-
         Object data = context.getApiClient().handleResponse(response, returnType, common);
         context.getResponseContext().setData(data);
         return null;

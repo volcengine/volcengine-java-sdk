@@ -100,9 +100,7 @@ public class SignRequestInterceptor implements RequestInterceptor {
         } else {
             request = reqBuilder.method(method, reqBody).build();
         }
-        Call call = context.getApiClient().getHttpClient().newCall(request);
-        context.getRequestContext().setCall(call);
-
+        context.getRequestContext().setRequest(request);
         return context;
     }
 }
