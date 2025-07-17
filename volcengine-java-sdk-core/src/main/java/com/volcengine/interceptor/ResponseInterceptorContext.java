@@ -19,8 +19,6 @@ public class ResponseInterceptorContext {
 
     private boolean common;
 
-
-
     public Type getReturnType() {
         return returnType;
     }
@@ -68,4 +66,5 @@ public class ResponseInterceptorContext {
     public void setCommon(boolean common) {
         this.common = common;
     }
+
 }

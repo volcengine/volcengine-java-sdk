@@ -1,6 +1,7 @@
 package com.volcengine.interceptor;
 
 import com.squareup.okhttp.Call;
+import com.squareup.okhttp.Request;
 import com.squareup.okhttp.RequestBody;
 import com.volcengine.Pair;
 import com.volcengine.ProgressRequestBody;
@@ -22,7 +23,7 @@ public class RequestInterceptorContext {
     private boolean isCommon;
 
     private ServiceInfo serviceInfo;
-    private Call call;
+    private Request request;
 
     public String getSchema() {
         return schema;
@@ -104,19 +105,19 @@ public class RequestInterceptorContext {
         isCommon = common;
     }
 
-    public Call getCall() {
-        return call;
-    }
-
-    public void setCall(Call call) {
-        this.call = call;
-    }
-
     public ServiceInfo getServiceInfo() {
         return serviceInfo;
     }
 
     public void setServiceInfo(ServiceInfo serviceInfo) {
         this.serviceInfo = serviceInfo;
+    }
+
+    public Request getRequest() {
+        return request;
+    }
+
+    public void setRequest(Request request) {
+        this.request = request;
     }
 }

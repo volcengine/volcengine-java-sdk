@@ -3,10 +3,7 @@ package com.volcengine.interceptor;
 import com.google.gson.annotations.SerializedName;
 import com.squareup.okhttp.*;
 import com.squareup.okhttp.internal.http.HttpMethod;
-import com.volcengine.ApiClient;
-import com.volcengine.ApiException;
-import com.volcengine.Pair;
-import com.volcengine.ProgressRequestBody;
+import com.volcengine.*;
 import com.volcengine.sign.ServiceInfo;
 
 import java.io.IOException;
@@ -52,7 +49,7 @@ public class InterceptorContext extends com.squareup.okhttp.Call {
         return responseContext;
     }
 
-    public  void setResponseContext(ResponseInterceptorContext responseContext) {
+    public void setResponseContext(ResponseInterceptorContext responseContext) {
         this.responseContext = responseContext;
     }
 
@@ -60,8 +57,8 @@ public class InterceptorContext extends com.squareup.okhttp.Call {
         return apiClient;
     }
 
-    public void setApiClient(ApiClient apiClient) {
-        this.apiClient = apiClient;
+    public void setApiClient(BaseClient apiClient) {
+        this.apiClient = (ApiClient) apiClient;
     }
 
     public RequestInterceptorContext getRequestContext() {
