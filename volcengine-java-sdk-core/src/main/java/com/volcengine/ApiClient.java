@@ -144,8 +144,6 @@ public class ApiClient extends BaseClient{
 
     private final Retryer retryer = DefaultRetryerSetting.DEFAULT_RETRYER;
 
-    private static final SdkLogger LOGGER = SdkLogger.getLogger(ApiClient.class);
-
     /*
      * Constructor for ApiClient
      */
@@ -174,7 +172,6 @@ public class ApiClient extends BaseClient{
         interceptorChain.appendRequestInterceptor(new SignRequestInterceptor());
 
         interceptorChain.appendResponseInterceptor(new DeserializedResponseInterceptor());
-        SdkLogger.enableConsoleOutput(java.util.logging.Level.WARNING);
     }
 
     /**
@@ -476,11 +473,9 @@ public class ApiClient extends BaseClient{
                 loggingInterceptor = new HttpLoggingInterceptor();
                 loggingInterceptor.setLevel(Level.BODY);
                 httpClient.interceptors().add(loggingInterceptor);
-                SdkLogger.enableConsoleOutput(java.util.logging.Level.ALL);
             } else {
                 httpClient.interceptors().remove(loggingInterceptor);
                 loggingInterceptor = null;
-                SdkLogger.enableConsoleOutput(java.util.logging.Level.WARNING);
             }
         }
         this.debugging = debugging;
@@ -1064,7 +1059,6 @@ public class ApiClient extends BaseClient{
         if (autoRetry && retryer.shouldRetry(apiResponse, retryCount, lastException)) {
             try {
                 long delay = retryer.getBackoffDelay(retryCount);
-                LOGGER.debug("retryCount: " + (retryCount + 1) + ", delay: " + delay + ", backoffStrategy: " + retryer.getBackoffStrategy().getClass().getName());
                 Thread.sleep(delay);
             } catch (Exception e) {
                 throw new ApiException(e);
