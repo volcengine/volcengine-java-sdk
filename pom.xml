@@ -4,7 +4,7 @@
     <groupId>com.volcengine</groupId>
     <artifactId>volcengine-java-sdk</artifactId>
     <packaging>pom</packaging>
-    <version>0.2.23</version>
+    <version>0.2.24</version>
     <name>volcengine-java-sdk</name>
     <url>https://open.volcengineapi.com</url>
     <description>The Java SDK For Volcengine</description>
@@ -296,5 +296,6 @@
         <module>volcengine-java-sdk-ga</module>
         <module>volcengine-java-sdk-secagent</module>
         <module>volcengine-java-sdk-hbase</module>
+        <module>volcengine-java-sdk-vefaasdev</module>
     </modules>
 </project>
