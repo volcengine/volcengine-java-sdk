@@ -144,7 +144,6 @@ public class ApiClient extends BaseClient{
 
     private String httpProxy;
     private String httpsProxy;
-    private String noProxy;
 
     /*
      * Constructor for ApiClient
@@ -652,59 +651,21 @@ public class ApiClient extends BaseClient{
         return this;
     }
 
-    /**
-     * Get the no proxy.
-     *
-     * @return no proxy
-     */
-    public String getNoProxy() {
-        return this.noProxy;
-    }
-
-    /**
-     * Set the no proxy.
-     *
-     * @return Api client
-     */
-    public ApiClient setNoProxy(String noProxy) {
-        this.noProxy = noProxy;
-        updateClientProxy();
-        return this;
-    }
-
     private void updateClientProxy() {
         httpClient.setProxySelector(new ProxySelector() {
             @Override
             public List<Proxy> select(URI uri) {
-                String targetHost = uri.getHost();
-
-                String envNoProxy = System.getenv("NO_PROXY");
-                if (StringUtils.isEmpty(envNoProxy)) {
-                    envNoProxy = System.getenv("no_proxy");
-                }
-
-                boolean noProxyFlag = false;
-                String noProxyList = (StringUtils.isEmpty(noProxy) ? envNoProxy : noProxy);
-                if (!StringUtils.isEmpty(noProxyList)) {
-                    String[] noProxyArr = noProxyList.split(",");
-                    for (String noProxyHost : noProxyArr) {
-                        if (noProxyHost.equals(targetHost)) {
-                            noProxyFlag = true;
-                            break;
-                        }
-                    }
-                }
 
                 List<Proxy> proxies = new ArrayList<>();
-                if (noProxyFlag) {
-                    proxies.add(Proxy.NO_PROXY);
-                    return proxies;
-                }
 
                 if (disableSSL) {
                     addProxy(proxies, httpProxy, "HTTP_PROXY");
                 } else {
                     addProxy(proxies, httpsProxy, "HTTPS_PROXY");
+                }
+
+                if(proxies.isEmpty()){
+                    proxies.add(Proxy.NO_PROXY);
                 }
 
                 return proxies;
