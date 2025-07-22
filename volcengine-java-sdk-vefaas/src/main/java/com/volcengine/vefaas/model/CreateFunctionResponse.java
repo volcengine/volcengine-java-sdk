@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vefaas.model.EnvForCreateFunctionOutput;
 import com.volcengine.vefaas.model.NasStorageForCreateFunctionOutput;
+import com.volcengine.vefaas.model.TagForCreateFunctionOutput;
 import com.volcengine.vefaas.model.TlsConfigForCreateFunctionOutput;
 import com.volcengine.vefaas.model.TosMountConfigForCreateFunctionOutput;
 import com.volcengine.vefaas.model.VpcConfigForCreateFunctionOutput;
@@ -37,6 +38,9 @@ import javax.validation.Valid;
 
 
 public class CreateFunctionResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("Cell")
+  private String cell = null;
+
   @SerializedName("CodeSize")
   private Integer codeSize = null;
 
@@ -57,6 +61,9 @@ public class CreateFunctionResponse extends com.volcengine.model.AbstractRespons
 
   @SerializedName("ExclusiveMode")
   private Boolean exclusiveMode = null;
+
+  @SerializedName("FunctionType")
+  private String functionType = null;
 
   @SerializedName("Id")
   private String id = null;
@@ -100,6 +107,9 @@ public class CreateFunctionResponse extends com.volcengine.model.AbstractRespons
   @SerializedName("SourceType")
   private String sourceType = null;
 
+  @SerializedName("Tags")
+  private List<TagForCreateFunctionOutput> tags = null;
+
   @SerializedName("TlsConfig")
   private TlsConfigForCreateFunctionOutput tlsConfig = null;
 
@@ -111,6 +121,24 @@ public class CreateFunctionResponse extends com.volcengine.model.AbstractRespons
 
   @SerializedName("VpcConfig")
   private VpcConfigForCreateFunctionOutput vpcConfig = null;
+
+  public CreateFunctionResponse cell(String cell) {
+    this.cell = cell;
+    return this;
+  }
+
+   /**
+   * Get cell
+   * @return cell
+  **/
+  @Schema(description = "")
+  public String getCell() {
+    return cell;
+  }
+
+  public void setCell(String cell) {
+    this.cell = cell;
+  }
 
   public CreateFunctionResponse codeSize(Integer codeSize) {
     this.codeSize = codeSize;
@@ -245,6 +273,24 @@ public class CreateFunctionResponse extends com.volcengine.model.AbstractRespons
 
   public void setExclusiveMode(Boolean exclusiveMode) {
     this.exclusiveMode = exclusiveMode;
+  }
+
+  public CreateFunctionResponse functionType(String functionType) {
+    this.functionType = functionType;
+    return this;
+  }
+
+   /**
+   * Get functionType
+   * @return functionType
+  **/
+  @Schema(description = "")
+  public String getFunctionType() {
+    return functionType;
+  }
+
+  public void setFunctionType(String functionType) {
+    this.functionType = functionType;
   }
 
   public CreateFunctionResponse id(String id) {
@@ -500,6 +546,33 @@ public class CreateFunctionResponse extends com.volcengine.model.AbstractRespons
     this.sourceType = sourceType;
   }
 
+  public CreateFunctionResponse tags(List<TagForCreateFunctionOutput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public CreateFunctionResponse addTagsItem(TagForCreateFunctionOutput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForCreateFunctionOutput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForCreateFunctionOutput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForCreateFunctionOutput> tags) {
+    this.tags = tags;
+  }
+
   public CreateFunctionResponse tlsConfig(TlsConfigForCreateFunctionOutput tlsConfig) {
     this.tlsConfig = tlsConfig;
     return this;
@@ -585,13 +658,15 @@ public class CreateFunctionResponse extends com.volcengine.model.AbstractRespons
       return false;
     }
     CreateFunctionResponse createFunctionResponse = (CreateFunctionResponse) o;
-    return Objects.equals(this.codeSize, createFunctionResponse.codeSize) &&
+    return Objects.equals(this.cell, createFunctionResponse.cell) &&
+        Objects.equals(this.codeSize, createFunctionResponse.codeSize) &&
         Objects.equals(this.codeSizeLimit, createFunctionResponse.codeSizeLimit) &&
         Objects.equals(this.command, createFunctionResponse.command) &&
         Objects.equals(this.creationTime, createFunctionResponse.creationTime) &&
         Objects.equals(this.description, createFunctionResponse.description) &&
         Objects.equals(this.envs, createFunctionResponse.envs) &&
         Objects.equals(this.exclusiveMode, createFunctionResponse.exclusiveMode) &&
+        Objects.equals(this.functionType, createFunctionResponse.functionType) &&
         Objects.equals(this.id, createFunctionResponse.id) &&
         Objects.equals(this.initializerSec, createFunctionResponse.initializerSec) &&
         Objects.equals(this.instanceType, createFunctionResponse.instanceType) &&
@@ -606,6 +681,7 @@ public class CreateFunctionResponse extends com.volcengine.model.AbstractRespons
         Objects.equals(this.runtime, createFunctionResponse.runtime) &&
         Objects.equals(this.sourceLocation, createFunctionResponse.sourceLocation) &&
         Objects.equals(this.sourceType, createFunctionResponse.sourceType) &&
+        Objects.equals(this.tags, createFunctionResponse.tags) &&
         Objects.equals(this.tlsConfig, createFunctionResponse.tlsConfig) &&
         Objects.equals(this.tosMountConfig, createFunctionResponse.tosMountConfig) &&
         Objects.equals(this.triggersCount, createFunctionResponse.triggersCount) &&
@@ -614,7 +690,7 @@ public class CreateFunctionResponse extends com.volcengine.model.AbstractRespons
 
   @Override
   public int hashCode() {
-    return Objects.hash(codeSize, codeSizeLimit, command, creationTime, description, envs, exclusiveMode, id, initializerSec, instanceType, lastUpdateTime, maxConcurrency, memoryMB, name, nasStorage, owner, projectName, requestTimeout, runtime, sourceLocation, sourceType, tlsConfig, tosMountConfig, triggersCount, vpcConfig);
+    return Objects.hash(cell, codeSize, codeSizeLimit, command, creationTime, description, envs, exclusiveMode, functionType, id, initializerSec, instanceType, lastUpdateTime, maxConcurrency, memoryMB, name, nasStorage, owner, projectName, requestTimeout, runtime, sourceLocation, sourceType, tags, tlsConfig, tosMountConfig, triggersCount, vpcConfig);
   }
 
 
@@ -623,6 +699,7 @@ public class CreateFunctionResponse extends com.volcengine.model.AbstractRespons
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateFunctionResponse {\n");
     
+    sb.append("    cell: ").append(toIndentedString(cell)).append("\n");
     sb.append("    codeSize: ").append(toIndentedString(codeSize)).append("\n");
     sb.append("    codeSizeLimit: ").append(toIndentedString(codeSizeLimit)).append("\n");
     sb.append("    command: ").append(toIndentedString(command)).append("\n");
@@ -630,6 +707,7 @@ public class CreateFunctionResponse extends com.volcengine.model.AbstractRespons
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    envs: ").append(toIndentedString(envs)).append("\n");
     sb.append("    exclusiveMode: ").append(toIndentedString(exclusiveMode)).append("\n");
+    sb.append("    functionType: ").append(toIndentedString(functionType)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    initializerSec: ").append(toIndentedString(initializerSec)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
@@ -644,6 +722,7 @@ public class CreateFunctionResponse extends com.volcengine.model.AbstractRespons
     sb.append("    runtime: ").append(toIndentedString(runtime)).append("\n");
     sb.append("    sourceLocation: ").append(toIndentedString(sourceLocation)).append("\n");
     sb.append("    sourceType: ").append(toIndentedString(sourceType)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    tlsConfig: ").append(toIndentedString(tlsConfig)).append("\n");
     sb.append("    tosMountConfig: ").append(toIndentedString(tosMountConfig)).append("\n");
     sb.append("    triggersCount: ").append(toIndentedString(triggersCount)).append("\n");
