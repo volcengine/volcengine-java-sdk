@@ -664,10 +664,6 @@ public class ApiClient extends BaseClient{
                     addProxy(proxies, httpsProxy, "HTTPS_PROXY");
                 }
 
-                if(proxies.isEmpty()){
-                    proxies.add(Proxy.NO_PROXY);
-                }
-
                 return proxies;
             }
 
