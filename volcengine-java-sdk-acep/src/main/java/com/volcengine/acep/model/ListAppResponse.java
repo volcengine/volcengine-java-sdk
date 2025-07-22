@@ -19,78 +19,69 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.acep.model.RowForListAppOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * EipForListPodOutput
+ * ListAppResponse
  */
 
 
 
-public class EipForListPodOutput {
-  @SerializedName("EipAddress")
-  private String eipAddress = null;
+public class ListAppResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("NextToken")
+  private String nextToken = null;
 
-  @SerializedName("EipId")
-  private String eipId = null;
+  @SerializedName("Row")
+  private List<RowForListAppOutput> row = null;
 
-  @SerializedName("Isp")
-  private Integer isp = null;
-
-  public EipForListPodOutput eipAddress(String eipAddress) {
-    this.eipAddress = eipAddress;
+  public ListAppResponse nextToken(String nextToken) {
+    this.nextToken = nextToken;
     return this;
   }
 
    /**
-   * Get eipAddress
-   * @return eipAddress
+   * Get nextToken
+   * @return nextToken
   **/
   @Schema(description = "")
-  public String getEipAddress() {
-    return eipAddress;
+  public String getNextToken() {
+    return nextToken;
   }
 
-  public void setEipAddress(String eipAddress) {
-    this.eipAddress = eipAddress;
+  public void setNextToken(String nextToken) {
+    this.nextToken = nextToken;
   }
 
-  public EipForListPodOutput eipId(String eipId) {
-    this.eipId = eipId;
+  public ListAppResponse row(List<RowForListAppOutput> row) {
+    this.row = row;
+    return this;
+  }
+
+  public ListAppResponse addRowItem(RowForListAppOutput rowItem) {
+    if (this.row == null) {
+      this.row = new ArrayList<RowForListAppOutput>();
+    }
+    this.row.add(rowItem);
     return this;
   }
 
    /**
-   * Get eipId
-   * @return eipId
+   * Get row
+   * @return row
   **/
+  @Valid
   @Schema(description = "")
-  public String getEipId() {
-    return eipId;
+  public List<RowForListAppOutput> getRow() {
+    return row;
   }
 
-  public void setEipId(String eipId) {
-    this.eipId = eipId;
-  }
-
-  public EipForListPodOutput isp(Integer isp) {
-    this.isp = isp;
-    return this;
-  }
-
-   /**
-   * Get isp
-   * @return isp
-  **/
-  @Schema(description = "")
-  public Integer getIsp() {
-    return isp;
-  }
-
-  public void setIsp(Integer isp) {
-    this.isp = isp;
+  public void setRow(List<RowForListAppOutput> row) {
+    this.row = row;
   }
 
 
@@ -102,26 +93,24 @@ public class EipForListPodOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    EipForListPodOutput eipForListPodOutput = (EipForListPodOutput) o;
-    return Objects.equals(this.eipAddress, eipForListPodOutput.eipAddress) &&
-        Objects.equals(this.eipId, eipForListPodOutput.eipId) &&
-        Objects.equals(this.isp, eipForListPodOutput.isp);
+    ListAppResponse listAppResponse = (ListAppResponse) o;
+    return Objects.equals(this.nextToken, listAppResponse.nextToken) &&
+        Objects.equals(this.row, listAppResponse.row);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(eipAddress, eipId, isp);
+    return Objects.hash(nextToken, row);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class EipForListPodOutput {\n");
+    sb.append("class ListAppResponse {\n");
     
-    sb.append("    eipAddress: ").append(toIndentedString(eipAddress)).append("\n");
-    sb.append("    eipId: ").append(toIndentedString(eipId)).append("\n");
-    sb.append("    isp: ").append(toIndentedString(isp)).append("\n");
+    sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
+    sb.append("    row: ").append(toIndentedString(row)).append("\n");
     sb.append("}");
     return sb.toString();
   }
