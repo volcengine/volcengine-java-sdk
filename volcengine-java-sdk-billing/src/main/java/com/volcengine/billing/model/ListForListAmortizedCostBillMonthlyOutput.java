@@ -60,11 +60,53 @@ public class ListForListAmortizedCostBillMonthlyOutput {
   @SerializedName("BeforeAmortizedPayableAmount")
   private String beforeAmortizedPayableAmount = null;
 
+  @SerializedName("BeforeAmortizedPosttaxAmount")
+  private String beforeAmortizedPosttaxAmount = null;
+
+  @SerializedName("BeforeAmortizedPreTaxPayableAmount")
+  private String beforeAmortizedPreTaxPayableAmount = null;
+
+  @SerializedName("BeforeAmortizedPreTaxRealValue")
+  private String beforeAmortizedPreTaxRealValue = null;
+
   @SerializedName("BeforeAmortizedPreferentialBillAmount")
   private String beforeAmortizedPreferentialBillAmount = null;
 
+  @SerializedName("BeforeAmortizedPretaxAmount")
+  private String beforeAmortizedPretaxAmount = null;
+
+  @SerializedName("BeforeAmortizedRealValue")
+  private String beforeAmortizedRealValue = null;
+
   @SerializedName("BeforeAmortizedRoundAmount")
   private String beforeAmortizedRoundAmount = null;
+
+  @SerializedName("BeforeAmortizedSavingPlanOriginalAmount")
+  private String beforeAmortizedSavingPlanOriginalAmount = null;
+
+  @SerializedName("BeforeAmortizedSettlePayableAmount")
+  private String beforeAmortizedSettlePayableAmount = null;
+
+  @SerializedName("BeforeAmortizedSettlePosttaxAmount")
+  private String beforeAmortizedSettlePosttaxAmount = null;
+
+  @SerializedName("BeforeAmortizedSettlePreTaxPayableAmount")
+  private String beforeAmortizedSettlePreTaxPayableAmount = null;
+
+  @SerializedName("BeforeAmortizedSettlePreTaxRealValue")
+  private String beforeAmortizedSettlePreTaxRealValue = null;
+
+  @SerializedName("BeforeAmortizedSettlePretaxAmount")
+  private String beforeAmortizedSettlePretaxAmount = null;
+
+  @SerializedName("BeforeAmortizedSettleRealValue")
+  private String beforeAmortizedSettleRealValue = null;
+
+  @SerializedName("BeforeAmortizedSettleTaxAmount")
+  private String beforeAmortizedSettleTaxAmount = null;
+
+  @SerializedName("BeforeAmortizedTaxAmount")
+  private String beforeAmortizedTaxAmount = null;
 
   @SerializedName("BillCategory")
   private String billCategory = null;
@@ -96,11 +138,17 @@ public class ListForListAmortizedCostBillMonthlyOutput {
   @SerializedName("Count")
   private String count = null;
 
+  @SerializedName("CountryRegion")
+  private String countryRegion = null;
+
   @SerializedName("CouponAmount")
   private String couponAmount = null;
 
   @SerializedName("Currency")
   private String currency = null;
+
+  @SerializedName("CurrencySettlement")
+  private String currencySettlement = null;
 
   @SerializedName("DailyAmortizedCouponAmount")
   private String dailyAmortizedCouponAmount = null;
@@ -117,11 +165,53 @@ public class ListForListAmortizedCostBillMonthlyOutput {
   @SerializedName("DailyAmortizedPayableAmount")
   private String dailyAmortizedPayableAmount = null;
 
+  @SerializedName("DailyAmortizedPosttaxAmount")
+  private String dailyAmortizedPosttaxAmount = null;
+
+  @SerializedName("DailyAmortizedPreTaxPayableAmount")
+  private String dailyAmortizedPreTaxPayableAmount = null;
+
+  @SerializedName("DailyAmortizedPreTaxRealValue")
+  private String dailyAmortizedPreTaxRealValue = null;
+
   @SerializedName("DailyAmortizedPreferentialBillAmount")
   private String dailyAmortizedPreferentialBillAmount = null;
 
+  @SerializedName("DailyAmortizedPretaxAmount")
+  private String dailyAmortizedPretaxAmount = null;
+
+  @SerializedName("DailyAmortizedRealValue")
+  private String dailyAmortizedRealValue = null;
+
   @SerializedName("DailyAmortizedRoundAmount")
   private String dailyAmortizedRoundAmount = null;
+
+  @SerializedName("DailyAmortizedSavingPlanOriginalAmount")
+  private String dailyAmortizedSavingPlanOriginalAmount = null;
+
+  @SerializedName("DailyAmortizedSettlePayableAmount")
+  private String dailyAmortizedSettlePayableAmount = null;
+
+  @SerializedName("DailyAmortizedSettlePosttaxAmount")
+  private String dailyAmortizedSettlePosttaxAmount = null;
+
+  @SerializedName("DailyAmortizedSettlePreTaxPayableAmount")
+  private String dailyAmortizedSettlePreTaxPayableAmount = null;
+
+  @SerializedName("DailyAmortizedSettlePreTaxRealValue")
+  private String dailyAmortizedSettlePreTaxRealValue = null;
+
+  @SerializedName("DailyAmortizedSettlePretaxAmount")
+  private String dailyAmortizedSettlePretaxAmount = null;
+
+  @SerializedName("DailyAmortizedSettleRealValue")
+  private String dailyAmortizedSettleRealValue = null;
+
+  @SerializedName("DailyAmortizedSettleTaxAmount")
+  private String dailyAmortizedSettleTaxAmount = null;
+
+  @SerializedName("DailyAmortizedTaxAmount")
+  private String dailyAmortizedTaxAmount = null;
 
   @SerializedName("DeductionUseDuration")
   private String deductionUseDuration = null;
@@ -183,11 +273,53 @@ public class ListForListAmortizedCostBillMonthlyOutput {
   @SerializedName("NowAmortizedPayableAmount")
   private String nowAmortizedPayableAmount = null;
 
+  @SerializedName("NowAmortizedPosttaxAmount")
+  private String nowAmortizedPosttaxAmount = null;
+
+  @SerializedName("NowAmortizedPreTaxPayableAmount")
+  private String nowAmortizedPreTaxPayableAmount = null;
+
+  @SerializedName("NowAmortizedPreTaxRealValue")
+  private String nowAmortizedPreTaxRealValue = null;
+
   @SerializedName("NowAmortizedPreferentialBillAmount")
   private String nowAmortizedPreferentialBillAmount = null;
 
+  @SerializedName("NowAmortizedPretaxAmount")
+  private String nowAmortizedPretaxAmount = null;
+
+  @SerializedName("NowAmortizedRealValue")
+  private String nowAmortizedRealValue = null;
+
   @SerializedName("NowAmortizedRoundAmount")
   private String nowAmortizedRoundAmount = null;
+
+  @SerializedName("NowAmortizedSavingPlanOriginalAmount")
+  private String nowAmortizedSavingPlanOriginalAmount = null;
+
+  @SerializedName("NowAmortizedSettlePayableAmount")
+  private String nowAmortizedSettlePayableAmount = null;
+
+  @SerializedName("NowAmortizedSettlePosttaxAmount")
+  private String nowAmortizedSettlePosttaxAmount = null;
+
+  @SerializedName("NowAmortizedSettlePreTaxPayableAmount")
+  private String nowAmortizedSettlePreTaxPayableAmount = null;
+
+  @SerializedName("NowAmortizedSettlePreTaxRealValue")
+  private String nowAmortizedSettlePreTaxRealValue = null;
+
+  @SerializedName("NowAmortizedSettlePretaxAmount")
+  private String nowAmortizedSettlePretaxAmount = null;
+
+  @SerializedName("NowAmortizedSettleRealValue")
+  private String nowAmortizedSettleRealValue = null;
+
+  @SerializedName("NowAmortizedSettleTaxAmount")
+  private String nowAmortizedSettleTaxAmount = null;
+
+  @SerializedName("NowAmortizedTaxAmount")
+  private String nowAmortizedTaxAmount = null;
 
   @SerializedName("OriginalBillAmount")
   private String originalBillAmount = null;
@@ -216,8 +348,20 @@ public class ListForListAmortizedCostBillMonthlyOutput {
   @SerializedName("PayerUserName")
   private String payerUserName = null;
 
+  @SerializedName("PosttaxAmount")
+  private String posttaxAmount = null;
+
+  @SerializedName("PreTaxPayableAmount")
+  private String preTaxPayableAmount = null;
+
+  @SerializedName("PreTaxRealValue")
+  private String preTaxRealValue = null;
+
   @SerializedName("PreferentialBillAmount")
   private String preferentialBillAmount = null;
+
+  @SerializedName("PretaxAmount")
+  private String pretaxAmount = null;
 
   @SerializedName("Price")
   private String price = null;
@@ -240,11 +384,17 @@ public class ListForListAmortizedCostBillMonthlyOutput {
   @SerializedName("ProjectDisplayName")
   private String projectDisplayName = null;
 
+  @SerializedName("RealValue")
+  private String realValue = null;
+
   @SerializedName("Region")
   private String region = null;
 
   @SerializedName("RoundAmount")
   private String roundAmount = null;
+
+  @SerializedName("SavingPlanOriginalAmount")
+  private String savingPlanOriginalAmount = null;
 
   @SerializedName("SellerCustomerName")
   private String sellerCustomerName = null;
@@ -254,6 +404,27 @@ public class ListForListAmortizedCostBillMonthlyOutput {
 
   @SerializedName("SellerUserName")
   private String sellerUserName = null;
+
+  @SerializedName("SettlePayableAmount")
+  private String settlePayableAmount = null;
+
+  @SerializedName("SettlePosttaxAmount")
+  private String settlePosttaxAmount = null;
+
+  @SerializedName("SettlePreTaxPayableAmount")
+  private String settlePreTaxPayableAmount = null;
+
+  @SerializedName("SettlePreTaxRealValue")
+  private String settlePreTaxRealValue = null;
+
+  @SerializedName("SettlePretaxAmount")
+  private String settlePretaxAmount = null;
+
+  @SerializedName("SettleRealValue")
+  private String settleRealValue = null;
+
+  @SerializedName("SettleTaxAmount")
+  private String settleTaxAmount = null;
 
   @SerializedName("SplitItemID")
   private String splitItemID = null;
@@ -266,6 +437,15 @@ public class ListForListAmortizedCostBillMonthlyOutput {
 
   @SerializedName("Tag")
   private String tag = null;
+
+  @SerializedName("Tax")
+  private String tax = null;
+
+  @SerializedName("TaxRate")
+  private String taxRate = null;
+
+  @SerializedName("UnAmortizedSavingPlanOriginalAmount")
+  private String unAmortizedSavingPlanOriginalAmount = null;
 
   @SerializedName("UnamortizedCouponAmount")
   private String unamortizedCouponAmount = null;
@@ -282,11 +462,50 @@ public class ListForListAmortizedCostBillMonthlyOutput {
   @SerializedName("UnamortizedPayableAmount")
   private String unamortizedPayableAmount = null;
 
+  @SerializedName("UnamortizedPosttaxAmount")
+  private String unamortizedPosttaxAmount = null;
+
+  @SerializedName("UnamortizedPreTaxPayableAmount")
+  private String unamortizedPreTaxPayableAmount = null;
+
+  @SerializedName("UnamortizedPreTaxRealValue")
+  private String unamortizedPreTaxRealValue = null;
+
   @SerializedName("UnamortizedPreferentialBillAmount")
   private String unamortizedPreferentialBillAmount = null;
 
+  @SerializedName("UnamortizedPretaxAmount")
+  private String unamortizedPretaxAmount = null;
+
+  @SerializedName("UnamortizedRealValue")
+  private String unamortizedRealValue = null;
+
   @SerializedName("UnamortizedRoundAmount")
   private String unamortizedRoundAmount = null;
+
+  @SerializedName("UnamortizedSettlePayableAmount")
+  private String unamortizedSettlePayableAmount = null;
+
+  @SerializedName("UnamortizedSettlePosttaxAmount")
+  private String unamortizedSettlePosttaxAmount = null;
+
+  @SerializedName("UnamortizedSettlePreTaxPayableAmount")
+  private String unamortizedSettlePreTaxPayableAmount = null;
+
+  @SerializedName("UnamortizedSettlePreTaxRealValue")
+  private String unamortizedSettlePreTaxRealValue = null;
+
+  @SerializedName("UnamortizedSettlePretaxAmount")
+  private String unamortizedSettlePretaxAmount = null;
+
+  @SerializedName("UnamortizedSettleRealValue")
+  private String unamortizedSettleRealValue = null;
+
+  @SerializedName("UnamortizedSettleTaxAmount")
+  private String unamortizedSettleTaxAmount = null;
+
+  @SerializedName("UnamortizedTaxAmount")
+  private String unamortizedTaxAmount = null;
 
   @SerializedName("Unit")
   private String unit = null;
@@ -480,6 +699,60 @@ public class ListForListAmortizedCostBillMonthlyOutput {
     this.beforeAmortizedPayableAmount = beforeAmortizedPayableAmount;
   }
 
+  public ListForListAmortizedCostBillMonthlyOutput beforeAmortizedPosttaxAmount(String beforeAmortizedPosttaxAmount) {
+    this.beforeAmortizedPosttaxAmount = beforeAmortizedPosttaxAmount;
+    return this;
+  }
+
+   /**
+   * Get beforeAmortizedPosttaxAmount
+   * @return beforeAmortizedPosttaxAmount
+  **/
+  @Schema(description = "")
+  public String getBeforeAmortizedPosttaxAmount() {
+    return beforeAmortizedPosttaxAmount;
+  }
+
+  public void setBeforeAmortizedPosttaxAmount(String beforeAmortizedPosttaxAmount) {
+    this.beforeAmortizedPosttaxAmount = beforeAmortizedPosttaxAmount;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput beforeAmortizedPreTaxPayableAmount(String beforeAmortizedPreTaxPayableAmount) {
+    this.beforeAmortizedPreTaxPayableAmount = beforeAmortizedPreTaxPayableAmount;
+    return this;
+  }
+
+   /**
+   * Get beforeAmortizedPreTaxPayableAmount
+   * @return beforeAmortizedPreTaxPayableAmount
+  **/
+  @Schema(description = "")
+  public String getBeforeAmortizedPreTaxPayableAmount() {
+    return beforeAmortizedPreTaxPayableAmount;
+  }
+
+  public void setBeforeAmortizedPreTaxPayableAmount(String beforeAmortizedPreTaxPayableAmount) {
+    this.beforeAmortizedPreTaxPayableAmount = beforeAmortizedPreTaxPayableAmount;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput beforeAmortizedPreTaxRealValue(String beforeAmortizedPreTaxRealValue) {
+    this.beforeAmortizedPreTaxRealValue = beforeAmortizedPreTaxRealValue;
+    return this;
+  }
+
+   /**
+   * Get beforeAmortizedPreTaxRealValue
+   * @return beforeAmortizedPreTaxRealValue
+  **/
+  @Schema(description = "")
+  public String getBeforeAmortizedPreTaxRealValue() {
+    return beforeAmortizedPreTaxRealValue;
+  }
+
+  public void setBeforeAmortizedPreTaxRealValue(String beforeAmortizedPreTaxRealValue) {
+    this.beforeAmortizedPreTaxRealValue = beforeAmortizedPreTaxRealValue;
+  }
+
   public ListForListAmortizedCostBillMonthlyOutput beforeAmortizedPreferentialBillAmount(String beforeAmortizedPreferentialBillAmount) {
     this.beforeAmortizedPreferentialBillAmount = beforeAmortizedPreferentialBillAmount;
     return this;
@@ -498,6 +771,42 @@ public class ListForListAmortizedCostBillMonthlyOutput {
     this.beforeAmortizedPreferentialBillAmount = beforeAmortizedPreferentialBillAmount;
   }
 
+  public ListForListAmortizedCostBillMonthlyOutput beforeAmortizedPretaxAmount(String beforeAmortizedPretaxAmount) {
+    this.beforeAmortizedPretaxAmount = beforeAmortizedPretaxAmount;
+    return this;
+  }
+
+   /**
+   * Get beforeAmortizedPretaxAmount
+   * @return beforeAmortizedPretaxAmount
+  **/
+  @Schema(description = "")
+  public String getBeforeAmortizedPretaxAmount() {
+    return beforeAmortizedPretaxAmount;
+  }
+
+  public void setBeforeAmortizedPretaxAmount(String beforeAmortizedPretaxAmount) {
+    this.beforeAmortizedPretaxAmount = beforeAmortizedPretaxAmount;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput beforeAmortizedRealValue(String beforeAmortizedRealValue) {
+    this.beforeAmortizedRealValue = beforeAmortizedRealValue;
+    return this;
+  }
+
+   /**
+   * Get beforeAmortizedRealValue
+   * @return beforeAmortizedRealValue
+  **/
+  @Schema(description = "")
+  public String getBeforeAmortizedRealValue() {
+    return beforeAmortizedRealValue;
+  }
+
+  public void setBeforeAmortizedRealValue(String beforeAmortizedRealValue) {
+    this.beforeAmortizedRealValue = beforeAmortizedRealValue;
+  }
+
   public ListForListAmortizedCostBillMonthlyOutput beforeAmortizedRoundAmount(String beforeAmortizedRoundAmount) {
     this.beforeAmortizedRoundAmount = beforeAmortizedRoundAmount;
     return this;
@@ -514,6 +823,168 @@ public class ListForListAmortizedCostBillMonthlyOutput {
 
   public void setBeforeAmortizedRoundAmount(String beforeAmortizedRoundAmount) {
     this.beforeAmortizedRoundAmount = beforeAmortizedRoundAmount;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput beforeAmortizedSavingPlanOriginalAmount(String beforeAmortizedSavingPlanOriginalAmount) {
+    this.beforeAmortizedSavingPlanOriginalAmount = beforeAmortizedSavingPlanOriginalAmount;
+    return this;
+  }
+
+   /**
+   * Get beforeAmortizedSavingPlanOriginalAmount
+   * @return beforeAmortizedSavingPlanOriginalAmount
+  **/
+  @Schema(description = "")
+  public String getBeforeAmortizedSavingPlanOriginalAmount() {
+    return beforeAmortizedSavingPlanOriginalAmount;
+  }
+
+  public void setBeforeAmortizedSavingPlanOriginalAmount(String beforeAmortizedSavingPlanOriginalAmount) {
+    this.beforeAmortizedSavingPlanOriginalAmount = beforeAmortizedSavingPlanOriginalAmount;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput beforeAmortizedSettlePayableAmount(String beforeAmortizedSettlePayableAmount) {
+    this.beforeAmortizedSettlePayableAmount = beforeAmortizedSettlePayableAmount;
+    return this;
+  }
+
+   /**
+   * Get beforeAmortizedSettlePayableAmount
+   * @return beforeAmortizedSettlePayableAmount
+  **/
+  @Schema(description = "")
+  public String getBeforeAmortizedSettlePayableAmount() {
+    return beforeAmortizedSettlePayableAmount;
+  }
+
+  public void setBeforeAmortizedSettlePayableAmount(String beforeAmortizedSettlePayableAmount) {
+    this.beforeAmortizedSettlePayableAmount = beforeAmortizedSettlePayableAmount;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput beforeAmortizedSettlePosttaxAmount(String beforeAmortizedSettlePosttaxAmount) {
+    this.beforeAmortizedSettlePosttaxAmount = beforeAmortizedSettlePosttaxAmount;
+    return this;
+  }
+
+   /**
+   * Get beforeAmortizedSettlePosttaxAmount
+   * @return beforeAmortizedSettlePosttaxAmount
+  **/
+  @Schema(description = "")
+  public String getBeforeAmortizedSettlePosttaxAmount() {
+    return beforeAmortizedSettlePosttaxAmount;
+  }
+
+  public void setBeforeAmortizedSettlePosttaxAmount(String beforeAmortizedSettlePosttaxAmount) {
+    this.beforeAmortizedSettlePosttaxAmount = beforeAmortizedSettlePosttaxAmount;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput beforeAmortizedSettlePreTaxPayableAmount(String beforeAmortizedSettlePreTaxPayableAmount) {
+    this.beforeAmortizedSettlePreTaxPayableAmount = beforeAmortizedSettlePreTaxPayableAmount;
+    return this;
+  }
+
+   /**
+   * Get beforeAmortizedSettlePreTaxPayableAmount
+   * @return beforeAmortizedSettlePreTaxPayableAmount
+  **/
+  @Schema(description = "")
+  public String getBeforeAmortizedSettlePreTaxPayableAmount() {
+    return beforeAmortizedSettlePreTaxPayableAmount;
+  }
+
+  public void setBeforeAmortizedSettlePreTaxPayableAmount(String beforeAmortizedSettlePreTaxPayableAmount) {
+    this.beforeAmortizedSettlePreTaxPayableAmount = beforeAmortizedSettlePreTaxPayableAmount;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput beforeAmortizedSettlePreTaxRealValue(String beforeAmortizedSettlePreTaxRealValue) {
+    this.beforeAmortizedSettlePreTaxRealValue = beforeAmortizedSettlePreTaxRealValue;
+    return this;
+  }
+
+   /**
+   * Get beforeAmortizedSettlePreTaxRealValue
+   * @return beforeAmortizedSettlePreTaxRealValue
+  **/
+  @Schema(description = "")
+  public String getBeforeAmortizedSettlePreTaxRealValue() {
+    return beforeAmortizedSettlePreTaxRealValue;
+  }
+
+  public void setBeforeAmortizedSettlePreTaxRealValue(String beforeAmortizedSettlePreTaxRealValue) {
+    this.beforeAmortizedSettlePreTaxRealValue = beforeAmortizedSettlePreTaxRealValue;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput beforeAmortizedSettlePretaxAmount(String beforeAmortizedSettlePretaxAmount) {
+    this.beforeAmortizedSettlePretaxAmount = beforeAmortizedSettlePretaxAmount;
+    return this;
+  }
+
+   /**
+   * Get beforeAmortizedSettlePretaxAmount
+   * @return beforeAmortizedSettlePretaxAmount
+  **/
+  @Schema(description = "")
+  public String getBeforeAmortizedSettlePretaxAmount() {
+    return beforeAmortizedSettlePretaxAmount;
+  }
+
+  public void setBeforeAmortizedSettlePretaxAmount(String beforeAmortizedSettlePretaxAmount) {
+    this.beforeAmortizedSettlePretaxAmount = beforeAmortizedSettlePretaxAmount;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput beforeAmortizedSettleRealValue(String beforeAmortizedSettleRealValue) {
+    this.beforeAmortizedSettleRealValue = beforeAmortizedSettleRealValue;
+    return this;
+  }
+
+   /**
+   * Get beforeAmortizedSettleRealValue
+   * @return beforeAmortizedSettleRealValue
+  **/
+  @Schema(description = "")
+  public String getBeforeAmortizedSettleRealValue() {
+    return beforeAmortizedSettleRealValue;
+  }
+
+  public void setBeforeAmortizedSettleRealValue(String beforeAmortizedSettleRealValue) {
+    this.beforeAmortizedSettleRealValue = beforeAmortizedSettleRealValue;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput beforeAmortizedSettleTaxAmount(String beforeAmortizedSettleTaxAmount) {
+    this.beforeAmortizedSettleTaxAmount = beforeAmortizedSettleTaxAmount;
+    return this;
+  }
+
+   /**
+   * Get beforeAmortizedSettleTaxAmount
+   * @return beforeAmortizedSettleTaxAmount
+  **/
+  @Schema(description = "")
+  public String getBeforeAmortizedSettleTaxAmount() {
+    return beforeAmortizedSettleTaxAmount;
+  }
+
+  public void setBeforeAmortizedSettleTaxAmount(String beforeAmortizedSettleTaxAmount) {
+    this.beforeAmortizedSettleTaxAmount = beforeAmortizedSettleTaxAmount;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput beforeAmortizedTaxAmount(String beforeAmortizedTaxAmount) {
+    this.beforeAmortizedTaxAmount = beforeAmortizedTaxAmount;
+    return this;
+  }
+
+   /**
+   * Get beforeAmortizedTaxAmount
+   * @return beforeAmortizedTaxAmount
+  **/
+  @Schema(description = "")
+  public String getBeforeAmortizedTaxAmount() {
+    return beforeAmortizedTaxAmount;
+  }
+
+  public void setBeforeAmortizedTaxAmount(String beforeAmortizedTaxAmount) {
+    this.beforeAmortizedTaxAmount = beforeAmortizedTaxAmount;
   }
 
   public ListForListAmortizedCostBillMonthlyOutput billCategory(String billCategory) {
@@ -696,6 +1167,24 @@ public class ListForListAmortizedCostBillMonthlyOutput {
     this.count = count;
   }
 
+  public ListForListAmortizedCostBillMonthlyOutput countryRegion(String countryRegion) {
+    this.countryRegion = countryRegion;
+    return this;
+  }
+
+   /**
+   * Get countryRegion
+   * @return countryRegion
+  **/
+  @Schema(description = "")
+  public String getCountryRegion() {
+    return countryRegion;
+  }
+
+  public void setCountryRegion(String countryRegion) {
+    this.countryRegion = countryRegion;
+  }
+
   public ListForListAmortizedCostBillMonthlyOutput couponAmount(String couponAmount) {
     this.couponAmount = couponAmount;
     return this;
@@ -730,6 +1219,24 @@ public class ListForListAmortizedCostBillMonthlyOutput {
 
   public void setCurrency(String currency) {
     this.currency = currency;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput currencySettlement(String currencySettlement) {
+    this.currencySettlement = currencySettlement;
+    return this;
+  }
+
+   /**
+   * Get currencySettlement
+   * @return currencySettlement
+  **/
+  @Schema(description = "")
+  public String getCurrencySettlement() {
+    return currencySettlement;
+  }
+
+  public void setCurrencySettlement(String currencySettlement) {
+    this.currencySettlement = currencySettlement;
   }
 
   public ListForListAmortizedCostBillMonthlyOutput dailyAmortizedCouponAmount(String dailyAmortizedCouponAmount) {
@@ -822,6 +1329,60 @@ public class ListForListAmortizedCostBillMonthlyOutput {
     this.dailyAmortizedPayableAmount = dailyAmortizedPayableAmount;
   }
 
+  public ListForListAmortizedCostBillMonthlyOutput dailyAmortizedPosttaxAmount(String dailyAmortizedPosttaxAmount) {
+    this.dailyAmortizedPosttaxAmount = dailyAmortizedPosttaxAmount;
+    return this;
+  }
+
+   /**
+   * Get dailyAmortizedPosttaxAmount
+   * @return dailyAmortizedPosttaxAmount
+  **/
+  @Schema(description = "")
+  public String getDailyAmortizedPosttaxAmount() {
+    return dailyAmortizedPosttaxAmount;
+  }
+
+  public void setDailyAmortizedPosttaxAmount(String dailyAmortizedPosttaxAmount) {
+    this.dailyAmortizedPosttaxAmount = dailyAmortizedPosttaxAmount;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput dailyAmortizedPreTaxPayableAmount(String dailyAmortizedPreTaxPayableAmount) {
+    this.dailyAmortizedPreTaxPayableAmount = dailyAmortizedPreTaxPayableAmount;
+    return this;
+  }
+
+   /**
+   * Get dailyAmortizedPreTaxPayableAmount
+   * @return dailyAmortizedPreTaxPayableAmount
+  **/
+  @Schema(description = "")
+  public String getDailyAmortizedPreTaxPayableAmount() {
+    return dailyAmortizedPreTaxPayableAmount;
+  }
+
+  public void setDailyAmortizedPreTaxPayableAmount(String dailyAmortizedPreTaxPayableAmount) {
+    this.dailyAmortizedPreTaxPayableAmount = dailyAmortizedPreTaxPayableAmount;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput dailyAmortizedPreTaxRealValue(String dailyAmortizedPreTaxRealValue) {
+    this.dailyAmortizedPreTaxRealValue = dailyAmortizedPreTaxRealValue;
+    return this;
+  }
+
+   /**
+   * Get dailyAmortizedPreTaxRealValue
+   * @return dailyAmortizedPreTaxRealValue
+  **/
+  @Schema(description = "")
+  public String getDailyAmortizedPreTaxRealValue() {
+    return dailyAmortizedPreTaxRealValue;
+  }
+
+  public void setDailyAmortizedPreTaxRealValue(String dailyAmortizedPreTaxRealValue) {
+    this.dailyAmortizedPreTaxRealValue = dailyAmortizedPreTaxRealValue;
+  }
+
   public ListForListAmortizedCostBillMonthlyOutput dailyAmortizedPreferentialBillAmount(String dailyAmortizedPreferentialBillAmount) {
     this.dailyAmortizedPreferentialBillAmount = dailyAmortizedPreferentialBillAmount;
     return this;
@@ -840,6 +1401,42 @@ public class ListForListAmortizedCostBillMonthlyOutput {
     this.dailyAmortizedPreferentialBillAmount = dailyAmortizedPreferentialBillAmount;
   }
 
+  public ListForListAmortizedCostBillMonthlyOutput dailyAmortizedPretaxAmount(String dailyAmortizedPretaxAmount) {
+    this.dailyAmortizedPretaxAmount = dailyAmortizedPretaxAmount;
+    return this;
+  }
+
+   /**
+   * Get dailyAmortizedPretaxAmount
+   * @return dailyAmortizedPretaxAmount
+  **/
+  @Schema(description = "")
+  public String getDailyAmortizedPretaxAmount() {
+    return dailyAmortizedPretaxAmount;
+  }
+
+  public void setDailyAmortizedPretaxAmount(String dailyAmortizedPretaxAmount) {
+    this.dailyAmortizedPretaxAmount = dailyAmortizedPretaxAmount;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput dailyAmortizedRealValue(String dailyAmortizedRealValue) {
+    this.dailyAmortizedRealValue = dailyAmortizedRealValue;
+    return this;
+  }
+
+   /**
+   * Get dailyAmortizedRealValue
+   * @return dailyAmortizedRealValue
+  **/
+  @Schema(description = "")
+  public String getDailyAmortizedRealValue() {
+    return dailyAmortizedRealValue;
+  }
+
+  public void setDailyAmortizedRealValue(String dailyAmortizedRealValue) {
+    this.dailyAmortizedRealValue = dailyAmortizedRealValue;
+  }
+
   public ListForListAmortizedCostBillMonthlyOutput dailyAmortizedRoundAmount(String dailyAmortizedRoundAmount) {
     this.dailyAmortizedRoundAmount = dailyAmortizedRoundAmount;
     return this;
@@ -856,6 +1453,168 @@ public class ListForListAmortizedCostBillMonthlyOutput {
 
   public void setDailyAmortizedRoundAmount(String dailyAmortizedRoundAmount) {
     this.dailyAmortizedRoundAmount = dailyAmortizedRoundAmount;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput dailyAmortizedSavingPlanOriginalAmount(String dailyAmortizedSavingPlanOriginalAmount) {
+    this.dailyAmortizedSavingPlanOriginalAmount = dailyAmortizedSavingPlanOriginalAmount;
+    return this;
+  }
+
+   /**
+   * Get dailyAmortizedSavingPlanOriginalAmount
+   * @return dailyAmortizedSavingPlanOriginalAmount
+  **/
+  @Schema(description = "")
+  public String getDailyAmortizedSavingPlanOriginalAmount() {
+    return dailyAmortizedSavingPlanOriginalAmount;
+  }
+
+  public void setDailyAmortizedSavingPlanOriginalAmount(String dailyAmortizedSavingPlanOriginalAmount) {
+    this.dailyAmortizedSavingPlanOriginalAmount = dailyAmortizedSavingPlanOriginalAmount;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput dailyAmortizedSettlePayableAmount(String dailyAmortizedSettlePayableAmount) {
+    this.dailyAmortizedSettlePayableAmount = dailyAmortizedSettlePayableAmount;
+    return this;
+  }
+
+   /**
+   * Get dailyAmortizedSettlePayableAmount
+   * @return dailyAmortizedSettlePayableAmount
+  **/
+  @Schema(description = "")
+  public String getDailyAmortizedSettlePayableAmount() {
+    return dailyAmortizedSettlePayableAmount;
+  }
+
+  public void setDailyAmortizedSettlePayableAmount(String dailyAmortizedSettlePayableAmount) {
+    this.dailyAmortizedSettlePayableAmount = dailyAmortizedSettlePayableAmount;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput dailyAmortizedSettlePosttaxAmount(String dailyAmortizedSettlePosttaxAmount) {
+    this.dailyAmortizedSettlePosttaxAmount = dailyAmortizedSettlePosttaxAmount;
+    return this;
+  }
+
+   /**
+   * Get dailyAmortizedSettlePosttaxAmount
+   * @return dailyAmortizedSettlePosttaxAmount
+  **/
+  @Schema(description = "")
+  public String getDailyAmortizedSettlePosttaxAmount() {
+    return dailyAmortizedSettlePosttaxAmount;
+  }
+
+  public void setDailyAmortizedSettlePosttaxAmount(String dailyAmortizedSettlePosttaxAmount) {
+    this.dailyAmortizedSettlePosttaxAmount = dailyAmortizedSettlePosttaxAmount;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput dailyAmortizedSettlePreTaxPayableAmount(String dailyAmortizedSettlePreTaxPayableAmount) {
+    this.dailyAmortizedSettlePreTaxPayableAmount = dailyAmortizedSettlePreTaxPayableAmount;
+    return this;
+  }
+
+   /**
+   * Get dailyAmortizedSettlePreTaxPayableAmount
+   * @return dailyAmortizedSettlePreTaxPayableAmount
+  **/
+  @Schema(description = "")
+  public String getDailyAmortizedSettlePreTaxPayableAmount() {
+    return dailyAmortizedSettlePreTaxPayableAmount;
+  }
+
+  public void setDailyAmortizedSettlePreTaxPayableAmount(String dailyAmortizedSettlePreTaxPayableAmount) {
+    this.dailyAmortizedSettlePreTaxPayableAmount = dailyAmortizedSettlePreTaxPayableAmount;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput dailyAmortizedSettlePreTaxRealValue(String dailyAmortizedSettlePreTaxRealValue) {
+    this.dailyAmortizedSettlePreTaxRealValue = dailyAmortizedSettlePreTaxRealValue;
+    return this;
+  }
+
+   /**
+   * Get dailyAmortizedSettlePreTaxRealValue
+   * @return dailyAmortizedSettlePreTaxRealValue
+  **/
+  @Schema(description = "")
+  public String getDailyAmortizedSettlePreTaxRealValue() {
+    return dailyAmortizedSettlePreTaxRealValue;
+  }
+
+  public void setDailyAmortizedSettlePreTaxRealValue(String dailyAmortizedSettlePreTaxRealValue) {
+    this.dailyAmortizedSettlePreTaxRealValue = dailyAmortizedSettlePreTaxRealValue;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput dailyAmortizedSettlePretaxAmount(String dailyAmortizedSettlePretaxAmount) {
+    this.dailyAmortizedSettlePretaxAmount = dailyAmortizedSettlePretaxAmount;
+    return this;
+  }
+
+   /**
+   * Get dailyAmortizedSettlePretaxAmount
+   * @return dailyAmortizedSettlePretaxAmount
+  **/
+  @Schema(description = "")
+  public String getDailyAmortizedSettlePretaxAmount() {
+    return dailyAmortizedSettlePretaxAmount;
+  }
+
+  public void setDailyAmortizedSettlePretaxAmount(String dailyAmortizedSettlePretaxAmount) {
+    this.dailyAmortizedSettlePretaxAmount = dailyAmortizedSettlePretaxAmount;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput dailyAmortizedSettleRealValue(String dailyAmortizedSettleRealValue) {
+    this.dailyAmortizedSettleRealValue = dailyAmortizedSettleRealValue;
+    return this;
+  }
+
+   /**
+   * Get dailyAmortizedSettleRealValue
+   * @return dailyAmortizedSettleRealValue
+  **/
+  @Schema(description = "")
+  public String getDailyAmortizedSettleRealValue() {
+    return dailyAmortizedSettleRealValue;
+  }
+
+  public void setDailyAmortizedSettleRealValue(String dailyAmortizedSettleRealValue) {
+    this.dailyAmortizedSettleRealValue = dailyAmortizedSettleRealValue;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput dailyAmortizedSettleTaxAmount(String dailyAmortizedSettleTaxAmount) {
+    this.dailyAmortizedSettleTaxAmount = dailyAmortizedSettleTaxAmount;
+    return this;
+  }
+
+   /**
+   * Get dailyAmortizedSettleTaxAmount
+   * @return dailyAmortizedSettleTaxAmount
+  **/
+  @Schema(description = "")
+  public String getDailyAmortizedSettleTaxAmount() {
+    return dailyAmortizedSettleTaxAmount;
+  }
+
+  public void setDailyAmortizedSettleTaxAmount(String dailyAmortizedSettleTaxAmount) {
+    this.dailyAmortizedSettleTaxAmount = dailyAmortizedSettleTaxAmount;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput dailyAmortizedTaxAmount(String dailyAmortizedTaxAmount) {
+    this.dailyAmortizedTaxAmount = dailyAmortizedTaxAmount;
+    return this;
+  }
+
+   /**
+   * Get dailyAmortizedTaxAmount
+   * @return dailyAmortizedTaxAmount
+  **/
+  @Schema(description = "")
+  public String getDailyAmortizedTaxAmount() {
+    return dailyAmortizedTaxAmount;
+  }
+
+  public void setDailyAmortizedTaxAmount(String dailyAmortizedTaxAmount) {
+    this.dailyAmortizedTaxAmount = dailyAmortizedTaxAmount;
   }
 
   public ListForListAmortizedCostBillMonthlyOutput deductionUseDuration(String deductionUseDuration) {
@@ -1218,6 +1977,60 @@ public class ListForListAmortizedCostBillMonthlyOutput {
     this.nowAmortizedPayableAmount = nowAmortizedPayableAmount;
   }
 
+  public ListForListAmortizedCostBillMonthlyOutput nowAmortizedPosttaxAmount(String nowAmortizedPosttaxAmount) {
+    this.nowAmortizedPosttaxAmount = nowAmortizedPosttaxAmount;
+    return this;
+  }
+
+   /**
+   * Get nowAmortizedPosttaxAmount
+   * @return nowAmortizedPosttaxAmount
+  **/
+  @Schema(description = "")
+  public String getNowAmortizedPosttaxAmount() {
+    return nowAmortizedPosttaxAmount;
+  }
+
+  public void setNowAmortizedPosttaxAmount(String nowAmortizedPosttaxAmount) {
+    this.nowAmortizedPosttaxAmount = nowAmortizedPosttaxAmount;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput nowAmortizedPreTaxPayableAmount(String nowAmortizedPreTaxPayableAmount) {
+    this.nowAmortizedPreTaxPayableAmount = nowAmortizedPreTaxPayableAmount;
+    return this;
+  }
+
+   /**
+   * Get nowAmortizedPreTaxPayableAmount
+   * @return nowAmortizedPreTaxPayableAmount
+  **/
+  @Schema(description = "")
+  public String getNowAmortizedPreTaxPayableAmount() {
+    return nowAmortizedPreTaxPayableAmount;
+  }
+
+  public void setNowAmortizedPreTaxPayableAmount(String nowAmortizedPreTaxPayableAmount) {
+    this.nowAmortizedPreTaxPayableAmount = nowAmortizedPreTaxPayableAmount;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput nowAmortizedPreTaxRealValue(String nowAmortizedPreTaxRealValue) {
+    this.nowAmortizedPreTaxRealValue = nowAmortizedPreTaxRealValue;
+    return this;
+  }
+
+   /**
+   * Get nowAmortizedPreTaxRealValue
+   * @return nowAmortizedPreTaxRealValue
+  **/
+  @Schema(description = "")
+  public String getNowAmortizedPreTaxRealValue() {
+    return nowAmortizedPreTaxRealValue;
+  }
+
+  public void setNowAmortizedPreTaxRealValue(String nowAmortizedPreTaxRealValue) {
+    this.nowAmortizedPreTaxRealValue = nowAmortizedPreTaxRealValue;
+  }
+
   public ListForListAmortizedCostBillMonthlyOutput nowAmortizedPreferentialBillAmount(String nowAmortizedPreferentialBillAmount) {
     this.nowAmortizedPreferentialBillAmount = nowAmortizedPreferentialBillAmount;
     return this;
@@ -1236,6 +2049,42 @@ public class ListForListAmortizedCostBillMonthlyOutput {
     this.nowAmortizedPreferentialBillAmount = nowAmortizedPreferentialBillAmount;
   }
 
+  public ListForListAmortizedCostBillMonthlyOutput nowAmortizedPretaxAmount(String nowAmortizedPretaxAmount) {
+    this.nowAmortizedPretaxAmount = nowAmortizedPretaxAmount;
+    return this;
+  }
+
+   /**
+   * Get nowAmortizedPretaxAmount
+   * @return nowAmortizedPretaxAmount
+  **/
+  @Schema(description = "")
+  public String getNowAmortizedPretaxAmount() {
+    return nowAmortizedPretaxAmount;
+  }
+
+  public void setNowAmortizedPretaxAmount(String nowAmortizedPretaxAmount) {
+    this.nowAmortizedPretaxAmount = nowAmortizedPretaxAmount;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput nowAmortizedRealValue(String nowAmortizedRealValue) {
+    this.nowAmortizedRealValue = nowAmortizedRealValue;
+    return this;
+  }
+
+   /**
+   * Get nowAmortizedRealValue
+   * @return nowAmortizedRealValue
+  **/
+  @Schema(description = "")
+  public String getNowAmortizedRealValue() {
+    return nowAmortizedRealValue;
+  }
+
+  public void setNowAmortizedRealValue(String nowAmortizedRealValue) {
+    this.nowAmortizedRealValue = nowAmortizedRealValue;
+  }
+
   public ListForListAmortizedCostBillMonthlyOutput nowAmortizedRoundAmount(String nowAmortizedRoundAmount) {
     this.nowAmortizedRoundAmount = nowAmortizedRoundAmount;
     return this;
@@ -1252,6 +2101,168 @@ public class ListForListAmortizedCostBillMonthlyOutput {
 
   public void setNowAmortizedRoundAmount(String nowAmortizedRoundAmount) {
     this.nowAmortizedRoundAmount = nowAmortizedRoundAmount;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput nowAmortizedSavingPlanOriginalAmount(String nowAmortizedSavingPlanOriginalAmount) {
+    this.nowAmortizedSavingPlanOriginalAmount = nowAmortizedSavingPlanOriginalAmount;
+    return this;
+  }
+
+   /**
+   * Get nowAmortizedSavingPlanOriginalAmount
+   * @return nowAmortizedSavingPlanOriginalAmount
+  **/
+  @Schema(description = "")
+  public String getNowAmortizedSavingPlanOriginalAmount() {
+    return nowAmortizedSavingPlanOriginalAmount;
+  }
+
+  public void setNowAmortizedSavingPlanOriginalAmount(String nowAmortizedSavingPlanOriginalAmount) {
+    this.nowAmortizedSavingPlanOriginalAmount = nowAmortizedSavingPlanOriginalAmount;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput nowAmortizedSettlePayableAmount(String nowAmortizedSettlePayableAmount) {
+    this.nowAmortizedSettlePayableAmount = nowAmortizedSettlePayableAmount;
+    return this;
+  }
+
+   /**
+   * Get nowAmortizedSettlePayableAmount
+   * @return nowAmortizedSettlePayableAmount
+  **/
+  @Schema(description = "")
+  public String getNowAmortizedSettlePayableAmount() {
+    return nowAmortizedSettlePayableAmount;
+  }
+
+  public void setNowAmortizedSettlePayableAmount(String nowAmortizedSettlePayableAmount) {
+    this.nowAmortizedSettlePayableAmount = nowAmortizedSettlePayableAmount;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput nowAmortizedSettlePosttaxAmount(String nowAmortizedSettlePosttaxAmount) {
+    this.nowAmortizedSettlePosttaxAmount = nowAmortizedSettlePosttaxAmount;
+    return this;
+  }
+
+   /**
+   * Get nowAmortizedSettlePosttaxAmount
+   * @return nowAmortizedSettlePosttaxAmount
+  **/
+  @Schema(description = "")
+  public String getNowAmortizedSettlePosttaxAmount() {
+    return nowAmortizedSettlePosttaxAmount;
+  }
+
+  public void setNowAmortizedSettlePosttaxAmount(String nowAmortizedSettlePosttaxAmount) {
+    this.nowAmortizedSettlePosttaxAmount = nowAmortizedSettlePosttaxAmount;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput nowAmortizedSettlePreTaxPayableAmount(String nowAmortizedSettlePreTaxPayableAmount) {
+    this.nowAmortizedSettlePreTaxPayableAmount = nowAmortizedSettlePreTaxPayableAmount;
+    return this;
+  }
+
+   /**
+   * Get nowAmortizedSettlePreTaxPayableAmount
+   * @return nowAmortizedSettlePreTaxPayableAmount
+  **/
+  @Schema(description = "")
+  public String getNowAmortizedSettlePreTaxPayableAmount() {
+    return nowAmortizedSettlePreTaxPayableAmount;
+  }
+
+  public void setNowAmortizedSettlePreTaxPayableAmount(String nowAmortizedSettlePreTaxPayableAmount) {
+    this.nowAmortizedSettlePreTaxPayableAmount = nowAmortizedSettlePreTaxPayableAmount;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput nowAmortizedSettlePreTaxRealValue(String nowAmortizedSettlePreTaxRealValue) {
+    this.nowAmortizedSettlePreTaxRealValue = nowAmortizedSettlePreTaxRealValue;
+    return this;
+  }
+
+   /**
+   * Get nowAmortizedSettlePreTaxRealValue
+   * @return nowAmortizedSettlePreTaxRealValue
+  **/
+  @Schema(description = "")
+  public String getNowAmortizedSettlePreTaxRealValue() {
+    return nowAmortizedSettlePreTaxRealValue;
+  }
+
+  public void setNowAmortizedSettlePreTaxRealValue(String nowAmortizedSettlePreTaxRealValue) {
+    this.nowAmortizedSettlePreTaxRealValue = nowAmortizedSettlePreTaxRealValue;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput nowAmortizedSettlePretaxAmount(String nowAmortizedSettlePretaxAmount) {
+    this.nowAmortizedSettlePretaxAmount = nowAmortizedSettlePretaxAmount;
+    return this;
+  }
+
+   /**
+   * Get nowAmortizedSettlePretaxAmount
+   * @return nowAmortizedSettlePretaxAmount
+  **/
+  @Schema(description = "")
+  public String getNowAmortizedSettlePretaxAmount() {
+    return nowAmortizedSettlePretaxAmount;
+  }
+
+  public void setNowAmortizedSettlePretaxAmount(String nowAmortizedSettlePretaxAmount) {
+    this.nowAmortizedSettlePretaxAmount = nowAmortizedSettlePretaxAmount;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput nowAmortizedSettleRealValue(String nowAmortizedSettleRealValue) {
+    this.nowAmortizedSettleRealValue = nowAmortizedSettleRealValue;
+    return this;
+  }
+
+   /**
+   * Get nowAmortizedSettleRealValue
+   * @return nowAmortizedSettleRealValue
+  **/
+  @Schema(description = "")
+  public String getNowAmortizedSettleRealValue() {
+    return nowAmortizedSettleRealValue;
+  }
+
+  public void setNowAmortizedSettleRealValue(String nowAmortizedSettleRealValue) {
+    this.nowAmortizedSettleRealValue = nowAmortizedSettleRealValue;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput nowAmortizedSettleTaxAmount(String nowAmortizedSettleTaxAmount) {
+    this.nowAmortizedSettleTaxAmount = nowAmortizedSettleTaxAmount;
+    return this;
+  }
+
+   /**
+   * Get nowAmortizedSettleTaxAmount
+   * @return nowAmortizedSettleTaxAmount
+  **/
+  @Schema(description = "")
+  public String getNowAmortizedSettleTaxAmount() {
+    return nowAmortizedSettleTaxAmount;
+  }
+
+  public void setNowAmortizedSettleTaxAmount(String nowAmortizedSettleTaxAmount) {
+    this.nowAmortizedSettleTaxAmount = nowAmortizedSettleTaxAmount;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput nowAmortizedTaxAmount(String nowAmortizedTaxAmount) {
+    this.nowAmortizedTaxAmount = nowAmortizedTaxAmount;
+    return this;
+  }
+
+   /**
+   * Get nowAmortizedTaxAmount
+   * @return nowAmortizedTaxAmount
+  **/
+  @Schema(description = "")
+  public String getNowAmortizedTaxAmount() {
+    return nowAmortizedTaxAmount;
+  }
+
+  public void setNowAmortizedTaxAmount(String nowAmortizedTaxAmount) {
+    this.nowAmortizedTaxAmount = nowAmortizedTaxAmount;
   }
 
   public ListForListAmortizedCostBillMonthlyOutput originalBillAmount(String originalBillAmount) {
@@ -1416,6 +2427,60 @@ public class ListForListAmortizedCostBillMonthlyOutput {
     this.payerUserName = payerUserName;
   }
 
+  public ListForListAmortizedCostBillMonthlyOutput posttaxAmount(String posttaxAmount) {
+    this.posttaxAmount = posttaxAmount;
+    return this;
+  }
+
+   /**
+   * Get posttaxAmount
+   * @return posttaxAmount
+  **/
+  @Schema(description = "")
+  public String getPosttaxAmount() {
+    return posttaxAmount;
+  }
+
+  public void setPosttaxAmount(String posttaxAmount) {
+    this.posttaxAmount = posttaxAmount;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput preTaxPayableAmount(String preTaxPayableAmount) {
+    this.preTaxPayableAmount = preTaxPayableAmount;
+    return this;
+  }
+
+   /**
+   * Get preTaxPayableAmount
+   * @return preTaxPayableAmount
+  **/
+  @Schema(description = "")
+  public String getPreTaxPayableAmount() {
+    return preTaxPayableAmount;
+  }
+
+  public void setPreTaxPayableAmount(String preTaxPayableAmount) {
+    this.preTaxPayableAmount = preTaxPayableAmount;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput preTaxRealValue(String preTaxRealValue) {
+    this.preTaxRealValue = preTaxRealValue;
+    return this;
+  }
+
+   /**
+   * Get preTaxRealValue
+   * @return preTaxRealValue
+  **/
+  @Schema(description = "")
+  public String getPreTaxRealValue() {
+    return preTaxRealValue;
+  }
+
+  public void setPreTaxRealValue(String preTaxRealValue) {
+    this.preTaxRealValue = preTaxRealValue;
+  }
+
   public ListForListAmortizedCostBillMonthlyOutput preferentialBillAmount(String preferentialBillAmount) {
     this.preferentialBillAmount = preferentialBillAmount;
     return this;
@@ -1432,6 +2497,24 @@ public class ListForListAmortizedCostBillMonthlyOutput {
 
   public void setPreferentialBillAmount(String preferentialBillAmount) {
     this.preferentialBillAmount = preferentialBillAmount;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput pretaxAmount(String pretaxAmount) {
+    this.pretaxAmount = pretaxAmount;
+    return this;
+  }
+
+   /**
+   * Get pretaxAmount
+   * @return pretaxAmount
+  **/
+  @Schema(description = "")
+  public String getPretaxAmount() {
+    return pretaxAmount;
+  }
+
+  public void setPretaxAmount(String pretaxAmount) {
+    this.pretaxAmount = pretaxAmount;
   }
 
   public ListForListAmortizedCostBillMonthlyOutput price(String price) {
@@ -1560,6 +2643,24 @@ public class ListForListAmortizedCostBillMonthlyOutput {
     this.projectDisplayName = projectDisplayName;
   }
 
+  public ListForListAmortizedCostBillMonthlyOutput realValue(String realValue) {
+    this.realValue = realValue;
+    return this;
+  }
+
+   /**
+   * Get realValue
+   * @return realValue
+  **/
+  @Schema(description = "")
+  public String getRealValue() {
+    return realValue;
+  }
+
+  public void setRealValue(String realValue) {
+    this.realValue = realValue;
+  }
+
   public ListForListAmortizedCostBillMonthlyOutput region(String region) {
     this.region = region;
     return this;
@@ -1594,6 +2695,24 @@ public class ListForListAmortizedCostBillMonthlyOutput {
 
   public void setRoundAmount(String roundAmount) {
     this.roundAmount = roundAmount;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput savingPlanOriginalAmount(String savingPlanOriginalAmount) {
+    this.savingPlanOriginalAmount = savingPlanOriginalAmount;
+    return this;
+  }
+
+   /**
+   * Get savingPlanOriginalAmount
+   * @return savingPlanOriginalAmount
+  **/
+  @Schema(description = "")
+  public String getSavingPlanOriginalAmount() {
+    return savingPlanOriginalAmount;
+  }
+
+  public void setSavingPlanOriginalAmount(String savingPlanOriginalAmount) {
+    this.savingPlanOriginalAmount = savingPlanOriginalAmount;
   }
 
   public ListForListAmortizedCostBillMonthlyOutput sellerCustomerName(String sellerCustomerName) {
@@ -1648,6 +2767,132 @@ public class ListForListAmortizedCostBillMonthlyOutput {
 
   public void setSellerUserName(String sellerUserName) {
     this.sellerUserName = sellerUserName;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput settlePayableAmount(String settlePayableAmount) {
+    this.settlePayableAmount = settlePayableAmount;
+    return this;
+  }
+
+   /**
+   * Get settlePayableAmount
+   * @return settlePayableAmount
+  **/
+  @Schema(description = "")
+  public String getSettlePayableAmount() {
+    return settlePayableAmount;
+  }
+
+  public void setSettlePayableAmount(String settlePayableAmount) {
+    this.settlePayableAmount = settlePayableAmount;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput settlePosttaxAmount(String settlePosttaxAmount) {
+    this.settlePosttaxAmount = settlePosttaxAmount;
+    return this;
+  }
+
+   /**
+   * Get settlePosttaxAmount
+   * @return settlePosttaxAmount
+  **/
+  @Schema(description = "")
+  public String getSettlePosttaxAmount() {
+    return settlePosttaxAmount;
+  }
+
+  public void setSettlePosttaxAmount(String settlePosttaxAmount) {
+    this.settlePosttaxAmount = settlePosttaxAmount;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput settlePreTaxPayableAmount(String settlePreTaxPayableAmount) {
+    this.settlePreTaxPayableAmount = settlePreTaxPayableAmount;
+    return this;
+  }
+
+   /**
+   * Get settlePreTaxPayableAmount
+   * @return settlePreTaxPayableAmount
+  **/
+  @Schema(description = "")
+  public String getSettlePreTaxPayableAmount() {
+    return settlePreTaxPayableAmount;
+  }
+
+  public void setSettlePreTaxPayableAmount(String settlePreTaxPayableAmount) {
+    this.settlePreTaxPayableAmount = settlePreTaxPayableAmount;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput settlePreTaxRealValue(String settlePreTaxRealValue) {
+    this.settlePreTaxRealValue = settlePreTaxRealValue;
+    return this;
+  }
+
+   /**
+   * Get settlePreTaxRealValue
+   * @return settlePreTaxRealValue
+  **/
+  @Schema(description = "")
+  public String getSettlePreTaxRealValue() {
+    return settlePreTaxRealValue;
+  }
+
+  public void setSettlePreTaxRealValue(String settlePreTaxRealValue) {
+    this.settlePreTaxRealValue = settlePreTaxRealValue;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput settlePretaxAmount(String settlePretaxAmount) {
+    this.settlePretaxAmount = settlePretaxAmount;
+    return this;
+  }
+
+   /**
+   * Get settlePretaxAmount
+   * @return settlePretaxAmount
+  **/
+  @Schema(description = "")
+  public String getSettlePretaxAmount() {
+    return settlePretaxAmount;
+  }
+
+  public void setSettlePretaxAmount(String settlePretaxAmount) {
+    this.settlePretaxAmount = settlePretaxAmount;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput settleRealValue(String settleRealValue) {
+    this.settleRealValue = settleRealValue;
+    return this;
+  }
+
+   /**
+   * Get settleRealValue
+   * @return settleRealValue
+  **/
+  @Schema(description = "")
+  public String getSettleRealValue() {
+    return settleRealValue;
+  }
+
+  public void setSettleRealValue(String settleRealValue) {
+    this.settleRealValue = settleRealValue;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput settleTaxAmount(String settleTaxAmount) {
+    this.settleTaxAmount = settleTaxAmount;
+    return this;
+  }
+
+   /**
+   * Get settleTaxAmount
+   * @return settleTaxAmount
+  **/
+  @Schema(description = "")
+  public String getSettleTaxAmount() {
+    return settleTaxAmount;
+  }
+
+  public void setSettleTaxAmount(String settleTaxAmount) {
+    this.settleTaxAmount = settleTaxAmount;
   }
 
   public ListForListAmortizedCostBillMonthlyOutput splitItemID(String splitItemID) {
@@ -1720,6 +2965,60 @@ public class ListForListAmortizedCostBillMonthlyOutput {
 
   public void setTag(String tag) {
     this.tag = tag;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput tax(String tax) {
+    this.tax = tax;
+    return this;
+  }
+
+   /**
+   * Get tax
+   * @return tax
+  **/
+  @Schema(description = "")
+  public String getTax() {
+    return tax;
+  }
+
+  public void setTax(String tax) {
+    this.tax = tax;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput taxRate(String taxRate) {
+    this.taxRate = taxRate;
+    return this;
+  }
+
+   /**
+   * Get taxRate
+   * @return taxRate
+  **/
+  @Schema(description = "")
+  public String getTaxRate() {
+    return taxRate;
+  }
+
+  public void setTaxRate(String taxRate) {
+    this.taxRate = taxRate;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput unAmortizedSavingPlanOriginalAmount(String unAmortizedSavingPlanOriginalAmount) {
+    this.unAmortizedSavingPlanOriginalAmount = unAmortizedSavingPlanOriginalAmount;
+    return this;
+  }
+
+   /**
+   * Get unAmortizedSavingPlanOriginalAmount
+   * @return unAmortizedSavingPlanOriginalAmount
+  **/
+  @Schema(description = "")
+  public String getUnAmortizedSavingPlanOriginalAmount() {
+    return unAmortizedSavingPlanOriginalAmount;
+  }
+
+  public void setUnAmortizedSavingPlanOriginalAmount(String unAmortizedSavingPlanOriginalAmount) {
+    this.unAmortizedSavingPlanOriginalAmount = unAmortizedSavingPlanOriginalAmount;
   }
 
   public ListForListAmortizedCostBillMonthlyOutput unamortizedCouponAmount(String unamortizedCouponAmount) {
@@ -1812,6 +3111,60 @@ public class ListForListAmortizedCostBillMonthlyOutput {
     this.unamortizedPayableAmount = unamortizedPayableAmount;
   }
 
+  public ListForListAmortizedCostBillMonthlyOutput unamortizedPosttaxAmount(String unamortizedPosttaxAmount) {
+    this.unamortizedPosttaxAmount = unamortizedPosttaxAmount;
+    return this;
+  }
+
+   /**
+   * Get unamortizedPosttaxAmount
+   * @return unamortizedPosttaxAmount
+  **/
+  @Schema(description = "")
+  public String getUnamortizedPosttaxAmount() {
+    return unamortizedPosttaxAmount;
+  }
+
+  public void setUnamortizedPosttaxAmount(String unamortizedPosttaxAmount) {
+    this.unamortizedPosttaxAmount = unamortizedPosttaxAmount;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput unamortizedPreTaxPayableAmount(String unamortizedPreTaxPayableAmount) {
+    this.unamortizedPreTaxPayableAmount = unamortizedPreTaxPayableAmount;
+    return this;
+  }
+
+   /**
+   * Get unamortizedPreTaxPayableAmount
+   * @return unamortizedPreTaxPayableAmount
+  **/
+  @Schema(description = "")
+  public String getUnamortizedPreTaxPayableAmount() {
+    return unamortizedPreTaxPayableAmount;
+  }
+
+  public void setUnamortizedPreTaxPayableAmount(String unamortizedPreTaxPayableAmount) {
+    this.unamortizedPreTaxPayableAmount = unamortizedPreTaxPayableAmount;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput unamortizedPreTaxRealValue(String unamortizedPreTaxRealValue) {
+    this.unamortizedPreTaxRealValue = unamortizedPreTaxRealValue;
+    return this;
+  }
+
+   /**
+   * Get unamortizedPreTaxRealValue
+   * @return unamortizedPreTaxRealValue
+  **/
+  @Schema(description = "")
+  public String getUnamortizedPreTaxRealValue() {
+    return unamortizedPreTaxRealValue;
+  }
+
+  public void setUnamortizedPreTaxRealValue(String unamortizedPreTaxRealValue) {
+    this.unamortizedPreTaxRealValue = unamortizedPreTaxRealValue;
+  }
+
   public ListForListAmortizedCostBillMonthlyOutput unamortizedPreferentialBillAmount(String unamortizedPreferentialBillAmount) {
     this.unamortizedPreferentialBillAmount = unamortizedPreferentialBillAmount;
     return this;
@@ -1830,6 +3183,42 @@ public class ListForListAmortizedCostBillMonthlyOutput {
     this.unamortizedPreferentialBillAmount = unamortizedPreferentialBillAmount;
   }
 
+  public ListForListAmortizedCostBillMonthlyOutput unamortizedPretaxAmount(String unamortizedPretaxAmount) {
+    this.unamortizedPretaxAmount = unamortizedPretaxAmount;
+    return this;
+  }
+
+   /**
+   * Get unamortizedPretaxAmount
+   * @return unamortizedPretaxAmount
+  **/
+  @Schema(description = "")
+  public String getUnamortizedPretaxAmount() {
+    return unamortizedPretaxAmount;
+  }
+
+  public void setUnamortizedPretaxAmount(String unamortizedPretaxAmount) {
+    this.unamortizedPretaxAmount = unamortizedPretaxAmount;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput unamortizedRealValue(String unamortizedRealValue) {
+    this.unamortizedRealValue = unamortizedRealValue;
+    return this;
+  }
+
+   /**
+   * Get unamortizedRealValue
+   * @return unamortizedRealValue
+  **/
+  @Schema(description = "")
+  public String getUnamortizedRealValue() {
+    return unamortizedRealValue;
+  }
+
+  public void setUnamortizedRealValue(String unamortizedRealValue) {
+    this.unamortizedRealValue = unamortizedRealValue;
+  }
+
   public ListForListAmortizedCostBillMonthlyOutput unamortizedRoundAmount(String unamortizedRoundAmount) {
     this.unamortizedRoundAmount = unamortizedRoundAmount;
     return this;
@@ -1846,6 +3235,150 @@ public class ListForListAmortizedCostBillMonthlyOutput {
 
   public void setUnamortizedRoundAmount(String unamortizedRoundAmount) {
     this.unamortizedRoundAmount = unamortizedRoundAmount;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput unamortizedSettlePayableAmount(String unamortizedSettlePayableAmount) {
+    this.unamortizedSettlePayableAmount = unamortizedSettlePayableAmount;
+    return this;
+  }
+
+   /**
+   * Get unamortizedSettlePayableAmount
+   * @return unamortizedSettlePayableAmount
+  **/
+  @Schema(description = "")
+  public String getUnamortizedSettlePayableAmount() {
+    return unamortizedSettlePayableAmount;
+  }
+
+  public void setUnamortizedSettlePayableAmount(String unamortizedSettlePayableAmount) {
+    this.unamortizedSettlePayableAmount = unamortizedSettlePayableAmount;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput unamortizedSettlePosttaxAmount(String unamortizedSettlePosttaxAmount) {
+    this.unamortizedSettlePosttaxAmount = unamortizedSettlePosttaxAmount;
+    return this;
+  }
+
+   /**
+   * Get unamortizedSettlePosttaxAmount
+   * @return unamortizedSettlePosttaxAmount
+  **/
+  @Schema(description = "")
+  public String getUnamortizedSettlePosttaxAmount() {
+    return unamortizedSettlePosttaxAmount;
+  }
+
+  public void setUnamortizedSettlePosttaxAmount(String unamortizedSettlePosttaxAmount) {
+    this.unamortizedSettlePosttaxAmount = unamortizedSettlePosttaxAmount;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput unamortizedSettlePreTaxPayableAmount(String unamortizedSettlePreTaxPayableAmount) {
+    this.unamortizedSettlePreTaxPayableAmount = unamortizedSettlePreTaxPayableAmount;
+    return this;
+  }
+
+   /**
+   * Get unamortizedSettlePreTaxPayableAmount
+   * @return unamortizedSettlePreTaxPayableAmount
+  **/
+  @Schema(description = "")
+  public String getUnamortizedSettlePreTaxPayableAmount() {
+    return unamortizedSettlePreTaxPayableAmount;
+  }
+
+  public void setUnamortizedSettlePreTaxPayableAmount(String unamortizedSettlePreTaxPayableAmount) {
+    this.unamortizedSettlePreTaxPayableAmount = unamortizedSettlePreTaxPayableAmount;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput unamortizedSettlePreTaxRealValue(String unamortizedSettlePreTaxRealValue) {
+    this.unamortizedSettlePreTaxRealValue = unamortizedSettlePreTaxRealValue;
+    return this;
+  }
+
+   /**
+   * Get unamortizedSettlePreTaxRealValue
+   * @return unamortizedSettlePreTaxRealValue
+  **/
+  @Schema(description = "")
+  public String getUnamortizedSettlePreTaxRealValue() {
+    return unamortizedSettlePreTaxRealValue;
+  }
+
+  public void setUnamortizedSettlePreTaxRealValue(String unamortizedSettlePreTaxRealValue) {
+    this.unamortizedSettlePreTaxRealValue = unamortizedSettlePreTaxRealValue;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput unamortizedSettlePretaxAmount(String unamortizedSettlePretaxAmount) {
+    this.unamortizedSettlePretaxAmount = unamortizedSettlePretaxAmount;
+    return this;
+  }
+
+   /**
+   * Get unamortizedSettlePretaxAmount
+   * @return unamortizedSettlePretaxAmount
+  **/
+  @Schema(description = "")
+  public String getUnamortizedSettlePretaxAmount() {
+    return unamortizedSettlePretaxAmount;
+  }
+
+  public void setUnamortizedSettlePretaxAmount(String unamortizedSettlePretaxAmount) {
+    this.unamortizedSettlePretaxAmount = unamortizedSettlePretaxAmount;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput unamortizedSettleRealValue(String unamortizedSettleRealValue) {
+    this.unamortizedSettleRealValue = unamortizedSettleRealValue;
+    return this;
+  }
+
+   /**
+   * Get unamortizedSettleRealValue
+   * @return unamortizedSettleRealValue
+  **/
+  @Schema(description = "")
+  public String getUnamortizedSettleRealValue() {
+    return unamortizedSettleRealValue;
+  }
+
+  public void setUnamortizedSettleRealValue(String unamortizedSettleRealValue) {
+    this.unamortizedSettleRealValue = unamortizedSettleRealValue;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput unamortizedSettleTaxAmount(String unamortizedSettleTaxAmount) {
+    this.unamortizedSettleTaxAmount = unamortizedSettleTaxAmount;
+    return this;
+  }
+
+   /**
+   * Get unamortizedSettleTaxAmount
+   * @return unamortizedSettleTaxAmount
+  **/
+  @Schema(description = "")
+  public String getUnamortizedSettleTaxAmount() {
+    return unamortizedSettleTaxAmount;
+  }
+
+  public void setUnamortizedSettleTaxAmount(String unamortizedSettleTaxAmount) {
+    this.unamortizedSettleTaxAmount = unamortizedSettleTaxAmount;
+  }
+
+  public ListForListAmortizedCostBillMonthlyOutput unamortizedTaxAmount(String unamortizedTaxAmount) {
+    this.unamortizedTaxAmount = unamortizedTaxAmount;
+    return this;
+  }
+
+   /**
+   * Get unamortizedTaxAmount
+   * @return unamortizedTaxAmount
+  **/
+  @Schema(description = "")
+  public String getUnamortizedTaxAmount() {
+    return unamortizedTaxAmount;
+  }
+
+  public void setUnamortizedTaxAmount(String unamortizedTaxAmount) {
+    this.unamortizedTaxAmount = unamortizedTaxAmount;
   }
 
   public ListForListAmortizedCostBillMonthlyOutput unit(String unit) {
@@ -1940,8 +3473,22 @@ public class ListForListAmortizedCostBillMonthlyOutput {
         Objects.equals(this.beforeAmortizedOriginalBillAmount, listForListAmortizedCostBillMonthlyOutput.beforeAmortizedOriginalBillAmount) &&
         Objects.equals(this.beforeAmortizedPaidAmount, listForListAmortizedCostBillMonthlyOutput.beforeAmortizedPaidAmount) &&
         Objects.equals(this.beforeAmortizedPayableAmount, listForListAmortizedCostBillMonthlyOutput.beforeAmortizedPayableAmount) &&
+        Objects.equals(this.beforeAmortizedPosttaxAmount, listForListAmortizedCostBillMonthlyOutput.beforeAmortizedPosttaxAmount) &&
+        Objects.equals(this.beforeAmortizedPreTaxPayableAmount, listForListAmortizedCostBillMonthlyOutput.beforeAmortizedPreTaxPayableAmount) &&
+        Objects.equals(this.beforeAmortizedPreTaxRealValue, listForListAmortizedCostBillMonthlyOutput.beforeAmortizedPreTaxRealValue) &&
         Objects.equals(this.beforeAmortizedPreferentialBillAmount, listForListAmortizedCostBillMonthlyOutput.beforeAmortizedPreferentialBillAmount) &&
+        Objects.equals(this.beforeAmortizedPretaxAmount, listForListAmortizedCostBillMonthlyOutput.beforeAmortizedPretaxAmount) &&
+        Objects.equals(this.beforeAmortizedRealValue, listForListAmortizedCostBillMonthlyOutput.beforeAmortizedRealValue) &&
         Objects.equals(this.beforeAmortizedRoundAmount, listForListAmortizedCostBillMonthlyOutput.beforeAmortizedRoundAmount) &&
+        Objects.equals(this.beforeAmortizedSavingPlanOriginalAmount, listForListAmortizedCostBillMonthlyOutput.beforeAmortizedSavingPlanOriginalAmount) &&
+        Objects.equals(this.beforeAmortizedSettlePayableAmount, listForListAmortizedCostBillMonthlyOutput.beforeAmortizedSettlePayableAmount) &&
+        Objects.equals(this.beforeAmortizedSettlePosttaxAmount, listForListAmortizedCostBillMonthlyOutput.beforeAmortizedSettlePosttaxAmount) &&
+        Objects.equals(this.beforeAmortizedSettlePreTaxPayableAmount, listForListAmortizedCostBillMonthlyOutput.beforeAmortizedSettlePreTaxPayableAmount) &&
+        Objects.equals(this.beforeAmortizedSettlePreTaxRealValue, listForListAmortizedCostBillMonthlyOutput.beforeAmortizedSettlePreTaxRealValue) &&
+        Objects.equals(this.beforeAmortizedSettlePretaxAmount, listForListAmortizedCostBillMonthlyOutput.beforeAmortizedSettlePretaxAmount) &&
+        Objects.equals(this.beforeAmortizedSettleRealValue, listForListAmortizedCostBillMonthlyOutput.beforeAmortizedSettleRealValue) &&
+        Objects.equals(this.beforeAmortizedSettleTaxAmount, listForListAmortizedCostBillMonthlyOutput.beforeAmortizedSettleTaxAmount) &&
+        Objects.equals(this.beforeAmortizedTaxAmount, listForListAmortizedCostBillMonthlyOutput.beforeAmortizedTaxAmount) &&
         Objects.equals(this.billCategory, listForListAmortizedCostBillMonthlyOutput.billCategory) &&
         Objects.equals(this.billID, listForListAmortizedCostBillMonthlyOutput.billID) &&
         Objects.equals(this.billPeriod, listForListAmortizedCostBillMonthlyOutput.billPeriod) &&
@@ -1952,15 +3499,31 @@ public class ListForListAmortizedCostBillMonthlyOutput {
         Objects.equals(this.businessMode, listForListAmortizedCostBillMonthlyOutput.businessMode) &&
         Objects.equals(this.configName, listForListAmortizedCostBillMonthlyOutput.configName) &&
         Objects.equals(this.count, listForListAmortizedCostBillMonthlyOutput.count) &&
+        Objects.equals(this.countryRegion, listForListAmortizedCostBillMonthlyOutput.countryRegion) &&
         Objects.equals(this.couponAmount, listForListAmortizedCostBillMonthlyOutput.couponAmount) &&
         Objects.equals(this.currency, listForListAmortizedCostBillMonthlyOutput.currency) &&
+        Objects.equals(this.currencySettlement, listForListAmortizedCostBillMonthlyOutput.currencySettlement) &&
         Objects.equals(this.dailyAmortizedCouponAmount, listForListAmortizedCostBillMonthlyOutput.dailyAmortizedCouponAmount) &&
         Objects.equals(this.dailyAmortizedDiscountBillAmount, listForListAmortizedCostBillMonthlyOutput.dailyAmortizedDiscountBillAmount) &&
         Objects.equals(this.dailyAmortizedOriginalBillAmount, listForListAmortizedCostBillMonthlyOutput.dailyAmortizedOriginalBillAmount) &&
         Objects.equals(this.dailyAmortizedPaidAmount, listForListAmortizedCostBillMonthlyOutput.dailyAmortizedPaidAmount) &&
         Objects.equals(this.dailyAmortizedPayableAmount, listForListAmortizedCostBillMonthlyOutput.dailyAmortizedPayableAmount) &&
+        Objects.equals(this.dailyAmortizedPosttaxAmount, listForListAmortizedCostBillMonthlyOutput.dailyAmortizedPosttaxAmount) &&
+        Objects.equals(this.dailyAmortizedPreTaxPayableAmount, listForListAmortizedCostBillMonthlyOutput.dailyAmortizedPreTaxPayableAmount) &&
+        Objects.equals(this.dailyAmortizedPreTaxRealValue, listForListAmortizedCostBillMonthlyOutput.dailyAmortizedPreTaxRealValue) &&
         Objects.equals(this.dailyAmortizedPreferentialBillAmount, listForListAmortizedCostBillMonthlyOutput.dailyAmortizedPreferentialBillAmount) &&
+        Objects.equals(this.dailyAmortizedPretaxAmount, listForListAmortizedCostBillMonthlyOutput.dailyAmortizedPretaxAmount) &&
+        Objects.equals(this.dailyAmortizedRealValue, listForListAmortizedCostBillMonthlyOutput.dailyAmortizedRealValue) &&
         Objects.equals(this.dailyAmortizedRoundAmount, listForListAmortizedCostBillMonthlyOutput.dailyAmortizedRoundAmount) &&
+        Objects.equals(this.dailyAmortizedSavingPlanOriginalAmount, listForListAmortizedCostBillMonthlyOutput.dailyAmortizedSavingPlanOriginalAmount) &&
+        Objects.equals(this.dailyAmortizedSettlePayableAmount, listForListAmortizedCostBillMonthlyOutput.dailyAmortizedSettlePayableAmount) &&
+        Objects.equals(this.dailyAmortizedSettlePosttaxAmount, listForListAmortizedCostBillMonthlyOutput.dailyAmortizedSettlePosttaxAmount) &&
+        Objects.equals(this.dailyAmortizedSettlePreTaxPayableAmount, listForListAmortizedCostBillMonthlyOutput.dailyAmortizedSettlePreTaxPayableAmount) &&
+        Objects.equals(this.dailyAmortizedSettlePreTaxRealValue, listForListAmortizedCostBillMonthlyOutput.dailyAmortizedSettlePreTaxRealValue) &&
+        Objects.equals(this.dailyAmortizedSettlePretaxAmount, listForListAmortizedCostBillMonthlyOutput.dailyAmortizedSettlePretaxAmount) &&
+        Objects.equals(this.dailyAmortizedSettleRealValue, listForListAmortizedCostBillMonthlyOutput.dailyAmortizedSettleRealValue) &&
+        Objects.equals(this.dailyAmortizedSettleTaxAmount, listForListAmortizedCostBillMonthlyOutput.dailyAmortizedSettleTaxAmount) &&
+        Objects.equals(this.dailyAmortizedTaxAmount, listForListAmortizedCostBillMonthlyOutput.dailyAmortizedTaxAmount) &&
         Objects.equals(this.deductionUseDuration, listForListAmortizedCostBillMonthlyOutput.deductionUseDuration) &&
         Objects.equals(this.discountBillAmount, listForListAmortizedCostBillMonthlyOutput.discountBillAmount) &&
         Objects.equals(this.discountBizBillingFunction, listForListAmortizedCostBillMonthlyOutput.discountBizBillingFunction) &&
@@ -1981,8 +3544,22 @@ public class ListForListAmortizedCostBillMonthlyOutput {
         Objects.equals(this.nowAmortizedOriginalBillAmount, listForListAmortizedCostBillMonthlyOutput.nowAmortizedOriginalBillAmount) &&
         Objects.equals(this.nowAmortizedPaidAmount, listForListAmortizedCostBillMonthlyOutput.nowAmortizedPaidAmount) &&
         Objects.equals(this.nowAmortizedPayableAmount, listForListAmortizedCostBillMonthlyOutput.nowAmortizedPayableAmount) &&
+        Objects.equals(this.nowAmortizedPosttaxAmount, listForListAmortizedCostBillMonthlyOutput.nowAmortizedPosttaxAmount) &&
+        Objects.equals(this.nowAmortizedPreTaxPayableAmount, listForListAmortizedCostBillMonthlyOutput.nowAmortizedPreTaxPayableAmount) &&
+        Objects.equals(this.nowAmortizedPreTaxRealValue, listForListAmortizedCostBillMonthlyOutput.nowAmortizedPreTaxRealValue) &&
         Objects.equals(this.nowAmortizedPreferentialBillAmount, listForListAmortizedCostBillMonthlyOutput.nowAmortizedPreferentialBillAmount) &&
+        Objects.equals(this.nowAmortizedPretaxAmount, listForListAmortizedCostBillMonthlyOutput.nowAmortizedPretaxAmount) &&
+        Objects.equals(this.nowAmortizedRealValue, listForListAmortizedCostBillMonthlyOutput.nowAmortizedRealValue) &&
         Objects.equals(this.nowAmortizedRoundAmount, listForListAmortizedCostBillMonthlyOutput.nowAmortizedRoundAmount) &&
+        Objects.equals(this.nowAmortizedSavingPlanOriginalAmount, listForListAmortizedCostBillMonthlyOutput.nowAmortizedSavingPlanOriginalAmount) &&
+        Objects.equals(this.nowAmortizedSettlePayableAmount, listForListAmortizedCostBillMonthlyOutput.nowAmortizedSettlePayableAmount) &&
+        Objects.equals(this.nowAmortizedSettlePosttaxAmount, listForListAmortizedCostBillMonthlyOutput.nowAmortizedSettlePosttaxAmount) &&
+        Objects.equals(this.nowAmortizedSettlePreTaxPayableAmount, listForListAmortizedCostBillMonthlyOutput.nowAmortizedSettlePreTaxPayableAmount) &&
+        Objects.equals(this.nowAmortizedSettlePreTaxRealValue, listForListAmortizedCostBillMonthlyOutput.nowAmortizedSettlePreTaxRealValue) &&
+        Objects.equals(this.nowAmortizedSettlePretaxAmount, listForListAmortizedCostBillMonthlyOutput.nowAmortizedSettlePretaxAmount) &&
+        Objects.equals(this.nowAmortizedSettleRealValue, listForListAmortizedCostBillMonthlyOutput.nowAmortizedSettleRealValue) &&
+        Objects.equals(this.nowAmortizedSettleTaxAmount, listForListAmortizedCostBillMonthlyOutput.nowAmortizedSettleTaxAmount) &&
+        Objects.equals(this.nowAmortizedTaxAmount, listForListAmortizedCostBillMonthlyOutput.nowAmortizedTaxAmount) &&
         Objects.equals(this.originalBillAmount, listForListAmortizedCostBillMonthlyOutput.originalBillAmount) &&
         Objects.equals(this.ownerCustomerName, listForListAmortizedCostBillMonthlyOutput.ownerCustomerName) &&
         Objects.equals(this.ownerID, listForListAmortizedCostBillMonthlyOutput.ownerID) &&
@@ -1992,7 +3569,11 @@ public class ListForListAmortizedCostBillMonthlyOutput {
         Objects.equals(this.payerCustomerName, listForListAmortizedCostBillMonthlyOutput.payerCustomerName) &&
         Objects.equals(this.payerID, listForListAmortizedCostBillMonthlyOutput.payerID) &&
         Objects.equals(this.payerUserName, listForListAmortizedCostBillMonthlyOutput.payerUserName) &&
+        Objects.equals(this.posttaxAmount, listForListAmortizedCostBillMonthlyOutput.posttaxAmount) &&
+        Objects.equals(this.preTaxPayableAmount, listForListAmortizedCostBillMonthlyOutput.preTaxPayableAmount) &&
+        Objects.equals(this.preTaxRealValue, listForListAmortizedCostBillMonthlyOutput.preTaxRealValue) &&
         Objects.equals(this.preferentialBillAmount, listForListAmortizedCostBillMonthlyOutput.preferentialBillAmount) &&
+        Objects.equals(this.pretaxAmount, listForListAmortizedCostBillMonthlyOutput.pretaxAmount) &&
         Objects.equals(this.price, listForListAmortizedCostBillMonthlyOutput.price) &&
         Objects.equals(this.priceInterval, listForListAmortizedCostBillMonthlyOutput.priceInterval) &&
         Objects.equals(this.priceUnit, listForListAmortizedCostBillMonthlyOutput.priceUnit) &&
@@ -2000,22 +3581,47 @@ public class ListForListAmortizedCostBillMonthlyOutput {
         Objects.equals(this.productZh, listForListAmortizedCostBillMonthlyOutput.productZh) &&
         Objects.equals(this.project, listForListAmortizedCostBillMonthlyOutput.project) &&
         Objects.equals(this.projectDisplayName, listForListAmortizedCostBillMonthlyOutput.projectDisplayName) &&
+        Objects.equals(this.realValue, listForListAmortizedCostBillMonthlyOutput.realValue) &&
         Objects.equals(this.region, listForListAmortizedCostBillMonthlyOutput.region) &&
         Objects.equals(this.roundAmount, listForListAmortizedCostBillMonthlyOutput.roundAmount) &&
+        Objects.equals(this.savingPlanOriginalAmount, listForListAmortizedCostBillMonthlyOutput.savingPlanOriginalAmount) &&
         Objects.equals(this.sellerCustomerName, listForListAmortizedCostBillMonthlyOutput.sellerCustomerName) &&
         Objects.equals(this.sellerID, listForListAmortizedCostBillMonthlyOutput.sellerID) &&
         Objects.equals(this.sellerUserName, listForListAmortizedCostBillMonthlyOutput.sellerUserName) &&
+        Objects.equals(this.settlePayableAmount, listForListAmortizedCostBillMonthlyOutput.settlePayableAmount) &&
+        Objects.equals(this.settlePosttaxAmount, listForListAmortizedCostBillMonthlyOutput.settlePosttaxAmount) &&
+        Objects.equals(this.settlePreTaxPayableAmount, listForListAmortizedCostBillMonthlyOutput.settlePreTaxPayableAmount) &&
+        Objects.equals(this.settlePreTaxRealValue, listForListAmortizedCostBillMonthlyOutput.settlePreTaxRealValue) &&
+        Objects.equals(this.settlePretaxAmount, listForListAmortizedCostBillMonthlyOutput.settlePretaxAmount) &&
+        Objects.equals(this.settleRealValue, listForListAmortizedCostBillMonthlyOutput.settleRealValue) &&
+        Objects.equals(this.settleTaxAmount, listForListAmortizedCostBillMonthlyOutput.settleTaxAmount) &&
         Objects.equals(this.splitItemID, listForListAmortizedCostBillMonthlyOutput.splitItemID) &&
         Objects.equals(this.splitItemName, listForListAmortizedCostBillMonthlyOutput.splitItemName) &&
         Objects.equals(this.subjectName, listForListAmortizedCostBillMonthlyOutput.subjectName) &&
         Objects.equals(this.tag, listForListAmortizedCostBillMonthlyOutput.tag) &&
+        Objects.equals(this.tax, listForListAmortizedCostBillMonthlyOutput.tax) &&
+        Objects.equals(this.taxRate, listForListAmortizedCostBillMonthlyOutput.taxRate) &&
+        Objects.equals(this.unAmortizedSavingPlanOriginalAmount, listForListAmortizedCostBillMonthlyOutput.unAmortizedSavingPlanOriginalAmount) &&
         Objects.equals(this.unamortizedCouponAmount, listForListAmortizedCostBillMonthlyOutput.unamortizedCouponAmount) &&
         Objects.equals(this.unamortizedDiscountBillAmount, listForListAmortizedCostBillMonthlyOutput.unamortizedDiscountBillAmount) &&
         Objects.equals(this.unamortizedOriginalBillAmount, listForListAmortizedCostBillMonthlyOutput.unamortizedOriginalBillAmount) &&
         Objects.equals(this.unamortizedPaidAmount, listForListAmortizedCostBillMonthlyOutput.unamortizedPaidAmount) &&
         Objects.equals(this.unamortizedPayableAmount, listForListAmortizedCostBillMonthlyOutput.unamortizedPayableAmount) &&
+        Objects.equals(this.unamortizedPosttaxAmount, listForListAmortizedCostBillMonthlyOutput.unamortizedPosttaxAmount) &&
+        Objects.equals(this.unamortizedPreTaxPayableAmount, listForListAmortizedCostBillMonthlyOutput.unamortizedPreTaxPayableAmount) &&
+        Objects.equals(this.unamortizedPreTaxRealValue, listForListAmortizedCostBillMonthlyOutput.unamortizedPreTaxRealValue) &&
         Objects.equals(this.unamortizedPreferentialBillAmount, listForListAmortizedCostBillMonthlyOutput.unamortizedPreferentialBillAmount) &&
+        Objects.equals(this.unamortizedPretaxAmount, listForListAmortizedCostBillMonthlyOutput.unamortizedPretaxAmount) &&
+        Objects.equals(this.unamortizedRealValue, listForListAmortizedCostBillMonthlyOutput.unamortizedRealValue) &&
         Objects.equals(this.unamortizedRoundAmount, listForListAmortizedCostBillMonthlyOutput.unamortizedRoundAmount) &&
+        Objects.equals(this.unamortizedSettlePayableAmount, listForListAmortizedCostBillMonthlyOutput.unamortizedSettlePayableAmount) &&
+        Objects.equals(this.unamortizedSettlePosttaxAmount, listForListAmortizedCostBillMonthlyOutput.unamortizedSettlePosttaxAmount) &&
+        Objects.equals(this.unamortizedSettlePreTaxPayableAmount, listForListAmortizedCostBillMonthlyOutput.unamortizedSettlePreTaxPayableAmount) &&
+        Objects.equals(this.unamortizedSettlePreTaxRealValue, listForListAmortizedCostBillMonthlyOutput.unamortizedSettlePreTaxRealValue) &&
+        Objects.equals(this.unamortizedSettlePretaxAmount, listForListAmortizedCostBillMonthlyOutput.unamortizedSettlePretaxAmount) &&
+        Objects.equals(this.unamortizedSettleRealValue, listForListAmortizedCostBillMonthlyOutput.unamortizedSettleRealValue) &&
+        Objects.equals(this.unamortizedSettleTaxAmount, listForListAmortizedCostBillMonthlyOutput.unamortizedSettleTaxAmount) &&
+        Objects.equals(this.unamortizedTaxAmount, listForListAmortizedCostBillMonthlyOutput.unamortizedTaxAmount) &&
         Objects.equals(this.unit, listForListAmortizedCostBillMonthlyOutput.unit) &&
         Objects.equals(this.useDuration, listForListAmortizedCostBillMonthlyOutput.useDuration) &&
         Objects.equals(this.useDurationUnit, listForListAmortizedCostBillMonthlyOutput.useDurationUnit) &&
@@ -2024,7 +3630,7 @@ public class ListForListAmortizedCostBillMonthlyOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(amortizedBeginTime, amortizedDayNum, amortizedEndTime, amortizedMonth, amortizedType, beforeAmortizedCouponAmount, beforeAmortizedDiscountBillAmount, beforeAmortizedOriginalBillAmount, beforeAmortizedPaidAmount, beforeAmortizedPayableAmount, beforeAmortizedPreferentialBillAmount, beforeAmortizedRoundAmount, billCategory, billID, billPeriod, billingFunction, billingMethodCode, billingMode, busiPeriod, businessMode, configName, count, couponAmount, currency, dailyAmortizedCouponAmount, dailyAmortizedDiscountBillAmount, dailyAmortizedOriginalBillAmount, dailyAmortizedPaidAmount, dailyAmortizedPayableAmount, dailyAmortizedPreferentialBillAmount, dailyAmortizedRoundAmount, deductionUseDuration, discountBillAmount, discountBizBillingFunction, discountBizMeasureInterval, discountBizUnitPrice, discountBizUnitPriceInterval, effectiveFactor, element, expandField, expenseTime, factor, instanceName, instanceNo, marketPrice, measureInterval, nowAmortizedCouponAmount, nowAmortizedDiscountBillAmount, nowAmortizedOriginalBillAmount, nowAmortizedPaidAmount, nowAmortizedPayableAmount, nowAmortizedPreferentialBillAmount, nowAmortizedRoundAmount, originalBillAmount, ownerCustomerName, ownerID, ownerUserName, paidAmount, payableAmount, payerCustomerName, payerID, payerUserName, preferentialBillAmount, price, priceInterval, priceUnit, product, productZh, project, projectDisplayName, region, roundAmount, sellerCustomerName, sellerID, sellerUserName, splitItemID, splitItemName, subjectName, tag, unamortizedCouponAmount, unamortizedDiscountBillAmount, unamortizedOriginalBillAmount, unamortizedPaidAmount, unamortizedPayableAmount, unamortizedPreferentialBillAmount, unamortizedRoundAmount, unit, useDuration, useDurationUnit, zone);
+    return Objects.hash(amortizedBeginTime, amortizedDayNum, amortizedEndTime, amortizedMonth, amortizedType, beforeAmortizedCouponAmount, beforeAmortizedDiscountBillAmount, beforeAmortizedOriginalBillAmount, beforeAmortizedPaidAmount, beforeAmortizedPayableAmount, beforeAmortizedPosttaxAmount, beforeAmortizedPreTaxPayableAmount, beforeAmortizedPreTaxRealValue, beforeAmortizedPreferentialBillAmount, beforeAmortizedPretaxAmount, beforeAmortizedRealValue, beforeAmortizedRoundAmount, beforeAmortizedSavingPlanOriginalAmount, beforeAmortizedSettlePayableAmount, beforeAmortizedSettlePosttaxAmount, beforeAmortizedSettlePreTaxPayableAmount, beforeAmortizedSettlePreTaxRealValue, beforeAmortizedSettlePretaxAmount, beforeAmortizedSettleRealValue, beforeAmortizedSettleTaxAmount, beforeAmortizedTaxAmount, billCategory, billID, billPeriod, billingFunction, billingMethodCode, billingMode, busiPeriod, businessMode, configName, count, countryRegion, couponAmount, currency, currencySettlement, dailyAmortizedCouponAmount, dailyAmortizedDiscountBillAmount, dailyAmortizedOriginalBillAmount, dailyAmortizedPaidAmount, dailyAmortizedPayableAmount, dailyAmortizedPosttaxAmount, dailyAmortizedPreTaxPayableAmount, dailyAmortizedPreTaxRealValue, dailyAmortizedPreferentialBillAmount, dailyAmortizedPretaxAmount, dailyAmortizedRealValue, dailyAmortizedRoundAmount, dailyAmortizedSavingPlanOriginalAmount, dailyAmortizedSettlePayableAmount, dailyAmortizedSettlePosttaxAmount, dailyAmortizedSettlePreTaxPayableAmount, dailyAmortizedSettlePreTaxRealValue, dailyAmortizedSettlePretaxAmount, dailyAmortizedSettleRealValue, dailyAmortizedSettleTaxAmount, dailyAmortizedTaxAmount, deductionUseDuration, discountBillAmount, discountBizBillingFunction, discountBizMeasureInterval, discountBizUnitPrice, discountBizUnitPriceInterval, effectiveFactor, element, expandField, expenseTime, factor, instanceName, instanceNo, marketPrice, measureInterval, nowAmortizedCouponAmount, nowAmortizedDiscountBillAmount, nowAmortizedOriginalBillAmount, nowAmortizedPaidAmount, nowAmortizedPayableAmount, nowAmortizedPosttaxAmount, nowAmortizedPreTaxPayableAmount, nowAmortizedPreTaxRealValue, nowAmortizedPreferentialBillAmount, nowAmortizedPretaxAmount, nowAmortizedRealValue, nowAmortizedRoundAmount, nowAmortizedSavingPlanOriginalAmount, nowAmortizedSettlePayableAmount, nowAmortizedSettlePosttaxAmount, nowAmortizedSettlePreTaxPayableAmount, nowAmortizedSettlePreTaxRealValue, nowAmortizedSettlePretaxAmount, nowAmortizedSettleRealValue, nowAmortizedSettleTaxAmount, nowAmortizedTaxAmount, originalBillAmount, ownerCustomerName, ownerID, ownerUserName, paidAmount, payableAmount, payerCustomerName, payerID, payerUserName, posttaxAmount, preTaxPayableAmount, preTaxRealValue, preferentialBillAmount, pretaxAmount, price, priceInterval, priceUnit, product, productZh, project, projectDisplayName, realValue, region, roundAmount, savingPlanOriginalAmount, sellerCustomerName, sellerID, sellerUserName, settlePayableAmount, settlePosttaxAmount, settlePreTaxPayableAmount, settlePreTaxRealValue, settlePretaxAmount, settleRealValue, settleTaxAmount, splitItemID, splitItemName, subjectName, tag, tax, taxRate, unAmortizedSavingPlanOriginalAmount, unamortizedCouponAmount, unamortizedDiscountBillAmount, unamortizedOriginalBillAmount, unamortizedPaidAmount, unamortizedPayableAmount, unamortizedPosttaxAmount, unamortizedPreTaxPayableAmount, unamortizedPreTaxRealValue, unamortizedPreferentialBillAmount, unamortizedPretaxAmount, unamortizedRealValue, unamortizedRoundAmount, unamortizedSettlePayableAmount, unamortizedSettlePosttaxAmount, unamortizedSettlePreTaxPayableAmount, unamortizedSettlePreTaxRealValue, unamortizedSettlePretaxAmount, unamortizedSettleRealValue, unamortizedSettleTaxAmount, unamortizedTaxAmount, unit, useDuration, useDurationUnit, zone);
   }
 
 
@@ -2043,8 +3649,22 @@ public class ListForListAmortizedCostBillMonthlyOutput {
     sb.append("    beforeAmortizedOriginalBillAmount: ").append(toIndentedString(beforeAmortizedOriginalBillAmount)).append("\n");
     sb.append("    beforeAmortizedPaidAmount: ").append(toIndentedString(beforeAmortizedPaidAmount)).append("\n");
     sb.append("    beforeAmortizedPayableAmount: ").append(toIndentedString(beforeAmortizedPayableAmount)).append("\n");
+    sb.append("    beforeAmortizedPosttaxAmount: ").append(toIndentedString(beforeAmortizedPosttaxAmount)).append("\n");
+    sb.append("    beforeAmortizedPreTaxPayableAmount: ").append(toIndentedString(beforeAmortizedPreTaxPayableAmount)).append("\n");
+    sb.append("    beforeAmortizedPreTaxRealValue: ").append(toIndentedString(beforeAmortizedPreTaxRealValue)).append("\n");
     sb.append("    beforeAmortizedPreferentialBillAmount: ").append(toIndentedString(beforeAmortizedPreferentialBillAmount)).append("\n");
+    sb.append("    beforeAmortizedPretaxAmount: ").append(toIndentedString(beforeAmortizedPretaxAmount)).append("\n");
+    sb.append("    beforeAmortizedRealValue: ").append(toIndentedString(beforeAmortizedRealValue)).append("\n");
     sb.append("    beforeAmortizedRoundAmount: ").append(toIndentedString(beforeAmortizedRoundAmount)).append("\n");
+    sb.append("    beforeAmortizedSavingPlanOriginalAmount: ").append(toIndentedString(beforeAmortizedSavingPlanOriginalAmount)).append("\n");
+    sb.append("    beforeAmortizedSettlePayableAmount: ").append(toIndentedString(beforeAmortizedSettlePayableAmount)).append("\n");
+    sb.append("    beforeAmortizedSettlePosttaxAmount: ").append(toIndentedString(beforeAmortizedSettlePosttaxAmount)).append("\n");
+    sb.append("    beforeAmortizedSettlePreTaxPayableAmount: ").append(toIndentedString(beforeAmortizedSettlePreTaxPayableAmount)).append("\n");
+    sb.append("    beforeAmortizedSettlePreTaxRealValue: ").append(toIndentedString(beforeAmortizedSettlePreTaxRealValue)).append("\n");
+    sb.append("    beforeAmortizedSettlePretaxAmount: ").append(toIndentedString(beforeAmortizedSettlePretaxAmount)).append("\n");
+    sb.append("    beforeAmortizedSettleRealValue: ").append(toIndentedString(beforeAmortizedSettleRealValue)).append("\n");
+    sb.append("    beforeAmortizedSettleTaxAmount: ").append(toIndentedString(beforeAmortizedSettleTaxAmount)).append("\n");
+    sb.append("    beforeAmortizedTaxAmount: ").append(toIndentedString(beforeAmortizedTaxAmount)).append("\n");
     sb.append("    billCategory: ").append(toIndentedString(billCategory)).append("\n");
     sb.append("    billID: ").append(toIndentedString(billID)).append("\n");
     sb.append("    billPeriod: ").append(toIndentedString(billPeriod)).append("\n");
@@ -2055,15 +3675,31 @@ public class ListForListAmortizedCostBillMonthlyOutput {
     sb.append("    businessMode: ").append(toIndentedString(businessMode)).append("\n");
     sb.append("    configName: ").append(toIndentedString(configName)).append("\n");
     sb.append("    count: ").append(toIndentedString(count)).append("\n");
+    sb.append("    countryRegion: ").append(toIndentedString(countryRegion)).append("\n");
     sb.append("    couponAmount: ").append(toIndentedString(couponAmount)).append("\n");
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
+    sb.append("    currencySettlement: ").append(toIndentedString(currencySettlement)).append("\n");
     sb.append("    dailyAmortizedCouponAmount: ").append(toIndentedString(dailyAmortizedCouponAmount)).append("\n");
     sb.append("    dailyAmortizedDiscountBillAmount: ").append(toIndentedString(dailyAmortizedDiscountBillAmount)).append("\n");
     sb.append("    dailyAmortizedOriginalBillAmount: ").append(toIndentedString(dailyAmortizedOriginalBillAmount)).append("\n");
     sb.append("    dailyAmortizedPaidAmount: ").append(toIndentedString(dailyAmortizedPaidAmount)).append("\n");
     sb.append("    dailyAmortizedPayableAmount: ").append(toIndentedString(dailyAmortizedPayableAmount)).append("\n");
+    sb.append("    dailyAmortizedPosttaxAmount: ").append(toIndentedString(dailyAmortizedPosttaxAmount)).append("\n");
+    sb.append("    dailyAmortizedPreTaxPayableAmount: ").append(toIndentedString(dailyAmortizedPreTaxPayableAmount)).append("\n");
+    sb.append("    dailyAmortizedPreTaxRealValue: ").append(toIndentedString(dailyAmortizedPreTaxRealValue)).append("\n");
     sb.append("    dailyAmortizedPreferentialBillAmount: ").append(toIndentedString(dailyAmortizedPreferentialBillAmount)).append("\n");
+    sb.append("    dailyAmortizedPretaxAmount: ").append(toIndentedString(dailyAmortizedPretaxAmount)).append("\n");
+    sb.append("    dailyAmortizedRealValue: ").append(toIndentedString(dailyAmortizedRealValue)).append("\n");
     sb.append("    dailyAmortizedRoundAmount: ").append(toIndentedString(dailyAmortizedRoundAmount)).append("\n");
+    sb.append("    dailyAmortizedSavingPlanOriginalAmount: ").append(toIndentedString(dailyAmortizedSavingPlanOriginalAmount)).append("\n");
+    sb.append("    dailyAmortizedSettlePayableAmount: ").append(toIndentedString(dailyAmortizedSettlePayableAmount)).append("\n");
+    sb.append("    dailyAmortizedSettlePosttaxAmount: ").append(toIndentedString(dailyAmortizedSettlePosttaxAmount)).append("\n");
+    sb.append("    dailyAmortizedSettlePreTaxPayableAmount: ").append(toIndentedString(dailyAmortizedSettlePreTaxPayableAmount)).append("\n");
+    sb.append("    dailyAmortizedSettlePreTaxRealValue: ").append(toIndentedString(dailyAmortizedSettlePreTaxRealValue)).append("\n");
+    sb.append("    dailyAmortizedSettlePretaxAmount: ").append(toIndentedString(dailyAmortizedSettlePretaxAmount)).append("\n");
+    sb.append("    dailyAmortizedSettleRealValue: ").append(toIndentedString(dailyAmortizedSettleRealValue)).append("\n");
+    sb.append("    dailyAmortizedSettleTaxAmount: ").append(toIndentedString(dailyAmortizedSettleTaxAmount)).append("\n");
+    sb.append("    dailyAmortizedTaxAmount: ").append(toIndentedString(dailyAmortizedTaxAmount)).append("\n");
     sb.append("    deductionUseDuration: ").append(toIndentedString(deductionUseDuration)).append("\n");
     sb.append("    discountBillAmount: ").append(toIndentedString(discountBillAmount)).append("\n");
     sb.append("    discountBizBillingFunction: ").append(toIndentedString(discountBizBillingFunction)).append("\n");
@@ -2084,8 +3720,22 @@ public class ListForListAmortizedCostBillMonthlyOutput {
     sb.append("    nowAmortizedOriginalBillAmount: ").append(toIndentedString(nowAmortizedOriginalBillAmount)).append("\n");
     sb.append("    nowAmortizedPaidAmount: ").append(toIndentedString(nowAmortizedPaidAmount)).append("\n");
     sb.append("    nowAmortizedPayableAmount: ").append(toIndentedString(nowAmortizedPayableAmount)).append("\n");
+    sb.append("    nowAmortizedPosttaxAmount: ").append(toIndentedString(nowAmortizedPosttaxAmount)).append("\n");
+    sb.append("    nowAmortizedPreTaxPayableAmount: ").append(toIndentedString(nowAmortizedPreTaxPayableAmount)).append("\n");
+    sb.append("    nowAmortizedPreTaxRealValue: ").append(toIndentedString(nowAmortizedPreTaxRealValue)).append("\n");
     sb.append("    nowAmortizedPreferentialBillAmount: ").append(toIndentedString(nowAmortizedPreferentialBillAmount)).append("\n");
+    sb.append("    nowAmortizedPretaxAmount: ").append(toIndentedString(nowAmortizedPretaxAmount)).append("\n");
+    sb.append("    nowAmortizedRealValue: ").append(toIndentedString(nowAmortizedRealValue)).append("\n");
     sb.append("    nowAmortizedRoundAmount: ").append(toIndentedString(nowAmortizedRoundAmount)).append("\n");
+    sb.append("    nowAmortizedSavingPlanOriginalAmount: ").append(toIndentedString(nowAmortizedSavingPlanOriginalAmount)).append("\n");
+    sb.append("    nowAmortizedSettlePayableAmount: ").append(toIndentedString(nowAmortizedSettlePayableAmount)).append("\n");
+    sb.append("    nowAmortizedSettlePosttaxAmount: ").append(toIndentedString(nowAmortizedSettlePosttaxAmount)).append("\n");
+    sb.append("    nowAmortizedSettlePreTaxPayableAmount: ").append(toIndentedString(nowAmortizedSettlePreTaxPayableAmount)).append("\n");
+    sb.append("    nowAmortizedSettlePreTaxRealValue: ").append(toIndentedString(nowAmortizedSettlePreTaxRealValue)).append("\n");
+    sb.append("    nowAmortizedSettlePretaxAmount: ").append(toIndentedString(nowAmortizedSettlePretaxAmount)).append("\n");
+    sb.append("    nowAmortizedSettleRealValue: ").append(toIndentedString(nowAmortizedSettleRealValue)).append("\n");
+    sb.append("    nowAmortizedSettleTaxAmount: ").append(toIndentedString(nowAmortizedSettleTaxAmount)).append("\n");
+    sb.append("    nowAmortizedTaxAmount: ").append(toIndentedString(nowAmortizedTaxAmount)).append("\n");
     sb.append("    originalBillAmount: ").append(toIndentedString(originalBillAmount)).append("\n");
     sb.append("    ownerCustomerName: ").append(toIndentedString(ownerCustomerName)).append("\n");
     sb.append("    ownerID: ").append(toIndentedString(ownerID)).append("\n");
@@ -2095,7 +3745,11 @@ public class ListForListAmortizedCostBillMonthlyOutput {
     sb.append("    payerCustomerName: ").append(toIndentedString(payerCustomerName)).append("\n");
     sb.append("    payerID: ").append(toIndentedString(payerID)).append("\n");
     sb.append("    payerUserName: ").append(toIndentedString(payerUserName)).append("\n");
+    sb.append("    posttaxAmount: ").append(toIndentedString(posttaxAmount)).append("\n");
+    sb.append("    preTaxPayableAmount: ").append(toIndentedString(preTaxPayableAmount)).append("\n");
+    sb.append("    preTaxRealValue: ").append(toIndentedString(preTaxRealValue)).append("\n");
     sb.append("    preferentialBillAmount: ").append(toIndentedString(preferentialBillAmount)).append("\n");
+    sb.append("    pretaxAmount: ").append(toIndentedString(pretaxAmount)).append("\n");
     sb.append("    price: ").append(toIndentedString(price)).append("\n");
     sb.append("    priceInterval: ").append(toIndentedString(priceInterval)).append("\n");
     sb.append("    priceUnit: ").append(toIndentedString(priceUnit)).append("\n");
@@ -2103,22 +3757,47 @@ public class ListForListAmortizedCostBillMonthlyOutput {
     sb.append("    productZh: ").append(toIndentedString(productZh)).append("\n");
     sb.append("    project: ").append(toIndentedString(project)).append("\n");
     sb.append("    projectDisplayName: ").append(toIndentedString(projectDisplayName)).append("\n");
+    sb.append("    realValue: ").append(toIndentedString(realValue)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    roundAmount: ").append(toIndentedString(roundAmount)).append("\n");
+    sb.append("    savingPlanOriginalAmount: ").append(toIndentedString(savingPlanOriginalAmount)).append("\n");
     sb.append("    sellerCustomerName: ").append(toIndentedString(sellerCustomerName)).append("\n");
     sb.append("    sellerID: ").append(toIndentedString(sellerID)).append("\n");
     sb.append("    sellerUserName: ").append(toIndentedString(sellerUserName)).append("\n");
+    sb.append("    settlePayableAmount: ").append(toIndentedString(settlePayableAmount)).append("\n");
+    sb.append("    settlePosttaxAmount: ").append(toIndentedString(settlePosttaxAmount)).append("\n");
+    sb.append("    settlePreTaxPayableAmount: ").append(toIndentedString(settlePreTaxPayableAmount)).append("\n");
+    sb.append("    settlePreTaxRealValue: ").append(toIndentedString(settlePreTaxRealValue)).append("\n");
+    sb.append("    settlePretaxAmount: ").append(toIndentedString(settlePretaxAmount)).append("\n");
+    sb.append("    settleRealValue: ").append(toIndentedString(settleRealValue)).append("\n");
+    sb.append("    settleTaxAmount: ").append(toIndentedString(settleTaxAmount)).append("\n");
     sb.append("    splitItemID: ").append(toIndentedString(splitItemID)).append("\n");
     sb.append("    splitItemName: ").append(toIndentedString(splitItemName)).append("\n");
     sb.append("    subjectName: ").append(toIndentedString(subjectName)).append("\n");
     sb.append("    tag: ").append(toIndentedString(tag)).append("\n");
+    sb.append("    tax: ").append(toIndentedString(tax)).append("\n");
+    sb.append("    taxRate: ").append(toIndentedString(taxRate)).append("\n");
+    sb.append("    unAmortizedSavingPlanOriginalAmount: ").append(toIndentedString(unAmortizedSavingPlanOriginalAmount)).append("\n");
     sb.append("    unamortizedCouponAmount: ").append(toIndentedString(unamortizedCouponAmount)).append("\n");
     sb.append("    unamortizedDiscountBillAmount: ").append(toIndentedString(unamortizedDiscountBillAmount)).append("\n");
     sb.append("    unamortizedOriginalBillAmount: ").append(toIndentedString(unamortizedOriginalBillAmount)).append("\n");
     sb.append("    unamortizedPaidAmount: ").append(toIndentedString(unamortizedPaidAmount)).append("\n");
     sb.append("    unamortizedPayableAmount: ").append(toIndentedString(unamortizedPayableAmount)).append("\n");
+    sb.append("    unamortizedPosttaxAmount: ").append(toIndentedString(unamortizedPosttaxAmount)).append("\n");
+    sb.append("    unamortizedPreTaxPayableAmount: ").append(toIndentedString(unamortizedPreTaxPayableAmount)).append("\n");
+    sb.append("    unamortizedPreTaxRealValue: ").append(toIndentedString(unamortizedPreTaxRealValue)).append("\n");
     sb.append("    unamortizedPreferentialBillAmount: ").append(toIndentedString(unamortizedPreferentialBillAmount)).append("\n");
+    sb.append("    unamortizedPretaxAmount: ").append(toIndentedString(unamortizedPretaxAmount)).append("\n");
+    sb.append("    unamortizedRealValue: ").append(toIndentedString(unamortizedRealValue)).append("\n");
     sb.append("    unamortizedRoundAmount: ").append(toIndentedString(unamortizedRoundAmount)).append("\n");
+    sb.append("    unamortizedSettlePayableAmount: ").append(toIndentedString(unamortizedSettlePayableAmount)).append("\n");
+    sb.append("    unamortizedSettlePosttaxAmount: ").append(toIndentedString(unamortizedSettlePosttaxAmount)).append("\n");
+    sb.append("    unamortizedSettlePreTaxPayableAmount: ").append(toIndentedString(unamortizedSettlePreTaxPayableAmount)).append("\n");
+    sb.append("    unamortizedSettlePreTaxRealValue: ").append(toIndentedString(unamortizedSettlePreTaxRealValue)).append("\n");
+    sb.append("    unamortizedSettlePretaxAmount: ").append(toIndentedString(unamortizedSettlePretaxAmount)).append("\n");
+    sb.append("    unamortizedSettleRealValue: ").append(toIndentedString(unamortizedSettleRealValue)).append("\n");
+    sb.append("    unamortizedSettleTaxAmount: ").append(toIndentedString(unamortizedSettleTaxAmount)).append("\n");
+    sb.append("    unamortizedTaxAmount: ").append(toIndentedString(unamortizedTaxAmount)).append("\n");
     sb.append("    unit: ").append(toIndentedString(unit)).append("\n");
     sb.append("    useDuration: ").append(toIndentedString(useDuration)).append("\n");
     sb.append("    useDurationUnit: ").append(toIndentedString(useDurationUnit)).append("\n");
