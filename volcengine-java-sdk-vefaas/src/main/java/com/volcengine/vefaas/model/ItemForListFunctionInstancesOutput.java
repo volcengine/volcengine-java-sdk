@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.vefaas.model.LabelsForListFunctionInstancesOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import javax.validation.constraints.*;
@@ -36,6 +37,9 @@ public class ItemForListFunctionInstancesOutput {
   @SerializedName("CreationTime")
   private String creationTime = null;
 
+  @SerializedName("ExpireAt")
+  private String expireAt = null;
+
   @SerializedName("Id")
   private String id = null;
 
@@ -47,6 +51,9 @@ public class ItemForListFunctionInstancesOutput {
 
   @SerializedName("InstanceType")
   private String instanceType = null;
+
+  @SerializedName("Labels")
+  private LabelsForListFunctionInstancesOutput labels = null;
 
   @SerializedName("RevisionNumber")
   private Integer revisionNumber = null;
@@ -91,6 +98,24 @@ public class ItemForListFunctionInstancesOutput {
 
   public void setCreationTime(String creationTime) {
     this.creationTime = creationTime;
+  }
+
+  public ItemForListFunctionInstancesOutput expireAt(String expireAt) {
+    this.expireAt = expireAt;
+    return this;
+  }
+
+   /**
+   * Get expireAt
+   * @return expireAt
+  **/
+  @Schema(description = "")
+  public String getExpireAt() {
+    return expireAt;
+  }
+
+  public void setExpireAt(String expireAt) {
+    this.expireAt = expireAt;
   }
 
   public ItemForListFunctionInstancesOutput id(String id) {
@@ -165,6 +190,25 @@ public class ItemForListFunctionInstancesOutput {
     this.instanceType = instanceType;
   }
 
+  public ItemForListFunctionInstancesOutput labels(LabelsForListFunctionInstancesOutput labels) {
+    this.labels = labels;
+    return this;
+  }
+
+   /**
+   * Get labels
+   * @return labels
+  **/
+  @Valid
+  @Schema(description = "")
+  public LabelsForListFunctionInstancesOutput getLabels() {
+    return labels;
+  }
+
+  public void setLabels(LabelsForListFunctionInstancesOutput labels) {
+    this.labels = labels;
+  }
+
   public ItemForListFunctionInstancesOutput revisionNumber(Integer revisionNumber) {
     this.revisionNumber = revisionNumber;
     return this;
@@ -231,10 +275,12 @@ public class ItemForListFunctionInstancesOutput {
     ItemForListFunctionInstancesOutput itemForListFunctionInstancesOutput = (ItemForListFunctionInstancesOutput) o;
     return Objects.equals(this.availabilityZone, itemForListFunctionInstancesOutput.availabilityZone) &&
         Objects.equals(this.creationTime, itemForListFunctionInstancesOutput.creationTime) &&
+        Objects.equals(this.expireAt, itemForListFunctionInstancesOutput.expireAt) &&
         Objects.equals(this.id, itemForListFunctionInstancesOutput.id) &&
         Objects.equals(this.instanceName, itemForListFunctionInstancesOutput.instanceName) &&
         Objects.equals(this.instanceStatus, itemForListFunctionInstancesOutput.instanceStatus) &&
         Objects.equals(this.instanceType, itemForListFunctionInstancesOutput.instanceType) &&
+        Objects.equals(this.labels, itemForListFunctionInstancesOutput.labels) &&
         Objects.equals(this.revisionNumber, itemForListFunctionInstancesOutput.revisionNumber) &&
         Objects.equals(this.userVpcIP, itemForListFunctionInstancesOutput.userVpcIP) &&
         Objects.equals(this.userVpcIPv6, itemForListFunctionInstancesOutput.userVpcIPv6);
@@ -242,7 +288,7 @@ public class ItemForListFunctionInstancesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(availabilityZone, creationTime, id, instanceName, instanceStatus, instanceType, revisionNumber, userVpcIP, userVpcIPv6);
+    return Objects.hash(availabilityZone, creationTime, expireAt, id, instanceName, instanceStatus, instanceType, labels, revisionNumber, userVpcIP, userVpcIPv6);
   }
 
 
@@ -253,10 +299,12 @@ public class ItemForListFunctionInstancesOutput {
     
     sb.append("    availabilityZone: ").append(toIndentedString(availabilityZone)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
+    sb.append("    expireAt: ").append(toIndentedString(expireAt)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    instanceStatus: ").append(toIndentedString(instanceStatus)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
+    sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
     sb.append("    revisionNumber: ").append(toIndentedString(revisionNumber)).append("\n");
     sb.append("    userVpcIP: ").append(toIndentedString(userVpcIP)).append("\n");
     sb.append("    userVpcIPv6: ").append(toIndentedString(userVpcIPv6)).append("\n");

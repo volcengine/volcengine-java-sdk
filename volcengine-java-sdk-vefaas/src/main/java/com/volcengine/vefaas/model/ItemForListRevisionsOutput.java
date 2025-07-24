@@ -56,6 +56,9 @@ public class ItemForListRevisionsOutput {
   @SerializedName("ExclusiveMode")
   private Boolean exclusiveMode = null;
 
+  @SerializedName("FunctionType")
+  private String functionType = null;
+
   @SerializedName("HealthCheckConfig")
   private HealthCheckConfigForListRevisionsOutput healthCheckConfig = null;
 
@@ -231,6 +234,24 @@ public class ItemForListRevisionsOutput {
 
   public void setExclusiveMode(Boolean exclusiveMode) {
     this.exclusiveMode = exclusiveMode;
+  }
+
+  public ItemForListRevisionsOutput functionType(String functionType) {
+    this.functionType = functionType;
+    return this;
+  }
+
+   /**
+   * Get functionType
+   * @return functionType
+  **/
+  @Schema(description = "")
+  public String getFunctionType() {
+    return functionType;
+  }
+
+  public void setFunctionType(String functionType) {
+    this.functionType = functionType;
   }
 
   public ItemForListRevisionsOutput healthCheckConfig(HealthCheckConfigForListRevisionsOutput healthCheckConfig) {
@@ -614,6 +635,7 @@ public class ItemForListRevisionsOutput {
         Objects.equals(this.description, itemForListRevisionsOutput.description) &&
         Objects.equals(this.envs, itemForListRevisionsOutput.envs) &&
         Objects.equals(this.exclusiveMode, itemForListRevisionsOutput.exclusiveMode) &&
+        Objects.equals(this.functionType, itemForListRevisionsOutput.functionType) &&
         Objects.equals(this.healthCheckConfig, itemForListRevisionsOutput.healthCheckConfig) &&
         Objects.equals(this.id, itemForListRevisionsOutput.id) &&
         Objects.equals(this.initializerSec, itemForListRevisionsOutput.initializerSec) &&
@@ -638,7 +660,7 @@ public class ItemForListRevisionsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(codeSize, codeSizeLimit, creationTime, description, envs, exclusiveMode, healthCheckConfig, id, initializerSec, instanceType, maxConcurrency, maxReplicas, memoryMB, name, nasStorage, requestTimeout, revisionCreationTime, revisionDescription, revisionNumber, runtime, source, sourceLocation, sourceType, tlsConfig, tosMountConfig, vpcConfig);
+    return Objects.hash(codeSize, codeSizeLimit, creationTime, description, envs, exclusiveMode, functionType, healthCheckConfig, id, initializerSec, instanceType, maxConcurrency, maxReplicas, memoryMB, name, nasStorage, requestTimeout, revisionCreationTime, revisionDescription, revisionNumber, runtime, source, sourceLocation, sourceType, tlsConfig, tosMountConfig, vpcConfig);
   }
 
 
@@ -653,6 +675,7 @@ public class ItemForListRevisionsOutput {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    envs: ").append(toIndentedString(envs)).append("\n");
     sb.append("    exclusiveMode: ").append(toIndentedString(exclusiveMode)).append("\n");
+    sb.append("    functionType: ").append(toIndentedString(functionType)).append("\n");
     sb.append("    healthCheckConfig: ").append(toIndentedString(healthCheckConfig)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    initializerSec: ").append(toIndentedString(initializerSec)).append("\n");

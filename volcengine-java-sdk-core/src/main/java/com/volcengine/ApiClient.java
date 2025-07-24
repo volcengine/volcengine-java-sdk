@@ -72,8 +72,7 @@ import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
-import java.net.URLConnection;
-import java.net.URLEncoder;
+import java.net.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.security.GeneralSecurityException;
@@ -141,8 +140,10 @@ public class ApiClient extends BaseClient{
     private Boolean useDualStack;
 
     private boolean autoRetry = DefaultRetryerSetting.DEFAULT_AUTO_RETRY_ENABLED;
-
     private final Retryer retryer = DefaultRetryerSetting.DEFAULT_RETRYER;
+
+    private String httpProxy;
+    private String httpsProxy;
 
     /*
      * Constructor for ApiClient
@@ -151,8 +152,6 @@ public class ApiClient extends BaseClient{
         ConnectionPool connectionPool = new ConnectionPool(maxIdleConns, keepAliveDurationMs);
         httpClient = new OkHttpClient();
         httpClient.setConnectionPool(connectionPool);
-
-
         verifyingSsl = true;
 
         json = new JSON();
@@ -172,6 +171,8 @@ public class ApiClient extends BaseClient{
         interceptorChain.appendRequestInterceptor(new SignRequestInterceptor());
 
         interceptorChain.appendResponseInterceptor(new DeserializedResponseInterceptor());
+
+        updateClientProxy();
     }
 
     /**
@@ -608,6 +609,92 @@ public class ApiClient extends BaseClient{
     public ApiClient setUseDualStack(boolean useDualStack) {
         this.useDualStack = useDualStack;
         return this;
+    }
+
+    /**
+     * Get the http proxy.
+     *
+     * @return http proxy
+     */
+    public String getHttpProxy() {
+        return this.httpProxy;
+    }
+
+    /**
+     * Set the http proxy.
+     *
+     * @return Api client
+     */
+    public ApiClient setHttpProxy(String httpProxy) {
+        this.httpProxy = httpProxy;
+        updateClientProxy();
+        return this;
+    }
+
+    /**
+     * Get the https proxy.
+     *
+     * @return https proxy
+     */
+    public String getHttpsProxy() {
+        return this.httpsProxy;
+    }
+
+    /**
+     * Set the https proxy.
+     *
+     * @return Api client
+     */
+    public ApiClient setHttpsProxy(String httpsProxy) {
+        this.httpsProxy = httpsProxy;
+        updateClientProxy();
+        return this;
+    }
+
+    private void updateClientProxy() {
+        httpClient.setProxySelector(new ProxySelector() {
+            @Override
+            public List<Proxy> select(URI uri) {
+
+                List<Proxy> proxies = new ArrayList<>();
+
+                if (disableSSL) {
+                    addProxy(proxies, httpProxy, "HTTP_PROXY");
+                } else {
+                    addProxy(proxies, httpsProxy, "HTTPS_PROXY");
+                }
+
+                return proxies;
+            }
+
+            @Override
+            public void connectFailed(URI uri, SocketAddress sa, IOException ioe) {
+            }
+        });
+    }
+
+    private void addProxy(List<Proxy> proxies, String proxy, String env) {
+        if (!StringUtils.isEmpty(proxy)) {
+            try {
+                URI u = new URI(proxy);
+                proxies.add(new Proxy(Proxy.Type.HTTP, new InetSocketAddress(u.getHost(), u.getPort())));
+            } catch (URISyntaxException e) {
+                throw new RuntimeException(e);
+            }
+        } else if (!StringUtils.isEmpty(env)) {
+            String envProxy = System.getenv(env.toUpperCase());
+            if (StringUtils.isEmpty(envProxy)) {
+                envProxy = System.getenv(env.toLowerCase());
+            }
+            if (!StringUtils.isEmpty(envProxy)) {
+                try {
+                    URI u = new URI(envProxy);
+                    proxies.add(new Proxy(Proxy.Type.HTTP, new InetSocketAddress(u.getHost(), u.getPort())));
+                } catch (URISyntaxException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }
     }
 
     /**

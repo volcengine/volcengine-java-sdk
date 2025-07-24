@@ -39,8 +39,14 @@ import javax.validation.Valid;
 
 
 public class CreateFunctionRequest {
+  @SerializedName("Cell")
+  private String cell = null;
+
   @SerializedName("Command")
   private String command = null;
+
+  @SerializedName("CpuMilli")
+  private Integer cpuMilli = null;
 
   @SerializedName("CpuStrategy")
   private String cpuStrategy = null;
@@ -102,6 +108,24 @@ public class CreateFunctionRequest {
   @SerializedName("VpcConfig")
   private VpcConfigForCreateFunctionInput vpcConfig = null;
 
+  public CreateFunctionRequest cell(String cell) {
+    this.cell = cell;
+    return this;
+  }
+
+   /**
+   * Get cell
+   * @return cell
+  **/
+  @Schema(description = "")
+  public String getCell() {
+    return cell;
+  }
+
+  public void setCell(String cell) {
+    this.cell = cell;
+  }
+
   public CreateFunctionRequest command(String command) {
     this.command = command;
     return this;
@@ -118,6 +142,24 @@ public class CreateFunctionRequest {
 
   public void setCommand(String command) {
     this.command = command;
+  }
+
+  public CreateFunctionRequest cpuMilli(Integer cpuMilli) {
+    this.cpuMilli = cpuMilli;
+    return this;
+  }
+
+   /**
+   * Get cpuMilli
+   * @return cpuMilli
+  **/
+  @Schema(description = "")
+  public Integer getCpuMilli() {
+    return cpuMilli;
+  }
+
+  public void setCpuMilli(Integer cpuMilli) {
+    this.cpuMilli = cpuMilli;
   }
 
   public CreateFunctionRequest cpuStrategy(String cpuStrategy) {
@@ -515,7 +557,9 @@ public class CreateFunctionRequest {
       return false;
     }
     CreateFunctionRequest createFunctionRequest = (CreateFunctionRequest) o;
-    return Objects.equals(this.command, createFunctionRequest.command) &&
+    return Objects.equals(this.cell, createFunctionRequest.cell) &&
+        Objects.equals(this.command, createFunctionRequest.command) &&
+        Objects.equals(this.cpuMilli, createFunctionRequest.cpuMilli) &&
         Objects.equals(this.cpuStrategy, createFunctionRequest.cpuStrategy) &&
         Objects.equals(this.description, createFunctionRequest.description) &&
         Objects.equals(this.envs, createFunctionRequest.envs) &&
@@ -540,7 +584,7 @@ public class CreateFunctionRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(command, cpuStrategy, description, envs, exclusiveMode, initializerSec, instanceType, maxConcurrency, memoryMB, name, nasStorage, projectName, requestTimeout, runtime, source, sourceAccessConfig, sourceType, tags, tlsConfig, tosMountConfig, vpcConfig);
+    return Objects.hash(cell, command, cpuMilli, cpuStrategy, description, envs, exclusiveMode, initializerSec, instanceType, maxConcurrency, memoryMB, name, nasStorage, projectName, requestTimeout, runtime, source, sourceAccessConfig, sourceType, tags, tlsConfig, tosMountConfig, vpcConfig);
   }
 
 
@@ -549,7 +593,9 @@ public class CreateFunctionRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateFunctionRequest {\n");
     
+    sb.append("    cell: ").append(toIndentedString(cell)).append("\n");
     sb.append("    command: ").append(toIndentedString(command)).append("\n");
+    sb.append("    cpuMilli: ").append(toIndentedString(cpuMilli)).append("\n");
     sb.append("    cpuStrategy: ").append(toIndentedString(cpuStrategy)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    envs: ").append(toIndentedString(envs)).append("\n");

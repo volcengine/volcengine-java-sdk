@@ -21,8 +21,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.acep.model.ConfigurationForListPodOutput;
 import com.volcengine.acep.model.DcInfoForListPodOutput;
-import com.volcengine.acep.model.DisplayStatusForListPodOutput;
-import com.volcengine.acep.model.EipForListPodOutput;
 import com.volcengine.acep.model.PortMappingRuleListForListPodOutput;
 import com.volcengine.acep.model.TagForListPodOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -59,9 +57,6 @@ public class RowForListPodOutput {
   @SerializedName("AuthorityStatus")
   private Integer authorityStatus = null;
 
-  @SerializedName("CidrBlock")
-  private String cidrBlock = null;
-
   @SerializedName("Configuration")
   private ConfigurationForListPodOutput _configuration = null;
 
@@ -83,14 +78,8 @@ public class RowForListPodOutput {
   @SerializedName("DisplayLayoutId")
   private String displayLayoutId = null;
 
-  @SerializedName("DisplayStatus")
-  private DisplayStatusForListPodOutput displayStatus = null;
-
   @SerializedName("DownBandwidthLimit")
   private Integer downBandwidthLimit = null;
-
-  @SerializedName("Eip")
-  private EipForListPodOutput eip = null;
 
   @SerializedName("HostId")
   private String hostId = null;
@@ -118,9 +107,6 @@ public class RowForListPodOutput {
 
   @SerializedName("ProductId")
   private String productId = null;
-
-  @SerializedName("SNATId")
-  private String snATId = null;
 
   @SerializedName("ServerTypeCode")
   private String serverTypeCode = null;
@@ -260,24 +246,6 @@ public class RowForListPodOutput {
     this.authorityStatus = authorityStatus;
   }
 
-  public RowForListPodOutput cidrBlock(String cidrBlock) {
-    this.cidrBlock = cidrBlock;
-    return this;
-  }
-
-   /**
-   * Get cidrBlock
-   * @return cidrBlock
-  **/
-  @Schema(description = "")
-  public String getCidrBlock() {
-    return cidrBlock;
-  }
-
-  public void setCidrBlock(String cidrBlock) {
-    this.cidrBlock = cidrBlock;
-  }
-
   public RowForListPodOutput _configuration(ConfigurationForListPodOutput _configuration) {
     this._configuration = _configuration;
     return this;
@@ -406,25 +374,6 @@ public class RowForListPodOutput {
     this.displayLayoutId = displayLayoutId;
   }
 
-  public RowForListPodOutput displayStatus(DisplayStatusForListPodOutput displayStatus) {
-    this.displayStatus = displayStatus;
-    return this;
-  }
-
-   /**
-   * Get displayStatus
-   * @return displayStatus
-  **/
-  @Valid
-  @Schema(description = "")
-  public DisplayStatusForListPodOutput getDisplayStatus() {
-    return displayStatus;
-  }
-
-  public void setDisplayStatus(DisplayStatusForListPodOutput displayStatus) {
-    this.displayStatus = displayStatus;
-  }
-
   public RowForListPodOutput downBandwidthLimit(Integer downBandwidthLimit) {
     this.downBandwidthLimit = downBandwidthLimit;
     return this;
@@ -441,25 +390,6 @@ public class RowForListPodOutput {
 
   public void setDownBandwidthLimit(Integer downBandwidthLimit) {
     this.downBandwidthLimit = downBandwidthLimit;
-  }
-
-  public RowForListPodOutput eip(EipForListPodOutput eip) {
-    this.eip = eip;
-    return this;
-  }
-
-   /**
-   * Get eip
-   * @return eip
-  **/
-  @Valid
-  @Schema(description = "")
-  public EipForListPodOutput getEip() {
-    return eip;
-  }
-
-  public void setEip(EipForListPodOutput eip) {
-    this.eip = eip;
   }
 
   public RowForListPodOutput hostId(String hostId) {
@@ -633,24 +563,6 @@ public class RowForListPodOutput {
     this.productId = productId;
   }
 
-  public RowForListPodOutput snATId(String snATId) {
-    this.snATId = snATId;
-    return this;
-  }
-
-   /**
-   * Get snATId
-   * @return snATId
-  **/
-  @Schema(description = "")
-  public String getSnATId() {
-    return snATId;
-  }
-
-  public void setSnATId(String snATId) {
-    this.snATId = snATId;
-  }
-
   public RowForListPodOutput serverTypeCode(String serverTypeCode) {
     this.serverTypeCode = serverTypeCode;
     return this;
@@ -741,7 +653,6 @@ public class RowForListPodOutput {
         Objects.equals(this.archiveStatus, rowForListPodOutput.archiveStatus) &&
         Objects.equals(this.authorityExpireTime, rowForListPodOutput.authorityExpireTime) &&
         Objects.equals(this.authorityStatus, rowForListPodOutput.authorityStatus) &&
-        Objects.equals(this.cidrBlock, rowForListPodOutput.cidrBlock) &&
         Objects.equals(this._configuration, rowForListPodOutput._configuration) &&
         Objects.equals(this.createAt, rowForListPodOutput.createAt) &&
         Objects.equals(this.dnSId, rowForListPodOutput.dnSId) &&
@@ -749,9 +660,7 @@ public class RowForListPodOutput {
         Objects.equals(this.dataSizeUsed, rowForListPodOutput.dataSizeUsed) &&
         Objects.equals(this.dcInfo, rowForListPodOutput.dcInfo) &&
         Objects.equals(this.displayLayoutId, rowForListPodOutput.displayLayoutId) &&
-        Objects.equals(this.displayStatus, rowForListPodOutput.displayStatus) &&
         Objects.equals(this.downBandwidthLimit, rowForListPodOutput.downBandwidthLimit) &&
-        Objects.equals(this.eip, rowForListPodOutput.eip) &&
         Objects.equals(this.hostId, rowForListPodOutput.hostId) &&
         Objects.equals(this.imageId, rowForListPodOutput.imageId) &&
         Objects.equals(this.imageName, rowForListPodOutput.imageName) &&
@@ -761,7 +670,6 @@ public class RowForListPodOutput {
         Objects.equals(this.podName, rowForListPodOutput.podName) &&
         Objects.equals(this.portMappingRuleList, rowForListPodOutput.portMappingRuleList) &&
         Objects.equals(this.productId, rowForListPodOutput.productId) &&
-        Objects.equals(this.snATId, rowForListPodOutput.snATId) &&
         Objects.equals(this.serverTypeCode, rowForListPodOutput.serverTypeCode) &&
         Objects.equals(this.streamStatus, rowForListPodOutput.streamStatus) &&
         Objects.equals(this.tag, rowForListPodOutput.tag) &&
@@ -770,7 +678,7 @@ public class RowForListPodOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(adb, adbExpireTime, adbStatus, aospVersion, archiveStatus, authorityExpireTime, authorityStatus, cidrBlock, _configuration, createAt, dnSId, dataSize, dataSizeUsed, dcInfo, displayLayoutId, displayStatus, downBandwidthLimit, eip, hostId, imageId, imageName, intranetIP, online, podId, podName, portMappingRuleList, productId, snATId, serverTypeCode, streamStatus, tag, upBandwidthLimit);
+    return Objects.hash(adb, adbExpireTime, adbStatus, aospVersion, archiveStatus, authorityExpireTime, authorityStatus, _configuration, createAt, dnSId, dataSize, dataSizeUsed, dcInfo, displayLayoutId, downBandwidthLimit, hostId, imageId, imageName, intranetIP, online, podId, podName, portMappingRuleList, productId, serverTypeCode, streamStatus, tag, upBandwidthLimit);
   }
 
 
@@ -786,7 +694,6 @@ public class RowForListPodOutput {
     sb.append("    archiveStatus: ").append(toIndentedString(archiveStatus)).append("\n");
     sb.append("    authorityExpireTime: ").append(toIndentedString(authorityExpireTime)).append("\n");
     sb.append("    authorityStatus: ").append(toIndentedString(authorityStatus)).append("\n");
-    sb.append("    cidrBlock: ").append(toIndentedString(cidrBlock)).append("\n");
     sb.append("    _configuration: ").append(toIndentedString(_configuration)).append("\n");
     sb.append("    createAt: ").append(toIndentedString(createAt)).append("\n");
     sb.append("    dnSId: ").append(toIndentedString(dnSId)).append("\n");
@@ -794,9 +701,7 @@ public class RowForListPodOutput {
     sb.append("    dataSizeUsed: ").append(toIndentedString(dataSizeUsed)).append("\n");
     sb.append("    dcInfo: ").append(toIndentedString(dcInfo)).append("\n");
     sb.append("    displayLayoutId: ").append(toIndentedString(displayLayoutId)).append("\n");
-    sb.append("    displayStatus: ").append(toIndentedString(displayStatus)).append("\n");
     sb.append("    downBandwidthLimit: ").append(toIndentedString(downBandwidthLimit)).append("\n");
-    sb.append("    eip: ").append(toIndentedString(eip)).append("\n");
     sb.append("    hostId: ").append(toIndentedString(hostId)).append("\n");
     sb.append("    imageId: ").append(toIndentedString(imageId)).append("\n");
     sb.append("    imageName: ").append(toIndentedString(imageName)).append("\n");
@@ -806,7 +711,6 @@ public class RowForListPodOutput {
     sb.append("    podName: ").append(toIndentedString(podName)).append("\n");
     sb.append("    portMappingRuleList: ").append(toIndentedString(portMappingRuleList)).append("\n");
     sb.append("    productId: ").append(toIndentedString(productId)).append("\n");
-    sb.append("    snATId: ").append(toIndentedString(snATId)).append("\n");
     sb.append("    serverTypeCode: ").append(toIndentedString(serverTypeCode)).append("\n");
     sb.append("    streamStatus: ").append(toIndentedString(streamStatus)).append("\n");
     sb.append("    tag: ").append(toIndentedString(tag)).append("\n");
