@@ -295,6 +295,7 @@
         <module>volcengine-java-sdk-bytehousece20240831</module>
         <module>volcengine-java-sdk-ga</module>
         <module>volcengine-java-sdk-secagent</module>
+        <module>volcengine-java-sdk-vms</module>
         <module>volcengine-java-sdk-hbase</module>
         <module>volcengine-java-sdk-vefaasdev</module>
     </modules>
