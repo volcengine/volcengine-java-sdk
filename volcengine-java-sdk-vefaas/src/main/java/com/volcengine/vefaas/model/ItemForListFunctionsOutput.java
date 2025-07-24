@@ -38,6 +38,9 @@ import javax.validation.Valid;
 
 
 public class ItemForListFunctionsOutput {
+  @SerializedName("Cell")
+  private String cell = null;
+
   @SerializedName("CodeSize")
   private Integer codeSize = null;
 
@@ -61,6 +64,9 @@ public class ItemForListFunctionsOutput {
 
   @SerializedName("ExclusiveMode")
   private Boolean exclusiveMode = null;
+
+  @SerializedName("FunctionType")
+  private String functionType = null;
 
   @SerializedName("Id")
   private String id = null;
@@ -121,6 +127,24 @@ public class ItemForListFunctionsOutput {
 
   @SerializedName("VpcConfig")
   private VpcConfigForListFunctionsOutput vpcConfig = null;
+
+  public ItemForListFunctionsOutput cell(String cell) {
+    this.cell = cell;
+    return this;
+  }
+
+   /**
+   * Get cell
+   * @return cell
+  **/
+  @Schema(description = "")
+  public String getCell() {
+    return cell;
+  }
+
+  public void setCell(String cell) {
+    this.cell = cell;
+  }
 
   public ItemForListFunctionsOutput codeSize(Integer codeSize) {
     this.codeSize = codeSize;
@@ -273,6 +297,24 @@ public class ItemForListFunctionsOutput {
 
   public void setExclusiveMode(Boolean exclusiveMode) {
     this.exclusiveMode = exclusiveMode;
+  }
+
+  public ItemForListFunctionsOutput functionType(String functionType) {
+    this.functionType = functionType;
+    return this;
+  }
+
+   /**
+   * Get functionType
+   * @return functionType
+  **/
+  @Schema(description = "")
+  public String getFunctionType() {
+    return functionType;
+  }
+
+  public void setFunctionType(String functionType) {
+    this.functionType = functionType;
   }
 
   public ItemForListFunctionsOutput id(String id) {
@@ -658,7 +700,8 @@ public class ItemForListFunctionsOutput {
       return false;
     }
     ItemForListFunctionsOutput itemForListFunctionsOutput = (ItemForListFunctionsOutput) o;
-    return Objects.equals(this.codeSize, itemForListFunctionsOutput.codeSize) &&
+    return Objects.equals(this.cell, itemForListFunctionsOutput.cell) &&
+        Objects.equals(this.codeSize, itemForListFunctionsOutput.codeSize) &&
         Objects.equals(this.codeSizeLimit, itemForListFunctionsOutput.codeSizeLimit) &&
         Objects.equals(this.command, itemForListFunctionsOutput.command) &&
         Objects.equals(this.cpuStrategy, itemForListFunctionsOutput.cpuStrategy) &&
@@ -666,6 +709,7 @@ public class ItemForListFunctionsOutput {
         Objects.equals(this.description, itemForListFunctionsOutput.description) &&
         Objects.equals(this.envs, itemForListFunctionsOutput.envs) &&
         Objects.equals(this.exclusiveMode, itemForListFunctionsOutput.exclusiveMode) &&
+        Objects.equals(this.functionType, itemForListFunctionsOutput.functionType) &&
         Objects.equals(this.id, itemForListFunctionsOutput.id) &&
         Objects.equals(this.initializerSec, itemForListFunctionsOutput.initializerSec) &&
         Objects.equals(this.instanceType, itemForListFunctionsOutput.instanceType) &&
@@ -690,7 +734,7 @@ public class ItemForListFunctionsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(codeSize, codeSizeLimit, command, cpuStrategy, creationTime, description, envs, exclusiveMode, id, initializerSec, instanceType, lastUpdateTime, maxConcurrency, memoryMB, name, nasStorage, owner, port, projectName, requestTimeout, runtime, sourceLocation, sourceType, tags, tlsConfig, tosMountConfig, triggersCount, vpcConfig);
+    return Objects.hash(cell, codeSize, codeSizeLimit, command, cpuStrategy, creationTime, description, envs, exclusiveMode, functionType, id, initializerSec, instanceType, lastUpdateTime, maxConcurrency, memoryMB, name, nasStorage, owner, port, projectName, requestTimeout, runtime, sourceLocation, sourceType, tags, tlsConfig, tosMountConfig, triggersCount, vpcConfig);
   }
 
 
@@ -699,6 +743,7 @@ public class ItemForListFunctionsOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ItemForListFunctionsOutput {\n");
     
+    sb.append("    cell: ").append(toIndentedString(cell)).append("\n");
     sb.append("    codeSize: ").append(toIndentedString(codeSize)).append("\n");
     sb.append("    codeSizeLimit: ").append(toIndentedString(codeSizeLimit)).append("\n");
     sb.append("    command: ").append(toIndentedString(command)).append("\n");
@@ -707,6 +752,7 @@ public class ItemForListFunctionsOutput {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    envs: ").append(toIndentedString(envs)).append("\n");
     sb.append("    exclusiveMode: ").append(toIndentedString(exclusiveMode)).append("\n");
+    sb.append("    functionType: ").append(toIndentedString(functionType)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    initializerSec: ").append(toIndentedString(initializerSec)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");

@@ -39,6 +39,9 @@ import javax.validation.Valid;
 
 
 public class UpdateFunctionRequest {
+  @SerializedName("CpuMilli")
+  private Integer cpuMilli = null;
+
   @SerializedName("Description")
   private String description = null;
 
@@ -89,6 +92,24 @@ public class UpdateFunctionRequest {
 
   @SerializedName("VpcConfig")
   private VpcConfigForUpdateFunctionInput vpcConfig = null;
+
+  public UpdateFunctionRequest cpuMilli(Integer cpuMilli) {
+    this.cpuMilli = cpuMilli;
+    return this;
+  }
+
+   /**
+   * Get cpuMilli
+   * @return cpuMilli
+  **/
+  @Schema(description = "")
+  public Integer getCpuMilli() {
+    return cpuMilli;
+  }
+
+  public void setCpuMilli(Integer cpuMilli) {
+    this.cpuMilli = cpuMilli;
+  }
 
   public UpdateFunctionRequest description(String description) {
     this.description = description;
@@ -430,7 +451,8 @@ public class UpdateFunctionRequest {
       return false;
     }
     UpdateFunctionRequest updateFunctionRequest = (UpdateFunctionRequest) o;
-    return Objects.equals(this.description, updateFunctionRequest.description) &&
+    return Objects.equals(this.cpuMilli, updateFunctionRequest.cpuMilli) &&
+        Objects.equals(this.description, updateFunctionRequest.description) &&
         Objects.equals(this.envs, updateFunctionRequest.envs) &&
         Objects.equals(this.exclusiveMode, updateFunctionRequest.exclusiveMode) &&
         Objects.equals(this.id, updateFunctionRequest.id) &&
@@ -451,7 +473,7 @@ public class UpdateFunctionRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, envs, exclusiveMode, id, initializerSec, maxConcurrency, memoryMB, nasStorage, projectName, requestTimeout, source, sourceAccessConfig, sourceType, tags, tlsConfig, tosMountConfig, vpcConfig);
+    return Objects.hash(cpuMilli, description, envs, exclusiveMode, id, initializerSec, maxConcurrency, memoryMB, nasStorage, projectName, requestTimeout, source, sourceAccessConfig, sourceType, tags, tlsConfig, tosMountConfig, vpcConfig);
   }
 
 
@@ -460,6 +482,7 @@ public class UpdateFunctionRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateFunctionRequest {\n");
     
+    sb.append("    cpuMilli: ").append(toIndentedString(cpuMilli)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    envs: ").append(toIndentedString(envs)).append("\n");
     sb.append("    exclusiveMode: ").append(toIndentedString(exclusiveMode)).append("\n");
