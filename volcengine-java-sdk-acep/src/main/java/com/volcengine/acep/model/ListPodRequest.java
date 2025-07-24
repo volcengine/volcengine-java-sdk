@@ -33,7 +33,7 @@ import javax.validation.Valid;
 
 public class ListPodRequest {
   @SerializedName("ArchiveStatus")
-  private String archiveStatus = null;
+  private Integer archiveStatus = null;
 
   @SerializedName("AuthorityStatus")
   private Integer authorityStatus = null;
@@ -83,7 +83,7 @@ public class ListPodRequest {
   @SerializedName("ZoneId")
   private String zoneId = null;
 
-  public ListPodRequest archiveStatus(String archiveStatus) {
+  public ListPodRequest archiveStatus(Integer archiveStatus) {
     this.archiveStatus = archiveStatus;
     return this;
   }
@@ -93,11 +93,11 @@ public class ListPodRequest {
    * @return archiveStatus
   **/
   @Schema(description = "")
-  public String getArchiveStatus() {
+  public Integer getArchiveStatus() {
     return archiveStatus;
   }
 
-  public void setArchiveStatus(String archiveStatus) {
+  public void setArchiveStatus(Integer archiveStatus) {
     this.archiveStatus = archiveStatus;
   }
 
