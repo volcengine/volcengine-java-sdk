@@ -33,6 +33,9 @@ import javax.validation.Valid;
 
 
 public class CreateKeyRequest {
+  @SerializedName("CustomKeyStoreID")
+  private String customKeyStoreID = null;
+
   @SerializedName("Description")
   private String description = null;
 
@@ -62,6 +65,27 @@ public class CreateKeyRequest {
 
   @SerializedName("Tags")
   private List<TagForCreateKeyInput> tags = null;
+
+  @SerializedName("XksKeyID")
+  private String xksKeyID = null;
+
+  public CreateKeyRequest customKeyStoreID(String customKeyStoreID) {
+    this.customKeyStoreID = customKeyStoreID;
+    return this;
+  }
+
+   /**
+   * Get customKeyStoreID
+   * @return customKeyStoreID
+  **/
+ @Size(min=36,max=36)  @Schema(description = "")
+  public String getCustomKeyStoreID() {
+    return customKeyStoreID;
+  }
+
+  public void setCustomKeyStoreID(String customKeyStoreID) {
+    this.customKeyStoreID = customKeyStoreID;
+  }
 
   public CreateKeyRequest description(String description) {
     this.description = description;
@@ -254,6 +278,24 @@ public class CreateKeyRequest {
     this.tags = tags;
   }
 
+  public CreateKeyRequest xksKeyID(String xksKeyID) {
+    this.xksKeyID = xksKeyID;
+    return this;
+  }
+
+   /**
+   * Get xksKeyID
+   * @return xksKeyID
+  **/
+ @Size(min=1,max=128)  @Schema(description = "")
+  public String getXksKeyID() {
+    return xksKeyID;
+  }
+
+  public void setXksKeyID(String xksKeyID) {
+    this.xksKeyID = xksKeyID;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -264,7 +306,8 @@ public class CreateKeyRequest {
       return false;
     }
     CreateKeyRequest createKeyRequest = (CreateKeyRequest) o;
-    return Objects.equals(this.description, createKeyRequest.description) &&
+    return Objects.equals(this.customKeyStoreID, createKeyRequest.customKeyStoreID) &&
+        Objects.equals(this.description, createKeyRequest.description) &&
         Objects.equals(this.keyName, createKeyRequest.keyName) &&
         Objects.equals(this.keySpec, createKeyRequest.keySpec) &&
         Objects.equals(this.keyUsage, createKeyRequest.keyUsage) &&
@@ -273,12 +316,13 @@ public class CreateKeyRequest {
         Objects.equals(this.origin, createKeyRequest.origin) &&
         Objects.equals(this.protectionLevel, createKeyRequest.protectionLevel) &&
         Objects.equals(this.rotateState, createKeyRequest.rotateState) &&
-        Objects.equals(this.tags, createKeyRequest.tags);
+        Objects.equals(this.tags, createKeyRequest.tags) &&
+        Objects.equals(this.xksKeyID, createKeyRequest.xksKeyID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, keyName, keySpec, keyUsage, keyringName, multiRegion, origin, protectionLevel, rotateState, tags);
+    return Objects.hash(customKeyStoreID, description, keyName, keySpec, keyUsage, keyringName, multiRegion, origin, protectionLevel, rotateState, tags, xksKeyID);
   }
 
 
@@ -287,6 +331,7 @@ public class CreateKeyRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateKeyRequest {\n");
     
+    sb.append("    customKeyStoreID: ").append(toIndentedString(customKeyStoreID)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    keyName: ").append(toIndentedString(keyName)).append("\n");
     sb.append("    keySpec: ").append(toIndentedString(keySpec)).append("\n");
@@ -297,6 +342,7 @@ public class CreateKeyRequest {
     sb.append("    protectionLevel: ").append(toIndentedString(protectionLevel)).append("\n");
     sb.append("    rotateState: ").append(toIndentedString(rotateState)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    xksKeyID: ").append(toIndentedString(xksKeyID)).append("\n");
     sb.append("}");
     return sb.toString();
   }
