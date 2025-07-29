@@ -36,6 +36,9 @@ public class CheckLLMResponseStreamRequest {
   @SerializedName("ContentType")
   private Integer contentType = null;
 
+  @SerializedName("ContextID")
+  private String contextID = null;
+
   @SerializedName("Host")
   private String host = null;
 
@@ -90,6 +93,24 @@ public class CheckLLMResponseStreamRequest {
 
   public void setContentType(Integer contentType) {
     this.contentType = contentType;
+  }
+
+  public CheckLLMResponseStreamRequest contextID(String contextID) {
+    this.contextID = contextID;
+    return this;
+  }
+
+   /**
+   * Get contextID
+   * @return contextID
+  **/
+  @Schema(description = "")
+  public String getContextID() {
+    return contextID;
+  }
+
+  public void setContextID(String contextID) {
+    this.contextID = contextID;
   }
 
   public CheckLLMResponseStreamRequest host(String host) {
@@ -217,6 +238,7 @@ public class CheckLLMResponseStreamRequest {
     CheckLLMResponseStreamRequest checkLLMResponseStreamRequest = (CheckLLMResponseStreamRequest) o;
     return Objects.equals(this.content, checkLLMResponseStreamRequest.content) &&
         Objects.equals(this.contentType, checkLLMResponseStreamRequest.contentType) &&
+        Objects.equals(this.contextID, checkLLMResponseStreamRequest.contextID) &&
         Objects.equals(this.host, checkLLMResponseStreamRequest.host) &&
         Objects.equals(this.msgClass, checkLLMResponseStreamRequest.msgClass) &&
         Objects.equals(this.msgID, checkLLMResponseStreamRequest.msgID) &&
@@ -227,7 +249,7 @@ public class CheckLLMResponseStreamRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(content, contentType, host, msgClass, msgID, region, timeout, useStream);
+    return Objects.hash(content, contentType, contextID, host, msgClass, msgID, region, timeout, useStream);
   }
 
 
@@ -238,6 +260,7 @@ public class CheckLLMResponseStreamRequest {
     
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    contentType: ").append(toIndentedString(contentType)).append("\n");
+    sb.append("    contextID: ").append(toIndentedString(contextID)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    msgClass: ").append(toIndentedString(msgClass)).append("\n");
     sb.append("    msgID: ").append(toIndentedString(msgID)).append("\n");

@@ -31,11 +31,32 @@ import javax.validation.Valid;
 
 
 public class CheckLLMResponseStreamResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("ContextID")
+  private String contextID = null;
+
   @SerializedName("Decision")
   private DecisionForCheckLLMResponseStreamOutput decision = null;
 
   @SerializedName("MsgID")
   private String msgID = null;
+
+  public CheckLLMResponseStreamResponse contextID(String contextID) {
+    this.contextID = contextID;
+    return this;
+  }
+
+   /**
+   * Get contextID
+   * @return contextID
+  **/
+  @Schema(description = "")
+  public String getContextID() {
+    return contextID;
+  }
+
+  public void setContextID(String contextID) {
+    this.contextID = contextID;
+  }
 
   public CheckLLMResponseStreamResponse decision(DecisionForCheckLLMResponseStreamOutput decision) {
     this.decision = decision;
@@ -84,13 +105,14 @@ public class CheckLLMResponseStreamResponse extends com.volcengine.model.Abstrac
       return false;
     }
     CheckLLMResponseStreamResponse checkLLMResponseStreamResponse = (CheckLLMResponseStreamResponse) o;
-    return Objects.equals(this.decision, checkLLMResponseStreamResponse.decision) &&
+    return Objects.equals(this.contextID, checkLLMResponseStreamResponse.contextID) &&
+        Objects.equals(this.decision, checkLLMResponseStreamResponse.decision) &&
         Objects.equals(this.msgID, checkLLMResponseStreamResponse.msgID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(decision, msgID);
+    return Objects.hash(contextID, decision, msgID);
   }
 
 
@@ -99,6 +121,7 @@ public class CheckLLMResponseStreamResponse extends com.volcengine.model.Abstrac
     StringBuilder sb = new StringBuilder();
     sb.append("class CheckLLMResponseStreamResponse {\n");
     
+    sb.append("    contextID: ").append(toIndentedString(contextID)).append("\n");
     sb.append("    decision: ").append(toIndentedString(decision)).append("\n");
     sb.append("    msgID: ").append(toIndentedString(msgID)).append("\n");
     sb.append("}");
