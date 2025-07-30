@@ -85,6 +85,9 @@ public class RunInstancesRequest {
   @SerializedName("HpcClusterId")
   private String hpcClusterId = null;
 
+  @SerializedName("HttpTokens")
+  private String httpTokens = null;
+
   @SerializedName("ImageId")
   private String imageId = null;
 
@@ -447,6 +450,24 @@ public class RunInstancesRequest {
 
   public void setHpcClusterId(String hpcClusterId) {
     this.hpcClusterId = hpcClusterId;
+  }
+
+  public RunInstancesRequest httpTokens(String httpTokens) {
+    this.httpTokens = httpTokens;
+    return this;
+  }
+
+   /**
+   * Get httpTokens
+   * @return httpTokens
+  **/
+  @Schema(description = "")
+  public String getHttpTokens() {
+    return httpTokens;
+  }
+
+  public void setHttpTokens(String httpTokens) {
+    this.httpTokens = httpTokens;
   }
 
   public RunInstancesRequest imageId(String imageId) {
@@ -956,6 +977,7 @@ public class RunInstancesRequest {
         Objects.equals(this.hostName, runInstancesRequest.hostName) &&
         Objects.equals(this.hostname, runInstancesRequest.hostname) &&
         Objects.equals(this.hpcClusterId, runInstancesRequest.hpcClusterId) &&
+        Objects.equals(this.httpTokens, runInstancesRequest.httpTokens) &&
         Objects.equals(this.imageId, runInstancesRequest.imageId) &&
         Objects.equals(this.imageReleaseVersion, runInstancesRequest.imageReleaseVersion) &&
         Objects.equals(this.installRunCommandAgent, runInstancesRequest.installRunCommandAgent) &&
@@ -985,7 +1007,7 @@ public class RunInstancesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(affinityGroupSize, autoRenew, autoRenewPeriod, clientToken, count, cpuMaxFrequency, creditSpecification, deletionProtection, deploymentSetGroupNumber, deploymentSetId, description, dryRun, eipAddress, hostName, hostname, hpcClusterId, imageId, imageReleaseVersion, installRunCommandAgent, instanceChargeType, instanceName, instanceType, instanceTypeId, keepImageCredential, keyPairName, minCount, networkInterfaces, password, period, periodUnit, placement, projectName, securityEnhancementStrategy, spotPriceLimit, spotStrategy, suffixIndex, tags, uniqueSuffix, userData, volumes, zoneId);
+    return Objects.hash(affinityGroupSize, autoRenew, autoRenewPeriod, clientToken, count, cpuMaxFrequency, creditSpecification, deletionProtection, deploymentSetGroupNumber, deploymentSetId, description, dryRun, eipAddress, hostName, hostname, hpcClusterId, httpTokens, imageId, imageReleaseVersion, installRunCommandAgent, instanceChargeType, instanceName, instanceType, instanceTypeId, keepImageCredential, keyPairName, minCount, networkInterfaces, password, period, periodUnit, placement, projectName, securityEnhancementStrategy, spotPriceLimit, spotStrategy, suffixIndex, tags, uniqueSuffix, userData, volumes, zoneId);
   }
 
 
@@ -1010,6 +1032,7 @@ public class RunInstancesRequest {
     sb.append("    hostName: ").append(toIndentedString(hostName)).append("\n");
     sb.append("    hostname: ").append(toIndentedString(hostname)).append("\n");
     sb.append("    hpcClusterId: ").append(toIndentedString(hpcClusterId)).append("\n");
+    sb.append("    httpTokens: ").append(toIndentedString(httpTokens)).append("\n");
     sb.append("    imageId: ").append(toIndentedString(imageId)).append("\n");
     sb.append("    imageReleaseVersion: ").append(toIndentedString(imageReleaseVersion)).append("\n");
     sb.append("    installRunCommandAgent: ").append(toIndentedString(installRunCommandAgent)).append("\n");

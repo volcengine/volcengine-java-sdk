@@ -75,6 +75,9 @@ public class CreateScheduledInstancesRequest {
   @SerializedName("HpcClusterId")
   private String hpcClusterId = null;
 
+  @SerializedName("HttpTokens")
+  private String httpTokens = null;
+
   @SerializedName("ImageId")
   private String imageId = null;
 
@@ -368,6 +371,24 @@ public class CreateScheduledInstancesRequest {
 
   public void setHpcClusterId(String hpcClusterId) {
     this.hpcClusterId = hpcClusterId;
+  }
+
+  public CreateScheduledInstancesRequest httpTokens(String httpTokens) {
+    this.httpTokens = httpTokens;
+    return this;
+  }
+
+   /**
+   * Get httpTokens
+   * @return httpTokens
+  **/
+  @Schema(description = "")
+  public String getHttpTokens() {
+    return httpTokens;
+  }
+
+  public void setHttpTokens(String httpTokens) {
+    this.httpTokens = httpTokens;
   }
 
   public CreateScheduledInstancesRequest imageId(String imageId) {
@@ -785,6 +806,7 @@ public class CreateScheduledInstancesRequest {
         Objects.equals(this.endDeliveryAt, createScheduledInstancesRequest.endDeliveryAt) &&
         Objects.equals(this.hostname, createScheduledInstancesRequest.hostname) &&
         Objects.equals(this.hpcClusterId, createScheduledInstancesRequest.hpcClusterId) &&
+        Objects.equals(this.httpTokens, createScheduledInstancesRequest.httpTokens) &&
         Objects.equals(this.imageId, createScheduledInstancesRequest.imageId) &&
         Objects.equals(this.installRunCommandAgent, createScheduledInstancesRequest.installRunCommandAgent) &&
         Objects.equals(this.instanceName, createScheduledInstancesRequest.instanceName) &&
@@ -809,7 +831,7 @@ public class CreateScheduledInstancesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoReleaseAt, clientToken, count, cpuMaxFrequency, deletionProtection, deliveryType, description, dryRun, eipAddress, elasticScheduledInstanceType, endDeliveryAt, hostname, hpcClusterId, imageId, installRunCommandAgent, instanceName, instanceTypeId, keepImageCredential, keyPairName, minCount, networkInterfaces, password, projectName, scheduledInstanceDescription, scheduledInstanceName, securityEnhancementStrategy, startDeliveryAt, suffixIndex, tags, uniqueSuffix, userData, volumes, zoneId);
+    return Objects.hash(autoReleaseAt, clientToken, count, cpuMaxFrequency, deletionProtection, deliveryType, description, dryRun, eipAddress, elasticScheduledInstanceType, endDeliveryAt, hostname, hpcClusterId, httpTokens, imageId, installRunCommandAgent, instanceName, instanceTypeId, keepImageCredential, keyPairName, minCount, networkInterfaces, password, projectName, scheduledInstanceDescription, scheduledInstanceName, securityEnhancementStrategy, startDeliveryAt, suffixIndex, tags, uniqueSuffix, userData, volumes, zoneId);
   }
 
 
@@ -831,6 +853,7 @@ public class CreateScheduledInstancesRequest {
     sb.append("    endDeliveryAt: ").append(toIndentedString(endDeliveryAt)).append("\n");
     sb.append("    hostname: ").append(toIndentedString(hostname)).append("\n");
     sb.append("    hpcClusterId: ").append(toIndentedString(hpcClusterId)).append("\n");
+    sb.append("    httpTokens: ").append(toIndentedString(httpTokens)).append("\n");
     sb.append("    imageId: ").append(toIndentedString(imageId)).append("\n");
     sb.append("    installRunCommandAgent: ").append(toIndentedString(installRunCommandAgent)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");

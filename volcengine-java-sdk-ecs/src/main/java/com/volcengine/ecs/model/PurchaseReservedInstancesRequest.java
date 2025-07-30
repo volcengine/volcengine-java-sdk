@@ -45,6 +45,9 @@ public class PurchaseReservedInstancesRequest {
   @SerializedName("Description")
   private String description = null;
 
+  @SerializedName("EffectiveAt")
+  private String effectiveAt = null;
+
   @SerializedName("HpcClusterId")
   private String hpcClusterId = null;
 
@@ -163,6 +166,24 @@ public class PurchaseReservedInstancesRequest {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public PurchaseReservedInstancesRequest effectiveAt(String effectiveAt) {
+    this.effectiveAt = effectiveAt;
+    return this;
+  }
+
+   /**
+   * Get effectiveAt
+   * @return effectiveAt
+  **/
+  @Schema(description = "")
+  public String getEffectiveAt() {
+    return effectiveAt;
+  }
+
+  public void setEffectiveAt(String effectiveAt) {
+    this.effectiveAt = effectiveAt;
   }
 
   public PurchaseReservedInstancesRequest hpcClusterId(String hpcClusterId) {
@@ -478,6 +499,7 @@ public class PurchaseReservedInstancesRequest {
         Objects.equals(this.autoRenewPeriod, purchaseReservedInstancesRequest.autoRenewPeriod) &&
         Objects.equals(this.clientToken, purchaseReservedInstancesRequest.clientToken) &&
         Objects.equals(this.description, purchaseReservedInstancesRequest.description) &&
+        Objects.equals(this.effectiveAt, purchaseReservedInstancesRequest.effectiveAt) &&
         Objects.equals(this.hpcClusterId, purchaseReservedInstancesRequest.hpcClusterId) &&
         Objects.equals(this.instanceCount, purchaseReservedInstancesRequest.instanceCount) &&
         Objects.equals(this.instanceTypeId, purchaseReservedInstancesRequest.instanceTypeId) &&
@@ -498,7 +520,7 @@ public class PurchaseReservedInstancesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoRenew, autoRenewPeriod, clientToken, description, hpcClusterId, instanceCount, instanceTypeId, period, periodUnit, projectName, regionId, reservedCapacity, reservedInstanceName, reservedStorageCapacityName, rscAutoRenew, rscAutoRenewPeriod, scope, tags, volumeType, zoneId);
+    return Objects.hash(autoRenew, autoRenewPeriod, clientToken, description, effectiveAt, hpcClusterId, instanceCount, instanceTypeId, period, periodUnit, projectName, regionId, reservedCapacity, reservedInstanceName, reservedStorageCapacityName, rscAutoRenew, rscAutoRenewPeriod, scope, tags, volumeType, zoneId);
   }
 
 
@@ -511,6 +533,7 @@ public class PurchaseReservedInstancesRequest {
     sb.append("    autoRenewPeriod: ").append(toIndentedString(autoRenewPeriod)).append("\n");
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    effectiveAt: ").append(toIndentedString(effectiveAt)).append("\n");
     sb.append("    hpcClusterId: ").append(toIndentedString(hpcClusterId)).append("\n");
     sb.append("    instanceCount: ").append(toIndentedString(instanceCount)).append("\n");
     sb.append("    instanceTypeId: ").append(toIndentedString(instanceTypeId)).append("\n");
