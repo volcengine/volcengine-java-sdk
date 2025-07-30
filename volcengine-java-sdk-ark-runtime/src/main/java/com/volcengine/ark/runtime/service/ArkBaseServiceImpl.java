@@ -49,6 +49,8 @@ public interface ArkBaseServiceImpl {
 
     MultimodalEmbeddingResult createBatchMultiModalEmbeddings(MultimodalEmbeddingRequest request);
 
+    ImagesResponse generateImages(GenerateImagesRequest request);
+
     CreateContentGenerationTaskResult createContentGenerationTask(CreateContentGenerationTaskRequest request);
 
     GetContentGenerationTaskResponse getContentGenerationTask(GetContentGenerationTaskRequest request);
