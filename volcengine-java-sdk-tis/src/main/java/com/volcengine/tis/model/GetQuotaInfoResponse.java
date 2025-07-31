@@ -35,13 +35,21 @@ import javax.validation.Valid;
 
 public class GetQuotaInfoResponse extends com.volcengine.model.AbstractResponse {
   @SerializedName("deviceInfoList")
-  private DeviceInfoListForGetQuotaInfoOutput deviceInfoList = null;
+  private List<DeviceInfoListForGetQuotaInfoOutput> deviceInfoList = null;
 
   @SerializedName("quotaInfoList")
   private List<QuotaInfoListForGetQuotaInfoOutput> quotaInfoList = null;
 
-  public GetQuotaInfoResponse deviceInfoList(DeviceInfoListForGetQuotaInfoOutput deviceInfoList) {
+  public GetQuotaInfoResponse deviceInfoList(List<DeviceInfoListForGetQuotaInfoOutput> deviceInfoList) {
     this.deviceInfoList = deviceInfoList;
+    return this;
+  }
+
+  public GetQuotaInfoResponse addDeviceInfoListItem(DeviceInfoListForGetQuotaInfoOutput deviceInfoListItem) {
+    if (this.deviceInfoList == null) {
+      this.deviceInfoList = new ArrayList<DeviceInfoListForGetQuotaInfoOutput>();
+    }
+    this.deviceInfoList.add(deviceInfoListItem);
     return this;
   }
 
@@ -51,11 +59,11 @@ public class GetQuotaInfoResponse extends com.volcengine.model.AbstractResponse 
   **/
   @Valid
   @Schema(description = "")
-  public DeviceInfoListForGetQuotaInfoOutput getDeviceInfoList() {
+  public List<DeviceInfoListForGetQuotaInfoOutput> getDeviceInfoList() {
     return deviceInfoList;
   }
 
-  public void setDeviceInfoList(DeviceInfoListForGetQuotaInfoOutput deviceInfoList) {
+  public void setDeviceInfoList(List<DeviceInfoListForGetQuotaInfoOutput> deviceInfoList) {
     this.deviceInfoList = deviceInfoList;
   }
 
