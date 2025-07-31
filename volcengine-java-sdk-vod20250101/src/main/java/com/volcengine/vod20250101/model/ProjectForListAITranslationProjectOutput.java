@@ -49,6 +49,9 @@ public class ProjectForListAITranslationProjectOutput {
   @SerializedName("InputVideo")
   private InputVideoForListAITranslationProjectOutput inputVideo = null;
 
+  @SerializedName("InputVideoPosterUrl")
+  private String inputVideoPosterUrl = null;
+
   @SerializedName("InputVideoTitle")
   private String inputVideoTitle = null;
 
@@ -153,6 +156,24 @@ public class ProjectForListAITranslationProjectOutput {
 
   public void setInputVideo(InputVideoForListAITranslationProjectOutput inputVideo) {
     this.inputVideo = inputVideo;
+  }
+
+  public ProjectForListAITranslationProjectOutput inputVideoPosterUrl(String inputVideoPosterUrl) {
+    this.inputVideoPosterUrl = inputVideoPosterUrl;
+    return this;
+  }
+
+   /**
+   * Get inputVideoPosterUrl
+   * @return inputVideoPosterUrl
+  **/
+  @Schema(description = "")
+  public String getInputVideoPosterUrl() {
+    return inputVideoPosterUrl;
+  }
+
+  public void setInputVideoPosterUrl(String inputVideoPosterUrl) {
+    this.inputVideoPosterUrl = inputVideoPosterUrl;
   }
 
   public ProjectForListAITranslationProjectOutput inputVideoTitle(String inputVideoTitle) {
@@ -395,6 +416,7 @@ public class ProjectForListAITranslationProjectOutput {
         Objects.equals(this.errorCode, projectForListAITranslationProjectOutput.errorCode) &&
         Objects.equals(this.errorMsg, projectForListAITranslationProjectOutput.errorMsg) &&
         Objects.equals(this.inputVideo, projectForListAITranslationProjectOutput.inputVideo) &&
+        Objects.equals(this.inputVideoPosterUrl, projectForListAITranslationProjectOutput.inputVideoPosterUrl) &&
         Objects.equals(this.inputVideoTitle, projectForListAITranslationProjectOutput.inputVideoTitle) &&
         Objects.equals(this.operatorConfig, projectForListAITranslationProjectOutput.operatorConfig) &&
         Objects.equals(this.outputVideo, projectForListAITranslationProjectOutput.outputVideo) &&
@@ -410,7 +432,7 @@ public class ProjectForListAITranslationProjectOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, errorCode, errorMsg, inputVideo, inputVideoTitle, operatorConfig, outputVideo, projectId, projectVersion, sourceBlueprints, status, targetBlueprints, translationTypeList, updatedAt, workflowId);
+    return Objects.hash(createdAt, errorCode, errorMsg, inputVideo, inputVideoPosterUrl, inputVideoTitle, operatorConfig, outputVideo, projectId, projectVersion, sourceBlueprints, status, targetBlueprints, translationTypeList, updatedAt, workflowId);
   }
 
 
@@ -423,6 +445,7 @@ public class ProjectForListAITranslationProjectOutput {
     sb.append("    errorCode: ").append(toIndentedString(errorCode)).append("\n");
     sb.append("    errorMsg: ").append(toIndentedString(errorMsg)).append("\n");
     sb.append("    inputVideo: ").append(toIndentedString(inputVideo)).append("\n");
+    sb.append("    inputVideoPosterUrl: ").append(toIndentedString(inputVideoPosterUrl)).append("\n");
     sb.append("    inputVideoTitle: ").append(toIndentedString(inputVideoTitle)).append("\n");
     sb.append("    operatorConfig: ").append(toIndentedString(operatorConfig)).append("\n");
     sb.append("    outputVideo: ").append(toIndentedString(outputVideo)).append("\n");
