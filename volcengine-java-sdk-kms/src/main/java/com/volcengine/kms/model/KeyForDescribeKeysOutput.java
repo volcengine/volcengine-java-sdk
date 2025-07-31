@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.kms.model.MultiRegionConfigurationForDescribeKeysOutput;
 import com.volcengine.kms.model.TagForDescribeKeysOutput;
+import com.volcengine.kms.model.XksKeyConfigurationForDescribeKeysOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -36,6 +37,9 @@ import javax.validation.Valid;
 public class KeyForDescribeKeysOutput {
   @SerializedName("CreationDate")
   private Long creationDate = null;
+
+  @SerializedName("CustomKeyStoreID")
+  private String customKeyStoreID = null;
 
   @SerializedName("Description")
   private String description = null;
@@ -91,6 +95,9 @@ public class KeyForDescribeKeysOutput {
   @SerializedName("UpdateDate")
   private Long updateDate = null;
 
+  @SerializedName("XksKeyConfiguration")
+  private XksKeyConfigurationForDescribeKeysOutput xksKeyConfiguration = null;
+
   public KeyForDescribeKeysOutput creationDate(Long creationDate) {
     this.creationDate = creationDate;
     return this;
@@ -107,6 +114,24 @@ public class KeyForDescribeKeysOutput {
 
   public void setCreationDate(Long creationDate) {
     this.creationDate = creationDate;
+  }
+
+  public KeyForDescribeKeysOutput customKeyStoreID(String customKeyStoreID) {
+    this.customKeyStoreID = customKeyStoreID;
+    return this;
+  }
+
+   /**
+   * Get customKeyStoreID
+   * @return customKeyStoreID
+  **/
+  @Schema(description = "")
+  public String getCustomKeyStoreID() {
+    return customKeyStoreID;
+  }
+
+  public void setCustomKeyStoreID(String customKeyStoreID) {
+    this.customKeyStoreID = customKeyStoreID;
   }
 
   public KeyForDescribeKeysOutput description(String description) {
@@ -443,6 +468,25 @@ public class KeyForDescribeKeysOutput {
     this.updateDate = updateDate;
   }
 
+  public KeyForDescribeKeysOutput xksKeyConfiguration(XksKeyConfigurationForDescribeKeysOutput xksKeyConfiguration) {
+    this.xksKeyConfiguration = xksKeyConfiguration;
+    return this;
+  }
+
+   /**
+   * Get xksKeyConfiguration
+   * @return xksKeyConfiguration
+  **/
+  @Valid
+  @Schema(description = "")
+  public XksKeyConfigurationForDescribeKeysOutput getXksKeyConfiguration() {
+    return xksKeyConfiguration;
+  }
+
+  public void setXksKeyConfiguration(XksKeyConfigurationForDescribeKeysOutput xksKeyConfiguration) {
+    this.xksKeyConfiguration = xksKeyConfiguration;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -454,6 +498,7 @@ public class KeyForDescribeKeysOutput {
     }
     KeyForDescribeKeysOutput keyForDescribeKeysOutput = (KeyForDescribeKeysOutput) o;
     return Objects.equals(this.creationDate, keyForDescribeKeysOutput.creationDate) &&
+        Objects.equals(this.customKeyStoreID, keyForDescribeKeysOutput.customKeyStoreID) &&
         Objects.equals(this.description, keyForDescribeKeysOutput.description) &&
         Objects.equals(this.ID, keyForDescribeKeysOutput.ID) &&
         Objects.equals(this.keyMaterialExpireTime, keyForDescribeKeysOutput.keyMaterialExpireTime) &&
@@ -471,12 +516,13 @@ public class KeyForDescribeKeysOutput {
         Objects.equals(this.scheduleRotationTime, keyForDescribeKeysOutput.scheduleRotationTime) &&
         Objects.equals(this.tags, keyForDescribeKeysOutput.tags) &&
         Objects.equals(this.trn, keyForDescribeKeysOutput.trn) &&
-        Objects.equals(this.updateDate, keyForDescribeKeysOutput.updateDate);
+        Objects.equals(this.updateDate, keyForDescribeKeysOutput.updateDate) &&
+        Objects.equals(this.xksKeyConfiguration, keyForDescribeKeysOutput.xksKeyConfiguration);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(creationDate, description, ID, keyMaterialExpireTime, keyName, keySpec, keyState, keyUsage, lastRotationTime, multiRegion, multiRegionConfiguration, origin, protectionLevel, rotationState, scheduleDeleteTime, scheduleRotationTime, tags, trn, updateDate);
+    return Objects.hash(creationDate, customKeyStoreID, description, ID, keyMaterialExpireTime, keyName, keySpec, keyState, keyUsage, lastRotationTime, multiRegion, multiRegionConfiguration, origin, protectionLevel, rotationState, scheduleDeleteTime, scheduleRotationTime, tags, trn, updateDate, xksKeyConfiguration);
   }
 
 
@@ -486,6 +532,7 @@ public class KeyForDescribeKeysOutput {
     sb.append("class KeyForDescribeKeysOutput {\n");
     
     sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
+    sb.append("    customKeyStoreID: ").append(toIndentedString(customKeyStoreID)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    ID: ").append(toIndentedString(ID)).append("\n");
     sb.append("    keyMaterialExpireTime: ").append(toIndentedString(keyMaterialExpireTime)).append("\n");
@@ -504,6 +551,7 @@ public class KeyForDescribeKeysOutput {
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    trn: ").append(toIndentedString(trn)).append("\n");
     sb.append("    updateDate: ").append(toIndentedString(updateDate)).append("\n");
+    sb.append("    xksKeyConfiguration: ").append(toIndentedString(xksKeyConfiguration)).append("\n");
     sb.append("}");
     return sb.toString();
   }
