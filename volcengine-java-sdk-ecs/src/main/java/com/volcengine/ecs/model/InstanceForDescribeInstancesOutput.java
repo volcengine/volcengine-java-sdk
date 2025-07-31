@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import com.volcengine.ecs.model.CpuOptionsForDescribeInstancesOutput;
 import com.volcengine.ecs.model.EipAddressForDescribeInstancesOutput;
 import com.volcengine.ecs.model.LocalVolumeForDescribeInstancesOutput;
+import com.volcengine.ecs.model.MetadataOptionsForDescribeInstancesOutput;
 import com.volcengine.ecs.model.NetworkInterfaceForDescribeInstancesOutput;
 import com.volcengine.ecs.model.PlacementForDescribeInstancesOutput;
 import com.volcengine.ecs.model.TagForDescribeInstancesOutput;
@@ -107,6 +108,9 @@ public class InstanceForDescribeInstancesOutput {
 
   @SerializedName("MemorySize")
   private Integer memorySize = null;
+
+  @SerializedName("MetadataOptions")
+  private MetadataOptionsForDescribeInstancesOutput metadataOptions = null;
 
   @SerializedName("NetworkInterfaces")
   private List<NetworkInterfaceForDescribeInstancesOutput> networkInterfaces = null;
@@ -584,6 +588,25 @@ public class InstanceForDescribeInstancesOutput {
     this.memorySize = memorySize;
   }
 
+  public InstanceForDescribeInstancesOutput metadataOptions(MetadataOptionsForDescribeInstancesOutput metadataOptions) {
+    this.metadataOptions = metadataOptions;
+    return this;
+  }
+
+   /**
+   * Get metadataOptions
+   * @return metadataOptions
+  **/
+  @Valid
+  @Schema(description = "")
+  public MetadataOptionsForDescribeInstancesOutput getMetadataOptions() {
+    return metadataOptions;
+  }
+
+  public void setMetadataOptions(MetadataOptionsForDescribeInstancesOutput metadataOptions) {
+    this.metadataOptions = metadataOptions;
+  }
+
   public InstanceForDescribeInstancesOutput networkInterfaces(List<NetworkInterfaceForDescribeInstancesOutput> networkInterfaces) {
     this.networkInterfaces = networkInterfaces;
     return this;
@@ -959,6 +982,7 @@ public class InstanceForDescribeInstancesOutput {
         Objects.equals(this.keyPairName, instanceForDescribeInstancesOutput.keyPairName) &&
         Objects.equals(this.localVolumes, instanceForDescribeInstancesOutput.localVolumes) &&
         Objects.equals(this.memorySize, instanceForDescribeInstancesOutput.memorySize) &&
+        Objects.equals(this.metadataOptions, instanceForDescribeInstancesOutput.metadataOptions) &&
         Objects.equals(this.networkInterfaces, instanceForDescribeInstancesOutput.networkInterfaces) &&
         Objects.equals(this.osName, instanceForDescribeInstancesOutput.osName) &&
         Objects.equals(this.osType, instanceForDescribeInstancesOutput.osType) &&
@@ -980,7 +1004,7 @@ public class InstanceForDescribeInstancesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(affinityGroupId, cpuOptions, cpus, createdAt, deletionProtection, deploymentSetGroupNumber, deploymentSetId, description, eipAddress, elasticScheduledInstanceType, expiredAt, hostName, hostname, hpcClusterId, imageId, instanceChargeType, instanceId, instanceName, instanceTypeId, keyPairId, keyPairName, localVolumes, memorySize, networkInterfaces, osName, osType, placement, projectName, rdmaIpAddresses, scheduledInstanceId, spotPriceLimit, spotStrategy, status, stoppedMode, tags, updatedAt, uuid, volumes, vpcId, zoneId);
+    return Objects.hash(affinityGroupId, cpuOptions, cpus, createdAt, deletionProtection, deploymentSetGroupNumber, deploymentSetId, description, eipAddress, elasticScheduledInstanceType, expiredAt, hostName, hostname, hpcClusterId, imageId, instanceChargeType, instanceId, instanceName, instanceTypeId, keyPairId, keyPairName, localVolumes, memorySize, metadataOptions, networkInterfaces, osName, osType, placement, projectName, rdmaIpAddresses, scheduledInstanceId, spotPriceLimit, spotStrategy, status, stoppedMode, tags, updatedAt, uuid, volumes, vpcId, zoneId);
   }
 
 
@@ -1012,6 +1036,7 @@ public class InstanceForDescribeInstancesOutput {
     sb.append("    keyPairName: ").append(toIndentedString(keyPairName)).append("\n");
     sb.append("    localVolumes: ").append(toIndentedString(localVolumes)).append("\n");
     sb.append("    memorySize: ").append(toIndentedString(memorySize)).append("\n");
+    sb.append("    metadataOptions: ").append(toIndentedString(metadataOptions)).append("\n");
     sb.append("    networkInterfaces: ").append(toIndentedString(networkInterfaces)).append("\n");
     sb.append("    osName: ").append(toIndentedString(osName)).append("\n");
     sb.append("    osType: ").append(toIndentedString(osType)).append("\n");

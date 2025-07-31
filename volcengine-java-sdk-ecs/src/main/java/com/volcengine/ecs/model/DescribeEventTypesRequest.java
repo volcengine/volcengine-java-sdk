@@ -32,6 +32,9 @@ import javax.validation.Valid;
 
 
 public class DescribeEventTypesRequest {
+  @SerializedName("ImpactLevel")
+  private String impactLevel = null;
+
   @SerializedName("Kind")
   private String kind = null;
 
@@ -46,6 +49,24 @@ public class DescribeEventTypesRequest {
 
   @SerializedName("Types")
   private List<String> types = null;
+
+  public DescribeEventTypesRequest impactLevel(String impactLevel) {
+    this.impactLevel = impactLevel;
+    return this;
+  }
+
+   /**
+   * Get impactLevel
+   * @return impactLevel
+  **/
+  @Schema(description = "")
+  public String getImpactLevel() {
+    return impactLevel;
+  }
+
+  public void setImpactLevel(String impactLevel) {
+    this.impactLevel = impactLevel;
+  }
 
   public DescribeEventTypesRequest kind(String kind) {
     this.kind = kind;
@@ -155,7 +176,8 @@ public class DescribeEventTypesRequest {
       return false;
     }
     DescribeEventTypesRequest describeEventTypesRequest = (DescribeEventTypesRequest) o;
-    return Objects.equals(this.kind, describeEventTypesRequest.kind) &&
+    return Objects.equals(this.impactLevel, describeEventTypesRequest.impactLevel) &&
+        Objects.equals(this.kind, describeEventTypesRequest.kind) &&
         Objects.equals(this.maxResults, describeEventTypesRequest.maxResults) &&
         Objects.equals(this.nextToken, describeEventTypesRequest.nextToken) &&
         Objects.equals(this.responseRequired, describeEventTypesRequest.responseRequired) &&
@@ -164,7 +186,7 @@ public class DescribeEventTypesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(kind, maxResults, nextToken, responseRequired, types);
+    return Objects.hash(impactLevel, kind, maxResults, nextToken, responseRequired, types);
   }
 
 
@@ -173,6 +195,7 @@ public class DescribeEventTypesRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeEventTypesRequest {\n");
     
+    sb.append("    impactLevel: ").append(toIndentedString(impactLevel)).append("\n");
     sb.append("    kind: ").append(toIndentedString(kind)).append("\n");
     sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
     sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");

@@ -32,6 +32,9 @@ import javax.validation.Valid;
 
 
 public class EventTypeForDescribeEventTypesOutput {
+  @SerializedName("ImpactLevel")
+  private String impactLevel = null;
+
   @SerializedName("Kind")
   private String kind = null;
 
@@ -46,6 +49,24 @@ public class EventTypeForDescribeEventTypesOutput {
 
   @SerializedName("Type")
   private String type = null;
+
+  public EventTypeForDescribeEventTypesOutput impactLevel(String impactLevel) {
+    this.impactLevel = impactLevel;
+    return this;
+  }
+
+   /**
+   * Get impactLevel
+   * @return impactLevel
+  **/
+  @Schema(description = "")
+  public String getImpactLevel() {
+    return impactLevel;
+  }
+
+  public void setImpactLevel(String impactLevel) {
+    this.impactLevel = impactLevel;
+  }
 
   public EventTypeForDescribeEventTypesOutput kind(String kind) {
     this.kind = kind;
@@ -155,7 +176,8 @@ public class EventTypeForDescribeEventTypesOutput {
       return false;
     }
     EventTypeForDescribeEventTypesOutput eventTypeForDescribeEventTypesOutput = (EventTypeForDescribeEventTypesOutput) o;
-    return Objects.equals(this.kind, eventTypeForDescribeEventTypesOutput.kind) &&
+    return Objects.equals(this.impactLevel, eventTypeForDescribeEventTypesOutput.impactLevel) &&
+        Objects.equals(this.kind, eventTypeForDescribeEventTypesOutput.kind) &&
         Objects.equals(this.responseRequired, eventTypeForDescribeEventTypesOutput.responseRequired) &&
         Objects.equals(this.status, eventTypeForDescribeEventTypesOutput.status) &&
         Objects.equals(this.title, eventTypeForDescribeEventTypesOutput.title) &&
@@ -164,7 +186,7 @@ public class EventTypeForDescribeEventTypesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(kind, responseRequired, status, title, type);
+    return Objects.hash(impactLevel, kind, responseRequired, status, title, type);
   }
 
 
@@ -173,6 +195,7 @@ public class EventTypeForDescribeEventTypesOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class EventTypeForDescribeEventTypesOutput {\n");
     
+    sb.append("    impactLevel: ").append(toIndentedString(impactLevel)).append("\n");
     sb.append("    kind: ").append(toIndentedString(kind)).append("\n");
     sb.append("    responseRequired: ").append(toIndentedString(responseRequired)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");

@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.volcengine.ecs.model.TagForCopyImageInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
@@ -47,6 +50,9 @@ public class CopyImageRequest {
 
   @SerializedName("ProjectName")
   private String projectName = null;
+
+  @SerializedName("Tags")
+  private List<TagForCopyImageInput> tags = null;
 
   public CopyImageRequest copyImageTags(Boolean copyImageTags) {
     this.copyImageTags = copyImageTags;
@@ -159,6 +165,33 @@ public class CopyImageRequest {
     this.projectName = projectName;
   }
 
+  public CopyImageRequest tags(List<TagForCopyImageInput> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public CopyImageRequest addTagsItem(TagForCopyImageInput tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<TagForCopyImageInput>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @Valid
+  @Schema(description = "")
+  public List<TagForCopyImageInput> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<TagForCopyImageInput> tags) {
+    this.tags = tags;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -174,12 +207,13 @@ public class CopyImageRequest {
         Objects.equals(this.destinationRegion, copyImageRequest.destinationRegion) &&
         Objects.equals(this.imageId, copyImageRequest.imageId) &&
         Objects.equals(this.imageName, copyImageRequest.imageName) &&
-        Objects.equals(this.projectName, copyImageRequest.projectName);
+        Objects.equals(this.projectName, copyImageRequest.projectName) &&
+        Objects.equals(this.tags, copyImageRequest.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(copyImageTags, description, destinationRegion, imageId, imageName, projectName);
+    return Objects.hash(copyImageTags, description, destinationRegion, imageId, imageName, projectName, tags);
   }
 
 
@@ -194,6 +228,7 @@ public class CopyImageRequest {
     sb.append("    imageId: ").append(toIndentedString(imageId)).append("\n");
     sb.append("    imageName: ").append(toIndentedString(imageName)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }

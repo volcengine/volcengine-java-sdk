@@ -23,6 +23,7 @@ import com.volcengine.waf.model.BackendGroupForListDomainOutput;
 import com.volcengine.waf.model.CloudAccessConfigForListDomainOutput;
 import com.volcengine.waf.model.ProtocolPortsForListDomainOutput;
 import com.volcengine.waf.model.TCPListenerConfigForListDomainOutput;
+import com.volcengine.waf.model.TLSFieldsConfigForListDomainOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -126,6 +127,9 @@ public class DataForListDomainOutput {
   @SerializedName("CustomRspEnable")
   private Integer customRspEnable = null;
 
+  @SerializedName("CustomSNI")
+  private String customSNI = null;
+
   @SerializedName("DefenceMode")
   private Integer defenceMode = null;
 
@@ -135,11 +139,17 @@ public class DataForListDomainOutput {
   @SerializedName("Domain")
   private String domain = null;
 
+  @SerializedName("EnableCustomRedirect")
+  private Integer enableCustomRedirect = null;
+
   @SerializedName("EnableHTTP2")
   private Integer enableHTTP2 = null;
 
   @SerializedName("EnableIPv6")
   private Integer enableIPv6 = null;
+
+  @SerializedName("EnableSNI")
+  private Integer enableSNI = null;
 
   @SerializedName("KeepAliveRequest")
   private Integer keepAliveRequest = null;
@@ -221,6 +231,9 @@ public class DataForListDomainOutput {
 
   @SerializedName("TLSEnable")
   private Integer tlSEnable = null;
+
+  @SerializedName("TLSFieldsConfig")
+  private TLSFieldsConfigForListDomainOutput tlSFieldsConfig = null;
 
   @SerializedName("TamperProofEnable")
   private Integer tamperProofEnable = null;
@@ -812,6 +825,24 @@ public class DataForListDomainOutput {
     this.customRspEnable = customRspEnable;
   }
 
+  public DataForListDomainOutput customSNI(String customSNI) {
+    this.customSNI = customSNI;
+    return this;
+  }
+
+   /**
+   * Get customSNI
+   * @return customSNI
+  **/
+  @Schema(description = "")
+  public String getCustomSNI() {
+    return customSNI;
+  }
+
+  public void setCustomSNI(String customSNI) {
+    this.customSNI = customSNI;
+  }
+
   public DataForListDomainOutput defenceMode(Integer defenceMode) {
     this.defenceMode = defenceMode;
     return this;
@@ -866,6 +897,24 @@ public class DataForListDomainOutput {
     this.domain = domain;
   }
 
+  public DataForListDomainOutput enableCustomRedirect(Integer enableCustomRedirect) {
+    this.enableCustomRedirect = enableCustomRedirect;
+    return this;
+  }
+
+   /**
+   * Get enableCustomRedirect
+   * @return enableCustomRedirect
+  **/
+  @Schema(description = "")
+  public Integer getEnableCustomRedirect() {
+    return enableCustomRedirect;
+  }
+
+  public void setEnableCustomRedirect(Integer enableCustomRedirect) {
+    this.enableCustomRedirect = enableCustomRedirect;
+  }
+
   public DataForListDomainOutput enableHTTP2(Integer enableHTTP2) {
     this.enableHTTP2 = enableHTTP2;
     return this;
@@ -900,6 +949,24 @@ public class DataForListDomainOutput {
 
   public void setEnableIPv6(Integer enableIPv6) {
     this.enableIPv6 = enableIPv6;
+  }
+
+  public DataForListDomainOutput enableSNI(Integer enableSNI) {
+    this.enableSNI = enableSNI;
+    return this;
+  }
+
+   /**
+   * Get enableSNI
+   * @return enableSNI
+  **/
+  @Schema(description = "")
+  public Integer getEnableSNI() {
+    return enableSNI;
+  }
+
+  public void setEnableSNI(Integer enableSNI) {
+    this.enableSNI = enableSNI;
   }
 
   public DataForListDomainOutput keepAliveRequest(Integer keepAliveRequest) {
@@ -1414,6 +1481,25 @@ public class DataForListDomainOutput {
     this.tlSEnable = tlSEnable;
   }
 
+  public DataForListDomainOutput tlSFieldsConfig(TLSFieldsConfigForListDomainOutput tlSFieldsConfig) {
+    this.tlSFieldsConfig = tlSFieldsConfig;
+    return this;
+  }
+
+   /**
+   * Get tlSFieldsConfig
+   * @return tlSFieldsConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public TLSFieldsConfigForListDomainOutput getTlSFieldsConfig() {
+    return tlSFieldsConfig;
+  }
+
+  public void setTlSFieldsConfig(TLSFieldsConfigForListDomainOutput tlSFieldsConfig) {
+    this.tlSFieldsConfig = tlSFieldsConfig;
+  }
+
   public DataForListDomainOutput tamperProofEnable(Integer tamperProofEnable) {
     this.tamperProofEnable = tamperProofEnable;
     return this;
@@ -1598,11 +1684,14 @@ public class DataForListDomainOutput {
         Objects.equals(this.customBotEnable, dataForListDomainOutput.customBotEnable) &&
         Objects.equals(this.customHeader, dataForListDomainOutput.customHeader) &&
         Objects.equals(this.customRspEnable, dataForListDomainOutput.customRspEnable) &&
+        Objects.equals(this.customSNI, dataForListDomainOutput.customSNI) &&
         Objects.equals(this.defenceMode, dataForListDomainOutput.defenceMode) &&
         Objects.equals(this.dlpEnable, dataForListDomainOutput.dlpEnable) &&
         Objects.equals(this.domain, dataForListDomainOutput.domain) &&
+        Objects.equals(this.enableCustomRedirect, dataForListDomainOutput.enableCustomRedirect) &&
         Objects.equals(this.enableHTTP2, dataForListDomainOutput.enableHTTP2) &&
         Objects.equals(this.enableIPv6, dataForListDomainOutput.enableIPv6) &&
+        Objects.equals(this.enableSNI, dataForListDomainOutput.enableSNI) &&
         Objects.equals(this.keepAliveRequest, dataForListDomainOutput.keepAliveRequest) &&
         Objects.equals(this.keepAliveTimeOut, dataForListDomainOutput.keepAliveTimeOut) &&
         Objects.equals(this.lbAlgorithm, dataForListDomainOutput.lbAlgorithm) &&
@@ -1630,6 +1719,7 @@ public class DataForListDomainOutput {
         Objects.equals(this.systemBotEnable, dataForListDomainOutput.systemBotEnable) &&
         Objects.equals(this.tcPListenerConfig, dataForListDomainOutput.tcPListenerConfig) &&
         Objects.equals(this.tlSEnable, dataForListDomainOutput.tlSEnable) &&
+        Objects.equals(this.tlSFieldsConfig, dataForListDomainOutput.tlSFieldsConfig) &&
         Objects.equals(this.tamperProofEnable, dataForListDomainOutput.tamperProofEnable) &&
         Objects.equals(this.updateTime, dataForListDomainOutput.updateTime) &&
         Objects.equals(this.volcCertificateID, dataForListDomainOutput.volcCertificateID) &&
@@ -1642,7 +1732,7 @@ public class DataForListDomainOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessMode, advancedDefenseIP, advancedDefenseIPv6, apiEnable, attackStatus, autoCCEnable, automaticBlackEnable, backendGroups, blackIpEnable, blackLctEnable, botDytokenEnable, botFrequencyEnable, botRepeatEnable, botSequenceDefaultAction, botSequenceEnable, ccEnable, certificateID, certificateName, certificatePlatform, clbInstanceIDs, clbListenerId, clbPoolId, clbServerId, clientIPLocation, clientMaxBodySize, cloudAccessConfig, cname, customBotEnable, customHeader, customRspEnable, defenceMode, dlpEnable, domain, enableHTTP2, enableIPv6, keepAliveRequest, keepAliveTimeOut, lbAlgorithm, port, protocolFollow, protocolPorts, protocols, proxyConfig, proxyConnectTimeOut, proxyKeepAlive, proxyKeepAliveTimeOut, proxyReadTimeOut, proxyRetry, proxyWriteTimeOut, publicRealServer, redirectHTTPS, region, rspAbnormalEnable, ssLCiphers, ssLProtocols, serverIps, srcIps, srcProtocol, status, systemBotEnable, tcPListenerConfig, tlSEnable, tamperProofEnable, updateTime, volcCertificateID, vpcID, wafEnable, wafWhiteReqEnable, whiteEnable, whiteFieldEnable);
+    return Objects.hash(accessMode, advancedDefenseIP, advancedDefenseIPv6, apiEnable, attackStatus, autoCCEnable, automaticBlackEnable, backendGroups, blackIpEnable, blackLctEnable, botDytokenEnable, botFrequencyEnable, botRepeatEnable, botSequenceDefaultAction, botSequenceEnable, ccEnable, certificateID, certificateName, certificatePlatform, clbInstanceIDs, clbListenerId, clbPoolId, clbServerId, clientIPLocation, clientMaxBodySize, cloudAccessConfig, cname, customBotEnable, customHeader, customRspEnable, customSNI, defenceMode, dlpEnable, domain, enableCustomRedirect, enableHTTP2, enableIPv6, enableSNI, keepAliveRequest, keepAliveTimeOut, lbAlgorithm, port, protocolFollow, protocolPorts, protocols, proxyConfig, proxyConnectTimeOut, proxyKeepAlive, proxyKeepAliveTimeOut, proxyReadTimeOut, proxyRetry, proxyWriteTimeOut, publicRealServer, redirectHTTPS, region, rspAbnormalEnable, ssLCiphers, ssLProtocols, serverIps, srcIps, srcProtocol, status, systemBotEnable, tcPListenerConfig, tlSEnable, tlSFieldsConfig, tamperProofEnable, updateTime, volcCertificateID, vpcID, wafEnable, wafWhiteReqEnable, whiteEnable, whiteFieldEnable);
   }
 
 
@@ -1681,11 +1771,14 @@ public class DataForListDomainOutput {
     sb.append("    customBotEnable: ").append(toIndentedString(customBotEnable)).append("\n");
     sb.append("    customHeader: ").append(toIndentedString(customHeader)).append("\n");
     sb.append("    customRspEnable: ").append(toIndentedString(customRspEnable)).append("\n");
+    sb.append("    customSNI: ").append(toIndentedString(customSNI)).append("\n");
     sb.append("    defenceMode: ").append(toIndentedString(defenceMode)).append("\n");
     sb.append("    dlpEnable: ").append(toIndentedString(dlpEnable)).append("\n");
     sb.append("    domain: ").append(toIndentedString(domain)).append("\n");
+    sb.append("    enableCustomRedirect: ").append(toIndentedString(enableCustomRedirect)).append("\n");
     sb.append("    enableHTTP2: ").append(toIndentedString(enableHTTP2)).append("\n");
     sb.append("    enableIPv6: ").append(toIndentedString(enableIPv6)).append("\n");
+    sb.append("    enableSNI: ").append(toIndentedString(enableSNI)).append("\n");
     sb.append("    keepAliveRequest: ").append(toIndentedString(keepAliveRequest)).append("\n");
     sb.append("    keepAliveTimeOut: ").append(toIndentedString(keepAliveTimeOut)).append("\n");
     sb.append("    lbAlgorithm: ").append(toIndentedString(lbAlgorithm)).append("\n");
@@ -1713,6 +1806,7 @@ public class DataForListDomainOutput {
     sb.append("    systemBotEnable: ").append(toIndentedString(systemBotEnable)).append("\n");
     sb.append("    tcPListenerConfig: ").append(toIndentedString(tcPListenerConfig)).append("\n");
     sb.append("    tlSEnable: ").append(toIndentedString(tlSEnable)).append("\n");
+    sb.append("    tlSFieldsConfig: ").append(toIndentedString(tlSFieldsConfig)).append("\n");
     sb.append("    tamperProofEnable: ").append(toIndentedString(tamperProofEnable)).append("\n");
     sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
     sb.append("    volcCertificateID: ").append(toIndentedString(volcCertificateID)).append("\n");

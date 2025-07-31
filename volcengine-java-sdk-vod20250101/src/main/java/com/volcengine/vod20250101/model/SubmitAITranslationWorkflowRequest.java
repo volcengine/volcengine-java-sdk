@@ -20,6 +20,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.vod20250101.model.OperatorConfigForSubmitAITranslationWorkflowInput;
+import com.volcengine.vod20250101.model.ProcessConfigForSubmitAITranslationWorkflowInput;
+import com.volcengine.vod20250101.model.SubtitleConfigForSubmitAITranslationWorkflowInput;
 import com.volcengine.vod20250101.model.TranslationConfigForSubmitAITranslationWorkflowInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
@@ -35,8 +37,14 @@ public class SubmitAITranslationWorkflowRequest {
   @SerializedName("OperatorConfig")
   private OperatorConfigForSubmitAITranslationWorkflowInput operatorConfig = null;
 
+  @SerializedName("ProcessConfig")
+  private ProcessConfigForSubmitAITranslationWorkflowInput processConfig = null;
+
   @SerializedName("SpaceName")
   private String spaceName = null;
+
+  @SerializedName("SubtitleConfig")
+  private SubtitleConfigForSubmitAITranslationWorkflowInput subtitleConfig = null;
 
   @SerializedName("TranslationConfig")
   private TranslationConfigForSubmitAITranslationWorkflowInput translationConfig = null;
@@ -63,6 +71,25 @@ public class SubmitAITranslationWorkflowRequest {
     this.operatorConfig = operatorConfig;
   }
 
+  public SubmitAITranslationWorkflowRequest processConfig(ProcessConfigForSubmitAITranslationWorkflowInput processConfig) {
+    this.processConfig = processConfig;
+    return this;
+  }
+
+   /**
+   * Get processConfig
+   * @return processConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public ProcessConfigForSubmitAITranslationWorkflowInput getProcessConfig() {
+    return processConfig;
+  }
+
+  public void setProcessConfig(ProcessConfigForSubmitAITranslationWorkflowInput processConfig) {
+    this.processConfig = processConfig;
+  }
+
   public SubmitAITranslationWorkflowRequest spaceName(String spaceName) {
     this.spaceName = spaceName;
     return this;
@@ -80,6 +107,25 @@ public class SubmitAITranslationWorkflowRequest {
 
   public void setSpaceName(String spaceName) {
     this.spaceName = spaceName;
+  }
+
+  public SubmitAITranslationWorkflowRequest subtitleConfig(SubtitleConfigForSubmitAITranslationWorkflowInput subtitleConfig) {
+    this.subtitleConfig = subtitleConfig;
+    return this;
+  }
+
+   /**
+   * Get subtitleConfig
+   * @return subtitleConfig
+  **/
+  @Valid
+  @Schema(description = "")
+  public SubtitleConfigForSubmitAITranslationWorkflowInput getSubtitleConfig() {
+    return subtitleConfig;
+  }
+
+  public void setSubtitleConfig(SubtitleConfigForSubmitAITranslationWorkflowInput subtitleConfig) {
+    this.subtitleConfig = subtitleConfig;
   }
 
   public SubmitAITranslationWorkflowRequest translationConfig(TranslationConfigForSubmitAITranslationWorkflowInput translationConfig) {
@@ -131,14 +177,16 @@ public class SubmitAITranslationWorkflowRequest {
     }
     SubmitAITranslationWorkflowRequest submitAITranslationWorkflowRequest = (SubmitAITranslationWorkflowRequest) o;
     return Objects.equals(this.operatorConfig, submitAITranslationWorkflowRequest.operatorConfig) &&
+        Objects.equals(this.processConfig, submitAITranslationWorkflowRequest.processConfig) &&
         Objects.equals(this.spaceName, submitAITranslationWorkflowRequest.spaceName) &&
+        Objects.equals(this.subtitleConfig, submitAITranslationWorkflowRequest.subtitleConfig) &&
         Objects.equals(this.translationConfig, submitAITranslationWorkflowRequest.translationConfig) &&
         Objects.equals(this.vid, submitAITranslationWorkflowRequest.vid);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(operatorConfig, spaceName, translationConfig, vid);
+    return Objects.hash(operatorConfig, processConfig, spaceName, subtitleConfig, translationConfig, vid);
   }
 
 
@@ -148,7 +196,9 @@ public class SubmitAITranslationWorkflowRequest {
     sb.append("class SubmitAITranslationWorkflowRequest {\n");
     
     sb.append("    operatorConfig: ").append(toIndentedString(operatorConfig)).append("\n");
+    sb.append("    processConfig: ").append(toIndentedString(processConfig)).append("\n");
     sb.append("    spaceName: ").append(toIndentedString(spaceName)).append("\n");
+    sb.append("    subtitleConfig: ").append(toIndentedString(subtitleConfig)).append("\n");
     sb.append("    translationConfig: ").append(toIndentedString(translationConfig)).append("\n");
     sb.append("    vid: ").append(toIndentedString(vid)).append("\n");
     sb.append("}");

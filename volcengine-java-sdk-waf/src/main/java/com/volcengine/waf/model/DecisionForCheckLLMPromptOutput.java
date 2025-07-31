@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.volcengine.waf.model.CustomMatchForCheckLLMPromptOutput;
 import com.volcengine.waf.model.MatchForCheckLLMPromptOutput;
+import com.volcengine.waf.model.ReplaceDetailForCheckLLMPromptOutput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -51,6 +52,9 @@ public class DecisionForCheckLLMPromptOutput {
 
   @SerializedName("Matches")
   private List<MatchForCheckLLMPromptOutput> matches = null;
+
+  @SerializedName("ReplaceDetail")
+  private ReplaceDetailForCheckLLMPromptOutput replaceDetail = null;
 
   public DecisionForCheckLLMPromptOutput action(Integer action) {
     this.action = action;
@@ -186,6 +190,25 @@ public class DecisionForCheckLLMPromptOutput {
     this.matches = matches;
   }
 
+  public DecisionForCheckLLMPromptOutput replaceDetail(ReplaceDetailForCheckLLMPromptOutput replaceDetail) {
+    this.replaceDetail = replaceDetail;
+    return this;
+  }
+
+   /**
+   * Get replaceDetail
+   * @return replaceDetail
+  **/
+  @Valid
+  @Schema(description = "")
+  public ReplaceDetailForCheckLLMPromptOutput getReplaceDetail() {
+    return replaceDetail;
+  }
+
+  public void setReplaceDetail(ReplaceDetailForCheckLLMPromptOutput replaceDetail) {
+    this.replaceDetail = replaceDetail;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -201,12 +224,13 @@ public class DecisionForCheckLLMPromptOutput {
         Objects.equals(this.errCode, decisionForCheckLLMPromptOutput.errCode) &&
         Objects.equals(this.errMsg, decisionForCheckLLMPromptOutput.errMsg) &&
         Objects.equals(this.labels, decisionForCheckLLMPromptOutput.labels) &&
-        Objects.equals(this.matches, decisionForCheckLLMPromptOutput.matches);
+        Objects.equals(this.matches, decisionForCheckLLMPromptOutput.matches) &&
+        Objects.equals(this.replaceDetail, decisionForCheckLLMPromptOutput.replaceDetail);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, customMatches, errCode, errMsg, labels, matches);
+    return Objects.hash(action, customMatches, errCode, errMsg, labels, matches, replaceDetail);
   }
 
 
@@ -221,6 +245,7 @@ public class DecisionForCheckLLMPromptOutput {
     sb.append("    errMsg: ").append(toIndentedString(errMsg)).append("\n");
     sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
     sb.append("    matches: ").append(toIndentedString(matches)).append("\n");
+    sb.append("    replaceDetail: ").append(toIndentedString(replaceDetail)).append("\n");
     sb.append("}");
     return sb.toString();
   }
