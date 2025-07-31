@@ -86,6 +86,9 @@ public class ImageForDescribeImagesOutput {
   @SerializedName("PlatformVersion")
   private String platformVersion = null;
 
+  @SerializedName("ProductCode")
+  private String productCode = null;
+
   @SerializedName("ProjectName")
   private String projectName = null;
 
@@ -420,6 +423,24 @@ public class ImageForDescribeImagesOutput {
     this.platformVersion = platformVersion;
   }
 
+  public ImageForDescribeImagesOutput productCode(String productCode) {
+    this.productCode = productCode;
+    return this;
+  }
+
+   /**
+   * Get productCode
+   * @return productCode
+  **/
+  @Schema(description = "")
+  public String getProductCode() {
+    return productCode;
+  }
+
+  public void setProductCode(String productCode) {
+    this.productCode = productCode;
+  }
+
   public ImageForDescribeImagesOutput projectName(String projectName) {
     this.projectName = projectName;
     return this;
@@ -627,6 +648,7 @@ public class ImageForDescribeImagesOutput {
         Objects.equals(this.osType, imageForDescribeImagesOutput.osType) &&
         Objects.equals(this.platform, imageForDescribeImagesOutput.platform) &&
         Objects.equals(this.platformVersion, imageForDescribeImagesOutput.platformVersion) &&
+        Objects.equals(this.productCode, imageForDescribeImagesOutput.productCode) &&
         Objects.equals(this.projectName, imageForDescribeImagesOutput.projectName) &&
         Objects.equals(this.shareStatus, imageForDescribeImagesOutput.shareStatus) &&
         Objects.equals(this.size, imageForDescribeImagesOutput.size) &&
@@ -640,7 +662,7 @@ public class ImageForDescribeImagesOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(architecture, bootMode, createdAt, description, detectionResults, imageId, imageName, imageOwnerId, isInstallRunCommandAgent, isLTS, isSupportCloudInit, kernel, licenseType, osName, osType, platform, platformVersion, projectName, shareStatus, size, snapshots, status, tags, updatedAt, virtualSize, visibility);
+    return Objects.hash(architecture, bootMode, createdAt, description, detectionResults, imageId, imageName, imageOwnerId, isInstallRunCommandAgent, isLTS, isSupportCloudInit, kernel, licenseType, osName, osType, platform, platformVersion, productCode, projectName, shareStatus, size, snapshots, status, tags, updatedAt, virtualSize, visibility);
   }
 
 
@@ -666,6 +688,7 @@ public class ImageForDescribeImagesOutput {
     sb.append("    osType: ").append(toIndentedString(osType)).append("\n");
     sb.append("    platform: ").append(toIndentedString(platform)).append("\n");
     sb.append("    platformVersion: ").append(toIndentedString(platformVersion)).append("\n");
+    sb.append("    productCode: ").append(toIndentedString(productCode)).append("\n");
     sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    shareStatus: ").append(toIndentedString(shareStatus)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");

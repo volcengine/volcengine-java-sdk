@@ -19,11 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.volcengine.ecs.model.EipAddressForRunInstancesInput;
-import com.volcengine.ecs.model.NetworkInterfaceForRunInstancesInput;
-import com.volcengine.ecs.model.PlacementForRunInstancesInput;
-import com.volcengine.ecs.model.TagForRunInstancesInput;
-import com.volcengine.ecs.model.VolumeForRunInstancesInput;
+import com.volcengine.ecs.model.EipAddressForAllocateInstancesInput;
+import com.volcengine.ecs.model.NetworkInterfaceForAllocateInstancesInput;
+import com.volcengine.ecs.model.PlacementForAllocateInstancesInput;
+import com.volcengine.ecs.model.TagForAllocateInstancesInput;
+import com.volcengine.ecs.model.VolumeForAllocateInstancesInput;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -31,20 +31,20 @@ import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * RunInstancesRequest
+ * AllocateInstancesRequest
  */
 
 
 
-public class RunInstancesRequest {
-  @SerializedName("AffinityGroupSize")
-  private Integer affinityGroupSize = null;
-
+public class AllocateInstancesRequest {
   @SerializedName("AutoRenew")
   private Boolean autoRenew = null;
 
   @SerializedName("AutoRenewPeriod")
   private Integer autoRenewPeriod = null;
+
+  @SerializedName("BatchCreateInMultiZone")
+  private Boolean batchCreateInMultiZone = null;
 
   @SerializedName("ClientToken")
   private String clientToken = null;
@@ -52,14 +52,8 @@ public class RunInstancesRequest {
   @SerializedName("Count")
   private Integer count = null;
 
-  @SerializedName("CpuMaxFrequency")
-  private Float cpuMaxFrequency = null;
-
   @SerializedName("CreditSpecification")
   private String creditSpecification = null;
-
-  @SerializedName("DeletionProtection")
-  private Boolean deletionProtection = null;
 
   @SerializedName("DeploymentSetGroupNumber")
   private Integer deploymentSetGroupNumber = null;
@@ -74,19 +68,13 @@ public class RunInstancesRequest {
   private Boolean dryRun = null;
 
   @SerializedName("EipAddress")
-  private EipAddressForRunInstancesInput eipAddress = null;
-
-  @SerializedName("HostName")
-  private String hostName = null;
+  private EipAddressForAllocateInstancesInput eipAddress = null;
 
   @SerializedName("Hostname")
   private String hostname = null;
 
   @SerializedName("HpcClusterId")
   private String hpcClusterId = null;
-
-  @SerializedName("HttpTokens")
-  private String httpTokens = null;
 
   @SerializedName("ImageId")
   private String imageId = null;
@@ -103,9 +91,6 @@ public class RunInstancesRequest {
   @SerializedName("InstanceName")
   private String instanceName = null;
 
-  @SerializedName("InstanceType")
-  private String instanceType = null;
-
   @SerializedName("InstanceTypeId")
   private String instanceTypeId = null;
 
@@ -115,11 +100,8 @@ public class RunInstancesRequest {
   @SerializedName("KeyPairName")
   private String keyPairName = null;
 
-  @SerializedName("MinCount")
-  private Integer minCount = null;
-
   @SerializedName("NetworkInterfaces")
-  private List<NetworkInterfaceForRunInstancesInput> networkInterfaces = null;
+  private List<NetworkInterfaceForAllocateInstancesInput> networkInterfaces = null;
 
   @SerializedName("Password")
   private String password = null;
@@ -131,7 +113,7 @@ public class RunInstancesRequest {
   private String periodUnit = null;
 
   @SerializedName("Placement")
-  private PlacementForRunInstancesInput placement = null;
+  private PlacementForAllocateInstancesInput placement = null;
 
   @SerializedName("ProjectName")
   private String projectName = null;
@@ -140,7 +122,7 @@ public class RunInstancesRequest {
   private String securityEnhancementStrategy = null;
 
   @SerializedName("SpotPriceLimit")
-  private Double spotPriceLimit = null;
+  private Float spotPriceLimit = null;
 
   @SerializedName("SpotStrategy")
   private String spotStrategy = null;
@@ -149,7 +131,7 @@ public class RunInstancesRequest {
   private Integer suffixIndex = null;
 
   @SerializedName("Tags")
-  private List<TagForRunInstancesInput> tags = null;
+  private List<TagForAllocateInstancesInput> tags = null;
 
   @SerializedName("UniqueSuffix")
   private Boolean uniqueSuffix = null;
@@ -158,30 +140,12 @@ public class RunInstancesRequest {
   private String userData = null;
 
   @SerializedName("Volumes")
-  private List<VolumeForRunInstancesInput> volumes = null;
+  private List<VolumeForAllocateInstancesInput> volumes = null;
 
   @SerializedName("ZoneId")
   private String zoneId = null;
 
-  public RunInstancesRequest affinityGroupSize(Integer affinityGroupSize) {
-    this.affinityGroupSize = affinityGroupSize;
-    return this;
-  }
-
-   /**
-   * Get affinityGroupSize
-   * @return affinityGroupSize
-  **/
-  @Schema(description = "")
-  public Integer getAffinityGroupSize() {
-    return affinityGroupSize;
-  }
-
-  public void setAffinityGroupSize(Integer affinityGroupSize) {
-    this.affinityGroupSize = affinityGroupSize;
-  }
-
-  public RunInstancesRequest autoRenew(Boolean autoRenew) {
+  public AllocateInstancesRequest autoRenew(Boolean autoRenew) {
     this.autoRenew = autoRenew;
     return this;
   }
@@ -199,7 +163,7 @@ public class RunInstancesRequest {
     this.autoRenew = autoRenew;
   }
 
-  public RunInstancesRequest autoRenewPeriod(Integer autoRenewPeriod) {
+  public AllocateInstancesRequest autoRenewPeriod(Integer autoRenewPeriod) {
     this.autoRenewPeriod = autoRenewPeriod;
     return this;
   }
@@ -217,7 +181,25 @@ public class RunInstancesRequest {
     this.autoRenewPeriod = autoRenewPeriod;
   }
 
-  public RunInstancesRequest clientToken(String clientToken) {
+  public AllocateInstancesRequest batchCreateInMultiZone(Boolean batchCreateInMultiZone) {
+    this.batchCreateInMultiZone = batchCreateInMultiZone;
+    return this;
+  }
+
+   /**
+   * Get batchCreateInMultiZone
+   * @return batchCreateInMultiZone
+  **/
+  @Schema(description = "")
+  public Boolean isBatchCreateInMultiZone() {
+    return batchCreateInMultiZone;
+  }
+
+  public void setBatchCreateInMultiZone(Boolean batchCreateInMultiZone) {
+    this.batchCreateInMultiZone = batchCreateInMultiZone;
+  }
+
+  public AllocateInstancesRequest clientToken(String clientToken) {
     this.clientToken = clientToken;
     return this;
   }
@@ -235,7 +217,7 @@ public class RunInstancesRequest {
     this.clientToken = clientToken;
   }
 
-  public RunInstancesRequest count(Integer count) {
+  public AllocateInstancesRequest count(Integer count) {
     this.count = count;
     return this;
   }
@@ -253,25 +235,7 @@ public class RunInstancesRequest {
     this.count = count;
   }
 
-  public RunInstancesRequest cpuMaxFrequency(Float cpuMaxFrequency) {
-    this.cpuMaxFrequency = cpuMaxFrequency;
-    return this;
-  }
-
-   /**
-   * Get cpuMaxFrequency
-   * @return cpuMaxFrequency
-  **/
-  @Schema(description = "")
-  public Float getCpuMaxFrequency() {
-    return cpuMaxFrequency;
-  }
-
-  public void setCpuMaxFrequency(Float cpuMaxFrequency) {
-    this.cpuMaxFrequency = cpuMaxFrequency;
-  }
-
-  public RunInstancesRequest creditSpecification(String creditSpecification) {
+  public AllocateInstancesRequest creditSpecification(String creditSpecification) {
     this.creditSpecification = creditSpecification;
     return this;
   }
@@ -289,25 +253,7 @@ public class RunInstancesRequest {
     this.creditSpecification = creditSpecification;
   }
 
-  public RunInstancesRequest deletionProtection(Boolean deletionProtection) {
-    this.deletionProtection = deletionProtection;
-    return this;
-  }
-
-   /**
-   * Get deletionProtection
-   * @return deletionProtection
-  **/
-  @Schema(description = "")
-  public Boolean isDeletionProtection() {
-    return deletionProtection;
-  }
-
-  public void setDeletionProtection(Boolean deletionProtection) {
-    this.deletionProtection = deletionProtection;
-  }
-
-  public RunInstancesRequest deploymentSetGroupNumber(Integer deploymentSetGroupNumber) {
+  public AllocateInstancesRequest deploymentSetGroupNumber(Integer deploymentSetGroupNumber) {
     this.deploymentSetGroupNumber = deploymentSetGroupNumber;
     return this;
   }
@@ -325,7 +271,7 @@ public class RunInstancesRequest {
     this.deploymentSetGroupNumber = deploymentSetGroupNumber;
   }
 
-  public RunInstancesRequest deploymentSetId(String deploymentSetId) {
+  public AllocateInstancesRequest deploymentSetId(String deploymentSetId) {
     this.deploymentSetId = deploymentSetId;
     return this;
   }
@@ -343,7 +289,7 @@ public class RunInstancesRequest {
     this.deploymentSetId = deploymentSetId;
   }
 
-  public RunInstancesRequest description(String description) {
+  public AllocateInstancesRequest description(String description) {
     this.description = description;
     return this;
   }
@@ -361,7 +307,7 @@ public class RunInstancesRequest {
     this.description = description;
   }
 
-  public RunInstancesRequest dryRun(Boolean dryRun) {
+  public AllocateInstancesRequest dryRun(Boolean dryRun) {
     this.dryRun = dryRun;
     return this;
   }
@@ -379,7 +325,7 @@ public class RunInstancesRequest {
     this.dryRun = dryRun;
   }
 
-  public RunInstancesRequest eipAddress(EipAddressForRunInstancesInput eipAddress) {
+  public AllocateInstancesRequest eipAddress(EipAddressForAllocateInstancesInput eipAddress) {
     this.eipAddress = eipAddress;
     return this;
   }
@@ -390,33 +336,15 @@ public class RunInstancesRequest {
   **/
   @Valid
   @Schema(description = "")
-  public EipAddressForRunInstancesInput getEipAddress() {
+  public EipAddressForAllocateInstancesInput getEipAddress() {
     return eipAddress;
   }
 
-  public void setEipAddress(EipAddressForRunInstancesInput eipAddress) {
+  public void setEipAddress(EipAddressForAllocateInstancesInput eipAddress) {
     this.eipAddress = eipAddress;
   }
 
-  public RunInstancesRequest hostName(String hostName) {
-    this.hostName = hostName;
-    return this;
-  }
-
-   /**
-   * Get hostName
-   * @return hostName
-  **/
-  @Schema(description = "")
-  public String getHostName() {
-    return hostName;
-  }
-
-  public void setHostName(String hostName) {
-    this.hostName = hostName;
-  }
-
-  public RunInstancesRequest hostname(String hostname) {
+  public AllocateInstancesRequest hostname(String hostname) {
     this.hostname = hostname;
     return this;
   }
@@ -434,7 +362,7 @@ public class RunInstancesRequest {
     this.hostname = hostname;
   }
 
-  public RunInstancesRequest hpcClusterId(String hpcClusterId) {
+  public AllocateInstancesRequest hpcClusterId(String hpcClusterId) {
     this.hpcClusterId = hpcClusterId;
     return this;
   }
@@ -452,25 +380,7 @@ public class RunInstancesRequest {
     this.hpcClusterId = hpcClusterId;
   }
 
-  public RunInstancesRequest httpTokens(String httpTokens) {
-    this.httpTokens = httpTokens;
-    return this;
-  }
-
-   /**
-   * Get httpTokens
-   * @return httpTokens
-  **/
-  @Schema(description = "")
-  public String getHttpTokens() {
-    return httpTokens;
-  }
-
-  public void setHttpTokens(String httpTokens) {
-    this.httpTokens = httpTokens;
-  }
-
-  public RunInstancesRequest imageId(String imageId) {
+  public AllocateInstancesRequest imageId(String imageId) {
     this.imageId = imageId;
     return this;
   }
@@ -489,7 +399,7 @@ public class RunInstancesRequest {
     this.imageId = imageId;
   }
 
-  public RunInstancesRequest imageReleaseVersion(String imageReleaseVersion) {
+  public AllocateInstancesRequest imageReleaseVersion(String imageReleaseVersion) {
     this.imageReleaseVersion = imageReleaseVersion;
     return this;
   }
@@ -507,7 +417,7 @@ public class RunInstancesRequest {
     this.imageReleaseVersion = imageReleaseVersion;
   }
 
-  public RunInstancesRequest installRunCommandAgent(Boolean installRunCommandAgent) {
+  public AllocateInstancesRequest installRunCommandAgent(Boolean installRunCommandAgent) {
     this.installRunCommandAgent = installRunCommandAgent;
     return this;
   }
@@ -525,7 +435,7 @@ public class RunInstancesRequest {
     this.installRunCommandAgent = installRunCommandAgent;
   }
 
-  public RunInstancesRequest instanceChargeType(String instanceChargeType) {
+  public AllocateInstancesRequest instanceChargeType(String instanceChargeType) {
     this.instanceChargeType = instanceChargeType;
     return this;
   }
@@ -543,7 +453,7 @@ public class RunInstancesRequest {
     this.instanceChargeType = instanceChargeType;
   }
 
-  public RunInstancesRequest instanceName(String instanceName) {
+  public AllocateInstancesRequest instanceName(String instanceName) {
     this.instanceName = instanceName;
     return this;
   }
@@ -562,25 +472,7 @@ public class RunInstancesRequest {
     this.instanceName = instanceName;
   }
 
-  public RunInstancesRequest instanceType(String instanceType) {
-    this.instanceType = instanceType;
-    return this;
-  }
-
-   /**
-   * Get instanceType
-   * @return instanceType
-  **/
-  @Schema(description = "")
-  public String getInstanceType() {
-    return instanceType;
-  }
-
-  public void setInstanceType(String instanceType) {
-    this.instanceType = instanceType;
-  }
-
-  public RunInstancesRequest instanceTypeId(String instanceTypeId) {
+  public AllocateInstancesRequest instanceTypeId(String instanceTypeId) {
     this.instanceTypeId = instanceTypeId;
     return this;
   }
@@ -589,7 +481,8 @@ public class RunInstancesRequest {
    * Get instanceTypeId
    * @return instanceTypeId
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public String getInstanceTypeId() {
     return instanceTypeId;
   }
@@ -598,7 +491,7 @@ public class RunInstancesRequest {
     this.instanceTypeId = instanceTypeId;
   }
 
-  public RunInstancesRequest keepImageCredential(Boolean keepImageCredential) {
+  public AllocateInstancesRequest keepImageCredential(Boolean keepImageCredential) {
     this.keepImageCredential = keepImageCredential;
     return this;
   }
@@ -616,7 +509,7 @@ public class RunInstancesRequest {
     this.keepImageCredential = keepImageCredential;
   }
 
-  public RunInstancesRequest keyPairName(String keyPairName) {
+  public AllocateInstancesRequest keyPairName(String keyPairName) {
     this.keyPairName = keyPairName;
     return this;
   }
@@ -634,32 +527,14 @@ public class RunInstancesRequest {
     this.keyPairName = keyPairName;
   }
 
-  public RunInstancesRequest minCount(Integer minCount) {
-    this.minCount = minCount;
-    return this;
-  }
-
-   /**
-   * Get minCount
-   * @return minCount
-  **/
-  @Schema(description = "")
-  public Integer getMinCount() {
-    return minCount;
-  }
-
-  public void setMinCount(Integer minCount) {
-    this.minCount = minCount;
-  }
-
-  public RunInstancesRequest networkInterfaces(List<NetworkInterfaceForRunInstancesInput> networkInterfaces) {
+  public AllocateInstancesRequest networkInterfaces(List<NetworkInterfaceForAllocateInstancesInput> networkInterfaces) {
     this.networkInterfaces = networkInterfaces;
     return this;
   }
 
-  public RunInstancesRequest addNetworkInterfacesItem(NetworkInterfaceForRunInstancesInput networkInterfacesItem) {
+  public AllocateInstancesRequest addNetworkInterfacesItem(NetworkInterfaceForAllocateInstancesInput networkInterfacesItem) {
     if (this.networkInterfaces == null) {
-      this.networkInterfaces = new ArrayList<NetworkInterfaceForRunInstancesInput>();
+      this.networkInterfaces = new ArrayList<NetworkInterfaceForAllocateInstancesInput>();
     }
     this.networkInterfaces.add(networkInterfacesItem);
     return this;
@@ -671,15 +546,15 @@ public class RunInstancesRequest {
   **/
   @Valid
   @Schema(description = "")
-  public List<NetworkInterfaceForRunInstancesInput> getNetworkInterfaces() {
+  public List<NetworkInterfaceForAllocateInstancesInput> getNetworkInterfaces() {
     return networkInterfaces;
   }
 
-  public void setNetworkInterfaces(List<NetworkInterfaceForRunInstancesInput> networkInterfaces) {
+  public void setNetworkInterfaces(List<NetworkInterfaceForAllocateInstancesInput> networkInterfaces) {
     this.networkInterfaces = networkInterfaces;
   }
 
-  public RunInstancesRequest password(String password) {
+  public AllocateInstancesRequest password(String password) {
     this.password = password;
     return this;
   }
@@ -697,7 +572,7 @@ public class RunInstancesRequest {
     this.password = password;
   }
 
-  public RunInstancesRequest period(Integer period) {
+  public AllocateInstancesRequest period(Integer period) {
     this.period = period;
     return this;
   }
@@ -715,7 +590,7 @@ public class RunInstancesRequest {
     this.period = period;
   }
 
-  public RunInstancesRequest periodUnit(String periodUnit) {
+  public AllocateInstancesRequest periodUnit(String periodUnit) {
     this.periodUnit = periodUnit;
     return this;
   }
@@ -733,7 +608,7 @@ public class RunInstancesRequest {
     this.periodUnit = periodUnit;
   }
 
-  public RunInstancesRequest placement(PlacementForRunInstancesInput placement) {
+  public AllocateInstancesRequest placement(PlacementForAllocateInstancesInput placement) {
     this.placement = placement;
     return this;
   }
@@ -744,15 +619,15 @@ public class RunInstancesRequest {
   **/
   @Valid
   @Schema(description = "")
-  public PlacementForRunInstancesInput getPlacement() {
+  public PlacementForAllocateInstancesInput getPlacement() {
     return placement;
   }
 
-  public void setPlacement(PlacementForRunInstancesInput placement) {
+  public void setPlacement(PlacementForAllocateInstancesInput placement) {
     this.placement = placement;
   }
 
-  public RunInstancesRequest projectName(String projectName) {
+  public AllocateInstancesRequest projectName(String projectName) {
     this.projectName = projectName;
     return this;
   }
@@ -770,7 +645,7 @@ public class RunInstancesRequest {
     this.projectName = projectName;
   }
 
-  public RunInstancesRequest securityEnhancementStrategy(String securityEnhancementStrategy) {
+  public AllocateInstancesRequest securityEnhancementStrategy(String securityEnhancementStrategy) {
     this.securityEnhancementStrategy = securityEnhancementStrategy;
     return this;
   }
@@ -788,7 +663,7 @@ public class RunInstancesRequest {
     this.securityEnhancementStrategy = securityEnhancementStrategy;
   }
 
-  public RunInstancesRequest spotPriceLimit(Double spotPriceLimit) {
+  public AllocateInstancesRequest spotPriceLimit(Float spotPriceLimit) {
     this.spotPriceLimit = spotPriceLimit;
     return this;
   }
@@ -798,15 +673,15 @@ public class RunInstancesRequest {
    * @return spotPriceLimit
   **/
   @Schema(description = "")
-  public Double getSpotPriceLimit() {
+  public Float getSpotPriceLimit() {
     return spotPriceLimit;
   }
 
-  public void setSpotPriceLimit(Double spotPriceLimit) {
+  public void setSpotPriceLimit(Float spotPriceLimit) {
     this.spotPriceLimit = spotPriceLimit;
   }
 
-  public RunInstancesRequest spotStrategy(String spotStrategy) {
+  public AllocateInstancesRequest spotStrategy(String spotStrategy) {
     this.spotStrategy = spotStrategy;
     return this;
   }
@@ -824,7 +699,7 @@ public class RunInstancesRequest {
     this.spotStrategy = spotStrategy;
   }
 
-  public RunInstancesRequest suffixIndex(Integer suffixIndex) {
+  public AllocateInstancesRequest suffixIndex(Integer suffixIndex) {
     this.suffixIndex = suffixIndex;
     return this;
   }
@@ -842,14 +717,14 @@ public class RunInstancesRequest {
     this.suffixIndex = suffixIndex;
   }
 
-  public RunInstancesRequest tags(List<TagForRunInstancesInput> tags) {
+  public AllocateInstancesRequest tags(List<TagForAllocateInstancesInput> tags) {
     this.tags = tags;
     return this;
   }
 
-  public RunInstancesRequest addTagsItem(TagForRunInstancesInput tagsItem) {
+  public AllocateInstancesRequest addTagsItem(TagForAllocateInstancesInput tagsItem) {
     if (this.tags == null) {
-      this.tags = new ArrayList<TagForRunInstancesInput>();
+      this.tags = new ArrayList<TagForAllocateInstancesInput>();
     }
     this.tags.add(tagsItem);
     return this;
@@ -861,15 +736,15 @@ public class RunInstancesRequest {
   **/
   @Valid
   @Schema(description = "")
-  public List<TagForRunInstancesInput> getTags() {
+  public List<TagForAllocateInstancesInput> getTags() {
     return tags;
   }
 
-  public void setTags(List<TagForRunInstancesInput> tags) {
+  public void setTags(List<TagForAllocateInstancesInput> tags) {
     this.tags = tags;
   }
 
-  public RunInstancesRequest uniqueSuffix(Boolean uniqueSuffix) {
+  public AllocateInstancesRequest uniqueSuffix(Boolean uniqueSuffix) {
     this.uniqueSuffix = uniqueSuffix;
     return this;
   }
@@ -887,7 +762,7 @@ public class RunInstancesRequest {
     this.uniqueSuffix = uniqueSuffix;
   }
 
-  public RunInstancesRequest userData(String userData) {
+  public AllocateInstancesRequest userData(String userData) {
     this.userData = userData;
     return this;
   }
@@ -905,14 +780,14 @@ public class RunInstancesRequest {
     this.userData = userData;
   }
 
-  public RunInstancesRequest volumes(List<VolumeForRunInstancesInput> volumes) {
+  public AllocateInstancesRequest volumes(List<VolumeForAllocateInstancesInput> volumes) {
     this.volumes = volumes;
     return this;
   }
 
-  public RunInstancesRequest addVolumesItem(VolumeForRunInstancesInput volumesItem) {
+  public AllocateInstancesRequest addVolumesItem(VolumeForAllocateInstancesInput volumesItem) {
     if (this.volumes == null) {
-      this.volumes = new ArrayList<VolumeForRunInstancesInput>();
+      this.volumes = new ArrayList<VolumeForAllocateInstancesInput>();
     }
     this.volumes.add(volumesItem);
     return this;
@@ -924,15 +799,15 @@ public class RunInstancesRequest {
   **/
   @Valid
   @Schema(description = "")
-  public List<VolumeForRunInstancesInput> getVolumes() {
+  public List<VolumeForAllocateInstancesInput> getVolumes() {
     return volumes;
   }
 
-  public void setVolumes(List<VolumeForRunInstancesInput> volumes) {
+  public void setVolumes(List<VolumeForAllocateInstancesInput> volumes) {
     this.volumes = volumes;
   }
 
-  public RunInstancesRequest zoneId(String zoneId) {
+  public AllocateInstancesRequest zoneId(String zoneId) {
     this.zoneId = zoneId;
     return this;
   }
@@ -941,8 +816,7 @@ public class RunInstancesRequest {
    * Get zoneId
    * @return zoneId
   **/
-  @NotNull
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getZoneId() {
     return zoneId;
   }
@@ -960,89 +834,77 @@ public class RunInstancesRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RunInstancesRequest runInstancesRequest = (RunInstancesRequest) o;
-    return Objects.equals(this.affinityGroupSize, runInstancesRequest.affinityGroupSize) &&
-        Objects.equals(this.autoRenew, runInstancesRequest.autoRenew) &&
-        Objects.equals(this.autoRenewPeriod, runInstancesRequest.autoRenewPeriod) &&
-        Objects.equals(this.clientToken, runInstancesRequest.clientToken) &&
-        Objects.equals(this.count, runInstancesRequest.count) &&
-        Objects.equals(this.cpuMaxFrequency, runInstancesRequest.cpuMaxFrequency) &&
-        Objects.equals(this.creditSpecification, runInstancesRequest.creditSpecification) &&
-        Objects.equals(this.deletionProtection, runInstancesRequest.deletionProtection) &&
-        Objects.equals(this.deploymentSetGroupNumber, runInstancesRequest.deploymentSetGroupNumber) &&
-        Objects.equals(this.deploymentSetId, runInstancesRequest.deploymentSetId) &&
-        Objects.equals(this.description, runInstancesRequest.description) &&
-        Objects.equals(this.dryRun, runInstancesRequest.dryRun) &&
-        Objects.equals(this.eipAddress, runInstancesRequest.eipAddress) &&
-        Objects.equals(this.hostName, runInstancesRequest.hostName) &&
-        Objects.equals(this.hostname, runInstancesRequest.hostname) &&
-        Objects.equals(this.hpcClusterId, runInstancesRequest.hpcClusterId) &&
-        Objects.equals(this.httpTokens, runInstancesRequest.httpTokens) &&
-        Objects.equals(this.imageId, runInstancesRequest.imageId) &&
-        Objects.equals(this.imageReleaseVersion, runInstancesRequest.imageReleaseVersion) &&
-        Objects.equals(this.installRunCommandAgent, runInstancesRequest.installRunCommandAgent) &&
-        Objects.equals(this.instanceChargeType, runInstancesRequest.instanceChargeType) &&
-        Objects.equals(this.instanceName, runInstancesRequest.instanceName) &&
-        Objects.equals(this.instanceType, runInstancesRequest.instanceType) &&
-        Objects.equals(this.instanceTypeId, runInstancesRequest.instanceTypeId) &&
-        Objects.equals(this.keepImageCredential, runInstancesRequest.keepImageCredential) &&
-        Objects.equals(this.keyPairName, runInstancesRequest.keyPairName) &&
-        Objects.equals(this.minCount, runInstancesRequest.minCount) &&
-        Objects.equals(this.networkInterfaces, runInstancesRequest.networkInterfaces) &&
-        Objects.equals(this.password, runInstancesRequest.password) &&
-        Objects.equals(this.period, runInstancesRequest.period) &&
-        Objects.equals(this.periodUnit, runInstancesRequest.periodUnit) &&
-        Objects.equals(this.placement, runInstancesRequest.placement) &&
-        Objects.equals(this.projectName, runInstancesRequest.projectName) &&
-        Objects.equals(this.securityEnhancementStrategy, runInstancesRequest.securityEnhancementStrategy) &&
-        Objects.equals(this.spotPriceLimit, runInstancesRequest.spotPriceLimit) &&
-        Objects.equals(this.spotStrategy, runInstancesRequest.spotStrategy) &&
-        Objects.equals(this.suffixIndex, runInstancesRequest.suffixIndex) &&
-        Objects.equals(this.tags, runInstancesRequest.tags) &&
-        Objects.equals(this.uniqueSuffix, runInstancesRequest.uniqueSuffix) &&
-        Objects.equals(this.userData, runInstancesRequest.userData) &&
-        Objects.equals(this.volumes, runInstancesRequest.volumes) &&
-        Objects.equals(this.zoneId, runInstancesRequest.zoneId);
+    AllocateInstancesRequest allocateInstancesRequest = (AllocateInstancesRequest) o;
+    return Objects.equals(this.autoRenew, allocateInstancesRequest.autoRenew) &&
+        Objects.equals(this.autoRenewPeriod, allocateInstancesRequest.autoRenewPeriod) &&
+        Objects.equals(this.batchCreateInMultiZone, allocateInstancesRequest.batchCreateInMultiZone) &&
+        Objects.equals(this.clientToken, allocateInstancesRequest.clientToken) &&
+        Objects.equals(this.count, allocateInstancesRequest.count) &&
+        Objects.equals(this.creditSpecification, allocateInstancesRequest.creditSpecification) &&
+        Objects.equals(this.deploymentSetGroupNumber, allocateInstancesRequest.deploymentSetGroupNumber) &&
+        Objects.equals(this.deploymentSetId, allocateInstancesRequest.deploymentSetId) &&
+        Objects.equals(this.description, allocateInstancesRequest.description) &&
+        Objects.equals(this.dryRun, allocateInstancesRequest.dryRun) &&
+        Objects.equals(this.eipAddress, allocateInstancesRequest.eipAddress) &&
+        Objects.equals(this.hostname, allocateInstancesRequest.hostname) &&
+        Objects.equals(this.hpcClusterId, allocateInstancesRequest.hpcClusterId) &&
+        Objects.equals(this.imageId, allocateInstancesRequest.imageId) &&
+        Objects.equals(this.imageReleaseVersion, allocateInstancesRequest.imageReleaseVersion) &&
+        Objects.equals(this.installRunCommandAgent, allocateInstancesRequest.installRunCommandAgent) &&
+        Objects.equals(this.instanceChargeType, allocateInstancesRequest.instanceChargeType) &&
+        Objects.equals(this.instanceName, allocateInstancesRequest.instanceName) &&
+        Objects.equals(this.instanceTypeId, allocateInstancesRequest.instanceTypeId) &&
+        Objects.equals(this.keepImageCredential, allocateInstancesRequest.keepImageCredential) &&
+        Objects.equals(this.keyPairName, allocateInstancesRequest.keyPairName) &&
+        Objects.equals(this.networkInterfaces, allocateInstancesRequest.networkInterfaces) &&
+        Objects.equals(this.password, allocateInstancesRequest.password) &&
+        Objects.equals(this.period, allocateInstancesRequest.period) &&
+        Objects.equals(this.periodUnit, allocateInstancesRequest.periodUnit) &&
+        Objects.equals(this.placement, allocateInstancesRequest.placement) &&
+        Objects.equals(this.projectName, allocateInstancesRequest.projectName) &&
+        Objects.equals(this.securityEnhancementStrategy, allocateInstancesRequest.securityEnhancementStrategy) &&
+        Objects.equals(this.spotPriceLimit, allocateInstancesRequest.spotPriceLimit) &&
+        Objects.equals(this.spotStrategy, allocateInstancesRequest.spotStrategy) &&
+        Objects.equals(this.suffixIndex, allocateInstancesRequest.suffixIndex) &&
+        Objects.equals(this.tags, allocateInstancesRequest.tags) &&
+        Objects.equals(this.uniqueSuffix, allocateInstancesRequest.uniqueSuffix) &&
+        Objects.equals(this.userData, allocateInstancesRequest.userData) &&
+        Objects.equals(this.volumes, allocateInstancesRequest.volumes) &&
+        Objects.equals(this.zoneId, allocateInstancesRequest.zoneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(affinityGroupSize, autoRenew, autoRenewPeriod, clientToken, count, cpuMaxFrequency, creditSpecification, deletionProtection, deploymentSetGroupNumber, deploymentSetId, description, dryRun, eipAddress, hostName, hostname, hpcClusterId, httpTokens, imageId, imageReleaseVersion, installRunCommandAgent, instanceChargeType, instanceName, instanceType, instanceTypeId, keepImageCredential, keyPairName, minCount, networkInterfaces, password, period, periodUnit, placement, projectName, securityEnhancementStrategy, spotPriceLimit, spotStrategy, suffixIndex, tags, uniqueSuffix, userData, volumes, zoneId);
+    return Objects.hash(autoRenew, autoRenewPeriod, batchCreateInMultiZone, clientToken, count, creditSpecification, deploymentSetGroupNumber, deploymentSetId, description, dryRun, eipAddress, hostname, hpcClusterId, imageId, imageReleaseVersion, installRunCommandAgent, instanceChargeType, instanceName, instanceTypeId, keepImageCredential, keyPairName, networkInterfaces, password, period, periodUnit, placement, projectName, securityEnhancementStrategy, spotPriceLimit, spotStrategy, suffixIndex, tags, uniqueSuffix, userData, volumes, zoneId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RunInstancesRequest {\n");
+    sb.append("class AllocateInstancesRequest {\n");
     
-    sb.append("    affinityGroupSize: ").append(toIndentedString(affinityGroupSize)).append("\n");
     sb.append("    autoRenew: ").append(toIndentedString(autoRenew)).append("\n");
     sb.append("    autoRenewPeriod: ").append(toIndentedString(autoRenewPeriod)).append("\n");
+    sb.append("    batchCreateInMultiZone: ").append(toIndentedString(batchCreateInMultiZone)).append("\n");
     sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    count: ").append(toIndentedString(count)).append("\n");
-    sb.append("    cpuMaxFrequency: ").append(toIndentedString(cpuMaxFrequency)).append("\n");
     sb.append("    creditSpecification: ").append(toIndentedString(creditSpecification)).append("\n");
-    sb.append("    deletionProtection: ").append(toIndentedString(deletionProtection)).append("\n");
     sb.append("    deploymentSetGroupNumber: ").append(toIndentedString(deploymentSetGroupNumber)).append("\n");
     sb.append("    deploymentSetId: ").append(toIndentedString(deploymentSetId)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    dryRun: ").append(toIndentedString(dryRun)).append("\n");
     sb.append("    eipAddress: ").append(toIndentedString(eipAddress)).append("\n");
-    sb.append("    hostName: ").append(toIndentedString(hostName)).append("\n");
     sb.append("    hostname: ").append(toIndentedString(hostname)).append("\n");
     sb.append("    hpcClusterId: ").append(toIndentedString(hpcClusterId)).append("\n");
-    sb.append("    httpTokens: ").append(toIndentedString(httpTokens)).append("\n");
     sb.append("    imageId: ").append(toIndentedString(imageId)).append("\n");
     sb.append("    imageReleaseVersion: ").append(toIndentedString(imageReleaseVersion)).append("\n");
     sb.append("    installRunCommandAgent: ").append(toIndentedString(installRunCommandAgent)).append("\n");
     sb.append("    instanceChargeType: ").append(toIndentedString(instanceChargeType)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
-    sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("    instanceTypeId: ").append(toIndentedString(instanceTypeId)).append("\n");
     sb.append("    keepImageCredential: ").append(toIndentedString(keepImageCredential)).append("\n");
     sb.append("    keyPairName: ").append(toIndentedString(keyPairName)).append("\n");
-    sb.append("    minCount: ").append(toIndentedString(minCount)).append("\n");
     sb.append("    networkInterfaces: ").append(toIndentedString(networkInterfaces)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    period: ").append(toIndentedString(period)).append("\n");

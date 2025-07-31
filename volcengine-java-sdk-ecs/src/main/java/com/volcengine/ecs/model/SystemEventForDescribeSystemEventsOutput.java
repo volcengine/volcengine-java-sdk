@@ -45,6 +45,9 @@ public class SystemEventForDescribeSystemEventsOutput {
   @SerializedName("Id")
   private String id = null;
 
+  @SerializedName("ImpactLevel")
+  private String impactLevel = null;
+
   @SerializedName("OperatedEndAt")
   private String operatedEndAt = null;
 
@@ -309,6 +312,24 @@ public class SystemEventForDescribeSystemEventsOutput {
     this.id = id;
   }
 
+  public SystemEventForDescribeSystemEventsOutput impactLevel(String impactLevel) {
+    this.impactLevel = impactLevel;
+    return this;
+  }
+
+   /**
+   * Get impactLevel
+   * @return impactLevel
+  **/
+  @Schema(description = "")
+  public String getImpactLevel() {
+    return impactLevel;
+  }
+
+  public void setImpactLevel(String impactLevel) {
+    this.impactLevel = impactLevel;
+  }
+
   public SystemEventForDescribeSystemEventsOutput operatedEndAt(String operatedEndAt) {
     this.operatedEndAt = operatedEndAt;
     return this;
@@ -431,6 +452,7 @@ public class SystemEventForDescribeSystemEventsOutput {
         Objects.equals(this.createdAt, systemEventForDescribeSystemEventsOutput.createdAt) &&
         Objects.equals(this.extraInfo, systemEventForDescribeSystemEventsOutput.extraInfo) &&
         Objects.equals(this.id, systemEventForDescribeSystemEventsOutput.id) &&
+        Objects.equals(this.impactLevel, systemEventForDescribeSystemEventsOutput.impactLevel) &&
         Objects.equals(this.operatedEndAt, systemEventForDescribeSystemEventsOutput.operatedEndAt) &&
         Objects.equals(this.operatedStartAt, systemEventForDescribeSystemEventsOutput.operatedStartAt) &&
         Objects.equals(this.resourceId, systemEventForDescribeSystemEventsOutput.resourceId) &&
@@ -441,7 +463,7 @@ public class SystemEventForDescribeSystemEventsOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(category, createdAt, extraInfo, id, operatedEndAt, operatedStartAt, resourceId, status, type, updatedAt);
+    return Objects.hash(category, createdAt, extraInfo, id, impactLevel, operatedEndAt, operatedStartAt, resourceId, status, type, updatedAt);
   }
 
 
@@ -454,6 +476,7 @@ public class SystemEventForDescribeSystemEventsOutput {
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    extraInfo: ").append(toIndentedString(extraInfo)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    impactLevel: ").append(toIndentedString(impactLevel)).append("\n");
     sb.append("    operatedEndAt: ").append(toIndentedString(operatedEndAt)).append("\n");
     sb.append("    operatedStartAt: ").append(toIndentedString(operatedStartAt)).append("\n");
     sb.append("    resourceId: ").append(toIndentedString(resourceId)).append("\n");
