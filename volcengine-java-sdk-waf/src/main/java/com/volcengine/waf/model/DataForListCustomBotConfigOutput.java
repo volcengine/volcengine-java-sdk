@@ -52,7 +52,7 @@ public class DataForListCustomBotConfigOutput {
   private Integer enable = null;
 
   @SerializedName("Id")
-  private String id = null;
+  private Integer id = null;
 
   @SerializedName("RuleTag")
   private String ruleTag = null;
@@ -177,7 +177,7 @@ public class DataForListCustomBotConfigOutput {
     this.enable = enable;
   }
 
-  public DataForListCustomBotConfigOutput id(String id) {
+  public DataForListCustomBotConfigOutput id(Integer id) {
     this.id = id;
     return this;
   }
@@ -187,11 +187,11 @@ public class DataForListCustomBotConfigOutput {
    * @return id
   **/
   @Schema(description = "")
-  public String getId() {
+  public Integer getId() {
     return id;
   }
 
-  public void setId(String id) {
+  public void setId(Integer id) {
     this.id = id;
   }
 

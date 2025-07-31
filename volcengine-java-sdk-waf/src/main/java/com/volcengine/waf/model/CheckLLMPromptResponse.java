@@ -31,11 +31,32 @@ import javax.validation.Valid;
 
 
 public class CheckLLMPromptResponse extends com.volcengine.model.AbstractResponse {
+  @SerializedName("ContextID")
+  private String contextID = null;
+
   @SerializedName("Decision")
   private DecisionForCheckLLMPromptOutput decision = null;
 
   @SerializedName("MsgID")
   private String msgID = null;
+
+  public CheckLLMPromptResponse contextID(String contextID) {
+    this.contextID = contextID;
+    return this;
+  }
+
+   /**
+   * Get contextID
+   * @return contextID
+  **/
+  @Schema(description = "")
+  public String getContextID() {
+    return contextID;
+  }
+
+  public void setContextID(String contextID) {
+    this.contextID = contextID;
+  }
 
   public CheckLLMPromptResponse decision(DecisionForCheckLLMPromptOutput decision) {
     this.decision = decision;
@@ -84,13 +105,14 @@ public class CheckLLMPromptResponse extends com.volcengine.model.AbstractRespons
       return false;
     }
     CheckLLMPromptResponse checkLLMPromptResponse = (CheckLLMPromptResponse) o;
-    return Objects.equals(this.decision, checkLLMPromptResponse.decision) &&
+    return Objects.equals(this.contextID, checkLLMPromptResponse.contextID) &&
+        Objects.equals(this.decision, checkLLMPromptResponse.decision) &&
         Objects.equals(this.msgID, checkLLMPromptResponse.msgID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(decision, msgID);
+    return Objects.hash(contextID, decision, msgID);
   }
 
 
@@ -99,6 +121,7 @@ public class CheckLLMPromptResponse extends com.volcengine.model.AbstractRespons
     StringBuilder sb = new StringBuilder();
     sb.append("class CheckLLMPromptResponse {\n");
     
+    sb.append("    contextID: ").append(toIndentedString(contextID)).append("\n");
     sb.append("    decision: ").append(toIndentedString(decision)).append("\n");
     sb.append("    msgID: ").append(toIndentedString(msgID)).append("\n");
     sb.append("}");

@@ -54,7 +54,8 @@ public class ModifyServiceDefenceModeRequest {
    * Get defenceMode
    * @return defenceMode
   **/
-  @Schema(description = "")
+  @NotNull
+  @Schema(required = true, description = "")
   public Integer getDefenceMode() {
     return defenceMode;
   }
