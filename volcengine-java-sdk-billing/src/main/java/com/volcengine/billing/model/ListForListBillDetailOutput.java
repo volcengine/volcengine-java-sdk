@@ -144,6 +144,9 @@ public class ListForListBillDetailOutput {
   @SerializedName("InstanceNo")
   private String instanceNo = null;
 
+  @SerializedName("MainContractNumber")
+  private String mainContractNumber = null;
+
   @SerializedName("MarketPrice")
   private String marketPrice = null;
 
@@ -152,6 +155,9 @@ public class ListForListBillDetailOutput {
 
   @SerializedName("OriginalBillAmount")
   private String originalBillAmount = null;
+
+  @SerializedName("OriginalOrderNo")
+  private String originalOrderNo = null;
 
   @SerializedName("OwnerCustomerName")
   private String ownerCustomerName = null;
@@ -993,6 +999,24 @@ public class ListForListBillDetailOutput {
     this.instanceNo = instanceNo;
   }
 
+  public ListForListBillDetailOutput mainContractNumber(String mainContractNumber) {
+    this.mainContractNumber = mainContractNumber;
+    return this;
+  }
+
+   /**
+   * Get mainContractNumber
+   * @return mainContractNumber
+  **/
+  @Schema(description = "")
+  public String getMainContractNumber() {
+    return mainContractNumber;
+  }
+
+  public void setMainContractNumber(String mainContractNumber) {
+    this.mainContractNumber = mainContractNumber;
+  }
+
   public ListForListBillDetailOutput marketPrice(String marketPrice) {
     this.marketPrice = marketPrice;
     return this;
@@ -1045,6 +1069,24 @@ public class ListForListBillDetailOutput {
 
   public void setOriginalBillAmount(String originalBillAmount) {
     this.originalBillAmount = originalBillAmount;
+  }
+
+  public ListForListBillDetailOutput originalOrderNo(String originalOrderNo) {
+    this.originalOrderNo = originalOrderNo;
+    return this;
+  }
+
+   /**
+   * Get originalOrderNo
+   * @return originalOrderNo
+  **/
+  @Schema(description = "")
+  public String getOriginalOrderNo() {
+    return originalOrderNo;
+  }
+
+  public void setOriginalOrderNo(String originalOrderNo) {
+    this.originalOrderNo = originalOrderNo;
   }
 
   public ListForListBillDetailOutput ownerCustomerName(String ownerCustomerName) {
@@ -2031,9 +2073,11 @@ public class ListForListBillDetailOutput {
         Objects.equals(this.formula, listForListBillDetailOutput.formula) &&
         Objects.equals(this.instanceName, listForListBillDetailOutput.instanceName) &&
         Objects.equals(this.instanceNo, listForListBillDetailOutput.instanceNo) &&
+        Objects.equals(this.mainContractNumber, listForListBillDetailOutput.mainContractNumber) &&
         Objects.equals(this.marketPrice, listForListBillDetailOutput.marketPrice) &&
         Objects.equals(this.measureInterval, listForListBillDetailOutput.measureInterval) &&
         Objects.equals(this.originalBillAmount, listForListBillDetailOutput.originalBillAmount) &&
+        Objects.equals(this.originalOrderNo, listForListBillDetailOutput.originalOrderNo) &&
         Objects.equals(this.ownerCustomerName, listForListBillDetailOutput.ownerCustomerName) &&
         Objects.equals(this.ownerID, listForListBillDetailOutput.ownerID) &&
         Objects.equals(this.ownerUserName, listForListBillDetailOutput.ownerUserName) &&
@@ -2090,7 +2134,7 @@ public class ListForListBillDetailOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(billCategory, billDetailId, billID, billPeriod, billingFunction, billingMethodCode, billingMode, busiPeriod, businessMode, configName, configurationCode, count, countryRegion, couponAmount, creditCarriedAmount, currency, currencySettlement, deductionCount, deductionUseDuration, discountBillAmount, discountBizBillingFunction, discountBizMeasureInterval, discountBizUnitPrice, discountBizUnitPriceInterval, discountInfo, effectiveFactor, element, elementCode, exchangeRate, expandField, expenseBeginTime, expenseDate, expenseEndTime, factor, factorCode, formula, instanceName, instanceNo, marketPrice, measureInterval, originalBillAmount, ownerCustomerName, ownerID, ownerUserName, paidAmount, payableAmount, payerCustomerName, payerID, payerUserName, posttaxAmount, preTaxPayableAmount, preferentialBillAmount, pretaxAmount, pretaxRealValue, price, priceInterval, priceUnit, product, productZh, project, projectDisplayName, realValue, region, regionCode, reservationInstance, roundAmount, savingPlanDeductionDiscountAmount, savingPlanDeductionSpID, savingPlanOriginalAmount, sellerCustomerName, sellerID, sellerUserName, sellingMode, settlePayableAmount, settlePosttaxAmount, settlePreTaxPayableAmount, settlePretaxAmount, settlePretaxRealValue, settleRealValue, settleTax, settlementType, solutionZh, subjectName, tag, tax, taxRate, tradeTime, unit, unpaidAmount, useDuration, useDurationUnit, zone, zoneCode);
+    return Objects.hash(billCategory, billDetailId, billID, billPeriod, billingFunction, billingMethodCode, billingMode, busiPeriod, businessMode, configName, configurationCode, count, countryRegion, couponAmount, creditCarriedAmount, currency, currencySettlement, deductionCount, deductionUseDuration, discountBillAmount, discountBizBillingFunction, discountBizMeasureInterval, discountBizUnitPrice, discountBizUnitPriceInterval, discountInfo, effectiveFactor, element, elementCode, exchangeRate, expandField, expenseBeginTime, expenseDate, expenseEndTime, factor, factorCode, formula, instanceName, instanceNo, mainContractNumber, marketPrice, measureInterval, originalBillAmount, originalOrderNo, ownerCustomerName, ownerID, ownerUserName, paidAmount, payableAmount, payerCustomerName, payerID, payerUserName, posttaxAmount, preTaxPayableAmount, preferentialBillAmount, pretaxAmount, pretaxRealValue, price, priceInterval, priceUnit, product, productZh, project, projectDisplayName, realValue, region, regionCode, reservationInstance, roundAmount, savingPlanDeductionDiscountAmount, savingPlanDeductionSpID, savingPlanOriginalAmount, sellerCustomerName, sellerID, sellerUserName, sellingMode, settlePayableAmount, settlePosttaxAmount, settlePreTaxPayableAmount, settlePretaxAmount, settlePretaxRealValue, settleRealValue, settleTax, settlementType, solutionZh, subjectName, tag, tax, taxRate, tradeTime, unit, unpaidAmount, useDuration, useDurationUnit, zone, zoneCode);
   }
 
 
@@ -2137,9 +2181,11 @@ public class ListForListBillDetailOutput {
     sb.append("    formula: ").append(toIndentedString(formula)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    instanceNo: ").append(toIndentedString(instanceNo)).append("\n");
+    sb.append("    mainContractNumber: ").append(toIndentedString(mainContractNumber)).append("\n");
     sb.append("    marketPrice: ").append(toIndentedString(marketPrice)).append("\n");
     sb.append("    measureInterval: ").append(toIndentedString(measureInterval)).append("\n");
     sb.append("    originalBillAmount: ").append(toIndentedString(originalBillAmount)).append("\n");
+    sb.append("    originalOrderNo: ").append(toIndentedString(originalOrderNo)).append("\n");
     sb.append("    ownerCustomerName: ").append(toIndentedString(ownerCustomerName)).append("\n");
     sb.append("    ownerID: ").append(toIndentedString(ownerID)).append("\n");
     sb.append("    ownerUserName: ").append(toIndentedString(ownerUserName)).append("\n");

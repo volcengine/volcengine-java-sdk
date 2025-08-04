@@ -183,6 +183,9 @@ public class ListForListAmortizedCostBillDailyOutput {
   @SerializedName("InstanceNo")
   private String instanceNo = null;
 
+  @SerializedName("MainContractNumber")
+  private String mainContractNumber = null;
+
   @SerializedName("NowAmortizedCouponAmount")
   private String nowAmortizedCouponAmount = null;
 
@@ -248,6 +251,9 @@ public class ListForListAmortizedCostBillDailyOutput {
 
   @SerializedName("OriginalBillAmount")
   private String originalBillAmount = null;
+
+  @SerializedName("OriginalOrderNo")
+  private String originalOrderNo = null;
 
   @SerializedName("OwnerCustomerName")
   private String ownerCustomerName = null;
@@ -1302,6 +1308,24 @@ public class ListForListAmortizedCostBillDailyOutput {
     this.instanceNo = instanceNo;
   }
 
+  public ListForListAmortizedCostBillDailyOutput mainContractNumber(String mainContractNumber) {
+    this.mainContractNumber = mainContractNumber;
+    return this;
+  }
+
+   /**
+   * Get mainContractNumber
+   * @return mainContractNumber
+  **/
+  @Schema(description = "")
+  public String getMainContractNumber() {
+    return mainContractNumber;
+  }
+
+  public void setMainContractNumber(String mainContractNumber) {
+    this.mainContractNumber = mainContractNumber;
+  }
+
   public ListForListAmortizedCostBillDailyOutput nowAmortizedCouponAmount(String nowAmortizedCouponAmount) {
     this.nowAmortizedCouponAmount = nowAmortizedCouponAmount;
     return this;
@@ -1696,6 +1720,24 @@ public class ListForListAmortizedCostBillDailyOutput {
 
   public void setOriginalBillAmount(String originalBillAmount) {
     this.originalBillAmount = originalBillAmount;
+  }
+
+  public ListForListAmortizedCostBillDailyOutput originalOrderNo(String originalOrderNo) {
+    this.originalOrderNo = originalOrderNo;
+    return this;
+  }
+
+   /**
+   * Get originalOrderNo
+   * @return originalOrderNo
+  **/
+  @Schema(description = "")
+  public String getOriginalOrderNo() {
+    return originalOrderNo;
+  }
+
+  public void setOriginalOrderNo(String originalOrderNo) {
+    this.originalOrderNo = originalOrderNo;
   }
 
   public ListForListAmortizedCostBillDailyOutput ownerCustomerName(String ownerCustomerName) {
@@ -2569,6 +2611,7 @@ public class ListForListAmortizedCostBillDailyOutput {
         Objects.equals(this.factorCode, listForListAmortizedCostBillDailyOutput.factorCode) &&
         Objects.equals(this.instanceName, listForListAmortizedCostBillDailyOutput.instanceName) &&
         Objects.equals(this.instanceNo, listForListAmortizedCostBillDailyOutput.instanceNo) &&
+        Objects.equals(this.mainContractNumber, listForListAmortizedCostBillDailyOutput.mainContractNumber) &&
         Objects.equals(this.nowAmortizedCouponAmount, listForListAmortizedCostBillDailyOutput.nowAmortizedCouponAmount) &&
         Objects.equals(this.nowAmortizedDiscountBillAmount, listForListAmortizedCostBillDailyOutput.nowAmortizedDiscountBillAmount) &&
         Objects.equals(this.nowAmortizedOriginalBillAmount, listForListAmortizedCostBillDailyOutput.nowAmortizedOriginalBillAmount) &&
@@ -2591,6 +2634,7 @@ public class ListForListAmortizedCostBillDailyOutput {
         Objects.equals(this.nowAmortizedSettleTaxAmount, listForListAmortizedCostBillDailyOutput.nowAmortizedSettleTaxAmount) &&
         Objects.equals(this.nowAmortizedTaxAmount, listForListAmortizedCostBillDailyOutput.nowAmortizedTaxAmount) &&
         Objects.equals(this.originalBillAmount, listForListAmortizedCostBillDailyOutput.originalBillAmount) &&
+        Objects.equals(this.originalOrderNo, listForListAmortizedCostBillDailyOutput.originalOrderNo) &&
         Objects.equals(this.ownerCustomerName, listForListAmortizedCostBillDailyOutput.ownerCustomerName) &&
         Objects.equals(this.ownerID, listForListAmortizedCostBillDailyOutput.ownerID) &&
         Objects.equals(this.ownerUserName, listForListAmortizedCostBillDailyOutput.ownerUserName) &&
@@ -2640,7 +2684,7 @@ public class ListForListAmortizedCostBillDailyOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(amortizedBeginTime, amortizedDay, amortizedEndTime, amortizedMonth, amortizedType, billCategory, billID, billPeriod, billingMethodCode, billingMode, busiPeriod, businessMode, configName, configurationCode, count, countryRegion, couponAmount, currency, currencySettlement, dailyAmortizedCouponAmount, dailyAmortizedDiscountBillAmount, dailyAmortizedOriginalBillAmount, dailyAmortizedPaidAmount, dailyAmortizedPayableAmount, dailyAmortizedPosttaxAmount, dailyAmortizedPreTaxPayableAmount, dailyAmortizedPreTaxRealValue, dailyAmortizedPreferentialBillAmount, dailyAmortizedPretaxAmount, dailyAmortizedRealValue, dailyAmortizedRoundAmount, dailyAmortizedSavingPlanOriginalAmount, dailyAmortizedSettlePayableAmount, dailyAmortizedSettlePosttaxAmount, dailyAmortizedSettlePreTaxPayableAmount, dailyAmortizedSettlePreTaxRealValue, dailyAmortizedSettlePretaxAmount, dailyAmortizedSettleRealValue, dailyAmortizedSettleTaxAmount, dailyAmortizedTaxAmount, deductionUseDuration, discountBillAmount, effectiveFactor, element, elementCode, expandField, expenseTime, factor, factorCode, instanceName, instanceNo, nowAmortizedCouponAmount, nowAmortizedDiscountBillAmount, nowAmortizedOriginalBillAmount, nowAmortizedPaidAmount, nowAmortizedPayableAmount, nowAmortizedPosttaxAmount, nowAmortizedPreTaxPayableAmount, nowAmortizedPreTaxRealValue, nowAmortizedPreferentialBillAmount, nowAmortizedPretaxAmount, nowAmortizedRealValue, nowAmortizedRoundAmount, nowAmortizedSavingPlanOriginalAmount, nowAmortizedSettlePayableAmount, nowAmortizedSettlePosttaxAmount, nowAmortizedSettlePreTaxPayableAmount, nowAmortizedSettlePreTaxRealValue, nowAmortizedSettlePretaxAmount, nowAmortizedSettleRealValue, nowAmortizedSettleTaxAmount, nowAmortizedTaxAmount, originalBillAmount, ownerCustomerName, ownerID, ownerUserName, paidAmount, payableAmount, payerCustomerName, payerID, payerUserName, posttaxAmount, preTaxPayableAmount, preTaxRealValue, preferentialBillAmount, pretaxAmount, price, priceUnit, product, productZh, project, projectDisplayName, realValue, region, regionCode, roundAmount, savingPlanOriginalAmount, sellerCustomerName, sellerID, sellerUserName, settlePayableAmount, settlePosttaxAmount, settlePreTaxPayableAmount, settlePreTaxRealValue, settlePretaxAmount, settleRealValue, settleTaxAmount, splitItemID, splitItemName, subjectName, tag, tax, taxRate, unit, useDuration, useDurationUnit, zone, zoneCode);
+    return Objects.hash(amortizedBeginTime, amortizedDay, amortizedEndTime, amortizedMonth, amortizedType, billCategory, billID, billPeriod, billingMethodCode, billingMode, busiPeriod, businessMode, configName, configurationCode, count, countryRegion, couponAmount, currency, currencySettlement, dailyAmortizedCouponAmount, dailyAmortizedDiscountBillAmount, dailyAmortizedOriginalBillAmount, dailyAmortizedPaidAmount, dailyAmortizedPayableAmount, dailyAmortizedPosttaxAmount, dailyAmortizedPreTaxPayableAmount, dailyAmortizedPreTaxRealValue, dailyAmortizedPreferentialBillAmount, dailyAmortizedPretaxAmount, dailyAmortizedRealValue, dailyAmortizedRoundAmount, dailyAmortizedSavingPlanOriginalAmount, dailyAmortizedSettlePayableAmount, dailyAmortizedSettlePosttaxAmount, dailyAmortizedSettlePreTaxPayableAmount, dailyAmortizedSettlePreTaxRealValue, dailyAmortizedSettlePretaxAmount, dailyAmortizedSettleRealValue, dailyAmortizedSettleTaxAmount, dailyAmortizedTaxAmount, deductionUseDuration, discountBillAmount, effectiveFactor, element, elementCode, expandField, expenseTime, factor, factorCode, instanceName, instanceNo, mainContractNumber, nowAmortizedCouponAmount, nowAmortizedDiscountBillAmount, nowAmortizedOriginalBillAmount, nowAmortizedPaidAmount, nowAmortizedPayableAmount, nowAmortizedPosttaxAmount, nowAmortizedPreTaxPayableAmount, nowAmortizedPreTaxRealValue, nowAmortizedPreferentialBillAmount, nowAmortizedPretaxAmount, nowAmortizedRealValue, nowAmortizedRoundAmount, nowAmortizedSavingPlanOriginalAmount, nowAmortizedSettlePayableAmount, nowAmortizedSettlePosttaxAmount, nowAmortizedSettlePreTaxPayableAmount, nowAmortizedSettlePreTaxRealValue, nowAmortizedSettlePretaxAmount, nowAmortizedSettleRealValue, nowAmortizedSettleTaxAmount, nowAmortizedTaxAmount, originalBillAmount, originalOrderNo, ownerCustomerName, ownerID, ownerUserName, paidAmount, payableAmount, payerCustomerName, payerID, payerUserName, posttaxAmount, preTaxPayableAmount, preTaxRealValue, preferentialBillAmount, pretaxAmount, price, priceUnit, product, productZh, project, projectDisplayName, realValue, region, regionCode, roundAmount, savingPlanOriginalAmount, sellerCustomerName, sellerID, sellerUserName, settlePayableAmount, settlePosttaxAmount, settlePreTaxPayableAmount, settlePreTaxRealValue, settlePretaxAmount, settleRealValue, settleTaxAmount, splitItemID, splitItemName, subjectName, tag, tax, taxRate, unit, useDuration, useDurationUnit, zone, zoneCode);
   }
 
 
@@ -2700,6 +2744,7 @@ public class ListForListAmortizedCostBillDailyOutput {
     sb.append("    factorCode: ").append(toIndentedString(factorCode)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    instanceNo: ").append(toIndentedString(instanceNo)).append("\n");
+    sb.append("    mainContractNumber: ").append(toIndentedString(mainContractNumber)).append("\n");
     sb.append("    nowAmortizedCouponAmount: ").append(toIndentedString(nowAmortizedCouponAmount)).append("\n");
     sb.append("    nowAmortizedDiscountBillAmount: ").append(toIndentedString(nowAmortizedDiscountBillAmount)).append("\n");
     sb.append("    nowAmortizedOriginalBillAmount: ").append(toIndentedString(nowAmortizedOriginalBillAmount)).append("\n");
@@ -2722,6 +2767,7 @@ public class ListForListAmortizedCostBillDailyOutput {
     sb.append("    nowAmortizedSettleTaxAmount: ").append(toIndentedString(nowAmortizedSettleTaxAmount)).append("\n");
     sb.append("    nowAmortizedTaxAmount: ").append(toIndentedString(nowAmortizedTaxAmount)).append("\n");
     sb.append("    originalBillAmount: ").append(toIndentedString(originalBillAmount)).append("\n");
+    sb.append("    originalOrderNo: ").append(toIndentedString(originalOrderNo)).append("\n");
     sb.append("    ownerCustomerName: ").append(toIndentedString(ownerCustomerName)).append("\n");
     sb.append("    ownerID: ").append(toIndentedString(ownerID)).append("\n");
     sb.append("    ownerUserName: ").append(toIndentedString(ownerUserName)).append("\n");
